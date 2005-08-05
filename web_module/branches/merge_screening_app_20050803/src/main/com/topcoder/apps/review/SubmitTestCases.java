@@ -9,6 +9,7 @@ import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.format.FormatMethodFactory;
 
 import java.io.File;
@@ -30,6 +31,8 @@ public class SubmitTestCases implements Model {
      */
     public static final int BUFSIZE = 16384;
 
+    private static Logger log = Logger.getLogger(SubmitTestCases.class);
+    
     /**
      * This method allows the submitter to make a new submission.
      * The File submitted by the reviewer is copied in the directory indicated in the business_logic_config.properties file
@@ -44,7 +47,7 @@ public class SubmitTestCases implements Model {
      *         (Errors and RuntimeExceptions are propagated so they aren't included in this category)
      */
     public ResultData start(ActionData data) {
-        LogHelper.logModel(this, data);
+        log.debug("Starting request to model class SubmitTestCases ...");
 
         if (!(data instanceof SolutionData)) {
             // should never happen if front-end works properly
@@ -109,10 +112,10 @@ public class SubmitTestCases implements Model {
 
             // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Error e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Exception e) {
             return new FailureResult(e);

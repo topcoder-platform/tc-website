@@ -9,6 +9,7 @@ import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This Model provides business logic through which users retrieve screening scorecards.
@@ -18,6 +19,8 @@ import com.topcoder.apps.review.projecttracker.UserProjectInfo;
  */
 public class RetrieveScreeningScorecards implements Model {
 
+    private static Logger log = Logger.getLogger(RetrieveScreeningScorecards.class);
+    
     /**
      * Retrieves the screening scorecards for a project. An admin can see all scorecards, a reviewer can see his
      * scorecards and all other scorecards if they are completed, a submitter can see only his scorecards if they are
@@ -32,7 +35,7 @@ public class RetrieveScreeningScorecards implements Model {
      *         (Errors and RuntimeExceptions are propagated so they aren't included in this category)
      */
     public ResultData start(ActionData data) {
-        LogHelper.logModel(this, data);
+        log.debug("Starting request to model class RetrieveScreeningScorecards ...");
 
         if (!(data instanceof ScreeningScorecardsData)) {
             // should never happen if front-end works properly
@@ -76,10 +79,10 @@ public class RetrieveScreeningScorecards implements Model {
 
             // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Error e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Exception e) {
             return new FailureResult(e);

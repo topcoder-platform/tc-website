@@ -14,6 +14,8 @@ import com.topcoder.apps.screening.ScreeningTool;
 import com.topcoder.apps.screening.QueryInterface;
 import com.topcoder.apps.screening.ScreeningResponse;
 
+import com.topcoder.shared.util.logging.Logger;
+
 import java.sql.Connection;
 import java.util.List;
 import java.util.ArrayList;
@@ -26,6 +28,8 @@ import java.util.ArrayList;
  */
 public class ShowScreening implements Model {
 
+    private static Logger log = Logger.getLogger(ShowScreening.class);
+    
     /**
      * Method for retrieving the screening responses.
      *
@@ -39,7 +43,7 @@ public class ShowScreening implements Model {
      *         (Errors and RuntimeExceptions are propagated so they aren't included in this category)
      */
     public ResultData start(ActionData data) {
-        LogHelper.logModel(this, data);
+        log.debug("Starting request to model class ShowScreening ...");
 
         if (!(data instanceof SubmissionDownloadData)) {
             return new FailureResult("Invalid ActionData object, expected SubmissionDownloadData");
@@ -138,10 +142,10 @@ public class ShowScreening implements Model {
                     (ScreeningResponse[]) fatalErrors.toArray(new ScreeningResponse[fatalErrors.size()]));
 
         } catch (RuntimeException e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Error e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Exception e) {
             return new FailureResult(e);

@@ -101,10 +101,10 @@ public class TestCasesDownload implements Model {
 
             // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
-            log.warn(e);
+            log.error("", e);
             throw e;
         } catch (Error e) {
-            log.warn(e);
+            log.error("", e);
             throw e;
         } catch (Exception e) {
             return new FailureResult(e);

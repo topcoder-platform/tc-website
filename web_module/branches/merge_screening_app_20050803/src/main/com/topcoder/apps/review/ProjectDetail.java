@@ -9,6 +9,7 @@ import com.topcoder.apps.review.projecttracker.*;
 import com.topcoder.apps.screening.ScreeningTool;
 import com.topcoder.apps.screening.QueryInterface;
 import com.topcoder.apps.screening.ScreeningRecord;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.sql.Connection;
 
@@ -19,6 +20,8 @@ import java.sql.Connection;
  * @version 1.0
  */
 public class ProjectDetail implements Model {
+    
+    private static Logger log = Logger.getLogger(ProjectDetail.class);
 
     /**
      * Method for getting all the details of a project. Available for admins and anyone with project permission.
@@ -35,8 +38,7 @@ public class ProjectDetail implements Model {
      *         (Errors and RuntimeExceptions are propagated so they aren't included in this category)
      */
     public ResultData start(ActionData data) {
-
-        LogHelper.logModel(this, data);
+        log.debug("Starting request to model class ProjectDetail ...");
 
         if (!(data instanceof OnlineReviewProjectData)) {
             // should never happen if front-end works properly
@@ -126,10 +128,10 @@ public class ProjectDetail implements Model {
 
             // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Error e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Exception e) {
             return new FailureResult(e);

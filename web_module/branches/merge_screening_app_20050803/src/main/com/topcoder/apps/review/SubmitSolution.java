@@ -18,6 +18,7 @@ import com.topcoder.apps.screening.QueryInterface;
 import com.topcoder.apps.screening.ScreeningResponse;
 import com.topcoder.apps.screening.ScreeningJob;
 import com.topcoder.apps.screening.ScreeningRequest;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -41,6 +42,8 @@ public class SubmitSolution implements Model {
      */
     public static final int BUFSIZE = 16384;
 
+    private static Logger log = Logger.getLogger(SubmitSolution.class);
+    
     /**
      * This method allows the submitter to make a new submission.
      * The File submitted by the user is copied in the directory indicated in the business_logic_config.properties file
@@ -55,7 +58,7 @@ public class SubmitSolution implements Model {
      *         (Errors and RuntimeExceptions are propagated so they aren't included in this category)
      */
     public ResultData start(ActionData data) {
-        LogHelper.logModel(this, data);
+        log.debug("Starting request to model class SubmitSolution ...");
 
         if (!(data instanceof SolutionData)) {
             // should never happen if front-end works properly
@@ -170,10 +173,10 @@ public class SubmitSolution implements Model {
 
             // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Error e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Exception e) {
             return new FailureResult(e);
