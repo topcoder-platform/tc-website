@@ -111,12 +111,12 @@ if ( plugin ) {
                             document.write(' align="middle">');
                             document.write(' <param name="allowScriptAccess" value="sameDomain" />');
                             document.write(' <param name="movie" ');
-                            document.write(' value="/i/corp/screeningRatingOdd.swf?preference=<jsp:getProperty name="candidateInfo" property="preference"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId"/>"/>');
+                            document.write(' value="/i/corp/screeningRatingOdd.swf?preference=<jsp:getProperty name="candidateInfo" property="preference"/>&sendurl=/corp/testing?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId"/>"/>');
                             document.write(' <param name="menu" value="false" />');
                             document.write(' <param name="quality" value="high" />');
                             document.write(' <param name="bgcolor" value="#ffffff" />');
                             document.write(' <embed ');
-                            document.write(' src="/i/corp/screeningRatingOdd.swf?preference=<jsp:getProperty name="candidateInfo" property="preference"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId"/>" ');
+                            document.write(' src="/i/corp/screeningRatingOdd.swf?preference=<jsp:getProperty name="candidateInfo" property="preference"/>&sendurl=/corp/testing?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId"/>" ');
                             document.write(' menu="false" ');
                             document.write(' quality="high" ');
                             document.write(' bgcolor="#ffffff" ');
@@ -263,11 +263,11 @@ if ( plugin ) {
 	             <tr>
                       <td colspan="10" align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
                       <% GraphData gd = (GraphData) testResultsInfo.getProblemSetAGraphData().get(String.valueOf( row.getLongItem("problem_id") ));%>
-                            <screen:graph graphAreaHeight="150" barWidth="20" title='Distribution of TopCoder Members' annotation="<%=gd.getAnnotation()%>" 
+                            <screen:graph graphAreaHeight="150" barWidth="20" title='Distribution of TopCoder Members' annotation="<%=gd.getAnnotation()%>"
                                 colors='<%=gd.getColors()%>'
                                 barValues='<%=gd.getData()%>'/>
                       <% gd = (GraphData) testResultsInfo.getProblemSetAGraphDataCompany().get(String.valueOf( row.getLongItem("problem_id") ));%>
-                            <screen:graph graphAreaHeight="150" barWidth="20" title='Distribution of Candidate Pool' annotation="<%=gd.getAnnotation()%>" 
+                            <screen:graph graphAreaHeight="150" barWidth="20" title='Distribution of Candidate Pool' annotation="<%=gd.getAnnotation()%>"
                                 colors='<%=gd.getColors()%>'
                                 barValues='<%=gd.getData()%>'/>
                             <screen:legend colors='<%=gd.getColors()%>' text='<%=gd.getLegend()%>' />
@@ -280,7 +280,7 @@ if ( plugin ) {
          <p></p>
     <% } //has test set a %>
     <% if(testResultsInfo.getProblemSetBCount() > 0){ %>
-            
+
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 	        <TR>
 	        <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
@@ -341,7 +341,7 @@ if ( plugin ) {
                      <% even = !even; %>
                    </rsc:iterator>
 	        </table>
-	        
+
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 	        <TR>
                        <TD COLSPAN="7" VALIGN="top" CLASS="screeningTitle">Problem Statistics:</TD>
@@ -370,7 +370,7 @@ if ( plugin ) {
                      <% even = !even; %>
                         <td colspan=7 class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
                         <% GraphData gd = (GraphData) testResultsInfo.getProblemSetBGraphData().get(String.valueOf( row.getLongItem("problem_id") ));%>
-                            <screen:graph graphAreaHeight="150" barWidth="20" title='Distribution of Candidate Pool' annotation="<%=gd.getAnnotation()%>" 
+                            <screen:graph graphAreaHeight="150" barWidth="20" title='Distribution of Candidate Pool' annotation="<%=gd.getAnnotation()%>"
                                 colors='<%=gd.getColors()%>'
                                 barValues='<%=gd.getData()%>'/>
                             <screen:legend colors='<%=gd.getColors()%>' text='<%=gd.getLegend()%>' />

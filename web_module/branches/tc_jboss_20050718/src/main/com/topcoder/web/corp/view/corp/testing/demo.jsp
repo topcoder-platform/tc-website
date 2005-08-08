@@ -62,7 +62,7 @@
 						<p><br/></p>
 
 						<p><a href="/corp/?module=Login&<%=Login.KEY_USER_HANDLE%>=xyzresults&<%=Login.KEY_USER_PASS%>=xyzpassword&<%=BaseServlet.NEXT_PAGE_KEY%>=/corp/testing?module=CampaignList" target="_blank"><img src="/i/corp/results.gif" width="129" height="77" alt="" border="0" align="left" style="margin-left: 0px; margin-top: 7px; margin-right: 10px; margin-bottom: 7px;"/></a>
-						<span class="testSubhead"><a href="/corp/?module=Login&<%=Login.KEY_USER_HANDLE%>=xyzresults&<%=Login.KEY_USER_PASS%>=xyzpassword&<%=BaseServlet.NEXT_PAGE_KEY%>=/corp/testing/?module=CampaignList" target="_blank">Step Two - View sample results and get acclimated with the reporting process</a></span><br/>
+						<span class="testSubhead"><a href="/corp/?module=Login&<%=Login.KEY_USER_HANDLE%>=xyzresults&<%=Login.KEY_USER_PASS%>=xyzpassword&<%=BaseServlet.NEXT_PAGE_KEY%>=/corp/testing?module=CampaignList" target="_blank">Step Two - View sample results and get acclimated with the reporting process</a></span><br/>
 						After you've seen the candidate side, come back and see what kind of information is reported.
 						You'll see contact information, test results (including the submitted code), answers to demographic
 						questions, and resume.  You can rate each candidate on a scale from 1 to 5, and make notes that
