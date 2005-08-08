@@ -166,7 +166,7 @@ public class UserEdit extends BaseProcessor {
      */
     protected void storeUserDataIntoDB(InitialContext ic)
             throws NamingException, CreateException, RemoteException,
-            GeneralSecurityException {
+            GeneralSecurityException, Exception {
         PrincipalMgrRemote mgr = secTok.man;
         commonFieldsStore(ic, secTok.createNew);
 
@@ -195,13 +195,15 @@ public class UserEdit extends BaseProcessor {
                 boolean set = "on".equalsIgnoreCase(pValue);
                 RolePrincipal role = mgr.getRole(permID);
                 if (set) {
-                    if (!hasRole(mgr.getUserSubject(targetUserID), role)) {
+                    if (!hasRole(SecurityHelper.getUserSubject(targetUserID, true), role)) {
                         mgr.assignRole(secTok.targetUser, role, secTok.requestor);
                     }
                 } else {
                     mgr.unAssignRole(secTok.targetUser, role, secTok.requestor);
                 }
             }
+            //refresh the cache on this person
+            SecurityHelper.getUserSubject(targetUserID, true);
         }
     }
 

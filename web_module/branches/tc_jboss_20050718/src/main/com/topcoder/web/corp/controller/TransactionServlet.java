@@ -681,7 +681,7 @@ public class TransactionServlet extends HttpServlet {
             GeneralSecurityException, NoSuchUserException, Exception {
         log.debug("assignPerProductRoles entered");
         PrincipalMgrRemote mgr = Util.getPrincipalManager();
-        TCSubject buyerSubject = mgr.getUserSubject(txInfo.getBuyerID());
+        TCSubject buyerSubject = SecurityHelper.getUserSubject(txInfo.getBuyerID());
         UserPrincipal buyerPrincipal = mgr.getUser(txInfo.getBuyerID());
         Set assignedRoles = buyerSubject.getPrincipals();
         TCSubject appSubject = Util.retrieveTCSubject(Constants.CORP_PRINCIPAL);

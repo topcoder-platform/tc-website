@@ -100,7 +100,7 @@ public class Util {
     public static TCSubject retrieveTCSubject(String handle)
             throws NoSuchUserException, Exception {
         PrincipalMgrRemote mgr = getPrincipalManager();
-        TCSubject ret = mgr.getUserSubject(mgr.getUser(handle).getId());
+        TCSubject ret = SecurityHelper.getUserSubject(mgr.getUser(handle).getId());
         //log.debug("TCSubject retreived by handle [" + ret + "]");
         return ret;
     }
