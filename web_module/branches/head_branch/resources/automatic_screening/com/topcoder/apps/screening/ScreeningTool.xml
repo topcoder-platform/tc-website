@@ -1,7 +1,7 @@
 <CMConfig>  
   <Config name="com.topcoder.apps.screening.ScreeningTool">
     <Property name="temp_folder">
-        <Value>/export/home/tcssite/screening_tmp</Value>
+        <Value>/export/home/apps/screening_tmp</Value>
     </Property>
     <Property name="soft">
         <Value>on</Value>
