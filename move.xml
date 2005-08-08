@@ -55,8 +55,44 @@
     </target>
 
     <target name="package-techassess" depends="">
+        <delete dir="src"/>
+        <delete dir="resources"/>
+        <delete dir="build"/>
+        <delete dir="../shared/src"/>
+        <delete file="techassess.jar"/>
 
+        <cvs command="update -Pd" package="src"/>
+        <cvs command="update -Pd" package="resources"/>
+        <cvs command="update -Pd" package="lib"/>
 
+        <exec dir="../shared" executable="cvs">
+            <arg line="update -dP src"/>
+        </exec>
+
+        <ant antfile="build.xml" target="war-techassess"/>
+        <ant dir="../app" antfile="build.xml" target="screening-ejb-jars"/>
+
+        <copy todir="." file="build/wars/techassess.war"/>
+        <copy todir="." file="lib/bin/shared.jar"/>
+        <copy todir="." file="../jboss-4.0.1/server/default/deploy/reconnect.jar"/>
+        <copy todir="." file="../jboss-4.0.1/server/default/deploy/ProblemServices.jar"/>
+        <copy todir="." file="../jboss-4.0.1/server/default/deploy/ScreeningServices.jar"/>
+        <copy todir="." file="../jboss-4.0.1/server/default/deploy/ScreeningTesterCompilerServices.jar"/>
+        <copy todir="." file="../jboss-4.0.1/server/default/deploy/ScreeningAdminServices.jar"/>
+        <copy todir="." file="../jboss-4.0.1/server/default/lib/Screening.jar"/>
+
+        <jar destfile="techassess.jar" update="true">
+            <fileset dir=".">
+                <include name="techassess.war"/>
+                <include name="shared.jar"/>
+                <include name="reconnect.jar"/>
+                <include name="Screening.jar"/>
+                <include name="ProblemServices.jar"/>
+                <include name="ScreeningServices.jar"/>
+                <include name="ScreeningTesterCompilerServices.jar"/>
+                <include name="ScreeningAdminServices.jar"/>
+            </fileset>
+        </jar>
     </target>
 
     <target name="package-software" depends="">
