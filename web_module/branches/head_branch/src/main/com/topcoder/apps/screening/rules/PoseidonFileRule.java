@@ -88,7 +88,7 @@ public class PoseidonFileRule implements ScreeningRule {
                 if (name.endsWith(".xmi")) {
                     file = files[i];
                 } else if (name.endsWith(".proj3")) {
-                    proj3 = false;
+                    proj3 = true;
                 }
             }
         }
