@@ -1612,10 +1612,10 @@ public class Registration
         coder.setQuote(quote);
         //coder.setNotify((notify.equalsIgnoreCase(CHECKBOX_YES)?"Y":"N"));
 
+
         ArrayList cachedNotify = null;
         try {
-            DataCache cache = Cache.get();
-            cachedNotify = cache.getNotifications();
+            cachedNotify = Notification.getNotifications();
         } catch (Exception e) {
             cachedNotify = new ArrayList();
         }
