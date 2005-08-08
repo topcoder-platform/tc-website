@@ -4,11 +4,14 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.util.ArrayList;
+import java.io.IOException;
 
 public abstract class Select
         extends TagSupport {
     private String name = null;
+/*
     private String value = null;
+*/
     private String styleClass = null;
     private String onChange = null;
     private String selectedValue = null;
@@ -19,9 +22,11 @@ public abstract class Select
         this.name = name;
     }
 
+/*
     public void setValue(String value) {
         this.value = value;
     }
+*/
 
     public void setStyleClass(String ccsclass) {
         this.styleClass = ccsclass;
@@ -50,15 +55,15 @@ public abstract class Select
 
     public int doEndTag()
             throws JspException {
+        JspWriter out = pageContext.getOut();
         try {
-            JspWriter out = pageContext.getOut();
             if (selectedOnly) {
                 out.write(getSelected());
             } else {
                 out.write(buildSelect());
             }
-        } catch (Exception e) {
-            throw new JspException(e.toString());
+        } catch (IOException e) {
+            throw new JspException(e.getMessage());
         }
         return EVAL_PAGE;
     }
