@@ -243,9 +243,8 @@ public abstract class BaseServlet extends HttpServlet {
         return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response, BasicAuthentication.MAIN_SITE);
     }
 
-    /* TODO implement a cached authorization object */
     protected Authorization createAuthorization(User user) throws Exception {
-        return new TCSAuthorization(user);
+        return new TCSAuthorization(SecurityHelper.getUserSubject(user.getId()));
     }
 
     protected boolean isLegalCommand(String s) {
