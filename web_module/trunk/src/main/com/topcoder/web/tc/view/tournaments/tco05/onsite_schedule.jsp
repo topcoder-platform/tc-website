@@ -28,7 +28,7 @@
 <table border="0" cellpadding="5" cellspacing="0" width=400>
 <tr><td colspan="2" class="sidebarTitle">Wednesday, October 12, 2005</td></tr>
 <tr><td class="formTextEven">9:00am - 4:00pm</td><td class="formTextEven">Component Design & Development Championship Round</td></tr>
-<tr><td class="formTextOdd">9:00am - 5:00pm</td><td class="formTextOdd">Competitor Game Room</td></tr>
+<tr><td class="formTextOdd">10:00am - 5:00pm</td><td class="formTextOdd">Competitor Game Room</td></tr>
 <tr><td class="formTextEven">6:00pm - 8:00pm</td><td class="formTextEven">Welcome Reception</td></tr>
 
 <tr><td colspan="2" class="bodyText">&#160;</td></tr>

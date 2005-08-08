@@ -4,6 +4,7 @@
   import="com.topcoder.common.web.data.Navigation,
           com.topcoder.shared.util.ApplicationServer"
 %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -46,40 +47,21 @@
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/><br />
-
-                    <p><span class="bodySubtitle">Competition</span><br/>
-                    TopCoder's competitions are designed for technologists and are unique in several ways. The key to TopCoder's competition process 
-                    is the immediacy and objectivity of each and every Single Round Match. With TopCoder, competitors do not await results and the 
-                    announcement of winners from a panel of judges that take days or even weeks to arrive at a decision.</p>
-                    
-                    <p>The process is simple. There are three problem statements (per match) with ascending point value. The coder to submit the 
-                    most accurate solution in the shortest amount of time is awarded the most potential points. The key is that a coder's submission 
-                    is challenged not only by the TopCoder system, but first by the other participating coders in the match. A coder's entire potential 
-                    point base (and possible win) can be altered should another coder find a means of "breaking" the submission.</p>
-                    
-                    <p><span class="bodySubtitle">Learning</span><br/>
-                    TopCoder attracts the best programmers in the US and soon, the world. While you may not be able to beat the best programmers 
-                    (welcome to the club - neither can we!), many of our members learn a great deal from the top developers. There is nothing like 
-                    honing one's skill in the heat of competition. Since TopCoder is split by division, you won't be in problems over your head. As 
-                    you compete more and more, you will be able to draw from some of the best talent out there. Also, every problem we create goes 
-                    into our practice rooms. Competitor solutions are available to every participating member. What better way to learn, than from 
-                    the masters!</p>
-                    
-                    <p><span class="bodySubtitle">Points and Ratings</span><br/>
-                    The more a coder competes, the better their rating can become. Ratings are the key determining factor for establishing the initial 
-                    elimination field for either the Invitational Tournament or Collegiate Challenge. A coder's rating is based on several factors 
-                    (detailed ratings overview), but the basic idea is that ratings are based upon the points gained in a given match, the number of 
-                    matches competed in, and how that stacks up against other coders with similar points and matches.</p>
-                    
-                    <p>As you look through the site, you will see color coding with member's handles. These colors indicate the rating level of that 
-                    member. Participating members (those who compete versus spectate) are able to view each other's profiles, past code 
-                    submissions, stats and more.</p>
-                    
-                    <p><span class="bodySubtitle">Prizes</span><br/>
-                    Although there are no prizes awarded for the Single Round Matches, major TopCoder tournaments offer a substantial total purse. 
-                    The purse for these tournaments ranges anywhere from $100,000 to $250,000.  TopCoder holds two major tournaments per year: 
-                    the Collegiate Challenge, open for full-time students, and the Invitational, open to all eligible members.</p>
-                    
+<span class="bodySubtitle">Algorithm Competitions</span><br>
+TopCoder algorithm competitions offer a unique perspective on problem solving.  It's one thing to program a working solution, but it's a whole different level, the TopCoder level, when you're competing with other programmers to get that solution.  TopCoder algorithm competitions give members a chance to test their knowledge, their speed, and their efficiency in an arena with <i>thousands</i> of other programmers.  Care to find out just how good of a programmer you are?  TopCoder is the place to do it.<br><A href="/tc">Learn more...</A>
+<br><br>
+<span class="bodySubtitle">Component Competitions</span><br>
+TopCoder component competitions involve designing and developing software components, not just for recognition, but for some serious prize money.  Aside from whatever earnings you get from the competition itself, members also get royalties for winning components they design or develop.<br><A href="/?t=development&c=index">Learn more...</A>
+<br><br>
+<span class="bodySubtitle">Ratings and Statistics</span><br>
+What good is a competition without the proper statistics to quantify the results?  As an active TopCoder member, programmers receive a rating in up to 3 different types of competition: algorithm, component design, and component development.  In addition to ratings, each active member has a wealth of statistics that track their progress in the world of competitive programming.<br><A href="/stat?&c=round_overview">Learn more...</A>
+<br><br>
+<span class="bodySubtitle">Educational Content</span><br>
+The TopCoder member base includes some of the best programmers in the world.  That's a pretty serious knowledge base.  Want some new tips and strategies?  Check out the TopCoder Educational Content section, where other members offer great info on how to make yourself not just a better TopCoder competitor, but a better programmer in general.  Got a question?  Check out our <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>">Forums</A>.  Other competitors are always willing to help you out.<br><A href="/tc?module=Static&d1=tutorials&d2=alg_index">Learn more...</A>
+<br><br>
+<span class="bodySubtitle">Employment Opportunities</span><br>
+We are aggressively seeking out companies that have a strong need for the level of talent that only TopCoder members can provide. TopCoder does all of the leg work for you - we find the companies, look for the right positions and when we find a match, we present you with the opportunity. Only after you confirm your interest in a particular position will TopCoder pass on your information to the appropriate hiring manager. Before you even talk to the company's representative, TopCoder will make sure your salary requirements, job requirements, and relocation requests are met. Best of all, TopCoder provides this service for full time and contract work at no cost to you.<br><A href="/">Learn more...</A>
+                    <br><br>
                     <div align="center"><strong>- There is no cost to <a class="bodyText" href="/Registration"><strong>register</strong></a> or participate in any match or tournament -</strong></div>
                     </td>
                 </tr>
