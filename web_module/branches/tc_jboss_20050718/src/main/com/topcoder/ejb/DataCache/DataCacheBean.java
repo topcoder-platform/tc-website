@@ -808,6 +808,7 @@ public class DataCacheBean extends BaseEJB {
     }
 
 
+/*
     public ArrayList getNotifications() throws TCException {
         try {
             log.debug("EJB DataCacheBean getNotifications called.");
@@ -822,9 +823,10 @@ public class DataCacheBean extends BaseEJB {
         }
         return this.notifications;
     }
+*/
 
 
-    private ArrayList popNotifications() throws TCException {
+    /*private ArrayList popNotifications() throws TCException {
         log.debug("EJB DataCacheBean popNotifications called.");
         Connection conn = null;  //conn stands for schools connection
         PreparedStatement ps = null;
@@ -833,7 +835,6 @@ public class DataCacheBean extends BaseEJB {
         try {
             conn = DBMS.getConnection();
             StringBuffer query = new StringBuffer(375);
-            /*************************************************************************************/
             query.append(" SELECT");
             query.append(" notify_id");
             query.append(" ,name");
@@ -844,7 +845,6 @@ public class DataCacheBean extends BaseEJB {
             query.append(" status = 'A'");
             query.append(" ORDER BY");
             query.append(" sort");
-            /*************************************************************************************/
             ps = conn.prepareStatement(query.toString());
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -882,7 +882,7 @@ public class DataCacheBean extends BaseEJB {
         }
         return result;
     }
-
+*/
 
     public ArrayList getSchools() throws TCException {
         try {
