@@ -9,15 +9,15 @@
 <style type="text/css">
 .code
 {
-	width: 500;
-	padding: 10px;
-	margin: 20px;
-	color: #333;
-	font-size: 11px;
-	font-weight: normal;
-	line-height: 14px;
-	background-color: #EEEEEE;
-	border: 1px solid #999;
+   width: 500;
+   padding: 10px;
+   margin: 20px;
+   color: #333;
+   font-size: 11px;
+   font-weight: normal;
+   line-height: 14px;
+   background-color: #EEEEEE;
+   border: 1px solid #999;
 }
 </style>
 </head>
@@ -46,11 +46,11 @@
             
             <h2>New Features of Java 1.5</h2>
 
-			<p>
-			<img src="/i/m/cucu_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-			By&#160;<tc-webtag:handle coderId="7545675" context="algorithm"/><br />
-			<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-			</p>
+         <p>
+         <img src="/i/m/cucu_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+         By&#160;<tc-webtag:handle coderId="7545675" context="algorithm"/><br />
+         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+         </p>
 
 <span class="outline1"><a href="#introduction">Introduction</a></span><br>
 <span class="outline1"><a href="#autoboxing">Auto Boxing and Auto Unboxing</a></span><br>
@@ -146,13 +146,13 @@ The main problem with this approach is that you're "loosing" the type of your ob
 <br><br>
 The above code will be written as:
 <pre class="code">
-List<String> list = new ArrayList<String>();
+List&lt;String&gt; list = new ArrayList&lt;String&gt;();
 list.add("hello");
 
 String s;
 s = list.get(0);
 </pre>
-The class List is now generic, that means that it takes parameterized types; in that case the type is String.  With List<String> you're saying to the List class that this instance will work with the type String. Then, the constructor is also called with the parameter type in order to make the instance be of that type. Now the cast is removed, because the get method returns a String, as a consequence of the list declaration. That way, you work with your instance as if it were specifically designed to work with Strings, making you save casts that are risky.
+The class List is now generic, that means that it takes parameterized types; in that case the type is String.  With List&lt;String&gt; you're saying to the List class that this instance will work with the type String. Then, the constructor is also called with the parameter type in order to make the instance be of that type. Now the cast is removed, because the get method returns a String, as a consequence of the list declaration. That way, you work with your instance as if it were specifically designed to work with Strings, making you save casts that are risky.
 <br><br>
 Also it's possible, and sometimes very useful, to have more than one type as parameter; for example the maps needs two types, one for the key and one for the values:
 <pre class="code">
@@ -167,7 +167,7 @@ This forces the keys to be Strings and the values to be Integers.
 <br><br>
 Now, let's see how we can declare a generic class, doing a class that holds any kind of object:
 <pre class="code">
-public class Holder<T> {
+public class Holder&lt;T&gt; {
     private T value;
 
     void set(T value) {
@@ -181,11 +181,11 @@ public class Holder<T> {
 </pre>
 The parameterized types are right after the class name, enclosed between angle brackets.  If using more than one, they must be comma separated, for example "&lt;K,V&gt;" is used for Map class. Then, we can use T almost (later we'll see the differences) as if it were a class, even if we don't know which one is it.  This class must be specified when declaring instances, for example we could use the Holder class as follows:
 <pre class="code">
-Holder<String> h = new Holder<String>();
+Holder&lt;String&gt; h = new Holder&lt;String&gt;();
 h.set("hello!");
 System.out.println(h);
 </pre>
-In the first line we are declaring h as an instance of Holder<String>, so we can think of T as being a String and read the Holder class doing a mentally search and replace.  As you can see, the set method takes an argument of type T (in this case String), so if another class is used instead, it will generate a compilation error.  The method get returns an object of type T (again String), so we don't need to cast to String when calling it. The way the compiler does that is through erasure; that means that it actually compiles generic classes as if they work with Object instances and then it applies casts and do checks for type safety.  This is different as how C++ works (it generates one copy of the class for each different type instantiated) and has some consequences on its use. I said before that T should be treated *almost* as if it were a class, because there are things that you can't do, due to the erasure procedure.
+In the first line we are declaring h as an instance of Holder&lt;String&gt;, so we can think of T as being a String and read the Holder class doing a mentally search and replace.  As you can see, the set method takes an argument of type T (in this case String), so if another class is used instead, it will generate a compilation error.  The method get returns an object of type T (again String), so we don't need to cast to String when calling it. The way the compiler does that is through erasure; that means that it actually compiles generic classes as if they work with Object instances and then it applies casts and do checks for type safety.  This is different as how C++ works (it generates one copy of the class for each different type instantiated) and has some consequences on its use. I said before that T should be treated *almost* as if it were a class, because there are things that you can't do, due to the erasure procedure.
 <br><br>
 For example,
 <pre class="code">
@@ -197,7 +197,7 @@ value = new T[5];
 </pre>
 will also give a compiler error. Let's make a class for handling complex numbers using generics, so it can work with different numeric types:
 <pre class="code">
-public class Complex<T> {
+public class Complex&lt;T&gt; {
 
     private T re;
     private T im;
@@ -224,78 +224,79 @@ The constructor will take two variables of type T, the real and imaginary parts.
 <br><br>
 We can use that class as follows:
 <pre class="code">
-Complex<Integer> c= new Complex<Integer>(3,4);
+Complex&lt;Integer&gt; c= new Complex&lt;Integer&gt;(3,4);
 System.out.println (c);
 </pre>
 Getting as output: "(3, 4)"
 <br><br>
 Notice that Integer is used because only classes can be parameters; primitive types are not allowed.  However, thanks to autoboxing we can pass int parameters to the constructor to make life easier; if not we should do:
 <pre class="code">
-Complex<Integer> c= new Complex<Integer>(new Integer(3), new Integer(4));
+Complex&lt;Integer&gt; c= new Complex&lt;Integer&gt;(new Integer(3), new Integer(4));
 </pre>
 We could do some other things with the Complex class, for example:
 <pre class="code">
-Complex<String> c= new Complex<String>("hello","world");
+Complex&lt;String&gt; c= new Complex&lt;String&gt;("hello","world");
 </pre>
 But hey, this is not the idea of a complex number! We wanted to use generics so it could hold different types of numbers. Let's leave that aside for a brief moment to add a method to calculate the modulus:
 <pre class="code">
 public double getModulus() {
- 		return Math.sqrt(Math.pow(re, 2) + Math.pow(im, 2));
+       return Math.sqrt(Math.pow(re, 2) + Math.pow(im, 2));
 }
 </pre>
 But this doesn't even compile! However this behavior seems reasonable; if it would have compiled, how would it have solved the modulus of the last complex instantiated?
 <br><br>
 We need to get a numeric value from re and im, and this could be done using doubleValue() method:
 <pre class="code">
-return Math.sqrt(Math.pow(re.doubleValue(), 2) + Math.pow(im.doubleValue(), 2));
+return Math.sqrt(Math.pow(re.doubleValue(), 2) + 
+Math.pow(im.doubleValue(), 2));
 </pre>
 We're nearer now, but the compiler still doesn't like it-how can it know that re and im have the doubleValue method? If we pass a String, how would it solve that? The answer to all those questions is to promise the compiler that re and im will be numbers; that is, they'll be instances of classes that inherit from Number. To do that, you just have to modify the declaration of the class to be:
 <pre class="code">
-public class Complex<T extends Number> {
+public class Complex&lt;T extends Number&gt; {
 </pre>
 That way, you're saying that T must be a Number or a subclass. This is called a bounded type.  Now, you won't be able to compile Complex&lt;String&gt; because String is not a Number subclass. Because Number class defines the method doubleValue() - and thus it is defined for all its subclasses - you can use this method on re and im variables, as well as you can call any method defined in Number or its superclasses.
 <br><br>
-Let's go further and define a method to compare the vector length (i.e. it's modulus) with other vector:
+Let's go further and define a method to compare the vector length (i.e. its modulus) with other vector:
 <pre class="code">
-public boolean isLarger(Complex<T> c) {
-  return getModulus() > c.getModulus();
+public boolean isLarger(Complex&lt;T&gt; c) {
+  return getModulus() &gt; c.getModulus();
 }
 </pre>
 This can be used as follows:
 <pre class="code">
-Complex<Integer> x= new Complex<Integer>(3,4);
-Complex<Integer> y = new Complex<Integer>(4,5);
+Complex&lt;Integer&gt; x= new Complex&lt;Integer&gt;(3,4);
+Complex&lt;Integer&gt; y = new Complex&lt;Integer&gt;(4,5);
 
 System.out.println (x.isLarger(y)); 
 </pre>
 And it works as expected.  However, we might also want to do:
 <pre class="code">
-Complex<Integer> x= new Complex<Integer>(3,4);
-Complex<Double> y = new Complex<Double>(4.2,5.8);
+Complex&lt;Integer&gt; x= new Complex&lt;Integer&gt;(3,4);
+Complex&lt;Double&gt; y = new Complex&lt;Double&gt;(4.2,5.8);
 
 System.out.println (x.isLarger(y)); 
 </pre>
 And this doesn't even compile, because x is a vector of Integer and it expects the same type in the isLarger method.  However, we know that this is a valid operation, because even if they real and imaginary parts are of different types, we still can compare their modulus. What we need now is to use wildcards to tell the isLarger method that we really don't care for the type of complex we receive, and this is very simple to do:
 <pre class="code">
-public boolean isLarger(Complex<?> c) {
+public boolean isLarger(Complex&lt;?&gt; c) {
 </pre>
 The interrogation sign stands for the wildcard, meaning any type.  Because the Complex type is already bounded to Number, actually the type can't be other than a Number. Wildcards can also be bounded in the same way we bounded T to be a Number.
 <br><br>
 You may have noticed that at the beginning of the section I used the ArrayList class as follows:
 <pre class="code">
-new ArrayList<String>();
+new ArrayList&lt;String&gt;();
 </pre>
 But ArrayList is an old class, at least older than Java 1.5, so how does it comes that now it takes a type? Is it in another package? Is the same class and they've broken backwards compatibility? The answer is that is the same class as in previous versions of Java; but this new version wouldn't be well received if it wouldn't be backwards compatible, so even if it can used as a generic class, omitting the type will result in a raw class, which works over the Object class as the previous Java versions.  That way, the old code won't break, but new code should use the parameterized form to be type safe.  When using the raw type, the Java compiler issues a warning about that. Generic classes can be inherited or can inherit from other generic or non generic classes; all the possibilities are valid.
 <br><br>
 For example, you could have another complex class that has some extra functionality and declare it as:
 <pre class="code">
-public class BetterComplex<T extends Number> extends Complex<T> {
+public class BetterComplex&lt;T extends Number&gt; extends Complex&lt;T&gt; {
 </pre>
 Note that T should be declared at least to be bounded to Number, otherwise it won't compile because Complex is not guaranteed to have its parameter bounded to Number.  It could also be bounded to a subclass of Number, but not to anything else. The parameter list could have more than the T parameter in BetterComplex; however you should always give Complex exactly one type. You can also make a non generic class inheriting from a generic class.
 <br><br>
 For example if you define some kind of Complex that you know their values are always of type Double:
 <pre class="code">
-class BetterComplex extends Complex<Double> {
+class BetterComplex extends Complex&lt;Double&gt; {
 </pre>
 That way, you don't even need to specify a type (actually you can't) to BetterComplex type.
 <br><br>
@@ -305,14 +306,14 @@ A task that is done often is to iterate through a collection, and do something w
 <pre class="code">
 String fruits[]= {"apple", "orange", "strawberry"};
 
-      for (int i = 0; i < fruits.length; i++) {
+      for (int i = 0; i &lt; fruits.length; i++) {
             System.out.println (fruits[i]);
       }
 </pre>
 We could also think of a method to show all the elements in a list:
 <pre class="code">
 public void Show(List l) {
-     for (int i = 0; i < l.size(); i++) {
+     for (int i = 0; i &lt; l.size(); i++) {
           System.out.println (l.get(i));
      }
 }
@@ -320,7 +321,7 @@ public void Show(List l) {
 This code seems right; however it could be very inefficient. Surprised? Try to guess why - And if not, just run the following:
 <pre class="code">
 List l = new LinkedList();
-for (int i = 0; i < 10000; i++) {
+for (int i = 0; i &lt; 10000; i++) {
       l.add("number " + i);
 }
 Show(l);
@@ -356,7 +357,7 @@ Object o;
          System.out.println (o);
    }
 </pre>
-With the compiler forcing the iteration variable to be in the iteration block, a little flexibility is lost, because that variable can't be used after exiting the for, a practice that is common, for example, if the for is broken when something is found.  However these kinds of practices are not very clear and robust, so the compiler is making you to write better code, even if it might require an additional flag. The iterable_object is any object that implements the Iterable interface, which only defines the method Iterator<T> iterator(). The type must be compatible with the type returned by the next() method of the iterator.
+With the compiler forcing the iteration variable to be in the iteration block, a little flexibility is lost, because that variable can't be used after exiting the for, a practice that is common, for example, if the for is broken when something is found.  However these kinds of practices are not very clear and robust, so the compiler is making you to write better code, even if it might require an additional flag. The iterable_object is any object that implements the Iterable interface, which only defines the method Iterator&lt;T&gt; iterator(). The type must be compatible with the type returned by the next() method of the iterator.
 <br><br>
 Arrays can also be used, so the loop of the first example in this section could be written as:
 <pre class="code">
@@ -387,7 +388,7 @@ A better approach is to receive an array, so your method max could be:
 public int max(int []x) {
   int maxValue = x[0];
   for (int value : x)  {
-      if (value >  maxValue) {
+      if (value &gt;  maxValue) {
           maxValue = value;
       }
   }
@@ -408,7 +409,7 @@ For example, the above method will be written now as:
 public int max(int ...x) {
   int maxValue = x[0];
   for (int value : x)  {
-      if (value >  maxValue) {
+      if (value &gt;  maxValue) {
           maxValue = value;
       }
   }
@@ -485,10 +486,10 @@ There's no way to use variable-length arguments in this example, but don't worry
 Sometimes you need to manage information that doesn't fit well in the existent types. Imagine for example a method that needs to receive which programming language a coder uses. The method could be:
 <pre class="code">
 public void doSomething(String handle, String language) {
-	if (language.equals("Java")) {
- 		System.out.println ("Hope you already know 1.5!");
-	}
-	-
+   if (language.equals("Java")) {
+       System.out.println ("Hope you already know 1.5!");
+   }
+   -
 }
 </pre>
 And then, it will be called using, for example
@@ -507,10 +508,10 @@ public class Languages {
 Then, your method doSomething will be:
 <pre class="code">
 public void doSomething(String handle, int language) {
-	if (language == Languages.Java) {
- 		System.out.println ("Hope you already know 1.5!");
-	}
-	-
+   if (language == Languages.Java) {
+       System.out.println ("Hope you already know 1.5!");
+   }
+   -
 }
 </pre>
 And your call will be:
@@ -526,7 +527,7 @@ You're giving the method a code for a language that doesn't exist. Java 1.5 intr
 We define the enumeration type as following:
 <pre class="code">
 enum Language { JAVA, CPP, CHSARP, VBNET }
-</pre>	
+</pre>   
 Now we have a new type called Language and we can define variables of that type, and assign any of the declared values:
 <pre class="code">
 Language lang;
@@ -572,7 +573,7 @@ switch (language) {
               ("don't know that language extension");
 }
 // do something using extension variable
-</pre>	
+</pre>   
 This example shows that the switch sentence can be used with enumerations. Notice that the languages in the switch are referred without specifying the enumeration type. If you try to compile the above code without the default in the switch, you'll got an error saying that extension might not be initialized.  But you're sure it is!! language variable is bounded to be one of the four defined constants, so there's no way to escape! You might be tempted to just initialize the extension to an empty string or null to shout the compiler's mouth, and even if it will perfectly work for the moment, is not the best for being extensible.  If other language is added and you forget to add the case statement, the extension variable will be null or empty string, and the error might be much more complicated to find than if you throw an exception as we did. But this solution is still not the best; as we've been talking, you could easily forget to declare the case statement, and you might have many "maps" as the above in different parts of code, making it hard to maintain. Because the extension is linked to the language itself, why not store the extension itself on the constant? An enumeration is actually a special kind of class, and it can have methods and attributes, so you can do:
 <pre class="code">
 enum Language {
@@ -595,7 +596,8 @@ enum Language {
 Now the constant definition must match the only available constructor. The constructor can't be declared as public, you'll get a compile error because enums can't be instantiated.  You could overload the constructor to provide many ways to initialize the constants, in the same way you would do in a normal class. Now, our method doSomething will simply do:
 <pre class="code">
 String extension = language.getExtension();
-// do something using extension variable, that actually is not even needed now.
+// do something using extension variable,
+// that actually is not even needed now.
 </pre>
 The code is more robust now, because when adding a new language is impossible to forget to initialize the extension; you won't be able to compile if you don't specify it.  And as a plus, you are declaring the extension in the same place as the language, so you don't need to search all the code for switch'es to add the extension.
 <br><br>
@@ -625,9 +627,9 @@ As you can see, there are two annotations before the method that are recognized 
 An annotation is based on an interface, but it can just have method declarations that take no parameters and the return type must be one of the primitive types, String, Class, an enum type, an annotation type, or an array of one of the preceding types. For example, this is an annotation declaration:
 <pre class="code">
 @interface Note {
-	String author();
-	String note();
-	int version();
+   String author();
+   String note();
+   int version();
 }
 </pre>
 This annotation will be called, for example, in the following way:
@@ -637,9 +639,9 @@ This annotation will be called, for example, in the following way:
 You might want some of the fields to take default values, so you don't have to specify them each time.  This can be easily done using:
 <pre class="code">
 @interface Note {
-	String author() default "TCSDEVELOPER";
-	String note();
-	int version();
+   String author() default "TCSDEVELOPER";
+   String note();
+   int version();
 }
 </pre>
 And then, if you don't specify the author, the default will be used:
@@ -660,9 +662,9 @@ Also annotations without parameters can be declared, and they're very useful to 
 <pre class="code">
 @Target(ElementType.METHOD)
 @interface Note {
-	String author() default "TCSDEVELOPER";
-	String note();
-	int version();
+   String author() default "TCSDEVELOPER";
+   String note();
+   int version();
 }
 </pre>
 Now, the Note annotation can be used just for methods.  You can also specify more than one element type using the following syntax:
@@ -682,14 +684,14 @@ For example, this is a sample program that gets the Note annotations for the Ann
 @Note(note="Finish this class!", version=1)
 public class AnnotDemo {
     public static void main (String args[]) {
-		Note note = AnnotDemo.class.getAnnotation(Note.class);
-		if (note != null) {
-			System.out.println("Author=" + note.author());
-			System.out.println("Note=" + note.note());
-			System.out.println("Version=" + note.version());
-		} else {
-			System.out.println("Note not found.");
-		}
+      Note note = AnnotDemo.class.getAnnotation(Note.class);
+      if (note != null) {
+         System.out.println("Author=" + note.author());
+         System.out.println("Note=" + note.note());
+         System.out.println("Version=" + note.version());
+      } else {
+         System.out.println("Note not found.");
+      }
     }
 }
 </pre>
@@ -740,12 +742,14 @@ A lot of updates were done in the API, adding methods, classes and packages. The
 The new class java.util.Formatter enables you to use formatted strings in the old and loved C style.  For example, you can do:
 <pre class="code">
 Formatter f = new Formatter ();
-f.format("Decimal: %d, hexa: %x, character %c, double %1.4f.", 50,50,'A', 3.1415926);
+f.format("Decimal: %d, hexa: %x, character %c, double %1.4f.", 
+50,50,'A', 3.1415926);
 System.out.println (f.toString());
 </pre>
 The constructor of Formatter can be used in different ways so that the buffer for the formatted output is somewhere else, for example in a file. If you want to show the input on the screen, instead of the above form, you can do it directly with printf:
 <pre class="code">
-System.out.printf("Decimal: %d, hexa: %x, character %c, double %1.4f.", 50,50,'A', 3.1415926);
+System.out.printf("Decimal: %d, hexa: %x, character %c, 
+double %1.4f.", 50,50,'A', 3.1415926);
 </pre>
 Although this is similar to the formatting strings in C, there are some differences and improvements, so you should have a look at the Formatter class documentation for more detail. On the other side, you can read formatted input and convert to its binary form using the java.util.Scanner. For example, if you have any strings containing an unknown number of integers, you can sum them using:
 <pre class="code">
@@ -774,7 +778,7 @@ The Collections package has changed from its roots, by supporting generic types.
 <br><br>
 For example, here we create a list of Integers and then show it:
 <pre class="code">
-List<Integer> l = new ArrayList<Integer>();
+List&lt;Integer&gt; l = new ArrayList&lt;Integer&gt;();
 l.add(10);
 l.add(20);
 
@@ -786,7 +790,7 @@ Notice that we can add ints directly thanks to autoboxing, but the type of the c
 <br><br>
 Let's see an example of a PriorityQueue:
 <pre class="code">
-PriorityQueue<Double> pq = new PriorityQueue<Double>();
+PriorityQueue&lt;Double&gt; pq = new PriorityQueue&lt;Double&gt;();
 pq.add(4.5);
 pq.add(9.3);
 pq.add(1.7);
