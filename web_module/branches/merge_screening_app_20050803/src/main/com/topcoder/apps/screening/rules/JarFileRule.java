@@ -2,6 +2,7 @@
  * Copyright (c) 2005 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.screening.rules;
+
 import java.io.File;
 import com.topcoder.file.type.MagicNumbers;
 import com.topcoder.file.type.FileType;
