@@ -94,9 +94,9 @@
              <rsc:item row="<%=resultRow%>" name="last_name"/></TD>
                     <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
                       <% if (sessionInfo.getUserId()==resultRow.getLongItem("user_id")) { %>
-                        <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration&id=<rsc:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A>
+                        <A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Registration&id=<rsc:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A>
                       <% } else { %>
-                        <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit&id=<rsc:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A>
+                        <A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=UserEdit&id=<rsc:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A>
                       <% } %>
                     </TD>
                 </tr>

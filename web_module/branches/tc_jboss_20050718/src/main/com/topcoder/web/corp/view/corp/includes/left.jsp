@@ -15,9 +15,9 @@
                 <tr><td id="<%=level1.equals("tournament")?"leftNavSelect":"leftNav"%>"><img src="/i/corp/nav_arrow_<%=level1.equals("tournament")?"bottom":"right"%>.gif" width=10 height=10 border=0><a href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=tourny_index" class="<%=level1.equals("tournament")?"leftOn":"left"%>">Tournament Sponsorship</a></td></tr>
                 <tr><td id="<%=level1.equals("privatelabel")?"leftNavSelect":"leftNav"%>"><img src="/i/corp/nav_arrow_<%=level1.equals("privatelabel")?"bottom":"right"%>.gif" width=10 height=10 border=0><a href="/corp/?module=Static&d1=corp&d2=private_label&d3=index" class="<%=level1.equals("privatelabel")?"leftOn":"left"%>">Sourcing</a></td></tr>
                 <% if (level1.equals("privatelabel")) { %>
-                    <tr><td id="<%=level2.equals("tces_report")?"leftSubnavOn":"leftSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>/corp/tces/" target="_parent" class="leftOn">Reports</a></td></tr>
+                    <tr><td id="<%=level2.equals("tces_report")?"leftSubnavOn":"leftSubnav"%>"><a href="/corp/tces/" target="_parent" class="leftOn">Reports</a></td></tr>
                 <% } %>
-                <tr><td id="<%=level1.equals("testing")?(level2.equals("overview")?"leftNavSelect":"leftNavOn"):"leftNav"%>"><img src="/i/corp/nav_arrow_<%=level1.equals("testing")?"bottom":"right"%>.gif" width=10 height=10 border=0><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=index" target="_parent" class="<%=level1.equals("testing")?"leftOn":"left"%>">Skills Assessment</a></td></tr>
+                <tr><td id="<%=level1.equals("testing")?(level2.equals("overview")?"leftNavSelect":"leftNavOn"):"leftNav"%>"><img src="/i/corp/nav_arrow_<%=level1.equals("testing")?"bottom":"right"%>.gif" width=10 height=10 border=0><a href="/corp/?module=Static&d1=corp&d2=testing&d3=index" target="_parent" class="<%=level1.equals("testing")?"leftOn":"left"%>">Skills Assessment</a></td></tr>
 	            <% if (level1.equals("testing")) { %>
 	                <tr><td id="<%=level2.equals("attributes")?"leftSubnavOn":"leftSubnav"%>"><a href="/corp/?module=Static&d1=corp&d2=testing&d3=testing_attributes" target="_parent" class="leftOn">Process</a></td></tr>
 	                <tr><td id="<%=level2.equals("management")?"leftSubnavOn":"leftSubnav"%>"><a href="/corp/?module=Static&d1=corp&d2=testing&d3=management_tool" target="_parent" class="leftOn">Attributes</a></td></tr>
@@ -44,7 +44,7 @@
                 <tr><td id="leftNavTitle">Marketing Services:</td></tr>
                 <tr><td id="<%=level1.equals("tourny")?"leftNavSelect":"leftNavOn"%>"><img src="/i/corp/nav_arrow_<%=level1.equals("tourny")?"bottom":"right"%>.gif" width=10 height=10 border=0><a href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=market_tourny" target="_parent" class="<%=level1.equals("tourny")?"leftOn":"left"%>">Tournaments</a></td></tr>
 	            <% if (level1.equals("tourny")) { %>
-                    <tr><td id="leftSubnav"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>/corp/tces/" target="_parent" class="leftOn">Reports</a></td></tr>
+                    <tr><td id="leftSubnav"><a href="/corp/tces/" target="_parent" class="leftOn">Reports</a></td></tr>
 	            <% } %>
                 <tr><td id="leftNav"><img src="/i/corp/nav_arrow_right.gif" width=10 height=10 border=0><a href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=market_conference" target="_parent" class="left">Conference Events</a></td></tr>
     <% } else if ((level1.equals("pbtc"))) { %>
