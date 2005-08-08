@@ -36,7 +36,9 @@ import java.util.TreeSet;
 
 public class DataCacheBean extends BaseEJB {
 
+/*
     private static ArrayList notifications;
+*/
     private static ArrayList rounds;
     private static ArrayList demographicAssignments;
     private static ArrayList languages;
@@ -49,10 +51,14 @@ public class DataCacheBean extends BaseEJB {
     private static ArrayList states;
     private static ArrayList degreeLevels;
     private static ArrayList contests;
+/*
     private static ArrayList roundProblems;
+*/
     private static HashMap contestNavs;
 
+/*
     private static boolean notificationsCached;
+*/
     private static boolean demographicAssignmentsCached;
     private static boolean languagesCached;
     private static boolean referralTypesCached;
@@ -270,7 +276,9 @@ public class DataCacheBean extends BaseEJB {
         byte[] result = null;
         log.debug("EJB DataCacheBean resetAll called.");
         synchronized (this) {
+/*
             this.notificationsCached = false;
+*/
             this.roundsCached = false;
             this.demographicAssignmentsCached = false;
             this.languagesCached = false;
@@ -284,7 +292,9 @@ public class DataCacheBean extends BaseEJB {
             this.schoolsCached = false;
             this.countriesCached = false;
             this.statesCached = false;
+/*
             this.roundProblems = new ArrayList();
+*/
             this.memberCount = 0;
             this.memberCountLastRefresh = null;
         }
@@ -302,12 +312,14 @@ public class DataCacheBean extends BaseEJB {
     }
 
 
+/*
     public void resetNotifications() throws TCException {
         log.debug("EJB DataCacheBean resetNotifications called.");
         synchronized (this) {
             this.notificationsCached = false;
         }
     }
+*/
 
 
     public void resetRounds() throws TCException {
