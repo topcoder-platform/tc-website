@@ -9,6 +9,7 @@ import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.SecurityHelper;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -46,8 +47,7 @@ public class TCSAuthorization implements Authorization {
     }
 
     public TCSAuthorization(User user) throws Exception, RemoteException, NamingException {
-        PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
-        this.tcUser = pmgr.getUserSubject(user.getId());
+        this.tcUser = SecurityHelper.getUserSubject(user.getId());
         policy = (PolicyRemote) Constants.createEJB(PolicyRemote.class);
     }
 

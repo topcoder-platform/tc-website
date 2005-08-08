@@ -166,13 +166,14 @@ public class TCESServlet extends HttpServlet {
 
                 task.processStep(taskStepName);
             } catch (TCESAuthenticationException authex) {
-                authex.printStackTrace();
+                /* forward to the login page, with a message and a way back */
                 request.setAttribute("message", "In order to continue, you must provide your user name " +
-                        "and password, even if you've logged in already.");
-                request.setAttribute(BaseServlet.NEXT_PAGE_KEY, request.getParameterMap());
+                        "and password.");
+                log.debug("going to " + info.getRequestString() + " on success login");
+                request.setAttribute(BaseServlet.NEXT_PAGE_KEY, info.getRequestString());
+
                 request.setAttribute(com.topcoder.web.corp.Constants.KEY_MODULE, "Login");
-                boolean forward = true;
-                fetchRegularPage(request, response, "/", forward);
+                fetchRegularPage(request, response, "/", true);
                 return;
             }
 
