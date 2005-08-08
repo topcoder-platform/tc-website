@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>08.08.05<br>9:15 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=citigroup">Citigroup chat session scheduled for SRM 257</A></span><br><br>
+      Citigroup will be in the Arena Applet at 8:00 PM tonight, just before the start of SRM 257, to discuss working at Citigroup.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=contracting&d2=citigroup">details</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>08.04.05<br>2:55 PM</td>
       <td class="newsTextCell"><span class="newsTitle">New internship opening at <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=506838">Yahoo!</A></span><br><br>
       Yahoo! has a new internship opening for a Web Developer
@@ -233,21 +245,6 @@ One of the most crucial aspects to how quickly a problem can be solved is how th
    <tr><td class="newsLinksCell">
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>">view</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.15.05<br>2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=singletons">The Singleton Pattern</A></span><br><br>
-       Singletons are generally used in applications to provide access to a single instance of an object that will be shared across an application and will generally include managers, queues, models, pools, connections etc.</td>
-      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <tc-webtag:handle coderId="119676" context="design"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=singletons">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
    </td></tr>
 
 
