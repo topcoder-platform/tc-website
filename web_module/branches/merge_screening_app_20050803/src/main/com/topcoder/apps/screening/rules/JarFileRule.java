@@ -50,6 +50,7 @@ public class JarFileRule implements ScreeningRule {
 
             return true;
         } catch (Exception ex) {
+            ex.printStackTrace();
             logger.log(new SimpleScreeningData("Unable to extract from JAR file.", ResponseCode.NON_JAR_FILE));
         }
         return false;
