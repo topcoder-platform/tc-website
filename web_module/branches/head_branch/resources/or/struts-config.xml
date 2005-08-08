@@ -302,6 +302,17 @@
                 type="com.topcoder.apps.review.SaveSolutionAction">
         </action>
         
+        <!-- Show Screening -->
+        <action
+                path="/showScreening"
+                type="com.topcoder.apps.review.ShowScreeningAction">
+            <forward name="view" path="/showScreening.jsp"/>
+            <forward name="refresh" path="/refreshScreening.jsp"/>
+            <forward name="success" path="/screeningSuccess.jsp"/>
+            <forward name="warning" path="/screeningWarning.jsp"/>
+            <forward name="error" path="/screeningError.jsp"/>
+        </action>
+        
         <!-- Remove Submission -->
         <action 
                 path="/removeSubmission"

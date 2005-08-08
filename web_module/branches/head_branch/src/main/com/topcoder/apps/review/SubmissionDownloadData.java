@@ -22,6 +22,11 @@ public class SubmissionDownloadData extends OnlineReviewProjectData {
      */
     private long submissionId = 0;
 
+    /**
+     * The version id of the submission.
+     */
+    private long versionId = 0;
+
     // ------------------------------------------------------------ Constructor
 
     /**
@@ -34,6 +39,7 @@ public class SubmissionDownloadData extends OnlineReviewProjectData {
     SubmissionDownloadData(SubmissionDownloadData sdd) {
         super(sdd.getUser(), sdd.getProject());
         this.submissionId = sdd.getSubmissionId();
+        this.versionId = sdd.getVersionId();
     }
 
     /**
@@ -74,6 +80,24 @@ public class SubmissionDownloadData extends OnlineReviewProjectData {
      */
     public long getSubmissionId() {
         return submissionId;
+    }
+
+    /**
+     * Get the version id.
+     *
+     * @return version id.
+     */
+    public long getVersionId() {
+        return versionId;
+    }
+
+    /**
+     * Set the version id.
+     *
+     * @param versionId version id.
+     */
+    public void setVersionId(long versionId) {
+        this.versionId = versionId;
     }
 
 }

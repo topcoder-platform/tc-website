@@ -10,6 +10,7 @@ import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This Model provides business logic through which reviewers review the aggregation.
@@ -19,6 +20,8 @@ import com.topcoder.apps.review.projecttracker.UserProjectInfo;
  */
 public class ReviewAggregate implements Model {
 
+    private static Logger log = Logger.getLogger(ReviewAggregate.class);
+    
     /**
      * Allows an admin or a reviewer to retrieve an aggregation review document and allows an admin or aggregator
      * to submit the aggregation review document for a project.
@@ -35,7 +38,7 @@ public class ReviewAggregate implements Model {
      *         (Errors and RuntimeExceptions are propagated so they aren't included in this category)
      */
     public ResultData start(ActionData data) {
-        LogHelper.logModel(this, data);
+        log.debug("Starting request to model class ReviewAggregate ...");
 
         if (!(data instanceof AggregationReviewData)) {
             // should never happen if front-end works properly
@@ -103,10 +106,10 @@ public class ReviewAggregate implements Model {
 
             // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Error e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Exception e) {
             return new FailureResult(e);

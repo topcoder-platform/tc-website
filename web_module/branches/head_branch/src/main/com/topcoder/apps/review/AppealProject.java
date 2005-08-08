@@ -7,6 +7,7 @@ import com.topcoder.apps.review.document.Appeal;
 import com.topcoder.apps.review.document.DocumentManagerLocal;
 import com.topcoder.apps.review.document.ReviewScorecard;
 import com.topcoder.apps.review.projecttracker.*;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -20,6 +21,8 @@ import javax.transaction.UserTransaction;
  */
 public class AppealProject implements Model {
 
+    private static Logger log = Logger.getLogger(AppealProject.class);
+    
     /**
      * Allows an admin or a reviewer to retrieve the review scorecard and allows an admin or reviewer to
      * submit the review scorecard for a project.
@@ -36,7 +39,7 @@ public class AppealProject implements Model {
      *         (Errors and RuntimeExceptions are propagated so they aren't included in this category)
      */
     public ResultData start(ActionData data) {
-        LogHelper.logModel(this, data);
+        log.debug("Starting request to model class AppealProject ...");
 
         if (!(data instanceof AppealData)) {
             // should never happen if front-end works properly
@@ -161,10 +164,10 @@ public class AppealProject implements Model {
 
             // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Error e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Exception e) {
             return new FailureResult(e);
