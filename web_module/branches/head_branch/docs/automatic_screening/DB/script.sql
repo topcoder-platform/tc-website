@@ -105,3 +105,36 @@ ALTER TABLE screening_results
 ALTER TABLE screening_results
        ADD CONSTRAINT FOREIGN KEY (screening_response_id)
                              REFERENCES screening_response;
+
+-- The following stuff is for the queue.                             
+create table screening_task (
+    submission_v_id DECIMAL(18,0) not null,
+    submission_path VARCHAR(255) not null,
+    screening_project_type_id DECIMAL(5,0) not null,
+    screener_id DECIMAL(2,0)
+);
+
+create table screening_project_type (
+    screening_project_type_id DECIMAL(5,0) not null,
+    screening_project_type_desc VARCHAR(50) not null
+)
+
+alter table screening_project_type add constraint primary key 
+	(screening_project_type_id)
+	constraint pk_screening_project_type;
+
+insert into SCREENING_Project_Type values(1, 'Java Design');
+insert into SCREENING_Project_Type values(2, 'Java Development'); 
+insert into SCREENING_Project_Type values(3, 'C# Design');
+insert into SCREENING_Project_Type values(4, 'C# Development');
+
+alter table SCREENING_TASK
+   add constraint foreign key (screening_PROJECT_TYPE_id)
+      references SCREENING_Project_Type
+      (screening_PROJECT_TYPE_id)
+      constraint FK_SRCNG_PRJ_TYPE;
+
+--alter table SCREENING_TASK	
+--   add constraint foreign key (SUBMISSION_V_ID)
+--      references SUBMISSION (SUBMISSION_V_ID)
+--      constraint FK_SRCNGTSK_SUBID;
