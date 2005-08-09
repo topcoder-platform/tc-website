@@ -55,25 +55,6 @@ function AllowTabCharacter() {
         }
     }
 }
-
-function cookieSave(name, text) {
-    document.cookie = name + "=" + escape(text);
-}
-
-function cookieLoad(name) {
-    var search = name + "=";
-    if (document.cookie.length > 0) {
-        offset = document.cookie.indexOf(search);
-        if (offset != -1) {
-            offset += search.length;
-            end = document.cookie.indexOf(";", offset);
-            if (end == -1) {
-                end = document.cookie.length;
-            }
-            return unescape(document.cookie.substring(offset, end));
-        }
-    }
-}
 </script>
 
 <html>
@@ -164,17 +145,11 @@ function cookieLoad(name) {
 <b>Subject:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>" onKeyPress="return noenter(event)"/><br/><br/>
 <% if (errors.get(ForumConstants.MESSAGE_BODY) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_BODY%>"><%=err%></tc-webtag:errorIterator><br/></span><% } %>
 <b>Body:</b><font color="red"><span align="left" id="Warning" style="display: none"><br/>Warning: one or more &lt;pre&gt; tags is not closed.</span></font>
-<br/><tc-webtag:textArea id="tcPreviewArea" rows="15" cols="72" name="<%=ForumConstants.MESSAGE_BODY%>" onKeyDown="AllowTabCharacter()" onKeyUp="cookieSave('tcPreviewArea',this.value);"/>
+<br/><tc-webtag:textArea id="tcPreviewArea" rows="15" cols="72" name="<%=ForumConstants.MESSAGE_BODY%>" onKeyDown="AllowTabCharacter()"/>
 </td>
 </tr>
 <tr><td class="rtFooter"><input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/><input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/></td></tr>
 </form></table>
-
-<%  if (false) { %>
-<script type="text/javascript">
-    document.getElementById('tcPreviewArea').value=cookieLoad('tcPreviewArea');
-</script>
-<%  } %>
 
 <p><br/></p>
 </td>

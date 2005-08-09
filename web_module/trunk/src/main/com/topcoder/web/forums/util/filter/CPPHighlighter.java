@@ -1,6 +1,8 @@
 package com.topcoder.web.forums.util.filter;
 
 import com.jivesoftware.base.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
 
 import java.io.*;
 
@@ -34,6 +36,12 @@ public class CPPHighlighter implements Filter {
     private String tableLinePanelBackgroundColor;
     private String tableCodePanelBackgroundColor;
     private String lineNumberColor;
+    
+    private final static String TAG_NAME = "cpp";
+    private final static String BEGIN_TAG = "[" + TAG_NAME + "]";
+    private final static String END_TAG = "[/" + TAG_NAME + "]";  
+    private final static int BEGIN_TAG_LEN = BEGIN_TAG.length();
+    private final static int END_TAG_LEN = END_TAG.length();
 
     /**
      * Much of the work of this filter is done by a CodeViewer object.
@@ -85,13 +93,13 @@ public class CPPHighlighter implements Filter {
         int endCodeTag = 0;
 
         // short circuit this filter if no [cpp] found
-        if (string.indexOf("[cpp]") < 0) {
+        if (string.indexOf(BEGIN_TAG) < 0) {
             return chain.applyFilters(currentIndex, string);
         }
 
         // we have something to filter
-        while ((startCodeTag = string.indexOf("[cpp]", endCodeTag)) >= 0) {
-            int end = string.indexOf("[/cpp]", startCodeTag + 6);
+        while ((startCodeTag = string.indexOf(BEGIN_TAG, endCodeTag)) >= 0) {
+            int end = string.indexOf(END_TAG, startCodeTag + BEGIN_TAG_LEN);
 
             if (end > 0) {
                 if (endCodeTag < startCodeTag) {
@@ -100,16 +108,18 @@ public class CPPHighlighter implements Filter {
                             string.substring(endCodeTag, startCodeTag)));
                 }
 
-                endCodeTag = end + 7;
+                endCodeTag = end + END_TAG_LEN;
             }
             else {
                 filtered.append(string.substring(endCodeTag, startCodeTag) + "[cpp]");
-                endCodeTag = startCodeTag + 6;
+                endCodeTag = startCodeTag + BEGIN_TAG_LEN;
                 continue;
             }
 
             // since end > 0 we must be in a code section
-            String code = string.substring(startCodeTag + 6, endCodeTag - 7);
+            String code = string.substring(startCodeTag + BEGIN_TAG_LEN, endCodeTag - END_TAG_LEN);
+            code = code.replaceAll("<", "&lt;");
+            code = code.replaceAll(">", "&gt;");
 
             if (code.length() <= 0) {
                 continue;
