@@ -1,0 +1,47 @@
+<!DOCTYPE ejb-jar PUBLIC "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN" "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
+
+<ejb-jar>
+    <display-name>Submissions</display-name>
+    <enterprise-beans>
+        <session>
+            <ejb-name>SubmittersEJB</ejb-name>
+            <home>com.topcoder.dde.submission.SubmittersHome</home>
+            <remote>com.topcoder.dde.submission.Submitters</remote>
+            <ejb-class>com.topcoder.dde.submission.SubmittersBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+            <ejb-local-ref>
+                <ejb-ref-name>ejb/IdGenEJB</ejb-ref-name>
+                <ejb-ref-type>Session</ejb-ref-type>
+                <local-home>com.topcoder.util.idgenerator.bean.LocalIdGenHome</local-home>
+                <local>com.topcoder.util.idgenerator.bean.LocalIdGen</local>
+                <ejb-link>IdGenEJB</ejb-link>
+            </ejb-local-ref>
+            <resource-ref>
+                <res-ref-name>jdbc/DefaultDS</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+        </session>
+        <session>
+            <ejb-name>SubmissionsEJB</ejb-name>
+            <home>com.topcoder.dde.submission.SubmissionsHome</home>
+            <remote>com.topcoder.dde.submission.Submissions</remote>
+            <ejb-class>com.topcoder.dde.submission.SubmissionsBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+            <ejb-local-ref>
+                <ejb-ref-name>ejb/IdGenEJB</ejb-ref-name>
+                <ejb-ref-type>Session</ejb-ref-type>
+                <local-home>com.topcoder.util.idgenerator.bean.LocalIdGenHome</local-home>
+                <local>com.topcoder.util.idgenerator.bean.LocalIdGen</local>
+                <ejb-link>IdGenEJB</ejb-link>
+            </ejb-local-ref>
+            <resource-ref>
+                <res-ref-name>jdbc/DefaultDS</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+        </session>
+    </enterprise-beans>
+</ejb-jar>
