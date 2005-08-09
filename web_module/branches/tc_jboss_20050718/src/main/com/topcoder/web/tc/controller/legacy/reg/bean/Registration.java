@@ -1827,6 +1827,8 @@ public class Registration
                             break;
                         }
                     }
+                    log.debug("anonymous group " + anonGroup.getId());
+                    log.debug("users group " + userGroup.getId());
 
                     UserPrincipal up = new UserPrincipal("", user.getUserId());
                     pmr.addUserToGroup(anonGroup, up, tcs);
