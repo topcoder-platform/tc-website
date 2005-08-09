@@ -9,6 +9,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.09.05<br>10:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm257_prob">SRM 257 - Problem Set & Analysis</A></span><br><br>
+      With solid times on all three problems, <tc-webtag:handle coderId="10574855" context="algorithm"/> took first by over 100 points. <tc-webtag:handle coderId="8547850" context="algorithm"/> had the best time one the hard problem by far, and despite a failed medium submission, he took second.</td>
+      <td class="newsPhoto"><img src="/i/m/lbackstrom_mug.gif" /><br>by <tc-webtag:handle coderId="159052" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm257_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>08.08.05<br>9:15 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=citigroup">Citigroup chat session scheduled for SRM 257</A></span><br><br>
       Citigroup will be in the Arena Applet at 8:00 PM tonight, just before the start of SRM 257, to discuss working at Citigroup.
@@ -54,7 +69,7 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm255_prob">full story</A>&#160;|&#160;
+         <A href="/index?t=statistics&c=srm256_prob">full story</A>&#160;|&#160;
          <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
 
@@ -234,17 +249,6 @@ One of the most crucial aspects to how quickly a problem can be solved is how th
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=contracting&d2=citigroup">details</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.18.05<br>8:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>">New TopCoder Forums</A></span><br><br>
-      We're very excited to introduce the new TopCoder Forums. Some of the new functionality includes syntax highlighting, RSS, thread watch lists, post previewing, post editing, post history listings for every member, and improved searching.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>">view</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 
