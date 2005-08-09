@@ -42,7 +42,7 @@
           <a target="_blank" href="http://www.santaclaramarriott.com">www.santaclaramarriott.com</a><br />
 
             <p>
-                A hotel room will be confirmed for your arrival on October 12th and departure on October 15th.
+                A hotel room will be confirmed for your arrival on October 11th and departure on October 15th.
                 The check-in time is 3:00PM and check out time is 11:00AM. If you have any special requests, please
                 indicate them on the travel form below. The cost of your sleeping room and applicable taxes will be
                 charged to the TopCoder master account. You will be required, however, to provide a credit card upon
@@ -121,7 +121,7 @@
             </tr>
 
             <tr>
-              <td align="right"><input type="hidden" name="q44" value="<td align="right"><input type="hidden" name="q44" value="October 11, 2005 - Preferred arrival time"/>October 11, 2005 - Preferred arrival time:</td>
+              <td align="right"><input type="hidden" name="q44" value="October 11, 2005 - Preferred arrival time"/>October 11, 2005 - Preferred arrival time:</td>
               <td align="left"><select name="a44"><option value="AM">AM</option><option value="PM">PM</option></select></td>
            </tr>
 
