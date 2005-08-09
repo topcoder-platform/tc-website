@@ -1,5 +1,7 @@
 /*
  * Created on Jun 6, 2005
+ * 
+ * @author mktong
  */
 package com.topcoder.web.forums.controller.request;
 
