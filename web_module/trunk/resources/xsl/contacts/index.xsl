@@ -67,6 +67,7 @@
                                     
                                 <td width="50%" align="left" class="bodyText">
                                     <p><strong>Contact us by email</strong><br />
+                                    <A href="mailto:service@topcoder.com" class="bodyText">Membership</A><br />
                                     <A href="mailto:service@topcoder.com" class="bodyText">General Questions</A><br />
                                     <A href="mailto:service@topcoder.com" class="bodyText">Competition Tech Support</A><br />
                                     <A href="mailto:service@topcodersoftware.com" class="bodyText">Software Tech Support</A></p>
@@ -119,7 +120,7 @@
                                 </td>
                                     
                                 <td width="50%" align="left" class="bodyText">
-                                    <p><a href="mailto:jdamato@topcoder.com" class="bodyText">Membership / College Relations</a><br />
+                                    <p><a href="mailto:jdamato@topcoder.com" class="bodyText">Events / College Relations</a><br />
                                     Jessie D'Amato<br />
                                     tel: 860.633.5540<br />
                                     fax: 860.657.4276<br />
