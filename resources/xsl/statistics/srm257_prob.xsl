@@ -150,10 +150,8 @@ The simplest way to solve this problem was to look at each character in the code
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=3494&amp;rd=8005" name="3494">BridgePts</a></b>
 </font>
-<A href="Javascript:openProblemRating(3494)"><img hspace="10" border="0" height="
-18" width="60" src="/i/rate_it.gif"/></A><br />
+<A href="Javascript:openProblemRating(3494)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
-
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Value</b>
@@ -163,39 +161,35 @@ Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
     </td>
   </tr>
   <tr>
-
     <td class="bodyText" style="background: #eee;">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      301 / 340 (88.53%)
+      297 / 336 (88.39%)
     </td>
   </tr>
   <tr>
     <td class="bodyText" style="background: #eee;">
-
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      240 / 301 (79.73%)
+      238 / 297 (80.13%)
     </td>
   </tr>
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>High Score</b>
-
     </td>
     <td class="bodyText" style="background: #eee;">
-      <b>agent_smith</b> for 499.83 points (0 mins 31 secs)
+      <b>RNGAN</b> for 492.35 points (3 mins 33 secs)
     </td>
   </tr>
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Average Score</b>
-
     </td>
     <td class="bodyText" style="background: #eee;">
-      377.21 (for 240 correct submissions)
+      376.81 (for 238 correct submissions)
     </td>
   </tr>
 </table></blockquote>
