@@ -24,7 +24,7 @@ public class Admin extends ForumsProcessor {
         try {
             PermissionsManager permManager = forumFactory.getPermissionsManager();
         } catch (UnauthorizedException uae) {
-            setNextPage("/main.jsp");
+            setNextPage("?module=ForumList");
             setIsNextPageInContext(false);
             return;
         }
