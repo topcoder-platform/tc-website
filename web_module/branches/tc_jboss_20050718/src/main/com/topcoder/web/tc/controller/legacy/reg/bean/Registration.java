@@ -1802,10 +1802,12 @@ public class Registration
                     userServices = userServicesHome.create(user);
                     activationCode = StringUtils.getActivationCode(coder.getCoderId());
                     coder.setActivationCode(activationCode);
+                    log.debug("activation code set to " + activationCode);
                     coder.setModified("U");
                 }
 
                 userServices.setUser(user);
+                log.debug("XXXXXXXXXX set User called");
 
                 user.setModified("S");
                 coder.setAllModifiedStable();
