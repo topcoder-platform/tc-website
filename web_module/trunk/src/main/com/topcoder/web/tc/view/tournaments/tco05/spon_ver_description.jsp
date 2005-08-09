@@ -29,7 +29,7 @@ Best of luck and let the competition begin!
 *The Common Application Framework is a joint initiative between O&I, VNDS, VCS and VSS dedicated to developing a collection of non-application specific software components for use with Java-based online transaction processing systems. For more information about using CAF in your project, contact <A href="mailto:gbryant@verisign.com">Grady Bryant</A>.
 <br><br>
 <span class="bigTitle">Register Now</span><br>
-How to Register for the TCO Sponsor Track Competition:
+How to Register for the TCO VeriSign Sponsor Track Competition:
 <br><br>
 <span class="bodySubtitle">Already a TopCoder Member?</span>
 <ul>
