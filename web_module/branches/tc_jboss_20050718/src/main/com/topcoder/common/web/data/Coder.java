@@ -236,8 +236,10 @@ public class Coder implements Serializable, TagRenderer {
     }
 
     public void setModified(String modified) {
+/*
         log.debug("setModified called");
         Thread.dumpStack();
+*/
         this.modified = modified;
     }
 
