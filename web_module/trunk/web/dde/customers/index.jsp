@@ -88,6 +88,21 @@
 
              <hr width="100%" size="1px" noshade>
 
+<!-- IDENTITY MANAGEMENT begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/id_manage_logo.gif" alt="Identity Management" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">With a proven track record of success within Fortune 100 organizations, TopCoder Software’s identity and access management solutions centralize users and passwords, allowing organizations to reduce maintenance cost, improve accessibility and enforce consistent security policies.<br><br>
+                    <A href="http://<%=ApplicationServer.TC_SERVER%>/?t=sponsor&c=link&link=http://software.topcoder.com/pdfs/casestudies/identity_management.pdf&refer=homepage" target="_blank">case study</A>
+                     </td>
+                </tr>
+            </table>
+
+<!-- IDENTITY MANAGEMENT ends -->
+
+             <hr width="100%" size="1px" noshade>
+
 <!-- Salk begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
