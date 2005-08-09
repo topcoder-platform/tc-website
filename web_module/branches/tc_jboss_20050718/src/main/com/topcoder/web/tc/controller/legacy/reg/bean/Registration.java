@@ -1801,9 +1801,11 @@ public class Registration
                 } else {
                     userServices = userServicesHome.create(user);
                     activationCode = StringUtils.getActivationCode(coder.getCoderId());
+                    coder = (CoderRegistration)user.getUserTypeDetails().get(CODER);
                     coder.setActivationCode(activationCode);
                     log.debug("activation code set to " + activationCode);
                     coder.setModified("U");
+                    user.getUserTypeDetails().put(CODER, coder);
                 }
 
                 userServices.setUser(user);
