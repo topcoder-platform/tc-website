@@ -79,29 +79,16 @@
                     </td>
                 </tr>
 
-<!-- Small promos begins -->
-<!-- Small promos ends -->
-
             </table>
 
-<!-- Featured Customers begins -->
 			<jsp:include page="/includes/customers_featured.jsp" flush="true" />
-<!-- Featured Customers ends -->
-
-<!-- Press Highlights begins -->
-            <jsp:include page="/includes/press_highlights.jsp" flush="true" />
-<!-- Press Highlights ends -->
-
+         <jsp:include page="/includes/press_highlights.jsp" flush="true" />
             <p><br></p>
 
         </td>
-<!-- Middle Column ends -->
 
-<!-- Gutter 2 begins -->
+
         <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-<!-- Gutter 2 ends -->
-
-<!-- Right Column begins -->
         <td width="170">
         <jsp:include page="/includes/topDownloads.jsp" />
         <jsp:include page="/includes/right.jsp" >
@@ -113,12 +100,7 @@
             <jsp:param name="level1" value="index"/>
         </jsp:include>
         </td>
-<!--Right Column ends -->
-
-<!-- Gutter 3 begins -->
         <td width="10"><img src="/images/clear.gif" alt="" width="10" height="10" border="0" /></td>
-<!-- Gutter 3 ends -->
-
     </tr>
 </table>
 
