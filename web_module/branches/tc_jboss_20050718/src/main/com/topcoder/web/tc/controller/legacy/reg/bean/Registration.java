@@ -35,6 +35,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.tc.view.reg.tag.Demographic;
 import com.topcoder.web.tc.view.reg.tag.Notification;
 import com.topcoder.web.tc.view.reg.tag.StateSelect;
@@ -1811,8 +1812,10 @@ public class Registration
                 userServices.setUser(user);
                 log.debug("XXXXXXXXXX set User called");
 
+/*
                 user.setModified("S");
                 coder.setAllModifiedStable();
+*/
                 tm.commit();
 
 

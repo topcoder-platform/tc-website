@@ -4,11 +4,15 @@ import com.topcoder.common.web.util.Data;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.TagRenderer;
 import com.topcoder.shared.docGen.xml.ValueTag;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Coder implements Serializable, TagRenderer {
+
+
+    private static Logger log = Logger.getLogger(Coder.class);
 
     private long coderId;
     private String firstName;
@@ -232,6 +236,8 @@ public class Coder implements Serializable, TagRenderer {
     }
 
     public void setModified(String modified) {
+        log.debug("setModified called");
+        Thread.dumpStack();
         this.modified = modified;
     }
 
