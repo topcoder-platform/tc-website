@@ -3,7 +3,7 @@
  */
 package com.topcoder.web.forums.controller.request;
 
-import com.jivesoftware.base.UnauthorizedException;;
+import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.PermissionsManager;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
