@@ -135,7 +135,7 @@
 <%-- Right Column --%>
       <td class=homeRightCol>
       <table width="100%" border="0" cellpadding=0 cellspacing=0>
-         <tr><td class="homeBigPromo"><A href="/pl/?module=Static&d1=google05&d2=overview"><img src="/i/home/promos/gcj05.gif" alt="GCJ 05" border="0" /></A></td></tr>
+         <tr><td class="homeBigPromo"><A href="/movies/press/cnn_072405.mp4"><img src="/i/home/mov_cnn_072405.jpg" alt="TopCoder Movies" border="0" /></A></td></tr>
       </table>
       <table width="100%" border="0" cellpadding=0 cellspacing=0>
          <tr>

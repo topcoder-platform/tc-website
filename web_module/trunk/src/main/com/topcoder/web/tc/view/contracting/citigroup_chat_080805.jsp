@@ -250,58 +250,60 @@ Take a look at <A href="/tc?module=Static&d1=contracting&d2=citigroup">Citigroup
 <tr><td class="light"><b>merolish</b></td><td class="light">Want to tell us about the strategies you're working on? :)</td></tr>
 <tr><td class="dark"><b>abi_k</b></td><td class="dark">citigroup1: do you expect a major in cs/math? I am a major in electrical eng. but have been doing good in tc/ACM.</td></tr>
 <tr><td class="light"><span class="bigRed">citigroup3</span></td><td class="light"><span class="bigRed">how to deal with memory allocation / pointer structures / key speed algorithms.  there is a lot that you dont need to know as a java ./ c# only developer. While ok in most development - it ios hard to be a guru level if you dont know how to build</span></td></tr>
-<tr><td class="dark"><span class="bigRed">citigroup3</span></td><td class="dark"><span class="bigRed"> some of the structurs from scratch2005-08-08 20:33:27.096	citigroup4	merolish: of course, we'll tell you all of our secrets. so which competitor do you work at? :)</span></td></tr>
-<tr><td class="light"><b>abi_k</b></td><td class="light">citigroup1: with a minor in cs</td></tr>
-<tr><td class="dark"><span class="bigRed">citigroup1</span></td><td class="dark"><span class="bigRed">that's what I do... in the daytime you get distracted a lot, but in the evenings you can spend some time to concentrate...</span></td></tr>
-<tr><td class="light"><span class="bigRed">citigroup1</span></td><td class="light"><span class="bigRed">like in the daytime you're more multitask vs in the evenings you can complete everything</span></td></tr>
-<tr><td class="dark"><span class="bigRed">citigroup4</span></td><td class="dark"><span class="bigRed">merolish: more seriously, we make the computers make trading decisions in US equities and exchange-traded equity derivatives</span></td></tr>
-<tr><td class="light"><span class="bigRed">citigroup3</span></td><td class="light"><span class="bigRed">we solve fun problems.  when you solve fun problems you want to see them completed and the time is not as much a factor.  additionally - there is high reward for performance</span></td></tr>
-<tr><td class="dark"><b>merolish</b></td><td class="dark">Good stuff.</td></tr>
-<tr><td class="light"><b>pinano</b></td><td class="light">citigroup3: so, a C# coder with heavy background in c shouldn't be too bad off, right?</td></tr>
-<tr><td class="dark"><b>roguexz</b></td><td class="dark">does citigroup work like most of the big corporates where time usually is not a big factor?</td></tr>
-<tr><td class="light"><span class="bigRed">citigroup4</span></td><td class="light"><span class="bigRed">roguexz: what do you mean?</span></td></tr>
-<tr><td class="dark"><span class="bigRed">citigroup1</span></td><td class="dark"><span class="bigRed">abi_k: EE is a great major. You did a lot of signal processing, I believe. And a really good thing about it is that you augmented it with a decent CS experience. You are on a very god track. Definitely send us your resume.</span></td></tr>
-<tr><td class="light"><span class="bigRed">citigroup4</span></td><td class="light"><span class="bigRed">roguexz: 'time is not a factor'?</span></td></tr>
-<tr><td class="dark"><b>Jan_Kuipers</b></td><td class="dark">citigroup1: what is the payment like? Do you get interesting bonuses on how profitable your program is? :)</td></tr>
-<tr><td class="light"><span class="bigRed">citigroup1</span></td><td class="light"><span class="bigRed">abi_k: especially your minor in CS is a good augmentation</span></td></tr>
-<tr><td class="dark"><span class="bigRed">citigroup3</span></td><td class="dark"><span class="bigRed">pinano: true.  the key is knowing the fundamentals.</span></td></tr>
-<tr><td class="light"><b>igorsk</b></td><td class="light">When do you begin hiring interns for summer 2006?</td></tr>
-<tr><td class="dark"><b>roguexz</b></td><td class="dark">well, i work for Oracle. We are a product based company, where time is not the primary factor... especially since, we control the product lines... is work with Citigroup close to that?</td></tr>
-<tr><td class="light"><span class="bigRed">citigroup4</span></td><td class="light"><span class="bigRed">igorsk: around January 2006 if we recruit on campus, any time up to May otherwise</span></td></tr>
-<tr><td class="dark"><b>pinano</b></td><td class="dark">roguexz: i work in a similar arena, but a much smaller niche ;)  i write tax administration software for my state</td></tr>
-<tr><td class="light"><b>roguexz</b></td><td class="light">what happened to the text i just typed???</td></tr>
-<tr><td class="dark"><b>pinano</b></td><td class="dark">roguexz: i expect to have, at a maximum, 92 copies of my software sold</td></tr>
-<tr><td class="light"><span class="bigRed">citigroup3</span></td><td class="light"><span class="bigRed">Jan_Kuipers: we dont lose people because of pay.  if you work as hard as we do - compensation is top anywhere around.  we have to be since we are so picky</span></td></tr>
-<tr><td class="dark"><span class="bigRed">citigroup3</span></td><td class="dark"><span class="bigRed">Jan_Kuipers: and having good algorithms is the lifeblood of our business</span></td></tr>
-<tr><td class="light"><b>nfamus</b></td><td class="light">Are you looking for COBOL programmers.</td></tr>
-<tr><td class="dark"><b>Lord-Venom</b></td><td class="dark">what is the application process for intern</td></tr>
-<tr><td class="light"><span class="bigRed">citigroup4</span></td><td class="light"><span class="bigRed">roguexz: we produce products, but the users can come hunt you down if you are slow delivering</span></td></tr>
-<tr><td class="dark"><span class="bigRed">citigroup1</span></td><td class="dark"><span class="bigRed">nfamus: CitiTech would be VERY interested in COBOL programmers</span></td></tr>
-<tr><td class="light"><span class="bigRed">citigroup3</span></td><td class="light"><span class="bigRed">nfamus: we are not - but other groups may be.  cobol is in demand but specific groups.  often the mainframe groups which is not us</span></td></tr>
-<tr><td class="dark"><span class="bigRed">citigroup4</span></td><td class="dark"><span class="bigRed">roguexz: also if there are any problems intraday, you may have to fix them within minutes</span></td></tr>
-<tr><td class="light"><b>igorsk</b></td><td class="light">citigroup4: Is there any chance of interviewing for Summer 2006 earlier? My current employer will want to know whether i'm coming back by November</td></tr>
-<tr><td class="dark"><span class="bigRed">citigroup4</span></td><td class="dark"><span class="bigRed">igorsk: for an internship or full time?</span></td></tr>
-<tr><td class="light"><b>nfamus</b></td><td class="light">citigroup1: Thanks, I will look in to that.</td></tr>
-<tr><td class="dark"><b>merolish</b></td><td class="dark">Which developer tools do you use?</td></tr>
-<tr><td class="light"><b>igorsk</b></td><td class="light">citigroup4: internship</td></tr>
-<tr><td class="dark"><b>roguexz</b></td><td class="dark">citigroup4: I never meant that we are slow producers. ... once the product is with the ustomer, then they decide what timelines we work at ... but at the conception stage, it is pretty much what we want... :)</td></tr>
-<tr><td class="light"><b>Jan_Kuipers</b></td><td class="light">citigroup3: How large are the budgets your stock trading algorithms are working with?</td></tr>
-<tr><td class="dark"><span class="bigRed">citigroup3</span></td><td class="dark"><span class="bigRed">nfamus: We are starting a new summer internship program next year for 'elite' technology developers.  I would check out citi;s career web site for details</span></td></tr>
-<tr><td class="light"><span class="bigRed">citigroup4</span></td><td class="light"><span class="bigRed">igorsk: november is standard for full time but i haven't heard of it for internships. most internships require decisions in february or march. if you're good maybe we can interview you before your nov. deadline, possibly</span></td></tr>
-<tr><td class="dark"><b>Ragnarok</b></td><td class="dark">OlexiyO: :)</td></tr>
-<tr><td class="light"><b>OlexiyO</b></td><td class="light">Ragnarok: yo man</td></tr>
-<tr><td class="dark"><span class="bigRed">citigroup3</span></td><td class="dark"><span class="bigRed">Jan_Kuipers: We base capital off risk. different than traditional measures.  All together - algorithms trade over 50% of all stock.  We are amoung the largest players.</span></td></tr>
-<tr><td class="light"><span class="bigRed">citigroup4</span></td><td class="light"><span class="bigRed">roguexz: conception comes from the business; it dictates the features and performance necessary to compete</span></td></tr>
-<tr><td class="dark"><b>roguexz</b></td><td class="dark">citigroup4: true. but what i have noticed in most of the product based companies (from all my friends, etc) is that they are primarily lazy... no offense to any company,but that is a fact dude... :-)</td></tr>
-<tr><td class="light"><b>schoi21c</b></td><td class="light">people flooding into the room ... :)</td></tr>
-<tr><td class="dark"><b>prayanks</b></td><td class="dark">citigroup1: what kind of questions are asked in interviews, can you give us example of a real question?</td></tr>
-<tr><td class="light"><b>ankitgupta</b></td><td class="light">does citigroup offer summer internship to students?</td></tr>
-<tr><td class="dark"><span class="bigRed">citigroup4</span></td><td class="dark"><span class="bigRed">ankit, yes</span></td></tr>
-<tr><td class="light"><b>Talyn11</b></td><td class="light">can you tell us the benefits to working for citigroup?</td></tr>
-<tr><td class="dark"><span class="bigRed">citigroup3</span></td><td class="dark"><span class="bigRed">roguexz: Most are lazy.  That is why we have small specialized groups that are focused on hard problems that are core to the business.  look at pixar - it is product based but the tech challenges are huge</span></td></tr>
-<tr><td class="light"><b>debugger123</b></td><td class="light">in citigroup any other softwares they are doing except citibank</td></tr>
-<tr><td class="dark"><span class="bigRed">citigroup1</span></td><td class="dark"><span class="bigRed">prayanks: In which area? Are you comfortable with financial math question now?</span></td></tr>
-<tr><td class="light"><span class="bigRed">citigroup3</span></td><td class="light"><span class="bigRed">roguexz: we are similar.  our product is our lifeblood.  if we are lazy - we are dead2005-08-08 20:44:14.727	citigroup4	Talyn11: good hours, interesting challenges, compensation, the opportunity to make a large impact (because we are such a large player in the markets)</span></td></tr>
+<tr><td class="dark"><span class="bigRed">citigroup3</span></td><td class="dark"><span class="bigRed"> some of the structurs from scratch</span></td></tr>
+<tr><td class="light"><span class="bigRed">citigroup4</span></td><td class="light"><span class="bigRed">merolish: of course, we'll tell you all of our secrets. so which competitor do you work at? :)</span></td></tr>
+<tr><td class="dark"><b>abi_k</b></td><td class="dark">citigroup1: with a minor in cs</td></tr>
+<tr><td class="light"><span class="bigRed">citigroup1</span></td><td class="light"><span class="bigRed">that's what I do... in the daytime you get distracted a lot, but in the evenings you can spend some time to concentrate...</span></td></tr>
+<tr><td class="dark"><span class="bigRed">citigroup1</span></td><td class="dark"><span class="bigRed">like in the daytime you're more multitask vs in the evenings you can complete everything</span></td></tr>
+<tr><td class="light"><span class="bigRed">citigroup4</span></td><td class="light"><span class="bigRed">merolish: more seriously, we make the computers make trading decisions in US equities and exchange-traded equity derivatives</span></td></tr>
+<tr><td class="dark"><span class="bigRed">citigroup3</span></td><td class="dark"><span class="bigRed">we solve fun problems.  when you solve fun problems you want to see them completed and the time is not as much a factor.  additionally - there is high reward for performance</span></td></tr>
+<tr><td class="light"><b>merolish</b></td><td class="light">Good stuff.</td></tr>
+<tr><td class="dark"><b>pinano</b></td><td class="dark">citigroup3: so, a C# coder with heavy background in c shouldn't be too bad off, right?</td></tr>
+<tr><td class="light"><b>roguexz</b></td><td class="light">does citigroup work like most of the big corporates where time usually is not a big factor?</td></tr>
+<tr><td class="dark"><span class="bigRed">citigroup4</span></td><td class="dark"><span class="bigRed">roguexz: what do you mean?</span></td></tr>
+<tr><td class="light"><span class="bigRed">citigroup1</span></td><td class="light"><span class="bigRed">abi_k: EE is a great major. You did a lot of signal processing, I believe. And a really good thing about it is that you augmented it with a decent CS experience. You are on a very god track. Definitely send us your resume.</span></td></tr>
+<tr><td class="dark"><span class="bigRed">citigroup4</span></td><td class="dark"><span class="bigRed">roguexz: 'time is not a factor'?</span></td></tr>
+<tr><td class="light"><b>Jan_Kuipers</b></td><td class="light">citigroup1: what is the payment like? Do you get interesting bonuses on how profitable your program is? :)</td></tr>
+<tr><td class="dark"><span class="bigRed">citigroup1</span></td><td class="dark"><span class="bigRed">abi_k: especially your minor in CS is a good augmentation</span></td></tr>
+<tr><td class="light"><span class="bigRed">citigroup3</span></td><td class="light"><span class="bigRed">pinano: true.  the key is knowing the fundamentals.</span></td></tr>
+<tr><td class="dark"><b>igorsk</b></td><td class="dark">When do you begin hiring interns for summer 2006?</td></tr>
+<tr><td class="light"><b>roguexz</b></td><td class="light">well, i work for Oracle. We are a product based company, where time is not the primary factor... especially since, we control the product lines... is work with Citigroup close to that?</td></tr>
+<tr><td class="dark"><span class="bigRed">citigroup4</span></td><td class="dark"><span class="bigRed">igorsk: around January 2006 if we recruit on campus, any time up to May otherwise</span></td></tr>
+<tr><td class="light"><b>pinano</b></td><td class="light">roguexz: i work in a similar arena, but a much smaller niche ;)  i write tax administration software for my state</td></tr>
+<tr><td class="dark"><b>roguexz</b></td><td class="dark">what happened to the text i just typed???</td></tr>
+<tr><td class="light"><b>pinano</b></td><td class="light">roguexz: i expect to have, at a maximum, 92 copies of my software sold</td></tr>
+<tr><td class="dark"><span class="bigRed">citigroup3</span></td><td class="dark"><span class="bigRed">Jan_Kuipers: we dont lose people because of pay.  if you work as hard as we do - compensation is top anywhere around.  we have to be since we are so picky</span></td></tr>
+<tr><td class="light"><span class="bigRed">citigroup3</span></td><td class="light"><span class="bigRed">Jan_Kuipers: and having good algorithms is the lifeblood of our business</span></td></tr>
+<tr><td class="dark"><b>nfamus</b></td><td class="dark">Are you looking for COBOL programmers.</td></tr>
+<tr><td class="light"><b>Lord-Venom</b></td><td class="light">what is the application process for intern</td></tr>
+<tr><td class="dark"><span class="bigRed">citigroup4</span></td><td class="dark"><span class="bigRed">roguexz: we produce products, but the users can come hunt you down if you are slow delivering</span></td></tr>
+<tr><td class="light"><span class="bigRed">citigroup1</span></td><td class="light"><span class="bigRed">nfamus: CitiTech would be VERY interested in COBOL programmers</span></td></tr>
+<tr><td class="dark"><span class="bigRed">citigroup3</span></td><td class="dark"><span class="bigRed">nfamus: we are not - but other groups may be.  cobol is in demand but specific groups.  often the mainframe groups which is not us</span></td></tr>
+<tr><td class="light"><span class="bigRed">citigroup4</span></td><td class="light"><span class="bigRed">roguexz: also if there are any problems intraday, you may have to fix them within minutes</span></td></tr>
+<tr><td class="dark"><b>igorsk</b></td><td class="dark">citigroup4: Is there any chance of interviewing for Summer 2006 earlier? My current employer will want to know whether i'm coming back by November</td></tr>
+<tr><td class="light"><span class="bigRed">citigroup4</span></td><td class="light"><span class="bigRed">igorsk: for an internship or full time?</span></td></tr>
+<tr><td class="dark"><b>nfamus</b></td><td class="dark">citigroup1: Thanks, I will look in to that.</td></tr>
+<tr><td class="light"><b>merolish</b></td><td class="light">Which developer tools do you use?</td></tr>
+<tr><td class="dark"><b>igorsk</b></td><td class="dark">citigroup4: internship</td></tr>
+<tr><td class="light"><b>roguexz</b></td><td class="light">citigroup4: I never meant that we are slow producers. ... once the product is with the ustomer, then they decide what timelines we work at ... but at the conception stage, it is pretty much what we want... :)</td></tr>
+<tr><td class="dark"><b>Jan_Kuipers</b></td><td class="dark">citigroup3: How large are the budgets your stock trading algorithms are working with?</td></tr>
+<tr><td class="light"><span class="bigRed">citigroup3</span></td><td class="light"><span class="bigRed">nfamus: We are starting a new summer internship program next year for 'elite' technology developers.  I would check out citi;s career web site for details</span></td></tr>
+<tr><td class="dark"><span class="bigRed">citigroup4</span></td><td class="dark"><span class="bigRed">igorsk: november is standard for full time but i haven't heard of it for internships. most internships require decisions in february or march. if you're good maybe we can interview you before your nov. deadline, possibly</span></td></tr>
+<tr><td class="light"><b>Ragnarok</b></td><td class="light">OlexiyO: :)</td></tr>
+<tr><td class="dark"><b>OlexiyO</b></td><td class="dark">Ragnarok: yo man</td></tr>
+<tr><td class="light"><span class="bigRed">citigroup3</span></td><td class="light"><span class="bigRed">Jan_Kuipers: We base capital off risk. different than traditional measures.  All together - algorithms trade over 50% of all stock.  We are amoung the largest players.</span></td></tr>
+<tr><td class="dark"><span class="bigRed">citigroup4</span></td><td class="dark"><span class="bigRed">roguexz: conception comes from the business; it dictates the features and performance necessary to compete</span></td></tr>
+<tr><td class="light"><b>roguexz</b></td><td class="light">citigroup4: true. but what i have noticed in most of the product based companies (from all my friends, etc) is that they are primarily lazy... no offense to any company,but that is a fact dude... :-)</td></tr>
+<tr><td class="dark"><b>schoi21c</b></td><td class="dark">people flooding into the room ... :)</td></tr>
+<tr><td class="light"><b>prayanks</b></td><td class="light">citigroup1: what kind of questions are asked in interviews, can you give us example of a real question?</td></tr>
+<tr><td class="dark"><b>ankitgupta</b></td><td class="dark">does citigroup offer summer internship to students?</td></tr>
+<tr><td class="light"><span class="bigRed">citigroup4</span></td><td class="light"><span class="bigRed">ankit, yes</span></td></tr>
+<tr><td class="dark"><b>Talyn11</b></td><td class="dark">can you tell us the benefits to working for citigroup?</td></tr>
+<tr><td class="light"><span class="bigRed">citigroup3</span></td><td class="light"><span class="bigRed">roguexz: Most are lazy.  That is why we have small specialized groups that are focused on hard problems that are core to the business.  look at pixar - it is product based but the tech challenges are huge</span></td></tr>
+<tr><td class="dark"><b>debugger123</b></td><td class="dark">in citigroup any other softwares they are doing except citibank</td></tr>
+<tr><td class="light"><span class="bigRed">citigroup1</span></td><td class="light"><span class="bigRed">prayanks: In which area? Are you comfortable with financial math question now?</span></td></tr>
+<tr><td class="dark"><span class="bigRed">citigroup3</span></td><td class="dark"><span class="bigRed">roguexz: we are similar.  our product is our lifeblood.  if we are lazy - we are dead</span></td></tr>
+<tr><td class="light"><span class="bigRed">citigroup4</span></td><td class="light"><span class="bigRed">Talyn11: good hours, interesting challenges, compensation, the opportunity to make a large impact (because we are such a large player in the markets)</span></td></tr>
 <tr><td class="dark"><span class="bigRed">citigroup3</span></td><td class="dark"><span class="bigRed">roguexz: that does not mean that we dont have 'lazy' groups.  that is why in product based firms you have to look carefully at the group</span></td></tr>
 <tr><td class="light"><b>prayanks</b></td><td class="light">Lets say one example of a C++ question and one example of a Fin Math question? :-)</td></tr>
 <tr><td class="dark"><span class="bigRed">citigroup4</span></td><td class="dark"><span class="bigRed">fin math: which is worth more, an asian or european option with identical terms, and why?</span></td></tr>
