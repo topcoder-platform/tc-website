@@ -8,8 +8,6 @@ import com.jivesoftware.base.PermissionsManager;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 
-import java.util.Iterator;
-
 /**
  * @author mtong
  * 
@@ -28,6 +26,7 @@ public class Admin extends ForumsProcessor {
         } catch (UnauthorizedException uae) {
             setNextPage("/main.jsp");
             setIsNextPageInContext(true);
+            return;
         }
 
         setNextPage("/admin.jsp");
