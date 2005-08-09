@@ -1811,6 +1811,8 @@ public class Registration
 
                 user.setModified("S");
                 coder.setAllModifiedStable();
+                tm.commit();
+
 
                 //auto activate
                 if (isRegister() && autoActivate) {
@@ -1824,10 +1826,6 @@ public class Registration
 
                 }
 
-                user.setModified("S");
-                coder.setAllModifiedStable();
-
-                tm.commit();
 
                 if (isRegister()) {
                     /*

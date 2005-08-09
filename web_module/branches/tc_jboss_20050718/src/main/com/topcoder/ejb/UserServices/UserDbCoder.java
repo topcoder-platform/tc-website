@@ -489,8 +489,10 @@ final class UserDbCoder {
         PreparedStatement ps = null;
         try {
             if (coder.getModified().equals("A")) {
+                log.debug("insert");
                 insertCoder(conn, coder);
             } else {
+                log.debug("update " + coder.getModified());
                 if (coder.getModified().equals("U")) {
                     StringBuffer query = new StringBuffer(540);
                     query.append(" UPDATE");
