@@ -535,6 +535,7 @@ final class UserDbCoder {
                     ps.setString(9, coder.getHomeZip());
                     ps.setString(10, coder.getWorkPhone());
                     ps.setString(11, coder.getHomePhone());
+                    log.debug("set activation code to " + coder.getActivationCode());
                     ps.setString(12, coder.getActivationCode());
                     ps.setString(13, coder.getNotify());
                     ps.setString(14, coder.getQuote());
