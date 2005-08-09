@@ -76,7 +76,7 @@
            </TR>
            <TR>
               <TD CLASS="screeningCellOdd" VALIGN="top">
-<screen:problemStatement text="<%=problemInfo.getProblemStatement()%>" language="<%=JavaLanguage.JAVA_LANGUAGE%>" class="bodyText"/>
+<screen:problemStatement text="<%=problemInfo.getProblemStatement()%>" language="<%=JavaLanguage.JAVA_LANGUAGE%>" styleClass="bodyText"/>
 <%--
 <screen:problemStatement text="<%=problemInfo.getProblemStatement()%>" language='<%="Java"%>' styleClass="bodyText"/>
 --%>
