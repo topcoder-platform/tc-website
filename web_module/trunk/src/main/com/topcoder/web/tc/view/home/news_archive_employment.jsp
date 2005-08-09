@@ -36,8 +36,10 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">08.09.05 3:35 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=contracting&d2=citigroup_chat_080805">Citigroup chat session</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.08.05 9:15 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=contracting&d2=citigroup">Citigroup chat session scheduled for SRM 257</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.02.05 2:55 PM&#160;-&#160</td><td width="100%">New internship opening at <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=506838">Yahoo!</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">07.20.05 9:00 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=contracting&d2=citigroup_chat_071905">Citigroup chat session</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.18.05 4:50 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=contracting&d2=citigroup">Citigroup chat session scheduled for SRM 252</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.07.05 3:35 PM&#160;-&#160</td><td width="100%"><A href="/rtables/viewForum.jsp?forum=504996&mc=2">VeriSign Employment Discussion</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.07.05 11:25 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign_chat">VeriSign chat session</A></td></tr>

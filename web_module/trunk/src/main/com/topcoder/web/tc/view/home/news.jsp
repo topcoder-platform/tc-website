@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>08.09.05<br>3:35 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=citigroup_chat_080805">Citigroup chat session</A></span><br><br>
+      Citigroup spoke with the members lastnight, just before the start of SRM 257, to discuss working at Citigroup.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=contracting&d2=citigroup_chat_080805">view</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.09.05<br>10:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -236,18 +248,6 @@ One of the most crucial aspects to how quickly a problem can be solved is how th
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=contracting&d2=citigroup_chat_071905">details</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>07.18.05<br>4:50 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=citigroup">Citigroup chat session scheduled for SRM 252</A></span><br><br>
-      Citigroup will be in the Arena Applet at 8:00 PM, just before the start of SRM 252 to discuss working at Citigroup.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=contracting&d2=citigroup">details</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
