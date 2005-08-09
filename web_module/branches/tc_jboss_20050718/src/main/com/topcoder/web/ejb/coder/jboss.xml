@@ -8,6 +8,10 @@
             <ejb-name>Coder</ejb-name>
             <jndi-name>com.topcoder.web.ejb.coder.CoderHome</jndi-name>
         </session>
+        <session>
+            <ejb-name>CoderImage</ejb-name>
+            <jndi-name>com.topcoder.web.ejb.coder.CoderImageHome</jndi-name>
+        </session>
     </enterprise-beans>
 </jboss>
 
