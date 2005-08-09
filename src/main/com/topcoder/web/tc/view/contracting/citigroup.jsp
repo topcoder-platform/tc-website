@@ -51,8 +51,9 @@ Citigroup's Equity Derivative division is looking to hire top talent to solve so
 Our proprietary trading and risk analysis software is the lifeblood of our business.  Knowledge of finance is not important - a sharp mind and a love of complex problems is what matters. Nestled inside the world's largest financial company - we are a tight knit and dedicated group.  We want to find like minded candidates at all levels of experience to join our team.
 <br><br>
 Citigroup recently chatted with the members about Employment Opportunities before several SRMs. Take a look:<br>
-<A href="/tc?module=Static&d1=contracting&d2=citigroup_chat">06.21.05</A><br>
-<A href="/tc?module=Static&d1=contracting&d2=citigroup_chat_071905">07.19.05</A>
+<A href="/tc?module=Static&d1=contracting&d2=citigroup_chat">06.21.05</A>
+<br><A href="/tc?module=Static&d1=contracting&d2=citigroup_chat_071905">07.19.05</A>
+<br><A href="/tc?module=Static&d1=contracting&d2=citigroup_chat_080805">08.08.05</A>
 <br/><br/>
       <a href="/tc?module=JobHit&jid=297&jt=4">Apply now to be contacted by Citigroup!</a>
 		<br/><br/>
