@@ -1807,7 +1807,32 @@ public class Registration
 
                 userServices.setUser(user);
 
+                user.setModified("S");
+                coder.setAllModifiedStable();
+
+                //auto activate
+                if (isRegister() && autoActivate) {
+                    InitialContext ctx = TCContext.getInitial();
+                    com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
+                    doLegacyCrap(coder.getCoderId());
+                    Email email = (Email) BaseProcessor.createEJB(ctx, Email.class);
+                    email.setStatusId(email.getPrimaryEmailId(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME),
+                            1, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    userbean.setStatus(coder.getCoderId(), ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
+
+                }
+
+                user.setModified("S");
+                coder.setAllModifiedStable();
+
+                tm.commit();
+
                 if (isRegister()) {
+                    /*
+                        bleh, can't do this in the transaction because the transaction
+                        is taking place on a different datasource than the security tool uses
+                        therefore, it would not know that the security_user row has been inserted.
+                    */
                     Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
                     PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
                     PrincipalMgrRemote pmr = pmrh.create();
@@ -1827,8 +1852,7 @@ public class Registration
                             break;
                         }
                     }
-                    log.debug("anonymous group " + anonGroup.getId());
-                    log.debug("users group " + userGroup.getId());
+                    log.debug("user " + user.getUserId());
 
                     UserPrincipal up = new UserPrincipal("", user.getUserId());
                     pmr.addUserToGroup(anonGroup, up, tcs);
@@ -1837,24 +1861,12 @@ public class Registration
                     SecurityHelper.getUserSubject(user.getUserId(), true);
                 }
 
-                user.setModified("S");
-                coder.setAllModifiedStable();
 
-                //auto activate
-                if (isRegister() && autoActivate) {
-                    InitialContext ctx = TCContext.getInitial();
-                    com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
-                    doLegacyCrap(coder.getCoderId());
-                    Email email = (Email) BaseProcessor.createEJB(ctx, Email.class);
-                    email.setStatusId(email.getPrimaryEmailId(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME),
-                            1, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    userbean.setStatus(coder.getCoderId(), ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
-
-                }
-
-                user.setModified("S");
-                coder.setAllModifiedStable();
-
+                /*
+                    this create school and activation stuff is not in the transaction either.
+                    not for any good reason, once we unite the data into the commmon database
+                    we can get this all going correctly.
+                */
                 if (createdSchool) {
                     com.topcoder.web.ejb.school.School s =
                             (com.topcoder.web.ejb.school.School) BaseProcessor.createEJB(context,
@@ -1872,7 +1884,6 @@ public class Registration
                     userbean.setStatus(coder.getCoderId(), ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
                 }
 
-                tm.commit();
             } catch (Exception e) {
                 if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE)
                     tm.rollback();
