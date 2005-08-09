@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>08.09.05<br>6:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/movies/press/cnn_072405.mp4">TopCoder on CNN International</A></span><br><br>
+      "It's all about creating a global coding meritocracy."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/movies/press/cnn_072405.mp4">watch movie</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>08.09.05<br>3:35 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=citigroup_chat_080805">Citigroup chat session</A></span><br><br>
       Citigroup spoke with the members lastnight, just before the start of SRM 257, to discuss working at Citigroup.
@@ -237,18 +249,6 @@ One of the most crucial aspects to how quickly a problem can be solved is how th
    <tr><td class="newsLinksCell">
          <A href="/?RoundId=7227&t=schedule&c=srm">details</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>07.20.05<br>11:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=citigroup_chat_071905">Citigroup Employment Opportunities chat session</A></span><br><br>
-      Citigroup recently chatted with the members about Employment Opportunities before SRM 252. Take a look.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=contracting&d2=citigroup_chat_071905">details</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
 
