@@ -15,6 +15,9 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 
+import java.util.Calendar;
+import java.util.Iterator;
+
 /**
  * @author mtong
  * 
@@ -53,12 +56,20 @@ public class Admin extends ForumsProcessor {
     // In <pre></pre> blocks in posts before the launch of Jive 4.2.1 (7/17/05), replaces certain 
     // characters with their HTML escape codes.  
     private void escapeHTML() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2005,7,17);
         try {
-            Forum f = forumFactory.getForum(440109);
-            ForumMessageIterator it = f.getMessages();
-            while (it.hasNext()) {
-                ForumMessage m = (ForumMessage)it.next();
-                m.setBody(parse(m.getUnfilteredBody()));
+            Iterator itForums = forumFactory.getForums();
+            while (itForums.hasNext()) {
+                Forum f = (Forum)itForums.next();
+                log.info(user.getUsername() + " running escapeHTML() on forum: " + f.getName());
+                ForumMessageIterator itMessages = f.getMessages();
+                while (itMessages.hasNext()) {
+                    ForumMessage m = (ForumMessage)itMessages.next();
+                    if (m.getCreationDate().before(calendar.getTime())) {
+                        m.setBody(parse(m.getUnfilteredBody()));
+                    }
+                }
             }
         } catch (Exception e) {
             log.debug("escapeHTML() failed");
