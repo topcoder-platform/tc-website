@@ -42,12 +42,12 @@ public class Admin extends ForumsProcessor {
         
         log.info(user.getUsername() + " has accessed the admin tool.");
         
-        // process command
-        String command = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ADMIN_COMMAND));
-        if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
-            log.info(user.getUsername() + " running command: " + command);
-            escapeHTML();
-        }
+        // process command - temporarily disabled
+        //String command = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ADMIN_COMMAND));
+        //if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
+        //    log.info(user.getUsername() + " running command: " + command);
+        //    escapeHTML();
+        //}
 
         setNextPage("/admin.jsp");
         setIsNextPageInContext(true);
@@ -57,7 +57,7 @@ public class Admin extends ForumsProcessor {
     // characters with their HTML escape codes.  
     private void escapeHTML() {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(2005,7,17);
+        calendar.set(2005,6,17);
         try {
             Iterator itForums = forumFactory.getForums();
             while (itForums.hasNext()) {
@@ -79,10 +79,10 @@ public class Admin extends ForumsProcessor {
     
     private String parse(String s) {
         if (s == null) return null;
-        s = s.replaceAll("&", "&amp;");
+        //s = s.replaceAll("&", "&amp;");
         s = s.replaceAll("<", "&lt;"); 
         s = s.replaceAll(">", "&gt;");
-        s = s.replaceAll("\"", "&quot;");
+        //s = s.replaceAll("\"", "&quot;");
         s = s.replaceAll("’", "'");
         s = s.replaceAll("&lt;[pP][rR][eE]&gt;", "<pre>");
         s = s.replaceAll("&lt;/[pP][rR][eE]&gt;", "</pre>");
