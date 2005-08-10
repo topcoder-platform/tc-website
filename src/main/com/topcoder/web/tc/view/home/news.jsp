@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>08.10.05<br>9:15 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun">Sun chat session scheduled for SRM 258</A></span><br><br>
+      Sun will be in the Arena Applet at 8:00 PM tonight, just before the start of SRM 258, to discuss Java Studio Creator.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>08.09.05<br>6:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/movies/press/cnn_072405.mp4">TopCoder on CNN International</A></span><br><br>
       "It's all about creating a global coding meritocracy."
