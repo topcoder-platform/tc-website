@@ -153,7 +153,7 @@
 
 
             <tr>
-              <td align="right" colspan="2">
+              <td align="left" colspan="2">
                     In order to help use correctly pronouce your name and handle please fill in the
                     questions below.  If you would prefer to send a recording, you may email it
                     to <a href="mailto:ntrefz@topcoder.com" >Nick Trefz</a>
