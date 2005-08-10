@@ -58,7 +58,7 @@ public class Admin extends ForumsProcessor {
             ForumMessageIterator it = f.getMessages();
             while (it.hasNext()) {
                 ForumMessage m = (ForumMessage)it.next();
-                m.setBody(parse(m.getBody()));
+                m.setBody(parse(m.getUnfilteredBody()));
             }
         } catch (Exception e) {
             log.debug("escapeHTML() failed");
