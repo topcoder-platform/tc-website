@@ -206,7 +206,7 @@
             </tr>
 
             <tr>
-              <td align="right"><input type="hidden" name="q51" value="Phonetic Name"/>Phonetic spelling of our Name</td>
+              <td align="right"><input type="hidden" name="q51" value="Phonetic Name"/>Phonetic spelling of your first and last name</td>
               <td align="left"><input type="text" name="a51" size="50"/></td>
             </tr>
 
