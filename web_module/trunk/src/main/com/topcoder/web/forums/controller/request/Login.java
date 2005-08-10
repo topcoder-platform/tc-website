@@ -8,6 +8,7 @@ import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
@@ -41,6 +42,10 @@ public class Login extends ForumsProcessor {
             password = getPassword(userID);
         } catch (Exception e) {
             throw new TCWebException(e);
+        }
+        
+        if (!dest.startsWith("http://") && !dest.startsWith("https://")) {
+            dest = "http://" + ApplicationServer.SERVER_NAME + dest;
         }
         
         //String queryString = getRequest().getQueryString();
