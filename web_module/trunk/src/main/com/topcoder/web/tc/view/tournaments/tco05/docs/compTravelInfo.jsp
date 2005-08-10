@@ -176,6 +176,28 @@
               <td align="right"><input type="hidden" name="q49" value="Personal Considerations/Special Requests"/>Personal Considerations/Special Requests: (Physical requirements or Medical needs)</td>
               <td align="left"><input type="text" name="a49" size="50"/></td>
             </tr>
+
+            <tr>
+              <td align="right" colspan="2">
+                    In order to help use correctly pronouce your name and handle please fill in the
+                    questions below.  If you would prefer to send a recording, you may email it
+                    to <a href="mailto:ntrefz@topcoder.com" >Nick Trefz</a>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td align="right"><input type="hidden" name="q50" value="Phonetic Handle"/>Phonetic spelling of your handle</td>
+              <td align="left"><input type="text" name="a50" size="50"/></td>
+            </tr>
+
+            <tr>
+              <td align="right"><input type="hidden" name="q51" value="Phonetic Name"/>Phonetic spelling of our Name</td>
+              <td align="left"><input type="text" name="a51" size="50"/></td>
+            </tr>
+
+
+
             <tr><td colspan="2" ALIGN="center"><input type="submit" name="submit" value=" Submit "/></td></tr>
             </form>
             <tr><td><br/></td><td><br/></td></tr>
