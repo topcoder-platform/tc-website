@@ -152,14 +152,15 @@
             </tr>
 
 
+            <tr><td colspan="2"><U><B>Introduction Information:</B></U></td></tr>
+
             <tr>
-              <td align="left" colspan="2">
-                    In order to help use correctly pronouce your name and handle please fill in the
+              <td colspan="2">
+                    In order to help us correctly pronouce your name and handle please fill in the
                     questions below.  If you would prefer to send a recording, you may email it
                     to <a href="mailto:ntrefz@topcoder.com" >Nick Trefz</a>
               </td>
             </tr>
-
 
             <tr>
               <td align="right"><input type="hidden" name="q50" value="Phonetic Handle"/>Phonetic spelling of your handle</td>
