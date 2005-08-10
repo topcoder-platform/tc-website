@@ -2,7 +2,6 @@ package com.topcoder.web.tc.controller.request.report;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.Transaction;
 import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.tc.Constants;
@@ -10,9 +9,6 @@ import com.topcoder.web.tc.controller.request.Base;
 import java.util.StringTokenizer;
 import java.util.NoSuchElementException;
 import java.util.GregorianCalendar;
-
-import javax.transaction.Status;
-import javax.transaction.UserTransaction;
 
 public class UpdateDate extends Base {
 
@@ -45,7 +41,6 @@ public class UpdateDate extends Base {
                 throw new Exception("Date is not formatted properly.");
             }
             Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
-            UserTransaction uTx = null;
             coder.setContactDate(Long.parseLong(userId), time, DBMS.OLTP_DATASOURCE_NAME);
 
             SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);

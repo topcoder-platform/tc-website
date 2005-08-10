@@ -9,7 +9,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
-import com.topcoder.shared.util.Transaction;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
@@ -31,7 +30,8 @@ import com.topcoder.web.privatelabel.model.ResumeRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import javax.rmi.PortableRemoteObject;
-import javax.transaction.UserTransaction;
+import javax.transaction.TransactionManager;
+import javax.transaction.Status;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -68,25 +68,24 @@ public class Submit extends FullRegSubmit {
     }
 
     protected long commit(SimpleRegInfo regInfo) throws TCWebException {
-        UserTransaction tx = null;
 
         long ret = 0;
         UserPrincipal newUser = null;
+        TransactionManager tm = null;
         try {
-            tx = Transaction.get();
-            Transaction.begin(tx);
-
+            tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+            tm.begin();
             PrincipalMgrRemote mgr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
             newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
             //this isn't super wonderful since we're updating the input
             regInfo.setUserId(newUser.getId());
             ret = store(regInfo);
-            Transaction.commit(tx);
+            tm.commit();
         } catch (Exception e) {
             Exception ex = null;
             try {
-                if (tx != null) {
-                    Transaction.rollback(tx);
+                if (tm != null && tm.getStatus()==Status.STATUS_ACTIVE) {
+                    tm.rollback();
                 }
             } catch (Exception x) {
                 throw new TCWebException(e);
