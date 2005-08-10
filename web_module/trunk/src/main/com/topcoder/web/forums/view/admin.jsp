@@ -10,6 +10,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+
 <html>
 <head>
 <title>TopCoder Forums</title>
@@ -48,6 +50,29 @@
             </jsp:include>
     
 <span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> >> Administration</span>
+
+<form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+<tc-webtag:hiddenInput name="module" value="Admin"/>
+<table cellpadding="0" cellspacing="0" class="rtTable">
+   <tr>
+      <td class="rtHeader" colspan="2">Admin Console</td>
+   </tr>
+   <tr>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Command:</strong></td>
+      <td class="rtTextCell100">
+        <select size="1" name="<%=ForumConstants.ADMIN_COMMAND%>">
+        <%  String[] commandNames = { "Change angle brackets in old messages to HTML equivalents" };
+            String[] commandValues = { ForumConstants.ADMIN_COMMAND_HTML_ESCAPE };
+            for (int i=0; i<commandNames.length; i++) { %>
+                <option value="<%=commandValues[i]%>"><%=commandNames[i]%></option>
+        <%  } %>
+        </select>
+      </td>
+   </tr>
+</table>
+<div align="right">
+<input type="image" src="/i/roundTables/update.gif" alt="Update" />
+</div></form>
 
         </td>
 <!-- Center Column Ends -->
