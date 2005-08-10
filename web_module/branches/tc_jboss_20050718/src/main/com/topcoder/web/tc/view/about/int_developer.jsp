@@ -85,7 +85,7 @@ TopCoder is looking to hire a full-time software developer to design and impleme
 <li>You must be willing to relocate to the Hartford, CT area</li>
 </ul>
 
-<p>Check out what <b><font color="#FF9900">veredox</font></b>, newly hired TC member, has to say about <a href="/?amp;t=tces&amp;c=topcoder_veredox">working at TopCoder</a>.</p>
+<p>Check out what <b><font color="#FF9900">veredox</font></b>, newly hired TC member, has to say about <a href="/?t=tces&c=topcoder_veredox">working at TopCoder</a>.</p>
 
 <br><br>
 <b>Contact Information:</b><br>
