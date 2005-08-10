@@ -97,20 +97,20 @@
    <tr><td class="rtHeader" colspan="2">
    <a name=<jsp:getProperty name="activeMessage" property="ID"/>><tc-webtag:beanWrite name="activeMessage" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="activeMessage" property="subject"/></a>
       <%  if (activeMessage.getParentMessage() != null) { %>
-      		(response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=activeMessage.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A> by <tc-webtag:handle coderId="<%=activeMessage.getParentMessage().getUser().getID()%>"/>)
+      		(response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=activeMessage.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A> by <%if (activeMessage.getParentMessage().getUser() != null) {%><tc-webtag:handle coderId="<%=activeMessage.getParentMessage().getUser().getID()%>"/><%}%>)
       <%  } %>
    </a>
    &#160;>>&#160; <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink">Reply</A>
-   <%  if (activeMessage.getUser().equals(user)) { %>
+   <%  if (activeMessage.getUser() != null && activeMessage.getUser().equals(user)) { %>
    | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink">Edit</A>
    <%  } %>
    </td></tr>
    <tr>
    <td class="rtPosterCell"><div class="rtPosterSpacer">
-   <%  if (!("false".equals(activeMessage.getUser().getProperty("jiveDisplayMemberPhoto"))) && activeMessage.getUser().getProperty("imagePath") != null) { %>
+   <%  if (activeMessage.getUser() != null && !("false".equals(activeMessage.getUser().getProperty("jiveDisplayMemberPhoto"))) && activeMessage.getUser().getProperty("imagePath") != null) { %>
       		<img src="<%=activeMessage.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
    <%  } %>
-   <span class="bodyText"><tc-webtag:handle coderId="<%=activeMessage.getUser().getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=activeMessage.getUser().getID()%>"><%=forumFactory.getUserMessageCount(activeMessage.getUser())%> posts</A></div></td>
+   <span class="bodyText"><%if (activeMessage.getUser() != null) {%><tc-webtag:handle coderId="<%=activeMessage.getUser().getID()%>"/><%}%></span><br/><%if (activeMessage.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=activeMessage.getUser().getID()%>"><%=forumFactory.getUserMessageCount(activeMessage.getUser())%> posts</A><%}%></div></td>
    <td class="rtTextCell" width="100%"><jsp:getProperty name="activeMessage" property="body"/>
    </td></tr>
 </table>
@@ -135,7 +135,7 @@
 		<% } else { %>
 			<A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink"><jsp:getProperty name="message" property="subject"/></A></td>
 		<% } %>
-      	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
+      	<td class="rtThreadCell"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
       	<td class="rtThreadCell"><strong><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/></strong></td>
     </tr>
 	</tc-webtag:iterator>
