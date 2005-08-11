@@ -5,6 +5,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.corp.common.TCESConstants;
 
 import javax.servlet.jsp.tagext.TagSupport;
 import javax.servlet.jsp.JspException;
@@ -25,8 +26,9 @@ public class HandleTag extends TagSupport {
     private boolean development = false;
     private boolean component = false;
     private long companyId;
+    private long campaignId;
+    private long jobId;
 
-    public final static String DEFAULT_LINK = "http://" + ApplicationServer.SERVER_NAME + "/tc?module=MemberProfile&cr=";
     public final static String ALGORITHM = "algorithm";
     public final static String DESIGN = "design";
     public final static String DEVELOPMENT = "development";
@@ -42,6 +44,14 @@ public class HandleTag extends TagSupport {
 
     public void setCompanyId(long companyId) {
         this.companyId = companyId;
+    }
+
+    public void setJobId(long jobId) {
+        this.jobId = jobId;
+    }
+
+    public void setCampaignId(long campaignId) {
+        this.campaignId = campaignId;
     }
 
     public void setCoderId(int coderId) {
@@ -103,8 +113,23 @@ public class HandleTag extends TagSupport {
 
             StringBuffer output = new StringBuffer();
             output.append("<a href=\"");
-            if (link.equals(""))
-                link = DEFAULT_LINK + coderId;
+            if (link.equals("")) {
+                StringBuffer buf = new StringBuffer(200);
+                buf.append("http://");
+                buf.append(ApplicationServer.CORP_SERVER_NAME);
+                //todo change this from /tces/ to /tces when we go to jboss
+                buf.append("/tces/?task=MemberProfileTask&cr=");
+                buf.append(coderId);
+                buf.append("&");
+                buf.append(TCESConstants.CAMPAIGN_ID_PARAM);
+                buf.append("=");
+                buf.append(campaignId);
+                buf.append("&");
+                buf.append(TCESConstants.JOB_ID_PARAM);
+                buf.append("=");
+                buf.append(jobId);
+                link = buf.toString();
+            }
             output.append(link);
             output.append("\" class=\"");
 
