@@ -96,7 +96,7 @@
         <%  ForumMessage message = result.getMessage(); %>
         <tr>
             <td class="rtThreadCellWrap"><a href="?module=Message&messageID=<%=message.getID()%>" class="rtbcLink"><%=ForumsUtil.getMessageSubjectPreview(message, query.getQueryString())%></a><br><div class="rtDescIndent"><%=ForumsUtil.getMessageBodyPreview(message, query.getQueryString())%></div></td>
-            <td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
+            <td class="rtThreadCell"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
             <td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getChildCount(message)%></td>
             <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(message.getForumThread())%></td>
 		    <td class="rtThreadCell"><b><%=formatter.format(message.getModificationDate())%></b></td>
