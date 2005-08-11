@@ -107,7 +107,7 @@
             <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="submission_percent" format="0.00'%'" ifNull="N/A" /></TD>
          </tr>
          <tr>
-            <td class="cat" nowrap="nowrap">Passed:</TD>
+            <td class="cat" nowrap="nowrap">Passed Screning:</TD>
             <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="passed" ifNull="N/A" /></TD>
          </tr>
          <tr>
