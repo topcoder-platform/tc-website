@@ -44,8 +44,13 @@ public class Login extends ForumsProcessor {
             throw new TCWebException(e);
         }
         
+        // Ensure that the destination URL is well-formed; default to main site if no server is specified
         if (!dest.startsWith("http://") && !dest.startsWith("https://")) {
-            dest = "http://" + ApplicationServer.SERVER_NAME + dest;
+            if (dest.startsWith("/")) {
+                dest = "http://" + ApplicationServer.SERVER_NAME + dest;
+            } else {
+                dest = "http://" + ApplicationServer.SERVER_NAME + "/" + dest;
+            }
         }
         
         //String queryString = getRequest().getQueryString();
