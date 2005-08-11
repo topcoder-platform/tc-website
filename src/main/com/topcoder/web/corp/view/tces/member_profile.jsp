@@ -67,6 +67,7 @@
 				</td>
 				<td class=bodyText>
 				<% if (MemberProfileTask.getIsRanked()) { %>
+                <A HREF="/tc?module=MemberProfile&cr=<%=MemberProfileTask.getMemberID()%>" target="blank" class="bodyText">Full TopCoder Profile</a><br />
 				<B>Current Rating:</B> <%=MemberStats.getItem(0, "rating").toString()%><br/>
 				<B>Current Ranking:</B> <%=MemberStats.getItem(0, "rank").toString()%><br/>
 				<B>Rating Percentile:</B> <%=MemberStats.getItem(0, "percentile").toString()%><br/>
@@ -115,8 +116,6 @@
                 <A HREF="JavaScript:getGraph('/corp/graph/?c=rating_distribution_graph&cm=<jsp:getProperty name="MemberProfileTask" property="CompanyId"/>','600','400','distribution')" class="bodyText">Overall Rating Distribution Graph</a>
                 <br />
                 <A HREF="JavaScript:getGraph('/corp/graph/?c=rating_distribution_graph&cm=<jsp:getProperty name="MemberProfileTask" property="CompanyId"/>','600','400','distribution')" class="bodyText">Overall Rating Distribution Graph</a>
-                <br />
-                <A HREF="/tc?module=MemberProfile&cr=<%=MemberProfileTask.getMemberID()%>" target="blank" class="bodyText">Full TopCoder Profile</a>
 				</td>
 				<td class=bodyText>
 				</td>
