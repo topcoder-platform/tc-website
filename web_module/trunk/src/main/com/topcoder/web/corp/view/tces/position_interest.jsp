@@ -75,8 +75,8 @@
  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
   <a href="<jsp:getProperty name="PositionInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_PROFILE_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=PositionInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=PositionInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=hit.getItem("coder_id").toString()%>" class="bodyText"><%= hit.getItem("handle").toString() %></a></td>
  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align="right"><%= hit.getItem("rating").toString() %>&#160;</td>
- <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align="right"><rsc:item name="design_rating" format="#" row="<%=hit%>"/>&#160;</td>
- <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align="right"><rsc:item name="dev_rating" format="#" row="<%=hit%>"/>&#160;</td>
+ <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align="right"><rsc:item name="design_rating" format="#" row="<%=hit%>" ifNull="Not Rated"/>&#160;</td>
+ <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align="right"><rsc:item name="dev_rating" format="#" row="<%=hit%>" ifNull="Not Rated"/>&#160;</td>
  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align="center"><%= hit.getItem("state_code").toString() %></td>
  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><%= hit.getItem("country_code").toString() %></td>
  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><%= hit.getItem("coder_type_desc").toString() %></td>
