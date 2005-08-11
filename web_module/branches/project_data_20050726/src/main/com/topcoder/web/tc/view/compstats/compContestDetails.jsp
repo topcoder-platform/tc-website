@@ -206,7 +206,7 @@
 </TABLE>
 
 <% if (hasUnknown) { %>
-  * Some information may be unknown due to missing data from old projects"
+  * Some information may be unknown due to missing data from old projects
 <% } %>
         </td>
 <!-- Center Column Ends -->
