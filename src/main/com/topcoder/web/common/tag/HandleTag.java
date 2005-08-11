@@ -128,7 +128,7 @@ public class HandleTag extends TagSupport {
             throw new JspException(e.getMessage());
         }
         return SKIP_BODY;
-    }    
+    }
 
     private String getRatingCSS(int rating) {
         if (rating < 0)
@@ -169,6 +169,7 @@ public class HandleTag extends TagSupport {
         algorithm = false;
         design = false;
         development = false;
+        component = false;
         return super.doEndTag();
     }
 
