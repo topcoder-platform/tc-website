@@ -781,7 +781,15 @@
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/ComponentRegistrationServices/*"/>
          </jar>
      </target>
-
+ 	
+ 	<target name="package-EJB-RevisionHistoryBean" depends="compile">
+	 	<jar jarfile="${ejb_jars}/RevisionHistory.jar">
+		 	<zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+		 	<zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+		 	<zipfileset dir="${classes}" includes="com/topcoder/web/ejb/messagehistory/*.class"/>
+		 	<metainf dir="${java}/com/topcoder/web/ejb/messagehistory" includes="*.xml"/>
+	 	</jar>
+ 	</target>
 
      <target name="deploy">
          <antcall target="deploy-tc"/>
