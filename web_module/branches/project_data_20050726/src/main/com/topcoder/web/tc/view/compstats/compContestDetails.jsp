@@ -96,11 +96,11 @@
          </td></tr>
          <tr>
             <td class="cat" nowrap="nowrap">Inquiries:</TD>
-            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_inquiries" ifNull="unknown" /></TD>
+            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_inquiries" ifNull="unknown *" /></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Submissions:</TD>
-            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_submissions" ifNull="unknown" /></TD>
+            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_submissions" ifNull="unknown *" /></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Submission Percentage:</TD>
@@ -178,8 +178,8 @@
 
 
 <% if (resultRow.getIntItem("passed_screening") == 1) { %>
-            <TD class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="initial_score" format="0.00" ifNull="unknown" /></TD>
-            <TD class="statDk" align="center"><b><rsc:item row="<%=resultRow%>" name="final_score" format="0.00" ifNull="unknown" /></b></TD>
+            <TD class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="initial_score" format="0.00" ifNull="unknown *" /></TD>
+            <TD class="statDk" align="center"><b><rsc:item row="<%=resultRow%>" name="final_score" format="0.00" ifNull="unknown *" /></b></TD>
             <TD class="statDk" align="center">
                                                    <rsc:item row="<%=resultRow%>" name="score1" format="0.00"  />
                                               </TD>
