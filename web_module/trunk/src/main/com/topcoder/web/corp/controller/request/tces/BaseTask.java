@@ -173,7 +173,7 @@ public abstract class BaseTask implements Task {
      * @return
      * @throws java.lang.Exception
      */
-    protected String getOltp() throws Exception {
+    public String getOltp() throws Exception {
         String ret = getDb(TRANSACTIONAL_DB_TYPE);
         if (ret == null) {
             ret = DBMS.OLTP_DATASOURCE_NAME;
@@ -188,7 +188,7 @@ public abstract class BaseTask implements Task {
      * @return
      * @throws java.lang.Exception
      */
-    protected String getDw() throws Exception {
+    public String getDw() throws Exception {
         String ret = getDb(DW_DB_TYPE);
         if (ret == null) {
             ret = DBMS.DW_DATASOURCE_NAME;
