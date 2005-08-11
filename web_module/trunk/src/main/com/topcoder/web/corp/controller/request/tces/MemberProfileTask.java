@@ -8,6 +8,7 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.corp.common.JSPUtils;
 import com.topcoder.web.corp.common.TCESConstants;
 import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.ejb.user.Contact;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -82,6 +83,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     /** Holds list of Division I performance stats aggregated by language. */
     private List divIIStatsByLevel;
 
+    private long companyId;
 
     /** Creates new MemberProfileTask */
     public MemberProfileTask() {
@@ -315,6 +317,8 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         try {
             rServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
             hasResume = rServices.hasResume(memberID, getOltp());
+            Contact contact = (Contact) BaseProcessor.createEJB(getInitialContext(), Contact.class);
+            setCompanyId(contact.getCompanyId(uid, getOltp()));
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");
             e.printStackTrace();
@@ -554,6 +558,14 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
     public void setHasMultipleDivIILanguage(boolean hasOneDivIILanguage) {
         this.hasMultipleDivIILanguage = hasOneDivIILanguage;
+    }
+
+    public long getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(long companyId) {
+        this.companyId = companyId;
     }
 
 
