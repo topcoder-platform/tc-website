@@ -93,11 +93,11 @@
          </td></tr>
          <tr>
             <td class="cat" nowrap="nowrap">Inquiries:</TD>
-            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_inquiries" ifNull="N/A" /></TD>
+            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_inquiries" ifNull="unknown" /></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Submissions:</TD>
-            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_submissions" ifNull="N/A" /></TD>
+            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_submissions" ifNull="unknown" /></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Submission Percentage:</TD>
