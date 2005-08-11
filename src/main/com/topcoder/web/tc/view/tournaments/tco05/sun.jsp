@@ -22,7 +22,11 @@
 		<div class="bodySpacer">
             
 <div align="center"><img src="/i/tournament/tco05/sun_logo.gif" alt="Sun" border="0" /></div>
-<br><br>
+<p align="center"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_confirm">Apply now</A>
+&#160;&#160;|&#160;&#160;<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=504997&sortField=9&sortOrder=0">Java Studio Creator Forum</A>
+&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat">SRM 251 Chat Transcript</A>
+&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_081005">SRM 258 Chat Transcript</A>
+</p>
 <A href="http://www.topcoder.com/?t=sponsor&refer=sun&c=link&link=https://softwarereg.sun.com/registration/developer/en_US/login?create=1" target="_blank"><img src="/i/tournament/tco05/sun_duke.gif" alt="Sun" border="0" align="right"/></A>
 The Sun&#153; Developer Network, Sun Microsystem's premier developer community, is proud to sponsor the 2005 TopCoder Open.
 <br><br>
