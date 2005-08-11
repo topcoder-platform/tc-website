@@ -28,6 +28,7 @@ public class HandleTag extends TagSupport {
     private long companyId;
     private long campaignId;
     private long jobId;
+    private String db = "";
 
     public final static String ALGORITHM = "algorithm";
     public final static String DESIGN = "design";
@@ -80,23 +81,24 @@ public class HandleTag extends TagSupport {
     public int doStartTag() throws JspException {
 
         try {
-            //lookup ratings from cache
-            CachedDataAccess da1 = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-            da1.setExpireTime(24 * 60 * 60 * 1000);
 
-            String db = null;
-            Request r1 = new Request();
-            r1.setContentHandle("company_datasource");
-            r1.setProperty("cm", String.valueOf(companyId));
-            r1.setProperty("dstid", "2");//transactional datasource
-            Map m1 = da1.getData(r1);
-            ResultSetContainer rsc1 = (ResultSetContainer) m1.get("company_datasource");
-            if (rsc1 == null || rsc1.isEmpty()) {
-                db = DBMS.OLTP_DATASOURCE_NAME;
-            } else {
-                db = rsc1.getStringItem(0, "datasource_name");
+            if ("".equals(db)) {
+                CachedDataAccess da1 = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+                da1.setExpireTime(24 * 60 * 60 * 1000);
+                Request r1 = new Request();
+                r1.setContentHandle("company_datasource");
+                r1.setProperty("cm", String.valueOf(companyId));
+                r1.setProperty("dstid", "2");//transactional datasource
+                Map m1 = da1.getData(r1);
+                ResultSetContainer rsc1 = (ResultSetContainer) m1.get("company_datasource");
+                if (rsc1 == null || rsc1.isEmpty()) {
+                    db = DBMS.OLTP_DATASOURCE_NAME;
+                } else {
+                    db = rsc1.getStringItem(0, "datasource_name");
+                }
             }
 
+            //we're assuming here that a coder will only have 1 rating per company
             Request r = new Request();
             r.setContentHandle("tces_coder_all_ratings");
             r.setProperty("cr", String.valueOf(coderId));
@@ -211,6 +213,9 @@ public class HandleTag extends TagSupport {
         development = false;
         component = false;
         companyId = 0;
+        campaignId = 0;
+        jobId = 0;
+        db = "";
         return super.doEndTag();
     }
 
