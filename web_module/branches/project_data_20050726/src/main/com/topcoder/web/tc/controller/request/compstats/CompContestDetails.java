@@ -100,10 +100,18 @@ public class CompContestDetails extends Base {
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
 
+            ResultSetContainer projectInfo = (ResultSetContainer) result.get("project_info");
+            if ((projectInfo.getIntItem(0, "status_id") != 4) &&
+                (projectInfo.getIntItem(0, "status_id") != 5) &&
+                (projectInfo.getIntItem(0, "status_id") != 6)) {
+                 throw new TCWebException("The project is not finished");
+
+            }
+
             // if the dates of the other projects are still not known (because we had the project and not the component id)
             // is time to look them up, because we have the component info now.
             if (dates == null) {
-                ResultSetContainer projectInfo = (ResultSetContainer) result.get("project_info");
+
                 dates = findProjects(projectInfo.getStringItem(0, "component_id"),
                                      projectInfo.getStringItem(0, "version_id"),
                                      projectInfo.getStringItem(0, "phase_id"));
