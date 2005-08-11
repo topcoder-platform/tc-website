@@ -44,9 +44,9 @@
 <% ResultSetContainer dates = (ResultSetContainer)request.getAttribute("dates");
    ResultSetContainer reviewers = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("reviewers_for_project");
    ResultSetContainer projectInfo = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_info");
-   ResultSetContainer submissions = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("submissions");
+   ResultSetContainer submissions =  (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("submissions");
    ResultSetContainer hasUnknownRSC = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("hasUnknown");
-   boolean hasUnknown = hasUnknownRSC.getIntItem("has_unknown") > 0;
+   boolean hasUnknown = hasUnknownRSC.getIntItem(0, "has_unknown") > 0;
 
    long projectId = ((Long) request.getAttribute("pid")).longValue();
    boolean first = true;
