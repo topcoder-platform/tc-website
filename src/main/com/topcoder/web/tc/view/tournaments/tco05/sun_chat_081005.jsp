@@ -35,16 +35,16 @@
 <jsp:include page="links.jsp" >
 <jsp:param name="tabLev1" value="overview"/>
 <jsp:param name="tabLev2" value="sponsors"/>
-<jsp:param name="tabLev3" value="yahoo"/>
+<jsp:param name="tabLev3" value="sun"/>
 </jsp:include>
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
 	<tr valign="top">
 		<td valign="top" align="center">
-		<div class="bodySpacer" align="center">
+		<div class="bodySpacer">
             
-<div align="center"><img src="/i/tournament/tco05/yahoo_logo.gif" alt="Yahoo!" border="0" /></div>
+<div align="center"><img src="/i/tournament/tco05/sun_logo.gif" alt="Sun" border="0" /></div>
 <br><br>
 
 <table class="bodyText" cellpadding="0" cellspacing="0" width="100%">
@@ -369,7 +369,6 @@
 <tr><td class="dark"><span class="bigRed">Sun_Joe</span></td><td class="dark"><span class="bigRed">you're welcome</span></td></tr>
 <tr><td class="light"><span class="bigRed">Sun_Joe</span></td><td class="light"><span class="bigRed">talk to you later...</span></td></tr>
 </table>
-<br><br>               
 
         </div>
 		</td>

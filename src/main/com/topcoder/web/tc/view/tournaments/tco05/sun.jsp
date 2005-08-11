@@ -1,4 +1,5 @@
 <%@  page language="java"  %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -22,7 +23,7 @@
 		<div class="bodySpacer">
             
 <div align="center"><img src="/i/tournament/tco05/sun_logo.gif" alt="Sun" border="0" /></div>
-<p align="center"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_confirm">Apply now</A>
+<p align="center"><A href=http://www.topcoder.com/?t=sponsor&refer=sun&c=link&link=https://softwarereg.sun.com/registration/developer/en_US/login?create=1" target="_blank"">Join SDN now</A>
 &#160;&#160;|&#160;&#160;<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=504997&sortField=9&sortOrder=0">Java Studio Creator Forum</A>
 &#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat">SRM 251 Chat Transcript</A>
 &#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_081005">SRM 258 Chat Transcript</A>
@@ -48,8 +49,6 @@ Sun recommends that all TopCoder participants do the following:
 Stay tuned here for information on the Creator 2 Early Access Program launch date.
 <br><br>
 Let the Coding begin!
-<br><br>
-Sun recently <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat">spoke to the members</A> in the arena just prior to a recent SRM. See what they had to say about Java Studio Creator.
         </div>
 		</td>
         
