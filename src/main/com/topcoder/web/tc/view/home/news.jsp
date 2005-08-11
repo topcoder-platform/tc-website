@@ -9,9 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>08.11.05<br>5:50 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">New Rating Distribution Graphs</span><br><br>
+Algorithm, Design, and Development Statistics tabs under Member Profiles now include Rating Distribution Graphs.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>08.11.05<br>10:10 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_081005">Sun chat session</A></span><br><br>
-      Sun spoke with the members lastnight, just before the start of SRM 258, to discuss Java Studio Creator.
+      Sun spoke with the members last night, just before the start of SRM 258, to discuss Java Studio Creator.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -249,21 +259,6 @@ Algorithm, Design, and Development Statistics tabs under Member Profiles now inc
    <tr><td class="newsLinksCell">
          <A href="/index?t=statistics&c=srm253_prob">full story</A>&#160;|&#160;
          <A href="/?t=statistics&c=editorial_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.22.05<br>11:05 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=dataStructures">Data Structures</A></span><br><br>
-One of the most crucial aspects to how quickly a problem can be solved is how the data is stored in memory. </td>
-      <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" /><br>by <tc-webtag:handle coderId="10407399" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=dataStructures">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
 
 
