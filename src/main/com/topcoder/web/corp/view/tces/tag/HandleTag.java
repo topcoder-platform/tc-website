@@ -71,6 +71,10 @@ public class HandleTag extends TagSupport {
         this.styleClass = styleClass;
     }
 
+    public void setDb(String db) {
+        this.db = db;
+    }
+
     public void setContext(String s) {
         if (s.toLowerCase().trim().equals(ALGORITHM)) algorithm = true;
         if (s.toLowerCase().trim().equals(DESIGN)) design = true;
