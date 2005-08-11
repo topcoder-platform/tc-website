@@ -9,6 +9,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.11.05<br>9:20 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm258_prob">SRM 258 - Problem Set & Analysis</A></span><br><br>
+      Both divisions saw a good number of coders finishing all three problems fairly quickly.  In both divisions, the challenge phase proved to be very eventful, with a lot of solutions dropping like flies</td>
+      <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" /><br>by <tc-webtag:handle coderId="10407399" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm258_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>08.10.05<br>9:15 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun">Sun chat session scheduled for SRM 258</A></span><br><br>
       Sun will be in the Arena Applet at 8:00 PM tonight, just before the start of SRM 258, to discuss Java Studio Creator.
@@ -249,18 +264,6 @@ One of the most crucial aspects to how quickly a problem can be solved is how th
    <tr><td class="newsLinksCell">
          <A href="/pdfs/press_room/cnn_072105.pdf">full story</A> [PDF]&#160;|&#160;
          <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>07.21.05<br>2:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/?RoundId=7227&t=schedule&c=srm">July 23 SRM to Include Prize Money</A></span><br><br>
-      The $5,000 in prize money that was originally allocated for SRM 252 has been reallocated to SRM 253 on Saturday July 23.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/?RoundId=7227&t=schedule&c=srm">details</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
 
