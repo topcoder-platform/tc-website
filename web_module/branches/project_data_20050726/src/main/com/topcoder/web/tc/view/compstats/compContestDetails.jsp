@@ -173,10 +173,10 @@
 
             </TD>
 
-            <TD class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="initial_score" format="0.00" ifNull="&nbsp;" /></TD>
-            <TD class="statDk" align="center"><b><rsc:item row="<%=resultRow%>" name="final_score" format="0.00" ifNull="&nbsp;" /></b></TD>
 
 <% if (resultRow.getIntItem("passed_screening") == 1) { %>
+            <TD class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="initial_score" format="0.00" ifNull="unknown" /></TD>
+            <TD class="statDk" align="center"><b><rsc:item row="<%=resultRow%>" name="final_score" format="0.00" ifNull="unknown" /></b></TD>
             <TD class="statDk" align="center">
                                                    <rsc:item row="<%=resultRow%>" name="score1" format="0.00"  />
                                               </TD>
@@ -187,6 +187,8 @@
                                                    <rsc:item row="<%=resultRow%>" name="score3" format="0.00" />
                                               </TD>
                 <% } else { %>
+                    <TD class="statDk" align="center">&nbsp;</TD>
+                    <TD class="statDk" align="center">&nbsp;</TD>
                     <TD class="statDk" align="center">&nbsp;</TD>
                     <TD class="statDk" align="center">&nbsp;</TD>
                     <TD class="statDk" align="center">&nbsp;</TD>
