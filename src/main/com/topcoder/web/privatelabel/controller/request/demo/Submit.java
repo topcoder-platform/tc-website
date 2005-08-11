@@ -361,6 +361,8 @@ public class Submit extends FullRegSubmit {
                 buf.append(ApplicationServer.SERVER_NAME);
                 buf.append("/techassess/techassess?module=Login&cm=");
                 buf.append(companyId);
+                buf.append("&sid=");
+                buf.append(sessionId);
                 buf.append("\n\n");
                 buf.append("Thank you,\n\n");
                 buf.append("XYZ Company");
