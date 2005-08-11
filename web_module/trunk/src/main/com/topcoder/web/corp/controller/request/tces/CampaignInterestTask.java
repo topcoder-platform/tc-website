@@ -4,6 +4,8 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.common.TCESConstants;
+import com.topcoder.web.ejb.user.Contact;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -50,6 +52,8 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
 
     /* Holds the secondary order that the hit list should be sorted in */
     private String backSortOrder;
+
+    private long companyId;
 
     /* Makes a new CampaignInterestTask */
     public CampaignInterestTask() {
@@ -132,6 +136,14 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
         this.companyName = companyName;
     }
 
+    public long getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(long companyId) {
+        this.companyId = companyId;
+    }
+
 //    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
 //        throws Exception
 //    {
@@ -158,6 +170,8 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
     public void processStep(String step)
             throws Exception {
         viewCampaignInterest();
+        Contact contact = (Contact) BaseProcessor.createEJB(getInitialContext(), Contact.class);
+        setCompanyId(contact.getCompanyId(uid, getOltp()));
     }
 
     private void viewCampaignInterest() throws Exception {
