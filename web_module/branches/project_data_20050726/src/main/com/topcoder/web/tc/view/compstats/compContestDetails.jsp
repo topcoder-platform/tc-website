@@ -204,7 +204,8 @@
       </td>
    </TR>
 </TABLE>
-<% if (hasUnknwon) { %>
+
+<% if (hasUnknown) { %>
   * Some information may be unknown due to missing data from old projects"
 <% } %>
         </td>
