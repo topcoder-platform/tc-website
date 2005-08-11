@@ -83,6 +83,21 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
+            <name>campaignId</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>jobId</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>db</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
             <name>styleClass</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
