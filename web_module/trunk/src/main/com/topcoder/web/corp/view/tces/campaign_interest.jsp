@@ -75,7 +75,7 @@
                 --%>
                 <tces:rowIterator id="hit" rowList="<%=CampaignInterestTask.getHitList()%>"><% i++; %>
 				<tr valign=middle>
-<td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><tces:handle campaignId="<%=CampaignInterestTask.getCampaignID()%>" jobId='<%=hit.getLongItem("job_id")%>' coderId='<%=hit.getLongItem("coder_id")%>' companyId="<%=CampaignInterestTask.getCompanyId()%>"/></td>
+<td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><tces:handle campaignId="<%=CampaignInterestTask.getCampaignID()%>" db="<%=CampaignInterestTask.getOltp()%>"jobId='<%=hit.getLongItem("job_id")%>' coderId='<%=hit.getLongItem("coder_id")%>' companyId="<%=CampaignInterestTask.getCompanyId()%>"/></td>
 <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><%= hit.getItem("rating").toString() %></td>
 <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><rsc:item name="design_rating" format="#" row="<%=hit%>" ifNull="Not Rated"/></td>
 <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><rsc:item name="dev_rating" format="#" row="<%=hit%>" ifNull="Not Rated"/></td>
