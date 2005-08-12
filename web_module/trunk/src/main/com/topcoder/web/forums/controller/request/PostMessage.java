@@ -3,14 +3,18 @@
  */
 package com.topcoder.web.forums.controller.request;
 
+import javax.naming.InitialContext;
+
 import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.WatchManager;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.ejb.messagehistory.MessageHistory;
 import com.topcoder.web.forums.ForumConstants;
 
 
@@ -91,8 +95,15 @@ public class PostMessage extends ForumsProcessor {
         if (message == null || postMode.equals("Reply")) {
 			message = forum.createMessage(user);
 		}
+        long modificationDate = message.getModificationDate().getTime();
 		message.setSubject(subject);
 		message.setBody(body);
+        
+        if (postMode.equals("Edit")) {
+            InitialContext ctx = TCContext.getInitial();
+            MessageHistory historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
+            historyBean.addEdit(message.getID(), message.getSubject(), message.getBody(), modificationDate, "java:JiveDS");
+        }
 
         WatchManager watchManager = forumFactory.getWatchManager();
 		if (thread != null) {
