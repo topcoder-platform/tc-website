@@ -680,9 +680,10 @@ public final class TaskDevelopment {
     static ComponentManager getComponentManager(long componentId) {
 
         ComponentManager componentMgr = null;
+        Context ctx = null;
         try {
-            Context CONTEXT = TCContext.getInitial();
-            Object objTechTypes = CONTEXT.lookup("ComponentManagerEJB");
+            ctx = TCContext.getInitial();
+            Object objTechTypes = ctx.lookup("ComponentManagerEJB");
             ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
             componentMgr = home.create(componentId);
         } catch (javax.naming.NamingException namingException) {
@@ -691,6 +692,8 @@ public final class TaskDevelopment {
             log.error("Could not create component Manager: " + createException.getMessage());
         } catch (java.rmi.RemoteException remoteException) {
             log.error("Could not create component Manager: " + remoteException.getMessage());
+        } finally {
+            BaseProcessor.close(ctx);
         }
         return componentMgr;
     }
@@ -698,9 +701,10 @@ public final class TaskDevelopment {
     static ComponentManager getComponentManager(long componentId, long version) {
 
         ComponentManager componentMgr = null;
+        Context ctx = null;
         try {
-            Context CONTEXT = TCContext.getInitial();
-            Object objTechTypes = CONTEXT.lookup("ComponentManagerEJB");
+            ctx = TCContext.getInitial();
+            Object objTechTypes = ctx.lookup("ComponentManagerEJB");
             ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
             componentMgr = home.create(componentId, version);
         } catch (javax.naming.NamingException namingException) {
@@ -709,6 +713,8 @@ public final class TaskDevelopment {
             log.error("Could not create component Manager: " + createException.getMessage());
         } catch (java.rmi.RemoteException remoteException) {
             log.error("Could not create component Manager: " + remoteException.getMessage());
+        } finally {
+            BaseProcessor.close(ctx);
         }
         return componentMgr;
     }
@@ -716,9 +722,10 @@ public final class TaskDevelopment {
     static Catalog getCatalog() {
 
         Catalog catalog = null;
+        Context ctx = null;
         try {
-            Context CONTEXT = TCContext.getInitial();
-            Object objTechTypes = CONTEXT.lookup(CatalogHome.EJB_REF_NAME);
+            ctx = TCContext.getInitial();
+            Object objTechTypes = ctx.lookup(CatalogHome.EJB_REF_NAME);
             CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
             catalog = home.create();
 
@@ -728,6 +735,8 @@ public final class TaskDevelopment {
             log.error("Could not create catalog: " + createException.getMessage());
         } catch (java.rmi.RemoteException remoteException) {
             log.error("Could not create catalog: " + remoteException.getMessage());
+        } finally {
+            BaseProcessor.close(ctx);
         }
         return catalog;
     }
