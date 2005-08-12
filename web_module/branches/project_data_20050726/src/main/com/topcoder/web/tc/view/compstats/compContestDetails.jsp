@@ -129,11 +129,11 @@
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Avg Initial Score:</TD>
-            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="avg_raw_score" format="0.00" ifNull="N/A" /></TD>
+            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="avg_raw_score" format="0.00" ifNull="unknwon *" /></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Avg Final Score:</TD>
-            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="avg_final_score" format="0.00" ifNull="N/A" /></TD>
+            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="avg_final_score" format="0.00" ifNull="unknwon *" /></TD>
          </tr>
       </TABLE>
 
