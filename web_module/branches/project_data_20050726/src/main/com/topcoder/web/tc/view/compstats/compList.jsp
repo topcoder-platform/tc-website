@@ -70,9 +70,6 @@
                 <rsc:item name="num_valid_submissions" row="<%=resultRow%>" />
              </TD>
             <TD class="statDk">
-            <% if (resultRow.getItem("winner_id") != null) { %>
-                <tc-webtag:handle coderId='<%= resultRow.getLongItem("winner_id") %>' context="development"/>
-           <% } %>
              </TD>
 
              <TD class="statDk" align="center">
