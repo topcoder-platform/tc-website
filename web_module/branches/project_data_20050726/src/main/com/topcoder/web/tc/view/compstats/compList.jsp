@@ -77,7 +77,7 @@ function submitEnter(e) {
 %>
 <form name="compListForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
 
-<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AlgoRank"/>
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CompList"/>
 
 <table border="1">
 <tr>
