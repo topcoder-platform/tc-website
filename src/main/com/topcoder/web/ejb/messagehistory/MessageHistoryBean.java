@@ -69,7 +69,7 @@ public class MessageHistoryBean extends BaseEJB {
     
     private static final String GET_EDIT_COUNT_SQL = 
         "select count(*) " +
-        "from message_history where messageid = ? order by modificationDate desc";
+        "from message_history where messageid = ?";
 
     public int getEditCount(long messageId, String dataSource) {
         Connection conn = null;
