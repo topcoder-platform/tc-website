@@ -46,19 +46,23 @@
 
 %>
 
-<table>
+<table border="1">
 <tr>
-    <td>Component</td>
-    <td>Registrations</td>
-    <td>Submissions</td>
-    <td>Submissions passed screening</td>
-    <td>Winner</td>
-    <td>details</td>
+    <TD class="statDk" align="center">Component</td>
+    <TD class="statDk" align="center">Phase</td>
+    <TD class="statDk" align="center">Registrations</td>
+    <TD class="statDk" align="center">Submissions</td>
+    <TD class="statDk" align="center">Submissions passed screening</td>
+    <TD class="statDk" align="center">Winner</td>
+    <tdTD class="statDk" align="center"details</td>
 </tr>
 <rsc:iterator list="<%=list%>" id="resultRow">
          <TR>
             <TD class="statDk" align="center">
                 <rsc:item name="component_name" row="<%=resultRow%>" /> <rsc:item name="version_text" row="<%=resultRow%>" />
+             </TD>
+            <TD class="statDk" align="center">
+                <rsc:item name="phase_desc" row="<%=resultRow%>" />
              </TD>
             <TD class="statDk" align="center">
                 <rsc:item name="num_registrations" row="<%=resultRow%>" />
