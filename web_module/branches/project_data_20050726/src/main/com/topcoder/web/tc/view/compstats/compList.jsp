@@ -110,7 +110,7 @@ function submitEnter(e) {
              </TD>
             <TD class="statDk"> &nbsp;
             <% if (resultRow.getItem("winner_id") != null)try { %>
-                <tc-webtag:handle coderId='<%= resultRow.getLongItem("winner_id") %>' context='<%=resultRow.getLongItem("phase_desc")%>'/>
+                <tc-webtag:handle coderId='<%= resultRow.getLongItem("winner_id") %>' context='<%=resultRow.getStringItem("phase_desc")%>'/>
              <% } catch(Exception e) { } %>
 
              </TD>
