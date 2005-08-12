@@ -94,8 +94,8 @@
          Development Contest Details
          </td></tr>
          <tr>
-            <td class="cat" nowrap="nowrap" valign="top">Catalog:</TD>
-            <TD class="stat" align="right" valign="top"><img src='<%=imgName%>' alt='<rsc:item set="<%=projectInfo%>" name="category_desc"/>' border="0" /></TD>
+            <td class="cat" nowrap="nowrap" valign="top" style="padding-top: 3px">Catalog:</TD>
+            <TD class="stat" align="right" valign="top" style="padding-top: 3px"><img src='<%=imgName%>' alt='<rsc:item set="<%=projectInfo%>" name="category_desc"/>' border="0" /></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Inquiries:</TD>
