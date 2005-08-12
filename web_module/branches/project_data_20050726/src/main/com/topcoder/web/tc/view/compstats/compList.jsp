@@ -47,13 +47,36 @@
 %>
 
 <table>
-
+<tr>
+    <td>Component</td>
+    <td>Registrations</td>
+    <td>Submissions</td>
+    <td>Submissions passed screening</td>
+    <td>Winner</td>
+    <td>details</td>
+</tr>
 <rsc:iterator list="<%=list%>" id="resultRow">
          <TR>
             <TD class="statDk" align="center">
                 <rsc:item name="component_name" row="<%=resultRow%>" /> <rsc:item name="version_text" row="<%=resultRow%>" />
              </TD>
-            <TD class="statDk"><tc-webtag:handle coderId='<%= resultRow.getLongItem("winner_id") %>' context="development"/></TD>
+            <TD class="statDk" align="center">
+                <rsc:item name="component_name" row="<%=num_registrations%>" />
+             </TD>
+            <TD class="statDk" align="center">
+                <rsc:item name="component_name" row="<%=num_submissions%>" />
+             </TD>
+            <TD class="statDk" align="center">
+                <rsc:item name="component_name" row="<%=num_valid_submissions%>" />
+             </TD>
+            <TD class="statDk">
+            <% if (resultRow.getItem("winner_id") != NULL) { %>
+                <tc-webtag:handle coderId='<%= resultRow.getLongItem("winner_id") %>' context="development"/>
+           <% } %>
+             </TD>
+             <TD class="statDk" align="center">
+                <A HREF='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>' class="bcLink">Details</a>
+             </TD>
           </TR>
 </rsc:iterator>
 
