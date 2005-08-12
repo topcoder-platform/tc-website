@@ -38,8 +38,8 @@ public class MessageHistoryBean extends BaseEJB {
     public ResultSetContainer getEdits(long messageId, String dataSource) {
         return selectSet("message_history", 
                 new String[]{"historyid", "messageid", "subject", "body", "modificationDate"},
-                new String[]{},
-                new String[]{},
+                new String[]{"messageid"},
+                new String[]{String.valueOf(messageId)},
                 dataSource);
     }
     
