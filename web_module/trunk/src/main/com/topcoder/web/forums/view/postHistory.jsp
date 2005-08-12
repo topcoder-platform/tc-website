@@ -11,6 +11,7 @@
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="historyUser" name="historyUser" type="com.jivesoftware.base.User" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
+<tc-webtag:useBean id="historyBean" name="historyBean" type="com.topcoder.web.ejb.messagehistory.MessageHistory" toScope="request"/>
 
 <html>
 <head>
@@ -91,10 +92,10 @@
 <table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
         <td class="rtHeader" width="50%">Post</td>
-        <td class="rtHeader" width="20%">Forum</td>
-        <td class="rtHeader" width="14%">Date</td>
-        <td class="rtHeader" width="8%">Replies</td>
-        <td class="rtHeader" align="right">Edits</td>
+        <td class="rtHeader" width="25%">Forum</td>
+        <td class="rtHeader" width="15%">Date</td>
+        <td class="rtHeader" align="right" width="5%">Replies</td>
+        <td class="rtHeader" align="right" width="5%">Edits</td>
     </tr>
 	<tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
 	<tr>
@@ -104,8 +105,8 @@
 		<%	} %></td>
       	<td class="rtThreadCell"><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=message.getForum().getID()%>&mc=<%=message.getForum().getMessageCount()%>" class="rtbcLink"><%=message.getForum().getName()%></A></td>
       	<td class="rtThreadCell"><strong><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy h:mm a z"/></strong></td>
-      	<td class="rtThreadCell"><%=message.getForumThread().getTreeWalker().getChildCount(message)%></td>
-        <td class="rtThreadCell"></td>
+      	<td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getChildCount(message)%></td>
+        <td class="rtThreadCell" align="right"><A href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>"><%=historyBean.getEditCount(message.getID(), "java:JiveDS")%></A></td>
     </tr>
 	</tc-webtag:iterator>
 </table>

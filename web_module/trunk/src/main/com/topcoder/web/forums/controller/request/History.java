@@ -8,12 +8,16 @@ import com.jivesoftware.base.User;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.action.util.Paginator;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.ejb.messagehistory.MessageHistory;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
 
 import java.util.Iterator;
+
+import javax.naming.InitialContext;
 
 /**
  * @author mtong
@@ -57,11 +61,15 @@ public class History extends ForumsProcessor {
         Paging paging = new Paging(resultFilter, totalItemCount);
         Paginator paginator = new Paginator(paging);
         Iterator itMessages = forumFactory.getUserMessages(historyUser, resultFilter);
+        
+        InitialContext ctx = TCContext.getInitial();
+        MessageHistory historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
 
         getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("historyUser", historyUser);
         getRequest().setAttribute("messages", itMessages);
         getRequest().setAttribute("paginator", paginator);
+        getRequest().setAttribute("historyBean", historyBean);
 
 		setNextPage("/postHistory.jsp");
 		setIsNextPageInContext(true);
