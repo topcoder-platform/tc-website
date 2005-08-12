@@ -61,13 +61,13 @@
                 <rsc:item name="component_name" row="<%=resultRow%>" /> <rsc:item name="version_text" row="<%=resultRow%>" />
              </TD>
             <TD class="statDk" align="center">
-                <rsc:item name="component_name" row="<%=num_registrations%>" />
+                <rsc:item name="num_registrations" row="<%=resultRow%>" />
              </TD>
             <TD class="statDk" align="center">
-                <rsc:item name="component_name" row="<%=num_submissions%>" />
+                <rsc:item name="num_submissions" row="<%=resultRow%>" />
              </TD>
             <TD class="statDk" align="center">
-                <rsc:item name="component_name" row="<%=num_valid_submissions%>" />
+                <rsc:item name="num_valid_submissions" row="<%=resultRow%>" />
              </TD>
             <TD class="statDk">
             <% if (resultRow.getItem("winner_id") != NULL) { %>
