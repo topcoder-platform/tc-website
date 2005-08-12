@@ -1,5 +1,5 @@
 <%@  page language="java"
-    import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
+    import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
           java.util.Map"%>
 
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
@@ -75,7 +75,8 @@ function submitEnter(e) {
     ResultSetContainer list = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("comp_list");
 
 %>
-<form name="compListForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
+<form name="compListForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
+
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AlgoRank"/>
 
 <table border="1">
