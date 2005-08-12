@@ -196,7 +196,7 @@ document.write( '</object> ');
 <SCRIPT language="JavaScript">
 <!--
 if (!MM_FlashCanPlay){
-document.write( '<br><span class="bodySubtitle">Rating History Graph</span><br> ');
+document.write( '<br><span class="bodySubtitle">Member Profile Graphs</span><br> ');
 document.write( '<A href="http://www.macromedia.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank"> ');
 document.write( '<img src="/i/interface/getFlash.gif" alt="Get Flash" border="0"></A> ');
 }
