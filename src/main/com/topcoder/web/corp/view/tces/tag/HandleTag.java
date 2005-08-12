@@ -105,7 +105,7 @@ public class HandleTag extends TagSupport {
             //we're assuming here that a coder will only have 1 rating per company
             Request r = new Request();
             r.setContentHandle("tces_coder_all_ratings");
-            r.setProperty("cr", String.valueOf(coderId));
+            r.setProperty("mid", String.valueOf(coderId));
             r.setProperty("cm", String.valueOf(companyId));
             CachedDataAccess da = new CachedDataAccess(db);
             Map m = da.getData(r);
