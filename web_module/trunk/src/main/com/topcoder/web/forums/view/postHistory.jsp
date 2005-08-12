@@ -90,10 +90,11 @@
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
-        <td class="rtHeader" width="60%">Post</td>
-        <td class="rtHeader" width="25%">Forum</td>
-        <td class="rtHeader" width="15%">Date</td>
-        <td class="rtHeader" align="right">Replies</td>
+        <td class="rtHeader" width="50%">Post</td>
+        <td class="rtHeader" width="20%">Forum</td>
+        <td class="rtHeader" width="14%">Date</td>
+        <td class="rtHeader" width="8%">Replies</td>
+        <td class="rtHeader" align="right">Edits</td>
     </tr>
 	<tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
 	<tr>
@@ -103,7 +104,8 @@
 		<%	} %></td>
       	<td class="rtThreadCell"><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=message.getForum().getID()%>&mc=<%=message.getForum().getMessageCount()%>" class="rtbcLink"><%=message.getForum().getName()%></A></td>
       	<td class="rtThreadCell"><strong><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy h:mm a z"/></strong></td>
-      	<td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getChildCount(message)%></td>
+      	<td class="rtThreadCell"><%=message.getForumThread().getTreeWalker().getChildCount(message)%></td>
+        <td class="rtThreadCell"></td>
     </tr>
 	</tc-webtag:iterator>
 </table>
