@@ -175,6 +175,7 @@ public class HandleTag extends TagSupport {
 
             pageContext.getOut().print(output.toString());
         } catch (Exception e) {
+            e.printStackTrace();
             throw new JspException(e.getMessage());
         }
         return SKIP_BODY;
