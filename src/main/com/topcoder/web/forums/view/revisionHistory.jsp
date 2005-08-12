@@ -45,12 +45,13 @@
 
         <jsp:include page="page_title.jsp" >
             <jsp:param name="image" value="forums"/>
-            <jsp:param name="title" value="&#160;"/>
+            <jsp:param name="title" value="Revision History"/>
         </jsp:include>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr><td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >> Revision History: 
-<jsp:getProperty name="message" property="ID"/> (<%=revisionList.size()%> edits)</td></tr>
+<tr><td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>  
+<a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink"><jsp:getProperty name="message" property="subject"/></a> >>
+Revision History (<%=revisionList.size()%> edits)</td></tr>
 </table>
 
 <%-------------POSTS---------------%>
