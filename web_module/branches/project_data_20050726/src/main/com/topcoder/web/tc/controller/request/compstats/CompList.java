@@ -10,6 +10,7 @@
 
 package com.topcoder.web.tc.controller.request.compstats;
 
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -31,6 +32,23 @@ public class CompList extends Base {
 
     protected void businessProcessing() throws TCWebException {
         try {
+            String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
+
+            if ("".equals(numRecords)) {
+                numRecords = "50";
+            } else if (Integer.parseInt(numRecords)>200) {
+                numRecords="200";
+            }
+            setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
+
+            if ("".equals(startRank)||Integer.parseInt(startRank)<=0) {
+                startRank = "1";
+            }
+            setDefault(DataAccessConstants.START_RANK, startRank);
+
+            r.setProperty(DataAccessConstants.START_RANK, startRank);
+            r.setProperty(DataAccessConstants.END_RANK,
+                String.valueOf(Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1));
 
             Request r = new Request();
             r.setContentHandle("comp_list");
