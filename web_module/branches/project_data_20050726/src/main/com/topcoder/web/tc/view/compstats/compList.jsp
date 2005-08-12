@@ -100,17 +100,17 @@ function submitEnter(e) {
                 <rsc:item name="phase_desc" row="<%=resultRow%>" />
              </TD>
             <TD class="statDk" align="center">
-                <rsc:item name="num_registrations" row="<%=resultRow%>" ifNull="unknwon *" />
+                <rsc:item name="num_registrations" row="<%=resultRow%>" ifNull="unknown *" />
              </TD>
             <TD class="statDk" align="center">
-                <rsc:item name="num_submissions" row="<%=resultRow%>" ifNull="unknwon *"/>
+                <rsc:item name="num_submissions" row="<%=resultRow%>" ifNull="unknown *"/>
              </TD>
             <TD class="statDk" align="center">
-                <rsc:item name="num_valid_submissions" row="<%=resultRow%>" ifNull="unknwon *" />
+                <rsc:item name="num_valid_submissions" row="<%=resultRow%>" ifNull="unknown *" />
              </TD>
             <TD class="statDk"> &nbsp;
             <% if (resultRow.getItem("winner_id") != null)try { %>
-                <tc-webtag:handle coderId='<%= resultRow.getLongItem("winner_id") %>' context="development"/>
+                <tc-webtag:handle coderId='<%= resultRow.getLongItem("winner_id") %>' context='<%=resultRow.getLongItem("phase_desc")%>'/>
              <% } catch(Exception e) { } %>
 
              </TD>
@@ -135,7 +135,7 @@ function submitEnter(e) {
                        <a href="javascript:document.compListForm.submit();" class="statText">&#160;[ submit ]</a>
 
 </form>
-
+* Some information may be unknown due to missing data from old projects
 <jsp:include page="../../foot.jsp" />
 
 </body>
