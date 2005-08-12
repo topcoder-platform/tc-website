@@ -11,4 +11,6 @@ public interface MessageHistory extends EJBObject {
     public void addEdit(long messageId, String subject, String body, long modificationDate, String dataSource) throws EJBException, RemoteException;
 
     public ResultSetContainer getEdits(long messageId, String dataSource) throws EJBException, RemoteException;
+    
+    public int getEditCount(long messageId, String dataSource) throws EJBException, RemoteException;
 }

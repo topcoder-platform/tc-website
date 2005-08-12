@@ -34,64 +34,66 @@ public class MessageHistoryBean extends BaseEJB {
                     "should have inserted 1."));
         }
     }
+    
+    private static final String GET_EDITS_SQL = 
+        "select historyid, messageid, subject, body, modificationDate " +
+        "from message_history where messageid = ? order by modificationDate desc";
 
     public ResultSetContainer getEdits(long messageId, String dataSource) {
-        return selectSet("message_history", 
-                new String[]{"historyid", "messageid", "subject", "body", "modificationDate"},
-                new String[]{"messageid"},
-                new String[]{String.valueOf(messageId)},
-                dataSource);
+        Connection conn = null;
+        PreparedStatement ps = null;
+        InitialContext ctx = null;
+        ResultSet rs = null;
+        try {
+        
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(GET_EDITS_SQL);
+            ps.setLong(1, messageId);
+        
+            rs = ps.executeQuery();
+            return new ResultSetContainer(rs);
+        
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e.getMessage());
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
     }
     
-    protected ResultSetContainer selectSet(String tableName, String colNames[], String[] constraintColNames,
-            String[] constraintColValues, String dataSource) {
-        if (constraintColNames.length != constraintColValues.length)
-            throw new IllegalArgumentException("name and value arrays don't have the same number of elements.");
-        else {
-            StringBuffer query = new StringBuffer(200);
-            query.append("select ");
-            for (int i = 0; i < colNames.length; i++) {
-                query.append(colNames[i]);
-                if (colNames.length > 1 && i != colNames.length - 1)
-                    query.append(", ");
-            }
+    private static final String GET_EDIT_COUNT_SQL = 
+        "select count(*) " +
+        "from message_history where messageid = ? order by modificationDate desc";
 
-            query.append(" from ").append(tableName).append(" where ");
-            for (int i = 0; i < constraintColNames.length; i++) {
-                query.append(constraintColNames[i]).append(" = ?");
-                if (constraintColNames.length > 1 && i != constraintColNames.length - 1)
-                    query.append(" and ");
-            }
-            query.append(" order by modificationDate desc ");
-
-            log.debug(query);
-
-            Connection conn = null;
-            PreparedStatement ps = null;
-            InitialContext ctx = null;
-            ResultSet rs = null;
-            try {
-
-                conn = DBMS.getConnection(dataSource);
-                ps = conn.prepareStatement(query.toString());
-                for (int i = 0; i < constraintColNames.length; i++) {
-                    ps.setString(i + 1, constraintColValues[i]);
-                }
-                rs = ps.executeQuery();
-                return new ResultSetContainer(rs);
-
-            } catch (SQLException e) {
-                DBMS.printSqlException(true, e);
-                throw new EJBException(e.getMessage());
-            } catch (Exception e) {
-                throw new EJBException(e.getMessage());
-            } finally {
-                close(rs);
-                close(ps);
-                close(conn);
-                close(ctx);
-            }
-
+    public ResultSetContainer getEditCount(long messageId, String dataSource) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        InitialContext ctx = null;
+        ResultSet rs = null;
+        try {
+        
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(GET_EDITS_SQL);
+            ps.setLong(1, messageId);
+        
+            rs = ps.executeQuery();
+            return new ResultSetContainer(rs);
+        
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e.getMessage());
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 }
