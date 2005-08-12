@@ -41,16 +41,10 @@
 <jsp:param name="title" value="Component List"/>
 </jsp:include>
 
-<%=
+<%
     ResultSetContainer list = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("comp_list");
 
 %>
-
-
-<span class="bodySubtitle">Development Statistics > Contest Details > <rsc:item set="<%=projectInfo%>" name="phase_desc"/> > <img src='<%=imgName%>' alt='<rsc:item set="<%=projectInfo%>" name="category_desc"/>' border="0" />
-<A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A></span><br>
-
-<div class="pagingBox">&#160;</div>
 
 <table>
 
