@@ -782,8 +782,8 @@
          </jar>
      </target>
  	
- 	<target name="package-EJB-RevisionHistoryBean" depends="compile">
-	 	<jar jarfile="${ejb_jars}/revisionhistory.jar">
+ 	<target name="package-EJB-MessageHistoryBean" depends="compile">
+	 	<jar jarfile="${ejb_jars}/messagehistory.jar">
 		 	<zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
 		 	<zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
 		 	<zipfileset dir="${classes}" includes="com/topcoder/web/ejb/messagehistory/*.class"/>
