@@ -53,7 +53,7 @@
             <TD class="statDk" align="center">
                 <rsc:item name="component_name" row="<%=resultRow%>" /> <rsc:item name="version_text" row="<%=resultRow%>" />
              </TD>
-            <TD class="statDk"><tc-webtag:handle coderId='<%= resultRow.getLongItem("user_id") %>' context="development"/></TD>
+            <TD class="statDk"><tc-webtag:handle coderId='<%= resultRow.getLongItem("winner_id") %>' context="development"/></TD>
           </TR>
 </rsc:iterator>
 
