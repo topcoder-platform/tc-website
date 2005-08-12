@@ -45,9 +45,7 @@ public class RevisionHistory extends ForumsProcessor {
         }
 
         String threadView = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_VIEW));
-        if (!threadView.equals("")) {
-            getRequest().setAttribute("threadView", threadView);
-        }
+        getRequest().setAttribute("threadView", threadView);
         
         getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("message", forumFactory.getMessage(messageID));
