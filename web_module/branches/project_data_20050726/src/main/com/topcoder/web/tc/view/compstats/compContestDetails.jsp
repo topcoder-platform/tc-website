@@ -98,7 +98,7 @@
             <TD class="stat" align="right" valign="top" style="padding-top: 3px"><img src='<%=imgName%>' alt='<rsc:item set="<%=projectInfo%>" name="category_desc"/>' border="0" /></TD>
          </tr>
          <tr>
-            <td class="cat" nowrap="nowrap">Inquiries:</TD>
+            <td class="cat" nowrap="nowrap">Registrants:</TD>
             <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_inquiries" ifNull="unknown *" /></TD>
          </tr>
          <tr>
@@ -110,7 +110,7 @@
             <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="submission_percent" format="0.00'%'" ifNull="N/A" /></TD>
          </tr>
          <tr>
-            <td class="cat" nowrap="nowrap">Passed Screning:</TD>
+            <td class="cat" nowrap="nowrap">Passed Screening:</TD>
             <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="passed" ifNull="N/A" /></TD>
          </tr>
          <tr>
