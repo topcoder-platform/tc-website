@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
@@ -70,7 +71,7 @@ public class MessageHistoryBean extends BaseEJB {
         "select count(*) " +
         "from message_history where messageid = ? order by modificationDate desc";
 
-    public ResultSetContainer getEditCount(long messageId, String dataSource) {
+    public int getEditCount(long messageId, String dataSource) {
         Connection conn = null;
         PreparedStatement ps = null;
         InitialContext ctx = null;
@@ -82,7 +83,14 @@ public class MessageHistoryBean extends BaseEJB {
             ps.setLong(1, messageId);
         
             rs = ps.executeQuery();
-            return new ResultSetContainer(rs);
+            
+            int ret = -1;
+            if (rs.next()) {
+                ret = rs.getInt(0);
+            } else {
+                throw new RowNotFoundException("no row found for " + ps.toString());
+            }
+            return ret;
         
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
