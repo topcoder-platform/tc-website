@@ -26,7 +26,7 @@ public class MessageHistoryBean extends BaseEJB {
 
     public void addEdit(long messageId, String subject, String body, long modificationDate, String dataSource) {
         int ret = insert("message_history",
-                new String[]{"messageid", "subject", "body", "modificationDate"},
+                new String[]{"messageid", "subject", "body", "modificationdate"},
                 new String[]{String.valueOf(messageId), subject, body, String.valueOf(modificationDate)},
                 dataSource);
         if (ret != 1) {

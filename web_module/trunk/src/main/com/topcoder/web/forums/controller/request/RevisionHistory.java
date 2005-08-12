@@ -41,7 +41,7 @@ public class RevisionHistory extends ForumsProcessor {
         for (int i=0; i<rsc.size(); i++) {
             revisionList.add(new Revision(rsc.getIntItem(i, "historyid"), rsc.getIntItem(i, "messageid"),
                 rsc.getStringItem(i, "subject"), rsc.getStringItem(i, "body"),
-                new Date(rsc.getLongItem(i, "modificationDate"))));
+                new Date(rsc.getLongItem(i, "modificationdate"))));
         }
 
         String threadView = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_VIEW));
