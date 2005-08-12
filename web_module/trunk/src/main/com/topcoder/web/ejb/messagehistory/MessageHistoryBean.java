@@ -86,7 +86,7 @@ public class MessageHistoryBean extends BaseEJB {
             
             int ret = -1;
             if (rs.next()) {
-                ret = rs.getInt(0);
+                ret = rs.getInt(1);
             } else {
                 throw new RowNotFoundException("no row found for " + ps.toString());
             }
