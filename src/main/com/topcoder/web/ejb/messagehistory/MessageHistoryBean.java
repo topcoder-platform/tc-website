@@ -78,7 +78,7 @@ public class MessageHistoryBean extends BaseEJB {
         try {
         
             conn = DBMS.getConnection(dataSource);
-            ps = conn.prepareStatement(GET_EDITS_SQL);
+            ps = conn.prepareStatement(GET_EDIT_COUNT_SQL);
             ps.setLong(1, messageId);
         
             rs = ps.executeQuery();

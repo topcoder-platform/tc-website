@@ -49,6 +49,7 @@ public class RevisionHistory extends ForumsProcessor {
             getRequest().setAttribute("threadView", threadView);
         }
         
+        getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("message", forumFactory.getMessage(messageID));
         getRequest().setAttribute("revisionList", revisionList);
 
