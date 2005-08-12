@@ -72,6 +72,7 @@ public class WebScreeningBot {
                 em.addToAddress("6508045266@vtext.com", TCSEmailMessage.TO);
                 em.addToAddress("8604656205@mobile.mycingular.com", TCSEmailMessage.TO);
                 em.addToAddress("8606144043@vtext.com", TCSEmailMessage.TO);
+                em.addToAddress("9196197120@vtext.com", TCSEmailMessage.TO); //fogle
 
                 em.setSubject("Server Error");
                 em.setBody("Tech Assess Error:\n" + shortError);
@@ -99,6 +100,9 @@ public class WebScreeningBot {
                 e.printStackTrace();
             }
         }
+        
+        errorText = "";
+        shortError = "";
 
     }
 
