@@ -5,6 +5,8 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -14,6 +16,33 @@
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+
+  <jsp:include page="../script.jsp" />
+<script type="text/javascript">
+function submitEnter(e) {
+    var keycode;
+    if (window.event) keycode = window.event.keyCode;
+    else if (e) keycode = e.which;
+    else return true;
+    if (keycode == 13) {
+     document.coderRankForm.submit();
+     return false;
+    } else return true;
+  }
+  function next() {
+    var myForm = document.compListForm;
+    myForm.<%=DataAccessConstants.START_RANK%>.value=parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value)+parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+    myForm.submit();
+  }
+  function previous() {
+    var myForm = document.compListForm;
+    myForm.<%=DataAccessConstants.START_RANK%>.value=parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value)-parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+    myForm.submit();
+  }
+
+</script>
+
+
 </head>
 
 <body>
@@ -21,6 +50,7 @@
 <jsp:include page="../../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
+
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
@@ -45,6 +75,7 @@
     ResultSetContainer list = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("comp_list");
 
 %>
+<form name="compListForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
 
 <table border="1">
 <tr>
@@ -55,7 +86,7 @@
     <TD class="statDk" align="center">Submissions</td>
     <TD class="statDk" align="center">Submissions passed screening</td>
     <TD class="statDk" align="center">Winner</td>
-    <tdTD class="statDk" align="center"details</td>
+    <TD class="statDk" align="center"details</td>
 </tr>
 <rsc:iterator list="<%=list%>" id="resultRow">
          <TR>
@@ -77,7 +108,7 @@
             <TD class="statDk" align="center">
                 <rsc:item name="num_valid_submissions" row="<%=resultRow%>" ifNull="unknwon *" />
              </TD>
-            <TD class="statDk">
+            <TD class="statDk"> &nbsp;
             <% if (resultRow.getItem("winner_id") != null)try { %>
                 <tc-webtag:handle coderId='<%= resultRow.getLongItem("winner_id") %>' context="development"/>
              <% } catch(Exception e) { } %>
@@ -92,6 +123,12 @@
 </rsc:iterator>
 
 </table>
+
+                        <%=(list.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                        | <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>":"next &gt;&gt;")%>
+
+</form>
+
 <jsp:include page="../../foot.jsp" />
 
 </body>

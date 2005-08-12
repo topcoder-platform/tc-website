@@ -32,6 +32,9 @@ public class CompList extends Base {
 
     protected void businessProcessing() throws TCWebException {
         try {
+            Request r = new Request();
+
+            String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
             String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
 
             if ("".equals(numRecords)) {
@@ -50,7 +53,6 @@ public class CompList extends Base {
             r.setProperty(DataAccessConstants.END_RANK,
                 String.valueOf(Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1));
 
-            Request r = new Request();
             r.setContentHandle("comp_list");
 
             DataAccessInt dai = getDataAccess(true);
