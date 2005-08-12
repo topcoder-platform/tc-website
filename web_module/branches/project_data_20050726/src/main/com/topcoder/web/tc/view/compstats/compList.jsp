@@ -48,6 +48,7 @@
 
 <table border="1">
 <tr>
+    <TD class="statDk" align="center">Category</td>
     <TD class="statDk" align="center">Component</td>
     <TD class="statDk" align="center">Phase</td>
     <TD class="statDk" align="center">Registrations</td>
@@ -59,25 +60,30 @@
 <rsc:iterator list="<%=list%>" id="resultRow">
          <TR>
             <TD class="statDk" align="left">
-               <rsc:item name="category_desc" row="<%=resultRow%>" />  <rsc:item name="component_name" row="<%=resultRow%>" /> <rsc:item name="version_text" row="<%=resultRow%>" />
+               <rsc:item name="category_desc" row="<%=resultRow%>" />
+             </TD>
+            <TD class="statDk" align="left">
+                <rsc:item name="component_name" row="<%=resultRow%>" /> <rsc:item name="version_text" row="<%=resultRow%>" />
              </TD>
             <TD class="statDk" align="center">
                 <rsc:item name="phase_desc" row="<%=resultRow%>" />
              </TD>
             <TD class="statDk" align="center">
-                <rsc:item name="num_registrations" row="<%=resultRow%>" />
+                <rsc:item name="num_registrations" row="<%=resultRow%>" ifNull="unknwon *" />
              </TD>
             <TD class="statDk" align="center">
-                <rsc:item name="num_submissions" row="<%=resultRow%>" />
+                <rsc:item name="num_submissions" row="<%=resultRow%>" ifNull="unknwon *"/>
              </TD>
             <TD class="statDk" align="center">
-                <rsc:item name="num_valid_submissions" row="<%=resultRow%>" />
+                <rsc:item name="num_valid_submissions" row="<%=resultRow%>" ifNull="unknwon *" />
              </TD>
             <TD class="statDk">
-             </TD>
             <% if (resultRow.getItem("winner_id") != null)try { %>
                 <tc-webtag:handle coderId='<%= resultRow.getLongItem("winner_id") %>' context="development"/>
-             <% } catch(Exception e) { System.out.println("QQ " +resultRow.getItem("winner_id") ); } %>
+             <% } catch(Exception e) { } %>
+
+             </TD>
+
 
              <TD class="statDk" align="center">
                 <A HREF='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>' class="bcLink">Details</a>
