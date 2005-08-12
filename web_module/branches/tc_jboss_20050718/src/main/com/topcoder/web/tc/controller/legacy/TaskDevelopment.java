@@ -682,7 +682,7 @@ public final class TaskDevelopment {
         ComponentManager componentMgr = null;
         Context ctx = null;
         try {
-            ctx = TCContext.getInitial();
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
             Object objTechTypes = ctx.lookup("ComponentManagerEJB");
             ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
             componentMgr = home.create(componentId);
@@ -703,7 +703,7 @@ public final class TaskDevelopment {
         ComponentManager componentMgr = null;
         Context ctx = null;
         try {
-            ctx = TCContext.getInitial();
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
             Object objTechTypes = ctx.lookup("ComponentManagerEJB");
             ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
             componentMgr = home.create(componentId, version);
@@ -724,7 +724,7 @@ public final class TaskDevelopment {
         Catalog catalog = null;
         Context ctx = null;
         try {
-            ctx = TCContext.getInitial();
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
             Object objTechTypes = ctx.lookup(CatalogHome.EJB_REF_NAME);
             CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
             catalog = home.create();
