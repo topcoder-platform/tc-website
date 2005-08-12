@@ -44,6 +44,7 @@ if ( plugin ) {
             <%}%>
             </td></tr>
             <tr><td class="catNW" colspan="2"><A HREF='/stat?c=ratings_history&cr=<%=request.getParameter("cr")%>'>[rating history]</A><br><br></td></tr>
+            <tr><td class="catNW">Percentile:</td><td class="statRNW"></td></tr>
             <tr><td class="catNW">Rank:</td><td class="statRNW"><rsc:item name="rank" set="<%=rscAlgData%>" ifNull="not ranked" /><% if (rscAlgData.getStringItem(0, "rank")!=null) { %> of <rsc:item name="num_ranked" set="<%=rscAlgData%>"/><% } %></td></tr>
             <tr><td class="catNW">Country Rank:</td><td class="statRNW"><rsc:item name="country_rank" set="<%=rscAlgData%>" ifNull="not ranked" /><% if (rscAlgData.getStringItem(0, "country_rank")!=null) { %> of <rsc:item name="num_country_ranked" set="<%=rscAlgData%>"/><% } %></td></tr>
             <% if (rscCoderData.getStringItem(0,"school_name")!=null) { %>

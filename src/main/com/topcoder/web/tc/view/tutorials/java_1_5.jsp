@@ -156,7 +156,7 @@ The class List is now generic, that means that it takes parameterized types; in 
 <br><br>
 Also it's possible, and sometimes very useful, to have more than one type as parameter; for example the maps needs two types, one for the key and one for the values:
 <pre class="code">
-Map<String, Integer> map = new HashMap<String, Integer>();
+Map&lt;String, Integer&gt; map = new HashMap&lt;String, Integer&gt;();
 
 map.put("Bill", 40);
 map.put("Jack", 35);
