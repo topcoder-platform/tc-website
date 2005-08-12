@@ -109,9 +109,9 @@ function submitEnter(e) {
                 <rsc:item name="num_valid_submissions" row="<%=resultRow%>" ifNull="unknown *" />
              </TD>
             <TD class="statDk"> &nbsp;
-            <% if (resultRow.getItem("winner_id") != null)try { %>
+            <% if (resultRow.getStringItem("winner_id") != null) { %>
                 <tc-webtag:handle coderId='<%= resultRow.getLongItem("winner_id") %>' context='<%=resultRow.getStringItem("phase_desc")%>'/>
-             <% } catch(Exception e) { } %>
+             <% }  %>
 
              </TD>
 
