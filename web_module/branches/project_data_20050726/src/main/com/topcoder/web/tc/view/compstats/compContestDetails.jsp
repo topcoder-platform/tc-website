@@ -62,8 +62,7 @@
 %>
 
 
-<span class="bodySubtitle">Development Statistics > Contest Details > <rsc:item set="<%=projectInfo%>" name="phase_desc"/> > <img src='<%=imgName%>' alt='<rsc:item set="<%=projectInfo%>" name="category_desc"/>' border="0" />
-<A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A></span><br>
+<span class="bodySubtitle">Development Statistics > Contest Details > <rsc:item set="<%=projectInfo%>" name="phase_desc"/> > <A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A></span><br>
 <span class="bc">
 <% if (dates.size() > 1) { %>
                  <rsc:iterator list="<%=dates%>" id="resultRow">
@@ -94,6 +93,10 @@
          <tr><td class="tableTitle" colspan="2">
          Development Contest Details
          </td></tr>
+         <tr>
+            <td class="cat" nowrap="nowrap" valign="top">Catalog:</TD>
+            <TD class="stat" align="right" valign="top"><img src='<%=imgName%>' alt='<rsc:item set="<%=projectInfo%>" name="category_desc"/>' border="0" /></TD>
+         </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Inquiries:</TD>
             <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_inquiries" ifNull="unknown *" /></TD>
