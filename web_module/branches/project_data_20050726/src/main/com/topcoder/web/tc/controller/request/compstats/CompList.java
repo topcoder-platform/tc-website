@@ -1,0 +1,54 @@
+/*
+ * CompList.java
+ *
+ * Created on August 12, 2005 by Cucu
+ *
+ * To change this template, choose Tools | Options and locate the template under
+ * the Source Creation and Management node. Right-click the template and choose
+ * Open. You can then make changes to the template in the Source Editor.
+ */
+
+package com.topcoder.web.tc.controller.request.compstats;
+
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
+import java.util.Iterator;
+import java.util.Map;
+
+/**
+ *
+ * @author cucu
+ */
+public class CompList extends Base {
+
+
+
+    protected void businessProcessing() throws TCWebException {
+        try {
+
+            Request r = new Request();
+            r.setContentHandle("comp_list");
+
+            DataAccessInt dai = getDataAccess(true);
+            Map result = dai.getData(r);
+
+            getRequest().setAttribute("resultMap", result);
+
+
+            setNextPage("/compstats/compList.jsp");
+            setIsNextPageInContext(true);
+
+        } catch (TCWebException we) {
+            throw we;
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+    }
+
+}

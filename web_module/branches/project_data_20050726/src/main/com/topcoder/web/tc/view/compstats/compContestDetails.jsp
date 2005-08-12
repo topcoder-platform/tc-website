@@ -58,6 +58,16 @@
     if (projectInfo.getStringItem(0,"category_desc").equals(".NET")) {
         imgName = "http://www.topcoder.com/i/development/netSm.gif";
     }
+    if (projectInfo.getStringItem(0,"category_desc").equals("Java Custom")) {
+        imgName = "http://www.topcoder.com/i/development/NAME_HERE.gif";
+    }
+    if (projectInfo.getStringItem(0,"category_desc").equals(".NET Custom")) {
+        imgName = "http://www.topcoder.com/i/development/NAME_HERE.gif";
+    }
+    if (projectInfo.getStringItem(0,"category_desc").equals("JSF")) {
+        imgName = "http://www.topcoder.com/i/development/NAME_HERE.gif";
+    }
+
 
 %>
 
