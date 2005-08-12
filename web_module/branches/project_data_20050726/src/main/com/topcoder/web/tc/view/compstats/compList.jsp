@@ -127,6 +127,13 @@ function submitEnter(e) {
                         <%=(list.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
                         | <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>":"next &gt;&gt;")%>
 
+
+                       View &#160;
+                       <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onkeypress="submitEnter(event)"/>
+                       &#160;at a time starting with &#160;
+                       <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onkeypress="submitEnter(event)"/>
+                       <a href="javascript:document.compListForm.submit();" class="statText">&#160;[ submit ]</a>
+
 </form>
 
 <jsp:include page="../../foot.jsp" />
