@@ -704,7 +704,7 @@ public final class TaskDevelopment {
         Context ctx = null;
         try {
             ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
-            Object objTechTypes = ctx.lookup("ComponentManagerEJB");
+            Object objTechTypes = ctx.lookup(ComponentManagerHome.EJB_REF_NAME);
             ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
             componentMgr = home.create(componentId, version);
         } catch (javax.naming.NamingException namingException) {
@@ -747,7 +747,7 @@ public final class TaskDevelopment {
         try {
             ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
             log.debug("creating user");
-            Object objUserManager = ctx.lookup("dde/UserManager");
+            Object objUserManager = ctx.lookup(UserManagerRemoteHome.EJB_REF_NAME);
             UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome) PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
             UserManagerRemote USER_MANAGER = userManagerHome.create();
 
@@ -785,7 +785,7 @@ public final class TaskDevelopment {
         Context ctx = null;
         try {
             ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
-            Object objTechTypes = ctx.lookup("ComponentManagerEJB");
+            Object objTechTypes = ctx.lookup(ComponentManagerHome.EJB_REF_NAME);
             ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
             ComponentManager componentMgr = home.create(componentId);
             Forum activeForum = componentMgr.getActiveForum(Forum.SPECIFICATION);
