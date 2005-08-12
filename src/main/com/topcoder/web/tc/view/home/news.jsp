@@ -9,6 +9,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>08.12.05<br>9:05 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=java_1_5">New Features of Java 1.5</A></span><br><br>
+       This new release of Java brings many significant improvements, not only in the APIs, but also in the language itself. Old code can still run with Java 1.5; but when writing code for this new version you must profit of the new great features that will make your code more robust, powerful and clearer.</td>
+      <td class="newsPhoto"><img src="/i/m/cucu_mug.gif" /><br>by <tc-webtag:handle coderId="7545675" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=java_1_5">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>08.11.05<br>5:50 PM</td>
       <td class="newsTextCell"><span class="newsTitle">New Rating Distribution Graphs</span><br><br>
 Algorithm, Design, and Development Statistics tabs under Member Profiles now include Rating Distribution Graphs.
@@ -246,20 +261,6 @@ Algorithm, Design, and Development Statistics tabs under Member Profiles now inc
          <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.25.05<br>9:20 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm253_prob">SRM 253 - Problem Set & Analysis</A></span><br><br>
-      SRM 253 had a large turnout, and also offered cash prizes to the top finishers in each room.  Coincidence? <tc-webtag:handle coderId="8355516" context="algorithm"/> finished first in division 1, with the fastest time on the 1000-point problem.</td>
-      <td class="newsPhoto"><img src="/i/m/legakis_mug.gif" /><br>by <tc-webtag:handle coderId="287269" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm253_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
-   </td></tr>
 
 
 </table>
