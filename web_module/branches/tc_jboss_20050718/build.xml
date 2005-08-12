@@ -1321,7 +1321,7 @@
                  <include name="Catalog.jar"/>
                  <include name="Coder.jar"/>
                  <include name="CoderSkill.jar"/>
-                 <include name="ComponentRegistration.jar"/>
+                 <include name="ComponentRegistrationServices.jar"/>
                  <include name="DataCache.jar"/>
                  <include name="ddepersistence.jar"/>
                  <include name="Email.jar"/>
@@ -1517,7 +1517,8 @@
                  <pathelement location="${jars.dir}/httpunit.jar"/>
                  <pathelement location="${jars.dir}/Tidy.jar"/>
                  <pathelement location="${jars.dir}/nekohtml.jar"/>
-                 <pathelement location="${jars.dir}/xalan-j_2_4_0/bin/xalan.jar"/>
+                 <pathelement location="${jars.dir}/xmlParserAPIs.jar"/>
+                 <pathelement location="${jars.dir}/xercesImpl.jar"/>
              </classpath>
          </java>
      </target>

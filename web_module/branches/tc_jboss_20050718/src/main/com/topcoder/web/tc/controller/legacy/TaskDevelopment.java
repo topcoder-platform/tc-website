@@ -734,9 +734,7 @@ public final class TaskDevelopment {
 
 
     static void register(long userId, long componentId, long projectId, int rating, String comment, boolean agreedToTerms, int phase, int version) throws Exception {
-        Context ctx = TCContext.getInitial();
-
-
+        Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
         log.debug("creating user");
         Object objUserManager = ctx.lookup("dde/UserManager");
         UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome) PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
