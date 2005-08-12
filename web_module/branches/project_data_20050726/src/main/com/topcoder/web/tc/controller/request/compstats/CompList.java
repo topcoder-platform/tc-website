@@ -55,8 +55,7 @@ public class CompList extends Base {
 
             r.setContentHandle("comp_list");
 
-            DataAccessInt dai = getDataAccess(true);
-            Map result = dai.getData(r);
+            Map result = getDataAccess().getData(r);
 
             getRequest().setAttribute("resultMap", result);
 
