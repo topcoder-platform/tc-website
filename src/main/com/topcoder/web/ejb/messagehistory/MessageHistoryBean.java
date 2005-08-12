@@ -37,8 +37,8 @@ public class MessageHistoryBean extends BaseEJB {
     }
     
     private static final String GET_EDITS_SQL = 
-        "select historyid, messageid, subject, body, modificationDate " +
-        "from message_history where messageid = ? order by modificationDate desc";
+        "select historyid, messageid, subject, body, modificationdate " +
+        "from message_history where messageid = ? order by modificationdate desc";
 
     public ResultSetContainer getEdits(long messageId, String dataSource) {
         Connection conn = null;
