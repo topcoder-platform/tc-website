@@ -95,14 +95,16 @@ public class PostMessage extends ForumsProcessor {
         if (message == null || postMode.equals("Reply")) {
 			message = forum.createMessage(user);
 		}
-        long modificationDate = message.getModificationDate().getTime();
+        long histModificationDate = message.getModificationDate().getTime();
+        String histSubject = message.getSubject();
+        String histBody = message.getBody();
 		message.setSubject(subject);
 		message.setBody(body);
         
         if (postMode.equals("Edit")) {
             InitialContext ctx = TCContext.getInitial();
             MessageHistory historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
-            historyBean.addEdit(message.getID(), message.getSubject(), message.getBody(), modificationDate, "java:JiveDS");
+            historyBean.addEdit(message.getID(), histSubject, histBody, histModificationDate, "java:JiveDS");
         }
 
         WatchManager watchManager = forumFactory.getWatchManager();
