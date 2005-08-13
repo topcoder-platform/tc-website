@@ -9,7 +9,7 @@ public class Revision {
     private String body;
     private Date modificationDate;
     
-    public int ID() {
+    public int getID() {
         return ID;
     }
     public int getMessageID() {
