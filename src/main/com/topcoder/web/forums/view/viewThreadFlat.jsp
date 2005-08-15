@@ -137,13 +137,15 @@
       <td class="rtHeader" align="right">
         <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/>">
             <%  int editCount = historyBean.getEditCount(message.getID(), "java:JiveDS");
-                if (editCount > 0) { %>
+                if (editCount == 1) { %> 
+                    1 edit
+            <%  } else if (editCount > 1) { %> 
                     <%=editCount%> edits
             <%  } %></a>
       </td>
    </tr>
    <tr>
-      <td class="rtPosterCell" width="10%">
+      <td class="rtPosterCell" width="1%">
       <div class="rtPosterSpacer">
       <%  if (message.getUser() != null && !("false".equals(message.getUser().getProperty("jiveDisplayMemberPhoto"))) && message.getUser().getProperty("imagePath") != null) { %>
       <img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
@@ -151,7 +153,7 @@
       <span class="bodyText"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></span><br/><%if (message.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A><%}%>
       </div>
       </td>
-      <td class="rtTextCell" width="90%" colspan="2"><jsp:getProperty name="message" property="body"/>
+      <td class="rtTextCell" width="99%" colspan="2"><jsp:getProperty name="message" property="body"/>
       </td>
    </tr>
 </table>

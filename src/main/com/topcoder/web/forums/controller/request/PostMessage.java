@@ -101,7 +101,8 @@ public class PostMessage extends ForumsProcessor {
 		message.setSubject(subject);
 		message.setBody(body);
         
-        if (postMode.equals("Edit")) {
+        // Add an edit to the revision history only if Jive recognizes that an edit has taken place
+        if (postMode.equals("Edit") && message.getModificationDate().getTime() > histModificationDate) {
             InitialContext ctx = TCContext.getInitial();
             MessageHistory historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
             historyBean.addEdit(message.getID(), histSubject, histBody, histModificationDate, "java:JiveDS");
