@@ -9,6 +9,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.messagehistory.MessageHistory;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.jivesoftware.forum.ForumMessage;
 
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class RevisionHistory extends ForumsProcessor {
         }
         
         ArrayList revisionList = new ArrayList();
-        ResultSetContainer rsc = historyBean.getEdits(messageID, "java:JiveDS");
+        ResultSetContainer rsc = historyBean.getEdits(messageID, DBMS.FORUMS_DATASOURCE_NAME);
         for (int i=0; i<rsc.size(); i++) {
             revisionList.add(new Revision(rsc.getIntItem(i, "historyid"), rsc.getIntItem(i, "messageid"),
                 rsc.getStringItem(i, "subject"), rsc.getStringItem(i, "body"),

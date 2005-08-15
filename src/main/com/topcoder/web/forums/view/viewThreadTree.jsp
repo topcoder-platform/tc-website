@@ -7,7 +7,8 @@
          		 com.jivesoftware.forum.action.util.Page,
          		 com.jivesoftware.forum.WatchManager,
 				 com.jivesoftware.forum.Watch,
-         		 java.util.*"
+         		 java.util.*,
+                 com.topcoder.shared.util.DBMS"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -109,7 +110,7 @@
 	   </td>
        <td class="rtHeader" align="right">
         <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:beanWrite name="activeMessage" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/>">
-            <%  int editCount = historyBean.getEditCount(activeMessage.getID(), "java:JiveDS");
+            <%  int editCount = historyBean.getEditCount(activeMessage.getID(), DBMS.FORUMS_DATASOURCE_NAME);
                 if (editCount == 1) { %> 
                     1 edit
             <%  } else if (editCount > 1) { %> 
