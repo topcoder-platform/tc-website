@@ -17,6 +17,7 @@
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
 <tc-webtag:useBean id="thread" name="thread" type="com.jivesoftware.forum.ForumThread" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
+<tc-webtag:useBean id="historyBean" name="historyBean" type="com.topcoder.web.ejb.messagehistory.MessageHistory" toScope="request"/>
 
 <%	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
 	User user = (User)request.getAttribute("user");
@@ -99,22 +100,34 @@
 <div style="padding:0px 0px 0px <%=width%>px;">
 <%	}	%>
 <table cellpadding="0" cellspacing="0" class="rtTable">
-		<tr><td class="rtHeader" colspan="2"><a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/></a>
-			<%	if (message.getParentMessage() != null) { %>
+		<tr>
+	       <td class="rtHeader" colspan="2" width="90%"><a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="creationDate" format="MMM d, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/></a>
+				<%	if (message.getParentMessage() != null) { %>
 					(response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
-			<%	} %>
-		</a>
-      &#160;>>&#160; <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">Reply</A>
-      <%  if (message.getUser() != null && message.getUser().equals(user)) { %>
-      | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">Edit</A>
-      <%   } %>
-      </td></tr>
-		<tr><td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
+				<%	} %>
+				</a>
+			    &#160;>>&#160; <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">Reply</A>
+			    <%  if (message.getUser() != null && message.getUser().equals(user)) { %>
+			    | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">Edit</A>
+			    <%   } %>
+	       </td>
+	       <td class="rtHeader" align="right">
+	           <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/>">
+		           <%  int editCount = historyBean.getEditCount(message.getID(), "java:JiveDS");
+		               if (editCount == 1) { %> 
+		                   1 edit
+		           <%  } else if (editCount > 1) { %> 
+		                   <%=editCount%> edits
+		           <%  } %></a>
+	       </td>
+        </tr>
+		<tr>
+        <td class="rtPosterCell" rowspan="2" width="1%"><div class="rtPosterSpacer">
 		<%  if (message.getUser() != null && !("false".equals(message.getUser().getProperty("jiveDisplayMemberPhoto"))) && message.getUser().getProperty("imagePath") != null) { %>
 			<img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
 		<%  } %>
 		<span class="bodyText"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></span><br/><%if (message.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A><%}%></div></td>
-		<td class="rtTextCell100"><jsp:getProperty name="message" property="body"/></td></tr>
+		<td class="rtTextCell100" width="99%" colspan="2"><jsp:getProperty name="message" property="body"/></td></tr>
 </table>
 </div>
 </tc-webtag:iterator>
