@@ -9,6 +9,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.messagehistory.MessageHistory;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.jivesoftware.forum.ForumMessage;
 
 import java.util.ArrayList;
 import java.sql.Date;
@@ -25,6 +26,7 @@ public class RevisionHistory extends ForumsProcessor {
 		super.businessProcessing();
 
         long messageID = Long.parseLong(getRequest().getParameter(ForumConstants.MESSAGE_ID));
+        ForumMessage message = forumFactory.getMessage(messageID);
         
         InitialContext ctx = TCContext.getInitial();
         MessageHistory historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
@@ -48,7 +50,8 @@ public class RevisionHistory extends ForumsProcessor {
         getRequest().setAttribute("threadView", threadView);
         
         getRequest().setAttribute("forumFactory", forumFactory);
-        getRequest().setAttribute("message", forumFactory.getMessage(messageID));
+        getRequest().setAttribute("forum", message.getForum());
+        getRequest().setAttribute("message", message);
         getRequest().setAttribute("revisionList", revisionList);
 
 		setNextPage("/revisionHistory.jsp");
