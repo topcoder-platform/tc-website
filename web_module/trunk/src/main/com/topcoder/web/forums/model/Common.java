@@ -6,6 +6,7 @@ import javax.naming.Context;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import com.topcoder.shared.util.DBMS;
 
 /**
  * User: dok
@@ -13,7 +14,7 @@ import java.sql.ResultSet;
  * Time: 3:26:35 PM
  */
 class Common {
-    public static String DATASOURCE = "java:JiveDS";
+    public static String DATASOURCE = DBMS.FORUMS_DATASOURCE_NAME;
 
 
     public static final void close(Context ctx) {
