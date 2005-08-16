@@ -18,6 +18,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
 import java.util.Iterator;
 import java.util.Map;
@@ -62,7 +63,7 @@ public class CompList extends Base {
             ResultSetContainer rsc = (ResultSetContainer) result.get("comp_list");
             rsc.sortByColumn(sortCol, "asc".equals(sortDir));
 
-            rsc = new ResultSetContainer(rsc, Integer.parseInt(start), Integer.parseInt(end));
+            rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank), Integer.parseInt(endRank));
 
             result.put("comp_list", rsc);
 
