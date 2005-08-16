@@ -52,7 +52,7 @@
     <property name="userdir" value="${packagedir}/user" />
     <property name="emailenginedir" value="com/topcoder/message/email" />
     <property name="debug" value="on" />
-    <property name="verbose" value="yes" />
+    <property name="verbose" value="no" />
 
     <property name="libname" value="${distfilename}" />
 
@@ -106,11 +106,6 @@
     <property name="object_formatter.jar" value="${jardir}/tcs/object_formatter.jar"/>
     <property name="upload.jar" value="${jardir}/upload.jar"/>
 
-    <property name="emailaddressvalidator.jar" value="${tcslibdir}/tcs/email_address_validator/1.0/email_address_validator.jar"/>
-    <property name="simplecache.jar" value="${tcslibdir}/tcs/simple_cache/1.0/simple_cache.jar"/>
-    <property name="base_exception.jar" value="${tcslibdir}/tcs/base_exception/1.0/base_exception.jar"/>
-    <property name="logging_wrapper.jar" value="${tcslibdir}/tcs/logging_wrapper/1.0/logging_wrapper.jar"/>
-    <property name="refreshable_cache.jar" value="${tcslibdir}/tcs/refreshable_cache/1.0/refreshable_cache.jar"/>
     <property name="file_class.jar" value="${jardir}/tcs/file_class/1.0/file_class.jar"/>
 
     <property name="review-persistence.jar" value="${onlinereview.jars.dir}/persistence.jar"/>
@@ -118,18 +113,9 @@
     <property name="cache_refresher.sar" value="${onlinereview.jars.dir}/cache_refresher.sar"/>
     <property name="auto_pilot_timer.sar" value="${onlinereview.jars.dir}/auto_pilot_timer.sar"/>
 
-    <property name="ejb.jar" value="${tcslibdir}/ejb-2_0.jar"/>
-    <property name="jdbc.jar" value="${tcslibdir}/jdbc2_0-stdext.jar"/>
+    <property name="javamail.jar" value="${jardir}/jboss/mail.jar"/>
     <property name="log4j.jar" value="${jardir}/log4j-1.2.7.jar"/>
-    <property name="jce1_2-do.jar" value="${tcslibdir}/jce1_2-do.jar"/>
-    <property name="xerces.jar" value="${tcslibdir}/xerces.jar"/>
-    <property name="javamail.jar" value="${jardir}/mail.jar"/>
-    <property name="jboss-j2ee.jar" value="${jardir}/jboss-j2ee.jar"/>
-    <property name="jboss-system.jar" value="${tcslibdir}/jboss/jboss-system.jar"/>
-    <property name="jboss-jmx.jar" value="${tcslibdir}/jboss/jboss-jmx.jar"/>
-    <property name="servlet.jar" value="${tcslibdir}/servlet.jar"/>
     <property name="junit.jar" value="${jardir}/junit.jar"/>
-    <property name="junitejb.jar" value="${tcslibdir}/junitejb.jar"/>
 
     <property name="typesafeenum.version" value="1.0"/>
     <property name="typesafeenum.jar.name" value="typesafe_enum.jar"/>
@@ -148,18 +134,22 @@
     
     <path id="buildlibs">
         <pathelement location="${build_classdir}"/>
-        <pathelement location="${ejb.jar}"/>
+        <pathelement location="${jardir}/jboss/jbossall-client.jar"/>
+        <pathelement location="${jardir}/jboss/jboss-system.jar"/>
+        <pathelement location="${jardir}/jboss/xalan.jar"/>
+        <pathelement location="${jardir}/jboss/xercesImpl.jar"/>
+        <pathelement location="${jardir}/jboss/xml-apis.jar"/>
         <pathelement location="${jdbc.jar}"/>
         <pathelement location="${log4j.jar}"/>
         <pathelement location="${jce1_2-do.jar}"/>
-        <pathelement location="${xerces.jar}"/>
         <pathelement location="${javamail.jar}"/>
         <pathelement location="${jboss-j2ee.jar}"/>
         <pathelement location="${jboss-system.jar}"/>
         <pathelement location="${jboss-jmx.jar}"/>
-        <pathelement location="${servlet.jar}"/>
+        <pathelement location="${jardir}/jboss/javax.servlet.jar"/>
+        <pathelement location="${jardir}/jboss/javax.servlet.jsp.jar"/>
 
-        <pathelement location="${simplecache.jar}"/>
+        <pathelement location="${jardir}/tcs/simple_cache.jar"/>
         <pathelement location="${idgenerator.jar}"/>
         <pathelement location="${searchengine.jar}"/>
         <pathelement location="${configmanager.jar}"/>
@@ -171,12 +161,12 @@
         <pathelement location="${tcsutil.jar}"/>
         <pathelement location="${object_formatter.jar}"/>
 
-        <pathelement location="${logging_wrapper.jar}"/>
-        <pathelement location="${refreshable_cache.jar}"/>
+        <pathelement location="${jardir}/tcs/logging_wrapper.jar"/>
+        <pathelement location="${jardir}/tcs/refreshable_cache.jar"/>
 
         <pathelement location="${upload.jar}"/>
         <pathelement location="${onlinereview.jars.dir}/persistence.jar"/>
-        <pathelement location="${base_exception.jar}"/>
+        <pathelement location="${jardir}/tcs/base_exception.jar"/>
         <pathelement location="${file_class.jar}"/>
 
         <pathelement location="${workdays.jar}" />
@@ -346,7 +336,6 @@
         <copy file="${logging_wrapper.jar}" todir="${dist.jars.dir}"/>
         <copy file="${refreshable_cache.jar}" todir="${dist.jars.dir}"/>
         <copy file="${object_formatter.jar}" todir="${dist.jars.dir}"/>
-        <copy file="${xerces.jar}" todir="${dist.jars.dir}"/>
         <copy file="${file_class.jar}" todir="${dist.jars.dir}"/>
 
         <copy file="${emailengine.jar}" todir="${dist.jars.dir}"/>
@@ -363,7 +352,7 @@
 	<copy file="${projectphases.jar}" todir="${dist.jars.dir}"/>
 
         <!-- Add the TCPhase class to the project_phases.jar package -->
-        <jar    jarfile="${dist.jars.dir}/${projectphases.jar.name}"
+        <jar jarfile="${dist.jars.dir}/${projectphases.jar.name}"
         	update="true"
         	basedir="${build_classdir}"
         	includes="com/topcoder/project/phases/TCPhase.class" />
@@ -421,9 +410,7 @@
 
 
     <target name="build-or" depends="">
-         <exec executable="ant" dir=".">
-            <arg line="-f build_or.xml dist"/>
-         </exec>
+        <ant antfile="build_or.xml" target="dist"/>
      </target>
 
      <target name="deploy-expanded" depends="build-or,dist">
@@ -456,6 +443,26 @@
                 basedir="${build_classdir}"
                 includes="${wrapperdir}/**" />
     </target>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

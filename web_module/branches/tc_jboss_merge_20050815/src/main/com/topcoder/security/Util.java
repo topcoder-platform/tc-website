@@ -130,7 +130,7 @@ public class Util implements ConfigManagerInterface {
         KeyStore ks;
         Key key;
         //logger.debug("Util - loadKey");
-        ConfigManager cm = getConfigManager();
+        //ConfigManager cm = getConfigManager();
         //logger.debug("got ConfigManager from getConfigManager");
         String keyStoreFileName = getProperty("keystore");
         String cryptPswd = getProperty("kspassword");
@@ -144,7 +144,7 @@ public class Util implements ConfigManagerInterface {
             try {
                 ks.load(new FileInputStream(keyStoreFileName), cryptPswd.toCharArray());
                 //logger.debug("ks.load");
-                key = (Key) ks.getKey(alias, cryptPswd.toCharArray());
+                key = ks.getKey(alias, cryptPswd.toCharArray());
                 //logger.debug("got key");
             } catch (java.io.EOFException e) {
                 //logger.debug("in catch");
@@ -171,10 +171,10 @@ public class Util implements ConfigManagerInterface {
             throws ConfigManagerException, GeneralSecurityException {
 
         //logger.debug("in storeKeyStore");
-        ConfigManager cm = getConfigManager();
+        //ConfigManager cm = getConfigManager();
         String keyStoreFileName = getProperty("keystore");
         String cryptPswd = getProperty("kspassword");
-        String keyString = getProperty("keystring");
+        //String keyString = getProperty("keystring");
         try {
             KeyGenerator kgen = KeyGenerator.getInstance("Blowfish");
             Key skey = kgen.generateKey();
@@ -200,7 +200,7 @@ public class Util implements ConfigManagerInterface {
      * Depending on cipherMode, encrypt or decrypt password using the key
      * retrieved or created with alias
      *
-     * @param password
+     * @param passwd
      * @param alias Used to look up a particular key within the keystore.
      * @param cipherMode
      * @return Returns the encrypted or decrypted password string
@@ -395,5 +395,6 @@ public class Util implements ConfigManagerInterface {
         ps.close();
         return conn;
     }
+
 
 }

@@ -1,28 +1,19 @@
 package com.topcoder.common.web.data;
 
 import com.topcoder.common.web.error.TCException;
-import com.topcoder.ejb.UserServices.UserServices;
-import com.topcoder.ejb.UserServices.UserServicesHome;
 import com.topcoder.security.TCSubject;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.HttpObjectFactory;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.model.CoderSessionInfo;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.SecurityHelper;
 
-import javax.naming.Context;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSessionBindingEvent;
-import javax.servlet.http.HttpSessionBindingListener;
 import java.io.Serializable;
 import java.util.HashMap;
 
@@ -31,9 +22,9 @@ import java.util.HashMap;
  * @author Steve Burrows
  */
 public final class Navigation
-        implements Serializable, HttpSessionBindingListener {
+        implements Serializable {
 
-    private Browser browser;
+//    private Browser browser;
 //    private boolean serializable;
 //    private User userSerializable;
     private User user;
@@ -42,27 +33,42 @@ public final class Navigation
     private CoderSessionInfo info;
 
 
+/*
     public void valueBound(HttpSessionBindingEvent e) {
         log.debug("common.Navigation:valueBound:called");
     }
+*/
 
 
+/*
     public void valueUnbound(HttpSessionBindingEvent e) {
         StringBuffer msg = new StringBuffer(200);
         msg.append("common.attr.Navigation:valueUnbound:");
         msg.append("user.getUserId:");
         msg.append(user.getUserId());
         log.debug(msg.toString());
+        //don't really care to log them out who friggin cares?
         if (getUser().getLoggedIn().equals("Y") && user.getUserId() != 0) {
             Context ctx = null;
             try {
                 ctx = TCContext.getInitial();
-                UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
-                UserServices userEJB = userHome.findByPrimaryKey(new Integer(getUser().getUserId()));
-                setUser(userEJB.getUser());
-                getUser().setLoggedIn("N");
-                getUser().setModified("U");
-                userEJB.setUser(getUser());
+                UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(ctx.lookup(
+                                UserServicesHome.class.getName()),
+                                UserServicesHome.class);
+                TransactionManager tm = (TransactionManager) ctx.lookup(ApplicationServer.TRANS_MANAGER);
+                try {
+                    UserServices userEJB = userHome.findByPrimaryKey(new Long(getUser().getUserId()));
+                    setUser(userEJB.getUser());
+                    getUser().setLoggedIn("N");
+                    getUser().setModified("U");
+                    tm.begin();
+                    userEJB.setUser(getUser());
+                    tm.commit();
+                } catch (Exception ee) {
+                    if (tm!=null && tm.getStatus()==Status.STATUS_ACTIVE)
+                        tm.rollback();
+                    throw ee;
+                }
             } catch (Exception exception) {
                 log.debug("common.Navigation:valueUnbound:ERROR:\n" + exception);
             } finally {
@@ -75,13 +81,14 @@ public final class Navigation
             }
         }
     }
+*/
 
 
     /**
      * The constructor for the class. Initializes instance variables.
      */
     public Navigation() {
-        browser = null;
+//        browser = null;
 //        serializable = false;
         user = new User();
 //        userSerializable = new User();
@@ -92,7 +99,9 @@ public final class Navigation
     public Navigation(TCRequest request, CoderSessionInfo info) throws TCException {
         this();
         this.info = info;
+/*
         init(request);
+*/
     }
 
     public Navigation(HttpServletRequest request, HttpServletResponse response) throws TCException {
@@ -102,10 +111,11 @@ public final class Navigation
             TCResponse tcResponse = HttpObjectFactory.createResponse(response);
             WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(tcRequest.getSession()),
                     tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
-            PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
-            TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
+            TCSubject user = SecurityHelper.getUserSubject(authentication.getActiveUser().getId());
             info = new CoderSessionInfo(tcRequest, authentication, user.getPrincipals());
+/*
             init(tcRequest);
+*/
         } catch (Exception e) {
             throw new TCException();
         }
@@ -117,15 +127,17 @@ public final class Navigation
             TCResponse tcResponse = HttpObjectFactory.createResponse(response);
             WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()),
                     request, tcResponse, BasicAuthentication.MAIN_SITE);
-            PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
-            TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
+            TCSubject user = SecurityHelper.getUserSubject(authentication.getActiveUser().getId());
             info = new CoderSessionInfo(request, authentication, user.getPrincipals());
+/*
             init(request);
+*/
         } catch (Exception e) {
             e.printStackTrace();
             throw new TCException();
         }
     }
+/*
 
     private void init(TCRequest request) {
         String appName = StringUtils.checkNull(request.getParameter("AppName"));
@@ -141,12 +153,14 @@ public final class Navigation
             browser.setUserAgent(StringUtils.checkNull(request.getParameter("UserAgent")));
         }
     }
+*/
 
 
 
     //get
 
 
+/*
     public boolean cookiesEnabled(HttpServletRequest request, HttpServletResponse response) {
         boolean result = false;
         StringBuffer url = new StringBuffer(100);
@@ -156,6 +170,7 @@ public final class Navigation
         if (response.encodeURL(url.toString()).equals(url.toString())) result = true;
         return result;
     }
+*/
 
     /**
      * deprecated
@@ -166,9 +181,11 @@ public final class Navigation
         // return this.serializable;
     }
 
+/*
     public Browser getBrowser() {
         return this.browser;
     }
+*/
 
     public int getUserId() {
         return (int) info.getUserId();
@@ -231,9 +248,11 @@ public final class Navigation
 */
     }
 
+/*
     public void setBrowser(Browser browser) {
         this.browser = browser;
     }
+*/
 
     public void setUser(User user) {
 //        if (serializable) {
@@ -249,6 +268,7 @@ public final class Navigation
         this.sessionObjects = sessionObjects;
     }
 
+/*
     public Scroll getScroll(int Returns, String sessionKey)
             throws Exception {
         log.debug("coder:task:getScroll called...");
@@ -270,6 +290,7 @@ public final class Navigation
         }
         return result;
     }
+*/
 
     public CoderSessionInfo getSessionInfo() {
         return info;

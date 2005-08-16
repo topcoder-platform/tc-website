@@ -1,90 +1,143 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE ejb-jar PUBLIC "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN" "http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd">
-<ejb-jar id="ejb-jar_ID">
-   <enterprise-beans>
-      <session>
-         <ejb-name>Query</ejb-name>
-         <home>com.topcoder.web.ejb.query.QueryHome</home>
-         <remote>com.topcoder.web.ejb.query.Query</remote>
-         <ejb-class>com.topcoder.web.ejb.query.QueryBean</ejb-class>
-         <session-type>Stateless</session-type>
-         <transaction-type>Container</transaction-type>
-      </session>
-      <session>
-         <ejb-name>QueryInput</ejb-name>
-         <home>com.topcoder.web.ejb.query.QueryInputHome</home>
-         <remote>com.topcoder.web.ejb.query.QueryInput</remote>
-         <ejb-class>com.topcoder.web.ejb.query.QueryInputBean</ejb-class>
-         <session-type>Stateless</session-type>
-         <transaction-type>Container</transaction-type>
-      </session>
-      <session>
-         <ejb-name>Command</ejb-name>
-         <home>com.topcoder.web.ejb.query.CommandHome</home>
-         <remote>com.topcoder.web.ejb.query.Command</remote>
-         <ejb-class>com.topcoder.web.ejb.query.CommandBean</ejb-class>
-         <session-type>Stateless</session-type>
-         <transaction-type>Container</transaction-type>
-      </session>
-      <session>
-         <ejb-name>CommandGroup</ejb-name>
-         <home>com.topcoder.web.ejb.query.CommandGroupHome</home>
-         <remote>com.topcoder.web.ejb.query.CommandGroup</remote>
-         <ejb-class>com.topcoder.web.ejb.query.CommandGroupBean</ejb-class>
-         <session-type>Stateless</session-type>
-         <transaction-type>Container</transaction-type>
-      </session>
-      <session>
-         <ejb-name>Input</ejb-name>
-         <home>com.topcoder.web.ejb.query.InputHome</home>
-         <remote>com.topcoder.web.ejb.query.Input</remote>
-         <ejb-class>com.topcoder.web.ejb.query.InputBean</ejb-class>
-         <session-type>Stateless</session-type>
-         <transaction-type>Container</transaction-type>
-      </session>
-      <session>
-         <ejb-name>CommandQuery</ejb-name>
-         <home>com.topcoder.web.ejb.query.CommandQueryHome</home>
-         <remote>com.topcoder.web.ejb.query.CommandQuery</remote>
-         <ejb-class>com.topcoder.web.ejb.query.CommandQueryBean</ejb-class>
-         <session-type>Stateless</session-type>
-         <transaction-type>Container</transaction-type>
-      </session>
-   </enterprise-beans>
+<?xml version="1.0"?>
+
+<!DOCTYPE ejb-jar PUBLIC
+      "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+      "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
+
+<ejb-jar>
+    <description>Query Services Jar</description>
+    <display-name>Query Services Jar</display-name>
+    <enterprise-beans>
+        <session>
+            <description>Query EJB</description>
+            <display-name>Query EJB</display-name>
+            <ejb-name>Query</ejb-name>
+            <home>com.topcoder.web.ejb.query.QueryHome</home>
+            <remote>com.topcoder.web.ejb.query.Query</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
+            <ejb-class>com.topcoder.web.ejb.query.QueryBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
+            <session-type>Stateless</session-type>
+        </session>
+        <session>
+            <description>QueryInput EJB</description>
+            <display-name>QueryInput EJB</display-name>
+            <ejb-name>QueryInput</ejb-name>
+            <home>com.topcoder.web.ejb.query.QueryInputHome</home>
+            <remote>com.topcoder.web.ejb.query.QueryInput</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
+            <ejb-class>com.topcoder.web.ejb.query.QueryInputBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
+            <session-type>Stateless</session-type>
+        </session>
+        <session>
+            <description>Input EJB</description>
+            <display-name>Input EJB</display-name>
+            <ejb-name>Input</ejb-name>
+            <home>com.topcoder.web.ejb.query.InputHome</home>
+            <remote>com.topcoder.web.ejb.query.Input</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
+            <ejb-class>com.topcoder.web.ejb.query.InputBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
+            <session-type>Stateless</session-type>
+        </session>
+        <session>
+            <description>Command EJB</description>
+            <display-name>Command EJB</display-name>
+            <ejb-name>Command</ejb-name>
+            <home>com.topcoder.web.ejb.query.CommandHome</home>
+            <remote>com.topcoder.web.ejb.query.Command</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
+            <ejb-class>com.topcoder.web.ejb.query.CommandBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
+            <session-type>Stateless</session-type>
+        </session>
+        <session>
+            <description>CommandQuery EJB</description>
+            <display-name>CommandQuery EJB</display-name>
+            <ejb-name>CommandQuery</ejb-name>
+            <home>com.topcoder.web.ejb.query.CommandQueryHome</home>
+            <remote>com.topcoder.web.ejb.query.CommandQuery</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
+            <ejb-class>com.topcoder.web.ejb.query.CommandQueryBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
+            <session-type>Stateless</session-type>
+        </session>
+        <session>
+            <description>CommandGroup EJB</description>
+            <display-name>CommandGroup EJB</display-name>
+            <ejb-name>CommandGroup</ejb-name>
+            <home>com.topcoder.web.ejb.query.CommandGroupHome</home>
+            <remote>com.topcoder.web.ejb.query.CommandGroup</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
+            <ejb-class>com.topcoder.web.ejb.query.CommandGroupBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
+            <session-type>Stateless</session-type>
+        </session>
+    </enterprise-beans>
     <assembly-descriptor>
         <container-transaction>
             <method>
-                <ejb-name>Command</ejb-name>
-                <method-intf>Remote</method-intf>
-                <method-name>*</method-name>
-            </method>
-            <method>
-                <ejb-name>CommandGroup</ejb-name>
-                <method-intf>Remote</method-intf>
-                <method-name>*</method-name>
-            </method>
-            <method>
-                <ejb-name>CommandQuery</ejb-name>
-                <method-intf>Remote</method-intf>
-                <method-name>*</method-name>
-            </method>
-            <method>
-                <ejb-name>Input</ejb-name>
-                <method-intf>Remote</method-intf>
-                <method-name>*</method-name>
-            </method>
-            <method>
                 <ejb-name>Query</ejb-name>
-                <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+        <container-transaction>
             <method>
                 <ejb-name>QueryInput</ejb-name>
-                <method-intf>Remote</method-intf>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+        <container-transaction>
+            <method>
+                <ejb-name>Command</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+        <container-transaction>
+            <method>
+                <ejb-name>CommandGroup</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+        <container-transaction>
+            <method>
+                <ejb-name>CommandQuery</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+        <container-transaction>
+            <method>
+                <ejb-name>Input</ejb-name>
                 <method-name>*</method-name>
             </method>
             <trans-attribute>Required</trans-attribute>
         </container-transaction>
     </assembly-descriptor>
 </ejb-jar>
+
+
 

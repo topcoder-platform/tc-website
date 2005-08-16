@@ -1,58 +1,81 @@
 <?xml version="1.0"?>
-<!DOCTYPE ejb-jar PUBLIC '-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN' 'http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd'>
+
+<!DOCTYPE ejb-jar PUBLIC
+      "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+      "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
 
 <ejb-jar>
+    <description>Session Profile Jar</description>
+    <display-name>Session Profile Jar</display-name>
     <enterprise-beans>
         <session>
+            <description>Session Profile EJB</description>
+            <display-name>Session Profile EJB</display-name>
             <ejb-name>SessionProfile</ejb-name>
             <home>com.topcoder.web.ejb.sessionprofile.SessionProfileHome</home>
             <remote>com.topcoder.web.ejb.sessionprofile.SessionProfile</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
             <ejb-class>com.topcoder.web.ejb.sessionprofile.SessionProfileBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
-            <transaction-type>Container</transaction-type>
-            <resource-ref>
-                <res-ref-name>datasource_name</res-ref-name>
-                <res-type>javax.sql.DataSource</res-type>
-                <res-auth>Container</res-auth>
-            </resource-ref>
             <resource-ref>
                 <res-ref-name>jts_datasource_name</res-ref-name>
                 <res-type>javax.sql.DataSource</res-type>
                 <res-auth>Container</res-auth>
             </resource-ref>
-        </session>
-        <session>
-            <ejb-name>SessionProfileProblem</ejb-name>
-            <home>com.topcoder.web.ejb.sessionprofile.SessionProfileProblemHome</home>
-            <remote>com.topcoder.web.ejb.sessionprofile.SessionProfileProblem</remote>
-            <ejb-class>com.topcoder.web.ejb.sessionprofile.SessionProfileProblemBean</ejb-class>
-            <session-type>Stateless</session-type>
-            <transaction-type>Container</transaction-type>
             <resource-ref>
                 <res-ref-name>datasource_name</res-ref-name>
                 <res-type>javax.sql.DataSource</res-type>
                 <res-auth>Container</res-auth>
             </resource-ref>
-            <resource-ref>
-                <res-ref-name>jts_datasource_name</res-ref-name>
-                <res-type>javax.sql.DataSource</res-type>
-                <res-auth>Container</res-auth>
-            </resource-ref>
         </session>
         <session>
+            <description>Session Profile Language EJB</description>
+            <display-name>Session Profile Language EJB</display-name>
             <ejb-name>SessionProfileLanguage</ejb-name>
             <home>com.topcoder.web.ejb.sessionprofile.SessionProfileLanguageHome</home>
             <remote>com.topcoder.web.ejb.sessionprofile.SessionProfileLanguage</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
             <ejb-class>com.topcoder.web.ejb.sessionprofile.SessionProfileLanguageBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
-            <transaction-type>Container</transaction-type>
+            <resource-ref>
+                <res-ref-name>jts_datasource_name</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
             <resource-ref>
                 <res-ref-name>datasource_name</res-ref-name>
                 <res-type>javax.sql.DataSource</res-type>
                 <res-auth>Container</res-auth>
             </resource-ref>
+        </session>
+        <session>
+            <description>Session Profile Problem EJB</description>
+            <display-name>Session Profile Problem EJB</display-name>
+            <ejb-name>SessionProfileProblem</ejb-name>
+            <home>com.topcoder.web.ejb.sessionprofile.SessionProfileProblemHome</home>
+            <remote>com.topcoder.web.ejb.sessionprofile.SessionProfileProblem</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
+            <ejb-class>com.topcoder.web.ejb.sessionprofile.SessionProfileProblemBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
+            <session-type>Stateless</session-type>
             <resource-ref>
                 <res-ref-name>jts_datasource_name</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+            <resource-ref>
+                <res-ref-name>datasource_name</res-ref-name>
                 <res-type>javax.sql.DataSource</res-type>
                 <res-auth>Container</res-auth>
             </resource-ref>
@@ -62,26 +85,22 @@
         <container-transaction>
             <method>
                 <ejb-name>SessionProfile</ejb-name>
-                <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
-            <trans-attribute>Required</trans-attribute>
-        </container-transaction>
-        <container-transaction>
-            <method>
-                <ejb-name>SessionProfileProblem</ejb-name>
-                <method-intf>Remote</method-intf>
-                <method-name>*</method-name>
-            </method>
-            <trans-attribute>Required</trans-attribute>
-        </container-transaction>
-        <container-transaction>
             <method>
                 <ejb-name>SessionProfileLanguage</ejb-name>
-                <method-intf>Remote</method-intf>
+                <method-name>*</method-name>
+            </method>
+            <method>
+                <ejb-name>SessionProfileProblem</ejb-name>
                 <method-name>*</method-name>
             </method>
             <trans-attribute>Required</trans-attribute>
         </container-transaction>
     </assembly-descriptor>
 </ejb-jar>
+
+
+
+
+

@@ -46,7 +46,7 @@ function getProblemDetail(id) {
         + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
     var name="problemDetail";
 
-    window.open('/corp/testing/?module=PopulateProblemDetail&roundProblemId='+id,name,cmd);
+    window.open('/corp/testing?module=PopulateProblemDetail&roundProblemId='+id,name,cmd);
     return;
   }
 -->
@@ -200,12 +200,12 @@ if ( MM_FlashCanPlay ) {
                     document.write(' align="middle">');
                     document.write(' <param name="allowScriptAccess" value="sameDomain" />');
                     document.write(' <param name="movie" ');
-                    document.write(' value="/i/corp/screeningRatingEven.swf?preference=<rsc:item row="<%=row%>" name="level"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<rsc:item row="<%=row%>" name="user_id"/>"/>');
+                    document.write(' value="/i/corp/screeningRatingEven.swf?preference=<rsc:item row="<%=row%>" name="level" ifNull="0"/>&sendurl=/corp/testing?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<rsc:item row="<%=row%>" name="user_id"/>"/>');
                     document.write(' <param name="menu" value="false" />');
                     document.write(' <param name="quality" value="high" />');
                     document.write(' <param name="bgcolor" value="#ffffff" />');
                     document.write(' <embed ');
-                    document.write(' src="/i/corp/screeningRatingEven.swf?preference=<rsc:item row="<%=row%>" name="level"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<rsc:item row="<%=row%>" name="user_id"/>" ');
+                    document.write(' src="/i/corp/screeningRatingEven.swf?preference=<rsc:item row="<%=row%>" name="level" ifNull="0"/>&sendurl=/corp/testing?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<rsc:item row="<%=row%>" name="user_id"/>" ');
                     document.write(' menu="false" ');
                     document.write(' quality="high" ');
                     document.write(' bgcolor="#ffffff" ');
@@ -296,7 +296,7 @@ if ( MM_FlashCanPlay ) {
                     <td class="screeningCellEven" colspan="3" align=center>
                         <rsc:iterator id="row"
                                 list="<%=(List) request.getAttribute(Constants.CANDIDATE_PERSONAL_INFO)%>">
-                        <a href='/corp/testing/?<%=Constants.MODULE_KEY%>=<%=Constants.NOTE_CREATE_PROCESSOR%>&<%=Constants.CANDIDATE_ID%>=<rsc:item row="<%=row%>" name="user_id"/>'>
+                        <a href='/corp/testing?<%=Constants.MODULE_KEY%>=<%=Constants.NOTE_CREATE_PROCESSOR%>&<%=Constants.CANDIDATE_ID%>=<rsc:item row="<%=row%>" name="user_id"/>'>
                                 <img src="/i/corp/addNoteButton.gif" border=0 />
                         </a>
                         </rsc:iterator>
@@ -341,7 +341,7 @@ if ( MM_FlashCanPlay ) {
 
                     <td width="14%" align="center" class="<%=cssClasses[counter++ % 2]%>">
 
-                        <A href="/corp/testing/?module=ProblemResult&sid=<rsc:item row="<%=row%>" name="session_id" />&rid=<rsc:item row="<%=row%>" name="session_round_id" />&pid=<rsc:item row="<%=row%>" name="problem_id" />&ptid=4">
+                        <A href="/corp/testing?module=ProblemResult&sid=<rsc:item row="<%=row%>" name="session_id" />&rid=<rsc:item row="<%=row%>" name="session_round_id" />&pid=<rsc:item row="<%=row%>" name="problem_id" />&ptid=4">
                             view
                         </A>
                     </td>
@@ -362,7 +362,7 @@ if ( MM_FlashCanPlay ) {
     </tr>
 </table>
 
-  <jsp:include page="../../foot.jsp" />
+  <jsp:include page="/foot.jsp" />
 
 </body>
 </html>

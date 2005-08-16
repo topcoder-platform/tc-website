@@ -34,7 +34,7 @@ public class ScheduledJobSummaryTag
 
     public int doStartTag()
             throws JspException {
-        return EVAL_BODY_TAG;
+        return EVAL_BODY_BUFFERED;
     }
 
     public void doInitBody()

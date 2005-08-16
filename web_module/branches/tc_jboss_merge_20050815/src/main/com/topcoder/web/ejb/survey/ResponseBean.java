@@ -6,7 +6,6 @@ import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
 import javax.naming.Context;
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,9 +13,7 @@ import java.sql.SQLException;
 
 public class ResponseBean extends BaseEJB {
 
-    private static Logger log = Logger.getLogger(ResponseBean.class);
-    private final static String DATA_SOURCE = "java:comp/env/datasource_name";
-    private final static String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
+    private static final Logger log = Logger.getLogger(ResponseBean.class);
 
     public void createResponse(long userId, long questionId, long answerId) {
         log.debug("createResponse called... user_id=" + userId + " questionId=" + questionId + " answerId=" + answerId);
@@ -24,10 +21,9 @@ public class ResponseBean extends BaseEJB {
         Context ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
-        DataSource ds = null;
 
         try {
-            conn = DBMS.getConnection(JTS_DATA_SOURCE);
+            conn = DBMS.getConnection(DBMS.JTS_OLTP_DATASOURCE_NAME);
 
             ps = conn.prepareStatement("INSERT INTO response (user_id, question_id, answer_id) VALUES (?,?,?)");
             ps.setLong(1, userId);
@@ -57,10 +53,9 @@ public class ResponseBean extends BaseEJB {
         Context ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
-        DataSource ds = null;
 
         try {
-            conn = DBMS.getConnection(JTS_DATA_SOURCE);
+            conn = DBMS.getConnection(DBMS.JTS_OLTP_DATASOURCE_NAME);
 
             ps = conn.prepareStatement("INSERT INTO response (user_id, question_id, response) VALUES (?,?,?)");
             ps.setLong(1, userId);
@@ -91,10 +86,9 @@ public class ResponseBean extends BaseEJB {
         Context ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
-        DataSource ds = null;
 
         try {
-            conn = DBMS.getConnection(JTS_DATA_SOURCE);
+            conn = DBMS.getConnection(DBMS.JTS_OLTP_DATASOURCE_NAME);
 
             ps = conn.prepareStatement("SELECT '1' FROM response WHERE user_id = ? AND question_id = ?");
             ps.setLong(1, userId);
@@ -104,9 +98,9 @@ public class ResponseBean extends BaseEJB {
             return rs.next();
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException creating user_id=" + userId + " questionId=" + questionId);
+            throw new EJBException("SQLException exists user_id=" + userId + " questionId=" + questionId);
         } catch (Exception e) {
-            throw new EJBException("Exception creating user_id=" + userId + " questionId=" + questionId + ":\n" + e.getMessage());
+            throw new EJBException("Exception exists user_id=" + userId + " questionId=" + questionId + ":\n" + e.getMessage());
         } finally {
             close(ps);
             close(conn);

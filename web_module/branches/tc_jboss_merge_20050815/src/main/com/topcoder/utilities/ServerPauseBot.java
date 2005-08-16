@@ -6,9 +6,7 @@
 
 package com.topcoder.utilities;
 
-import com.topcoder.shared.util.EmailEngine;
-import com.topcoder.shared.util.TCSEmailMessage;
-
+import java.io.File;
 import java.io.InputStream;
 import java.io.File;
 import java.util.*;
@@ -18,11 +16,11 @@ import java.util.*;
  * @author rfairfax
  */
 public class ServerPauseBot {
-    
+
     /** Creates a new instance of ServerPauseBot */
     public ServerPauseBot() {
     }
-    
+
     public static void main(String[] args) {
         ServerPauseBot client = new ServerPauseBot();
         client.run();
@@ -48,7 +46,7 @@ public class ServerPauseBot {
                 Process p = r.exec(callAndArgs);
                 p.waitFor();
                 time = System.currentTimeMillis() - time;
-                
+
                 String ret = getData(p.getErrorStream());
                 p.destroy();
 
@@ -59,13 +57,13 @@ public class ServerPauseBot {
                 } else {
                     System.out.println(new Date().toString() + " SUCCEEDED," + time);
                 }
-                
+
                 //delete file
                 try {
                     File f = new File("index.html");
                     f.delete();
                 } catch (Exception e) {
-                    
+
                 }
 
 
@@ -99,7 +97,7 @@ public class ServerPauseBot {
         errorText += message + "\n";
         errorTextLarge += message + "\n";
     }
-    
+
     public static void addErrorLarge(String message) {
         errorTextLarge += message + "\n";
     }
@@ -126,5 +124,5 @@ public class ServerPauseBot {
     void done() {
         sem = true;
     }
-    
+
 }

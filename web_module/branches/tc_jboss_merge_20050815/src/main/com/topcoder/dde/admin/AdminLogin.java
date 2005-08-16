@@ -38,8 +38,6 @@ public interface AdminLogin extends javax.ejb.EJBObject {
      * user
      * @throws RemoteException if a system-level failure causes the remote
      * method call to fail
-     * @throws AuthenticationException if the user fails to authenticate, or if
-     * the user authenticates but is not assigned the Administrator role
      * @throws GeneralSecurityException if <code>username</code> or
      * <code>password</code> is <code>null</code>, or if the configuration data
      * cannot be accessed

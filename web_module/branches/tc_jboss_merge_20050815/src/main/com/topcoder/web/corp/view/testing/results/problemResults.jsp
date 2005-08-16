@@ -67,10 +67,10 @@ if ( plugin ) {
 </SCRIPT>
 </HEAD>
 
-<jsp:useBean id="submissionInfo" class="com.topcoder.web.corp.model.SubmissionInfo" />
-<jsp:useBean id="candidateInfo" class="com.topcoder.web.corp.model.CandidateInfo" />
-<jsp:useBean id="profileInfo" class="com.topcoder.web.corp.model.ProfileInfo" />
-<jsp:useBean id="problemInfo" class="com.topcoder.web.corp.model.ProblemInfo" />
+<jsp:useBean id="submissionInfo" class="com.topcoder.web.corp.model.SubmissionInfo" scope="request"/>
+<jsp:useBean id="candidateInfo" class="com.topcoder.web.corp.model.CandidateInfo" scope="request"/>
+<jsp:useBean id="profileInfo" class="com.topcoder.web.corp.model.ProfileInfo" scope="request" />
+<jsp:useBean id="problemInfo" class="com.topcoder.web.corp.model.ProblemInfo" scope="request"/>
 
 <body>
 
@@ -122,12 +122,12 @@ if ( plugin ) {
                             document.write(' align="middle">');
                             document.write(' <param name="allowScriptAccess" value="sameDomain" />');
                             document.write(' <param name="movie" ');
-                            document.write(' value="/i/corp/screeningRatingOdd.swf?preference=<jsp:getProperty name="candidateInfo" property="preference"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId"/>"/>');
+                            document.write(' value="/i/corp/screeningRatingOdd.swf?preference=<jsp:getProperty name="candidateInfo" property="preference"/>&sendurl=/corp/testing?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId"/>"/>');
                             document.write(' <param name="menu" value="false" />');
                             document.write(' <param name="quality" value="high" />');
                             document.write(' <param name="bgcolor" value="#ffffff" />');
                             document.write(' <embed ');
-                            document.write(' src="/i/corp/screeningRatingOdd.swf?preference=<jsp:getProperty name="candidateInfo" property="preference"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId"/>" ');
+                            document.write(' src="/i/corp/screeningRatingOdd.swf?preference=<jsp:getProperty name="candidateInfo" property="preference"/>&sendurl=/corp/testing?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId"/>" ');
                             document.write(' menu="false" ');
                             document.write(' quality="high" ');
                             document.write(' bgcolor="#ffffff" ');
@@ -254,7 +254,7 @@ if ( plugin ) {
     </tr>
 </table>
 
-  <jsp:include page="../../foot.jsp" />
+  <jsp:include page="/foot.jsp" />
 
 </body>
 </html>

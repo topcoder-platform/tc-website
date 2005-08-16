@@ -1,39 +1,58 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE ejb-jar PUBLIC '-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN' 'http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd'>
+<!DOCTYPE ejb-jar PUBLIC
+      "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+      "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
 
 <ejb-jar>
+    <description>School Jar</description>
+    <display-name>School Jar</display-name>
     <enterprise-beans>
         <session>
+            <description>School EJB</description>
+            <display-name>School EJB</display-name>
             <ejb-name>School</ejb-name>
             <home>com.topcoder.web.ejb.school.SchoolHome</home>
             <remote>com.topcoder.web.ejb.school.School</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
             <ejb-class>com.topcoder.web.ejb.school.SchoolBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
-            <transaction-type>Container</transaction-type>
         </session>
         <session>
+            <description>Current School EJB</description>
+            <display-name>Current School EJB</display-name>
             <ejb-name>CurrentSchool</ejb-name>
             <home>com.topcoder.web.ejb.school.CurrentSchoolHome</home>
             <remote>com.topcoder.web.ejb.school.CurrentSchool</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
             <ejb-class>com.topcoder.web.ejb.school.CurrentSchoolBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
-            <transaction-type>Container</transaction-type>
         </session>
     </enterprise-beans>
     <assembly-descriptor>
         <container-transaction>
             <method>
                 <ejb-name>School</ejb-name>
-                <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
             <method>
                 <ejb-name>CurrentSchool</ejb-name>
-                <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
             <trans-attribute>Required</trans-attribute>
         </container-transaction>
     </assembly-descriptor>
 </ejb-jar>
+
+
+
+
+

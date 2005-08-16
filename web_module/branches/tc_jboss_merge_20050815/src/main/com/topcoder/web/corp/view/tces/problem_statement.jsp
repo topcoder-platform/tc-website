@@ -1,10 +1,10 @@
-<%@  page 
+<%@  page
   language="java"
   import="java.util.*,
           com.topcoder.web.corp.common.*,
           com.topcoder.web.corp.controller.request.tces.*" %>
 
-<%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
+<%@ taglib uri="tces-taglib.tld" prefix="tces"%>
 
 <jsp:useBean id="ProblemStatementTask" scope="request" class="com.topcoder.web.corp.controller.request.tces.ProblemStatementTask" />
 
@@ -13,13 +13,13 @@
   <HEAD>
     <TITLE>TopCoder | Recruiting Reports</TITLE>
     <jsp:include page="script.jsp" />
-    
+
   </HEAD>
   <body>
 <%--
-  <jsp:include page="top.jsp" />             
+  <jsp:include page="top.jsp" />
 --%>
-  
+
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR valign="top">
 <!-- Left Column Begins -->
@@ -33,7 +33,7 @@
         <!-- Center Column Begins -->
       <TD class="bodyText" width="100%"><img src="/i/corp/clear.gif" width="400" HEIGHT="11" BORDER="0"><BR>
 
-        
+
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
            <TR>
              <TD VALIGN="top" WIDTH="11"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"></TD>
@@ -75,7 +75,7 @@
   </TR>
   <TR>
     <TD COLSPAN="4" WIDTH="100%"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-  </TR>     
+  </TR>
 
 </TABLE>
     </TD>

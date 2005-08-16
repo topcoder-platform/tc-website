@@ -4,10 +4,9 @@
 
 package com.topcoder.apps.review;
 
+import com.topcoder.apps.review.document.FixItem;
 import com.topcoder.util.log.Level;
 import org.apache.struts.action.*;
-
-import com.topcoder.apps.review.document.FixItem;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

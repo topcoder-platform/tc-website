@@ -19,7 +19,7 @@ function getProblemDetail(id) {
     var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
     var name="problemDetail";
 
-    <% String url = "/corp/testing/?" + Constants.MODULE_KEY + "=PopulateProblemDetail"; %>
+    <% String url = "/corp/testing?" + Constants.MODULE_KEY + "=PopulateProblemDetail"; %>
     window.open('<%=url%>&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,cmd);
     return;
   }
@@ -238,12 +238,12 @@ function getProblemDetail(id) {
                         align="middle">
                         <param name="allowScriptAccess" value="sameDomain" />
                         <param name="movie"
-                        value="<%=swfFiles[counter % 2]%>?preference=<%=row.getStringItem("preference")%>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<%=row.getStringItem("user_id")%>"/>
+                        value="<%=swfFiles[counter % 2]%>?preference=<%=row.getStringItem("preference")%>&sendurl=/corp/testing?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<%=row.getStringItem("user_id")%>"/>
                         <param name="menu" value="false" />
                         <param name="quality" value="high" />
                         <param name="bgcolor" value="#ffffff" />
                         <embed
-                        src="<%=swfFiles[counter % 2]%>?preference=<%=row.getStringItem("preference")%>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<%=row.getStringItem("user_id")%>"
+                        src="<%=swfFiles[counter % 2]%>?preference=<%=row.getStringItem("preference")%>&sendurl=/corp/testing?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<%=row.getStringItem("user_id")%>"
                         menu="false"
                         quality="high"
                         bgcolor="#ffffff"
@@ -306,7 +306,7 @@ function getProblemDetail(id) {
 </table>
 
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="/foot.jsp" />
 
 </body>
 </html>

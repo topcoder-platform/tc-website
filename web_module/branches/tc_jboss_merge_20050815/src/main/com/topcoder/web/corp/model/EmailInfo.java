@@ -208,7 +208,7 @@ public class EmailInfo extends BaseModel {
         msgText.append(" Eastern Time\n");
         msgText.append("\n");
         msgText.append("Access this individual's information by logging into the Technical Assessment Application ");
-        msgText.append("Management Tool http://www.topcoder.com/corp/testing/ and clicking on Candidate Status.");
+        msgText.append("Management Tool http://www.topcoder.com/corp/testing and clicking on Candidate Status.");
         msgText.append("\n");
         msgText.append("\n");
         msgText.append("Thank you,");

@@ -6,12 +6,14 @@
  */
 package com.topcoder.apps.review.document;
 
+import java.io.Serializable;
+
 /**
  * Represents a ScorecardSectionGroup for scorecard editing.
  *
  * @author FatClimber
  */
-public class TGroup {
+public class TGroup implements Serializable {
     private TSection[] sections;
     private long groupId;
     private String groupName;

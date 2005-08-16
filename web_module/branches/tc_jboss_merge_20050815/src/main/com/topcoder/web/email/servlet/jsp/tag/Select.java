@@ -22,7 +22,7 @@ public abstract class Select
 
     private String value = null;
 
-    private String ccsclass = null;
+    private String styleClass = null;
 
     private String onChange = null;
 
@@ -47,9 +47,9 @@ public abstract class Select
     }
 
 
-    public void setClass(String ccsclass) {
+    public void setStyleClass(String ccsclass) {
 
-        this.ccsclass = ccsclass;
+        this.styleClass = ccsclass;
 
     }
 
@@ -195,9 +195,9 @@ public abstract class Select
 
         //}
 
-        if (ccsclass != null) {
+        if (styleClass != null) {
 
-            s.append(" class=\"" + ccsclass + "\"");
+            s.append(" class=\"" + styleClass + "\"");
 
         }
 

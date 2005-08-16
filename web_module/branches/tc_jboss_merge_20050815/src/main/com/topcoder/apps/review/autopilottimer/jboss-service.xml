@@ -3,7 +3,9 @@
 <server>
 	<mbean code="com.topcoder.apps.review.autopilottimer.AutoPilotTimer"
 		name="topcoder.startup:name=AutoPilotTimer">
-		<attribute name="Initialised"/>
+<!--
+		<attribute name="Initialized">false</attribute>
+-->
         <attribute name="InitStatus"/>
 	</mbean>
 </server>

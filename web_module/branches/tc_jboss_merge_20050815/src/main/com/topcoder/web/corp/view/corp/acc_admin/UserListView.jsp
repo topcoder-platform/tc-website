@@ -5,8 +5,8 @@
                  java.util.Map,
                  com.topcoder.web.corp.Constants"
          %>
-<%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%
         ResultSetContainer rsc = (ResultSetContainer)request.getAttribute("companyUsers");
 %>
@@ -63,7 +63,7 @@
 
             <table border="0" cellspacing="10" cellpadding="0" width="80%">
                  <tr>
-                    <td><div align="center"><p class="button"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit" class="button">Add New User</a></p></div></td>
+                    <td><div align="center"><p class="button"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=UserEdit" class="button">Add New User</a></p></div></td>
                 </tr>
             </table>
 
@@ -94,9 +94,9 @@
              <rsc:item row="<%=resultRow%>" name="last_name"/></TD>
                     <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
                       <% if (sessionInfo.getUserId()==resultRow.getLongItem("user_id")) { %>
-                        <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration&id=<rsc:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A>
+                        <A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Registration&id=<rsc:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A>
                       <% } else { %>
-                        <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit&id=<rsc:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A>
+                        <A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=UserEdit&id=<rsc:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A>
                       <% } %>
                     </TD>
                 </tr>
@@ -104,7 +104,7 @@
 
             <table border="0" cellspacing="10" cellpadding="0" width="80%">
                  <tr>
-                    <td><div align="center"><p class="button"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit" class="button">Add New User</a></p></div></td>
+                    <td><div align="center"><p class="button"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=UserEdit" class="button">Add New User</a></p></div></td>
                 </tr>
             </table>
 
@@ -120,7 +120,7 @@
 </table>
 
 <!-- Footer begins -->
-  <jsp:include page="../../foot.jsp"/>
+  <jsp:include page="/foot.jsp"/>
 <!-- Footer ends -->
 
 </body>

@@ -53,5 +53,12 @@ public abstract class SelectTag extends TagSupport {
     }
 
     protected abstract String writeOptions();
+
+
+    public int doEndTag() throws JspException {
+        name=null;
+        selected=null;
+        return super.doEndTag();
+    }
 }
 

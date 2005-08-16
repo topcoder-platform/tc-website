@@ -31,7 +31,7 @@ public interface AdminLoginHome extends EJBHome {
      * referenced to a different location.
      */
     public static final String EJB_REF_NAME =
-            "java:comp/env/ejb/AdminLoginEJB";
+            "com.topcoder.dde.admin.AdminLoginHome";
 
     /**
      * Returns an instance of <code>AdminLogin</code>, the remote interface of
