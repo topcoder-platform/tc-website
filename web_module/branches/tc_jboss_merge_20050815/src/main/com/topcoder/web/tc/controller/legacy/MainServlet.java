@@ -238,9 +238,11 @@ public final class MainServlet extends BaseServlet {
                 responseWritten = true;
             }
             //************************ search ************************
+/*
             else if (requestTask.equals("search")) {
                 HTMLString = TaskSearch.process(request, response, htmlMaker, nav, document);
             }
+*/
             //************************ static  ************************
             else if (requestTask.equals("") || requestCommand.equals("")) {
                 fetchRegularPage(request, response, com.topcoder.web.tc.Constants.HOME_PAGE, true);
