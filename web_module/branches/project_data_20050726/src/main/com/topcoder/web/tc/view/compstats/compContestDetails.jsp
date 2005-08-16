@@ -159,9 +159,9 @@
          <%
             if (reviewers.size() == 3) {
          %>
-            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getLongItem(0, "reviewer_id") %>' context="development"/></TD>
-            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getLongItem(1, "reviewer_id") %>' context="development"/></TD>
-            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getLongItem(2, "reviewer_id") %>' context="development"/></TD>
+            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getLongItem(0, "reviewer_id") %>' context='<rsc:item set="<%=projectInfo%>" name="phase_desc"/>'/></TD>
+            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getLongItem(1, "reviewer_id") %>' context='<rsc:item set="<%=projectInfo%>" name="phase_desc"/>'/></TD>
+            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getLongItem(2, "reviewer_id") %>' context='<rsc:item set="<%=projectInfo%>" name="phase_desc"/>'/></TD>
          <% } else if (reviewers.size() == 0) { // probably the project hasnt arrived to review phase
          %>
              <TD CLASS="tableHeader" align="center">-</TD>
@@ -176,7 +176,7 @@
 
 <rsc:iterator list="<%=submissions%>" id="resultRow">
          <tr>
-            <TD class="statDk"><tc-webtag:handle coderId='<%= resultRow.getLongItem("user_id") %>' context="development"/></TD>
+            <TD class="statDk"><tc-webtag:handle coderId='<%= resultRow.getLongItem("user_id") %>' context='<rsc:item set="<%=projectInfo%>" name="phase_desc"/>'/></TD>
 
             <TD class="statDk" align="center"><rsc:item name="inquire_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="N/A" /></TD>
             <TD class="statDk" align="center"><rsc:item name="submit_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="N/A" /></TD>
