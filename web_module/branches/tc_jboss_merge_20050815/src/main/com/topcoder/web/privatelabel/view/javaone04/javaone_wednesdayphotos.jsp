@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -60,14 +60,14 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
   						<p></p>
   						<p class ="regmiddle"><strong><font size="4">Mobility - Wednesday June 30</font></strong></p>
   						<p class ="regmiddle"><a href="/pl/?&module=Static&d1=javaone05&d2=mondayphotos">Monday</a> | <a href="/pl/?&module=Static&d1=javaone05&d2=tuesdayphotos">Tuesday</a> | Wednesday</p>
-						
-		
+
+
                   <div align="center" style="padding: 15px;">
                   <img src="/i/events/javaone05/wednesday/image01.jpg" alt="" class="photoFrameBig" />
-                  </div>            
+                  </div>
 
-					
-					
+
+
 					</td>
 				</tr>
 			</table>

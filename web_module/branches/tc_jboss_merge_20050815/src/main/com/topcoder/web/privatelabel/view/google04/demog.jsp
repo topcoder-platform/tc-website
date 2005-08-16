@@ -2,10 +2,10 @@
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.privatelabel.view.tag.DemographicInput,
-                 com.topcoder.web.common.BaseProcessor, 
+                 com.topcoder.web.common.BaseProcessor,
                  com.topcoder.shared.util.ApplicationServer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="/privatelabel.tld" prefix="pl" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="privatelabel.tld" prefix="pl" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
 <jsp:usebean id="questionList" class="java.util.List" scope="request" />
@@ -49,7 +49,7 @@ function submitEnter(e) {
 		<td width="49%">&#160;</td>
 		<td>
 			<div class=greenBigBox>
-			
+
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
@@ -91,7 +91,7 @@ function submitEnter(e) {
                 </td>
             </tr>
            <tr>
-                <td align="right" nowra> 
+                <td align="right" nowra>
                     Resume
                 </td>
                 <td align="left">
@@ -100,7 +100,7 @@ function submitEnter(e) {
            </tr>
             <tr>
                 <td align="right" valign=bottom nowrap>
-                    <span class="errorText">* Required</span> 
+                    <span class="errorText">* Required</span>
                 </td>
                 <td align="left" valign=bottom>
                     &nbsp;

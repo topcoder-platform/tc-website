@@ -7,7 +7,7 @@
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
- 
+
 <!-- Center Column Begins -->
 <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 

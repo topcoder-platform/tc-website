@@ -1,8 +1,8 @@
 <%@ page import="com.topcoder.web.privatelabel.Constants"%>
 <%@ page language="java"%>
 
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:usebean id="fileTypes" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
 <HTML>
@@ -60,7 +60,7 @@ body,td,font,p,a
             <TD>
             <input type="submit" value="Upload">
             </form>
-            
+
         </TD>
       </TR>
     </TABLE>

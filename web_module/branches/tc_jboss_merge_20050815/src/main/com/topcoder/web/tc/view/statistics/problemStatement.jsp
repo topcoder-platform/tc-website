@@ -11,8 +11,8 @@
           java.io.StringReader"
 %>
 
-<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="WEB-INF/struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="WEB-INF/struts-logic.tld" prefix="logic" %>
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics - Problem Statement</TITLE>

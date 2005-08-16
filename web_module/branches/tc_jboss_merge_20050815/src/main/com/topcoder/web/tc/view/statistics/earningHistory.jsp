@@ -1,13 +1,13 @@
-<%@ page 
+<%@ page
   language="java"
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
 
 %>
 
-<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="WEB-INF/struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="WEB-INF/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <HTML>
  <HEAD>
@@ -51,7 +51,7 @@
 <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 
-<% 
+<%
 Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Basic_Coder_Information");
@@ -61,8 +61,8 @@ if (!bEmpty) {
   pageContext.setAttribute("resultRow", rsr);
 %>
 
-    <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>      
-<% 
+    <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>
+<%
 } //end if not empty
 ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("Earnings_History");
 pageContext.setAttribute("resultSet", rsc2);
@@ -92,24 +92,24 @@ String sortString = "";
 if (srb.getProperty("sq")!=null){
   sortString="&sq=" + srb.getProperty("sq");
   sortString+="&sc=" + srb.getProperty("sc");
-  sortString+="&sd=" + srb.getProperty("sd", "desc");  
+  sortString+="&sd=" + srb.getProperty("sd", "desc");
 }
 String sSortUrl = "/stat?c=earnings_history&cr="+srb.getProperty("cr")+"&sq=Earnings_History";
 %>
 
-<% if (!bEmpty) { %>  
+<% if (!bEmpty) { %>
    <% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
    <div class="pagingBox">
       <% if (rsc2.croppedDataBefore()) { %>
-      <a href="/stat?c=earnings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">&lt;&lt; previous</a>   
+      <a href="/stat?c=earnings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">&lt;&lt; previous</a>
       <% } else { %>
-      &lt;&lt; previous  
+      &lt;&lt; previous
       <% } %>
       &nbsp;|&nbsp;
       <% if (rsc2.croppedDataAfter()) { %>
           <a href="/stat?c=earnings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("next_sr").toString() %>&er=<%=pageContext.getAttribute("next_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">next &gt;&gt;</a>
       <% } else { %>
-           next &gt;&gt;           
+           next &gt;&gt;
       <% } %>
    </div>
    <% } else { %>
@@ -118,16 +118,16 @@ String sSortUrl = "/stat?c=earnings_history&cr="+srb.getProperty("cr")+"&sq=Earn
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
-      <td>               
+      <td>
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
          <tr><td class="tableTitle" colspan="6">Algorithm Earnings History</td></tr>
          <tr>
-            <TD CLASS="tableHeader"><a href="<%=sSortUrl%>&sc=3&sd=<%= "3".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Date</a></TD>  
+            <TD CLASS="tableHeader"><a href="<%=sSortUrl%>&sc=3&sd=<%= "3".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Date</a></TD>
             <TD CLASS="tableHeader" WIDTH="50%"><a href="<%=sSortUrl%>&sc=4&sd=<%= "4".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Contest</a></TD>
             <TD CLASS="tableHeader" WIDTH="30%" WIDTH="18%"><a href="<%=sSortUrl%>&sc=1&sd=<%= "1".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Round</a></TD>
             <TD CLASS="tableHeader" WIDTH="5%" ALIGN="right"><a href="<%=sSortUrl%>&sc=5&sd=<%= "5".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Position</a></TD>
-            <TD CLASS="tableHeader" WIDTH="5%" ALIGN="right"><a href="<%=sSortUrl%>&sc=6&sd=<%= "6".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Amount</a></TD>      
-            <TD CLASS="tableHeader" WIDTH="10%" ALIGN="right" nowrap="nowrap"><a href="<%=sSortUrl%>&sc=8&sd=<%= "8".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Payment Type</a></TD>      
+            <TD CLASS="tableHeader" WIDTH="5%" ALIGN="right"><a href="<%=sSortUrl%>&sc=6&sd=<%= "6".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Amount</a></TD>
+            <TD CLASS="tableHeader" WIDTH="10%" ALIGN="right" nowrap="nowrap"><a href="<%=sSortUrl%>&sc=8&sd=<%= "8".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Payment Type</a></TD>
          </tr>
       <%boolean even = true;%>
       <logic:iterate name="resultSet" id="resultRow2" type="ResultSetContainer.ResultSetRow">
@@ -149,24 +149,24 @@ String sSortUrl = "/stat?c=earnings_history&cr="+srb.getProperty("cr")+"&sq=Earn
    This member has no earnings history.
 <% } %>
 
-<% if (!bEmpty) { %>  
+<% if (!bEmpty) { %>
    <% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
    <div class="pagingBox">
       <% if (rsc2.croppedDataBefore()) { %>
-      <a href="/stat?c=earnings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">&lt;&lt; previous</a>   
+      <a href="/stat?c=earnings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">&lt;&lt; previous</a>
       <% } else { %>
-      &lt;&lt; previous  
+      &lt;&lt; previous
       <% } %>
       &nbsp;|&nbsp;
       <% if (rsc2.croppedDataAfter()) { %>
           <a href="/stat?c=earnings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("next_sr").toString() %>&er=<%=pageContext.getAttribute("next_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">next &gt;&gt;</a>
       <% } else { %>
-           next &gt;&gt;           
+           next &gt;&gt;
       <% } %>
    </div>
    <% } %>
 <% } %>
-         
+
          <p><br></p>
 
 <!-- END BODY -->

@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -32,7 +32,7 @@
 		<td width="49%">&#160;</td>
 		<td>
 			<div class=greenBigBox>
-			
+
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
@@ -52,7 +52,7 @@
 			You may use your handle and password to login to the competition arena.  Within the arena there is a practice area that mimics the functionality of the real competition.  Nothing that you do in the practice room will count against you in the competition.
 			<br/><br/>
 			<b>What resources can I use to help me during the competition?</b><br/>
-			You may utilize any reference materials, including those found on the Internet.  You may not collaborate with any other person.  
+			You may utilize any reference materials, including those found on the Internet.  You may not collaborate with any other person.
 			<br/><br/>
 			<b>Can I use code that has already been written as a part of my solution?</b><br/>
 			Only code that has been authored by you may be used in a code submission.  No third-party source code may be used as a part of any code submission.

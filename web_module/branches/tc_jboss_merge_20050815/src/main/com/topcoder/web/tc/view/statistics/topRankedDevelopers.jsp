@@ -3,7 +3,7 @@
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%
     ResultSetContainer rsc = (ResultSetContainer)
             ((Map)request.getAttribute("QUERY_RESPONSE")).get("top_developers");

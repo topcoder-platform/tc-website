@@ -22,7 +22,7 @@
           com.topcoder.web.common.TCRequest"
 
 %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 <%
 
 
@@ -32,15 +32,15 @@
                                     dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
                     Map dataMap = null;
                     dataMap = dai.getData(dataRequest);
-					
+
 					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_qry_chooser");
 					String link=request.getParameter("link")==null?"srm_index":request.getParameter("link");
-			%>	
-			
+			%>
 
 
 
-<table width="100%">	
+
+<table width="100%">
 <tr><td>
 <select name="round" onChange="goTo(this)">
 	<option value='#'>Select SRM to view...</option>
@@ -49,6 +49,6 @@
 		<rsc:item name="contest_name" row='<%=Row%>'/></option>
 	</rsc:iterator>
  </select></td>
- 
+
  </tr>
   </table>

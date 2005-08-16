@@ -3,7 +3,7 @@
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.common.BaseServlet,
                  com.topcoder.shared.util.ApplicationServer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -27,7 +27,7 @@ function submitEnter(e) {
     } else return true;
   }
 </SCRIPT>
- 
+
 <table border=0 width=100% cellpadding=0 cellspacing=0>
 	<tr>
 		<td width="49%">&#160;</td>
@@ -46,7 +46,7 @@ function submitEnter(e) {
 		<td width="49%">&#160;</td>
 		<td>
 			<div class=greenBigBox>
-			
+
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
@@ -304,7 +304,7 @@ function submitEnter(e) {
             </tr>
             <tr>
                 <td align="right" valign=bottom nowrap>
-                    <span class="errorText">* Required</span> 
+                    <span class="errorText">* Required</span>
                 </td>
                 <td align="left" valign=bottom>
                     &nbsp;
@@ -312,7 +312,7 @@ function submitEnter(e) {
             </tr>
             <tr>
                <td colspan="2" align="center">
-                  <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p> 
+                  <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p>
                </td>
             </tr>
             </form>

@@ -1,13 +1,13 @@
-<%@ page 
+<%@ page
   language="java"
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
 
 %>
 
-<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="WEB-INF/struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="WEB-INF/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <HTML>
  <HEAD>
@@ -15,7 +15,7 @@
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-   <jsp:include page="baseHRef.jsp" />   
+   <jsp:include page="baseHRef.jsp" />
    <jsp:include page="../script.jsp" />
  </HEAD>
  <BODY>
@@ -36,12 +36,12 @@
 <jsp:param name="title" value="Algorithm Rating History"/>
 </jsp:include>
 
- 
+
 <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 
-<% 
+<%
 Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
 
@@ -52,8 +52,8 @@ ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
 pageContext.setAttribute("resultRow", rsr);
 %>
 
-<bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>      
-<% 
+<bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>
+<%
 } //end if not empty
 ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("Ratings_History");
 pageContext.setAttribute("resultSet", rsc2);
@@ -83,7 +83,7 @@ String sortString = "";
 if (srb.getProperty("sq")!=null){
   sortString="&sq=" + srb.getProperty("sq");
   sortString+="&sc=" + srb.getProperty("sc");
-  sortString+="&sd=" + srb.getProperty("sd", "desc");  
+  sortString+="&sd=" + srb.getProperty("sd", "desc");
 }
 String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratings_History";
 %>
@@ -119,10 +119,10 @@ String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratin
    <% } else { %>
    <div class="pagingBox">&#160;</div>
    <% } %>
-          
+
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
-      <td>               
+      <td>
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
          <tr><td class="tableTitle" colspan="6">Algorithm Rating History</td></tr>
          <tr>

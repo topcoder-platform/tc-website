@@ -3,7 +3,7 @@
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,com.topcoder.web.tc.Constants,
           java.util.Map"
 %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 <%
     ResultSetContainer rsc = (ResultSetContainer)
             ((Map)request.getAttribute("QUERY_RESPONSE")).get("Country_Avg_Rating");
@@ -104,7 +104,7 @@
              <TD WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
            </TR>
          </TABLE>
-         
+
          <p><br></p>
 
          <!-- END BODY -->

@@ -11,7 +11,7 @@
 
 %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 
 
 <%
@@ -20,7 +20,7 @@
   Boolean processed = (Boolean)request.getAttribute(Constants.PROCESSED_KEY);
   if (processed!=null && processed.booleanValue()) {
     profiles = (ResultSetContainer)request.getAttribute(Constants.REPORT_PROFILE_LIST_KEY);
-  } 
+  }
 %>
 
 <html>

@@ -2,7 +2,7 @@
          import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.tc.controller.request.authentication.Login,
                  com.topcoder.web.tc.Constants" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -52,7 +52,7 @@
          <A HREF="/tc?&module=Login&<%=BaseServlet.NEXT_PAGE_KEY%>=/" class="bodyText">Click here</A> to login to your account, or check some of the great services that we offer to TopCoder members:
          <br>
          </p>
-         
+
             <table border=0 cellpadding=5 cellspacing=0 width="100%">
                 <tr>
                     <td class="bodyText" valign="top" width="150"><A href="/tc?module=Static&d1=contracting&d2=index"><img src="/i/registration/icon_emp_opps.gif" border=0/></A></td>

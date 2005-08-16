@@ -11,7 +11,7 @@
 
 %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 
 
 <%
