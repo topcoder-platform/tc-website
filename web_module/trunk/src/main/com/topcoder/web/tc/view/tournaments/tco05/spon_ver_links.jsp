@@ -22,12 +22,12 @@
 				<% } else { %>
 					<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_ver_description"><img src="/i/tournament/tco05/tabs/L2_detailsOff.gif" alt="" border="0" /></A></td>
 				<% } %>
+<%--
 				<% if (tabLev2.equals("registration")) {%>
 					<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_ver_reg"><img src="/i/tournament/tco05/tabs/L2_registrationOn.gif" alt="" border="0" /></A></td>
 				<% } else { %>
 					<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_ver_reg"><img src="/i/tournament/tco05/tabs/L2_registrationOff.gif" alt="" border="0" /></A></td>
 				<% } %>
-<%--
 				<% if (tabLev2.equals("registrants")) {%>
 					<td class="nav"><A href="/tc?module=TCO05AlgRegistrants"><img src="/i/tournament/tco05/tabs/L2_registrantsOn.gif" alt="" border="0" /></A></td>
 				<% } else { %>
