@@ -35,8 +35,12 @@ public class CompList extends Base {
             Request r = new Request();
 
             String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
+            String endRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
             String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
             String phaseId = StringUtils.checkNull(getRequest().getParameter("pi"));
+
+            String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+            String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
 
             if (!"112".equals(phaseId) && !"113".equals(phaseId)) {
@@ -48,6 +52,26 @@ public class CompList extends Base {
             } else if (Integer.parseInt(numRecords)>200) {
                 numRecords="200";
             }
+
+
+            r.setContentHandle("comp_list");
+            r.setProperty("pi", phaseId);
+
+            Map result = getDataAccess(true).getData(r);
+
+            ResultSetContainer rsc = (ResultSetContainer) result.get("comp_list");
+            rsc.sortByColumn(sortCol, "asc".equals(sortDir));
+
+            rsc = new ResultSetContainer(rsc, Integer.parseInt(start), Integer.parseInt(end));
+
+            result.put("comp_list", rsc);
+
+            SortInfo s = new SortInfo();
+            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+/*            s.addDefault(rsc.getColumnIndex("component_name"), "asc");
+            s.addDefault(rsc.getColumnIndex("category_desc"), "asc");
+            s.addDefault(rsc.getColumnIndex("version_text"), "asc");*/
+
             setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
 
             if ("".equals(startRank)||Integer.parseInt(startRank)<=0) {
@@ -59,10 +83,7 @@ public class CompList extends Base {
             r.setProperty(DataAccessConstants.END_RANK,
                 String.valueOf(Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1));
 
-            r.setContentHandle("comp_list");
-            r.setProperty("pi", phaseId);
 
-            Map result = getDataAccess(true).getData(r);
 
             getRequest().setAttribute("resultMap", result);
             getRequest().setAttribute("phaseId", phaseId);
