@@ -40,12 +40,8 @@ public class SortTag extends TagSupport {
 
     public void setExcludeParams(String exclude) {
 
-        exclude = exclude + ";"
+        exclude = exclude + ";";
         excludeParams = new HashSet();
-
-        for(int i = 0; i < s.length; i++) {
-            excludeParams.add(s[i]);
-        }
 
         int from = 0;
         while(true) {
