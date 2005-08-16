@@ -83,7 +83,7 @@ function submitEnter(e) {
 
 <%
     ResultSetContainer list = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("comp_list");
-    long phaseId = Long.parseLong (request.getAttribute("phaseId"));
+    long phaseId = Long.parseLong ((String) request.getAttribute("phaseId"));
 
 %>
 <form name="compListForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
