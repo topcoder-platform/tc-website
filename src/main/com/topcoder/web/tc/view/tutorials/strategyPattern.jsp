@@ -6,6 +6,20 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:include page="../../script.jsp" />
+<style type="text/css">
+.code
+{
+   width: 500;
+   padding: 10px;
+   margin: 20px;
+   color: #333;
+   font-size: 11px;
+   font-weight: normal;
+   line-height: 14px;
+   background-color: #EEEEEE;
+   border: 1px solid #999;
+}
+</style>
 </head>
 
 <body>
@@ -39,78 +53,75 @@
 			</p>
 
 <p>
-<span class="bodySubtitle">Definition</span><br>
-"Ensure a class has only one instance, and provide a global point of access to it." [GoF].  This means that you have defined a class that should only be instantiated once during its lifetime, that you require everything to be accessible and that access can occur at any time.  The singleton pattern is the most over-used pattern of all the patterns (almost 10% of the components implement this pattern) and is probably not appropriate for 99% of the implementations.
+<span class="bodySubtitle">Description</span><br>
+"Define a family of algorithms, encapsulate each one, and make them interchangeable" [GoF].  In other words, this pattern must provide an interface and a number of independent implementations of that interface.  Each implementation performs some specific function, can be fully replaced by another implementation and is independent of others and from the enclosing design.  A good real world example of a strategy pattern would be a credit card purchase.  When you buy something with a credit card, the type of credit card doesn't matter.  All credit cards have a magnetic strip that has encoded information in it.  The strip, and what it contains, represent  the 'interface' and the type of card would be the 'implementation'. Each credit card can be replaced by any other and all are fully independent of each other.
+<br><br>
+This pattern is one of my favorite patterns and is in almost every design I have ever done.  In fact, I once took this to an extreme and designed a whole system using the strategy pattern for every class.  I combined this with a specialized classloader and was able to create an extremely flexible system where I could replace any part of it with another implementation at runtime and could dynamically adjust the system depending on real time factors.  As an example, I can insert debugging statements or change caching strategies and inject those classes into the system as a special strategy. While the system was flexible in the extreme, it did suffer from various subtle bugs that were introduced by implementations where the associated contract was underspecified (see the consideration section).
 <br><br>
 <span class="bodySubtitle">When to use (and when not to!)</span><br>
-Singletons are generally used in applications to provide access to a single instance of an object that will be shared across an application and will generally include managers, queues, models, pools, connections etc.  Whether a given class should have a singleton instance or not is generally contextual to the application and the application's goal.  An application designer will know when a class can implement a singleton as they have the full picture of the application in which the singleton will work.  Likewise, an application designer knows that only their application will be using the singleton (if run with other applications within the same virtual machine) because the resulting class files will not be shared.
+In applications, this pattern is rarely employed because application designers generally know the scope of the business rules (ie logic) and don't really need the ability to swap in new or unknown rules after the system has been built.  Any changes to those rules will generally be part of a larger project change and the overhead of switching to newer rules is fairly minimal.  I disagree with this and think the strategy pattern can bring advantages to an application, but that's traditionally the thinking in application design.
 <br><br>
-Singletons used within a component have a slightly different viewpoint.  A component designer generally does not know the context in which the component will be used and doesn't know if the component will be used by multiple applications within the same virtual machine.  If the component designer chooses to use a singleton pattern within their design (especially a singleton-only pattern described below), then the component designer is making assumptions about how the component will be used and is imposing a pattern on the end-using application that may or may not be correct for them.  Because of this, TCS strongly discourages the use of singleton patterns in component designs.
+For a component designer however, the situation changes radically because the component designer has no idea in what context the component will be used.  The component designer needs to be aware that the logic they build into the component may or may not be applicable to the application.  The component must supply a number of pre-built modules that will make the component attractive to the application designer but also allow the application designer to 'plug-in' their own logic to provide the flexibility required by the application designer.
 <br><br>
-Component designers should only use singletons when they must absolutely enforce uniqueness of data.  A good example of when to use a singleton pattern would be in working with some 'master' file of some sort (where the uniqueness of information must be enforced).  Another good example would be when a 'pool' of objects must be limited in some fashion.
+The easiest way to determine whether a strategy pattern will be needed is during the reading of the requirements.  If the requirements ask for some logic or some other logic ('or' being the important part), you probably have a very good candidate for the strategy pattern.  Likewise, if you find yourself thinking that there are two or more ways of accomplishing some task, a strategy pattern is likely needed.
 <br><br>
-Many of the current component designs use the singleton pattern as either a convenience to the application or to make assumptions on its use - neither reason isvalid.  The first reason imposes the pattern on the application and the second reason never works out well in reality.  If a component designer feels strongly about either of these, then a variation of the singleton pattern called a singleton wrapper should be implemented (described below).  The singleton wrapper variation is acceptable by the review board if the designer has addressed the considerations that are described in the next section.
+I have a very simple test to determine when a strategy pattern is required.  If I abstracted the logic into method calls defined in some interface, could I create a design that still meets the requirements without including that logic?  If that's the case, then I know the logic can be fully replaced with other logic and not affect the component at all - in other words, I have a strategy pattern.
 <br><br>
 <span class="bodySubtitle">Considerations</span><br>
-The foremost consideration is thread safety.  A singleton pattern, by definition, will allow global access to it from multiple threads, which requiresthat the internals of a singleton must address threading issues.  If the data within a singleton is mutatable, appropriate synchronization (either on the class or via locks) must be properly thought out and documented.
+The strategy pattern is all about the contract specified by the interface.  The biggest mistake in designs using the strategy pattern is in not providing a solid contract for implementing classes.  Please note that the method signatures are only a very small part of the contract and that the documentation (both class and method) provides the majority of the contract.  The contract needs to specify, in as much detail as possible, the exact scope of what implementation can do, what it should not do, and how it should react to various situations.  Without those details, the implementations can vary too widely in the logic they performed and how they react to situations.  This variation will cause subtle bugs to start occurring throughout the system because one implementation did or didn't do something.  These bugs are generally difficult to tract down because they vary with the implementation used.
 <br><br>
-The singleton's class will have a static reference to the singleton instance and will thereby prevent the instance from being garbage collected (under most circumstances).  This has significant ramifications for the designer since the resources and memory will not be released.  Because the singleton holds strong references to other objects and components, the designer must take into consideration the overhead involved when implementing a singleton (be assured that the review board will take that into consideration when determining whether a singleton pattern is appropriate).
+Another consideration would be how the implementation is initialized.  Initialization of the strategy generally falls into two categories:  application or factory-based.  
 <br><br>
-Lastly, the data within the singleton will have global visibility.  Since the singleton can be accessed by anything running within the same virtual machine (regardless if it's a sub-system of the application or an entirely different application), the data exposed by the singleton will have global visibility.  This may not be appropriate for most components.
-<br><br>
-<span class="bodySubtitle">Implementation(s)</span><br>
-<strong>Singleton (only)</strong><br>
-A typical implementation involves the following three items:
-<ol>
-<li>A private constructor or a protected constructor if subclasses are possible.</li>
-<li>A static 'instance' variable of the class type initially set to null (if using lazy instantiation) or to a new instance of the class (if eager instantiation).  If using eager instantiation, the variable should be marked 'final' to enforce its immutability.</li>
-<li>A static getter method (or property for C#) that will create the 'instance' if it's null and return the 'instance' variable.  The getter method is generally called 'getInstance' (Java) or the getter property is called 'Instance' (C#).  If lazy instantiation is specified, the getter method/property should be marked synchronized or employ some type of locking strategy to ensure that multiple instances are not created from multiple threads (ie to prevent two threads from both checking the null state and both creating an instance at the same time).</li>
-</ol>
-Please note that it is recommended that the instance be lazily created and the class marked with the "<< singleton >>" stereotype - but not required.
-<br><br>
-As stated above, the singleton only type of pattern is strongly discouraged for component design.
-<br><br>
-Below you will see an existing example of the singleton pattern implemented in both Java and C#.
-<br><br>
-<b><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=11955835&ver=1">Dictionary Persistence Manager</A> Component</b><br>
-The dictionary persistence manager component provides persistent strategies to persist the contents of a Dictionary (from the Dictionary component).
-<br><br>
-<div align="center"><img src="/i/education/singletons01.gif" alt="Singletons 1" border="0" /></div>
-<br><br>
-The designers' intent with this manager class is to provide the application with a single instance that can be used to manage all the persistent strategies and provide common convenience function(s) which the application can call.  The application can simply make the following call to save a dictionary instance to some persistent datastore:
-<pre>
-DictionaryPersistenceManager.getInstance().saveDictionary("custom.dic", dict);
+An application-based initialization depends on the application to create the implementation itself and cast it to the interface (which then is presumably used by the application thereafter).  This has the advantage of allowing the application to finely tune how implementations are created and can provide a lot of contextual information to the implementation.  The downside being that it's harder to swap out the implementation to a different implementation since it's generally hardcoded within the application (and potentially in multiple spots).  This generally appears to the application like:
+<pre class="code">
+WidgetInterface widget = new ACMEWidget();
+widget.doSomething();
 </pre>
-The application does not have to worry about whether the persistence manager has already been created or not (one will be automatically created if not) and in this case, the persistent strategies may be automatically loaded from the configuration manager and do not need to be managed.
+A factory-based initialization defines a factory that contains the different implementations and then the appropriate implementation is returned.  The factory can either be managed by the application or potentially managed by some configuration file.  The advantage to this method is that is makes switching implementations very easy and provides a central class to manage those implementations.  The downside is that it may limit the type of implementations that can be used by the application (if they have a very complex construction that requires application context). This generally looks like:
+<pre class="code">
+WidgetInterface widget = WidgetFactory.getWidget();
+widget.doSomething();
+</pre>
+Unfortunately there really are no good guidelines as to when an application-based initialization is preferred over a factory-based one.  Which is more appropriate is largely dependant upon the component and the requirements for that component.
 <br><br>
-This is an example of when a singleton was implemented for convenience to the application and not because the class must be a singleton.  The designer assumes that the persistent strategies are global in nature and that the persistent names will not clash if more than one application within the same virtual machine uses this component.  While I agree with the designer that this assumption has a fairly low risk, this component probably should have been implemented using a singleton wrapper variation (below) in case the assumption proves incorrect.
+<span class="bodySubtitle">Implementation details</span><br>
+<b>Strategy Pattern (interface based)</b><br>
+The strategy pattern is very easy to implement.  Simply create an interface that fully defines the contract for the implementation to follow.  Implementations can then be provided for the interface as specified by the design or requirements.
 <br><br>
-The following is a similar singleton but shows the C# implementation of it (from the <A href="http://software.topcoder.com/catalog/c_component.jsp?comp=11952054&ver=1">Stream Filter</A> component).  Notice that the only change is in the implementation of the getter - which becomes a property rather than a method.  
+<div align="center"><A href="/i/education/strategy1_lg.gif"><img src="/i/education/strategy1_sm.gif" alt="strategy1_sm" border="0" /></A><br>
+<b>Java Class Discovery Component</b>
+</div>
 <br><br>
-<div align="center"><img src="/i/education/singletons02.gif" alt="Singletons 2" border="0" /></div>
+The Java Class Discovery component tries to discover the classes that have been loaded by the JVM.  This component implements a strategy pattern to allow the application to pick the strategy used for discovering classes.  As you see above, the component works with the interface ClassSource and has three implementing classes used to discover classes - each of which implement their own strategy for returning classes from the getClasses() method call.  The power of the strategy pattern can be shown looking forward to JDK1.5.  A new strategy called "InstrumentSource" could be implemented that uses the new 1.5 Instrument class to discover loaded classes.  This new source can then be plugged into the component with no changes to the application. 
 <br><br>
-<strong>Singleton Wrapper</strong><br>
-This variation is the more acceptable version of the singleton pattern by the design review board.  This variation provides a singleton pattern to the application as a convenience but does not depend on it while specifically addressing the visibility consideration.  In other words, it allows the application to choose whether to use the component in a singleton mode, in a non-singleton mode or by both depending on the context of the application.  This implementation of this variation simply replaces the private constructor with a public constructor.  This allows the application to use a singleton via the getInstance() method and/or to create and pass around multiple instances - allowing the application to partition its information in whatever context is best.
+The downside to this implementation is if the contract for ClassSource ever changes, all implementations would need those changes reflected in them.
 <br><br>
-A good example of this would be the <A href="http://software.topcoder.com/catalog/c_component.jsp?comp=10515357&ver=1">Credit Card Validation</A> component.  An application may wish to simply manage credit card validators system-wide or to create multiple validation registries to limit what validators are visible to which system/sub-system.
+<b>Strategy Pattern (abstract class based)</b><br>
+This version of the strategy pattern uses an abstract base rather than an interface to define the contract for implementations.  Implementations must then inherit from this class.
 <br><br>
-<div align="center"><img src="/i/education/singletons03.gif" alt="Singletons 3" border="0" /></div>
+<div align="center"><A href="/i/education/strategy2_lg.gif"><img src="/i/education/strategy2_sm.gif" alt="strategy2_sm" border="0" /></A><br>
+<b>.NET Rounding Factory</b>
+</div>
 <br><br>
-<strong>Singleton by Key</strong><br>
-There is a second variation of a singleton that has not been used at TCS yet - a singleton per some defined key (there is some debateas to whether this is still considered a singleton pattern or not).  This variation is a cross between the Singleton only and the Singleton wrapper variation.  The difference being that the application does not have access to the constructor (and those instances could potentially be created automatically by the configuration manager).  This allows the application to define multiple singletons that are globally accessible while alsoallowing the information contained within the singleton to have limited visibility.  This variation replaces the instance with a map of instances and takes some key as an argument to the getter method.  An example is shown below.
+The .NET Rounding Factory component provides various rounding strategies to an application.  As shown above, an abstract RoundingAlogrithm class has specified the contract that implementing classes inherit from.
 <br><br>
-When the application calls getInstance("acme"), the component will:
-<ol>
-<li>If the instances is null, create a HashMap and assign it to instances</li>
-<li>If the key does not exist, create an instance of the class and put it in the map under the key.</li>
-<li>Return the instance associated with the key.</li>
-</ol>
-Please note that this variation must be carefully thought out since resources and memory will quickly be consumed by multiple instances of the singletons.
+While this variation addresses the issue about changes to the contract (mentioned above), this variation ties the component into a rigid hierarchy structure.  So, if an application wishes to create its own rounding algorithm, it cannot use its own class hierarchy to do so.
+<br><br>
+<b>Interface/Abstract Base Variation</b><br>
+This variation of the strategy pattern provides an abstract base class that implements an interface, which defines the contract.  All strategy implementations would then inherit from this base class.  
+<br><br>
+This is a powerful addition to the strategy pattern because it allows the contract of the interface to mutate (in future version of the contract) with very minimal affects on any implementing classes (either those included with the component or more importantly, any provided by the end using application).  In fact, utility and/or overloaded functions can easily be added to the interface and implemented in the abstract base without affecting those implementations.  Likewise, it allows the designer to minimize the effort in writing an implementation by putting common functionality, which would otherwise be duplicated across many implementations, into the abstract base.  
+<br><br>
+This variation has the benefits of both variations above but minimizes the downsides by allowing the application to choose how it wants to implement.  If the application wants to use its own hierarchy, it can by simply implementing the interface.  If it wants to be 'future protected' and write simpler implementations, it can implement by inheriting from the abstract base class.
+<br><br>
+<div align="center"><A href="/i/education/strategy3_lg.gif"><img src="/i/education/strategy3_sm.gif" alt="strategy3_sm" border="0" /></A><br>
+<b>.NET Heartbeat</b>
+</div>
+<br><br>
+The .NET Heartbeat component provides a 'heartbeat' message to keep connections alive.  The strategy pattern is used to allow the component to work with different types of connections - HTTP and a socket stream in this case.  Here we have the IHeartbeat interface that defines the contract for implementations.  An abstract class, called AbstractHeartbeat that implements the interface, defines many common functions and methods that are generic to all implementations.  Finally, we have two implementations that inherit from the abstract class and override the OnHeartbeatEvent method to implement their specific strategy.
 <br><br>
 <span class="bodySubtitle">Bibliography</span><br>
-[GoF] Gamma, Helm, Johnson, Vlissides.  Singleton Pattern.  Design Patterns - Elements of Reusable Object-Oriented Software, 1995.
-</p>
-            
+[GoF] Gamma, Helm, Johnson, Vlissides.  Strategy Pattern.  Design Patterns - Elements of Reusable Object-Oriented Software, 1995.
         </div>
         <p><br/></p>
         </td>
