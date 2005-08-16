@@ -7,7 +7,7 @@
 
 <head>
 
-<title>Member Surveys</title> 
+<title>Member Surveys</title>
 
 <jsp:include page="../script.jsp" />
 

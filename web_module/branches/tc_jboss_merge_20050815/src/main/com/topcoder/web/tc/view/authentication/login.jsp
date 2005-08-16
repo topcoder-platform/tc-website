@@ -2,7 +2,7 @@
          import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.tc.controller.request.authentication.Login,
                  com.topcoder.web.tc.Constants" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
   String nextpage = (String)request.getAttribute(BaseServlet.NEXT_PAGE_KEY);

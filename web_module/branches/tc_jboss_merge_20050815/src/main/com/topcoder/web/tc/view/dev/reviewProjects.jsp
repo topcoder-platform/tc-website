@@ -63,12 +63,12 @@
             <p align="left">In order to sign up for a review position, click on the "details" link for any component with positions available, and then select "Apply Now" next to the position that you would like to commit to.</p>
 
             <br/>
-            
+
             <% if (isWaiting) { %>
                 <p align="center"><b>You may not apply for a new review until <%=waitingUntil%>.</b></p>
                 <br/>
             <% } %>
-            
+
 <%--
 
             <table border="0" cellspacing="0" width="100%" class="formFrame">

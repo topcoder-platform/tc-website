@@ -6,7 +6,7 @@
 <title>TopCoder Member Card</title>
 
 <jsp:include page="../script.jsp" />
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 </head>
 

@@ -6,7 +6,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="ratingInfo" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <html>
 <head>
 <title>TopCoder Statistics</title>

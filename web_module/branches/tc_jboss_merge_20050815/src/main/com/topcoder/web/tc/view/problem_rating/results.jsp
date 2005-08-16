@@ -13,7 +13,7 @@
     int div1Count = 0;
     int div2Count = 0;
 %>
-<html> 
+<html>
 <head>
 <title>TopCoder Problem Rating Results - <%=request.getAttribute("problemName")%></title>
 <jsp:include page="../script.jsp"/>

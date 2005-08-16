@@ -8,7 +8,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="questionInfo" scope="request" class="java.util.List" />
 <jsp:useBean id="surveyInfo" scope="request" class="com.topcoder.web.tc.model.Survey" />
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <html>
 
 <head>

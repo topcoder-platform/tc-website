@@ -7,7 +7,7 @@
 <jsp:include page="../script.jsp" />
 
 <% boolean cardUnlocked = ((Boolean)request.getAttribute("cardUnlocked")).booleanValue(); %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 </head>
 

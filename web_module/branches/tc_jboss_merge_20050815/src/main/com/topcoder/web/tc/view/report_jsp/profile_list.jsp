@@ -8,7 +8,7 @@
 %>
 <%@ taglib uri="WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%!
   String stripQuotes(String s) {

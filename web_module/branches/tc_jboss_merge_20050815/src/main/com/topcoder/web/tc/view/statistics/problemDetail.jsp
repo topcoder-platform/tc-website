@@ -276,7 +276,7 @@
                <% } %>
 
            <tr><td class="bodyText"><br/></td><tr/>
-                           
+
                <% if (!div2Lang.isEmpty()) { %>
                  <tr><td class="statText">Division II</td></tr>
                  <tr>

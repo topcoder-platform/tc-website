@@ -24,7 +24,7 @@
 	<tr valign=top>
 		<td valign=top align=center>
 		<div class="bodySpacer">
-            
+
 <%-- REG CONTENT STARTS HERE --%>
     <%
         URL termsURL = new URL(sessionInfo.getAbsoluteServletPath()+"?module=Terms&"+Constants.TERMS_OF_USE_ID+"="+Constants.TCO05_SPONSOR_TERMS_ID);
@@ -38,8 +38,8 @@
 <%-- REG CONTENT ENDS HERE --%>
         </div>
 		</td>
-        
-         
+
+
 <!-- Right Column-->
 <td width="170" align="right">
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
@@ -47,9 +47,9 @@
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 <jsp:include page="../../calendar.jsp" />
 </td>
-		
+
 	</tr>
-	
+
 </table>
 
 <jsp:include page="../../foot.jsp" />

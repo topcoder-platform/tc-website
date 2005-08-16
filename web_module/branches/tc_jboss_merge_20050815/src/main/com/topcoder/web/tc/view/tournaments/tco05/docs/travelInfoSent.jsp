@@ -9,7 +9,7 @@
 <link type="text/css" rel="stylesheet" href="/css/TCO05style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 </head>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <body>
 

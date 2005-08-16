@@ -5,7 +5,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
+<jsp:useBean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
 
 <html>
 
@@ -40,11 +40,11 @@
         <td width="50%"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
     <!-- Gutter Ends -->
 
-<!-- Center Column Begins --> 
+<!-- Center Column Begins -->
  <td class="searchSpacer"><img src="/i/clear.gif" width="510" height="10"border="0"><br>
         <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="statisticsw"/>  
-           <jsp:param name="image1" value="white"/>  
+           <jsp:param name="image" value="statisticsw"/>
+           <jsp:param name="image1" value="white"/>
            <jsp:param name="title" value="Advanced Member Search"/>
          </jsp:include>
 

@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.web.privatelabel.Constants"%><html>
 <head>
 <title>Verizon Coding Challenge Powered by TopCoder - Registration</title>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <jsp:include page="../nocache.jsp"/>
 <jsp:include page="../script.jsp" />
@@ -75,7 +75,7 @@ Be sure to spend time in the Practice Room by clicking the Practice Arena link o
 Good luck to you in the Arena!
 </font></p>
                     </td>
-                    
+
 <!-- Gutter Begins -->
                     <td width="14"><img src="/i/clear.gif" width="14" height="1" border="0"/></td>
 <!-- Gutter Ends -->
