@@ -16,7 +16,7 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.messagehistory.MessageHistory;
 import com.topcoder.web.forums.ForumConstants;
-
+import com.topcoder.shared.util.DBMS;
 
 /**
  * @author mtong
@@ -105,7 +105,7 @@ public class PostMessage extends ForumsProcessor {
         if (postMode.equals("Edit") && message.getModificationDate().getTime() > histModificationDate) {
             InitialContext ctx = TCContext.getInitial();
             MessageHistory historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
-            historyBean.addEdit(message.getID(), histSubject, histBody, histModificationDate, "java:JiveDS");
+            historyBean.addEdit(message.getID(), histSubject, histBody, histModificationDate, DBMS.FORUMS_DATASOURCE_NAME);
         }
 
         WatchManager watchManager = forumFactory.getWatchManager();

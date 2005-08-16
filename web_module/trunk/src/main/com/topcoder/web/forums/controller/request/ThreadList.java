@@ -7,7 +7,7 @@ import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.action.util.Paginator;
-//import com.topcoder.web.forums.model.Paginator;
+import com.jivesoftware.forum.ForumThreadIterator;
 import com.jivesoftware.forum.stats.ViewCountManager;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
@@ -59,7 +59,7 @@ public class ThreadList extends ForumsProcessor {
 
         Paging paging = new Paging(resultFilter, totalItemCount);
         Paginator paginator = new Paginator(paging);
-        Iterator itThreads = forum.getThreads(resultFilter);
+        ForumThreadIterator itThreads = forum.getThreads(resultFilter);
 
         getRequest().setAttribute("forumFactory", forumFactory);
 		getRequest().setAttribute("forum", forum);
