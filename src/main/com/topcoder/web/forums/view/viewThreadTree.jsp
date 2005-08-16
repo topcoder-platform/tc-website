@@ -91,8 +91,7 @@
 <tr><td><b><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>
 	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >>
    <jsp:getProperty name="thread" property="name"/></b>
-   <br><A href="#" class="rtbcLink">Previous Thread</A>
-   &#160;&#160;|&#160;&#160;<A href="#" class="rtbcLink">Next Thread</A>
+   <br><A href="#" class="rtbcLink">Previous Thread</A>&#160;&#160;|&#160;&#160;<A href="#" class="rtbcLink">Next Thread</A>
    </td>
 </tr>
 </table>
@@ -162,8 +161,7 @@
 <tr><td><b><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>
 	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >>
 	<jsp:getProperty name="thread" property="name"/></b>
-   <br><A href="#" class="rtbcLink">Previous Thread</A>
-   &#160;&#160;|&#160;&#160;<A href="#" class="rtbcLink">Next Thread</A>
+   <br><A href="#" class="rtbcLink">Previous Thread</A>&#160;&#160;|&#160;&#160;<A href="#" class="rtbcLink">Next Thread</A>
    </td>
     <td align="right"><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
 </table>
