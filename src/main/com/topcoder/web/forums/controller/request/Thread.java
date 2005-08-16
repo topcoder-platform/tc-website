@@ -95,10 +95,8 @@ public class Thread extends ForumsProcessor {
                 
                 ResultFilter tResultFilter = ResultFilter.createDefaultThreadFilter();
                 tResultFilter.setStartIndex(Math.max(0, tStartIdx-1));
-                tResultFilter.setNumResults(threadRange+1);
+                tResultFilter.setNumResults(threadRange+2);
                 ForumThreadIterator itThreads = forum.getThreads(tResultFilter);
-                //log.debug("Threads " + tResultFilter.getStartIndex() + "-" + 
-                //        String.valueOf(tResultFilter.getStartIndex()+1) + " obtained");
                 
                 itThreads.setIndex(thread);
                 if (itThreads.hasNext()) {
