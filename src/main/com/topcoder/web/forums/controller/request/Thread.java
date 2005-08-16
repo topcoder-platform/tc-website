@@ -5,7 +5,6 @@ package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumThread;
-import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThreadIterator;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.ReadTracker;
@@ -20,7 +19,7 @@ import com.topcoder.web.forums.model.Paging;
 import com.topcoder.web.forums.controller.ForumsUtil;
 
 import java.util.Iterator;
-
+import javax.servlet.http.Cookie;
 import javax.naming.InitialContext;
 
 /**
@@ -81,33 +80,38 @@ public class Thread extends ForumsProcessor {
         // Previous/next links
         Integer startInt = (Integer)ActionContext.getContext().getSession().get
             ("tc.forum." + forum.getID() + ".start");
-        if (startInt == null) {
-            startInt = new Integer(0);
+        Cookie[] cookies = getRequest().getCookies();
+        int tStartIdx = -1;
+        for (int i=0; i<cookies.length; i++) {
+            if (cookies[i].getName().equals("tc.forum." + forum.getID() + ".start")) {
+                tStartIdx = Integer.parseInt(cookies[i].getValue());
+            }
         }
-        int tStartIdx = startInt.intValue();
         
-        ResultFilter tResultFilter = ResultFilter.createDefaultThreadFilter();
-        int threadRange = ForumConstants.DEFAULT_THREAD_RANGE;
-        if (user != null) {
-            try {
-                threadRange = Integer.parseInt(user.getProperty("jiveThreadRange"));
-            } catch (Exception ignored) {}
-        }
-        tResultFilter.setStartIndex(Math.max(0, tStartIdx-1));
-        tResultFilter.setNumResults(threadRange+2);
-        ForumThreadIterator itThreads = forum.getThreads(tResultFilter);
-        
-        ForumThread nextThread = null;
-        ForumThread prevThread = null;
-        itThreads.setIndex(thread);
-        if (itThreads.hasNext()) {
-            nextThread = (ForumThread)itThreads.next();
-            getRequest().setAttribute("nextThread", nextThread);
-        }
-        itThreads.setIndex(thread); // back up the index pointer
-        if (itThreads.hasPrevious()) {
-            prevThread = (ForumThread)itThreads.previous();
-            getRequest().setAttribute("prevThread", prevThread);
+        if (tStartIdx != -1) {
+            ResultFilter tResultFilter = ResultFilter.createDefaultThreadFilter();
+            int threadRange = ForumConstants.DEFAULT_THREAD_RANGE;
+            if (user != null) {
+                try {
+                    threadRange = Integer.parseInt(user.getProperty("jiveThreadRange"));
+                } catch (Exception ignored) {}
+            }
+            tResultFilter.setStartIndex(Math.max(0, tStartIdx-1));
+            tResultFilter.setNumResults(threadRange+2);
+            ForumThreadIterator itThreads = forum.getThreads(tResultFilter);
+            
+            ForumThread nextThread = null;
+            ForumThread prevThread = null;
+            itThreads.setIndex(thread);
+            if (itThreads.hasNext()) {
+                nextThread = (ForumThread)itThreads.next();
+                getRequest().setAttribute("nextThread", nextThread);
+            }
+            itThreads.setIndex(thread); // back up the index pointer
+            if (itThreads.hasPrevious()) {
+                prevThread = (ForumThread)itThreads.previous();
+                getRequest().setAttribute("prevThread", prevThread);
+            }
         }
         
         // Use the setting chosen on the page if selected, or the user's default
