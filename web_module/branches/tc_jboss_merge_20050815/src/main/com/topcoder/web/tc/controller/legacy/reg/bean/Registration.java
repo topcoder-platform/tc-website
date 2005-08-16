@@ -27,6 +27,7 @@ import com.topcoder.web.tc.view.reg.tag.StateSelect;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.transaction.UserTransaction;
+import javax.rmi.PortableRemoteObject;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.*;
@@ -1593,8 +1594,7 @@ public class Registration
 
         ArrayList cachedNotify = null;
         try {
-            DataCache cache = Cache.get();
-            cachedNotify = cache.getNotifications();
+            cachedNotify = Notification.getNotifications();
         } catch (Exception e) {
             cachedNotify = new ArrayList();
         }
@@ -1768,14 +1768,16 @@ public class Registration
         try {
             context = TCContext.getInitial();
 
-            UserServicesHome userServicesHome = (UserServicesHome) context.lookup(ApplicationServer.USER_SERVICES);
+            UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(context.lookup(
+                            UserServicesHome.class.getName()),
+                            UserServicesHome.class);
             transaction = Transaction.get();
             if (Transaction.begin(transaction)) {
                 UserServices userServices;
                 if (isEdit()) {
-                    userServices = userServicesHome.findByPrimaryKey(new Integer(user.getUserId()));
+                    userServices = userHome.findByPrimaryKey(new Long(user.getUserId()));
                 } else {
-                    userServices = userServicesHome.create(user);
+                    userServices = userHome.create(user);
                     activationCode = StringUtils.getActivationCode(coder.getCoderId());
                     coder.setActivationCode(activationCode);
                     coder.setModified("U");
@@ -1980,13 +1982,16 @@ public class Registration
         }
     }
 
-    private void doLegacyCrap(int userId) {
+    private void doLegacyCrap(long userId) {
         Context ctx = null;
         com.topcoder.common.web.data.User user = null;
         try {
             ctx = TCContext.getInitial();
-            UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
-            UserServices userEJB = userHome.findByPrimaryKey(new Integer(userId));
+            UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(ctx.lookup(
+                            UserServicesHome.class.getName()),
+                            UserServicesHome.class);
+
+            UserServices userEJB = userHome.findByPrimaryKey(new Long(userId));
             user = userEJB.getUser();
             log.debug("tc: user loaded from entity bean");
 
@@ -2040,8 +2045,11 @@ public class Registration
             Authentication authentication = authenticationServices.getActivation(coderId);
             if (authentication.getUserId().intValue() == coderId && authentication.getActivationCode().equalsIgnoreCase(this.code)) {
                 if (authentication.getStatus().equals("U")) {
-                    UserServicesHome userServicesHome = (UserServicesHome) context.lookup(ApplicationServer.USER_SERVICES);
-                    UserServices userServices = userServicesHome.findByPrimaryKey(authentication.getUserId());
+                    UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(context.lookup(
+                                    UserServicesHome.class.getName()),
+                                    UserServicesHome.class);
+
+                    UserServices userServices = userHome.findByPrimaryKey(authentication.getUserId());
                     User user = userServices.getUser();
                     user.setStatus("A");
                     user.setModified("U");
