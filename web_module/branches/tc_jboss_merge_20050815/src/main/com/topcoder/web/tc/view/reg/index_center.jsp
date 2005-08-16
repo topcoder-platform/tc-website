@@ -181,61 +181,61 @@ function checkInputs(){
 
                 <tr valign="middle">
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="FirstNameError" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="firstNameError" /></td>
                 </tr>
 
                 <tr valign="middle">
                     <td class="registerLabel" width="200">First Name<br><img src="/i/clear.gif" alt="" width="200" height="1" border="0"></td>
-                    <td class="statText" width="99%"><input type="text" name="<%=Registration.FIRST_NAME%>" value ="<jsp:getProperty name="Registration" property="FirstName" />" size="30" maxlength="30"></td>
+                    <td class="statText" width="99%"><input type="text" name="<%=Registration.FIRST_NAME%>" value ="<jsp:getProperty name="Registration" property="firstName" />" size="30" maxlength="30"></td>
                 </tr>
 
 <!-- Last Name -->
                 <tr valign="middle">
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="LastNameError" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="lastNameError" /></td>
                 </tr>
 
                 <tr valign="middle">
                     <td class="registerLabel">Last Name</td>
-                    <td class="statText"><input type="text" name="<%=Registration.LAST_NAME%>" value ="<jsp:getProperty name="Registration" property="LastName" />" size="30" maxlength="30"></td>
+                    <td class="statText"><input type="text" name="<%=Registration.LAST_NAME%>" value ="<jsp:getProperty name="Registration" property="lastName" />" size="30" maxlength="30"></td>
                 </tr>
 
 <!-- Address -->
                 <tr valign="middle">
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="Address1Error" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="address1Error" /></td>
                 </tr>
 
                 <tr valign="middle">
                     <td class="registerLabel">Address</td>
-                    <td class="statText"><input type="text" name="<%=Registration.ADDRESS1%>" value ="<jsp:getProperty name="Registration" property="Address1" />" size="30" maxlength="50"></td>
+                    <td class="statText"><input type="text" name="<%=Registration.ADDRESS1%>" value ="<jsp:getProperty name="Registration" property="address1" />" size="30" maxlength="50"></td>
                 </tr>
 
                 <tr valign="middle">
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="Address2Error" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="address2Error" /></td>
                 </tr>
 
                 <tr valign="middle">
                     <td class="registerLabel">&nbsp;</td>
-                    <td class="statText"><input type="text" name="<%=Registration.ADDRESS2%>" value ="<jsp:getProperty name="Registration" property="Address2" />" size="30" maxlength="50"></td>
+                    <td class="statText"><input type="text" name="<%=Registration.ADDRESS2%>" value ="<jsp:getProperty name="Registration" property="address2" />" size="30" maxlength="50"></td>
                 </tr>
 
 <!-- City -->
                 <tr valign="middle">
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="CityError" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="cityError" /></td>
                 </tr>
 
                 <tr valign="middle">
                     <td class="registerLabel">City</td>
-                    <td class="statText"><input type="text" name="<%=Registration.CITY%>" value ="<jsp:getProperty name="Registration" property="City" />" size="30" maxlength="30"></td>
+                    <td class="statText"><input type="text" name="<%=Registration.CITY%>" value ="<jsp:getProperty name="Registration" property="city" />" size="30" maxlength="30"></td>
                 </tr>
 
 <!-- State -->
                 <tr valign="middle">
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="StateError" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="stateError" /></td>
                 </tr>
 
                 <tr valign="middle">
@@ -248,18 +248,18 @@ function checkInputs(){
 <!-- Zip -->
                 <tr>
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="ZipError" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="zipError" /></td>
                 </tr>
 
                 <tr valign="middle">
                     <td class="registerLabel">Zip</td>
-                    <td class="statText"><input type="text" name="<%=Registration.ZIP%>" value ="<jsp:getProperty name="Registration" property="Zip" />" size="10" maxlength="10"></td>
+                    <td class="statText"><input type="text" name="<%=Registration.ZIP%>" value ="<jsp:getProperty name="Registration" property="zip" />" size="10" maxlength="10"></td>
                 </tr>
 
 <!-- Country -->
                 <tr>
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="CountryError" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="countryError" /></td>
                 </tr>
 
                 <tr valign="middle">
@@ -286,12 +286,12 @@ function checkInputs(){
 <!-- Phone -->
                 <tr>
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="PhoneError" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="phoneError" /></td>
                 </tr>
 
                 <tr valign="middle">
                     <td class="registerLabel">Phone</td>
-                    <td class="statText"><input type="text" name="<%=Registration.PHONE%>" value ="<jsp:getProperty name="Registration" property="Phone" />" size="30" maxlength="20"></td>
+                    <td class="statText"><input type="text" name="<%=Registration.PHONE%>" value ="<jsp:getProperty name="Registration" property="phone" />" size="30" maxlength="20"></td>
                 </tr>
 
                 <tr valign="middle"><td colspan="2" class="statText" valign="middle">&nbsp;</td></tr>
@@ -300,7 +300,7 @@ function checkInputs(){
 
                 <tr>
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="HandleError" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="handleError" /></td>
                 </tr>
 
 <!-- Handle -->
@@ -314,7 +314,7 @@ function checkInputs(){
 
                 <tr valign="middle">
                     <td class="registerLabel">Handle</td>
-                    <td class="statText"><input type="text" name="<%=Registration.HANDLE%>" value ="<jsp:getProperty name="Registration" property="Handle" />" size="30" maxlength="15"></td>
+                    <td class="statText"><input type="text" name="<%=Registration.HANDLE%>" value ="<jsp:getProperty name="Registration" property="handle" />" size="30" maxlength="15"></td>
                 </tr>
 
                 <% } else { %>
@@ -329,11 +329,11 @@ function checkInputs(){
                            && !Registration.containsAllPunctuation(Registration.getHandle())
                            && Registration.getHandleError().equals("")) {  %>
 
-                        <jsp:getProperty name="Registration" property="Handle" />
+                        <jsp:getProperty name="Registration" property="handle" />
 
                     <% } else { %>
 
-                        <input type="text" name="<%=Registration.HANDLE%>" value ="<jsp:getProperty name="Registration" property="Handle" />" size="30" maxlength="15">
+                        <input type="text" name="<%=Registration.HANDLE%>" value ="<jsp:getProperty name="Registration" property="handle" />" size="30" maxlength="15">
 
                     <% } %>
                     </td>
@@ -344,12 +344,12 @@ function checkInputs(){
 <!-- Password -->
                 <tr>
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="PasswordError" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="oasswordError" /></td>
                 </tr>
 
                 <tr valign="middle">
                     <td class="registerLabel">Password</td>
-                    <td class="statText"><input type="password" name="<%=Registration.PASSWORD%>" value ="<jsp:getProperty name="Registration" property="Password" />" size="30" maxlength="15"></td>
+                    <td class="statText"><input type="password" name="<%=Registration.PASSWORD%>" value ="<jsp:getProperty name="Registration" property="password" />" size="30" maxlength="15"></td>
                 </tr>
 
                 <tr>
@@ -359,32 +359,32 @@ function checkInputs(){
 
                 <tr>
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="ConfirmPasswordError" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="confirmPasswordError" /></td>
                 </tr>
 
                 <tr valign="middle">
                     <td class="registerLabel">Re-type Password</td>
-                    <td class="statText"><input type="password" name="<%=Registration.CONFIRM_PASSWORD%>" value ="<jsp:getProperty name="Registration" property="ConfirmPassword" />" size="30" maxlength="<%=Registration.PASSWORD_MAX_LENGTH%>"></td>
+                    <td class="statText"><input type="password" name="<%=Registration.CONFIRM_PASSWORD%>" value ="<jsp:getProperty name="Registration" property="confirmPassword" />" size="30" maxlength="<%=Registration.PASSWORD_MAX_LENGTH%>"></td>
                 </tr>
 
                 <tr>
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="EmailError" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="emailError" /></td>
                 </tr>
 
                 <tr valign="middle">
                     <td class="registerLabel">Email</td>
-                    <td class="statText"><input type="text" name="<%=Registration.EMAIL%>" value ="<jsp:getProperty name="Registration" property="Email" />" size="30" maxlength="100"></td>
+                    <td class="statText"><input type="text" name="<%=Registration.EMAIL%>" value ="<jsp:getProperty name="Registration" property="email" />" size="30" maxlength="100"></td>
                 </tr>
 
                 <tr>
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="ConfirmEmailError" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="confirmEmailError" /></td>
                 </tr>
 
                 <tr valign="middle">
                     <td class="registerLabel">Re-type Email</td>
-                    <td class="statText"><input type="text" name="<%=Registration.CONFIRM_EMAIL%>" value ="<jsp:getProperty name="Registration" property="ConfirmEmail" />" size="30" maxlength="100"></td>
+                    <td class="statText"><input type="text" name="<%=Registration.CONFIRM_EMAIL%>" value ="<jsp:getProperty name="Registration" property="confirmEmail" />" size="30" maxlength="100"></td>
                 </tr>
 
                 <tr>
@@ -394,12 +394,12 @@ function checkInputs(){
 
                 <tr>
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="QuoteError" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="quoteError" /></td>
                 </tr>
 
                 <tr>
                     <td class="registerLabel">Quote</td>
-                    <td class="statText"><input type="text" name="<%=Registration.QUOTE%>" value ="<jsp:getProperty name="Registration" property="Quote" />" size="30" maxlength="255"></td>
+                    <td class="statText"><input type="text" name="<%=Registration.QUOTE%>" value ="<jsp:getProperty name="Registration" property="quote" />" size="30" maxlength="255"></td>
                 </tr>
 
                 <tr valign="middle"><td colspan="2" class="statText" valign="middle">&nbsp;</td></tr>
@@ -430,7 +430,7 @@ function checkInputs(){
 
                 <tr>
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="LanguageError" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="languageError" /></td>
                 </tr>
 
                 <tr>
@@ -453,7 +453,7 @@ function checkInputs(){
 
                 <tr>
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="CompCountryError" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="compCountryError" /></td>
                 </tr>
 
                 <tr>
@@ -481,7 +481,7 @@ function checkInputs(){
 
                 <tr>
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="CoderTypeError" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="coderTypeError" /></td>
                 </tr>
 
                 <tr valign="middle">
@@ -523,7 +523,7 @@ function checkInputs(){
 
                 <tr>
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="TermsError" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="termsError" /></td>
                 </tr>
 
                 <tr valign="middle">
