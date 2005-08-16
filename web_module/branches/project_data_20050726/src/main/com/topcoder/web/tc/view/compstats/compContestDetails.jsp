@@ -72,7 +72,9 @@
 %>
 
 
-<span class="bodySubtitle">Development Statistics > Contest Details > <rsc:item set="<%=projectInfo%>" name="phase_desc"/> > <A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A></span><br>
+<span class="bodySubtitle">Development Statistics > Contest Details >
+<a href='/tc?module=CompList&pi=<rsc:item set="<%=projectInfo%>" name="phase_id"/>' class="statText"><rsc:item set="<%=projectInfo%>" name="phase_desc"/></a> >
+<A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A></span><br>
 <span class="bc">
 <% if (dates.size() > 1) { %>
                  <rsc:iterator list="<%=dates%>" id="resultRow">
