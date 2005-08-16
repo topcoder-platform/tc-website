@@ -39,17 +39,6 @@ function submitEnter(e) {
     myForm.<%=DataAccessConstants.START_RANK%>.value=parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value)-parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
     myForm.submit();
   }
-  function design() {
-    var myForm = document.compListForm;
-    myForm.pi.value="112";
-    myForm.submit();
-  }
-  function development() {
-    var myForm = document.compListForm;
-    myForm.pi.value="113";
-    myForm.submit();
-  }
-
 </script>
 
 
@@ -92,9 +81,9 @@ function submitEnter(e) {
 <tc-webtag:hiddenInput name="pi" value="<%=phaseId%>"/>
 
 <% if ("112".equals(phaseId)) { %>
-    Design  &#160;|&#160; <a href="Javascript:development()" class="statText">Development</a>
+    Design  &#160;|&#160; <a href="/tc?module=CompList&pi=113" class="statText">Development</a>
 <% } else { %>
-    <a href="Javascript:design()" class="statText">Design</a>  &#160;|&#160; Development
+    <a href="/tc?module=CompList&pi=112" class="statText">Design</a>  &#160;|&#160; Development
 <% } %>
 
 

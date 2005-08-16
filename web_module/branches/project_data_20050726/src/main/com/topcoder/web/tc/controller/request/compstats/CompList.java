@@ -39,6 +39,10 @@ public class CompList extends Base {
             String phaseId = StringUtils.checkNull(getRequest().getParameter("pi"));
 
 
+            if (!"112".equals(phaseId) && !"113".equals(phaseId)) {
+                throw new TCWebException("Invalid phase_id (pi parameter)");
+            }
+
             if ("".equals(numRecords)) {
                 numRecords = "50";
             } else if (Integer.parseInt(numRecords)>200) {
