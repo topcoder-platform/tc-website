@@ -38,8 +38,8 @@ public class SortTag extends TagSupport {
         this.includeParams = "true".equalsIgnoreCase(includeParams);
     }
 
-    public void setExcludeParams(String excludeParams) {
-        String s[] = excludeParams.split(";");
+    public void setExcludeParams(String exclude) {
+        String s[] = exclude.split(";");
 
         excludeParams = new HashSet();
 
