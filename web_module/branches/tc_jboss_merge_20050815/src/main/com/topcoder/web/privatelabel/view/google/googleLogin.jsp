@@ -102,12 +102,12 @@ function submitEnter(e) {
                               </tr>
                               <tr valign="middle">
                                  <td nowrap class="bodyText" align="right">Handle:</td>
-                                 <td colspan="2" align="left"><input type="text" name="<%=Constants.HANDLE%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)"></td>
+                                 <td colspan="2" align="left"><input type="text" name="<%=Constants.HANDLE%>" value="" maxlength="15" size="12" onKeyPress="submitEnter(event)"></td>
                               </tr>
 
                               <tr valign="middle">
                                  <td nowrap class="bodyText" align="right">Password:</td>
-                                 <td align="left"><input type="password" name="<%=Constants.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)"></td>
+                                 <td align="left"><input type="password" name="<%=Constants.PASSWORD%>" value="" maxlength="15" size="12" onKeyPress="submitEnter(event)"></td>
                                  <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login&#160;&gt;</a></td>
                               </tr>
                               <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>

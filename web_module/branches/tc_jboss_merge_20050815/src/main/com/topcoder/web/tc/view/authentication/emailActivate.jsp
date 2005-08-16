@@ -76,16 +76,16 @@ function submitEnter(e) {
 
                             <tr valign="middle">
                                 <td nowrap class="bodyText" align="right">Handle:</td>
-                                <td colspan="2" align="left"><input type="text" name="<%=Login.USER_NAME%>" value="<%= username %>" maxlength="15" size="15" onkeypress="submitEnter(event)"></td>
+                                <td colspan="2" align="left"><input type="text" name="<%=Login.USER_NAME%>" value="<%= username %>" maxlength="15" size="15" onKeyPress="submitEnter(event)"></td>
                             </tr>
 
                             <tr valign="middle">
                                 <td nowrap class="bodyText" align="right">Password:</td>
-                                <td colspan="2" align="left"><input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="15" onkeypress="submitEnter(event)"></td>
+                                <td colspan="2" align="left"><input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="15" onKeyPress="submitEnter(event)"></td>
                             </tr>
                             <tr valign="middle">
                                 <td nowrap class="bodyText" align="right">Email:</td>
-                                <td nowrap class="bodyText"><input type="text" name="<%=Constants.EMAIL%>" value="" maxlength="100" size="25" onkeypress="submitEnter(event)"></td>
+                                <td nowrap class="bodyText"><input type="text" name="<%=Constants.EMAIL%>" value="" maxlength="100" size="25" onKeyPress="submitEnter(event)"></td>
                                 <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.emailForm.submit()" class="bodyText">Send&#160;&gt;</a></td>
                             </tr>
 

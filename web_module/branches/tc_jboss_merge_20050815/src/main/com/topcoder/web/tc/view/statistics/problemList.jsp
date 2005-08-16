@@ -152,7 +152,7 @@
                 </tr>
                  <tr>
                     <td align="right" class="statText">Class Name</td>
-                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.CLASS_NAME%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
+                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.CLASS_NAME%>"  size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
                     <td align="right" class="statText">Category</td>
                     <td align="left" class="statText"><tc-webtag:rscSelect name="<%=Constants.CATEGORY%>" list="<%=categories%>" fieldText="category" fieldValue="category"/></td>
                  </tr>
@@ -182,9 +182,9 @@
                 </tr>
                  <tr>
                     <td align="right" class="statText">Minimum Division I Success Rate</td>
-                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV1_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
+                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV1_SUCCESS%>"  size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
                     <td align="right" class="statText">Minimum Division II Success Rate</td>
-                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV2_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
+                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV2_SUCCESS%>"  size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
                  </tr>
                 <tr>
                     <td colspan="2" class="errorText" align="center">
@@ -196,9 +196,9 @@
                 </tr>
                  <tr>
                     <td align="right" class="statText">Maximum Division I Success Rate</td>
-                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV1_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
+                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV1_SUCCESS%>"  size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
                     <td align="right" class="statText">Maximum Division II Success Rate</td>
-                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV2_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
+                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV2_SUCCESS%>"  size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
                  </tr>
 
                 <tr>

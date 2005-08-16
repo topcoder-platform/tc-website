@@ -81,12 +81,12 @@
 
                             <tr valign="middle">
                                 <td nowrap class="loginText" align="right">User Name:</td>
-                                <td colspan="2" align="left"><input type="text" name="<%=Login.KEY_USER_HANDLE%>" value="<%= username %>" maxlength="15" size="12" onkeypress="submitEnter(event,document.frmLogin)"></td>
+                                <td colspan="2" align="left"><input type="text" name="<%=Login.KEY_USER_HANDLE%>" value="<%= username %>" maxlength="15" size="12" onKeyPress="submitEnter(event,document.frmLogin)"></td>
                             </tr>
 
                             <tr valign="middle">
                                 <td nowrap class="loginText" align="right">Password:</td>
-                                <td align="left"><input type="password" name="<%=Login.KEY_USER_PASS%>" value="<%=password%>" maxlength="15" size="12" onkeypress="submitEnter(event,document.frmLogin)"></td>
+                                <td align="left"><input type="password" name="<%=Login.KEY_USER_PASS%>" value="<%=password%>" maxlength="15" size="12" onKeyPress="submitEnter(event,document.frmLogin)"></td>
                                 <td nowrap class="loginText">&#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="loginText">Login&#160;&gt;</a></td>
                             </tr>
 

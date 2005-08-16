@@ -90,12 +90,12 @@ function submitEnter(e) {
 
                             <tr valign="middle">
                                 <td nowrap class="bodyText" align="right">Handle:</td>
-                                <td colspan="2" align="left"><input type="text" name="<%=Login.USER_NAME%>" value="<%= username %>" maxlength="15" size="12" onkeypress="submitEnter(event)"></td>
+                                <td colspan="2" align="left"><input type="text" name="<%=Login.USER_NAME%>" value="<%= username %>" maxlength="15" size="12" onKeyPress="submitEnter(event)"></td>
                             </tr>
 
                             <tr valign="middle">
                                 <td nowrap class="bodyText" align="right">Password:</td>
-                                <td align="left"><input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)"></td>
+                                <td align="left"><input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12" onKeyPress="submitEnter(event)"></td>
                                 <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login&#160;&gt;</a></td>
                             </tr>
                             <tr valign="middle">
