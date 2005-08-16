@@ -54,12 +54,12 @@ public class CompList extends Base {
                 numRecords="200";
             }
 
-            if (startRank.equals("")) {
+            if (startRank.equals("") || Integer.parseInt(startRank) <= 0) {
                 startRank = "1";
             }
 
-            if (endRank.equals("")) {
-                endRank = String.valueOf(50);
+            if (endRank.equals("") || Integer.parseInt(endRank) <= 0) {
+                endRank = "50";
             }
 
 
@@ -75,24 +75,16 @@ public class CompList extends Base {
             ResultSetContainer rsc = (ResultSetContainer) result.get("comp_list");
             rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
 
-            rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank), Integer.parseInt(endRank));
+            //rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank), Integer.parseInt(endRank));
 
-            result.put("comp_list", rsc);
+            //result.put("comp_list", rsc);
 
             SortInfo s = new SortInfo();
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
 
-            if ("".equals(startRank)||Integer.parseInt(startRank)<=0) {
-                startRank = "1";
-            }
             setDefault(DataAccessConstants.START_RANK, startRank);
-/*
-            r.setProperty(DataAccessConstants.START_RANK, startRank);
-            r.setProperty(DataAccessConstants.END_RANK,
-                String.valueOf(Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1));
-*/
 
 
             getRequest().setAttribute("resultMap", result);
