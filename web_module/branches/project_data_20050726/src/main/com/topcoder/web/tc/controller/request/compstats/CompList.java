@@ -64,7 +64,7 @@ public class CompList extends Base {
 
 
             if (sortCol.equals("")) {
-                sortCol = "4";
+                sortCol = "3";
             }
 
             r.setContentHandle("comp_list");
@@ -88,11 +88,11 @@ public class CompList extends Base {
                 startRank = "1";
             }
             setDefault(DataAccessConstants.START_RANK, startRank);
-
+/*
             r.setProperty(DataAccessConstants.START_RANK, startRank);
             r.setProperty(DataAccessConstants.END_RANK,
                 String.valueOf(Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1));
-
+*/
 
 
             getRequest().setAttribute("resultMap", result);
