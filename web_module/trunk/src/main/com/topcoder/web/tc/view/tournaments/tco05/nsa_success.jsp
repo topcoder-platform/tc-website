@@ -24,7 +24,9 @@
 <div align="center"><img src="/i/tournament/tco05/nsa_logo.gif" alt="NSA" border="0" /></div>
 <br><br>
 Your application has been received.
-<br><br>               
+<br><br>
+If you would like to be contacted by NSA, please go to <A href="http://www.nsa.gov/careers/">NSA's Careers Homepage</A> and apply online to register as an applicant.
+<br><br>
         </div>
 		</td>
         

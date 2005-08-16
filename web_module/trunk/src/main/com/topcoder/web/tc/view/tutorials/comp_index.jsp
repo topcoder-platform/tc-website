@@ -63,6 +63,10 @@
                <tc-webtag:handle coderId="119676" context="design"/>
 					</td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=singletons"><strong>The Singleton Pattern</strong></a>
 				</td></tr>
+				<tr valign=top><td class="bodyText">
+               <tc-webtag:handle coderId="119676" context="design"/>
+					</td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=strategyPattern"><strong>The Strategy Pattern</strong></a>
+				</td></tr>
 			</table>
         </div>
         <p><br></p>
