@@ -9,6 +9,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>08.16.05<br>4:20 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=strategyPattern">The Strategy Pattern</A></span><br><br>
+       This pattern is one of my favorite patterns and is in almost every design I have ever done. In fact, I once took this to an extreme and designed a whole system using the strategy pattern for every class.</td>
+      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <tc-webtag:handle coderId="119676" context="design"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=strategyPattern">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>08.12.05<br>9:05 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
