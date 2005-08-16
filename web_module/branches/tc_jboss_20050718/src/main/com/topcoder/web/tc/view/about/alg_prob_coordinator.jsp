@@ -9,13 +9,13 @@
 <head>
 <title>Working at TopCoder</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 
 </head>
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -110,7 +110,7 @@ Phone: 860.633.5540<br>
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="about"/>
             </jsp:include>
          </td>
@@ -122,7 +122,7 @@ Phone: 860.633.5540<br>
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 
