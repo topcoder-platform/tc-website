@@ -10,7 +10,6 @@ import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.ReadTracker;
 import com.jivesoftware.forum.action.util.Paginator;
 import com.jivesoftware.forum.stats.ViewCountManager;
-import com.opensymphony.xwork.ActionContext;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.messagehistory.MessageHistory;
@@ -78,8 +77,6 @@ public class Thread extends ForumsProcessor {
         }
         
         // Previous/next links
-        Integer startInt = (Integer)ActionContext.getContext().getSession().get
-            ("tc.forum." + forum.getID() + ".start");
         Cookie[] cookies = getRequest().getCookies();
         int tStartIdx = -1;
         for (int i=0; i<cookies.length; i++) {
