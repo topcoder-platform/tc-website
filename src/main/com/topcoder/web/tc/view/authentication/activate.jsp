@@ -45,7 +45,6 @@
          <jsp:param name="title" value="Activation"/>
          </jsp:include>
 
-         <div align="center"><A href="/tc?module=TCO05AlgorithmTerms"><img src="/i/registration/tco05_reg.gif" alt="TCO05 Registration" border="0" /></A></div>
          <p>
          <span class="bodySubtitle">Your account has been successfully activated. Thank You!</span>
          <br><br>

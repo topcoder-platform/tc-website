@@ -36,7 +36,6 @@
          <tr>
             <td width="50%" class="homeLogo"><img src="/i/home/TC_homeLogo.gif" alt=""/></td>
             <td class="BIGPromoBox" align="center">
-            <a href="/tc?module=TCO05AlgorithmTerms"><IMG SRC="/i/home/promos/tco05_alg_reg.gif" BORDER="0" ALT="Algorithm Registration Open" /></a><br/>
             <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about"><IMG SRC="/i/home/promos/tco05.gif" BORDER="0" ALT="TCO05" /></a><br></td>
             <td width="50%" class="homeLogo">&#160;</td>
          </tr>
