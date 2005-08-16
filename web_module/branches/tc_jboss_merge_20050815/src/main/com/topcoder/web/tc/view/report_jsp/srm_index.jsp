@@ -13,7 +13,7 @@
 		  "
 
 %>
-<%@ taglib uri="WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <% String round = request.getParameter("rd");
 	    if (round==null) {
         com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();

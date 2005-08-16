@@ -21,7 +21,7 @@
           com.topcoder.security.TCSubject,
           com.topcoder.web.common.SessionInfo"
 %>
-<%@ taglib uri="WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%
 
     TCRequest tcRequest = HttpObjectFactory.createRequest(request);

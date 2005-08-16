@@ -22,7 +22,7 @@
           com.topcoder.web.common.TCRequest"
 
 %>
-<%@ taglib uri="WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%
 
 

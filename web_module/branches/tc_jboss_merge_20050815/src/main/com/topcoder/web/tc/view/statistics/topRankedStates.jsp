@@ -3,7 +3,7 @@
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
           java.util.Map"
 %>
-<%@ taglib uri="WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%
     ResultSetContainer rsc = (ResultSetContainer)
             ((Map)request.getAttribute("QUERY_RESPONSE")).get("State_Avg_Rating");
