@@ -86,28 +86,30 @@ public class Thread extends ForumsProcessor {
         
         if (tStartIdx != -1) {
             try {
+                int threadRange = ForumConstants.DEFAULT_THREAD_RANGE;
+                if (user != null) {
+                    try {
+                        threadRange = Integer.parseInt(user.getProperty("jiveThreadRange"));
+                    } catch (Exception ignored) {}
+                }
+                
                 ResultFilter tResultFilter = ResultFilter.createDefaultThreadFilter();
                 tResultFilter.setStartIndex(Math.max(0, tStartIdx-1));
-                tResultFilter.setNumResults(3);
+                tResultFilter.setNumResults(threadRange+1);
                 ForumThreadIterator itThreads = forum.getThreads(tResultFilter);
                 //log.debug("Threads " + tResultFilter.getStartIndex() + "-" + 
-                //        String.valueOf(tResultFilter.getStartIndex()+2) + " obtained");
+                //        String.valueOf(tResultFilter.getStartIndex()+1) + " obtained");
                 
                 itThreads.setIndex(thread);
                 if (itThreads.hasNext()) {
                     ForumThread nextThread = (ForumThread)itThreads.next();
                     getRequest().setAttribute("nextThread", nextThread);
-                } else {
-                    tStartIdx++;
                 }
                 itThreads.setIndex(thread); // back up the index pointer
                 if (itThreads.hasPrevious()) {
                     ForumThread prevThread = (ForumThread)itThreads.previous();
                     getRequest().setAttribute("prevThread", prevThread);
-                } else {
-                    tStartIdx--;
                 }
-                getRequest().getSession().setAttribute(forumKey, new Integer(tStartIdx));
             } catch (NoSuchElementException nsee) {
                 getRequest().removeAttribute("nextThread");
                 getRequest().removeAttribute("prevThread");
