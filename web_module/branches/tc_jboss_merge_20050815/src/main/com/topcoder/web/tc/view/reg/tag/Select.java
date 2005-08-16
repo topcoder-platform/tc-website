@@ -23,8 +23,8 @@ public abstract class Select
         this.value = value;
     }
 
-    public void setStyleClass(String ccsclass) {
-        this.styleClass = ccsclass;
+    public void setStyleClass(String styleClass) {
+        this.styleClass = styleClass;
     }
 
     public void setOnChange(String onChange) {

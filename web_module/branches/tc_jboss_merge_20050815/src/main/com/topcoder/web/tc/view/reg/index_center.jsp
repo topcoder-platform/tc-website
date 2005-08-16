@@ -344,7 +344,7 @@ function checkInputs(){
 <!-- Password -->
                 <tr>
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="oasswordError" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="passwordError" /></td>
                 </tr>
 
                 <tr valign="middle">
