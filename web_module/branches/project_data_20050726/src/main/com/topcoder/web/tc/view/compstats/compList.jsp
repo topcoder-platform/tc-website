@@ -41,12 +41,12 @@ function submitEnter(e) {
   }
   function design() {
     var myForm = document.compListForm;
-    myForm.phaseId.value="112";
+    myForm.pi.value="112";
     myForm.submit();
   }
   function development() {
     var myForm = document.compListForm;
-    myForm.phaseId.value="113";
+    myForm.pi.value="113";
     myForm.submit();
   }
 
@@ -89,7 +89,7 @@ function submitEnter(e) {
 <form name="compListForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
 
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CompList"/>
-<tc-webtag:hiddenInput name="phaseId" value="<%=phaseId%>"/>
+<tc-webtag:hiddenInput name="pi" value="<%=phaseId%>"/>
 
 <% if ("112".equals(phaseId)) { %>
     Design  &#160;|&#160; <a href="Javascript:development()" class="statText">Development</a>
