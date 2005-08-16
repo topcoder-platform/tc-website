@@ -25,7 +25,7 @@ function submitEnter(e) {
     else if (e) keycode = e.which;
     else return true;
     if (keycode == 13) {
-     document.coderRankForm.submit();
+     document.compListForm.submit();
      return false;
     } else return true;
   }
@@ -37,6 +37,16 @@ function submitEnter(e) {
   function previous() {
     var myForm = document.compListForm;
     myForm.<%=DataAccessConstants.START_RANK%>.value=parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value)-parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+    myForm.submit();
+  }
+  function design() {
+    var myForm = document.compListForm;
+    myForm.phaseId.value=112;
+    myForm.submit();
+  }
+  function development() {
+    var myForm = document.compListForm;
+    myForm.phaseId.value=113;
     myForm.submit();
   }
 
@@ -73,11 +83,20 @@ function submitEnter(e) {
 
 <%
     ResultSetContainer list = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("comp_list");
+    long phaseId = Long.parseLong (request.getAttribute("phaseId"));
 
 %>
 <form name="compListForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
 
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CompList"/>
+
+<% if (phaseId == 112) { %>
+    Design  &#160;|&#160; <a href="Javascript:development()" class="statText">Development</a>
+<% } else { %>
+    <a href="Javascript:design()" class="statText">Design</a>  &#160;|&#160; Development
+<% } %>
+
+
 
 <table border="1">
 <tr>

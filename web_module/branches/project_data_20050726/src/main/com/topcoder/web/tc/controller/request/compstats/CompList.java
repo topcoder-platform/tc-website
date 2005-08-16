@@ -36,10 +36,7 @@ public class CompList extends Base {
 
             String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
             String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
-
-            if (!hasParameter("pi")) {
-                throw new TCWebException("parameter 'pi' expected");
-            }
+            String phaseId = StringUtils.checkNull(getRequest().getParameter("pi"));
 
 
             if ("".equals(numRecords)) {
@@ -59,7 +56,7 @@ public class CompList extends Base {
                 String.valueOf(Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1));
 
             r.setContentHandle("comp_list");
-            r.setProperty("pi", getRequest().getParameter("pi"));
+            r.setProperty("pi", phaseId);
 
             Map result = getDataAccess(true).getData(r);
 
