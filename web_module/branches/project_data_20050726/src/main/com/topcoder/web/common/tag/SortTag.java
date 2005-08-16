@@ -39,13 +39,26 @@ public class SortTag extends TagSupport {
     }
 
     public void setExcludeParams(String exclude) {
-        String s[] = exclude.split(";");
 
+        exclude = exclude + ";"
         excludeParams = new HashSet();
 
         for(int i = 0; i < s.length; i++) {
             excludeParams.add(s[i]);
         }
+
+        int from = 0;
+        while(true) {
+           int pos = exclude.indexOf(";", from);
+
+           if(pos < 0) break;
+
+
+           from = pos + 1;
+
+           excludeParams.add(exclude.substring(from,pos));
+        }
+
 
     }
 
