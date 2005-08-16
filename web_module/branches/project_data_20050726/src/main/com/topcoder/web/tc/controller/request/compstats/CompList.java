@@ -74,7 +74,7 @@ public class CompList extends Base {
             ResultSetContainer rsc = (ResultSetContainer) result.get("comp_list");
             rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
 
-            rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank), Integer.parseInt(endRank));
+            rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank),endRank);
 
             result.put("comp_list", rsc);
 
