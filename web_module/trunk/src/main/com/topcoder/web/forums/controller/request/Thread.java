@@ -18,6 +18,7 @@ import com.topcoder.web.forums.model.Paging;
 import com.topcoder.web.forums.controller.ForumsUtil;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import javax.naming.InitialContext;
 
 /**
@@ -76,37 +77,40 @@ public class Thread extends ForumsProcessor {
         }
         
         // Previous/next links
-        Integer startInt = (Integer)getRequest().getSession().getAttribute("tc.forum." + forum.getID() + ".start");
+        String forumKey = "tc.forum." + forum.getID() + ".start";
+        Integer startInt = (Integer)getRequest().getSession().getAttribute(forumKey);
         int tStartIdx = -1;
         if (startInt != null) {
             tStartIdx = startInt.intValue();
         }
         
         if (tStartIdx != -1) {
-            ResultFilter tResultFilter = ResultFilter.createDefaultThreadFilter();
-            int threadRange = ForumConstants.DEFAULT_THREAD_RANGE;
-            if (user != null) {
-                try {
-                    threadRange = Integer.parseInt(user.getProperty("jiveThreadRange"));
-                } catch (Exception ignored) {}
-            }
-            tResultFilter.setStartIndex(Math.max(0, tStartIdx-1));
-            tResultFilter.setNumResults(threadRange+2);
-            ForumThreadIterator itThreads = forum.getThreads(tResultFilter);
-            log.debug("Threads " + tResultFilter.getStartIndex() + "-" + 
-                    tResultFilter.getStartIndex()+threadRange+1 + " obtained");
-            
-            ForumThread nextThread = null;
-            ForumThread prevThread = null;
-            itThreads.setIndex(thread);
-            if (itThreads.hasNext()) {
-                nextThread = (ForumThread)itThreads.next();
-                getRequest().setAttribute("nextThread", nextThread);
-            }
-            itThreads.setIndex(thread); // back up the index pointer
-            if (itThreads.hasPrevious()) {
-                prevThread = (ForumThread)itThreads.previous();
-                getRequest().setAttribute("prevThread", prevThread);
+            try {
+                ResultFilter tResultFilter = ResultFilter.createDefaultThreadFilter();
+                tResultFilter.setStartIndex(Math.max(0, tStartIdx-1));
+                tResultFilter.setNumResults(3);
+                ForumThreadIterator itThreads = forum.getThreads(tResultFilter);
+                //log.debug("Threads " + tResultFilter.getStartIndex() + "-" + 
+                //        String.valueOf(tResultFilter.getStartIndex()+2) + " obtained");
+                
+                itThreads.setIndex(thread);
+                if (itThreads.hasNext()) {
+                    ForumThread nextThread = (ForumThread)itThreads.next();
+                    getRequest().setAttribute("nextThread", nextThread);
+                } else {
+                    tStartIdx++;
+                }
+                itThreads.setIndex(thread); // back up the index pointer
+                if (itThreads.hasPrevious()) {
+                    ForumThread prevThread = (ForumThread)itThreads.previous();
+                    getRequest().setAttribute("prevThread", prevThread);
+                } else {
+                    tStartIdx--;
+                }
+                getRequest().getSession().setAttribute(forumKey, new Integer(tStartIdx));
+            } catch (NoSuchElementException nsee) {
+                getRequest().removeAttribute("nextThread");
+                getRequest().removeAttribute("prevThread");
             }
         }
         
