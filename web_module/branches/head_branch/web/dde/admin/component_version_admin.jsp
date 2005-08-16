@@ -39,7 +39,7 @@
     java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("MM/dd/yyyy");
     
     // Logger instance.
-    org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger("component_version_admin.jsp");
+    org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger("component_version_admin");
 %>
 
 
