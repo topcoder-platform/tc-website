@@ -13,8 +13,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
 
-import javax.servlet.http.Cookie;
-
 /**
  * @author mtong
  *
@@ -31,8 +29,7 @@ public class ThreadList extends ForumsProcessor {
         int startIdx = 0;
         if ((!StringUtils.checkNull(getRequest().getParameter(ForumConstants.START_IDX)).equals(""))) {
             startIdx = Integer.parseInt(getRequest().getParameter(ForumConstants.START_IDX));
-            Cookie idxCookie = new Cookie("tc.forum." + forumID + ".start", String.valueOf(startIdx));
-            getResponse().addCookie(idxCookie);
+            getRequest().getSession().setAttribute("tc.forum." + forumID + ".start", new Integer(startIdx));
         }
         int threadRange = ForumConstants.DEFAULT_THREAD_RANGE;
         if (user != null) {
