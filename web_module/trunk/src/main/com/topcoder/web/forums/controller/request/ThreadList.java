@@ -9,6 +9,7 @@ import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.action.util.Paginator;
 import com.jivesoftware.forum.ForumThreadIterator;
 import com.jivesoftware.forum.stats.ViewCountManager;
+import com.opensymphony.xwork.ActionContext;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
@@ -31,6 +32,8 @@ public class ThreadList extends ForumsProcessor {
         int startIdx = 0;
         if ((!StringUtils.checkNull(getRequest().getParameter(ForumConstants.START_IDX)).equals(""))) {
             startIdx = Integer.parseInt(getRequest().getParameter(ForumConstants.START_IDX));
+            ActionContext.getContext().getSession().put("tc.forum." + forumID + ".start",
+                    new Integer(startIdx));
         }
         int threadRange = ForumConstants.DEFAULT_THREAD_RANGE;
         if (user != null) {

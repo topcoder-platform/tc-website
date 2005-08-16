@@ -6,10 +6,12 @@ package com.topcoder.web.forums.controller.request;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.ForumMessage;
+import com.jivesoftware.forum.ForumThreadIterator;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.ReadTracker;
 import com.jivesoftware.forum.action.util.Paginator;
 import com.jivesoftware.forum.stats.ViewCountManager;
+import com.opensymphony.xwork.ActionContext;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.messagehistory.MessageHistory;
@@ -74,6 +76,38 @@ public class Thread extends ForumsProcessor {
         ReadTracker readTracker = forumFactory.getReadTracker();
         if (user != null && !authToken.isAnonymous()) {
             readTracker.markRead(user, ForumsUtil.getLatestMessage(thread));
+        }
+        
+        // Previous/next links
+        Integer startInt = (Integer)ActionContext.getContext().getSession().get
+            ("tc.forum." + forum.getID() + ".start");
+        if (startInt == null) {
+            startInt = new Integer(0);
+        }
+        int tStartIdx = startInt.intValue();
+        
+        ResultFilter tResultFilter = ResultFilter.createDefaultThreadFilter();
+        int threadRange = ForumConstants.DEFAULT_THREAD_RANGE;
+        if (user != null) {
+            try {
+                threadRange = Integer.parseInt(user.getProperty("jiveThreadRange"));
+            } catch (Exception ignored) {}
+        }
+        tResultFilter.setStartIndex(Math.max(0, tStartIdx-1));
+        tResultFilter.setNumResults(threadRange+2);
+        ForumThreadIterator itThreads = forum.getThreads(tResultFilter);
+        
+        ForumThread nextThread = null;
+        ForumThread prevThread = null;
+        itThreads.setIndex(thread);
+        if (itThreads.hasNext()) {
+            nextThread = (ForumThread)itThreads.next();
+            getRequest().setAttribute("nextThread", nextThread);
+        }
+        itThreads.setIndex(thread); // back up the index pointer
+        if (itThreads.hasPrevious()) {
+            prevThread = (ForumThread)itThreads.previous();
+            getRequest().setAttribute("prevThread", prevThread);
         }
         
         // Use the setting chosen on the page if selected, or the user's default

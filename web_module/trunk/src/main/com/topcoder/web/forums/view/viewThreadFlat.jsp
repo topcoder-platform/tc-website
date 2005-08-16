@@ -8,6 +8,7 @@
                 com.jivesoftware.forum.WatchManager,
 				com.jivesoftware.forum.Watch,
                 com.jivesoftware.forum.ResultFilter,
+                com.jivesoftware.forum.ForumThread,
                 java.util.*,
                 com.topcoder.shared.util.DBMS"
 %>
@@ -25,6 +26,8 @@
 <%	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
 	User user = (User)request.getAttribute("user");
 	String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW));
+    ForumThread nextThread = (ForumThread)request.getAttribute("nextThread");
+    ForumThread prevThread = (ForumThread)request.getAttribute("prevThread");
 
     String cmd = "";
     String watchMessage = "";
@@ -96,7 +99,18 @@
 <tr><td><b><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>
    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >>
    <jsp:getProperty name="thread" property="name"/></b>
-   <br><A href="#" class="rtbcLink">Previous Thread</A>&#160;&#160;|&#160;&#160;<A href="#" class="rtbcLink">Next Thread</A>
+   <%   if (nextThread != null || prevThread != null) { %><br>
+        <% if (prevThread != null) { %>
+           <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=prevThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=prevThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">Previous Thread</A>
+        <% } else { %>
+           Previous Thread
+        <% } %>&#160;&#160;|&#160;&#160;
+        <% if (nextThread != null) { %>
+           <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=nextThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=nextThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">Next Thread</A>
+        <% } else { %>
+           Next Thread
+        <% } %>
+   <%   }   %>
    </td>
 <% if (paginator.getNumPages() > 1) { %>
    <td class="rtbc" align="right" width=20%><b>
