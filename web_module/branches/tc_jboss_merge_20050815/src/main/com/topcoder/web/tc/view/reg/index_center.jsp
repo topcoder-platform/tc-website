@@ -437,7 +437,7 @@ function checkInputs(){
                     <td class="registerLabel">Default Language&nbsp;</td>
                     <td class="statText">
                         <tc:getProperty id="language" name="Registration" property="Language" />
-                        <tc:languageSelect class="dropdown" name="<%=Registration.LANGUAGE%>" selectedValue="<%=language%>" />
+                        <tc:languageSelect styleClass="dropdown" name="<%=Registration.LANGUAGE%>" selectedValue="<%=language%>" />
                     </td>
                 </tr>
 
@@ -460,7 +460,7 @@ function checkInputs(){
                     <td class="registerLabel">Country to Represent&nbsp;</td>
                     <td class="statText">
                         <tc:getProperty id="compCountry" name="Registration" property="CompCountry" />
-                        <tc:countrySelect class="dropdown" name="<%=Registration.COMP_COUNTRY%>" selectedValue="<%=compCountry%>" />
+                        <tc:countrySelect styleClass="dropdown" name="<%=Registration.COMP_COUNTRY%>" selectedValue="<%=compCountry%>" />
                     </td>
                 </tr>
 
