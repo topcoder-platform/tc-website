@@ -115,20 +115,7 @@ public class Notification
     public static ArrayList getNotifications()
             throws JspException {
         ArrayList cachedNotifications = new ArrayList();
-        Context context = null;
-        try {
-            DataCache cache = Cache.get();
-            cachedNotifications.addAll(cache.getNotifications());
-        } catch (Exception e) {
-            throw new JspException(e.toString());
-        } finally {
-            if (context != null) {
-                try {
-                    context.close();
-                } catch (Exception e) {
-                }
-            }
-        }
+        cachedNotifications.addAll(Notification.getNotifications());
         return cachedNotifications;
     }
 

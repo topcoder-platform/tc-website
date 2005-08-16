@@ -16,6 +16,7 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 
 import javax.transaction.UserTransaction;
+import javax.rmi.PortableRemoteObject;
 import java.util.StringTokenizer;
 
 /**
@@ -53,8 +54,10 @@ public class SubmitEmailActivate extends Base {
                 return;
             }
             try {
-                UserServicesHome userServicesHome = (UserServicesHome) getInitialContext().lookup(ApplicationServer.USER_SERVICES);
-                UserServices userServices = userServicesHome.findByPrimaryKey(new Integer((int) subject.getUserId()));
+                UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(getInitialContext().lookup(
+                                UserServicesHome.class.getName()),
+                                UserServicesHome.class);
+                UserServices userServices = userHome.findByPrimaryKey(new Long(subject.getUserId()));
                 com.topcoder.common.web.data.User user = userServices.getUser();
 
                 updateEmail(userServices, email);

@@ -3,7 +3,6 @@ package com.topcoder.web.tc.controller.request.authentication;
 import com.topcoder.common.web.error.TCException;
 import com.topcoder.ejb.UserServices.UserServices;
 import com.topcoder.ejb.UserServices.UserServicesHome;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.Transaction;
@@ -19,6 +18,7 @@ import com.topcoder.web.tc.controller.request.Base;
 import javax.naming.Context;
 import javax.transaction.Status;
 import javax.transaction.UserTransaction;
+import javax.rmi.PortableRemoteObject;
 import java.util.Arrays;
 
 public class Activate extends Base {
@@ -82,8 +82,10 @@ public class Activate extends Base {
         UserTransaction uTx = null;
         try {
             ctx = TCContext.getInitial();
-            UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
-            UserServices userEJB = userHome.findByPrimaryKey(new Integer(userId));
+            UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(getInitialContext().lookup(
+                            UserServicesHome.class.getName()),
+                            UserServicesHome.class);
+            UserServices userEJB = userHome.findByPrimaryKey(new Long(userId));
             user = userEJB.getUser();
             log.debug("tc: user loaded from entity bean");
 
