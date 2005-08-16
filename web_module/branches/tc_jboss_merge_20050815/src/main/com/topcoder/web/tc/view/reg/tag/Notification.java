@@ -1,8 +1,10 @@
 package com.topcoder.web.tc.view.reg.tag;
 
 import com.topcoder.common.web.data.Notify;
-import com.topcoder.common.web.util.Cache;
-import com.topcoder.ejb.DataCache.DataCache;
+import com.topcoder.shared.dataAccess.QueryRequest;
+import com.topcoder.shared.dataAccess.CachedQueryDataAccess;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 
 import javax.naming.Context;
 import javax.servlet.jsp.JspException;
@@ -115,7 +117,36 @@ public class Notification
     public static ArrayList getNotifications()
             throws JspException {
         ArrayList cachedNotifications = new ArrayList();
-        cachedNotifications.addAll(Notification.getNotifications());
+        Context context = null;
+        try {
+            QueryRequest r = new QueryRequest();
+            r.addQuery("notify_list", "select notify_id, name, sort from notify_lu where status = 'A' order by sort");
+            CachedQueryDataAccess dataAccess = new CachedQueryDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+            ResultSetContainer rsc = (ResultSetContainer)dataAccess.getData(r).get("notify_list");
+            Notify temp = null;
+            ResultSetContainer.ResultSetRow row = null;
+            for (Iterator it = rsc.iterator(); it.hasNext();) {
+                row = (ResultSetContainer.ResultSetRow)it.next();
+                temp = new Notify();
+                temp.setName(row.getStringItem("name"));
+                temp.setNotifyId(row.getIntItem("notify_id"));
+                temp.setSort(row.getIntItem("sort"));
+                cachedNotifications.add(temp);
+            }
+/*
+            DataCache cache = Cache.get();
+            cachedNotifications.addAll(cache.getNotifications());
+*/
+        } catch (Exception e) {
+            throw new JspException(e.toString());
+        } finally {
+            if (context != null) {
+                try {
+                    context.close();
+                } catch (Exception e) {
+                }
+            }
+        }
         return cachedNotifications;
     }
 
