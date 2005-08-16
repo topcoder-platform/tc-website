@@ -28,19 +28,6 @@ Best of luck and let the competition begin!
 <br><br>
 *The Common Application Framework is a joint initiative between O&I, VNDS, VCS and VSS dedicated to developing a collection of non-application specific software components for use with Java-based online transaction processing systems. For more information about using CAF in your project, contact <A href="mailto:gbryant@verisign.com">Grady Bryant</A>.
 <br><br>
-<span class="bigTitle">Register Now</span><br>
-How to Register for the TCO VeriSign Sponsor Track Competition:
-<br><br>
-<span class="bodySubtitle">Already a TopCoder Member?</span>
-<ul>
-<li>Click <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_ver_reg">here</A> to register for the TCO VeriSign Sponsor Track Competition</li>
-</ul>
-<span class="bodySubtitle">Not Yet a TopCoder Member?</span>
-<ul>
-<li>Click <A href="/Registration">here</A> to sign up as a TopCoder member</li>
-<li>Check your email and activate your new TopCoder account</li>
-<li>Click <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_ver_reg">here</A> to register for the TCO VeriSign Sponsor Track Competition</li>
-</ul>
 The competition is free and you must be a registered TopCoder member who is at least 18 years old to be eligible. 
 <br><br>
 See the official <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_ver_rules">rules and regulations</A> for more details.
