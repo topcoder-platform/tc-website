@@ -89,6 +89,7 @@ function submitEnter(e) {
 <form name="compListForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
 
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CompList"/>
+<tc-webtag:hiddenInput name="phaseId" value="<%=phaseId%>"/>
 
 <% if (phaseId == 112) { %>
     Design  &#160;|&#160; <a href="Javascript:development()" class="statText">Development</a>
@@ -102,7 +103,6 @@ function submitEnter(e) {
 <tr>
     <TD class="statDk" align="center">Category</td>
     <TD class="statDk" align="center">Component</td>
-    <TD class="statDk" align="center">Phase</td>
     <TD class="statDk" align="center">Registrations</td>
     <TD class="statDk" align="center">Submissions</td>
     <TD class="statDk" align="center">Submissions passed screening</td>
@@ -116,9 +116,6 @@ function submitEnter(e) {
              </TD>
             <TD class="statDk" align="left">
                 <rsc:item name="component_name" row="<%=resultRow%>" /> <rsc:item name="version_text" row="<%=resultRow%>" />
-             </TD>
-            <TD class="statDk" align="center">
-                <rsc:item name="phase_desc" row="<%=resultRow%>" />
              </TD>
             <TD class="statDk" align="center">
                 <rsc:item name="num_registrations" row="<%=resultRow%>" ifNull="unknown *" />
