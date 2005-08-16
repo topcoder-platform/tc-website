@@ -13,13 +13,14 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.common.security.BasicAuthentication;
 
 /**
  * @author mtong
  *
- * Logs into the forums, redirecting the user to the chosen page. 
+ * Logs into the forums, redirecting the user to the chosen page.
  */
 public class Login extends ForumsProcessor {
 
@@ -36,14 +37,14 @@ public class Login extends ForumsProcessor {
         String rememberUser = StringUtils.checkNull(getRequest().getParameter(REMEMBER_USER));
         String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
         String password = "";
-        
+
         try {
             userID = Long.parseLong(getRequest().getParameter(USER_ID));
             password = getPassword(userID);
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-        
+
         // Ensure that the destination URL is well-formed; default to main site if no server is specified
         if (!dest.startsWith("http://") && !dest.startsWith("https://")) {
             if (dest.startsWith("/")) {
@@ -52,7 +53,7 @@ public class Login extends ForumsProcessor {
                 dest = "http://" + ApplicationServer.SERVER_NAME + "/" + dest;
             }
         }
-        
+
         //String queryString = getRequest().getQueryString();
         //int destStartIdx = queryString.indexOf("http://");
         //String dest = queryString.substring(destStartIdx);
@@ -95,9 +96,7 @@ public class Login extends ForumsProcessor {
     //todo use userid to password, or get rid of this entirely
 
     private void doLegacyCrap(TCRequest request) throws Exception {
-        PrincipalMgrRemote pmgr = (PrincipalMgrRemote)
-                com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
-        TCSubject user = pmgr.getUserSubject(getAuthentication().getActiveUser().getId());
+        TCSubject user = SecurityHelper.getUserSubject(getAuthentication().getActiveUser().getId());
         CoderSessionInfo ret = new CoderSessionInfo(request, getAuthentication(), user.getPrincipals());
         Navigation nav = (Navigation) request.getSession(true).getAttribute("navigation");
         if (nav == null) {
@@ -107,7 +106,7 @@ public class Login extends ForumsProcessor {
             nav.setCoderSessionInfo(ret);
         }
     }
-    
+
     private String getPassword(long userID) throws Exception {
         Request r = new Request();
         r.setContentHandle("user_to_password");

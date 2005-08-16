@@ -360,7 +360,7 @@ public final class MainServlet extends BaseServlet {
         TCResponse tcResponse = HttpObjectFactory.createResponse(response);
         WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, tcResponse, BasicAuthentication.MAIN_SITE);
         PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
-        TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
+        TCSubject user = SecurityHelper.getUserSubject(authentication.getActiveUser().getId());
         CoderSessionInfo info = new CoderSessionInfo(request, authentication, user.getPrincipals());
         nav.setCoderSessionInfo(info);
         request.getSession(true).setAttribute("navigation", nav);

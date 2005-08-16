@@ -9,6 +9,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.SiteTest;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.shared.util.ApplicationServer;
@@ -31,7 +32,7 @@ public class Logout extends Base {
         if (dest.equals("")) {
             dest = "http://" + info.getServerName() + "/tc";
         }
-        
+
         String forumsURL = "http://"+ApplicationServer.FORUMS_SERVER_NAME;
         SiteTest siteTest = new SiteTest();
         boolean forumsServerActive = siteTest.check(forumsURL);
@@ -49,9 +50,7 @@ public class Logout extends Base {
     }
 
     private void doLegacyCrap(TCRequest request) throws Exception {
-        PrincipalMgrRemote pmgr = (PrincipalMgrRemote)
-                com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
-        TCSubject user = pmgr.getUserSubject(getAuthentication().getActiveUser().getId());
+        TCSubject user = SecurityHelper.getUserSubject(getAuthentication().getActiveUser().getId());
         CoderSessionInfo ret = new CoderSessionInfo(request, getAuthentication(), user.getPrincipals());
         Navigation nav = new Navigation(request, ret);
         request.getSession(true).setAttribute("navigation", nav);

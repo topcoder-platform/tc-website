@@ -168,9 +168,7 @@ public class Login extends Base {
     }
 
     private void doLegacyCrap(TCRequest request) throws Exception {
-        PrincipalMgrRemote pmgr = (PrincipalMgrRemote)
-                com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
-        TCSubject user = pmgr.getUserSubject(getAuthentication().getActiveUser().getId());
+        TCSubject user = SecurityHelper.getUserSubject(getAuthentication().getActiveUser().getId());
         CoderSessionInfo ret = new CoderSessionInfo(request, getAuthentication(), user.getPrincipals());
         Navigation nav = (Navigation) request.getSession(true).getAttribute("navigation");
         if (nav == null) {
