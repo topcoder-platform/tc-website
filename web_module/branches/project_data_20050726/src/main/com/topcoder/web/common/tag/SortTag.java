@@ -9,6 +9,8 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
 import java.util.Enumeration;
+import java.util.Set;
+import java.util.HashSet;
 
 public class SortTag extends TagSupport {
 
@@ -18,7 +20,7 @@ public class SortTag extends TagSupport {
     protected int ascColumn = -1;
     protected int descColumn = -1;
     protected boolean includeParams = false;
-    protected Set excludeParams;
+    protected Set excludeParams = new HashSet();
 
     public void setColumn(int column) {
         this.column = column;
@@ -139,3 +141,4 @@ public class SortTag extends TagSupport {
     }
 
 }
+
