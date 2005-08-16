@@ -36,7 +36,7 @@ public class CompList extends Base {
             Request r = new Request();
 
             String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
-            String endRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
+
             String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
             String phaseId = StringUtils.checkNull(getRequest().getParameter("pi"));
 
@@ -58,14 +58,13 @@ public class CompList extends Base {
                 startRank = "1";
             }
 
-            if (endRank.equals("") || Integer.parseInt(endRank) <= 0) {
-                endRank = "50";
-            }
-
-
             if (sortCol.equals("")) {
                 sortCol = "3";
             }
+
+            int endRank = Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1;
+
+
 
             r.setContentHandle("comp_list");
             r.setProperty("pi", phaseId);
