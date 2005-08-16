@@ -127,7 +127,7 @@ function changeImage(place, imageIndex) {
                 <a href="Javascript:void changeImage('slideImg', 292);">Press Conference</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                 <a href="Javascript:void changeImage('slideImg', 315);">Awards Dinner</a>
             </div></p>
-            
+
             <table cellpadding="0" cellspacing="5" border="0" align="center">
                 <tr valign="middle"><form name="blah" action="/tc"><td class="terciary">&lt;&lt; <a href="#" onClick="prevImage('slideImg');">previous</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td class="terciary">
@@ -136,7 +136,7 @@ function changeImage(place, imageIndex) {
                         <input type="hidden" name="d2" value="tco03"/>
                         <input type="hidden" name="d3" value="summary"/>
                         <input type="hidden" name="d4" value="slide_show"/>
-                        <input type="text" value="1" name="<%=CURR_IMAGE_KEY%>" size="3"/> of 
+                        <input type="text" value="1" name="<%=CURR_IMAGE_KEY%>" size="3"/> of
                         <script language="JavaScript"><!--
                             document.write(totalImages);
                             //-->

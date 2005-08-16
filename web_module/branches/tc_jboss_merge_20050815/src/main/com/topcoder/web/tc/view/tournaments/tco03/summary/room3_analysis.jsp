@@ -49,7 +49,7 @@
             <p class="terciary">
                 <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room3">Play-by-Play</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room3_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;Problem Analysis
             </p>
-            
+
             <h2>Problem Set Analysis &amp; Opinion</h2>
 
             <a href="/tc?module=MemberProfile&cr=273217"><img src="/i/m/schveiguy_mug.gif" alt="" width="55" height="61" border="0" align="left" /></a>
@@ -324,7 +324,7 @@ public int minPieces(int n, int k)
   return f(all + 1) * k + f(all) * (n - k);
 }
 </pre>
-                        
+
             <p><br/></p>
         </td>
 <!-- Center Column Ends -->

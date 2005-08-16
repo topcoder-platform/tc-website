@@ -4,7 +4,7 @@
 <head>
 <title>TopCoder Member Card</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 
 <% boolean cardUnlocked = ((Boolean)request.getAttribute("cardUnlocked")).booleanValue(); %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
@@ -39,7 +39,7 @@ if ( plugin ) {
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -47,7 +47,7 @@ if ( plugin ) {
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="my_home"/>
                 <jsp:param name="level2" value="card"/>
             </jsp:include>
@@ -59,8 +59,8 @@ if ( plugin ) {
 
         <div class="cardBody">
         <jsp:include page="../page_title.jsp" >
-            <jsp:param name="image" value="cards"/>  
-            <jsp:param name="title" value="Preview"/>  
+            <jsp:param name="image" value="cards"/>
+            <jsp:param name="title" value="Preview"/>
         </jsp:include>
 
                     <p>This is a preview of what your card will look like. It will always accurately portray your algorithm, design, and development statistics. Before you can post your TopCoder Member Card to your site you will have to "unlock" it by clicking the button below.
@@ -69,7 +69,7 @@ if ( plugin ) {
                     <br/><br/>
                     If you have already unlocked your card but would like to see the <A href="/card?module=Instructions">instructions</A> again, click <A href="/card?module=Instructions">here</A>.
                     </p>
-                    
+
                     <br/>
 
 <div align="center">
@@ -130,7 +130,7 @@ document.write(' <p align="center"><a href="/card?module=Unlock"><img src="/i/ca
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -142,7 +142,7 @@ document.write(' <p align="center"><a href="/card?module=Unlock"><img src="/i/ca
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

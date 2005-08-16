@@ -4,7 +4,7 @@
 <head>
 <title>Algorithm Tutorials</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 <style type="text/css">
     .code
 {
@@ -25,7 +25,7 @@
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -33,7 +33,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="education"/>
                 <jsp:param name="level2" value="alg_tutorials"/>
             </jsp:include>
@@ -44,7 +44,7 @@
          <td width="100%" align="center">
 
          <div class="tutorBodyFull">
-            
+
             <h2>Introduction to graphs and their data structures: Section 3</h2>
 
 			<p>
@@ -95,7 +95,7 @@ void dijkstra(node start) {
   top = s.top();
   s.pop();
   mark top as visited;
-</pre>  
+</pre>
   check for termination condition (have we reached the target node?)<br/>
   add all of top's unvisited neighbors to the stack.
 <pre class="code">
@@ -189,16 +189,16 @@ int leastShots(String[] damageChart, int[] bossHealth) {
  while (pq.empty() == false) {
   node top = pq.top();
   pq.pop();
- 
+
   // Make sure we don't visit the same configuration twice
   if (visited[top.weapons]) continue;
   visited[top.weapons] = true;
- 
+
   // A quick trick to check if we have all the weapons, meaning we defeated all the bosses.
   // We use the fact that (2^numWeapons - 1) will have all the numWeapons bits set to 1.
   if (top.weapons == (1 << numWeapons) - 1)
    return top.shots;
-   
+
   for (int i = 0; i < damageChart.length; i++) {
    // Check if we've already visited this boss, then don't bother trying him again
    if ((top.weapons >> i) & 1) continue;
@@ -216,7 +216,7 @@ int leastShots(String[] damageChart, int[] bossHealth) {
     }
    }
 
-   // Add the new node to be searched, showing that we defeated boss i, and we used 'best' shots to defeat him.   
+   // Add the new node to be searched, showing that we defeated boss i, and we used 'best' shots to defeat him.
    pq.add(node(top.weapons | (1 << i), top.shots + best));
   }
  }
@@ -244,7 +244,7 @@ As you can see, this is extremely simple to remember and type.  If the graph is 
 <br/><br/>
 An excellent problem to test this out on is the Division 2 1000 from SRM 184, <A href="/tc?module=ProblemDetail&rd=4740&pm=2356">TeamBuilder</A>.
 			</p>
-            
+
 
         </div>
         <p><br/></p>
@@ -253,7 +253,7 @@ An excellent problem to test this out on is the Division 2 1000 from SRM 184, <A
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -265,7 +265,7 @@ An excellent problem to test this out on is the Division 2 1000 from SRM 184, <A
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 
