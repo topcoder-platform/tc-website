@@ -41,12 +41,12 @@ function submitEnter(e) {
   }
   function design() {
     var myForm = document.compListForm;
-    myForm.phaseId.value=112;
+    myForm.phaseId.value="112";
     myForm.submit();
   }
   function development() {
     var myForm = document.compListForm;
-    myForm.phaseId.value=113;
+    myForm.phaseId.value="113";
     myForm.submit();
   }
 
@@ -83,7 +83,7 @@ function submitEnter(e) {
 
 <%
     ResultSetContainer list = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("comp_list");
-    long phaseId = Long.parseLong ((String) request.getAttribute("phaseId"));
+    String phaseId = (String) request.getAttribute("phaseId");
 
 %>
 <form name="compListForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
@@ -91,7 +91,7 @@ function submitEnter(e) {
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CompList"/>
 <tc-webtag:hiddenInput name="phaseId" value="<%=phaseId%>"/>
 
-<% if (phaseId == 112) { %>
+<% if ("112".equals(phaseId)) { %>
     Design  &#160;|&#160; <a href="Javascript:development()" class="statText">Development</a>
 <% } else { %>
     <a href="Javascript:design()" class="statText">Design</a>  &#160;|&#160; Development
