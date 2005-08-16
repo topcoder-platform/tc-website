@@ -169,6 +169,18 @@
       </td>
    </tr>
    <tr>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Show previous/next threads:</strong></td>
+      <td class="rtTextCell100">
+        <input name="showPrevNextThreads" value="true" id="showPrevNextThreadsYes" type="radio"
+            <%= (user.getProperty("jiveShowPrevNextThreads") == null || "true".equals(user.getProperty("jiveShowPrevNextThreads"))) ? "checked" : ""%>>
+        <label for="jiveShowPrevNextThreadsYes">Yes</label>
+        &#160;
+        <input name="showPrevNextThreads" value="false" id="showPrevNextThreadsNo" type="radio"
+            <%= ("false".equals(user.getProperty("jiveShowPrevNextThreads"))) ? "checked" : ""%>>
+        <label for="jiveShowPrevNextThreadsNo">No</label>
+      </td>
+   </tr>
+   <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Display member photo:</strong></td>
       <td class="rtTextCell100">
 		<input name="displayMemberPhoto" value="true" id="displayMemberPhotoYes" type="radio"
