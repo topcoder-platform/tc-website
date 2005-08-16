@@ -98,22 +98,22 @@ function submitEnter(e) {
 <table border="1">
 <tr>
     <TD class="statText" align="center">
-        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>" class="statText">Category</a>
+        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="false"/>" class="statText">Category</a>
      </td>
     <TD class="statText" align="center">
-        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>" class="statText">Component</a>
+        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="false"/>" class="statText">Component</a>
      </td>
     <TD class="statText" align="center">
-        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>" class="statText">Registrations</a>
+        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="false"/>" class="statText">Registrations</a>
      </td>
     <TD class="statText" align="center">
-        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>" class="statText">Submissions</a>
+        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="false"/>" class="statText">Submissions</a>
      </td>
     <TD class="statText" align="center">
-        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>" class="statText">Submissions passed screening</a>
+        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="false"/>" class="statText">Submissions passed screening</a>
      </td>
     <TD class="statText" align="center">
-        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true"/>" class="statText">Winner</a>
+        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="false"/>" class="statText">Winner</a>
      </td>
     <TD class="statText" align="center">details</td>
 
