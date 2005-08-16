@@ -32,11 +32,16 @@ function submitEnter(e) {
   function next() {
     var myForm = document.compListForm;
     myForm.<%=DataAccessConstants.START_RANK%>.value=parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value)+parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+    myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+    myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
     myForm.submit();
   }
   function previous() {
     var myForm = document.compListForm;
     myForm.<%=DataAccessConstants.START_RANK%>.value=parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value)-parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+    myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+    myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+
     myForm.submit();
   }
 </script>
@@ -79,6 +84,8 @@ function submitEnter(e) {
 
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CompList"/>
 <tc-webtag:hiddenInput name="pi" value="<%=phaseId%>"/>
+<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
 <% if ("112".equals(phaseId)) { %>
     Design  &#160;|&#160; <a href="/tc?module=CompList&pi=113" class="statText">Development</a>
@@ -90,13 +97,26 @@ function submitEnter(e) {
 
 <table border="1">
 <tr>
-    <TD class="statDk" align="center">Category</td>
-    <TD class="statDk" align="center">Component</td>
-    <TD class="statDk" align="center">Registrations</td>
-    <TD class="statDk" align="center">Submissions</td>
-    <TD class="statDk" align="center">Submissions passed screening</td>
-    <TD class="statDk" align="center">Winner</td>
-    <TD class="statDk" align="center"details</td>
+    <TD class="statText" align="center">
+        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>" class="statText">Category</a>
+     </td>
+    <TD class="statText" align="center">
+        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>" class="statText">Component</a>
+     </td>
+    <TD class="statText" align="center">
+        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>" class="statText">Registrations</a>
+     </td>
+    <TD class="statText" align="center">
+        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>" class="statText">Submissions</a>
+     </td>
+    <TD class="statText" align="center">
+        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true"/>" class="statText">Submissions passed screening</a>
+     </td>
+    <TD class="statText" align="center">
+        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="9" includeParams="true"/>" class="statText">Winner</a>
+     </td>
+    <TD class="statText" align="center">details</td>
+
 </tr>
 <rsc:iterator list="<%=list%>" id="resultRow">
          <TR>
