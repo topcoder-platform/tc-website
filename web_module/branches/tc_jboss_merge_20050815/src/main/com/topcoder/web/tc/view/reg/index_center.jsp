@@ -266,7 +266,7 @@ function checkInputs(){
                     <td class="registerLabel">Country</td>
                     <td class="statText">
                         <tc:getProperty id="country" name="Registration" property="Country" />
-                        <tc:countrySelect class="dropdown" name="<%=Registration.COUNTRY%>" selectedValue="<%=country%>" onChange="changeState()" />
+                        <tc:countrySelect styleClass="dropdown" name="<%=Registration.COUNTRY%>" selectedValue="<%=country%>" onChange="changeState()" />
                     </td>
 
 <script type="text/javascript">
