@@ -44,7 +44,7 @@
         <PARAM value="application/x-java-applet;version=1.3" name="type">
         <PARAM value="false" name="scriptable">
         <PARAM name="host" value="www.topcoder.com">
-        <PARAM name="port" value="5051">
+        <PARAM name="port" value="5001">
         <PARAM name="tunnel" value="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=5051">
         <PARAM name="companyName" value="TopCoder">
         <PARAM name="sponsorName" value="TCO05Sponsor">
@@ -54,7 +54,7 @@
             name="LaunchApplet"
             archive="ContestApplet.jar"
             host="www.topcoder.com"
-            port="5051"
+            port="5001"
             tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=5051"
             companyName="TopCoder"
             sponsorName="TCO05Sponsor"
