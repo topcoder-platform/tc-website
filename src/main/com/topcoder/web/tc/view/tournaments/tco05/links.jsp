@@ -16,14 +16,14 @@
 <% if (tabLev1.equals("overview")) {%>
 	<tr>
 		<td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about"><img src="/i/tournament/tco05/tco05_logo.gif" border=0/></A></td>
-		<td valign="middle" align="center"><a href="/tc?module=TCO05AlgorithmTerms"><IMG SRC="/i/home/promos/tco05_alg_reg.gif" BORDER="0" ALT="Algorithm Registration Open" /></a></td>
+		<td valign="middle" align="center"></td>
 		<td valign="top" align="right" rowspan="2" width="50%"><a href="/"><img src="/i/tournament/tco05/tc_logo.gif" border=0/></a></td>
 	</tr>
 	<tr><td class="topNavBox" colspan="2"><img src="/i/tournament/tco05/tabs/L1_overviewOn.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
 <% } else if (tabLev1.equals("algorithm")) { %>
 	<tr>
 		<td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about"><img src="/i/tournament/tco05/tco05_logo.gif" border=0/></A></td>
-		<td valign="middle" align="center"><a href="/tc?module=TCO05AlgorithmTerms"><IMG SRC="/i/home/promos/tco05_alg_reg.gif" BORDER="0" ALT="Algorithm Registration Open" /></a></td>
+		<td valign="middle" align="center"></td>
 		<td valign="top" align="right" rowspan="2" width="50%"><a href="/"><img src="/i/tournament/tco05/tc_logo.gif" border=0/></a></td>
 	</tr>
 	<tr><td class="topNavBox" colspan="2"><img src="/i/tournament/tco05/tabs/L1_algOn.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
