@@ -49,10 +49,10 @@ public class SortTag extends TagSupport {
 
            if(pos < 0) break;
 
+           excludeParams.add(exclude.substring(from,pos));
 
            from = pos + 1;
 
-           excludeParams.add(exclude.substring(from,pos));
         }
 
 
