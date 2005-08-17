@@ -781,7 +781,7 @@
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/ComponentRegistrationServices/*"/>
          </jar>
      </target>
- 	
+
  	<target name="package-EJB-MessageHistoryBean" depends="compile">
 	 	<jar jarfile="${ejb_jars}/messagehistory.jar">
 		 	<zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -1352,7 +1352,7 @@
      </target>
 
 
-     <target name="war-forums" depends="compile">
+     <target name="war-forums" depends="compile, package-TCUser, package-TCAuth, package-TCFilters">
                  <war warfile="${war.dir}/forums.war" webxml="${resources}/forums/web.xml">
                      <fileset dir="${java}/com/topcoder/web/forums/view">
                          <include name="*.*"/>
@@ -1428,6 +1428,13 @@
      <target name="explode-forums" depends="">
         <unwar src="${war.dir}/forums.war" dest="${jboss_deploy}/forums.war" overwrite="yes"/>
         <delete dir="${jboss_deploy}/forums.war/META-INF"/>
+
+         <copy todir="${jboss_deploy}" file="${jars.dir}/tcauth.jar"/>
+         <copy todir="${jboss_deploy}" file="${jars.dir}/tcuser.jar"/>
+         <copy todir="${jboss_deploy}" file="${jars.dir}/tcfilters.jar"/>
+
+         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
+
      </target>
 
      <target name="moveQueries" depends="compile">
