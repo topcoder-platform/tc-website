@@ -1416,6 +1416,10 @@
      <target name="explode-forums" depends="">
         <unwar src="${war.dir}/forums.war" dest="${jboss_deploy}/forums.war" overwrite="yes"/>
         <delete dir="${jboss_deploy}/forums.war/META-INF"/>
+     </target>
+
+     <target name="deploy-forums" depends="">
+         <antcall target="explode-forums"/>
 
          <copy todir="${jboss_deploy}" file="${jars.dir}/tcauth.jar"/>
          <copy todir="${jboss_deploy}" file="${jars.dir}/tcuser.jar"/>
@@ -1424,6 +1428,7 @@
          <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
 
      </target>
+
 
      <target name="moveQueries" depends="compile">
          <java classname="com.topcoder.utilities.querymover.QueryMover" fork="no">
