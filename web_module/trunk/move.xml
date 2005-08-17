@@ -125,8 +125,7 @@
         </exec>
 
 
-        <ant antfile="build.xml" target="war-forums"/>
-        <ant antfile="build.xml" target="package-EJB-MessageHistoryBean"/>
+        <ant antfile="build.xml" target="build-forums"/>
 
 <!--
         <copy todir="../jboss-4.0.2/server/default/lib">
