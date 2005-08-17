@@ -114,35 +114,38 @@
 <%-------------ACTIVE POST---------------%>
 <table cellpadding="0" cellspacing="0" class="rtTable">
    <tr>
-	   <td class="rtHeader" colspan="2" width="90%">
-	   <a name=<jsp:getProperty name="activeMessage" property="ID"/>><tc-webtag:beanWrite name="activeMessage" property="creationDate" format="MMM d, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="activeMessage" property="subject"/></a>
-	      <%  if (activeMessage.getParentMessage() != null) { %>
-	      		(response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=activeMessage.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (activeMessage.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=activeMessage.getParentMessage().getUser().getID()%>"/><%}%>)
-	      <%  } %>
-	   </a>
-	   &#160;>>&#160; <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink">Reply</A>
-	   <%  if (activeMessage.getUser() != null && activeMessage.getUser().equals(user)) { %>
-	   | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink">Edit</A>
-	   <%  } %>
-	   </td>
-       <td class="rtHeader" align="right">
-        <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:beanWrite name="activeMessage" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/>">
+	   <td class="rtHeader" colspan="2" width="100%">
+         <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
             <%  int editCount = historyBean.getEditCount(activeMessage.getID(), DBMS.FORUMS_DATASOURCE_NAME);
-                if (editCount == 1) { %> 
-                    1 edit
+            if (editCount == 1) { %> 
+            <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:beanWrite name="activeMessage" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/>">1 edit</a>&#160;|&#160;
             <%  } else if (editCount > 1) { %> 
-                    <%=editCount%> edits
+            <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:beanWrite name="activeMessage" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/>"><%=editCount%> edits</a>&#160;|&#160;
             <%  } %></a>
+            <a name=<jsp:getProperty name="activeMessage" property="ID"/>><tc-webtag:beanWrite name="activeMessage" property="creationDate" format="MMM d, yyyy 'at' h:mm a z"/>
+         </div>
+
+         <jsp:getProperty name="activeMessage" property="subject"/></a>
+         <%  if (activeMessage.getParentMessage() != null) { %>
+         (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=activeMessage.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (activeMessage.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=activeMessage.getParentMessage().getUser().getID()%>"/><%}%>)
+         <%  } %>
+         </a>
+         &#160;>>&#160; <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink">Reply</A>
+         <%  if (activeMessage.getUser() != null && activeMessage.getUser().equals(user)) { %>
+         | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink">Edit</A>
+         <%  } %>
       </td>
    </tr>
    <tr>
-   <td class="rtPosterCell" width="1%"><div class="rtPosterSpacer">
-   <%  if (activeMessage.getUser() != null && !("false".equals(activeMessage.getUser().getProperty("jiveDisplayMemberPhoto"))) && activeMessage.getUser().getProperty("imagePath") != null) { %>
-      		<img src="<%=activeMessage.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
-   <%  } %>
-   <span class="bodyText"><%if (activeMessage.getUser() != null) {%><tc-webtag:handle coderId="<%=activeMessage.getUser().getID()%>"/><%}%></span><br/><%if (activeMessage.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=activeMessage.getUser().getID()%>"><%=forumFactory.getUserMessageCount(activeMessage.getUser())%> posts</A><%}%></div></td>
-   <td class="rtTextCell" width="99%" colspan="2"><jsp:getProperty name="activeMessage" property="body"/>
-   </td></tr>
+   <td class="rtPosterCell">
+      <div class="rtPosterSpacer">
+         <%  if (activeMessage.getUser() != null && !("false".equals(activeMessage.getUser().getProperty("jiveDisplayMemberPhoto"))) && activeMessage.getUser().getProperty("imagePath") != null) { %>
+            <img src="<%=activeMessage.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
+         <%  } %>
+         <span class="bodyText"><%if (activeMessage.getUser() != null) {%><tc-webtag:handle coderId="<%=activeMessage.getUser().getID()%>"/><%}%></span><br/><%if (activeMessage.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=activeMessage.getUser().getID()%>"><%=forumFactory.getUserMessageCount(activeMessage.getUser())%> posts</A><%}%>
+      </div>
+   </td>
+   <td class="rtTextCell" width="100%"><jsp:getProperty name="activeMessage" property="body"/></td></tr>
 </table>
 <%-------------ACTIVE POST ENDS----------%>
 
