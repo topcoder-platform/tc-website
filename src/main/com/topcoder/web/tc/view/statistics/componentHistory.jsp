@@ -15,7 +15,7 @@
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-   <jsp:include page="baseHRef.jsp" />   
+   <jsp:include page="baseHRef.jsp" />
    <jsp:include page="../script.jsp" />
  </HEAD>
  <BODY>
@@ -146,7 +146,7 @@ String sSortUrl = "/stat?c=component_history&pi="+srb.getProperty("pi")+ "&cr="+
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
-      <td>               
+      <td>
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
          <tr><td class="tableTitle" colspan="6">
          <% if(srb.getProperty("pi").equals("113")){%>
@@ -176,7 +176,7 @@ String sSortUrl = "/stat?c=component_history&pi="+srb.getProperty("pi")+ "&cr="+
             <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 5 /* place */ + "]" %>'/></TD>
             <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write format="0.00" name="resultRow2" property='<%= "item[" + 8 /* score */ + "]" %>'/></TD>
             <TD class="<%=even?"statLt":"statDk"%>" align="right">$&nbsp;<bean:write format="0.00" name="resultRow2" property='<%= "item[" + 6 /* money */ + "].resultData" %>'/></TD>
-            <TD class="<%=even?"statLt":"statDk"%>" align="right"><A href="/tc?module=CompContestDetails&pj=PROJECTID" class="statLink">contest details</A></TD>
+            <TD class="<%=even?"statLt":"statDk"%>" align="right"><% if (resultRow2.getStringItem("project_id")!=null) { %><A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow2%>"/>" class="statLink">contest details</A><% } %></TD>
          </tr>
          <%even=!even;%>
          </logic:iterate>

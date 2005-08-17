@@ -1,4 +1,4 @@
-<%@ page 
+<%@ page
   language="java"
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,com.topcoder.shared.util.ApplicationServer"
 
@@ -8,6 +8,7 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
 <HTML>
  <HEAD>
@@ -15,7 +16,7 @@
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-   <jsp:include page="baseHRef.jsp" />   
+   <jsp:include page="baseHRef.jsp" />
    <jsp:include page="../script.jsp" />
  </HEAD>
  <BODY>
@@ -76,15 +77,15 @@ pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
 
 <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
-<% 
+<%
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Basic_Coder_Information");
 boolean bEmpty = (rsc == null || rsc.size()!=1);
 if (!bEmpty) {
 ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
 pageContext.setAttribute("resultRow", rsr);
 %>
-    <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>      
-<% 
+    <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>
+<%
 } //end if not empty
 ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("TCS_Ratings_History");
 pageContext.setAttribute("resultSet", rsc2);
@@ -114,12 +115,12 @@ String sortString = "";
 if (srb.getProperty("sq")!=null){
   sortString="&sq=" + srb.getProperty("sq");
   sortString+="&sc=" + srb.getProperty("sc");
-  sortString+="&sd=" + srb.getProperty("sd", "desc");  
+  sortString+="&sd=" + srb.getProperty("sd", "desc");
 }
 String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=tcs_ratings_history&pi=" + srb.getProperty("pi");
 %>
-          
-               
+
+
 <% if (!bEmpty) { %>
    <% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
       <div class="pagingBox">
@@ -141,7 +142,7 @@ String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=t
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
-      <td>               
+      <td>
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
          <tr><td class="tableTitle" colspan="6">
          <% if(srb.getProperty("pi").equals("113")){%>
@@ -167,7 +168,7 @@ String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=t
             <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 13 /* placed */ + "]" %>'/></TD>
             <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 7 /* score */ + "]" %>'/></TD>
             <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 5 /* new Rating */ + "]" %>'/></TD>
-            <TD class="<%=even?"statLt":"statDk"%>" align="right" nowrap="nowrap"><A href="/tc?module=CompContestDetails&pj=PROJECTID" class="statLink">contest details</A></TD>
+            <TD class="<%=even?"statLt":"statDk"%>" align="right" nowrap="nowrap"><A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow2%>"/>" class="statLink">contest details</A></TD>
          </TR>
          <%even=!even;%>
          </logic:iterate>
