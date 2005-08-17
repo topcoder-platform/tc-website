@@ -1,11 +1,9 @@
 package com.topcoder.web.tc.controller.request.authentication;
 
-import com.topcoder.common.web.error.TCException;
 import com.topcoder.ejb.UserServices.UserServices;
 import com.topcoder.ejb.UserServices.UserServicesHome;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.Transaction;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -17,7 +15,7 @@ import com.topcoder.web.tc.controller.request.Base;
 
 import javax.naming.Context;
 import javax.transaction.Status;
-import javax.transaction.UserTransaction;
+import javax.transaction.TransactionManager;
 import javax.rmi.PortableRemoteObject;
 import java.util.Arrays;
 
@@ -77,14 +75,13 @@ public class Activate extends Base {
     }
 
     private void doLegacyCrap(int userId) throws Exception {
-        Context ctx = null;
         com.topcoder.common.web.data.User user = null;
-        UserTransaction uTx = null;
+        TransactionManager tm = null;
         try {
-            ctx = TCContext.getInitial();
             UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(getInitialContext().lookup(
                             UserServicesHome.class.getName()),
                             UserServicesHome.class);
+
             UserServices userEJB = userHome.findByPrimaryKey(new Long(userId));
             user = userEJB.getUser();
             log.debug("tc: user loaded from entity bean");
@@ -92,28 +89,20 @@ public class Activate extends Base {
             user.setStatus(String.valueOf(ACTIVE_STATI[1]));
             user.setModified("U");
 
-            uTx = Transaction.get();
-            uTx.begin();
+            tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+            tm.begin();
             userEJB.setUser(user);
-            uTx.commit();
+            tm.commit();
 
         } catch (Exception e) {
             try {
-                if (uTx != null && uTx.getStatus() == Status.STATUS_ACTIVE) {
-                    uTx.rollback();
+                if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                    tm.rollback();
                 }
             } catch (Exception te) {
-                StringBuffer msg = new StringBuffer(300);
-                msg.append("common.DBMS:saveUser:");
-                msg.append("failed to roll back transaction.\n");
-                msg.append("MSG: ");
-                msg.append(te.getMessage());
-                msg.append("\n");
-                te.printStackTrace();
+                throw new TCWebException(te);
             }
-            throw new TCException("tc:processCommands:ERROR READING DATABASE\n" + e);
-        } finally {
-            close(ctx);
+            throw new TCWebException(e);
         }
 
 
