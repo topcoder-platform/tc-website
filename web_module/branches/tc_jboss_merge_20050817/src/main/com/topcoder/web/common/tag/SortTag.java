@@ -81,7 +81,7 @@ public class SortTag extends TagSupport {
             Object value = null;
             for (; e.hasMoreElements();) {
                 key = (String) e.nextElement();
-                log.debug("key is " + key);
+                //log.debug("key is " + key);
                 value = pageContext.getRequest().getParameterValues(key);
                 String[] sArray = null;
                 if (value instanceof String) {
@@ -111,7 +111,7 @@ public class SortTag extends TagSupport {
 
     private void add(StringBuffer buf, String key, String val) {
         if (val != null) {
-            log.debug("adding " + key + " " + val);
+            //log.debug("adding " + key + " " + val);
             buf.append("&");
             buf.append(key);
             buf.append("=");
