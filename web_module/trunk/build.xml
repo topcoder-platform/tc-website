@@ -1421,9 +1421,10 @@
      <target name="deploy-forums" depends="">
          <antcall target="explode-forums"/>
 
-         <copy todir="${jboss_deploy}" file="${jars.dir}/tcauth.jar"/>
-         <copy todir="${jboss_deploy}" file="${jars.dir}/tcuser.jar"/>
-         <copy todir="${jboss_deploy}" file="${jars.dir}/tcfilters.jar"/>
+         <copy todir="${jboss_lib}" file="${jars.dir}/tcauth.jar"/>
+         <copy todir="${jboss_lib}" file="${jars.dir}/tcuser.jar"/>
+         <copy todir="${jboss_lib}" file="${jars.dir}/tcfilters.jar"/>
+         <copy todir="${jboss_lib}" file="${bin.dir}/shared.jar"/>
 
          <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
 
