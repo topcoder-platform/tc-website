@@ -4,6 +4,7 @@ import com.topcoder.ejb.UserServices.UserServices;
 import com.topcoder.ejb.UserServices.UserServicesHome;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
