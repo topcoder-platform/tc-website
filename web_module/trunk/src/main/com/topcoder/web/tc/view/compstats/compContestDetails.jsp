@@ -72,12 +72,12 @@
 %>
 
 
-<span class="bodySubtitle">Development Statistics > Contest Details >
+<span class="bodySubtitle">Component Statistics >
 <%--<a href='/tc?module=CompList&pi=<rsc:item set="<%=projectInfo%>" name="phase_id"/>' class="statLink">--%>
 <rsc:item set="<%=projectInfo%>" name="phase_desc"/>
 <%--</a>--%>
- >
-<A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A></span><br>
+ > Contest Details: 
+<rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></span><br>
 <span class="bc">
 <% if (dates.size() > 1) { %>
                  <rsc:iterator list="<%=dates%>" id="resultRow">
@@ -108,6 +108,10 @@
          <tr><td class="tableTitle" colspan="2">
          Development Contest Details
          </td></tr>
+         <tr>
+            <td class="cat" nowrap="nowrap">Component:</TD>
+            <TD class="stat" align="right" nowrap="nowrap"><A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/></A></TD>
+         </tr>
          <tr>
             <td class="cat" nowrap="nowrap" valign="top" style="padding-top: 3px">Catalog:</TD>
             <TD class="stat" align="right" valign="top" style="padding-top: 3px"><img src='<%=imgName%>' alt='<rsc:item set="<%=projectInfo%>" name="category_desc"/>' border="0" /></TD>
