@@ -62,10 +62,9 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         String primary = StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG));
         rba.setPrimary(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId,
                 projectId, phaseId, new Boolean(primary).booleanValue());
-        if (phaseId == SoftwareComponent.DEV_PHASE) {
-            int reviewTypeId = Integer.parseInt(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
-            rba.setReviewRespId(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId, reviewTypeId);
-        }
+
+        int reviewTypeId = Integer.parseInt(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
+        rba.setReviewRespId(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId, reviewTypeId);
 
         //send email
         Request r = new Request();
