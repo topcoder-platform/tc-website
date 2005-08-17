@@ -124,7 +124,9 @@
             <arg line="update -dP src"/>
         </exec>
 
+
         <ant antfile="build.xml" target="war-forums"/>
+        <ant antfile="build.xml" target="package-EJB-MessageHistoryBean"/>
 
 <!--
         <copy todir="../jboss-4.0.2/server/default/lib">
@@ -137,6 +139,7 @@
         <jar destfile="forums.jar" update="true">
             <fileset dir=".">
                 <include name="build/wars/forums.war"/>
+                <include name="build/ejb_jars/messagehistory.jar"/>
                 <include name="lib/bin/shared.jar"/>
             </fileset>
         </jar>
