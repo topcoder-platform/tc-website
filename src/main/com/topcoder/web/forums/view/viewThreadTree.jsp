@@ -114,7 +114,7 @@
 <%-------------ACTIVE POST---------------%>
 <table cellpadding="0" cellspacing="0" class="rtTable">
    <tr>
-	   <td class="rtHeader" colspan="2" width="100%">
+	   <td class="rtHeader" colspan="2">
          <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
             <%  int editCount = historyBean.getEditCount(activeMessage.getID(), DBMS.FORUMS_DATASOURCE_NAME);
             if (editCount == 1) { %> 
