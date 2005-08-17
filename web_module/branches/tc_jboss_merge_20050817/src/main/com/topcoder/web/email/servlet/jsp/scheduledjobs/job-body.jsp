@@ -1,4 +1,4 @@
-<%@ taglib uri="/email-taglib.tld" prefix="email"%>
+<%@ taglib uri="email-taglib.tld" prefix="email"%>
 <%@ page errorPage="../error.jsp" %>
 <jsp:useBean id="ScheduledJob" scope="session" class="com.topcoder.web.email.bean.ScheduledJobForm" />
 <jsp:include page="../js/validate-js.jsp" />
@@ -151,21 +151,21 @@ function validate()
 
 <tr>
 <td class="bodyText"></td>
-<td class="bodyText"><input type="checkbox" name="sendTest" 
+<td class="bodyText"><input type="checkbox" name="sendTest"
 value="x" <jsp:getProperty name="ScheduledJob" property="sendTest"/>/>
 Schedule Test Message</td>
 </tr>
 
 <tr>
 <td class="bodyText"></td>
-<td class="bodyText"><input type="checkbox" name="sendReminder" 
+<td class="bodyText"><input type="checkbox" name="sendReminder"
 value="x" <jsp:getProperty name="ScheduledJob" property="sendReminder"/>/>
 Schedule Reminder</td>
 </tr>
 
 <tr>
 <td class="bodyText"></td>
-<td class="bodyText"><input type="checkbox" name="sendReport" 
+<td class="bodyText"><input type="checkbox" name="sendReport"
 value="x" <jsp:getProperty name="ScheduledJob" property="sendReport"/>/>
 Schedule Report</td>
 </tr>

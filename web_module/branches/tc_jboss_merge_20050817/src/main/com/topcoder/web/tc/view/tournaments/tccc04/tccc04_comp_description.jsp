@@ -7,7 +7,7 @@
 <jsp:include page="../../script.jsp" />
 
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
-    
+
 </head>
 
 <body>
@@ -20,7 +20,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -41,7 +41,7 @@
    <jsp:param name="tabLev1" value="component"/>
    <jsp:param name="tabLev2" value="details"/>
    <jsp:param name="tabLev3" value="description"/>
-</jsp:include> 
+</jsp:include>
 
             <h2>Description of the Component Competition</h2>
 
@@ -59,7 +59,7 @@
                 <a href="/?t=development&c=comp_projects">View eligible components</a></li>
                 <li><strong>Open to all eligible college students</strong></li>
             </ul>
-            
+
             <p>See the official rules and regulations for more details.</p>
 
          <p><br/></p>

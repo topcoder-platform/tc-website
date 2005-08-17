@@ -19,7 +19,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="development"/>
                 <jsp:param name="level2" value="support"/>
                 <jsp:param name="level3" value="compDocumentation"/>
@@ -68,7 +68,7 @@
 					</td>
 					<td class="projectCells" valign="top" align="center">
 					06.30.2004<br/>
-					06.27.2005
+					06.30.2004
 					</td>
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap">
 					<A href="/tc?module=Static&d1=dev&d2=support&d3=desScreeningSample">Sample Design Screening Scorecard</A><br/>
@@ -106,9 +106,9 @@
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/i/development/dotnetFramework.zuml">Template</A></td>
 				</tr>
 			</table>
-			
+
 			<br/><br/>
-				
+
             <table border="0" cellspacing="0" width="100%" class="formFrame">
                 <tr>
                     <td class="projectTitles" colspan="3">Development Documentation</td>
@@ -157,7 +157,7 @@
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/i/development/downloads/tcs_checkstyle_config.jar">CheckStyle Configuration</A></td>
 				</tr>
 			</table>
-			
+
 			<br/><br/>
 
             <table border="0" cellspacing="0" width="100%" class="formFrame">
@@ -200,7 +200,7 @@
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=dev&d2=support&d3=reviewerGuide">Reviewer Guidelines</A></td>
 				</tr>
 			</table>
-				
+
             <p><br/></p>
         </td>
 <!-- Center Column Ends -->

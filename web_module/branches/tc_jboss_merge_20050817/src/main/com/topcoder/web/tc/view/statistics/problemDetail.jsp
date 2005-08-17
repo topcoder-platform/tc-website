@@ -61,7 +61,7 @@
                Problem Name:
              </td>
              <td class="statText" width="100%" valign="top">
-               <A HREF="/stat?c=problem_statement&pm=<rsc:item set="<%=generalInfo%>" name="problem_id"/>&rd=<rsc:item set="<%=generalInfo%>" name="round_id" class="statText"/>" class="statText"><rsc:item set="<%=generalInfo%>" name="class_name" /></A>
+               <A HREF="/stat?c=problem_statement&pm=<rsc:item set="<%=generalInfo%>" name="problem_id"/>&rd=<rsc:item set="<%=generalInfo%>" name="round_id"/>" class="statText"><rsc:item set="<%=generalInfo%>" name="class_name" /></A>
 
              </td>
            </tr>
@@ -276,7 +276,7 @@
                <% } %>
 
            <tr><td class="bodyText"><br/></td><tr/>
-                           
+
                <% if (!div2Lang.isEmpty()) { %>
                  <tr><td class="statText">Division II</td></tr>
                  <tr>

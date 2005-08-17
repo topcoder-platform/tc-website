@@ -2,10 +2,10 @@
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.privatelabel.view.tag.DemographicInput,
-                 com.topcoder.web.common.BaseProcessor, 
+                 com.topcoder.web.common.BaseProcessor,
                  com.topcoder.shared.util.ApplicationServer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="/privatelabel.tld" prefix="pl" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="privatelabel.tld" prefix="pl" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -46,7 +46,7 @@ function submitEnter(e) {
 		<td width="49%">&#160;</td>
 		<td>
 			<div class=greenBigBox>
-			
+
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
@@ -61,13 +61,13 @@ function submitEnter(e) {
 			<jsp:include page="right_reg.jsp" />
 			</span>
 			<br/><br/>
-                        
+
 			You may practice for the contest by clicking the Competition Arena link above.
 			<br/><br/>
 			If you encounter any problems, please contact us at <A href="mailto:googlecodejam@topcoder.com">googlecodejam@topcoder.com</A>.
 
 			<br/><br/>
-			To find out more detailed information about the Google Code Jam 2004, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google04&d2=rules">Terms and Conditions</a>.
+			To find out more detailed information about the Google Code Jam 2004, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=google04&d2=rules">Terms and Conditions</a>.
 			</div>
 		</td>
 		<td width="49%">&#160;</td>

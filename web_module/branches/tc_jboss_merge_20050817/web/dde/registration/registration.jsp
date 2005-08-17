@@ -21,7 +21,7 @@
 <%@ page import="com.topcoder.dde.catalog.*" %>
 <%
 
-    Object objTechTypes = CONTEXT.lookup("CatalogEJB");
+    Object objTechTypes = CONTEXT.lookup(CatalogHome.EJB_REF_NAME);
 
     // COMPANY SIZE LIST
     // COUNTRY CODE LIST

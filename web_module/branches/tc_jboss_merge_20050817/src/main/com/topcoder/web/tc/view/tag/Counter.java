@@ -50,7 +50,7 @@ public class Counter extends BaseTag {
         } else {
             cur = min;
             pageContext.setAttribute(getId(), String.valueOf(cur));
-            return EVAL_BODY_TAG;
+            return EVAL_BODY_AGAIN;
         }
     }
 
@@ -60,7 +60,7 @@ public class Counter extends BaseTag {
             return wrapItUp();
         } else {
             pageContext.setAttribute(getId(), String.valueOf(cur));
-            return EVAL_BODY_TAG;
+            return EVAL_BODY_AGAIN;
         }
     }
 

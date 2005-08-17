@@ -1,15 +1,26 @@
 <?xml version="1.0"?>
-<!DOCTYPE ejb-jar PUBLIC '-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN' 'http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd'>
+
+<!DOCTYPE ejb-jar PUBLIC
+      "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+      "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
 
 <ejb-jar>
+    <description>Screening Coder Jar</description>
+    <display-name>Screening Coder Jar</display-name>
     <enterprise-beans>
         <session>
+            <description>Coder EJB</description>
+            <display-name>Coder EJB</display-name>
             <ejb-name>Coder</ejb-name>
             <home>com.topcoder.web.corp.ejb.coder.CoderHome</home>
             <remote>com.topcoder.web.corp.ejb.coder.Coder</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
             <ejb-class>com.topcoder.web.corp.ejb.coder.CoderBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
-            <transaction-type>Container</transaction-type>
             <resource-ref>
                 <res-ref-name>datasource</res-ref-name>
                 <res-type>javax.sql.DataSource</res-type>
@@ -17,35 +28,41 @@
             </resource-ref>
         </session>
         <session>
+            <description>Company Candidate EJB</description>
+            <display-name>Company Candidate EJB</display-name>
             <ejb-name>CompanyCandidate</ejb-name>
             <home>com.topcoder.web.corp.ejb.coder.CompanyCandidateHome</home>
             <remote>com.topcoder.web.corp.ejb.coder.CompanyCandidate</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
             <ejb-class>com.topcoder.web.corp.ejb.coder.CompanyCandidateBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
-            <transaction-type>Container</transaction-type>
             <resource-ref>
                 <res-ref-name>datasource</res-ref-name>
                 <res-type>javax.sql.DataSource</res-type>
                 <res-auth>Container</res-auth>
             </resource-ref>
+
         </session>
     </enterprise-beans>
     <assembly-descriptor>
         <container-transaction>
             <method>
                 <ejb-name>Coder</ejb-name>
-                <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
-            <trans-attribute>NotSupported</trans-attribute>
+            <trans-attribute>Required</trans-attribute>
         </container-transaction>
         <container-transaction>
             <method>
                 <ejb-name>CompanyCandidate</ejb-name>
-                <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
             <trans-attribute>Required</trans-attribute>
         </container-transaction>
     </assembly-descriptor>
 </ejb-jar>
+

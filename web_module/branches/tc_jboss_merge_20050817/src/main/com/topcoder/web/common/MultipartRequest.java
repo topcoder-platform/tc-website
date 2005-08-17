@@ -6,9 +6,7 @@ import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Iterator;
+import java.util.*;
 
 /**
  * @author rfairfax
@@ -33,6 +31,16 @@ public class MultipartRequest extends SimpleRequest {
 
     public Enumeration getParameterNames() {
         return new ParameterEnums(file.getParameterNames());
+    }
+
+    public Map getParameterMap() {
+        Enumeration e = getParameterNames();
+        Map ret = new HashMap();
+        while (e.hasMoreElements()) {
+            String s = (String)e.nextElement();
+            ret.put(s, getParameter(s));
+        }
+        return ret;
     }
 
     public String[] getParameterValues(String name) {

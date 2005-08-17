@@ -22,7 +22,7 @@
           com.topcoder.web.common.SessionInfo"
 
 %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%
 
     TCRequest tcRequest = HttpObjectFactory.createRequest(request);
@@ -47,7 +47,7 @@
 					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_demo_part_by_region");
 long total_coders;
 long new_coders;
-%>	
+%>
 <table width="100%" class="srmFrame">
 <tr><td colspan="4" class="srmQuestion">U.S. Participation by Region</td></tr>
 <tr>
@@ -68,7 +68,7 @@ private String getPercent (long subs, long succ)
     {
 	ret2 = (double)succ / subs;
 	}
-	NumberFormat df = NumberFormat.getPercentInstance();	
+	NumberFormat df = NumberFormat.getPercentInstance();
    	df.setMinimumFractionDigits(2);
    	df.setMaximumFractionDigits(2);
    	return df.format(ret2);
@@ -86,4 +86,3 @@ new_coders = Long.parseLong(Row.getItem("new").toString()); %>
 </tr><%even=!even;%>
 </rsc:iterator>
 </table>
-  

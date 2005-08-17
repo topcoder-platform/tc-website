@@ -26,7 +26,7 @@
 		<td width="49%">&#160;</td>
 		<td>
 			<div class=greenBigBox>
-			
+
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
@@ -160,12 +160,12 @@ class StringBuilder {
         string buildString(vector&lt;char&gt; array) {
             //create string for return value
 	    string s;
-	    
+
 	    //loop over every element in the array
 	    for(int i = 0; i &lt; array.size(); i++) {
 	    	s = s + array[i];
 	    }
-	    
+
 	    //return the created string
 	    return s;
     }
@@ -193,7 +193,7 @@ STL:<br>
 <a href="http://www.topcoder.com/index?t=features&c=feat_082803">A Crash Course in the C++ Standard Template Library</a>
 
 			<br/><br/>
-			To find out more detailed information about the Google India Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj05&d2=rules">Terms and Conditions</a>.
+			To find out more detailed information about the Google India Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gicj05&d2=rules">Terms and Conditions</a>.
 			</div>
 		</td>
 		<td width="49%">&#160;</td>

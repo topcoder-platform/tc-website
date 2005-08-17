@@ -17,10 +17,14 @@ import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
 import com.topcoder.apps.review.projecttracker.ProjectType;
 import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.User;
+import com.topcoder.apps.review.projecttracker.*;
+import com.topcoder.dde.forum.ForumModeratePermission;
+import com.topcoder.dde.forum.ForumPostPermission;
 import com.topcoder.dde.notification.Notification;
 import com.topcoder.dde.notification.NotificationHome;
-import com.topcoder.dde.forum.*;
 import com.topcoder.dde.persistencelayer.interfaces.*;
+import com.topcoder.dde.forum.ForumPostPermission;
+import com.topcoder.dde.forum.ForumModeratePermission;
 import com.topcoder.forum.*;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.RolePrincipal;
@@ -2337,7 +2341,7 @@ public class ComponentManagerBean
         if (type == null) {
             throw new NullPointerException("type should not be null");
         }
-        
+
         StringBuffer buffer = new StringBuffer();
 
         ComponentInfo info = getComponentInfo();

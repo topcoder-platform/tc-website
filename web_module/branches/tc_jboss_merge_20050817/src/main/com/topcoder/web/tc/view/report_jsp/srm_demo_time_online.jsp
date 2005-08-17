@@ -19,7 +19,7 @@
           com.topcoder.web.common.SessionInfo"
 
 %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%
 
     TCRequest tcRequest = HttpObjectFactory.createRequest(request);
@@ -42,11 +42,11 @@
                                     dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
                     Map dataMap = null;
                     dataMap = dai.getData(dataRequest);
-					
+
 					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_demo_time_online");
-					
-					
-			%>	
+
+
+			%>
 <table width="100%" class="srmFrame">
 <tr><td colspan="2" class="srmQuestion">Competitor Time Online</td></tr>
 <tr>
@@ -79,4 +79,3 @@
 </tr>
 
 </table>
-  

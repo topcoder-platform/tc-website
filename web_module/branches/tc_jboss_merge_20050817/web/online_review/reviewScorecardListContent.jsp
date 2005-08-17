@@ -1,5 +1,5 @@
 <%@ page language="java" %>
-<%@ page import="com.topcoder.apps.review.projecttracker.ProjectType" %> 
+<%@ page import="com.topcoder.apps.review.projecttracker.ProjectType" %>
 <%@ taglib uri="/WEB-INF/review.tld" prefix="review" %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
@@ -11,38 +11,38 @@
 			<table border="0" cellpadding="0" cellspacing="0" width="100%">
 				<tr>
 					<td width="5%" align="left">
-<logic:equal name="projectInfo" property="projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">                    
-						<img src='<%="images/icon_design.gif" %>' width="66" height="62" alt="">
-</logic:equal>						
-<logic:notEqual name="projectInfo" property="projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">                    
-						<img src='<%="images/icon_development.gif" %>' width="66" height="62" alt="">
+<logic:equal name="projectInfo" property="projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">
+						<img src='<%="/images/icon_design.gif" %>' width="66" height="62" alt="">
+</logic:equal>
+<logic:notEqual name="projectInfo" property="projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">
+						<img src='<%="/images/icon_development.gif" %>' width="66" height="62" alt="">
 </logic:notEqual>
 					</td>
                     <td width="5%">
 <logic:equal name="projectInfo" property="catalog" value="Java">
-                        <img src="images/smJava.gif" alt="" width="33" height="17" border="0">
+                        <img src="/images/smJava.gif" alt="" width="33" height="17" border="0">
 </logic:equal>
 <logic:equal name="projectInfo" property="catalog" value=".NET">
-                        <img src="images/netSm.gif" alt="" width="33" height="17" border="0">
+                        <img src="/images/netSm.gif" alt="" width="33" height="17" border="0">
 </logic:equal>
 					</td>
 					<td width="90%" nowrap class="tableHeader">
-					    <strong><bean:write name="projectInfo" property="projectName" /></strong> 
+					    <strong><bean:write name="projectInfo" property="projectName" /></strong>
     				    <bean:message key="prompt.version" />
     				    <bean:write name="projectInfo" property="projectVersion" /></td>
 				</tr>
 				<tr>
-					<td class="whiteBkgnd" colspan="4"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
+					<td class="whiteBkgnd" colspan="4"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
 				</tr>
 			</table>
-			
+
 <!-- Start Text -->
-			
+
 			<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center">
 				<tr>
-					<td class="normal" colspan="2"><img src="images/clear.gif" alt="" width="1" height="8" border="0"></td>
+					<td class="normal" colspan="2"><img src="/images/clear.gif" alt="" width="1" height="8" border="0"></td>
 				</tr>
-							
+
 				<tr>
 					<td>
 						<table border="0" cellpadding="0" cellspacing="1" class="forumBkgd" width="75%">
@@ -76,7 +76,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="whiteBkgnd" colspan="2"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
+					<td class="whiteBkgnd" colspan="2"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
 				</tr>
 			</table>
 		</td>
@@ -88,17 +88,17 @@
 			<table width="40%" border="0" cellpadding="0" cellspacing="0">
 				<bean:define id="projectId" name="projectInfo" property="id" />
 				<bean:define id="url" value='<%="/saveTestCases.do?id="+String.valueOf(projectId)%>' />
-				
+
                 <form action='<html:rewrite page="<%=String.valueOf(url)%>" />' enctype="multipart/form-data" method="post" >
 				<tr>
-					<td class="blueBkgnd "><img src="images/clear.gif" alt="" width="1" height="3" border="0"></td>
+					<td class="blueBkgnd "><img src="/images/clear.gif" alt="" width="1" height="3" border="0"></td>
 				</tr>
 
 				<tr>
 					<td class="forumTitleCenter">Jar/Zip testcases and testfiles from the project folder and upload it here.</td>
 				</tr>
 				<tr>
-					<td class="blueBkgnd "><img src="images/clear.gif" alt="" width="1" height="3" border="0"></td>
+					<td class="blueBkgnd "><img src="/images/clear.gif" alt="" width="1" height="3" border="0"></td>
 				</tr>
 				<tr>
 					<td class="forumTitleCenter"><input type="file" name="testcases"></td>
@@ -115,14 +115,14 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="blueBkgnd"><img src="images/clear.gif" alt="" width="1" height="8" border="0"></td>
+					<td class="blueBkgnd"><img src="/images/clear.gif" alt="" width="1" height="8" border="0"></td>
 				</tr>
                 </form>
 			</table>
       </td>
     </tr>
 </logic:present>
-				
+
 	<tr>
 		<td align="center" class="lightBkgnd">
 			<table border="0" cellpadding="0" cellspacing="4">
@@ -132,11 +132,11 @@
 				</tr>
 			</table>
 		</td>
-							
+
 	</tr>
-			
+
 <!-- End lists -->
-				
-				 
+
+
 </table>
 

@@ -76,7 +76,10 @@
            </TR>
            <TR>
               <TD CLASS="screeningCellOdd" VALIGN="top">
-<screen:problemStatement text="<%=problemInfo.getProblemStatement()%>" language="<%=JavaLanguage.JAVA_LANGUAGE%>" class="bodyText"/>
+<screen:problemStatement text="<%=problemInfo.getProblemStatement()%>" language="<%=JavaLanguage.JAVA_LANGUAGE%>" styleClass="bodyText"/>
+<%--
+<screen:problemStatement text="<%=problemInfo.getProblemStatement()%>" language='<%="Java"%>' styleClass="bodyText"/>
+--%>
               </TD>
            </TR>
          </table>
@@ -93,7 +96,7 @@
     </tr>
 </table>
 
-  <jsp:include page="../../foot.jsp" />
+  <jsp:include page="/foot.jsp" />
 
 </body>
 </html>

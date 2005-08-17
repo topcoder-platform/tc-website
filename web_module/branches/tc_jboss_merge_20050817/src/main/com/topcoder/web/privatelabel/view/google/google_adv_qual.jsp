@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -607,7 +607,7 @@ body,td,font,p,a
                      <tr>
                         <td><p><br /></p>
                               <p><a href="/"><img align="right" src="/i/events/google2003/google_pbtc.gif" width="100" height="33" border="0" hspace="5"></a>
-                              <font size="-1">To find out more detailed information about the Google Code Jam 2003, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google&d2=google_rules_overview">Terms and Conditions</a>.
+                              <font size="-1">To find out more detailed information about the Google Code Jam 2003, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=google&d2=google_rules_overview">Terms and Conditions</a>.
                               </font></p>
                         </td>
                      </tr>

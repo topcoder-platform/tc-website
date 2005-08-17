@@ -1,7 +1,7 @@
 package com.topcoder.web.tc.controller.request.survey;
 
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.Transaction;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.survey.Response;
@@ -11,7 +11,8 @@ import com.topcoder.web.tc.model.Question;
 import com.topcoder.web.tc.model.SurveyResponse;
 import com.topcoder.web.tc.view.tag.AnswerInput;
 
-import javax.transaction.UserTransaction;
+import javax.transaction.TransactionManager;
+import javax.transaction.Status;
 import java.util.*;
 
 public class Submit extends View {
@@ -19,7 +20,6 @@ public class Submit extends View {
 
     protected void surveyProcessing() throws TCWebException {
 
-        UserTransaction tx = null;
         try {
             if (getUser().isAnonymous())
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
@@ -41,21 +41,27 @@ public class Submit extends View {
                 boolean hasAllFreeForm = true;
                 if (!hasErrors()) {
 
-                    tx = Transaction.get();
-                    Transaction.begin(tx);
-
-                    SurveyResponse resp = null;
-                    Response response = (Response) createEJB(getInitialContext(), Response.class);
-                    for (Iterator it = responses.iterator(); it.hasNext();) {
-                        resp = (SurveyResponse) it.next();
-                        hasAllFreeForm &= resp.isFreeForm();
-                        if (resp.isFreeForm()) {
-                            response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getText());
-                        } else {
-                            response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getAnswerId());
+                    TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+                    try {
+                        tm.begin();
+                        SurveyResponse resp = null;
+                        Response response = (Response) createEJB(getInitialContext(), Response.class);
+                        for (Iterator it = responses.iterator(); it.hasNext();) {
+                            resp = (SurveyResponse) it.next();
+                            hasAllFreeForm &= resp.isFreeForm();
+                            if (resp.isFreeForm()) {
+                                response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getText());
+                            } else {
+                                response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getAnswerId());
+                            }
                         }
+                        tm.commit();
+                    } catch (Exception e) {
+                        if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                            tm.rollback();
+                        }
+                        throw e;
                     }
-                    Transaction.commit(tx);
                 }
                 if (hasErrors()) {
                     setDefaults(responses);
@@ -74,9 +80,6 @@ public class Submit extends View {
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
-            if (tx != null) {
-                Transaction.rollback(tx);
-            }
             throw new TCWebException(e);
         }
     }

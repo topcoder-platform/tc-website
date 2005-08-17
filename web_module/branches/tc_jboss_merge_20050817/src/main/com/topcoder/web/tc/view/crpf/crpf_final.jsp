@@ -38,7 +38,7 @@
                <table align="center">
                   <tr>
                      <td>
-                     <A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_photos"><img src="/i/events/crpf03/crfp_banner.jpg" width="510" height="160" border="0" alt="TopCoder Charity Challenge benefiting the CRPF;T"></A><br/>
+                     <A href="/tc?module=CRPFStatic&d1=crpf&d2=crpf_photos"><img src="/i/events/crpf03/crfp_banner.jpg" width="510" height="160" border="0" alt="TopCoder Charity Challenge benefiting the CRPF;T"></A><br/>
                      <img src="/i/clear.gif" width="10" height="15" border="0"/></td>
                   </tr>
                </table>
@@ -59,7 +59,7 @@
                <blockquote>
                <h2>Advancers</h2>
 <!-- Online Rounds begins -->
-            <p align="right"><a href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_advancers">Round 1</a>&#160;|&#160;Finals</p>
+            <p align="right"><a href="/tc?module=CRPFStatic&d1=crpf&d2=crpf_advancers">Round 1</a>&#160;|&#160;Finals</p>
             <table align="center" border="0" cellpadding="2" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="crpfTitle" width="100%" colspan="3" bgcolor="#4E9DD5">Finals</td>

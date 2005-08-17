@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -54,12 +54,12 @@ body,td,font,p,a
                   <div class=content>
                   <div align="center">
 	            <font size="-1">
-                     <a href="/pl/?&module=Static&d1=google&d2=google_overview">Overview</a> &nbsp;|&nbsp;
-                     <a href="/pl/?&module=Static&d1=google&d2=google_sched">Schedule</a> &nbsp;|&nbsp;
-                     <a href="/pl/?&module=Static&d1=google&d2=google_rules_overview">Rules</a> &nbsp;|&nbsp;
+                     <a href="/pl/?module=Static&d1=google&d2=google_overview">Overview</a> &nbsp;|&nbsp;
+                     <a href="/pl/?module=Static&d1=google&d2=google_sched">Schedule</a> &nbsp;|&nbsp;
+                     <a href="/pl/?module=Static&d1=google&d2=google_rules_overview">Rules</a> &nbsp;|&nbsp;
                      <font color="006633">Registration</font> &nbsp;|&nbsp;
-                     <a href="/pl/?&module=Static&d1=google&d2=google_faq">FAQ</a> &nbsp;|&nbsp;
-                     <a href="/pl/?&module=Static&d1=google&d2=google_practice">Practice Arena</a>
+                     <a href="/pl/?module=Static&d1=google&d2=google_faq">FAQ</a> &nbsp;|&nbsp;
+                     <a href="/pl/?module=Static&d1=google&d2=google_practice">Practice Arena</a>
                   </font>
                   </div><br><br>
                   <b><font size="+1">Registration Successful!</font></b><br>
@@ -78,7 +78,7 @@ do not activate your account.
 
 <br/><br/>
 
-<b><font color="#FF0000">OPTIONAL:</font></b> If you would like to upload a resume, click <a href="JavaScript:void window.open('<jsp:getProperty name="sessionInfo" property="ServletPath"/>resume?&<%=Constants.MODULE_KEY%>=ViewUpload&<%=Constants.COMPANY_ID%>=1865','Resume_Upload','top=2,left=2,width=350,height=300,status=0');">here</a><br/><br/>
+<b><font color="#FF0000">OPTIONAL:</font></b> If you would like to upload a resume, click <a href="JavaScript:void window.open('<jsp:getProperty name="sessionInfo" property="servletPath"/>resume?<%=Constants.MODULE_KEY%>=ViewUpload&<%=Constants.COMPANY_ID%>=1865','Resume_Upload','top=2,left=2,width=350,height=300,status=0');">here</a><br/><br/>
 
 <br/><br/>
 

@@ -18,7 +18,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "catalog.jsp";
-    String action = request.getParameter("a");	
+    String action = request.getParameter("a");
 %>
 
 
@@ -27,12 +27,12 @@
 	<title>TopCoder Software</title>
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-  
+
 <script language="JavaScript" type="text/javascript" src="/scripts/javascriptAdmin.js">
 </script>
 
 <%
-	Object objTechTypes = CONTEXT.lookup("CatalogEJB");
+	Object objTechTypes = CONTEXT.lookup(CatalogHome.EJB_REF_NAME);
 	CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
 	Catalog catalog = home.create();
 
@@ -45,7 +45,7 @@
             fieldsRequest.add("keywords", new Field("Keywords", "keywords",  "", true));
             fieldsRequest.add("comments", new Field("Comments", "comments",  "", true));
             fieldsRequest.add("vlabel", new Field("Version Label", "vlabel",  "", true));
-        
+
         boolean requestError = false;
         String strRequestError = "";
         String strRequestMsg = "";
@@ -187,7 +187,7 @@
 				<tr><td class="normal"><img src="/images/headCatalogAdmin.gif" alt="Catalog Admin" width="545" height="35" border="0" /></td></tr>
 				<tr><td class="subhead"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
 			</table>
-				
+
 			<table width="100%" cellpadding="0" cellspacing="6" align="center" border="0">
 				<tr valign="top">
 					<td align="center">
@@ -197,10 +197,10 @@
 								<form name="frmRequestComponent" action="catalog.jsp" method="POST">
 								<img src="/images/adminReqNewCompHead.gif" alt="Request a New Component" width="500" height="29" border="0" /></td></tr>
 						</table>
-						
+
 <!-- Request Parameters -->
 						<table width="500" border="0" cellspacing="8" cellpadding="0" align="center" class="admin">
-	<% 
+	<%
 		Enumeration requestKeys = fieldsRequest.keys();
 		while (requestKeys.hasMoreElements()) {
 			Field field = fieldsRequest.get("" + requestKeys.nextElement());
@@ -215,7 +215,7 @@
 		<% } %>
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0"/></td>
 							</tr>
-							
+
 	<% } %>
 
 <!-- Submit Button -->
@@ -231,7 +231,7 @@
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0"/></td>
 							</tr>
 						</table>
-						
+
 						<table width="500" cellpadding="0" cellspacing="0" border="0" align="center" class="admin">
 							<tr><td><img src="/images/adminFoot.gif" alt="" width="500" height="11" border="0" /></td></tr>
 						</table>
@@ -266,7 +266,7 @@
 <!-- Gutter 3 ends -->
 	</tr>
 </table>
-	
+
 <!-- Footer begins -->
 <jsp:include page="/includes/footer.jsp" flush="true" />
 <!-- Footer ends -->

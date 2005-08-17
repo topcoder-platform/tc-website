@@ -21,7 +21,7 @@
           com.topcoder.security.TCSubject,
           com.topcoder.web.common.SessionInfo"
 %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%
     TCRequest tcRequest = HttpObjectFactory.createRequest(request);
     TCResponse tcResponse = HttpObjectFactory.createResponse(response);
@@ -44,7 +44,7 @@
                     dataMap = dai.getData(dataRequest);
 					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_demo_total_part");
 
-%>	
+%>
 <%
 long total = 0;
 long total_coders = 0;

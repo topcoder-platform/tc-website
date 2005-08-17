@@ -7,7 +7,7 @@
           com.topcoder.web.corp.common.JSPUtils,
           com.topcoder.web.corp.common.TCESConstants" %>
 
-<%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
+<%@ taglib uri="tces-taglib.tld" prefix="tces"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -61,7 +61,7 @@
 				<strong>Phone:</strong> <%= MemberInfo.getStringItem(0, "home_phone")%>
 				<br>
 				<% if (MemberProfileTask.hasResume()) { %>
-				<a href="<jsp:getProperty name="MemberProfileTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="MemberID"/>" class="bodyText"><B>Resume</B></a>
+				<a href="<jsp:getProperty name="MemberProfileTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="campaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="jobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="memberID"/>" class="bodyText"><B>Resume</B></a>
 				<% } %>
 				<br><br>
 				</td>
@@ -103,17 +103,17 @@
 				<td class=bodyText>
 				<strong>Interested in:</strong> <jsp:getProperty name="MemberProfileTask" property="JobName"/>
 				<br>
-				<A HREF="<jsp:getProperty name="MemberProfileTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="MemberID"/>" class="bodyText">View all position interest for <%= MemberInfo.getItem(0, "handle")%></A>
+				<A HREF="<jsp:getProperty name="MemberProfileTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="MemberID"/>" class="bodyText">View all position interest for <%= MemberInfo.getItem(0, "handle")%></A>
 				<br><br>
 				</td>
 			</tr>
 			<tr>
 				<td class=bodyText>
-				<A HREF="<jsp:getProperty name="MemberProfileTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="bodyText">Coder Demographic Info</A>
+				<A HREF="<jsp:getProperty name="MemberProfileTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="bodyText">Coder Demographic Info</A>
 				<br>
-				<A HREF="<jsp:getProperty name="MemberProfileTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="bodyText">Coder Competition History</A>
+				<A HREF="<jsp:getProperty name="MemberProfileTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="bodyText">Coder Competition History</A>
 				<br>
-				<A HREF="<jsp:getProperty name="MemberProfileTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="bodyText">Coder Problem Submissions</A>
+				<A HREF="<jsp:getProperty name="MemberProfileTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="bodyText">Coder Problem Submissions</A>
 				</td>
 				<td class=bodyText>
 				</td>
@@ -127,7 +127,7 @@
 		<br><br>
 
 		<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
-			<TR><TD COLSPAN="10" class="screeningTitle"><B>Division-I Performance</B></TD</TR>
+			<TR><TD COLSPAN="10" class="screeningTitle"><B>Division-I Performance</B></TD></TR>
 			<TR><TD COLSPAN="10" class="screeningHeader">Average Points per Contest: <%= MemberProfileTask.getDivIStatistic("avg_contest_points") %></TD></TR>
 			<TR><TD COLSPAN="10" class="screeningHeader">Statistics by Problem Level:</TD></TR>
 			<TR><TD class="screeningHeader">&#160;</TD>
@@ -218,7 +218,7 @@ i++;
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= MemberProfileTask.getDivIStatistic("total_submitted") %></TD>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= MemberProfileTask.getDivIStatistic("total_submit_percent") %>%</TD>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= MemberProfileTask.getDivIStatistic("correct") %></TD>
-				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right<%= MemberProfileTask.getDivIStatistic("total_submission_accuracy") %>%</TD>
+				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= MemberProfileTask.getDivIStatistic("total_submission_accuracy") %>%</TD>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= MemberProfileTask.getDivIStatistic("avg_submission_points") %></TD>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= JSPUtils.timeFormat(MemberProfileTask.getDivIStats().getItem("avg_time_elapsed")) %></TD>
 			</TR>
@@ -232,7 +232,7 @@ i++;
 		<br><br>
 
 		<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
-			<TR><TD COLSPAN="10" class="screeningTitle">Division-II Performance</TD</TR>
+			<TR><TD COLSPAN="10" class="screeningTitle">Division-II Performance</TD></TR>
 			<TR><TD COLSPAN="10" class="screeningHeader">Average Points per Contest: <%= MemberProfileTask.getDivIIStatistic("avg_contest_points") %></TD></TR>
 			<TR><TD COLSPAN="10" class="screeningHeader">Statistics by Problem Level:</TD></TR>
 			<TR>

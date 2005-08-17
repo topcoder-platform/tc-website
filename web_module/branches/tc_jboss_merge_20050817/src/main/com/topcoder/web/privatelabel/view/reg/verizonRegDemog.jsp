@@ -2,12 +2,13 @@
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.privatelabel.view.tag.DemographicInput,
-                 com.topcoder.web.common.BaseProcessor" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="/privatelabel.tld" prefix="pl" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
-<jsp:usebean id="questionList" class="java.util.List" scope="request" />
+                 com.topcoder.web.common.BaseProcessor,
+                 java.util.List" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="privatelabel.tld" prefix="pl" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
+<% List questionList = (List)request.getAttribute("questionList");%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -66,13 +67,13 @@
                     <td width="427" class="bodyCopy">
 
                         <h2 class="pgTitle">Registration</h2>
-       
+
                         <table cellpadding="0" cellspacing="3" class="bodyText" align="center" border="0">
-                            <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
+                            <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
                             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.VERIZON_REG_CONFIRM%>"/>
                             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
                             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
-                            
+
                             <tr>
                                 <td colspan="2" class="errorText">
                                     <tc-webtag:errorIterator id="err" name="<%=Constants.CODER_TYPE%>"><%=err%><br/></tc-webtag:errorIterator>
@@ -91,18 +92,18 @@
                             </tr>
 
                             <pl:questionIterator id="question" list="<%=questionList%>">
-                            
+
                             <tr>
                                 <td colspan="2" class="errorText">
                                     <tc-webtag:errorIterator id="err" name="<%=Constants.DEMOG_PREFIX+question.getId()%>"><%=err%><br/></tc-webtag:errorIterator>
                                 </td>
                             </tr>
-                
+
                             <tr>
                                 <td align="right" nowrap><%=question.getText()%></td>
                                 <td align="left"><pl:demographicInput question="<%=question%>"/></td>
                             </tr>
-                            
+
                             </pl:questionIterator>
 
                             <tr>
@@ -114,10 +115,10 @@
                                 </td>
                             </form></tr>
                         </table>
-                        
+
                         <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>
                     </td>
-                    
+
 <!-- Gutter Begins -->
                     <td width="14"><img src="/i/clear.gif" width="14" height="1" border="0"/></td>
 <!-- Gutter Ends -->

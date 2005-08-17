@@ -4,6 +4,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Enumeration;
+import java.util.Map;
 
 /**
  * this class could extend HttpServletRequestWrapper which would provide
@@ -84,5 +85,9 @@ public class SimpleRequest implements TCRequest {
 
     public void removeAttribute(String name) {
         request.removeAttribute(name);
+    }
+
+    public Map getParameterMap() {
+        return request.getParameterMap();
     }
 }

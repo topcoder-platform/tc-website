@@ -28,24 +28,21 @@ public class DDEForumAttachmentDownload extends DownloadServlet {
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
 
-        Hashtable environment = new Hashtable();
-        environment.put(Context.PROVIDER_URL, "localhost:1099");
-        environment.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
         Context context = null;
 
         try {
-            context = new InitialContext(environment);
+            context = new InitialContext();
 
             forumHome = (ForumRemoteHome) PortableRemoteObject.narrow(
                     context.lookup(ForumRemoteHome.EJB_REF_NAME), ForumRemoteHome.class);
             ddeForumHome = (DDEForumHome) PortableRemoteObject.narrow(
                     context.lookup(DDEForumHome.EJB_REF_NAME), DDEForumHome.class);
         } catch (Exception e) {
+            throw new ServletException(e);
         } finally {
             if (context != null) try {
                 context.close();
             } catch (NamingException ne) {
-                ;
             }
         }
     }
@@ -67,6 +64,7 @@ public class DDEForumAttachmentDownload extends DownloadServlet {
                 }
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return false;
     }

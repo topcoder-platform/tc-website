@@ -3,9 +3,9 @@
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.common.BaseServlet,
                  com.topcoder.shared.util.ApplicationServer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>

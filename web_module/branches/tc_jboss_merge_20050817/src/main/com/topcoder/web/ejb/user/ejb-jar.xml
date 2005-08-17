@@ -1,117 +1,166 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE ejb-jar PUBLIC '-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN' 'http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd'>
+<!DOCTYPE ejb-jar PUBLIC
+      "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+      "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
 
 <ejb-jar>
+    <description>User Jar</description>
+    <display-name>User Jar</display-name>
     <enterprise-beans>
         <session>
+            <description>User EJB</description>
+            <display-name>User EJB</display-name>
             <ejb-name>User</ejb-name>
             <home>com.topcoder.web.ejb.user.UserHome</home>
             <remote>com.topcoder.web.ejb.user.User</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
             <ejb-class>com.topcoder.web.ejb.user.UserBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
-            <transaction-type>Container</transaction-type>
         </session>
         <session>
+            <description>User Terms Of Use EJB</description>
+            <display-name>User Terms of Use EJB</display-name>
             <ejb-name>UserTermsOfUse</ejb-name>
             <home>com.topcoder.web.ejb.user.UserTermsOfUseHome</home>
             <remote>com.topcoder.web.ejb.user.UserTermsOfUse</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
             <ejb-class>com.topcoder.web.ejb.user.UserTermsOfUseBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
-            <transaction-type>Container</transaction-type>
         </session>
         <session>
+            <description>User School EJB</description>
+            <display-name>User School EJB</display-name>
             <ejb-name>UserSchool</ejb-name>
             <home>com.topcoder.web.ejb.user.UserSchoolHome</home>
             <remote>com.topcoder.web.ejb.user.UserSchool</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
             <ejb-class>com.topcoder.web.ejb.user.UserSchoolBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
-            <transaction-type>Container</transaction-type>
         </session>
         <session>
+            <description>Contact EJB</description>
+            <display-name>Contact EJB</display-name>
             <ejb-name>Contact</ejb-name>
             <home>com.topcoder.web.ejb.user.ContactHome</home>
             <remote>com.topcoder.web.ejb.user.Contact</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
             <ejb-class>com.topcoder.web.ejb.user.ContactBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
-            <transaction-type>Container</transaction-type>
         </session>
         <session>
+            <description>User Address EJB</description>
+            <display-name>User Address EJB</display-name>
             <ejb-name>UserAddress</ejb-name>
             <home>com.topcoder.web.ejb.user.UserAddressHome</home>
             <remote>com.topcoder.web.ejb.user.UserAddress</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
             <ejb-class>com.topcoder.web.ejb.user.UserAddressBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
-            <transaction-type>Container</transaction-type>
         </session>
         <session>
+            <description>User Note EJB</description>
+            <display-name>User Note EJB</display-name>
             <ejb-name>UserNote</ejb-name>
             <home>com.topcoder.web.ejb.user.UserNoteHome</home>
             <remote>com.topcoder.web.ejb.user.UserNote</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
             <ejb-class>com.topcoder.web.ejb.user.UserNoteBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
-            <transaction-type>Container</transaction-type>
         </session>
         <session>
+            <description>User Preference EJB</description>
+            <display-name>User Preference EJB</display-name>
             <ejb-name>UserPreference</ejb-name>
             <home>com.topcoder.web.ejb.user.UserPreferenceHome</home>
             <remote>com.topcoder.web.ejb.user.UserPreference</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
             <ejb-class>com.topcoder.web.ejb.user.UserPreferenceBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
-            <transaction-type>Container</transaction-type>
         </session>
+
         <session>
+            <description>User Event EJB</description>
+            <display-name>User Event EJB</display-name>
             <ejb-name>UserEvent</ejb-name>
             <home>com.topcoder.web.ejb.user.UserEventHome</home>
             <remote>com.topcoder.web.ejb.user.UserEvent</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
             <ejb-class>com.topcoder.web.ejb.user.UserEventBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
-            <transaction-type>Container</transaction-type>
         </session>
+
     </enterprise-beans>
     <assembly-descriptor>
         <container-transaction>
             <method>
                 <ejb-name>User</ejb-name>
-                <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
             <method>
                 <ejb-name>UserTermsOfUse</ejb-name>
-                <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
             <method>
                 <ejb-name>UserSchool</ejb-name>
-                <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
             <method>
                 <ejb-name>Contact</ejb-name>
-                <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
             <method>
                 <ejb-name>UserAddress</ejb-name>
-                <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
             <method>
                 <ejb-name>UserNote</ejb-name>
-                <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
             <method>
                 <ejb-name>UserPreference</ejb-name>
-                <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
             <method>
                 <ejb-name>UserEvent</ejb-name>
-                <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
             <trans-attribute>Required</trans-attribute>
         </container-transaction>
     </assembly-descriptor>
 </ejb-jar>
+
+
+

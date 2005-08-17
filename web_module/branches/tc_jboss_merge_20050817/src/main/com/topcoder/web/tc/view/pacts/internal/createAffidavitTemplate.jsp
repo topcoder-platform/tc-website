@@ -2,7 +2,7 @@
                  com.topcoder.web.tc.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%
 	ResultSetContainer affidavitTypes = (ResultSetContainer)
 		request.getAttribute(PactsConstants.AFFIDAVIT_TYPE_LIST);

@@ -28,10 +28,10 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.Base;
 import com.topcoder.web.tc.model.SoftwareComponent;
+import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -680,9 +680,10 @@ public final class TaskDevelopment {
     static ComponentManager getComponentManager(long componentId) {
 
         ComponentManager componentMgr = null;
+        Context ctx = null;
         try {
-            Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
-            Object objTechTypes = CONTEXT.lookup("ComponentManagerEJB");
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+            Object objTechTypes = ctx.lookup("ComponentManagerEJB");
             ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
             componentMgr = home.create(componentId);
         } catch (javax.naming.NamingException namingException) {
@@ -691,6 +692,8 @@ public final class TaskDevelopment {
             log.error("Could not create component Manager: " + createException.getMessage());
         } catch (java.rmi.RemoteException remoteException) {
             log.error("Could not create component Manager: " + remoteException.getMessage());
+        } finally {
+            BaseProcessor.close(ctx);
         }
         return componentMgr;
     }
@@ -698,9 +701,10 @@ public final class TaskDevelopment {
     static ComponentManager getComponentManager(long componentId, long version) {
 
         ComponentManager componentMgr = null;
+        Context ctx = null;
         try {
-            Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
-            Object objTechTypes = CONTEXT.lookup("ComponentManagerEJB");
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+            Object objTechTypes = ctx.lookup(ComponentManagerHome.EJB_REF_NAME);
             ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
             componentMgr = home.create(componentId, version);
         } catch (javax.naming.NamingException namingException) {
@@ -709,6 +713,8 @@ public final class TaskDevelopment {
             log.error("Could not create component Manager: " + createException.getMessage());
         } catch (java.rmi.RemoteException remoteException) {
             log.error("Could not create component Manager: " + remoteException.getMessage());
+        } finally {
+            BaseProcessor.close(ctx);
         }
         return componentMgr;
     }
@@ -716,9 +722,10 @@ public final class TaskDevelopment {
     static Catalog getCatalog() {
 
         Catalog catalog = null;
+        Context ctx = null;
         try {
-            Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
-            Object objTechTypes = CONTEXT.lookup("CatalogEJB");
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+            Object objTechTypes = ctx.lookup(CatalogHome.EJB_REF_NAME);
             CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
             catalog = home.create();
 
@@ -728,57 +735,67 @@ public final class TaskDevelopment {
             log.error("Could not create catalog: " + createException.getMessage());
         } catch (java.rmi.RemoteException remoteException) {
             log.error("Could not create catalog: " + remoteException.getMessage());
+        } finally {
+            BaseProcessor.close(ctx);
         }
         return catalog;
     }
 
 
     static void register(long userId, long componentId, long projectId, int rating, String comment, boolean agreedToTerms, int phase, int version) throws Exception {
-        Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+        Context ctx = null;
+        try {
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+            log.debug("creating user");
+            Object objUserManager = ctx.lookup(UserManagerRemoteHome.EJB_REF_NAME);
+            UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome) PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
+            UserManagerRemote USER_MANAGER = userManagerHome.create();
+
+            USER_MANAGER.registerInquiry(userId, componentId, rating, userId, comment, agreedToTerms, phase, version, projectId);
 
 
-        log.debug("creating user");
-        Object objUserManager = ctx.lookup("dde/UserManager");
-        UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome) PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
-        UserManagerRemote USER_MANAGER = userManagerHome.create();
+            String roleName = "ForumUser " + getActiveForumId(componentId);
 
-        USER_MANAGER.registerInquiry(userId, componentId, rating, userId, comment, agreedToTerms, phase, version, projectId);
-
-
-        String roleName = "ForumUser " + getActiveForumId(componentId);
-
-        //add the user to the appropriate role to view the forum
-        Object objPrincipalManager = ctx.lookup("security/PrincipalMgr");
-        PrincipalMgrRemoteHome principalManagerHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objPrincipalManager, PrincipalMgrRemoteHome.class);
-        PrincipalMgrRemote principalMgr = principalManagerHome.create();
-        Collection roles = principalMgr.getRoles(null);
-        RolePrincipal role = null;
-        for (Iterator it = roles.iterator(); it.hasNext();) {
-            role = (RolePrincipal) it.next();
-            if (role.getName().equalsIgnoreCase(roleName)) {
-                log.debug("--->got a match");
-                UserPrincipal up = principalMgr.getUser(userId);
-                try {
-                    principalMgr.assignRole(up, role, null);
-                } catch (Exception e) {
-                    //ignoring, most likely they already have the role, so all is well
-                    log.info("userId " + userId + " already had role: " + roleName + " so not adding again");
+            //add the user to the appropriate role to view the forum
+            Object objPrincipalManager = ctx.lookup("security/PrincipalMgr");
+            PrincipalMgrRemoteHome principalManagerHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objPrincipalManager, PrincipalMgrRemoteHome.class);
+            PrincipalMgrRemote principalMgr = principalManagerHome.create();
+            Collection roles = principalMgr.getRoles(null);
+            RolePrincipal role = null;
+            for (Iterator it = roles.iterator(); it.hasNext();) {
+                role = (RolePrincipal) it.next();
+                if (role.getName().equalsIgnoreCase(roleName)) {
+                    log.debug("--->got a match");
+                    UserPrincipal up = principalMgr.getUser(userId);
+                    try {
+                        principalMgr.assignRole(up, role, null);
+                    } catch (Exception e) {
+                        //ignoring, most likely they already have the role, so all is well
+                        log.info("userId " + userId + " already had role: " + roleName + " so not adding again");
+                    }
                 }
             }
+        } finally {
+            BaseProcessor.close(ctx);
         }
     }
 
     static long getActiveForumId(long componentId) throws Exception {
 
-        Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
-        Object objTechTypes = ctx.lookup("ComponentManagerEJB");
-        ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
-        ComponentManager componentMgr = home.create(componentId);
-        Forum activeForum = componentMgr.getActiveForum(Forum.SPECIFICATION);
+        Context ctx = null;
+        try {
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+            Object objTechTypes = ctx.lookup(ComponentManagerHome.EJB_REF_NAME);
+            ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
+            ComponentManager componentMgr = home.create(componentId);
+            Forum activeForum = componentMgr.getActiveForum(Forum.SPECIFICATION);
 
-        if (activeForum == null) throw new Exception("Could not find forum for component " + componentId);
+            if (activeForum == null) throw new Exception("Could not find forum for component " + componentId);
+            return activeForum.getId();
+        } finally {
+            BaseProcessor.close(ctx);
+        }
 
-        return activeForum.getId();
     }
 
 }

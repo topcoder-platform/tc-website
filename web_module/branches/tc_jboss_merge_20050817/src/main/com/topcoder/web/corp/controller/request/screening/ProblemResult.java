@@ -12,7 +12,6 @@ import com.topcoder.web.corp.model.ProblemInfo;
 import com.topcoder.web.corp.model.ProfileInfo;
 import com.topcoder.web.corp.model.SubmissionInfo;
 
-import javax.servlet.http.HttpUtils;
 import java.util.Map;
 
 /**
@@ -40,7 +39,7 @@ public class ProblemResult extends BaseScreeningProcessor {
 
             DataAccessInt dAccess = Util.getDataAccess();
             Request dr = new Request();
-            dr.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
+            dr.setProperties(getRequest().getParameterMap());
             dr.setContentHandle("testResults");
             dr.setProperty("uid", String.valueOf(getUser().getId()));
             Map map = dAccess.getData(dr);

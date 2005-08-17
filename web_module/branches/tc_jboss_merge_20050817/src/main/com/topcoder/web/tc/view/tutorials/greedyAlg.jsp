@@ -4,8 +4,8 @@
 <head>
 <title>Algorithm Tutorials</title>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:include page="../../script.jsp" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:include page="../script.jsp" />
 <style type="text/css">
 .codeBox
 {
@@ -37,7 +37,7 @@
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -45,7 +45,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="education"/>
                 <jsp:param name="level2" value="alg_tutorials"/>
             </jsp:include>
@@ -56,7 +56,7 @@
          <td width="100%" align="center">
 
          <div class="tutorBodyFull">
-            
+
             <h2>Greedy is Good</h2>
 
 			<p>
@@ -68,9 +68,9 @@
 <p>
 John Smith is in trouble! He is a TopCoder member and once he learned to master the "Force" of dynamic programming, he began solving problem after problem. But his once obedient computer acts quite unfriendly today. Following his usual morning ritual, John woke up at 10 AM, had a cup of coffee and went to solve a problem before breakfast. Something didn't seem right from the beginning, but based on his vast newly acquired experience, he wrote the algorithm in a flash. Tired of allocating matrices morning after morning, the computer complained: <strong>"Segmentation fault!"</strong>. Despite his empty stomach, John has a brilliant idea and gets rid of his beloved matrix by adding an extra "for cycle". But the computer cries again: <strong>"Time limit exceeded!"</strong>
 <br><br>
-Instead of going nuts, John makes a radical decision. Enough programming, he says! He decides to take a vacation as a reward for his hard work. 
+Instead of going nuts, John makes a radical decision. Enough programming, he says! He decides to take a vacation as a reward for his hard work.
 <br><br>
-Being a very energetic guy, John wants to have the time of his life! With so many things to do, it is unfortunately impossible for him to enjoy them all. So, as soon as he eats his breakfast, he devises a "Fun Plan" in which he describes a schedule of his upcoming activities: 
+Being a very energetic guy, John wants to have the time of his life! With so many things to do, it is unfortunately impossible for him to enjoy them all. So, as soon as he eats his breakfast, he devises a "Fun Plan" in which he describes a schedule of his upcoming activities:
 <br><br>
 
 <table class="formFrame" width="400" cellpadding="6" cellspacing="2" align="center">
@@ -134,11 +134,11 @@ Being a very energetic guy, John wants to have the time of his life! With so man
 <br><br>
 He now wishes to take advantage of as many as he can.  Such careful planning requires some cleverness, but his mind has gone on vacation too. This is John Smith's problem and he needs our help.
 <br><br>
-Could we help him have a nice holiday?	Maybe we can! But let's make an assumption first. As John is a meticulous programmer, once he agrees on something, he sticks to the plan. So, individual activities may either be chosen or not.  For each of the two choices regarding the first activity, we can make another two choices regarding the second. After a short analysis, we find out that we have 2 ^ N possible choices, in our case 1024.  Then, we can check each one individually to see whether it abides the time restrictions or not. From these, finding the choice with the most activities selected should be trivial. There are quite a lot of alternatives, so John would need to enlist the help of his tired computer. But what happens if we have 50 activities? Even with the most powerful computer in the world, handling this situation would literally take years. So, this approach is clearly not feasible.		
+Could we help him have a nice holiday?	Maybe we can! But let's make an assumption first. As John is a meticulous programmer, once he agrees on something, he sticks to the plan. So, individual activities may either be chosen or not.  For each of the two choices regarding the first activity, we can make another two choices regarding the second. After a short analysis, we find out that we have 2 ^ N possible choices, in our case 1024.  Then, we can check each one individually to see whether it abides the time restrictions or not. From these, finding the choice with the most activities selected should be trivial. There are quite a lot of alternatives, so John would need to enlist the help of his tired computer. But what happens if we have 50 activities? Even with the most powerful computer in the world, handling this situation would literally take years. So, this approach is clearly not feasible.
 <br><br>
-Let's simply the problem and trust our basic instinct for a moment. A good approach may be to take the chance as the first opportunity arises. That is, if we have two activities we can follow and they clash, we choose the one that starts earlier in order to save some time. In this case John will start his first evening by debugging his room. Early the next morning, he has a plane to catch. It is less than a day, and he has already started the second activity. This is great! Actually, <strong>the best choice</strong> for now. But what happens next? Spending 5 days in Hawaii is time consuming and by Saturday evening, he will still have only two activities performed.  Think of all the activities he could have done during this five day span! Although very fast and simple, this approach is unfortunately not accurate. 
+Let's simply the problem and trust our basic instinct for a moment. A good approach may be to take the chance as the first opportunity arises. That is, if we have two activities we can follow and they clash, we choose the one that starts earlier in order to save some time. In this case John will start his first evening by debugging his room. Early the next morning, he has a plane to catch. It is less than a day, and he has already started the second activity. This is great! Actually, <strong>the best choice</strong> for now. But what happens next? Spending 5 days in Hawaii is time consuming and by Saturday evening, he will still have only two activities performed.  Think of all the activities he could have done during this five day span! Although very fast and simple, this approach is unfortunately not accurate.
 <br><br>
-We still don't want to check for every possible solution, so let's try another trick. Committing to such a time intensive activity like the exotic trip to Hawaii can simply be avoided by selecting first the activity which takes the least amount of time and then continuing this process for the remaining activities that are compatible with those already selected. According to the previous schedule, first of all we choose the shower. With only 15 minutes consumed, this is by far the <strong>best local choice</strong>. What we would like to know is whether we can still keep this <strong>"local best"</strong> as the other compatible activities are being selected. John's schedule will look like this: 
+We still don't want to check for every possible solution, so let's try another trick. Committing to such a time intensive activity like the exotic trip to Hawaii can simply be avoided by selecting first the activity which takes the least amount of time and then continuing this process for the remaining activities that are compatible with those already selected. According to the previous schedule, first of all we choose the shower. With only 15 minutes consumed, this is by far the <strong>best local choice</strong>. What we would like to know is whether we can still keep this <strong>"local best"</strong> as the other compatible activities are being selected. John's schedule will look like this:
 <ul>
    <li>Take a shower (15 minutes)</li>
    <li>Participate in the TopCoder Single Round Match (2 hours)</li>
@@ -147,7 +147,7 @@ We still don't want to check for every possible solution, so let's try another t
    <li>Attend the Rock Concert (4 hours)</li>
    <li>Have some paintball fun (6 hours)</li>
 </ul>
-Out of the 10 possible activities, we were able to select 6 (which is not so bad).  We now run the slow but trustworthy algorithm to see if this is actually the best choice we can make.  And the answer is indeed 6. John is very appreciative for our help, but once he returns from the holiday, confident in our ingenious approach, he may face a serious problem:    			
+Out of the 10 possible activities, we were able to select 6 (which is not so bad).  We now run the slow but trustworthy algorithm to see if this is actually the best choice we can make.  And the answer is indeed 6. John is very appreciative for our help, but once he returns from the holiday, confident in our ingenious approach, he may face a serious problem:
 <br>
 <div align=center><img src="/i/education/greedyAlg1.gif" alt="" border="0" /></div>
 <br>
@@ -157,9 +157,9 @@ What we generally have to do in situations like this is to analyze what might ha
 <br>
 <div align=center><img src="/i/education/greedyAlg2.gif" alt="" border="0" /></div>
 <br>
-The activities represented by the blue lines are the optimal choice given the above schedule. But as the activity in red produces only 2 clashes, it will be chosen first. There are 4 compatible activities left before, but they all clash with each other, so we can only select one. The same happens for the activities scheduled after, leaving space for only one more choice. This only gives us 3 activities, while the optimum choice selects 4. 
+The activities represented by the blue lines are the optimal choice given the above schedule. But as the activity in red produces only 2 clashes, it will be chosen first. There are 4 compatible activities left before, but they all clash with each other, so we can only select one. The same happens for the activities scheduled after, leaving space for only one more choice. This only gives us 3 activities, while the optimum choice selects 4.
 <br><br>
-So far, every solution we came up with had a hidden flaw. It seems we have to deal with a devilish problem. Actually, this problem has quite an elegant and straightforward solution. If we study the figure above more carefully, we see that the blue activity on the bottom-left is the only one which finishes before the "timeline" indicated by the thin vertical bar. So, if we are to choose a single activity, choosing the one that ends first (at a time <strong>t1</strong>), will leave all the remaining time interval free for choosing other activities. If we choose any other activity instead, the remaining time interval will be shorter. This is obvious, because we will end up anyway with only one activity chosen, but at a time <strong>t2 > t1</strong>. In the first case we had available all the time span between <strong>t1</strong> and <strong>finish</strong> and that <strong>included</strong> the time between t2 and finish. Consequently, there is no disadvantage in choosing the activity that finishes earlier.  The advantage may result in the situation when we are able to insert another activity that starts between <strong>t1</strong> and <strong>t2</strong> and ends up before the end of any activity that starts after time <strong>t2</strong>. 
+So far, every solution we came up with had a hidden flaw. It seems we have to deal with a devilish problem. Actually, this problem has quite an elegant and straightforward solution. If we study the figure above more carefully, we see that the blue activity on the bottom-left is the only one which finishes before the "timeline" indicated by the thin vertical bar. So, if we are to choose a single activity, choosing the one that ends first (at a time <strong>t1</strong>), will leave all the remaining time interval free for choosing other activities. If we choose any other activity instead, the remaining time interval will be shorter. This is obvious, because we will end up anyway with only one activity chosen, but at a time <strong>t2 > t1</strong>. In the first case we had available all the time span between <strong>t1</strong> and <strong>finish</strong> and that <strong>included</strong> the time between t2 and finish. Consequently, there is no disadvantage in choosing the activity that finishes earlier.  The advantage may result in the situation when we are able to insert another activity that starts between <strong>t1</strong> and <strong>t2</strong> and ends up before the end of any activity that starts after time <strong>t2</strong>.
 <br><br>
 Known as the <strong>"Activity Selection"</strong>, this is a standard problem that can be solved by the <strong>Greedy Method</strong>. As a greedy man takes as much as he can as often as he can, in our case we are choosing at every step the activity that finishes first and do so every time there is no activity in progress. The truth is we all make greedy decisions at some point in our life. When we go shopping or when we drive a car, we make choices that seem best for the moment. Actually, there are two basic ingredients every greedy algorithm has in common:
 <ul>
@@ -169,7 +169,7 @@ Known as the <strong>"Activity Selection"</strong>, this is a standard problem t
 The following pseudo code describes the optimal activity selection given by the "greedy" algorithm proven earlier:
 
 <pre class="codeBox">
-Let N denote the number of activities and 
+Let N denote the number of activities and
 {I}  the activity I  ( 1 <= I <= N )
 For each {I}, consider S[I] and F[I] its starting and finishing time
 Sort the activities in the increasing order of their finishing time
@@ -178,21 +178,21 @@ Sort the activities in the increasing order of their finishing time
 <font color="blue">//  A denotes the set of the activities that will be selected</font>
 A = {1}
 <font color="blue">//  J denotes the last activity selected</font>
-J = 1                                  
-For I = 2  to N                 
+J = 1
+For I = 2  to N
 <font color="blue">// we can select activity 'I' only if the last activity
 // selected has already been finished</font>
       If S [I] >= F [J]
 <font color="blue">//  select activity 'I'</font>
                 A = A + {I}
 <font color="blue">// Activity 'I' now becomes the last activity selected</font>
-                J = I                   
+                J = I
       Endif
 Endfor
 Return A
 </pre>
-	
-After applying the above algorithm, Johnny's "Fun Plan" would look like this: 
+
+After applying the above algorithm, Johnny's "Fun Plan" would look like this:
 <ul>
    <li>Eliminate all the bugs and take some time to rest</li>
    <li>Tuesday is for chess, prepare to beat them all</li>
@@ -200,13 +200,13 @@ After applying the above algorithm, Johnny's "Fun Plan" would look like this:
    <li>The next two days are for recovery</li>
    <li>As for the final day, get a few rating points on TopCoder, take a shower and enjoy the versatile food and the good quality wine</li>
 </ul>
-The problem of John Smith is solved, but this is just one example of what Greedy can do. A few examples of real TopCoder problems will help you understand the concept better. But before moving on, you may wish to practice a little bit more what you have read so far on a problem similar with the Activity Selection, named <A href="http://www.topcoder.com/stat?c=problem_statement&pm=2977&rd=5880">Boxing</A>. 
+The problem of John Smith is solved, but this is just one example of what Greedy can do. A few examples of real TopCoder problems will help you understand the concept better. But before moving on, you may wish to practice a little bit more what you have read so far on a problem similar with the Activity Selection, named <A href="http://www.topcoder.com/stat?c=problem_statement&pm=2977&rd=5880">Boxing</A>.
 <br><br>
 
 <span class=bodySubtitle>BioScore</span><br>
-In this problem you are asked to maximize the average homology score for all the pairs in the set. As an optimal solution is required, this may be a valuable clue in determining the appropriate method we can use. Usually, this kind of problems can be solved by dynamic programming, but in many cases a Greedy strategy could also be employed. 
+In this problem you are asked to maximize the average homology score for all the pairs in the set. As an optimal solution is required, this may be a valuable clue in determining the appropriate method we can use. Usually, this kind of problems can be solved by dynamic programming, but in many cases a Greedy strategy could also be employed.
 <br><br>
-The first thing we have to do here is to <strong>build the frequency matrix</strong>.  This is an easy task as you just have to compare every pair of two sequences and count the occurrences of all the combinations of nucleic acids (AA, AC, AG, AT, CA, CC, CG, CT, GA, GC, GG, GT, TA, TC, TG, TT).  Each of these combinations will be an element in the matrix and its value will represent the total number of occurrences. For example, let's take the set { "ACTAGAGAC", "AAAAAAAAA", "TAGTCATAC", "GCAGCATTC" }  used in Example 2. 
+The first thing we have to do here is to <strong>build the frequency matrix</strong>.  This is an easy task as you just have to compare every pair of two sequences and count the occurrences of all the combinations of nucleic acids (AA, AC, AG, AT, CA, CC, CG, CT, GA, GC, GG, GT, TA, TC, TG, TT).  Each of these combinations will be an element in the matrix and its value will represent the total number of occurrences. For example, let's take the set { "ACTAGAGAC", "AAAAAAAAA", "TAGTCATAC", "GCAGCATTC" }  used in Example 2.
 <br>
 <div align=center><img src="/i/education/greedyAlg3.gif" alt="" border="0" /></div>
 <br>
@@ -216,11 +216,11 @@ Now, let's look at the matrix restrictions and analyze them one by one:
 <br><br>
 <strong>1) The sum of the 16 entries must be 0.</strong>
 <br><br>
-This is more like a commonsense condition. With all the elements in <strong>F</strong> positive, the final score tends to increase as we increase the elements in S. But because the sum must be kept at 0, in order to increase an element, we'll have to decrease others. The challenge of this problem resides in finding the optimal distribution. 
+This is more like a commonsense condition. With all the elements in <strong>F</strong> positive, the final score tends to increase as we increase the elements in S. But because the sum must be kept at 0, in order to increase an element, we'll have to decrease others. The challenge of this problem resides in finding the optimal distribution.
 <br><br>
 <strong>2) All entries must be integers between -10 and 10 inclusive</strong>
 <br><br>
-Another commonsense condition! Our search space has been drastically reduced, but we are still left with a lot of alternatives. 
+Another commonsense condition! Our search space has been drastically reduced, but we are still left with a lot of alternatives.
 <br><br>
 <strong>3) It must be symmetric ( score(x,y) = score(y,x) )</strong>
 <br><br>
@@ -259,7 +259,7 @@ An intuitive approach would be to assign a higher homology score to the combinat
 <br><br>
 This restriction differentiates the elements on the diagonal from the others even further. Basically, we have two groups: the four elements on the diagonal (which correspond to the combinations AA, CC, GG and TT) and the six elements not on the diagonal (which correspond to the combinations AC + CA, AG + GA, AT + TA, CG + GC, CT + TC and GT +TG).  Each of these groups can have different states, depending on the value we assign to their elements.
 <br><br>
-To make things easier, <strong>for each possible state in the first group we wish to find an optimal state for the second group</strong>. As all the elements in the second group have the same property, we will try to find their optimal state by using a <strong>Greedy approach</strong>. But because the elements in the first group can take any values between 1 and 10, the sum we wish to obtain for the scores we choose in the second group has to be recalculated. It's easy to notice that the sum of the elements in the first group can range anywhere between 4 and 40. As a result, depending on the choice we make for the first group, we'll have to obtain a sum between -2 and -20 for the second (we shall not forget that the symmetrical elements in the matrix have been coupled together, thus they count twice in the score matrix).  
+To make things easier, <strong>for each possible state in the first group we wish to find an optimal state for the second group</strong>. As all the elements in the second group have the same property, we will try to find their optimal state by using a <strong>Greedy approach</strong>. But because the elements in the first group can take any values between 1 and 10, the sum we wish to obtain for the scores we choose in the second group has to be recalculated. It's easy to notice that the sum of the elements in the first group can range anywhere between 4 and 40. As a result, depending on the choice we make for the first group, we'll have to obtain a sum between -2 and -20 for the second (we shall not forget that the symmetrical elements in the matrix have been coupled together, thus they count twice in the score matrix).
 <br><br>
 Now, we have finally reached to the <strong>problem core</strong>. The solution to the entire problem depends on finding the optimal choice for the scores in the second group. If the problem has indeed the <strong>greedy choice property</strong> and the <strong>optimal substructure property</strong>, we'll be able to pick one element form the group, assign it the best scenario and proceed with the remaining elements in the same manner.
 <br><br>
@@ -267,27 +267,27 @@ Now, we have finally reached to the <strong>problem core</strong>. The solution 
 <br><br>
 The first thing we have to do is to sort these six elements in matrix F. Then, we have to actually compute the corresponding score values in S. As the total score we should obtain is at least -20, one quick insight tells us that the first two elements could be given a score of 10 (if we assign -10 to all the remaining four elements, -20 can still be achieved). We know as well that the final score is less than 0.  Because we want to maximize the scores for the first elements, the last three elements can only be -10 (in the best case the score sum of the elements is -2 and then, we assign scores in the following manner: [10, 10, 8, -10, -10, -10]). Finally, the value of the third element will depend on the choices we make for the first group. From the maximum of 10, we subtract half of the score sum of the elements in the first group (we should note here that the aforementioned sum must be even).
 <br><br>
-Now, we have to make sure that our approach is indeed correct. The proof is quite straightforward, as in order keep the sum in <strong>S</strong> constant we can only decrease from the score of a combination with more occurrences and increase to the score of a combination with fewer occurrences. Let  <strong>f1</strong> and <strong>f2</strong> be the frequencies of the two combinations and <strong>f1 >= f2</strong>. We have f1 * s1 + f2 * s2 = X, where <strong>X</strong> is the sum we should maximize. By our <strong>greedy assumption, s1 >= s2</strong>.  As s1 + s2 remains constant, the previous sum changes to: f1*(s1 - a) + f2*( s2 + a) = Y, where a is strictly greater than 0. We find out that Y - X = a * (f2 - f1). Because f1 >= f2, this difference will always be less than or equal to 0.  It results that Y <= X. As Y was chosen arbitrarily, it can be concluded that the initial greedy choice always gives the maximum possible score. 
+Now, we have to make sure that our approach is indeed correct. The proof is quite straightforward, as in order keep the sum in <strong>S</strong> constant we can only decrease from the score of a combination with more occurrences and increase to the score of a combination with fewer occurrences. Let  <strong>f1</strong> and <strong>f2</strong> be the frequencies of the two combinations and <strong>f1 >= f2</strong>. We have f1 * s1 + f2 * s2 = X, where <strong>X</strong> is the sum we should maximize. By our <strong>greedy assumption, s1 >= s2</strong>.  As s1 + s2 remains constant, the previous sum changes to: f1*(s1 - a) + f2*( s2 + a) = Y, where a is strictly greater than 0. We find out that Y - X = a * (f2 - f1). Because f1 >= f2, this difference will always be less than or equal to 0.  It results that Y <= X. As Y was chosen arbitrarily, it can be concluded that the initial greedy choice always gives the maximum possible score.
 <br><br>
-We apply the algorithm described above for each state of the elements in the first group and save the best result. 
+We apply the algorithm described above for each state of the elements in the first group and save the best result.
 <br><br>
-<strong>Representation</strong>: Instead of using the matrices <strong>F</strong> and <strong>S</strong>, <strong>we find it more convenient to use arrays for storing both the combination frequencies and their corresponding score</strong>. The first 4 elements of <strong>F</strong> will denote the frequency of the combinations AA, CC, GG and TT. The next 6 elements will denote the other possible combinations and are sorted in the decreasing order of their frequency (F[5] >= F[6] >= F[7] >= F[8] >= F[9] >= F[10]). <strong>S</strong> will be an array of 10 elements such that S[I] is the score we attribute to the combination I. 
+<strong>Representation</strong>: Instead of using the matrices <strong>F</strong> and <strong>S</strong>, <strong>we find it more convenient to use arrays for storing both the combination frequencies and their corresponding score</strong>. The first 4 elements of <strong>F</strong> will denote the frequency of the combinations AA, CC, GG and TT. The next 6 elements will denote the other possible combinations and are sorted in the decreasing order of their frequency (F[5] >= F[6] >= F[7] >= F[8] >= F[9] >= F[10]). <strong>S</strong> will be an array of 10 elements such that S[I] is the score we attribute to the combination I.
 <br><br>
-The main algorithm is illustrated in the following pseudo code: 
+The main algorithm is illustrated in the following pseudo code:
 <pre class="codeBox">
 Best = -Infinity
 For S [1] = 1 to 10
       For S [2] = 1 to 10
             For S [3] = 1 to 10
-                  For S [4] = 1 to 10 
+                  For S [4] = 1 to 10
                         If  (S [1] + S [2] + S [3] + S [4]) mod 2 = 0
                              S [5] = S[6] = 10
-                             S [7] = 10 - (S [1] + S [2] + S [3] + S[4]) / 2 
+                             S [7] = 10 - (S [1] + S [2] + S [3] + S[4]) / 2
                              S [8] = S [9] = S [10] = -10
 <font color="blue">//  in Best we save the greatest average homology score</font>
-                             Best = max (Best , score (F,S))        
+                             Best = max (Best , score (F,S))
 <font color="blue">//  obtained so far.</font>
-                       Endif                                                       
+                       Endif
                  Endfor
            Endfor
       Endfor
@@ -520,7 +520,7 @@ b1 - the profit obtained when an additional worker is assigned to mine B<br>
 b1 + b2 - the profit obtained when two additional workers are assigned to mine B<br>
 Let us now consider that we have two workers to assign and a1 >= b1.
 <br><br>
-Our greedy algorithm will increase the profit by a1 for the first worker and by max (a2, b1) for the second worker.  The total profit in this case is <strong>a1+max(a2,b1)</strong>.  If we were to choose the profit b1 for the first worker instead, the alternatives for the second worker would be a profit of a1 or a profit of b2. 
+Our greedy algorithm will increase the profit by a1 for the first worker and by max (a2, b1) for the second worker.  The total profit in this case is <strong>a1+max(a2,b1)</strong>.  If we were to choose the profit b1 for the first worker instead, the alternatives for the second worker would be a profit of a1 or a profit of b2.
 <br><br>
 In the first case, the total profit would be b1+a1 <= a1 + max (a2,b1).<br>
 In the second case, the total profit would be b1+b2. We need to prove that b1+b2 <= a1+max(a2,b1).  But b2 <= b1 as <strong>the profit of allocating an extra worker to a mine is always higher or equal with the profit of allocating the next extra worker to that mine</strong>.
@@ -569,23 +569,23 @@ Repeat
        If Min > 0 Groups = Groups + 1
         For I = 1 to K
                A[I] = A[I] - 1
-        Endfor           
-Until  Min = 0 
+        Endfor
+Until  Min = 0
 Return Groups
 </pre>
 
-Unfortunately, a country can have up to a billion citizens, so we cannot afford to make only one group at a time. Theoretically, for a given set of k countries, we can make groups until all the citizens in one of these countries have been grouped. And this can be done in a single step: 
+Unfortunately, a country can have up to a billion citizens, so we cannot afford to make only one group at a time. Theoretically, for a given set of k countries, we can make groups until all the citizens in one of these countries have been grouped. And this can be done in a single step:
 <pre class="codeBox">
 Groups = 0
 Repeat
 <font color="blue">// sorts the array in decreasing order</font>
-       Sort (A)           
+       Sort (A)
        Min= A[K]
        Groups = Groups + Min
         For I = 1 to K
                A[I] = A[I] - Min
-        Endfor           
-Until  Min = 0 
+        Endfor
+Until  Min = 0
 Return Groups
 </pre>
 The execution time is no longer a problem, but it is the algorithm! As we check it on the example 0, our method returns 4 instead of 5. The result returned for the examples 1, 2 and 3 is correct. As for the last example, instead of making 3983180234 groups, we are able to make 3983180207. Taking into account the small difference, we may say that our solution is <strong>pretty good</strong>, so maybe we can refine it more on this direction.
@@ -606,8 +606,8 @@ Repeat
        Groups = Groups + Allowance
         For I = 1 to K
                A[I] = A[I] - Allowance
-        Endfor           
-Until  Min = 0 
+        Endfor
+Until  Min = 0
 Return Groups
 </pre>
 If this approach is correct indeed, remains to be seen.  Despite the fact it escaped both Tomek's keen eyes and system tests, it is very likely that the result is not optimal for all the set of possible test cases. This was just an example to show that a carefully chosen refinement on a simple (but obvious faulty) greedy approach can actually be the "right" way. For more accurate solutions to this problem, see the <A href="http://www.topcoder.com/index?t=statistics&c=srm204_prob">Match Editorial</A>.
@@ -621,7 +621,7 @@ A few final notes
    <li>problems with a very large input size (such that a n^2 algorithm is not fast enough) are also more likely to be solved by greedy than by backtracking or <A href="http://www.topcoder.com/tc?module=Static&d1=tutorials&d2=dynProg">dynamic programming</A>. </li>
    <li>despite the rigor behind them, you should look to the greedy approaches through the eyes of a detective, not with the glasses of a mathematician.</li>
 </ul>
-         				 				                           
+
 <table class="bodyText" cellpadding="10" cellspacing="0" align="center">
    <tr class="bodyText">
       <td align="center"><strong>A good detective</strong><br><div align=center><img src="/i/education/greedyAlg4.gif" alt="" border="0" /></div></td>
@@ -658,7 +658,7 @@ A few final notes
 <A href="/stat?c=problem_statement&pm=3076&rd=5866">RearrangeFurniture</A> - SRM 220<br>
 <A href="/stat?c=problem_statement&pm=2420&rd=5850">WorldPeace</A> - SRM 204<br>
 </p>
-            
+
 
         </div>
         <p><br/></p>
@@ -667,7 +667,7 @@ A few final notes
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -679,7 +679,7 @@ A few final notes
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

@@ -9,13 +9,13 @@
 <head>
 <title>Terms &amp; Revisions at TopCoder</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="/script.jsp" />
 
 </head>
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="/top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -24,7 +24,7 @@
 
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="about"/>
                 <jsp:param name="level2" value="terms"/>
             </jsp:include>
@@ -38,35 +38,35 @@
 <!-- Center Column Begins -->
         <td class="bodyText" width="99%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
         <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="about_tc"/>  
-           <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value="Terms &amp; Revisions at TopCoder"/>  
+           <jsp:param name="image" value="about_tc"/>
+           <jsp:param name="image1" value="white"/>
+           <jsp:param name="title" value="Terms &amp; Revisions at TopCoder"/>
         </jsp:include>
 
  <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
-                    <td class="bodyText" width="100%"><br/>  
+                    <td class="bodyText" width="100%"><br/>
                         <p><b>ACCEPTANCE OF TERMS AND REVISIONS</b><br/>
                         By using this Web site you are indicating your agreement to these Terms of Use ("Terms").  If you do not agree to these
                         Terms, please do not use the site and exit now.</p>
 
-                        <p>We may revise these Terms at any time without prior notice by updating this page and such revisions will be effective upon posting to this page.  
-                        Please check this page periodically for any changes.  Your continued use of this Web site following the posting of any revisions to these Terms will 
-                        mean you accept those changes.  We reserve the right to alter, suspend or discontinue any aspect of www.topcoder.com, including your access to it.  
+                        <p>We may revise these Terms at any time without prior notice by updating this page and such revisions will be effective upon posting to this page.
+                        Please check this page periodically for any changes.  Your continued use of this Web site following the posting of any revisions to these Terms will
+                        mean you accept those changes.  We reserve the right to alter, suspend or discontinue any aspect of www.topcoder.com, including your access to it.
                         Unless explicitly stated, any new features will be subject to these terms and conditions.</p>
 
                         <p><b>PRIVACY</b><br/>
                         See our complete <A href="/tc?module=Static&d1=about&d2=privacy" class="bodyText">privacy policy.</A></p>
 
 <b>PROVISIONS APPLICABLE TO CHINESE CITIZENS AND EXPATRIATES RESIDING IN CHINA</b><br/>
-TopCoder hereby incorporates into these Terms of Use and Privacy Policy the provisions of China's Decision on Safeguarding the Security of the Internet.  
+TopCoder hereby incorporates into these Terms of Use and Privacy Policy the provisions of China's Decision on Safeguarding the Security of the Internet.
 <br/>
 <br/>
 According to Section 1 of Decision on Safeguarding the Security of the Internet, "to ensure operational security of the Internet, the person or organization perpetrating any of the following acts in violation of the criminal law shall be penalized according to the criminal code:
 <ol>
     <li>Unauthorized penetration into the computer and information system of the state affair, national defense or high-tech departments of the state;</li>
     <li>Intentional composition or dissemination of computer virus or other destructive programs, or attacking the computer system or telecommunication network and resulting in damage or destruction of such computer systems or telecommunication network;</li>
-    <li>Unauthorized disruption of operation of the computer network or telecommunication service and resulting in malfunction of such network or telecommunication systems in violation of the laws or regulations of the state." </li> 
+    <li>Unauthorized disruption of operation of the computer network or telecommunication service and resulting in malfunction of such network or telecommunication systems in violation of the laws or regulations of the state." </li>
 </ol>
 <br/>
 <br/>
@@ -184,19 +184,19 @@ to this material. By posting, uploading or otherwise sending any source code to 
 site, you grant (or warrant that the owner of such rights has expressly
 granted) us a perpetual, royalty-free, irrevocable, non-exclusive right and
 license to use,  reproduce and publish such code into any form, medium or
-technology, including the right, at TopCoder's sole discretion, to distribute 
+technology, including the right, at TopCoder's sole discretion, to distribute
 such code to be published by third-parties.
 <br/><br/>
 With respect to any other material posted, uploaded or otherwise sent, you
 grant (or warrant that the owner of such rights has expressly granted) us
 the same license as pertains to source code with the additional license to
 modify, adapt, translate, create derivative works from, and distribute such
-materials or incorporate such materials into any form, medium or technology, 
-including the right, at TopCoder's sole discretion, to distribute such materials to 
+materials or incorporate such materials into any form, medium or technology,
+including the right, at TopCoder's sole discretion, to distribute such materials to
 be published by third-parties.
 <br/><br/>
-You waive any and all moral rights, including, without limitation, any rights arising under Chapter 7 of the Copyright and Related Rights 
-Act 2000 applicable to European Union residents, and all rights of a similar nature in any jurisdiction in any material, including source 
+You waive any and all moral rights, including, without limitation, any rights arising under Chapter 7 of the Copyright and Related Rights
+Act 2000 applicable to European Union residents, and all rights of a similar nature in any jurisdiction in any material, including source
 code, which you post, upload or otherwise send to TopCoder or it's website, such waivers being in favor of TopCoder.
 <br/><br/>
 You are also prohibited from posting or otherwise uploading to our Web site:  any material that infringes on any copyright,
@@ -218,17 +218,17 @@ the right to remove any postings or other uploaded materials in response to comp
 defamation or to otherwise review or edit such materials as appropriate, in our sole discretion and without notice.
 <br/><br/><br/>
 <b>OTHER RESTRICTIONS ON CONDUCT</b><br/>
-You are allowed to register only once and you must provide true and accurate registration information. You are prohibited from misrepresenting 
+You are allowed to register only once and you must provide true and accurate registration information. You are prohibited from misrepresenting
 your registration information or tampering with the registration process.
 <br/><br/>
 You agree not to disrupt, modify or interfere with the functioning of our Web site or any services provided on or through
 our Web site or with any associated software, hardware or servers in any way and you agree not to impede or interfere with
-others' use of our Web site. This includes your agreement that you will not cheat; that the idea for the code and/or challenge(s) submitted by you is 
-yours alone.  This also includes your agreement that you will not provide your TopCoder information including, but not limited to, your TopCoder handle and rating, to any third 
-party for the purpose of pursuing employment opportunities without the written consent of TopCoder. 
-If you are contacted by a third-party regarding employment opportunities and/or media interest as a result in your 
-participation in TopCoder competitions (including, but not limited to, Single Round Matches and tournaments), you agree 
-to promptly notify TopCoder of such contact. You also agree not to alter or tamper with any information or materials on, or 
+others' use of our Web site. This includes your agreement that you will not cheat; that the idea for the code and/or challenge(s) submitted by you is
+yours alone.  This also includes your agreement that you will not provide your TopCoder information including, but not limited to, your TopCoder handle and rating, to any third
+party for the purpose of pursuing employment opportunities without the written consent of TopCoder.
+If you are contacted by a third-party regarding employment opportunities and/or media interest as a result in your
+participation in TopCoder competitions (including, but not limited to, Single Round Matches and tournaments), you agree
+to promptly notify TopCoder of such contact. You also agree not to alter or tamper with any information or materials on, or
 associated with our Web site or services provided on or through our Web site.
 <br/><br/>
 We do not necessarily endorse, support, sanction, encourage, verify or agree with the comments, opinions, or other
@@ -236,7 +236,7 @@ statements made public at our Web site by users through  our competition or Roun
 available at our Web site.  Any information or material sent by users to such forums, including advice and opinions,
 represents the views and is the responsibility of those users and does not necessarily represent our views.
 <br/><br/>
-You agree that no impediment exists to you joining the TopCoder website, and your participation in TopCoder's website and the competitions it 
+You agree that no impediment exists to you joining the TopCoder website, and your participation in TopCoder's website and the competitions it
 offers will not interfere with your performance of any other agreement or obligation which has been or will be made with any third party.
 <br/><br/>
 <b>CHOICE OF LAW AND FORUM</b>
@@ -253,7 +253,7 @@ If any provision or portion of these Terms is held illegal, invalid, or unenforc
 <br/>
 <b>TERMINATION/EXCLUSION</b>
 <br/>
-We reserve the right, in our sole discretion, to revoke any and all privileges associated with accessing and/or 
+We reserve the right, in our sole discretion, to revoke any and all privileges associated with accessing and/or
 competing on our web site, and to take any other action we deem appropriate including but not limited to terminating or suspending your use of www.topcoder.com, for no reason or any reason whatsoever, including improper use of this site or failure to comply with these Terms.
 <br/>
 <br/>
@@ -279,7 +279,7 @@ If you have any questions regarding these Terms, contact us at <a href="mailto:s
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="/public_right.jsp">
                <jsp:param name="level1" value="about"/>
             </jsp:include>
          </td>
@@ -291,7 +291,7 @@ If you have any questions regarding these Terms, contact us at <a href="mailto:s
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="/foot.jsp" />
 
 </body>
 

@@ -2,6 +2,7 @@
 <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
  "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
 <web-app>
+    <distributable/>
     <servlet>
         <servlet-name>MainServlet</servlet-name>
         <display-name>MainServlet</display-name>
@@ -1466,19 +1467,19 @@
         <!-- Common parameters -->
         <init-param>
             <param-name>data_source</param-name>
-            <param-value>SCREENING_OLTP</param-value>
+            <param-value>java:SCREENING_OLTP</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>tx_data_source</param-name>
-            <param-value>JTS_SCREENING_OLTP</param-value>
+            <param-value>java:JTS_SCREENING_OLTP</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>dw_data_source</param-name>
-            <param-value>DW</param-value>
+            <param-value>java:DW</param-value>
             <description></description>
         </init-param>
 
@@ -1533,42 +1534,56 @@
 
     <servlet-mapping>
         <servlet-name>TransactionServlet</servlet-name>
-        <url-pattern>/Tx/</url-pattern>
+        <url-pattern>/Tx</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>tces</servlet-name>
-        <url-pattern>/tces/</url-pattern>
+        <url-pattern>/tces</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>screening</servlet-name>
-        <url-pattern>/testing/</url-pattern>
+        <url-pattern>/testing</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>JNLPServlet</servlet-name>
-        <url-pattern>/JNLPServlet/</url-pattern>
+        <url-pattern>/JNLPServlet</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>GraphServlet</servlet-name>
-        <url-pattern>/graph/</url-pattern>
+        <url-pattern>/graph</url-pattern>
     </servlet-mapping>
 
     <taglib>
         <taglib-uri>tc-webtags.tld</taglib-uri>
-        <taglib-location>tc-webtags.tld</taglib-location>
+        <taglib-location>/WEB-INF/tc-webtags.tld</taglib-location>
     </taglib>
 
     <taglib>
         <taglib-uri>screening.tld</taglib-uri>
-        <taglib-location>screening.tld</taglib-location>
+        <taglib-location>/WEB-INF/screening.tld</taglib-location>
     </taglib>
 
     <taglib>
         <taglib-uri>tces-taglib.tld</taglib-uri>
-        <taglib-location>tces-taglib.tld</taglib-location>
+        <taglib-location>/WEB-INF/tces-taglib.tld</taglib-location>
     </taglib>
+
+    <taglib>
+        <taglib-uri>rsc-taglib.tld</taglib-uri>
+        <taglib-location>/WEB-INF/rsc-taglib.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>privatelabel.tld</taglib-uri>
+        <taglib-location>/WEB-INF/privatelabel.tld</taglib-location>
+    </taglib>
+    <taglib>
+      <taglib-uri>tc-taglib.tld</taglib-uri>
+      <taglib-location>/WEB-INF/tc-taglib.tld</taglib-location>
+   </taglib>
+
 
 </web-app>

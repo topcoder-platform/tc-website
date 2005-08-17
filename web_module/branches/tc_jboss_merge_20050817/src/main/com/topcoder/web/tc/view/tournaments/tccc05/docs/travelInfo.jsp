@@ -9,7 +9,7 @@
 <link type="text/css" rel="stylesheet" href="/css/TCCC05style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 </head>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <body>
 
@@ -74,7 +74,7 @@
 
 
         <table border="0" cellspacing="3" cellpadding="0" width="100%" class="bodyText">
-    <form name="questForm" method="POST" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>">
+    <form name="questForm" method="POST" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
         <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCCC05TravelInfoSubmit"/>
             <tr><td colspan="2"><H1 align="center">Travel Form</H1></td></tr>
             <tr><td colspan="2"><U><B>COMPETITOR INFORMATION:</B></U><br /></td></tr>

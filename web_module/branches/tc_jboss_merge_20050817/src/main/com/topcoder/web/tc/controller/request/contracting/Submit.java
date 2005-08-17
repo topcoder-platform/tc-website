@@ -18,7 +18,7 @@ import com.topcoder.web.ejb.user.UserNote;
 import com.topcoder.web.ejb.user.UserPreference;
 import com.topcoder.web.tc.Constants;
 
-import javax.transaction.UserTransaction;
+import javax.transaction.TransactionManager;
 import javax.transaction.Status;
 import java.util.*;
 
@@ -31,9 +31,8 @@ public class Submit extends ContractingBase {
 
     protected void contractingProcessing() throws TCWebException {
         try {
-            UserTransaction ut = Transaction.get(getInitialContext());
-            ut.begin();
-
+            TransactionManager tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+            tm.begin();
             try {
                 //prefs
                 UserPreference prefbean = (UserPreference) createEJB(getInitialContext(), UserPreference.class);
@@ -188,13 +187,12 @@ public class Submit extends ContractingBase {
                 }
 
 
-                ut.commit();
+                tm.commit();
                 clearInfo();
             } catch (Exception e) {
-                if (ut!=null && ut.getStatus()==Status.STATUS_ACTIVE) {
-                    ut.rollback();
-                    throw e;
-                }
+                if (tm!=null && tm.getStatus()==Status.STATUS_ACTIVE)
+                    tm.rollback();
+                throw e;
             }
 
             //send confirmation email

@@ -1,24 +1,16 @@
 package com.topcoder.web.privatelabel.controller.request.dc05;
 
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.controller.request.BaseActivate;
 import com.topcoder.web.privatelabel.controller.request.FullRegSubmit;
-import com.topcoder.web.privatelabel.model.ResumeRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 /**
  * @author  dok

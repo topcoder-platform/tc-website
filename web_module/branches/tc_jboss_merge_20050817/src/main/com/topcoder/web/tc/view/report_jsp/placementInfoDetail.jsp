@@ -22,8 +22,8 @@ List osList = (List)request.getAttribute("osSkills");
 List industryList = (List)request.getAttribute("industrySkills");
 %>
 
-<jsp:usebean id="contractingInfo" class="com.topcoder.web.tc.model.ContractingInfo" scope="request" />
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="contractingInfo" class="com.topcoder.web.tc.model.ContractingInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 </head>
 
@@ -31,7 +31,7 @@ List industryList = (List)request.getAttribute("industrySkills");
 
         <table border=0 cellpadding=0 cellspacing=0 width="100%">
             <tr>
-				<td align=left><p><a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?module=LegacyReport&t=new_report&c=placement_people&db=OLTP"><< back to placement registrants report</a></p></td>
+				<td align=left><p><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=LegacyReport&t=new_report&c=placement_people&db=OLTP"><< back to placement registrants report</a></p></td>
 
             </tr>
             <tr><td><br/></td></tr>
@@ -50,9 +50,9 @@ List industryList = (List)request.getAttribute("industrySkills");
             <tr>
                 <td align=center>
                 <% if (((Boolean)request.getAttribute("has_notes")).booleanValue()) { %>
-                     <A HREF="/tc?module=ViewNotes&uid=<jsp:getProperty name="contractingInfo" property="userId" />">View Notes</A>
+                     <A HREF="/tc?module=ViewNotes&uid=<jsp:getProperty name="contractingInfo" property="userID" />">View Notes</A>
                 <% } else { %>
-                     <A HREF="/tc?module=EditNote&uid=<jsp:getProperty name="contractingInfo" property="userId" />"/>Add Note</A>
+                     <A HREF="/tc?module=EditNote&uid=<jsp:getProperty name="contractingInfo" property="userID" />"/>Add Note</A>
                 <% } %>
                 </td>
             </tr>
@@ -86,7 +86,7 @@ List industryList = (List)request.getAttribute("industrySkills");
                         <tr>
                             <td valign=top align=center colspan=2>
                                 <%if("true".equals(request.getAttribute("has_resume"))) {%>
-                                    <a href="/tc?module=DownloadResume&<%=Constants.USER_ID%>=<jsp:getProperty name="contractingInfo" property="userId" />">Download resume</a>
+                                    <a href="/tc?module=DownloadResume&<%=Constants.USER_ID%>=<jsp:getProperty name="contractingInfo" property="userID" />">Download resume</a>
                                 <%} else { %>
                                     No resume on file.
                                 <% } %>

@@ -15,7 +15,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "category_admin.jsp";
-    String action = request.getParameter("a");	
+    String action = request.getParameter("a");
 %>
 
 <%
@@ -27,7 +27,7 @@
         return;
     }
 
-    Object objCatalog = CONTEXT.lookup("CatalogEJB");
+    Object objCatalog = CONTEXT.lookup(CatalogHome.EJB_REF_NAME);
     CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objCatalog, CatalogHome.class);
     Catalog catalog = home.create();
 
@@ -70,15 +70,15 @@
                             addChild(node);
                             htIn.put("" + node.getCategory().getId(), node);
                             node.loadChildren(htIn);
-                    }		
+                    }
             }
 
             public String buildBreadCrumb(boolean showAnchor) {
                     if (parent == null) {
-                            return "<a href=\"c_showroom.jsp\" class=\"breadcrumbLinks\">Component Catalog</a>";	
+                            return "<a href=\"c_showroom.jsp\" class=\"breadcrumbLinks\">Component Catalog</a>";
                     } else {
                             String str = parent.buildBreadCrumb(true) + " &gt; ";
-                            if (showAnchor) { 
+                            if (showAnchor) {
                                     str += "<a href=\"c_showroom.jsp?cat=" + category.getId() + "\" class=\"breadcrumbLinks\">" + category.getName() + "</a>";
                             } else {
                                     str += "<strong>" + category.getName() + "</strong>";
@@ -104,7 +104,7 @@
     } catch (NumberFormatException nfe) {
         lngSubcategory = -1;
     }
-    
+
     if (lngSubcategory == -1) {
         try {
                 lngSubcategory = Long.parseLong(request.getParameter("subcat"));
@@ -141,9 +141,9 @@
                 tmpCat.setName(catName);
                 tmpCat.setDescription(catDesc);
                 catalog.updateCategory(tmpCat);
-            }            
+            }
         }
-        
+
         if (action.equalsIgnoreCase("Delete Market")) {
             Category tmpCat = catalog.getCategory(lngCategory);
             catalog.removeCategory(lngCategory);
@@ -215,7 +215,7 @@
 	<title>TopCoder Software</title>
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-  
+
 <script language="JavaScript" type="text/javascript" src="/scripts/javascriptAdmin.js">
 </script>
 
@@ -261,7 +261,7 @@
 				<tr><td class="normal"><img src="/images/headCategoryAdmin.gif" alt="Category Admin" width="545" height="35" border="0" /></td></tr>
 				<tr><td class="adminSubhead"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td></tr>
 			</table>
-				
+
 			<table width="100%" cellpadding="0" cellspacing="6" align="center" border="0">
 				<tr valign="top">
 					<td align="center">
@@ -270,7 +270,7 @@
 						<table cellpadding="0" cellspacing="0" border="0">
 							<tr><td width="500" height="29"><img src="/images/headVertMarkAdmin.gif" alt="Vertical Markets" width="500" height="29" border="0" /></td></tr>
 						</table>
-						
+
 <!-- Select a Market -->
 						<table width="500" border="0" cellspacing="8" cellpadding="0" align="center" class="admin">
 							<tr valign="middle">
@@ -306,7 +306,7 @@
 								<td width="1%" class="adminText"><input class="adminSearchForm" type="text" size="30" name="txtVerticalCategory" value="<%= verticalMarketNode.getCategory().getName() %>"></input></td>
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
-							
+
 <!-- Market Description -->
 							<tr valign="top">
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
@@ -315,7 +315,7 @@
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 						</table>
-							
+
 <!-- Submit Buttons -->
 						<table width="500" border="0" cellspacing="8" cellpadding="0" align="center" class="admin">
 							<tr valign="middle">
@@ -325,7 +325,7 @@
 								<td width="1%" class="adminText"><input class="adminButton" type="submit" name="a" value="Delete Market"></input></td>
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td></tr>
 						</table>
-						
+
 						<table width="500" cellpadding="0" cellspacing="0" border="0" align="center" class="admin">
 							<tr><td><img src="/images/adminFoot.gif" alt="" width="500" height="11" border="0" /></td></tr>
 						</table>
@@ -347,7 +347,7 @@
 								<td width="1%" class="adminText"><input class="adminSearchForm" type="text" size="30" name="txtVerticalCategory" value=""></input></td>
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
-							
+
 <!-- Market Description -->
 							<tr valign="top">
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
@@ -382,7 +382,7 @@
 						<table cellpadding="0" cellspacing="0" border="0">
 							<tr><td width="445" height="29"><img src="/images/headCategoriesAdmin.gif" alt="Categories" width="500" height="29" border="0" /></td></tr>
 						</table>
-						
+
 <!-- Choose a Category -->
 						<table width="500" border="0" cellspacing="8" cellpadding="0" align="center" class="admin">
 							<tr valign="middle">
@@ -397,7 +397,7 @@
 									<input type="hidden" name="cat" value="<%= lngCategory %>"></input>
 									<input type="hidden" name="subcat" value="<%= lngSubcategory %>"></input>
 									<img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								
+
 	<% CategoryNode children[] = (CategoryNode[])((verticalMarketNode.getChildren()).toArray(new CategoryNode[0])); %>
 
 								<td width="1%" class="adminText">
@@ -428,7 +428,7 @@
 								<td width="1%" class="adminText"><input class="adminSearchForm" type="text" size="30" name="txtCategoryName" value=""></input></td>
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
-							
+
 <!-- Category Description -->
 							<tr valign="top">
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
@@ -461,7 +461,7 @@
 								<td width="1%" class="adminText"><input class="adminSearchForm" type="text" size="30" name="txtCategoryName" value="<%= subcategoryNode.getCategory().getName() %>"></input></td>
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
-							
+
 <!-- Category Description -->
 							<tr valign="top">
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
@@ -470,7 +470,7 @@
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 						</table>
-							
+
 <!-- Submit Buttons -->
 						<table width="500" border="0" cellspacing="8" cellpadding="0" align="center" class="admin">
 							<tr valign="middle">
@@ -488,7 +488,7 @@
 <!-- Categories Ends -->
 
 	<% } %></form>
-	
+
 <% } %>
 
 						<table width="500" cellpadding="0" cellspacing="0" border="0" align="center">
@@ -517,7 +517,7 @@
 <!-- Gutter 3 ends -->
 	</tr>
 </table>
-	
+
 <!-- Footer begins -->
 <jsp:include page="/includes/footer.jsp" flush="true" />
 <!-- Footer ends -->

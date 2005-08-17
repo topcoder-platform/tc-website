@@ -18,7 +18,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -46,7 +46,7 @@
    <jsp:param name="selectedTab" value="eligibility"/>
 </jsp:include>
 
-            <h2>Eligibility</h2> 
+            <h2>Eligibility</h2>
 
             <p>
             All TopCoder members who are 18 years of age or older may attempt to
@@ -66,17 +66,17 @@
             participated in at least three (3) TopCoder rated events (i.e., Single
             Round Matches and previous tournaments) prior to October 7th, with at
             least one (1) of those events being between July 7th and October 7th,
-            will receive an automatic berth into Online Round 1. 
+            will receive an automatic berth into Online Round 1.
             <br/><br/>
-            Please note that the top 100 rated members with automatic berths will not be permitted 
-            to compete in the Qualification Rounds.  In addition, the members qualifying for the tournament 
+            Please note that the top 100 rated members with automatic berths will not be permitted
+            to compete in the Qualification Rounds.  In addition, the members qualifying for the tournament
             in Qualification Round #1 will not be permitted to compete in Qualification Round #2.
             </p>
-            
+
 
             <p><span class="bodySubtitle">Eligibility</span><br />
-            TopCoder members who are 18 years of age or older are eligible to win cash prizes, unless otherwise prohibited.  The TopCoder Open is 
-            void in the Quebec province of Canada, and elsewhere where prohibited by applicable law.  Cash prizes will not be paid to residents 
+            TopCoder members who are 18 years of age or older are eligible to win cash prizes, unless otherwise prohibited.  The TopCoder Open is
+            void in the Quebec province of Canada, and elsewhere where prohibited by applicable law.  Cash prizes will not be paid to residents
             of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.</p>
 
             <p>Employees of TopCoder, Inc. and those involved in the production (including prize suppliers), implementation

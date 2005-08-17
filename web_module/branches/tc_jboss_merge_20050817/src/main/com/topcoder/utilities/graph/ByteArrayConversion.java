@@ -2,7 +2,7 @@
  *
  *                            ByteArrayConversion.java
  *
- * Copyright 1998-2003 Kary Fr�mling
+ * Copyright 1998-2003 Kary Framling
  * Source code distributed under GNU LESSER GENERAL PUBLIC LICENSE,
  * included in the LICENSE.txt file in the topmost directory
  *
@@ -15,7 +15,7 @@ package com.topcoder.utilities.graph;
  * Class that provides utilities for converting various data types to and
  * from byte-array presentation.
  *
- * @author Kary FR&Auml;MLING 6/6/1998
+ * @author Kary FRAMLING 6/6/1998
  */
 public class ByteArrayConversion {
 
@@ -29,7 +29,7 @@ public class ByteArrayConversion {
     /**
      * Return the unsigned int value given by the byte array in little-endian (?) order.
      *
-     * @author Kary FR&Auml;MLING 7/6/1998
+     * @author Kary FRAMLING 7/6/1998
      */
     //=============================================================================
     public static int bytesLEasUINT(byte[] bytes, int start_offset, int end_offset) {
@@ -50,7 +50,7 @@ public class ByteArrayConversion {
      * Return the int value given by the byte array in little-endian order.
      * Here we interpret the first bit of the first byte as being a sign bit.
      *
-     * @author Kary FR&Auml;MLING 2/4/1998
+     * @author Kary FRAMLING 2/4/1998
      */
     //=============================================================================
     public static int bytesLEasINT(byte[] bytes, int start_offset, int end_offset) {
@@ -81,7 +81,7 @@ public class ByteArrayConversion {
      * Convert the long value into a byte array that starts from index "startOff" and
      * end at index "endOff" - 1 of "buf". Bytes are in big-endian order.
      *
-     * @author Kary FR&Auml;MLING 6/6/1998
+     * @author Kary FRAMLING 6/6/1998
      */
     //=============================================================================
     public static void ulongAsBytesBE(long value, byte[] bytes, int startOff, int endOff) {
@@ -99,7 +99,7 @@ public class ByteArrayConversion {
      * Convert the int value into a byte array that starts from index "startOff" and
      * end at index "endOff" - 1 of "buf". Bytes are in big-endian order.
      *
-     * @author Kary FR&Auml;MLING 6/6/1998
+     * @author Kary FRAMLING 6/6/1998
      */
     //=============================================================================
     public static void uintAsBytesBE(int value, byte[] bytes, int startOff, int endOff) {
@@ -129,7 +129,7 @@ public class ByteArrayConversion {
      * Return the int value given by the byte array in little-endian order.
      * Here we interpret the first bit of the first byte as being a sign bit.
      *
-     * @author Kary FR&Auml;MLING 2/4/1998
+     * @author Kary FRAMLING 2/4/1998
      */
     //=============================================================================
     public static void intAsBytesLE(int value, byte[] bytes, int startOffset, int endOffset) {

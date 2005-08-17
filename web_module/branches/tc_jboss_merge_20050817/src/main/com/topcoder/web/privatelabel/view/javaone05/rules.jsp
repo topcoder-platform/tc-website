@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -42,7 +42,7 @@ function openWin(url, name, w, h) {
 <br><br>
 <strong>Overview</strong><br/>
 The 2005 JavaOne<sup>SM</sup> Coding Challenge will take place entirely at the JavaOne<sup>SM</sup> Conference at the Moscone Center in San Francisco, CA from June 27th through June 29th.  Prizes will be awarded throughout the Challenge, with the winner of each daily competition receiving a "grand" prize.
-<br><br>    
+<br><br>
 All expenses to attend the JavaOne<sup>SM</sup> conference, including the conference registration fee, and the JavaOne<sup>SM</sup> Coding Challenge are the responsibility of the individual.
 <br><br>
 <strong>Eligibility</strong><br/>
@@ -56,12 +56,12 @@ Each contestant must have purchased one of the following attendee passes to the 
 </ul>
 
 
-To register for the JavaOne<sup>SM</sup> conference, visit <A href="http://java.sun.com/javaone/sf/registration.jsp">http://java.sun.com/javaone/sf/registration.jsp</A> 
-<br><br>    
+To register for the JavaOne<sup>SM</sup> conference, visit <A href="http://java.sun.com/javaone/sf/registration.jsp">http://java.sun.com/javaone/sf/registration.jsp</A>
+<br><br>
 The JavaOne<sup>SM</sup> Coding Challenge is open to citizens and lawful permanent residents of the United States*, and to all non-immigrants currently in the United States* with a valid Visa, who are at least 18 years of age.
-<br><br>    
+<br><br>
 *Including the U.S. territories of Guam, Puerto Rico and the U.S. Virgin Islands
-<br><br>    
+<br><br>
 Employees and former employees of TopCoder, Inc., Sun Microsystems, Inc., JavaOne<sup>SM</sup> Conference sponsors and exhibitors, and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
 <br><br>
 <strong>Competitions</strong><br/>
@@ -108,7 +108,7 @@ The JavaOne<sup>SM</sup> Coding Challenge provides a hands-on experience for con
 
 <br><br>
 <strong>Competition Structure</strong><br/>
-Java will be the only allowable programming language in the competition.  Each competition will have 3 phases - the Coding Phase, the Challenge Phase and the System Testing Phase.  The following describes the different phases of competition: 
+Java will be the only allowable programming language in the competition.  Each competition will have 3 phases - the Coding Phase, the Challenge Phase and the System Testing Phase.  The following describes the different phases of competition:
 
 <ul>
 <li><strong>The Coding Phase</strong> is a timed event where all contestants are presented with either one of two possible questions or the same questions, depending on the round.  If an individual is presented with more than one (1) question during a round of competition, the questions will have varying levels of complexity and, accordingly, varying levels of point earnings potential. Multiple problems may be worked on in any order, and at the same time.  A solution to a problem may be submitted multiple times, however a point penalty of 10% of the maximum value of the problem will be assessed for each submission.  Points for a problem are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the problem was opened to the time it was submitted, regardless of the time it took to submit any previous solutions to that problem, if any.  (NOTE:  Each participant will be presented with one (1) of two questions in the Qualification Round.  Two (2) questions will be presented to each participant during each competition.)</li>
@@ -146,7 +146,7 @@ Prizes will be awarded to each person who participates in the Qualification Roun
 <br><br>
 Prizes will be awarded daily at the conclusion of the competition. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.
 <br><br>
-All contestants will only be allowed to win once during the competitions.  All contestants will be checked to ensure their eligibility, and that they have not won in any of the prior daily competitions during the 2005 JavaOne<sup>SM</sup> Coding Challenge. 
+All contestants will only be allowed to win once during the competitions.  All contestants will be checked to ensure their eligibility, and that they have not won in any of the prior daily competitions during the 2005 JavaOne<sup>SM</sup> Coding Challenge.
 <br><br>
 <strong>Conditions of Participation</strong><br/>
 By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder and Sun Microsystems, which are final, binding and conclusive in all matters.
@@ -175,7 +175,7 @@ This tournament is brought to you by Sun Microsystems, Inc. (<A href="http://www
                   <jsp:include page="foot.jsp" />
                </td>
             </tr>
-            
+
          </table>
 </center>
    </body>

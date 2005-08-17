@@ -8,7 +8,6 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpUtils;
 import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,7 +21,7 @@ public final class TaskImage {
         byte[] result = null;
         FileInputStream fis = null;
         try {
-            Request dataRequest = new Request(HttpUtils.parseQueryString(request.getQueryString()));
+            Request dataRequest = new Request(request.getParameterMap());
             DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
             Map resultMap = dai.getData(dataRequest);
             ResultSetContainer rsc = (ResultSetContainer) resultMap.get("Sponsor_Image");

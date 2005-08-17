@@ -101,7 +101,7 @@ public class IteratorTag
         index = 0;
 
 
-        return elementArray.length > 0 ? EVAL_BODY_TAG : SKIP_BODY;
+        return elementArray.length > 0 ? EVAL_BODY_AGAIN : SKIP_BODY;
 
     }
 
@@ -131,7 +131,7 @@ public class IteratorTag
 
             pageContext.setAttribute(getId(), element);
 
-            return EVAL_BODY_TAG;
+            return EVAL_BODY_AGAIN;
 
         } else {
 

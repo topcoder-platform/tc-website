@@ -7,7 +7,7 @@
 <jsp:include page="../../script.jsp" />
 
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
-    
+
 </head>
 
 <body>
@@ -20,7 +20,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -44,7 +44,7 @@
 </jsp:include>
 
             <h2>Online Rounds</h2>
-            
+
                         <table width="400" class="formFrame" cellspacing="2" cellpadding="6" align="center">
                             <tr><td class="sidebarTitle" colspan="2">Problem Set Analyses</td></tr>
                             <tr><td class="sidebarText">&#160;02.28.04</td><td class="sidebarText" nowrap="0">&#160;TCCC04 - Online Round 1 - <a href="/index?t=statistics&amp;c=tccc04_online_rd_1">Problem Set &amp; Analysis</a></td></tr>

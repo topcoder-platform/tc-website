@@ -1,7 +1,7 @@
 <%@  page language="java"  %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  java.util.Map,
-                 com.topcoder.shared.dataAccess.DataAccessConstants, 
+                 com.topcoder.shared.dataAccess.DataAccessConstants,
                  com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.tc.model.TCCC05MemberResult,
                  java.util.List"%>
@@ -13,7 +13,7 @@
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 </head>
 <body>
@@ -58,14 +58,14 @@ else
                             <tr>
                                 <td class="usdcTitle" colspan=5 align=left>
                                 <%String module = rscContest.getIntItem(0, "contest_type_id") == 8 ? "TCO05ContestDetails" : "TCO05ContestDetailsOverall";%>
-                                <A href="/tc?module=<%=module%>&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>" class=usdcTitle><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /></A> - 
+                                <A href="/tc?module=<%=module%>&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>" class=usdcTitle><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /></A> -
                                 <tc-webtag:handle context='<%=tab%>' coderId='<%=rscUser.getIntItem(0, "coder_id")%>' />
                                 </td>
                             </tr>
                         </table>
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
-                                <td class="sidebarTitle" nowrap=nowrap>Component Name</td>                              
+                                <td class="sidebarTitle" nowrap=nowrap>Component Name</td>
                                 <td class="sidebarTitle" align=center>Submit Date</td>
                                 <td class="sidebarTitle" align=center>Points</td>
                                 <td class="sidebarTitle" align=right>Component Prize</td>
@@ -76,11 +76,11 @@ else
                             <tr>
                                 <% TCCC05MemberResult result = (TCCC05MemberResult)lst.get(i); %>
                                 <td class="sidebarText"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=result.getCompID()%>"><%=result.getComponent()%></A>
-                                <% if(!result.isComplete())  { 
+                                <% if(!result.isComplete())  {
                                     isComplete = false;%>
                                     *
                                 <% } %>
-                                </td>                               
+                                </td>
                                 <td class="sidebarText" align=center nowrap=nowrap><%=result.getSubmitTimestamp()%></td>
                                 <td class="sidebarText" align=center><%=result.getScore()%></td>
                                 <td class="sidebarText" align=right><%=result.getPayment()%></td>
@@ -100,20 +100,20 @@ else
 
         </div>
 		</td>
-        
-         
+
+
 <!-- Right Column-->
         <td width=170 align=right>
             <jsp:include page="../../public_right.jsp">
             <jsp:param name="level1" value="tco05"/>
             </jsp:include>
          </td>
-		
+
 	</tr>
-	
+
 </table>
-	
-	
+
+
 
 
 <jsp:include page="../../foot.jsp" />

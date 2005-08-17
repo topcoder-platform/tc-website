@@ -11,23 +11,23 @@
 <style><!--
 .whiteBkgnd 
 {
-   font-size: 12px;
-   font-weight: bold;
-   font-style: normal;
-   color: #000;
-   font-variant: normal;
-   background-color: #FFF;
-   padding: 5px;
+	font-size: 12px;
+	font-weight: bold;
+	font-style: normal;
+	color: #000;
+	font-variant: normal;
+	background-color: #FFF;
+	padding: 5px;
 }
 .blackBkgnd
 {
-   font-size: 12px;
-   font-weight: bold;
-   font-style: normal;
-   color: #FFF;
-   font-variant: normal;
-   background-color: #000;
-   padding: 5px;
+	font-size: 12px;
+	font-weight: bold;
+	font-style: normal;
+	color: #FFF;
+	font-variant: normal;
+	background-color: #000;
+	padding: 5px;
 }
 //-->
 </style>
@@ -230,7 +230,7 @@ does not alter the customer&#8217;s experience with the component.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -317,7 +317,7 @@ reading.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -337,17 +337,25 @@ reading.
                             <tr>
                                 <td class="forumTextOdd" width="80%">
 <p class="scorecardQuestion">The use cases cover all the business requirements as stated in the requirements document.</p>
+
 <p class="scorecardQuestion">The reviewer should be able to take each requirement and find a use case covering it (a single use case may cover multiple requirements). Use cases must not be too high-level or too low-level. Additional functionality beyond the requirements must be covered by use cases as well.</p>
+
 <p class="scorecardQuestion">These rules should be considered when judging the use cases:</p>
-<p class="scorecardQuestion">a)   A use case is something an actor wants the system to do</p>
-<p class="scorecardQuestion">b)   Use cases are always started by an actor</p>
-<p class="scorecardQuestion">c)   Use cases are always defined from the point of view of an actor</p>
-<p class="scorecardQuestion">d)   Use cases are always described by a verb phrase</p>
+
+<p class="scorecardQuestion">a) A use case is something an actor wants the system to do</p>
+<p class="scorecardQuestion">b) Use cases are always started by an actor</p>
+<p class="scorecardQuestion">c) Use cases are always defined from the point of view of an actor</p>
+<p class="scorecardQuestion">d) Use cases are always described by a verb phrase</p>
+
 <p class="scorecardQuestion">When a single use case covers multiple unrelated activities, it is considered too high-level. A good indicator of this is a single use case covering multiple points in the requirements document.</p>
+
 <p class="scorecardQuestion">Too low-level is defined as multiple use cases covering related activities. For example, providing a use case for each constructor or each version of an overloaded method are considered too low-level.</p>
+
 <p class="scorecardQuestion">Use cases must not reveal the intended implementation. For example, a use case of "Read Configuration" should not specify how it reads the configuration (i.e. it should not say "Read Configuration via Configuration Manager," unless the component provides other user-selectable alternatives for obtaining the configuration without the Configuration Manager).</p>
+
 <p class="scorecardQuestion">This question does not address the presentation of the diagrams; only the logical content needs to be considered.</p>
-<p class="scorecardQuestion">Rating 1 - Only a minority (<= 49%) of the requirements are covered by the use cases. </p>
+
+<p class="scorecardQuestion">Rating 1 - A majority (> 49%) of the requirements are not covered by the use cases. </p>
 <p class="scorecardQuestion">Rating 2 - A majority (> 49%) of the requirements are covered but at least one requirement is missing and/or the use cases are too high (or low) level in detail as explained above.</p>
 <p class="scorecardQuestion">Rating 3 - All the requirements are covered at a proper level of detail as explained above. </p>
 <p class="scorecardQuestion">Rating 4 - All the requirements are covered at a proper level of detail as explained above, and the designer made proper use of inherited/associations/extend/include semantics.</p>
@@ -388,7 +396,7 @@ reading.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -424,7 +432,10 @@ required to do so.
 presentation of the diagrams; only the logical content needs to be
 considered for this question.
 </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">Rating 1 &#8211; Only a minority (<=49%) of the complicated interactions are covered by the sequence diagrams. Identify all complicated interactions without the diagrams in your comments.
+</p><p class="scorecardQuestion">Rating 1 &#8211; A majority (&gt;49%) of the
+complicated interactions are not covered by the sequence diagrams.
+Identify all complicated interactions without the diagrams in your
+comments.
 </p><p class="scorecardQuestion">Rating 2 &#8211;. At least one complicated
 interaction is missing a sequence diagram, or a majority (&gt;49%) of
 the diagrams are misleading or incorrect. You must either identify the
@@ -479,7 +490,7 @@ parameters or return values to exist in the diagram.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -487,9 +498,9 @@ parameters or return values to exist in the diagram.
                                     </tr>
                                 
                             
-                               
+                            	
                         </tbody></table>
-                        <!-- spacer  -->                              
+                        <!-- spacer  -->										
                         <table border="0" cellpadding="2" cellspacing="0" width="100%">
                             <tbody><tr>
                                 <td class="normal">
@@ -603,7 +614,7 @@ the design, appropriately, does not need any patterns/methodologies.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -679,7 +690,7 @@ component with multiple simple changes. </p><p class="scorecardQuestion">Rating 
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -765,7 +776,7 @@ appropriately not used.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -844,7 +855,7 @@ API.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -863,16 +874,34 @@ API.
                             
                             <tr>
                                 <td class="forumTextOdd" width="80%">
-<p class="scorecardQuestion">The design addresses whether the component is thread safe or not.</p>
-<p class="scorecardQuestion">The reviewer should review the component specification to see if the designer addresses the thread safety of the component. Please note that this does not mean the components must be thread-safe - it simply means whether the designer has justified why it is or isn't thread safe. </p>
-<p class="scorecardQuestion">If the component is deemed thread safe, the designer should have documented their approach to thread safety in order to determine if the approach is sound.   The approach can come in two forms:</p>
-<p class="scorecardQuestion">a) A high level overview written in the component specification and specific detail included in the class/method/variable documentation tabs.</p>
-<p class="scorecardQuestion">b) A detailed approach written in the component specification and references to it written in the class/method/variable documentation tabs.</p>
-<p class="scorecardQuestion">If the component is deemed not to be thread safe, the designer should document any reasons why the component is not thread safe and, if applicable, provide a high level summary of what could be done to make the component thread safe. </p>
-<p class="scorecardQuestion">Rating 1 - There is no mention of whether the component is thread safe or not. </p>
-<p class="scorecardQuestion">Rating 2 - The designer mentions thread safety but fails to provide the reasoning</p>
-<p class="scorecardQuestion">Rating 3 - The designer mentions thread safety but is incorrect in the reasoning</p>
-<p class="scorecardQuestion">Rating 4 - The designer mentions thread safety and provides correct arguments to back it up.</p>
+                                    <p class="scorecardQuestion">The design addresses whether the component is thread safe or not. 
+</p><p class="scorecardQuestion">
+</p><p class="scorecardQuestion">The reviewer should review the
+component specification to see if the designer addresses the thread
+safety of the component. Please note that this does not mean the
+components must be thread-safe &#8211; it simply means whether the designer
+has justified why it is or isn't thread safe. </p><p class="scorecardQuestion">
+</p><p class="scorecardQuestion">If the component is deemed thread
+safe, the designer should have documented their approach to thread
+safety in order to determine if the approach is sound. The approach can
+come in two forms:
+</p><p class="scorecardQuestion">
+</p><p class="scorecardQuestion">a) A high level overview written in
+the component specification and specific detail included in the
+class/method/variable documentation tabs.
+</p><p class="scorecardQuestion">b) A detailed approach written in the
+component specification and references to it written in the
+class/method/variable documentation tabs.
+</p><p class="scorecardQuestion">
+</p><p class="scorecardQuestion">If the component is deemed not to be
+thread safe, the designer should document any reasons why the component
+is not thread safe and, if applicable, provide a high level summary of
+what could be done to make the component thread safe. </p><p class="scorecardQuestion">
+</p><p class="scorecardQuestion">Rating 1 &#8211; There is no mention of whether the component is thread safe or not. 
+</p><p class="scorecardQuestion">Rating 2 &#8211; The designer mentions thread safety but fails to provide the reasoning 
+</p><p class="scorecardQuestion">Rating 3 &#8211; The designer mentions thread safety but is incorrect in the reasoning 
+</p><p class="scorecardQuestion">Rating 4 &#8211; The designer mentions thread safety and provides correct arguments to back it up.
+</p><p class="scorecardQuestion"></p>
                                 </td>
                                 <td class="forumTextOdd" valign="top" width="10%">
                                     Weight: 10
@@ -910,7 +939,7 @@ API.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -990,7 +1019,7 @@ makes the refactored solution preferable to the designer&#8217;s solution.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -998,9 +1027,9 @@ makes the refactored solution preferable to the designer&#8217;s solution.
                                     </tr>
                                 
                             
-                               
+                            	
                         </tbody></table>
-                        <!-- spacer  -->                              
+                        <!-- spacer  -->										
                         <table border="0" cellpadding="2" cellspacing="0" width="100%">
                             <tbody><tr>
                                 <td class="normal">
@@ -1109,7 +1138,7 @@ sub-packages.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1158,7 +1187,7 @@ this question.
 obvious lack of understanding or ignores modifiers fully. For example,
 variables with accessor methods are declared public, or key methods of
 the API are declared private. </p><p class="scorecardQuestion">Rating 2 &#8211; The design misidentifies a majority (&gt;49%) of the modifiers or scope. 
-</p><p class="scorecardQuestion">Rating 3 &#8211; The designer misidentifies a minority (<=49%) of modifiers or scope.
+</p><p class="scorecardQuestion">Rating 3 &#8211; The designer misidentifies a minority (&lt;49%) of modifiers or scope. 
 </p><p class="scorecardQuestion">Rating 4 &#8211; The designer identifies the modifiers/scope appropriately.
 </p><p class="scorecardQuestion"></p>
                                 </td>
@@ -1198,7 +1227,7 @@ the API are declared private. </p><p class="scorecardQuestion">Rating 2 &#8211; 
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1280,7 +1309,7 @@ alone. Custom exceptions were not appropriate for this design.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1312,8 +1341,9 @@ interfaces to arrays in all instances except where justified
 (presumably because of performance or overhead reasons and where either
 standard implementations or custom implementations would not provide
 the characteristics needed). </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">Rating 1 &#8211; A majority (>49%) of types are used incorrectly (not including array to collection API). That is, a string used where an integer should be etc. </p>
-<p class="scorecardQuestion">Rating 2 &#8211; At least one type is used incorrectly (same limitation as Rating 1). 
+</p><p class="scorecardQuestion">Rating 1 &#8211; A majority (&gt;49%) of
+types are used incorrectly (not including array to collection stuff).
+That is, a string used where an integer should be etc. </p><p class="scorecardQuestion">Rating 2 &#8211; At least one type is used incorrectly (same limitation as Rating 1). 
 </p><p class="scorecardQuestion">Rating 3 &#8211; The types are appropriate and arrays are used where collections should have been. 
 </p><p class="scorecardQuestion">Rating 4 &#8211; The types are appropriate
 and the collection interfaces are used where appropriate (i.e. arrays
@@ -1356,7 +1386,7 @@ are used when justified).
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1375,8 +1405,10 @@ are used when justified).
                             
                             <tr>
                                 <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">The relationships between classes within the component and between the component and external entities (other components, system classes) have been appropriately defined.  Relationships to system classes (ie classes that are installed with the normal distributions - this does not include J2EE classes) do not need to be shown unless they are part of an extends or inherits relationship.</p>
-<p class="scorecardQuestion">
+                                    <p class="scorecardQuestion">The
+relationships between classes within the component and between the
+component and external entities (other components, system classes) have
+been appropriately defined. </p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">Are all relationships shown? Are the
 relationship attributes assigned appropriately (ordered, unordered,
 aggregate, composite, etc.)? Do they contain proper labels? Two ways of
@@ -1396,8 +1428,10 @@ then need not be duplicated in each implementation. </p><p class="scorecardQuest
 </p><p class="scorecardQuestion">Rating 1 &#8211; A majority (&gt;49%) of
 relationships between internal classes and/or external TopCoder
 components are missing from the class diagrams, or more than 90% of
-relationships are missing attribute information. </p><p class="scorecardQuestion">Rating 2 &#8211; A minority (<=49%) of relationships between internal classes and/or external TopCoder components are missing from the class diagrams, or system classes are missing.</p>
-<p class="scorecardQuestion">Rating 3 &#8211; Class diagrams show all
+relationships are missing attribute information. </p><p class="scorecardQuestion">Rating 2 &#8211; A minority (&lt;49%) of
+relationships between internal classes and/or external TopCoder
+components are missing from the class diagrams, or system classes are
+missing. </p><p class="scorecardQuestion">Rating 3 &#8211; Class diagrams show all
 relationships between internal classes and external entities (both
 TopCoder components and system classes). A considerable number of the
 association attributes (&gt;10%) are either missing or incorrect. </p><p class="scorecardQuestion">Rating 4 &#8211; Class diagrams show all
@@ -1442,7 +1476,7 @@ are correct.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1523,7 +1557,7 @@ for this rating. </p><p class="scorecardQuestion">
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1590,7 +1624,7 @@ appropriately? </p><p class="scorecardQuestion">
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1598,9 +1632,9 @@ appropriately? </p><p class="scorecardQuestion">
                                     </tr>
                                 
                             
-                               
+                            	
                         </tbody></table>
-                        <!-- spacer  -->                              
+                        <!-- spacer  -->										
                         <table border="0" cellpadding="2" cellspacing="0" width="100%">
                             <tbody><tr>
                                 <td class="normal">
@@ -1628,14 +1662,14 @@ appropriately? </p><p class="scorecardQuestion">
                             <tbody><tr>
                                 <td class="forumTitle" width="80%">
                                     <strong>
-The answers to the questions should be limited to how well the design was documented. This largely means how easy will it be to take the design and develop it.
-<br><br>
-This documentation is for the component developer, not the component users. It is not javadoc on how to use the method. It should contain helpful information to the developer on how to write the method and what are its constraints.
-<br><br>
-Please note that the reviewer should assign a 4 if any section is not applicable to the design. 
-<br><br>
-Reviewers should disregard whether the designer used HTML tags, properly line wrapped or even if the document is not well formed (ie HTML errors) in the documentation tab(s).  The documentation is for the developer only and will not be used for presentation purposes.
-</strong>
+The answers to the questions should be limited to how well the design
+was documented. This largely means how easy will it be to take the
+design and develop it. Please note that the reviewer should assign a 4
+if any section is not applicable to the design. Reviewers should
+disregard whether the designer used HTML tags, properly line wrapped or
+even if the document is not well formed (ie HTML errors) in the
+documentation tab(s). The documentation is for the developer only and
+will not be used for presentation purposes. </strong>
                                 </td>
                                 <td class="forumTitleCenter" width="10%">
                                     <strong>
@@ -1656,8 +1690,11 @@ Reviewers should disregard whether the designer used HTML tags, properly line wr
 class documentation in the 'Documentation' tab of Poseidon provides a
 high-level description of the class, its role in the overall design and
 all relevant information to the developer. </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">The description should contain helpful information to the developer on how to develop the class and if the class is mutable or not.</p>
-<p class="scorecardQuestion">
+</p><p class="scorecardQuestion">The reviewer should look at this from
+a component developer standpoint and not an application developer
+standpoint. This is not javadoc on how to use the class. This should
+contain helpful information to the developer on how to develop the
+class and if the class is mutable or not. </p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">Rating 1 &#8211; Documentation is consistently missing or consistently unhelpful. 
 </p><p class="scorecardQuestion">Rating 2 &#8211; Documentation is missing in at least one class or consistently provides little help to the developer. 
 </p><p class="scorecardQuestion">Rating 3 &#8211; Documentation is complete
@@ -1703,7 +1740,7 @@ not require any additional information from the designer).
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1723,9 +1760,7 @@ not require any additional information from the designer).
                             <tr>
                                 <td class="forumTextOdd" width="80%">
 <p class="scorecardQuestion">The method documentation in the 'Documentation' tab of Poseidon provides detailed description of the method's scope, parameters (including what is considered valid or not), return type (range, nulls, etc.) and any exceptions that may be thrown. Properties, delegates, indexers and events of C# are considered methods for the purpose of this question.</p>
-<p class="scorecardQuestion">Examples of argument values are not required. The designer does not have to explicitly say what is considered valid if this information is already contained elsewhere (in the tags or in the free-form text). Duplicating the valid/invalid information and exception information in both the documentation tags and free form text is not required (nor even recommended).  </p>
-<p class="scorecardQuestion">Algorithms and complex validation (such as with a regex pattern) should be explained only in the free form text. </p>
-<p class="scorecardQuestion">Also note that specifying ‘raised signals’ in Poseidon is not required if the exception has been clearly denoted in the documentation tags or free form text.</p>
+<p class="scorecardQuestion">This documentation is for the component developer, not the component users. It is not javadoc on how to use the method. It should contain helpful information to the developer on how to write the method and what are its constraints. Examples of argument values are not required. The designer does not have to explicitly say what is considered valid if this information is already contained elsewhere (in the tags or in the free-form text). Duplicating the valid/invalid information and exception information in both the documentation tags and free form text is not required (nor even recommended). Algorithms and complex validation (such as with a regex pattern) should be explained only in the free form text. The reviewer should assume that any variable (null, empty string, int range, etc) is valid/invalid if not specifically denoted as an invalid/valid by the exceptions text or other free form information. Also note that specifying 'raised signals’ in Poseidon is not required if the exception has been clearly denoted in the documentation tags or free form text.</p>
 <p class="scorecardQuestion">For C# designs, the reviewer should verify that property setters handle argument validation and throw appropriate exceptions.</p>
 <p class="scorecardQuestion">Rating 1 - Documentation is consistently missing or unhelpful. </p>
 <p class="scorecardQuestion">Rating 2 - Documentation is missing in at least one method documentation or consistently provides little help to the developer. </p>
@@ -1769,7 +1804,7 @@ not require any additional information from the designer).
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1792,8 +1827,17 @@ not require any additional information from the designer).
 variable documentation in the 'Documentation' tab of Poseidon provides
 a detailed description of the variable's scope, intended usage and
 potential range of values. </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">This should contain helpful information to the developer on how to use the variable and what constraints (null, range, etc.) the variable will have. The designer should mention if the value is mutable, is set in the constructor and potentially where it will be modified and/or used. An initial value is not required unless appropriate for the variable (where it’s a constant or needs to be initially set to a certain value to ensure properly operation of the class [with proper documentation to denote why]).</p>
-<p class="scorecardQuestion">
+</p><p class="scorecardQuestion">The reviewer should look at this from
+a component developer standpoint and not an application developer
+standpoint. This is not javadoc on how to use the variable. This should
+contain helpful information to the developer on how to use the variable
+and what constraints (null, range, etc.) the variable will have. The
+designer should mention if the value is mutable, is set in the
+constructor and potentially where it will be modified and/or used. An
+initial value is not required unless appropriate for the variable
+(where it&#8217;s a constant or needs to be initially set to a certain value
+to ensure properly operation of the class [with proper documentation to
+denote why]). </p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">The variable constraints only need to
 be included where they may differ from those defined by any associated
 getters/setters (whether they be method or property based).
@@ -1850,7 +1894,7 @@ not require any additional information from the designer).
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1872,8 +1916,8 @@ not require any additional information from the designer).
                                     <p class="scorecardQuestion">The sequence diagrams provide sufficient detail for the developer to understand the interactions between classes. 
 </p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">The sequence diagrams should demonstrate to an adequate degree what interactions occur as a result of a method call. 
-</p><p class="scorecardQuestion">This question should only consider the sequence diagrams that have been included and should not in any way be affected by whether a sequence diagram is missing or should not have been included.</p>
-<p class="scorecardQuestion">Rating 1 &#8211; Sequence diagrams do not
+</p><p class="scorecardQuestion">
+</p><p class="scorecardQuestion">Rating 1 &#8211; Sequence diagrams do not
 show sufficient details useful to a developer (e.g. they show the API
 call from the application but nothing beyond that). </p><p class="scorecardQuestion">Rating 2 &#8211; The sequence diagrams show some interaction but not enough to be able to develop from. 
 </p><p class="scorecardQuestion">Rating 3 &#8211; The sequence diagrams show enough detail to give the developer an idea of what occurs on the method call. 
@@ -1919,7 +1963,7 @@ visually in the diagram.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1939,15 +1983,18 @@ visually in the diagram.
                             <tr>
                                 <td class="forumTextOdd" width="80%">
 <p class="scorecardQuestion">The component specification contains a comprehensive demo section.</p>
-<p class="scorecardQuestion">Is the demo section complete (does it demonstrate each requirement)? Was it written in a way that 'promotes' the component (i.e. clear, demonstrates flexibility, etc.)? </p>
-<p class="scorecardQuestion">The reviewer should keep in mind that the demo is not a reference implementation.  The demo should only give the reader a quick, short demonstration of the major functionality of the component and should not include every method call.  "Major functionality" would be defined as the requirements specified in the requirements documentation.</p>
-<p class="scorecardQuestion">The demo section only needs to be compilable in relation to the component’s API and any other TCS component API that is exposed.  All other functionality (application provided methods, classes, objects, etc) shown can be assumed if commented properly and can include pseudo code if dealing with non-component API methods.  Examples of this would be:</p>
-<p class="scorecardQuestion">a) "ACMEInterface appACME = some application provided object"</p>
-<p class="scorecardQuestion">b) "Date todayPlusOne = todays date plus 1 day"</p>
+<p class="scorecardQuestion">Is the demo section complete? Was it written to promote the component to potential users?</p>
+<p class="scorecardQuestion">The demo section is not a reference implementation or a set of unit tests. It should give the reader a quick, concise demonstration of the major functionality of the component. "Major functionality" is defined as the requirements specified in the requirements documentation.</p>
+<p class="scorecardQuestion">The demo section needs to compile only with respect to the component’s API. All other elements (application provided methods, classes, objects, etc.) shown can be assumed if commented properly and, may include pseudocode. Examples of this would be:</p>
+<p class="scorecardQuestion">
+a) ACMEInterface appACME = application provided object<br>
+b) Date todayPlusOne = todays date plus 1 day
+</p>
+<p class="scorecardQuestion">The 'compilability’ requirement should be lenient on well-formed source code (i.e. missing semi-colons, non-closed parens/quotes, etc. do not count). It is the developer’s responsibility to correct the demo to ensure well formedness.</p>
 <p class="scorecardQuestion">External setup information does not need to be included in the demo as long as comments provide enough information to understand what setup the demo relied on.</p>
-<p class="scorecardQuestion">The output of the demo only needs to be shown (if possible) when absolutely relevant to the functionality of the component (ie the component’s job is to output something specific).  Logging or processing output does not need to be shown.</p>
-<p class="scorecardQuestion">Rating 1 - Demo section is missing or the existing demo section contains non-compilable errors (just view it to make sure it looks correct). </p>
-<p class="scorecardQuestion">Rating 2 - The demo section demonstrates some but not all of the requirements or the demo section demonstrates class/methods/variables that don't exist in the design.</p>
+<p class="scorecardQuestion">Only the relevant output of the demo needs to be shown (i.e. when the component’s job is to output something specific). Logging output does not need to be shown.</p>
+<p class="scorecardQuestion">Rating 1 - Demo section is missing or the existing demo section contains non-compilable errors (don't actually try to compile it - just view it to make sure it looks correct). </p>
+<p class="scorecardQuestion">Rating 2 - The demo section demonstrates some but not all of the requirements or the demo section demonstrates class/methods/variables that don't exist in the design (probably were never updated).</p>
 <p class="scorecardQuestion">Rating 3 - The demo section demonstrates each of the requirements correctly.</p>
 <p class="scorecardQuestion">Rating 4 - The demo section demonstrates each of the requirements correctly in a clear fashion using a likely customer scenario (i.e. sets up a scenario that is similar to what a user of the component would see) or demonstrates extra functionality or flexibility.</p>
                                 </td>
@@ -1987,7 +2034,7 @@ visually in the diagram.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -2075,7 +2122,7 @@ implement the component.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -2154,7 +2201,7 @@ for this rating.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -2162,9 +2209,9 @@ for this rating.
                                     </tr>
                                 
                             
-                               
+                            	
                         </tbody></table>
-                        <!-- spacer  -->                              
+                        <!-- spacer  -->										
                         <table border="0" cellpadding="2" cellspacing="0" width="100%">
                             <tbody><tr>
                                 <td class="normal">
@@ -2252,7 +2299,7 @@ reasoning for assigning anything but a perfect score in this category.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                                          
+                                                        				        		        
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -2260,9 +2307,9 @@ reasoning for assigning anything but a perfect score in this category.
                                     </tr>
                                 
                             
-                               
+                            	
                         </tbody></table>
-                        <!-- spacer  -->                              
+                        <!-- spacer  -->										
                         <table border="0" cellpadding="2" cellspacing="0" width="100%">
                             <tbody><tr>
                                 <td class="normal">
@@ -2275,7 +2322,7 @@ reasoning for assigning anything but a perfect score in this category.
             </td>
         </tr>
 
-        <!-- Bottom Buttons -->   
+        <!-- Bottom Buttons -->	
         <tr>
             <td class="lightBkgnd" align="center">
                 <table border="0" cellpadding="0" cellspacing="4">
@@ -2291,15 +2338,15 @@ reasoning for assigning anything but a perfect score in this category.
         </tr>
     
 </tbody></table>
-<!-- spacer  -->                              
-          <table border="0" cellpadding="2" cellspacing="0" width="100%">
-             <tbody><tr>
-                <td class="normal"><img src="/i/clear.gif" alt="" border="0" height="5" width="1"></td>
-             </tr>
-          </tbody></table>
-   </td></tr>
+<!-- spacer  -->										
+		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+		    	<tbody><tr>
+		    		<td class="normal"><img src="/i/clear.gif" alt="" border="0" height="5" width="1"></td>
+		    	</tr>
+		    </tbody></table>
+	</td></tr>
 </tbody></table>
-            
+				
 
 <!-- Content ends-->
         
