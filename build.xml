@@ -1352,7 +1352,15 @@
      </target>
 
 
-     <target name="war-forums" depends="compile, package-TCUser, package-TCAuth, package-TCFilters">
+     <target name="build-forums" depends="">
+         <antcall target="war-forums"/>
+         <antcall target="package-TCUser"/>
+         <antcall target="package-TCAuth"/>
+         <antcall target="package-TCFilters"/>
+         <antcall target="package-EJB-MessageHistoryBean"/>
+     </target>
+
+     <target name="war-forums" depends="compile">
                  <war warfile="${war.dir}/forums.war" webxml="${resources}/forums/web.xml">
                      <fileset dir="${java}/com/topcoder/web/forums/view">
                          <include name="*.*"/>
@@ -1389,16 +1397,6 @@
                          <include name="com/topcoder/web/forums/**/*.class" />
                          <include name="com/topcoder/web/tc/controller.request.authentication.Login.class" />
                      </classes>
-<!--
-                     <classes dir="${classes}">
-                         <include name="com/topcoder/common/**/*.class" />
-                         <include name="com/topcoder/web/common/**/*.class" />
-                         <include name="com/topcoder/web/ejb/**/*.class" />
-                         <include name="com/topcoder/web/forums/**/*.class" />
-                         <include name="com/topcoder/web/tc/**/*.class" />
-                         <include name="com/topcoder/security/**/*.class" />
-                     </classes>
--->
                      <classes dir="${resources}/forums">
                          <include name="jive_init.xml" />
                      </classes>
@@ -1408,16 +1406,6 @@
                      <webinf dir="${resources}/forums">
                          <include name="jboss-web.xml"/>
                      </webinf>
-<!--
-                     <lib dir="${jive.dir}">
-                         <include name="jivebase.jar"/>
-                         <include name="jiveforums.jar"/>
-                         <include name="velocity-dep.jar"/>
-                         <include name="xwork.jar"/>
-                         <include name="htmlparser.jar"/>
-     					 <include name="ognl.jar"/>
-                     </lib>
--->
                      <lib dir="${jars.dir}">
                          <include name="object_formatter.jar"/>
                      </lib>
