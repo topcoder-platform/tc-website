@@ -1,13 +1,16 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
 				 com.topcoder.web.common.BaseProcessor,
          		 com.topcoder.web.forums.ForumConstants,
+                 com.topcoder.web.forums.controller.ForumsUtil,
          		 com.topcoder.web.common.StringUtils,
          		 com.jivesoftware.base.User,
                  com.jivesoftware.base.JiveConstants,
          		 com.jivesoftware.forum.action.util.Page,
+                 com.jivesoftware.forum.ForumMessage,
          		 com.jivesoftware.forum.WatchManager,
 				 com.jivesoftware.forum.Watch,
                  com.jivesoftware.forum.ForumThread,
+                 com.jivesoftware.forum.ReadTracker,
          		 java.util.*,
                  com.topcoder.shared.util.DBMS"
 %>
@@ -25,9 +28,12 @@
 <%	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
 	User user = (User)request.getAttribute("user");
 	String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW));
+    ReadTracker readTracker = forumFactory.getReadTracker();
     ForumThread nextThread = (ForumThread)request.getAttribute("nextThread");
     ForumThread prevThread = (ForumThread)request.getAttribute("prevThread");
     boolean showPrevNextThreads = !(user != null && "false".equals(user.getProperty("jiveShowPrevNextThreads")));
+    String prevTrackerClass = "", nextTrackerClass = "";
+    ForumMessage prevPost = null, nextPost = null;
 
     String cmd = "";
     String watchMessage = "";
@@ -97,12 +103,16 @@
    <jsp:getProperty name="thread" property="name"/></b>
    <%   if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br>
         <% if (prevThread != null) { %>
-           <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=prevThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=prevThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">Previous Thread</A>
+            <%  prevPost = ForumsUtil.getLatestMessage(prevThread); 
+                prevTrackerClass = (user == null || readTracker.getReadStatus(user, prevPost) == ReadTracker.READ) ? "rtbcLink" : "rtLinkBold"; %>
+           <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=prevThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=prevThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="<%=prevTrackerClass%>">Previous Thread</A>
         <% } else { %>
            Previous Thread
         <% } %>&#160;|&#160;
         <% if (nextThread != null) { %>
-           <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=nextThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=nextThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">Next Thread</A>
+            <%  nextPost = ForumsUtil.getLatestMessage(nextThread); 
+                nextTrackerClass = (user == null || readTracker.getReadStatus(user, nextPost) == ReadTracker.READ) ? "rtbcLink" : "rtLinkBold"; %>
+           <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=nextThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=nextThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="<%=nextTrackerClass%>">Next Thread</A>
         <% } else { %>
            Next Thread
         <% } %>
@@ -118,9 +128,9 @@
          <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
             <%  int editCount = historyBean.getEditCount(activeMessage.getID(), DBMS.FORUMS_DATASOURCE_NAME);
             if (editCount == 1) { %> 
-            <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:beanWrite name="activeMessage" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/>">1 edit</a>&#160;|&#160;
+            <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:beanWrite name="activeMessage" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/>">1 edit</a> | 
             <%  } else if (editCount > 1) { %> 
-            <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:beanWrite name="activeMessage" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/>"><%=editCount%> edits</a>&#160;|&#160;
+            <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:beanWrite name="activeMessage" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/>"><%=editCount%> edits</a> | 
             <%  } %></a>
             <a name=<jsp:getProperty name="activeMessage" property="ID"/>><tc-webtag:beanWrite name="activeMessage" property="creationDate" format="MMM d, yyyy 'at' h:mm a z"/>
          </div>
@@ -181,12 +191,16 @@
 	<jsp:getProperty name="thread" property="name"/></b>
    <%   if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br>
         <% if (prevThread != null) { %>
-           <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=prevThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=prevThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">Previous Thread</A>
+            <%  prevPost = ForumsUtil.getLatestMessage(prevThread); 
+                prevTrackerClass = (user == null || readTracker.getReadStatus(user, prevPost) == ReadTracker.READ) ? "rtbcLink" : "rtLinkBold"; %>
+           <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=prevThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=prevThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="<%=prevTrackerClass%>">Previous Thread</A>
         <% } else { %>
            Previous Thread
         <% } %>&#160;|&#160;
         <% if (nextThread != null) { %>
-           <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=nextThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=nextThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">Next Thread</A>
+            <%  nextPost = ForumsUtil.getLatestMessage(nextThread); 
+                nextTrackerClass = (user == null || readTracker.getReadStatus(user, nextPost) == ReadTracker.READ) ? "rtbcLink" : "rtLinkBold"; %>
+           <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=nextThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=nextThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="<%=nextTrackerClass%>">Next Thread</A>
         <% } else { %>
            Next Thread
         <% } %>
