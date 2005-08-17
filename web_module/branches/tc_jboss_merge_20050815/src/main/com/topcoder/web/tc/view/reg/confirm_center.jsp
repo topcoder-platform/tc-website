@@ -18,7 +18,7 @@
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr valign="middle">
                     <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="RegisterError" /></td>
+                    <td class="errorText"><jsp:getProperty name="Registration" property="registerError" /></td>
                 </tr>
 
                 <tr>
@@ -30,23 +30,23 @@
 
                 <tr valign="top">
                     <td class="statText" align="right"><strong>Name:</strong></td>
-                    <td class="statText"><jsp:getProperty name="Registration" property="FirstName" /> <jsp:getProperty name="Registration" property="LastName" /></td>
+                    <td class="statText"><jsp:getProperty name="Registration" property="FirstName" /> <jsp:getProperty name="Registration" property="lastName" /></td>
                     <td></td>
                 </tr>
 
                 <tr valign="top">
                     <td class="statText" align="right"><strong>Address:</strong></td>
                     <td class="statText">
-                        <jsp:getProperty name="Registration" property="Address1" /><br>
-                        <jsp:getProperty name="Registration" property="Address2" /><br>
-                        <jsp:getProperty name="Registration" property="City" />, <jsp:getProperty name="Registration" property="State" />&nbsp;&nbsp;<jsp:getProperty name="Registration" property="Zip" />, <tc:getProperty id="country" name="Registration" property="Country" /> <tc:countrySelect name="country" selectedValue="<%=country%>" selectedOnly="true" /><br>
+                        <jsp:getProperty name="Registration" property="address1" /><br>
+                        <jsp:getProperty name="Registration" property="address2" /><br>
+                        <jsp:getProperty name="Registration" property="city" />, <jsp:getProperty name="Registration" property="state" />&nbsp;&nbsp;<jsp:getProperty name="Registration" property="zip" />, <tc:getProperty id="country" name="Registration" property="Country" /> <tc:countrySelect name="country" selectedValue="<%=country%>" selectedOnly="true" /><br>
                     </td>
                     <td></td>
                 </tr>
 
                 <tr valign="top">
                     <td class="statText" align="right"><strong>Phone:</strong></td>
-                    <td class="statText"><jsp:getProperty name="Registration" property="Phone" /></td>
+                    <td class="statText"><jsp:getProperty name="Registration" property="phone" /></td>
                     <td></td>
                 </tr>
 
@@ -54,26 +54,26 @@
 
                 <tr valign="top">
                     <td class="statText" align="right"><strong>Email: </strong></td>
-                    <td class="statText"><jsp:getProperty name="Registration" property="Email" /></td>
+                    <td class="statText"><jsp:getProperty name="Registration" property="email" /></td>
                     <td></td>
                 </tr>
 
                 <tr valign="top">
                     <td class="statText" align="right"><strong>Handle:</strong></td>
-                    <td class="statText"><jsp:getProperty name="Registration" property="Handle" /></td>
+                    <td class="statText"><jsp:getProperty name="Registration" property="handle" /></td>
                     <td></td>
                 </tr>
 
                 <tr valign="top">
                     <td class="statText" align="right"><strong>Password:</strong></td>
-                    <td class="statText"><jsp:getProperty name="Registration" property="MaskedPassword" /></td>
+                    <td class="statText"><jsp:getProperty name="Registration" property="maskedPassword" /></td>
                     <td></td>
                 </tr>
 
                 <tr valign="top">
                     <td class="statText" align="right"><strong>Email Notification:</strong></td>
                     <td class="statText">
-                        <tc:notification selectedOnly="true" selectedValues="<%=Registration.getNotifications()%>" class="statText">
+                        <tc:notification selectedOnly="true" selectedValues="<%=Registration.getNotifications()%>" styleClass="statText">
                             <%=notifyControl%><br>
                         </tc:notification><br>
                     </td>
@@ -82,7 +82,7 @@
 
                 <tr valign="top">
                     <td class="statText" align="right"><strong>Quote:</strong></td>
-                    <td class="statText"><jsp:getProperty name="Registration" property="Quote" /></td>
+                    <td class="statText"><jsp:getProperty name="Registration" property="quote" /></td>
                     <td></td>
                 </tr>
 
@@ -115,7 +115,7 @@
                             <tc:getProperty id="referralOther" name="Registration" property="ReferralOther" />
                             (<tc:schoolSelect name="referralOther" selectedValue="<%=referralOther%>" selectedOnly="true" />)
                         <% } else { %>
-                            (<jsp:getProperty name="Registration" property="ReferralOther" />)
+                            (<jsp:getProperty name="Registration" property="referralOther" />)
                         <% } %>
                     </td>
                     <td></td>
