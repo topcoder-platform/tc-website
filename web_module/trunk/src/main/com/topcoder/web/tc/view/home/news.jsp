@@ -252,31 +252,6 @@ Algorithm, Design, and Development Statistics tabs under Member Profiles now inc
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>07.25.05<br>10:50 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.google.com/intl/en/press/pressrel/codejam3.html">Registration Opens for Google Code Jam 2005</A></span><br><br>
-      "Google's annual online coding competition consisting of a series of problem-solving challenges that invite participants to select a programming language and use their programming skills to code solutions to the problems."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://www.google.com/intl/en/press/pressrel/codejam3.html">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>07.25.05<br>9:20 AM</td>
-     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=7227">New SRM format survey</A></span><br><br>
-      TopCoder is considering changing its SRM format.  How do you feel about this change?
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?&module=ViewSurvey&sid=7227">view survey</A>&#160;|&#160;
-         <A href="/tc?&module=SurveyList">archive</A>
-   </td></tr>
-
-
 
 </table>
 <br><br>
