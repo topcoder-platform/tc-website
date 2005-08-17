@@ -40,7 +40,7 @@ public class SortTag extends TagSupport {
         String currDir = StringUtils.checkNull(pageContext.getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         SortInfo defaults = (SortInfo) pageContext.getRequest().getAttribute(SortInfo.REQUEST_KEY);
         String sortDir = null;
-        if (defaults!=null) {
+        if (defaults != null) {
             sortDir = defaults.getDefault(column);
         }
         if (sortDir == null) sortDir = "asc";
@@ -80,15 +80,21 @@ public class SortTag extends TagSupport {
             String key = null;
             Object value = null;
             for (; e.hasMoreElements();) {
-                key = (String)e.nextElement();
+                key = (String) e.nextElement();
                 value = pageContext.getRequest().getParameterValues(key);
                 String[] sArray = null;
                 if (value instanceof String) {
-                    add(buf, key, value.toString());
+                    //don't add the sort params from the old request
+                    if (!key.equals(DataAccessConstants.SORT_COLUMN) && !key.equals(DataAccessConstants.SORT_DIRECTION)) {
+                        add(buf, key, value.toString());
+                    }
                 } else if (value.getClass().isArray()) {
                     sArray = (String[]) value;
                     for (int i = 0; i < sArray.length; i++) {
-                        add(buf, key, sArray[i]);
+                        //don't add the sort params from the old request
+                        if (!key.equals(DataAccessConstants.SORT_COLUMN) && !key.equals(DataAccessConstants.SORT_DIRECTION)) {
+                            add(buf, key, sArray[i]);
+                        }
                     }
                 }
             }
