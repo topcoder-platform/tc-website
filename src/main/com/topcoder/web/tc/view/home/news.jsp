@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>08.17.05<br>3:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">TCO05 <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_bracket">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_bracket">Development</A> Competitions Finalists</span><br><br>
+      Find out who made it to the big show for Design and Development.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_bracket">Design</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_bracket">Development</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>08.16.05<br>4:20 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -240,16 +253,6 @@ Algorithm, Design, and Development Statistics tabs under Member Profiles now inc
    <tr><td class="newsLinksCell">
          <A href="/tc?&module=ViewSurvey&sid=8006">view survey</A>&#160;|&#160;
          <A href="/tc?&module=SurveyList">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.25.05<br>12:20 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">New Rating History Graphs</span><br><br>
-Algorithm, Design, and Development Statistics tabs under Member Profiles now include Rating History Graphs.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 
