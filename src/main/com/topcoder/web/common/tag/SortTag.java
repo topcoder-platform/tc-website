@@ -9,6 +9,8 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
 import java.util.Enumeration;
+import java.util.Set;
+import java.util.HashSet;
 
 public class SortTag extends TagSupport {
 
@@ -18,6 +20,7 @@ public class SortTag extends TagSupport {
     protected int ascColumn = -1;
     protected int descColumn = -1;
     protected boolean includeParams = false;
+    protected Set excludeParams = new HashSet();
 
     public void setColumn(int column) {
         this.column = column;
@@ -33,6 +36,26 @@ public class SortTag extends TagSupport {
 
     public void setIncludeParams(String includeParams) {
         this.includeParams = "true".equalsIgnoreCase(includeParams);
+    }
+
+    public void setExcludeParams(String exclude) {
+
+        exclude = exclude + ";";
+        excludeParams = new HashSet();
+
+        int from = 0;
+        while(true) {
+           int pos = exclude.indexOf(";", from);
+
+           if(pos < 0) break;
+
+           excludeParams.add(exclude.substring(from,pos));
+
+           from = pos + 1;
+
+        }
+
+
     }
 
     public int doStartTag() throws JspException {
@@ -81,14 +104,16 @@ public class SortTag extends TagSupport {
             Object value = null;
             for (; e.hasMoreElements();) {
                 key = (String)e.nextElement();
-                value = pageContext.getRequest().getParameterValues(key);
-                String[] sArray = null;
-                if (value instanceof String) {
-                    add(buf, key, value.toString());
-                } else if (value.getClass().isArray()) {
-                    sArray = (String[]) value;
-                    for (int i = 0; i < sArray.length; i++) {
-                        add(buf, key, sArray[i]);
+                if (!excludeParams.contains(key)) {
+                    value = pageContext.getRequest().getParameterValues(key);
+                    String[] sArray = null;
+                    if (value instanceof String) {
+                        add(buf, key, value.toString());
+                    } else if (value.getClass().isArray()) {
+                        sArray = (String[]) value;
+                        for (int i = 0; i < sArray.length; i++) {
+                            add(buf, key, sArray[i]);
+                        }
                     }
                 }
             }
@@ -125,3 +150,4 @@ public class SortTag extends TagSupport {
     }
 
 }
+
