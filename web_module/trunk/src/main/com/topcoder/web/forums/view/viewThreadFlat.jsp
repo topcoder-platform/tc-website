@@ -141,8 +141,8 @@
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
 <table cellpadding="0" cellspacing="0" class="rtTable">
    <tr>
-      <td class="rtHeader" colspan="2" width="100%">
-         <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
+      <td class="rtHeader" colspan="2">
+         <div style="float: right; padding-left: 5px; white-space: nowrap;">
             <%  int editCount = historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME);
             if (editCount == 1) { %> 
             <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/>">1 edit</a>&#160;|&#160;
