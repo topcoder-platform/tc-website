@@ -8,6 +8,8 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+
 
 <HTML>
  <HEAD>
