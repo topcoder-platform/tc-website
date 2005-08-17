@@ -147,6 +147,9 @@ public class Login extends FullLogin {
         } else {
             boolean hasTCAccount = hasTopCoderAccount();
             boolean hasCompanyAccount = hasCommonAccount();
+            if (hasErrors()) {
+                return null;
+            }
 
             //this must be done after the account checks, cuz that's where they get logged in...confusing?  yes
             long userId = getAuthentication().getActiveUser().getId();
