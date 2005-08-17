@@ -11,8 +11,6 @@
   if(nextpage==null) nextpage = "http://"+request.getServerName();
   String message = (String)request.getAttribute("message");
   if(message==null) message = "";
-  String username = request.getParameter(Login.USER_NAME);
-  if(username==null) username = "";
 %>
 
 <html>
@@ -90,7 +88,7 @@ function submitEnter(e) {
 
                             <tr valign="middle">
                                 <td nowrap class="bodyText" align="right">Handle:</td>
-                                <td colspan="2" align="left"><input type="text" name="<%=Login.USER_NAME%>" value="<%= username %>" maxlength="15" size="12" onkeypress="submitEnter(event)"></td>
+                                <td colspan="2" align="left"><input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)"></td>
                             </tr>
 
                             <tr valign="middle">
@@ -108,7 +106,7 @@ function submitEnter(e) {
                         <p><br/></p>
 
                     <script>
-                      document.frmLogin.<%=username.equals("")?Login.USER_NAME:Login.PASSWORD%>.focus();
+                      document.frmLogin.<%=Login.USER_NAME%>.focus();
                     </script>
 
                     </td>
