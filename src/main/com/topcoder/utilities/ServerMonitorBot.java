@@ -199,6 +199,7 @@ public class ServerMonitorBot {
                 em.addToAddress("6508045266@vtext.com", TCSEmailMessage.TO);
                 em.addToAddress("8604656205@mobile.mycingular.com", TCSEmailMessage.TO);
                 em.addToAddress("8606144043@vtext.com", TCSEmailMessage.TO);
+                em.addToAddress("9196197120@vtext.com", TCSEmailMessage.TO); //fogle
 
                 em.setSubject("Server Error");
                 em.setBody(errorText);
@@ -212,7 +213,8 @@ public class ServerMonitorBot {
                 em.addToAddress("gpaul@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("thaas@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("ivern@topcoder.com", TCSEmailMessage.TO);
-                em.addToAddress("mktong@topcoder.com", TCSEmailMessage.TO);
+                em.addToAddress("mtong@topcoder.com", TCSEmailMessage.TO);
+                em.addToAddress("mfogleman@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("javier-topcoder-alarm@ivern.org", TCSEmailMessage.TO);
                 em.addToAddress("8602686127@messaging.sprintpcs.com", TCSEmailMessage.TO);
 
