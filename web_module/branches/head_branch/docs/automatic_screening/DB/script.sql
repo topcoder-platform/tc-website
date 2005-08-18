@@ -35,7 +35,7 @@ create table 'informix'.screening_results (
     screening_response_id DECIMAL(12,0) not null,
     create_user DECIMAL(12,0) not null,
     create_date DATETIME YEAR TO FRACTION not null,
-    submission_v_id INTEGER not null
+    submission_v_id SERIAL8 not null
 );
 
 alter table 'informix'.screening_results add constraint primary key 
@@ -55,7 +55,7 @@ alter table 'informix'.screening_results add constraint foreign key
 	constraint screeningresults_screeningresponse_fk;
 	
 create table 'informix'.screening_task (
-    submission_v_id INTEGER not null,
+    submission_v_id SERIAL8 not null,
     submission_path VARCHAR(255) not null,
     screening_project_type_id DECIMAL(5,0) not null,
     screener_id DECIMAL(2,0)
