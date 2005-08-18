@@ -58,7 +58,7 @@ public class Post extends ForumsProcessor {
             }
             if (postMode.equals("Edit")) {
                 setDefault(ForumConstants.MESSAGE_SUBJECT, message.getSubject());
-                setDefault(ForumConstants.MESSAGE_BODY, message.getUnfilteredBody());
+                setDefault(ForumConstants.MESSAGE_BODY, message.getUnfilteredBody().replaceAll("&","&amp;"));
             }
             getRequest().setAttribute("message", message);
             getRequest().setAttribute("thread", message.getForumThread());
