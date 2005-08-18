@@ -63,7 +63,7 @@ function goTo(selection){
               <TR>
                 <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
                   <P CLASS="statText">
-<% if (sDivision.equals("1")){ %>
+<% if (sDivision.equals("2")){ %>
                     This chart represents the biggest rating point gain in Division II.
                   </P>
                   <P CLASS="statText">
