@@ -78,9 +78,11 @@
 				<% } else { %>
 				<b>Not rated</b>
 				<% } %>
+<%--
 				<B>Component Design Rating:</B> <rsc:item name="dev_rating" format="#" row="<%=MemberStats%>" ifNull="Not Rated"/><br>
 				<B>Component Development Rating:</B> <rsc:item name="design_rating" format="#" row="<%=MemberStats%>" ifNull="Not Rated"/><br>
 				<br><br>
+--%>
 				</td>
 			</tr>
 			<tr valign=top>
