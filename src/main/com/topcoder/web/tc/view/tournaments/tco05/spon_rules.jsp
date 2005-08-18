@@ -27,7 +27,7 @@
 
 <%-- REG CONTENT STARTS HERE --%>
     <%
-        URL termsURL = new URL(sessionInfo.getAbsoluteServletPath()+"?module=Terms&"+Constants.TERMS_OF_USE_ID+"="+Constants.TCO05_SPONSOR_TERMS_ID);
+        URL termsURL = new URL(sessionInfo.getAbsoluteServletPath()+"?module=Terms&"+Constants.TERMS_OF_USE_ID+"=16842");
         InputStream is = termsURL.openStream();
         int count = is.available();
         for (int i=0; i<count; i++) {
