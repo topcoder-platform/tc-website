@@ -54,12 +54,12 @@
                        </a>
                    </td>
                    <td width="15%" align="right">
-                       <a href="/tc?module=SimpleStats&d1=tournaments&d2=tccc05&d3=alg_qualification&c=tccc05_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=rating&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
+                       <a href="/tc?module=SimpleStats&d1=tournaments&d2=tco05&d3=alg_qualification&c=tco05_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=rating&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
                            Rating
                        </a>
                    </td>
                    <td width="15%" align="right">
-                       <a href="/tc?module=SimpleStats&d1=tournaments&d2=tccc05&d3=alg_qualification&c=tccc05_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=points&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
+                       <a href="/tc?module=SimpleStats&d1=tournaments&d2=tco05&d3=alg_qualification&c=tco05_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=points&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
                            Points
                        </a>
                    </td>
