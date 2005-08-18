@@ -80,9 +80,9 @@ public class XmlQuery implements QueryInterface {
         try {
             stmt = conn.prepareStatement(
                     "SELECT severity_text, response_code, response_text, dynamic_response_text " +
-                    "FROM response_severity, screening_response, screening_results, submission " +
-                    "WHERE response_severity.response_severity_id = screening_response.response_severity_id " +
-                    "AND screening_response.screening_response_id = screening_results.screening_response_id " +
+                    "FROM response_severity_lu, screening_response_lu, screening_results, submission " +
+                    "WHERE response_severity_lu.response_severity_id = screening_response_lu.response_severity_id " +
+                    "AND screening_response_lu.screening_response_id = screening_results.screening_response_id " +
                     "AND screening_results.submission_v_id = ? " +
                     "AND submission.submission_v_id = screening_results.submission_v_id " +
                     "AND (passed_auto_screening = 0 OR passed_auto_screening = 1) " +
@@ -107,9 +107,9 @@ public class XmlQuery implements QueryInterface {
         try {
             stmt = conn.prepareStatement(
                     "SELECT severity_text, response_code, response_text, dynamic_response_text " +
-                    "FROM response_severity, screening_response, screening_results, submission " +
-                    "WHERE response_severity.response_severity_id = screening_response.response_severity_id " +
-                    "AND screening_response.screening_response_id = screening_results.screening_response_id " +
+                    "FROM response_severity_lu, screening_response_lu, screening_results, submission " +
+                    "WHERE response_severity_lu.response_severity_id = screening_response_lu.response_severity_id " +
+                    "AND screening_response_lu.screening_response_id = screening_results.screening_response_id " +
                     "AND screening_results.submission_v_id = submission.submission_v_id " +
                     "AND submission.submission_id = ? " +
                     "AND cur_version = 1 " +
@@ -219,14 +219,14 @@ public class XmlQuery implements QueryInterface {
             List warnings = new ArrayList();
             stmt = conn.prepareStatement(
                     "SELECT UNIQUE submission.submission_v_id " +
-                    "FROM submission, screening_results, screening_response, response_severity " +
+                    "FROM submission, screening_results, screening_response_lu, response_severity_lu " +
                     "WHERE passed_auto_screening = 1 " +
                     "AND project_id = ? AND submitter_id = ? " +
                     "AND submission.submission_v_id = screening_results.submission_v_id " +
                     "AND is_removed = 0 " +
-                    "AND screening_results.screening_response_id = screening_response.screening_response_id " +
-                    "AND screening_response.response_severity_id = response_severity.response_severity_id " +
-                    "AND (response_severity.severity_text = 'Warning' OR response_severity.severity_text = 'Fatal Error')");
+                    "AND screening_results.screening_response_id = screening_response_lu.screening_response_id " +
+                    "AND screening_response_lu.response_severity_id = response_severity_lu.response_severity_id " +
+                    "AND (response_severity_lu.severity_text = 'Warning' OR response_severity_lu.severity_text = 'Fatal Error')");
             stmt.setLong(1, projectId);
             stmt.setLong(2, submitterId);
             rs = stmt.executeQuery();
@@ -327,14 +327,14 @@ public class XmlQuery implements QueryInterface {
             List warnings = new ArrayList();
             stmt = conn.prepareStatement(
                     "SELECT UNIQUE submission.submission_v_id " +
-                    "FROM submission, screening_results, screening_response, response_severity " +
+                    "FROM submission, screening_results, screening_response_lu, response_severity_lu " +
                     "WHERE passed_auto_screening = 1 " +
                     "AND project_id = ? " +
                     "AND submission.submission_v_id = screening_results.submission_v_id " +
                     "AND is_removed = 0 " +
-                    "AND screening_results.screening_response_id = screening_response.screening_response_id " +
-                    "AND screening_response.response_severity_id = response_severity.response_severity_id " +
-                    "AND (response_severity.severity_text = 'Warning' OR response_severity.severity_text = 'Fatal Error')");
+                    "AND screening_results.screening_response_id = screening_response_lu.screening_response_id " +
+                    "AND screening_response_lu.response_severity_id = response_severity_lu.response_severity_id " +
+                    "AND (response_severity_lu.severity_text = 'Warning' OR response_severity_lu.severity_text = 'Fatal Error')");
             stmt.setLong(1, projectId);
             rs = stmt.executeQuery();
 
