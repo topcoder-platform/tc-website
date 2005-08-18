@@ -24,10 +24,10 @@
 <br><br>
 <table width="500" align="center" border="0" cellpadding="2" cellspacing="0" class="formFrame">
    <tr class="advHeader">
-      <td width = "15%" nowrap="nowrap"><a href="">Handle</a></td>
-      <td width = "10%" align = "center" nowrap="nowrap"><a href="">Problem Set</a></td>
-      <td width = "5%" align = "right" nowrap="nowrap"><a href="">Rating</a></td>
-      <td width = "10%" align = "right" nowrap="nowrap"><a href="">Points</a></td>
+      <td width = "15%" nowrap="nowrap">Handle</td>
+      <td width = "10%" align = "center" nowrap="nowrap">Problem Set</td>
+      <td width = "5%" align = "right" nowrap="nowrap">Rating</td>
+      <td width = "10%" align = "right" nowrap="nowrap">Points</td>
    </tr>
 <tr><td class="advanceLt"><tc-webtag:handle coderId="7504863" context="algorithm"/></td><td class="advanceLt" align="center">Sponsor Track Set 4</td><td class="advanceLt" align="right">2221</td><td class="advanceLt" align="right">874.78</td></tr>
 <tr><td class="advanceDk"><tc-webtag:handle coderId="307060" context="algorithm"/></td><td class="advanceDk" align="center">Sponsor Track Set 2</td><td class="advanceDk" align="right">2553</td><td class="advanceDk" align="right">807.24</td></tr>
