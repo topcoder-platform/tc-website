@@ -37,7 +37,9 @@ public class PreviewMessage extends ForumsProcessor {
         String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags(
                 getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
-        String previewBody = com.jivesoftware.util.StringUtils.escapeHTMLTags(body).replaceAll("&","&amp;");
+        String previewBody = com.jivesoftware.util.StringUtils.escapeHTMLTags(body).replaceAll("&","&amp;amp;");
+        log.debug("##############previewBody: "+previewBody);
+        log.debug("##############previewBody: "+previewBody);
         
         if (postMode.equals("New")) {
             forumID = Long.parseLong(forumIDStr);
