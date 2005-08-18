@@ -6,6 +6,7 @@
 <link type="text/css" rel="stylesheet" href="/css/TCO05style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 </head>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <body>
 
 <!-- Tab barlinks-->
