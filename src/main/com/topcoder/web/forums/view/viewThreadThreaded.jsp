@@ -100,7 +100,7 @@
 <tr><td><b><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>
 	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >>
 	<jsp:getProperty name="thread" property="name"/></b>
-   <%--   if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br>
+   <%   if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br>
         <% if (prevThread != null) { %>
             <%  prevPost = ForumsUtil.getLatestMessage(prevThread); 
                 prevTrackerClass = (user == null || readTracker.getReadStatus(user, prevPost) == ReadTracker.READ) ? "rtbcLink" : "rtLinkBold"; %>
@@ -115,7 +115,7 @@
         <% } else { %>
            Next Thread
         <% } %>
-   <%   }   --%>
+   <%   }   %>
    </td>
 </tr>
 </table>
@@ -169,7 +169,7 @@
 <tr><td><b><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>
 	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >>
 	<jsp:getProperty name="thread" property="name"/></b>
-   <%--   if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br>
+   <%   if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br>
         <% if (prevThread != null) { %>
             <%  prevPost = ForumsUtil.getLatestMessage(prevThread); 
                 prevTrackerClass = (user == null || readTracker.getReadStatus(user, prevPost) == ReadTracker.READ) ? "rtbcLink" : "rtLinkBold"; %>
@@ -184,7 +184,7 @@
         <% } else { %>
            Next Thread
         <% } %>
-   <%   }   --%>
+   <%   }   %>
    </td>
     <td align="right"><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
 </table>

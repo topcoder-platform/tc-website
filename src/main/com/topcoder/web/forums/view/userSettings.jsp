@@ -168,7 +168,7 @@
 		</select>
       </td>
    </tr>
-   <%--<tr>
+   <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Show previous/next threads:</strong></td>
       <td class="rtTextCell100">
         <input name="showPrevNextThreads" value="true" id="showPrevNextThreadsYes" type="radio"
@@ -179,7 +179,7 @@
             <%= ("false".equals(user.getProperty("jiveShowPrevNextThreads"))) ? "checked" : ""%>>
         <label for="jiveShowPrevNextThreadsNo">No</label>
       </td>
-   </tr>--%>
+   </tr>
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Display member photo:</strong></td>
       <td class="rtTextCell100">
