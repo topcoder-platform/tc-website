@@ -1,5 +1,6 @@
 <%@ page import="java.util.Calendar,
                  java.util.Date"%>
+<%--
 <jsp:useBean id="compTerms" class="com.topcoder.web.tc.controller.request.util.TCO05ComponentTerms" scope="request" />
 <jsp:useBean id="algoTerms" class="com.topcoder.web.tc.controller.request.util.TCO05AlgorithmTerms" scope="request" />
 <%  Calendar now = Calendar.getInstance();
@@ -43,6 +44,7 @@
     </table>
 <% } %>
 
+--%>
 
 
 <%--
