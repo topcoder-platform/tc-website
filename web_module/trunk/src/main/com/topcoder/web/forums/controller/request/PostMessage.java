@@ -44,6 +44,7 @@ public class PostMessage extends ForumsProcessor {
 		String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags
             (getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
+        String textareaBody = com.jivesoftware.util.StringUtils.escapeHTMLTags(body).replaceAll("&","&amp;");
         
         if (postMode.equals("New")) {
             forumID = Long.parseLong(forumIDStr);
@@ -76,7 +77,7 @@ public class PostMessage extends ForumsProcessor {
 			setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
 			setDefault(ForumConstants.POST_MODE, postMode);
 			setDefault(ForumConstants.MESSAGE_SUBJECT, subject);
-            setDefault(ForumConstants.MESSAGE_BODY, body);
+            setDefault(ForumConstants.MESSAGE_BODY, textareaBody);
 
             if (message != null && thread != null) {
                 getRequest().setAttribute("thread", thread);
