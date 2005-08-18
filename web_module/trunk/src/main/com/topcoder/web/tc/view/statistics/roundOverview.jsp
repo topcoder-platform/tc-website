@@ -155,37 +155,37 @@ function goTo(selection){
                                     <SPAN CLASS="statTextBig"><B>Please select a round:</B><BR/></SPAN>
                                     <SELECT CLASS="dropdown" NAME="Contest" onchange="goTo(this)">
                                     <OPTION value="#">Select a Round:</OPTION>
-                                    
+
                                     <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
-                                    
+
                                     <% if (resultRow.getItem(0).toString().equals(currRound)) { %>
                                         <OPTION value="/stat?c=round_overview&er=<%= topN %>&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
                                     <% } else { %>
                                         <OPTION value="/stat?c=round_overview&er=<%= topN %>&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
                                     <% } %>
-                                    
+
                                     </logic:iterate>
-                                    
+
                                     </SELECT>
                                 </TD>
                             </TR>
-                            
+
                             <TR>
                                 <TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="leaders"></A></TD>
                             </TR>
-                            
+
                             <TR>
-                            
+
                             <%for(int i = 0; i<divisionNames.size();i++){%>
                                 <TD BACKGROUND="/i/steel_bluebv_bg.gif"></TD>
                                 <TD VALIGN="middle" COLSPAN="2" WIDTH="40%" NOWRAP="0" HEIGHT="18" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="registerNav">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Leaders</B></TD>
                                 <TD VALIGN="middle" ALIGN="center" WIDTH="10%" NOWRAP="0" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>&amp;dn=<%= divisionIDs.get(i).toString() %>" class="statText">Results</A></TD>
                             <%}%>
-                            
+
                             </TR>
-                            
+
                             <TR><TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD></TR>
-                            
+
                             <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 
                             <% //this part creates the top scorers for the round in each division
@@ -198,7 +198,7 @@ function goTo(selection){
                                 <TD></TD>
                                 <TD></TD>
                                 <TD></TD>
-                            
+
                             <%} else {%>
                                 <TD VALIGN="middle" WIDTH="1%" CLASS="statText">
                                     <A HREF="/stat?c=coder_room_stats&rd=<%=roundID %>&cr=<%= coderIDs[j][i] %>" CLASS="statText">
@@ -212,7 +212,7 @@ function goTo(selection){
                                 <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="statText" ALIGN="right"><%= scores[j][i] %> &#160;&#160;</TD>
                                 <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="statText">&#160;<%= rooms[j][i] %></TD>
                             <%  }
-                            
+
                                 }%>
                             </TR>
                                 <%}%>
@@ -221,14 +221,14 @@ function goTo(selection){
     for(int i = 0; i<divisions;i++){
 %>
                         </TABLE>
-                        
+
                         <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="problem_stats"></A>
-    
+
                         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#001B35">
                             <TR><TD VALIGN="middle" COLSPAN="7" WIDTH="100%" NOWRAP="0" HEIGHT="16" CLASS="registerNav" BACKGROUND="/i/steel_bluebv_bg.gif">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Problem Stats</B></TD></TR>
-                            
+
                             <TR><TD COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD></TR>
-                            
+
                             <TR>
                                 <TD VALIGN="middle" NOWRAP="0" WIDTH="17%" HEIGHT="15" CLASS="statText">&#160;</TD>
                                 <TD VALIGN="middle" NOWRAP="0" WIDTH="25%" HEIGHT="15" CLASS="statText">&#160;<B>Problem Name</B></TD>
@@ -260,21 +260,21 @@ function goTo(selection){
                                 <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=submissions%> &#160;&#160;</TD>
                                 <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=perCor%> &#160;&#160;</TD>
                                 <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=avgPoints%></TD>
-                                <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right">&#160;<A HREF="JavaScript:getGraph('/graph?c=problem_distribution_graph&pm=<%= problemID %>&dn=<%= currentDivID %>','600','400','distribution')" class="statText">Distribution Graph</A></TD>
+                                <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right">&#160;<A HREF="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=<%=roundID%>&pm=<%= problemID %>&dn=<%= currentDivID %>','600','400','distribution')" class="statText">Distribution Graph</A></TD>
                                 <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right">&#160;<A HREF="Javascript:void openProblemRating(<%= problemID %>)" class="statText"><img src="/i/rate_it_blue.gif" width="60" height="18" border="0" hspace="10"/></A></TD>
                             </TR>
                                 <%
                                     }
                                 }%>
                             <TR><TD VALIGN="middle" COLSPAN="7" WIDTH="100%" NOWRAP="0" HEIGHT="16" CLASS="registerNav"  BACKGROUND="/i/steel_bluebv_bg.gif"></TD></TR>
-                            
+
                             <TR>
                                 <TD COLSPAN="6" ALIGN="center" CLASS="statText">
                                     <%if(!lastMatch){%>
                                         <INPUT TYPE="HIDDEN" NAME="rd" VALUE="<%=roundID%>">
                                     <%}%>
                                     <INPUT TYPE="HIDDEN" NAME="c" VALUE="round_overview">
-                                    
+
                                     Viewing top&#160;&#160;
                                     <INPUT TYPE="text" NAME="er" MAXLENGTH="4" SIZE="4" value="<%=topN%>">&#160;&#160;
                                     <A HREF="javaScript:submitForm();" CLASS="statText">&#160;[ submit ]</A>
