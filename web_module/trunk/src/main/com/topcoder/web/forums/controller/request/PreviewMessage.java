@@ -59,8 +59,12 @@ public class PreviewMessage extends ForumsProcessor {
         setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
         setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
         setDefault(ForumConstants.POST_MODE, postMode);
+        
+        ForumMessage previewMessage = forum.createMessage(user);   // message for preview
+        previewMessage.setSubject(subject);
+        previewMessage.setBody(body);
         setDefault(ForumConstants.MESSAGE_SUBJECT, subject);
-        setDefault(ForumConstants.MESSAGE_BODY, body);
+        setDefault(ForumConstants.MESSAGE_BODY, previewMessage.getUnfilteredBody());
         
         if (message != null && thread != null) {
             getRequest().setAttribute("thread", thread);
@@ -89,10 +93,6 @@ public class PreviewMessage extends ForumsProcessor {
             setIsNextPageInContext(true);
             return;
 		}
-        
-        ForumMessage previewMessage = forum.createMessage(user);   // message for preview
-        previewMessage.setSubject(subject);
-        previewMessage.setBody(body);
 		
         getRequest().setAttribute("message", previewMessage);        
         
