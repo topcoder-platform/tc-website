@@ -59,12 +59,8 @@ public class PreviewMessage extends ForumsProcessor {
         setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
         setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
         setDefault(ForumConstants.POST_MODE, postMode);
-        
-        ForumMessage previewMessage = forum.createMessage(user);   // message for preview
-        previewMessage.setSubject(subject);
-        previewMessage.setBody(body);
         setDefault(ForumConstants.MESSAGE_SUBJECT, subject);
-        setDefault(ForumConstants.MESSAGE_BODY, previewMessage.getUnfilteredBody());
+        setDefault(ForumConstants.MESSAGE_BODY, com.jivesoftware.util.StringUtils.escapeHTMLTags(body));
         
         if (message != null && thread != null) {
             getRequest().setAttribute("thread", thread);
@@ -94,6 +90,10 @@ public class PreviewMessage extends ForumsProcessor {
             return;
 		}
 		
+        ForumMessage previewMessage = forum.createMessage(user);   // message for preview
+        previewMessage.setSubject(subject);
+        previewMessage.setBody(body);
+        
         getRequest().setAttribute("message", previewMessage);        
         
         setNextPage("/preview.jsp");
