@@ -79,7 +79,7 @@ public class XmlQuery implements QueryInterface {
         ResultSet rs = null;
         try {
             stmt = conn.prepareStatement(
-                    "SELECT severity_text, response_code, response_text, dynamic_response_text " +
+                    "SELECT severity_text, response_code, response_text, dynamic_response_text, screening_results_id " +
                     "FROM response_severity_lu, screening_response_lu, screening_results, submission " +
                     "WHERE response_severity_lu.response_severity_id = screening_response_lu.response_severity_id " +
                     "AND screening_response_lu.screening_response_id = screening_results.screening_response_id " +
@@ -106,7 +106,7 @@ public class XmlQuery implements QueryInterface {
         ResultSet rs = null;
         try {
             stmt = conn.prepareStatement(
-                    "SELECT severity_text, response_code, response_text, dynamic_response_text " +
+                    "SELECT severity_text, response_code, response_text, dynamic_response_text, screening_results_id " +
                     "FROM response_severity_lu, screening_response_lu, screening_results, submission " +
                     "WHERE response_severity_lu.response_severity_id = screening_response_lu.response_severity_id " +
                     "AND screening_response_lu.screening_response_id = screening_results.screening_response_id " +
