@@ -70,7 +70,7 @@
                 <A HREF="/tc?module=MemberProfile&cr=<%=MemberProfileTask.getMemberID()%>" target="blank" class="bodyText">Full TopCoder Profile</a><br />
 				<B>Current Rating:</B> <%=MemberStats.getItem(0, "rating").toString()%><br>
 				<B>Current Ranking:</B> <%=MemberStats.getItem(0, "rank").toString()%><br />
-				<B>Rating Percentile:</B> <%=MemberStats.getItem(0, "percentile").toString()%> <A HREF="JavaScript:getGraph('/corp/graph/?c=rating_distribution_graph&cm=<jsp:getProperty name="MemberProfileTask" property="CompanyId"/>','600','400','distribution')" class="bodyText">Distribution Graph</a><br>
+				<B>Rating Percentile:</B> <%=MemberStats.getItem(0, "percentile").toString()%> <A HREF="JavaScript:getGraph('/corp/graph/?c=rating_distribution_graph&cm=<jsp:getProperty name="MemberProfileTask" property="companyId"/>','600','400','distribution')" class="bodyText">Distribution Graph</a><br>
 				<B>Number of Ratings:</B> <%=MemberStats.getItem(0, "num_ratings").toString()%><br>
 				<B>Highest Rating:</B> <%=MemberStats.getItem(0, "highest_rating").toString()%><br>
 				<B>Lowest Rating:</B> <%=MemberStats.getItem(0, "lowest_rating").toString()%><br>
@@ -101,9 +101,9 @@
 				<br><br>
 				</td>
 				<td class=bodyText>
-				<strong>Interested in:</strong> <jsp:getProperty name="MemberProfileTask" property="JobName"/>
+				<strong>Interested in:</strong> <jsp:getProperty name="MemberProfileTask" property="jobName"/>
 				<br>
-				<A HREF="<jsp:getProperty name="MemberProfileTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="MemberID"/>" class="bodyText">View all position interest for <%= MemberInfo.getItem(0, "handle")%></A>
+				<A HREF="<jsp:getProperty name="MemberProfileTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="campaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="jobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="memberID"/>" class="bodyText">View all position interest for <%= MemberInfo.getItem(0, "handle")%></A>
 				<br><br>
 				</td>
 			</tr>

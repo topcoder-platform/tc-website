@@ -74,9 +74,9 @@
                 <tr>
                     <td class="bodyText" align="right">
 	                <% if (!CompetitionHistoryTask.isRestrictedCampaign()) {%>
-	                <A HREF="JavaScript:getGraph('/corp/graph/?c=rating_history_graph&cr=<jsp:getProperty name="CompetitionHistoryTask" property="memberID"/>&cm=<jsp:getProperty name="CompetitionHistoryTask" property="companyId"/>','800','600','history')" class="bodyText">Rating History Graph</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+	                <A HREF="JavaScript:getGraph('/corp/graph?c=rating_history_graph&cr=<jsp:getProperty name="CompetitionHistoryTask" property="memberID"/>&cm=<jsp:getProperty name="CompetitionHistoryTask" property="companyId"/>','800','600','history')" class="bodyText">Rating History Graph</a> &nbsp;&nbsp;|&nbsp;&nbsp;
 	                <% } %>
-	                <A HREF="JavaScript:getGraph('/corp/graph/?c=rating_distribution_graph&cm=<jsp:getProperty name="CompetitionHistoryTask" property="companyId"/>','600','400','distribution')" class="bodyText">Overall Rating Distribution Graph</a>
+	                <A HREF="JavaScript:getGraph('/corp/graph?c=rating_distribution_graph&cm=<jsp:getProperty name="CompetitionHistoryTask" property="companyId"/>','600','400','distribution')" class="bodyText">Overall Rating Distribution Graph</a>
                     </td>
                 </tr>
             </table>
