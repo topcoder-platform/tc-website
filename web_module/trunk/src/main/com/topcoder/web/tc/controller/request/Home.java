@@ -79,6 +79,7 @@ public class Home extends Base {
             dataRequest.setProperty("cr", String.valueOf(getUser().getId()));
             getRequest().setAttribute("member_info", dwDai.getData(dataRequest).get("Coder_Data"));
 
+/*
             TCO05ComponentTerms compTerms = new TCO05ComponentTerms();
             compTerms.setRequest(getRequest());
             compTerms.setResponse(getResponse());
@@ -91,6 +92,7 @@ public class Home extends Base {
 
             getRequest().setAttribute("compTerms", compTerms);
             getRequest().setAttribute("algoTerms", algoTerms);
+*/
 
         } catch (TCWebException e) {
             throw e;
