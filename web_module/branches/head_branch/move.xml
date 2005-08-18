@@ -70,6 +70,8 @@
                 <include name="lib/bin/shared.jar"/>
                 <include name="lib/bin/screening.jar"/>
                 <include name="build/ears/dde.ear"/>
+                <include name="build/wars/review.war"/>
+                <include name="build/wars/dde.war"/>
             </fileset>
         </jar>
     </target>
