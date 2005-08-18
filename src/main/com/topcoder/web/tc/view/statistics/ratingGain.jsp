@@ -1,4 +1,4 @@
-<%@ page 
+<%@ page
   language="java"
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
 
@@ -57,13 +57,13 @@ function goTo(selection){
          </TABLE>
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
            <TR>
-            <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/> 
+            <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
               <TR>
                 <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
                   <P CLASS="statText">
-<% if (sDivision.equals("S")){ %>  
+<% if (sDivision.equals("1")){ %>
                     This chart represents the biggest rating point gain in Division II.
                   </P>
                   <P CLASS="statText">
@@ -88,7 +88,7 @@ function goTo(selection){
                       <TD COLSPAN="4" CLASS="smallFoot" WIDTH="1"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                     </TR>
                     <TR VALIGN="middle">
-                      <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="10" HEIGHT="18">&nbsp;</TD>            
+                      <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="10" HEIGHT="18">&nbsp;</TD>
                       <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="34%">
               <a href="/stat?c=biggest_rating_gains&dn=<%=sDivision%>&sq=Highest_Rating_Gains&sc=0&sd=<%= "0".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Handle</A>
             </TD>
@@ -108,7 +108,7 @@ function goTo(selection){
   <logic:equal name="queryEntries" property="key" value="Highest_Rating_Gains">
   <logic:present name="queryEntries" property="value">
     <bean:define id="resultSet" name="queryEntries" property="value" type="ResultSetContainer" />
-    <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow"> 
+    <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
     <tr valign="middle">
             <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 7 /*"coder_score"*/ + "]" %>'/>
           <td CLASS="smallFoot" align="right" height="13"><bean:write name="resultRow" property='<%= "item[" + 8 /*"rank"*/ + "]" %>'/>&nbsp;</td>
@@ -130,14 +130,14 @@ function goTo(selection){
                   </TABLE>
            </TD>
            </TR>
-              </TABLE>      
+              </TABLE>
             </TD>
            </TR>
            <TR>
              <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-           </TR>     
+           </TR>
          </TABLE>
-         
+
          <p><br></p>
 
          <!-- END BODY -->
@@ -149,7 +149,7 @@ function goTo(selection){
        </TD>
     <!-- Gutter -->
     <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->       
+    <!-- Gutter Ends -->
      </TR>
    </TABLE>
    <jsp:include page="../foot.jsp" />
