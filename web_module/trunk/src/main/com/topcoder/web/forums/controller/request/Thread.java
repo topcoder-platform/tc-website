@@ -102,11 +102,17 @@ public class Thread extends ForumsProcessor {
                 if (itThreads.hasNext()) {
                     ForumThread nextThread = (ForumThread)itThreads.next();
                     getRequest().setAttribute("nextThread", nextThread);
+                } else {
+                    int nextIdx = Math.min(tResultFilter.getStartIndex() + threadRange/2 + 1, forum.getThreadCount()-1);
+                    getRequest().getSession().setAttribute(forumKey, new Integer(nextIdx));
                 }
                 itThreads.setIndex(thread); // back up the index pointer
                 if (itThreads.hasPrevious()) {
                     ForumThread prevThread = (ForumThread)itThreads.previous();
                     getRequest().setAttribute("prevThread", prevThread);
+                } else {
+                    int prevIdx = Math.max(tResultFilter.getStartIndex() - threadRange/2 - 1, 0);
+                    getRequest().getSession().setAttribute(forumKey, new Integer(prevIdx));
                 }
             } catch (NoSuchElementException nsee) {
                 getRequest().removeAttribute("nextThread");
