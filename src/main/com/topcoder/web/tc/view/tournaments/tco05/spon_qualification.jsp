@@ -22,11 +22,8 @@
             
 <span class="bigTitle">Advancers - Qualification</span>
 <br><br>
-Click a column title to sort the list of advancers by that column. Click <a href="?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&d1=tournaments&d2=tccc05&d3=alg_adv_overview">here</a> to reset the list to its originally sorted format.
-<br><br>
 <table width="500" align="center" border="0" cellpadding="2" cellspacing="0" class="formFrame">
    <tr class="advHeader">
-      <td width = "10%" align = "center" nowrap="nowrap"><a href="">Seed</a></td>
       <td width = "15%" nowrap="nowrap"><a href="">Handle</a></td>
       <td width = "10%" align = "center" nowrap="nowrap"><a href="">Problem Set</a></td>
       <td width = "5%" align = "right" nowrap="nowrap"><a href="">Rating</a></td>
