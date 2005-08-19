@@ -86,7 +86,7 @@ public class Thread extends ForumsProcessor {
         
         ResultFilter filter = ResultFilter.createDefaultThreadFilter();
         filter.setNumResults(2);
-        filter.setSortOrder(ResultFilter.DESCENDING);
+        filter.setSortOrder(ResultFilter.ASCENDING);
         filter.setModificationDateRangeMin(thread.getModificationDate());
         Iterator threads = forum.getThreads(filter);
         threads.next();
@@ -96,7 +96,7 @@ public class Thread extends ForumsProcessor {
         
         filter = ResultFilter.createDefaultThreadFilter();
         filter.setNumResults(2);
-        filter.setSortOrder(ResultFilter.ASCENDING);
+        filter.setSortOrder(ResultFilter.DESCENDING);
         filter.setModificationDateRangeMax(thread.getModificationDate());
         threads = forum.getThreads(filter);
         threads.next();
