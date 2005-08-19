@@ -114,7 +114,7 @@ public class ProjectTrackerAccuracyTests extends TestCase {
 
     public void testGetProject_UPI() throws Exception {
         Project proj = tracker.getProject(new DummyUPI(project3.getId()));
-        assertNotNull("Project not successfully retreived", proj);
+        assertNotNull("Project not successfully retrieved", proj);
         assertProjectsMatch(project3, proj);
     }
 
@@ -122,7 +122,7 @@ public class ProjectTrackerAccuracyTests extends TestCase {
         Project proj = tracker.getProject(project2.getId(), adminUser);
         Project proj2;
 
-        assertNotNull("Project not successfully retreived", proj);
+        assertNotNull("Project not successfully retrieved", proj);
         assertProjectsMatch(project2, proj);
         proj.setNotes("Modified the project for testing purposes.");
 /*
