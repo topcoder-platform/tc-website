@@ -35,7 +35,13 @@ public class HandleChars {
             }
 
             for (Iterator it = set.iterator(); it.hasNext();) {
-                System.out.print(it.next().toString());
+                Character ch = (Character)it.next();
+                if (ch.charValue()>127) {
+                    System.out.print("[\\u"+(int)ch.charValue()+"]");
+                } else {
+                    System.out.print(ch.toString());
+                }
+
             }
         } catch (Exception e) {
             e.printStackTrace();
