@@ -137,7 +137,7 @@ public class Registration
 
 
     private final static String PUNCTUATION = "-_.{}[]()";
-    private final static String HANDLE_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+    public final static String HANDLE_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
             "abcdefghijklmnopqrstuvwxyz" +
             "0123456789" + PUNCTUATION;
 
