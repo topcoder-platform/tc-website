@@ -79,7 +79,7 @@ public class Login extends FullLogin {
 
     protected void setNextPage() {
         Calendar end = Calendar.getInstance();
-        end.set(2005, Calendar.AUGUST, 19, 14, 0);
+        end.set(2005, Calendar.AUGUST, 19, 17, 0);
         Calendar beginning = Calendar.getInstance();
         //beginning.set(2005, Calendar.JULY, 25, 9, 0);
         beginning.set(2004, Calendar.JULY, 9, 9, 0);
