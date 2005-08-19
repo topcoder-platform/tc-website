@@ -97,7 +97,7 @@ public class Thread extends ForumsProcessor {
         filter = ResultFilter.createDefaultThreadFilter();
         filter.setNumResults(2);
         filter.setSortOrder(ResultFilter.ASCENDING);
-        filter.setModificationDateRangeMin(thread.getModificationDate());
+        filter.setModificationDateRangeMax(thread.getModificationDate());
         threads = forum.getThreads(filter);
         threads.next();
         if (threads.hasNext()) {
