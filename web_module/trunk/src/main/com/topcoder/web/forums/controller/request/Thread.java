@@ -94,7 +94,10 @@ public class Thread extends ForumsProcessor {
             getRequest().setAttribute("nextThread", (ForumThread)threads.next());
         }
         
+        filter = ResultFilter.createDefaultThreadFilter();
+        filter.setNumResults(2);
         filter.setSortOrder(ResultFilter.ASCENDING);
+        filter.setModificationDateRangeMin(thread.getModificationDate());
         threads = forum.getThreads(filter);
         threads.next();
         if (threads.hasNext()) {
