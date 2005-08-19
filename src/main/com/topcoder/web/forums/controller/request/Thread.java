@@ -77,13 +77,6 @@ public class Thread extends ForumsProcessor {
         }
         
         // Previous/next links
-        String forumKey = "tc.forum." + forum.getID() + ".start";
-        Integer startInt = (Integer)getRequest().getSession().getAttribute(forumKey);
-        int tStartIdx = -1;
-        if (startInt != null) {
-            tStartIdx = startInt.intValue();
-        }
-        
         ResultFilter filter = ResultFilter.createDefaultThreadFilter();
         filter.setNumResults(2);
         filter.setSortOrder(ResultFilter.ASCENDING);
@@ -103,46 +96,6 @@ public class Thread extends ForumsProcessor {
         if (threads.hasNext()) {
             getRequest().setAttribute("nextThread", (ForumThread)threads.next());
         }
-        
-        /*
-        if (tStartIdx != -1) {
-            try {
-                int threadRange = ForumConstants.DEFAULT_THREAD_RANGE;
-                if (user != null) {
-                    try {
-                        threadRange = Integer.parseInt(user.getProperty("jiveThreadRange"));
-                    } catch (Exception ignored) {}
-                }
-                
-                ResultFilter tResultFilter = ResultFilter.createDefaultThreadFilter();
-                tResultFilter.setStartIndex(Math.max(0, tStartIdx-1));
-                tResultFilter.setNumResults(threadRange+2);
-                ForumThreadIterator itThreads = forum.getThreads(tResultFilter);
-                
-                itThreads.setIndex(thread);
-                if (itThreads.hasNext()) {
-                    ForumThread nextThread = (ForumThread)itThreads.next();
-                    getRequest().setAttribute("nextThread", nextThread);
-                } 
-                if (!itThreads.hasNext()) {
-                    int nextIdx = Math.min(tResultFilter.getStartIndex() + threadRange/2 + 1, forum.getThreadCount()-1);
-                    getRequest().getSession().setAttribute(forumKey, new Integer(nextIdx));
-                }
-                itThreads.setIndex(thread); // back up the index pointer
-                if (itThreads.hasPrevious()) {
-                    ForumThread prevThread = (ForumThread)itThreads.previous();
-                    getRequest().setAttribute("prevThread", prevThread);
-                } 
-                if (!itThreads.hasPrevious()){
-                    int prevIdx = Math.max(tResultFilter.getStartIndex() - threadRange/2 - 1, 0);
-                    getRequest().getSession().setAttribute(forumKey, new Integer(prevIdx));
-                }
-            } catch (NoSuchElementException nsee) {
-                getRequest().removeAttribute("nextThread");
-                getRequest().removeAttribute("prevThread");
-            }
-        }
-        */
         
         // Use the setting chosen on the page if selected, or the user's default
         // preference otherwise.

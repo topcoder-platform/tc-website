@@ -30,7 +30,6 @@ public class ThreadList extends ForumsProcessor {
         if ((!StringUtils.checkNull(getRequest().getParameter(ForumConstants.START_IDX)).equals(""))) {
             startIdx = Integer.parseInt(getRequest().getParameter(ForumConstants.START_IDX));
         }
-        getRequest().getSession().setAttribute("tc.forum." + forumID + ".start", new Integer(startIdx));
         int threadRange = ForumConstants.DEFAULT_THREAD_RANGE;
         if (user != null) {
             try {
