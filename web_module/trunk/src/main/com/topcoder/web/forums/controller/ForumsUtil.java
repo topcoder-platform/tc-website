@@ -17,7 +17,6 @@ import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.database.DbForumFactory;
 import com.jivesoftware.forum.database.DbForumMessage;
 import com.jivesoftware.util.StringUtils;
-import com.topcoder.web.forums.ForumConstants;
 
 import java.util.Iterator;
 
