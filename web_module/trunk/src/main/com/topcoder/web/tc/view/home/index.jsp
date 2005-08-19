@@ -155,7 +155,7 @@
             <b>8/22</b> - SRM 259 - 7AM<br><br>
             <b>8/24</b> - TCO05 Alg Round 2 - 930PM<br><br>
             <b>8/24</b> - TCO05 CDDC Championship Round Projects Posted - 9AM<br><br>
-            <b>8/27</b> - SRM 260 - 12PM<br><br>
+            <b>8/27</b> - SRM 260 - 12PM - TopCoder Software<br><br>
             <b>8/30</b> - SRM 261 - 9PM - NSA<br><br>
             <b>8/31</b> - TCO05 Alg Round 3 - 930PM<br><br>
             <b>8/31</b> - TCO05 CDDC Championship Round Deadline - 9AM<br><br>

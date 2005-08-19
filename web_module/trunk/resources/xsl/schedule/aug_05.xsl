@@ -207,6 +207,7 @@
                                     <strong>Match 260</strong><br />
                                     Register: 9:00&#160;AM<br />
                                     Compete: 12:00&#160;PM<br />
+                                    Sponsored by:<br /><A href="http://software.topcoder.com/">TopCoder Software</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=7994&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                             </tr>
