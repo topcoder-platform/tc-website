@@ -91,7 +91,7 @@ public class Thread extends ForumsProcessor {
         Iterator threads = forum.getThreads(filter);
         threads.next();
         if (threads.hasNext()) {
-            getRequest().setAttribute("nextThread", (ForumThread)threads.next());
+            getRequest().setAttribute("prevThread", (ForumThread)threads.next());
         }
         
         filter = ResultFilter.createDefaultThreadFilter();
@@ -101,7 +101,7 @@ public class Thread extends ForumsProcessor {
         threads = forum.getThreads(filter);
         threads.next();
         if (threads.hasNext()) {
-            getRequest().setAttribute("prevThread", (ForumThread)threads.next());
+            getRequest().setAttribute("nextThread", (ForumThread)threads.next());
         }
         
         /*
