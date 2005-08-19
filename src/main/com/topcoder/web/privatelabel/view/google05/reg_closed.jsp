@@ -57,7 +57,7 @@ function submitEnter(e) {
 			</div>
 			<br><br>
 
-			<p><font size="-1"><br>Registration is not currently open.  The registration period is from Monday, July 25 to Friday, August 19.</font></p>
+			<p><font size="-1"><br>Registration for the Google Code Jam 2005 is officially closed. </font></p>
 			<br><br><br><br><br>
 			</div>
 		</td>
