@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
          		 com.topcoder.web.forums.ForumConstants,
+                 com.jivesoftware.base.JiveGlobals,
          		 com.jivesoftware.forum.action.UserSettingsAction,
                  com.topcoder.web.forums.controller.request.Settings,
          		 java.util.*"
@@ -78,7 +79,8 @@
       <td class="rtTextCell100">
 		<select size="1" name="threadsPerPage">
 		<%  int[] threadCounts = { 10, 15, 25, 50 };
-			int threadRange = ForumConstants.DEFAULT_THREAD_RANGE;
+            int threadRange = JiveGlobals.getJiveIntProperty("skin.default.defaultThreadsPerPage", 
+                ForumConstants.DEFAULT_THREAD_RANGE);
             try {
                 threadRange = Integer.parseInt(user.getProperty("jiveThreadRange"));
             } catch (Exception ignored) {}
@@ -97,7 +99,8 @@
       <td class="rtTextCell100">
 		<select size="1" name="messagesPerPage">
 		<%  int[] messageCounts = { 10, 15, 25, 50 };
-			int messageRange = ForumConstants.DEFAULT_MESSAGE_RANGE;
+			int messageRange = JiveGlobals.getJiveIntProperty("skin.default.defaultMessagesPerPage", 
+                ForumConstants.DEFAULT_MESSAGE_RANGE);
             try {
                 messageRange = Integer.parseInt(user.getProperty("jiveMessageRange"));
             } catch (Exception ignored) {}

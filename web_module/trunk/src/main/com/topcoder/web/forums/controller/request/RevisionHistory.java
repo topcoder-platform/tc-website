@@ -10,6 +10,7 @@ import com.topcoder.web.ejb.messagehistory.MessageHistory;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.forum.ForumMessage;
 
 import java.util.ArrayList;
@@ -32,7 +33,8 @@ public class RevisionHistory extends ForumsProcessor {
         InitialContext ctx = TCContext.getInitial();
         MessageHistory historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
 
-        int range = ForumConstants.DEFAULT_MESSAGE_RANGE;
+        int range = JiveGlobals.getJiveIntProperty("skin.default.defaultMessagesPerPage", 
+                ForumConstants.DEFAULT_MESSAGE_RANGE);
         if (user != null) {
             try {
                 range = Integer.parseInt(user.getProperty("jiveMessageRange"));

@@ -3,6 +3,7 @@
  */
 package com.topcoder.web.forums.controller.request;
 
+import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
 import com.topcoder.web.common.StringUtils;
@@ -38,7 +39,8 @@ public class Message extends ForumsProcessor {
 			    messageIdx++;
 			}
 
-            int messageRange = ForumConstants.DEFAULT_MESSAGE_RANGE;
+            int messageRange = JiveGlobals.getJiveIntProperty("skin.default.defaultMessagesPerPage", 
+                    ForumConstants.DEFAULT_MESSAGE_RANGE);
             if (user != null) {
                 try {
                     messageRange = Integer.parseInt(user.getProperty("jiveMessageRange"));
