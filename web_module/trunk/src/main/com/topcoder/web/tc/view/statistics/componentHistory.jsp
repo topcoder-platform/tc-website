@@ -178,7 +178,7 @@ String sSortUrl = "/stat?c=component_history&pi="+srb.getProperty("pi")+ "&cr="+
             <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 5 /* place */ + "]" %>'/></TD>
             <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write format="0.00" name="resultRow2" property='<%= "item[" + 8 /* score */ + "]" %>'/></TD>
             <TD class="<%=even?"statLt":"statDk"%>" align="right">$&nbsp;<bean:write format="0.00" name="resultRow2" property='<%= "item[" + 6 /* money */ + "].resultData" %>'/></TD>
-            <TD class="<%=even?"statLt":"statDk"%>" align="right"><% if (resultRow2.getStringItem("project_id")!=null) { %><A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow2%>"/>" class="statLink">contest details</A><% } %></TD>
+            <TD class="<%=even?"statLt":"statDk"%>" align="right"><% if (resultRow2.getStringItem("project_id")!=null) { %><A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow2%>"/>" class="statLink">Contest Details</A><% } %></TD>
          </tr>
          <%even=!even;%>
          </logic:iterate>

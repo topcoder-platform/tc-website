@@ -168,7 +168,7 @@ String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=t
             <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 13 /* placed */ + "]" %>'/></TD>
             <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 7 /* score */ + "]" %>'/></TD>
             <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 5 /* new Rating */ + "]" %>'/></TD>
-            <TD class="<%=even?"statLt":"statDk"%>" align="right" nowrap="nowrap"><A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow2%>"/>" class="statLink">contest details</A></TD>
+            <TD class="<%=even?"statLt":"statDk"%>" align="right" nowrap="nowrap"><A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow2%>"/>" class="statLink">Contest Details</A></TD>
          </TR>
          <%even=!even;%>
          </logic:iterate>
