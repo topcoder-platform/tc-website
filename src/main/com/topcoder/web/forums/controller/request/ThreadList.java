@@ -4,6 +4,7 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveConstants;
+import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.action.util.Paginator;
@@ -30,7 +31,8 @@ public class ThreadList extends ForumsProcessor {
         if ((!StringUtils.checkNull(getRequest().getParameter(ForumConstants.START_IDX)).equals(""))) {
             startIdx = Integer.parseInt(getRequest().getParameter(ForumConstants.START_IDX));
         }
-        int threadRange = ForumConstants.DEFAULT_THREAD_RANGE;
+        int threadRange = JiveGlobals.getJiveIntProperty("skin.default.defaultThreadsPerPage", 
+                ForumConstants.DEFAULT_THREAD_RANGE);
         if (user != null) {
             try {
                 threadRange = Integer.parseInt(user.getProperty("jiveThreadRange"));

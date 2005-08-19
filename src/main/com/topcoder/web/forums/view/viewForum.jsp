@@ -8,6 +8,7 @@
                  com.topcoder.web.forums.controller.ForumsUtil,
          		 com.topcoder.web.forums.model.Paging,
                  com.jivesoftware.base.JiveConstants,
+                 com.jivesoftware.base.JiveGlobals,
          		 com.jivesoftware.base.User,
          		 com.jivesoftware.forum.stats.ViewCountManager,
                  com.jivesoftware.forum.ForumMessage,
@@ -170,7 +171,8 @@
 			<%  Paginator threadPaginator;
 				ResultFilter resultFilter = ResultFilter.createDefaultMessageFilter();
 				resultFilter.setStartIndex(0);
-				int range = ForumConstants.DEFAULT_MESSAGE_RANGE;
+				int range = JiveGlobals.getJiveIntProperty("skin.default.defaultMessagesPerPage", 
+                    ForumConstants.DEFAULT_MESSAGE_RANGE);
         		if (user != null) {
             		try {
                 		range = Integer.parseInt(user.getProperty("jiveMessageRange"));
