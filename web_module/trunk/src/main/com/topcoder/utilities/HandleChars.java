@@ -41,6 +41,7 @@ public class HandleChars {
                 } else {
                     System.out.print(ch.toString());
                 }
+                System.out.println("");
 
             }
         } catch (Exception e) {
