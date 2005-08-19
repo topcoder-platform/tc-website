@@ -84,6 +84,24 @@ public class Thread extends ForumsProcessor {
             tStartIdx = startInt.intValue();
         }
         
+        ResultFilter filter = ResultFilter.createDefaultThreadFilter();
+        filter.setNumResults(2);
+        filter.setSortOrder(ResultFilter.DESCENDING);
+        filter.setModificationDateRangeMin(thread.getModificationDate());
+        Iterator threads = forum.getThreads(filter);
+        threads.next();
+        if (threads.hasNext()) {
+            getRequest().setAttribute("nextThread", (ForumThread)threads.next());
+        }
+        
+        filter.setSortOrder(ResultFilter.ASCENDING);
+        threads = forum.getThreads(filter);
+        threads.next();
+        if (threads.hasNext()) {
+            getRequest().setAttribute("prevThread", (ForumThread)threads.next());
+        }
+        
+        /*
         if (tStartIdx != -1) {
             try {
                 int threadRange = ForumConstants.DEFAULT_THREAD_RANGE;
@@ -121,6 +139,7 @@ public class Thread extends ForumsProcessor {
                 getRequest().removeAttribute("prevThread");
             }
         }
+        */
         
         // Use the setting chosen on the page if selected, or the user's default
         // preference otherwise.
