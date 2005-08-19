@@ -26,7 +26,7 @@
 		<td width="49%">&#160;</td>
 		<td>
 			<div class=greenBigBox>
-			
+
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
@@ -77,7 +77,7 @@ Before you can use any of the STL classes, you'll need to include the appropriat
 <span class="greenSubtitle">Vector</span><br>
 A <strong>vector</strong> is the C++ replacement for arrays.  Vectors solve many of the problems of tradidional C arrays by allowing dynamic resizing and providing methods to inspect the current size of the array.  You declare a vector as <strong>vector&lt;type&gt;</strong> where type is the type of variable stored in the array.  To create a vector of <strong>ints</strong>, you'd write <pre>vector&lt;int&gt; myVar;</pre>Newly created <strong>vectors</strong> are of size 0.  To declare a <strong>vector</strong> with a specific size, you can use <pre>vector&lt;int&gt; myVar(10);</pre>In this case the newly created <strong>vector</strong> has a size of 10.
 <br><br>
-To set / retreive the elements in a <strong>vector</strong>, you can use the same syntax you'd use to work with a C array.
+To set / retrieve the elements in a <strong>vector</strong>, you can use the same syntax you'd use to work with a C array.
 
 <pre>
 vector&lt;int&gt; myVar(10);
@@ -160,12 +160,12 @@ class StringBuilder {
         string buildString(vector&lt;char&gt; array) {
             //create string for return value
 	    string s;
-	    
+
 	    //loop over every element in the array
 	    for(int i = 0; i &lt; array.size(); i++) {
 	    	s = s + array[i];
 	    }
-	    
+
 	    //return the created string
 	    return s;
     }
