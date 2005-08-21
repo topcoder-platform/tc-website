@@ -72,7 +72,7 @@
 
 
         <table border="0" cellspacing="3" cellpadding="0" width="100%" class="bodyText">
-    <form name="questForm" method="POST" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>">
+    <form name="questForm" method="POST" action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>">
         <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCO05TravelInfoSubmit"/>
             <tr><td colspan="2"><H1 align="center">Travel Form</H1></td></tr>
             <tr><td colspan="2"><U><B>COMPETITOR INFORMATION:</B></U><br /></td></tr>
