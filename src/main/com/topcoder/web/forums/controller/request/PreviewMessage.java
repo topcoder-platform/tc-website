@@ -3,12 +3,16 @@
  */
 package com.topcoder.web.forums.controller.request;
 
+import javax.naming.InitialContext;
+
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.ejb.messagehistory.MessageHistory;
 import com.topcoder.web.forums.ForumConstants;
 
 /**
@@ -53,9 +57,13 @@ public class PreviewMessage extends ForumsProcessor {
             addError(ForumConstants.MESSAGE_SUBJECT, ForumConstants.ERR_POST_MODE_UNRECOGNIZED);
         }
         
+        InitialContext ctx = TCContext.getInitial();
+        MessageHistory historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
+        
         getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("forum", forum);
         getRequest().setAttribute("postMode", postMode);
+        getRequest().setAttribute("historyBean", historyBean);
         
         setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
         setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
