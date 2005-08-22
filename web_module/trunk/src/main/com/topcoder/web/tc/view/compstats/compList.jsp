@@ -72,8 +72,11 @@ function submitEnter(e) {
 
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="statistics_w"/>
-<jsp:param name="title" value="Component List"/>
+<jsp:param name="title" value="Component Project List"/>
 </jsp:include>
+
+<span class="bodySubtitle">Component Statistics > Contest List</span><br>
+
 
 <%
     ResultSetContainer list = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("comp_list");
@@ -87,82 +90,91 @@ function submitEnter(e) {
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
+<span class="bc">
 <% if ("112".equals(phaseId)) { %>
-    Design  &#160;|&#160; <a href="/tc?module=CompList&pi=113" class="statText">Development</a>
+    Design  &#160;|&#160; <a href="/tc?module=CompList&pi=113" class="bcLink">Development</a>
 <% } else { %>
-    <a href="/tc?module=CompList&pi=112" class="statText">Design</a>  &#160;|&#160; Development
+    <a href="/tc?module=CompList&pi=112" class="bcLink">Design</a>  &#160;|&#160; Development
 <% } %>
+</span>
 
+<div class="pagingBox">
+<%=(list.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+| <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
+</div>
 
-
-<table border="1">
-<tr>
-    <TD class="statText" align="center">
-        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr" />" class="statText">Category</a>
-     </td>
-    <TD class="statText" align="center">
-        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />" class="statText">Component</a>
-     </td>
-    <TD class="statText" align="center">
-        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true" excludeParams="sr" />" class="statText">Registrations</a>
-     </td>
-    <TD class="statText" align="center">
-        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true" excludeParams="sr" />" class="statText">Submissions</a>
-     </td>
-    <TD class="statText" align="center">
-        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />" class="statText">Submissions passed screening</a>
-     </td>
-    <TD class="statText" align="center">
-        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true" excludeParams="sr" />" class="statText">Winner</a>
-     </td>
-    <TD class="statText" align="center">details</td>
-
-</tr>
-<rsc:iterator list="<%=list%>" id="resultRow">
-         <TR>
-            <TD class="statDk" align="left">
-               <rsc:item name="category_desc" row="<%=resultRow%>" />
-             </TD>
-            <TD class="statDk" align="left">
-                <rsc:item name="component_name" row="<%=resultRow%>" /> <rsc:item name="version_text" row="<%=resultRow%>" />
-             </TD>
-            <TD class="statDk" align="center">
-                <rsc:item name="num_registrations" row="<%=resultRow%>" ifNull="unknown *" />
-             </TD>
-            <TD class="statDk" align="center">
-                <rsc:item name="num_submissions" row="<%=resultRow%>" ifNull="unknown *"/>
-             </TD>
-            <TD class="statDk" align="center">
-                <rsc:item name="num_valid_submissions" row="<%=resultRow%>" ifNull="unknown *" />
-             </TD>
-            <TD class="statDk"> &nbsp;
-            <% if (resultRow.getStringItem("winner_id") != null) { %>
-                <tc-webtag:handle coderId='<%= resultRow.getLongItem("winner_id") %>' context='<%=resultRow.getStringItem("phase_desc")%>'/>
-             <% }  %>
-
-             </TD>
-
-
-             <TD class="statDk" align="center">
-                <A HREF='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>' class="bcLink">Details</a>
-             </TD>
-          </TR>
-</rsc:iterator>
-
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
+   <tr>
+      <td class="divider" >
+         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
+            <tr><td class="tableTitle" colspan="7">
+            <% if ("112".equals(phaseId)) { %>Design 
+            <% } else { %>Development 
+            <% } %>
+            Contest Details
+            </td></tr>
+            <tr>
+               <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />" class="statLink">Component</a></td>
+               <TD CLASS="tableHeader" align="center"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr" />" class="statLink">Category</a></td>
+               <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true" excludeParams="sr" />" class="statLink">Registrants</a></td>
+               <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true" excludeParams="sr" />" class="statLink">Submissions</a></td>
+               <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />" class="statLink">Passed<br>Screening</a></td>
+               <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true" excludeParams="sr" />" class="statLink">Winner</a></td>
+               <TD CLASS="tableHeader">&#160;</td>
+            </tr>
+      <%boolean even = true;%>
+      <rsc:iterator list="<%=list%>" id="resultRow">
+            <TR>
+            <td class="<%=even?"statLt":"statDk"%>" align="left"><rsc:item name="component_name" row="<%=resultRow%>" /> <rsc:item name="version_text" row="<%=resultRow%>" /></TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="category_desc" row="<%=resultRow%>" /></TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="num_registrations" row="<%=resultRow%>" ifNull="unknown *" /></TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="num_submissions" row="<%=resultRow%>" ifNull="unknown *"/></TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="num_valid_submissions" row="<%=resultRow%>" ifNull="unknown *" /></TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="left">
+               <% if (resultRow.getStringItem("winner_id") != null) { %>
+               <tc-webtag:handle coderId='<%= resultRow.getLongItem("winner_id") %>' context='<%=resultRow.getStringItem("phase_desc")%>'/>
+               <% }  %>
+               </TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><A HREF='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>' class="bcLink">Contest Details</a></TD>
+            </TR>
+      <%even=!even;%>
+      </rsc:iterator>
+         </table>
+      </td>
+   </tr>
 </table>
 
-                        <%=(list.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-                        | <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>":"next &gt;&gt;")%>
-
-
-                       View &#160;
-                       <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onkeypress="submitEnter(event)"/>
-                       &#160;at a time starting with &#160;
-                       <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onkeypress="submitEnter(event)"/>
-                       <a href="javascript:document.compListForm.submit();" class="statText">&#160;[ submit ]</a>
+<div class="pagingBox">
+   <%=(list.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+   | <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
+   
+   <br>
+   
+   View &#160;
+   <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onkeypress="submitEnter(event)"/>
+   &#160;at a time starting with &#160;
+   <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onkeypress="submitEnter(event)"/>
+   <a href="javascript:document.compListForm.submit();" class="bcLink">&#160;[ submit ]</a>
+</div>
 
 </form>
 * Some information may be unknown due to missing data from old projects
+        </td>
+
+<!-- Right Column -->
+         <td width="170">
+            <jsp:include page="../../public_right.jsp">
+               <jsp:param name="level1" value="privatelabel"/>
+            </jsp:include>
+         </td>
+<!-- Right Column Ends -->
+
+<!-- Gutter -->
+         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+<!-- Gutter Ends -->
+    </tr>
+</table>
+
 <jsp:include page="../../foot.jsp" />
 
 </body>
