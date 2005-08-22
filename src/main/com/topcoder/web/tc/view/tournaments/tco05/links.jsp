@@ -169,8 +169,8 @@
 <%--
 						<td class="subnav"><a href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview"><% if (tabLev3.equals("overview")) {%><img src="/i/tournament/tco05/tabs/L3_overviewOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_overviewOff.gif" border=0 /><% } %></a></td>
 						<td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_bracket"><% if (tabLev3.equals("bracket")) {%><img src="/i/tournament/tco05/tabs/L3_bracketOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_bracketOff.gif" border=0 /><% } %></a></td>
-						<td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=radeye_semi" target="_blank"><% if (tabLev3.equals("radeye")) {%><img src="/i/tournament/tco05/tabs/L3_radeyeOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_radeyeOff.gif" border=0 /><% } %></a></td>
 --%>
+						<td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=jdmetz_round1" target="_blank"><% if (tabLev3.equals("jdmetz")) {%><img src="/i/tournament/tco05/tabs/L3_jdmetzOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_jdmetzOff.gif" border=0 /><% } %></a></td>
 					<% } else if (tabLev2.equals("summary")) {%>
 						<td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_sum_onlinerounds"><% if (tabLev3.equals("online")) {%><img src="/i/tournament/tco05/tabs/L3_onlineroundsOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_onlineroundsOff.gif" border=0 /><% } %></a></td>
 						<td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room1_analysis"><% if (tabLev3.equals("room1")) {%><img src="/i/tournament/tco05/tabs/L3_room1On.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_room1Off.gif" border=0 /><% } %></a></td>
