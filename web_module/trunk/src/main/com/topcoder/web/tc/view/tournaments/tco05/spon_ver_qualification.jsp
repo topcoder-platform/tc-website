@@ -1,4 +1,6 @@
-<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants"%>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 java.util.Map"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -8,7 +10,10 @@
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 </head>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <body>
 
 <!-- Tab barlinks-->
@@ -16,6 +21,8 @@
 <jsp:param name="tabLev2" value="advancers"/>
 <jsp:param name="tabLev3" value="qualification"/>
 </jsp:include>
+<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tco05_spon_qual"); %>
+
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
