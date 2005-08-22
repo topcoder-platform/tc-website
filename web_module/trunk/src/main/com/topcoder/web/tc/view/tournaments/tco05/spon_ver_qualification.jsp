@@ -68,7 +68,7 @@
                 <td class="<%=even?"advanceDk":"advanceLt"%>" align="center" nowrap="0"><rsc:item name="round_name" row="<%=resultRow%>"/></td>
                 <td class="<%=even?"advanceDk":"advanceLt"%>" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
                 <td class="<%=even?"advanceDk":"advanceLt"%>" align="right"><rsc:item name="points" row="<%=resultRow%>" format="0.00"/></td>
-                <td class="<%=even?"advanceDk":"advanceLt"%>" align="right"><%="VeriSign".equals(resultRow.getStringItem("response"))?"Yes":"No"%></td>
+                <td class="<%=even?"advanceDk":"advanceLt"%>" align="center"><%="VeriSign".equals(resultRow.getStringItem("response"))?"Yes":"No"%></td>
                 </tr>
                    <%even=!even;%>
                 </rsc:iterator>
