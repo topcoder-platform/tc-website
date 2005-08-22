@@ -284,6 +284,9 @@
             <fileset dir="${resources.dir}/security/conf">
                 <include name="com/topcoder/security/Util.properties"/>
             </fileset>
+            <fileset dir="${resources.dir}/automatic_screening">
+                <include name="com/topcoder/apps/screening/ScreeningTool.xml"/>
+            </fileset>
         </copy>
     </target>
 
