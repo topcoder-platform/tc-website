@@ -709,7 +709,7 @@
              <metainf dir="${java}/com/topcoder/web/ejb/ComponentRegistrationServices" includes="*.xml"/>
          </jar>
      </target>
- 	
+
  	<target name="package-EJB-MessageHistoryBean" depends="compile">
 	 	<jar jarfile="${ejb_jars}/messagehistory.jar">
 		 	<zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -788,8 +788,10 @@
                  <include name="httpunit.jar"/>
                  <include name="itext-1.1.jar"/>
                  <!-- these are just so we can deploy the tcs ejbs on our side.  we can wack when we don't anymore-->
+<!--
                  <include name="render.jar"/>
                  <include name="searchengine.jar"/>
+-->
              </fileset>
          </copy>
 
