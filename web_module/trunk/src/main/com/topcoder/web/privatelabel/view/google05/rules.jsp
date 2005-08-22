@@ -70,7 +70,7 @@ The Qualification Round will consist of two phases: the Coding Phase and System 
 <li>The Qualification Round System Testing Phase is applied to all submitted code. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given question.</li>
 </ul>
 
-The Qualification Round will contain ten (10) virtual rooms and five (5) problem sets.  The top 100 scorers from each of the five problem sets presented during the Qualification Round will be eligible to compete in Round 1 of the Code Jam 2005.
+The Qualification Round will contain at least ten (10) virtual rooms and five (5) problem sets.  The top 100 scorers from each of the five problem sets presented during the Qualification Round will be eligible to compete in Round 1 of the Code Jam 2005.
 <br><br>
 
 <b>The Competition Field</b><br>
