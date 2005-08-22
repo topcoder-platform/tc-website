@@ -59,7 +59,7 @@
                            Points
                        </a>
                    </td>
-      <td width = "15%" align = "center" nowrap="nowrap">VeriSign Employee</td>
+      <td width="15%" align="center" nowrap="nowrap">VeriSign Employee</td>
    </tr>
                                 <%boolean even = false;%>
                 <rsc:iterator list="<%=rsc%>" id="resultRow"><tr>
