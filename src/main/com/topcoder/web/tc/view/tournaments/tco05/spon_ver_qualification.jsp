@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -26,25 +27,44 @@
 <br><br>
 <table width="500" align="center" border="0" cellpadding="2" cellspacing="0" class="formFrame">
    <tr class="advHeader">
-      <td width = "40%" nowrap="nowrap">Handle</td>
-      <td width = "15%" align = "center" nowrap="nowrap">Problem Set</td>
-      <td width = "15%" align = "right" nowrap="nowrap">Rating</td>
-      <td width = "15%" align = "right" nowrap="nowrap">Points</td>
+                   <td width="10%" align="center">
+                       <a href="/tc?module=SimpleStats&d1=tournaments&d2=tco05&d3=spon_ver_qualification&c=tco05_spon_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=seed&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
+                           Seed
+                       </a>
+                   </td>
+                   <td width="30%" align="left">
+                       <a href="/tc?module=SimpleStats&d1=tournaments&d2=tco05&d3=spon_ver_qualification&c=tco05_spon_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=handle_sort&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
+                           Handle
+                       </a>
+                   </td>
+                   <td width="30%" align="center">
+                       <a href="/tc?module=SimpleStats&d1=tournaments&d2=tco05&d3=spon_ver_qualification&c=tco05_spon_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=round_name&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
+                           Problem Set
+                       </a>
+                   </td>
+                   <td width="15%" align="right">
+                       <a href="/tc?module=SimpleStats&d1=tournaments&d2=tco05&d3=spon_ver_qualification&c=tco05_spon_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=rating&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
+                           Rating
+                       </a>
+                   </td>
+                   <td width="15%" align="right">
+                       <a href="/tc?module=SimpleStats&d1=tournaments&d2=tco05&d3=spon_ver_qualification&c=tco05_spon_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=points&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
+                           Points
+                       </a>
+                   </td>
       <td width = "15%" align = "center" nowrap="nowrap">VeriSign Employee</td>
    </tr>
-<tr><td class="advanceLt"><tc-webtag:handle coderId="7504863" context="algorithm"/></td><td class="advanceLt" align="center" nowrap="nowrap">Sponsor Track Set 4</td><td class="advanceLt" align="right">2221</td><td class="advanceLt" align="right">874.78</td><td class="advanceLt" align="center">No</td></tr>
-<tr><td class="advanceDk"><tc-webtag:handle coderId="307060" context="algorithm"/></td><td class="advanceDk" align="center" nowrap="nowrap">Sponsor Track Set 2</td><td class="advanceDk" align="right">2553</td><td class="advanceDk" align="right">807.24</td><td class="advanceDk" align="center">No</td></tr>
-<tr><td class="advanceLt"><tc-webtag:handle coderId="7389864" context="algorithm"/></td><td class="advanceLt" align="center" nowrap="nowrap">Sponsor Track Set 5</td><td class="advanceLt" align="right">1834</td><td class="advanceLt" align="right">764.85</td><td class="advanceLt" align="center">No</td></tr>
-<tr><td class="advanceDk"><tc-webtag:handle coderId="309453" context="algorithm"/></td><td class="advanceDk" align="center" nowrap="nowrap">Sponsor Track Set 3</td><td class="advanceDk" align="right">2474</td><td class="advanceDk" align="right">701.33</td><td class="advanceDk" align="center">No</td></tr>
-<tr><td class="advanceLt"><tc-webtag:handle coderId="298274" context="algorithm"/></td><td class="advanceLt" align="center" nowrap="nowrap">Sponsor Track Set 5</td><td class="advanceLt" align="right">1476</td><td class="advanceLt" align="right">665.72</td><td class="advanceLt" align="center">No</td></tr>
-<tr><td class="advanceDk"><tc-webtag:handle coderId="13361542" context="algorithm"/></td><td class="advanceDk" align="center" nowrap="nowrap">Sponsor Track Set 5</td><td class="advanceDk" align="right">795</td><td class="advanceDk" align="right">495.81</td><td class="advanceDk" align="center">Yes</td></tr>
-<tr><td class="advanceLt"><tc-webtag:handle coderId="15607591" context="algorithm"/></td><td class="advanceLt" align="center" nowrap="nowrap">Sponsor Track Set 1</td><td class="advanceLt" align="right">1499</td><td class="advanceLt" align="right">347.40</td><td class="advanceLt" align="center">Yes</td></tr>
-<tr><td class="advanceDk"><tc-webtag:handle coderId="260761" context="algorithm"/></td><td class="advanceDk" align="center" nowrap="nowrap">Sponsor Track Set 4</td><td class="advanceDk" align="right">1643</td><td class="advanceDk" align="right">233.82</td><td class="advanceDk" align="center">No</td></tr>
-<tr><td class="advanceLt"><tc-webtag:handle coderId="15624506" context="algorithm"/></td><td class="advanceLt" align="center" nowrap="nowrap">Sponsor Track Set 5</td><td class="advanceLt" align="right">1063</td><td class="advanceLt" align="right">212.93</td><td class="advanceLt" align="center">Yes</td></tr>
-<tr><td class="advanceDk"><tc-webtag:handle coderId="15636627" context="algorithm"/></td><td class="advanceDk" align="center" nowrap="nowrap">Sponsor Track Set 1</td><td class="advanceDk" align="right">1200</td><td class="advanceDk" align="right">181.59</td><td class="advanceDk" align="center">Yes</td></tr>
-<tr><td class="advanceLt"><tc-webtag:handle coderId="15653863" context="algorithm"/></td><td class="advanceLt" align="center" nowrap="nowrap">Sponsor Track Set 3</td><td class="advanceLt" align="right">1500</td><td class="advanceLt" align="right">146.50</td><td class="advanceLt" align="center">Yes</td></tr>
-<tr><td class="advanceDk"><tc-webtag:handle coderId="15548848" context="algorithm"/></td><td class="advanceDk" align="center" nowrap="nowrap">Sponsor Track Set 4</td><td class="advanceDk" align="right">659</td><td class="advanceDk" align="right">139.20</td><td class="advanceDk" align="center">Yes</td></tr>
-<tr><td class="advanceLt"><tc-webtag:handle coderId="7440664" context="algorithm"/></td><td class="advanceLt" align="center" nowrap="nowrap">Sponsor Track Set 1</td><td class="advanceLt" align="right">901</td><td class="advanceLt" align="right">101.15</td><td class="advanceLt" align="center">No</td></tr>
+                                <%boolean even = false;%>
+                <rsc:iterator list="<%=rsc%>" id="resultRow"><tr>
+                <td class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="seed" row="<%=resultRow%>"/></td>
+                <td class="<%=even?"advanceDk":"advanceLt"%>" align="left"><tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="algorithm"/></td>
+                <td class="<%=even?"advanceDk":"advanceLt"%>" align="center" nowrap="0"><rsc:item name="round_name" row="<%=resultRow%>"/></td>
+                <td class="<%=even?"advanceDk":"advanceLt"%>" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
+                <td class="<%=even?"advanceDk":"advanceLt"%>" align="right"><rsc:item name="points" row="<%=resultRow%>" format="0.00"/></td>
+                <td class="<%=even?"advanceDk":"advanceLt"%>" align="right"><%="VeriSign".equals(resultRow.getStringItem("response"))?"Yes":"No"%></td>
+                </tr>
+                   <%even=!even;%>
+                </rsc:iterator>
 
 
 </table>
@@ -59,9 +79,9 @@
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 <jsp:include page="../../calendar.jsp" />
 </td>
-		
+
 	</tr>
-	
+
 </table>
 
 <jsp:include page="../../foot.jsp" />
