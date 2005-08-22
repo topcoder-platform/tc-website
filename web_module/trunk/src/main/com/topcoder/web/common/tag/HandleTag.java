@@ -89,9 +89,23 @@ public class HandleTag extends TagSupport {
 
             StringBuffer output = new StringBuffer();
             output.append("<a href=\"");
-            if (link.equals(""))
+            if (link.equals("")) {
                 link = DEFAULT_LINK + coderId;
+            }
             output.append(link);
+            if (algorithm) {
+                output.append("&tab=alg");
+            } else if (design) {
+                output.append("&tab=des");
+            } else if (development) {
+                output.append("&tab=dev");
+            } else if (component) {
+                if (rsc.getIntItem(0, "design_rating") >= rsc.getIntItem(0, "development_rating")) {
+                    output.append("&tab=des");
+                } else {
+                    output.append("&tab=dev");
+                }
+            }
             output.append("\" class=\"");
 
             if (bCSSOverride) {
