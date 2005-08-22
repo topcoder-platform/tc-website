@@ -4,7 +4,8 @@
          		 com.jivesoftware.forum.stats.ViewCountManager,
          		 com.jivesoftware.forum.ForumMessage,
          		 com.jivesoftware.forum.ForumThread,
-         		 java.util.*"
+         		 java.util.*,
+                 com.topcoder.shared.util.DBMS"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -14,6 +15,7 @@
 <tc-webtag:useBean id="message" name="message" type="com.jivesoftware.forum.ForumMessage" toScope="request"/>
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
 <tc-webtag:useBean id="postMode" name="postMode" type="java.lang.String" toScope="request"/>
+<tc-webtag:useBean id="historyBean" name="historyBean" type="com.topcoder.web.ejb.messagehistory.MessageHistory" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%  ForumMessage parentMessage = (ForumMessage)request.getAttribute("parentMessage");
@@ -110,11 +112,23 @@ function AllowTabCharacter() {
 <br/><div id="Options">Allowed tags: &lt;annot&gt;, &lt;a&gt;, &lt;abbr&gt;, &lt;acronym&gt;, &lt;blockquote&gt;, &lt;b&gt;, &lt;br&gt;, &lt;div&gt;, &lt;em&gt;, &lt;font&gt;, &lt;i&gt;, &lt;img&gt;, &lt;li&gt;, &lt;ol&gt;, &lt;p&gt;, &lt;pre&gt;, &lt;s&gt;, &lt;span&gt;, &lt;strike&gt;, &lt;sub&gt;, &lt;sup&gt;, &lt;strong&gt;, &lt;tt&gt;, &lt;u&gt;, &lt;ul&gt;. Syntax highlighting is applied to text within [code][/code], [cpp][/cpp], [java][/java], [c#][/c#], and [vb][/vb] blocks.</div>
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
-	<tr><td class="rtHeader" colspan="2"><a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/>
-		<%	if (parentMessage != null) { %>
-				(response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=parentMessage.getID()%>" class="rtbcLink">post</A> by <tc-webtag:handle coderId="<%=parentMessage.getUser().getID()%>"/>)
-		<%	} %>
-	</a></td></tr>
+	<tr>
+        <td class="rtHeader" colspan="2">
+            <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
+                  <%  int editCount = historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME);
+                  if (editCount == 1) { %> 
+                     <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/>">1 edit</a> | 
+                  <%  } else if (editCount > 1) { %> 
+                     <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/>"><%=editCount%> edits</a> | 
+                  <%  } %>
+               <a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="creationDate" format="MMM d, yyyy 'at' h:mm a z"/></a>
+            </div>
+            <jsp:getProperty name="message" property="subject"/>
+			<%	if (parentMessage != null) { %>
+					(response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=parentMessage.getID()%>" class="rtbcLink">post</A> by <tc-webtag:handle coderId="<%=parentMessage.getUser().getID()%>"/>)
+			<%	} %>
+        </td>
+    </tr>
 	<tr>
 	<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
 	<%  if (user.getProperty("imagePath") != null) { %>
