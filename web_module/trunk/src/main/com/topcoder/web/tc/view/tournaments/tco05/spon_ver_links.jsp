@@ -35,9 +35,9 @@
 				<% } %>
 --%>
 				<% if (tabLev2.equals("advancers")) {%>
-					<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_ver_qualification"><img src="/i/tournament/tco05/tabs/L2_advancersOn.gif" alt="" border="0" /></A></td>
+					<td class="nav"><A href="/tc?module=SimpleStats&c=tco05_spon_qual&trans=true&d1=tournaments&d2=tco05&d3=spon_ver_qualification"><img src="/i/tournament/tco05/tabs/L2_advancersOn.gif" alt="" border="0" /></A></td>
 				<% } else { %>
-					<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_ver_qualification"><img src="/i/tournament/tco05/tabs/L2_advancersOff.gif" alt="" border="0" /></A></td>
+					<td class="nav"><A href="/tc?module=SimpleStats&c=tco05_spon_qual&trans=true&d1=tournaments&d2=tco05&d3=spon_ver_qualification"><img src="/i/tournament/tco05/tabs/L2_advancersOff.gif" alt="" border="0" /></A></td>
 				<% } %>
 <%--
 				<% if (tabLev2.equals("summary")) {%>

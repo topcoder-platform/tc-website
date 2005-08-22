@@ -10,7 +10,10 @@
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 </head>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <body>
 
 <!-- Tab barlinks-->
@@ -70,7 +73,7 @@
                 <td class="<%=even?"advanceDk":"advanceLt"%>" align="right"><rsc:item name="points" row="<%=resultRow%>" format="0.00"/></td>
                 </tr>
                    <%even=!even;%>
-                </rsc:iterator>cude page="../../foot.jsp" />
+                </rsc:iterator>
              </table>
         </div>
 		</td>
