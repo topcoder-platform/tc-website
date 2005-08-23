@@ -70,10 +70,11 @@
     </td>
 </tr>
 <tr>
-    <td><b><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>
-        <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >>
-        <jsp:getProperty name="thread" property="name"/></b>
-    </td>
+    <td><b><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A>
+    <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categoryTree")%>'>
+        >> <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>&mc=<jsp:getProperty name="category" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A>
+    </tc-webtag:iterator>
+    </b></td>
 </tr>
 </table>
 
@@ -120,13 +121,13 @@
                     <td class="rtHeader" align="center" colspan="2">Last Post</td>
                 </tr>
                 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categories")%>'>
-                    <%  trackerClass = (user == null || forum.getMessageCount() <= 0 || readTracker.getReadStatus(user, category.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
+                    <%  trackerClass = (user == null || category.getMessageCount() <= 0 || readTracker.getReadStatus(user, category.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
                     <tr>
                         <td class="rtThreadCellWrap">
                         <%  if (user == null) { %>
-                            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>&<%=ForumConstants.MESSAGE_COUNT%>=<jsp:getProperty name="category" property="messageCount"/>&<%=ForumConstants.SORT_FIELD%>=<%=JiveConstants.MODIFICATION_DATE%>&<%=ForumConstants.SORT_ORDER%>=<%=ResultFilter.DESCENDING%>" class="rtLinkNew"><jsp:getProperty name="category" property="name"/></A>
+                            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>&<%=ForumConstants.MESSAGE_COUNT%>=<jsp:getProperty name="category" property="messageCount"/>" class="rtLinkNew"><jsp:getProperty name="category" property="name"/></A>
                         <%  } else { %>
-                            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>&<%=ForumConstants.SORT_FIELD%>=<%=JiveConstants.MODIFICATION_DATE%>&<%=ForumConstants.SORT_ORDER%>=<%=ResultFilter.DESCENDING%>" class="<%=trackerClass%>"><jsp:getProperty name="category" property="name"/></A>
+                            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="<%=trackerClass%>"><jsp:getProperty name="category" property="name"/></A>
                         <%  } %>
                             <br/><div class="rtDescIndent"><jsp:getProperty name="category" property="description"/></div></td>
                         <td class="rtThreadCell"><jsp:getProperty name="category" property="threadCount"/>&#160;/&#160;<jsp:getProperty name="category" property="messageCount"/></td>
