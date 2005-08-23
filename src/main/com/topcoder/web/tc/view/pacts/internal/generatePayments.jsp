@@ -25,6 +25,10 @@
                         <td align="center">
                             <a href="JavaScript:document.paymentForm.submit();">Generate SRM Payments</a> <br />
                             <a href="JavaScript:document.paymentForm.<%=PactsConstants.AFFIDAVIT_TYPE_ID%>.value='<%=PactsConstants.TCCC05_ALGORITHM_AFFIDAVIT%>';document.paymentForm.submit();">Generate TCCC 05 Payments</a> <br />
+                            <a href="JavaScript:document.paymentForm.<%=PactsConstants.AFFIDAVIT_TYPE_ID%>.value='11';document.paymentForm.submit();">Generate TCO 05 Round 1 Payments</a> <br />
+                            <a href="JavaScript:document.paymentForm.<%=PactsConstants.AFFIDAVIT_TYPE_ID%>.value='12';document.paymentForm.submit();">Generate TCO 05 Round 2 Payments</a> <br />
+                            <a href="JavaScript:document.paymentForm.<%=PactsConstants.AFFIDAVIT_TYPE_ID%>.value='13';document.paymentForm.submit();">Generate TCO 05 Round 3 Payments</a> <br />
+                            <a href="JavaScript:document.paymentForm.<%=PactsConstants.AFFIDAVIT_TYPE_ID%>.value='14';document.paymentForm.submit();">Generate TCO 05 Round 4 Payments</a> <br />
                         </td>
                     </tr>
                 </table>
