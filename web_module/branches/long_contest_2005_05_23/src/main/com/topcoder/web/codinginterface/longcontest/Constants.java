@@ -24,14 +24,17 @@ public class Constants implements CodingInterfaceConstants {
     public static String ROUND_ID;
     public static String CONTEST_ID;
     public static String CODER_ID;
+    public static String TEST_CASE_ID;
     public static String LONG_CONTEST_INDEX_KEY;
     public static String LONG_CODE_KEY;
+    public static String LONG_TEST_KEY;
     public static String LONG_CONTEST_CODER_SUBMISSIONS_KEY;
     public static String JSP_ADDR;
     public static String INDEX_JSP;
     public static String SUBMISSION_JSP;
     public static String CODER_SUBMISSIONS_JSP;
     public static String LONG_CODE_JSP;
+    public static String LONG_TEST_JSP;
     public static String COMPILE_MESSAGE;
     public static String COMPILE_STATUS;
     public static String LANGUAGES;

@@ -99,7 +99,7 @@
 for(int i = startCol; i<tests && i<startCol+colCount && over; i++){
 %>
     <td>
-    <A HREF="longcontest?module=ViewTestCase&tid=<%=tids.get(i)%>">+</A>
+    <A HREF="longcontest?module=ViewTestCase&tid=<%=tids.get(i)%>&rd=<%=request.getParameter("rd")%>&cid=<%=request.getParameter("cid")%>">+</A>
     <A HREF="<%=buildHref(request.getParameterMap(), Constants.SORT_ORDER, sort(sort,String.valueOf(i+1),primary))%>"><%=i+1%></A>
     </td>
 <%}%>
