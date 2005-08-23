@@ -33,7 +33,7 @@ public class Category extends ForumsProcessor {
         ArrayList categoryList = new ArrayList();
         ForumCategory category = forumCategory;
         categoryList.add(category);
-        while ((category = category.getParentCategory()) != null) {
+        while ((category = category.getParentCategory()) != null && category.getCategoryDepth() > 0) {
             categoryList.add(0, category);
         }
         
