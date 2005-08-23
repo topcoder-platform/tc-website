@@ -34,29 +34,22 @@
          <tr>
             <td align="left" class="bodyText" valign="top">
                <img src="/i/m/jdmetz_mug.gif" alt="" width="55" height="61" border="0" vspace="5" align="left" class="myStatsPhoto"/>
+               By&#160;<tc-webtag:handle coderId="7459326" context="algorithm"/><br />
+               <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
             </td>
 
             <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
             <td align="left" width ="100%" class="bodyText" valign="top" rowspan="2">
-            <p>
             Beat the odds! These results of 1,000,000 Monte Carlo simulations predict your chances to advance in the 2005 TopCoder Open based only on your current TopCoder rating and volatility.  Try your best to beat these odds as you advance through the tournament.
             <br><br>
             The model used here is a normal distribution with the mean of your rating and standard deviation of your volatility, assuming every advancing coder competes in every round they are eligible for and scores more than 0 points.  There are obvious flaws with these assumptions, and this information is provided for entertainment purposes only.
             <br><br>
             The "Earnings" column includes prizes for the top three finishers in each room for the online rounds, excluding already completed rounds.
-            </p>
-            </td>
-         </tr>
-         <tr>
-            <td align="left" class="bodyText" valign="top">
-               By&#160;<tc-webtag:handle coderId="7459326" context="algorithm"/><br />
-               <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
             </td>
          </tr>
       </table>
 <br/>
-
 
 <table cellpadding="4" cellspacing="0" align="center" border="0" width="100%">
 <tr>
@@ -784,6 +777,7 @@
 <tr><td class="rHandlee"><a class="coderTextGreen" href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=11925555" >lexgas</a></td><td class="r1e">1101</td><td class="r1e">394</td><td class="r1e">$5.00</td><td class="r2e">4.05</td><td class="r2e">0.03</td><td class="r2e">0.00</td><td class="r2e">0.00</td><td class="r2e">0.00</td><td class="r2e">0.00</td><td class="r3e">0.00</td><td class="r3e">0.00</td><td class="r3e">0.00</td><td class="r3e">0.00</td></tr>
 <tr><td class="rHandleo"><a class="coderTextGreen" href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=10092045" >twhite5</a></td><td class="r1o">1046</td><td class="r1o">374</td><td class="r1o">$3.12</td><td class="r2o">2.38</td><td class="r2o">0.01</td><td class="r2o">0.00</td><td class="r2o">0.00</td><td class="r2o">0.00</td><td class="r2o">0.00</td><td class="r3o">0.00</td><td class="r3o">0.00</td><td class="r3o">0.00</td><td class="r3o">0.00</td></tr>
 <tr><td class="rHandlee"><a class="coderTextGreen" href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=11833327" >metaljaguar</a></td><td class="r1e">985</td><td class="r1e">674</td><td class="r1e">$12.95</td><td class="r2e">11.64</td><td class="r2e">0.66</td><td class="r2e">0.02</td><td class="r2e">0.00</td><td class="r2e">0.00</td><td class="r2e">0.00</td><td class="r3e">0.00</td><td class="r3e">0.00</td><td class="r3e">0.00</td><td class="r3e">0.00</td></tr>
+</table>
 <br/>
 <br/>
 </td>
