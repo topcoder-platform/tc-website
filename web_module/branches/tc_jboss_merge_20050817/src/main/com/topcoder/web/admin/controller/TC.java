@@ -30,6 +30,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.OutputStream;
 
+/**
+ * @deprecated delete me
+ */
 public final class TC extends HttpServlet {
 
 

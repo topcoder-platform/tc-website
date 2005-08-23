@@ -42,6 +42,7 @@ public class Challenge extends BaseProcessor {
 
         String ret = process(getRequest(), renderer, doc);
         PrintWriter out = getResponse().getWriter();
+        getResponse().setContentType("text/html");
         out.print(ret);
         out.flush();
 
