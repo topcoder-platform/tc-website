@@ -57,43 +57,10 @@
                 <tr valign="top">
                     <td class="bodyText" width="100%"><br/>
                        
-<P>
-<B>Algorithm Problem Coordinator</B>
-</P>
-
 <p>
-TopCoder is looking to hire a full-time algorithm problem coordinator.  The problem coordination position is a very unique position that requires someone with extensive algorithmic knowledge, as well as mathematical, and logical problem solving skills.  This person would be responsible for both writing problems as well as coordinating getting problems written from other members.  The Algorithm Problem Coordinator would be expected to travel to the onsite portion of various events each year - including all TopCoder tournament onsite events.  We would look to this person to help decide what changes, enhancements, or additions should be made to all algorithm competitions and systems at TopCoder.
+This job opening is no longer available.  Please <A href="/tc?module=Static&d1=contracting&d2=index">click here</A> to see what Employment Opportunities are currently posted.
+<br/><br/>
 </p>
-<p><b>Responsibilities</b></p>
-<ul>
-<li>Work with the problem writing and testing teams (TopCoder members) to coordinate the creation, testing, and usage of algorithm problems for all TopCoder public and private events.</li>
-<li>Provide answers to problem statements inquiries during all algorithm competitions.</li>
-</ul>
-
-<p><b>Environment</b></p>
-<ul>
-<li>TopCoder's problem management and coordination systems are written in Java</li>
-<li>All algorithm reference solutions are written in Java</li>
-<li>TopCoder's development environment consists of mostly Linux and Solaris, with some Windows 2000</li>
-</ul>
-
-<p><b>Requirements</b></p>
-<ul>
-<li>You must have knowledge of Java - knowledge of C++, C# and VB.NET a plus</li>
-<li>You must have extensive knowledge of all algorithmic categories used in TopCoder algorithm competitions</li>
-<li>You must have a well established, division one TopCoder rating</li>
-<li>You must be willing to travel to various locations for onsite administration of some private label competitions and all major TopCoder tournaments.</li>
-<li>Willingness to relocate to the Hartford, CT area is a plus</li>
-</ul>
-
-<br><br>
-<b>Contact Information:</b><br>
-Company: TopCoder<br>
-Contact: Mike Lydon<br>
-Email: <A href="mailto:mlydon@topcoder.com">mlydon@topcoder.com</A><br>
-Address: 703 Hebron Ave<br>
-Glastonbury, CT 06033<br>
-Phone: 860.633.5540<br>
 
                         <p><br /></p>
                     </td>

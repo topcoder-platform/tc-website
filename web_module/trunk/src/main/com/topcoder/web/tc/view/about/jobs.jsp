@@ -59,7 +59,6 @@
                         to excellence.  We expect the same commitment and drive from our current and future employees.</p>
                        <h3>Currently available positions:</h3>
                         <ul>
-                            <li><a href="/tc?module=Static&d1=about&d2=alg_prob_coordinator">Algorithm Problem Coordinator</a></li>
                             <li><a href="/tc?module=Static&d1=about&d2=placement_agent">Placement Agent</a></li>
                             <li><a href="/tc?module=Static&d1=about&d2=project_manager">Project Manager</a></li>
                             <li><a href="/tc?module=Static&d1=about&d2=int_project_manager">Internal Project Manager</a></li>
