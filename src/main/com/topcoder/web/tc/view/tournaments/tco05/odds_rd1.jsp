@@ -34,29 +34,22 @@
          <tr>
             <td align="left" class="bodyText" valign="top">
                <img src="/i/m/jdmetz_mug.gif" alt="" width="55" height="61" border="0" vspace="5" align="left" class="myStatsPhoto"/>
+               By&#160;<tc-webtag:handle coderId="7459326" context="algorithm"/><br />
+               <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
             </td>
 
             <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
             <td align="left" width ="100%" class="bodyText" valign="top" rowspan="2">
-            <p>
             Beat the odds! These results of 1,000,000 Monte Carlo simulations predict your chances to advance in the 2005 TopCoder Open based only on your current TopCoder rating and volatility.  Try your best to beat these odds as you advance through the tournament.
             <br><br>
             The model used here is a normal distribution with the mean of your rating and standard deviation of your volatility, assuming every advancing coder competes in every round they are eligible for and scores more than 0 points.  There are obvious flaws with these assumptions, and this information is provided for entertainment purposes only.
             <br><br>
             The "Earnings" column includes prizes for the top three finishers in each room for the online rounds, excluding already completed rounds.
-            </p>
-            </td>
-         </tr>
-         <tr>
-            <td align="left" class="bodyText" valign="top">
-               By&#160;<tc-webtag:handle coderId="7459326" context="algorithm"/><br />
-               <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
             </td>
          </tr>
       </table>
 <br/>
-
 
 <table cellpadding="4" cellspacing="0" align="center" border="0" width="100%">
 <tr>
