@@ -16,6 +16,8 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
+<tc-webtag:useBean id="categories" name="categories" type="java.util.ArrayList" toScope="request"/>
+<tc-webtag:useBean id="deepCategories" name="deepCategories" type="java.util.ArrayList" toScope="request"/>
 
 <%  User user = (User)request.getAttribute("user"); 
     ResultFilter resultFilter = (ResultFilter)request.getAttribute("resultFilter"); 
@@ -102,8 +104,44 @@
                     </tr>
                 </tc-webtag:iterator>
             </table>
+            
+            <%  if (deepCategories.size() > 0) { %>
+            <table cellpadding="0" cellspacing="0" class="rtTable">
+                <tr>
+                    <td class="rtHeader" width="80%">Category</td>
+                    <td class="rtHeader" width="20%">T./M.</td>
+                    <td class="rtHeader" align="center" colspan="2">Last Post</td>
+                </tr>
+                <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)deepCategories.iterator()%>'>
+                    <%  trackerClass = (user == null || forum.getMessageCount() <= 0 || readTracker.getReadStatus(user, category.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
+                    <tr>
+                        <td class="rtThreadCellWrap">
+                        <%  if (user == null) { %>
+                            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>&<%=ForumConstants.MESSAGE_COUNT%>=<jsp:getProperty name="category" property="messageCount"/>&<%=ForumConstants.SORT_FIELD%>=<%=JiveConstants.MODIFICATION_DATE%>&<%=ForumConstants.SORT_ORDER%>=<%=ResultFilter.DESCENDING%>" class="rtLinkNew"><jsp:getProperty name="category" property="name"/></A>
+                        <%  } else { %>
+                            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>&<%=ForumConstants.SORT_FIELD%>=<%=JiveConstants.MODIFICATION_DATE%>&<%=ForumConstants.SORT_ORDER%>=<%=ResultFilter.DESCENDING%>" class="<%=trackerClass%>"><jsp:getProperty name="category" property="name"/></A>
+                        <%  } %>
+                            <br/><div class="rtDescIndent"><jsp:getProperty name="category" property="description"/></div></td>
+                        <td class="rtThreadCell"><jsp:getProperty name="category" property="threadCount"/>&#160;/&#160;<jsp:getProperty name="category" property="messageCount"/></td>
+                        <% if (category.getMessageCount() > 0) { %>
+                            <tc-webtag:useBean id="message" name="category" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
+                            <td class="rtThreadCell"><b><tc-webtag:beanWrite name="message" property="modificationDate" format="EEE, MMM d yyyy 'at' h:mm a"/></b></td>
+                            <% if (message.getUser() != null) { %>
+                                <td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
+                            <% } else { %>
+                                <td class="rtThreadCell"></td>
+                            <% } %>
+                        <% } else { %>
+                            <td class="rtThreadCell"></td>
+                            <td class="rtThreadCell"></td>
+                        <% } %>
+                    </tr>
+                </tc-webtag:iterator>
+            </table>
+            <%  } %>
 
-            <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categories")%>'>
+            <%  if (categories.size() > 0) { %>
+            <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)categories.iterator()%>'>
             <br><table cellpadding="0" cellspacing="0" class="rtTable">
                     <tr>
 	                    <td class="rtHeader" width="80%"><jsp:getProperty name="category" property="name"/></td>
@@ -137,6 +175,8 @@
                     </tc-webtag:iterator>
             </table>
             </tc-webtag:iterator>
+            <%  } %>
+            
             <table cellpadding="0" cellspacing="0" class="rtbcTable">
                 <tr>
                     <td>A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.</td>
