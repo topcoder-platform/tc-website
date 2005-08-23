@@ -10,6 +10,7 @@ import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.base.Log;
 import com.jivesoftware.base.filter.Profanity;
 import com.jivesoftware.forum.ForumCategory;
+import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.QueryResult;
@@ -19,6 +20,7 @@ import com.jivesoftware.forum.database.DbForumMessage;
 import com.jivesoftware.util.StringUtils;
 
 import java.util.Iterator;
+import java.util.ArrayList;
 
 /**
  * @author mtong
@@ -202,5 +204,24 @@ public class ForumsUtil {
             return body;
         }
         return null;
+    }
+    
+    // Returns the forum object's category hierarchy (by increasing depth), not including the root level.
+    public static Iterator getCategoryTree(ForumCategory category) {
+        ArrayList categoryList = new ArrayList();
+        categoryList.add(category);
+        while ((category = category.getParentCategory()) != null && category.getCategoryDepth() > 0) {
+            categoryList.add(0, category);
+        }
+        return categoryList.iterator();
+    }
+    public static Iterator getCategoryTree(Forum forum) {
+        return getCategoryTree(forum.getForumCategory());
+    }
+    public static Iterator getCategoryTree(ForumThread thread) {
+        return getCategoryTree(thread.getForum().getForumCategory());
+    }
+    public static Iterator getCategoryTree(ForumMessage message) {
+        return getCategoryTree(message.getForum().getForumCategory());
     }
 }

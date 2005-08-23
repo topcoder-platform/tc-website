@@ -9,7 +9,6 @@ import com.jivesoftware.forum.ForumCategory;
 import com.topcoder.web.forums.ForumConstants;
 
 import java.util.Iterator;
-import java.util.ArrayList;
 
 /**
  * @author mtong
@@ -29,17 +28,9 @@ public class Category extends ForumsProcessor {
         ForumCategory forumCategory = forumFactory.getForumCategory(categoryID);
         Iterator itCategories = forumCategory.getCategories();
 		Iterator itForums = forumCategory.getForums(resultFilter);
-
-        ArrayList categoryList = new ArrayList();
-        ForumCategory category = forumCategory;
-        categoryList.add(category);
-        while ((category = category.getParentCategory()) != null && category.getCategoryDepth() > 0) {
-            categoryList.add(0, category);
-        }
         
         getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("forumCategory", forumCategory);
-        getRequest().setAttribute("categoryTree", categoryList.iterator());
 		getRequest().setAttribute("forums", itForums);
         getRequest().setAttribute("categories", itCategories);
         getRequest().setAttribute("resultFilter", resultFilter);
