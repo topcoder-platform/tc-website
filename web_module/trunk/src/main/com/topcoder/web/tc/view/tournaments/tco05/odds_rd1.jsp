@@ -44,7 +44,7 @@
             <br><br>
             The model used here is a normal distribution with the mean of your rating and standard deviation of your volatility, assuming every advancing coder competes in every round they are eligible for and scores more than 0 points.  There are obvious flaws with these assumptions, and this information is provided for entertainment purposes only.
             <br><br>
-            The "Earnings" column includes prizes for the top three finishers in each room for the online rounds.
+            The "Earnings" column includes prizes for the top three finishers in each room for the online rounds, excluding already completed rounds.
             </p>
             </td>
          </tr>
