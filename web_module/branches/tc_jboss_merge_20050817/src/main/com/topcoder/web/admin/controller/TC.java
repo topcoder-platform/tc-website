@@ -21,12 +21,14 @@ import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.OutputStream;
 
 public final class TC extends HttpServlet {
 
@@ -68,7 +70,7 @@ public final class TC extends HttpServlet {
 
 
     private void processCommands(HttpServletRequest request, HttpServletResponse response) {
-        PrintWriter out = null;
+        ServletOutputStream out = null;
         String html = null;
         Navigation nav = null;
         HttpSession session = null;
@@ -130,7 +132,8 @@ public final class TC extends HttpServlet {
                             , XSLConstants.NAVIGATION_ERROR_URL
                     );
                 }
-                out = response.getWriter();
+                response.setContentType("text/html");
+                out = response.getOutputStream();
                 out.print(html);
                 out.flush();
             } else {
@@ -167,7 +170,7 @@ public final class TC extends HttpServlet {
             }
         } catch (Exception e) {
             try {
-                out = response.getWriter();
+                out = response.getOutputStream();
                 e.printStackTrace();
                 if (nav == null) {
                     session = request.getSession(true);
