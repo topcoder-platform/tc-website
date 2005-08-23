@@ -5,6 +5,7 @@
 
 <%@ page import="com.topcoder.web.common.BaseServlet,
          		 com.topcoder.web.forums.ForumConstants,
+                 com.topcoder.web.forums.controller.ForumsUtil,
                  com.jivesoftware.base.JiveConstants,
          		 com.jivesoftware.base.User,
          		 com.jivesoftware.forum.ResultFilter,
@@ -71,7 +72,7 @@
 </tr>
 <tr>
     <td><b><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A>
-    <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categoryTree")%>'>
+    <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory))%>'>
         >> <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>&mc=<jsp:getProperty name="category" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A>
     </tc-webtag:iterator>
     </b></td>
@@ -151,7 +152,7 @@
             <table cellpadding="0" cellspacing="0" class="rtbcTable">
                 <tr>
                     <td>A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.</td>
-                    <td align="right"><a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=1"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
+                    <td align="right"><a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="forumCategory" property="ID"/>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
                 </tr>
             </table>
         </td>
