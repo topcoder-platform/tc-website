@@ -54,10 +54,10 @@ public class Admin extends ForumsProcessor {
         //    log.info(user.getUsername() + " running command: " + command);
         //    escapeHTML();
         } else if (command.equals(ForumConstants.ADMIN_COMMAND_ADD_CONTEST)) {
-            ArrayList contestList = adminBean.getContestList();
-            getRequest().setAttribute("contestList", contestList);
         }
         
+        ArrayList contestList = adminBean.getContestList();
+        getRequest().setAttribute("contestList", contestList);
 
         setNextPage("/admin.jsp");
         setIsNextPageInContext(true);
