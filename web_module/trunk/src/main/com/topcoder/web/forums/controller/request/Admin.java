@@ -9,14 +9,17 @@ import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumMessageIterator;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.ejb.ContestAdminServices.ContestAdminServices;
 import com.topcoder.web.forums.ForumConstants;
 
-import java.util.Calendar;
-import java.util.Iterator;
+import java.util.*;
+
+import javax.naming.InitialContext;
 
 /**
  * @author mtong
@@ -42,12 +45,19 @@ public class Admin extends ForumsProcessor {
         
         log.info(user.getUsername() + " has accessed the admin tool.");
         
-        // process command - temporarily disabled
-        //String command = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ADMIN_COMMAND));
-        //if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
+        InitialContext ctx = TCContext.getInitial();
+        ContestAdminServices adminBean = (ContestAdminServices)createEJB(ctx, ContestAdminServices.class);
+        
+        // process command
+        String command = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ADMIN_COMMAND));
+        if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
         //    log.info(user.getUsername() + " running command: " + command);
         //    escapeHTML();
-        //}
+        } else if (command.equals(ForumConstants.ADMIN_COMMAND_ADD_CONTEST)) {
+            ArrayList contestList = adminBean.getContestList();
+            getRequest().setAttribute("contestList", contestList);
+        }
+        
 
         setNextPage("/admin.jsp");
         setIsNextPageInContext(true);

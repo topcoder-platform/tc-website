@@ -33,8 +33,12 @@ public interface ForumConstants {
     public final static String SORT_FIELD = "sortField";
     public final static String SORT_ORDER = "sortOrder";
     
+    // Admin
     public final static String ADMIN_COMMAND = "cmd";
     public final static String ADMIN_COMMAND_HTML_ESCAPE = "htmlEscape";
+    public final static String ADMIN_COMMAND_ADD_CONTEST = "addContest";
+    
+    public final static String ADMIN_MATCH = "match";
     
     // Search
     public final static String SEARCH_STATUS = "status";
