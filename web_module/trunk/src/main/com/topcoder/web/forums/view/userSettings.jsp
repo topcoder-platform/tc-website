@@ -1,9 +1,9 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
-         		 com.topcoder.web.forums.ForumConstants,
+                com.topcoder.web.forums.ForumConstants,
                  com.jivesoftware.base.JiveGlobals,
-         		 com.jivesoftware.forum.action.UserSettingsAction,
+                com.jivesoftware.forum.action.UserSettingsAction,
                  com.topcoder.web.forums.controller.request.Settings,
-         		 java.util.*"
+                java.util.*"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -53,7 +53,7 @@
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
-	<td nowrap="nowrap" valign="top">
+   <td nowrap="nowrap" valign="top">
    <span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> >> User Settings</span><br><br>
    </td>
    <td align="right" nowrap="nowrap" valign="top">
@@ -62,7 +62,7 @@
 </tr>
 </table>
 
-<%	if (status.equals("error")) { %>
+<%   if (status.equals("error")) { %>
 <br><br><span class="rtHeader"><span class="bigRed">Settings updated with errors:</span></span>
 <tc-webtag:errorIterator id="errSettings" name="<%=ForumConstants.SETTINGS_STATUS%>"><%=errSettings%></tc-webtag:errorIterator><br/><br/>
 <%  } %>
@@ -77,60 +77,60 @@
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Threads per Forum Page:</strong></td>
       <td class="rtTextCell100">
-		<select size="1" name="threadsPerPage">
-		<%  int[] threadCounts = { 10, 15, 25, 50 };
+      <select size="1" name="threadsPerPage">
+      <%  int[] threadCounts = { 10, 15, 25, 50 };
             int threadRange = JiveGlobals.getJiveIntProperty("skin.default.defaultThreadsPerPage", 
                 ForumConstants.DEFAULT_THREAD_RANGE);
             try {
                 threadRange = Integer.parseInt(user.getProperty("jiveThreadRange"));
             } catch (Exception ignored) {}
-			for (int i=0; i<threadCounts.length; i++) {
-				if (threadCounts[i] == threadRange) { %>
-					<option value="<%=threadCounts[i]%>" selected><%=threadCounts[i]%></option>
-			<%	} else { %>
-					<option value="<%=threadCounts[i]%>"><%=threadCounts[i]%></option>
-			<%	}
-			} %>
-		</select>
+         for (int i=0; i<threadCounts.length; i++) {
+            if (threadCounts[i] == threadRange) { %>
+               <option value="<%=threadCounts[i]%>" selected><%=threadCounts[i]%></option>
+         <%   } else { %>
+               <option value="<%=threadCounts[i]%>"><%=threadCounts[i]%></option>
+         <%   }
+         } %>
+      </select>
       </td>
    </tr>
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Messages per Thread Page:</strong></td>
       <td class="rtTextCell100">
-		<select size="1" name="messagesPerPage">
-		<%  int[] messageCounts = { 10, 15, 25, 50 };
-			int messageRange = JiveGlobals.getJiveIntProperty("skin.default.defaultMessagesPerPage", 
+      <select size="1" name="messagesPerPage">
+      <%  int[] messageCounts = { 10, 15, 25, 50 };
+         int messageRange = JiveGlobals.getJiveIntProperty("skin.default.defaultMessagesPerPage", 
                 ForumConstants.DEFAULT_MESSAGE_RANGE);
             try {
                 messageRange = Integer.parseInt(user.getProperty("jiveMessageRange"));
             } catch (Exception ignored) {}
-			for (int i=0; i<messageCounts.length; i++) {
-				if (messageCounts[i] == messageRange) { %>
-					<option value="<%=messageCounts[i]%>" selected><%=messageCounts[i]%></option>
-			<%	} else { %>
-					<option value="<%=messageCounts[i]%>"><%=messageCounts[i]%></option>
-			<%	}
-			} %>
-		</select>
+         for (int i=0; i<messageCounts.length; i++) {
+            if (messageCounts[i] == messageRange) { %>
+               <option value="<%=messageCounts[i]%>" selected><%=messageCounts[i]%></option>
+         <%   } else { %>
+               <option value="<%=messageCounts[i]%>"><%=messageCounts[i]%></option>
+         <%   }
+         } %>
+      </select>
       </td>
    </tr>
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Messages per Post History Page:</strong></td>
       <td class="rtTextCell100">
-		<select size="1" name="messagesPerHistoryPage">
-		<%  int[] historyCounts = { 10, 15, 25, 50 };
-			int historyRange = ForumConstants.DEFAULT_HISTORY_RANGE;
-			try {
-				historyRange = Integer.parseInt(user.getProperty("jiveHistoryRange"));
-			} catch (Exception ignored) {}
-			for (int i=0; i<historyCounts.length; i++) {
-				if (historyCounts[i] == historyRange) { %>
-					<option value="<%=historyCounts[i]%>" selected><%=historyCounts[i]%></option>
-			<%	} else { %>
-					<option value="<%=historyCounts[i]%>"><%=historyCounts[i]%></option>
-			<%	}
-			} %>
-		</select>
+      <select size="1" name="messagesPerHistoryPage">
+      <%  int[] historyCounts = { 10, 15, 25, 50 };
+         int historyRange = ForumConstants.DEFAULT_HISTORY_RANGE;
+         try {
+            historyRange = Integer.parseInt(user.getProperty("jiveHistoryRange"));
+         } catch (Exception ignored) {}
+         for (int i=0; i<historyCounts.length; i++) {
+            if (historyCounts[i] == historyRange) { %>
+               <option value="<%=historyCounts[i]%>" selected><%=historyCounts[i]%></option>
+         <%   } else { %>
+               <option value="<%=historyCounts[i]%>"><%=historyCounts[i]%></option>
+         <%   }
+         } %>
+      </select>
       </td>
    </tr>
    <tr>
@@ -155,20 +155,20 @@
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Thread Page View:</strong></td>
       <td class="rtTextCell100">
-		<select size="1" name="threadMode">
-		<%  String[][] threadModes = {{"flat","Flat (oldest to newest)"},{"flat_new","Flat (newest to oldest)"},{"threaded","Threaded"},{"tree","Tree"}};
-			String currentMode = ForumConstants.DEFAULT_GUEST_THREAD_VIEW;
+      <select size="1" name="threadMode">
+      <%  String[][] threadModes = {{"flat","Flat (oldest to newest)"},{"flat_new","Flat (newest to oldest)"},{"threaded","Threaded"},{"tree","Tree"}};
+         String currentMode = ForumConstants.DEFAULT_GUEST_THREAD_VIEW;
             try {
                 currentMode = user.getProperty("jiveThreadMode");
             } catch (Exception ignored) {}
-			for (int i=0; i<threadModes.length; i++) {
-				if (threadModes[i][0].equals(currentMode)) { %>
-					<option value="<%=threadModes[i][0]%>" selected><%=threadModes[i][1]%></option>
-			<%	} else { %>
-					<option value="<%=threadModes[i][0]%>"><%=threadModes[i][1]%></option>
-			<%	}
-			} %>
-		</select>
+         for (int i=0; i<threadModes.length; i++) {
+            if (threadModes[i][0].equals(currentMode)) { %>
+               <option value="<%=threadModes[i][0]%>" selected><%=threadModes[i][1]%></option>
+         <%   } else { %>
+               <option value="<%=threadModes[i][0]%>"><%=threadModes[i][1]%></option>
+         <%   }
+         } %>
+      </select>
       </td>
    </tr>
    <tr>
@@ -186,13 +186,13 @@
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Display member photo:</strong></td>
       <td class="rtTextCell100">
-		<input name="displayMemberPhoto" value="true" id="displayMemberPhotoYes" type="radio"
-		    <%= (user.getProperty("jiveDisplayMemberPhoto") == null || "true".equals(user.getProperty("jiveDisplayMemberPhoto"))) ? "checked" : ""%>>
-		<label for="jiveDisplayMemberPhotoYes">Yes</label>
-		&#160;
-		<input name="displayMemberPhoto" value="false" id="displayMemberPhotoNo" type="radio"
-		    <%= ("false".equals(user.getProperty("jiveDisplayMemberPhoto"))) ? "checked" : ""%>>
-		<label for="jiveDisplayMemberPhotoNo">No</label>
+      <input name="displayMemberPhoto" value="true" id="displayMemberPhotoYes" type="radio"
+          <%= (user.getProperty("jiveDisplayMemberPhoto") == null || "true".equals(user.getProperty("jiveDisplayMemberPhoto"))) ? "checked" : ""%>>
+      <label for="jiveDisplayMemberPhotoYes">Yes</label>
+      &#160;
+      <input name="displayMemberPhoto" value="false" id="displayMemberPhotoNo" type="radio"
+          <%= ("false".equals(user.getProperty("jiveDisplayMemberPhoto"))) ? "checked" : ""%>>
+      <label for="jiveDisplayMemberPhotoNo">No</label>
       </td>
    </tr>
    <tr>
@@ -201,38 +201,38 @@
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Always watch threads I create:</strong></td>
       <td class="rtTextCell100">
-		<input name="autoWatchNewTopics" value="true" id="autoWatchNewTopicsYes" type="radio"
-			<%= ("true".equals(user.getProperty("jiveAutoWatchNewTopics"))) ? "checked" : ""%>>
-		<label for="autoWatchNewTopicsYes">Yes</label>
-		&#160;
-		<input name="autoWatchNewTopics" value="false" id="autoWatchNewTopicsNo" type="radio"
-			<%= (user.getProperty("jiveAutoWatchNewTopics") == null || "false".equals(user.getProperty("jiveAutoWatchNewTopics"))) ? "checked" : ""%>>
-		<label for="autoWatchNewTopicsNo">No</label>
+      <input name="autoWatchNewTopics" value="true" id="autoWatchNewTopicsYes" type="radio"
+         <%= ("true".equals(user.getProperty("jiveAutoWatchNewTopics"))) ? "checked" : ""%>>
+      <label for="autoWatchNewTopicsYes">Yes</label>
+      &#160;
+      <input name="autoWatchNewTopics" value="false" id="autoWatchNewTopicsNo" type="radio"
+         <%= (user.getProperty("jiveAutoWatchNewTopics") == null || "false".equals(user.getProperty("jiveAutoWatchNewTopics"))) ? "checked" : ""%>>
+      <label for="autoWatchNewTopicsNo">No</label>
       </td>
    </tr>
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Always watch threads I reply to:</strong></td>
       <td class="rtTextCell100">
-		<input name="autoWatchReplies" value="true" id="autoWatchRepliesYes" type="radio"
-			<%= ("true".equals(user.getProperty("jiveAutoWatchReplies"))) ? "checked" : ""%>>
-		<label for="autoWatchRepliesYes">Yes</label>
-		&#160;
-		<input name="autoWatchReplies" value="false" id="autoWatchRepliesNo" type="radio"
-			<%= (user.getProperty("jiveAutoWatchReplies") == null || "false".equals(user.getProperty("jiveAutoWatchReplies"))) ? "checked" : ""%>>
-		<label for="autoWatchRepliesNo">No</label>
+      <input name="autoWatchReplies" value="true" id="autoWatchRepliesYes" type="radio"
+         <%= ("true".equals(user.getProperty("jiveAutoWatchReplies"))) ? "checked" : ""%>>
+      <label for="autoWatchRepliesYes">Yes</label>
+      &#160;
+      <input name="autoWatchReplies" value="false" id="autoWatchRepliesNo" type="radio"
+         <%= (user.getProperty("jiveAutoWatchReplies") == null || "false".equals(user.getProperty("jiveAutoWatchReplies"))) ? "checked" : ""%>>
+      <label for="autoWatchRepliesNo">No</label>
       </td>
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Send watch emails:</strong></td>
       <td class="rtTextCell100">
          <select size=1 name="watchFrequency">
-         	<option value="<%= UserSettingsAction.FREQUENCY_IMMEDIATELY %>"
-       			<%= (UserSettingsAction.FREQUENCY_IMMEDIATELY == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Immediately (default)</option>
-         	<option value="<%= UserSettingsAction.FREQUENCY_ONCE_A_DAY %>"
-       			<%= (UserSettingsAction.FREQUENCY_ONCE_A_DAY == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Once per day</option>
-         	<option value="<%= UserSettingsAction.FREQUENCY_EVERY_OTHER_DAY %>"
-       			<%= (UserSettingsAction.FREQUENCY_EVERY_OTHER_DAY == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Every other day</option>
-         	<option value="<%= UserSettingsAction.FREQUENCY_ONCE_A_WEEK %>"
-       			<%= (UserSettingsAction.FREQUENCY_ONCE_A_WEEK == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Once per week</option>
+            <option value="<%= UserSettingsAction.FREQUENCY_IMMEDIATELY %>"
+                <%= (UserSettingsAction.FREQUENCY_IMMEDIATELY == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Immediately (default)</option>
+            <option value="<%= UserSettingsAction.FREQUENCY_ONCE_A_DAY %>"
+                <%= (UserSettingsAction.FREQUENCY_ONCE_A_DAY == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Once per day</option>
+            <option value="<%= UserSettingsAction.FREQUENCY_EVERY_OTHER_DAY %>"
+                <%= (UserSettingsAction.FREQUENCY_EVERY_OTHER_DAY == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Every other day</option>
+            <option value="<%= UserSettingsAction.FREQUENCY_ONCE_A_WEEK %>"
+                <%= (UserSettingsAction.FREQUENCY_ONCE_A_WEEK == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Once per week</option>
             <option value="<%= Settings.FREQUENCY_NEVER %>"
                 <%= (Settings.FREQUENCY_NEVER == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Never</option>
          </select>

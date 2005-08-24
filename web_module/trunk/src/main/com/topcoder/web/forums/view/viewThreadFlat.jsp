@@ -1,5 +1,5 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
-				com.topcoder.web.common.BaseProcessor,
+            com.topcoder.web.common.BaseProcessor,
                 com.topcoder.web.forums.ForumConstants,
                 com.topcoder.web.forums.controller.ForumsUtil,
                 com.topcoder.web.common.StringUtils,
@@ -8,7 +8,7 @@
                 com.jivesoftware.forum.action.util.Page,
                 com.jivesoftware.forum.ForumMessage,
                 com.jivesoftware.forum.WatchManager,
-				com.jivesoftware.forum.Watch,
+            com.jivesoftware.forum.Watch,
                 com.jivesoftware.forum.ResultFilter,
                 com.jivesoftware.forum.ForumThread,
                 com.jivesoftware.forum.ReadTracker,
@@ -26,9 +26,9 @@
 <tc-webtag:useBean id="resultFilter" name="resultFilter" type="com.jivesoftware.forum.ResultFilter" toScope="request"/>
 <tc-webtag:useBean id="historyBean" name="historyBean" type="com.topcoder.web.ejb.messagehistory.MessageHistory" toScope="request"/>
 
-<%	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
-	User user = (User)request.getAttribute("user");
-	String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW));
+<%   HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
+   User user = (User)request.getAttribute("user");
+   String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW));
     ReadTracker readTracker = forumFactory.getReadTracker();
     ForumThread nextThread = (ForumThread)request.getAttribute("nextThread");
     ForumThread prevThread = (ForumThread)request.getAttribute("prevThread");
@@ -40,12 +40,12 @@
     String watchMessage = "";
     WatchManager watchManager = forumFactory.getWatchManager();
     if (!authToken.isAnonymous() && watchManager.isWatched(user, thread)) {
-    	Watch watch = watchManager.getWatch(user, thread);
-    	watchMessage = "Stop Watching Thread";
+       Watch watch = watchManager.getWatch(user, thread);
+       watchMessage = "Stop Watching Thread";
         cmd = "remove";
     } else {
         watchMessage = "Watch Thread";
-    	cmd = "add";
+       cmd = "add";
     }     
 %>
 

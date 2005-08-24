@@ -60,25 +60,25 @@
         <td class="rtbc">Search Results (<%=numResults*paginator.getPageIndex()+1%> - <%=Math.min(resultCount,numResults*(paginator.getPageIndex()+1))%> of <%=resultCount%>) <a href="<%=sortFieldLink%>" class="rtbcLink">(<%=sortFieldLabel%>)</a></td>
         <% Page[] pages; %>
         <% if (paginator.getNumPages() > 1) { %>
-	    <td class="rtbc" align="right"><b>
-	        <%  if (paginator.getPreviousPage()) { %>
-	            <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
-	                << PREV</A>&#160;&#160;&#160;
-	        <%  } %> [
-	        <%  pages = paginator.getPages();
-	            for (int i=0; i<pages.length; i++) {
-	        %>  <%  if (pages[i] != null) { %>
-	                    <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
-	                            <span class="currentPage"><%= pages[i].getNumber() %></span>
-	                    <%  } else { %>
+       <td class="rtbc" align="right"><b>
+           <%  if (paginator.getPreviousPage()) { %>
+               <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
+                   << PREV</A>&#160;&#160;&#160;
+           <%  } %> [
+           <%  pages = paginator.getPages();
+               for (int i=0; i<pages.length; i++) {
+           %>  <%  if (pages[i] != null) { %>
+                       <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
+                               <span class="currentPage"><%= pages[i].getNumber() %></span>
+                       <%  } else { %>
                                 <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
-	                            <%= pages[i].getNumber() %></A>
-	                    <%  } %>
-	            <%  } else { %> ... <%  } %>
-	        <%  } %> ]
-	        <%  if (paginator.getNextPage()) { %>
-	            &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT >></A>
-	        <%  } %>
+                               <%= pages[i].getNumber() %></A>
+                       <%  } %>
+               <%  } else { %> ... <%  } %>
+           <%  } %> ]
+           <%  if (paginator.getNextPage()) { %>
+               &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT >></A>
+           <%  } %>
         </b></td>
     </tr>
     <%  } %>
@@ -99,7 +99,7 @@
             <td class="rtThreadCell"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
             <td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getChildCount(message)%></td>
             <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(message.getForumThread())%></td>
-		    <td class="rtThreadCell"><b><%=formatter.format(message.getModificationDate())%></b></td>
+          <td class="rtThreadCell"><b><%=formatter.format(message.getModificationDate())%></b></td>
         </tr>
    </tc-webtag:iterator>
 </table>
