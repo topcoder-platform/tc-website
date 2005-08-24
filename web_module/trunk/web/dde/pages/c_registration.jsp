@@ -21,7 +21,7 @@
 <%@ page import="com.topcoder.dde.catalog.*" %>
 <%
 
-    Object objTechTypes = CONTEXT.lookup("CatalogEJB");
+    Object objTechTypes = CONTEXT.lookup(CatalogHome.EJB_REF_NAME);
 
     // COMPANY SIZE LIST
 
@@ -65,7 +65,7 @@
     if (strState == null) {
         strState = "";
     }
-    
+
     boolean doRegister = true;
     if (action != null) {
         debug.addMsg("registration", "action occurred: " + action);
@@ -144,7 +144,7 @@
             // NEWS FORMAT
             //String strNewsInHTML = request.getParameter("newsInHTML");
             //newsInHTML = strNewsInHTML.equalsIgnoreCase("yes");
-    
+
             String address2 = request.getParameter("address2");
             String stateCode = request.getParameter("state");
 
@@ -199,7 +199,7 @@
                     debug.addMsg("state", "set vecTechnologies successfully");
                ri.setAddress2(address2);
                     debug.addMsg("address2", "set vecTechnologies successfully");
-   
+
                 //ri.setReceiveNews(receiveNews);
                     debug.addMsg("registration", "set receiveNews successfully");
                 //ri.setNewsInHtml(newsInHTML);
@@ -494,7 +494,7 @@ function TabNext(obj,event,len,next_field) {
                                     <span class="small">(for international users only)</span></td>
                                 <td width="5"><img src="/images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                             </tr>
- 
+
 <!-- Telephone Error Text -->
                             <tr valign="middle">
                                 <td width="5"><img src="/images/clear.gif" alt="" width="5" height="1" border="0"/></td>

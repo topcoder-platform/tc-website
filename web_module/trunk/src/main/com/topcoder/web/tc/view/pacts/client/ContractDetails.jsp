@@ -27,7 +27,7 @@ function goTo(selection){
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
      <TR>
        <TD WIDTH="170" VALIGN="top">
-	        <jsp:include page="../../includes/global_left.jsp">
+	        <jsp:include page="/includes/global_left.jsp">
 				<jsp:param name="level1" value="my_home"/>
 				<jsp:param name="level2" value="pacts"/>
 			</jsp:include>

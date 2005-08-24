@@ -30,10 +30,10 @@
                            <td class="sidebarTitle">Round</td>
                         </tr>
                         <tr>
-                           <td class="sidebarText" nowrap="nowrap"><a class="bodyText_link" href="/pl/?&module=Static&d1=doubleclick&d2=int_adv_main">Main Competition Round</a></td>
+                           <td class="sidebarText" nowrap="nowrap"><a class="bodyText_link" href="/pl/?module=Static&d1=doubleclick&d2=int_adv_main">Main Competition Round</a></td>
                         </tr>
                         <tr>
-                           <td class="sidebarText" nowrap="nowrap"><a class="bodyText_link" href="/pl/?&module=Static&d1=doubleclick&d2=int_adv_finals">Finals</a></td>
+                           <td class="sidebarText" nowrap="nowrap"><a class="bodyText_link" href="/pl/?module=Static&d1=doubleclick&d2=int_adv_finals">Finals</a></td>
                         </tr>
                      </table>
 

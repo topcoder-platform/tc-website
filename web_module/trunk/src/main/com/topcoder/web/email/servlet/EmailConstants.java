@@ -172,18 +172,6 @@ public class EmailConstants {
     private static final String JOB_LOG_COMMAND_KEY = "job_log_command";
     private static final String JOB_LOG_RESULT_KEY = "job_log_result";
 
-    private static final String EMAIL_EJB_PACKAGE_KEY = "email_ejb_package";
-    private static final String AUTHENTICATIONSERVICES_EJB_PACKAGE_KEY = "authentication_services_ejb_package";
-    private static final String STATISTICS_EJB_PACKAGE_KEY = "statistics_ejb_package";
-    private static final String EMAILTEMPLATE_EJB_KEY = "email_template_ejb";
-    private static final String EMAILTEMPLATE_GROUP_EJB_KEY = "email_template_group_ejb";
-    private static final String ADDRESSLIST_EJB_KEY = "address_list_ejb";
-    private static final String ADDRESSLIST_GROUP_EJB_KEY = "address_list_group_ejb";
-    private static final String SCHEDULEDJOB_EJB_KEY = "scheduled_job_ejb";
-    private static final String AUTHENTICATIONSERVICES_EJB_KEY = "authentication_services_ejb";
-    private static final String STATISTICS_EJB_KEY = "statistics_ejb";
-
-    private static final String LOGIN_TASK_KEY = "login_task";
     private static final String HOME_TASK_KEY = "home_task";
     private static final String EMAILTEMPLATE_TASK_KEY = "email_template_task";
     private static final String ADDRESSLIST_TASK_KEY = "address_list_task";
@@ -197,7 +185,6 @@ public class EmailConstants {
     private static final String JOB_STATUS_CANCELLED_KEY = "job_status_cancelled";
 
     private static final String JOB_TYPE_PREDETAIL_KEY = "job_type_predetail";
-    private static final String JOB_TYPE_POSTDETAIL_KEY = "job_type_postdetail";
 
     private static final String JSP_ROOT_KEY = "jsp_root";
     private static final String HOME_PAGE_KEY = "home_page";
@@ -296,17 +283,6 @@ public class EmailConstants {
     public static String JOB_LOG_RESULT;
 
     // EJB's
-
-    // ejb lookup
-    public static String EMAILTEMPLATE_EJB;
-    public static String EMAILTEMPLATE_GROUP_EJB;
-    public static String ADDRESSLIST_EJB;
-    public static String ADDRESSLIST_GROUP_EJB;
-    public static String SCHEDULEDJOB_EJB;
-
-    public static String AUTHENTICATIONSERVICES_EJB;
-    public static String STATISTICS_EJB;
-
 
     // Status ID's for jobs
 
@@ -443,17 +419,6 @@ public class EmailConstants {
         EMAIL_QUERIES_RESULT = servletConfig.getInitParameter(EMAIL_QUERIES_RESULT_KEY);
         JOB_LOG_COMMAND = servletConfig.getInitParameter(JOB_LOG_COMMAND_KEY);
         JOB_LOG_RESULT = servletConfig.getInitParameter(JOB_LOG_RESULT_KEY);
-
-        String EMAIL_EJB_PACKAGE = servletConfig.getInitParameter(EMAIL_EJB_PACKAGE_KEY);
-        String AUTHENTICATIONSERVICES_EJB_PACKAGE = servletConfig.getInitParameter(AUTHENTICATIONSERVICES_EJB_PACKAGE_KEY);
-        String STATISTICS_EJB_PACKAGE = servletConfig.getInitParameter(STATISTICS_EJB_PACKAGE_KEY);
-        EMAILTEMPLATE_EJB = EMAIL_EJB_PACKAGE + "." + servletConfig.getInitParameter(EMAILTEMPLATE_EJB_KEY);
-        EMAILTEMPLATE_GROUP_EJB = EMAIL_EJB_PACKAGE + "." + servletConfig.getInitParameter(EMAILTEMPLATE_GROUP_EJB_KEY);
-        ADDRESSLIST_EJB = EMAIL_EJB_PACKAGE + "." + servletConfig.getInitParameter(ADDRESSLIST_EJB_KEY);
-        ADDRESSLIST_GROUP_EJB = EMAIL_EJB_PACKAGE + "." + servletConfig.getInitParameter(ADDRESSLIST_GROUP_EJB_KEY);
-        SCHEDULEDJOB_EJB = EMAIL_EJB_PACKAGE + "." + servletConfig.getInitParameter(SCHEDULEDJOB_EJB_KEY);
-        AUTHENTICATIONSERVICES_EJB = AUTHENTICATIONSERVICES_EJB_PACKAGE + "." + servletConfig.getInitParameter(AUTHENTICATIONSERVICES_EJB_KEY);
-        STATISTICS_EJB = STATISTICS_EJB_PACKAGE + "." + servletConfig.getInitParameter(STATISTICS_EJB_KEY);
 
         try {
             JOB_STATUS_CREATING = Integer.parseInt(servletConfig.getInitParameter(JOB_STATUS_CREATING_KEY));

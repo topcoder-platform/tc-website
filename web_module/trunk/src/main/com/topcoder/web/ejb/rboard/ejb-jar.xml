@@ -1,41 +1,55 @@
 <?xml version="1.0"?>
 
 <!DOCTYPE ejb-jar PUBLIC
- '-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN'
- 'http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd'>
+      "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+      "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
 
 <ejb-jar>
+    <description>Review Board Jar</description>
+    <display-name>Review Board Jar</display-name>
     <enterprise-beans>
         <session>
+            <description>Review Board Application EJB</description>
+            <display-name>Review Board Application  EJB</display-name>
             <ejb-name>RBoardApplication</ejb-name>
             <home>com.topcoder.web.ejb.rboard.RBoardApplicationHome</home>
             <remote>com.topcoder.web.ejb.rboard.RBoardApplication</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
             <ejb-class>com.topcoder.web.ejb.rboard.RBoardApplicationBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
-            <transaction-type>Container</transaction-type>
         </session>
         <session>
+            <description>Review Board User EJB</description>
+            <display-name>Review Board User EJB</display-name>
             <ejb-name>RBoardUser</ejb-name>
             <home>com.topcoder.web.ejb.rboard.RBoardUserHome</home>
             <remote>com.topcoder.web.ejb.rboard.RBoardUser</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
             <ejb-class>com.topcoder.web.ejb.rboard.RBoardUserBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
-            <transaction-type>Container</transaction-type>
         </session>
     </enterprise-beans>
     <assembly-descriptor>
         <container-transaction>
             <method>
                 <ejb-name>RBoardApplication</ejb-name>
-                <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
             <method>
                 <ejb-name>RBoardUser</ejb-name>
-                <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
             <trans-attribute>Required</trans-attribute>
         </container-transaction>
     </assembly-descriptor>
 </ejb-jar>
+
+

@@ -7,7 +7,7 @@
 <jsp:include page="../../script.jsp" />
 
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
-    
+
 </head>
 
 <body>
@@ -20,7 +20,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -40,18 +40,18 @@
 <jsp:include page="tccc04links.jsp" >
    <jsp:param name="tabLev1" value="algorithm"/>
    <jsp:param name="tabLev2" value="details"/>
-   <jsp:param name="tabLev3" value="schedule"/> 
+   <jsp:param name="tabLev3" value="schedule"/>
 </jsp:include>
 
             <h2>Schedule and Advancement</h2>
-            
+
             <p><span class="bodySubtitle">Registration</span><br/>
-            In order to be eligible to compete in the Algorithm Competition, each competitor must be a registered TopCoder member 
-            and have registered separately for the Algorithm Competition.  Registration for the competition is unlimited, 
+            In order to be eligible to compete in the Algorithm Competition, each competitor must be a registered TopCoder member
+            and have registered separately for the Algorithm Competition.  Registration for the competition is unlimited,
             however each individual may only register once. Registration for the 2004 TopCoder Collegiate Challenge Algorithm Competition is scheduled as follows:</p>
 
             <p>NOTE: All times are EST.</p>
-            
+
             <p>
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr valign="top">
@@ -62,11 +62,11 @@
                     </td>
                 </tr>
             </table>
-            
+
             <p><span class="bodySubtitle">Open Qualification Round</span><br/>
             All registered competitors will attempt to qualify for the Algorithm Competition at any time during the following
             24-hour period:</p>
-            
+
             <a name="sched"></a>
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
@@ -155,7 +155,7 @@
                     </td>
                 </tr>
             </table><br/>
-            
+
             <p><span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span></p>
 
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
@@ -224,7 +224,7 @@
                     </td>
                 </tr>
             </table><br />
-            
+
 
          <p><br/></p>
          </td>

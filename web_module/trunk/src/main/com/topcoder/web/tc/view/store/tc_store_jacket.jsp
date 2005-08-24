@@ -16,13 +16,13 @@
 				text-decoration: none;
 				text-align: center;
 				line-height: 14pt }
- 	 			
+
  	.StoreTD	{ text-align: center; width: 180px; height: 55px; }
-  
+
 	.LeftBG		{ background-image: url(/i/store/tc_store_left.gif); width: 90px; height: 100% }
 
 	.RightBG	{ background-image: url(/i/store/tc_store_right.gif); width: 90px; height: 100% }
-    
+
     a.Store:link, a.Store:active, a.Store:visited	{ color: #000000; text-decoration: none }
     a.Store:hover	{ color: #FF0000; text-decoration: none }
 -->
@@ -40,7 +40,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="store"/>
             </jsp:include>
         </td>
@@ -62,7 +62,7 @@
 			<td colspan="2"><img src="/i/store/tc_store_jacket2.jpg"></img></td>
 		</tr>
 		<tr>
-			<td colspan="2"><strong>TopCoder Hooded Jacket</strong> 	
+			<td colspan="2"><strong>TopCoder Hooded Jacket</strong>
 <P>100% Taslan 3/4-length red and black jacket. Features a hidden hood in the collar and a full zip front. Wind and water resistant. The TopCoder logo is embroidered on the left chest and on the upper back.</P>
 		<a class="Store" href="tc?module=Static&d1=store&d2=home"><strong>- Back -</strong></a></td>
 		</tr>

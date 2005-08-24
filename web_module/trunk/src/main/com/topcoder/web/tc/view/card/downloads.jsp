@@ -5,14 +5,14 @@
 <head>
 <title>TopCoder Member Card</title>
 
-<jsp:include page="../../script.jsp" />
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:include page="../script.jsp" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 </head>
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -20,7 +20,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="my_home"/>
                 <jsp:param name="level2" value="card"/>
             </jsp:include>
@@ -32,10 +32,10 @@
 
          <div class="cardBody">
         <jsp:include page="../page_title.jsp" >
-            <jsp:param name="image" value="cards"/>  
-            <jsp:param name="title" value="Downloads"/>  
+            <jsp:param name="image" value="cards"/>
+            <jsp:param name="title" value="Downloads"/>
         </jsp:include>
-            
+
          <p>You can download any of the badges listed below in various sizes.  Feel free to place them on your personal website or on your resume.</p>
 
         <table cellpadding="0" cellspacing="15" border="0" class="bodyText" align="center">
@@ -62,7 +62,7 @@
          </table>
 
          <p>If you would like your badge to link to more info about your TopCoder experience, please insert the following HTML:</p>
-         <p align=center class="bodyText"><span class="cardCode">&lt;a href="http://<%=ApplicationServer.SERVER_NAME%>/card?cr=<jsp:getProperty name="sessionInfo" property="UserId"/>"&gt;</span>(image / text goes here)<span class="cardCode">&lt;a&gt;</span></p>
+         <p align=center class="bodyText"><span class="cardCode">&lt;a href="http://<%=ApplicationServer.SERVER_NAME%>/card?cr=<jsp:getProperty name="sessionInfo" property="userId"/>"&gt;</span>(image / text goes here)<span class="cardCode">&lt;a&gt;</span></p>
 
          </div>
          <p><br/></p>
@@ -71,7 +71,7 @@
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -83,7 +83,7 @@
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

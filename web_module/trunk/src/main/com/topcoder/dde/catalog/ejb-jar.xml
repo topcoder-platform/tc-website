@@ -140,6 +140,7 @@
                 <ejb-ref-type>Session</ejb-ref-type>
                 <home>com.topcoder.apps.review.projecttracker.ProjectTrackerHome</home>
                 <remote>com.topcoder.apps.review.projecttracker.ProjectTracker</remote>
+                <ejb-link>ProjectTracker</ejb-link>
             </ejb-ref>
             <ejb-local-ref>
                 <ejb-ref-name>ejb/DDECompCatalogEJB</ejb-ref-name>

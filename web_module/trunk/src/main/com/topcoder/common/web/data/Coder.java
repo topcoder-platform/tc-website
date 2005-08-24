@@ -4,13 +4,17 @@ import com.topcoder.common.web.util.Data;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.TagRenderer;
 import com.topcoder.shared.docGen.xml.ValueTag;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Coder implements Serializable, TagRenderer {
 
-    private int coderId;
+
+    private static Logger log = Logger.getLogger(Coder.class);
+
+    private long coderId;
     private String firstName;
     private String lastName;
     private String middleName;
@@ -155,7 +159,7 @@ public class Coder implements Serializable, TagRenderer {
 
 
     //Set
-    public void setCoderId(int coderId) {
+    public void setCoderId(long coderId) {
         this.coderId = coderId;
     }
 
@@ -232,6 +236,10 @@ public class Coder implements Serializable, TagRenderer {
     }
 
     public void setModified(String modified) {
+/*
+        log.debug("setModified called");
+        Thread.dumpStack();
+*/
         this.modified = modified;
     }
 
@@ -292,7 +300,7 @@ public class Coder implements Serializable, TagRenderer {
     }
 
     // Get
-    public int getCoderId() {
+    public long getCoderId() {
         return coderId;
     }
 

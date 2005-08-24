@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  java.util.Map,
-                 com.topcoder.shared.dataAccess.DataAccessConstants, 
+                 com.topcoder.shared.dataAccess.DataAccessConstants,
                  com.topcoder.shared.util.ApplicationServer"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -23,7 +23,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="development"/>
                 <jsp:param name="level2" value="support"/>
                 <jsp:param name="level3" value="desTutorial"/>
@@ -37,7 +37,7 @@
 
 <!-- Center Column Begins -->
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
-			
+
 			<h2>Design Tutorial</h2>
 
          <h2>Introduction</h2>
@@ -187,36 +187,36 @@
          <h2>Wrapping Up and Submitting</h2>
          <p>You should go through the design scorecard again before submitting. How would you rate your submission on each of the questions in the scorecard? If you think that a certain item will not get a top rating, try fixing it if you have time. If you do not have enough time to address all items you think need more work, try fixing the documentation items first. Once you are done, run the build script to prepare your submission. Depending on your target platform, build the design_submission target using either the ant tool for Java or the nant tool for .NET. If you did it right, and if your environment is configured correctly, you will see a new JAR file created in the top directory of your design. This is the file you use in the Submit and Review web application to upload your submission. It is a good idea to practice building your submission ahead of the deadline: finding a small bug in a TopCoder-supplied build script becomes progressively harder as you approach the deadline.</p>
          <p>You may upload your submission as many times as you want before the deadline. TopCoder Software provides you with a facility to check your uploaded submission. Once you uploaded your design, you can download it back to see that you have uploaded the correct file. It makes sense to use this facility: you have spent a lot of time preparing your design; taking this extra step prevents a great deal of frustration in case you pick a wrong file for an upload (this happens more often than you may think).</p>
-         
+
          <h2>Review</h2>
          <p>Now that you have submitted, you can sit back and relax: there is nothing you can change at this point, all you have to do is to wait for the scores to arrive.</p>
          <p>The reviewing phase is split in two parts - the screening, which is done by a single reviewer, and the actual review done by three reviewers.</p>
          <p>The screening step is done to reduce the load on the reviewers. The reviewer performing the screening is typically an experienced reviewer who uses the TopCoder Software screening scorecard to quickly determine if a submission can get a passing score. Only the submissions that are grossly insufficient will fail at this point. For example, if a submission is missing the use case diagrams and the component specification, there is no point to review it further: you do not need three reviewers to tell you that it is impossible for this submission to get a minimum passing score. If you followed this tutorial well and paid attention to the <A href="https://software.topcoder.com/catalog/document?id=10141191">CCV component</A>, you should have no problem getting past the screening stage.</p>
          <p>The actual review is a different story. At this point, three reviewers evaluate your design using the TopCoder Software scorecard. When you get back your scorecards, there should be little or no surprises: the rating guidelines for each item of the scorecard used by the reviewers are available to you; the reviewers will provide you with explanations for every item for which you did not get the full score. Sometimes you agree with the reviewer's assessments, sometimes you disagree; when you think the reason reviewers disagree with you is that they did not notice something in your submission, misinterpreted the requirements, or missed a post in the developers' forum, you have a chance to appeal.</p>
-         
+
          <h2>Appeals</h2>
          <p>The best way to win an appeal is to avoid it. Is your submission relying on a post in the developers' forums that you think may be easy to miss? Note it in your documentation. Are you interpreting a particular requirement in an unconventional way? Make sure you highlight it in your documentation. Do you think there are fine points of your design that the reviewers may miss? Stress them in your documentation. The component specification is your best weapon to avoid appeals. It is also your best friend if you do need to submit an appeal.</p>
          <p>The key thing to remember during the appeals is that you have only one chance to do it. There is no discussion going on at this point - you must state your point of view as clearly as possible to convince your reviewers that your submission deserves a higher rating in a particular category. This is the only item open for the discussion at this point: you should not, for example, attempt to convince the reviewers to remove a particular item marked as required from the list. If your component wins, you will get an opportunity to discuss this and other issues related to final fixes.</p>
-         
+
          <h2>What Happens When Your Design Wins</h2>
          <p>Congratulations! The scores are in - your submission has won a component design contest. This does not mean that you are done yet: you need to fix all items that the review board considered required, and support the developers while they compete in developing a component to your design specifications.</p>
-         
+
          <h3>Final Fixes</h3>
          <p>The first thing you get after the review has finished is an aggregation worksheet. This document becomes available shortly after the completion of the appeals phase. The worksheet enumerates the work items you need to finish before your submission is considered complete. You must implement all the required items, and consider implementing the recommended ones. In rare cases when you disagree with a required item because it has severe consequences to the design integrity, adds the unnecessary complexity to the component, or is useless to a potential customer, you should discuss the item with the review board and the TopCoder Software using the now-familiar developers' forums. If you fail to convince the reviewers of your point of view, you must implement the required change.</p>
          <p>One useful thing to do during the final fixes is to keep a list of items you fix, with comments on what you did to address the required item. Keep this document in the "docs" directory of your component to ensure that the document is archived together with your final submission.</p>
-         
+
          <h3>Final Submission and Review</h3>
          <p>When you upload your final submission, the primary reviewer goes through your design once more to ensure that every item from the aggregation worksheet has been addressed. If the reviewer is satisfied, the design project is considered complete; if the reviewer is not satisfied, the project moves back to the final fixes stage for more iterations.</p>
-         
+
          <h3>Helping Developers Build the Component</h3>
          <p>Now that your design is complete, the project is ready to move to the development phase. To ensure that you have a vested interest in the successful completion of the project, TopCoder Software ties the payment of the final 25% of the design winnings to the completion of the development phase. When you see your component posted for the development, you should start monitoring the developers' forums again: at this point, you are the main authority to answer developers' questions related to your design. Sometimes you will get simple questions from developers who miss a thing or two in the documentation. These are the easiest questions to answer - instead of copying the explanations from the documentation, you should refer developers to the answer in the component specification or in the Poseidon documentation. This will help reviewers of the development effort to understand what has really changed as the result of the forums interaction. However, most questions that you are going to get are really questions that point out things that you and the review board did not catch: mismatching signatures, typos in the names of objects and classes, etc. You should answer these questions with the understanding that the developers are not asking these small questions because they want to annoy you with silly stuff like "the getString is spelled as getSrting on the XYZ diagram." Please remember that the development effort is scored not so much on how well the resulting component works, but mostly on how closely the developer has followed your design. If your design says getSrting and the developers modify it to say getString without getting an OK from you, their effort will get fewer points from the development review board. This is the only way to ensure the consistency across multiple development efforts going on simultaneously in different parts of the world.</p>
-         
+
          <h2>What If Your Design Did Not Win?</h2>
          <p>Very often TopCoder receives multiple qualified submissions for the same component. The review board picks the design with the highest score, which makes designing for TopCoder what it is - a competition. If your component does not win in a competition, you should try to learn as much as you can from the reviewers' comments, and from studying the winning submission when it is offered for development. Generally, looking at winning designs is one of the best ways to improve your own designs. This gives you an opportunity to understand the reasons why the review board gave that design the highest score of all the submissions. Very often, the reasons are in the knowledge transfer part of the design, not in the technical aspects of it. Understanding the reasons why winning designs win is key to improving the score of your future design submissions.</p>
-         
+
          <h2>Conclusion</h2>
          <p>The learning curve on the design side of the TopCoder Software is long. Getting in your first design submission requires significant efforts, but things tend to get much easier over time. After a few submissions, struggling with the tools and understanding the process become secondary to your main challenge, which is to design the best solution to the set of requirements. Good luck!</p>
-			
+
             <p><br/></p>
         </td>
 <!-- Center Column Ends -->

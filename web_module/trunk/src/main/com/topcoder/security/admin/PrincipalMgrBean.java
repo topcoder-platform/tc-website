@@ -18,7 +18,7 @@ import java.util.Set;
 
 public class PrincipalMgrBean extends BaseEJB {
 
-    private static Logger logger = Logger.getLogger(com.topcoder.security.admin.PrincipalMgrBean.class);;
+    private static final Logger logger = Logger.getLogger(com.topcoder.security.admin.PrincipalMgrBean.class);;
     private static final String DATA_SOURCE = "java:comp/env/jdbc/DefaultDS";
 
     public Collection getUsers(TCSubject requestor)

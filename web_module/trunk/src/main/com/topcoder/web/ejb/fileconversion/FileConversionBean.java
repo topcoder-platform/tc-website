@@ -1,16 +1,15 @@
 package com.topcoder.web.ejb.fileconversion;
 
+import com.topcoder.file.convert.*;
+import com.topcoder.shared.util.logging.Logger;
+
 import javax.ejb.CreateException;
-import javax.ejb.EJBException;
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;
-import javax.naming.Context;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.rmi.RemoteException;
-
-import java.io.*;
-
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.file.convert.*;
 
 /**
  * The EJB class which handles database access routines for screening
@@ -79,7 +78,7 @@ public class FileConversionBean implements SessionBean {
         try {
             System.out.println("STARTING");
             InputStream finishedFile = client.convertSync(input, outFormat.getType());
-          
+
             byte[] b = new byte[finishedFile.available()];
             finishedFile.read(b);
             finishedFile.close();
@@ -96,7 +95,7 @@ public class FileConversionBean implements SessionBean {
           } catch (Exception e) {
               e.printStackTrace();
           }
-        
+
         return new byte[0];
     }
 }

@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -38,9 +38,9 @@
   						<img src="/i/clear.gif" width="7" height="1"><img src="/i/events/javaone04/coding_challenge.gif" width="351" height="27" border="0"><img src="/i/clear.gif" width="140" height="1"><a href="http://www.topcoder.com/"><img src="/i/events/javaone04/pbtc_logo.gif" width="130" height="27" border="0"/></a>
   						<p></p>
   						<p class ="regmiddle"><strong><font size="4">Enterprise Services Winners - Tuesday June 29</font></strong></p>
-						
-						<p class ="regmiddle"><a href="/pl/?&module=Static&d1=javaone04&d2=javaone_monday">Monday</a> | Tuesday | <a href="/pl/?&module=Static&d1=javaone04&d2=javaone_wednesday">Wednesday</a></p>
-						
+
+						<p class ="regmiddle"><a href="/pl/?module=Static&d1=javaone04&d2=javaone_monday">Monday</a> | Tuesday | <a href="/pl/?module=Static&d1=javaone04&d2=javaone_wednesday">Wednesday</a></p>
+
 			<table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td width="30%" class="sidebarTitle">Placement</td>
@@ -72,10 +72,10 @@
                     <td width="70%" class="sidebarText">166.03</td>
                 </tr>
             </table>
-            
-            <p class ="regmiddle"><a href="/pl/?&module=Static&d1=javaone04&d2=javaone_tuesdayphotos">View Photos</a> from the event.</p>
-					
-					
+
+            <p class ="regmiddle"><a href="/pl/?module=Static&d1=javaone04&d2=javaone_tuesdayphotos">View Photos</a> from the event.</p>
+
+
 					</td>
 				</tr>
 			</table>

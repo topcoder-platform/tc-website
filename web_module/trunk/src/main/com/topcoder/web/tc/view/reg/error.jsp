@@ -1,5 +1,6 @@
 <%@ page isErrorPage="true" %>
-<%@ page import="com.topcoder.web.tc.controller.legacy.reg.servlet.*" %>
+<%@ page import="com.topcoder.web.tc.controller.legacy.reg.servlet.*,
+                 java.io.PrintWriter" %>
 <%!
 boolean VERBOSE = true;
 %>

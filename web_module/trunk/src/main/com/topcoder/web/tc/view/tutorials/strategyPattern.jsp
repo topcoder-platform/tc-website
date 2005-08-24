@@ -4,8 +4,8 @@
 <head>
 <title>Algorithm Tutorials</title>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:include page="../../script.jsp" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:include page="../script.jsp" />
 <style type="text/css">
 .code
 {
@@ -24,7 +24,7 @@
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -32,7 +32,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="education"/>
                 <jsp:param name="level2" value="comp_tutorials"/>
             </jsp:include>
@@ -43,7 +43,7 @@
          <td width="100%" align="center">
 
          <div class="tutorBodyFull">
-            
+
             <h2>The Strategy Pattern</h2>
 
 			<p>
@@ -70,7 +70,7 @@ I have a very simple test to determine when a strategy pattern is required.  If 
 <span class="bodySubtitle">Considerations</span><br>
 The strategy pattern is all about the contract specified by the interface.  The biggest mistake in designs using the strategy pattern is in not providing a solid contract for implementing classes.  Please note that the method signatures are only a very small part of the contract and that the documentation (both class and method) provides the majority of the contract.  The contract needs to specify, in as much detail as possible, the exact scope of what implementation can do, what it should not do, and how it should react to various situations.  Without those details, the implementations can vary too widely in the logic they performed and how they react to situations.  This variation will cause subtle bugs to start occurring throughout the system because one implementation did or didn't do something.  These bugs are generally difficult to tract down because they vary with the implementation used.
 <br><br>
-Another consideration would be how the implementation is initialized.  Initialization of the strategy generally falls into two categories:  application or factory-based.  
+Another consideration would be how the implementation is initialized.  Initialization of the strategy generally falls into two categories:  application or factory-based.
 <br><br>
 An application-based initialization depends on the application to create the implementation itself and cast it to the interface (which then is presumably used by the application thereafter).  This has the advantage of allowing the application to finely tune how implementations are created and can provide a lot of contextual information to the implementation.  The downside being that it's harder to swap out the implementation to a different implementation since it's generally hardcoded within the application (and potentially in multiple spots).  This generally appears to the application like:
 <pre class="code">
@@ -92,7 +92,7 @@ The strategy pattern is very easy to implement.  Simply create an interface that
 <b>Java Class Discovery Component</b>
 </div>
 <br><br>
-The Java Class Discovery component tries to discover the classes that have been loaded by the JVM.  This component implements a strategy pattern to allow the application to pick the strategy used for discovering classes.  As you see above, the component works with the interface ClassSource and has three implementing classes used to discover classes - each of which implement their own strategy for returning classes from the getClasses() method call.  The power of the strategy pattern can be shown looking forward to JDK1.5.  A new strategy called "InstrumentSource" could be implemented that uses the new 1.5 Instrument class to discover loaded classes.  This new source can then be plugged into the component with no changes to the application. 
+The Java Class Discovery component tries to discover the classes that have been loaded by the JVM.  This component implements a strategy pattern to allow the application to pick the strategy used for discovering classes.  As you see above, the component works with the interface ClassSource and has three implementing classes used to discover classes - each of which implement their own strategy for returning classes from the getClasses() method call.  The power of the strategy pattern can be shown looking forward to JDK1.5.  A new strategy called "InstrumentSource" could be implemented that uses the new 1.5 Instrument class to discover loaded classes.  This new source can then be plugged into the component with no changes to the application.
 <br><br>
 The downside to this implementation is if the contract for ClassSource ever changes, all implementations would need those changes reflected in them.
 <br><br>
@@ -108,9 +108,9 @@ The .NET Rounding Factory component provides various rounding strategies to an a
 While this variation addresses the issue about changes to the contract (mentioned above), this variation ties the component into a rigid hierarchy structure.  So, if an application wishes to create its own rounding algorithm, it cannot use its own class hierarchy to do so.
 <br><br>
 <b>Interface/Abstract Base Variation</b><br>
-This variation of the strategy pattern provides an abstract base class that implements an interface, which defines the contract.  All strategy implementations would then inherit from this base class.  
+This variation of the strategy pattern provides an abstract base class that implements an interface, which defines the contract.  All strategy implementations would then inherit from this base class.
 <br><br>
-This is a powerful addition to the strategy pattern because it allows the contract of the interface to mutate (in future version of the contract) with very minimal affects on any implementing classes (either those included with the component or more importantly, any provided by the end using application).  In fact, utility and/or overloaded functions can easily be added to the interface and implemented in the abstract base without affecting those implementations.  Likewise, it allows the designer to minimize the effort in writing an implementation by putting common functionality, which would otherwise be duplicated across many implementations, into the abstract base.  
+This is a powerful addition to the strategy pattern because it allows the contract of the interface to mutate (in future version of the contract) with very minimal affects on any implementing classes (either those included with the component or more importantly, any provided by the end using application).  In fact, utility and/or overloaded functions can easily be added to the interface and implemented in the abstract base without affecting those implementations.  Likewise, it allows the designer to minimize the effort in writing an implementation by putting common functionality, which would otherwise be duplicated across many implementations, into the abstract base.
 <br><br>
 This variation has the benefits of both variations above but minimizes the downsides by allowing the application to choose how it wants to implement.  If the application wants to use its own hierarchy, it can by simply implementing the interface.  If it wants to be 'future protected' and write simpler implementations, it can implement by inheriting from the abstract base class.
 <br><br>
@@ -129,7 +129,7 @@ The .NET Heartbeat component provides a 'heartbeat' message to keep connections 
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -141,7 +141,7 @@ The .NET Heartbeat component provides a 'heartbeat' message to keep connections 
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

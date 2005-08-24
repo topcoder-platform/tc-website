@@ -8,6 +8,8 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.lang.reflect.*" %>
 
+
+
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
 
@@ -17,7 +19,7 @@
     String action = request.getParameter("a");
     String strMsg = "";
 
-    Object objTechTypes = CONTEXT.lookup("CatalogEJB");
+    Object objTechTypes = CONTEXT.lookup(CatalogHome.EJB_REF_NAME);
     CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
     Catalog catalog = home.create();
 %>
@@ -283,3 +285,4 @@
 
 </body>
 </html>
+

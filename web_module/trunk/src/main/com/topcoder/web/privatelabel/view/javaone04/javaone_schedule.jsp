@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -40,7 +40,7 @@
   				<p></p>
   				<p class="regmiddle"><strong><font size="4">Schedule</font></strong></p>
   				<p></p>
-  						
+
 			<table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td width="33%" class="sidebarTitle">Date</td>
@@ -71,7 +71,7 @@
                     <td width="34%" class="sidebarText">Enterprise Services - Competition</td>
                     <td width="33%" class="sidebarText">3:30 pm - 5:00 pm</td>
                 </tr>
-                
+
                 <tr>
                     <td width="33%" class="sidebarText">Wednesday, June 30</td>
                     <td width="34%" class="sidebarText">Mobility - Qualification</td>
@@ -84,8 +84,8 @@
                     <td width="33%" class="sidebarText">3:30 pm - 5:00 pm</td>
                 </tr>
             </table>
-					
-					
+
+
 					</td>
 				</tr>
 			</table>

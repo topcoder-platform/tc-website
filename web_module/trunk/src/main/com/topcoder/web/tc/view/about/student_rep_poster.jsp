@@ -4,7 +4,7 @@
 <head>
 <title>2004 TCCC Poster</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 
 </head>
 
@@ -15,7 +15,7 @@
         <td align="center">
 
         <img src="/i/about/student_rep_poster.gif" alt="TCCC Poster" width="262" height="405" border="0"/>
-        
+
         </td>
     </tr>
 </table>

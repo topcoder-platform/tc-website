@@ -14,25 +14,25 @@ import java.util.List;
 public class DemographicInput extends BaseTag {
     protected static Logger log = Logger.getLogger(DemographicInput.class);
 
-    private String cssclass;
+    private String styleClass;
     private DemographicQuestion question;
     private boolean showMulti;
     private String onchange;
 
     public DemographicInput() {
         super();
-        cssclass = null;
+        styleClass = null;
         showMulti = true;
     }
 
     public void setOnchange(String s) {
         onchange = s;
     }
-    
+
     public String getOnchange() {
         return onchange;
     }
-    
+
     public void setShowMulti(boolean b) {
         showMulti = b;
     }
@@ -41,8 +41,8 @@ public class DemographicInput extends BaseTag {
         return showMulti;
     }
 
-    public void setClass(String cssclass) {
-        this.cssclass = cssclass;
+    public void setStyleClass(String cssclass) {
+        this.styleClass = cssclass;
     }
 
     public void setQuestion(DemographicQuestion question) {
@@ -87,8 +87,8 @@ public class DemographicInput extends BaseTag {
         s.append(" name=\"");
         s.append(name);
         s.append("\"");
-        if (cssclass != null) {
-            s.append(" class=\"" + cssclass + "\"");
+        if (styleClass != null) {
+            s.append(" class=\"" + styleClass + "\"");
         }
         if (onchange != null) {
             s.append(" onchange=\"" + onchange + "\"");
@@ -107,9 +107,9 @@ public class DemographicInput extends BaseTag {
         s.append(" name=\"");
         s.append(name);
         s.append("\"");
-        if (cssclass != null) {
+        if (styleClass != null) {
             s.append(" class=\"");
-            s.append(cssclass);
+            s.append(styleClass);
             s.append("\"");
         }
         if (onchange != null) {
@@ -148,9 +148,10 @@ public class DemographicInput extends BaseTag {
 
 
     protected void init() {
-        this.cssclass = null;
+        this.styleClass = null;
         this.question = null;
         this.showMulti = true;
+        this.onchange=null;
 
     }
 

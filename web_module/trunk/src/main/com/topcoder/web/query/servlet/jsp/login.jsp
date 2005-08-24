@@ -35,7 +35,7 @@
               <p class="statText">
               <%=message%>
               </p>
-              <FORM NAME="login" METHOD="POST" ACTION="<jsp:getProperty name="sessionInfo" property="ServletPath"/>">
+              <FORM NAME="login" METHOD="POST" ACTION="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
                 <INPUT TYPE="HIDDEN" NAME="<%= Constants.TASK_PARAM %>" VALUE="<%=Constants.LOGIN_TASK %>"/>
                 <INPUT TYPE="HIDDEN" NAME="<%= Constants.STEP_PARAM%>" VALUE="<%=Constants.NEW_STEP%>"/>
                 <table border="0" cellpadding="0" cellspacing="0" width="132" ALIGN="center">

@@ -317,7 +317,7 @@ public interface PactsConstants {
     public static final String MEMBER_SERVLET_URL = "PactsMemberServlet";
 
     public static final String INTERNAL_SERVLET_URL = "/PactsInternalServlet";
-    public static final String LOGIN_URL = "/tc?&module=Login";
+    public static final String LOGIN_URL = "/tc?module=Login";
     public static final String TASK_STRING = "t";
     public static final String CMD_STRING = "c";
     public static final String NAV_OBJECT_ATTR = "navigation";

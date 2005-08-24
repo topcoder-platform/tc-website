@@ -18,7 +18,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../../includes/global_left.jsp">
+            <jsp:include page="..//includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -49,7 +49,7 @@
             <p class="terciary">
                 <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=final">Play-by-Play</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=final_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=final_video">Video</a>&nbsp;&nbsp;|&nbsp;&nbsp;Problem Analysis
             </p>
-            
+
             <h2>Problem Set Analysis &amp; Opinion</h2>
 
             <a href="/tc?module=MemberProfile&cr=159052"><img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" align="left"></a>
@@ -58,7 +58,7 @@
             Friday, December 5, 2003<br/><br/></p>
 
 <b>BalancedTrees</b><br/>
-The simplest way to solve this problem is to iterate over heights for a given value of <b>k</b> (the balance factor) and determine the fewest nodes required to make a tree of each height.  Since we are dealing with a tree, even when the balance factor is really high, the tree still isn't that tall.  If we know the fewest number of nodes required to make a tree of each height, it's easy to find how tall a tree we can make with n nodes.  So, the key is to determine the fewest number of nodes to make a tree with a height of <b>h</b> and a balance factor of <b>k</b>.  While its a little bit subtle, it isn't too hard to see that to use the fewest nodes we should have a <b>k</b>-balanced tree with height of <b>h</b>-1 for one of the subtrees, and a <b>k</b>-balanced tree of height <b>h</b>-<b>k</b>-1 for the other subtree.  The first subtree is sort of a given, since one subtree has to have height <b>h</b>-1, and since less nodes are required for shorter trees, we want to make the other subtree as short as possible, while maintaining the balance constraint.  Thus, we can define a recurrence: 
+The simplest way to solve this problem is to iterate over heights for a given value of <b>k</b> (the balance factor) and determine the fewest nodes required to make a tree of each height.  Since we are dealing with a tree, even when the balance factor is really high, the tree still isn't that tall.  If we know the fewest number of nodes required to make a tree of each height, it's easy to find how tall a tree we can make with n nodes.  So, the key is to determine the fewest number of nodes to make a tree with a height of <b>h</b> and a balance factor of <b>k</b>.  While its a little bit subtle, it isn't too hard to see that to use the fewest nodes we should have a <b>k</b>-balanced tree with height of <b>h</b>-1 for one of the subtrees, and a <b>k</b>-balanced tree of height <b>h</b>-<b>k</b>-1 for the other subtree.  The first subtree is sort of a given, since one subtree has to have height <b>h</b>-1, and since less nodes are required for shorter trees, we want to make the other subtree as short as possible, while maintaining the balance constraint.  Thus, we can define a recurrence:
 <br/><br/>
 <pre>
 fewest(h,k) = h>0  : 1+fewest(h-1,k)+fewest(h-k-1,k).
@@ -83,7 +83,7 @@ Most baseball lineups follow a pretty standard format.  The fastest player gener
 foreach state
    foreach event
       compute nextState from state and event
-      probability[nextState] = 
+      probability[nextState] =
          probability[nextState]+probability[state]*probability[event]
 </pre>
 For this to work, we have to iterate the states in the right order, but thats pretty easy to do.
@@ -93,7 +93,7 @@ That will give us the probability of the states, but we care about runs.  It's a
 foreach state
    foreach event
       compute nextState from state and event
-      probability[nextState] = 
+      probability[nextState] =
          probability[nextState]+probability[state]*probability[event]
       runs = runs + probability[state]*probability[event]*runsScored(state,event)
 </pre>
@@ -191,7 +191,7 @@ That is the basic algorithm.  We have to make a few modifications to deal with t
 <pre>
 import java.util.*;
 class Box implements Comparable{
-    int s,m,b; 
+    int s,m,b;
     Box(int x, int y, int z){
         if(x&gt;y){int t=x;x=y;y=t;}
         if(y&gt;z){int t=y;y=z;z=t;}
@@ -231,7 +231,7 @@ public class Nestable{
             ct[i] = 0;
             for(int j=0;j&lt;i;j++)if(ct[j]&gt;=ct[i]){
                 if(bx[i].m&gt;bx[j].m &amp;&amp; bx[i].b&gt;bx[j].b &amp;&amp; bx[i].s&gt;bx[j].s){
-                    ct[i]=ct[j]+1; if(ct[i]&gt;mx) mx=ct[i]; 
+                    ct[i]=ct[j]+1; if(ct[i]&gt;mx) mx=ct[i];
                 }
             }
         }
@@ -247,7 +247,7 @@ public class Nestable{
             bx[i]= new Box(x,y,z);
         }
         Arrays.sort(bx);  // lexico   s,m,b
-        
+
         TreeSet[] list = new TreeSet[n]; int nf=0;  //frontiers
         Cmp cmp = new Cmp();
         for(int i=0;i&lt;bx.length;i++){
@@ -277,7 +277,7 @@ public class Nestable{
     }
     boolean greater(Box b, SortedSet s){
         SortedSet head = s.headSet(b);
-        while(true){  
+        while(true){
             if(head.size()==0) return false;
             Box prev = (Box)head.last();
             if(prev.b&gt;=b.b) return false;
@@ -293,7 +293,7 @@ public class Nestable{
     }
 }
 </pre>
-                        
+
             <p><br/></p>
         </td>
 <!-- Center Column Ends -->

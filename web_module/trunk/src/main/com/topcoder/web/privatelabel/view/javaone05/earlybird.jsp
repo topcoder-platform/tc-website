@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -29,39 +29,39 @@
                <td valign="top" >
                  <table border="0" width="100%" cellpadding="7" cellspacing="0"><tr><td valign="top"><img src="/i/events/javaone05/coding_challenge.gif" width="351" height="27" border="0" /></td>
                  <td align="right" valign="top"><a href="/"><img src="/i/events/javaone05/pbtc_logo.gif" width="130" height="27" border="0" /></a></td></tr></table>
-                    <p class="regmiddle">   
+                    <p class="regmiddle">
                        <b>Early Bird Discount</b>&#160;&#160;|&#160;&#160;
                         <a href="/pl/?&module=Static&d1=javaone05&d2=student"><b>Student Discount</b></a></p>
                <p class ="regmiddle"><strong><font size="4">Early Bird Discount</font></strong></p>
-               
+
 						<p class="regmiddle">Early Bird TopCoder Professional discount:</p>
 
 						<p class="regmiddle">Join Us and SAVE $200 at the JavaOne<sup>SM</sup> Conference in San Francisco!</p>
 
-						<p class="regmiddle">Come join us at the JavaOne Conference taking place June 27-June 30, 
-						2005, at Moscone Center in San Francisco. As the power behind the Coding Challenge at the Conference, 
-						TopCoder invites you to stop by the Competition Arena in the JavaOne Pavilion. It all starts at the 
+						<p class="regmiddle">Come join us at the JavaOne Conference taking place June 27-June 30,
+						2005, at Moscone Center in San Francisco. As the power behind the Coding Challenge at the Conference,
+						TopCoder invites you to stop by the Competition Arena in the JavaOne Pavilion. It all starts at the
 						JavaOne Conference, your source for cutting-edge knowledge and proven solutions.</p>
 
-						<p class="regmiddle">Professional TopCoder members save $200 off onsite pricing when you register by May 27, 2005.  
+						<p class="regmiddle">Professional TopCoder members save $200 off onsite pricing when you register by May 27, 2005.
 						Register online today at <a href="http://java.sun.com/javaone/sf/registration.jsp" target="_blank">java.sun.com/javaone/sf/registration.jsp</a>.
 						Please use Registration Code "TCODER2" to receive your savings. </p>
 
-						<p class="regmiddle">The JavaOne conference is your ultimate source for Java technology knowledge and 
+						<p class="regmiddle">The JavaOne conference is your ultimate source for Java technology knowledge and
 						education. Here's a glimpse of what you'll find on site: </p>
 
 
 						<blockquote>
 						<ul class="regmiddle">
-						<li>JavaOne Pavilion, featuring the latest products and technologies from leading companies</li> 
-						<li>Hundreds of in-depth technical sessions that focus on real-world solutions </li> 
-						<li>Popular Birds-of-a-Feather sessions where you can interact with your peers </li> 
-						<li>Renowned JavaOneSM After Dark activities where you can cut loose </li> 
-						<li>Interactive Hands-on Labs led by industry experts </li> 
+						<li>JavaOne Pavilion, featuring the latest products and technologies from leading companies</li>
+						<li>Hundreds of in-depth technical sessions that focus on real-world solutions </li>
+						<li>Popular Birds-of-a-Feather sessions where you can interact with your peers </li>
+						<li>Renowned JavaOneSM After Dark activities where you can cut loose </li>
+						<li>Interactive Hands-on Labs led by industry experts </li>
 						</ul></blockquote>
 
 
-						<p class="regmiddle">Register online at <a href="http://java.sun.com/javaone/sf/registration.jsp" target="_blank">java.sun.com/javaone/sf/registration.jsp</a> today. 
+						<p class="regmiddle">Register online at <a href="http://java.sun.com/javaone/sf/registration.jsp" target="_blank">java.sun.com/javaone/sf/registration.jsp</a> today.
 						Be sure to use Registration Code "TCODER2" to receive your savings. </p>
 
 						<p class="regmiddle">We look forward to seeing you in San Francisco this June! </p>
@@ -72,7 +72,7 @@
                   <jsp:include page="foot.jsp" />
                </td>
             </tr>
-            
+
          </table>
 </center>
    </body>

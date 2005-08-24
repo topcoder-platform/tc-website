@@ -18,35 +18,32 @@
 
 <%
 	////////////////////////////////////////////
-	// Load context 
+	// Load context
 	////////////////////////////////////////////
 
-	Hashtable environment = new Hashtable();
-	environment.put(Context.PROVIDER_URL, "localhost:1099");
-	environment.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-	Context CONTEXT = new InitialContext(environment);	
+	Context CONTEXT = new InitialContext();
 
 	////////////////////////////////////////////
 	// Load Stateless EJB's
 	////////////////////////////////////////////
 
-	Object objUserManager = CONTEXT.lookup("dde/UserManager");        
-	UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome)  PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class); 
+	Object objUserManager = CONTEXT.lookup("dde/UserManager");
+	UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome)  PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
   UserManagerRemote USER_MANAGER = userManagerHome.create();
 
 /*
 	Object objPrincipalManager = CONTEXT.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
 	PrincipalMgrRemoteHome principalManagerHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objPrincipalManager, PrincipalMgrRemoteHome.class);
 	PrincipalMgrRemote PRINCIPAL_MANAGER = principalManagerHome.create();
-	
+
 	Object objPolicyManager = CONTEXT.lookup(PolicyMgrRemoteHome.EJB_REF_NAME);
 	PolicyMgrRemoteHome policyManagerHome = (PolicyMgrRemoteHome) PortableRemoteObject.narrow(objPolicyManager, PolicyMgrRemoteHome.class);
 	PolicyMgrRemote POLICY_MANAGER = policyManagerHome.create();
-			            
+
 	Object objLogin = CONTEXT.lookup(LoginRemoteHome.EJB_REF_NAME);
 	LoginRemoteHome loginHome = (LoginRemoteHome) PortableRemoteObject.narrow(objLogin, LoginRemoteHome.class);
 	LoginRemote LOGIN = loginHome.create();
-			            
+
 	Object objPolicy = CONTEXT.lookup(PolicyRemoteHome.EJB_REF_NAME);
 	PolicyRemoteHome policyHome = (PolicyRemoteHome) PortableRemoteObject.narrow(objPolicy, PolicyRemoteHome.class);
 	PolicyRemote POLICY = policyHome.create();

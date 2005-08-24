@@ -1,10 +1,11 @@
-<%@ page import="com.topcoder.web.privatelabel.Constants"%>
+<%@ page import="com.topcoder.web.privatelabel.Constants,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ page language="java"%>
 
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="fileTypes" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<% ResultSetContainer fileTypes = (ResultSetContainer)request.getAttribute("fileTypes");%>
 <HTML>
 <HEAD><TITLE>Resume Upload</TITLE>
 <style><!--
@@ -41,7 +42,7 @@ body,td,font,p,a
       </TR>
       <TR>
         <TD nowrap><font size="-1">
-          <form name="upload_form" enctype="multipart/form-data" method="POST" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>">
+          <form name="upload_form" enctype="multipart/form-data" method="POST" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="UploadResume">
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<%=request.getParameter(Constants.COMPANY_ID)%>">
             <tc-webtag:errorIterator id="err" name="<%=Constants.FILE%>"><%=err%><br/></tc-webtag:errorIterator>
@@ -60,7 +61,7 @@ body,td,font,p,a
             <TD>
             <input type="submit" value="Upload">
             </form>
-            
+
         </TD>
       </TR>
     </TABLE>

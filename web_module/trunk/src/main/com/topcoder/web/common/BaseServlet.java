@@ -1,9 +1,6 @@
 package com.topcoder.web.common;
 
 import com.topcoder.security.TCSubject;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.SimpleResource;
@@ -36,9 +33,8 @@ public abstract class BaseServlet extends HttpServlet {
     public static final String URL_KEY = "url";
     public static final String NEXT_PAGE_KEY = "nextpage";
     public static final String SESSION_INFO_KEY = "sessionInfo";
-    public static final String USER_SUBJECT_PREFIX = "user_subject:";
 
-    private static Logger log = Logger.getLogger(BaseServlet.class);
+    private static final Logger log = Logger.getLogger(BaseServlet.class);
 
     /**
      * Initializes the servlet.
@@ -247,9 +243,8 @@ public abstract class BaseServlet extends HttpServlet {
         return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response, BasicAuthentication.MAIN_SITE);
     }
 
-    /* TODO implement a cached authorization object */
     protected Authorization createAuthorization(User user) throws Exception {
-        return new TCSAuthorization(user);
+        return new TCSAuthorization(SecurityHelper.getUserSubject(user.getId()));
     }
 
     protected boolean isLegalCommand(String s) {
@@ -312,35 +307,7 @@ public abstract class BaseServlet extends HttpServlet {
         fetchRegularPage(request, response, LOGIN_SERVLET == null ? info.getServletPath() : LOGIN_SERVLET, true);
     }
 
-        protected TCSubject getUser(long id) throws Exception {
-            TCSubject user = null;
-
-            StringBuffer buf = new StringBuffer(40);
-            buf.append(USER_SUBJECT_PREFIX);
-            buf.append(id);
-
-            CacheClient cc = null;
-            boolean hasCacheConnection = true;
-            try {
-                cc = CacheClientFactory.createCacheClient();
-                user = (TCSubject) (cc.get(buf.toString()));
-            } catch (Exception e) {
-                log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
-                hasCacheConnection = false;
-            }
-            if (user == null) {
-                PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
-                user = pmgr.getUserSubject(id);
-                try {
-                    if (hasCacheConnection) {
-                        cc.set(buf.toString(), user, 30 * 60 * 1000);
-                    } else {
-                        log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: ");
-                    }
-                } catch (Exception e) {
-                    log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
-                }
-            }
-            return user;
-        }
+    protected TCSubject getUser(long id) throws Exception {
+        return SecurityHelper.getUserSubject(id);
+    }
 }

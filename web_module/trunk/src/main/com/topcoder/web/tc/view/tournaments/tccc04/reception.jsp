@@ -7,7 +7,7 @@
 <jsp:include page="../../script.jsp" />
 
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
-    
+
 </head>
 
 <body>
@@ -20,7 +20,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -49,7 +49,7 @@
             <img src="/i/tournament/tccc04/onsite_photos/reception.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
             <span class="leadPhotoCaption">Competitors and spectators enjoying the reception<br/><br/> </span>
             </div>
-            
+
             <h2>Opening Night Reception</h2>
 
             <p>by lbackstrom, <em>TopCoder Staff</em><br />
@@ -64,7 +64,7 @@
             <p>
             The next two days promise to be exciting -- the top designer and developer will be decided and the final four algorithm coders will advance and vie for the $25,000 grand prize.  Congratulations to all the coders who have made it so far, and good luck to everyone in the upcoming events.
             </p>
-            
+
 
          <p><br/></p>
          </td>

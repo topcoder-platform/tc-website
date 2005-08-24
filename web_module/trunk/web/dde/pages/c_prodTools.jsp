@@ -14,7 +14,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "c_prodTools.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 %>
 
 <% // PAGE SPECIFIC DECLARATIONS %>
@@ -40,39 +40,39 @@
         if (lngComponent == 0) response.sendRedirect("c_showroom.jsp");
     }
 
-    Collection categoryPath = null;    
+    Collection categoryPath = null;
     try {
         lngCategory = Long.parseLong(request.getParameter("cat"));
-        
+
         if (lngCategory > 0) {
-            CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(CONTEXT.lookup("CatalogEJB"), CatalogHome.class);
+            CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(CONTEXT.lookup(CatalogHome.EJB_REF_NAME), CatalogHome.class);
             Catalog catalog = home.create();
-            
+
             categoryPath = catalog.getCategoryPath(lngCategory);
             }
     } catch (NumberFormatException nfe) {
     }
-    
-    ComponentManagerHome component_manager_home = (ComponentManagerHome) PortableRemoteObject.narrow(CONTEXT.lookup("ComponentManagerEJB"), ComponentManagerHome.class);
+
+    ComponentManagerHome component_manager_home = (ComponentManagerHome) PortableRemoteObject.narrow(CONTEXT.lookup(ComponentManagerHome.EJB_REF_NAME), ComponentManagerHome.class);
     ComponentManager componentManager;
-    
+
     if (lngVersion == 0) {
         componentManager = component_manager_home.create(lngComponent);
     } else {
         componentManager = component_manager_home.create(lngComponent, lngVersion);
     }
-    
+
     ComponentInfo componentInfo = componentManager.getComponentInfo();
     ComponentVersionInfo versionInfo = componentManager.getVersionInfo();
 
-    Object objTechTypes = CONTEXT.lookup("CatalogEJB");
+    Object objTechTypes = CONTEXT.lookup(CatalogHome.EJB_REF_NAME);
     CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
     Catalog catalog = home.create();
-    
+
     Technology technologies[] = (Technology[])componentManager.getTechnologies().toArray(new Technology[0]);
-    
+
     TeamMemberRole teamMemberRoles[] = (TeamMemberRole[])componentManager.getTeamMemberRoles().toArray(new TeamMemberRole[0]);
-    
+
     LicenseLevel levels[] = (LicenseLevel[])catalog.getLicenseLevels().toArray(new LicenseLevel[0]);
     int cost[] = new int[levels.length];
     boolean hasCost = false;
@@ -82,11 +82,11 @@
             hasCost = true;
         }
     }
-    
+
     ComponentSummary summaries[] = (ComponentSummary[])componentManager.getDependencies().toArray(new ComponentSummary[0]);
-    
+
     Example examples[] = (Example[])componentManager.getExamples().toArray(new Example[0]);
-    
+
     //Separate screen shots and displayable documents
     Collection colTempDocuments = componentManager.getDocuments();
     Hashtable hashDocumentTypes = new Hashtable();
@@ -97,7 +97,7 @@
     Iterator itr = colTempDocuments.iterator();
     while( itr.hasNext()) {
         Document doc = (Document) itr.next();
-        if ((int)doc.getType() != com.topcoder.dde.catalog.Document.SCREEN_SHOT && 
+        if ((int)doc.getType() != com.topcoder.dde.catalog.Document.SCREEN_SHOT &&
                     (int)doc.getType() != com.topcoder.dde.catalog.Document.SCREEN_SHOT_THUMBNAIL) {
             colDocuments.add(doc);
         } else {
@@ -116,7 +116,7 @@
     }
     Document documents[] = (Document[])colDocuments.toArray(new Document[0]);
     //Document screenshots[] = (Document[])colScreenShots.toArray(new Document[0]);
-    
+
     boolean hasPreviousForums = false;
     Collection colVersions = componentManager.getAllVersionInfo();
     ComponentVersionInfo versions[] = (ComponentVersionInfo[])colVersions.toArray(new ComponentVersionInfo[0]);
@@ -231,13 +231,13 @@
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
                 <tr><td class="normal"><img src="/images/headProductivityTools.gif" alt="Productivity Tools" width="545" height="32" border="0" /></td></tr>
             </table>
-            
+
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr><td width="100%" class="subhead"><%= componentInfo.getName() %>&nbsp;&nbsp;<span class="version">version <%= versionInfo.getVersionLabel() %></span></td></tr>
-                
+
                 <tr><td height="5"><img src="/images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
             </table>
-            
+
             <table width="100%" border="0" cellpadding="0" cellspacing="1" align="center">
                 <tr valign="top">
                     <td width="49%" class="display">
@@ -246,9 +246,9 @@
                             String line = reader.readLine();
                             while (line != null) {
                         %>
-                        
+
                         <%= line.trim() %><br />
-                        
+
                         <%  line = reader.readLine();
                             }
                         %>
@@ -262,18 +262,18 @@
                             //Lines with a '-' as the first character should be treated as a bullet point
                             if (line.charAt(0) == '-') {
                         %>
-                            
+
                                 <li><%= line.substring(1,line.length()).trim() %></li>
                             <%      } else { %>
-                        
+
                             <%= line.trim() %>
-                            
+
                             <%      }
                                 line = reader.readLine();
                                 }
                             %>
                         </ul>
-                        
+
                         <p><img src="/images/clear.gif" alt="" width="265" height="5" border="0" /></p></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="49%" class="display">
@@ -285,7 +285,7 @@
 <%  } %>
 
 <!-- Technologies -->
-                        <%  if (technologies.length > 0) { 
+                        <%  if (technologies.length > 0) {
                         %>
                         <p><strong>Technologies</strong><br />
                         <%      for (int i=0; i < technologies.length - 1; i++) { %>
@@ -305,12 +305,12 @@
                             <%= teamMemberRoles[teamMemberRoles.length-1].getUsername() %>
                         </p>
                         <%  } %>
-                        
+
 <!-- Price
                         <p><strong>Price</strong><br />
                         $35,000*</p>  -->
 
-                        
+
 <!-- Availability -->
                         <p><strong>Availability</strong><br />
 
@@ -332,9 +332,9 @@
                         }
                         %>
                         <%= strAvailability %></p>
-                        
-                        <p>*TopCoder Software Productivity Tools are NOT part of the <a href="c_showroom.jsp">Component Catalog,</a> although 
-                        they utilize components as part of their design. Discounts apply for TopCoder Software Subscription customers. 
+
+                        <p>*TopCoder Software Productivity Tools are NOT part of the <a href="c_showroom.jsp">Component Catalog,</a> although
+                        they utilize components as part of their design. Discounts apply for TopCoder Software Subscription customers.
                         See <a href="s_about_tools.jsp">About Tools</a> for more information, or call us at 1-866-TOP-CODE.</p>
 
                         <p><img src="/images/clear.gif" alt="" width="265" height="5" border="0" /></p>
@@ -387,12 +387,12 @@
                 <tr>
                     <td>
                         <table border="0" cellpadding="0" cellspacing="0">
-<%  if (documents.length == 0) { 
+<%  if (documents.length == 0) {
 %>
                             <tr valign="top">
                                 <td class="rightColOff">None available at this time</td>
                             </tr>
-<%  } else { 
+<%  } else {
         for (int i=0; i < documents.length; i++) {
 %>
                             <tr valign="top">

@@ -6,9 +6,9 @@
 
 %>
 
-<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics - Round Overview</TITLE>

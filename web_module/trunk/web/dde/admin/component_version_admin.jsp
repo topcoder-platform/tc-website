@@ -115,13 +115,13 @@ public Object[] parseDocumentNameAndType(String componentName, String fileName, 
 
 
 
-Object objTechTypes = CONTEXT.lookup("CatalogEJB");
+Object objTechTypes = CONTEXT.lookup(CatalogHome.EJB_REF_NAME);
 CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
 Catalog catalog = home.create();
 
 Collection colTechnology = catalog.getTechnologies();
 
-Object objComponentMgr = CONTEXT.lookup("ComponentManagerEJB");
+Object objComponentMgr = CONTEXT.lookup(ComponentManagerHome.EJB_REF_NAME);
 ComponentManagerHome component_manager_home = (ComponentManagerHome) PortableRemoteObject.narrow(objComponentMgr, ComponentManagerHome.class);
 ComponentManager componentManager = null;
 
@@ -182,7 +182,7 @@ if (request.getMethod().equals("POST")) {
         if (action != null) {
             // Get the component details
             //component = componentManager.getComponentInfo();
-            
+
             // Documents
             if (action.equals("Add Document")) {
 
@@ -681,7 +681,7 @@ if (action != null) {
                 if(estimatedDevDate != null && !estimatedDevDate.equals("")){
                    verDateInfo.setEstimatedDevDate(dateFormat.parse(estimatedDevDate));
                 }
-                
+
                 verDateInfo.setPrice(phasePrice);
                 verDateInfo.setStatusId(Long.parseLong(strPostingStatus));
                 verDateInfo.setLevelId(levelId);
@@ -700,7 +700,7 @@ if (action != null) {
                 } else {
                     verDateInfo.setEstimatedDevDate(null);
                 }
-                
+
                 if(screeningCompleteDate != null && !screeningCompleteDate.equals("")) {
                     verDateInfo.setScreeningCompleteDate(dateFormat.parse(screeningCompleteDate));
                 } else {
@@ -712,7 +712,7 @@ if (action != null) {
                 } else {
                     verDateInfo.setPhaseCompleteDate(null);
                 }
-                
+
                 if (productionDate != null && !productionDate.equals("")) {
                     verDateInfo.setProductionDate(dateFormat.parse(productionDate));
                 } else {
@@ -734,12 +734,12 @@ if (action != null) {
 
                 componentManager.updateVersionDatesInfo(verDateInfo);
             }
-            
+
             strMessage += "Version info was saved.";
             colVerTechs = componentManager.getTechnologies();
             iterVerTechs = colVerTechs.iterator();
             technologies.clear();
-            
+
             while (iterVerTechs.hasNext()) {
                 Technology tech = (Technology)iterVerTechs.next();
                 technologies.put("" + tech.getId(), "hit");
@@ -1064,7 +1064,7 @@ if (action != null) {
         componentManager.removeReview(reviewId);
         //response.sendRedirect("component_version_admin.jsp?comp=" + lngComponent + "ver=" + lngVersion);
     }
-    
+
     if (action.equals("Assign Forum Post Notification Event")) {
         String strUsername = request.getParameter("txtTCHandle");
         if (strUsername == null || strUsername.trim().length() == 0) {
@@ -2048,7 +2048,7 @@ if (action != null) {
                 </tr>
             </table>
 <!-- Notifications ends -->
-            
+
         </td>
 </form>
 <!-- Middle Column ends -->

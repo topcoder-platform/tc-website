@@ -55,9 +55,9 @@
 
         <ul>
 
-          <li><a href="/admin/?module=Challenge&amp;Command=getRoundMenu">Challenge</a></li>
+          <li><a href="/admin/contest?Task=challenge&amp;Command=getRoundMenu">Challenge</a></li>
 
-          <li><a href="/admin/?module=Compilation&amp;Command=get_rounds">Compilation</a></li>
+          <li><a href="/admin/contest?Task=compilation&amp;Command=get_rounds">Compilation</a></li>
 
         </ul>
 

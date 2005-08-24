@@ -6,12 +6,14 @@
  */
 package com.topcoder.apps.review.document;
 
+import java.io.Serializable;
+
 /**
  * Represents a scorecard template, used for scorecard editing.
  *
  * @author FatClimber
  */
-public class ScorecardTemplate {
+public class ScorecardTemplate implements Serializable {
     private long id;
     private String name;
     private int projectType;

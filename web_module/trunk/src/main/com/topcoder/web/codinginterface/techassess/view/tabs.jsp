@@ -4,7 +4,7 @@
 <%
     String tabLev1 = request.getParameter("tabLev1")==null?"":request.getParameter("tabLev1");
 %>
-<%@ taglib uri="/WEB-INF/codinginterface.tld" prefix="ci" %>
+<%@ taglib uri="codinginterface.tld" prefix="ci" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 

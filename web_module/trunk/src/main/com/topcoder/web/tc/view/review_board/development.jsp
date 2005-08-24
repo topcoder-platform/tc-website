@@ -1,11 +1,12 @@
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@  page language="java"  %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
-<jsp:useBean id="memberList" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
+<% ResultSetContainer memberList = (ResultSetContainer)request.getAttribute("memberList");%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <html>
 
@@ -28,7 +29,7 @@
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="review_board"/>
-                <jsp:param name="level2" value="development"/> 
+                <jsp:param name="level2" value="development"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -37,12 +38,12 @@
         <td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins --> 
+<!-- Center Column Begins -->
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
         <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="review_boards"/>  
-           <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value=""/>  
+           <jsp:param name="image" value="review_boards"/>
+           <jsp:param name="image1" value="white"/>
+           <jsp:param name="title" value=""/>
         </jsp:include>
 
             <table border="0" cellspacing="10" cellpadding="0" width="100%" align="center">
@@ -119,7 +120,7 @@
        <td width="170"><img src="/i/clear.gif" width="170" height="1" border="0"><br/>
             <jsp:include page="../public_right.jsp">
                 <jsp:param name="level1" value="review_board"/>
-                <jsp:param name="level2" value="competition"/> 
+                <jsp:param name="level2" value="competition"/>
             </jsp:include>
         </td>
 <!-- Right Column Ends -->

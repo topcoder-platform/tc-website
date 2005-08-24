@@ -1,15 +1,15 @@
-<%@  page 
+<%@  page
   language="java"
   import="java.util.*,
           com.topcoder.web.corp.common.*,
           com.topcoder.web.corp.controller.request.tces.*,
           com.topcoder.web.corp.common.TCESConstants" %>
 
-<%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
+<%@ taglib uri="tces-taglib.tld" prefix="tces"%>
 
 <jsp:useBean id="CompetitionHistoryTask" scope="request" class="com.topcoder.web.corp.controller.request.tces.CompetitionHistoryTask" />
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
 <head>
@@ -59,28 +59,28 @@
                         <strong>Phone:</strong> <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "home_phone").toString()%>
 						<br/>
 						<% if (CompetitionHistoryTask.hasResume()) { %>
-						<a href="<jsp:getProperty name="CompetitionHistoryTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="MemberID"/>" class="bodyText"><strong>Resume</strong></a>
+						<a href="<jsp:getProperty name="CompetitionHistoryTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="campaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="jobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="memberID"/>" class="bodyText"><strong>Resume</strong></a>
 						<% } %>
 						<br/><br/>
-                        <strong>Interested in:</strong> <jsp:getProperty name="CompetitionHistoryTask" property="JobName"/>
+                        <strong>Interested in:</strong> <jsp:getProperty name="CompetitionHistoryTask" property="jobName"/>
 						<br/><br/>
-                        <A HREF="<jsp:getProperty name="CompetitionHistoryTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionHistoryTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionHistoryTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionHistoryTask.getMemberID()%>" class="bodyText">Coder Demographic Info</A>
+                        <A HREF="<jsp:getProperty name="CompetitionHistoryTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionHistoryTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionHistoryTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionHistoryTask.getMemberID()%>" class="bodyText">Coder Demographic Info</A>
 						<br/>
                         Coder Competition History
 						<br/>
-                        <A HREF="<jsp:getProperty name="CompetitionHistoryTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionHistoryTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionHistoryTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionHistoryTask.getMemberID()%>" class="bodyText">Coder Problem Submissions</A>
+                        <A HREF="<jsp:getProperty name="CompetitionHistoryTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionHistoryTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionHistoryTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionHistoryTask.getMemberID()%>" class="bodyText">Coder Problem Submissions</A>
                     </td>
                 </tr>
                 <tr>
                     <td class="bodyText" align="right">
 	                <% if (!CompetitionHistoryTask.isRestrictedCampaign()) {%>
-	                <A HREF="JavaScript:getGraph('/corp/graph/?c=rating_history_graph&cr=<jsp:getProperty name="CompetitionHistoryTask" property="MemberID"/>&cm=<jsp:getProperty name="CompetitionHistoryTask" property="CompanyId"/>','800','600','history')" class="bodyText">Rating History Graph</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+	                <A HREF="JavaScript:getGraph('/corp/graph?c=rating_history_graph&cr=<jsp:getProperty name="CompetitionHistoryTask" property="memberID"/>&cm=<jsp:getProperty name="CompetitionHistoryTask" property="companyId"/>','800','600','history')" class="bodyText">Rating History Graph</a> &nbsp;&nbsp;|&nbsp;&nbsp;
 	                <% } %>
-	                <A HREF="JavaScript:getGraph('/corp/graph/?c=rating_distribution_graph&cm=<jsp:getProperty name="CompetitionHistoryTask" property="CompanyId"/>','600','400','distribution')" class="bodyText">Overall Rating Distribution Graph</a>
+	                <A HREF="JavaScript:getGraph('/corp/graph?c=rating_distribution_graph&cm=<jsp:getProperty name="CompetitionHistoryTask" property="companyId"/>','600','400','distribution')" class="bodyText">Overall Rating Distribution Graph</a>
                     </td>
                 </tr>
             </table>
-             
+
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                 <tr>
                   <td class="screeningHeader">Date</td>
@@ -91,7 +91,7 @@
                   <td class="screeningHeader" align=right>Pre-Rating</td>
                   <td class="screeningHeader" align=right>Post-Rating</td>
                 </tr>
-                
+
                 <% int i=0; %>
                 <%--not indenting to save some space on the download cuz this can be a big loop
                     and the spaces significantly impact the size of the html source
@@ -99,7 +99,7 @@
                     <tces:mapIterator id="comp" mapList="<%=CompetitionHistoryTask.getCompetitionList()%>"><% i++; %>
 				<tr>
 <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><%= (String)comp.get("date") %></td>
-<td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><A HREF="<jsp:getProperty name="CompetitionHistoryTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionHistoryTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionHistoryTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionHistoryTask.getMemberID()%>&<%=TCESConstants.ROUND_ID_PARAM%>=<%= (String)comp.get("round_id") %>" class="bodyText"><%= (String)comp.get("contest_name") %></A></td>
+<td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><A HREF="<jsp:getProperty name="CompetitionHistoryTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionHistoryTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionHistoryTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionHistoryTask.getMemberID()%>&<%=TCESConstants.ROUND_ID_PARAM%>=<%= (String)comp.get("round_id") %>" class="bodyText"><%= (String)comp.get("contest_name") %></A></td>
 <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=left><%= (String)comp.get("division_name") %></td>
 <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= (String)comp.get("final_points") %></td>
 <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= (String)comp.get("avg_points") %></td>
@@ -108,7 +108,7 @@
 				</TR>
 				</tces:mapIterator>
             </table>
-                        
+
             <p><br></p>
         </td>
 <!-- Center Column Ends -->

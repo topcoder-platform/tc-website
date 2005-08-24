@@ -26,7 +26,7 @@ function openWin(url, name) {
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -50,7 +50,7 @@ function openWin(url, name) {
 
 <!-- Tab bar sublinks-->
 <jsp:include page="tco03Sublinks.jsp" >
-   <jsp:param name="selectedList" value="component_advancers"/> 
+   <jsp:param name="selectedList" value="component_advancers"/>
    <jsp:param name="selectedTab" value="finals"/>
 </jsp:include>
 
@@ -99,12 +99,12 @@ the Arena applet.
                   <td class="formTextOdd" align="right">1703&#160;&#160;</td>
                   <td class="formTextOdd" align="right">2138&#160;&#160;</td>
                 </tr>
-                <tr>  
+                <tr>
                   <td class="formTextEven" align="left">Initial score:</td>
                   <td class="formTextEven" align="right">92.63&#160;&#160;</td>
                   <td class="formTextEven" align="right">86.87&#160;&#160;</td>
                 </tr>
-                <tr>  
+                <tr>
                   <td class="bodyText" align="left" bgcolor="#FFCC00"><b>Final score:</b></td>
                   <td class="bodyText" align="right" bgcolor="#FFCC00"><b>92.24&#160;&#160;</b></td>
                   <td class="bodyText" align="right" bgcolor="#FFCC00"><b>86.65&#160;&#160;</b></td>
@@ -115,10 +115,10 @@ the Arena applet.
                   <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=kyky_final_doc1','kyky',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
                </tr>
             </table>
-               
+
             </td>
             <td align="right" valign="top" width="50%">
-             
+
             <table border="0" cellspacing="0" cellpadding="3" width="250" align="center" class="formFrame">
                <tr>
                   <td class="header" align="center" colspan="3">Development Finals</td>
@@ -148,7 +148,7 @@ the Arena applet.
                   <td class="formTextEven" align="right">85.31&#160;&#160;</td>
                   <td class="formTextEven" align="right">84.71&#160;&#160;</td>
                 </tr>
-                <tr>  
+                <tr>
                   <td class="bodyText" align="left" bgcolor="#FFCC00"><b>Final score:</b></td>
                   <td class="bodyText" align="right" bgcolor="#FFCC00"><b>66.06&#160;&#160;</b></td>
                   <td class="bodyText" align="right" bgcolor="#FFCC00"><b>88.70&#160;&#160;</b></td>
@@ -159,7 +159,7 @@ the Arena applet.
                   <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rnielsen_final_doc1','rnielsen',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
                </tr>
             </table>
-            
+
             </td>
             </tr>
             </table>

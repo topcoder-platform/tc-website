@@ -76,7 +76,7 @@ public class Controller
             WebAuthentication auth = new BasicAuthentication(new SessionPersistor(tcRequest.getSession(true)), tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             //todo perhaps find a better way to do this.  maybe we can beat min one ejb call per request
-            TCSubject user = pmgr.getUserSubject(auth.getActiveUser().getId());
+            TCSubject user = SecurityHelper.getUserSubject(auth.getActiveUser().getId());
             SessionInfo info = new SessionInfo(tcRequest, auth, user.getPrincipals());
             if (info.isAdmin()) {
                 try {

@@ -129,7 +129,7 @@
 
     <tr>
 
-      <td valign="middle" class="statText"><a class="statText" href="/rtables/index.jsp">[view round tables]</a> &#160;<a class="statText" href="/rtables/post.jsp?&mode=new&forum=<%=forumID%>">[post new message]</a>  &#160;</td>
+      <td valign="middle" class="statText"><a class="statText" href="/rtables/index.jsp">[view round tables]</a> &#160;<a class="statText" href="/rtables/post.jsp?mode=new&forum=<%=forumID%>">[post new message]</a>  &#160;</td>
 
     </tr>
 
@@ -310,7 +310,7 @@ function submitEnter(e) {
 
     <%    ForumMessage message = (ForumMessage)searchResults.next(); %>
 
-    <li><a class="statText" href="/rtables/viewThread.jsp?&forum=<%=message.getForumThread().getForum().getID()%>&thread=<%=message.getForumThread().getID()%>&message=<%=message.getID()%>#<%=message.getID()%>">
+    <li><a class="statText" href="/rtables/viewThread.jsp?forum=<%=message.getForumThread().getForum().getID()%>&thread=<%=message.getForumThread().getID()%>&message=<%=message.getID()%>#<%=message.getID()%>">
 
     <%= message.getSubject() %></a> by <%= message.getUser().getUsername() %>
 

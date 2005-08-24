@@ -24,62 +24,62 @@
 	</tr>
 	<tr><td><img src="/i/events/brooks/linkbar.gif" border="0" width="770" height="23"/></td><tr>
 	<tr><td><img src="/i/events/brooks/programmer.jpg" border="0" width="191" height="166"/><img src="/i/events/brooks/title.jpg" border="0" width="579" height="166"/></td><tr>
-	
+
 	<tr><td bgcolor="CCCCCC"><img src="/i/clear.gif" height="1" width="1"></td></tr>
-	<tr><td bgcolor="FFFFFF"><img src="/i/clear.gif" height="4" width="1"></td></tr>	
+	<tr><td bgcolor="FFFFFF"><img src="/i/clear.gif" height="4" width="1"></td></tr>
 	<tr><td bgcolor="CCCCCC"><img src="/i/clear.gif" height="1" width="1"></td></tr>
 	<tr><td bgcolor="FFFFFF"><img src="/i/clear.gif" height="11" width="1"></td></tr>
 
-	
-	
-	
-	
-	
+
+
+
+
+
 	<tr>
 		<td>
-			<table cellspacing="0" cellpadding="0" border="0" width="100%"> 
-				<tr> 
-					<td width="46"><img src="/i/clear.gif" height="1" width="46"></td> 
-					<td valign="top"><a href="/pl/?&module=Static&d1=brooks&d2=brooks_reg"><img src="/i/events/brooks/registernow.gif" alt="Register Now" width="146" height="19" border="0"></a>
-					</td> 
-					<td width="29"><img src="/i/clear.gif" height="1" width="29"></td> 
+			<table cellspacing="0" cellpadding="0" border="0" width="100%">
+				<tr>
+					<td width="46"><img src="/i/clear.gif" height="1" width="46"></td>
+					<td valign="top"><a href="/pl/?module=Static&d1=brooks&d2=brooks_reg"><img src="/i/events/brooks/registernow.gif" alt="Register Now" width="146" height="19" border="0"></a>
+					</td>
+					<td width="29"><img src="/i/clear.gif" height="1" width="29"></td>
 					<td width="231" valign="top">
-						<font class="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse commodo tincidunt eros. 
-						Nunc mi ante, feugiat a, auctor at, iaculis non, diam. Sed lacinia massa non metus. Nullam venenatis sem et nunc. 
+						<font class="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse commodo tincidunt eros.
+						Nunc mi ante, feugiat a, auctor at, iaculis non, diam. Sed lacinia massa non metus. Nullam venenatis sem et nunc.
 						Ut pulvinar dolor varius nisl. Curabitur sit amet lectus.</font><br>
-						
+
 						<img src="/i/clear.gif" alt="" width="231" height="8" border="0"><br>
-						
-						<font class="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse commodo tincidunt eros. 
-						Nunc mi ante, feugiat a, auctor at, iaculis non, diam. Sed lacinia massa non metus. Nullam venenatis sem et nunc. 
+
+						<font class="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse commodo tincidunt eros.
+						Nunc mi ante, feugiat a, auctor at, iaculis non, diam. Sed lacinia massa non metus. Nullam venenatis sem et nunc.
 						Ut pulvinar dolor varius nisl. Curabitur sit amet lectus.</font><br>
-						
+
 						<img src="/i/clear.gif" alt="" width="1" height="8" border="0"><br>
-						
-						<font class="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse commodo tincidunt eros. 
-						Nunc mi ante, feugiat a, auctor at, iaculis non, diam. Sed lacinia massa non metus. Nullam venenatis sem et nunc. 
+
+						<font class="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse commodo tincidunt eros.
+						Nunc mi ante, feugiat a, auctor at, iaculis non, diam. Sed lacinia massa non metus. Nullam venenatis sem et nunc.
 						Ut pulvinar dolor varius nisl. Curabitur sit amet lectus.</font><br>
-	
-					<td width="29"><img src="/i/clear.gif" height="1" width="29"></td> 
+
+					<td width="29"><img src="/i/clear.gif" height="1" width="29"></td>
 					<td width="231" valign="top">
-					
-						<font class="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse commodo tincidunt eros. 
-						Nunc mi ante, feugiat a, auctor at, iaculis non, diam. Sed lacinia massa non metus. Nullam venenatis sem et nunc. 
+
+						<font class="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse commodo tincidunt eros.
+						Nunc mi ante, feugiat a, auctor at, iaculis non, diam. Sed lacinia massa non metus. Nullam venenatis sem et nunc.
 						Ut pulvinar dolor varius nisl. Curabitur sit amet lectus.</font><br>
-						
+
 						<img src="/i/clear.gif" alt="" width="231" height="8" border="0"><br>
-						
-						<font class="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse commodo tincidunt eros. 
-						Nunc mi ante, feugiat a, auctor at, iaculis non, diam. Sed lacinia massa non metus. Nullam venenatis sem et nunc. 
+
+						<font class="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse commodo tincidunt eros.
+						Nunc mi ante, feugiat a, auctor at, iaculis non, diam. Sed lacinia massa non metus. Nullam venenatis sem et nunc.
 						Ut pulvinar dolor varius nisl. Curabitur sit amet lectus.</font><br>
-						
+
 						<img src="/i/clear.gif" alt="" width="1" height="8" border="0"><br>
-						
-						<font class="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse commodo tincidunt eros. 
-						Nunc mi ante, feugiat a, auctor at, iaculis non, diam. Sed lacinia massa non metus. Nullam venenatis sem et nunc. 
+
+						<font class="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse commodo tincidunt eros.
+						Nunc mi ante, feugiat a, auctor at, iaculis non, diam. Sed lacinia massa non metus. Nullam venenatis sem et nunc.
 						Ut pulvinar dolor varius nisl. Curabitur sit amet lectus.</font><br>
-					</td> 
-					<td width="100%">&nbsp;</td> 
+					</td>
+					<td width="100%">&nbsp;</td>
 				</tr>
 			</table>
 		</td>

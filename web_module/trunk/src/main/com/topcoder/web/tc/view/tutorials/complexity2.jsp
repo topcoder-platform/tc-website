@@ -4,7 +4,7 @@
 <head>
 <title>Algorithm Tutorials</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 <style type="text/css">
 .codeBox
 {
@@ -23,7 +23,7 @@
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -31,7 +31,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="education"/>
                 <jsp:param name="level2" value="alg_tutorials"/>
             </jsp:include>
@@ -42,7 +42,7 @@
          <td width="100%" align="center">
 
          <div class="tutorBodyFull">
-            
+
 <h2>Computational Complexity: Section 2</h2>
 
 <p>
@@ -56,8 +56,8 @@ By&#160;<a class="bodyText" href="/stat?tc?module=MemberProfile&amp;cr=8357090">
 <P>
 In this part of the article we will focus on estimating the time complexity for recursive programs.
 In essence, this will lead to finding the order of growth for solutions of recurrence equations.
-Don't worry if you don't understand what exactly is a recurrence solution, we will explain it 
-in the right place at the right time. But first we will consider a simpler case - programs 
+Don't worry if you don't understand what exactly is a recurrence solution, we will explain it
+in the right place at the right time. But first we will consider a simpler case - programs
 without recursion.
 
 <P>
@@ -73,9 +73,9 @@ find an upper bound on the time complexity of such a program is:
 <UL>
 <LI>estimate the maximum number of times each loop can be executed,
 </LI>
-<LI><B>add</B> these bounds for cycles following each other. 
+<LI><B>add</B> these bounds for cycles following each other.
 </LI>
-<LI><B>multiply</B> these bounds for nested cycles/parts of code, 
+<LI><B>multiply</B> these bounds for nested cycles/parts of code,
 </LI>
 </UL>
 
@@ -96,18 +96,18 @@ for (int i=0; i&lt;N; i++)                 //  2
       if (k%7 == 4) result++;           //  9
   }                                     // 10
 </PRE>
-The time complexity of the while-cycle in line 6 is clearly <SPAN CLASS="MATH"><I>O</I>(<I>N</I>)</SPAN> - it 
-is executed no more than <SPAN CLASS="MATH"><I>N</I>/3&nbsp; + 1</SPAN> times. 
+The time complexity of the while-cycle in line 6 is clearly <SPAN CLASS="MATH"><I>O</I>(<I>N</I>)</SPAN> - it
+is executed no more than <SPAN CLASS="MATH"><I>N</I>/3&nbsp; + 1</SPAN> times.
 
 <P>
 Now consider the for-cycle in
-lines 4-7. The variable k is clearly incremented <SPAN CLASS="MATH"><I>O</I>(<I>M</I>)</SPAN> times. Each time the whole while-cycle in line 6 is executed. Thus the total time complexity of the lines 4-7 can be bounded by <SPAN CLASS="MATH"><I>O</I>(<I>MN</I>)</SPAN>. 
+lines 4-7. The variable k is clearly incremented <SPAN CLASS="MATH"><I>O</I>(<I>M</I>)</SPAN> times. Each time the whole while-cycle in line 6 is executed. Thus the total time complexity of the lines 4-7 can be bounded by <SPAN CLASS="MATH"><I>O</I>(<I>MN</I>)</SPAN>.
 
 <P>
 The time complexity of the for-cycle in lines 8-9 is <SPAN CLASS="MATH"><I>O</I>(<I>M</I>)</SPAN>. Thus the execution time of lines 4-9 is <!-- MATH
  $O(MN + M) = O(MN)$
  -->
-<SPAN CLASS="MATH"><I>O</I>(<I>MN</I> + <I>M</I>) = <I>O</I>(<I>MN</I>)</SPAN>. 
+<SPAN CLASS="MATH"><I>O</I>(<I>MN</I> + <I>M</I>) = <I>O</I>(<I>MN</I>)</SPAN>.
 
 <P>
 This inner part is executed <SPAN CLASS="MATH"><I>O</I>(<I>N</I><SUP>2</SUP>)</SPAN> times - once for each possible combination of <SPAN CLASS="MATH"><I>i</I></SPAN> and <SPAN CLASS="MATH"><I>j</I></SPAN>.
@@ -119,14 +119,14 @@ From the facts above follows that the total time complexity of the algorithm
 in Example 1 is <!-- MATH
  $O(N^2 . MN) = O(MN^3)$
  -->
-<SPAN CLASS="MATH"><I>O</I>(<I>N</I><SUP>2</SUP>.<I>MN</I>) = <I>O</I>(<I>MN</I><SUP>3</SUP>)</SPAN>. 
+<SPAN CLASS="MATH"><I>O</I>(<I>N</I><SUP>2</SUP>.<I>MN</I>) = <I>O</I>(<I>MN</I><SUP>3</SUP>)</SPAN>.
 
 <P>
 From now on we will assume that the reader is able to estimate the time
 complexity of simple parts of code using the method demonstrated above. We will
 now consider programs using recursion (i.e. a function occasionally calling
 itself with different parameters) and try to analyze the impact of these
-recursive calls on their time complexity. 
+recursive calls on their time complexity.
 
 <P>
 
@@ -137,11 +137,11 @@ Using recursion to generate combinatorial objects</A>
 <P>
 One common use of recursion is to implement a <EM>backtracking</EM> algorithm to generate all possible
 solutions of a problem. The general idea is to generate the solution incrementally and to step back
-and try another way once all solutions for the current branch have been exhausted. 
+and try another way once all solutions for the current branch have been exhausted.
 
 <P>
-This approach is not absolutely universal, there may be problems where it is impossible to generate 
-the solution incrementally. However, very often the set of all possible solutions of a problem 
+This approach is not absolutely universal, there may be problems where it is impossible to generate
+the solution incrementally. However, very often the set of all possible solutions of a problem
 corresponds to the set of all combinatorial objects of some kind. Most often it is the set of
 all permutations (of a given size), but other objects (combinations, partitions, etc.) can be seen
 from time to time.
@@ -154,7 +154,7 @@ this approach is everything but fast. Don't use it if there is <B>any</B> other 
 
 <P>
 
-<B>Example 2.</B> A trivial algorithm to generate all permutations of numbers 0 to <SPAN CLASS="MATH"><I>N</I> - 1</SPAN>. 
+<B>Example 2.</B> A trivial algorithm to generate all permutations of numbers 0 to <SPAN CLASS="MATH"><I>N</I> - 1</SPAN>.
 
 <P>
 <PRE>
@@ -165,21 +165,21 @@ void try(int which, int what) {
   // try taking the number "what" as the "which"-th element
   permutation[which] = what;
   used[what] = 1;
-  
-  if (which == N-1) 
+
+  if (which == N-1)
     outputPermutation();
-  else 
+  else
     // try all possibilities for the next element
     for (int next=0; next&lt;N; next++)
       if (!used[next])
         try(which+1, next);
-	
+
   used[what] = 0;
 }
 
 int main() {
   // try all possibilities for the first element
-  for (int first=0; first&lt;N; first++) 
+  for (int first=0; first&lt;N; first++)
     try(0,first);
 }
 </PRE>
@@ -205,7 +205,7 @@ Divide&amp;conquer using recursion</A>
 
 <P>
 From the previous example we could get the feeling that recursion is evil
-and leads to horribly slow programs. The contrary is true. 
+and leads to horribly slow programs. The contrary is true.
 Recursion can be a very powerful tool in the design of effective algorithms.
 The usual way to create an effective recursive algorithm is to apply the <EM>
 divide&amp;conquer paradigm</EM> - try to split the problem into several parts, solve
@@ -238,13 +238,13 @@ time.) Combining the shorter sorted sequences can be done in <SPAN CLASS="MATH">
  SRC="/i/education/complexity2/img1.png"
  ALT="$ \Theta$">(<I>N</I>)</SPAN>: Start
 with an empty <SPAN CLASS="MATH"><I>S</I></SPAN>. At each moment the smallest element not yet in <SPAN CLASS="MATH"><I>S</I></SPAN> is either
-at the beginning of <SPAN CLASS="MATH"><I>S</I><SUB>1</SUB></SPAN> or at the beginning of <SPAN CLASS="MATH"><I>S</I><SUB>2</SUB></SPAN>. Move this element to the end of <SPAN CLASS="MATH"><I>S</I></SPAN> and continue. 
+at the beginning of <SPAN CLASS="MATH"><I>S</I><SUB>1</SUB></SPAN> or at the beginning of <SPAN CLASS="MATH"><I>S</I><SUB>2</SUB></SPAN>. Move this element to the end of <SPAN CLASS="MATH"><I>S</I></SPAN> and continue.
 
 <P>
 Thus the total time to MergeSort a sequence with <SPAN CLASS="MATH"><I>N</I></SPAN> elements is <SPAN CLASS="MATH"><IMG
  WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
  SRC="/i/education/complexity2/img1.png"
- ALT="$ \Theta$">(<I>N</I>)</SPAN> plus the time needed to make the two recursive calls. 
+ ALT="$ \Theta$">(<I>N</I>)</SPAN> plus the time needed to make the two recursive calls.
 
 <P>
 Let <SPAN CLASS="MATH"><I>f</I> (<I>N</I>)</SPAN> be the time complexity of MergeSort as defined in the previous part of our article. The discussion above leads us to the following equation:
@@ -268,11 +268,11 @@ of <SPAN CLASS="MATH"><I>f</I></SPAN>.
 Well, to be really formal, for the equation
 to be complete we should specify some initial values - in this case, <SPAN CLASS="MATH"><I>f</I> (1)</SPAN>. This (and knowing
 the implementation-specific function <SPAN CLASS="MATH"><I>p</I></SPAN>) would enable us to compute the exact values of
-<SPAN CLASS="MATH"><I>f</I></SPAN>. 
+<SPAN CLASS="MATH"><I>f</I></SPAN>.
 
 <P>
-But as you hopefully understand by now, this is not necessarily our goal. While it is 
-theoretically possible to compute a closed-form formula for <SPAN CLASS="MATH"><I>f</I> (<I>N</I>)</SPAN>, this formula would 
+But as you hopefully understand by now, this is not necessarily our goal. While it is
+theoretically possible to compute a closed-form formula for <SPAN CLASS="MATH"><I>f</I> (<I>N</I>)</SPAN>, this formula would
 most probably be really ugly... and we don't really need it. We only want to find
 a <SPAN CLASS="MATH"><IMG
  WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
@@ -290,7 +290,7 @@ is that <!-- MATH
  SRC="/i/education/complexity2/img1.png"
  ALT="$ \Theta$">(<I>N</I>)</SPAN>. Also, we don't need to specify the initial values for the
 equation. We simply assume that all problem instances with small <SPAN CLASS="MATH"><I>N</I></SPAN> can be solved in
-constant time. 
+constant time.
 
 <P>
 The rationale behind the last simplification: While changing the initial values does change the
@@ -382,12 +382,12 @@ are asymptotically equal. This is due to the well-known equation:
 Note that given two bases <SPAN CLASS="MATH"><I>a</I></SPAN>, <SPAN CLASS="MATH"><I>b</I></SPAN>, the number <!-- MATH
  $1/\log_b a$
  -->
-<SPAN CLASS="MATH">1/log<SUB>b</SUB><I>a</I></SPAN> is just a constant, and thus 
-the function <SPAN CLASS="MATH">log<SUB>a</SUB><I>N</I></SPAN> is just a constant multiple of <SPAN CLASS="MATH">log<SUB>b</SUB><I>N</I></SPAN>. 
+<SPAN CLASS="MATH">1/log<SUB>b</SUB><I>a</I></SPAN> is just a constant, and thus
+the function <SPAN CLASS="MATH">log<SUB>a</SUB><I>N</I></SPAN> is just a constant multiple of <SPAN CLASS="MATH">log<SUB>b</SUB><I>N</I></SPAN>.
 
 <P>
 To obtain more clean and readable expressions, we always use the notation <SPAN CLASS="MATH">log&nbsp;<I>N</I></SPAN> inside big-Oh
-expressions, even if logarithms with a different base were used in the computation of the bound. 
+expressions, even if logarithms with a different base were used in the computation of the bound.
 
 <P>
 By the way, sadly the meaning of <SPAN CLASS="MATH">log&nbsp;<I>N</I></SPAN> differs from country to country. To avoid ambiguity
@@ -402,7 +402,7 @@ for the general case.
 
 <P>
 Now we will show some useful tricks involving logarithms, we will need them later.
-Suppose <SPAN CLASS="MATH"><I>a</I></SPAN>, <SPAN CLASS="MATH"><I>b</I></SPAN> are given constants such that <SPAN CLASS="MATH"><I>a</I>, <I>b</I> &gt; 1</SPAN>. 
+Suppose <SPAN CLASS="MATH"><I>a</I></SPAN>, <SPAN CLASS="MATH"><I>b</I></SPAN> are given constants such that <SPAN CLASS="MATH"><I>a</I>, <I>b</I> &gt; 1</SPAN>.
 
 <P>
 From (2) we get:
@@ -413,7 +413,7 @@ From (2) we get:
 </DIV>
 
 <P>
-Using this knowledge, we can simplify the term 
+Using this knowledge, we can simplify the term
 <SPAN CLASS="MATH"><IMG SRC="/i/education/complexity2/new47.png"></SPAN> as follows:
 
 <DIV ALIGN="CENTER" CLASS="mathdisplay">
@@ -435,18 +435,18 @@ The substitution method</A>
 
 <P>
 This method can be summarized in one sentence: Guess an asymptotic upper bound on <SPAN CLASS="MATH"><I>f</I></SPAN> and
-(try to) prove it by induction. 
+(try to) prove it by induction.
 
 <P>
 As an example, we will prove that if <SPAN CLASS="MATH"><I>f</I></SPAN> satisfies the equation (1)
-then 
+then
 <!-- MATH
  $f(N) = O(N\log N)$
  -->
 <SPAN CLASS="MATH"><I>f</I> (<I>N</I>) = <I>O</I>(<I>N</I> log&nbsp;<I>N</I>)</SPAN>.
 
 <P>
-From (1) we know that 
+From (1) we know that
 
 <P>
 <DIV ALIGN="CENTER" CLASS="mathdisplay">
@@ -461,8 +461,8 @@ then for almost all <SPAN CLASS="MATH"><I>N</I></SPAN> we have <!-- MATH
 <SPAN CLASS="MATH"><I>f</I> (<I>N</I>) <IMG
  WIDTH="15" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
  SRC="/i/education/complexity2/img15.png"
- ALT="$ \leq$"> <I>dN</I> lg&nbsp;<I>N</I></SPAN>. 
-We will start by proving the induction step. 
+ ALT="$ \leq$"> <I>dN</I> lg&nbsp;<I>N</I></SPAN>.
+We will start by proving the induction step.
 
 <P>
 Assume that <!-- MATH
@@ -488,15 +488,15 @@ quite ugly when done formally. The general idea is that if the <SPAN CLASS="MATH
 is not large enough, we can always increase it to cover the initial cases.
 
 <P>
-Note that for our example equation we won't be able to prove it for <SPAN CLASS="MATH"><I>N</I> = 1</SPAN>, because 
+Note that for our example equation we won't be able to prove it for <SPAN CLASS="MATH"><I>N</I> = 1</SPAN>, because
 <SPAN CLASS="MATH">lg&nbsp;1 = 0</SPAN>. However, by taking <!-- MATH
  $d > 2(f(1)+f(2)+f(3)+c)$
  -->
-<SPAN CLASS="MATH"><I>d</I> &gt; 2(<I>f</I> (1) + <I>f</I> (2) + <I>f</I> (3) + <I>c</I>)</SPAN> we can easily prove the inequality 
-for <SPAN CLASS="MATH"><I>N</I> = 2</SPAN> and <SPAN CLASS="MATH"><I>N</I> = 3</SPAN>, which is more than enough. 
+<SPAN CLASS="MATH"><I>d</I> &gt; 2(<I>f</I> (1) + <I>f</I> (2) + <I>f</I> (3) + <I>c</I>)</SPAN> we can easily prove the inequality
+for <SPAN CLASS="MATH"><I>N</I> = 2</SPAN> and <SPAN CLASS="MATH"><I>N</I> = 3</SPAN>, which is more than enough.
 
 <P>
-Please note what exactly did we prove. Our result is that if <SPAN CLASS="MATH"><I>f</I></SPAN> satisfies the 
+Please note what exactly did we prove. Our result is that if <SPAN CLASS="MATH"><I>f</I></SPAN> satisfies the
 equation (1)
 then for almost all <SPAN CLASS="MATH"><I>N</I></SPAN> we have <!-- MATH
  $f(N) \leq dN\lg N$
@@ -541,7 +541,7 @@ make the summation easier. Again, we will demonstrate this method on examples.
 
 <P>
 
-<B>Example 4.</B> The recursion tree for MergeSort on 5 elements. 
+<B>Example 4.</B> The recursion tree for MergeSort on 5 elements.
 
 <P>
 <DIV ALIGN="CENTER">
@@ -549,7 +549,7 @@ make the summation easier. Again, we will demonstrate this method on examples.
 </DIV>
 
 <P>
-The recursion tree for the corresponding recurrence equation. This time, 
+The recursion tree for the corresponding recurrence equation. This time,
 the number inside each vertex represents the number of steps the algorithm makes there.
 
 <P>
@@ -562,8 +562,8 @@ Note that in a similar way we may sketch the general form of the recursion tree 
 recurrence. Consider our old friend, the equation (1).
  Here we know that there is
 a number <SPAN CLASS="MATH"><I>c</I></SPAN> such that the number of operations in each node can be bound by (<SPAN CLASS="MATH"><I>c</I></SPAN> times the
-current value of <SPAN CLASS="MATH"><I>N</I></SPAN>). Thus the tree in the example below is indeed the worst possible 
-case. 
+current value of <SPAN CLASS="MATH"><I>N</I></SPAN>). Thus the tree in the example below is indeed the worst possible
+case.
 
 <P>
 
@@ -575,10 +575,10 @@ case.
 </DIV>
 
 <P>
-Now, the classical trick from combinatorics is to sum the elements in an order different from 
+Now, the classical trick from combinatorics is to sum the elements in an order different from
 the order in which they were created. In this case, consider an arbitrary level of the tree (i.e. a set
 of vertices with the same depth). It is not hard to see that the total work on each of the
-levels is <SPAN CLASS="MATH"><I>cN</I></SPAN>. 
+levels is <SPAN CLASS="MATH"><I>cN</I></SPAN>.
 
 <P>
 Now comes the second question: What is the number of levels? Clearly, the leaves correspond
@@ -593,7 +593,7 @@ levels is <!-- MATH
  ALT="$ \Theta$">(log&nbsp;<I>N</I>)</SPAN>.
 
 <P>
-Combining both observations we get the final result: The total amount of work done here is 
+Combining both observations we get the final result: The total amount of work done here is
 <!-- MATH
  $\Theta(cN \times \log N) = \Theta(N\log N)$
  -->
@@ -603,10 +603,10 @@ Combining both observations we get the final result: The total amount of work do
  ALT="$ \Theta$">(<I>cN</I> <TT>x</TT> log&nbsp;<I>N</I>) = <IMG
  WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
  SRC="/i/education/complexity2/img1.png"
- ALT="$ \Theta$">(<I>N</I> log&nbsp;<I>N</I>)</SPAN>. 
+ ALT="$ \Theta$">(<I>N</I> log&nbsp;<I>N</I>)</SPAN>.
 
 <P>
-A side note. If the reader doesn't trust the simplifications we made when using this method, 
+A side note. If the reader doesn't trust the simplifications we made when using this method,
 he is invited to treat this method as a "way of making a good guess" and then to prove the result
 using the substitution method. However, with a little effort the application of this method could
 also be upgraded to a full formal proof.
@@ -680,12 +680,12 @@ Our results:
 <P>
 Clearly as we go deeper in the tree, the total amount of work on the current level decreases.
 The question is, how fast does it decrease? As we move one level lower, there will be
-three times that many subproblems. However, their size gets divided by 2, and thus the time 
-to process each of them decreases to one eighth of the original time. Thus the amount 
-of work is decreased by the factor <SPAN CLASS="MATH">3/8</SPAN>. 
+three times that many subproblems. However, their size gets divided by 2, and thus the time
+to process each of them decreases to one eighth of the original time. Thus the amount
+of work is decreased by the factor <SPAN CLASS="MATH">3/8</SPAN>.
 
 <P>
-But this means that the entries in the table above form a geometric progression. 
+But this means that the entries in the table above form a geometric progression.
 For a while assume that this progression is infinite. Then its sum would be
 
 <P>
@@ -701,14 +701,14 @@ Thus the total amount of work in our tree is <!-- MATH
  WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
  SRC="/i/education/complexity2/img20.png"
  ALT="$ \Omega$">(<I>N</I><SUP>3</SUP>)</SPAN> (summing the infinite sequence
-gives us an upper bound). 
+gives us an upper bound).
 But already the first element of our progression is <!-- MATH
  $\Theta(N^3)$
  -->
 <SPAN CLASS="MATH"><IMG
  WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
  SRC="/i/education/complexity2/img1.png"
- ALT="$ \Theta$">(<I>N</I><SUP>3</SUP>)</SPAN>. 
+ ALT="$ \Theta$">(<I>N</I><SUP>3</SUP>)</SPAN>.
 It follows that the total amount of work in our tree is <!-- MATH
  $\Theta(N^3)$
  -->
@@ -725,7 +725,7 @@ is asymptotically the same as the amount of work done in the root node.
 
 <P>
 From this result we can deduce an interesting fact about the (hypothetical) algorithm behind
-this recurrence equation: The recursive calls didn't take much time in this case, the most 
+this recurrence equation: The recursive calls didn't take much time in this case, the most
 time consuming part was preparing the recursive calls and/or processing the results.
 (I.e. this is the part that should be improved if we need a faster algorithm.)
 
@@ -786,10 +786,10 @@ This time we have the opposite situation: As we go deeper in the tree, the total
 work on the current level increases. As we move one level lower, there will be
 five times that many subproblems, each of them one third of the previous size,
 the processing time is linear in problem size.
-Thus the amount of work increased by the factor <SPAN CLASS="MATH">5/3</SPAN>. 
+Thus the amount of work increased by the factor <SPAN CLASS="MATH">5/3</SPAN>.
 
 <P>
-Again, we want to compute the total amount of work. This time it won't be that easy, 
+Again, we want to compute the total amount of work. This time it won't be that easy,
 because the most work is done on the lowest level of the tree. We need to know its depth.
 
 <P>
@@ -797,7 +797,7 @@ The lowest level corresponds to problems of size 1. The size of a problem on lev
 <SPAN CLASS="MATH"><I>N</I>/3<SUP>k</SUP></SPAN>. Solving the equation <SPAN CLASS="MATH">1 = <I>N</I>/3<SUP>k</SUP></SPAN> we get <!-- MATH
  $k=\log_3 N$
  -->
-<SPAN CLASS="MATH"><I>k</I> = log<SUB>3</SUB><I>N</I></SPAN>. 
+<SPAN CLASS="MATH"><I>k</I> = log<SUB>3</SUB><I>N</I></SPAN>.
 Note that this time we explicitly state the base of the logarithm, as this time it will be
 important.
 
@@ -815,13 +815,13 @@ Note that using the trick (3) we may rewrite this as
 <P>
 Now we want to sum the work done on all levels of the tree. Again, this is a geometric
 progression. But instead of explicitly computing the sum, we now <B>reverse</B> it.
-Now we have a <B>decreasing</B> geometric progression...and we are already in 
-the same situation as in the previous example. 
+Now we have a <B>decreasing</B> geometric progression...and we are already in
+the same situation as in the previous example.
 Using the same reasoning we can show that the sum is asymptotically equal to the largest
 element.
 
 <P>
-It follows that the total amount of work in our tree is 
+It follows that the total amount of work in our tree is
 <SPAN CLASS="MATH"><IMG SRC="/i/education/complexity2/new92.png"></SPAN>
 and we are done.
 
@@ -839,16 +839,16 @@ The Master Theorem</A>
 We already started to see a pattern here. Given a recurrence equation, take the corresponding
 recurrence tree and compute the amounts of work done on each level of the tree. You will
 get a geometric sequence. If it decreases, the total work is proportional to work done in
-the root node. If it increases, the total work is proportional to the number of leaves. 
+the root node. If it increases, the total work is proportional to the number of leaves.
 If it remains the same, the total work is (the work done on one level) times (the number of levels).
 
 <P>
 Actually, there are a few ugly cases, but almost often one of these three cases occurs.
-Moreover, it is possible to prove the statements from the previous paragraph formally. 
+Moreover, it is possible to prove the statements from the previous paragraph formally.
 The formal version of this theorem is known under the name Master Theorem.
 
 <P>
-For reference, we give the full formal statement of this theorem. (Note that knowing the 
+For reference, we give the full formal statement of this theorem. (Note that knowing the
 formal proof is not necessary to <B>apply</B> this theorem on a given recurrence equation.)
 
 <P>
@@ -870,13 +870,13 @@ Then:
 
 <OL>
 <LI>
-If <SPAN CLASS="MATH"><IMG SRC="/i/education/complexity2/new96.png"></SPAN> for some 
+If <SPAN CLASS="MATH"><IMG SRC="/i/education/complexity2/new96.png"></SPAN> for some
 <SPAN CLASS="MATH"><IMG
  WIDTH="10" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
  SRC="/i/education/complexity2/img26.png"
- ALT="$ \varepsilon$"> &gt; 0</SPAN> then 
+ ALT="$ \varepsilon$"> &gt; 0</SPAN> then
  <SPAN CLASS="MATH"><IMG SRC="/i/education/complexity2/new98.png"></SPAN>
- 
+
 <LI>
 If <SPAN CLASS="MATH"><IMG SRC="/i/education/complexity2/new99.png"></SPAN>,
  then <!-- MATH
@@ -888,11 +888,11 @@ If <SPAN CLASS="MATH"><IMG SRC="/i/education/complexity2/new99.png"></SPAN>,
  ALT="$ \Theta$">(<I>p</I>(<I>N</I>)log&nbsp;<I>N</I>)</SPAN>.
 
 <LI>
-If <SPAN CLASS="MATH"><IMG SRC="/i/education/complexity2/new101.png"></SPAN> for some 
+If <SPAN CLASS="MATH"><IMG SRC="/i/education/complexity2/new101.png"></SPAN> for some
 <SPAN CLASS="MATH"><IMG
  WIDTH="10" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
  SRC="/i/education/complexity2/img26.png"
- ALT="$ \varepsilon$"> &gt; 0</SPAN>, 
+ ALT="$ \varepsilon$"> &gt; 0</SPAN>,
 and if <!-- MATH
  $a p(N/b) \leq c p(N)$
  -->
@@ -915,27 +915,27 @@ Case 1 corresponds to our Example 7. Most of the time is spent making the recurs
 the number of these calls that counts.
 
 <P>
-Case 2 corresponds to our Example 5. The time spent making the calls is roughly equal to the time 
+Case 2 corresponds to our Example 5. The time spent making the calls is roughly equal to the time
 to prepare the calls and process the results. On all levels of the recursion tree we do roughly
 the same amount of work, the depth of the tree is always logarithmic.
 
 <P>
-Case 3 corresponds to our Example 6. Most of the time is spent on 
-preparing the recursive calls and processing the results. Usually the result will be 
-asymptotically equal to the time spent in the root node. 
+Case 3 corresponds to our Example 6. Most of the time is spent on
+preparing the recursive calls and processing the results. Usually the result will be
+asymptotically equal to the time spent in the root node.
 
 <P>
 Note the word "usually" and the extra condition in Case 3. For this result to hold
 we need <SPAN CLASS="MATH"><I>p</I></SPAN> to be somehow "regular" - in the sense that for each node in the recursion tree
 the time spent in the node must be greater than the time spent in its chidren (excluding
-further recursive calls). This is nothing to worry about too much, most probably all 
+further recursive calls). This is nothing to worry about too much, most probably all
 functions <SPAN CLASS="MATH"><I>p</I></SPAN> you will encounter in practice will satisfy this condition (if they satisfy
-the first condition of Case 3). 
+the first condition of Case 3).
 
 <P>
 
-<B>Example 8.</B> Let <SPAN CLASS="MATH"><I>f</I> (<I>N</I>)</SPAN> be the time Strassen's fast matrix multiplication algorithm 
-needs to multiply two <SPAN CLASS="MATH"><I>N</I> <TT>x</TT> <I>N</I></SPAN> square matrices. This is a recursive algorithm, that 
+<B>Example 8.</B> Let <SPAN CLASS="MATH"><I>f</I> (<I>N</I>)</SPAN> be the time Strassen's fast matrix multiplication algorithm
+needs to multiply two <SPAN CLASS="MATH"><I>N</I> <TT>x</TT> <I>N</I></SPAN> square matrices. This is a recursive algorithm, that
 makes 7 recursive calls, each time multiplying two <!-- MATH
  $(N/2)\times (N/2)$
  -->
@@ -961,7 +961,7 @@ Using the Master Theorem, we see that Case 1 applies. Thus the time complexity o
 algorithm is <!-- MATH
  $\Theta(N^{\log_2 7}) \approx \Theta(N^{2.807})$
  -->
-<SPAN CLASS="MATH"><IMG SRC="/i/education/complexity2/new109.png"></SPAN>. Note that by implementing 
+<SPAN CLASS="MATH"><IMG SRC="/i/education/complexity2/new109.png"></SPAN>. Note that by implementing
 the definition of matrix multiplication we get only a <!-- MATH
  $\Theta(N^3)$
  -->
@@ -972,7 +972,7 @@ the definition of matrix multiplication we get only a <!-- MATH
 
 <P>
 
-<B>Example 9.</B> Occasionally we may encounter the situation when the problems in 
+<B>Example 9.</B> Occasionally we may encounter the situation when the problems in
 the recursive calls are not of the same size. An example may be the "median-of-five" algorithm
 to find the <SPAN CLASS="MATH"><I>k</I></SPAN>-th element of an array. It can be shown that its time complexity satisfies
 the recurrence equation
@@ -992,7 +992,7 @@ And what should I do with the recurrence <!-- MATH
 <SPAN CLASS="MATH"><I>f</I> (<I>N</I>) = 4<I>f</I> (<I>N</I>/4) + <IMG
  WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
  SRC="/i/education/complexity2/img1.png"
- ALT="$ \Theta$">(<I>N</I> log&nbsp;<I>N</I>)</SPAN>, where the 
+ ALT="$ \Theta$">(<I>N</I> log&nbsp;<I>N</I>)</SPAN>, where the
 Master Theorem doesn't apply?
 
 <P>
@@ -1011,7 +1011,7 @@ any other feedback, please use the Round tables. I'll do my best to answer.
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -1023,7 +1023,7 @@ any other feedback, please use the Round tables. I'll do my best to answer.
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

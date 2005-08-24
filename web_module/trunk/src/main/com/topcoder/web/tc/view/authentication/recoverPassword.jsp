@@ -2,7 +2,7 @@
          import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.tc.controller.request.authentication.Login,
                  com.topcoder.web.tc.Constants" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -68,7 +68,7 @@ function submitEnter(e) {
                             First Name
                         </td>
                         <td>
-                             <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="30" maxlength="30" onkeypress="submitEnter(event)"/>
+                             <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/>
                         </td>
                     </tr>
 
@@ -82,7 +82,7 @@ function submitEnter(e) {
                             Last Name
                         </td>
                         <td>
-                             <tc-webtag:textInput name="<%=Constants.LAST_NAME%>" size="30" maxlength="30" onkeypress="submitEnter(event)"/>
+                             <tc-webtag:textInput name="<%=Constants.LAST_NAME%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/>
                         </td>
                     </tr>
 
@@ -96,7 +96,7 @@ function submitEnter(e) {
                             Email Address
                         </td>
                         <td>
-                             <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="30" maxlength="100" onkeypress="submitEnter(event)"/>
+                             <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="30" maxlength="100" onKeyPress="submitEnter(event)"/>
                         </td>
                     </tr>
                     <tr><td><br/></td></tr>

@@ -3,13 +3,16 @@
 <xsl:output method="text" media-type="text/rtf"/>
 <xsl:template match="/">
 
-Wecome to TopCoder Software!
+Welcome to TopCoder Software!
 
-To activate your new account just follow the following link:
+To activate your new account either click on the following link or enter the URL into your browser:
 
 <xsl:value-of select="activationEmail/url"/>
 
-Best,
+If you have additional questions or need assistance, please email service@topcodersoftware.com.
+
+Best regards,
+
 The TopCoder Software Team
 </xsl:template>
 </xsl:stylesheet>

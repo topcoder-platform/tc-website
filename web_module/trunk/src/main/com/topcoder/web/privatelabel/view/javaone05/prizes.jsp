@@ -1,9 +1,9 @@
  <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -37,11 +37,11 @@ function openWin(url, name, w, h) {
                  <table border="0" width="100%" cellpadding="7" cellspacing="0"><tr><td valign="top"><img src="/i/events/javaone05/coding_challenge.gif" width="351" height="27" border="0" /></td>
                  <td align="right" valign="top"><a href="/"><img src="/i/events/javaone05/pbtc_logo.gif" width="130" height="27" border="0" /></a></td></tr></table>
                     <p class ="regmiddle"><strong><font size="4">Prizes</font></strong></p>
-                  <p class ="regmiddle">From each day's Qualification Round, the top four Qualifiers will be invited back in the evening to compete 
-                  in a <br/>one-hour head-to-head competition for these exciting grand prizes. In addition, the first 800 participants 
+                  <p class ="regmiddle">From each day's Qualification Round, the top four Qualifiers will be invited back in the evening to compete
+                  in a <br/>one-hour head-to-head competition for these exciting grand prizes. In addition, the first 800 participants
                   receive a JavaOne Coding Challenge, Powered by TopCoder messenger bag and t-shirt.</p>
 
-                  
+
          <table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td width="30%" class="sidebarTitle">Participant(s)</td>
@@ -82,7 +82,7 @@ function openWin(url, name, w, h) {
                     *One Grand Prize and one 1st, 2nd, and 3rd Runner-Up prize awarded daily<br/>
                     **Titles subject to change based on availability
                     </td>
-                    
+
                 </tr>
             </table>
                </td>
@@ -91,7 +91,7 @@ function openWin(url, name, w, h) {
                   <jsp:include page="foot.jsp" />
                </td>
             </tr>
-            
+
          </table>
 </center>
    </body>

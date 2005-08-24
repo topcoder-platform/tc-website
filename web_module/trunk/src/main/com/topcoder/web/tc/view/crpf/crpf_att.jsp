@@ -36,7 +36,7 @@
                <table align="center">
                   <tr>
                      <td>
-                     <A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_photos"><img src="/i/events/crpf03/crfp_banner.jpg" width="510" height="160" border="0" alt="TopCoder Charity Challenge benefiting the CRPF;T"></A><br/>
+                     <A href="/tc?module=CRPFStatic&d1=crpf&d2=crpf_photos"><img src="/i/events/crpf03/crfp_banner.jpg" width="510" height="160" border="0" alt="TopCoder Charity Challenge benefiting the CRPF;T"></A><br/>
                      <img src="/i/clear.gif" width="10" height="15" border="0"/></td>
                   </tr>
                </table>
@@ -80,16 +80,16 @@
 				<p><img src="/i/events/crpf03/empon2.gif" width="123" height="115" align="right" alt="Father &amp; Daughter."><span class="section-title"><b>Civic &amp; Community Service</b></span><br>
 				We support programs that address community needs, encourage volunteerism, and promote leadership with integrity.  We do this by providing grants to organizations that are dedicated to promoting diversity, providing leadership development, encouraging youth, protecting the environment, and supporting communities and families in need. <a href="http://www.att.com/foundation/programs/community.html" target="_blank"><img src="/i/events/crpf03/btn_more.gif" width="51" height="16" border="0" alt="More."></a></p>
 				<p><img src="/i/events/crpf03/enron2.gif" width="126" height="120" align="left" alt="Musician."><span class="section-title"><b>Arts &amp; Culture</b></span><br>
-				We support artistic work that fosters communication, builds diverse audiences, 
-				and inspires innovation and learning in communities; we also target initiatives 
-				that help women and artists of diverse cultures bring their work to wider audiences. <a href="/foundation/programs/arts.html" target="_blank"><img src="/i/events/crpf03/btn_more.gif" width="51" height="16" border="0" alt="More."></a></p>				
+				We support artistic work that fosters communication, builds diverse audiences,
+				and inspires innovation and learning in communities; we also target initiatives
+				that help women and artists of diverse cultures bring their work to wider audiences. <a href="/foundation/programs/arts.html" target="_blank"><img src="/i/events/crpf03/btn_more.gif" width="51" height="16" border="0" alt="More."></a></p>
 				<p><img src="/i/events/crpf03/engon2.gif" width="124" height="115" align="right" alt="AT&amp;T Volunteer."><span class="section-title"><b>Employee Involvement</b></span><br>
-				The AT&amp;T Foundation helps extend the reach of AT&amp;T employees' community involvement efforts by matching employee contributions to educational and cultural organizations and by providing grants to recognize employee volunteer efforts in communities located in all areas of the country. <a href="http://www.att.com/foundation/employee/employee.html" target="_blank"><img src="/i/events/crpf03/btn_more.gif" width="51" height="16" border="0" alt="More."></a></p>			
+				The AT&amp;T Foundation helps extend the reach of AT&amp;T employees' community involvement efforts by matching employee contributions to educational and cultural organizations and by providing grants to recognize employee volunteer efforts in communities located in all areas of the country. <a href="http://www.att.com/foundation/employee/employee.html" target="_blank"><img src="/i/events/crpf03/btn_more.gif" width="51" height="16" border="0" alt="More."></a></p>
 			</td>
 		</tr>
 		<tr><td align="right">&nbsp;</td></tr>
 		<!--/Our Priorities-->
-		
+
 		<!--Our Yardsticks-->
 		<tr bgcolor="#cccccc">
 		<td class="head-gray"><a name="yards">Our Yardsticks</a></td>
@@ -105,7 +105,7 @@
 			</td>
 		</tr>
 		<!--/Our Yardsticks-->
-				
+
 		<!--Our Shared Values-->
 		<tr bgcolor="#cccccc">
 		<td class="head-gray"><a name="value">Our Shared Values</a></td>
@@ -117,14 +117,14 @@
 				<li>Dedication to serving our customers optimally, and to building long-term relationships with our partners in the community.</li>
 				<li>Devotion to the highest standards of integrity and to open communication that reports the objectives and results of our work.</li>
 				<li>Commitment to innovation in meeting the needs of communities and applying the resources of AT&amp;T.</li>
-				<li>Support for 
+				<li>Support for
 				teamwork between AT&amp;T people and their community partners.</li>
-				</ul>	
-				<p>&nbsp;</p>	
+				</ul>
+				<p>&nbsp;</p>
 			</td>
 		</tr>
 		<!--/Our Shared Values-->
-		
+
 		<!--Our Action-->
 		<tr bgcolor="#cccccc">
 		<td class="head-gray"><a name="action">Our Action</a></td>
@@ -136,7 +136,7 @@ employees and retirees contributed their volunteer efforts to charitable organiz
                </td></tr></table>
                <p><br/></p>
                </blockquote>
-         </td>               
+         </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->

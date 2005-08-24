@@ -7,23 +7,15 @@
 package com.topcoder.dde.notification;
 
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import com.topcoder.apps.review.persistence.Common;
-
-import com.topcoder.apps.review.EJBHelper;
 import com.topcoder.apps.review.ConfigHelper;
-
+import com.topcoder.apps.review.EJBHelper;
+import com.topcoder.apps.review.persistence.Common;
 import com.topcoder.file.render.ValueTag;
 import com.topcoder.file.render.XMLDocument;
 import com.topcoder.file.render.xsl.XSLTransformerWrapper;
 import com.topcoder.file.render.xsl.XSLTransformerWrapperException;
 import com.topcoder.message.email.EmailEngine;
 import com.topcoder.message.email.TCSEmailMessage;
-
 import com.topcoder.util.idgenerator.bean.IdGen;
 import com.topcoder.util.idgenerator.bean.IdGenHome;
 import com.topcoder.util.log.Level;
@@ -35,22 +27,21 @@ import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;
-
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
-
-
-import java.util.Iterator;
-import java.util.Properties;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.*;
 
 /**
  * This is the concrete implementation of the Notification interface.
@@ -135,7 +126,7 @@ public class NotificationBean implements SessionBean {
             }
 
         } catch (Exception e) {
-            info("error in createEvent: " + e.toString());
+            error("error in createEvent: " + e.toString());
             id = -1;
         } finally {
             Common.close(ps);
@@ -214,7 +205,7 @@ public class NotificationBean implements SessionBean {
                 ps.executeUpdate();
             }
         } catch (Exception e) {
-            info("error in createNotification: " + e.toString());
+            error("error in createNotification: " + e.toString());
         } finally {
             Common.close(conn, ps, rs);
         }
@@ -240,7 +231,7 @@ public class NotificationBean implements SessionBean {
             for (Iterator it = prop.entrySet().iterator(); it.hasNext();) {
                 Map.Entry entry = (Map.Entry) it.next();
                 xmlDocument.addTag(new ValueTag((String) entry.getKey(), (String) entry.getValue()));
-                info(((String) entry.getKey())+"="+((String) entry.getValue()));
+                //debug(((String) entry.getKey())+"="+((String) entry.getValue()));
             }
 
             conn = dataSource.getConnection();
@@ -272,10 +263,10 @@ public class NotificationBean implements SessionBean {
                     first = false;
 
                     String filenameXSL = ConfigHelper.getMailTemplatePath() + rs.getString(2);
-                    info ("filenameXSL=" +filenameXSL);
+                    debug("filenameXSL=" +filenameXSL);
 
                     bodyText = formatBody(xmlDocument, filenameXSL);
-                    info("body text: " + bodyText);
+                    debug("body text: " + bodyText);
 
                     from = rs.getString(4);
                     subject = rs.getString(3);;
@@ -288,7 +279,7 @@ public class NotificationBean implements SessionBean {
 
 
         } catch (Exception e) {
-            info("Notification can't be sent because: "+e.toString());
+            error("Notification can't be sent because: "+e.toString());
         } finally {
             Common.close(conn, ps, rs);
         }
@@ -338,7 +329,7 @@ public class NotificationBean implements SessionBean {
             }
 
         } catch (Exception e) {
-            info("error in getAssignedEvents: " + e.toString());
+            error("error in getAssignedEvents: " + e.toString());
         } finally {
             Common.close(conn, ps, rs);
         }
@@ -390,7 +381,7 @@ public class NotificationBean implements SessionBean {
             }
 
         } catch (Exception e) {
-            info("error in getUnassignedEvents: " + e.toString());
+            error("error in getUnassignedEvents: " + e.toString());
         } finally {
             Common.close(conn, ps, rs);
         }
@@ -427,7 +418,7 @@ public class NotificationBean implements SessionBean {
             ps.executeUpdate();
 
         } catch (Exception e) {
-            info("error in unassignEvent: " + e.toString());
+            error("error in unassignEvent: " + e.toString());
         } finally {
             Common.close(ps);
             Common.close(conn);
@@ -464,16 +455,16 @@ public class NotificationBean implements SessionBean {
 
             int rowsInserted = ps.executeUpdate();
             if ( rowsInserted != 1) {
-                info("assignEvent: Unexpected number of inserted rows - " + rowsInserted);
+                error("assignEvent: Unexpected number of inserted rows - " + rowsInserted);
             }
         } catch (SQLException e) {
             int vendorErrorCode = e.getErrorCode();
             if (vendorErrorCode == FK_VIOLATION_ERROR_CODE) {
                 throw e;
             } else if (vendorErrorCode == PK_VIOLATION_ERROR_CODE) {
-                info("The event " + eventId + " is already assigned to user " + userId);
+                error("The event " + eventId + " is already assigned to user " + userId);
             } else {
-                info("SQL error in assignEvent: " + e.toString());
+                error("SQL error in assignEvent: " + e.toString());
             }
         } finally {
             Common.close(ps);
@@ -501,12 +492,12 @@ public class NotificationBean implements SessionBean {
             info("Notification sending e-mail to address: " + to);
             EmailEngine.send(message);
         } else {
-            info("--mail--");
-            info("From: " + from);
-            info("To: " + to);
-            info("Subject: " + subject);
-            info(messageText);
-            info("---end--");
+            debug("--mail--");
+            debug("From: " + from);
+            debug("To: " + to);
+            debug("Subject: " + subject);
+            debug(messageText);
+            debug("---end--");
         }
     }
 
@@ -525,7 +516,7 @@ public class NotificationBean implements SessionBean {
                 throws XSLTransformerWrapperException, FileNotFoundException {
         String xmlData = xmlDocument.createXML();
         if (EJBHelper.isTestMode()) {
-            info(xmlData);
+            debug(xmlData);
         }
         XSLTransformerWrapper xslt = new XSLTransformerWrapper(new FileInputStream(bodyXSL));
         ByteArrayOutputStream out = new ByteArrayOutputStream();

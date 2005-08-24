@@ -1,6 +1,6 @@
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <html>
 <head>
 <title>Member Surveys</title>
@@ -36,7 +36,7 @@
                   <table width="100%" border="0" cellpadding="10" cellspacing="0" class="bodyText">
                      <tr>
                         <td class ="bodyText" width="100%"><img src="/i/header_questions.gif" width="210" height="26" border="0"></td>
-                        <td class ="bodyText" align="right"><a href="/tc?&module=SurveyList">Archive</a></td>
+                        <td class ="bodyText" align="right"><a href="/tc?module=SurveyList">Archive</a></td>
                      </tr>
                   </table>
                   <p class="bodyText">Thank you for your response.  Your input is very important to TopCoder and we

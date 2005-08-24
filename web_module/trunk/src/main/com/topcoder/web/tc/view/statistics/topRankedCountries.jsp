@@ -3,7 +3,7 @@
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,com.topcoder.web.tc.Constants,
           java.util.Map"
 %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%
     ResultSetContainer rsc = (ResultSetContainer)
             ((Map)request.getAttribute("QUERY_RESPONSE")).get("Country_Avg_Rating");
@@ -53,7 +53,7 @@
                  </TR>
                  <TR>
                    <TD CLASS="statText" HEIGHT="16" COLSPAN="6" ALIGN="center">
-                     To find out more about this page, click <A href="javascript:openWin('/tc?&amp;module=Static&amp;d1=statistics&amp;d2=info&amp;d3=topCountries','countryrankinfo', 500,500)" class="statTextBig"><img src="/i/icon_help_blue.gif" alt="?" width="15" height="11" border="0" /></A>
+                     To find out more about this page, click <A href="javascript:openWin('/tc?amp;module=Static&amp;d1=statistics&amp;d2=info&amp;d3=topCountries','countryrankinfo', 500,500)" class="statTextBig"><img src="/i/icon_help_blue.gif" alt="?" width="15" height="11" border="0" /></A>
                    </TD>
                  </TR>
                  <TR>
@@ -104,7 +104,7 @@
              <TD WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
            </TR>
          </TABLE>
-         
+
          <p><br></p>
 
          <!-- END BODY -->

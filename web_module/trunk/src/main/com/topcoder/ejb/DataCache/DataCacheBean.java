@@ -1,8 +1,24 @@
 package com.topcoder.ejb.DataCache;
 
-import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.error.TCException;
 import com.topcoder.common.web.util.DateTime;
+import com.topcoder.common.web.data.Round;
+import com.topcoder.common.web.data.RoundSegment;
+import com.topcoder.common.web.data.Organization;
+import com.topcoder.common.web.data.Contest;
+import com.topcoder.common.web.data.ContestNav;
+import com.topcoder.common.web.data.Language;
+import com.topcoder.common.web.data.Country;
+import com.topcoder.common.web.data.State;
+import com.topcoder.common.web.data.DemographicAssignment;
+import com.topcoder.common.web.data.Referral;
+import com.topcoder.common.web.data.JobType;
+import com.topcoder.common.web.data.Editor;
+import com.topcoder.common.web.data.Degree;
+import com.topcoder.common.web.data.DemographicAnswer;
+import com.topcoder.common.web.data.Group;
+import com.topcoder.common.web.data.Notify;
+import com.topcoder.common.web.data.School;
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
@@ -20,7 +36,9 @@ import java.util.TreeSet;
 
 public class DataCacheBean extends BaseEJB {
 
+/*
     private static ArrayList notifications;
+*/
     private static ArrayList rounds;
     private static ArrayList demographicAssignments;
     private static ArrayList languages;
@@ -33,10 +51,14 @@ public class DataCacheBean extends BaseEJB {
     private static ArrayList states;
     private static ArrayList degreeLevels;
     private static ArrayList contests;
+/*
     private static ArrayList roundProblems;
+*/
     private static HashMap contestNavs;
 
+/*
     private static boolean notificationsCached;
+*/
     private static boolean demographicAssignmentsCached;
     private static boolean languagesCached;
     private static boolean referralTypesCached;
@@ -254,7 +276,9 @@ public class DataCacheBean extends BaseEJB {
         byte[] result = null;
         log.debug("EJB DataCacheBean resetAll called.");
         synchronized (this) {
+/*
             this.notificationsCached = false;
+*/
             this.roundsCached = false;
             this.demographicAssignmentsCached = false;
             this.languagesCached = false;
@@ -268,7 +292,9 @@ public class DataCacheBean extends BaseEJB {
             this.schoolsCached = false;
             this.countriesCached = false;
             this.statesCached = false;
+/*
             this.roundProblems = new ArrayList();
+*/
             this.memberCount = 0;
             this.memberCountLastRefresh = null;
         }
@@ -286,12 +312,14 @@ public class DataCacheBean extends BaseEJB {
     }
 
 
+/*
     public void resetNotifications() throws TCException {
         log.debug("EJB DataCacheBean resetNotifications called.");
         synchronized (this) {
             this.notificationsCached = false;
         }
     }
+*/
 
 
     public void resetRounds() throws TCException {
@@ -432,7 +460,6 @@ public class DataCacheBean extends BaseEJB {
     /*********************************************************************************************
      * getOrganizations
      * Get the organizations coders belong to
-     * @author Steve Burrows
      * @return ArrayList of Organizations
      * @throws TCException
      *********************************************************************************************
@@ -793,6 +820,7 @@ public class DataCacheBean extends BaseEJB {
     }
 
 
+/*
     public ArrayList getNotifications() throws TCException {
         try {
             log.debug("EJB DataCacheBean getNotifications called.");
@@ -807,9 +835,10 @@ public class DataCacheBean extends BaseEJB {
         }
         return this.notifications;
     }
+*/
 
 
-    private ArrayList popNotifications() throws TCException {
+    /*private ArrayList popNotifications() throws TCException {
         log.debug("EJB DataCacheBean popNotifications called.");
         Connection conn = null;  //conn stands for schools connection
         PreparedStatement ps = null;
@@ -818,7 +847,6 @@ public class DataCacheBean extends BaseEJB {
         try {
             conn = DBMS.getConnection();
             StringBuffer query = new StringBuffer(375);
-            /*************************************************************************************/
             query.append(" SELECT");
             query.append(" notify_id");
             query.append(" ,name");
@@ -829,7 +857,6 @@ public class DataCacheBean extends BaseEJB {
             query.append(" status = 'A'");
             query.append(" ORDER BY");
             query.append(" sort");
-            /*************************************************************************************/
             ps = conn.prepareStatement(query.toString());
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -867,7 +894,7 @@ public class DataCacheBean extends BaseEJB {
         }
         return result;
     }
-
+*/
 
     public ArrayList getSchools() throws TCException {
         try {

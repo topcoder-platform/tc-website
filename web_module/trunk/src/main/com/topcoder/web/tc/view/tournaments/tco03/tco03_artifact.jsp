@@ -18,7 +18,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -38,32 +38,32 @@
                         <img src="/i/sponsor/artifact/artifact_headline.gif" width="510" height="66" /></p>
 
                         <p>Need quick answers to your Programming Questions? </p>
-                        
+
                         <p>Tired of wasting time looking for code? </p>
-                        
-                        <p>At Artifact, we've created software products and an on-line developer network to help developers 
+
+                        <p>At Artifact, we've created software products and an on-line developer network to help developers
                         better manage their resources. </p>
-                        
+
                         <p>The <strong><A href="http://www.HyperTracker.com/go/artifactsoftware/TCO" target="_blank">Artifact Network</A></strong>&#153;
                         is an on-line developer network that provides developers with an open forum to exchange code and development expertise. </p>
-                        
+
                         <p>The <strong><A href="http://www.HyperTracker.com/go/artifactsoftware/TCO" target="_blank">Artifact Desktop</A></strong>&#153;
-                        is a free .Net application that helps the individual developer to easily find, manage and share code, and collaborate with other 
+                        is a free .Net application that helps the individual developer to easily find, manage and share code, and collaborate with other
                          developers in real-time. </p>
-                         
+
                         <p>The <strong><A href="http://www.HyperTracker.com/go/artifactsoftware/TCO" target="_blank">Artifact Server</A></strong>&#153;
-                        enables a development team to quickly establish their own private code-sharing network behind the corporate firewall. If so, the Artifact 
-                        Desktop can help. It's a free application that provides access to the global Artifact Developer Network. This network contains thousands 
-                        of code snippets and thousands of experienced developers. The Artifact Desktop helps you to quickly locate code you need from our 
+                        enables a development team to quickly establish their own private code-sharing network behind the corporate firewall. If so, the Artifact
+                        Desktop can help. It's a free application that provides access to the global Artifact Developer Network. This network contains thousands
+                        of code snippets and thousands of experienced developers. The Artifact Desktop helps you to quickly locate code you need from our
                         network's repository. You can search for code snippets by language, platform, category and more. </p>
-                        
-                        <p>For immediate answers to your programming questions, use the Artifact Desktop's instant messaging and chat 
+
+                        <p>For immediate answers to your programming questions, use the Artifact Desktop's instant messaging and chat
                         functionality to tap the expertise of other developers in the Artifact Network. </p>
-                        
+
                         <p>Get the Artifact Desktop now, and build better software - faster </p>
-           	
+
                         <p>To visit Artifact's Network click <strong><A href="http://www.HyperTracker.com/go/artifactsoftware/TCO" target="_blank">here</A></strong>. </p>
-             
+
                         <p><br /></p>
 
                     </td>

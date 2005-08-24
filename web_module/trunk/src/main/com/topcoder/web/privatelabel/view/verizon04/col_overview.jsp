@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -90,12 +90,12 @@
                             <tr valign="bottom">
                                 <td width="427" class="bodyCopy">
                                     <img src="/i/events/verizon04/photo_home.jpg" alt="Photo" width="170" height="159" align="right">
-                                    <p>Everyone knows that programmers from Chennai are the masters of software development. But who among them is the best? 
-                                    Verizon is on a mission to answer that question. Through the Verizon Coding Challenge, top software developers will have a 
+                                    <p>Everyone knows that programmers from Chennai are the masters of software development. But who among them is the best?
+                                    Verizon is on a mission to answer that question. Through the Verizon Coding Challenge, top software developers will have a
                                     chance to showcase their skills, earn recognition as the top developers in Chennai and win cash and other prizes.<br/><br/>
 
-                                    If you want to raise your profile by besting your peers, then this is the event for you. Verizon has teamed with TopCoder, 
-                                    the leader in online and onsite programming competitions and skills assessment, to execute this exciting event. Verizon may 
+                                    If you want to raise your profile by besting your peers, then this is the event for you. Verizon has teamed with TopCoder,
+                                    the leader in online and onsite programming competitions and skills assessment, to execute this exciting event. Verizon may
                                     use the results of this event for the purpose of finding new employees for their Chennai Center.</p>
                                 </td>
                             </tr>
@@ -144,7 +144,7 @@
                                 <td class="sidebarTitle">Time - IST</td>
                                 <td class="sidebarTitle">Event</td>
                             </tr>
-                            
+
                             <tr valign="top">
                                 <td class="sidebarText">Monday, October 27</td>
                                 <td class="sidebarText">7:00 am</td>
@@ -188,11 +188,11 @@
                         4th Place - 10,000 INR</p>
 
                         <p>To find out more detailed information about the Verizon Coding Challenge, including a list of the prizes, please read
-                        the <a href="/pl/?&module=Static&d1=verizon04&d2=verizon04_rules">Official Rules and Regulations</a>.</p>
+                        the <a href="/pl/?module=Static&d1=verizon04&d2=verizon04_rules">Official Rules and Regulations</a>.</p>
 
                         <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>
                     </td>
-                    
+
 <%-- Gutter Begins --%>
                     <td width="14"><img src="/i/clear.gif" width="14" height="1" border="0"/></td>
 <%-- Gutter Ends --%>

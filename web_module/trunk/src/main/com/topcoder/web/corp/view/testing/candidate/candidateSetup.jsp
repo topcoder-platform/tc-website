@@ -133,12 +133,12 @@ if ( MM_FlashCanPlay ) {
                     document.write(' align="middle">');
                     document.write(' <param name="allowScriptAccess" value="sameDomain" />');
                     document.write(' <param name="movie" ');
-                    document.write(' value="/i/corp/screeningRatingEven.swf?preference=<jsp:getProperty name="candidateInfo" property="preference" />&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId" />"/>');
+                    document.write(' value="/i/corp/screeningRatingEven.swf?preference=<jsp:getProperty name="candidateInfo" property="preference" />&sendurl=/corp/testing?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId" />"/>');
                     document.write(' <param name="menu" value="false" />');
                     document.write(' <param name="quality" value="high" />');
                     document.write(' <param name="bgcolor" value="#ffffff" />');
                     document.write(' <embed ');
-                    document.write(' src="/i/corp/screeningRatingEven.swf?preference=<jsp:getProperty name="candidateInfo" property="preference" />&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId" />" ');
+                    document.write(' src="/i/corp/screeningRatingEven.swf?preference=<jsp:getProperty name="candidateInfo" property="preference" />&sendurl=/corp/testing?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId" />" ');
                     document.write(' menu="false" ');
                     document.write(' quality="high" ');
                     document.write(' bgcolor="#ffffff" ');
@@ -216,7 +216,7 @@ if ( MM_FlashCanPlay ) {
     </tr>
 </table>
 
-  <jsp:include page="../../foot.jsp" />
+  <jsp:include page="/foot.jsp" />
 
 </body>
 </html>

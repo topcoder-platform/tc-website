@@ -9,13 +9,13 @@
 <head>
 <title>About TopCoder - Overview</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 
 </head>
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -24,7 +24,7 @@
 
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="about"/>
                 <jsp:param name="level2" value="overview"/>
             </jsp:include>
@@ -63,7 +63,7 @@
                         Each Single Round Match offers a fun, time-based, and challenging set of problems that put a developer's skills to the test. This, coupled
                         with Divisions,</A> offer a more level
                         field of competition for newer members in order to build ratings and move into potential
-                        <A href="/index?&t=tournaments&c=tourny_index">Tournament</A> opportunities.</li><br />
+                        <A href="/index?t=tournaments&c=tourny_index">Tournament</A> opportunities.</li><br />
 
                         <li><A href="/?t=development&c=index"><strong>Development</strong></A><br />
                         Rated TopCoder members are eligible to participate in TopCoder Component Development. Members submit design and development solutions
@@ -107,7 +107,7 @@
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="about"/>
             </jsp:include>
          </td>
@@ -119,7 +119,7 @@
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

@@ -5,12 +5,14 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.util.Map;
 
 public class HandleTag extends TagSupport {
+    private static final Logger log = Logger.getLogger(HandleTag.class);
     private long coderId;
     private String link = "";
     private String cssclass = "";
@@ -35,15 +37,18 @@ public class HandleTag extends TagSupport {
              "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
 
     public void setCoderId(long coderId) {
+        //log.debug("setting coderid " + coderId);
         this.coderId = coderId;
     }
 
     public void setCoderId(int coderId) {
+        //log.debug("setting coderid " + coderId);
         this.coderId = coderId;
     }
 
 
     public void setCoderId(String coderId) {
+        //log.debug("setting coderid " + coderId);
         this.coderId = Long.parseLong(coderId);
     }
 
@@ -51,7 +56,7 @@ public class HandleTag extends TagSupport {
         this.link = link;
     }
 
-    public void setClass(String cssclass) {
+    public void setStyleClass(String cssclass) {
         this.cssclass = cssclass;
     }
 
@@ -67,6 +72,7 @@ public class HandleTag extends TagSupport {
     }
 
     public int doStartTag() throws JspException {
+        //log.debug("doStartTag with coderid " + coderId);
 
         try {
             //lookup ratings from cache

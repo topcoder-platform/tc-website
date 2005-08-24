@@ -7,7 +7,7 @@
 <jsp:include page="../../script.jsp" />
 
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
-    
+
 </head>
 
 <body>
@@ -20,7 +20,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -49,7 +49,7 @@
             <img src="/i/tournament/tccc04/onsite_photos/room2.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
             <span class="leadPhotoCaption">reid goes to the finals<br/><br/></span>
             </div>
-            
+
             <h2>Local favorite reid advances</h2>
 
             <a href="/tc?module=MemberProfile&cr=269554"><img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/></a>
@@ -59,24 +59,24 @@
             introduction by lbackstrom<br/><br/></p>
 
 <p>
-Long time member reid, the second highest seeded competitor in the event, was 
-heavily favored to win this round, with a probability of 45%.  However, he started 
-Room 2 off slowly, submitting a rather involved easy problem after 20 minutes.  
-Instead, antimatter took the early lead, submitting the easy after 14 minutes, 
-followed by bladerunner and then aneubeck.  Two more easy problem submissions 
-followed in the next few minutes, and 6 of the competitors had submitted after 25 
-minutes, all of whom moved on to the medium problem.  However, despite taking a 
-while on easy problem, reid was the first to submit the medium problem, and had two 
-problems in after 40 minutes.  In the next 20 minutes, bladerunner, antimatter, and 
-kalmakka all submitted the medium problem.  Despite some furious typing, no one was 
-able to submit the hard problem, and at the end of the coding phase, everyone had 
+Long time member reid, the second highest seeded competitor in the event, was
+heavily favored to win this round, with a probability of 45%.  However, he started
+Room 2 off slowly, submitting a rather involved easy problem after 20 minutes.
+Instead, antimatter took the early lead, submitting the easy after 14 minutes,
+followed by bladerunner and then aneubeck.  Two more easy problem submissions
+followed in the next few minutes, and 6 of the competitors had submitted after 25
+minutes, all of whom moved on to the medium problem.  However, despite taking a
+while on easy problem, reid was the first to submit the medium problem, and had two
+problems in after 40 minutes.  In the next 20 minutes, bladerunner, antimatter, and
+kalmakka all submitted the medium problem.  Despite some furious typing, no one was
+able to submit the hard problem, and at the end of the coding phase, everyone had
 submitted the easy problem, and six coders submitted the medium.
 <br/><br/>
-The challenge phase was incrementally more exciting than the first round, as Jan 
-Kupiers unsuccessfully challenged kalmakka.  Going into the system tests, reid 
-was in first, followed by bladerunner and antimatter.  The system testing phase was 
-rough on some members, as both aneubeck and antimatter lost both of their problems, 
-and kalmakka moved up to third.  Thus, reid moves on to the finals, while bladerunner 
+The challenge phase was incrementally more exciting than the first round, as Jan
+Kupiers unsuccessfully challenged kalmakka.  Going into the system tests, reid
+was in first, followed by bladerunner and antimatter.  The system testing phase was
+rough on some members, as both aneubeck and antimatter lost both of their problems,
+and kalmakka moved up to third.  Thus, reid moves on to the finals, while bladerunner
 and kalmakka have to go through it all again.
 </p>
 
@@ -272,29 +272,29 @@ memoization is enough to make the problem run within the time limit.
         best = infinity
         for each i in mask begin
             case1 = replace(mask-(1&lt;&lt;i), mhingCards+1, pairUsed)+1
-            
+
             for each j and k in mask
                 if i,j,k can form a 3-group
                     case2 = replace(mask-(1&lt;&lt;i)-(1&lt;&lt;j)-(1&lt;&lt;k), mhingCards, pairUsed)
-            
+
             if mhingCards>0 then
                 for each j in mask
                     if i,j an form a 3-group with the help of a Mhing card
                         case3 = replace(mask-(1&lt;&lt;i)-(1&lt;&lt;j), mhingCards-1, pairUsed)
-            
+
             if mhingCards>1 then
                 case4 = replace(mask-(1&lt;&lt;i), mhingCards-2, pairUsed)
-    
+
             if not pairUsed then begin
                 for each j in mask begin
                     if i,j can form a pair
                         case5 = replace(mask-(1&lt;&lt;i)-(1&lt;&lt;j), mhingCards, true)
-                 
+
                 if mhingCards>0
                     case6 = replace(mask-(1&lt;&lt;i), mhingCards-1, true)
             end
             best = min of (best, case1, case2, case3, case4, case5, case6)
-        end  
+        end
         return best
     end
 </pre>

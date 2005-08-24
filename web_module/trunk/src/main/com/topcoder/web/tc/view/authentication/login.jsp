@@ -2,7 +2,7 @@
          import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.tc.controller.request.authentication.Login,
                  com.topcoder.web.tc.Constants" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
   String nextpage = (String)request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
@@ -65,16 +65,16 @@ function submitEnter(e) {
                     <td class="bodyText" width="100%">
                         <img src="/i/clear.gif" alt="" width="380" height="1" border="0"/><br/>
                         <p><b>Forgot your password?</b><br/>
-                        If you cannot remember your password <A href="/tc?&module=PasswordEmail" class="bodyText">click here</A>
+                        If you cannot remember your password <A href="/tc?module=PasswordEmail" class="bodyText">click here</A>
                         and we can send it to you via email.</p>
 
                         <p><b>New to TopCoder?</b><br/>
-                        <A class="bodyText" href="https://<jsp:getProperty name="sessionInfo" property="ServerName"/>/Registration">Register now.</A>
+                        <A class="bodyText" href="https://<jsp:getProperty name="sessionInfo" property="serverName"/>/Registration">Register now.</A>
                         After you complete the registration process, we will send your account activation code via email.</p>
                     </td>
                 </tr>
                 <tr valign="middle">
-                  <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="SecureAbsoluteServletPath"/>">
+                  <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>">
                     <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="Login">
                     <td class="bodyText" align="center">

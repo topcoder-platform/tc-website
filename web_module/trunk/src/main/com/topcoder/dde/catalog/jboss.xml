@@ -1,7 +1,12 @@
+<?xml version="1.0" ?>
+<!DOCTYPE jboss PUBLIC "-//JBoss//DTD JBOSS 4.0//EN"
+   "http://www.jboss.org/j2ee/dtd/jboss_4_0.dtd">
+
 <jboss>
     <enterprise-beans>
         <session>
             <ejb-name>CatalogEJB</ejb-name>
+            <jndi-name>com.topcoder.dde.catalog.CatalogHome</jndi-name>
             <resource-ref>
                 <res-ref-name>jdbc/DefaultDS</res-ref-name>
                 <jndi-name>java:/InformixDS</jndi-name>
@@ -9,10 +14,7 @@
         </session>
         <session>
             <ejb-name>ComponentManagerEJB</ejb-name>
-            <ejb-ref>
-                <ejb-ref-name>com.topcoder.apps.review.projecttracker.ProjectTrackerHome</ejb-ref-name>
-                <jndi-name>com.topcoder.apps.review.projecttracker.ProjectTrackerHome</jndi-name>
-            </ejb-ref>
+            <jndi-name>com.topcoder.dde.catalog.ComponentManagerHome</jndi-name>
             <resource-ref>
                 <res-ref-name>jdbc/DefaultDS</res-ref-name>
                 <jndi-name>java:/InformixDS</jndi-name>
@@ -20,3 +22,4 @@
         </session>
     </enterprise-beans>
 </jboss>
+

@@ -1,6 +1,7 @@
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ page language="java" %>
-<%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
-<jsp:useBean id="donationTotal" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%ResultSetContainer donationTotal = (ResultSetContainer)request.getAttribute("donationTotal");%>
 
 <SCRIPT LANGUAGE="JavaScript">
 <!--
@@ -29,11 +30,11 @@ else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
 
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
-            <A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_rules_prizes" target="_top"><img src="/i/events/crpf03/promo_crpf_tshirt.gif" alt="Earn a t-shirt!" width="170" height="128" border="0"></A><br />
+            <A href="/tc?module=CRPFStatic&d1=crpf&d2=crpf_rules_prizes" target="_top"><img src="/i/events/crpf03/promo_crpf_tshirt.gif" alt="Earn a t-shirt!" width="170" height="128" border="0"></A><br />
 
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
-            <A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_att" target="_top"><img src="/i/events/crpf03/att_foundation.gif" alt="ATT Foundation" width="170" height="120" border="0"></A><br />
+            <A href="/tc?module=CRPFStatic&d1=crpf&d2=crpf_att" target="_top"><img src="/i/events/crpf03/att_foundation.gif" alt="ATT Foundation" width="170" height="120" border="0"></A><br />
 
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
@@ -56,7 +57,7 @@ else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
                             <SCRIPT LANGUAGE="JavaScript">
                             <!--
                             if (!MM_FlashCanPlay){
-                               document.write('<a href="/tc?&module=CRPFReport"><img src="/i/tournament/crpf03/fundraisers.gif" width="180" height="100" border="0" hspace="0"></a>');
+                               document.write('<a href="/tc?module=CRPFReport"><img src="/i/tournament/crpf03/fundraisers.gif" width="180" height="100" border="0" hspace="0"></a>');
                             }
                             // -->
                             </SCRIPT>

@@ -4,12 +4,15 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.util.ArrayList;
+import java.io.IOException;
 
 public abstract class Select
         extends TagSupport {
     private String name = null;
+/*
     private String value = null;
-    private String ccsclass = null;
+*/
+    private String styleClass = null;
     private String onChange = null;
     private String selectedValue = null;
     private String selectedText = null;
@@ -19,12 +22,14 @@ public abstract class Select
         this.name = name;
     }
 
+/*
     public void setValue(String value) {
         this.value = value;
     }
+*/
 
-    public void setClass(String ccsclass) {
-        this.ccsclass = ccsclass;
+    public void setStyleClass(String ccsclass) {
+        this.styleClass = ccsclass;
     }
 
     public void setOnChange(String onChange) {
@@ -50,15 +55,15 @@ public abstract class Select
 
     public int doEndTag()
             throws JspException {
+        JspWriter out = pageContext.getOut();
         try {
-            JspWriter out = pageContext.getOut();
             if (selectedOnly) {
                 out.write(getSelected());
             } else {
                 out.write(buildSelect());
             }
-        } catch (Exception e) {
-            throw new JspException(e.toString());
+        } catch (IOException e) {
+            throw new JspException(e.getMessage());
         }
         return EVAL_PAGE;
     }
@@ -102,8 +107,8 @@ public abstract class Select
         //{
         //s.append(" value=\"\"");
         //}
-        if (ccsclass != null) {
-            s.append(" class=\"" + ccsclass + "\"");
+        if (styleClass != null) {
+            s.append(" class=\"" + styleClass + "\"");
         }
         if (onChange != null) {
             s.append(" onChange=\"" + onChange + "\"");

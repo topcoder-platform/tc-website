@@ -6,14 +6,15 @@
                  com.topcoder.web.tc.Constants,
                  com.topcoder.web.tc.model.SoftwareComponent,
                  com.topcoder.web.tc.model.ReviewBoardApplication,
-                 java.sql.Timestamp"%>
+                 java.sql.Timestamp,
+                 java.util.List"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
-<jsp:useBean id="prices" scope="request" class="java.util.List"/>
-<jsp:useBean id="projectList" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"/>
 <% boolean isWaiting = ((Boolean) request.getAttribute("waitingToReview")).booleanValue(); %>
 <% String waitingUntil = (String) request.getAttribute("waitingUntil"); %>
+<%List prices = (List)request.getAttribute("prices");%>
+<%ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>
 <%--<% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>--%>
 
 <%--<% ResultSetContainer tournamentProjectList = (ResultSetContainer)request.getAttribute("tournamentProjectList");%>--%>
