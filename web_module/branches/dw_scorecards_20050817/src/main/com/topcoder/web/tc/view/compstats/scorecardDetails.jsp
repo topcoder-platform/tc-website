@@ -51,15 +51,29 @@
 <%
     ResultSetContainer scorecard = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("scorecard");
     String lastQuestion = "";
+    String lastSection = "";
 
 %>
 
-<table border="1">
+<table border="0" cellspacing="0" width="100%" class="formFrame">
 
 <rsc:iterator list="<%=scorecard%>" id="resultRow">
-    <tr>
 
-<% if(!lastQuestion.equals(resultRow.getStringItem("question_desc")) { %>
+<% if (!lastSection.equals(resultRow.getStringItem("section_desc")) {
+        lastSection = resultRow.getStringItem("section_desc");
+%>
+    <tr>
+        <td class="projectTitles" colspan="3"><rsc:item name="section_desc" row="<%=resultRow%>"/> </td>
+    </tr>
+
+
+<% } %>
+
+
+<% if (!lastQuestion.equals(resultRow.getStringItem("question_desc")) {
+        lastQuestion = resultRow.getStringItem("question_desc");
+%>
+    <tr>
     <td>
         <rsc:item name="question_desc" row="<%=resultRow%>"/> <rsc:item name="question_text" row="<%=resultRow%>"/>
     </td>
@@ -71,9 +85,9 @@
             Total: <rsc:item name="num_tests" row="<%=resultRow%>"/>
         <% } %>
     </td>
+    </tr>
 <% } %>
 
-    </tr>
     <tr>
         <td><rsc:item name="response_text" row="<%=resultRow%>"/>
         </td>
