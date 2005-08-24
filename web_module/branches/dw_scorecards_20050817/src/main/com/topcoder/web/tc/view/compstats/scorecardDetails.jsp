@@ -59,7 +59,7 @@
 
 <rsc:iterator list="<%=scorecard%>" id="resultRow">
 
-<% if (!lastSection.equals(resultRow.getStringItem("section_desc")) {
+<% if (!lastSection.equals(resultRow.getStringItem("section_desc"))) {
         lastSection = resultRow.getStringItem("section_desc");
 %>
     <tr>
@@ -70,7 +70,7 @@
 <% } %>
 
 
-<% if (!lastQuestion.equals(resultRow.getStringItem("question_desc")) {
+<% if (!lastQuestion.equals(resultRow.getStringItem("question_desc"))) {
         lastQuestion = resultRow.getStringItem("question_desc");
 %>
     <tr>
