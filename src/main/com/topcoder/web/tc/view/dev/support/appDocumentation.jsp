@@ -19,7 +19,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="development"/>
                 <jsp:param name="level2" value="support"/>
                 <jsp:param name="level3" value="appDocumentation"/>
@@ -63,7 +63,7 @@
 				</tr>
                 <tr>
 					<td class="projectCells" valign="top">
-					The Application Design Specification is to be completed by the Designers as part of their submission for the design project. 
+					The Application Design Specification is to be completed by the Designers as part of their submission for the design project.
 					</td>
 					<td class="projectCells" valign="top" align="center">01.12.2004</td>
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/i/development/downloads/Application_Design_Specification.rtf">Application Design Specification</A></td>
@@ -84,9 +84,9 @@
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/i/development/downloads/App_Design_Review_Scorecard.rtf">Application Design Deliverables</A></td>
 				</tr>
 			</table>
-			
+
 			<br/><br/>
-			
+
             <table border="0" cellspacing="0" width="100%" class="formFrame">
                 <tr>
                     <td class="projectTitles" colspan="3">Development Documentation</td>
@@ -119,7 +119,7 @@
 					<td class="projectCells" valign="top" align="center">01.12.2004</td>
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/i/development/downloads/App_Development_Review_Scorecard.rtf">Application Development Review Scorecard</A></td>
 				</tr>
-			</table>			
+			</table>
             <p><br/></p>
         </td>
 <!-- Center Column Ends -->

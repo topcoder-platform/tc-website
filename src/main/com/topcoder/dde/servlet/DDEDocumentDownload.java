@@ -25,16 +25,14 @@ public class DDEDocumentDownload extends DownloadServlet {
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
 
-        Hashtable environment = new Hashtable();
-        environment.put(Context.PROVIDER_URL, "localhost:1099");
-        environment.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
         Context context = null;
         try {
-            context = new InitialContext(environment);
+            context = new InitialContext();
 
             catalogHome = (CatalogHome) PortableRemoteObject.narrow(
                     context.lookup(CatalogHome.EJB_REF_NAME), CatalogHome.class);
         } catch (Exception e) {
+            throw new ServletException(e);
         } finally {
             if (context != null) try {
                 context.close();

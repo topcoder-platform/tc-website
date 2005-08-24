@@ -1,13 +1,14 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.stat.bean.CoderRatingStyleBean,
                  com.topcoder.web.tc.Constants,
-                 com.topcoder.shared.dataAccess.DataAccessConstants"%>
+                 com.topcoder.shared.dataAccess.DataAccessConstants,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="/tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:useBean id="donationInfo" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
-<jsp:useBean id="donationTotal" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<% ResultSetContainer donationInfo = (ResultSetContainer)request.getAttribute("donationInfo");%>
+<% ResultSetContainer donationTotal = (ResultSetContainer)request.getAttribute("donationTotal");%>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <html>
 <head>
@@ -43,7 +44,7 @@
                <table align="center">
                   <tr>
                      <td>
-                     <A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_photos"><img src="/i/events/crpf03/crfp_banner.jpg" width="510" height="160" border="0" alt="TopCoder Charity Challenge benefiting the CRPF;T"></A><br/>
+                     <A href="/tc?module=CRPFStatic&d1=crpf&d2=crpf_photos"><img src="/i/events/crpf03/crfp_banner.jpg" width="510" height="160" border="0" alt="TopCoder Charity Challenge benefiting the CRPF;T"></A><br/>
                      <img src="/i/clear.gif" width="10" height="15" border="0"/></td>
                   </tr>
                </table>

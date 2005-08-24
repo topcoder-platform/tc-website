@@ -1,5 +1,5 @@
 <%@ page language="java" %>
-<%@ page import="com.topcoder.apps.review.projecttracker.ProjectType" %> 
+<%@ page import="com.topcoder.apps.review.projecttracker.ProjectType" %>
 <%@ taglib uri="/WEB-INF/review.tld" prefix="review" %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
@@ -37,18 +37,18 @@
                     <tr>
                         <td width="5%" align="left">
                             <logic:equal name="reviewScorecardForm" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">
-                                <img src='<%="images/icon_design.gif" %>' width="66" height="62" alt="">
+                                <img src='<%="/images/icon_design.gif" %>' width="66" height="62" alt="">
                             </logic:equal>
-                            <logic:notEqual name="reviewScorecardForm" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">                    
-                                <img src='<%="images/icon_development.gif" %>' width="66" height="62" alt="">
+                            <logic:notEqual name="reviewScorecardForm" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">
+                                <img src='<%="/images/icon_development.gif" %>' width="66" height="62" alt="">
                             </logic:notEqual>
                         </td>
                         <td width="5%">
                             <logic:equal name="reviewScorecardForm" property="project.catalog" value="Java">
-                                <img src="images/smJava.gif" alt="" width="33" height="17" border="0">
+                                <img src="/images/smJava.gif" alt="" width="33" height="17" border="0">
                             </logic:equal>
                             <logic:equal name="reviewScorecardForm" property="project.catalog" value=".NET">
-                                <img src="images/netSm.gif" alt="" width="33" height="17" border="0">
+                                <img src="/images/netSm.gif" alt="" width="33" height="17" border="0">
                             </logic:equal>
                         </td>
                         <td width="40%" nowrap class="tableHeader">
@@ -67,7 +67,7 @@
                     </tr>
                     <tr>
                         <td class="whiteBkgnd" colspan="4">
-                            <img src="images/clear.gif" alt="" width="1" height="1" border="0">
+                            <img src="/images/clear.gif" alt="" width="1" height="1" border="0">
                         </td>
                     </tr>
                 </table>
@@ -194,7 +194,7 @@
                                                             <html:submit styleClass="submitButton" onclick='<%="set(this.form,"+doAdd+","+qIdx+","+rIdx+")"%>'>
                                                                 <bean:message key="button.add" />
                                                             </html:submit>
-                                                        </logic:equal>				        		        
+                                                        </logic:equal>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -202,13 +202,13 @@
                                     </tr>
                                 </logic:iterate>
                             </logic:notEqual>
-                            <logic:equal name="question" property="last" value="true">	
+                            <logic:equal name="question" property="last" value="true">
                         </table>
-                        <!-- spacer  -->										
+                        <!-- spacer  -->
                         <table width="100%" border="0" cellpadding="2" cellspacing="0">
                             <tr>
                                 <td class="normal">
-                                    <img src="images/clear.gif" alt="" width="1" height="5" border="0">
+                                    <img src="/images/clear.gif" alt="" width="1" height="5" border="0">
                                 </td>
                             </tr>
                         </table>
@@ -217,7 +217,7 @@
             </td>
         </tr>
 
-        <!-- Bottom Buttons -->	
+        <!-- Bottom Buttons -->
         <tr>
             <td align="center" class="lightBkgnd">
                 <table border="0" cellpadding="0" cellspacing="4">

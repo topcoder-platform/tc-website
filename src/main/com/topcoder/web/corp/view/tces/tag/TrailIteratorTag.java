@@ -26,4 +26,9 @@ public class TrailIteratorTag extends IteratorTag {
         return super.doStartTag();
     }
 
+    public void release() {
+        trailList= null;
+        super.release();
+    }
+
 }

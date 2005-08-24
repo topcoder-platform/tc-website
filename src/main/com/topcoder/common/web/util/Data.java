@@ -17,12 +17,12 @@ import com.topcoder.shared.problem.DataType;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.Transaction;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.naming.Context;
 import javax.transaction.Status;
-import javax.transaction.UserTransaction;
+import javax.transaction.TransactionManager;
+import javax.rmi.PortableRemoteObject;
 import java.util.*;
 
 public final class Data {
@@ -51,23 +51,27 @@ public final class Data {
 
 
     public static void saveUser(Navigation nav) throws TCException {
-        UserTransaction uTx = null;
         Context ctx = null;
+        TransactionManager tm = null;
         try {
             ctx = TCContext.getInitial();
-            UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
-            Integer key = new Integer(nav.getUser().getUserId());
+            UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(ctx.lookup(
+                            UserServicesHome.class.getName()),
+                            UserServicesHome.class);
+
+            Long key = new Long(nav.getUser().getUserId());
             UserServices userEJB = userHome.findByPrimaryKey(key);
-            uTx = Transaction.get();
-            uTx.begin();
+
+            tm = (TransactionManager)ctx.lookup(ApplicationServer.TRANS_MANAGER);
+            tm.begin();
             userEJB.setUser(nav.getUser());
-            uTx.commit();
+            tm.commit();
             nav.setUser(userEJB.getUser());
         } catch (Exception e) {
             e.printStackTrace();
             try {
-                if (uTx != null && uTx.getStatus() == Status.STATUS_ACTIVE) {
-                    uTx.rollback();
+                if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                    tm.rollback();
                 }
             } catch (Exception te) {
                 StringBuffer msg = new StringBuffer(300);
@@ -90,6 +94,7 @@ public final class Data {
     }
 
     public static void loadUser(Navigation nav) throws TCException {
+        log.debug("load user called");
 
         User user = null;
         if (nav.getUser() == null) {
@@ -102,8 +107,11 @@ public final class Data {
             Context ctx = null;
             try {
                 ctx = TCContext.getInitial();
-                UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
-                UserServices userEJB = userHome.findByPrimaryKey(new Integer(nav.getUserId()));
+                log.debug("looking for " + UserServicesHome.class.getName() + " in jndi");
+                UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(ctx.lookup(
+                                UserServicesHome.class.getName()),
+                                UserServicesHome.class);
+                UserServices userEJB = userHome.findByPrimaryKey(new Long(nav.getUserId()));
                 user = userEJB.getUser();
                 nav.setUser(user);
                 log.debug("tc: user loaded from entity bean");
@@ -178,7 +186,7 @@ public final class Data {
             ResultSetContainer typeRsc = (ResultSetContainer) resultMap.get("Types");
             for (int i = 0; i < typeRsc.size(); i++) {
                 int dataTypeId = Integer.parseInt(typeRsc.getItem(i, "data_type_id").toString());
-                DataType type = new DataType(
+                new DataType(
                         dataTypeId,
                         typeRsc.getItem(i, "data_type_desc").toString(),
                         (HashMap) mappings.get(new Integer(dataTypeId)));

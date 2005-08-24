@@ -6,12 +6,14 @@
  */
 package com.topcoder.apps.review.document;
 
+import java.io.Serializable;
+
 /**
  * Represents a ScorecardSection for scorecard editing.
  *
  * @author FatClimber
  */
-public class TSection {
+public class TSection implements Serializable {
     private TQuestion[] questions;
     private long sectionId;
     private String sectionName;

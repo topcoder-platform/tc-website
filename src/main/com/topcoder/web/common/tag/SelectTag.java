@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public abstract class SelectTag extends BaseTag {
-    private String ccsclass = null;
+    private String styleClass = null;
     private String onChange = null;
     private String selectedValue = null;
     private String selectedText = null;
@@ -36,8 +36,8 @@ public abstract class SelectTag extends BaseTag {
         this.multiple = multiple;
     }
 
-    public void setClass(String ccsclass) {
-        this.ccsclass = ccsclass;
+    public void setStyleClass(String ccsclass) {
+        this.styleClass = ccsclass;
     }
 
     public void setOnChange(String onChange) {
@@ -81,7 +81,7 @@ public abstract class SelectTag extends BaseTag {
     }
 
     protected void init() {
-        this.ccsclass = null;
+        this.styleClass = null;
         this.onChange = null;
         this.selectedValue = null;
         this.selectedText = null;
@@ -126,8 +126,8 @@ public abstract class SelectTag extends BaseTag {
         if (name != null) {
             s.append(" name=\"" + name + "\"");
         }
-        if (ccsclass != null) {
-            s.append(" class=\"" + ccsclass + "\"");
+        if (styleClass != null) {
+            s.append(" class=\"" + styleClass + "\"");
         }
         if (onChange != null) {
             s.append(" onChange=\"" + onChange + "\"");

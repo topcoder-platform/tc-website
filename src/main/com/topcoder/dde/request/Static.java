@@ -1,8 +1,8 @@
 package com.topcoder.dde.request;
 
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.dde.util.Constants;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.NavigationException;
 
 /**
  * @author  dok

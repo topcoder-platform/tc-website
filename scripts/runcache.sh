@@ -1,6 +1,6 @@
 #!/bin/ksh
 
-MAXMEM=512m
+MAXMEM=1024m
 JAVACMD=${JAVA_HOME}/bin/java
 BASE=..
 MAIN=com.topcoder.shared.distCache.CacheServerMain
@@ -8,43 +8,45 @@ PROCESSOR=DefaultProcessor
 CMD=usage
 LOGFILE=cache-`date +%Y-%m-%d-%H-%M-%S`.log
 
-CP=$BASE/lib/bin/shared.jar
-CP=$CP:$BASE/resources
-CP=$CP:$BASE/lib/jars/nbio.jar
+CP=""
+CP=$CP:$BASE/lib/bin/shared.jar
+CP=$CP:$BASE/lib/bin/build.jar
+#CP=$CP:$BASE/build/classes
 CP=$CP:$BASE/lib/jars/log4j-1.2.7.jar
+CP=$CP:$BASE/lib/jars/nbio.jar
+CP=$CP:$BASE/resources
 CP=$CP:$CLASSPATH
 
+echo $CP
 
-OPTS="-cp $CP -XX:MaxTenuringThreshold=0 -XX:SurvivorRatio=128 -Xms$MAXMEM -Xmx$MAXMEM -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+PrintGCTimeStamps -XX:CMSInitiatingOccupancyFraction=10 -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000"
+#OPTS="-cp $CP -Xloggc:gc.log -XX:MaxTenuringThreshold=0 -XX:SurvivorRatio=128 -Xms$MAXMEM -Xmx$MAXMEM -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -XX:+PrintTenuringDistribution -XX:+PrintHeapAtGC -XX:CMSInitiatingOccupancyFraction=60 -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000"
 
-#OPTS="-cp $CP -XX:MaxTenuringThreshold=0 -XX:SurvivorRatio=20000 -Xms$MAXMEM -Xmx$MAXMEM -XX:+UseConcMarkSweepGC -XX:+UseParNewGC - XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintHeapAtGC"
+OPTIONS="-cp $CP -Xms$MAXMEM -Xmx$MAXMEM -server"
 
+OPTIONS="$OPTIONS -Xloggc:gc.log"
+OPTIONS="$OPTIONS -verbose:gc"
+OPTIONS="$OPTIONS -XX:+PrintGCTimeStamps"
+OPTIONS="$OPTIONS -XX:+PrintGCDetails"
+OPTIONS="$OPTIONS -XX:+PrintGCApplicationStoppedTime"
+OPTIONS="$OPTIONS -XX:+PrintHeapAtGC"
+OPTIONS="$OPTIONS -XX:+PrintTenuringDistribution"
 
-##############################################
-#1. -XXMaxTenuringThreshold
-#2. -XX:SurvivorRatio
-#3. -Xms512m
-#4. -Xmx512m
-#5. -XX:+ UseConcMarkSweepGC
-#6. -XX:+UseParNewGC
-#7. -XX:CMSInitiatingOccupancyFraction=X
-#8. -Dsun.rmi.dgc.client.gcInterval=X
-#9. -Dsun.rmi.dgc.server.gcInterval=X
-#
-#1.  promote to old generation immediately
-#     without going between survivor space and
-#     young generation.
-#2.  because we're doing #1, we don't need
-#     to allocate much for the survivor space
-#3.  force a large permananent area
-#4.  force a large permananent area
-#5.  use the concurrent old generation gc
-#6.  use the parallel new generation gc (multi cpu)
-#7.  when the old generation is X% full, start
-#     the CMS collection
-#8.  only collect client side rmi objects every X millis
-#9.  only collect server side rmi objects every X millis
-##############################################
+#simulate promoteall 
+OPTIONS="$OPTIONS -XX:SurvivorRatio=1024"                #make eden occupy the majority of the new gen
+OPTIONS="$OPTIONS -XX:MaxTenuringThreshold=0"            #do not copy objects to survivor, promote directly to the older gen
+
+OPTIONS="$OPTIONS -XX:+UseParNewGC"                      #parallelize the new generation gc
+OPTIONS="$OPTIONS -XX:+UseConcMarkSweepGC"               #use concurrent old generation collector
+OPTIONS="$OPTIONS -XX:+CMSParallelRemarkEnabled"         #try and speed up the remark
+OPTIONS="$OPTIONS -XX:CMSInitiatingOccupancyFraction=30" #percent of allocated space in the old gen necessary to trigger cms
+OPTIONS="$OPTIONS -XX:PretenureSizeThreshold=100"        #objects larger than 100 bytes are created in the old gen
+#OPTIONS="$OPTIONS -XX:+CMSPermGenSweepingEnabled"       #use the concurrent collector on the perm gen too
+#OPTIONS="$OPTIONS -XX:+CMSClassUnloadingEnabled"        #need this to go with above
+#OPTIONS="$OPTIONS -XX:+UseCMSCompactAtFullCollection    #this keeps the tenured gen from getting fragmented
+#OPTIONS="$OPTIONS -XX:ParallelGCThreads=3"              #tell the collector how man threads to use, #cpu is default
+OPTIONS="$OPTIONS -Dsun.rmi.dgc.client.gcInterval=0x7FFFFFFFFFFFFFFE"
+OPTIONS="$OPTIONS -Dsun.rmi.dgc.server.gcInterval=0x7FFFFFFFFFFFFFFE"
+
 
 if [[ $1 != "" ]] ; then
         CMD=$1
@@ -52,16 +54,16 @@ if [[ $1 != "" ]] ; then
 fi
 
 if [ "$CMD" = "start" ] ; then
-    nohup $JAVACMD $OPTS $MAIN -primary $@ >$LOGFILE 2>&1 &
+    nohup $JAVACMD $OPTIONS $MAIN -primary $@ >$LOGFILE 2>&1 &
     echo $! > primary.pid
-    nohup $JAVACMD $OPTS $MAIN -secondary $@ >$LOGFILE 2>&1 &
-    echo $! > secondary.pid
+#    nohup $JAVACMD $OPTIONS $MAIN -secondary $@ >$LOGFILE 2>&1 &
+#    echo $! > secondary.pid
         echo "start maxmem=$MAXMEM"
 elif [ "$CMD" = "stop" ] ; then
     kill `cat primary.pid`
-    kill `cat secondary.pid`
+#    kill `cat secondary.pid`
     rm -f primary.pid
-    rm -f secondary.pid
+#    rm -f secondary.pid
         echo "stopped"
 else
     echo "Usage:"
@@ -69,4 +71,3 @@ else
     echo "      start - start cache"
     echo "      stop  - stop cache"
 fi
-

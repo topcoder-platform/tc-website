@@ -2,6 +2,7 @@
 <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
  "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
 <web-app>
+    <distributable/>
     <servlet>
         <servlet-name>tc</servlet-name>
         <display-name>tc</display-name>
@@ -256,13 +257,15 @@
       <url-pattern>/PactsMemberServlet</url-pattern>
     </servlet-mapping>
 
+<!--
     <servlet-mapping>
       <servlet-name>report</servlet-name>
       <url-pattern>/report</url-pattern>
     </servlet-mapping>
 
+-->
     <servlet-mapping>
-      <servlet-name>javadocs</servlet-name>
+        <servlet-name>javadocs</servlet-name>
       <url-pattern>/javadocs</url-pattern>
     </servlet-mapping>
 
@@ -310,5 +313,33 @@
         <servlet-name>jobposting</servlet-name>
         <url-pattern>/jobposting</url-pattern>
     </servlet-mapping>
+
+
+   <taglib>
+      <taglib-uri>tc-taglib.tld</taglib-uri>
+      <taglib-location>/WEB-INF/tc-taglib.tld</taglib-location>
+   </taglib>
+    <taglib>
+       <taglib-uri>rsc-taglib.tld</taglib-uri>
+       <taglib-location>/WEB-INF/rsc-taglib.tld</taglib-location>
+    </taglib>
+    <taglib>
+       <taglib-uri>tc.tld</taglib-uri>
+       <taglib-location>/WEB-INF/tc.tld</taglib-location>
+    </taglib>
+    <taglib>
+       <taglib-uri>tc-webtags.tld</taglib-uri>
+       <taglib-location>/WEB-INF/tc-webtags.tld</taglib-location>
+    </taglib>
+    <taglib>
+       <taglib-uri>struts-bean.tld</taglib-uri>
+       <taglib-location>/WEB-INF/struts-bean.tld</taglib-location>
+    </taglib>
+    <taglib>
+       <taglib-uri>struts-logic.tld</taglib-uri>
+       <taglib-location>/WEB-INF/struts-logic.tld</taglib-location>
+    </taglib>
+
+
 
 </web-app>

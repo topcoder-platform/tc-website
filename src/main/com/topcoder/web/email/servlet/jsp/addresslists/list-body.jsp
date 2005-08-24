@@ -19,7 +19,7 @@ function validate()
 
 //--> </SCRIPT>
 
-	<%@ taglib uri="/email-taglib.tld" prefix="email"%>
+	<%@ taglib uri="email-taglib.tld" prefix="email"%>
 
 	<jsp:useBean id="Error" scope="request" class="java.util.ArrayList" />
         <p class="bodyText">
@@ -47,7 +47,7 @@ function validate()
 	<table>
 	<email:memberDataFieldNameIterator id="fieldValue" fields="<%=AddressList.getFields()%>" maxNumFields="<%=EmailConstants.ADDRESSLIST_NUM_FIELDS%>">
 		<tr>
-		<td class="bodyText">Field: 
+		<td class="bodyText">Field:
 		</td>
 		<td class="bodyText"><input type="text" size="30" name="<%=fieldValue.getField()%>" value="<%=fieldValue.getValue()%>">
 		</td>

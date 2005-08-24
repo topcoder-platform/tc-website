@@ -2,8 +2,8 @@
 <%@ page language="java"  %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
 <% ResultSetContainer results = memberSearch.getResults();%>
           <a name="data"/>
           <table  border="0" cellspacing="0" cellpadding="5" width="100%" align="center" class="bodyText">

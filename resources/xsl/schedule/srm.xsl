@@ -121,11 +121,11 @@
 
                             <xsl:choose>
                             <xsl:when test="$roundId=4710">
-                                <b>For information on how to win an Intel&#174; Centrino&#153; mobile technology-based notebook computer click <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_intel">here</a></b><br/><br/>
+                                <b>For information on how to win an Intel&#174; Centrino(TM) mobile technology-based notebook computer click <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_intel">here</a></b><br/><br/>
                            </xsl:when>
                                 <xsl:when test="$roundId=5856">
                                     <p>
-                                    If you're a member of <a href="/?t=sponsor&amp;c=link&amp;link=http://www.intel.com/IDS&amp;refer=srm_details" target="_blank">Intel Developer Services</a> AND take part in Single Round Match 210, you'll be eligible for a chance to win one Intel&#174; Centrino&#153; mobile technology-based notebook!
+                                    If you're a member of <a href="/?t=sponsor&amp;c=link&amp;link=http://www.intel.com/IDS&amp;refer=srm_details" target="_blank">Intel Developer Services</a> AND take part in Single Round Match 210, you'll be eligible for a chance to win one Intel&#174; Centrino(TM) mobile technology-based notebook!
                                     </p>
                                     <table width="428" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                                         <tr>
@@ -134,7 +134,7 @@
                                     </tr>
                                         <tr valign="top">
                                         <td align="left" valign="middle">
-                                            <h2>Intel<sup>&#174;</sup><br/>Centrino&#153;<br/>Mobile<br/>Technology-<br/>based Tablet<br/>PC Quick<br/>Specs</h2>
+                                            <h2>Intel<sup>&#174;</sup><br/>Centrino(TM)<br/>Mobile<br/>Technology-<br/>based Tablet<br/>PC Quick<br/>Specs</h2>
                                         </td>
                                         <td align="left" valign="middle">
                                             <img src="/i/tournament/tco04/intel_tablet.jpg" width="216" height="167" border="0"/>
@@ -151,7 +151,7 @@
 
                                     <tr valign="top">
                                         <td class="sidebarTitle">Description:</td>
-                                        <td class="sidebarText">Intel<sup>&#174;</sup> Pentium<sup>&#174;</sup> M based Centrino&#153; Tablet Platform</td>
+                                        <td class="sidebarText">Intel<sup>&#174;</sup> Pentium<sup>&#174;</sup> M based Centrino(TM) Tablet Platform</td>
                                     </tr>
 
                                     <tr valign="top">
@@ -162,10 +162,10 @@
                                     <tr valign="top">
                                         <td class="sidebarTitle">New Technologies:</td>
                                         <td class="sidebarText">Intel<sup>&#174;</sup> Pentium<sup>&#174;</sup> M processor, Intel<sup>&#174;</sup> 855
-                                        Chipset family, Intel<sup>&#174;</sup> PRO/Wireless 2100 network connection (Centrino&#153; Mobile Technology)</td>
+                                        Chipset family, Intel<sup>&#174;</sup> PRO/Wireless 2100 network connection (Centrino(TM) Mobile Technology)</td>
                                     </tr>
                                 </table>
-                                    <p><b>For Official Contest Rules on how to win an Intel&#174; Centrino&#153; Mobile Technology-based Tablet PC click <a href="Javascript:openWin('/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=intel&amp;d4=tablet_rules','comp',545,655)">here</a></b></p><br/>
+                                    <p><b>For Official Contest Rules on how to win an Intel&#174; Centrino(TM) Mobile Technology-based Tablet PC click <a href="Javascript:openWin('/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=intel&amp;d4=tablet_rules','comp',545,655)">here</a></b></p><br/>
                                </xsl:when>
                                 </xsl:choose>
 

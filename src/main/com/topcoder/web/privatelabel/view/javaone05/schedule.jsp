@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -30,7 +30,7 @@
                  <table border="0" width="100%" cellpadding="7" cellspacing="0"><tr><td valign="top"><img src="/i/events/javaone05/coding_challenge.gif" width="351" height="27" border="0" /></td>
                  <td align="right" valign="top"><a href="/"><img src="/i/events/javaone05/pbtc_logo.gif" width="130" height="27" border="0" /></a></td></tr></table>
                <p class ="regmiddle"><strong><font size="4">Schedule</font></strong></p>
-               
+
          <table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td width="33%" class="sidebarTitle">Date</td>
@@ -61,7 +61,7 @@
                     <td width="34%" class="sidebarText">Enterprise Services - Competition</td>
                     <td width="33%" class="sidebarText">4:30 pm - 6:00 pm</td>
                 </tr>
-                
+
                 <tr>
                     <td width="33%" class="sidebarText">Wednesday, June 29</td>
                     <td width="34%" class="sidebarText">Mobility - Qualification</td>
@@ -81,7 +81,7 @@
                   <jsp:include page="foot.jsp" />
                </td>
             </tr>
-            
+
          </table>
 </center>
    </body>

@@ -12,9 +12,26 @@
 </xsl:template>
 
 
+      <!--function doFilter(id) {
+    document.frmResults.filter.value = id;
+    document.frmResults.Task.value = 'challenge';
+    if(document.frmResults.constraintid.value == '1')
+    {
+        document.frmResults.Command.value = 'getChallengeList';
+    } else if(document.frmResults.constraintid.value == '2')  {
+        document.frmResults.Command.value = 'getProblemChallengeList';
+    } else if(document.frmResults.constraintid.value == '3')  {
+        document.frmResults.Command.value = 'getCoderChallengeList';
+    }
+    document.frmResults.submit();
+  }
+
+
+-->
 <xsl:template name="ChallengeAllInactive">
     <font face="arial, verdana, helvetica, sans-serif" size="1" >
-      <a href="JavaScript:doFilter(2)">All Challenges </a> 
+      <a href="JavaScript:doFilter(2)">All Challenges </a>
+      <xsl:attribute name="HREF">/admin?overturn=<xsl:value-of select="ChallengeId"/>&amp;Task=challenge&amp;Command=overturnChallenge&amp;constraintid=<xsl:value-of select="/TC/CONSTRAINTID"/>&amp;results=<xsl:value-of select="/TC/CHALLENGE/Challenge/RoundId"/>&amp;roundid=<xsl:value-of select="/TC/CHALLENGE/Challenge/RoundId"/>&amp;roomid=<xsl:value-of select="/TC/CHALLENGE/Challenge/Contest/RoomId"/></xsl:attribute>
     </font>
   <img src="/images/spacer.gif" alt="" width="2" height="1" border="0"/>
 </xsl:template>

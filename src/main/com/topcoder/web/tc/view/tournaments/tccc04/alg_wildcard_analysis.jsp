@@ -7,7 +7,7 @@
 <jsp:include page="../../script.jsp" />
 
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
-    
+
 </head>
 
 <body>
@@ -20,7 +20,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -49,7 +49,7 @@
             <img src="/i/tournament/tccc04/onsite_photos/wildcard.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
             <span class="leadPhotoCaption">ZorbaTHut takes the wildcard<br/><br/></span>
             </div>
-            
+
             <h2>ZorbaTHut stays alive</h2>
 
             <a href="/tc?module=MemberProfile&cr=273217"><img src="/i/m/schveiguy_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/></a>
@@ -60,23 +60,23 @@
             <br/><br/></p>
 
 <p>
-The wildcard round proved to be as exciting as everyone had hoped.  The 6 runners up started off with a pretty 
-standard easy problem that involved a search and could be solved depth of breadth first.  With one exception, all 
-coders scored similarly on the first problem.  lars and haha both opted to skip the medium problem, in favor of a 
-hard problem, hoping that no one would solve all 3.  The rest of the coders moved on to the medium, and Zorba was 
-able to submit it for an impressive 457 points.  Over the remainder of the coding phase, everyone but lars, who 
+The wildcard round proved to be as exciting as everyone had hoped.  The 6 runners up started off with a pretty
+standard easy problem that involved a search and could be solved depth of breadth first.  With one exception, all
+coders scored similarly on the first problem.  lars and haha both opted to skip the medium problem, in favor of a
+hard problem, hoping that no one would solve all 3.  The rest of the coders moved on to the medium, and Zorba was
+able to submit it for an impressive 457 points.  Over the remainder of the coding phase, everyone but lars, who
 skipped the medium, submitted the 500 point problem.
 <br/><br/>
-Despite a lot of time to work on it, no one was able to finish the 1k, and at the end of the coding phase, Zorb 
-led by less than a challenge.  However, bladerunner had the first successful challenge of the day, taking down 
-haha's medium problem.  With haha out of the way though, Zorb's lead was greater than 50 points, and only a 
-failure would unseat him.  As the system tests rolled down the list, the first three competitors whose results 
-showed up failed to correctly solve a problem, eliciting oohs from the audience.  However, the fourth and fifth 
-competitors had better luck, passing both problems.  Finally, ZorbaTHut, with a reputation for subtle bugs, came 
+Despite a lot of time to work on it, no one was able to finish the 1k, and at the end of the coding phase, Zorb
+led by less than a challenge.  However, bladerunner had the first successful challenge of the day, taking down
+haha's medium problem.  With haha out of the way though, Zorb's lead was greater than 50 points, and only a
+failure would unseat him.  As the system tests rolled down the list, the first three competitors whose results
+showed up failed to correctly solve a problem, eliciting oohs from the audience.  However, the fourth and fifth
+competitors had better luck, passing both problems.  Finally, ZorbaTHut, with a reputation for subtle bugs, came
 up...
 <br/><br/>
-But this time, he had no mistakes, and his submissions both passed, giving him a berth in the finals.  So, at the 
-end of the day, all of the top four seeds ended up advancing.  Hopefully, tomorrow will prove to be as exciting 
+But this time, he had no mistakes, and his submissions both passed, giving him a berth in the finals.  So, at the
+end of the day, all of the top four seeds ended up advancing.  Hopefully, tomorrow will prove to be as exciting
 as today was.  Good luck to all of the four finalists.
 </p>
 
@@ -142,15 +142,15 @@ long f(N, hidden, visible)
     return 1;
   if(visible.contains(N))
     // envelop one of the hidden dolls
-    return f(N - 1, hidden + 1, visible) * (hidden + 1) 
+    return f(N - 1, hidden + 1, visible) * (hidden + 1)
       // do not envelop, place it by itself
-      + f(N - 1, hidden, visible);                      
+      + f(N - 1, hidden, visible);
   // not in visible, place behind the cardboard
   else
     // envelop one of the hidden dolls
-    return f(N - 1, hidden, visible) * hidden           
+    return f(N - 1, hidden, visible) * hidden
       // do not envelop, place it by itself.
-      + f(N - 1, hidden - 1, visible);                  
+      + f(N - 1, hidden - 1, visible);
 }
 </pre>
 

@@ -10,9 +10,11 @@ import java.util.TreeSet;
 
 public interface DataCache extends EJBObject {
 
+/*
     public ArrayList getNotifications() throws TCException, RemoteException;
 
     public void resetNotifications() throws TCException, RemoteException;
+*/
 
     public ArrayList getRounds() throws TCException, RemoteException;
 

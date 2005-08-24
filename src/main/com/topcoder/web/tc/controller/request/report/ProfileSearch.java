@@ -1,16 +1,18 @@
  package com.topcoder.web.tc.controller.request.report;
 
-import com.topcoder.common.web.data.report.*;
-import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.common.web.data.report.Constants;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.dataAccess.QueryRequest;
+import com.topcoder.shared.dataAccess.QueryDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.common.tag.ListSelectTag;
 
 
-import javax.servlet.http.HttpUtils;
 import java.util.*;
 
 /**
@@ -61,7 +63,7 @@ public class ProfileSearch extends Base {
         }
 
     }
-    
+
     private String buildQuery(TCRequest request, List headers){
         boolean cs = "on".equals(request.getParameter("casesensitive"));
         ArrayList skillsHeaders = new ArrayList();
@@ -268,11 +270,9 @@ public class ProfileSearch extends Base {
     }
     private List[] buildSkillsQuery(TCRequest request, List headers){
         Enumeration e = request.getParameterNames();
-        ArrayList skills = new ArrayList();
         Set tables = new HashSet();
         List constraints = new ArrayList();
         List selects = new ArrayList();
-        Map names = new HashMap();
 
         while (e.hasMoreElements()) {
             String param = (String) e.nextElement();
@@ -307,7 +307,6 @@ public class ProfileSearch extends Base {
         return new List[]{new ArrayList(tables),constraints, selects};
     }
     private String stringMatcher(String val, String col, boolean cs){
-        boolean like = false;;
         String rc, rv;
         if(cs){
             rc = col;
@@ -479,7 +478,6 @@ public class ProfileSearch extends Base {
                 for(int i = 0; i<v.length; i++){
                     int idx = v[i].indexOf("_");
                     int idx2 = v[i].indexOf("_",idx+1);
-                    int skillId = Integer.parseInt(v[i].substring(0,idx));
                     int skillLevel = Integer.parseInt(v[i].substring(idx+1,idx2));
                     String name = v[i].substring(idx2+1);
                     l.add(new ListSelectTag.Option(v[i], name +" >= " + skillLevel));

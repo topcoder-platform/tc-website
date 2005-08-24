@@ -18,7 +18,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -35,10 +35,10 @@
 <table width="550" align="center" border="0" cellpadding="0" cellspacing="10">
 	<tr><td colspan="2" class="bodyText">
 		<div align="center"><img src="/i/tournament/tccc05/monitor_logo.jpg" width="424" height="336" border="0"/></div>
-		
-		<p><strong>The 2005 TopCoder Collegiate Challenge is an international programming tournament that<br/> 
+
+		<p><strong>The 2005 TopCoder Collegiate Challenge is an international programming tournament that<br/>
 		will bring together some of the world's best young minds in head-to-head competition. The tournament has two tracks:</strong></p>
-	
+
 	</td></tr>
 	<tr>
 		<td valign="top">
@@ -57,23 +57,23 @@
 
                 <tr>
                     <td class="sidebarText">WHEN:
-                    
+
                     	<ul>
                     		<li>Registration opens - December 20, 2004</li>
 							<li>One qualification round - January 11-12, 2005 </li>
-							<li>Four elimination rounds - January 15, 19, 26, February 2, 2005</li> 
+							<li>Four elimination rounds - January 15, 19, 26, February 2, 2005</li>
 							<li>Semifinal and Championship rounds - March 10 & 11, 2005 </li>
 						</ul>
-						
+
 					</td>
                 </tr>
 
                 <tr>
                     <td class="sidebarText">WHERE:
                     	<ul>
-                    		<li>One qualification round - Online</li> 
-							<li>Four elimination rounds - Online </li> 
-							<li>Semifinal and Championship rounds - Santa Clara, CA </li> 
+                    		<li>One qualification round - Online</li>
+							<li>Four elimination rounds - Online </li>
+							<li>Semifinal and Championship rounds - Santa Clara, CA </li>
 						</ul>
 					</td>
                 </tr>
@@ -85,14 +85,14 @@
 							<li><strong>Champion will receive $20,000</strong></li>
 							<li>Participatory t-shirt, branded with sponsor logos </li>
 						</ul>
-						
+
 					</td>
                 </tr>
-                
+
                 <tr>
                     <td class="sidebarText">WHO CAN PARTICIPATE:
                     	<ul>
-                    		<li>Any TopCoder member* who is 18 years of age or older and a matriculated full-time student at an accredited college or university can participate</li> 
+                    		<li>Any TopCoder member* who is 18 years of age or older and a matriculated full-time student at an accredited college or university can participate</li>
 							<li>The top 24 finishers in the online rounds will advance to the onsite Semifinal and Championship rounds</li>
 						</ul>
 						<p>*If you're not already a TopCoder member<br/><a href="/reg/index.jsp">click here</a> to register.</p>
@@ -100,7 +100,7 @@
                 </tr>
             </table>
 		</td>
-		<td>   	
+		<td>
             <table width="250" height="750" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle">COMPONENT COMPETITION</td>
@@ -128,7 +128,7 @@
                     <td class="sidebarText">WHERE:
                     	<ul>
                     		<li>Participation rounds - Online</li>
-							<li>Championship round - Onsite - Santa Clara, CA</li> 
+							<li>Championship round - Onsite - Santa Clara, CA</li>
 						</ul>
 					</td>
                 </tr>
@@ -142,7 +142,7 @@
 						</ul>
 					</td>
                 </tr>
-                
+
                 <tr>
                     <td class="sidebarText">WHO CAN PARTICIPATE:
                     	<ul>
@@ -152,23 +152,23 @@
 						*If you're not already a TopCoder member<br/><a href="/reg/index.jsp">click here</a> to register.
 					</td>
                 </tr>
-                
-                
+
+
             </table>
         </td>
      </tr>
      <tr><td colspan="2" class="bodyText">
-	
+
 		<p><strong>If you're a Student Rep for the TCCC05, <a href="/tc?module=TCCC05StudentReps">click here</a> to view your referral count. </strong></p>
-		
-		
-	
+
+
+
 	</td></tr>
 </table>
 
 
 
-            
+
 
 
          <p><br/></p>

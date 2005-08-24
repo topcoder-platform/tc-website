@@ -22,7 +22,6 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpUtils;
 import java.awt.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -85,7 +84,7 @@ public final class GraphServlet extends HttpServlet {
         Request dataRequest = null;
         try {
             Graph.setLicenseKey(LICENSE_KEY);
-            dataRequest = new Request(HttpUtils.parseQueryString(request.getQueryString()));
+            dataRequest = new Request(request.getParameterMap());
 
             TCRequest tcRequest = HttpObjectFactory.createRequest(request);
             TCResponse tcResponse = HttpObjectFactory.createResponse(response);

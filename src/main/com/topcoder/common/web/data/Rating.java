@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 public final class Rating implements Serializable, TagRenderer {
 
-    private int CoderId;
+    private long CoderId;
     private int ContestId;
     private int RoundId;
     private int Rating;
@@ -57,7 +57,7 @@ public final class Rating implements Serializable, TagRenderer {
 
 
 // set
-    public void setCoderId(int CoderId) {
+    public void setCoderId(long CoderId) {
         this.CoderId = CoderId;
     }
 
@@ -87,7 +87,7 @@ public final class Rating implements Serializable, TagRenderer {
 
 
 // get
-    public int getCoderId() {
+    public long getCoderId() {
         return CoderId;
     }
 

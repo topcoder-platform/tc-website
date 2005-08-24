@@ -12,7 +12,6 @@ response.sendRedirect(response.encodeRedirectURL("http://"+ApplicationServer.FOR
           javax.naming.*,
           com.coolservlets.forum.*,
           com.coolservlets.forum.util.*,
-          weblogic.common.T3Services,
           com.topcoder.common.web.data.Navigation,
           com.topcoder.common.*"
  errorPage="../errorPage.jsp"

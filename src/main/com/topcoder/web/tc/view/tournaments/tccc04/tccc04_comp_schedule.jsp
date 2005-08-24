@@ -7,7 +7,7 @@
 <jsp:include page="../../script.jsp" />
 
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
-    
+
 </head>
 
 <body>
@@ -20,7 +20,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -44,11 +44,11 @@
 </jsp:include>
 
             <h2>Schedule</h2>
-            
+
             <p>Both the design and development competitions will have two (2) online rounds and one (1) onsite Championship round.</p>
 
             <p>Each contestant in an online round must submit his/her design and/or development submissions by the deadlines indicated below (NOTE: All times are EST):</p>
-            
+
             <a name="sched"></a>
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>

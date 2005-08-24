@@ -1,15 +1,15 @@
-<%@  page 
+<%@  page
   language="java"
   import="java.util.*,
           com.topcoder.web.corp.common.*,
           com.topcoder.web.corp.controller.request.tces.*,
           com.topcoder.web.corp.common.TCESConstants" %>
 
-<%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
+<%@ taglib uri="tces-taglib.tld" prefix="tces"%>
 
 <jsp:useBean id="CoderDemographicsTask" scope="request" class="com.topcoder.web.corp.controller.request.tces.CoderDemographicsTask" />
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
 <head>
@@ -54,33 +54,33 @@
                         <strong>Email:</strong> <a href="mailto:<%=CoderDemographicsTask.getMemberInfo().getItem(0, "email").toString() %>" class="bodyText"><%= CoderDemographicsTask.getMemberInfo().getItem(0, "email").toString() %></A><br/>
                         <strong>Phone:</strong> <%= CoderDemographicsTask.getMemberInfo().getItem(0, "home_phone").toString()%><br/>
                         <% if (CoderDemographicsTask.hasResume()) { %>
-                          <a href="<jsp:getProperty name="CoderDemographicsTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CoderDemographicsTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="CoderDemographicsTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="CoderDemographicsTask" property="MemberID"/>" class="bodyText"><B>Resume</B></a>
+                          <a href="<jsp:getProperty name="CoderDemographicsTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CoderDemographicsTask" property="campaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="CoderDemographicsTask" property="jobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="CoderDemographicsTask" property="memberID"/>" class="bodyText"><B>Resume</B></a>
                         <% } %>
 						<br/><br/>
-                        <strong>Interested in:</strong> <jsp:getProperty name="CoderDemographicsTask" property="JobName"/>
+                        <strong>Interested in:</strong> <jsp:getProperty name="CoderDemographicsTask" property="jobName"/>
 						<br/><br/>
 <% if (CoderDemographicsTask.getIsRanked()) { %>
 						Coder Demographic Info
 						<br/>
-						<A href="<jsp:getProperty name="CoderDemographicsTask" property="ServletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CoderDemographicsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CoderDemographicsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CoderDemographicsTask.getMemberID()%>" class="bodyText">Coder Competition History</A>
+						<A href="<jsp:getProperty name="CoderDemographicsTask" property="servletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CoderDemographicsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CoderDemographicsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CoderDemographicsTask.getMemberID()%>" class="bodyText">Coder Competition History</A>
 						<br/>
-						<A href="<jsp:getProperty name="CoderDemographicsTask" property="ServletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CoderDemographicsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CoderDemographicsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CoderDemographicsTask.getMemberID()%>" class="bodyText">Coder Problem Submissions</A>
+						<A href="<jsp:getProperty name="CoderDemographicsTask" property="servletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CoderDemographicsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CoderDemographicsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CoderDemographicsTask.getMemberID()%>" class="bodyText">Coder Problem Submissions</A>
 						<br/><br/>
 <% } %>
 					</td>
 				</tr>
-            </table>             
-             
+            </table>
+
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                 <tr>
                     <td class="screeningHeader" width="100%">Question</td>
                     <td class="screeningHeader" align=right>Response</td>
                 </tr>
-                
+
                 <% int i=0; %>
                     <tces:mapIterator id="question" mapList="<%=(List)CoderDemographicsTask.getQuestionList()%>">
                 <% i++; %>
-                            
+
                 <tr>
                     <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><%= (String)question.get("question") %></td>
                     <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right nowrap=nowrap><%= (String)question.get("response") %></td>
@@ -88,7 +88,7 @@
                 </tces:mapIterator>
 
             </table>
-                        
+
             <p><br/></p>
         </td>
 <!-- Center Column Ends -->

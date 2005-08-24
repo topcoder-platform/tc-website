@@ -20,7 +20,6 @@
     <jsp:param name="level1" value="employment_services"/>
 </jsp:include>
 
-</jsp:include>
 <!-- Top ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -30,7 +29,7 @@
         <td width="170">
             <jsp:include page="../includes/left.jsp">
                 <jsp:param name="level1" value="placement"/>
-                <jsp:param name="level2" value=""/> 
+                <jsp:param name="level2" value=""/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -63,7 +62,7 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column begins -->
-                    <jsp:include page="../../right.jsp">
+                    <jsp:include page="/right.jsp">
                         <jsp:param name="level1" value="tces_home"/>
                     </jsp:include>
 <!-- Right Column ends -->
@@ -77,7 +76,7 @@
 </table>
 
 <!-- Footer begins -->
-  <jsp:include page="../../foot.jsp"/>
+  <jsp:include page="/foot.jsp"/>
 <!-- Footer ends -->
 
 </body>

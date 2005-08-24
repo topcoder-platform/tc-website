@@ -3,7 +3,7 @@
 <%
     String probTimer = request.getParameter("timer")==null?"":request.getParameter("timer");
 %>
-<%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <table cellspacing=0 cellpadding=0 class=timeTable>
    <tr>
       <td class=timeCellLeft><img src="/i/corp/screening/techAssTitle.gif" alt="" /></td>

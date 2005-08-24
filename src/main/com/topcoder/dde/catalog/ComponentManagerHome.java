@@ -31,7 +31,7 @@ public interface ComponentManagerHome extends EJBHome {
      * interface, provided that CatalogEJB has not been remapped or referenced
      * to a different location.
      */
-    public static final String EJB_REF_NAME = "ComponentManagerEJB";
+    public static final String EJB_REF_NAME = "com.topcoder.dde.catalog.ComponentManagerHome";
 
     /**
      * Creates an instance of <code>ComponentManager</code>, the remote

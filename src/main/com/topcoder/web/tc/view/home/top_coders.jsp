@@ -1,13 +1,13 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <% ResultSetContainer coders = (ResultSetContainer)request.getAttribute("top_coders");%>
 
 <table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
     <tr valign="middle">
         <td class="statTextBig" width="1%" nowrap="0">&#160;Algorithm</td>
-        <td class="statTextBig" width="15"><A href="javascript:infoWindow('/tc?&amp;module=Static&amp;d1=statistics&amp;d2=info&amp;d3=topRatedCoders')" class="statTextBig"><img src="/i/icon_help_blue.gif" alt="?" width="15" height="11" border="0"/></A></td>
+        <td class="statTextBig" width="15"><A href="javascript:infoWindow('/tc?module=Static&d1=statistics&d2=info&d3=topRatedCoders')" class="statTextBig"><img src="/i/icon_help_blue.gif" alt="?" width="15" height="11" border="0"/></A></td>
         <td class="statTextBig" align="right" width="99%"><a href="/tc?module=AlgoRank" class="statTextBig">View all</a>&#160;</td>
     </tr>
 </table>

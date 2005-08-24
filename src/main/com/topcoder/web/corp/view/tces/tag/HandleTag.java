@@ -124,7 +124,7 @@ public class HandleTag extends TagSupport {
                 buf.append("http://");
                 buf.append(ApplicationServer.CORP_SERVER_NAME);
                 //todo change this from /tces/ to /tces when we go to jboss
-                buf.append("/tces/?task=MemberProfileTask");
+                buf.append("/tces?task=MemberProfileTask");
                 buf.append("&");
                 buf.append(TCESConstants.MEMBER_ID_PARAM);
                 buf.append("=");

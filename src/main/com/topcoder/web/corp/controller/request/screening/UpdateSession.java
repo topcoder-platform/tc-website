@@ -6,7 +6,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.security.User;
-import com.topcoder.shared.util.Transaction;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.PermissionException;
@@ -23,7 +23,8 @@ import com.topcoder.web.ejb.session.SessionSegment;
 import com.topcoder.web.ejb.session.SessionSegmentHome;
 
 import javax.rmi.PortableRemoteObject;
-import javax.transaction.UserTransaction;
+import javax.transaction.TransactionManager;
+import javax.transaction.Status;
 import java.sql.Timestamp;
 import java.util.Map;
 
@@ -67,8 +68,8 @@ public class UpdateSession extends BaseSessionProcessor {
                 long userId = Long.parseLong(info.getCandidateId());
                 User requestor = getAuthentication().getUser();
 
-                UserTransaction ut = Transaction.get(getInitialContext());
-                ut.begin();
+                TransactionManager tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+                tm.begin();
 
                 try {
                     long sessionId =
@@ -129,10 +130,11 @@ public class UpdateSession extends BaseSessionProcessor {
                         EmailInfo.createEmailInfo(info, requestor).sendEmail();
                     }
                 } catch (Exception e) {
-                    ut.rollback();
+                    if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE)
+                        tm.rollback();
                     throw e;
                 }
-                ut.commit();
+                tm.commit();
             } catch (TCWebException e) {
                 throw e;
             } catch (Exception e) {

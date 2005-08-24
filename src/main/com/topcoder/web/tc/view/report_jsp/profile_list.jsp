@@ -6,9 +6,9 @@
           com.topcoder.shared.dataAccess.resultSet.*"
 
 %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%!
   String stripQuotes(String s) {
@@ -69,7 +69,7 @@
       <TR><TD><FONT size="4"><b>Profile List</b></FONT></TD></TR>
       <TR>
         <TD ALIGN="left">
-          <FORM name="profileListForm" method="get" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>">
+          <FORM name="profileListForm" method="get" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
             <input type="hidden" name="module" value="LegacyReport"/>
             <INPUT type="hidden" name="<%=Constants.TASK_NAME_KEY%>" value="<%=Constants.REPORT_PROFILE_LIST_KEY%>"/>
             <INPUT type="hidden" name="<%=Constants.REPORT_RELOCATE_KEY%>" value=""/>

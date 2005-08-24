@@ -18,7 +18,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../../includes/global_left.jsp">
+            <jsp:include page="..//includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -49,12 +49,12 @@
             <p class="terciary">
                 Play-by-Play&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room2_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room2_analysis">Problem Analysis</a>
             </p>
-            
+
             <div class="leadPhoto">
             <img src="/i/tournament/tco03/room2/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
             <span class="leadPhotoCaption">tomek is all smiles after taking Room 2<br/><br/></span>
             </div>
-            
+
             <h2>Landslide victory by tomek</h2>
 
             <p>by Matt Murphy, <em>TopCoder Staff</em><br />
@@ -80,23 +80,23 @@
                     <td  class="pointsName">tomek</td>
                     <td class="pointsScore">1113.62</td>
                 </tr>
-                               			
+
                 <tr>
                     <td  class="pointsName">bladerunner</td>
                     <td class="pointsScore">479.59</td>
                 </tr>
-                               			
+
                 <tr>
                     <td  class="pointsName">madking</td>
                     <td class="pointsScore">415.04</td>
                 </tr>
-                               			
+
                 <tr>
                     <td  class="pointsName">ambrose</td>
                     <td class="pointsScore">382.65</td>
                 </tr>
             </table>
-            </div>	
+            </div>
 
             <p>Will tomek continue his winning streak all the way to the top?  Who will confront him in the final round?  Don't touch that dial...</p>
             <p><br/></p>

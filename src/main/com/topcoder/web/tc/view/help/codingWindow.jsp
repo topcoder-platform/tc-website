@@ -33,9 +33,9 @@
         <td width="100%" align="left" class="bodyText">
         <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br/>
         <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="support"/>  
-           <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value="Algorithm Competition Guide"/>  
+           <jsp:param name="image" value="support"/>
+           <jsp:param name="image1" value="white"/>
+           <jsp:param name="title" value="Algorithm Competition Guide"/>
         </jsp:include>
 
         <h2>The Coding Window</h2>
@@ -112,8 +112,6 @@
       <p><span class="bodySubtitle">9 The Timer</span><br/>
       The timer in the coding window will be always counting down to the end of the current phase of competition (unless your are in a practice room).  Remember that there is variable latency between your computer and our servers.  It is ALWAYS best to perform any submissions with at least 30 seconds left in the coding phase - anything less than that is a risk to you.
       </p>
-
-      
          <p><br/></p>
          </td>
 <!-- Center Column Ends -->

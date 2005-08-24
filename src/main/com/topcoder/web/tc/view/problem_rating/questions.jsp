@@ -1,9 +1,10 @@
+<%@ page import="java.util.List"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="/tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:useBean id="problemRatingQuestions" scope="request" class="java.util.List" />
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<% List problemRatingQuestions = (List)request.getAttribute("problemRatingQuestions");%>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <html>
 <head>
@@ -30,7 +31,7 @@
     <img src="/i/clear.gif" width="500" height="1" vspace="5" border="0"><br/>
 
 <tc-webtag:errorIterator id="err" name="problemRating"><%=err%><br/></tc-webtag:errorIterator>
-<form name="ratings" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="GET">
+<form name="ratings" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="GET">
 <input type="hidden" name="module" value="SubmitRatings">
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
     <table BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="500" align="center" class="sidebarBox">

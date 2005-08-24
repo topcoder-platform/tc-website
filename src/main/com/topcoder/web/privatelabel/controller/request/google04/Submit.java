@@ -21,7 +21,8 @@ import com.topcoder.web.privatelabel.model.ResumeRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import javax.transaction.Status;
-import javax.transaction.UserTransaction;
+import javax.transaction.TransactionManager;
+import javax.rmi.PortableRemoteObject;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -62,10 +63,12 @@ public class Submit extends FullRegSubmit {
             }
 
             if (((Coder) createEJB(getInitialContext(), Coder.class)).exists(userId, DBMS.OLTP_DATASOURCE_NAME)) {
-                UserTransaction uTx = null;
+                TransactionManager tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 try {
-                    UserServicesHome userHome = (UserServicesHome) getInitialContext().lookup(ApplicationServer.USER_SERVICES);
-                    UserServices userEJB = userHome.findByPrimaryKey(new Integer((int) userId));
+                    UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(getInitialContext().lookup(
+                                    UserServicesHome.class.getName()),
+                                    UserServicesHome.class);
+                    UserServices userEJB = userHome.findByPrimaryKey(new Long(userId));
                     com.topcoder.common.web.data.User u = userEJB.getUser();
 
                     u.setPassword(regInfo.getPassword());
@@ -90,14 +93,13 @@ public class Submit extends FullRegSubmit {
 
                     u.setModified("U");
 
-                    uTx = Transaction.get();
-                    uTx.begin();
+                    tm.begin();
                     userEJB.setUser(u);
-                    uTx.commit();
+                    tm.commit();
                 } catch (Exception e) {
                     try {
-                        if (uTx != null && uTx.getStatus() == Status.STATUS_ACTIVE) {
-                            uTx.rollback();
+                        if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                            tm.rollback();
                         }
                     } catch (Exception te) {
                         throw new TCWebException(e);

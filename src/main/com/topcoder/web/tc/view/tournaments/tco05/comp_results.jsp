@@ -10,7 +10,7 @@
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 </head>
 <body>
@@ -70,9 +70,9 @@ else
                             </tr>
                             </rsc:iterator>
                         </table>
-                        
+
                         <br/>
-<% rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tco05_overall_results"); %>                    
+<% rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tco05_overall_results"); %>
                         <a name="month"></a>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
                             <tr>
@@ -99,23 +99,23 @@ else
                             </tr>
                             </rsc:iterator>
                         </table>
-            
+
         </div>
 		</td>
-        
-         
+
+
 <!-- Right Column-->
         <td width=170 align=right>
             <jsp:include page="../../public_right.jsp">
             <jsp:param name="level1" value="tco05"/>
             </jsp:include>
          </td>
-		
+
 	</tr>
-	
+
 </table>
-	
-	
+
+
 
 
 <jsp:include page="../../foot.jsp" />

@@ -96,7 +96,7 @@
 
             <TR><TD WIDTH="4" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
 
-            <TR><TD class="statText"><A HREF="/tc?&module=Login" class="statText"><b>Login &gt;&gt;</b></A></TD></TR>
+            <TR><TD class="statText"><A HREF="/tc?module=Login" class="statText"><b>Login &gt;&gt;</b></A></TD></TR>
 
           </TABLE>
 <P><BR></P>

@@ -3,9 +3,9 @@ package com.topcoder.web.codinginterface.techassess.controller.request;
 import com.topcoder.shared.netCommon.screening.request.ScreeningOpenComponentForCodingRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningOpenComponentResponse;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
+import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
-import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 

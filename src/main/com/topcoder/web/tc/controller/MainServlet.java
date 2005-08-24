@@ -12,8 +12,6 @@ import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.model.CoderSessionInfo;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

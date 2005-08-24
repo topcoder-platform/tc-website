@@ -3,13 +3,13 @@
                  com.topcoder.web.corp.Constants,
                  com.topcoder.web.corp.controller.request.UserEdit"
          %>
-<%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>TopCoder | Corporate Services</title>
 
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" />
 <jsp:include page="../includes/css.jsp" />
 
 <script language="JavaScript" type="text/javascript" src="/js/script.js"></script>
@@ -48,7 +48,7 @@
                 <tr>
             </table>
 
-            <form method="POST" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>" name="frmUserEdit">
+            <form method="POST" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" name="frmUserEdit">
 
             <table cellspacing="0" cellpadding="3" width="80%" class="testFrame">
                 <tr><td class="testTableTitle" colspan="3">User Info</td></tr>
@@ -199,7 +199,7 @@
 </table>
 
 <!-- Footer begins -->
-  <jsp:include page="../../foot.jsp"/>
+  <jsp:include page="/foot.jsp"/>
 <!-- Footer ends -->
 
 </body>

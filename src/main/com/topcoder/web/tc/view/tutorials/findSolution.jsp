@@ -3,11 +3,9 @@
 <html>
 <head>
 <title>Algorithm Tutorials</title>
+<jsp:include page="../script.jsp" />
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:include page="../../script.jsp" />
-<%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <style type="text/css">
     .code
 {
@@ -27,7 +25,7 @@
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -35,7 +33,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="education"/>
                 <jsp:param name="level2" value="alg_tutorials"/>
             </jsp:include>
@@ -46,7 +44,7 @@
          <td width="100%" align="center">
 
          <div class="tutorBodyFull">
-            
+
             <h2>How to Find a Solution</h2>
 
          <p>
@@ -93,7 +91,7 @@ This category of problems also includes those that need some simple searches.
 A group of people stands before you arranged in rows and columns. Looking from above, they form an R by C rectangle of people. Your job is to return 2 specific heights - the first is computed by finding the shortest person in each row, and then finding the tallest person among them (the "tallest-of-the-shortest"); and the second is computed by finding the tallest person in each column, and then finding the shortest person among them (the "shortest-of-the-tallest").
 </div>
 
-As you see this is a really simple search problem. What you have to do is just to follow the steps described in the statement and find those 2 needed heights. Other TC problems may ask you to sort a collection of items by respecting certain given rules. These problems may be also included in this category, because they too are straight-forward - just sort the items respecting the rules! You can do that with a simple O(N^2) sorting algorithm, or use standard sorting algorithm that exist in your coding language. It's just a matter of coding. 
+As you see this is a really simple search problem. What you have to do is just to follow the steps described in the statement and find those 2 needed heights. Other TC problems may ask you to sort a collection of items by respecting certain given rules. These problems may be also included in this category, because they too are straight-forward - just sort the items respecting the rules! You can do that with a simple O(N^2) sorting algorithm, or use standard sorting algorithm that exist in your coding language. It's just a matter of coding.
 <br><br>
 <strong>Other example(s):</strong><br>
 <strong><A href="/stat?c=problem_statement&pm=2922&rd=5855">MedalTable</A> - SRM 209 Div 1</strong>.
@@ -190,13 +188,13 @@ It's a common Brute Force problem's statement. Note that x and y limits are not 
 Another interesting problem would be:
 
 <div class="sideNote">
-<strong><A href="/stat?c=problem_statement&pm=3005&rd=5858">LargestCircle</A> - SRM 212 Div 2 (3rd problem):</strong><br> 
+<strong><A href="/stat?c=problem_statement&pm=3005&rd=5858">LargestCircle</A> - SRM 212 Div 2 (3rd problem):</strong><br>
 Given a regular square grid, with some number of squares marked, find the largest circle you can draw on the grid that does not pass through any of the marked squares. The circle must be centered on a grid point (the corner of a square) and the radius must be an integer. Return the radius of the circle.
 <br><br>
 The size of the grid is at most 50.
 </div>
 
-<strong>Problem hints:</strong> And again one of the most important hints is the low limit of the size of the grid - only 50. This problem is possible to be solved with the help of the Brute Force because for each cell you can try to find the circle whose center is situated in that cell and that respects the rules. Among all of these circles found, select the one that has the greatest radius. 
+<strong>Problem hints:</strong> And again one of the most important hints is the low limit of the size of the grid - only 50. This problem is possible to be solved with the help of the Brute Force because for each cell you can try to find the circle whose center is situated in that cell and that respects the rules. Among all of these circles found, select the one that has the greatest radius.
 <br><br>
 Complexity analysis: there are at most 50x50 cells, a circle's radius is an integer and can be at most 25 units, and you need a linear time (depending on your implementation) for searching the cells situated on the border of the circle. Total complexity is low and thus you can apply a simple Brute Force here.
 <br><br>
@@ -249,13 +247,13 @@ Quite a few problems are solved with the help of this technique. Knowing how to 
 
 <div class="sideNote">
 Let's analyze a simple classic DP problem:
-<br><br> 
+<br><br>
 Given a list of N coins with their values (V1, V2, ... ,VN), and the total sum S. Find the minimum number of coins the sum of which is S (you can use as many coins of one type as you want), or report that it's not possible to select coins in such a way that they sum up to S.
 <br><br>
 Let N <= 1,000 and S <= 1,000.
 </div>
 
-<strong>Problem hints:</strong> 
+<strong>Problem hints:</strong>
 <ul>
 <li>Two main integer variables are given (N and S). These are neither too small, nor are they too big (i.e. a complexity of N*S fits in time).</li>
 <li>A state can be defined as the minimum number of coins needed to reach a certain sum.</li>
@@ -263,14 +261,14 @@ Let N <= 1,000 and S <= 1,000.
 <li>By adding a coin to a certain sum - another greater sum is reached. This is the way to pass from one state to another.</li>
 </ul>
 
-Thus all properties of a DP problem are uncovered in this statement. Let's see another (slightly harder) DP problem 
+Thus all properties of a DP problem are uncovered in this statement. Let's see another (slightly harder) DP problem
 
 <div class="sideNote">
 <strong><A href="/stat?c=problem_statement&pm=1259&rd=4493">ZigZag</A> - 2003 TCCC Semifinals 3:</strong><br>
 A sequence of numbers is called a zig-zag sequence if the differences between successive numbers strictly alternate between positive and negative. The first difference (if one exists) may be either positive or negative. A sequence with fewer than two elements is trivially a zig-zag sequence. Given a sequence of integers, return the length of the longest subsequence that is a zig-zag sequence. A subsequence is obtained by deleting some number of elements (possibly zero) from the original sequence, leaving the remaining elements in their original order. Assume the sequence contains between 1 and 50 elements, inclusive.
 </div>
 
-<strong>Problem hints:</strong> 
+<strong>Problem hints:</strong>
 <ul>
 <li>There are N numbers given (1<=N<=50), thus N isn't too small, nor too big.</li>
 <li>A state (i,d) can be defined as the length of the longest zig-zag subsequence ending with the i-th number, for which the number before the last one is smaller than it for d=0, and bigger for d=1.</li>
@@ -329,7 +327,7 @@ N cars and M parking lots are given. They are situated on a rectangular surface 
 
 <A name="lp"></A>
 <span class="bodySubtitle">Linear Programming (Simplex)</span><br>
-Most of the common traits of problems solved with the help of the linear programming technique are: 
+Most of the common traits of problems solved with the help of the linear programming technique are:
 <ul>
 <li>You are given collection of items having different costs/weights. There is a certain quantity of each item that must be achieved.</li>
 <li>A list of sets is given. These sets are composed of some of the available items, having certain quantities of each of them. Each set has a certain cost.</li>
@@ -360,7 +358,7 @@ If you have found this article interesting and you have learned new things from 
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -372,7 +370,7 @@ If you have found this article interesting and you have learned new things from 
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

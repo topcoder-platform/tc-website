@@ -12,7 +12,7 @@
     return;
   }
 </script>
-     
+
 </head>
 
 <body>
@@ -25,7 +25,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../../includes/global_left.jsp">
+            <jsp:include page="..//includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -56,34 +56,34 @@
             <p class="terciary">
                 <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room2">Play-by-Play</a>&nbsp;&nbsp;|&nbsp;&nbsp;Photos&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room2_analysis">Problem Analysis</a>
             </p>
-            
+
             <h2>Room 2 Photos</h2>
 
             <p>by Kathryn DeStefano, <em>TopCoder Staff</em><br />
             Thursday, December 4, 2003</p>
 
-            <table border="0" cellspacing="0" cellpadding="3" width="100%">            
+            <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr>
                     <td class="thumbnails" align="center">
                         <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/01.jpg');"><img src="/i/tournament/tco03/room2/01_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
                         <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/02.jpg');"><img src="/i/tournament/tco03/room2/02_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/03.jpg');"><img src="/i/tournament/tco03/room2/03_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/04.jpg');"><img src="/i/tournament/tco03/room2/04_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/05.jpg');"><img src="/i/tournament/tco03/room2/05_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/03.jpg');"><img src="/i/tournament/tco03/room2/03_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/04.jpg');"><img src="/i/tournament/tco03/room2/04_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/05.jpg');"><img src="/i/tournament/tco03/room2/05_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
                     </td>
                 </tr>
-                
+
                 <tr>
                     <td class="bodyText" align="center"><img src="/i/tournament/tco03/room2/01.jpg" name="bigVersion" width="432" height="288" class="photoFrameBig" /></td>
-                </tr>            
-                
+                </tr>
+
                 <tr>
                     <td class="thumbnails" align="center">
                         <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/06.jpg');"><img src="/i/tournament/tco03/room2/06_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
                         <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/07.jpg');"><img src="/i/tournament/tco03/room2/07_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/08.jpg');"><img src="/i/tournament/tco03/room2/08_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/09.jpg');"><img src="/i/tournament/tco03/room2/09_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/10.jpg');"><img src="/i/tournament/tco03/room2/10_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/08.jpg');"><img src="/i/tournament/tco03/room2/08_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/09.jpg');"><img src="/i/tournament/tco03/room2/09_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/10.jpg');"><img src="/i/tournament/tco03/room2/10_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
                     </td>
                 </tr>
             </table>

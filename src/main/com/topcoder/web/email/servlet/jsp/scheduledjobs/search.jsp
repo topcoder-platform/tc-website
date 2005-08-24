@@ -1,7 +1,7 @@
 <%@ page errorPage="../error.jsp" %>
 <jsp:include page="../header.jsp" />
 <%@ page import="com.topcoder.web.email.servlet.*, com.topcoder.web.email.bean.*, java.util.*" %>
-<%@ taglib uri="/email-taglib.tld" prefix="email"%>
+<%@ taglib uri="email-taglib.tld" prefix="email"%>
 <jsp:useBean id="startDate" scope="request" class="java.util.GregorianCalendar"/>
 <jsp:useBean id="endDate" scope="request" class="java.util.GregorianCalendar"/>
 <html>

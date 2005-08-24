@@ -20,7 +20,7 @@
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
-                <jsp:param name="level2" value="private_label"/> 
+                <jsp:param name="level2" value="private_label"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -29,26 +29,26 @@
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins --> 
+<!-- Center Column Begins -->
          <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
                <jsp:include page="../body_top.jsp" >
-                  <jsp:param name="image" value="events"/>  
-                  <jsp:param name="image1" value="white"/>  
-                  <jsp:param name="title" value="Private Label"/>  
+                  <jsp:param name="image" value="events"/>
+                  <jsp:param name="image1" value="white"/>
+                  <jsp:param name="title" value="Private Label"/>
                </jsp:include>
-               
+
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0"/><br/>
 
 <!-- Upcoming Tournaments begins -->
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">Upcoming Events</font></td></tr>
             </table>
-            
+
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274" rowspan="2"><A href="/pl/?&module=Static&d1=google&d2=google_overview"><img src="/i/events/google2003/big_logo.gif" alt="2003 GECC" width="274" height="134" border="0" /></A></td>
+                    <td width="274" rowspan="2"><A href="/pl/?module=Static&d1=google&d2=google_overview"><img src="/i/events/google2003/big_logo.gif" alt="2003 GECC" width="274" height="134" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2003 Google&#153; Extreme Coding Challenge</strong></font></td>
                 </tr>
@@ -57,17 +57,17 @@
                         November 14<br />
                         Google headquarters<br/>
                         Mountain View, California<br />
-                        <A href="/pl/?&module=Static&d1=google&d2=google_overview">Summary</A>
+                        <A href="/pl/?module=Static&d1=google&d2=google_overview">Summary</A>
                     </td>
                     <td valign="bottom" width="1%"><img src="/i/clear.gif" alt="Logo" width="113" height="73" border="0" hspace="2" align="right" /></td>
                 </tr>
             </table>
-            
+
                 <hr width="100%" size="1" noshade="noshade" />
-            
+
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274" rowspan="2"><A href="/pl/?&module=Static&d1=verizon&d2=vcc03_overview"><img src="/i/events/verizon2003/big_logo.gif" alt="2003 VCC" width="274" height="134" border="0" /></A></td>
+                    <td width="274" rowspan="2"><A href="/pl/?module=Static&d1=verizon&d2=vcc03_overview"><img src="/i/events/verizon2003/big_logo.gif" alt="2003 VCC" width="274" height="134" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2003 Verizon&#153; Coding Challenge</strong></font></td>
                 </tr>
@@ -76,7 +76,7 @@
                         August 29<br />
                         Verizon Chennai Facility<br/>
                         Chennai, India<br />
-                        <A href="/pl/?&module=Static&d1=verizon&d2=vcc03_overview">Summary</A>
+                        <A href="/pl/?module=Static&d1=verizon&d2=vcc03_overview">Summary</A>
                     </td>
                     <td valign="bottom" width="1%"><img src="/i/clear.gif" alt="Logo" width="113" height="73" border="0" hspace="2" align="right" /></td>
                 </tr>
@@ -88,7 +88,7 @@
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">Past Events</font></td></tr>
             </table>
-               
+
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -121,7 +121,7 @@
          <td width="170">
             <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="review_board"/>
-               <jsp:param name="level2" value="competition"/> 
+               <jsp:param name="level2" value="competition"/>
             </jsp:include>
          </td>
 <!-- Right Column Ends -->

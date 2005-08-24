@@ -6,7 +6,7 @@
         java.text.DecimalFormat,
         com.topcoder.common.web.data.Navigation,
             com.topcoder.shared.util.ApplicationServer" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <a name="top"/>
 <table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">
@@ -14,7 +14,7 @@
         <td class="login" width="99%">&nbsp;</td>
 
         <td class="login" nowrap>
-            <strong>Hello, <jsp:getProperty name="sessionInfo" property="Handle" />.</strong>
+            <strong>Hello, <jsp:getProperty name="sessionInfo" property="handle" />.</strong>
             &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Logout" class="loginLinks" target="_parent">Logout</a>
             &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/" class="loginLinks">Corporate Services Home</a>
         </td>

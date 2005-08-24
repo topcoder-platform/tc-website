@@ -17,22 +17,22 @@
                         <strong><bean:message key="prompt.viewAllProjects"/></strong>
 </logic:equal>
                     </td>
-                    <td align="right"><img src="images/statusKey_small.gif" width="289" height="35" alt=""></td>
+                    <td align="right"><img src="/images/statusKey_small.gif" width="289" height="35" alt=""></td>
                 </tr>
                 <tr>
-                    <td class="whiteBkgnd" colspan="3"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
+                    <td class="whiteBkgnd" colspan="3"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
                 </tr>
             </table>
-                        
-<!-- All My Projects -->            
+
+<!-- All My Projects -->
 <logic:iterate id="projectType" indexId="tIdx" name="projectTypes" type="com.topcoder.apps.review.OpenProjectBean">
-    <% String icon=(tIdx.intValue()==0)?"images/iconStatusSpecSm.gif":"images/iconStatusDevSm.gif"; %>
+    <% String icon=(tIdx.intValue()==0)?"/images/iconStatusSpecSm.gif":"/images/iconStatusDevSm.gif"; %>
             <table width="100%" border="0" cellpadding="0" cellspacing="1" class="forumBkgd">
                 <tr valign="top">
                     <td colspan="5" width="100%" class="forumTextEven">
                         <strong><bean:message key="viewOpenProjects.subcaption" arg0="<%=projectType.getTypeName()%>"/></strong></td>
                 </tr>
-                        
+
                 <tr valign="top">
                     <td width="25%" class="forumTitle"><bean:message key="heading.project"/></td>
                     <td width="20%" class="forumTitle"><bean:message key="heading.myRole"/></td>
@@ -48,28 +48,28 @@
                         <table border="0" cellpadding="0" cellspacing="0">
                             <tr valign="middle">
                                 <td class="forumText"><img src="<%=icon%>" alt="" width="25" height="17" border="0"></td>
-                                <td class="forumText"><img src="images/clear.gif" alt="" width="5" height="5" border="0"/></td>
+                                <td class="forumText"><img src="/images/clear.gif" alt="" width="5" height="5" border="0"/></td>
                                 <td class="forumText">
 <logic:equal name="project" property="catalog" value="Java">
-                                <img src="images/javaSm.gif" alt="" border="0">
+                                <img src="/images/javaSm.gif" alt="" border="0">
 </logic:equal>
 <logic:equal name="project" property="catalog" value=".NET">
-                                <img src="images/dotnetSm.gif" alt="" border="0">
+                                <img src="/images/dotnetSm.gif" alt="" border="0">
 </logic:equal>
 <logic:equal name="project" property="catalog" value="Java Custom">
-                                <img src="images/javaCustomSm.gif" alt="" border="0">
+                                <img src="/images/javaCustomSm.gif" alt="" border="0">
 </logic:equal>
 <logic:equal name="project" property="catalog" value=".NET Custom">
-                                <img src="images/dotnetCustomSm.gif" alt="" border="0">
+                                <img src="/images/dotnetCustomSm.gif" alt="" border="0">
 </logic:equal>
 <logic:equal name="project" property="catalog" value="Application">
-                                <img src="images/appSm.gif" alt="" border="0">
+                                <img src="/images/appSm.gif" alt="" border="0">
 </logic:equal>
                                 </td>
-                                <td class="forumText"><img src="images/clear.gif" alt="" width="5" height="5" border="0"/></td>
+                                <td class="forumText"><img src="/images/clear.gif" alt="" width="5" height="5" border="0"/></td>
                                 <td nowrap class="forumText">
                                     <html:link page="/projectDetail.do" paramId="id" paramName="project" paramProperty="id">
-                                        <strong><bean:write name="project" property="projectName" /></strong> 
+                                        <strong><bean:write name="project" property="projectName" /></strong>
                                         <bean:message key="prompt.version" />
                                         <bean:write name="project" property="projectVersion" />
                                     </html:link>
@@ -82,32 +82,32 @@
                         <review:showDate name="project" property="currentPhaseInstance.endDate" /></td>
                     <td class="<%=rowClass%>">
                         <review:showDeliverable name="project" /></td>
-                                
+
                 </tr>
     </logic:iterate>
     <logic:equal name="projectType" property="size" value="0">
                 <tr valign="top">
                     <td colspan="5" class="forumTextOdd"><strong><bean:message key="prompt.noProject" arg0="<%=projectType.getTypeName()%>" /></strong></td>
                 </tr>
-    </logic:equal>            
-                            
+    </logic:equal>
+
 <!-- End lists -->
-                            
+
                 <tr>
-                    <td class="forumHeadFoot" colspan="5" height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0"/></td>
+                    <td class="forumHeadFoot" colspan="5" height="5"><img src="/images/clear.gif" alt="" width="10" height="5" border="0"/></td>
                 </tr>
             </table>
-<!-- Spacer -->            
+<!-- Spacer -->
             <table border="0" cellpadding="0" cellspacing="1" class="whiteBkgd" width="100%">
                 <tr>
-                    <td class="forumTextOdd"><img src="images/clear.gif" alt="" width="1" height="5" border="0"></td>
+                    <td class="forumTextOdd"><img src="/images/clear.gif" alt="" width="1" height="5" border="0"></td>
                 </tr>
             </table>
-                    
+
 </logic:iterate>
         </td>
     </tr>
 </table>
 
-            
+
 

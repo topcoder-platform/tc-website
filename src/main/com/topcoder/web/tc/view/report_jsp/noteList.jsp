@@ -5,7 +5,7 @@
           com.topcoder.web.common.StringUtils"
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<jsp:useBean id="note_list" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"/>
+<% ResultSetContainer note_list = (ResultSetContainer)request.getAttribute("note_list");%>
 
 <html>
   <head>

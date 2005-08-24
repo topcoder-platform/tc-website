@@ -99,7 +99,7 @@ public class TextAreaTag extends BaseTag {
         this.readOnly = readOnly;
     }
 
-    public void setClass(String styleClass) {
+    public void setStyleClass(String styleClass) {
         this.styleClass = styleClass;
     }
 

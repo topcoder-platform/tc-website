@@ -2,14 +2,16 @@
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.privatelabel.view.tag.DemographicInput,
-                 com.topcoder.web.common.BaseProcessor, 
-                 com.topcoder.shared.util.ApplicationServer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="/privatelabel.tld" prefix="pl" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.ResumeRegInfo" scope="session" />
-<jsp:usebean id="responseList" class="java.util.List" scope="request" />
-<jsp:usebean id="questionMap" class="java.util.Map" scope="request" />
+                 com.topcoder.web.common.BaseProcessor,
+                 com.topcoder.shared.util.ApplicationServer,
+                 java.util.List,
+                 java.util.Map" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="privatelabel.tld" prefix="pl" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.ResumeRegInfo" scope="session" />
+<% List responseList = (List)request.getAttribute("responseList");%>
+<% Map questionMap = (Map)request.getAttribute("questionMap");%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -50,7 +52,7 @@ function submitEnter(e) {
 		<td width="49%">&#160;</td>
 		<td>
 			<div class=greenBigBox>
-			
+
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
@@ -64,9 +66,9 @@ function submitEnter(e) {
 			<span valign=top>
 			<jsp:include page="right_reg.jsp" />
 			</span>
-                          
+
 			<table width="100%" cellpadding="0" cellspacing="5" class="bodyText" align="center" >
-        	<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
+        	<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE04_REG_SUBMIT%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
@@ -206,7 +208,7 @@ function submitEnter(e) {
                 <td align="right"><b>Demographics</b>
                 </td>
                 <td align="left">
-                    <a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE04_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
+                    <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE04_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
                 </td>
             </tr>
             <tr>
@@ -250,7 +252,7 @@ function submitEnter(e) {
 
 
 			<br/><br/>
-			To find out more detailed information about the Google Code Jam 2004, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google04&d2=rules">Terms and Conditions</a>.
+			To find out more detailed information about the Google Code Jam 2004, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=google04&d2=rules">Terms and Conditions</a>.
 			</div>
 		</td>
 		<td width="49%">&#160;</td>

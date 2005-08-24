@@ -4,7 +4,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
+<jsp:useBean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
 
 <script language="JavaScript"><!--
                         function submitEnter(e) {
@@ -61,7 +61,7 @@
                                 <tr><td class="bodyText">Handle</td></tr>
                                 <tr>
                                     <td class="bodyText">
-                                        <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="20" onkeypress="submitEnter(event)"/>
+                                        <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="20" onKeyPress="submitEnter(event)"/>
                                     </td>
                                 </tr>
 
@@ -112,7 +112,7 @@
 
                                 <tr>
                                     <td class="bodyText">
-                                        <tc-webtag:textInput name="<%=Constants.SCHOOL_NAME%>" size="20" maxlength="150" onkeypress="submitEnter(event)"/>
+                                        <tc-webtag:textInput name="<%=Constants.SCHOOL_NAME%>" size="20" maxlength="150" onKeyPress="submitEnter(event)"/>
                                     </td>
                                 </tr>
 
@@ -130,11 +130,11 @@
 
                                 <tr>
                                     <td class="bodyText">
-                                        <tc-webtag:textInput name="<%=Constants.MIN_RATING%>" size="6" maxlength="6" onkeypress="submitEnter(event)"/>
+                                        <tc-webtag:textInput name="<%=Constants.MIN_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
                                     </td>
 
                                     <td class="bodyText">
-                                        <tc-webtag:textInput name="<%=Constants.MAX_RATING%>" size="6" maxlength="6" onkeypress="submitEnter(event)"/>
+                                        <tc-webtag:textInput name="<%=Constants.MAX_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
                                     </td>
                                 </tr>
 
@@ -149,11 +149,11 @@
 
                                 <tr>
                                     <td class="bodyText">
-                                        <tc-webtag:textInput name="<%=Constants.MIN_NUM_RATINGS%>" size="6" maxlength="6" onkeypress="submitEnter(event)"/>
+                                        <tc-webtag:textInput name="<%=Constants.MIN_NUM_RATINGS%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
                                     </td>
 
                                     <td class="bodyText">
-                                        <tc-webtag:textInput name="<%=Constants.MAX_NUM_RATINGS%>" size="6" maxlength="6" onkeypress="submitEnter(event)"/>
+                                        <tc-webtag:textInput name="<%=Constants.MAX_NUM_RATINGS%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
                                     </td>
                                 </tr>
 
@@ -168,11 +168,11 @@
 
                                 <tr>
                                     <td class="bodyText">
-                                        <tc-webtag:textInput name="<%=Constants.MIN_DESIGN_RATING%>" size="6" maxlength="6" onkeypress="submitEnter(event)"/>
+                                        <tc-webtag:textInput name="<%=Constants.MIN_DESIGN_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
                                     </td>
 
                                     <td class="bodyText">
-                                        <tc-webtag:textInput name="<%=Constants.MAX_DESIGN_RATING%>" size="6" maxlength="6" onkeypress="submitEnter(event)"/>
+                                        <tc-webtag:textInput name="<%=Constants.MAX_DESIGN_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
                                     </td>
                                 </tr>
 
@@ -187,11 +187,11 @@
 
                                 <tr>
                                     <td class="bodyText">
-                                        <tc-webtag:textInput name="<%=Constants.MIN_DEV_RATING%>" size="6" maxlength="6" onkeypress="submitEnter(event)"/>
+                                        <tc-webtag:textInput name="<%=Constants.MIN_DEV_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
                                     </td>
 
                                     <td class="bodyText">
-                                        <tc-webtag:textInput name="<%=Constants.MAX_DEV_RATING%>" size="6" maxlength="6" onkeypress="submitEnter(event)"/>
+                                        <tc-webtag:textInput name="<%=Constants.MAX_DEV_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
                                     </td>
                                 </tr>
 

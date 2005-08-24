@@ -28,7 +28,7 @@
         <td width="170">
             <jsp:include page="../includes/left.jsp">
                 <jsp:param name="level1" value="tourny"/>
-                <jsp:param name="level2" value="web"/> 
+                <jsp:param name="level2" value="web"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -42,21 +42,21 @@
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/corp/header_event_sponsorship.gif" alt="" width="546" height="41" border="0"></td></tr>
-                
+
                 <tr valign="top">
                     <td class="bodyText" width="99%">
                         <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"><br>
-                        
+
                         <h2 class="corpHead">Tournaments - TopCoder Web Site</h2>
 
-                        <p>TopCoder.com is the primary medium for introducing prospective members to the concept of weekly 
-                        programming competitions. Additionally, the site serves the membership with a "trading card" approach 
+                        <p>TopCoder.com is the primary medium for introducing prospective members to the concept of weekly
+                        programming competitions. Additionally, the site serves the membership with a "trading card" approach
                         where every member has a complete set of statistics accompanying their profile.</p>
-                        
-                        <p>Membership information is viewable to a certain extent on the public side of the site. 
-                        History, earnings, match performance, code submissions, challenges, and more are available to registered 
+
+                        <p>Membership information is viewable to a certain extent on the public side of the site.
+                        History, earnings, match performance, code submissions, challenges, and more are available to registered
                         and participating members.</p>
-                        
+
                         <p>The following page placements are included in the Tournament Sponsorship Package (red blocks indicate sponsor area):<ul>
 
                         <div align="center">
@@ -68,14 +68,14 @@
                                      <p><img src="/i/corp/calendar.gif" alt="" width="135" height="205" border="0"/></p>
                                      <p><img src="/i/corp/schedule.gif" alt="" width="135" height="205" border="0"/></p>
                                 </td>
-                                
+
                                 <td width="33%" align="center" valign="top">
                                      <p><img src="/i/corp/memberhome.gif" alt="" width="135" height="205" border="0"/></p>
                                      <p><img src="/i/corp/statsindex.gif" alt="" width="135" height="205" border="0"/></p>
                                      <p><img src="/i/corp/matchsummary.gif" alt="" width="135" height="205" border="0"/></p>
                                      <p><img src="/i/corp/matchresults.gif" alt="" width="135" height="205" border="0"/></p>
                                 </td>
-                                
+
                                 <td width="33%" align="center" valign="top">
                                      <p><img src="/i/corp/sponsor.gif" alt="" width="135" height="205" border="0"/></p>
                                      <p><img src="/i/corp/tournyoverview.gif" alt="" width="135" height="205" border="0"/></p>
@@ -85,18 +85,18 @@
                             </tr>
                         </table>
                         </div>
-                        
+
                         <p>Additional pages not shown:</p>
-                        
+
                         <ul>
                             <li>Semifinal schedule with coder and room listing</li>
                             <li>Championship schedule with coder listing</li>
                             <li>Tournament Gallery</li>
                         </ul>
-                        
-                        <p><strong>Note</strong> - TopCoder marketing will work with a sponsor's internal or external creative team to develop all 
+
+                        <p><strong>Note</strong> - TopCoder marketing will work with a sponsor's internal or external creative team to develop all
                         graphics necessary for the web site at no additional cost to sponsors.</p>
-                        
+
                         <p><a href="/tc?module=Static&d1=corp&d2=spon_prog&d3=srm_index">What is the SRM Program?</a></p>
 
                         <p><br/></p>
@@ -107,9 +107,9 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column begins -->
-                    <jsp:include page="../../right.jsp">
+                    <jsp:include page="/right.jsp">
                         <jsp:param name="level1" value="tourny"/>
-                        <jsp:param name="level2" value="web"/> 
+                        <jsp:param name="level2" value="web"/>
                     </jsp:include>
 <!-- Right Column ends -->
 
@@ -121,7 +121,7 @@
 </table>
 
 <!-- Footer begins -->
-  <jsp:include page="../../foot.jsp"/>
+  <jsp:include page="/foot.jsp"/>
 <!-- Footer ends -->
 
 </body>

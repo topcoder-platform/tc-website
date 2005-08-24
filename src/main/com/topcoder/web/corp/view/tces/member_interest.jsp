@@ -1,21 +1,21 @@
-<%@  page 
+<%@  page
   language="java"
   import="java.util.*,
           com.topcoder.web.corp.common.*,
           com.topcoder.web.corp.controller.request.tces.*,
           com.topcoder.web.corp.common.JSPUtils,
           com.topcoder.web.corp.common.TCESConstants" %>
-          
-<%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
+
+<%@ taglib uri="tces-taglib.tld" prefix="tces"%>
 
 <jsp:useBean id="MemberInterestTask" scope="request" class="com.topcoder.web.corp.controller.request.tces.MemberInterestTask" />
-          
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
     <TITLE>TopCoder | Recruiting Reports</TITLE>
     <jsp:include page="script.jsp" />
-    
+
   </HEAD>
   <body>
   <jsp:include page="top.jsp" >
@@ -35,7 +35,7 @@
 	                  <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
 	                </tces:trailIterator>
 					<br/>
-					<span class=testHead>Member Interest: <jsp:getProperty name="MemberInterestTask" property="Handle"/></span>
+					<span class=testHead>Member Interest: <jsp:getProperty name="MemberInterestTask" property="handle"/></span>
 					<br/><br/>
                     <strong>Campaign:</strong> <%=MemberInterestTask.getCampaignName()%>
 					<br/><br/>
@@ -43,12 +43,12 @@
 				</tr>
 				<tr>
 					<td class=bodyText>
-					<A HREF="<jsp:getProperty name="MemberInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">Coder Demographic Info</A>
+					<A HREF="<jsp:getProperty name="MemberInterestTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">Coder Demographic Info</A>
 					<br/>
 					<% if (MemberInterestTask.isRanked()) { %>
-					<A HREF="<jsp:getProperty name="MemberInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">Coder Competition History</A>
+					<A HREF="<jsp:getProperty name="MemberInterestTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">Coder Competition History</A>
 					<br/>
-					<A HREF="<jsp:getProperty name="MemberInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">Coder Problem Submissions</A>
+					<A HREF="<jsp:getProperty name="MemberInterestTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">Coder Problem Submissions</A>
 					<% } %>
 					<br/><br/>
 					</td>
@@ -66,10 +66,10 @@
                 <% i++; %>
 
                 <tr>
-                  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><%= hit.getItem("job_desc").toString() %></td>                                   
+                  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><%= hit.getItem("job_desc").toString() %></td>
                   <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=center><%= JSPUtils.autoFormat(hit.getItem("timestamp")) %></td>
                 </tr>
-                
+
                 </tces:rowIterator>
 
 

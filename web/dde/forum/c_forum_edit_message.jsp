@@ -111,7 +111,7 @@
 
             debug.addMsg("post message", "file upload processed");
             try {
-                forumId = Long.parseLong(fu.getParameter("f"));
+                    forumId = Long.parseLong(fu.getParameter("f"));
             } catch (NumberFormatException nfe) {
             }
 
@@ -465,13 +465,13 @@ function textLimit(field, maxlen) {
         <td width="99%">
             <%@ include file="/includes/forumTitle.jsp" %>
 
+          <form name="frmMessage" action="<%=page_name%>" enctype="multipart/form-data" method="post">
+           <input type="hidden" name="f" value="<%=forumId%>">
+           <input type="hidden" name="r" value="<%=threadId%>">
+           <input type="hidden" name="p" value="<%=postId%>">
+           <input type="hidden" name="rp" value="<%=replyId%>">
             <table width="100%" cellpadding="0" cellspacing="1" border="0" class="forumBkgd" align="center">
                 <tr valign="top">
-                    <form name="frmMessage" action="<%=page_name%>" enctype="multipart/form-data" method="post">
-                    <input type="hidden" name="f" value="<%=forumId%>">
-                    <input type="hidden" name="r" value="<%=threadId%>">
-                    <input type="hidden" name="p" value="<%=postId%>">
-                    <input type="hidden" name="rp" value="<%=replyId%>">
 
 <!-- Reply -->
                     <td class="forumTextCenterEven" width="100%">
@@ -539,6 +539,8 @@ function textLimit(field, maxlen) {
 
 <%  } %>
             </table>
+</form>
+
 
             <table width="100%" cellpadding="0" cellspacing="0" border="0" class="middle">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
@@ -556,6 +558,5 @@ function textLimit(field, maxlen) {
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->
 
-</form>
 </body>
 </html>

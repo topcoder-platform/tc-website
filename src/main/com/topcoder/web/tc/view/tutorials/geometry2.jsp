@@ -4,7 +4,7 @@
 <head>
 <title>Algorithm Tutorials</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 <style type="text/css">
     .code
 {
@@ -24,7 +24,7 @@
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -32,7 +32,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="education"/>
                 <jsp:param name="level2" value="alg_tutorials"/>
             </jsp:include>
@@ -43,7 +43,7 @@
          <td width="100%" align="center">
 
          <div class="tutorBodyFull">
-            
+
             <h2>Geometry Concepts: Line Intersection and its Applications</h2>
 
 			<p>
@@ -86,7 +86,7 @@ that you have lines, given by the equations:<br/>
 <tt>A<sub>1</sub>x + B<sub>1</sub>y = C<sub>1</sub><br/>
     A<sub>2</sub>x + B<sub>2</sub>y = C<sub>2</sub><br/> </tt>
 To find the point at which the two lines intersect, we simply need to solve the
-two equations for the two unknowns, x and y.  
+two equations for the two unknowns, x and y.
 <pre class=code>
     double det = A<sub>1</sub>*B<sub>2</sub> - A<sub>2</sub>*B<sub>1</sub>
     if(det == 0){
@@ -105,7 +105,7 @@ Now, subtract the bottom equation from the top equation to get<br/>
 Finally, divide both sides by <tt>A<sub>1</sub>B<sub>2</sub> -
 A<sub>2</sub>B<sub>1</sub></tt>, and you get the equation for x.  The
 equation for y can be derived similarly.
-<br/><br/> 
+<br/><br/>
 This gives you the location of the intersection of two lines, but what if you
 have line segments, not lines.  In this case, you need to make sure that the
 point you found is on both of the line segments.  If your line segment goes from
@@ -175,12 +175,12 @@ clockwise around the edge of the hull, picking the points on the hull, one
 at a time.  Eventually, we will get back to the start point.  In order to find
 the next point around the hull, we will make use of <a
     href="/tc?module=Static&d1=tutorials&d2=geometry1#cross_product">cross products</a>.  First, we will pick
-an unused point, and set the next point, N, to that point.  
+an unused point, and set the next point, N, to that point.
 Next, we will iterate through each unused points, X, and if
 <tt>(X-P) x (N-P)</tt> (where P is the previous point)
 is negative, we will set N to X.  After we have
 iterated through each point, we will end up with the next point on the convex
-hull.  See the diagram below for an illustration of how the algorithm works. 
+hull.  See the diagram below for an illustration of how the algorithm works.
 We start with P as the leftmost point.  Now, say that we have N and X as shown in
 the leftmost frame.  In this case the cross product will be negative, so we will
 set N = X, and there will be no other unused points that make the cross product
@@ -255,7 +255,7 @@ include all of the colinear points, or only the necessary ones.
                 <font color="blue">//If there is no N yet, set it to X</font>
                 if(n == -1)n = i;
                 int cross = (X[i] - X[p]) x (X[n] - X[p]);
-                
+
                 <font color="blue">//d is the distance from P to X</font>
                 int d = (X[i] - X[p]) &sdot; (X[i] - X[p]);
                 if(cross &lt; 0){
@@ -263,8 +263,8 @@ include all of the colinear points, or only the necessary ones.
                     n = i;
                     dist = d;
                 }else if(cross == 0){
-                    <font color="blue">//In this case, both N and X are in the 
-                    //same direction.  If onEdge is true, pick the 
+                    <font color="blue">//In this case, both N and X are in the
+                    //same direction.  If onEdge is true, pick the
                     //closest one, otherwise pick the farthest one.</font>
                     if(onEdge &amp;&amp; d &lt; dist){
                         dist = d;
@@ -283,7 +283,7 @@ include all of the colinear points, or only the necessary ones.
 <br/><br/>
 <A href="/tc?module=Static&d1=tutorials&d2=geometry3">...continue to Section 3</A>
 </p>
-            
+
 
         </div>
         <p><br/></p>
@@ -292,7 +292,7 @@ include all of the colinear points, or only the necessary ones.
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -304,7 +304,7 @@ include all of the colinear points, or only the necessary ones.
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

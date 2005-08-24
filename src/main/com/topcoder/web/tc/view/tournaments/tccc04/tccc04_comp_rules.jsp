@@ -7,7 +7,7 @@
 <jsp:include page="../../script.jsp" />
 
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
-    
+
 </head>
 
 <body>
@@ -20,7 +20,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -42,7 +42,7 @@
    <jsp:param name="tabLev2" value="details"/>
    <jsp:param name="tabLev3" value="rules"/>
 </jsp:include>
-            
+
             <p>
                         <a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="#structure">Competition Structure</a>&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -56,27 +56,27 @@
             <p>
             The 2004 TopCoder Collegiate Challenge ("TCCC") Component Design and Development Competition ("CDDC") will take place between January 27 and April 16, 2004.  It will consist of two competitions - the design competition and the development competition.  Each competition will consist of two (2) online elimination rounds, and one (1) onsite final round, being the Championship round.  The prize purse for this tournament is $60,000 in cash, with $40,000 being awarded for the design competition and $20,000 for the development competition.  The top four (4) scorers after Online Round #2 in each competition will advance to the onsite Championship round, being held at the Boston Park Plaza Hotel & Towers in Boston, Massachusetts, USA on April 16, 2004.
             </p>
-            
+
 <!-- eligibility -->
             <a name="eligibility"></a>
             <h2><a href="#top"><img src="/i/tournament/tccc04/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>Eligibility</h2>
 
             <p>
-            TopCoder members meeting the following eligibility criteria are eligible to compete in the CDDC: 
+            TopCoder members meeting the following eligibility criteria are eligible to compete in the CDDC:
             </p>
             <ul>
             <li>Must be at least 18 years of age (as of January 27, 2004)</li>
             <li>Must be matriculated full-time at an accredited college or university</li>
             <li>Must not have been permanently suspended from participating in TopCoder Component Development projects</li>
             </ul>
-            
+
             <p>
             The competition is open to all US citizens who meet the above requirements, regardless of where they are living or competing from.  The competition is also open to all individuals currently residing in the US who have valid work authorization, provided they meet the above requirements.  Individuals who are not US citizens and who are not living in the US are eligible to compete if they are living in and participating from their country of citizenship, provided they meet the above requirements.
             </p>
 
- 
-            
+
+
             <p>
             The TopCoder Collegiate Challenge is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
             </p>
@@ -93,15 +93,15 @@
             <p>
             Employees of TopCoder, Inc. and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
             </p>
-            
+
  <!-- Competition Structure -->
             <a name="structure"></a>
             <h2><a href="#top"><img src="/i/tournament/tccc04/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>Competition Structure</h2>
-            
+
             <p><span class="bodySubtitle">Scoring</span><br/>
             During each online round of competition, eligible competitors will submit design and development solutions for at least one eligible component by the submission due date.  Submissions will be scored by the TopCoder Review Boards and will be subject to final review and appeal in the same manner as standard component design and development submissions.</p>
-            
+
             <p>ALL SUBMISSIONS MUST BE RECEIVED DURING THE ROUND'S SUBMISSION TIMELINE TO BE CONSIDERED A VIABLE ENTRY.  THERE WILL BE NO EXCEPTIONS.  There will be no elimination of contestants between Online Rounds #1 and #2.  All contestants who submit components that pass screening in Online Round #1 in either competition will be eligible to participate in Online Round #2 of the same competition. The specific structure of the online rounds is as follows:</p>
 
             <ul>
@@ -124,7 +124,7 @@
                    By the highest individual Online Round #2 submission score
               </li>
               <li>
-                   If a tie still remains, the earliest submitter for the Online Round #2 contest will advance 
+                   If a tie still remains, the earliest submitter for the Online Round #2 contest will advance
               </li>
               </ul>
               </li>
@@ -151,7 +151,7 @@
             <a name="prizes"></a>
             <h2><a href="#top"><img src="/i/tournament/tccc04/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>About the Prizes</h2>
-            
+
             <p>All contestants who submit components that pass screening in Online Round #1 will receive a prize.  The tournament will award $60,000 in cash prizes, with $40,000 being awarded for the design competition and $20,000 for the development competition.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:</p>
 
             <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
@@ -207,7 +207,7 @@
             <a name="conditions"></a>
             <h2><a href="#top"><img src="/i/tournament/tccc04/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>Conditions of Participation</h2>
-            
+
          <p>
          By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.</p>
 
@@ -224,7 +224,7 @@
          <p>In addition, all prizewinners agree to cooperate with TopCoder's publicity efforts, without further compensation. This includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, for this or similar future tournaments, and to use the statements made by, or attributed to, the winners relating to TopCoder and any and all rights to said use, without further compensation.  Furthermore, all prizewinners agree to promptly notify TopCoder if a third-party contacts the prizewinner regarding employment opportunities and/or media interest as a result of the prizewinner's participation in the tournament.</p>
 
          <p>TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with competing in this tournament, and to take any other action it deems appropriate, for no reason or any reason whatsoever, including if TopCoder suspects competitors of cheating, tampering with the entry process, the operation of the Web site, or the tournament process, or otherwise being in violation of the rules. TopCoder reserves the right to cancel, terminate or modify the tournament if it is not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.</p>
- 
+
             <p><span class="bodySubtitle">Other</span><br />
             The tournament is void in whole or in part where prohibited by law.</p>
 

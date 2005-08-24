@@ -10,9 +10,10 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Static;
 
-import javax.servlet.http.HttpUtils;
 import java.util.Map;
 import java.util.MissingResourceException;
+import java.util.HashMap;
+import java.util.Iterator;
 
 public class Simple extends Static {
 
@@ -22,12 +23,20 @@ public class Simple extends Static {
 
     protected void businessProcessing() throws Exception {
         Request dataRequest = new Request();
-        Map map = HttpUtils.parseQueryString(getRequest().getQueryString());
-        map.remove(Constants.MODULE_KEY); //no need to include this one
-        map.remove(DataAccessConstants.SORT_COLUMN);
-        map.remove(DataAccessConstants.SORT_DIRECTION);
 
-        dataRequest.setProperties(map);
+        Map map = getRequest().getParameterMap();
+        HashMap filteredMap = new HashMap();
+        Map.Entry me = null;
+        for (Iterator it = map.entrySet().iterator(); it.hasNext();) {
+            me = (Map.Entry)it.next();
+            if (!me.getKey().equals(Constants.MODULE_KEY)&&
+                    !me.getKey().equals(DataAccessConstants.SORT_COLUMN)&&
+                    !me.getKey().equals(DataAccessConstants.SORT_DIRECTION)) {
+                filteredMap.put(me.getKey(), me.getValue());
+            }
+        }
+
+        dataRequest.setProperties(filteredMap);
         DataAccessInt dai = getDataAccess(getDb(), true);
         Map result = dai.getData(dataRequest);
 

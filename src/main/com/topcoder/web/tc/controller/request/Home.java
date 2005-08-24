@@ -5,8 +5,8 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.util.TCO05AlgorithmTerms;
 import com.topcoder.web.tc.controller.request.util.TCO05ComponentTerms;
+import com.topcoder.web.tc.controller.request.util.TCO05AlgorithmTerms;
 
 public class Home extends Base {
 
@@ -24,11 +24,13 @@ public class Home extends Base {
 
     protected void loadPublicData() throws TCWebException {
         try {
+/*
             CachedDataAccess nextRoundDai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
             nextRoundDai.setExpireTime(30 * 60 * 1000);
             Request nextRoundReq = new Request();
             nextRoundReq.setContentHandle("next_srm");
             getRequest().setAttribute("Next_SRM", nextRoundDai.getData(nextRoundReq).get("Next_SRM"));
+*/
 
             CachedDataAccess dwDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
             Request dataRequest = new Request();
@@ -46,11 +48,13 @@ public class Home extends Base {
             getRequest().setAttribute("top_designers",
                     dwDai.getData(dataRequest).get("top_designers"));
 
+/*
             CachedDataAccess surveyDai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
             Request surveyRequest = new Request();
             surveyRequest.setContentHandle("recent_srm_survey_question");
             getRequest().setAttribute("recent_srm_survey_question",
                     surveyDai.getData(surveyRequest).get("recent_srm_survey_question"));
+*/
 
 /*
             CachedDataAccess tcsDai = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);

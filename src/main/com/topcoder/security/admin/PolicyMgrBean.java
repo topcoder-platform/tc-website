@@ -21,7 +21,7 @@ import java.util.Iterator;
  */
 public class PolicyMgrBean extends BaseEJB {
 
-    private static Logger logger = Logger.getLogger(PolicyMgrBean.class);
+    private static final Logger logger = Logger.getLogger(PolicyMgrBean.class);
     private String DATA_SOURCE = "java:comp/env/jdbc/DefaultDS";
 
     /**

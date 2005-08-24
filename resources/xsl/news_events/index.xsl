@@ -2,12 +2,12 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../top.xsl"/>
   <xsl:import href="../script.xsl"/>
-  <xsl:import href="../includes/body_top.xsl"/>  
+  <xsl:import href="../includes/body_top.xsl"/>
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/global_left.xsl"/> 
-  <xsl:import href="../includes/pr_right_col.xsl"/>     
+  <xsl:import href="../includes/global_left.xsl"/>
+  <xsl:import href="../includes/pr_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
 
@@ -15,11 +15,11 @@
 
 <head>
 
-<xsl:call-template name="Preload"/>      
+<xsl:call-template name="Preload"/>
 
 <title>TopCoder Press Room - Press Releases and Articles featured in other publications</title>
 
-<xsl:call-template name="CSS"/>      
+<xsl:call-template name="CSS"/>
 
 <meta http-equiv="Refresh" content="5; URL=/tc?module=Static&amp;d1=pressroom&amp;d2=index" />
 <meta name="description" content=""/>
@@ -45,14 +45,14 @@
         <td width="15"><img src="/i/clear.gif" width="15" height="5" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->	
+<!-- Center Column Begins -->
         <td class="bodyText" width="100%">
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">press_room</xsl:with-param>
                 <xsl:with-param name="title"></xsl:with-param>
             </xsl:call-template>
-            
+
             <p>This page has moved.  You will be redirected to the Press Room in just a moment.
             <br /><br />
             Click <A href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">here</A> to get to the page manually.

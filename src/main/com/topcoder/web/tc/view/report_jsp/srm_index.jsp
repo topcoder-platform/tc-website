@@ -13,7 +13,7 @@
 		  "
 
 %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <% String round = request.getParameter("rd");
 	    if (round==null) {
         com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
@@ -27,8 +27,8 @@
                             ResultSetContainer rsc1 = (ResultSetContainer)dataMap.get("Most_Recent_SRM");
         round = rsc1.getStringItem(0, "round_id");
     } %>
-					
-                    
+
+
 
 <jsp:include page="css.jsp" />
 <jsp:include page="../script.jsp" />
@@ -46,7 +46,7 @@ function goTo(selection){
   }
 }
 // -->
-</script>  
+</script>
   </head>
   <body>
   <table>

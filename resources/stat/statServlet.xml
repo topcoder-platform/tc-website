@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE StatServlet [
-  <!ELEMENT StatServlet	(RankList?, QuickStatList?, ContentList*)>
+  <!ELEMENT StatServlet (RankList?, QuickStatList?, ContentList*,GlobalError)>
 
   <!ELEMENT RankList (RankItem+) >
-  <!ELEMENT RankItem (CDATA)>
+  <!ELEMENT RankItem (#PCDATA)>
   <!ATTLIST RankItem minVal CDATA #REQUIRED>
   <!ATTLIST RankItem maxVal CDATA #IMPLIED>
 
   <!ELEMENT QuickStatList (QuickStatItem+)>
 
-  <!ELEMENT QuickStatItem (PCDATA)>
+  <!ELEMENT QuickStatItem (#PCDATA)>
   <!ATTLIST QuickStatItem url CDATA #REQUIRED>
 
   <!ELEMENT ContentList (ContentItem+)>
-  <!ELEMENT ContentItem (CDATA)>
+  <!ELEMENT ContentItem (#PCDATA)>
   <!ATTLIST ContentItem contentHandle CDATA #REQUIRED>
   <!ATTLIST ContentItem nextPage CDATA #REQUIRED>
   <!ATTLIST ContentItem access CDATA #REQUIRED>
 
-  <!ELEMENT GlobalError (CDATA)>
+  <!ELEMENT GlobalError (#PCDATA)>
   <!ATTLIST GlobalError nextPage CDATA #REQUIRED>
 ]>
 <StatServlet>

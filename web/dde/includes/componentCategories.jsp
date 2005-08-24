@@ -1,5 +1,8 @@
 <% // PAGE SPECIFIC DECLARATIONS %>
-<%@ page import="com.topcoder.dde.catalog.*" %>
+<%@ page import="com.topcoder.dde.catalog.*,
+                 javax.rmi.PortableRemoteObject,
+                 java.util.Hashtable,
+                 java.util.Collection" %>
 <%!
 	class CategoryNode implements java.io.Serializable {
 		CategoryNode parent = null;
@@ -52,7 +55,7 @@
 %>
 
 <%
-	Object objTechTypes = CONTEXT.lookup("CatalogEJB");
+	Object objTechTypes = CONTEXT.lookup(CatalogHome.EJB_REF_NAME);
 	CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
 	Catalog catalog = home.create();
 

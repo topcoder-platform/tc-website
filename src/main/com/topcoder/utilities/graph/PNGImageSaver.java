@@ -4,7 +4,7 @@
  *
  * Java source created by Kary FRAMLING 6/6/1998
  *
- * Copyright 1998-2003 Kary Fr�mling
+ * Copyright 1998-2003 Kary Framling
  * Source code distributed under GNU LESSER GENERAL PUBLIC LICENSE,
  * included in the LICENSE.txt file in the topmost directory
  *
@@ -28,7 +28,7 @@ import java.util.zip.Deflater;
  * Class for saving an image in the PNG format. We always use 24-bit RGB
  * true-color coding for the moment.
  *
- * @author Kary FR&Auml;MLING
+ * @author Kary FRAMLING
  */
 public class PNGImageSaver extends ImageSaverInterface
         implements Serializable, ImageConsumer {
@@ -82,7 +82,7 @@ public class PNGImageSaver extends ImageSaverInterface
     // Constructor
     //=============================================================================
     /**
-     * @author Kary FR&Auml;MLING 6/6/1998.
+     * @author Kary FRAMLING 6/6/1998.
      */
     //=============================================================================
     public PNGImageSaver() {
@@ -169,7 +169,7 @@ public class PNGImageSaver extends ImageSaverInterface
     /**
      * Return ImageObserver constants for indicating the state of the image saving.
      *
-     * @author Kary FR&Auml;MLING 30/4/1998.
+     * @author Kary FRAMLING 30/4/1998.
      */
     //=============================================================================
     public int checkSave() {
@@ -182,7 +182,7 @@ public class PNGImageSaver extends ImageSaverInterface
     /**
      * Returns if an alpha channel is to be used or not.
      *
-     * @author Kary FR&Auml;MLING
+     * @author Kary FRAMLING
      */
     //=============================================================================
     public boolean getUseAlphaChannel() {
@@ -195,7 +195,7 @@ public class PNGImageSaver extends ImageSaverInterface
     /**
      * Indicate if an alpha channel should be used or not.
      *
-     * @author Kary FR&Auml;MLING
+     * @author Kary FRAMLING
      */
     //=============================================================================
     public void setUseAlphaChannel(boolean use) {

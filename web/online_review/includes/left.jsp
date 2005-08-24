@@ -15,32 +15,32 @@ function arena() {
     String level3 = request.getParameter("level3")==null?"":request.getParameter("level3");
 %>
 
-            <img src="images/clear.gif" width="180" height="6" border="0" alt=""><br>
-            <img src="images/left_nav_top.gif" width="170" height="11" border="0" alt=""><br>
+            <img src="/images/clear.gif" width="180" height="6" border="0" alt=""><br>
+            <img src="/images/left_nav_top.gif" width="170" height="11" border="0" alt=""><br>
 
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr><td id="leftNavTitle">Development:</td></tr>
 
 <!-- Launch Arena Applet -->
-                <tr><td id="leftNavApplet"><img alt="" width="10" height="10" src="images/nav_arrow_right.gif" border="0"/><A href="Javascript:arena()" class="left">Launch Arena Applet</A></td></tr>
+                <tr><td id="leftNavApplet"><img alt="" width="10" height="10" src="/images/nav_arrow_right.gif" border="0"/><A href="Javascript:arena()" class="left">Launch Arena Applet</A></td></tr>
 
     <% if ((level1.equals("development"))) { %>
 <!-- TC Round Tables begins -->
                 <tr>
                     <td id="<%=level2.equals("tcRoundtables")?"leftNavOn":"leftNav"%>">
-                        <img src="images/nav_arrow_<%=level2.equals("tcRoundtables")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/rtables/viewForum.jsp?forum=205768&mc=239" class="<%=level2.equals("tcRoundtables")?"leftOn":"left"%>">TC Developer Round Tables</a>
+                        <img src="/images/nav_arrow_<%=level2.equals("tcRoundtables")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/rtables/viewForum.jsp?forum=205768&mc=239" class="<%=level2.equals("tcRoundtables")?"leftOn":"left"%>">TC Developer Round Tables</a>
                     </td>
                 </tr>
 
 <!-- TCS Forums begins -->
                 <tr>
                     <td id="<%=level2.equals("tcsForums")?"leftNavOn":"leftNav"%>">
-                        <img src="images/nav_arrow_<%=level2.equals("tcsForums")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://software.topcoder.com/forum/c_active_collab.jsp?ft=2" class="<%=level2.equals("tcsForums")?"leftOn":"left"%>">TCS Developer Forums</a>
+                        <img src="/images/nav_arrow_<%=level2.equals("tcsForums")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://software.topcoder.com/forum/c_active_collab.jsp?ft=2" class="<%=level2.equals("tcsForums")?"leftOn":"left"%>">TCS Developer Forums</a>
                     </td>
                 </tr>
 
 <!-- Components begins -->
-                <tr><td id="<%=level2.equals("components")?"leftNavOn":"leftNav"%>"><img src="images/nav_arrow_<%=level2.equals("components")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/?&t=development&c=comp_projects" class="leftOn">Components</a></td></tr>
+                <tr><td id="<%=level2.equals("components")?"leftNavOn":"leftNav"%>"><img src="/images/nav_arrow_<%=level2.equals("components")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/?&t=development&c=comp_projects" class="leftOn">Components</a></td></tr>
 
         <% if ((level2.equals("components"))) { %>
                 <tr><td id="<%=level3.equals("comp_projects")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=comp_projects" class="leftOn">Projects</a></td></tr>
@@ -53,7 +53,7 @@ function arena() {
 
 <!-- Applications begins -->
 <!--
-                <tr><td id="<%=level2.equals("applications")?"leftNavOn":"leftNav"%>"><img src="images/nav_arrow_<%=level2.equals("applications")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/?t=development&c=app_projects" class="<%=level2.equals("applications")?"leftOn":"left"%>">Applications</a></td></tr>
+                <tr><td id="<%=level2.equals("applications")?"leftNavOn":"leftNav"%>"><img src="/images/nav_arrow_<%=level2.equals("applications")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/?t=development&c=app_projects" class="<%=level2.equals("applications")?"leftOn":"left"%>">Applications</a></td></tr>
 
         <% if ((level2.equals("applications"))) { %>
                 <tr><td id="<%=level3.equals("app_projects")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=app_projects" class="leftOn">Projects</a></td></tr>
@@ -65,7 +65,7 @@ function arena() {
 <!-- Contests begins -->
                 <tr>
                     <td id="<%=level2.equals("contests")?"leftNavOn":"leftNav"%>">
-                        <img src="images/nav_arrow_<%=level2.equals("contests")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/?&t=development&c=des_bonus_contest_2" class="<%=level2.equals("contests")?"leftOn":"left"%>">Contests</a>
+                        <img src="/images/nav_arrow_<%=level2.equals("contests")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/?&t=development&c=des_bonus_contest_2" class="<%=level2.equals("contests")?"leftOn":"left"%>">Contests</a>
                     </td>
                 </tr>
 
@@ -76,14 +76,14 @@ function arena() {
         <% } %>
 
 <!-- Support/FAQ begins -->
-                <tr><td id="<%=level2.equals("support")?"leftNavOn":"leftNav"%>"><img src="images/nav_arrow_<%=level2.equals("support")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/?t=development&c=getting_started" class="<%=level2.equals("support")?"leftOn":"left"%>">Support / FAQs</a></td></tr>
+                <tr><td id="<%=level2.equals("support")?"leftNavOn":"leftNav"%>"><img src="/images/nav_arrow_<%=level2.equals("support")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/?t=development&c=getting_started" class="<%=level2.equals("support")?"leftOn":"left"%>">Support / FAQs</a></td></tr>
 
 
             </table>
 
     <% } %>
 
-            <img src="images/left_nav_btm.gif" width="180" height="23" border="0" alt=""><br>
-            <img src="images/clear.gif" width="180" height="15" border="0" alt=""><br>
+            <img src="/images/left_nav_btm.gif" width="180" height="23" border="0" alt=""><br>
+            <img src="/images/clear.gif" width="180" height="15" border="0" alt=""><br>
 
-            <div align="center"><img src="images/logo_ghosted_bracket.gif" width="160" height="77" border="0" alt="[ TopCoder ]" vspace="10" /><br><br></center>
+            <div align="center"><img src="/images/logo_ghosted_bracket.gif" width="160" height="77" border="0" alt="[ TopCoder ]" vspace="10" /><br><br></center>

@@ -1,7 +1,9 @@
 <%@ page import="com.topcoder.web.corp.common.Constants,
-	com.topcoder.shared.dataAccess.DataAccessConstants" %>
+	com.topcoder.shared.dataAccess.DataAccessConstants,
+                 java.util.Map,
+                 java.util.Iterator" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
-<%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
+<%@ taglib uri="tces-taglib.tld" prefix="tces"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -171,7 +173,7 @@
 	</tr>
 </table>
 
-  <jsp:include page="../../foot.jsp" />
+  <jsp:include page="/foot.jsp" />
 
 </body>
 </html>

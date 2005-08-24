@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -31,11 +31,11 @@
                  <td align="right" valign="top"><a href="/"><img src="/i/events/javaone05/pbtc_logo.gif" width="130" height="27" border="0" /></a></td></tr></table>
 
   						<p class ="regmiddle"><a href="/pl/?&module=Static&d1=javaone05&d2=mondayphotos">Monday</a> | Tuesday | <a href="/pl/?&module=Static&d1=javaone05&d2=wednesdayphotos">Wednesday</a></p>
-						
+
                   <div align="center" style="padding: 15px;">
                   <img src="/i/events/javaone05/tuesday/image01.jpg" alt="" class="photoFrameBig" />
                   <br>Tuesday's Winners
-                  </div>            
+                  </div>
 
                </td>
             <tr>
@@ -43,7 +43,7 @@
                   <jsp:include page="foot.jsp" />
                </td>
             </tr>
-            
+
          </table>
 </center>
    </body>

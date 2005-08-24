@@ -3,7 +3,7 @@
   import= "com.topcoder.web.query.common.*,
            com.topcoder.web.query.request.*"
 %>
-<%@ taglib uri="/query-taglib.tld" prefix="query"%>
+<%@ taglib uri="query-taglib.tld" prefix="query"%>
 <jsp:useBean id="DBSelection" scope="request" class="com.topcoder.web.query.request.DBSelection" />
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -31,8 +31,8 @@
           <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="16"></td></tr>
           <query:DBIterator id="db" list="<%=Constants.DB_LIST%>">
             <tr><td>
-             <A href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_LIST_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="db" property="value"/>" class="statText">
-                <jsp:getProperty name="db" property="DisplayName"/>
+             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_LIST_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="db" property="value"/>" class="statText">
+                <jsp:getProperty name="db" property="displayName"/>
               </A>
             </td></tr>
           </query:DBIterator>

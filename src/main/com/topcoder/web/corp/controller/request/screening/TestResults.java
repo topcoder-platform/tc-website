@@ -11,7 +11,6 @@ import com.topcoder.web.corp.common.ScreeningException;
 import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.*;
 
-import javax.servlet.http.HttpUtils;
 import java.util.*;
 
 /**
@@ -33,7 +32,7 @@ public class TestResults extends BaseScreeningProcessor {
 
             DataAccessInt dAccess = Util.getDataAccess();
             Request dr = new Request();
-            dr.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
+            dr.setProperties(getRequest().getParameterMap());
             dr.setContentHandle("testResults");
             dr.setProperty("uid", String.valueOf(getUser().getId()));
             Map map = dAccess.getData(dr);
@@ -219,7 +218,7 @@ public class TestResults extends BaseScreeningProcessor {
             //lookup stats
             Request dr3 = new Request();
             dr3.setContentHandle("problem_statistics");
-            dr3.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
+            dr3.setProperties(getRequest().getParameterMap());
             Map map3 = dAccess.getData(dr3);
 
             tinfo.setProblemSetBStats((ResultSetContainer) map3.get("problem_statistics"));

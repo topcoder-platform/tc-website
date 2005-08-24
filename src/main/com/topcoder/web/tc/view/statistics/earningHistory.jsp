@@ -1,13 +1,13 @@
-<%@ page 
+<%@ page
   language="java"
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
 
 %>
 
-<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <HTML>
  <HEAD>
@@ -51,7 +51,7 @@
 <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 
-<% 
+<%
 Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Basic_Coder_Information");
@@ -61,7 +61,7 @@ if (!bEmpty) {
   pageContext.setAttribute("resultRow", rsr);
 %>
 
-    <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>      
+    <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>
 <% 
 } //end if not empty
 ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("Earnings_History");

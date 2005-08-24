@@ -7,7 +7,7 @@
 <jsp:include page="../../script.jsp" />
 
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
-    
+
 </head>
 
 <body>
@@ -20,7 +20,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -49,7 +49,7 @@
             <img src="/i/tournament/tccc04/onsite_photos/room1.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
             <span class="leadPhotoCaption">The field of battle<br/><br/></span>
             </div>
-            
+
             <h2>tomek takes Room 1... but barely</h2>
 
             <a href="/tc?module=MemberProfile&cr=299177"><img src="/i/m/vorthys_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/></a>
@@ -59,32 +59,32 @@
             introduction by lbackstrom<br/><br/></p>
 
 <p>
-All eyes were on Room 1, as top seeded tomek sought to represent and 
-crush the competition.  According to radeye's odds, tomek had about a 57% 
-chance of winning this room.  But, confident as ever, tomek said the night 
-before that he estimated his probability of advancing at 95%.  As the room 
-started, all 8 competitors opened the easy problem.  Ruberik, the only Java 
-coder in the round, was first to submit, but he was quickly followed by 5 other 
-coders in the next 6 minutes.  bstanescu moved on to the hard problem, a 
-strategy that paid off for him in the last TCO.  All other competitors opened 
-the 500 first.  At the half way mark, everyone had submitted the easy problem, 
-and only Polish competitors had submitted the medium, with tomek leading Eryx 
+All eyes were on Room 1, as top seeded tomek sought to represent and
+crush the competition.  According to radeye's odds, tomek had about a 57%
+chance of winning this room.  But, confident as ever, tomek said the night
+before that he estimated his probability of advancing at 95%.  As the room
+started, all 8 competitors opened the easy problem.  Ruberik, the only Java
+coder in the round, was first to submit, but he was quickly followed by 5 other
+coders in the next 6 minutes.  bstanescu moved on to the hard problem, a
+strategy that paid off for him in the last TCO.  All other competitors opened
+the 500 first.  At the half way mark, everyone had submitted the easy problem,
+and only Polish competitors had submitted the medium, with tomek leading Eryx
 by 27 points.
 <br/><br/>
-After a little while, a few competitors gave up on the medium, and moved on to 
-a brutal hard problem.  lars was among them, but then had an epiphany and went 
-back to submit the medium problem, placing him in third.  About an hour into the 
-coding phase, tomek psyched out the other competitors, submitting the hard 
-problem, despite the fact that he had hardly tested it.  The final submissions 
-of the round came when AdrianKuegel submitted the medium, and then 
+After a little while, a few competitors gave up on the medium, and moved on to
+a brutal hard problem.  lars was among them, but then had an epiphany and went
+back to submit the medium problem, placing him in third.  About an hour into the
+coding phase, tomek psyched out the other competitors, submitting the hard
+problem, despite the fact that he had hardly tested it.  The final submissions
+of the round came when AdrianKuegel submitted the medium, and then
 resubmitted it.
 <br/><br/>
-During the challenge phase, everyone searched through the problems, hoping 
-to pick up an extra 50 points.  But no one had the guts to challenge, and going 
-into the system tests, tomek was in the lead with all three problems, while Eryx 
-and lars were in second and third.<br/><br/>Surprising no one, tomek's hard 
-problem failed, but his other two held up, and he advanced to the final round.  
-Eryx and lars took second and third, and must compete again in the Wildcard 
+During the challenge phase, everyone searched through the problems, hoping
+to pick up an extra 50 points.  But no one had the guts to challenge, and going
+into the system tests, tomek was in the lead with all three problems, while Eryx
+and lars were in second and third.<br/><br/>Surprising no one, tomek's hard
+problem failed, but his other two held up, and he advanced to the final round.
+Eryx and lars took second and third, and must compete again in the Wildcard
 Room later tonight.  Good luck to all the competitors in the next rooms.
 </p>
 
@@ -110,7 +110,7 @@ You can fill in the table using four nested loops:
               if T[w-d,v-value(c)] then
                  T[w,v] = true
 </pre>
-There are <i>many</i> possible variations on these loops.  
+There are <i>many</i> possible variations on these loops.
 For example, you can reorder the loops at will, as long as you keep
 the <tt>d</tt> loop inside the <tt>c</tt> loop.  Each ordering of the loops
 suggests different possible optimizations, some of which get rid of the
@@ -121,8 +121,8 @@ the constraints were small enough that no optimizations were needed.
 <h1>StackMachine</h1>
 
 <p>
-At its heart, this is a problem about Sethi-Ullman numbering, which is an 
-algorithm commonly used in compilers to determine how many registers you 
+At its heart, this is a problem about Sethi-Ullman numbering, which is an
+algorithm commonly used in compilers to determine how many registers you
 need to evaluate an arithmetic expression.  The number of registers used
 in a register machine is the same as the number of stack slots used in a stack
 machine (ignoring the inconvenient fact that most real machines have only a
@@ -130,25 +130,25 @@ small number of registers).
 </p>
 
 <p>
-To apply Sethi-Ullman numbering, you need to know the shape of the 
+To apply Sethi-Ullman numbering, you need to know the shape of the
 expression tree, which you can reconstruct by parsing the input string.
-Sethi-Ullman numbering calculates the cost of an expression <tt>e</tt> 
+Sethi-Ullman numbering calculates the cost of an expression <tt>e</tt>
 as follows.
 <pre>
    function minCost(e) is
       if e is a leaf then return 1
-      else 
-// e is a binary operator applied to a 
+      else
+// e is a binary operator applied to a
 // left argument and a right argument
          lcost = minCost(left argument of e)
          rcost = minCost(right argument of e)
 // cost without swap (left then right)
-         return min( max(lcost,1+rcost),   
+         return min( max(lcost,1+rcost),
 // cost with swap (right then left)
-                     max(rcost,1+lcost) )  
+                     max(rcost,1+lcost) )
 </pre>
 The minimum and the maximums in the return statement have the effect
-of returning the bigger of <tt>lcost</tt> and <tt>rcost</tt>, 
+of returning the bigger of <tt>lcost</tt> and <tt>rcost</tt>,
 unless they are equal,
 in which case you return <tt>1+lcost</tt> (or, equivalently, <tt>1+rcost</tt>).
 In essence, you want to do the left side first if <tt>lcost</tt> is
@@ -163,18 +163,18 @@ This can be expressed recursively as
 <pre>
    function minSwaps(e,cost) is
 // can't achieve the given cost
-      if cost == 0 then return &infin;    
+      if cost == 0 then return &infin;
 // no swaps needed
-      if e is a leaf then return 0  
-// e is a binary operator applied to a 
+      if e is a leaf then return 0
+// e is a binary operator applied to a
 // left argument and a right argument
-      else 
+      else
          a = left argument of e
          b = right argument of e
 // without swap (left then right)
-         return min( minSwaps(a,cost) + minSwaps(b,cost-1),      
+         return min( minSwaps(a,cost) + minSwaps(b,cost-1),
 // with swap (right then left)
-                     1 + minSwaps(b,cost) + minSwaps(a,cost-1) ) 
+                     1 + minSwaps(b,cost) + minSwaps(a,cost-1) )
 </pre>
 However, this version of <tt>minSwaps</tt> is inefficient because it
 repeatedly calls itself on the same subexpressions with the same costs.

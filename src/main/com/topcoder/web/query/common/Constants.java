@@ -1,6 +1,7 @@
 package com.topcoder.web.query.common;
 
 import com.topcoder.web.query.bean.DatabaseBean;
+import com.topcoder.shared.util.DBMS;
 
 import javax.servlet.ServletConfig;
 import java.util.ArrayList;
@@ -169,12 +170,12 @@ public class Constants {
         REMOVE_STEP = servletConfig.getInitParameter("remove_step");
 
         DB_LIST = new ArrayList();
-        DB_LIST.add(new DatabaseBean("DW", "Data Warehouse"));
-        DB_LIST.add(new DatabaseBean("OLTP", "Transactional"));
-        DB_LIST.add(new DatabaseBean("TCS_CATALOG", "TCS Catalog"));
-        DB_LIST.add(new DatabaseBean("TCS_DW", "TCS Warehouse"));
-        DB_LIST.add(new DatabaseBean("CORP_DS", "Corporate"));
-        DB_LIST.add(new DatabaseBean("SCREENING_OLTP", "Screening"));
+        DB_LIST.add(new DatabaseBean(DBMS.DW_DATASOURCE_NAME, "Data Warehouse"));
+        DB_LIST.add(new DatabaseBean(DBMS.OLTP_DATASOURCE_NAME, "Transactional"));
+        DB_LIST.add(new DatabaseBean(DBMS.TCS_OLTP_DATASOURCE_NAME, "TCS Catalog"));
+        DB_LIST.add(new DatabaseBean(DBMS.TCS_DW_DATASOURCE_NAME, "TCS Data Warehouse"));
+        DB_LIST.add(new DatabaseBean(DBMS.CORP_OLTP_DATASOURCE_NAME, "Corporate"));
+        DB_LIST.add(new DatabaseBean(DBMS.SCREENING_OLTP_DATASOURCE_NAME, "Screening"));
         DB_LIST.add(new DatabaseBean("GOOGLE_OLTP", "Google"));
         DB_LIST.add(new DatabaseBean("GOOGLE_DW", "Google DW"));
         DB_LIST.add(new DatabaseBean("GOOGLE_INDIA_OLTP", "Google India"));

@@ -3,6 +3,10 @@ package com.topcoder.web.common;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.security.WebAuthentication;
 
 import java.io.Serializable;
@@ -24,6 +28,8 @@ public class SessionInfo implements Serializable {
     private String requestString = null;
     private Date date = null;
     private boolean isLoggedIn = false;
+    private int memberCount;
+
     /** group may be:
      * 'G' guest
      * 'A' admin
@@ -59,8 +65,17 @@ public class SessionInfo implements Serializable {
         absoluteServletPath = request.getServerName() + servletPath;
 
         isLoggedIn = !authentication.getUser().isAnonymous();
-        //log.debug("servername: " + getServerName() + " servletpath:" + getServletPath() + " query: " +
-        //        getQueryString() + " request: " + getRequestString());
+
+        if (log.isDebugEnabled()) {
+            log.debug("servername: " + getServerName() + " servletpath:" + getServletPath() + " query: " +
+                    getQueryString() + " request: " + getRequestString());
+        }
+        CachedDataAccess countDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
+        countDai.setExpireTime(15 * 60 * 1000);
+        Request countReq = new Request();
+        countReq.setContentHandle("member_count");
+        memberCount = ((ResultSetContainer) countDai.getData(countReq).get("member_count")).getIntItem(0, "member_count");
+
     }
 
 
@@ -117,6 +132,11 @@ public class SessionInfo implements Serializable {
     public Date getDate() {
         return date;
     }
+
+    public int getMemberCount() {
+        return memberCount;
+    }
+
 
     protected Set pruneGroups(Set groups) {
         Set groupnames = new HashSet();

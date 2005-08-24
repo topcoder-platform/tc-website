@@ -4,7 +4,7 @@
 <head>
 <title>Algorithm Tutorials</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 <style type="text/css">
     .code
 {
@@ -25,7 +25,7 @@
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -33,7 +33,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="education"/>
                 <jsp:param name="level2" value="alg_tutorials"/>
             </jsp:include>
@@ -44,7 +44,7 @@
          <td width="100%" align="center">
 
          <div class="tutorBodyFull">
-            
+
             <h2>How To Dissect a TopCoder Problem Statement</h2>
 
 			<p>
@@ -59,14 +59,14 @@ Planning an approach is a finicky art; it can stump the most seasoned coders as 
 <span class=bodySubtitle>Pattern Mining and the Wrong Mindset</span><br/>
 It is easy to fall into the trap of looking at the algorithm competition as a collection of diverse yet classifiable story problems. For those that have done a lot of story problems, you know that there are a limited number of forms of problems (especially in classes where the professor tends to be repetitious), and when you read a problem in a certain form, your mind says, "Oh, this is an X problem, so I find the numbers that fit the problem and plug and chug." There are many times when this kind of pattern mining pays off; after a number of TopCoder Single Round Matches, most coders will recognize a set of common themes and practice against them, and this method of problem attack can be successful for many matches.
 <br/><br/>
-However, this approach is perilous. There are times when you skim the problem statement and assume it's of type Q, then start coding and discover that your code passes none of the examples. That's when you reread the problem and find out that this problem is unique to your experience. At that point, you are paralyzed by your practice; being unable to fit any of your problem types to the problem you are unable to proceed. You'll see this often when there's a really original problem that comes down the pipe, and a lot of seasoned coders fail the problem because they are blinded by their experience. 
+However, this approach is perilous. There are times when you skim the problem statement and assume it's of type Q, then start coding and discover that your code passes none of the examples. That's when you reread the problem and find out that this problem is unique to your experience. At that point, you are paralyzed by your practice; being unable to fit any of your problem types to the problem you are unable to proceed. You'll see this often when there's a really original problem that comes down the pipe, and a lot of seasoned coders fail the problem because they are blinded by their experience.
 <br/><br/>
 Pattern mining encourages this kind of mindset that all of the problem concepts have been exhausted, when in reality this is impossible. Only by unlearning what you have learned (to quote a certain wise old green midget) and by relearning the techniques of critical thought needed to plan an approach can your rating sustainably rise.
 <br/><br/>
 <span class=bodySubtitle>Coding Kata</span><br/>
 Here's your first exercise: take any problem in the Practice Rooms that you haven't done. Fight through it, no matter how long it takes, and figure it out (use the editorial from the competition as a last resort). Get it to pass system tests, and then note how long you took to solve it. Next, clear your solution out, and try to type it in again (obviously cutting and pasting will ruin the effect). Again, get it to pass system tests. Note how long it took you to finish the second time. Then, clear it out and do the problem a third time, and again get it to pass system tests. Record this final time.
 <br/><br/>
-The time it takes for your first pass is how long it takes you when you have no expectations of the problem and no approach readily in mind. Your time on the second pass is usually the first time minus the amount of time it took you to understand the problem statement. (Don't be surprised at the number of bugs you'll repeat in the second pass.) That final recorded time is your potential, for you can solve it this fast in competition if you see the correct approach immediately after reading it. Let that number encourage you; it really is possible to solve some of these problems this quickly, even without super fast typing ability. But what you should also learn from the third pass is the feeling that you knew a working strategy, how the code would look, where you would tend to make the mistakes, and so on. That's what it feels like to have the right approach, and that feeling is your goal for future problems in competition. 
+The time it takes for your first pass is how long it takes you when you have no expectations of the problem and no approach readily in mind. Your time on the second pass is usually the first time minus the amount of time it took you to understand the problem statement. (Don't be surprised at the number of bugs you'll repeat in the second pass.) That final recorded time is your potential, for you can solve it this fast in competition if you see the correct approach immediately after reading it. Let that number encourage you; it really is possible to solve some of these problems this quickly, even without super fast typing ability. But what you should also learn from the third pass is the feeling that you knew a working strategy, how the code would look, where you would tend to make the mistakes, and so on. That's what it feels like to have the right approach, and that feeling is your goal for future problems in competition.
 <br/><br/>
 In most martial arts, there's a practice called kata where the martial artist performs a scripted series of maneuvers in order, usually pretending to defend (or sometimes actually defending) against an onslaught of fighters, also scripted to come at the artist predictably. At first this type of practice didn't make any sense, because it didn't seem realistic to the chaotic nature of battle. Furthermore it seems to encourage the type of pattern mining mentioned in the previous section.  Only after triple-coding many problems for a while can one comprehend the true benefit of this coding kata.  The kata demonstrates to its practitioners the mental experience of having a plan, encouraging the type of discipline it takes to sit and think the problem through. This plan of attack is your approach, and it carries you through your coding, debugging, and submission.
 <br/><br/>
@@ -75,12 +75,12 @@ Now that you know what an approach feels like and what its contents are, you'll 
 <br/><br/>
 In some of the better match editorials there is a detailed description of one approach to solving the code. The next time you look at a match summary, and there is a good write-up of a problem, look for the actual steps and formation of the approach. You start to notice that there is a granularity in the steps, which suggests a method of cogitation. These grains of insight are approach tactics, or ways to formulate your approach, transform it, redirect it, and solidify it into code that get you closer to the solution or at least point you away from the wrong solution. When planning your approach, the idea is that you will use whatever approach tactics are at your disposal to decide on your approach, the idea being that you are almost prewriting the code in your head before you proceed. It's almost as if you are convincing yourself that the code you are about to write will work.
 <br/><br/>
-Coders with a math background may recognize this method of thinking, because many of these approach tactics are similar to proof writing techniques. Chess players may identify it with the use of tactics to look many moves ahead of the current one. Application designers may already be acquainted with this method when working with design patterns. In many other problem solving domains there is a similar parallel to this kind of taxonomy. 
+Coders with a math background may recognize this method of thinking, because many of these approach tactics are similar to proof writing techniques. Chess players may identify it with the use of tactics to look many moves ahead of the current one. Application designers may already be acquainted with this method when working with design patterns. In many other problem solving domains there is a similar parallel to this kind of taxonomy.
 <br/><br/>
 To practice this type of critical thinking and to decide your preferences among approach tactics, it is very useful to record the solutions to your problems, and to write up a post-SRM analysis of your own performance. Detail in words how each of your solutions work so that others could understand and reproduce the approach if they wanted to just from your explanations. Not only will writing up your approaches help you to understand your own thoughts while coding, but this kind of practice also allows you to critique your own pitfalls and work on them in a constructive manner. Remember, it is difficult to improve that which you don't understand.
 <br/><br/>
 <span class=bodySubtitle>Breaking Down a Problem</span><br/>
-Let's talk about one of the most common approach tactics: breaking down a problem. This is sometimes called top-down programming: the idea is that your code must execute a series of steps in order, and from simple decisions decide if other steps are necessary, so start by planning out what your main function needs before you think about how you'll do the subfunctions. This allows you to prototype the right functions on the fly (because you only code for what you need and no further), and also it takes your problem and fragments it into smaller, more doable parts. 
+Let's talk about one of the most common approach tactics: breaking down a problem. This is sometimes called top-down programming: the idea is that your code must execute a series of steps in order, and from simple decisions decide if other steps are necessary, so start by planning out what your main function needs before you think about how you'll do the subfunctions. This allows you to prototype the right functions on the fly (because you only code for what you need and no further), and also it takes your problem and fragments it into smaller, more doable parts.
 <br/><br/>
 A good example of where this approach is useful is in MatArith from Round 2 of the 2002 TopCoder Invitational. The problem requires you to evaluate an expression involving matrices. You know that in order to get to the numbers you'll need to parse them (because they're in String arrays) and pass those values into an evaluator, change it back into a String array and then you're done. So you'll need a print function, a parse function and a new calc function. Without thinking too hard, if you imaging having all three of these functions written already the problem could be solved in one line:
 
@@ -112,7 +112,7 @@ There may be a point where you hit a piece of atomic code that you are unable to
 <br/><br/>
 <A href="/tc?module=Static&d1=tutorials&d2=planApproach2">...continue to Section 2</A>
 </p>
-            
+
 
         </div>
         <p><br/></p>
@@ -121,7 +121,7 @@ There may be a point where you hit a piece of atomic code that you are unable to
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -133,7 +133,7 @@ There may be a point where you hit a piece of atomic code that you are unable to
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

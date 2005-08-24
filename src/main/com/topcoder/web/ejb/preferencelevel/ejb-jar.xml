@@ -1,28 +1,37 @@
 <?xml version="1.0"?>
 
 <!DOCTYPE ejb-jar PUBLIC
- '-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN'
- 'http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd'>
+      "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+      "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
 
 <ejb-jar>
+    <description>PreferenceLevel Jar</description>
+    <display-name>PreferenceLevel Jar</display-name>
     <enterprise-beans>
         <session>
+            <description>Preference Level EJB</description>
+            <display-name>preferencelevel.PreferenceLevel EJB</display-name>
             <ejb-name>PreferenceLevel</ejb-name>
             <home>com.topcoder.web.ejb.preferencelevel.PreferenceLevelHome</home>
             <remote>com.topcoder.web.ejb.preferencelevel.PreferenceLevel</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
             <ejb-class>com.topcoder.web.ejb.preferencelevel.PreferenceLevelBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
-            <transaction-type>Container</transaction-type>
         </session>
     </enterprise-beans>
     <assembly-descriptor>
         <container-transaction>
             <method>
                 <ejb-name>PreferenceLevel</ejb-name>
-                <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
             <trans-attribute>Required</trans-attribute>
         </container-transaction>
     </assembly-descriptor>
 </ejb-jar>
+
+

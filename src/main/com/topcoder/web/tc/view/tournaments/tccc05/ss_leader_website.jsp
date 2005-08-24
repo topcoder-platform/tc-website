@@ -4,7 +4,7 @@
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
           java.util.Map,com.topcoder.web.tc.controller.legacy.stat.common.JSPUtils"
 %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -40,7 +40,7 @@ H3 { font-size: 125%; }
 }
 
 .problem
-{ 
+{
 	font-size: 20px;
 	font-weight: bold;
 	text-decoration: none;
@@ -49,32 +49,32 @@ H3 { font-size: 125%; }
 }
 
 .spacer
-{ 
+{
     padding: 10px;
     background-color: #FFFFFF;
 }
 
 .leaderTable
-{ 
-    background-color: #EEEEEE;	
+{
+    background-color: #EEEEEE;
     vertical-align: top;
 }
 
 .leaderParentL
-{ 
-    border: 1px solid #7A7A89; 
+{
+    border: 1px solid #7A7A89;
 }
 
 .leaderParentR
-{ 
-    border-top: 1px solid #7A7A89; 
-    border-bottom: 1px solid #7A7A89; 
-    border-right: 1px solid #7A7A89; 
+{
+    border-top: 1px solid #7A7A89;
+    border-bottom: 1px solid #7A7A89;
+    border-right: 1px solid #7A7A89;
 }
 
 .leaderTitle
-{ 
-    background-color: #7A7A89;	
+{
+    background-color: #7A7A89;
 	color: #FFFFFF;
 	font-size: 17px;
 	font-weight: bold;
@@ -86,9 +86,9 @@ H3 { font-size: 125%; }
 	padding-right: 5px;
 }
 
-.leaderHeader 
-{ 
-    background-color: #CCCCCC;	
+.leaderHeader
+{
+    background-color: #CCCCCC;
 	color: #333333;
 	font-size: 17px;
 	font-weight: bold;
@@ -159,7 +159,7 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_tccc05
 <!-- Body-->
 	<tr valign=top>
 		<td valign=top align=center>
-            
+
             <table class="leaderTable" cellspacing=0 cellpadding=0 align=center width="95%">
                 <tr><td class=problem colspan=5 align=right><p class=bodyText><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=ss_description">back to the Spectator Showdown details</A>
 				</p></td></tr>
@@ -172,7 +172,7 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_tccc05
                     <td valign=top class="leaderParentL" style="border-collapse: collapse" width="25%">
 
 <%-- Problem A Leaders --%>
-                            
+
                         <table cellspacing=0 align=center width="100%">
                             <tr>
                                 <td class="leaderTitle" colspan="2" nowrap=nowrap>Current Leaders</td>
@@ -203,7 +203,7 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_tccc05
                                 <td class="leaderHeader">Handle</td>
                                 <td class="leaderHeader" align="right">Score</td>
                             </tr>
-                             <rsc:iterator list="<%=rscRecentA%>" id="Row" > 
+                             <rsc:iterator list="<%=rscRecentA%>" id="Row" >
                                 <tr>
                                     <td class="leaderCell"><%=JSPUtils.htmlEncode(Row.getStringItem("handle"))%></td>
                                     <td class="leaderCell" align="right"><rsc:item name='points' row='<%=Row%>' format="0.00"/></td>
@@ -260,10 +260,10 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_tccc05
 
 		</td>
 	</tr>
-	
+
 </table>
-	
-	
+
+
 
 
 <jsp:include page="../../foot.jsp" />

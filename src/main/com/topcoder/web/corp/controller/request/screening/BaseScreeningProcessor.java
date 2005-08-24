@@ -49,8 +49,9 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
             log.debug("USAGE TYPE:" + usageType.longValue());
             usage = usageType.longValue();
 
-            //maybe set attribute here?
-            loadTimeZoneInfo();
+            if (!getUser().isAnonymous()) {
+                loadTimeZoneInfo();
+            }
             getRequest().setAttribute(Constants.USAGE_TYPE, usageType);
 
             screeningProcessing();

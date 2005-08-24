@@ -29,11 +29,11 @@
 <!-- Left Column ends -->
 
 <!-- Gutter 1 begins -->
-        <td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+        <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
 <!-- Gutter 1 ends -->
 
 <!-- Middle Column begins -->
-        <td width="100%"><img src="images/clear.gif" width="400" height="11" alt="" border="0"><br>
+        <td width="100%"><img src="/images/clear.gif" width="400" height="11" alt="" border="0"><br>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td class="bodyText" width="100%">
@@ -53,7 +53,7 @@
                 <tr valign="middle"><html:form action="/login" focus="username">
                     <td align="center">
                         <table border="0" cellpadding="3" cellspacing="0">
-                           <tr><td colspan="3"><img src="images/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
+                           <tr><td colspan="3"><img src="/images/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
 <logic:present name="<%=Action.ERROR_KEY%>">
 <!-- User Name Error Text -->
                             <tr valign="middle">
@@ -73,7 +73,7 @@
                                 <td nowrap class="loginText">&#160;&#160;<a href="JavaScript:document.forms[formName].submit()" class="loginText">Login&#160;&gt;</a></td>
                             </tr>
 
-                           <tr><td colspan="3"><img src="images/clear.gif" width="10" height="3" alt="" border="0"></td></html:form></tr>
+                           <tr><td colspan="3"><img src="/images/clear.gif" width="10" height="3" alt="" border="0"></td></html:form></tr>
                         </table>
                     </td>
                 </tr>
@@ -87,19 +87,19 @@
 <!--Middle Column ends -->
 
 <!-- Gutter 2 begins -->
-        <td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+        <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
 <!-- Gutter 2 ends -->
 
 <!-- Right Column begins -->
         <td width="170">
             <table border="0" cellpadding="0" cellspacing="0">
-                <tr><td height="15"><img src="images/clear.gif" alt="" width="170" height="15" border="0" /></td></tr>
+                <tr><td height="15"><img src="/images/clear.gif" alt="" width="170" height="15" border="0" /></td></tr>
             </table>
         </td>
 <!--Right Column ends -->
 
 <!-- Gutter 3 begins -->
-        <td width="10"><img src="images/clear.gif" alt="" width="10" height="10" border="0" /></td>
+        <td width="10"><img src="/images/clear.gif" alt="" width="10" height="10" border="0" /></td>
 <!-- Gutter 3 ends -->
     </tr>
 </table>

@@ -9,7 +9,7 @@
 
 </HEAD>
 
-<jsp:useBean id="candidateInfo" class="com.topcoder.web.corp.model.CandidateInfo" />
+<jsp:useBean id="candidateInfo" class="com.topcoder.web.corp.model.CandidateInfo" scope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <body onLoad="document.note.<%=Constants.NOTE_TEXT%>.focus()">
@@ -78,7 +78,7 @@
     </tr>
 </table>
 
-  <jsp:include page="../../foot.jsp" />
+  <jsp:include page="/foot.jsp" />
 
 </body>
 </html>

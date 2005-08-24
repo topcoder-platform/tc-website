@@ -3,7 +3,7 @@
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%
     ResultSetContainer rsc = (ResultSetContainer)
             ((Map)request.getAttribute("QUERY_RESPONSE")).get("top_designers");
@@ -52,7 +52,7 @@
                  </TR>
                  <TR>
                    <TD CLASS="statText" HEIGHT="16" COLSPAN="6" ALIGN="center">
-                     To find out more about this page, click <A href="javascript:infoWindow('/tc?&amp;module=Static&amp;d1=statistics&amp;d2=info&amp;d3=topRatedDesigners')" class="statTextBig"><img src="/i/icon_help_blue.gif" alt="?" width="15" height="11" border="0"/></A>
+                     To find out more about this page, click <A href="javascript:infoWindow('/tc?amp;module=Static&amp;d1=statistics&amp;d2=info&amp;d3=topRatedDesigners')" class="statTextBig"><img src="/i/icon_help_blue.gif" alt="?" width="15" height="11" border="0"/></A>
                    </TD>
                  </TR>
                  <TR>

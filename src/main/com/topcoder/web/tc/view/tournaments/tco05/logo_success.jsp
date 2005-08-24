@@ -7,9 +7,9 @@
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 
 <style type="text/css">
-.pageSpacer 
-{ 
-   width: 510px; 
+.pageSpacer
+{
+   width: 510px;
 	padding: 15px 0px 10px 0px;
    text-align: left;
 }
@@ -31,7 +31,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -57,7 +57,7 @@
             <br><br>
             <span class="bodySubtitle">Logo submission</span><br>
             Your logo design has been successfully sent to TopCoder for review.  Thank you, and feel free to send us more submissions.
-           
+
          </div>
 
          <p><br/></p>

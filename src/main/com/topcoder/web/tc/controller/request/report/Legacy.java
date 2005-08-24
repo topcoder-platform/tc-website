@@ -7,8 +7,6 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
 import com.topcoder.web.tc.controller.request.Base;
-
-import javax.servlet.http.HttpUtils;
 import java.util.*;
 
 /**
@@ -42,7 +40,7 @@ public class Legacy extends Base {
                     getRequest().setAttribute(Constants.PROCESSED_KEY, new Boolean(true));
                 } else if (task.equals(Constants.NEW_REPORT_KEY)) {
                     Request dataRequest = null;
-                    dataRequest = new Request(HttpUtils.parseQueryString(getRequest().getQueryString()));
+                    dataRequest = new Request(getRequest().getParameterMap());
                     if (dataRequest.getContentHandle() == null || dataRequest.getContentHandle().equals("")) {
                         response_addr = Constants.NEW_REPORT_HOME_ADDR;
                     } else {

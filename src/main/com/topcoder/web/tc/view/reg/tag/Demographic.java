@@ -31,7 +31,7 @@ public class Demographic
 
     Iterator demo;
 
-    private String ccsclass;
+    private String styleClass;
     private boolean optional;
     private int size;
     private boolean selectedOnly;
@@ -48,15 +48,15 @@ public class Demographic
         DECLINE.setDemographicAnswerText("Decline to Answer");
         coderType = DEFAULT_CODER_TYPE;
         demo = null;
-        ccsclass = null;
+        styleClass = null;
         optional = false;
         size = 1;
         selectedOnly = false;
         selectedValues = null;
     }
 
-    public void setClass(String ccsclass) {
-        this.ccsclass = ccsclass;
+    public void setStyleClass(String ccsclass) {
+        this.styleClass = ccsclass;
     }
 
     public void setOptional(String optional) {
@@ -121,7 +121,7 @@ public class Demographic
             pageContext.setAttribute(QUESTION, question.getDemographicQuestionText(), PageContext.PAGE_SCOPE);
             pageContext.setAttribute(ANSWER, answer, PageContext.PAGE_SCOPE);
             pageContext.setAttribute(DESCRIPTION, description, PageContext.PAGE_SCOPE);
-            return EVAL_BODY_TAG;
+            return EVAL_BODY_AGAIN;
         } else {
             if (bodyContent != null && bodyContent.getEnclosingWriter() != null) {
                 try {
@@ -225,8 +225,8 @@ public class Demographic
             s.append(selectedKey);
             s.append("\"");
         }
-        if (ccsclass != null) {
-            s.append(" class=\"" + ccsclass + "\"");
+        if (styleClass != null) {
+            s.append(" class=\"" + styleClass + "\"");
         }
         if (valueText != null) {
             s.append(" value=\"");
@@ -255,9 +255,9 @@ public class Demographic
             s.append(selectedKey);
             s.append("\"");
         }
-        if (ccsclass != null) {
+        if (styleClass != null) {
             s.append(" class=\"");
-            s.append(ccsclass);
+            s.append(styleClass);
             s.append("\"");
         }
         if (multiple && size > 1) {

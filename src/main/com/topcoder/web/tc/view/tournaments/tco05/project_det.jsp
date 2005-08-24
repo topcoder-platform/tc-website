@@ -1,7 +1,7 @@
 <%@  page language="java"  %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  java.util.Map,
-                 com.topcoder.shared.dataAccess.DataAccessConstants, 
+                 com.topcoder.shared.dataAccess.DataAccessConstants,
                  com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.tc.model.TCCC05ProjectDetail,
                  java.util.List"%>
@@ -13,7 +13,7 @@
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 </head>
 <body>
@@ -60,7 +60,7 @@ else
                 <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
                             <tr>
                                 <td class=usdcTitle><A class= usdcTitle href="/tc?module=TCO05ContestDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></A> - <A class="usdcTitle" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>"><rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/></A>
-                                <%if(!isComplete) {%>*<%}%></td> 
+                                <%if(!isComplete) {%>*<%}%></td>
                             </tr>
                         </table>
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
@@ -71,7 +71,7 @@ else
                                 <td class="sidebarTitle" align=center>Placement Points</td>
                                 <td class="sidebarTitle" align=center>Score</td>
                                 <td class="sidebarTitle" align=right>Prizes</td>
-                            </tr>                           
+                            </tr>
                             <%for(int i = 0; i < lst.size(); i++) { %>
                             <tr>
                                 <% TCCC05ProjectDetail result = (TCCC05ProjectDetail)lst.get(i); %>
@@ -93,23 +93,23 @@ else
                         <% } %>
                         <br/>
 
-            
+
         </div>
 		</td>
-        
-         
+
+
 <!-- Right Column-->
         <td width=170 align=right>
             <jsp:include page="../../public_right.jsp">
             <jsp:param name="level1" value="tco05"/>
             </jsp:include>
          </td>
-		
+
 	</tr>
-	
+
 </table>
-	
-	
+
+
 
 
 <jsp:include page="../../foot.jsp" />

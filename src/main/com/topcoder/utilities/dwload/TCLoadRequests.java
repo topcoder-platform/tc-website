@@ -463,7 +463,7 @@ public class TCLoadRequests extends TCLoad {
         otherPageNameMap.put("/query/query", "Query Tool");
         otherPageNameMap.put("/Registration", "Registration");
         otherPageNameMap.put("/corp/", "Corporate Home Page");
-        otherPageNameMap.put("/corp/testing/", "Technical Assessment Home");
+        otherPageNameMap.put("/corp/testing", "Technical Assessment Home");
     }
 
 

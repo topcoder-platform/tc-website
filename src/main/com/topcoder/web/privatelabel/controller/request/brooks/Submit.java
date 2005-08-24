@@ -1,5 +1,7 @@
 package com.topcoder.web.privatelabel.controller.request.brooks;
 
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -7,7 +9,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
-import com.topcoder.shared.util.Transaction;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
@@ -26,11 +27,10 @@ import com.topcoder.web.privatelabel.controller.request.FullRegSubmit;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.ResumeRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.UserPrincipal;
 
 import javax.rmi.PortableRemoteObject;
-import javax.transaction.UserTransaction;
+import javax.transaction.TransactionManager;
+import javax.transaction.Status;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -67,13 +67,13 @@ public class Submit extends FullRegSubmit {
     }
 
     protected long commit(SimpleRegInfo regInfo) throws TCWebException {
-        UserTransaction tx = null;
 
         long ret = 0;
         UserPrincipal newUser = null;
+        TransactionManager tm = null;
         try {
-            tx = Transaction.get();
-            Transaction.begin(tx);
+            tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+            tm.begin();
 
             PrincipalMgrRemote mgr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
             newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
@@ -82,12 +82,12 @@ public class Submit extends FullRegSubmit {
             regInfo.setUserId(newUser.getId());
 
             ret = store(regInfo);
-            Transaction.commit(tx);
+            tm.commit();
         } catch (Exception e) {
             Exception ex = null;
             try {
-                if (tx != null) {
-                    Transaction.rollback(tx);
+                if (tm != null && tm.getStatus()==Status.STATUS_ACTIVE) {
+                    tm.rollback();
                 }
             } catch (Exception x) {
                 throw new TCWebException(e);
@@ -96,6 +96,7 @@ public class Submit extends FullRegSubmit {
             try {
                 //since we don't have a transaction spanning the security
                 //stuff, attempt to remove this newly created user manually
+                //todo perhaps we can wack this since we're on jboss and the transaction should span
                 if (newUser != null && newUser.getId() > 0 && regInfo.isNew()) {
                     PrincipalMgrRemote mgr = (PrincipalMgrRemote)
                             com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);

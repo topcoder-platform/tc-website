@@ -72,7 +72,7 @@ final class UserDbCoder {
             Country country = coder.getHomeCountry();
             Editor editorType = coder.getEditor();
             ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, coder.getCoderId());
+            ps.setLong(1, coder.getCoderId());
             ps.setString(2, coder.getFirstName());
             ps.setString(3, coder.getLastName());
             ps.setString(4, coder.getMiddleName());
@@ -202,9 +202,9 @@ final class UserDbCoder {
         String query = "INSERT INTO coder_referral (coder_id, referral_id, reference_id, other) VALUES (?, ?, ?, ?)";
         try {
             ps = conn.prepareStatement(query);
-            ps.setInt(1, coderReferral.getCoderId());
+            ps.setLong(1, coderReferral.getCoderId());
             ps.setInt(2, coderReferral.getReferral().getReferralId());
-            ps.setInt(3, coderReferral.getReferenceId());
+            ps.setLong(3, coderReferral.getReferenceId());
             ps.setString(4, coderReferral.getOther());
             int RetVal = ps.executeUpdate();
             coderReferral.setModified("S");
@@ -238,13 +238,13 @@ final class UserDbCoder {
     }
 
 
-    private static void insertCoderNotify(Connection conn, int coderId, int notifyId) throws TCException {
+    private static void insertCoderNotify(Connection conn, long coderId, int notifyId) throws TCException {
         log.debug("ejb.User.UserDbCoder:insertCoderNotify():called. coder: " + coderId + " notify: " + notifyId);
         PreparedStatement ps = null;
         String query = "INSERT INTO coder_notify (coder_id, notify_id) VALUES (?, ?)";
         try {
             ps = conn.prepareStatement(query);
-            ps.setInt(1, coderId);
+            ps.setLong(1, coderId);
             ps.setInt(2, notifyId);
             ps.executeUpdate();
         } catch (SQLException sqe) {
@@ -272,7 +272,7 @@ final class UserDbCoder {
                 " VALUES (?, ?, ?, ?, ?, ?)";
         try {
             ps = conn.prepareStatement(query);
-            ps.setInt(1, currentSchool.getUserId());
+            ps.setLong(1, currentSchool.getUserId());
             ps.setInt(2, currentSchool.getSchoolId());
             ps.setString(3, currentSchool.getName());
             if (currentSchool.getGpa() > 0 || currentSchool.getGpaScale() > 0) {
@@ -334,7 +334,7 @@ final class UserDbCoder {
         query.append(" )");
         try {
             ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, rating.getCoderId());
+            ps.setLong(1, rating.getCoderId());
             ps.setInt(2, rating.getRoundId());
             ps.setInt(3, rating.getRating());
             if (rating.getLastRatedEvent() == null) {
@@ -387,7 +387,7 @@ final class UserDbCoder {
         /**************************************************************/
         try {
             ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, demographicResponse.getCoderId());
+            ps.setLong(1, demographicResponse.getCoderId());
             ps.setInt(2, demographicResponse.getDemographicQuestionId());
             ps.setInt(3, demographicResponse.getDemographicAnswerId());
             ps.setString(4, demographicResponse.getDemographicResponseText());
@@ -489,8 +489,10 @@ final class UserDbCoder {
         PreparedStatement ps = null;
         try {
             if (coder.getModified().equals("A")) {
+                log.debug("insert");
                 insertCoder(conn, coder);
             } else {
+                log.debug("update " + coder.getModified());
                 if (coder.getModified().equals("U")) {
                     StringBuffer query = new StringBuffer(540);
                     query.append(" UPDATE");
@@ -535,6 +537,7 @@ final class UserDbCoder {
                     ps.setString(9, coder.getHomeZip());
                     ps.setString(10, coder.getWorkPhone());
                     ps.setString(11, coder.getHomePhone());
+                    log.debug("set activation code to " + coder.getActivationCode());
                     ps.setString(12, coder.getActivationCode());
                     ps.setString(13, coder.getNotify());
                     ps.setString(14, coder.getQuote());
@@ -542,7 +545,7 @@ final class UserDbCoder {
                     ps.setInt(16, coder.getLanguage().getLanguageId());
                     ps.setInt(17, coder.getCoderType().getCoderTypeId());
                     ps.setString(18, coder.getCompCountry().getCountryCode());
-                    ps.setInt(19, coder.getCoderId());
+                    ps.setLong(19, coder.getCoderId());
                     int RetVal = ps.executeUpdate();
                     if (RetVal != 1) {
                         throw new TCException(
@@ -633,7 +636,7 @@ final class UserDbCoder {
             String query = "DELETE FROM coder_notify WHERE coder_id = ?";
             /**************************************************************/
             ps = conn.prepareStatement(query);
-            ps.setInt(1, coder.getCoderId());
+            ps.setLong(1, coder.getCoderId());
             ps.executeUpdate();
             ArrayList notifications = coder.getNotifications();
             if (notifications.size() == 0) {
@@ -676,10 +679,10 @@ final class UserDbCoder {
                 String query = "UPDATE coder_referral SET reference_id = ?, referral_id=?, other=? WHERE coder_id=?";
                 /**************************************************************/
                 ps = conn.prepareStatement(query);
-                ps.setInt(1, coderReferral.getReferenceId());
+                ps.setLong(1, coderReferral.getReferenceId());
                 ps.setInt(2, coderReferral.getReferral().getReferralId());
                 ps.setString(3, coderReferral.getOther());
-                ps.setInt(4, coderReferral.getCoderId());
+                ps.setLong(4, coderReferral.getCoderId());
                 int retVal = ps.executeUpdate();
                 if (retVal != 1) {
                     log.error("coder: "
@@ -718,7 +721,7 @@ final class UserDbCoder {
             String query = "SELECT 1 FROM current_school WHERE coder_id=?";
             /**************************************************************/
             ps = conn.prepareStatement(query);
-            ps.setInt(1, currentSchool.getUserId());
+            ps.setLong(1, currentSchool.getUserId());
             rs = ps.executeQuery();
             ps.clearParameters();
             if (rs.next()) {
@@ -740,7 +743,7 @@ final class UserDbCoder {
                     ps.setNull(4, Types.FLOAT);
                 }
                 ps.setInt(5, currentSchool.isViewable()?1:0);
-                ps.setInt(6, currentSchool.getUserId());
+                ps.setLong(6, currentSchool.getUserId());
                 ps.executeUpdate();
                 currentSchool.setModified("S");
             } else {
@@ -797,7 +800,7 @@ final class UserDbCoder {
                     query.append(" AND demographic_answer_id=?");
                     ps = conn.prepareStatement(query.toString());
                     ps.setString(1, demographicResponse.getDemographicResponseText());
-                    ps.setInt(2, demographicResponse.getCoderId());
+                    ps.setLong(2, demographicResponse.getCoderId());
                     ps.setInt(3, demographicResponse.getDemographicQuestionId());
                     ps.setInt(4, demographicResponse.getDemographicAnswerId());
                     int RetVal = ps.executeUpdate();
@@ -811,7 +814,7 @@ final class UserDbCoder {
                     ps = conn.prepareStatement(query);
                     ps.setInt(1, demographicResponse.getDemographicQuestionId());
                     ps.setInt(2, demographicResponse.getDemographicAnswerId());
-                    ps.setInt(3, demographicResponse.getCoderId());
+                    ps.setLong(3, demographicResponse.getCoderId());
                     int retVal = ps.executeUpdate();
                     if (retVal != 1) {
                         log.error("q=" + demographicResponse.getDemographicQuestionId());
@@ -864,7 +867,7 @@ final class UserDbCoder {
                 ps.setInt(2, cr.getRating());
                 ps.setDate(3, cr.getLastRatedEvent());
                 ps.setInt(4, cr.getNumRatings());
-                ps.setInt(5, cr.getCoderId());
+                ps.setLong(5, cr.getCoderId());
                 int RetVal = ps.executeUpdate();
                 if (RetVal != 1) {
                     throw new TCException("ejb.User.UserDbCoder:updateRating():failed.");
@@ -872,7 +875,7 @@ final class UserDbCoder {
             } else if (modifiedFlag.equals("D")) {
                 query.append("DELETE FROM rating WHERE coder_id=?");
                 ps = conn.prepareStatement(query.toString());
-                ps.setInt(1, cr.getCoderId());
+                ps.setLong(1, cr.getCoderId());
                 int RetVal = ps.executeUpdate();
                 if (RetVal != 1) {
                     throw new TCException("ejb.User.UserDbCoder:updateRating():failed.");
@@ -1040,8 +1043,8 @@ final class UserDbCoder {
 
         try {
             ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, user.getUserId());
-            ps.setInt(2, user.getUserId());
+            ps.setLong(1, user.getUserId());
+            ps.setLong(2, user.getUserId());
             rs = ps.executeQuery();
             if (rs.next()) {
                 HashMap userTypeDetails = user.getUserTypeDetails();
@@ -1154,7 +1157,7 @@ final class UserDbCoder {
             ArrayList demographicResponses = coder.getDemographicResponses();
             demographicResponses.clear();
             ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, coder.getCoderId());
+            ps.setLong(1, coder.getCoderId());
             rs = ps.executeQuery();
             while (rs.next()) {
                 DemographicResponse demographicResponse = new DemographicResponse();
@@ -1209,7 +1212,7 @@ final class UserDbCoder {
         query.append(" AND c.notify_id=n.notify_id");
         try {
             ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, coder.getCoderId());
+            ps.setLong(1, coder.getCoderId());
             rs = ps.executeQuery();
             while (rs.next()) {
                 Notify notify = new Notify();
@@ -1258,7 +1261,7 @@ final class UserDbCoder {
         query.append(" coder_id=?");
         try {
             ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, coder.getCoderId());
+            ps.setLong(1, coder.getCoderId());
             rs = ps.executeQuery();
             while (rs.next()) {
                 coderRating.setCoderId(coder.getCoderId());
@@ -1322,7 +1325,7 @@ final class UserDbCoder {
         query.append(" AND s.country_code = ct.country_code");
         try {
             ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, coder.getCoderId());
+            ps.setLong(1, coder.getCoderId());
             rs = ps.executeQuery();
             if (rs.next()) {
                 currentSchool.setUserId(coder.getCoderId());
@@ -1389,7 +1392,7 @@ final class UserDbCoder {
             conn = DBMS.getConnection(DBMS.DW_DATASOURCE_NAME);
 
             ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, coder.getCoderId());
+            ps.setLong(1, coder.getCoderId());
             ps.setInt(2, CODER_RATING_RANK_TYPE_ID);
             rs = ps.executeQuery();
             int rank = 0;

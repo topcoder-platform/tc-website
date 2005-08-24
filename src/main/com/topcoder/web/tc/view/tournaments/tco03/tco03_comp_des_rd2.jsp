@@ -18,7 +18,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -42,7 +42,7 @@
 
 <!-- Tab bar sublinks-->
 <jsp:include page="tco03Sublinks.jsp" >
-   <jsp:param name="selectedList" value="component_advancers"/> 
+   <jsp:param name="selectedList" value="component_advancers"/>
    <jsp:param name="selectedTab" value="design"/>
 </jsp:include>
 
@@ -51,13 +51,13 @@
             <br/>
 
                   <p>
-                  The Design competition was a nail-biter.  Pops took the lead early with two superb submissions that gave him a round score of 
-                  93.92 which was hard to beat.  However, aksonov scratched and clawed his way through appeals and brought his overall up to 
-                  94.82, making him the round leader.  Due to contest rules we will not see Pops and aksonov go head to head since aksonov will 
-                  be competing in the development contest where he had an even higher average score!  Due to travel restrictions, Tomson and isv 
+                  The Design competition was a nail-biter.  Pops took the lead early with two superb submissions that gave him a round score of
+                  93.92 which was hard to beat.  However, aksonov scratched and clawed his way through appeals and brought his overall up to
+                  94.82, making him the round leader.  Due to contest rules we will not see Pops and aksonov go head to head since aksonov will
+                  be competing in the development contest where he had an even higher average score!  Due to travel restrictions, Tomson and isv
                   are unable to compete in the final round.  This is quite a coup for kyky who will now be joining us in Uncasville to face off with Pops!
                   </p>
-            
+
             <br/><br/>
 
 <!-- Design Winners Begins -->

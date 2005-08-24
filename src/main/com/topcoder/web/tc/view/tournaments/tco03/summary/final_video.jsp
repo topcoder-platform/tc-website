@@ -12,7 +12,7 @@
     return;
   }
 </script>
-     
+
 </head>
 
 <body>
@@ -25,7 +25,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../../includes/global_left.jsp">
+            <jsp:include page="..//includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -56,13 +56,13 @@
             <p class="terciary">
                 <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=final">Play-by-Play</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=final_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;Video&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=final_analysis">Problem Analysis</a>
             </p>
-            
+
             <h2>and the winner is...</h2>
 
             <table border="0" cellspacing="0" width="400" cellpadding="3" align="center">
                <tr>
                   <td width="100%" class="bodyText" align="center">
-                            <object classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" width="240" height="196" codebase="http://www.apple.com/qtactivex/qtplugin.cab"> 
+                            <object classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" width="240" height="196" codebase="http://www.apple.com/qtactivex/qtplugin.cab">
                             <param name="src" value="/i/tournament/tco03/final/TCO_movie.mov"></param>
                             <param name="autoplay" value="true"></param>
                             <param name="controller" value="true"></param>

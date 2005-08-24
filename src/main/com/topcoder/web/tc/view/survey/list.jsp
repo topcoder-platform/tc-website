@@ -1,13 +1,14 @@
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<jsp:useBean id="surveyList" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
+<% ResultSetContainer surveyList = (ResultSetContainer)request.getAttribute("surveyList");%>
 <html>
 
 <head>
 
-<title>Member Surveys</title> 
+<title>Member Surveys</title>
 
 <jsp:include page="../script.jsp" />
 
@@ -60,11 +61,11 @@
                      <rsc:item row="<%=survey%>" name="question_text"/>
                   </td>
                   <td nowrap valign="top">
-                     <a href="?&module=SurveyResults&sid=<rsc:item row="<%=survey%>" name="survey_id"/>"><img src="/i/results.gif" width="60" height="18" border="0"></a>
+                     <a href="?module=SurveyResults&sid=<rsc:item row="<%=survey%>" name="survey_id"/>"><img src="/i/results.gif" width="60" height="18" border="0"></a>
                   </td>
                   <td nowrap valign="top">
                      <% if (survey.getIntItem("answered_flag")==0) { %>
-                        <a href="?&module=ViewSurvey&sid=<rsc:item row="<%=survey%>" name="survey_id"/>"><img src="/i/answer.gif" width="60" height="18" border="0"></a>
+                        <a href="?module=ViewSurvey&sid=<rsc:item row="<%=survey%>" name="survey_id"/>"><img src="/i/answer.gif" width="60" height="18" border="0"></a>
                      <% } %>
                   </td>
                   <td valign="top">

@@ -22,7 +22,6 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpUtils;
 import java.awt.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -92,7 +91,7 @@ public final class GraphServlet extends HttpServlet {
         Navigation nav = null;
         try {
             Graph.setLicenseKey(LICENSE_KEY);
-            dataRequest = new Request(HttpUtils.parseQueryString(request.getQueryString()));
+            dataRequest = new Request(request.getParameterMap());
             nav = (Navigation) request.getSession().getAttribute("navigation");
             if (nav == null) {
                 nav = new Navigation(request, response);
@@ -909,7 +908,7 @@ public final class GraphServlet extends HttpServlet {
             throw new NavigationException(e);
         }
     }
-    
+
     private static byte[] getRatingsDistributionProfile(RequestInt dataRequest)
             throws NavigationException {
 
@@ -959,18 +958,18 @@ public final class GraphServlet extends HttpServlet {
                         g.setColor(rating_segments[i], RED);
                 }
             }
-            
+
             int rating = Integer.parseInt(dataRequest.getProperty("rt"));
-            
+
             int rs = rating / 100;
             if(rating > 2900)
                 rs = 29;
-            
+
             baos = new ByteArrayOutputStream();
             PNGOutput out = new PNGOutput(600, 400, Color.black, baos);
-            
+
             out.setMargin(10, 10, 10, 10);
-            
+
             if (rs < 9)
                 out.setColor(GRAY);
             else if (rs >= 9 && rs < 12)
@@ -981,7 +980,7 @@ public final class GraphServlet extends HttpServlet {
                 out.setColor(GOLD);
             else if (rs >= 22 && rs < 30)
                 out.setColor(RED);
-            
+
             out.line(85+ (16*rs),95,85+ (16*rs),330);
             out.line(84+ (16*rs),95,84+ (16*rs),330);
             out.render(g);

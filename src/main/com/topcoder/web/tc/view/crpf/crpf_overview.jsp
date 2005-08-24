@@ -39,7 +39,7 @@
                <table align="center">
                   <tr>
                      <td>
-                     <A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_photos"><img src="/i/events/crpf03/crfp_banner.jpg" width="510" height="160" border="0" alt="TopCoder Charity Challenge benefiting the CRPF;T"></A><br/>
+                     <A href="/tc?module=CRPFStatic&d1=crpf&d2=crpf_photos"><img src="/i/events/crpf03/crfp_banner.jpg" width="510" height="160" border="0" alt="TopCoder Charity Challenge benefiting the CRPF;T"></A><br/>
                      <img src="/i/clear.gif" width="10" height="15" border="0"/></td>
                   </tr>
                </table>
@@ -57,7 +57,7 @@
 </jsp:include>
 
                <p class="terciary">
-                <a href="/tc?&amp;module=CRPFStatic&amp;d1=crpf&amp;d2=crpf_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;Details
+                <a href="/tc?amp;module=CRPFStatic&amp;d1=crpf&amp;d2=crpf_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;Details
             </p>
 
                 <blockquote>
@@ -73,15 +73,15 @@
                 <div align="center"><A href="/tc?module=CRPFStatic&d1=crpf&d2=crpf_donate" target="_top"><img src="/i/events/crpf03/button_donate_now.gif" alt="Donate Now" width="159" height="49" border="0"></A></div><br />
 
                 <p><strong>Coding for a cause</strong><br/>
-                TopCoder is always looking for ways to give something back to the community. Help us raise money for the Christopher Reeve Paralysis 
-                Foundation by putting your coding skills to the test. Get your friends, relatives and co-workers to donate money on your behalf. Donate 
-                by credit card on the <A href="http://www.crpf.org/contribute/contribute.cfm?orgid=TopCoderWebsite2003" target="_blank">CRPF site,</A> 
-                or download our <A href="/i/tournament/crpf03/donation_form.pdf" target="_blank">donation form</A> to pay by check. Then compete in 
-                the online tournament on November 11th, 13th, and 17th. All competitors who raise at least $50 will receive a commemorative TopCoder 
+                TopCoder is always looking for ways to give something back to the community. Help us raise money for the Christopher Reeve Paralysis
+                Foundation by putting your coding skills to the test. Get your friends, relatives and co-workers to donate money on your behalf. Donate
+                by credit card on the <A href="http://www.crpf.org/contribute/contribute.cfm?orgid=TopCoderWebsite2003" target="_blank">CRPF site,</A>
+                or download our <A href="/i/tournament/crpf03/donation_form.pdf" target="_blank">donation form</A> to pay by check. Then compete in
+                the online tournament on November 11th, 13th, and 17th. All competitors who raise at least $50 will receive a commemorative TopCoder
                 Charity Challenge t-shirt. You could also be one of ten lucky winners to mingle with the stars at <em>A Magical Evening!</em></p>
 
                 <p><strong>Experience the <em>Magic</em></strong><br/>
-                This year's star-studded gala ball will be held at the Marriott Marquis in New York City on November 24th. 
+                This year's star-studded gala ball will be held at the Marriott Marquis in New York City on November 24th.
                 Tickets to this event are valued at $1000 each! There are several ways to win the grand prize:</p>
 
                 <ul>
@@ -93,8 +93,8 @@
                 <p><strong>Serious money to solve a serious problem</strong><br />
                 TopCoder will match every dollar our members raise up to $50,000!</p>
 
-                <p>Please read the <A href="/tc?&module=Static&d1=crpf&d2=crpf_rules_overview" target="_top">Rules</A> to get all the details about this exciting new event.</p>
-               
+                <p>Please read the <A href="/tc?module=Static&d1=crpf&d2=crpf_rules_overview" target="_top">Rules</A> to get all the details about this exciting new event.</p>
+
                </blockquote>
 
             <p><br /></p>

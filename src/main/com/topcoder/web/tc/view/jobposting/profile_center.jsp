@@ -24,11 +24,11 @@
   <TR valign="middle">
     <TD CLASS="statTextBig" ALIGN="left" VALIGN="middle" COLSPAN="2">
       <% if (JobHitData.hasResume()) { %>
-        Click <A HREF="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" CLASS="statTextBig">here</A> to upload a new resume.</A>
+        Click <A HREF="JavaScript:void window.open('/Resume?t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" CLASS="statTextBig">here</A> to upload a new resume.</A>
         <br/>
-        Click <A HREF="/Resume?&t=DownloadTask" CLASS="statTextBig">here</A> to download your resume.
+        Click <A HREF="/Resume?t=DownloadTask" CLASS="statTextBig">here</A> to download your resume.
       <% } else { %>
-        You do NOT currently have a resume on file at TopCoder.  Since most employers will look for this information, we strongly encourage you to upload a resume.  If you would like to upload a resume now, click <A HREF="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" CLASS="statTextBig">here</a>.
+        You do NOT currently have a resume on file at TopCoder.  Since most employers will look for this information, we strongly encourage you to upload a resume.  If you would like to upload a resume now, click <A HREF="JavaScript:void window.open('/Resume?t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" CLASS="statTextBig">here</a>.
       <% } %>
     </TD>
   </TR>
@@ -44,17 +44,17 @@
     <tr valign="middle">
     <td class="statText" width="30" align="right" valign="middle"><img src="/i/clear.gif" width="30" height="1"></td>
     <td class="statText" align="left" valign="top">
-    Name: <jsp:getProperty name="JobHitData" property="FirstName" />
-        <jsp:getProperty name="JobHitData" property="LastName" /><br>
+    Name: <jsp:getProperty name="JobHitData" property="firstName" />
+        <jsp:getProperty name="JobHitData" property="lastName" /><br>
       Address:<br>
-        <jsp:getProperty name="JobHitData" property="Address1" /><br>
-        <jsp:getProperty name="JobHitData" property="Address2" /><br>
-    <jsp:getProperty name="JobHitData" property="City" />,
-        <jsp:getProperty name="JobHitData" property="State" />,
-        <jsp:getProperty name="JobHitData" property="Zip" />,
+        <jsp:getProperty name="JobHitData" property="address1" /><br>
+        <jsp:getProperty name="JobHitData" property="address2" /><br>
+    <jsp:getProperty name="JobHitData" property="city" />,
+        <jsp:getProperty name="JobHitData" property="state" />,
+        <jsp:getProperty name="JobHitData" property="zip" />,
         <tc:getProperty id="country" name="JobHitData" property="Country" />
         <tc:countrySelect name="country" selectedValue="<%=country%>" selectedOnly="true" /><br>
-        Phone: <jsp:getProperty name="JobHitData" property="Phone" /><br>
+        Phone: <jsp:getProperty name="JobHitData" property="phone" /><br>
     </td>
   </tr>
   <tr valign="middle">
@@ -63,14 +63,14 @@
   <tr valign="middle">
     <td class="statText" align="right" valign="middle">&nbsp;</td>
     <td class="statText"  align="left" valign="top">
-      Email: <jsp:getProperty name="JobHitData" property="Email" /><br>
-      Handle: <jsp:getProperty name="JobHitData" property="Handle" /><br>
-      Member Since Date: <jsp:getProperty name="JobHitData" property="MemberSince" /><br>
-      Most Recent Rated Event: <jsp:getProperty name="JobHitData" property="MostRecentEvent" /><br>
+      Email: <jsp:getProperty name="JobHitData" property="email" /><br>
+      Handle: <jsp:getProperty name="JobHitData" property="handle" /><br>
+      Member Since Date: <jsp:getProperty name="JobHitData" property="memberSince" /><br>
+      Most Recent Rated Event: <jsp:getProperty name="JobHitData" property="mostRecentEvent" /><br>
 <%if (coderType.equalsIgnoreCase(JobHitData.CODER_TYPE_STUDENT)) { %>
       <br/>
-      GPA: <jsp:getProperty name="JobHitData" property="Gpa" /><br>
-      GPA Scale: <jsp:getProperty name="JobHitData" property="GpaScale" /><br>
+      GPA: <jsp:getProperty name="JobHitData" property="gpa" /><br>
+      GPA Scale: <jsp:getProperty name="JobHitData" property="gpaScale" /><br>
 <% } %>
     </td>
   </tr>
@@ -100,7 +100,7 @@
         <td class="statText">School:</td>
         <td class="statText">
         <% System.out.println("blkaldkjflkajsf: " + JobHitData.getSchool()); %>
-            <jsp:getProperty name="JobHitData" property="School" />
+            <jsp:getProperty name="JobHitData" property="school" />
       </td>
     </tr>
 <%}%>

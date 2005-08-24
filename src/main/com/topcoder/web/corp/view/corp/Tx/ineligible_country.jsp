@@ -4,7 +4,7 @@
                  com.topcoder.web.corp.controller.TransactionServlet,
                  com.topcoder.web.corp.model.TransactionInfo"
 %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -54,7 +54,7 @@
 </table>
 
 <!-- Footer begins -->
-<jsp:include page="../../foot.jsp"/>
+<jsp:include page="/foot.jsp"/>
 <!-- Footer ends -->
 
 </body>

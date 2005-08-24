@@ -8,7 +8,7 @@ public class TextInputTag extends BaseTag {
     private int size = -1;
     private int maxlength = -1;
     private boolean passw = false;
-    private String aclass = null;
+    private String styleClass = null;
     private String onKeyPress = null;
     private boolean editable = true;
 
@@ -24,8 +24,8 @@ public class TextInputTag extends BaseTag {
             if (maxlength >= 0) {
                 ret.append("maxlength=\"").append(maxlength).append("\" ");
             }
-            if (aclass != null) {
-                ret.append("class=\"").append(aclass).append("\" ");
+            if (styleClass != null) {
+                ret.append("class=\"").append(styleClass).append("\" ");
             }
             if (onKeyPress != null) {
                 ret.append("onKeyPress=\"").append(onKeyPress).append("\" ");
@@ -90,8 +90,8 @@ public class TextInputTag extends BaseTag {
      * Sets the aclass.
      * @param aclass The aclass to set
      */
-    public void setClass(String aclass) {
-        this.aclass = aclass;
+    public void setStyleClass(String aclass) {
+        this.styleClass = aclass;
     }
 
     /**
@@ -123,7 +123,7 @@ public class TextInputTag extends BaseTag {
         this.size = -1;
         this.maxlength = -1;
         this.passw = false;
-        this.aclass = null;
+        this.styleClass = null;
         this.onKeyPress = null;
         this.editable = true;
     }

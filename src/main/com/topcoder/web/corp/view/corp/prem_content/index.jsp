@@ -76,7 +76,7 @@ Oem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eu
 </TABLE>
   <!-- Body Ends -->
 
-  <jsp:include page="../../foot.jsp"/>
+  <jsp:include page="/foot.jsp"/>
 
 </BODY>
 </HTML>

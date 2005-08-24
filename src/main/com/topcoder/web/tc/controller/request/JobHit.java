@@ -17,10 +17,10 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.tc.model.JobHitData;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Map;
-import java.rmi.RemoteException;
 
 /**
  * User: dok

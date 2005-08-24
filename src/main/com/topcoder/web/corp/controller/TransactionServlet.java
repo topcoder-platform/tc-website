@@ -43,7 +43,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpUtils;
 import javax.transaction.Transaction;
 import java.io.IOException;
 import java.rmi.RemoteException;
@@ -662,8 +661,7 @@ public class TransactionServlet extends HttpServlet {
             throws ServletException, IOException {
         request.setAttribute("message", "In order to continue, you must provide your user name " +
                 "and password, even if you've logged in already.");
-        request.setAttribute(BaseServlet.NEXT_PAGE_KEY,
-                HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
+        request.setAttribute(BaseServlet.NEXT_PAGE_KEY,request.getParameterMap());
         request.setAttribute(Constants.KEY_MODULE, "Login");
         boolean forward = true;
         fetchRegularPage(request, response, "/", forward);
@@ -683,7 +681,7 @@ public class TransactionServlet extends HttpServlet {
             GeneralSecurityException, NoSuchUserException, Exception {
         log.debug("assignPerProductRoles entered");
         PrincipalMgrRemote mgr = Util.getPrincipalManager();
-        TCSubject buyerSubject = mgr.getUserSubject(txInfo.getBuyerID());
+        TCSubject buyerSubject = SecurityHelper.getUserSubject(txInfo.getBuyerID());
         UserPrincipal buyerPrincipal = mgr.getUser(txInfo.getBuyerID());
         Set assignedRoles = buyerSubject.getPrincipals();
         TCSubject appSubject = Util.retrieveTCSubject(Constants.CORP_PRINCIPAL);

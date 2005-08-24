@@ -8,11 +8,10 @@
 package com.topcoder.web.ejb.preferencelevel;
 
 import com.topcoder.web.common.RowNotFoundException;
-import com.topcoder.web.corp.common.DuplicatePreferenceLevelException;
-import com.topcoder.web.corp.common.NoSuchPreferenceLevelException;
 import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
+import java.rmi.RemoteException;
 
 /**
  * An implementation class for <code>Preference Level EJB</code>.
@@ -61,7 +60,7 @@ public class PreferenceLevelBean extends BaseEJB {
      * @param  userId a <code>long</code> containing the ID of a candidate to create new preference for.
      * @param  level an <code>int</code> preference level for specified candidate.
      * @param  modifyUserId a <code>long</code> containing the ID of a user attempting to create a preference level.
-     * @throws DuplicatePreferenceLevelException if a preference level relevant to specified company is already set for
+     * @throws com.topcoder.web.ejb.preferencelevel.DuplicatePreferenceLevelException if a preference level relevant to specified company is already set for
      *         specified candidate.
      * @throws EJBException if addition of new preference level had failed due to unexpected error.
      * @see    #update(String, long, long, int, long)
@@ -100,7 +99,7 @@ public class PreferenceLevelBean extends BaseEJB {
      * @param  level an <code>int</code> representing the new preference levele for specified candidate.
      * @param  modifyUserId a <code>long</code> containing the ID of a candidate attempting to update a preference
      *         level.
-     * @throws NoSuchPreferenceLevelException if the preference level for specified candidate relevant to specified
+     * @throws com.topcoder.web.ejb.preferencelevel.NoSuchPreferenceLevelException if the preference level for specified candidate relevant to specified
      *         company hasn't been specified yet.
      * @throws EJBException if update of existing preference level had failed due to unexpected error.
      * @see    #createUserPreference(String, long, long, int, long)
@@ -133,7 +132,7 @@ public class PreferenceLevelBean extends BaseEJB {
      *         level relevant to.
      * @param  userId a <code>long</code> containing the ID of a candidate to get the preference level for.
      * @return an <code>int</code> representing the candidate's preference level relevant to specified company.
-     * @throws NoSuchPreferenceLevelException if the preference level for specified candidate relevant to specified
+     * @throws com.topcoder.web.ejb.preferencelevel.NoSuchPreferenceLevelException if the preference level for specified candidate relevant to specified
      *         company hasn't been specified yet.
      * @throws EJBException if retrieval of existing preference level had failed due to unexpected error.
      */
@@ -164,7 +163,7 @@ public class PreferenceLevelBean extends BaseEJB {
      * @param  companyId a <code>long</code> containing the ID of a company to get the last "modify" user for.
      * @param  userId a <code>long</code> containing the ID of a candidate to get the last "modify" user for.
      * @return a <code>long</code> ID of a user modified the preference level for specified candidate last time.
-     * @throws NoSuchPreferenceLevelException if there is no preference level relevant to specified company assigned to
+     * @throws com.topcoder.web.ejb.preferencelevel.NoSuchPreferenceLevelException if there is no preference level relevant to specified company assigned to
      *         specified candidate.
      * @throws EJBException if retrieval of user ID had failed due to unexpected error.
      */

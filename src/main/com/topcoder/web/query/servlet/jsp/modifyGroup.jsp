@@ -3,7 +3,7 @@
   import= "com.topcoder.web.query.common.*,
            com.topcoder.web.query.request.*"
 %>
-<%@ taglib uri="/query-taglib.tld" prefix="query"%>
+<%@ taglib uri="query-taglib.tld" prefix="query"%>
 <jsp:useBean id="ModifyGroup" scope="request" class="com.topcoder.web.query.request.ModifyGroup" />
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -20,24 +20,22 @@
     <tr><td colspan="6"><img src="/i/clear.gif" width="4" height="16"></td></tr>
     <tr>
       <td width="170" bgcolor="#000000" valign="top">
-        <jsp:include page="left.jsp" flush="true">
-          <jsp:param name="<%=Constants.DB_PARAM%>" value="<%=ModifyGroup.getDb()%>"/>
-          <jsp:param name="<%=Constants.SERVLET_PATH_PARAM%>" value="<%=sessionInfo.getServletPath()%>"/>
-        </jsp:include>      </td>
+        <jsp:include page="left.jsp"/>
+              </td>
       <td width="4" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="4" height="8"></td>
       <td class="statText" width="100%" bgcolor="#000000" valign="top" ALIGN="left">
         <table width="40%" border="0" cellpadding="0" cellspacing="0">
-          <FORM ACTION="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="post" name="ModGroupForm" >
+          <FORM ACTION="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="post" name="ModGroupForm" >
             <INPUT TYPE="hidden" NAME="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.MODIFY_GROUP_TASK%>">
-            <INPUT TYPE="hidden" NAME="<%=Constants.GROUP_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyGroup" property="GroupId"/>">
+            <INPUT TYPE="hidden" NAME="<%=Constants.GROUP_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyGroup" property="groupId"/>">
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
-            <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyGroup" property="Db"/>">
+            <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyGroup" property="db"/>">
             <tr><td class="statTextBig" colspan="2"><%=Constants.MODIFY_GROUP_NAME%></td></tr>
             <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
             <tr>
               <td class="statText" ALIGN="right">DB:&#160;</td>
               <td class="statText" ALIGN="left">
-                  <jsp:getProperty name="ModifyGroup" property="Db"/>
+                  <jsp:getProperty name="ModifyGroup" property="db"/>
               </td>
             </tr>
             <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
@@ -46,7 +44,7 @@
             <tr>
               <td class="statText" ALIGN="right" width="50%">Name: </td>
               <td class="statText" ALIGN="left" width="50%">
-                <input type="text" name="<%=Constants.GROUP_DESC_PARAM%>" value ="<jsp:getProperty name="ModifyGroup" property="GroupDesc" />" size="30" maxlength="100">
+                <input type="text" name="<%=Constants.GROUP_DESC_PARAM%>" value ="<jsp:getProperty name="ModifyGroup" property="groupDesc" />" size="30" maxlength="100">
               </td>
             </tr>
             <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>

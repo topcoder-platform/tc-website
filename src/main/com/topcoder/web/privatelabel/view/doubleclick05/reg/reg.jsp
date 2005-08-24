@@ -1,11 +1,12 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 java.util.List" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="/privatelabel.tld" prefix="pl" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
-<jsp:usebean id="questionList" class="java.util.List" scope="request" />
+<%@ taglib uri="privatelabel.tld" prefix="pl" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
+<% List questionList = (List)request.getAttribute("questionList");%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -72,7 +73,7 @@ function changeField() {
          <p class="bigTitle">Registration</p>
          <p>Registration is open until 6:00 PM on Tuesday, March 1st, 2005.</p>
 
-        <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
+        <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.DC05_REG_CONFIRM%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
@@ -153,7 +154,7 @@ function changeField() {
                     </td>
                 </tr>
                 </pl:questionIterator>
-                
+
                 <tr>
                    <td class="dc_regTableQuestion"></td>
                    <td class="dc_regTableAnswer"><a class="bodyText_link" href="javascript: document.regForm.submit();">Submit</a>

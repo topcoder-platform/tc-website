@@ -35,10 +35,10 @@ public class Compilation extends BaseProcessor {
         XMLDocument doc = new XMLDocument("TC");
 
         String ret = process(getRequest(), renderer, doc);
+        getResponse().setContentType("text/html");
         PrintWriter out = getResponse().getWriter();
         out.print(ret);
         out.flush();
-
     }
 
 

@@ -54,7 +54,7 @@ public class Group
     /**
      * Get the group id.
      */
-    public int getGroupId() {
+    public long getGroupId() {
         return super.getSId();
     }
 

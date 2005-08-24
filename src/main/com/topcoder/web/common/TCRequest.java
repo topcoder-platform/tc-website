@@ -3,6 +3,7 @@ package com.topcoder.web.common;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 import java.util.Enumeration;
+import java.util.Map;
 
 public interface TCRequest {
     String getParameter(String name);
@@ -38,4 +39,6 @@ public interface TCRequest {
     String getRemoteHost();
 
     void removeAttribute(java.lang.String name);
+
+    Map getParameterMap();
 }

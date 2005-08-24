@@ -7,9 +7,9 @@
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 
 <style type="text/css">
-.pageSpacer 
-{ 
-   width: 510px; 
+.pageSpacer
+{
+   width: 510px;
 	padding: 15px 0px 10px 0px;
    text-align: left;
 }
@@ -31,7 +31,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -69,10 +69,10 @@ To be eligible for the contest, you must be:
 <li>A registered member of TopCoder in good standing</li>
 </ul>
 
-Employees of TopCoder, Inc., their affiliated companies, advertising and promotion agencies and immediate family members of each are not eligible. Employees of any TCO05 sponsoring companies are allowed to compete in the 2005 TopCoder Open Logo Design Contest.  All federal, state and local laws and regulations apply. Void where prohibited. 
+Employees of TopCoder, Inc., their affiliated companies, advertising and promotion agencies and immediate family members of each are not eligible. Employees of any TCO05 sponsoring companies are allowed to compete in the 2005 TopCoder Open Logo Design Contest.  All federal, state and local laws and regulations apply. Void where prohibited.
 <br><br>
 <b>TO ENTER</b><br>
-If not already a member, register for TopCoder electronically at www.topcoder.com.  Once registered at TopCoder, submit designs using the submission functionality at www.topcoder.com/logocontest.   TopCoder will accept the first three (3) designs submitted by each registrant.  <span class="bigRed">The logos must be in EPS (Encapsulated PostScript) format and must be submitted by 5:00pm EDT on Friday, May 13, 2005.</span>  Submissions received after that time or by any other method will not be considered.  
+If not already a member, register for TopCoder electronically at www.topcoder.com.  Once registered at TopCoder, submit designs using the submission functionality at www.topcoder.com/logocontest.   TopCoder will accept the first three (3) designs submitted by each registrant.  <span class="bigRed">The logos must be in EPS (Encapsulated PostScript) format and must be submitted by 5:00pm EDT on Friday, May 13, 2005.</span>  Submissions received after that time or by any other method will not be considered.
 <br><br>
 The logo must adhere to these guidelines:
 <ul>
@@ -125,7 +125,7 @@ By participating in the contest, participants agree to be bound by these rules a
 <br><br>
 <span class="bigRed">Contestants must not cheat.  Contestants must abide by the TopCoder Terms of Use.  All logo designs must be fully designed by the person submitting them.</span>
 <br><br>
-By participating in the contest and redeeming a prize, participants acknowledge and agree that if TopCoder selects their design as one to be voted on by the TopCoder member base, they will receive a monetary award.  As consideration for a selected design and for the monetary award, participants agree to irrevocably and unconditionally transfer and assign to TopCoder all rights to all designs and information submitted during the contest, and agree to execute and deliver such documents, certificates, assignments and other writings, and take such other actions as may be necessary or desirable to vest in TopCoder the ownership rights granted to TopCoder hereunder.  For any submissions that TopCoder gains ownership of, TopCoder retains the right to change proportions of elements within the design.  If a submission is not selected as a design to be voted on and a participant is not compensated for his/her submission, then he/she will retain any rights to ownership of such material submitted to TopCoder.  TopCoder will not gain ownership of this material.  
+By participating in the contest and redeeming a prize, participants acknowledge and agree that if TopCoder selects their design as one to be voted on by the TopCoder member base, they will receive a monetary award.  As consideration for a selected design and for the monetary award, participants agree to irrevocably and unconditionally transfer and assign to TopCoder all rights to all designs and information submitted during the contest, and agree to execute and deliver such documents, certificates, assignments and other writings, and take such other actions as may be necessary or desirable to vest in TopCoder the ownership rights granted to TopCoder hereunder.  For any submissions that TopCoder gains ownership of, TopCoder retains the right to change proportions of elements within the design.  If a submission is not selected as a design to be voted on and a participant is not compensated for his/her submission, then he/she will retain any rights to ownership of such material submitted to TopCoder.  TopCoder will not gain ownership of this material.
 <br><br>
 By participating in the contest and redeeming a prize, participants release and agree to hold harmless TopCoder, its affiliates, subsidiaries, advertising and promotion agencies, sponsors, and prize suppliers, and all of their respective directors, officers, employees, representatives and agents, from and against any and all liability for any loss, property damage or damage to person, including without limitation, death and injury, due in whole or in part, directly or indirectly, from or arising out of participation in the contest, or participation in any contest-related activity, or the receipt, use or misuse of the prize. TopCoder specifically disclaims all liability associated with, and makes no warranties with regard to, any prize given.
 <br><br>

@@ -19,7 +19,7 @@
           com.topcoder.web.common.SessionInfo"
 
 %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%
 
     TCRequest tcRequest = HttpObjectFactory.createRequest(request);
@@ -43,7 +43,7 @@
                     dataMap = dai.getData(dataRequest);
 					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_demo_logged_in");
 
-%>	
+%>
 <table width="100%" class="srmFrame">
 <tr><td colspan="2" class="srmQuestion">People Logged In</td></tr>
 <tr>
@@ -59,4 +59,3 @@
 </tr><%even=!even;%>
 </rsc:iterator>
 </table>
-  

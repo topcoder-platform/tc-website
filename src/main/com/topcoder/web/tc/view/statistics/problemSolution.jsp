@@ -1,18 +1,18 @@
-<%@ page 
+<%@ page
   language="java"
   import="com.topcoder.web.tc.controller.legacy.stat.common.JSPUtils,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
           java.util.StringTokenizer,
           com.topcoder.web.common.StringUtils"
 
 %>
-<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics - Problem Solution</TITLE>
-   <jsp:include page="baseHRef.jsp" />   
+   <jsp:include page="baseHRef.jsp" />
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <jsp:include page="../script.jsp" />
@@ -33,7 +33,7 @@
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 
-<% 
+<%
 //common code that pulls out the request bean.
 Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 String sCoderId = srb.getProperty("cr","");
@@ -41,7 +41,7 @@ String sRoomId = srb.getProperty("rm","");
 String sRoundId = srb.getProperty("rd","");
 pageContext.setAttribute("pm", srb.getProperty("pm",""));
 
-//get the Header info 
+//get the Header info
 
 ResultSetContainer rscHdr = (ResultSetContainer) queryEntries.get("Room_Header_Information");
 ResultSetContainer image = (ResultSetContainer) queryEntries.get("Round_Sponsor_Image");
@@ -141,8 +141,8 @@ String sSolutionText = resultRow_0!=null?resultRow_0.getItem("submission_text").
                  </TR>
 <% ResultSetContainer rscSubmissions = (ResultSetContainer) queryEntries.get("Coder_Problems");
 pageContext.setAttribute("resultSetSubmissions", rscSubmissions);
-if (rscSubmissions.size() > 0) {  %>                 
-   <logic:iterate name="resultSetSubmissions" id="resultRow" type="ResultSetContainer.ResultSetRow">         
+if (rscSubmissions.size() > 0) {  %>
+   <logic:iterate name="resultSetSubmissions" id="resultRow" type="ResultSetContainer.ResultSetRow">
                    <TR>
                      <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
        <% if (pageContext.getAttribute("pm").toString().equals(resultRow.getItem(2).toString())) { %>
@@ -160,11 +160,11 @@ if (rscSubmissions.size() > 0) {  %>
                      <TD CLASS="statText" VALIGN="middle" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 7 /* problem points*/ + "].resultData" %>'/></TD>
                      <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    </TR>
-  </logic:iterate>           
+  </logic:iterate>
                    <TR>
                      <TD COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"></TD>
                    </TR>
-<% } %>           
+<% } %>
                  <TR>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
@@ -187,12 +187,12 @@ if (rscSubmissions.size() > 0) {  %>
                    <TD COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                </TABLE>
-<!-- Defenses -->    
+<!-- Defenses -->
 <% ResultSetContainer rscDefense = (ResultSetContainer) queryEntries.get("Problem_Defenses");
 pageContext.setAttribute("resultSetDefense", rscDefense);
-if (rscDefense.size() > 0) { 
+if (rscDefense.size() > 0) {
   int row = 0;
-%>           
+%>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
                    <TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig" COLSPAN="10" HEIGHT="18">&#160;Defense Results</TD>
@@ -212,8 +212,8 @@ if (rscDefense.size() > 0) {
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center">Succeeded</TD>
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-  <logic:iterate name="resultSetDefense" id="resultRow" type="ResultSetContainer.ResultSetRow">         
-    <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"challenger Rating"*/ + "]" %>'/>         
+  <logic:iterate name="resultSetDefense" id="resultRow" type="ResultSetContainer.ResultSetRow">
+    <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"challenger Rating"*/ + "]" %>'/>
                  <TR>
                    <TD COLSPAN="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
@@ -254,7 +254,7 @@ if (rscDefense.size() > 0) {
                  <TR>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" COLSPAN="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-<% } 
+<% }
    row++;
 %>
 
@@ -265,16 +265,16 @@ if (rscDefense.size() > 0) {
                  </TR>
 
                </TABLE>
-<% } //end if there are > 0 defenses %>          
+<% } //end if there are > 0 defenses %>
 
 
-<!-- End Defense -->         
-<!-- System Testing -->    
+<!-- End Defense -->
+<!-- System Testing -->
 <% ResultSetContainer rscSysTest = (ResultSetContainer) queryEntries.get("System_Tests");
 pageContext.setAttribute("resultSetSysTest", rscSysTest);
 if (rscSysTest.size() > 0) {
   int row = 0;
-  %>       
+  %>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
                    <TD COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
@@ -324,7 +324,7 @@ if (rscSysTest.size() > 0) {
                  <TR>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-<% } 
+<% }
    row++;
  %>
    </logic:iterate>
@@ -355,7 +355,7 @@ if (rscSysTest.size() > 0) {
      </TD>
     <!-- Gutter -->
     <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->     
+    <!-- Gutter Ends -->
      </TR>
    </TABLE>
       <jsp:include page="../foot.jsp" />

@@ -6,7 +6,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.security.User;
-import com.topcoder.shared.util.Transaction;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SessionInfo;
@@ -20,7 +20,8 @@ import com.topcoder.web.ejb.sessionprofile.*;
 
 import javax.rmi.PortableRemoteObject;
 import javax.servlet.http.HttpSession;
-import javax.transaction.UserTransaction;
+import javax.transaction.TransactionManager;
+import javax.transaction.Status;
 import java.util.Map;
 
 public class UpdateProfile extends BaseProfileProcessor {
@@ -60,8 +61,8 @@ public class UpdateProfile extends BaseProfileProcessor {
                 SessionProfileProblem problem = sppHome.create();
                 User user = getAuthentication().getUser();
 
-                UserTransaction ut = Transaction.get(getInitialContext());
-                ut.begin();
+                TransactionManager tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+                tm.begin();
 
                 try {
                     if (info.isNew()) {
@@ -140,10 +141,11 @@ public class UpdateProfile extends BaseProfileProcessor {
 
                     updateSessionProfile(sessionProfileId);
                 } catch (Exception e) {
-                    ut.rollback();
+                    if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE)
+                        tm.rollback();
                     throw e;
                 }
-                ut.commit();
+                tm.commit();
             } catch (TCWebException e) {
                 throw e;
             } catch (Exception e) {

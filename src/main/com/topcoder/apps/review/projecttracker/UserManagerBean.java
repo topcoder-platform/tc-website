@@ -165,7 +165,7 @@ public class UserManagerBean implements SessionBean {
                     try {
                         Context ctx = new InitialContext();
                         PolicyMgrRemoteHome home = (PolicyMgrRemoteHome) PortableRemoteObject.narrow(ctx.lookup(
-                                "java:comp/env/security/PolicyMgr"), PolicyMgrRemoteHome.class);
+                                PolicyMgrRemoteHome.EJB_REF_NAME), PolicyMgrRemoteHome.class);
                         policyMgr = home.create();
                     } catch (Exception e1) {
                         error("UsermanagerBean.getUser(): Exception when looking up PolicyManager! " + e1.toString());

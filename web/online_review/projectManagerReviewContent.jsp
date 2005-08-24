@@ -1,5 +1,5 @@
 <%@ page language="java" %>
-<%@ page import="com.topcoder.apps.review.projecttracker.ProjectType" %> 
+<%@ page import="com.topcoder.apps.review.projecttracker.ProjectType" %>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
@@ -10,23 +10,23 @@
 			<table border="0" cellpadding="0" cellspacing="0" width="100%">
 				<tr>
 					<td width="5%" align="left">
-<logic:equal name="submissionForm" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">                    
-						<img src='<%="images/icon_design.gif" %>' width="66" height="62" alt="">
-</logic:equal>						
-<logic:notEqual name="submissionForm" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">                    
-						<img src='<%="images/icon_development.gif" %>' width="66" height="62" alt="">
+<logic:equal name="submissionForm" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">
+						<img src='<%="/images/icon_design.gif" %>' width="66" height="62" alt="">
+</logic:equal>
+<logic:notEqual name="submissionForm" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">
+						<img src='<%="/images/icon_development.gif" %>' width="66" height="62" alt="">
 </logic:notEqual>
 					</td>
                     <td width="5%">
 <logic:equal name="submissionForm" property="project.catalog" value="Java">
-                        <img src="images/smJava.gif" alt="" width="33" height="17" border="0">
+                        <img src="/images/smJava.gif" alt="" width="33" height="17" border="0">
 </logic:equal>
 <logic:equal name="submissionForm" property="project.catalog" value=".NET">
-                        <img src="images/netSm.gif" alt="" width="33" height="17" border="0">
+                        <img src="/images/netSm.gif" alt="" width="33" height="17" border="0">
 </logic:equal>
 					</td>
 					<td width="90%" nowrap class="tableHeader">
-						<strong><bean:write name="submissionForm" property="project.name" /></strong> 
+						<strong><bean:write name="submissionForm" property="project.name" /></strong>
     				    <bean:message key="prompt.version" />
     				    <bean:write name="submissionForm" property="project.version" />
     				</td>
@@ -63,7 +63,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="whiteBkgnd" colspan="4"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
+					<td class="whiteBkgnd" colspan="4"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
 				</tr>
 			</table>
 		</td>
@@ -84,4 +84,3 @@
 </table>
 
 
-			

@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -32,7 +32,7 @@
 		<td width="49%">&#160;</td>
 		<td>
 			<div class=greenBigBox>
-			
+
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
@@ -54,7 +54,7 @@
 The Google&#153; Code Jam 2004 is being offered by Google Inc. ("Google") and TopCoder, Inc. ("TopCoder").  Google is using the results of the Code Jam 2004 to identify possible employees for their company.  The Code Jam 2004 will take place between Wednesday, September 1 and Friday, October 15, 2004.  It begins with a 2-week online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament.  The tournament consists of one (1) day of qualification, two (2) online elimination rounds and one (1) onsite final round.  All participants who compete in Round 1 (the first online elimination round) will receive a "Google Code Jam 2004, Powered by TopCoder" t-shirt.  In addition, Google will award $50,000 in cash prizes to the 50 finalists in the tournament.
 <br/><br/>
 <b>Eligibility</b><br/>
-All individuals who are 18 years of age or older by September 1, 2004 may register and compete in the Google Code Jam 2004.  
+All individuals who are 18 years of age or older by September 1, 2004 may register and compete in the Google Code Jam 2004.
 <br/><br/>
 
 Registrants who are 18 years of age or older are eligible to win cash prizes, unless otherwise prohibited. The Google Code Jam 2004 is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
@@ -77,11 +77,11 @@ The Qualification Round will consist of two phases: the Coding Phase and System 
 <li>The Qualification Round System Testing Phase is applied to all submitted code. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given question.</li>
 </ul>
 
-The Qualification Round will contain ten (10) virtual rooms and five (5) problem sets.  The top 100 scorers from each of the five problem sets presented during the Qualification Round will be eligible to compete in Round 1 of the Code Jam 2004. 
+The Qualification Round will contain ten (10) virtual rooms and five (5) problem sets.  The top 100 scorers from each of the five problem sets presented during the Qualification Round will be eligible to compete in Round 1 of the Code Jam 2004.
 <br/><br/>
 
 <b>The Competition Field</b><br/>
-Up to 500 individuals will qualify to compete in Round 1.  The top 250 scorers from Round 1 will advance to Round 2.  The top 50 scorers from Round 2 will advance to the Championship Round, which will be held onsite at Google’s headquarters in Mountain View, CA, USA.
+Up to 500 individuals will qualify to compete in Round 1.  The top 250 scorers from Round 1 will advance to Round 2.  The top 50 scorers from Round 2 will advance to the Championship Round, which will be held onsite at Googleï¿½s headquarters in Mountain View, CA, USA.
 <br/><br/>
 The Rounds will be held on the following dates:
 <br/><br/>
@@ -92,7 +92,7 @@ The Rounds will be held on the following dates:
 </tr>
 <tr valign="top">
 <td class="sidebarText" nowrap=nowrap>Round 1</td>
-<td class="sidebarText">Monday, September 20, 2004<br>Sign in: 6:00 PM - 8:55 PM<br>START: 9:00 PM 
+<td class="sidebarText">Monday, September 20, 2004<br>Sign in: 6:00 PM - 8:55 PM<br>START: 9:00 PM
 </td>
 </tr>
 <tr valign="top">
@@ -117,9 +117,9 @@ The Rounds will be held on the following dates:
 The use of external TopCoder Arena plugins or any modifications to the TopCoder Arena functionality is strictly prohibited.
 <br/><br/>
 <b>Online Elimination Rounds</b><br/>
-Everyone who competes in Round 1 must login to the TopCoder Competition Arena no later than ten minutes prior to the start of the online round.  All start times will be communicated as Eastern Time, so contestants in other time zones must adjust accordingly.  If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition. 
+Everyone who competes in Round 1 must login to the TopCoder Competition Arena no later than ten minutes prior to the start of the online round.  All start times will be communicated as Eastern Time, so contestants in other time zones must adjust accordingly.  If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition.
 <br/><br/>
-All competitors who have been invited to compete will be randomly assigned to specific virtual rooms, with up to 10 people in each room.  TopCoder will determine all room assignments prior to the start of each online round. 
+All competitors who have been invited to compete will be randomly assigned to specific virtual rooms, with up to 10 people in each room.  TopCoder will determine all room assignments prior to the start of each online round.
 <br/><br/>
 <b>Scoring and Advancing</b><br/>
 After each round of competition, the top scorers will be identified and will advance to the next round.  Coder advancement in all rounds is determined by comparing the total point values from all phases of the round (see "Competition Round Structure") for each coder. In order to advance, a coder must finish each round with a positive (i.e., greater-than-zero) point total. The structure of the online rounds is as follows:
@@ -152,11 +152,11 @@ Each online and onsite round of competition (excluding the Qualification Round) 
 </ul>
 
 <b>Onsite Championship Round</b><br/>
-The 50 advancers from Round 2 will travel to Google’s headquarters to compete in the Championship Round of the tournament being held on Friday, October 15, 2004.  Each finalist must confirm his/her attendance in the Championship Round by September 30, 2004.  If a contestant does not confirm his/her attendance in the Championship Round by said date, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest scorer from Round 2.
+The 50 advancers from Round 2 will travel to Googleï¿½s headquarters to compete in the Championship Round of the tournament being held on Friday, October 15, 2004.  Each finalist must confirm his/her attendance in the Championship Round by September 30, 2004.  If a contestant does not confirm his/her attendance in the Championship Round by said date, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest scorer from Round 2.
 <br/><br/>
-Google will provide all travel accommodations for each finalist to attend the Championship Round.  In addition, Google will provide overnight accommodations and all travel arrangements to and from the airport, as well as to and from Google’s headquarters.  All other expenses are the responsibility of the contestant.   
+Google will provide all travel accommodations for each finalist to attend the Championship Round.  In addition, Google will provide overnight accommodations and all travel arrangements to and from the airport, as well as to and from Googleï¿½s headquarters.  All other expenses are the responsibility of the contestant.
 <br/><br/>
-TopCoder will determine the room assignments for the Championship Round prior to the start of the Championship Round. 
+TopCoder will determine the room assignments for the Championship Round prior to the start of the Championship Round.
 <br/><br/>
 The Championship Round will be a single round of 50 coders. The first, second, third and fourth place finishers in the Championship Round are determined by comparing the total points of each coder, with the highest point value placing first. The winner of the Championship Round will be the coder with the highest point total for the round. In the event of a tie in the Championship Round, the tie will be resolved in the following manner (in order):
 <ul>
@@ -187,13 +187,13 @@ All participants who compete in Round 1 will receive a "Google Code Jam 2004, Po
 finisher* in the Championship Round</td>
 <td class="sidebarText" nowrap align=right>$5,000
 </td>
-</tr>                
+</tr>
 <tr valign="top">
 <td class="sidebarText" nowrap>4th place
 finisher* in the Championship Round</td>
 <td class="sidebarText" nowrap align=right>$3,000
 </td>
-</tr>                
+</tr>
 <tr valign="top">
 <td class="sidebarText" nowrap>5th place
 finisher* in the Championship Round</td>
@@ -251,13 +251,13 @@ Cash prizes will be distributed to winners upon receipt of the documents identif
 <br/><br/>
 As a condition of participation in the tournament, all information provided by you upon registration must be comprehensive, accurate and up-to-date. Google and/or TopCoder may require you to complete an additional registration form to register for the tournament. In order to be eligible to participate in the tournament, you must have completed any and all registration forms required by Google and TopCoder.
 <br/><br/>
-As a condition of winning and redeeming a cash prize, winners will be required to complete and provide to Google a completed (i) Affidavit of Eligibility and Liability and Publicity Release (the "Affidavit"), and (ii) IRS Form W-9 or W-8BEN, as appropriate.  In completing the Affidavit, a winner (a) confirms his/her eligibility, (b) represents and warrants that he/she has not cheated; that the idea for the code and/or challenge submitted is his/hers alone, (c) verifies the accuracy of the information submitted in the Google Code Jam 2004 registration process, (d) authorizes TopCoder and Google to publicize the tournament's results, (e) agrees to sign any applicable forms required by tax authorities, (f) licenses to TopCoder and Google rights to all information submitted during the tournament (including rights to source code and other executables), and (g) releases TopCoder and Google from liability arising out of any prize won. Google requires contestants to complete Form W-9 or W-8BEN, as applicable, for tax reporting purposes. 
+As a condition of winning and redeeming a cash prize, winners will be required to complete and provide to Google a completed (i) Affidavit of Eligibility and Liability and Publicity Release (the "Affidavit"), and (ii) IRS Form W-9 or W-8BEN, as appropriate.  In completing the Affidavit, a winner (a) confirms his/her eligibility, (b) represents and warrants that he/she has not cheated; that the idea for the code and/or challenge submitted is his/hers alone, (c) verifies the accuracy of the information submitted in the Google Code Jam 2004 registration process, (d) authorizes TopCoder and Google to publicize the tournament's results, (e) agrees to sign any applicable forms required by tax authorities, (f) licenses to TopCoder and Google rights to all information submitted during the tournament (including rights to source code and other executables), and (g) releases TopCoder and Google from liability arising out of any prize won. Google requires contestants to complete Form W-9 or W-8BEN, as applicable, for tax reporting purposes.
 <br/><br/>
 If prize notification is returned as undeliverable, or if the winner fails to return the Affidavit or the applicable tax form, the winner will be disqualified and the prize money won by the disqualified winner will be forfeited. Providing false information in the registration process or in the required forms described in this paragraph will disqualify a winner.
 <br/><br/>
 By participating in a tournament and redeeming a prize, a winner releases and agrees to hold harmless Google and TopCoder, their affiliates, subsidiaries, advertising and promotion agencies, sponsors, and prize suppliers, and all of their respective directors, officers, employees, representatives and agents, from and against any and all liability for any loss, property damage or damage to person, including without limitation, death and injury, due in whole or in part, directly or indirectly, from or arising out of participation in this tournament, or participation in any tournament-related activity, or the receipt, use or misuse of a prize. Google and TopCoder specifically disclaim all liability associated with, and make no warranties with regard to, any prize given.
 <br/><br/>
-In addition, all prizewinners agree to cooperate with Google’s and TopCoder's publicity efforts, without further compensation. This includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, for this or similar future tournaments, and to use the statements made by, or attributed to, the winners relating to Google and TopCoder and any and all rights to said use, without further compensation.  
+In addition, all prizewinners agree to cooperate with Googleï¿½s and TopCoder's publicity efforts, without further compensation. This includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, for this or similar future tournaments, and to use the statements made by, or attributed to, the winners relating to Google and TopCoder and any and all rights to said use, without further compensation.
 <br/><br/>
 Google and TopCoder reserve the right, in their sole discretion, to revoke any and all privileges associated with competing in this tournament, and to take any other action it deems appropriate, for no reason or any reason whatsoever, including if TopCoder suspects competitors of cheating, tampering with the entry process, the operation of the Web site, or the tournament process, or otherwise being in violation of the rules. Google and TopCoder reserve the right to cancel, terminate or modify the tournament if it is not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.
 <br/><br/>

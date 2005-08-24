@@ -8,13 +8,12 @@ import java.util.List;
 
 public class BooleanSelect extends SelectTag {
 
-    private List list;
-
-    public BooleanSelect() {
-        super();
+    private static final List list;
+    static {
         list = new ArrayList();
         list.add("true");
         list.add("false");
+
     }
 
     protected String getOptionValue(Object o) {
@@ -28,5 +27,6 @@ public class BooleanSelect extends SelectTag {
     protected List getSelectOptions() throws JspException {
         return list;
     }
+
 }
 

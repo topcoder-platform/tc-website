@@ -7,7 +7,7 @@
 <jsp:include page="../../script.jsp" />
 
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
-    
+
 </head>
 
 <body>
@@ -20,7 +20,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -49,7 +49,7 @@
             <img src="/i/tournament/tccc04/onsite_photos/alg_finals.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
             <span class="leadPhotoCaption">tomek raises his second championship check<br/><br/></span>
             </div>
-            
+
             <h2>Two for tomek, the champ returns</h2>
 
             <a href="/tc?module=MemberProfile&cr=299177"><img src="/i/m/vorthys_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/></a>
@@ -96,7 +96,7 @@ if any two possible matches disagree in one or more letters, we return the
 "multiple match" value.  Otherwise, we return the unique posible match.
 The functions for the other word types work in the same way.  Instead
 of using functions, we could also precompute all the single-word matches
-ahead of time.  
+ahead of time.
 </p>
 
 <p>
@@ -135,18 +135,18 @@ tweaks.
 <p>
 First, go through the records and combine all the records that have the
 same id.  For example, "0252 SRAL" and "0252 99" could be combined into
-the single record "0252 SRAL 99".  If two records with the same id have 
-different names or different ages, then the data are inconsistent.  
+the single record "0252 SRAL 99".  If two records with the same id have
+different names or different ages, then the data are inconsistent.
 </p>
 
 <p>
 Next, delete all records that are subsumed by other records.  For
 example, if you have the records "BRETT 014 79", "BRETT 79", "BRETT",
-and "79", all but the first can be deleted.  
+and "79", all but the first can be deleted.
 
 <p>
-Partition the remaining records into seven groups: INA, IN, IA, NA, I, N, 
-and A, where the letters in the group names indicate which fields are present 
+Partition the remaining records into seven groups: INA, IN, IA, NA, I, N,
+and A, where the letters in the group names indicate which fields are present
 (id, name, and/or age).  Next, we want to merge the records into the smallest number
 of records possible.  For example, we might merge an IN record with an A
 record to get an INA record.  In the end, we will return the number
@@ -156,7 +156,7 @@ of remaining records as the number of workers.
 <p>
 Records in the INA group cannot be merged with any other records, because
 if they could, the other records would already have been eliminated.
-Therefore, we can simply record the size of the INA group and delete the 
+Therefore, we can simply record the size of the INA group and delete the
 records.  Similarly, for the I, N, and A groups, we only need the sizes of
 the groups and not the actual records.
 </p>
@@ -173,7 +173,7 @@ here.  Look up "augmenting path" in any handy algorithms reference.)
 </p>
 
 <p>
-The maximal matching tells us which IN/IA records we want to merge with 
+The maximal matching tells us which IN/IA records we want to merge with
 which NA records to minimize the number of records.  Well, it almost
 does, anyway.  We may have to tweak the matching slightly, and this
 tweaking is the trickiest part of the algorithm.  But let me finish
@@ -217,7 +217,7 @@ such that the names of the IN and NA records match and the ages
 of the IA and NA records match.  If the maximal matching currently
 assigns the NA record to the IA record, and leaves the IN record
 unmatched, then we can decrement #N and increment #A by reassigning
-the NA record to the IN record.  In the other direction, 
+the NA record to the IN record.  In the other direction,
 if the maximal matching
 currently assigns the NA record to the IN record, and leaves the IA
 record unmatched, then we can decrement #A and increment #N by

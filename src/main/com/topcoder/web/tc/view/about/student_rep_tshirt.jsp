@@ -4,7 +4,7 @@
 <head>
 <title>Student Rep T-Shirt</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 
 </head>
 
@@ -15,7 +15,7 @@
         <td align="center">
 
         <img src="/i/about/student_rep_tshirt.gif" alt="Student Rep T-Shirt" width="769" height="564" border="0"/>
-        
+
         </td>
     </tr>
 </table>

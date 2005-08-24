@@ -3,8 +3,8 @@ package com.topcoder.web.codinginterface.techassess.controller.request;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLogoutRequest;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.codinginterface.ServerBusyException;
+import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.common.NavigationException;
 
 /**

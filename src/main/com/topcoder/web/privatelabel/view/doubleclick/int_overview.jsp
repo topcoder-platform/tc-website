@@ -25,7 +25,7 @@
 	  	</td>
 		<td class="dc_bodyText">
          <p class="pageTitle">Announcing the DoubleClick 2004 Coding Challenge!</p>
-         
+
          <p>It's bigger and better than before!  For this year's tournament, we have teamed up with TopCoder - the leader in online programming competitions - to bring you an exciting contest with two online rounds and fantastic prizes for the 10 best performers.</p>
 
          <p>For those who make it to the finals, the bounty is great: prizes, recognition among co-workers and the satisfaction of having beaten DoubleClick employees from around the world.  As an added twist to the 2004 Coding Challenge, you'll have the chance to check your skills against some of New York City's brightest minds.  While you won't be competing for the same prizes, you will be asked to solve the same problems as participants from Columbia and NYU.</p>
@@ -83,15 +83,15 @@
                     <td width="50%" class="sidebarText" align="right">CHOICE OF: Canon PowerShot S400 digital camera or Apple 30 GB iPod</td>
                 </tr>
             </table>
-			         		
-         <p>To find out more detailed information about the DoubleClick 2004 Coding Challenge, please read the <a class="bodyText_link" href="/pl/?&module=Static&d1=doubleclick&d2=int_rules">Official Rules and Regulations</a>.</p>
+
+         <p>To find out more detailed information about the DoubleClick 2004 Coding Challenge, please read the <a class="bodyText_link" href="/pl/?module=Static&d1=doubleclick&d2=int_rules">Official Rules and Regulations</a>.</p>
 
 		</td>
 	</tr>
 </table>
 
 <p><br/></p>
-   
+
 <jsp:include page="foot.jsp" />
 
 </body>

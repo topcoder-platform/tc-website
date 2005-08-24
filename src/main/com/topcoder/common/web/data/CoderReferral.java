@@ -9,9 +9,9 @@ import java.io.Serializable;
 
 public class CoderReferral implements Serializable, TagRenderer, Modifiable {
 
-    private int coderId;
+    private long coderId;
     private Referral referral;
-    private int referenceId;
+    private long referenceId;
     private String other;
     private String modified;
 
@@ -34,7 +34,7 @@ public class CoderReferral implements Serializable, TagRenderer, Modifiable {
     }
 
     //Set
-    public void setCoderId(int coderId) {
+    public void setCoderId(long coderId) {
         this.coderId = coderId;
     }
 
@@ -42,7 +42,7 @@ public class CoderReferral implements Serializable, TagRenderer, Modifiable {
         this.referral = referral;
     }
 
-    public void setReferenceId(int referenceId) {
+    public void setReferenceId(long referenceId) {
         this.referenceId = referenceId;
     }
 
@@ -55,7 +55,7 @@ public class CoderReferral implements Serializable, TagRenderer, Modifiable {
     }
 
     // Get
-    public int getCoderId() {
+    public long getCoderId() {
         return coderId;
     }
 
@@ -63,7 +63,7 @@ public class CoderReferral implements Serializable, TagRenderer, Modifiable {
         return referral;
     }
 
-    public int getReferenceId() {
+    public long getReferenceId() {
         return referenceId;
     }
 

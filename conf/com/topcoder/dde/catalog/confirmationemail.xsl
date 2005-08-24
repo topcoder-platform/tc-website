@@ -5,7 +5,9 @@
 
 Dear <xsl:value-of select="confirmation/firstname"/>,
 
-Thank you for your component request.  TopCoder Software will review your submission and contact you within 2 business days to determine if the component should continue into the collaboration phase and become part of the component catalogue.  
+Thank you for your component request.  TopCoder Software will review your submission and contact you within 2
+ business days to determine if the component should continue into the collaboration phase and become part of
+the component catalog.
 
 If you have additional questions or need assistance, please email service@topcodersoftware.com.
 
@@ -13,9 +15,7 @@ We appreciate your ideas and support for TopCoder Software.
 
 Best regards,
 
-Mike Morris
-VP Software Development
-TopCoder Software
+The TopCoder Software Team
 
 </xsl:template>
 </xsl:stylesheet>

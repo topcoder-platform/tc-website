@@ -30,7 +30,7 @@
         return;
     }
 
-    Object objTechTypes = CONTEXT.lookup("CatalogEJB");
+    Object objTechTypes = CONTEXT.lookup(CatalogHome.EJB_REF_NAME);
     CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
     Catalog catalog = home.create();
 

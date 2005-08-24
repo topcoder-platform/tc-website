@@ -1,36 +1,37 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE ejb-jar PUBLIC '-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN' 'http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd'>
+<!DOCTYPE ejb-jar PUBLIC
+      "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+      "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
 
 <ejb-jar>
+    <description>Job Posting Services Jar</description>
+    <display-name>Job Posting Services Jar</display-name>
     <enterprise-beans>
-      <session>
-  <ejb-name>JobPostingServices</ejb-name>
-  <home>com.topcoder.web.ejb.jobposting.JobPostingServicesHome</home>
-  <remote>com.topcoder.web.ejb.jobposting.JobPostingServices</remote>
-  <ejb-class>com.topcoder.web.ejb.jobposting.JobPostingServicesBean</ejb-class>
-  <session-type>Stateless</session-type>
-  <transaction-type>Container</transaction-type>
-  <env-entry>
-    <env-entry-name>WEBL</env-entry-name>
-    <env-entry-type>java.lang.Double </env-entry-type>
-    <env-entry-value>10.0</env-entry-value>
-  </env-entry>
-  <env-entry>
-    <env-entry-name>INTL</env-entry-name>
-    <env-entry-type>java.lang.Double </env-entry-type>
-    <env-entry-value>15.0</env-entry-value>
-  </env-entry>
-      </session>
+        <session>
+            <description>Job Posting Services EJB</description>
+            <display-name>Job Posting Services EJB</display-name>
+            <ejb-name>JobPostingServices</ejb-name>
+            <home>com.topcoder.web.ejb.jobposting.JobPostingServicesHome</home>
+            <remote>com.topcoder.web.ejb.jobposting.JobPostingServices</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
+            <ejb-class>com.topcoder.web.ejb.jobposting.JobPostingServicesBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
+            <session-type>Stateless</session-type>
+        </session>
     </enterprise-beans>
     <assembly-descriptor>
-      <container-transaction>
-  <method>
-    <ejb-name>JobPostingServices</ejb-name>
-    <method-intf>Remote</method-intf>
-    <method-name>*</method-name>
-  </method>
-  <trans-attribute>Required</trans-attribute>
-      </container-transaction>
+        <container-transaction>
+            <method>
+                <ejb-name>JobPostingServices</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
     </assembly-descriptor>
-  </ejb-jar>
+</ejb-jar>
+
+

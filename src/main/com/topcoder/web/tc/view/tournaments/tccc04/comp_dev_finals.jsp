@@ -16,7 +16,7 @@ function openWin(url, name) {
     win.focus();
 }
 </script>
-    
+
 </head>
 
 <body>
@@ -29,7 +29,7 @@ function openWin(url, name) {
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -48,9 +48,9 @@ function openWin(url, name) {
 <!-- Tab bar links-->
 <jsp:include page="tccc04links.jsp" >
    <jsp:param name="tabLev1" value="component"/>
-   <jsp:param name="tabLev2" value="development"/> 
+   <jsp:param name="tabLev2" value="development"/>
    <jsp:param name="tabLev3" value="finals"/>
-</jsp:include> 
+</jsp:include>
 
             <h2>Development Finals</h2>
 
@@ -83,13 +83,13 @@ function openWin(url, name) {
                   <td class="advCell" align="right">814&#160;&#160;</td>
                   <td class="advCell" align="right">1646&#160;&#160;</td>
                 </tr>
-                <tr>  
+                <tr>
                   <td class="advCell" align="left">Initial score:</td>
                   <td class="advCell" align="right">56.31&#160;&#160;</td>
                   <td class="advCell" align="right">73.46&#160;&#160;</td>
                   <td class="advCell" align="right">86.51&#160;&#160;</td>
                 </tr>
-                <tr>  
+                <tr>
                   <td class="advCell" align="left" bgcolor="#FFCC00"><b>Final score:</b></td>
                   <td class="advCell" align="right" bgcolor="#FFCC00"><b>63.23&#160;&#160;</b></td>
                   <td class="advCell" align="right" bgcolor="#FFCC00"><b>64.83&#160;&#160;</b></td>

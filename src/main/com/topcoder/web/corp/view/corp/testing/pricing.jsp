@@ -63,9 +63,9 @@
                             </tr>
 
                             <tr valign="top">
-                                <td class="bodyText" width="259"><a href="<%=request.getContextPath()+"/Tx/?&"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS+"&pid=1"%>"><img src="/i/corp/button_select.gif" alt="Select" width="78" height="29" border="0" align="right"></a><span class="testHeadSmall">$12,500</span>&#160;&#160;Initial Price</td>
+                                <td class="bodyText" width="259"><a href="<%=request.getContextPath()+"/Tx/?"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS+"&pid=1"%>"><img src="/i/corp/button_select.gif" alt="Select" width="78" height="29" border="0" align="right"></a><span class="testHeadSmall">$12,500</span>&#160;&#160;Initial Price</td>
                                 <td class="bodyText" width="10"><img src="/i/corp/spacer.gif" alt="" width="10" height="1" border="0"></td>
-                                <td class="bodyText" width="259"><a href="<%=request.getContextPath()+"/Tx/?&"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS+"&pid=2"%>"><img src="/i/corp/button_select.gif" alt="Select" width="78" height="29" border="0" align="right"></a><span class="testHeadSmall">$23,000</span>&#160;&#160;Initial Price</td>
+                                <td class="bodyText" width="259"><a href="<%=request.getContextPath()+"/Tx/?"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS+"&pid=2"%>"><img src="/i/corp/button_select.gif" alt="Select" width="78" height="29" border="0" align="right"></a><span class="testHeadSmall">$23,000</span>&#160;&#160;Initial Price</td>
                             </tr>
 
                             <tr valign="top">
@@ -85,7 +85,7 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column begins -->
-                    <jsp:include page="../../right.jsp">
+                    <jsp:include page="/right.jsp">
                         <jsp:param name="level1" value="testing"/>
                         <jsp:param name="level2" value="pricing"/>
                     </jsp:include>
@@ -99,7 +99,7 @@
 </table>
 
 <!-- Footer begins -->
-  <jsp:include page="../../foot.jsp"/>
+  <jsp:include page="/foot.jsp"/>
 <!-- Footer ends -->
 
 </body>

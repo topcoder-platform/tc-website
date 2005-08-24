@@ -28,7 +28,7 @@
         <td width="170">
             <jsp:include page="../includes/left.jsp">
                 <jsp:param name="level1" value="srm"/>
-                <jsp:param name="level2" value="email"/> 
+                <jsp:param name="level2" value="email"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -42,17 +42,17 @@
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/corp/header_event_sponsorship.gif" alt="" width="546" height="41" border="0"></td></tr>
-                
+
                 <tr valign="top">
                     <td class="bodyText" width="99%">
                         <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"><br>
-                        
+
                         <h2 class="corpHead">SRM Package - Email Distribution</h2>
 
                         <table cellpadding="10" cellspacing="0" border="0" align="right">
                         <tr><td><table border="0" cellpadding="6" cellspacing="0" class="sidebarBox">
                             <tr><td class="sidebarTitle" >SRM PACKAGE LINKS:</td></tr>
-                            
+
                             <tr valign="top">
                                 <td class="sidebarText">
                                     <a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_index">SRM Overview</a><br />
@@ -63,20 +63,20 @@
                             </tr>
                         </table></td></tr>
                         </table>
-                        
-                        <p>TopCoder's membership receives emails before and after each single round match. The emails are text formatted and contain 
-                        the necessary information regarding the match date, time and registration time. TopCoder has an opt-in email policy regarding 
+
+                        <p>TopCoder's membership receives emails before and after each single round match. The emails are text formatted and contain
+                        the necessary information regarding the match date, time and registration time. TopCoder has an opt-in email policy regarding
                         competition related information. To date, better than 80% of the membership opts-in for these emails.</p>
-                        
+
                         <h3>Match Announcment</h3>
-                        Sponsors are given space within the email for company name, forty words of copy and a desired URL. 
+                        Sponsors are given space within the email for company name, forty words of copy and a desired URL.
                         <nobr><a href="?module=Static&d1=corp&d2=spon_prog&d3=email_annc">View sample</a></nobr></p>
-                        
+
                         <h3>Match Results</h3>
-                        Sponsors are given space within the email for company name and a desired URL. 
+                        Sponsors are given space within the email for company name and a desired URL.
                         <nobr><a href="?module=Static&d1=corp&d2=spon_prog&d3=email_results">View sample</a></nobr></p>
-                        
-                        <p><strong>Note</strong> - TopCoder marketing will work with a sponsor's internal or external creative team to develop 
+
+                        <p><strong>Note</strong> - TopCoder marketing will work with a sponsor's internal or external creative team to develop
                         the desired copy points.</p>
 
                         <p><br/></p>
@@ -87,9 +87,9 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column begins -->
-                    <jsp:include page="../../right.jsp">
+                    <jsp:include page="/right.jsp">
                         <jsp:param name="level1" value="sponsor"/>
-                        <jsp:param name="level2" value="srm_index"/> 
+                        <jsp:param name="level2" value="srm_index"/>
                     </jsp:include>
 <!-- Right Column ends -->
 
@@ -101,7 +101,7 @@
 </table>
 
 <!-- Footer begins -->
-  <jsp:include page="../../foot.jsp"/>
+  <jsp:include page="/foot.jsp"/>
 <!-- Footer ends -->
 
 </body>

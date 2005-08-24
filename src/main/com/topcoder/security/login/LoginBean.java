@@ -18,7 +18,7 @@ import java.util.Set;
  */
 public class LoginBean extends BaseEJB {
 
-    private static Logger logger = Logger.getLogger(LoginBean.class);
+    private static final Logger logger = Logger.getLogger(LoginBean.class);
     private static final String DATA_SOURCE = "java:comp/env/jdbc/DefaultDS";
 
     /**
@@ -37,7 +37,7 @@ public class LoginBean extends BaseEJB {
             throws AuthenticationException, GeneralSecurityException {
 
         logger.debug("LoginBean.login: " + username);
-        
+
         checkLength(username, SecurityDB.maxUsernameLength);
         checkLength(password, SecurityDB.maxPasswordLength);
 

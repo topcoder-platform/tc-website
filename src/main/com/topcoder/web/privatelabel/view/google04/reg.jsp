@@ -3,9 +3,9 @@
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.common.BaseServlet,
                  com.topcoder.shared.util.ApplicationServer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -27,7 +27,7 @@ function submitEnter(e) {
     } else return true;
   }
 </SCRIPT>
- 
+
 <table border=0 width=100% cellpadding=0 cellspacing=0>
 	<tr>
 		<td width="49%">&#160;</td>
@@ -46,7 +46,7 @@ function submitEnter(e) {
 		<td width="49%">&#160;</td>
 		<td>
 			<div class=greenBigBox>
-			
+
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
@@ -62,7 +62,7 @@ function submitEnter(e) {
 			</span>
 
 			<table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
-			<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
+			<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE04_REG_DEMOG%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
@@ -304,7 +304,7 @@ function submitEnter(e) {
             </tr>
             <tr>
                 <td align="right" valign=bottom nowrap>
-                    <span class="errorText">* Required</span> 
+                    <span class="errorText">* Required</span>
                 </td>
                 <td align="left" valign=bottom>
                     &nbsp;
@@ -312,14 +312,14 @@ function submitEnter(e) {
             </tr>
             <tr>
                <td colspan="2" align="center">
-                  <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p> 
+                  <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p>
                </td>
             </tr>
             </form>
 		</table>
 
 			<br/><br/>
-			To find out more detailed information about the Google Code Jam 2004, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google04&d2=rules">Terms and Conditions</a>.
+			To find out more detailed information about the Google Code Jam 2004, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=google04&d2=rules">Terms and Conditions</a>.
 			</div>
 		</td>
 		<td width="49%">&#160;</td>

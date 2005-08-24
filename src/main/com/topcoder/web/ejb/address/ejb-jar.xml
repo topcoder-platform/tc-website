@@ -1,28 +1,36 @@
 <?xml version="1.0"?>
 
 <!DOCTYPE ejb-jar PUBLIC
- '-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN'
- 'http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd'>
+      "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+      "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
 
 <ejb-jar>
+    <description>Address Jar</description>
+    <display-name>Address Jar</display-name>
     <enterprise-beans>
         <session>
+            <description>Address EJB</description>
+            <display-name>Address EJB</display-name>
             <ejb-name>Address</ejb-name>
             <home>com.topcoder.web.ejb.address.AddressHome</home>
             <remote>com.topcoder.web.ejb.address.Address</remote>
+            <!--
+                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
+                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
+            -->
             <ejb-class>com.topcoder.web.ejb.address.AddressBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
-            <transaction-type>Container</transaction-type>
         </session>
     </enterprise-beans>
     <assembly-descriptor>
         <container-transaction>
             <method>
                 <ejb-name>Address</ejb-name>
-                <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
             <trans-attribute>Required</trans-attribute>
         </container-transaction>
     </assembly-descriptor>
 </ejb-jar>
+

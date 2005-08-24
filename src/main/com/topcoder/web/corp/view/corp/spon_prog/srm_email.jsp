@@ -28,7 +28,7 @@
         <td width="170">
             <jsp:include page="../includes/left.jsp">
                 <jsp:param name="level1" value="srm"/>
-                <jsp:param name="level2" value="email"/> 
+                <jsp:param name="level2" value="email"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -42,28 +42,28 @@
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/corp/header_event_sponsorship.gif" alt="" width="546" height="41" border="0"></td></tr>
-                
+
                 <tr valign="top">
                     <td class="bodyText" width="99%">
                         <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"><br>
-                        
+
                         <h2 class="corpHead">SRMs - Opt-In Email</h2>
 
-                        <p>TopCoder's membership receives emails before and after each single round match. The emails are text formatted and contain 
-                        the necessary information regarding the match date, time and registration time. TopCoder has an opt-in email policy regarding 
+                        <p>TopCoder's membership receives emails before and after each single round match. The emails are text formatted and contain
+                        the necessary information regarding the match date, time and registration time. TopCoder has an opt-in email policy regarding
                         competition related information. To date, approximately 70&#37; of the membership opts-in for these emails.</p>
-                        
+
                         <p><span class="bodySubtitle">Match Announcment</span><br>
-                        Sponsors are given space within the email for company name, forty words of copy and a desired URL. 
+                        Sponsors are given space within the email for company name, forty words of copy and a desired URL.
                         <nobr><a href="?module=Static&d1=corp&d2=spon_prog&d3=email_annc" target="_blank">View sample</a></nobr></p>
-                        
+
                         <p><span class="bodySubtitle">Match Results</span><br>
-                        Sponsors are given space within the email for company name and a desired URL. 
+                        Sponsors are given space within the email for company name and a desired URL.
                         <nobr><a href="?module=Static&d1=corp&d2=spon_prog&d3=email_results" target="_blank">View sample</a></nobr></p>
-                        
-                        <p><strong>Note</strong> - TopCoder marketing will work with a sponsor's internal or external creative team to develop 
+
+                        <p><strong>Note</strong> - TopCoder marketing will work with a sponsor's internal or external creative team to develop
                         the desired copy points.</p>
-                        
+
                         <p><a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">What is the Tournament Program?</a></p>
 
                         <p><br/></p>
@@ -74,9 +74,9 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column begins -->
-                    <jsp:include page="../../right.jsp">
+                    <jsp:include page="/right.jsp">
                         <jsp:param name="level1" value="srm"/>
-                        <jsp:param name="level2" value="email"/> 
+                        <jsp:param name="level2" value="email"/>
                     </jsp:include>
 <!-- Right Column ends -->
 
@@ -88,7 +88,7 @@
 </table>
 
 <!-- Footer begins -->
-  <jsp:include page="../../foot.jsp"/>
+  <jsp:include page="/foot.jsp"/>
 <!-- Footer ends -->
 
 </body>

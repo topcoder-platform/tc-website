@@ -1,6 +1,6 @@
 <%@ page errorPage="../error.jsp" %>
 <%@ page import="com.topcoder.web.email.servlet.*, com.topcoder.web.email.bean.*, java.util.*" %>
-<%@ taglib uri="/email-taglib.tld" prefix="email"%>
+<%@ taglib uri="email-taglib.tld" prefix="email"%>
 <html>
 <head>
 	<title>Job Search</title>

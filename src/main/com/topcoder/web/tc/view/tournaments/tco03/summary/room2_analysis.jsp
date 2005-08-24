@@ -18,7 +18,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../../includes/global_left.jsp">
+            <jsp:include page="..//includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -49,7 +49,7 @@
             <p class="terciary">
                 <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room2">Play-by-Play</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room2_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;Problem Analysis
             </p>
-            
+
             <h2>Problem Set Analysis &amp; Opinion</h2>
 
             <a href="/tc?module=MemberProfile&cr=299177"><img src="/i/m/vorthys_mug.gif" alt="" width="55" height="61" align="left" /></a>
@@ -59,14 +59,14 @@
 
             <h3>RepeatedSubstrings<br/>
             <span class="bodyText">Used as: Division 1 - Level 1:</span></h3>
-                        
+
 <p>
 Consider the compressed text "<tt>AB&amp;0-4</tt>", which decompresses
 to "<tt>ABABABA</tt>".  How do we know that the last character is an A?
-Because it is a copy of the character in position 4.  How do we know 
+Because it is a copy of the character in position 4.  How do we know
 <i>that</i> character is an A?  Because it is a copy of the character in
 position 2, which in turn is a copy of the character in position 0.
-We know the character in position 0 is an A because it appears directly in 
+We know the character in position 0 is an A because it appears directly in
 the compressed
 text.  Decompression, then, is all about propagating the known characters into
 all the positions that depend on them, directly or indirectly.  We also
@@ -87,7 +87,7 @@ pseudocode,
           if token is letter or space then append to current
           if token is &amp;i-j then
              s = substring of text from position i to position j
-             append s to current 
+             append s to current
        if current == text then return text
        text = current
 </pre>
@@ -121,7 +121,7 @@ way to its conclusion.
              q = dependsOn[q]
    return text
 </pre>
-This revised algorithm runs in time proportional to the size of the 
+This revised algorithm runs in time proportional to the size of the
 decompressed text.
 
 <p>
@@ -146,17 +146,17 @@ short deadend that happened to be connected to the same intersection
 as the original short deadend (if that intersection became a
 corridor when the original short deadend was disconnected).  However,
 this transformation can never create a new short deadend.  Therefore,
-we can process the candidates row-by-row in a single pass from north to 
+we can process the candidates row-by-row in a single pass from north to
 south.  Within each row, we should proceed from west to east.
 </p>
 
 <p>
 The easiest part to get wrong is the tiebreakers for which deadend to
 reconnect a short deadend to, in case there is more than one to choose
-from.  
+from.
 The preference
-is first for other short deadends, then for the northernmost deadend, and 
-finally for the westernmost deadend.  
+is first for other short deadends, then for the northernmost deadend, and
+finally for the westernmost deadend.
 Putting these preferences together, the order of priority is
 <ol>
 <li> a short deadend to the east, </li>
@@ -190,14 +190,14 @@ usually find this second approach easier, but it does mean you have to
 be very careful about how you handle the borders.
 </p>
 
-            <h3>SkewHeaps<br/> 
+            <h3>SkewHeaps<br/>
             <span class="bodyText">Used as: Division 1 - Level 3:</span></h3>
 
 <p>
 The key to solving this problem is realizing that the position of the
 root in the output list depends only on the <i>sizes</i> of the two
 subtrees, not on their <i>shapes</i>.  Recall that the root is the
-minimum element in the tree.  All elements that were inserted 
+minimum element in the tree.  All elements that were inserted
 <i>after</i> the minimum element end up on alternating sides of the
 tree, whereas elements inserted <i>before</i> the minimum element end
 up on the same side of the tree (the larger side).  In other words, the
@@ -208,8 +208,8 @@ insertion sequence in general has the form
 </pre>
 where X's are the elements from the larger subtree, Y's are the
 elements from the smaller subtree, and M is the minimum element.
-Furthermore, by the rules of insertion, 
-the alternating X's and Y's must <i>end</i> with an element from the 
+Furthermore, by the rules of insertion,
+the alternating X's and Y's must <i>end</i> with an element from the
 left subtree.  Altogether, there are four possibilities:
 <pre>
   1) L...L M RL...RL
@@ -226,11 +226,11 @@ inserted before M.
 
 <p>
 We can determine which case applies by looking at the sizes of the
-two subtrees.  If the left subtree is at least two elements bigger 
+two subtrees.  If the left subtree is at least two elements bigger
 than the right
-subtree, then we must fall under case 1.  If the right subtree is bigger 
+subtree, then we must fall under case 1.  If the right subtree is bigger
 than the left subtree, then we must fall under case 2.  But we have
-a choice if the left and right subtrees are the same size, or 
+a choice if the left and right subtrees are the same size, or
 if the left subtree is one bigger.  If the subtrees are the same size,
 then we could fall under either case 1 or case 2:
 <pre>
@@ -249,7 +249,7 @@ This time case 2 is lexicographically smaller, so we choose that case.
 
 <p>
 Finally, we need to figure out the internal orderings of the L's and R's.
-These can be obtained by recursive calls to <tt>history</tt> on the 
+These can be obtained by recursive calls to <tt>history</tt> on the
 left subtree and the right subtree, respectively.  Altogether, the final
 algorithm is
 <pre>
@@ -276,7 +276,7 @@ Notice that there is no need for special logic to handle the situations
 where
 <ul>
 <li> both subtrees are empty (falls under case 1),
-<li> the right subtree is empty but the left is not (falls under case 1 if 
+<li> the right subtree is empty but the left is not (falls under case 1 if
      the left subtree contains at least two elements, or under case 2 if the
      left subtree contains exactly one element), or
 <li> the left subtree is empty but the right is not (such trees are
@@ -297,7 +297,7 @@ they perform comparably to ordinary binary heaps (the kind used in heapsort).
 In addition, skew heaps allow you to merge two priority
 queues in logarithmic time, which ordinary binary heaps do not.
 </p>
-                        
+
             <p><br/></p>
         </td>
 <!-- Center Column Ends -->

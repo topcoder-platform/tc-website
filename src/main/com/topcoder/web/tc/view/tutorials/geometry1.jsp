@@ -4,7 +4,7 @@
 <head>
 <title>Algorithm Tutorials</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 <style type="text/css">
     .code
 {
@@ -24,7 +24,7 @@
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -32,7 +32,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="education"/>
                 <jsp:param name="level2" value="alg_tutorials"/>
             </jsp:include>
@@ -43,7 +43,7 @@
          <td width="100%" align="center">
 
          <div class="tutorBodyFull">
-            
+
             <h2>Geometry Concepts: Basic Concepts</h2>
 
 			<p>
@@ -70,7 +70,7 @@ concepts that should make geometry problems a little less frightening.<br/>
 
 <br/><a name="vectors"></a>
 <span class="bodySubtitle">Vectors</span><br/>
-Vectors are the basis of a lot of methods for solving geometry problems.  
+Vectors are the basis of a lot of methods for solving geometry problems.
 Formally, a vector is defined by a direction and a
 magnitude.  In the case of two-dimension geometry, a vector can be represented
 as pair of numbers, x and y, which gives both a direction and a magnitude.  For
@@ -85,7 +85,7 @@ There are a number of mathematical operations that can be performed on vectors.
 The simplest of these is addition: you can add two vectors together and the
 result is a new vector.  If you have two vectors <tt>(x<sub>1</sub>, y<sub>1</sub>)</tt>
 and <tt>(x<sub>2</sub>, y<sub>2</sub>)</tt>, then the sum of the two vectors is simply
-<tt>(x<sub>1</sub>+x<sub>2</sub>, y<sub>1</sub>+y<sub>2</sub>)</tt>.  The image 
+<tt>(x<sub>1</sub>+x<sub>2</sub>, y<sub>1</sub>+y<sub>2</sub>)</tt>.  The image
 below shows the sum of four vectors.  Note that it doesn't matter which order you
 add them up in - just like regular addition.  Throughout these articles, we will
 use plus and minus signs to denote vector addition and subtraction, where each is
@@ -126,7 +126,7 @@ However, &theta; has a slightly different meaning in this case:
 <tt>|&theta;|</tt> is the angle between the two vectors, but &theta; is negative
 or positive based on the right-hand rule. In 2-D geometry this means that if A
 is less than 180 degrees clockwise from B, the value is positive.
-Another useful fact related to the cross product is that the absolute value of 
+Another useful fact related to the cross product is that the absolute value of
 <tt>|A||B|Sin(&theta;)</tt> is equal to the area of the
 parallelogram with two of its sides formed by A and B.  Furthermore, the
 triangle formed by A, B and the red line in the diagram has half of the area of
@@ -258,7 +258,7 @@ a polygon, given the coordinates as a 2-D array, p.
 <pre class="code">
 int area = 0;
 int N = lengthof(p);
-<font color="blue">//We will triangulate the polygon 
+<font color="blue">//We will triangulate the polygon
 //into triangles with points p[0],p[i],p[i+1]</font>
 
 for(int i = 1; i+1&lt;N; i++){
@@ -276,7 +276,7 @@ polygon is one half of an integer.
 <br/><br/>
 <A href="/tc?module=Static&d1=tutorials&d2=geometry2">...continue to Section 2</A>
 </p>
-            
+
 
         </div>
         <p><br/></p>
@@ -285,7 +285,7 @@ polygon is one half of an integer.
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -297,7 +297,7 @@ polygon is one half of an integer.
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

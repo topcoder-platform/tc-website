@@ -73,7 +73,7 @@ public class Submit extends FullRegSubmit {
                 buf.append("You can access the practice room and launch and login to the arena for the competition by navigating to ");
                 buf.append("http://");
                 buf.append(ApplicationServer.SERVER_NAME);
-                buf.append("/pl/?&module=Static&d1=doubleclick&d2=col_arena\n\n");
+                buf.append("/pl/?module=Static&d1=doubleclick&d2=col_arena\n\n");
                 buf.append("Windows, Linux and Unix users need to have the Java 1.4.x runtime installed in order to launch the arena.\n\n");
                 buf.append("Mac OS X users need to have the Java 1.4.x runtime installed, which requires OS X version 10.2.x.\n\n");
                 buf.append("COMPETING IN THE QUALIFICATION ROUND\n");
@@ -81,7 +81,7 @@ public class Submit extends FullRegSubmit {
                 buf.append("We also suggest that you read up on the competition process by navigating to ");
                 buf.append("http://");
                 buf.append(ApplicationServer.SERVER_NAME);
-                buf.append("/pl/?&module=Static&d1=doubleclick&d2=col_overview");
+                buf.append("/pl/?module=Static&d1=doubleclick&d2=col_overview");
                 buf.append(" and downloading the competition manual.\n\n");
                 buf.append("If you have any questions about how to participate, please email them to dccc@topcoder.com\n\n");
                 buf.append("Thank you for registering for the DoubleClick 2004 Coding Challenge.  We look forward to seeing you in the Arena!\n\n");

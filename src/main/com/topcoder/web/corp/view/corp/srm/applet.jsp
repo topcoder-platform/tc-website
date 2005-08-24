@@ -28,7 +28,7 @@
         <td width="170">
             <jsp:include page="../includes/left.jsp">
                 <jsp:param name="level1" value="srm"/>
-                <jsp:param name="level2" value="applet"/> 
+                <jsp:param name="level2" value="applet"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -42,17 +42,17 @@
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/corp/header_event_sponsorship.gif" alt="" width="546" height="41" border="0"></td></tr>
-                
+
                 <tr valign="top">
                     <td class="bodyText" width="99%">
                         <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"><br>
-                        
+
                         <h2 class="corpHead">SRM Package - Applet Coverage</h2>
 
                         <table cellpadding="10" cellspacing="0" border="0" align="right">
                         <tr><td><table border="0" cellpadding="6" cellspacing="0" class="sidebarBox">
                             <tr><td class="sidebarTitle" >SRM PACKAGE LINKS:</td></tr>
-                            
+
                             <tr valign="top">
                                 <td class="sidebarText">
                                     <a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_index">SRM Overview</a><br />
@@ -63,26 +63,26 @@
                             </tr>
                         </table></td></tr>
                         </table>
-                        
-                        <p>The Arena Applet is where the action takes place. Coders square off against each other in "rooms" based upon their 
+
+                        <p>The Arena Applet is where the action takes place. Coders square off against each other in "rooms" based upon their
                         current rating. A sample of how a sponsor is presented in the applet is shown below and on the following sample pages.</p>
-                    
+
                         <ul>
-                            <li><strong>Lobby</strong> - entry way and chat area for both competitors and spectators 
+                            <li><strong>Lobby</strong> - entry way and chat area for both competitors and spectators
                             <nobr><a href="?module=Static&d1=corp&d2=spon_prog&d3=applet_l">View large sample</a></nobr></li>
-                            <li><strong>Coding</strong> - where competitors view problems, submit solutions, and challenge code 
+                            <li><strong>Coding</strong> - where competitors view problems, submit solutions, and challenge code
                             <nobr><a href="?module=Static&d1=corp&d2=spon_prog&d3=applet_c">View large sample</a></nobr></li>
-                            <li><strong>Status</strong> - informs both spectators and coders of who's doing what 
+                            <li><strong>Status</strong> - informs both spectators and coders of who's doing what
                             <nobr><a href="?module=Static&d1=corp&d2=spon_prog&d3=applet_s">View large sample</a></nobr></li>
-                            <li><strong>Leader Board</strong> - Dynamic listing of room leaders and current points 
+                            <li><strong>Leader Board</strong> - Dynamic listing of room leaders and current points
                             <nobr><a href="?module=Static&d1=corp&d2=spon_prog&d3=applet_lb">View large sample</a></nobr></li>
                         </ul>
-                    
+
                         <div align="left"><img src="/i/corp/sample_sponsor.gif" alt="" width="300" height="50" border="0"/></div>
-                    
-                        <p><strong>Note</strong> - TopCoder Marketing will produce all necessary graphics &#40;working with a sponsor's internal marketing team 
+
+                        <p><strong>Note</strong> - TopCoder Marketing will produce all necessary graphics &#40;working with a sponsor's internal marketing team
                         or agency of record&#41; needed for the medium.</p>
-                        
+
                         <p><a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">What is in a Tournament Package?</a></p>
 
                         <p><br/></p>
@@ -93,9 +93,9 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column begins -->
-                    <jsp:include page="../../right.jsp">
+                    <jsp:include page="/right.jsp">
                         <jsp:param name="level1" value="sponsor"/>
-                        <jsp:param name="level2" value="srm_index"/> 
+                        <jsp:param name="level2" value="srm_index"/>
                     </jsp:include>
 <!-- Right Column ends -->
 
@@ -107,7 +107,7 @@
 </table>
 
 <!-- Footer begins -->
-  <jsp:include page="../../foot.jsp"/>
+  <jsp:include page="/foot.jsp"/>
 <!-- Footer ends -->
 
 </body>

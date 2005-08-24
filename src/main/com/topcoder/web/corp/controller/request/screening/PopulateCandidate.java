@@ -14,10 +14,10 @@ import com.topcoder.web.corp.common.*;
 import com.topcoder.web.corp.model.CandidateInfo;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.preferencelevel.PreferenceLevel;
+import com.topcoder.web.ejb.preferencelevel.NoSuchPreferenceLevelException;
 import com.topcoder.web.ejb.user.Contact;
 import com.topcoder.web.tc.controller.legacy.resume.bean.Resume;
 
-import javax.servlet.http.HttpUtils;
 import java.util.Map;
 
 /**
@@ -117,7 +117,7 @@ public class PopulateCandidate extends BaseScreeningProcessor {
 
                     DataAccessInt dAccess = Util.getDataAccess();
                     Request dr = new Request();
-                    dr.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
+                    dr.setProperties(getRequest().getParameterMap());
                     dr.setContentHandle("noteList");
                     dr.setProperty("uid", String.valueOf(getUser().getId()));
 

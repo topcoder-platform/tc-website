@@ -1,5 +1,5 @@
 <%@ page language="java" %>
-<%@ page import="com.topcoder.apps.review.projecttracker.ProjectType" %> 
+<%@ page import="com.topcoder.apps.review.projecttracker.ProjectType" %>
 <%@ taglib uri="/WEB-INF/review.tld" prefix="review" %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
@@ -11,7 +11,7 @@
     }
 </script>
 
-<!-- Start Title -->			
+<!-- Start Title -->
 <table width="100%" border="0" cellpadding="0" cellspacing="1" class="forumBkgd">
     <html:form action="/saveAggregationReview">
     <html:hidden property="id" />
@@ -21,44 +21,44 @@
 	    <td width="100%" class="errorText">
 	        <html:errors property="aggregationReviewText" /></td>
 	</tr>
-</logic:equal>    
+</logic:equal>
 	<tr>
 		<td class="whiteBkgnd">
 			<table border="0" cellpadding="0" cellspacing="0" width="100%">
 				<tr>
 					<td width="5%" align="left">
-<logic:equal name="aggregationReviewForm" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">                    
-						<img src='<%="images/icon_design.gif" %>' width="66" height="62" alt="">
-</logic:equal>						
-<logic:notEqual name="aggregationReviewForm" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">                    
-						<img src='<%="images/icon_development.gif" %>' width="66" height="62" alt="">
+<logic:equal name="aggregationReviewForm" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">
+						<img src='<%="/images/icon_design.gif" %>' width="66" height="62" alt="">
+</logic:equal>
+<logic:notEqual name="aggregationReviewForm" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">
+						<img src='<%="/images/icon_development.gif" %>' width="66" height="62" alt="">
 </logic:notEqual>
 					</td>
                     <td width="5%">
 <logic:equal name="aggregationReviewForm" property="project.catalog" value="Java">
-                        <img src="images/smJava.gif" alt="" width="33" height="17" border="0">
+                        <img src="/images/smJava.gif" alt="" width="33" height="17" border="0">
 </logic:equal>
 <logic:equal name="aggregationReviewForm" property="project.catalog" value=".NET">
-                        <img src="images/netSm.gif" alt="" width="33" height="17" border="0">
+                        <img src="/images/netSm.gif" alt="" width="33" height="17" border="0">
 </logic:equal>
 					</td>
 					<td width="40%" nowrap class="tableHeader">
-					    <strong><bean:write name="aggregationReviewForm" property="project.name" /></strong> 
+					    <strong><bean:write name="aggregationReviewForm" property="project.name" /></strong>
     				    <bean:message key="prompt.version" />
     				    <bean:write name="aggregationReviewForm" property="project.version" /></td>
 					<td width="50%" valign="bottom" align="right" class="breadcrumb">
-<logic:iterate id="scorecard" name="aggregationReviewForm" property="reviewScorecards">		
+<logic:iterate id="scorecard" name="aggregationReviewForm" property="reviewScorecards">
                         <html:link page="/reviewScorecard.do?action=popup" name="scorecard" property="mapping" styleClass="breadcrumbLinks" target="_blank">
                             <bean:write name="scorecard" property="reviewer.handle" />
                         </html:link><br>
-</logic:iterate>	
+</logic:iterate>
                     </td>
 				</tr>
 				<tr>
-					<td class="whiteBkgnd" colspan="4"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
+					<td class="whiteBkgnd" colspan="4"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
 				</tr>
 			</table>
-			
+
 <!-- Start Component Design -->
 <logic:iterate id="aggregationResponse" indexId="rIdx" name="aggregationReviewForm" property="responses">
 	<logic:equal name="aggregationResponse" property="firstInGroup" value="true">
@@ -74,7 +74,7 @@
 					<td class="grayBkgnd">
 					    <bean:write name="aggregationResponse" property="question.scorecardSection.name" /></td>
 				</tr>
-			</table>	
+			</table>
     </logic:equal>
     <logic:equal name="aggregationResponse" property="firstInQuestion" value="true">
             <table width="100%" border="0" cellpadding="3" cellspacing="1" align="center" class="forumBkgd">
@@ -116,15 +116,15 @@
 			</table>
 			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
 				<tr>
-					<td class="whiteBkgnd" colspan="3"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
+					<td class="whiteBkgnd" colspan="3"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
 				</tr>
 			</table>
     </logic:equal>
-</logic:iterate>				
-						
+</logic:iterate>
+
 			<table width="80%" border="0" cellpadding="3" cellspacing="1" align="center">
 				<tr>
-					<td class="normal"><img src="images/clear.gif" alt="" width="1" height="5" border="0"></td>
+					<td class="normal"><img src="/images/clear.gif" alt="" width="1" height="5" border="0"></td>
 				</tr>
 				<tr>
 					<td class="forumTextCenterOdd">
@@ -135,8 +135,8 @@
 					    <html:textarea property="aggregationReviewText" rows="10" cols="50" /></td>
 				</tr>
 			</table>
-<!-- rejection text -->				
-						
+<!-- rejection text -->
+
 		</td>
 	</tr>
 	<tr>
@@ -150,11 +150,11 @@
 					<td>
 					    <html:submit styleClass="submitButton" onclick="set(this.form,'reject')">
 					        <bean:message key="button.rejectSummary" /></html:submit></td>
-</logic:equal>					        
+</logic:equal>
 				</tr>
 			</table>
 		</td>
 	</tr>
 	</html:form>
 </table>
-								
+

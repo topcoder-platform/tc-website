@@ -75,7 +75,7 @@
     Collection colJavaDocs = new ArrayList();
     Collection colScorecards = new ArrayList();
     Collection colOther = new ArrayList();
-    
+
     long thumbnailId = 0;
     long screenshotId = 0;
     for (int i = 0; i < tempDocs.length; i++) {
@@ -89,7 +89,7 @@
             } else if((int)doc.getType() == Document.SEQUENCE_DIAGRAM) {
                 colSequenceDiagrams.add(doc);
             } else if((int)doc.getType() == Document.COMPONENT_SPECIFICATION || doc.getType() == Document.REQUIREMENT_SPECIFICATION) {
-                colRequirements.add(doc); 
+                colRequirements.add(doc);
             } else if((int)doc.getType() == Document.JAVADOCS) {
                 colJavaDocs.add(doc);
             } else if((int)doc.getType() == Document.SCORECARD) {
@@ -111,7 +111,7 @@
     if (thumbnailId > 0 && screenshotId == 0) {
         screenshotId = thumbnailId;
     }
-    
+
     Document docClassDiagrams[] = (Document[])colClassDiagrams.toArray(new Document[0]);
     Document docUseCases[] = (Document[])colUseCases.toArray(new Document[0]);
     Document docSequenceDiagrams[] = (Document[])colSequenceDiagrams.toArray(new Document[0]);
@@ -133,7 +133,7 @@
     ComponentInfo componentInfo = details.getInfo();
 
     try {
-        ComponentManagerHome component_manager_home = (ComponentManagerHome) PortableRemoteObject.narrow(CONTEXT.lookup("ComponentManagerEJB"), ComponentManagerHome.class);
+        ComponentManagerHome component_manager_home = (ComponentManagerHome) PortableRemoteObject.narrow(CONTEXT.lookup(ComponentManagerHome.EJB_REF_NAME), ComponentManagerHome.class);
         ComponentManager componentManager;
 
         if (lngVersion == 0) {
@@ -333,7 +333,7 @@
                         </p>
 
                         <%  }  %>
-					
+
 <!-- Authors -->
                         <% if (teamMemberRoles.length > 0) { %>
 
@@ -374,8 +374,8 @@
                         <%  }  %>
                         <p><strong>Availability</strong><br />
                         Version <%= versionInfo.getVersionLabel() %><br />
-                        
-                        
+
+
 
 <%  String strAvailability;
     switch( (int)versionInfo.getPhase() ) {
@@ -395,11 +395,11 @@
     }
 %>
                         <%= strAvailability %></p>
-                        
+
 
                     </td>
                 </tr>
-                
+
             	<tr>
 <!-- Documentation-->
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 15px">
@@ -541,7 +541,7 @@
                                       <a href="/catalog/document?id=<%=docOther[i].getId()%>" target="_blank" ><%=docOther[i].getName()%></a><br/>
                                           <% } %>
                                       <% }%>
-                                      
+
                                      <%} %>
                               </td>
                           </tr>
@@ -549,7 +549,7 @@
                     </td>
                 </tr>
             </table>
-            
+
 <!-- Component Dependencies -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 15px">
                 <tr><td><img src="/images/catalog/catpg_compdep.gif" alt="Component Hierarchy" width="187" height="17" border="0" /><br />
@@ -584,7 +584,7 @@
                     </td>
                 </tr>
             </table>
-            
+
 <!-- Enhancements -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 15px">
                 <tr><td><img src="/images/catalog/catpg_enhance.gif" alt="Enhancements" width="113" height="13" border="0" /><br />
@@ -601,7 +601,7 @@
                     </td>
                 </tr>
             </table>
-            
+
 <!-- Forums for This Component -->
            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 15px">
 <!-- Current Forums begin -->
@@ -666,7 +666,7 @@
         <td width="170">
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr><td height="10"><img src="/images/clear.gif" alt="" width="10" height="10" border="0" /></td></tr>
-                <tr><td>        
+                <tr><td>
                 <jsp:include page="/includes/topDownloads.jsp" />
                 <jsp:include page="/includes/newReleases.jsp" />
         		<jsp:include page="/includes/right.jsp" >

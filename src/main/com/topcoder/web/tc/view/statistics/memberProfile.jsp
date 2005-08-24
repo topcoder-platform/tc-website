@@ -13,10 +13,9 @@
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 </head>
-
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -24,7 +23,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="statistics"/>
                 <jsp:param name="level2" value="member_profile"/>
             </jsp:include>
@@ -45,7 +44,6 @@
 <% if(rscCoderData.size() == 0) {%>
 This member has not yet been rated in a competition.
 <% } else { %>
-
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr><td class="tableTitle" colspan="3">&#160;</td></tr>
    <tr>
@@ -122,7 +120,7 @@ This member has not yet been rated in a competition.
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -134,7 +132,7 @@ This member has not yet been rated in a competition.
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

@@ -34,7 +34,7 @@ function jobTask(step)
 	<jsp:include page="job-body.jsp" />
 	<p>
 
-	<%@ taglib uri="/email-taglib.tld" prefix="email"%>
+	<%@ taglib uri="email-taglib.tld" prefix="email"%>
 
 	<table cellpadding = 2>
 		<tr>

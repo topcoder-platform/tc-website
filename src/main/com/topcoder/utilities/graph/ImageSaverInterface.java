@@ -7,7 +7,7 @@
  *
  * Java source created by Kary FRAMLING 12/2/1998
  *
- * Copyright 1998-2003 Kary Fr�mling
+ * Copyright 1998-2003 Kary Framling
  * Source code distributed under GNU LESSER GENERAL PUBLIC LICENSE,
  * included in the LICENSE.txt file in the topmost directory
  *

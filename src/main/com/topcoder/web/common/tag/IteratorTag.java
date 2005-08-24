@@ -67,7 +67,7 @@ public class IteratorTag extends BodyTagSupport {
             pageContext.setAttribute(getId(), iterator.next());
             //log.debug("get attribute " + getId() + " " + pageContext.getAttribute(getId()));
             return EVAL_BODY_TAG;
-        } else {
+            } else {
             try {
                 if (bodyContent != null) {
                     bodyContent.writeOut(getPreviousOut());

@@ -4,7 +4,7 @@
 <head>
 <title>TopCoder Member Card</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 
 <SCRIPT LANGUAGE="JavaScript">
 <!--
@@ -36,7 +36,7 @@ if ( plugin ) {
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -44,7 +44,7 @@ if ( plugin ) {
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="my_home"/>
                 <jsp:param name="level2" value="card"/>
             </jsp:include>
@@ -56,12 +56,12 @@ if ( plugin ) {
 
          <div class="cardBody">
         <jsp:include page="../page_title.jsp" >
-            <jsp:param name="image" value="cards"/>  
-            <jsp:param name="title" value="Help"/>  
+            <jsp:param name="image" value="cards"/>
+            <jsp:param name="title" value="Help"/>
         </jsp:include>
-            
+
             <p class="bodyText">Move your mouse over any statistic in the card to read a description of what that statistic represents.</p>
-            
+
 <div align="center">
 <SCRIPT language="JavaScript">
 <!--
@@ -115,7 +115,7 @@ document.write('<img src="/i/card/noFlash.gif" width="400" height="410" border="
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -127,7 +127,7 @@ document.write('<img src="/i/card/noFlash.gif" width="400" height="410" border="
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

@@ -54,7 +54,7 @@
                 </tr>
                 <tr><td colspan="3"><img src="/i/corp/clear.gif" width="1" height="10"></td></tr>
                 <tr><td colspan="3"><img src="/i/corp/clear.gif" width="1" height="10"></td></tr>
-                <tr><td colspan="3"><div align="center"><p class="button"><screen:servletLink processor="PopulateSession" styleclass="button">Create a New Session</screen:servletLink></p></div></td></tr>
+                <tr><td colspan="3"><div align="center"><p class="button"><screen:servletLink processor="PopulateSession" styleClass="button">Create a New Session</screen:servletLink></p></div></td></tr>
             </table>
             <p><br/></p>
         </td>

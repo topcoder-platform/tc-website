@@ -18,7 +18,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -85,7 +85,7 @@
                   <td align = "right" class="advancers_faded"><A href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_radeye_rd1','radeye1',900,600);">view</A></td>
                </tr>
                <tr>
-                  <td align = "left" class="advancers_roundid"><A href="/tc?module=SimpleStats&c=tco03_advancers&rd=4703&trans=true" class="topLink">Online Round 2</A></td> 
+                  <td align = "left" class="advancers_roundid"><A href="/tc?module=SimpleStats&c=tco03_advancers&rd=4703&trans=true" class="topLink">Online Round 2</A></td>
                   <td align = "right" class="advancers_faded"><A href="/tc?module=SimpleStats&c=tco03_advancers&rd=4703&trans=true">100</A></td>
                   <td align = "right" class="advancers_faded"><A href="/tc?module=SimpleStats&c=tco03_advancers&rd=4703&trans=true">20</A></td>
                   <td align = "right" class="advancers_faded"><A href="/tc?module=SimpleStats&c=tco03_advancers&rd=4703&trans=true">80</A></td>

@@ -18,7 +18,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../../includes/global_left.jsp">
+            <jsp:include page="..//includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -49,16 +49,16 @@
             <p class="terciary">
                 Play-by-Play&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room4_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room4_analysis">Problem Analysis</a>
             </p>
-            
+
             <div class="leadPhoto">
             <img src="/i/tournament/tco03/room4/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
             <span class="leadPhotoCaption">Photo caption.<br/><br/></span>
             </div>
-            
+
             <h2>tjq surprises everyone by striking three bullseyes</h2>
 
             <p>by Lars Backstrom, (lbackstrom)<em>TopCoder Member</em><br />
-            
+
             Thursday, December 4, 2003</p>
 
 <p>

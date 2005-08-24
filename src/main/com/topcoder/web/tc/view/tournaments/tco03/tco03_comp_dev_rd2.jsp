@@ -18,7 +18,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -43,7 +43,7 @@
 <!-- Tab bar sublinks-->
 <jsp:include page="tco03Sublinks.jsp" >
    <jsp:param name="selectedList" value="component_advancers"/>
-   <jsp:param name="selectedTab" value="development"/> 
+   <jsp:param name="selectedTab" value="development"/>
 </jsp:include>
 
             <h2>Advancers</h2>
@@ -51,9 +51,9 @@
             <br/>
 
                   <p>Round 2 was quite suspenseful.  Almost all development competitors submitted for the same two components, DNS Query and Generic Event Manager.  The race was on and it was neck and neck the whole way.  Aksonov and rnielsen emerged the winners but it was a great showing from all submitters.</p>
-                  
+
             <br/><br/>
-            
+
     <!-- Design Winners Begins -->
             <table border="0" cellspacing="0" cellpadding="3" width="500" align="center">
                 <tr valign="middle">

@@ -7,6 +7,7 @@ import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.SecurityHelper;
 
 import javax.ejb.CreateException;
 import javax.naming.InitialContext;
@@ -79,8 +80,11 @@ public class Util {
      */
     public static TCSubject retrieveTCSubject(long userID)
             throws NoSuchUserException, Exception {
+/*
         PrincipalMgrRemote mgr = getPrincipalManager();
         TCSubject ret = mgr.getUserSubject(userID);
+*/
+        TCSubject ret = SecurityHelper.getUserSubject(userID);
         //log.debug("TCSubject retreived by ID [" + ret + "]");
         return ret;
     }
@@ -96,7 +100,7 @@ public class Util {
     public static TCSubject retrieveTCSubject(String handle)
             throws NoSuchUserException, Exception {
         PrincipalMgrRemote mgr = getPrincipalManager();
-        TCSubject ret = mgr.getUserSubject(mgr.getUser(handle).getId());
+        TCSubject ret = SecurityHelper.getUserSubject(mgr.getUser(handle).getId());
         //log.debug("TCSubject retreived by handle [" + ret + "]");
         return ret;
     }

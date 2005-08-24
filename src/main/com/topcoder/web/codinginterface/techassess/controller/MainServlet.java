@@ -1,23 +1,16 @@
 package com.topcoder.web.codinginterface.techassess.controller;
 
 import com.topcoder.security.TCSubject;
-import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.screening.common.ScreeningContext;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.codinginterface.techassess.controller.request.Base;
 import com.topcoder.web.codinginterface.techassess.model.WebQueueResponseManager;
 import com.topcoder.web.codinginterface.techassess.model.WebResponsePool;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.RequestProcessor;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCResponse;
-import com.topcoder.web.common.security.Constants;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.LightAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
@@ -78,38 +71,8 @@ public class MainServlet extends BaseServlet {
         return true;
     }
 
-    private static final String KEY_PREFIX = "user_subject:";
-
     protected TCSubject getUser(long id) throws Exception {
-        //todo use security helper when we get it
-        TCSubject ret = null;
-
-        String key = KEY_PREFIX + String.valueOf(id);
-        try {
-            boolean hasCacheConnection = true;
-            CacheClient cc = null;
-            try {
-                cc = CacheClientFactory.createCacheClient();
-                ret = (TCSubject) (cc.get(key));
-            } catch (Exception e) {
-                log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
-                hasCacheConnection = false;
-            }
-            if (ret == null) {
-                PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
-                ret = pmgr.getUserSubject(id);
-                if (hasCacheConnection) {
-                    try {
-                        cc.set(key, ret, 1000 * 60 * 30);
-                    } catch (Exception e) {
-                        log.error("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
-                    }
-                }
-            }
-            return ret;
-        } catch (Exception e) {
-            throw e;
-        }
+        return SecurityHelper.getUserSubject(id);
     }
 
 

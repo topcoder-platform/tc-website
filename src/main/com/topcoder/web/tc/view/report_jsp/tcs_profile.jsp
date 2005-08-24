@@ -10,8 +10,8 @@
           com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"
 
 %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
 
 <%
@@ -20,7 +20,7 @@
   Boolean processed = (Boolean)request.getAttribute(Constants.PROCESSED_KEY);
   if (processed!=null && processed.booleanValue()) {
     profiles = (ResultSetContainer)request.getAttribute(Constants.REPORT_PROFILE_LIST_KEY);
-  } 
+  }
 %>
 
 <html>
@@ -31,7 +31,7 @@
     <a href=<%=Constants.SERVLET_ADDR%>><< back to main menu<a><br/><br/>
     TCS Profile Lookup<br/><br/>
     (Use % for a wildcard.)
-    <form name="profileForm" method="get" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>">
+    <form name="profileForm" method="get" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
       <input type="hidden" name="module" value="TCSProfileLookup"/>
       <b>Handle: </b>
       <input type="text" onKeyPress="submitEnter(event)" name="<%=Constants.REPORT_HANDLE_KEY%>"/><br/>

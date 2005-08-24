@@ -1,4 +1,4 @@
-<%@  page 
+<%@  page
   language="java"
   import="java.util.*,
           com.topcoder.web.corp.common.*,
@@ -6,7 +6,7 @@
           com.topcoder.web.corp.common.JSPUtils,
           com.topcoder.web.corp.common.TCESConstants" %>
 
-<%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
+<%@ taglib uri="tces-taglib.tld" prefix="tces"%>
 
 <jsp:useBean id="CompetitionStatisticsTask" scope="request" class="com.topcoder.web.corp.controller.request.tces.CompetitionStatisticsTask" />
 
@@ -15,7 +15,7 @@
   <HEAD>
     <TITLE>TopCoder | Recruiting Reports</TITLE>
     <jsp:include page="script.jsp" />
-    
+
   </HEAD>
   <body>
 <jsp:include page="top.jsp" >
@@ -34,9 +34,9 @@
 					<tces:trailIterator id="trailItem" trailList="<%=CompetitionStatisticsTask.getTrail()%>">
 					<A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
 					</tces:trailIterator>
-					<A HREF="<jsp:getProperty name="CompetitionStatisticsTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionStatisticsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionStatisticsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionStatisticsTask.getMemberID()%>" >Problem Submissions</A> &gt;
+					<A HREF="<jsp:getProperty name="CompetitionStatisticsTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionStatisticsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionStatisticsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionStatisticsTask.getMemberID()%>" >Problem Submissions</A> &gt;
 					<br/>
-					<span class=testHead>Competition Statistics: <jsp:getProperty name="CompetitionStatisticsTask" property="Handle"/></span>
+					<span class=testHead>Competition Statistics: <jsp:getProperty name="CompetitionStatisticsTask" property="handle"/></span>
 
 
 				<br/><br/>
@@ -53,7 +53,7 @@
 					<TD width='50%'>
 				<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
 					<TR>
-						<TD class=screeningHeader colspan=2>Individual: <jsp:getProperty name="CompetitionStatisticsTask" property="Handle"/></TD>
+						<TD class=screeningHeader colspan=2>Individual: <jsp:getProperty name="CompetitionStatisticsTask" property="handle"/></TD>
 					</TR>
 					<TR>
 						<TD class=bodyText><B>Score</B></TD>
@@ -120,11 +120,11 @@
 				int i=0;
 				%>
 					<tces:rowIterator id="level" rowList="<%=(List)CompetitionStatisticsTask.getCoderStatsByLevel()%>">
-					<% 
+					<%
 					i++;
-					%> 
+					%>
 				<TR>
-					<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><A HREF="<jsp:getProperty name="CompetitionStatisticsTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionStatisticsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionStatisticsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionStatisticsTask.getMemberID()%>&<%=TCESConstants.PROBLEM_ID_PARAM%>=<%= level.getItem("problem_id").toString() %>&<%=TCESConstants.ROUND_ID_PARAM%>=<%=level.getItem("round_id").toString()%>" class="bodyText">
+					<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><A HREF="<jsp:getProperty name="CompetitionStatisticsTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionStatisticsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionStatisticsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionStatisticsTask.getMemberID()%>&<%=TCESConstants.PROBLEM_ID_PARAM%>=<%= level.getItem("problem_id").toString() %>&<%=TCESConstants.ROUND_ID_PARAM%>=<%=level.getItem("round_id").toString()%>" class="bodyText">
 					<b><%= level.getItem("level_desc").toString() %></b>
 					</A>
 					</TD>
@@ -157,9 +157,9 @@
 				i=0;
 				%>
 					<tces:rowIterator id="level" rowList="<%=CompetitionStatisticsTask.getOverallStatsByLevel()%>">
-					<% 
+					<%
 					i++;
-					%> 
+					%>
 				<TR>
 					<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap=nowrap><b><%= level.getItem("level_desc").toString() %></b></TD>
 					<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= level.getItem("problems_presented").toString() %></TD>
@@ -173,9 +173,9 @@
 					<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right nowrap=nowrap><%= JSPUtils.timeFormat(level.getItem("avg_time_elapsed")) %></TD>
 				</TR>
 				</tces:rowIterator>
-					<% 
+					<%
 					i++;
-					%> 
+					%>
 				<TR>
 					<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><b>All</b></TD>
 					<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= CompetitionStatisticsTask.getStatistic("overall_problems_presented") %></TD>

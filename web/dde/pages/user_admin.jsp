@@ -5,7 +5,7 @@
 	<title>TopCoder Software</title>
 
 <link rel="stylesheet" type="text/css" href="tcs_style.css" />
-  
+
 <%@ page import="javax.naming.*" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
@@ -26,30 +26,27 @@
 	String handle = "";
 	String password = "";
 	TCSubject user = null;
-	
+
 	if (action != null) {
 		strMessage += "Action occurred<BR>";
 		handle = request.getParameter("txtHandle");
-		password = request.getParameter("txtPassword");				
-	
+		password = request.getParameter("txtPassword");
+
 		try {
-			Hashtable environment=new Hashtable();
-			environment.put(Context.PROVIDER_URL, "localhost:1099");
-			environment.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-			Context jndiContext = new InitialContext(environment);
-										            
+			Context jndiContext = new InitialContext();
+
 		  Object prinmgr = jndiContext.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
 		  PrincipalMgrRemoteHome home = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(prinmgr, PrincipalMgrRemoteHome.class);
 		  PrincipalMgrRemote remote = home.create();
-	
+
 		  Object polmgr = jndiContext.lookup(PolicyMgrRemoteHome.EJB_REF_NAME);
 		  PolicyMgrRemoteHome polHome = (PolicyMgrRemoteHome) PortableRemoteObject.narrow(polmgr, PolicyMgrRemoteHome.class);
 		  PolicyMgrRemote polRemote = polHome.create();
-		            
+
 		  Object login = jndiContext.lookup(LoginRemoteHome.EJB_REF_NAME);
 		  LoginRemoteHome loginHome = (LoginRemoteHome) PortableRemoteObject.narrow(login, LoginRemoteHome.class);
 		  LoginRemote loginRemote = loginHome.create();
-		            
+
 		  Object policy = jndiContext.lookup(PolicyRemoteHome.EJB_REF_NAME);
 		  PolicyRemoteHome policyHome = (PolicyRemoteHome) PortableRemoteObject.narrow(policy, PolicyRemoteHome.class);
 		  PolicyRemote policyRemote = policyHome.create();
@@ -64,13 +61,13 @@
 					strMessage += ae.getMessage();
 				}
 			}
-            				            
+
 			if (action.equals("CREATE")) {
 				TCPrincipal tcprincipal = remote.createUser(handle, password, requestor);
 				user = new TCSubject(tcprincipal.getId());
 				strMessage += "created user with login_id: " + user.getUserId();
 			}
-			
+
 			if (action.equals("DELETE")) {
 				try {
 					UserPrincipal userPrincipal = remote.getUser(handle);
@@ -115,7 +112,7 @@
 		<TD COLSPAN=3>
 			<INPUT TYPE="SUBMIT" NAME="butAction" VALUE="LOOKUP">
 			<INPUT TYPE="SUBMIT" NAME="butAction" VALUE="CREATE">
-			<INPUT TYPE="SUBMIT" NAME="butAction" VALUE="DELETE">			
+			<INPUT TYPE="SUBMIT" NAME="butAction" VALUE="DELETE">
 		</TD>
 	</TR>
 </TABLE>

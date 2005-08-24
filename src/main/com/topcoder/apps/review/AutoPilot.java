@@ -13,12 +13,6 @@ import com.topcoder.message.email.TCSEmailMessage;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
 
-import com.topcoder.message.email.EmailEngine;
-import com.topcoder.message.email.TCSEmailMessage;
-
-import java.util.List;
-import java.util.ArrayList;
-
 /**
  *
  * @author  rfairfax

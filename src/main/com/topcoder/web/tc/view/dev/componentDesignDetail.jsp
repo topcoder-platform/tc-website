@@ -238,14 +238,14 @@ If you do not reside in the United States:
                                <% if (sessionInfo.isAnonymous()) { %>
                                  Login required to register for this project. <br/><br/>
                                <% } %>
-                               <strong><A href="/?t=development&amp;version=<rsc:item set="<%=projectDetail%>" name="version_id"/>&phase=<rsc:item set="<%=projectDetail%>" name="phase_id"/>&comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>&c=tcs_inquire&Project=<%=response.encodeURL(projectDetail.getStringItem(0, "component_name")+" Design")%>&date=<rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/>&projectId=<%= request.getAttribute("projectId") %>">
+                               <strong><A href="/?t=development&version=<rsc:item set="<%=projectDetail%>" name="version_id"/>&phase=<rsc:item set="<%=projectDetail%>" name="phase_id"/>&comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>&c=tcs_inquire&Project=<%=response.encodeURL(projectDetail.getStringItem(0, "component_name")+" Design")%>&date=<rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/>&projectId=<%= request.getAttribute("projectId") %>">
                                         Register</A> for this Component Project to get information necessary to submit a solution</strong>
                                         <br/><br/>
                                         <span class=bigRed>NOTE: Registering for this component will affect your <A class=bigRed href="/tc?module=Static&d1=dev&d2=reliability">Reliability Rating</A></span>
                            <% } %>
 
                             </p>
-                            
+
 
             <table cellspacing="0" class="formFrame" align="center" width="530">
                 <tr>

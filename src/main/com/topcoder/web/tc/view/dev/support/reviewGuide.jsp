@@ -7,7 +7,7 @@
 <jsp:include page="../../../../script.jsp" />
 
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
-    
+
 </head>
 
 <body>
@@ -20,7 +20,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="development"/>
                 <jsp:param name="level2" value="components"/>
                 <jsp:param name="level3" value=""/>
@@ -47,17 +47,17 @@
 <a name="requirements"></a>
 <p class=guideSubTitle>Requirements Section</p>
 <p class=guideDesc>
-The answers to the questions should be limited to how the design meets the requirements (both 
+The answers to the questions should be limited to how the design meets the requirements (both
 business and technical) as described in the requirements document AND the forums for the component.
 </p>
 
 <br/>
 
-<p class=guideQuestion>Q: 
+<p class=guideQuestion>Q:
 The design addresses all the requirements as specified in the requirements documents and/or the forum.
 </p>
-<p class=guideDesc>The reviewer should be able to take each point in the requirements document and find the associated 
-implementation in the design.  The reviewer should read the component forum prior to doing this to 
+<p class=guideDesc>The reviewer should be able to take each point in the requirements document and find the associated
+implementation in the design.  The reviewer should read the component forum prior to doing this to
 ensure that any modifications or addition to the requirements are taken into account.
 </p>
 <table class=guideTable cellspacing=0>
@@ -67,19 +67,19 @@ ensure that any modifications or addition to the requirements are taken into acc
     <tr><td class=guideHead><b>Rating 4</b> -</td><td class=guideCell>the design addresses all requirements and provides new and substantially useful (to the customer) functionality. </td></tr>
 </table>
 <p class=guideDesc>
-'Core' requirements are those requirements that are essential to component's intent (ie the component 
+'Core' requirements are those requirements that are essential to component's intent (ie the component
 either cannot fulfill it's goal or cannot provide value added service to the customer without those requirements).
 </p>
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
-The component specification includes a clear and easily grasped explanation of any algorithms used in 
+<p class=guideQuestion>Q:
+The component specification includes a clear and easily grasped explanation of any algorithms used in
 the design.
 </p>
-<p class=guideDesc>The reviewer should judge whether the algorithms are complete, accurate and contain enough information 
-for the developer to properly implement.  Please note that this review question should judge the correctness 
-of the algorithm and how well the designer relates the algorithm - the grammar and spelling should NOT be 
+<p class=guideDesc>The reviewer should judge whether the algorithms are complete, accurate and contain enough information
+for the developer to properly implement.  Please note that this review question should judge the correctness
+of the algorithm and how well the designer relates the algorithm - the grammar and spelling should NOT be
 included in this question.
 </p>
 <table class=guideTable cellspacing=0>
@@ -91,12 +91,12 @@ included in this question.
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
+<p class=guideQuestion>Q:
 The use cases cover all the business requirements as stated in the requirements document.
 </p>
-<p class=guideDesc>The reviewer should be able to take each requirements point and find a use case covering that requirement 
-(a single use case can cover more than one requirement).  Care must be taken to ensure that the use cases 
-are not too high-level or too low-level.  If the designer included additional functionality beyond the requirements, 
+<p class=guideDesc>The reviewer should be able to take each requirements point and find a use case covering that requirement
+(a single use case can cover more than one requirement).  Care must be taken to ensure that the use cases
+are not too high-level or too low-level.  If the designer included additional functionality beyond the requirements,
 that functionality must be covered by use cases also.
 </p>
 <table class=guideTable cellspacing=0>
@@ -108,11 +108,11 @@ that functionality must be covered by use cases also.
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
+<p class=guideQuestion>Q:
 All the use cases are represented by sequence diagrams.
 </p>
-<p class=guideDesc>The reviewer should be able to take each use case and find a sequence diagram that covers it.  If the designer 
-has missed some use cases, the reviewer should not take those use cases into account when answer this question.  
+<p class=guideDesc>The reviewer should be able to take each use case and find a sequence diagram that covers it.  If the designer
+has missed some use cases, the reviewer should not take those use cases into account when answer this question.
 This question is only relevant to those use cases that have been defined.
 </p>
 <table class=guideTable cellspacing=0>
@@ -127,21 +127,21 @@ This question is only relevant to those use cases that have been defined.
 <a name="approach"></a>
 <p class=guideSubTitle>Approach Section</p>
 <p class=guideDesc>
-The answers to the questions should be limited to how good the designer's approach to designing the component 
+The answers to the questions should be limited to how good the designer's approach to designing the component
 was (in knowing design standards, creating an easy to use component that is flexible and extendable).
 </p>
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
-The design incorporates standard design patterns and methodologies where applicable (i.e. Model-View-Controller, 
+<p class=guideQuestion>Q:
+The design incorporates standard design patterns and methodologies where applicable (i.e. Model-View-Controller,
 Factory Pattern, Object Oriented design principles, follows J2EE specs).
 </p>
-<p class=guideDesc>The reviewer should determine a few things.  Are the patterns/methodologies used 'forced' (ie is there good justification 
-for using the pattern or did the designer force the pattern into the design to say they used that pattern).  Are the 
-patterns/methodologies implemented correctly (this does not mean completely - the design may justify a partial 
-implementation)?  Did the designer show an understanding of the pattern/methodology?  Did the designer recognize 
-and document all the patterns used?  
+<p class=guideDesc>The reviewer should determine a few things.  Are the patterns/methodologies used 'forced' (ie is there good justification
+for using the pattern or did the designer force the pattern into the design to say they used that pattern).  Are the
+patterns/methodologies implemented correctly (this does not mean completely - the design may justify a partial
+implementation)?  Did the designer show an understanding of the pattern/methodology?  Did the designer recognize
+and document all the patterns used?
 </p>
 <table class=guideTable cellspacing=0>
     <tr><td class=guideHead><b>Rating 1</b> -</td><td class=guideCell>A pattern/methodology was inappropriately used that could cause problems either in implementing the component or in implementing future enhancements to the component. </td></tr>
@@ -152,13 +152,13 @@ and document all the patterns used?
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
+<p class=guideQuestion>Q:
 The design accounts for incorporating future enhancements and/or features beyond the requirements.
 </p>
-<p class=guideDesc>The reviewer should consider what enhancement/features the next version of the component will likely be or what 
-types of enhancements a client of the component will likely request.  The reviewer should then review the future 
-enhancements that the designer included in the component specification for their vision of what the next likely 
-enhancements are.  The reviewer should also consider how tightly coupled the classes or what assumptions the design 
+<p class=guideDesc>The reviewer should consider what enhancement/features the next version of the component will likely be or what
+types of enhancements a client of the component will likely request.  The reviewer should then review the future
+enhancements that the designer included in the component specification for their vision of what the next likely
+enhancements are.  The reviewer should also consider how tightly coupled the classes or what assumptions the design
 was built upon when considering how 'substantial' the modifications would entail.
 </p>
 <table class=guideTable cellspacing=0>
@@ -170,15 +170,15 @@ was built upon when considering how 'substantial' the modifications would entail
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
+<p class=guideQuestion>Q:
 The component makes effective use of the TopCoder component catalog.
 </p>
-<p class=guideDesc>The reviewer should review the components recommended in the requirements documentation.  The designer will 
-need to provide justification (either in the component specification or in the component forum) if they choose not to 
-use the recommendations.  The reviewer should also review the TopCoder catalog for any components that could 
-potentially be used in the component design.  The reviewer should not be critical of the designer's use, assumptions 
-or lack of details for components that are being introduced or in the design/development stage - as long as the 
-designer has included verbage in the component specification stating that the design may need to change based on 
+<p class=guideDesc>The reviewer should review the components recommended in the requirements documentation.  The designer will
+need to provide justification (either in the component specification or in the component forum) if they choose not to
+use the recommendations.  The reviewer should also review the TopCoder catalog for any components that could
+potentially be used in the component design.  The reviewer should not be critical of the designer's use, assumptions
+or lack of details for components that are being introduced or in the design/development stage - as long as the
+designer has included verbage in the component specification stating that the design may need to change based on
 the final 'look' of the dependent component.
 </p>
 <table class=guideTable cellspacing=0>
@@ -190,11 +190,11 @@ the final 'look' of the dependent component.
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
+<p class=guideQuestion>Q:
 The component presents an easy to use API for the application to use.
 </p>
-<p class=guideDesc>The reviewer should look at the demo section of the component specification to see the designer's vision of how the 
-component will be used.  The reviewer should then review how the API addresses the requirements and how easy 
+<p class=guideDesc>The reviewer should look at the demo section of the component specification to see the designer's vision of how the
+component will be used.  The reviewer should then review how the API addresses the requirements and how easy
 the API is to accomplish the requirements.
 </p>
 <table class=guideTable cellspacing=0>
@@ -206,13 +206,13 @@ the API is to accomplish the requirements.
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
+<p class=guideQuestion>Q:
 The design addresses whether the component is thread safe or not.
 </p>
-<p class=guideDesc>The reviewer should review the component specification to see if the designer addresses the thread safety of the 
-component.  Please note that this does not mean the components must be thread safe - it simply means whether 
-the designer has justified why it is or isn't thread safe.  If the component is deemed thread safe, the designer should 
-have documented their approach to thread safety in order to determine if the approach is sound.  If the component is 
+<p class=guideDesc>The reviewer should review the component specification to see if the designer addresses the thread safety of the
+component.  Please note that this does not mean the components must be thread safe - it simply means whether
+the designer has justified why it is or isn't thread safe.  If the component is deemed thread safe, the designer should
+have documented their approach to thread safety in order to determine if the approach is sound.  If the component is
 deemed not to be thread safe, the designer should document any reasons why the component is not thread safe.
 </p>
 <table class=guideTable cellspacing=0>
@@ -224,11 +224,11 @@ deemed not to be thread safe, the designer should document any reasons why the c
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
+<p class=guideQuestion>Q:
 The classes are well scoped.
 </p>
-<p class=guideDesc>The reviewer should determine whether the classes in the design attempt to do too many tasks.  A good clue to a 
-violation of this is whether the name of the class adequately encompasses the API of the class.  If so, then the class 
+<p class=guideDesc>The reviewer should determine whether the classes in the design attempt to do too many tasks.  A good clue to a
+violation of this is whether the name of the class adequately encompasses the API of the class.  If so, then the class
 is probably properly scoped (unless the name is too generic or too high-level).
 </p>
 <table class=guideTable cellspacing=0>
@@ -248,12 +248,12 @@ The answers to the questions should be limited to design fundamentals (how well 
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
+<p class=guideQuestion>Q:
 Sub-packages have been defined to separate functionality into maintainable units.
 </p>
-<p class=guideDesc>The reviewer should make a determination whether classes in the design could be grouped into separate packages.  
-This category generally applies to complex components or components that allow for functionality to be plugged in 
-(where the functionality should justifiably exist in a separate package).  Note: for pluggable components, the interface, 
+<p class=guideDesc>The reviewer should make a determination whether classes in the design could be grouped into separate packages.
+This category generally applies to complex components or components that allow for functionality to be plugged in
+(where the functionality should justifiably exist in a separate package).  Note: for pluggable components, the interface,
 implementations and any related abstract bases should be grouped within the package.
 </p>
 <table class=guideTable cellspacing=0>
@@ -265,13 +265,13 @@ implementations and any related abstract bases should be grouped within the pack
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
-Modifiers (final, abstract, synchronized, property, etc) and scope (private, package, public, etc) have been appropriately 
+<p class=guideQuestion>Q:
+Modifiers (final, abstract, synchronized, property, etc) and scope (private, package, public, etc) have been appropriately
 used in the design in the classes/methods/variables.
 </p>
-<p class=guideDesc>Have internally (to the component) used classes been defined incorrectly as public?  Has a public class improperly 
-exposed protected or private members?  Are abstract classes abstract?  It is strongly advised that variables have a 
-private scope (not even protected) and only accessed via getter/setter methods (exception would be C#'s property 
+<p class=guideDesc>Have internally (to the component) used classes been defined incorrectly as public?  Has a public class improperly
+exposed protected or private members?  Are abstract classes abstract?  It is strongly advised that variables have a
+private scope (not even protected) and only accessed via getter/setter methods (exception would be C#'s property
 variables).
 </p>
 <table class=guideTable cellspacing=0>
@@ -283,14 +283,14 @@ variables).
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
+<p class=guideQuestion>Q:
 Custom exceptions been defined appropriately and do not cover multiple, unrelated reasons.
 </p>
-<p class=guideDesc>Has the designer appropriately reused existing system exceptions and appropriately defined custom exceptions for 
-the rest?  The reviewer should also imagine they were using this component in an application.  If a custom exception 
-is thrown - does it give enough information to the application to be able to react appropriately?  Example: an inappropriate 
-custom exception would be some high level exception that is thrown for multiple, unrelated, reasons.   Please note that 
-TopCoder Software has decided that null arguments should be represented by the null specific exception 
+<p class=guideDesc>Has the designer appropriately reused existing system exceptions and appropriately defined custom exceptions for
+the rest?  The reviewer should also imagine they were using this component in an application.  If a custom exception
+is thrown - does it give enough information to the application to be able to react appropriately?  Example: an inappropriate
+custom exception would be some high level exception that is thrown for multiple, unrelated, reasons.   Please note that
+TopCoder Software has decided that null arguments should be represented by the null specific exception
 (NullPointerException and ArgumentNullException) and not the more generic IllegalArgumentException.
 </p>
 <table class=guideTable cellspacing=0>
@@ -302,14 +302,14 @@ TopCoder Software has decided that null arguments should be represented by the n
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
+<p class=guideQuestion>Q:
 Type assignments have been used appropriately for method arguments, variables and return types.
 </p>
-<p class=guideDesc>Are the type assignments correct and what you'd expect?  Are the Collection interfaces used appropriately?  If an 
-actual array is used, is there justification why a Collection interface is not used?  A gotcha to check for: if the return 
-type is a Collection - make sure it's a clone (or similar) of the internal Collection to avoid exposing an internally 
-protected field.  Please note that TopCoder Software has made determination to prefer collection interfaces to arrays 
-in all instances except where justified (presumably because of performance or overhead reasons and where either 
+<p class=guideDesc>Are the type assignments correct and what you'd expect?  Are the Collection interfaces used appropriately?  If an
+actual array is used, is there justification why a Collection interface is not used?  A gotcha to check for: if the return
+type is a Collection - make sure it's a clone (or similar) of the internal Collection to avoid exposing an internally
+protected field.  Please note that TopCoder Software has made determination to prefer collection interfaces to arrays
+in all instances except where justified (presumably because of performance or overhead reasons and where either
 standard implementations or custom implementations would not provide the characteristics needed).
 </p>
 <table class=guideTable cellspacing=0>
@@ -321,11 +321,11 @@ standard implementations or custom implementations would not provide the charact
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
-The relationships between classes within the component and between the component and external entities (other 
+<p class=guideQuestion>Q:
+The relationships between classes within the component and between the component and external entities (other
 components, system classes) have been defined appropriately.
 </p>
-<p class=guideDesc>Are all relationships shown?  Are the relationship attributes assigned appropriately (ordered, unordered, aggregate, 
+<p class=guideDesc>Are all relationships shown?  Are the relationship attributes assigned appropriately (ordered, unordered, aggregate,
 composite, etc)?  Do they contain proper labels?  Two ways of doing associations are appropriate:
 1) Define a variable for the association, draw the association and label it with the variable.
 2) Define the association and label it with a variable name - no variable needs to be shown for the relationship in the class.
@@ -339,10 +339,10 @@ composite, etc)?  Do they contain proper labels?  Two ways of doing associations
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
+<p class=guideQuestion>Q:
 The classes, methods and variables named appropriately.
 </p>
-<p class=guideDesc>Does the name provide a hint as to what the function of the entity is?  Does the name follow system language and 
+<p class=guideDesc>Does the name provide a hint as to what the function of the entity is?  Does the name follow system language and
 TopCoder standards (capitalization, underscores, etc)?
 </p>
 <table class=guideTable cellspacing=0>
@@ -359,10 +359,10 @@ TopCoder standards (capitalization, underscores, etc)?
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
+<p class=guideQuestion>Q:
 The design made proper use of the language's features?
 </p>
-<p class=guideDesc>Does the designer duplicate functionality that is already provided by the language?  Are properties, delegates, 
+<p class=guideDesc>Does the designer duplicate functionality that is already provided by the language?  Are properties, delegates,
 interfaces, inheritance, networking, etc use appropriately?
 </p>
 <table class=guideTable cellspacing=0>
@@ -377,19 +377,19 @@ interfaces, inheritance, networking, etc use appropriately?
 <a name="documentation"></a>
 <p class=guideSubTitle>Documentation Section</p>
 <p class=guideDesc>
-The answers to the questions should be limited to how well the design was documented.  This largely means how 
-easy will it be to take the design and develop it.  Please note that the reviewer should assign a 4 if any section is 
+The answers to the questions should be limited to how well the design was documented.  This largely means how
+easy will it be to take the design and develop it.  Please note that the reviewer should assign a 4 if any section is
 not applicable to the design.
 </p>
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
-The class documentation in the 'Documentation' tab of Poseidon provides a high-level description of the class; it's 
+<p class=guideQuestion>Q:
+The class documentation in the 'Documentation' tab of Poseidon provides a high-level description of the class; it's
 role in the overall design and all relevant information to the developer.
 </p>
-<p class=guideDesc>The reviewer should look at this from a component developer standpoint and not an application developer standpoint.  
-This is not javadoc on how to use the class.  This should contain helpful information to the developer on how to develop 
+<p class=guideDesc>The reviewer should look at this from a component developer standpoint and not an application developer standpoint.
+This is not javadoc on how to use the class.  This should contain helpful information to the developer on how to develop
 the class and if the class is mutable or not.
 </p>
 <table class=guideTable cellspacing=0>
@@ -401,15 +401,15 @@ the class and if the class is mutable or not.
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
-The method documentation in the 'Documentation' tab of Poseidon provides a detailed description of the method's scope, 
-the parameters (including what is considered valid or not), return type (range, nulls, etc) and any exceptions that may be 
+<p class=guideQuestion>Q:
+The method documentation in the 'Documentation' tab of Poseidon provides a detailed description of the method's scope,
+the parameters (including what is considered valid or not), return type (range, nulls, etc) and any exceptions that may be
 thrown.
 </p>
-<p class=guideDesc>The reviewer should look at this from a component developer standpoint and not an application developer standpoint.  
-This is not javadoc on how to use the method.  This should contain helpful information to the developer on how to develop 
-the method and what the constraints the method will have.  The designer does not have to provide physical examples of 
-arguments.  The designer does not have to explicitly say what is considered valid if this information is contained in the 
+<p class=guideDesc>The reviewer should look at this from a component developer standpoint and not an application developer standpoint.
+This is not javadoc on how to use the method.  This should contain helpful information to the developer on how to develop
+the method and what the constraints the method will have.  The designer does not have to provide physical examples of
+arguments.  The designer does not have to explicitly say what is considered valid if this information is contained in the
 documentation tags unless the argument validation is so complex that it needs special attention (such as a regex pattern).
 </p>
 <table class=guideTable cellspacing=0>
@@ -421,13 +421,13 @@ documentation tags unless the argument validation is so complex that it needs sp
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
-The variable documentation in the 'Documentation' tab of Poseidon provides a detailed description of the variable's scope, 
+<p class=guideQuestion>Q:
+The variable documentation in the 'Documentation' tab of Poseidon provides a detailed description of the variable's scope,
 intended usage and potential range of values.
 </p>
-<p class=guideDesc>The reviewer should look at this from a component developer standpoint and not an application developer standpoint.  This 
-s not javadoc on how to use the variable.  This should contain helpful information to the developer on how to use the variable 
-and what the constraints (null, range, etc) the variable will have.   The designer should mention if the value is mutable, is it set 
+<p class=guideDesc>The reviewer should look at this from a component developer standpoint and not an application developer standpoint.  This
+s not javadoc on how to use the variable.  This should contain helpful information to the developer on how to use the variable
+and what the constraints (null, range, etc) the variable will have.   The designer should mention if the value is mutable, is it set
 in the constructor and potentially where it will be modified and/or used.
 </p>
 <table class=guideTable cellspacing=0>
@@ -439,7 +439,7 @@ in the constructor and potentially where it will be modified and/or used.
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
+<p class=guideQuestion>Q:
 The sequence diagrams provide sufficient detail for the developer to understand the interactions between classes.
 </p>
 <p class=guideDesc>The sequence diagrams should demonstrate to an adequate degree what interactions occur as a result of a method call.
@@ -453,10 +453,10 @@ The sequence diagrams provide sufficient detail for the developer to understand 
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
+<p class=guideQuestion>Q:
 The component specification contains a comprehensive demo section.
 </p>
-<p class=guideDesc>Is the demo section complete (does it demonstrate each requirement)?  Was it written in a way that 'promotes' the 
+<p class=guideDesc>Is the demo section complete (does it demonstrate each requirement)?  Was it written in a way that 'promotes' the
 component (ie clear, demonstrates flexibility, etc)?
 </p>
 <table class=guideTable cellspacing=0>
@@ -468,11 +468,11 @@ component (ie clear, demonstrates flexibility, etc)?
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
+<p class=guideQuestion>Q:
 The component specification contains no grammatical or spelling errors.
 </p>
-<p class=guideDesc>Was it written in a way that is easily understandable and doesn't require multiple reading to understand?  This category 
-should ONLY judge the grammar, sentence structure and spelling (ie the knowledge transfer piece).  How well the designer 
+<p class=guideDesc>Was it written in a way that is easily understandable and doesn't require multiple reading to understand?  This category
+should ONLY judge the grammar, sentence structure and spelling (ie the knowledge transfer piece).  How well the designer
 explained the design structure or algorithms was addressed in a prior question.
 </p>
 <table class=guideTable cellspacing=0>
@@ -484,14 +484,14 @@ explained the design structure or algorithms was addressed in a prior question.
 
 <br/><br/>
 
-<p class=guideQuestion>Q: 
+<p class=guideQuestion>Q:
 The presentation of the diagrams and specification was professional.
 </p>
-<p class=guideDesc>Did the designer make use of fonts and colors to appropriately denote elements in the diagrams?  Was the specification 
-formatted in a professional looking manner?  Was the diagram laid out in an easy to follow manner (most important elements 
-in the top left to least important at the right and bottom edges)?  Were like items grouped together (ie implementations 
-[including the abstract base] of some interface should be near the interface)? Did the layout help you understand the design?  
-Note: multiple class diagrams are allowed but discouraged unless separate sub-packages were used or the design was 
+<p class=guideDesc>Did the designer make use of fonts and colors to appropriately denote elements in the diagrams?  Was the specification
+formatted in a professional looking manner?  Was the diagram laid out in an easy to follow manner (most important elements
+in the top left to least important at the right and bottom edges)?  Were like items grouped together (ie implementations
+[including the abstract base] of some interface should be near the interface)? Did the layout help you understand the design?
+Note: multiple class diagrams are allowed but discouraged unless separate sub-packages were used or the design was
 sufficiently complex that multiple diagrams help in the understanding.
 </p>
 <table class=guideTable cellspacing=0>

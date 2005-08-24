@@ -55,7 +55,7 @@ public class ArgumentIterator extends BodyTagSupport {
     }
 
     public int doStartTag() throws JspException {
-        return arguments.length > 0 ? EVAL_BODY_TAG : SKIP_BODY;
+        return arguments.length > 0 ? EVAL_BODY_AGAIN : SKIP_BODY;
     }
 
     public void doInitBody() throws JspException {
@@ -73,7 +73,7 @@ public class ArgumentIterator extends BodyTagSupport {
                     PageContext.PAGE_SCOPE);
             pageContext.setAttribute(DIMENSION, String.valueOf(arguments[index].getDimension()), PageContext.PAGE_SCOPE);
             index++;
-            return EVAL_BODY_TAG;
+            return EVAL_BODY_AGAIN;
         } else {
             try {
                 if (bodyContent != null) {

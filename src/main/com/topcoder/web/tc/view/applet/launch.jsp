@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Competition Arena</title>
-        <jsp:include page="../../script.jsp" />
+        <jsp:include page="../script.jsp" />
         <script type="text/javascript">
             function getReq(){u='tc\?module=Static&d1=help&d2=index';window.open(u);close();}
         </script>

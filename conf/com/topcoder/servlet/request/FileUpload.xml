@@ -1,12 +1,13 @@
-<CMConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/export/home/apps/jboss-3.0.4_tomcat-4.0.6/server/default/conf/CM v2 Schema.xsd" version="v2">
+<CMConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="/export/home/apps/jboss-4.0.2/server/default/conf/CM v2 Schema.xsd" version="v2">
         <Property name="allowed_directories">
-                <Value>/export/home/apps/</Value>
+                <Value>/home/apps/</Value>
         </Property>
         <Property name="temp_directory">
-                <Value>/export/home/apps/temp_files</Value>
+                <Value>/home/apps/temp_files</Value>
         </Property>
         <Property name="default_directory">
-                <Value>/export/home/apps/downloads</Value>
+                <Value>/home/apps/downloads</Value>
         </Property>
         <Property name="overwrite_allowed">
                 <Value>no</Value>

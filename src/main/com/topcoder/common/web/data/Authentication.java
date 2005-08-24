@@ -11,7 +11,7 @@ package com.topcoder.common.web.data;
 public final class Authentication implements java.io.Serializable {
 
 
-    private Integer UserId;
+    private Long UserId;
     private String Status;
     private String Email;
     private String ActivationCode;
@@ -22,7 +22,7 @@ public final class Authentication implements java.io.Serializable {
 
 
     public Authentication() {
-        UserId = new Integer(0);
+        UserId = new Long(0);
         Status = "";
         Email = "";
         ActivationCode = "";
@@ -36,8 +36,8 @@ public final class Authentication implements java.io.Serializable {
     /**
      * Sets the UserId for the user attempting to login.
      */
-    public void setUserId(int UserId) {
-        this.UserId = new Integer(UserId);
+    public void setUserId(long UserId) {
+        this.UserId = new Long(UserId);
     }
 
     /**
@@ -104,7 +104,7 @@ public final class Authentication implements java.io.Serializable {
     /**
      * Get the user id of the user attempting to login.
      */
-    public Integer getUserId() {
+    public Long getUserId() {
         return UserId;
     }
 

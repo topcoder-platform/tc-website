@@ -46,9 +46,9 @@ public class TaskRouter {
     /**
      * This method forwards/redirects to the URL.
      *
-     * @param HttpServlet            the servlet object
-     * @param HttpServletRequest    the servlet request object
-     * @param HttpServletResponse    the servlet response object
+     * @param servlet            the servlet object
+     * @param request    the servlet request object
+     * @param response    the servlet response object
      *
      * @throws IOException
      * @throws ServletException

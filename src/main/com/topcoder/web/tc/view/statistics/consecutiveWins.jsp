@@ -1,11 +1,11 @@
-<%@ page 
+<%@ page
   language="java"
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
 
 %>
 
-<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="struts-logic.tld" prefix="logic" %>
 
 <% //common code that pulls out the request bean.
 Request srb = (Request) request.getAttribute("REQUEST_BEAN");
@@ -57,7 +57,7 @@ function goTo(selection){
          </TABLE>
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
            <TR>
-            <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/> 
+            <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
               <TR>
@@ -66,7 +66,7 @@ function goTo(selection){
                     This chart represents the longest consecutive room win streaks in Single Round Matches.
                   </P>
                   <P CLASS="statText">
-<% if (sDivision.equals("2")){ %>  
+<% if (sDivision.equals("2")){ %>
                     View consecutive room win streaks for <A CLASS="statText" HREF="/stat?c=most_consecutive_wins&dn=1">Division I</A>
 <% } else { %>
                     View consecutive room win streaks for <A CLASS="statText" HREF="/stat?c=most_consecutive_wins&dn=2">Division II</A>
@@ -86,7 +86,7 @@ function goTo(selection){
                       <TD COLSPAN="7" CLASS="smallFoot" WIDTH="1"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                     </TR>
                     <TR VALIGN="middle">
-                      <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="10" HEIGHT="18">&nbsp;</TD>            
+                      <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="10" HEIGHT="18">&nbsp;</TD>
                       <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="20%">
             <a href="/stat?c=most_consecutive_wins&dn=<%=sDivision%>&sq=Most_Consecutive_Wins&sc=0&sd=<%= "0".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Handle</a>
             </TD>
@@ -105,7 +105,7 @@ function goTo(selection){
   <logic:equal name="queryEntries" property="key" value="Most_Consecutive_Wins">
   <logic:present name="queryEntries" property="value">
     <bean:define id="resultSet" name="queryEntries" property="value" type="ResultSetContainer" />
-    <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow"> 
+    <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
     <tr valign="middle">
             <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 3 /*"coder_score"*/ + "]" %>'/>
           <td CLASS="smallFoot" align="right" height="13"><bean:write name="resultRow" property='<%= "item[" + 10 /*"rank"*/ + "]" %>'/>&nbsp;</td>
@@ -113,7 +113,7 @@ function goTo(selection){
         <TD CLASS="statText" ALIGN="center"><bean:write name="resultRow" property='<%= "item[" + 2 /*"length"*/ + "]" %>'/></TD>
                 <TD CLASS="statText" ALIGN="right" width="18%"><bean:write name="resultRow" property='<%= "item[" + 5 /*"contest"*/ + "]" %>'/><!--,<bean:write name="resultRow" property='<%= "item[" + 6 /*"round"*/ + "]" %>'/>--></td>
                 <TD CLASS="statText" ALIGN="center" width="4%">&nbsp;-&nbsp;</td>
-        <TD CLASS="statText" ALIGN="left" width="18%"><bean:write name="resultRow" property='<%= "item[" + 8 /*"contest"*/ + "]" %>'/><!--,<bean:write name="resultRow" property='<%= "item[" + 9 /*"round"*/ + "]" %>--></TD>
+        <TD CLASS="statText" ALIGN="left" width="18%"><bean:write name="resultRow" property='<%= "item[" + 8 /*"contest"*/ + "]" %>'/></TD>
                 <TD CLASS="statText" ALIGN="center"><bean:write format="MM.dd.yy" name="resultRow" property='<%= "item[" + 4 /*"start_date"*/ + "].resultData" %>'/>&nbsp;-&nbsp;<bean:write format="MM.dd.yy" name="resultRow" property='<%= "item[" + 7 /*"end_date"*/ + "].resultData" %>'/></TD>
     </tr>
     </logic:iterate>
@@ -134,14 +134,14 @@ function goTo(selection){
 
            </TD>
            </TR>
-              </TABLE>      
+              </TABLE>
             </TD>
            </TR>
            <TR>
              <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-           </TR>     
+           </TR>
          </TABLE>
-         
+
          <p><br></p>
 
          <!-- END BODY -->
@@ -153,7 +153,7 @@ function goTo(selection){
        </TD>
     <!-- Gutter -->
     <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->       
+    <!-- Gutter Ends -->
      </TR>
    </TABLE>
    <jsp:include page="../foot.jsp" />

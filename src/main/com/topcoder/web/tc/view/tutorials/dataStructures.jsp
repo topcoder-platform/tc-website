@@ -4,8 +4,8 @@
 <head>
 <title>Algorithm Tutorials</title>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:include page="../../script.jsp" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:include page="../script.jsp" />
 <style type="text/css">
 .code
 {
@@ -24,7 +24,7 @@
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -32,7 +32,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="education"/>
                 <jsp:param name="level2" value="alg_tutorials"/>
             </jsp:include>
@@ -43,7 +43,7 @@
          <td width="100%" align="center">
 
          <div class="tutorBodyFull">
-            
+
             <h2>Data Structures</h2>
 
 			<p>
@@ -64,7 +64,7 @@ The simplest data structures are primitive variables.  They hold a single value,
 <br><br>
 A somewhat more difficult concept, though equally primitive, are pointers.  Pointers, instead of holding an actual value, simply hold a memory address that, in theory, contains some useful piece of data.  Most seasoned C++ coders have a solid understanding of how to use pointers, and many of the caveats, while fledgling programmers may find themselves a bit spoiled by more modern "managed" languages which, for better or worse, handle pointers implicitly.  Either way, it should suffice to know that pointers "point" somewhere in memory, and do not actually store data themselves.
 <br><br>
-A less abstract way to think about pointers is in how the human mind remembers (or cannot remember) certain things.  Many times, a good engineer may not necessarily know a particular formula/constant/equation, but when asked, they could tell you exactly which reference to check.  
+A less abstract way to think about pointers is in how the human mind remembers (or cannot remember) certain things.  Many times, a good engineer may not necessarily know a particular formula/constant/equation, but when asked, they could tell you exactly which reference to check.
 <br><br>
 <span class="bodySubtitle">Arrays</span><br>
 Arrays are a very simple data structure, and may be thought of as a list of a fixed length.  Arrays are nice because of their simplicity, and are well suited for situations where the number of data items is known (or can be programmatically determined).  Suppose you need a piece of code to calculate the average of several numbers.  An array is a perfect data structure to hold the individual values, since they have no specific order, and the required computations do not require any special handling other than to iterate through all of the values.  The other big strength of arrays is that they can be accessed randomly, by index.  For instance, if you have an array containing a list of names of students seated in a classroom, where each seat is numbered 1 through n, then studentName[i] is a trivial way to read or store the name of the student in seat i.
@@ -139,7 +139,7 @@ class MyQueue {
 		returnValue = queueData[queueFront];
 		QueueFront++;
 	}
-	return returnValue;	
+	return returnValue;
 	}
 
 	boolean isNotEmpty() {
@@ -182,12 +182,12 @@ One of the most common examples of a tree is an XML document.  The top-level doc
 <br><br>
 Corporate structures also lend themselves well to trees.  In a classical management hierarchy, a President may have one or more vice presidents, each of whom is in charge of several managers, each of whom presides over several employees.
 <br><br>
-<A href="/stat?c=problem_statement&pm=3093&rd=5864">PermissionTree</A> (SRM 218) provides an unusual problem on a common file system. 
+<A href="/stat?c=problem_statement&pm=3093&rd=5864">PermissionTree</A> (SRM 218) provides an unusual problem on a common file system.
 <br><br>
 <A href="/stat?c=problem_statement&pm=3025&rd=5860">bloggoDocStructure</A> (SRM 214) is another good example of a problem using trees.
 <br><br>
 <span class="bodySubtitle">Binary Trees</span><br>
-A special type of tree is a binary tree.  A binary tree also happens to be one of the most efficient ways to store and read a set of records that can be indexed by a key value in some way.  The idea behind a binary tree is that each node has, at most, two children.  
+A special type of tree is a binary tree.  A binary tree also happens to be one of the most efficient ways to store and read a set of records that can be indexed by a key value in some way.  The idea behind a binary tree is that each node has, at most, two children.
 <br><br>
 In the most typical implementations, the key value of the left node is less than that of its parent, and the key value of the right node is greater than that of its parent.  Thus, the data stored in a binary tree is always indexed by a key value.  When traversing a binary tree, it is simple to determine which child node to traverse when looking for a given key value.
 <br><br>
@@ -221,16 +221,16 @@ Unfortunately, not every type of data is quite as easy to sort as a simple dicti
 <br><br>
 A hash bucket containing more than one value is known as a "collision".  The exact nature of collision handling is implementation specific, and is crucial to the performance of the hash table.  One of the simplest methods is to implement a structure like a linked list at the hash bucket level, so that elements with the same hash value can be chained together at the proper location.  Other, more complicated schemes may involve utilizing adjacent, unused locations in the table, or re-hashing the hash value to obtain a new value.  As always, there are good and bad performance considerations (regarding time, size, and complexity) with any approach.
 <br><br>
-Another good example of a hash table is the Dewey decimal system, used in many libraries.  Every book is assigned a number, based upon its subject matter… the 500's are all science books, the 700's are all the arts, etc.  Much like a real hash table, the speed at which a person could find a given book is based upon how well the hash buckets are evenly divided… It will take longer to find a book about frogs in a library with many science materials than in a library consisting mostly of classical literature.
+Another good example of a hash table is the Dewey decimal system, used in many libraries.  Every book is assigned a number, based upon its subject matterï¿½ the 500's are all science books, the 700's are all the arts, etc.  Much like a real hash table, the speed at which a person could find a given book is based upon how well the hash buckets are evenly dividedï¿½ It will take longer to find a book about frogs in a library with many science materials than in a library consisting mostly of classical literature.
 <br><br>
 In applications development, hash tables are a convenient place to store reference data, like state abbreviations that link to full state names.  In problem solving, hash tables are useful for implementing a divide-and-conquer approach to knapsack-type problems.  In LongPipes, we are asked to find the minimum number of pipes needed to construct a single pipe of a given length, and we have up to 38 pieces of pipe.  By dividing this into two sets of 19, and calculating all possible lengths from each set, we create hash tables linking the length of the pipe to the fewest number of segments used.  Then, for each constructed pipe in one set, we can easily look up, whether or not we constructed a pipe of corresponding length in the other set, such that the two join to form a complete pipe of the desired length.
 <br><br>
 <span class="bodySubtitle">Conclusion</span><br>
 The larger picture to be seen from all of this is that data structures are just another set of tools that should be in the kit of a seasoned programmer.  Comprehensive libraries and frameworks available with most languages nowadays preempt the need for a full understanding of how to implement each of these tools.  The result is that developers are able to quickly produce quality solutions that take advantage of powerful ideas.  The challenge lies in knowing which one to select.
 <br><br>
-Nonetheless, knowing a little about how these tools work should help to make the choices easier.  And, when the need arises, perhaps leave the programmer better equipped to think up a new solution to a new problem… if not while on the job doing work for a client, then perhaps while contemplating the 1000 point problem 45 minutes into the coding phase of the next SRM.
+Nonetheless, knowing a little about how these tools work should help to make the choices easier.  And, when the need arises, perhaps leave the programmer better equipped to think up a new solution to a new problemï¿½ if not while on the job doing work for a client, then perhaps while contemplating the 1000 point problem 45 minutes into the coding phase of the next SRM.
 </p>
-            
+
         </div>
         <p><br/></p>
         </td>
@@ -238,7 +238,7 @@ Nonetheless, knowing a little about how these tools work should help to make the
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -250,7 +250,7 @@ Nonetheless, knowing a little about how these tools work should help to make the
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

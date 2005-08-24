@@ -151,6 +151,11 @@ public class ServletLinkTag extends TagSupport {
         } catch (IOException e) {
             throw new JspException(e.getMessage());
         }
+        param=null;
+        processor=null;
+        onClick=null;
+        styleClass=null;
+        target=null;
 
         return EVAL_PAGE;
     }

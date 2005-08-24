@@ -7,7 +7,7 @@
 <title>TopCoder Statistics</title>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
@@ -18,7 +18,7 @@
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -73,7 +73,7 @@ TopCoder reserves the title of Coder of the Month for any competitor who has had
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -85,7 +85,7 @@ TopCoder reserves the title of Coder of the Month for any competitor who has had
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

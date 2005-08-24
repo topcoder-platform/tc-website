@@ -28,7 +28,7 @@
         <td width="170">
             <jsp:include page="../includes/left.jsp">
                 <jsp:param name="level1" value="tourny"/>
-                <jsp:param name="level2" value="onsite"/> 
+                <jsp:param name="level2" value="onsite"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -42,17 +42,17 @@
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/corp/header_event_sponsorship.gif" alt="" width="546" height="41" border="0"></td></tr>
-                
+
                 <tr valign="top">
                     <td class="bodyText" width="99%">
                         <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"><br>
-                        
+
                         <h2 class="corpHead">Tournament - On-site Arena</h2>
 
                         <table cellpadding="10" cellspacing="0" border="0" align="right">
                         <tr><td><table border="0" cellpadding="6" cellspacing="0" class="sidebarBox">
                             <tr><td class="sidebarTitle">TOURNAMENT PACKAGE LINKS:</td></tr>
-                            
+
                             <tr valign="top">
                                 <td class="sidebarText">
                                     <a href="/tc?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournament Overview</a><br />
@@ -67,12 +67,12 @@
                             </tr>
                         </table></td></tr>
                         </table>
-                        
-                        <p>TopCoder's on-site arena is designed to give the competitors a degree of privacy while offering spectators 
+
+                        <p>TopCoder's on-site arena is designed to give the competitors a degree of privacy while offering spectators
                         viewing of coders and what they're coding.</p>
-                        
+
                         <p>TopCoder has the following elements present for all on-site matches:</p>
-                        
+
                         <ul>
                             <li>Co-branded on-site signage directing spectators to location</li>
                             <li>Co-branded information and collateral (TopCoder and Sponsor's) area</li>
@@ -82,9 +82,9 @@
                             <li>Competitor stage - co-branded pillars</li>
                             <li>TopCoder Arena &#40;see image below&#41;</li>
                         </ul>
-                        
+
                         <div align="center"><img src="/i/corp/arena.gif" alt="" width="450" height="370" border="0"/></div>
-                        
+
                         <p><a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_index">What is in an SRM Package?</a></p>
 
                         <p><br/></p>
@@ -95,9 +95,9 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column begins -->
-                    <jsp:include page="../../right.jsp">
+                    <jsp:include page="/right.jsp">
                         <jsp:param name="level1" value="sponsor"/>
-                        <jsp:param name="level2" value="srm_index"/> 
+                        <jsp:param name="level2" value="srm_index"/>
                     </jsp:include>
 <!-- Right Column ends -->
 
@@ -109,7 +109,7 @@
 </table>
 
 <!-- Footer begins -->
-  <jsp:include page="../../foot.jsp"/>
+  <jsp:include page="/foot.jsp"/>
 <!-- Footer ends -->
 
 </body>

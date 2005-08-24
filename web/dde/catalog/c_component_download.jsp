@@ -26,11 +26,11 @@
 
 <head>
 <%
-    Object objTechTypes = CONTEXT.lookup("CatalogEJB");
+    Object objTechTypes = CONTEXT.lookup(CatalogHome.EJB_REF_NAME);
     CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
     Catalog catalog = home.create();
 
-    Object objComponentMgr = CONTEXT.lookup("ComponentManagerEJB");
+    Object objComponentMgr = CONTEXT.lookup(ComponentManagerHome.EJB_REF_NAME);
     ComponentManagerHome component_manager_home = (ComponentManagerHome) PortableRemoteObject.narrow(objComponentMgr, ComponentManagerHome.class);
     ComponentManager componentManager = null;
 

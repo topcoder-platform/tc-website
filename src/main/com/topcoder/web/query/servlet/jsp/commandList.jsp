@@ -3,7 +3,7 @@
   import= "com.topcoder.web.query.common.*,
            com.topcoder.web.query.request.*"
 %>
-<%@ taglib uri="/query-taglib.tld" prefix="query"%>
+<%@ taglib uri="query-taglib.tld" prefix="query"%>
 <jsp:useBean id="CommandList" scope="request" class="com.topcoder.web.query.request.CommandList" />
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -20,10 +20,7 @@
     <tr><td colspan="6"><img src="/i/clear.gif" width="4" height="16"></td></tr>
     <tr>
       <td width="170" bgcolor="#000000" valign="top">
-        <jsp:include page="left.jsp" flush="true">
-          <jsp:param name="<%=Constants.DB_PARAM%>" value="<%=CommandList.getDb()%>"/>
-          <jsp:param name="<%=Constants.SERVLET_PATH_PARAM%>" value="<%=sessionInfo.getServletPath()%>"/>
-        </jsp:include>
+        <jsp:include page="left.jsp"/>
       </td>
       <td width="4" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="4" height="8"></td>
       <td class="statText" width="100%" bgcolor="#000000" valign="top">
@@ -32,10 +29,10 @@
           <tr>
             <td class="statTextBig" colspan="2"><%=Constants.COMMAND_LIST_NAME%></td>
             <td colspan="2">
-              <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="get" name="CommandListForm" >
+              <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get" name="CommandListForm" >
                 <input type="hidden" name="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.COMMAND_LIST_TASK%>">
-                <input type="hidden" name="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="CommandList" property="Db"/>">
-                <query:commandGroupSelect name="<%=Constants.GROUP_ID_PARAM%>" class="dropdown" list="<%=CommandList.getCommandGroupList()%>" selectedValue='<%=""+CommandList.getCommandGroupId()%>' topValue="0" topText="All Groups" onChange="javascript: void CommandListForm.submit();"/>
+                <input type="hidden" name="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="CommandList" property="db"/>">
+                <query:commandGroupSelect name="<%=Constants.GROUP_ID_PARAM%>" styleClass="dropdown" list="<%=CommandList.getCommandGroupList()%>" selectedValue='<%=""+CommandList.getCommandGroupId()%>' topValue="0" topText="All Groups" onChange="javascript: void CommandListForm.submit();"/>
               </form>
             </td>
           </tr>
@@ -43,7 +40,7 @@
           <tr>
             <td class="statText" ALIGN="right" colspan="2">DB:&#160;</td>
             <td class="statText" ALIGN="left" colspan="2">
-              <jsp:getProperty name="CommandList" property="Db"/>
+              <jsp:getProperty name="CommandList" property="db"/>
             </td>
           </tr>
           <tr><td colspan="4"><img src="/i/clear.gif" width="4" height="8"></td></tr>
@@ -57,7 +54,7 @@
           <%--nasty formatting to keep the output smaller --%>
           <query:resultSetRowIterator id="command" list="<%=CommandList.getCommandList()%>"><tr>
 <td class="statText" ALIGN="right">
-<A href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_GROUP_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandList" property="Db"/>&<%=Constants.GROUP_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_group_id"/>" class="statText">
+<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_GROUP_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandList" property="db"/>&<%=Constants.GROUP_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_group_id"/>" class="statText">
 [edit]
 </A>
 &#160;&#160;
@@ -66,13 +63,13 @@
 <query:resultSetItem row="<%=command%>" name="command_group_name"/>
 </td>
 <td class="statText" ALIGN="right">
-<A href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandList" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_id"/>" class="statText">
+<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandList" property="db"/>&<%=Constants.COMMAND_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_id"/>" class="statText">
 [edit]
 </A>
 &#160;&#160;
 </td>
 <td class="statText">
-<A href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandList" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_id"/>" class="statText">
+<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandList" property="db"/>&<%=Constants.COMMAND_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_id"/>" class="statText">
 <query:resultSetItem row="<%=command%>" name="command_desc"/>
 </A>
 </td>

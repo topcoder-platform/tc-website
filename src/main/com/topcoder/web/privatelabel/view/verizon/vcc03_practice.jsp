@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -64,21 +64,21 @@
 
                         <h2 class="pgTitle">Practice Arena</h2>
 
-                        <p>Click <a href="Javascript:openWin('?module=Static&d1=verizon&d2=vcc03_quick_launch','comp',300,275);">here</a> to run the Practice Arena as a Java Applet.<br/><br/> 
-                        
-                        Click <a href="http://www.topcoder.com/contest/arena/ContestAppletVerizon.jnlp">here</a> to run the Practice Arena as a Java Web Start Application.<br/><br/> 
-                        Note: If you wish to install Java Web Start click <a href="http://java.sun.com/products/javawebstart/index.html">here</a>.<br/><br/> 
+                        <p>Click <a href="Javascript:openWin('?module=Static&d1=verizon&d2=vcc03_quick_launch','comp',300,275);">here</a> to run the Practice Arena as a Java Applet.<br/><br/>
+
+                        Click <a href="http://www.topcoder.com/contest/arena/ContestAppletVerizon.jnlp">here</a> to run the Practice Arena as a Java Web Start Application.<br/><br/>
+                        Note: If you wish to install Java Web Start click <a href="http://java.sun.com/products/javawebstart/index.html">here</a>.<br/><br/>
                         If you experience problems loading or running the Practice Arena please contact <a href="mailto:vcc@topcoder.com">vcc@topcoder.com</a>.</p>
 
 
-                        
+
 
 
 
 
                         <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>
                     </td>
-                    
+
 <!-- Gutter Begins -->
                     <td width="14"><img src="/i/clear.gif" width="14" height="1" border="0"/></td>
 <!-- Gutter Ends -->

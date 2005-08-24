@@ -66,7 +66,7 @@ public final class TourneyRegServlet extends HttpServlet {
             Navigation nav = (Navigation) session.getAttribute("navigation");
             if (nav == null || !nav.isIdentified()) {
                 response.sendRedirect("http://" + request.getServerName() +
-                        "/tc?&module=Login=Login&message=" +
+                        "/tc?module=Login=Login&message=" +
                         "You must be logged in to register for the Invitational.&nextpage=http://" +
                         request.getServerName() + request.getContextPath() + request.getServletPath() + "?" + replace(request.getQueryString()));
             } else {

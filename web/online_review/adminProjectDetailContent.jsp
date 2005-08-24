@@ -1,11 +1,11 @@
 <%@ page language="java" %>
-<%@ page import="com.topcoder.apps.review.projecttracker.ProjectType, com.topcoder.apps.review.AdminScreeningScorecardBean" %> 
+<%@ page import="com.topcoder.apps.review.projecttracker.ProjectType, com.topcoder.apps.review.AdminScreeningScorecardBean" %>
 <%@ taglib uri="/WEB-INF/review.tld" prefix="review" %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
-            
-<!-- Start Title -->            
+
+<!-- Start Title -->
 <table width="100%" border="0" cellpadding="0" cellspacing="1" class="forumBkgd">
     <tr>
         <td class="whiteBkgnd">
@@ -17,23 +17,23 @@
 </logic:equal>
                 <tr>
                     <td width="5%" align="left">
-<logic:equal name="project" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">                    
-						<img src='<%="images/icon_design.gif" %>' width="66" height="62" alt="">
-</logic:equal>						
-<logic:notEqual name="project" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">                    
-						<img src='<%="images/icon_development.gif" %>' width="66" height="62" alt="">
-</logic:notEqual>						
+<logic:equal name="project" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">
+						<img src='<%="/images/icon_design.gif" %>' width="66" height="62" alt="">
+</logic:equal>
+<logic:notEqual name="project" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">
+						<img src='<%="/images/icon_development.gif" %>' width="66" height="62" alt="">
+</logic:notEqual>
 					</td>
                     <td width="5%">
 <logic:equal name="project" property="project.catalog" value="Java">
-                        <img src="images/smJava.gif" alt="" width="33" height="17" border="0">
+                        <img src="/images/smJava.gif" alt="" width="33" height="17" border="0">
 </logic:equal>
 <logic:equal name="project" property="project.catalog" value=".NET">
-                        <img src="images/netSm.gif" alt="" width="33" height="17" border="0">
+                        <img src="/images/netSm.gif" alt="" width="33" height="17" border="0">
 </logic:equal>
 					</td>
                     <td width="40%" nowrap class="tableHeader">
-                        <strong><bean:write name="project" property="name" /></strong> 
+                        <strong><bean:write name="project" property="name" /></strong>
                         <bean:message key="prompt.version" />
                         <bean:write name="project" property="version" /></td>
                     <bean:define id="compId" name="project" property="project.catalogueId" />
@@ -46,21 +46,21 @@
                     <td class="forumTextOdd" colspan="4"><strong><bean:message key="prompt.overview" /></strong><br>
                     <review:showString name="project" property="overview" /></td>
                 </tr>
-</logic:notEqual>                
+</logic:notEqual>
                 <tr>
-                    <td class="whiteBkgnd" colspan="4"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
+                    <td class="whiteBkgnd" colspan="4"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
                 </tr>
             </table>
-                        
+
 <!-- Time Line -->
-<logic:notEqual name="project" property="action" value="partial">                
+<logic:notEqual name="project" property="action" value="partial">
             <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd" width="100%">
                 <tr>
                     <bean:define id="theProject" name="project" property="project" type="com.topcoder.apps.review.projecttracker.Project" />
                     <td colspan="<%=theProject.getTimeline().length+1%>" class="forumTextEven"><strong><bean:message key="prompt.timeline" /></strong></td>
                 </tr>
                 <tr>
-                    <td class="forumTitleCenter"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
+                    <td class="forumTitleCenter"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
     <logic:iterate id="phaseInstance" name="project" property="timeline">
                     <td class="forumTitleCenter"><bean:write name="phaseInstance" property="phase.name" /></td>
     </logic:iterate>
@@ -72,11 +72,11 @@
         <logic:equal name="phaseInstance" property="phase.name" value="<%=currentPhase.toString()%>">
                     <td class="forumTextCenterEven">
                         <strong><review:showDate name="phaseInstance" property="startDate" /></strong></td>
-        </logic:equal>            
+        </logic:equal>
         <logic:notEqual name="phaseInstance" property="phase.name" value="<%=currentPhase.toString()%>">
                     <td class="forumTextCenterOdd">
                         <review:showDate name="phaseInstance" property="startDate" /></td>
-        </logic:notEqual>            
+        </logic:notEqual>
     </logic:iterate>
                 </tr>
                 <tr>
@@ -85,21 +85,21 @@
         <logic:equal name="phaseInstance" property="phase.name" value="<%=currentPhase.toString()%>">
                     <td class="forumTextCenterEven">
                         <strong><review:showDate name="phaseInstance" property="endDate" /></strong></td>
-        </logic:equal>            
+        </logic:equal>
         <logic:notEqual name="phaseInstance" property="phase.name" value="<%=currentPhase.toString()%>">
                     <td class="forumTextCenterOdd">
                         <review:showDate name="phaseInstance" property="endDate" /></td>
-        </logic:notEqual>            
+        </logic:notEqual>
     </logic:iterate>
                 </tr>
             </table>
-            
+
             <table border="0" cellpadding="0" cellspacing="1" class="whiteBkgd" width="100%">
                 <tr>
-                    <td class="forumTextOdd"><img src="images/clear.gif" alt="" width="1" height="5" border="0"></td>
+                    <td class="forumTextOdd"><img src="/images/clear.gif" alt="" width="1" height="5" border="0"></td>
                 </tr>
             </table>
-                        
+
             <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd" width="100%">
                 <tr>
                     <td class="forumTextEven"><strong><bean:message key="prompt.projectNotes" /></strong></td>
@@ -108,10 +108,10 @@
                     <td class="forumTextOdd"><review:showString name="project" property="notes" /></td>
                 </tr>
             </table>
-            
+
             <table border="0" cellpadding="0" cellspacing="1" class="whiteBkgd" width="100%">
                 <tr>
-                    <td class="forumTextOdd"><img src="images/clear.gif" alt="" width="1" height="5" border="0"></td>
+                    <td class="forumTextOdd"><img src="/images/clear.gif" alt="" width="1" height="5" border="0"></td>
                 </tr>
             </table>
             Screening scorecard:
@@ -119,10 +119,10 @@
             Review scorecard:
             <bean:write name="project" property="reviewTemplate" /><br><br>
 </logic:notEqual>
-            
+
 <!-- Submission List -->
 
-<logic:present name="submissions">            
+<logic:present name="submissions">
             <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd" width="100%">
                 <tr>
                     <td colspan="4" class="forumTextEven"><strong><bean:message key="prompt.submissionAdmin" /></strong></td>
@@ -131,19 +131,19 @@
                     <td width="20%" class="forumTitleCenter"><bean:message key="heading.submitter" /></td>
                     <td width="20%" class="forumTitleCenter"><bean:message key="heading.remove" /></td>
                     <td width="40%" class="forumTitleCenter"><bean:message key="heading.download" /></td>
-                                
+
                 </tr>
     <logic:iterate id="submission" indexId="sIdx" name="submissions" type="com.topcoder.apps.review.document.AbstractSubmission" >
         <% String rowClass=(sIdx.intValue()%2==0)?"forumTextCenterOdd":"forumTextCenterEven"; %>
                 <tr>
                     <td class="<%=rowClass%>">
-                        <bean:message key="prompt.submitter" /> <review:showSubmissionId name="submission" /> 
+                        <bean:message key="prompt.submitter" /> <review:showSubmissionId name="submission" />
                         (<bean:write name="submission" property="submitter.handle" />)</td>
                     <td class="<%=rowClass%>">
                         <review:linkSubmission page="/removeSubmission.do" name="submission"><bean:message key="prompt.remove" /></review:linkSubmission></td>
                     <td class="<%=rowClass%>">
                         <html:link page='<%="/submissionDownload.do?id="+submission.getProject().getId()+"&sid="+submission.getId()%>'><bean:message key="prompt.submission" /></html:link></td>
-                                
+
                 </tr>
     </logic:iterate>
             </table>
@@ -176,7 +176,7 @@
                         <review:linkScorecard page="/screeningScorecard.do?action=admin" name="scorecard">
             <bean:define id="completed" value="<%=String.valueOf(scorecard.isCompleted())%>" />
             <logic:equal name="completed" value="true">
-                            <bean:write name="adminBean" property="score" /> 
+                            <bean:write name="adminBean" property="score" />
 				<logic:equal name="adminBean" property="passed" value="true">
 							(Passed)
 				</logic:equal>
@@ -188,16 +188,16 @@
                             <bean:message key="prompt.pending" />
             </logic:equal>
                         </review:linkScorecard>
-        </logic:equal>                
+        </logic:equal>
                     </td>
                     <td class="<%=rowClass2%>">
         <logic:equal name="adminBean" property="scorecardExists" value="true">
                    <bean:define id="completed" value="<%=((AdminScreeningScorecardBean)adminBean).getAdvancedToReview()%>" />
-                   <bean:write name="completed" /> 
+                   <bean:write name="completed" />
         </logic:equal>
 		<logic:equal name="adminBean" property="scorecardExists" value="false">
                         <bean:message key="prompt.nonAvailable" />
-        </logic:equal>                    
+        </logic:equal>
                     </td>
                     <td class="<%=rowClass2%>">
         <logic:equal name="adminBean" property="scorecardExists" value="true">
@@ -209,7 +209,7 @@
                             <bean:message key="prompt.incomplete" />
 			</logic:equal>
                         </review:linkSubmission>
-		</logic:equal>                        
+		</logic:equal>
 		<logic:equal name="adminBean" property="scorecardExists" value="false">
                         <bean:message key="prompt.nonAvailable" />
         </logic:equal>
@@ -224,7 +224,7 @@
 <logic:present name="reviews">
             <table border="0" cellpadding="0" cellspacing="1" class="whiteBkgd" width="100%">
                 <tr>
-                    <td class="forumTextOdd"><img src="images/clear.gif" alt="" width="1" height="5" border="0"></td>
+                    <td class="forumTextOdd"><img src="/images/clear.gif" alt="" width="1" height="5" border="0"></td>
                 </tr>
             </table>
             <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd" width="100%">
@@ -274,10 +274,10 @@
                         <bean:message key="prompt.nonAvailable" />
             </logic:equal>
                     </td>
-            
+
         </logic:iterate>
                     <td class="<%=rowClass3%>">
-		<logic:equal name="adminBean" property="avgScoreReady" value="true">                    
+		<logic:equal name="adminBean" property="avgScoreReady" value="true">
                         <review:linkSubmission page="/projectManagerReview.do" name="adminBean" property="submission">
 			<logic:equal name="adminBean" property="isPMReviewed" value="true">
                             <bean:message key="prompt.complete" />
@@ -286,10 +286,10 @@
                             <bean:message key="prompt.incomplete" />
 			</logic:equal>
                         </review:linkSubmission>
-        </logic:equal>                
+        </logic:equal>
 		<logic:equal name="adminBean" property="avgScoreReady" value="false">
                         <bean:message key="prompt.nonAvailable" />
-        </logic:equal>                        
+        </logic:equal>
                     </td>
                 </tr>
     </logic:iterate>
@@ -350,7 +350,7 @@
   </table>
   <table border="0" cellpadding="0" cellspacing="1" class="whiteBkgd" width="100%">
     <tr>
-      <td class="forumTextOdd"><img src="images/clear.gif" alt="" width="1" height="5" border="0"></td>
+      <td class="forumTextOdd"><img src="/images/clear.gif" alt="" width="1" height="5" border="0"></td>
     </tr>
  </table>
 </logic:present>
@@ -395,14 +395,14 @@
                     <td class="forumTitleCenter"><bean:message key="prompt.boardMember" /></td>
                     <td class="forumTitleCenter"><bean:message key="prompt.status" /></td>
                 </tr>
-    <logic:iterate id="aggreview" indexId="aIdx" name="aggreviews">    
+    <logic:iterate id="aggreview" indexId="aIdx" name="aggreviews">
         <% String rowClass4=(aIdx.intValue()%2==0)?"forumTextCenterOdd":"forumTextCenterEven"; %>
                 <tr>
                     <td class="<%=rowClass4%>"><bean:message key="prompt.reviewer" /> (<bean:write name="aggreview" property="reviewer.handle" />)</td>
                     <td class="<%=rowClass4%>">
         <logic:equal name="aggreview" property="exists" value="false">
                         <bean:message key="prompt.nonAvailable" />
-        </logic:equal>                    
+        </logic:equal>
         <logic:equal name="aggreview" property="exists" value="true">
                         <html:link page="/aggregationReview.do?action=admin" name="aggreview" property="mapping">
                         <logic:present name="aggreview" property="review.status">
@@ -421,7 +421,7 @@
 
 <!-- Final Fix -->
 
-<logic:present name="finalfix">            
+<logic:present name="finalfix">
             <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd" width="100%">
                 <tr>
                     <td colspan="4" class="forumTextEven"><strong><bean:message key="prompt.finalFixAdmin" /></strong></td>
@@ -429,11 +429,11 @@
                 <tr>
                     <td width="20%" class="forumTitleCenter"><bean:message key="heading.submitter" /></td>
                     <td width="40%" class="forumTitleCenter"><bean:message key="heading.download" /></td>
-                                
+
                 </tr>
                 <tr>
                     <td class="forumTextCenterOdd">
-                        <bean:message key="prompt.submitter" /> 
+                        <bean:message key="prompt.submitter" />
                         (<bean:write name="project" property="winner.handle" />)</td>
                     <td class="forumTextCenterOdd">
     <logic:equal name="finalfix" value="false">
@@ -462,7 +462,7 @@
                     <td class="forumTextCenterOdd">
     <logic:equal name="finalreview" value="false">
                         <bean:message key="prompt.nonAvailable" />
-    </logic:equal>                                            
+    </logic:equal>
     <logic:notEqual name="finalreview" value="false">
                         <bean:define id="bean" name="finalreview" type="com.topcoder.apps.review.document.FinalReview" />
                         <bean:define id="completed" value="<%=String.valueOf(bean.isCompleted())%>" />
@@ -474,20 +474,20 @@
                             <bean:message key="prompt.incomplete" />
         </logic:equal>
                         </html:link>
-    </logic:notEqual>                        
+    </logic:notEqual>
                     </td>
                 </tr>
             </table>
 </logic:present>
 
 <!-- Resources -->
-<logic:notEqual name="project" property="action" value="partial">                    
+<logic:notEqual name="project" property="action" value="partial">
             <table border="0" cellpadding="0" cellspacing="1" class="whiteBkgd" width="100%">
                 <tr>
-                    <td class="forumTextOdd"><img src="images/clear.gif" alt="" width="1" height="5" border="0"></td>
+                    <td class="forumTextOdd"><img src="/images/clear.gif" alt="" width="1" height="5" border="0"></td>
                 </tr>
             </table>
-                        
+
             <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd" width="100%">
                 <tr>
                     <td colspan="5" class="forumTextEven"><strong><bean:message key="prompt.projectResource" /></strong></td>
@@ -572,11 +572,11 @@
     </tr>
 </logic:equal>
     <tr>
-        <td class="normal" colspan="2"><img src="images/clear.gif" alt="" width="1" height="5" border="0"></td>
+        <td class="normal" colspan="2"><img src="/images/clear.gif" alt="" width="1" height="5" border="0"></td>
     </tr>
-            
+
 <!-- End lists -->
-                
-                 
+
+
 </table>
 

@@ -10,7 +10,7 @@ public abstract class SecureObject implements java.io.Serializable {
 
 
     private String Modified;
-    int SId;
+    long SId;
 
 
     public SecureObject() {
@@ -22,7 +22,7 @@ public abstract class SecureObject implements java.io.Serializable {
     /**
      * Set the secure object id.
      */
-    public void setSId(int SId) {
+    public void setSId(long SId) {
         this.SId = SId;
     }
 
@@ -37,7 +37,7 @@ public abstract class SecureObject implements java.io.Serializable {
     /**
      * Get the secure object id.
      */
-    public int getSId() {
+    public long getSId() {
         return SId;
     }
 

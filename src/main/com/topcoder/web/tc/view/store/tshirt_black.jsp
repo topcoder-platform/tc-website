@@ -4,7 +4,7 @@
 <head>
 <title>TopCoder Gear Store</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 
 <SCRIPT type="text/javascript">
     function doSubmit(selection) {
@@ -22,7 +22,7 @@
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -30,7 +30,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="store"/>
             </jsp:include>
         </td>
@@ -56,9 +56,9 @@
                 </tr>
                 <tr BGcolor="#CCCCCC">
                     <td><img src="/i/clear.gif" alt="" width="28" height="15" border="0" /></td>
-                    <td class="bodyText" colspan="3">   
+                    <td class="bodyText" colspan="3">
                                  <table width="100%" border="0" cellpadding="5" cellspacing="0">
-                                    <tr><td colspan="3" class="bodyText"> The 6.1oz 100% ring-spun cotton, heavyweight beefy black t-shirt has double needle hems, and is 
+                                    <tr><td colspan="3" class="bodyText"> The 6.1oz 100% ring-spun cotton, heavyweight beefy black t-shirt has double needle hems, and is
                                     taped shoulder to shoulder. The TopCoder logo is silkscreened on the left chest and on the upper back. </td></tr>
                                     <tr>
                                         <form name="sizeSelect">
@@ -94,7 +94,7 @@
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -106,7 +106,7 @@
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

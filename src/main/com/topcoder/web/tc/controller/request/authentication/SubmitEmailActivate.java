@@ -8,14 +8,15 @@ import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
-import com.topcoder.shared.util.Transaction;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 
-import javax.transaction.UserTransaction;
+import javax.transaction.TransactionManager;
+import javax.transaction.Status;
+import javax.rmi.PortableRemoteObject;
 import java.util.StringTokenizer;
 
 /**
@@ -53,8 +54,11 @@ public class SubmitEmailActivate extends Base {
                 return;
             }
             try {
-                UserServicesHome userServicesHome = (UserServicesHome) getInitialContext().lookup(ApplicationServer.USER_SERVICES);
-                UserServices userServices = userServicesHome.findByPrimaryKey(new Integer((int) subject.getUserId()));
+                UserServicesHome userServicesHome = (UserServicesHome) PortableRemoteObject.narrow(getInitialContext().lookup(
+                        UserServicesHome.class.getName()),
+                        UserServicesHome.class);
+
+                UserServices userServices = userServicesHome.findByPrimaryKey(new Long(subject.getUserId()));
                 com.topcoder.common.web.data.User user = userServices.getUser();
 
                 updateEmail(userServices, email);
@@ -100,26 +104,23 @@ public class SubmitEmailActivate extends Base {
 
     private void updateEmail(UserServices userServices, String email) throws Exception {
 
-        UserTransaction transaction = null;
+        TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
         try {
-            transaction = Transaction.get();
-            if (Transaction.begin(transaction)) {
-                com.topcoder.common.web.data.User user = userServices.getUser();
-                user.setEmail(email);
-                user.setModified("U");
-                Coder tempCoder = (Coder) user.getUserTypeDetails().get("Coder");
-                //just in case they have the old type activation code, update them to the new version
-                tempCoder.setActivationCode(StringUtils.getActivationCode(user.getUserId()));
-                tempCoder.setModified("U");
-                userServices.setUser(user);
-            }
-            if (!Transaction.commit(transaction)) {
-                throw new Exception("Unable to commit transaction");
-            }
+            tm.begin();
+            com.topcoder.common.web.data.User user = userServices.getUser();
+            user.setEmail(email);
+            user.setModified("U");
+            Coder tempCoder = (Coder) user.getUserTypeDetails().get("Coder");
+            //just in case they have the old type activation code, update them to the new version
+            tempCoder.setActivationCode(StringUtils.getActivationCode(user.getUserId()));
+            tempCoder.setModified("U");
+            userServices.setUser(user);
+            tm.commit();
+
 
         } catch (Exception e) {
-            if (!Transaction.rollback(transaction)) {
-                throw new Exception("Unable to commit or rollback transaction");
+            if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                tm.rollback();
             }
             throw e;
         }

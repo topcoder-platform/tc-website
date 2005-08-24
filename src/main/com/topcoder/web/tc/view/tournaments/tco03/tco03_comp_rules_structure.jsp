@@ -18,7 +18,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -53,33 +53,33 @@
             After the Aggregation Phase, the winners will be identified and announced.  Those winners will advance to the next online round. Coder
              advancement in Online Round 1 and 2 will be determined by averaging each member's two highest Review Board scores.  One score
              to be used in calculating the average will be the highest score for a level 2 submission.  The other score will be the highest score of
-             any other submission.  The competitors with the highest average scores will automatically advance ("Automatic Advancers").   Other 
-             members (Wild Card Pool members defined below) may also be eligible to advance to the onsite final round in the event Automatic 
+             any other submission.  The competitors with the highest average scores will automatically advance ("Automatic Advancers").   Other
+             members (Wild Card Pool members defined below) may also be eligible to advance to the onsite final round in the event Automatic
              Advancers are unable to attend.  The specific structure of the online rounds is as follows:</p>
 
              <ul>
                 <li><strong>Online Round 1</strong><br />
                 All eligible rated members may compete in Round 1 and up to ten (10) Automatic Advancers will advance to Round 2.  For the design contest, two of the 10
                 advancing positions will be awarded to the winners of the two previous component design bonus contests (Pops and TangentZ).  If
-                fewer than 10 people (8 people for the design contest) automatically advance, then a Wild Card Pool will be created.  The Wild Card Pool 
-                will consist of the designers and developers who submitted only one component which passed screening and those members who did not 
+                fewer than 10 people (8 people for the design contest) automatically advance, then a Wild Card Pool will be created.  The Wild Card Pool
+                will consist of the designers and developers who submitted only one component which passed screening and those members who did not
                 submit a level 2 component.  Wild Card Pool members' scores will be the highest Review Board score received for an individual component.</li>
 
                 <li><strong>Online Round 2</strong><br />
-               Up to ten (10) Automatic Advancers from Online Round 1 will compete along with members in the Wild Card Pool.  
+               Up to ten (10) Automatic Advancers from Online Round 1 will compete along with members in the Wild Card Pool.
                Two (2) members will advance.<br/><br/>
-               
-               Following the completion of Round 2 Reviews, the advancing two designers and developers will be identified.  If there are fewer than two Automatic Advancers who are able to travel to the onsite 
+
+               Following the completion of Round 2 Reviews, the advancing two designers and developers will be identified.  If there are fewer than two Automatic Advancers who are able to travel to the onsite
                round, then members in the Wild Card Pool will advance to the Finals. Wild Card Pool members will advance in the following order:
-               
+
                <ol>
                <li>The Wild Card Pool members with the highest Round 2 score, calculated as the average of the highest two component scores, with at least one being a level 2 component.  </li>
-               <li>If advancement spots remain, then those Wild Card Pool members and Automatic Advancers from Round 1 who submitted only 
-               one component which passed screening, and those who did not submit a level 2 component in Round 2, will be eligible to advance.  
+               <li>If advancement spots remain, then those Wild Card Pool members and Automatic Advancers from Round 1 who submitted only
+               one component which passed screening, and those who did not submit a level 2 component in Round 2, will be eligible to advance.
                The member with the highest individual component score in Round 2 will be the first to advance.</li>
                <li>If advancement spots still remain, then the competitor with the highest individual component score from Round 1 will advance.</li>
                </ol>
-               
+
                </li>
 
                 <li><strong>Onsite Championship Round 3</strong><br />
@@ -96,7 +96,7 @@
             </ol>
             </p>
 
-            <p><b>Tie-Breakers for Wild Card Pool Members</b>: In the event of a tie for an advancing position from the Wild Card Pool to 
+            <p><b>Tie-Breakers for Wild Card Pool Members</b>: In the event of a tie for an advancing position from the Wild Card Pool to
             the Final round, the tie will be resolved in the following manner (in order):<br/>
 
             <ol>
@@ -105,7 +105,7 @@
             <li>If a tie still remains, then all tied members will advance to the next round</li>
             </ol>
             </p>
-            
+
             <p><span class="bodySubtitle">Scoring</span><br />
             During each online round of competition, eligible competitors will
             submit design and development solutions for at least two eligible

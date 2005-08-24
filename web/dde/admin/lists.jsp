@@ -19,20 +19,20 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "lists.jsp";
-    String action = request.getParameter("a");	
+    String action = request.getParameter("a");
 %>
 
 
 <HTML>
 <HEAD>
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-  
+
 <script language="JavaScript" type="text/javascript" src="/scripts/javascriptAdmin.js">
 </script>
 
 
 <%
-Object objTechTypes = CONTEXT.lookup("CatalogEJB");
+Object objTechTypes = CONTEXT.lookup(CatalogHome.EJB_REF_NAME);
 CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
 Catalog catalog = home.create();
 
@@ -79,7 +79,7 @@ if (action != null) {
         String id = request.getParameter("role");
         catalog.removeRole(Long.parseLong(id));
     }
-    
+
     // Technology
     if (action.equalsIgnoreCase("Add Technology")) {
         String name = request.getParameter("txtTechnologyName");

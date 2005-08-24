@@ -18,7 +18,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../../includes/global_left.jsp">
+            <jsp:include page="..//includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -49,12 +49,12 @@
             <p class="terciary">
                 Play-by-Play&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=awards_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=slide_show">&gt; Slide Show</a>
             </p>
-            
+
             <div class="leadPhoto">
             <img src="/i/clear.gif" alt="" width="200" height="350" class="photoFrameBig" /><br/>
             <span class="leadPhotoCaption">Photo caption.<br/><br/></span>
             </div>
-            
+
             <h2>Awards Dinner</h2>
 
             <p>by Matt Murphy, <em>TopCoder Staff</em><br />

@@ -32,4 +32,8 @@ public class SessionStatusLinkTag extends TagSupport {
         }
         return SKIP_BODY;
     }
+    public int doEndTag() throws JspException {
+        row=null;
+        return super.doEndTag();
+    }
 }

@@ -17,7 +17,6 @@ response.sendRedirect(response.encodeRedirectURL("http://"+ApplicationServer.FOR
           java.text.*,
           com.coolservlets.forum.*,
           com.coolservlets.forum.util.*,
-          weblogic.common.T3Services,
           com.topcoder.common.web.data.Navigation,
           com.topcoder.common.*"
  errorPage="../errorPage.jsp"%>
@@ -217,7 +216,7 @@ String checked4 = "";
                             <tr><td valign="middle" class="statText"><a href="/rtables/index.jsp" class="statText">[ view round tables ]</a> &#160;<a href="/rtables/post.jsp?mode=new&forum=<%=forumID%>" class="statText">[ post new message ]</a> &#160;<a href="/rtables/search.jsp?forum=<%=forumID%>" class="statText">[ search ]</a> &#160;</td></tr>
 
 <% } else {%>
-                  <tr><td valign="middle" class="statText"><a href="/rtables/index.jsp" class="statText">[ view round tables ]</a> &#160;<a href="/rtables/post.jsp?&mode=new&forum=<%=forumID%>" class="statText">[ post new message ]</a> &#160;<a href="/rtables/search.jsp?&forum=<%=forumID%>" class="statText">[ search ]</a> &#160;</td></tr>
+                  <tr><td valign="middle" class="statText"><a href="/rtables/index.jsp" class="statText">[ view round tables ]</a> &#160;<a href="/rtables/post.jsp?mode=new&forum=<%=forumID%>" class="statText">[ post new message ]</a> &#160;<a href="/rtables/search.jsp?forum=<%=forumID%>" class="statText">[ search ]</a> &#160;</td></tr>
 
 <% }%>
 
@@ -289,10 +288,10 @@ String checked4 = "";
 
 <%} else {%>
 
-                                    <input type=radio name="range" value="10" <%=checked1%> onclick="window.location='/rtables/viewForum.jsp?&forum=<%=forumID%>&range='+this.value;"/>10
-                                    <input type=radio name="range" value="25" <%=checked2%> onclick="window.location='/rtables/viewForum.jsp?&forum=<%=forumID%>&range='+this.value;"/>25
-                                    <input type=radio name="range" value="50" <%=checked3%> onclick="window.location='/rtables/viewForum.jsp?&forum=<%=forumID%>&range='+this.value;"/>50
-                                    <input type=radio name="range" value="100" <%=checked4%> onclick="window.location='/rtables/viewForum.jsp?&forum=<%=forumID%>&range='+this.value;"/>100
+                                    <input type=radio name="range" value="10" <%=checked1%> onclick="window.location='/rtables/viewForum.jsp?forum=<%=forumID%>&range='+this.value;"/>10
+                                    <input type=radio name="range" value="25" <%=checked2%> onclick="window.location='/rtables/viewForum.jsp?forum=<%=forumID%>&range='+this.value;"/>25
+                                    <input type=radio name="range" value="50" <%=checked3%> onclick="window.location='/rtables/viewForum.jsp?forum=<%=forumID%>&range='+this.value;"/>50
+                                    <input type=radio name="range" value="100" <%=checked4%> onclick="window.location='/rtables/viewForum.jsp?forum=<%=forumID%>&range='+this.value;"/>100
 
 <%}%>
 
@@ -319,7 +318,7 @@ String checked4 = "";
 
   <%} else {%>
 
-                                    <a href="/rtables/viewForum.jsp?&forum=<%=forumID%>&start=<%= (start-range) %>&range=<%= range %>" class="statText">&lt;&lt;&#160;Last <%= range %> threads</a>
+                                    <a href="/rtables/viewForum.jsp?forum=<%=forumID%>&start=<%= (start-range) %>&range=<%= range %>" class="statText">&lt;&lt;&#160;Last <%= range %> threads</a>
 
   <% }%>
 
@@ -335,7 +334,7 @@ String checked4 = "";
 
   <% } else {%>
 
-                                    <a href="/rtables/viewForum.jsp?&forum=<%=forumID%>&start=<%= (start+range) %>&range=<%= range %>" class="statText">Next <%= (numRemaining>range)?range:numRemaining %> threads&#160;&gt;&gt;&#160;&#160;</a>
+                                    <a href="/rtables/viewForum.jsp?forum=<%=forumID%>&start=<%= (start+range) %>&range=<%= range %>" class="statText">Next <%= (numRemaining>range)?range:numRemaining %> threads&#160;&gt;&gt;&#160;&#160;</a>
 &#160;
   <% }%>
 
@@ -383,7 +382,7 @@ String checked4 = "";
 
   <% } else {%>
 
-                                    No messages in this forum. Try <a href="/rtables/post.jsp?&mode=new&forum=<%=forumID%>" class="statText">adding your own</a>.
+                                    No messages in this forum. Try <a href="/rtables/post.jsp?mode=new&forum=<%=forumID%>" class="statText">adding your own</a>.
 
   <% }%>
 
@@ -431,7 +430,7 @@ String checked4 = "";
 
   <% } else {%>
 
-                                <td valign="top" class="statText"><a href="/rtables/viewThread.jsp?&forum=<%= forumID %>&thread=<%= threadID %>&mc=<%=thread.getMessageCount()%>" class="statText"><%= threadName %></a></td>
+                                <td valign="top" class="statText"><a href="/rtables/viewThread.jsp?forum=<%= forumID %>&thread=<%= threadID %>&mc=<%=thread.getMessageCount()%>" class="statText"><%= threadName %></a></td>
 
   <% }%>
 
@@ -457,7 +456,7 @@ String checked4 = "";
 
 <% } else {%>
 
-                            <tr><td align="center" colspan="7" class="statText"><a href="/rtables/post.jsp?&mode=new&forum=<%=forumID%>" class="statText"><b>Post New Message &gt;&gt;</b></a></td></tr>
+                            <tr><td align="center" colspan="7" class="statText"><a href="/rtables/post.jsp?mode=new&forum=<%=forumID%>" class="statText"><b>Post New Message &gt;&gt;</b></a></td></tr>
 
 <% }%>
 

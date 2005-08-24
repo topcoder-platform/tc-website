@@ -10,8 +10,8 @@
           com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"
 
 %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
 
 <%
@@ -44,7 +44,7 @@
   <body>
     <a href=<%=Constants.SERVLET_ADDR%>><< back to main menu<a><br/><br/>
     (Use % for a wildcard.)
-    <form name="profileForm" method="get" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>">
+    <form name="profileForm" method="get" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
       <input type="hidden" name="module" value="LegacyReport"/>
       <input type="hidden" name="<%=Constants.TASK_NAME_KEY%>" value="<%=Constants.REPORT_PROFILE_KEY%>"/>
       <b>Handle: </b>

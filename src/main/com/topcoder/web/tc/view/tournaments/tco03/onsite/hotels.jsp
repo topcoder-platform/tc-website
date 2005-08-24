@@ -18,7 +18,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../../includes/global_left.jsp">
+            <jsp:include page="..//includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -47,13 +47,13 @@
 </jsp:include>
 
             <h2>Hotels Near Mohegan Sun</h2>
-            
+
             <p><strong>Hotel at Mohegan Sun</strong><br/>
-            There is a 34-story luxury hotel at Mohegan Sun. You can make a <a href="http://www.mohegansun.com/hotel_spa/hotel_reservations.jsp" target="_blank">reservation</a> 
+            There is a 34-story luxury hotel at Mohegan Sun. You can make a <a href="http://www.mohegansun.com/hotel_spa/hotel_reservations.jsp" target="_blank">reservation</a>
             on the Mohegan Sun web site.</p>
-            
+
             <p>Several other hotels are located only a short drive away from Mohegan Sun. We have included a representative sampling for your convenience:</p>
-            
+
             <p><strong>Microtel Uncasville-Montville</strong><br/>
             1954 Norwich-New London Turnpike (Rte. 32)<br/>
             Uncasville, CT 06382<br/>
@@ -79,7 +79,7 @@
             <a href="http://www.hilton.com/en/hi/hotels/index.jhtml;jsessionid=HKTRRGY13YHNUCSGBIWMVCQKIYFC5UUC?ctyhocn=MYSMHHF" target="_blank">www.hilton.com</a></p>
 
             <p><br/></p>
-            
+
          </td>
 <!-- Center Column Ends -->
 

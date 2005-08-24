@@ -4,8 +4,8 @@
 <head>
 <title>Algorithm Tutorials</title>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:include page="../../script.jsp" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:include page="../script.jsp" />
 <style type="text/css">
 .code
 {
@@ -24,7 +24,7 @@
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -32,7 +32,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="education"/>
                 <jsp:param name="level2" value="alg_tutorials"/>
             </jsp:include>
@@ -43,7 +43,7 @@
          <td width="100%" align="center">
 
          <div class="tutorBodyFull">
-            
+
             <h2>New Features of Java 1.5</h2>
 
          <p>
@@ -247,7 +247,7 @@ But this doesn't even compile! However this behavior seems reasonable; if it wou
 <br><br>
 We need to get a numeric value from re and im, and this could be done using doubleValue() method:
 <pre class="code">
-return Math.sqrt(Math.pow(re.doubleValue(), 2) + 
+return Math.sqrt(Math.pow(re.doubleValue(), 2) +
 Math.pow(im.doubleValue(), 2));
 </pre>
 We're nearer now, but the compiler still doesn't like it-how can it know that re and im have the doubleValue method? If we pass a String, how would it solve that? The answer to all those questions is to promise the compiler that re and im will be numbers; that is, they'll be instances of classes that inherit from Number. To do that, you just have to modify the declaration of the class to be:
@@ -267,14 +267,14 @@ This can be used as follows:
 Complex&lt;Integer&gt; x= new Complex&lt;Integer&gt;(3,4);
 Complex&lt;Integer&gt; y = new Complex&lt;Integer&gt;(4,5);
 
-System.out.println (x.isLarger(y)); 
+System.out.println (x.isLarger(y));
 </pre>
 And it works as expected.  However, we might also want to do:
 <pre class="code">
 Complex&lt;Integer&gt; x= new Complex&lt;Integer&gt;(3,4);
 Complex&lt;Double&gt; y = new Complex&lt;Double&gt;(4.2,5.8);
 
-System.out.println (x.isLarger(y)); 
+System.out.println (x.isLarger(y));
 </pre>
 And this doesn't even compile, because x is a vector of Integer and it expects the same type in the isLarger method.  However, we know that this is a valid operation, because even if they real and imaginary parts are of different types, we still can compare their modulus. What we need now is to use wildcards to tell the isLarger method that we really don't care for the type of complex we receive, and this is very simple to do:
 <pre class="code">
@@ -370,7 +370,7 @@ To make your own types compatibles with the for-each  loop, you must implement t
 <li>When you will remove some elements in the collection; in that case you need to have the iterator to call the remove method.</li>
 <li>When you're iterating through more than one collection at the same time, for example you have an array of names and one of values and you know that value(i) belongs to name(i)</li>
 </ul>
- 
+
 <A name="variablelength"></A>
 <span class="bodySubtitle">Variable-Length Arguments</span><br>
 Imagine that you're programming an application that repeatedly needs to know the maximum of some integer variables.  You probably will want to put the code in a method.
@@ -527,7 +527,7 @@ You're giving the method a code for a language that doesn't exist. Java 1.5 intr
 We define the enumeration type as following:
 <pre class="code">
 enum Language { JAVA, CPP, CHSARP, VBNET }
-</pre>   
+</pre>
 Now we have a new type called Language and we can define variables of that type, and assign any of the declared values:
 <pre class="code">
 Language lang;
@@ -569,11 +569,11 @@ switch (language) {
   case CPP: extension = ".cpp"; break;
   case CSHARP: extension = ".cs"; break;
   case VBNET: extension = ".vb"; break;
-  default: throw new IllegalArgumentException 
+  default: throw new IllegalArgumentException
               ("don't know that language extension");
 }
 // do something using extension variable
-</pre>   
+</pre>
 This example shows that the switch sentence can be used with enumerations. Notice that the languages in the switch are referred without specifying the enumeration type. If you try to compile the above code without the default in the switch, you'll got an error saying that extension might not be initialized.  But you're sure it is!! language variable is bounded to be one of the four defined constants, so there's no way to escape! You might be tempted to just initialize the extension to an empty string or null to shout the compiler's mouth, and even if it will perfectly work for the moment, is not the best for being extensible.  If other language is added and you forget to add the case statement, the extension variable will be null or empty string, and the error might be much more complicated to find than if you throw an exception as we did. But this solution is still not the best; as we've been talking, you could easily forget to declare the case statement, and you might have many "maps" as the above in different parts of code, making it hard to maintain. Because the extension is linked to the language itself, why not store the extension itself on the constant? An enumeration is actually a special kind of class, and it can have methods and attributes, so you can do:
 <pre class="code">
 enum Language {
@@ -695,7 +695,7 @@ public class AnnotDemo {
     }
 }
 </pre>
-If you run this and it says that the note was not found don't panic.  Try to discover what the problem is. Did you find it? If the Note annotation doesn't have a retention policy specified, it uses CLASS by default, so the annotations are not available in the JVM.  Just specify the RUNTIME retention police and it will work. The important line in the above code is: 
+If you run this and it says that the note was not found don't panic.  Try to discover what the problem is. Did you find it? If the Note annotation doesn't have a retention policy specified, it uses CLASS by default, so the annotations are not available in the JVM.  Just specify the RUNTIME retention police and it will work. The important line in the above code is:
 <pre class="code">
 Note note = AnnotDemo.class.getAnnotation(Note.class);
 </pre>
@@ -731,7 +731,7 @@ Those lines make the static methods and constants visible without the need of th
 <pre class="code">
 import static java.lang.Math.*;
 </pre>
-But this is not recommended; almost sure you're importing a lot of things that you don't need and you don't event know that you're importing.  Also, when reading the code, if you used ".*" in many static import's, you won't know from which one an attribute or method is coming. Also this could result in ambiguities when there is a static member with the same name in two different places. You should use static imports with care, just when they'll make your code look clearer because you're repeatedly accessing some static members of a class.  Abusing of the import static recourse will make the code less clear. 
+But this is not recommended; almost sure you're importing a lot of things that you don't need and you don't event know that you're importing.  Also, when reading the code, if you used ".*" in many static import's, you won't know from which one an attribute or method is coming. Also this could result in ambiguities when there is a static member with the same name in two different places. You should use static imports with care, just when they'll make your code look clearer because you're repeatedly accessing some static members of a class.  Abusing of the import static recourse will make the code less clear.
 <br><br>
 <A name="apiupdates"></A>
 <span class="bodySubtitle">Updates in the API</span><br>
@@ -742,13 +742,13 @@ A lot of updates were done in the API, adding methods, classes and packages. The
 The new class java.util.Formatter enables you to use formatted strings in the old and loved C style.  For example, you can do:
 <pre class="code">
 Formatter f = new Formatter ();
-f.format("Decimal: %d, hexa: %x, character %c, double %1.4f.", 
+f.format("Decimal: %d, hexa: %x, character %c, double %1.4f.",
 50,50,'A', 3.1415926);
 System.out.println (f.toString());
 </pre>
 The constructor of Formatter can be used in different ways so that the buffer for the formatted output is somewhere else, for example in a file. If you want to show the input on the screen, instead of the above form, you can do it directly with printf:
 <pre class="code">
-System.out.printf("Decimal: %d, hexa: %x, character %c, 
+System.out.printf("Decimal: %d, hexa: %x, character %c,
 double %1.4f.", 50,50,'A', 3.1415926);
 </pre>
 Although this is similar to the formatting strings in C, there are some differences and improvements, so you should have a look at the Formatter class documentation for more detail. On the other side, you can read formatted input and convert to its binary form using the java.util.Scanner. For example, if you have any strings containing an unknown number of integers, you can sum them using:
@@ -802,7 +802,7 @@ while(true) {
 }
 </pre>
 Adding elements it's done - not very surprisingly - with the add method.   Then, the poll method retrieves the next element in the priority queue or null if it's empty, and removes it. You can also use the peek method, which works like poll but doesn't remove the element. There are also new methods in the Collections utility class.  Two of them can be particularly useful in SRM's: the frequency method that counts the number of times that an element appears in a collection, and the disjoint method that returns whether two collections have no common elements. The other two added methods are addAll, which enables you to add all the elements in an array to a collection, and reverseOrder, that returns a Comparator representing the reverse order of the comparator provided as parameter.
-            
+
         </div>
         <p><br/></p>
         </td>
@@ -810,7 +810,7 @@ Adding elements it's done - not very surprisingly - with the add method.   Then,
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -822,7 +822,7 @@ Adding elements it's done - not very surprisingly - with the add method.   Then,
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

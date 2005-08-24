@@ -10,10 +10,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.*;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
 import com.topcoder.web.corp.controller.MisconfigurationException;
@@ -169,7 +166,7 @@ public class UserEdit extends BaseProcessor {
      */
     protected void storeUserDataIntoDB(InitialContext ic)
             throws NamingException, CreateException, RemoteException,
-            GeneralSecurityException {
+            GeneralSecurityException, Exception {
         PrincipalMgrRemote mgr = secTok.man;
         commonFieldsStore(ic, secTok.createNew);
 
@@ -198,13 +195,15 @@ public class UserEdit extends BaseProcessor {
                 boolean set = "on".equalsIgnoreCase(pValue);
                 RolePrincipal role = mgr.getRole(permID);
                 if (set) {
-                    if (!hasRole(mgr.getUserSubject(targetUserID), role)) {
+                    if (!hasRole(SecurityHelper.getUserSubject(targetUserID, true), role)) {
                         mgr.assignRole(secTok.targetUser, role, secTok.requestor);
                     }
                 } else {
                     mgr.unAssignRole(secTok.targetUser, role, secTok.requestor);
                 }
             }
+            //refresh the cache on this person
+            SecurityHelper.getUserSubject(targetUserID, true);
         }
     }
 
@@ -611,6 +610,12 @@ public class UserEdit extends BaseProcessor {
         secTok.man.addUserToGroup(anonGroup, securityUser, secTok.requestor);
         log.debug("including to the software user group");
         secTok.man.addUserToGroup(userGroup, securityUser, secTok.requestor);
+        try {
+            SecurityHelper.getUserSubject(securityUser.getId(), true);
+        } catch (Exception e) {
+            throw new GeneralSecurityException(e);
+        }
+
 
         return securityUser;
     }

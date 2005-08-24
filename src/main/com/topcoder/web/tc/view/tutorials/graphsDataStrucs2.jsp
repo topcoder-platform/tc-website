@@ -4,7 +4,7 @@
 <head>
 <title>Algorithm Tutorials</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 <style type="text/css">
     .code
 {
@@ -25,7 +25,7 @@
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -33,7 +33,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="education"/>
                 <jsp:param name="level2" value="alg_tutorials"/>
             </jsp:include>
@@ -44,7 +44,7 @@
          <td width="100%" align="center">
 
          <div class="tutorBodyFull">
-            
+
             <h2>Introduction to graphs and their data structures: Section 2</h2>
 
 			<p>
@@ -113,9 +113,9 @@ dfs(node start) {
   top = s.top();
   s.pop();
   mark top as visited;
-  
+
   check for termination condition
-  
+
   add all of top's unvisited neighbors to the stack.
   mark top as not visited;
  }
@@ -158,17 +158,17 @@ We will now define doFill to return the size of the connected area and the start
 <pre class="code">
 int doFill(int x, int y) {
 // Check to ensure that we are within the bounds of the grid, if not, return 0
- if (x < 0 || x >= 600) return 0; 
+ if (x < 0 || x >= 600) return 0;
 // Similar check for y
- if (y < 0 || y >= 400) return 0; 
+ if (y < 0 || y >= 400) return 0;
 // Check that we haven't already visited this position, as we don't want to count it twice
- if (fill[x][y]) return 0; 
- 
+ if (fill[x][y]) return 0;
+
 // Record that we have visited this node
- fill[x][y] = true; 
+ fill[x][y] = true;
 
  // Now we know that we have at least one empty square, then we will recursively attempt to
- // visit every node adjacent to this node, and add those results together to return. 
+ // visit every node adjacent to this node, and add those results together to return.
  return 1 + doFill(x - 1, y) + doFill(x + 1, y) + doFill(x, y + 1) + doFill(x, y - 1);
 }
 </pre>
@@ -199,18 +199,18 @@ int doFill(int x, int y) {
   s.pop();
 
 // Check to ensure that we are within the bounds of the grid, if not, continue
-  if (top.x < 0 || top.x >= 600) continue; 
+  if (top.x < 0 || top.x >= 600) continue;
 // Similar check for y
-  if (top.y < 0 || top.y >= 400) continue; 
+  if (top.y < 0 || top.y >= 400) continue;
 // Check that we haven't already visited this position, as we don't want to count it twice
-  if (fill[top.x][top.y]) continue; 
-  
+  if (fill[top.x][top.y]) continue;
+
   fill[top.x][top.y] = true; // Record that we have visited this node
-  
-  // We have found this node to be empty, and part 
+
+  // We have found this node to be empty, and part
   // of this connected area, so add 1 to the result
-  result++; 
-  
+  result++;
+
   // Now we know that we have at least one empty square, then we will attempt to
   // visit every node adjacent to this node.
   s.push(node(top.x + 1, top.y));
@@ -218,7 +218,7 @@ int doFill(int x, int y) {
   s.push(node(top.x, top.y + 1));
   s.push(node(top.x, top.y - 1));
  }
- 
+
  return result;
 }
 </pre>
@@ -318,30 +318,30 @@ Now that we have our basic structure set up, we can solve the problem (note that
 int minTurns(String[] board) {
  int width = board[0].length;
  int height = board.length;
- 
+
  node start;
  // Find the initial position of A and B, and save them in start.
- 
+
  queue<node> q;
  q.push(start);
  while (q.empty() == false) {
   node top = q.front();
   q.pop();
-  
+
   // Check if player 1 or player 2 is out of bounds, or on an X square, if so continue
   // Check if player 1 or player 2 is on top of each other, if so continue
 
-  // Make sure we haven't already visited this state before  
+  // Make sure we haven't already visited this state before
   if (visited[top.player1X][top.player1Y][top.player2X][top.player2Y]) continue;
   // Mark this state as visited
   visited[top.player1X][top.player1Y][top.player2X][top.player2Y] = true;
-  
+
   // Check if the current positions of A and B are the opposite of what they were in start.
   // If they are we have exchanged positions and are finished!
   if (top.player1X == start.player2X && top.player1Y == start.player2Y &&
       top.player2X == start.player1X && top.player2Y == start.player1Y)
       return top.steps;
-      
+
   // Now we need to generate all of the transitions between nodes, we can do this quite easily using some
   // nested for loops, one for each direction that it is possible for one player to move.  Since we need
   // to generate the following deltas: (-1,-1), (-1,0), (-1,1), (0,-1), (0,0), (0,1), (1,-1), (1,0), (1,1)
@@ -354,8 +354,8 @@ int minTurns(String[] board) {
       if (top.player1X == top.player2X + player2XDelta && top.player1Y == top.player2Y + player2YDelta &&
 	      top.player2X == top.player1X + player1XDelta && top.player2Y == top.player1Y + player1YDelta)
 		  continue;
- 
-	  // Add the new node into the queue    
+
+	  // Add the new node into the queue
       q.push(node(top.player1X + player1XDelta, top.player1Y + player1YDelta,
 				  top.player2X + player2XDelta, top.player2Y + player2YDelta,
 				  top.steps + 1));
@@ -364,9 +364,9 @@ int minTurns(String[] board) {
    }
   }
  }
- 
+
  // It is not possible to exchange positions, so
- // we return -1.  This is because we have explored 
+ // we return -1.  This is because we have explored
  // all the states possible from the starting state,
  // and haven't returned an answer yet.
  return -1;
@@ -378,7 +378,7 @@ Inviational 02 Semifinal Room 2 - Div 1 500 - <A href="/tc?module=ProblemDetail&
 <br/><br/>
 <A href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs3">...continue to Section 3</A>
 			</p>
-            
+
 
         </div>
         <p><br/></p>
@@ -387,7 +387,7 @@ Inviational 02 Semifinal Room 2 - Div 1 500 - <A href="/tc?module=ProblemDetail&
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -399,7 +399,7 @@ Inviational 02 Semifinal Room 2 - Div 1 500 - <A href="/tc?module=ProblemDetail&
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

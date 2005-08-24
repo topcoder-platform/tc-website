@@ -4,8 +4,8 @@
 
 %>
 
-<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics - Top Ranked Schools</TITLE>
@@ -60,7 +60,7 @@ pageContext.setAttribute("resultSet", rsc);
                  </TR>
                  <TR>
                    <TD CLASS="statText" HEIGHT="16" COLSPAN="6" ALIGN="center">
-                     To find out more about this page, click <A href="javascript:openWin('/tc?&amp;module=Static&amp;d1=statistics&amp;d2=info&amp;d3=topSchools','schoolrankinfo', 500,500)" class="statTextBig"><img src="/i/icon_help_blue.gif" alt="?" width="15" height="11" border="0" /></A>
+                     To find out more about this page, click <A href="javascript:openWin('/tc?amp;module=Static&amp;d1=statistics&amp;d2=info&amp;d3=topSchools','schoolrankinfo', 500,500)" class="statTextBig"><img src="/i/icon_help_blue.gif" alt="?" width="15" height="11" border="0" /></A>
                    </TD>
                  </TR>
                  <TR>

@@ -4,13 +4,13 @@
 <head>
 <title>Algorithm Tutorials</title>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:include page="../../script.jsp" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:include page="../script.jsp" />
 </head>
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -18,7 +18,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="education"/>
                 <jsp:param name="level2" value="comp_tutorials"/>
             </jsp:include>
@@ -29,7 +29,7 @@
          <td width="100%" align="center">
 
          <div class="tutorBodyFull">
-            
+
             <h2>The Singleton Pattern</h2>
 
 			<p>
@@ -85,7 +85,7 @@ The application does not have to worry about whether the persistence manager has
 <br><br>
 This is an example of when a singleton was implemented for convenience to the application and not because the class must be a singleton.  The designer assumes that the persistent strategies are global in nature and that the persistent names will not clash if more than one application within the same virtual machine uses this component.  While I agree with the designer that this assumption has a fairly low risk, this component probably should have been implemented using a singleton wrapper variation (below) in case the assumption proves incorrect.
 <br><br>
-The following is a similar singleton but shows the C# implementation of it (from the <A href="http://software.topcoder.com/catalog/c_component.jsp?comp=11952054&ver=1">Stream Filter</A> component).  Notice that the only change is in the implementation of the getter - which becomes a property rather than a method.  
+The following is a similar singleton but shows the C# implementation of it (from the <A href="http://software.topcoder.com/catalog/c_component.jsp?comp=11952054&ver=1">Stream Filter</A> component).  Notice that the only change is in the implementation of the getter - which becomes a property rather than a method.
 <br><br>
 <div align="center"><img src="/i/education/singletons02.gif" alt="Singletons 2" border="0" /></div>
 <br><br>
@@ -110,7 +110,7 @@ Please note that this variation must be carefully thought out since resources an
 <span class="bodySubtitle">Bibliography</span><br>
 [GoF] Gamma, Helm, Johnson, Vlissides.  Singleton Pattern.  Design Patterns - Elements of Reusable Object-Oriented Software, 1995.
 </p>
-            
+
         </div>
         <p><br/></p>
         </td>
@@ -118,7 +118,7 @@ Please note that this variation must be carefully thought out since resources an
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -130,7 +130,7 @@ Please note that this variation must be carefully thought out since resources an
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

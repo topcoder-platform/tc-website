@@ -9,13 +9,13 @@
 <head>
 <title>Working at TopCoder</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 
 </head>
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -24,7 +24,7 @@
 
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="about"/>
                 <jsp:param name="level2" value="jobs"/>
             </jsp:include>
@@ -38,11 +38,11 @@
 <!-- Center Column Begins -->
         <td class="bodyText" width="99%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
         <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="about_tc"/>  
-           <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value="Working at TopCoder"/>  
+           <jsp:param name="image" value="about_tc"/>
+           <jsp:param name="image1" value="white"/>
+           <jsp:param name="title" value="Working at TopCoder"/>
         </jsp:include>
-        
+
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                   <TR>
                         <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="10" BORDER="0"/></TD>
@@ -56,14 +56,14 @@
             <table border="0" cellspacing="0" cellpadding="0"  width="100%">
                 <tr valign="top">
                     <td class="bodyText" width="100%"><br/>
-                       
+
                        <h3>Internal TopCoder Project Manager</h3>
-                       
-						
+
+
 <b>Job Description:</b>
    <ul>
-   <li>Work closely with TopCoder staff to identify business needs and translate them into technical specifications. 
-   <li>Complete the Specification phase of the Application Development Methodology with the aid of the TopCoder staff and Creative resources. This entails creating: 
+   <li>Work closely with TopCoder staff to identify business needs and translate them into technical specifications.
+   <li>Complete the Specification phase of the Application Development Methodology with the aid of the TopCoder staff and Creative resources. This entails creating:
       <ul>
       <li>Requirements Specifications</li>
       <li>Activity Diagrams</li>
@@ -123,7 +123,7 @@ Phone: 860.633.5540<br>
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="about"/>
             </jsp:include>
          </td>
@@ -135,7 +135,7 @@ Phone: 860.633.5540<br>
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

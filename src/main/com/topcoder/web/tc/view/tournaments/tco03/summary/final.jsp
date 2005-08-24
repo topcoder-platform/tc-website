@@ -18,7 +18,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../../includes/global_left.jsp">
+            <jsp:include page="..//includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -49,31 +49,31 @@
             <p class="terciary">
                 Play-by-Play&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=final_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=final_video">Video</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=final_analysis">Problem Analysis</a>
             </p>
-            
+
             <div class="leadPhoto">
             <img src="/i/tournament/tco03/final/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
             <span class="leadPhotoCaption">tomek poses for the crowd<br/><br/></span>
             </div>
-            
+
             <h2>tomek comes out on top</h2>
 
             <p>by Matt Murphy, <em>TopCoder Staff</em><br />
             Friday, December 5, 2003</p>
 
-            <p>Floats like a butterfly, codes in C.  The crowd could not stop roaring as tomek, the new TopCoder 
+            <p>Floats like a butterfly, codes in C.  The crowd could not stop roaring as tomek, the new TopCoder
             Open Champion, bounced up to receive his $50,000 check. </p>
- 
-            <p>The sociable student from Poland made his first appearance in TopCoder competitions just 3 months 
-            before the start of the tournament.  His friends back home did not think he would be able to come to America 
-            and win this kind of money.  "I told them I was going to win," tomek said with a grin.  He hopes that his 
+
+            <p>The sociable student from Poland made his first appearance in TopCoder competitions just 3 months
+            before the start of the tournament.  His friends back home did not think he would be able to come to America
+            and win this kind of money.  "I told them I was going to win," tomek said with a grin.  He hopes that his
             success will encourage other coders from Poland to compete in TopCoder competitions.</p>
- 
-            <p>It was a close match.  Yarin held the lead all the way up until the final system test was run on the 
-            1000-point problem.  "I was pretty afraid of Yarin," tomek admitted, "I was looking at his score all 
+
+            <p>It was a close match.  Yarin held the lead all the way up until the final system test was run on the
+            1000-point problem.  "I was pretty afraid of Yarin," tomek admitted, "I was looking at his score all
             the time." </p>
- 
-            <p>As one would expect, winning $50,000 put tomek in a pretty good mood.  His comical responses to 
-            the interviewers' questions could barely be heard over the crowd's boisterous laughter.  When asked 
+
+            <p>As one would expect, winning $50,000 put tomek in a pretty good mood.  His comical responses to
+            the interviewers' questions could barely be heard over the crowd's boisterous laughter.  When asked
             what he thought about winning, tomek chuckled and replied, "That's what I wanted."</p>
 
             <p><br/></p>

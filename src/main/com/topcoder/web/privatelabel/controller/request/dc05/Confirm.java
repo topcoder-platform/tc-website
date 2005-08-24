@@ -1,20 +1,11 @@
 package com.topcoder.web.privatelabel.controller.request.dc05;
 
-import com.topcoder.servlet.request.UploadedFile;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.common.MultipartRequest;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.controller.request.FullRegConfirm;
-import com.topcoder.web.privatelabel.model.FullRegInfo;
-import com.topcoder.web.privatelabel.model.ResumeRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.web.common.StringUtils;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 public class Confirm extends FullRegConfirm {
@@ -34,19 +25,19 @@ public class Confirm extends FullRegConfirm {
 
         try {
             //validate front fields here
-            
+
             //check handle
             if (info.getHandle().length() > Constants.MAX_HANDLE_LENGTH ||
                     info.getHandle().length() < Constants.MIN_HANDLE_LENGTH) {
                 addError(Constants.HANDLE, "Your handle must contain between " +
                         Constants.MIN_HANDLE_LENGTH + " and " + Constants.MAX_HANDLE_LENGTH + " characters.");
             }
-           
+
             if (!StringUtils.containsOnly(info.getHandle(), Constants.HANDLE_ALPHABET, false)) {
                 addError(Constants.HANDLE,
                         "Please limit the characters in your handle to letter, numbers and common punctuation symbols.");
             }
-            
+
             try {
                 if (info.isNew() && userExists(info.getHandle())) {
                     addError(Constants.HANDLE, "Please choose another handle.");
@@ -70,7 +61,7 @@ public class Confirm extends FullRegConfirm {
                 addError(Constants.EMAIL, "Your email must be between at most " +
                         Constants.MAX_EMAIL_LENGTH + " characters.");
             }
-            
+
             StringTokenizer st = new StringTokenizer(info.getEmail(), "@.");
             if (st.countTokens() < 3
                     || !StringUtils.contains(info.getEmail(), '@')

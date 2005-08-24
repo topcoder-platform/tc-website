@@ -1,5 +1,6 @@
 package com.topcoder.web.corp.view.testing.tag;
 
+import javax.servlet.jsp.JspException;
 import java.util.Calendar;
 
 public class YearTag extends SelectTag {
@@ -56,4 +57,10 @@ public class YearTag extends SelectTag {
         return buffer.toString();
 
     }
+    public int doEndTag() throws JspException {
+        start=null;
+        count=null;
+        return super.doEndTag();
+    }
+
 }

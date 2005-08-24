@@ -32,7 +32,7 @@ else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
 }
 //-->
 </SCRIPT>
-    
+
 </head>
 
 <body>
@@ -45,7 +45,7 @@ else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -66,7 +66,7 @@ else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
    <jsp:param name="tabLev1" value="component"/>
    <jsp:param name="tabLev2" value="design"/>
    <jsp:param name="tabLev3" value="bracket"/>
-</jsp:include> 
+</jsp:include>
 
             <h2>Bracket</h2>
 
@@ -74,7 +74,7 @@ else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
 
             <table width="510" align="center" border="0" cellpadding="0" cellspacing="0">
                <tr>
-                  <td width = "100%" align = "center" class="bodyText"> 
+                  <td width = "100%" align = "center" class="bodyText">
 
 <SCRIPT language="JavaScript">
                 <!--
@@ -83,13 +83,13 @@ if ( MM_FlashCanPlay ) {
        document.write('<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"');
 	document.write('  codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ');
 	document.write(' ID="bracket" WIDTH="510" HEIGHT="450" ALIGN="top">');
-	document.write(' <PARAM NAME=movie VALUE="/i/tournament/tccc04/brackets/bracket_des.swf"> <PARAM NAME=menu VALUE=false> <PARAM NAME=quality VALUE=high> <PARAM NAME=salign VALUE=T> <PARAM NAME=bgcolor VALUE=#FFFFFF>  '); 
+	document.write(' <PARAM NAME=movie VALUE="/i/tournament/tccc04/brackets/bracket_des.swf"> <PARAM NAME=menu VALUE=false> <PARAM NAME=quality VALUE=high> <PARAM NAME=salign VALUE=T> <PARAM NAME=bgcolor VALUE=#FFFFFF>  ');
 	document.write(' <EMBED src="/i/tournament/tccc04/brackets/bracket_des.swf" menu=false quality=high salign=T bgcolor=#FFFFFF  ');
 	document.write(' swLiveConnect=FALSE WIDTH="510" HEIGHT="450" NAME="bracket" ALIGN="top"');
 	document.write(' TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">');
 	document.write(' </EMBED>');
 	document.write(' </OBJECT>');
-	document.write(' <p>Note: The onsite competitors may change due to travel restrictions.</p>');                  
+	document.write(' <p>Note: The onsite competitors may change due to travel restrictions.</p>');
 }
 // -->
 </SCRIPT>

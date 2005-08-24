@@ -1,10 +1,10 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <table width="180" border="0" cellspacing="0" cellpadding="0">
     <tr>
         <td><img src="/i/coder_month_top.gif" alt="" width="180" height="11" border="0"></td>
     </tr>
-    
+
     <tr>
         <td><img src="/i/header_coder_month.gif" alt="Coder of the Month" width="180" height="20" border="0"></td>
     </tr>

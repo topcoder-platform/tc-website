@@ -39,7 +39,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>class</name>
+            <name>styleClass</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
@@ -174,7 +174,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>class</name>
+            <name>styleClass</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
@@ -324,7 +324,7 @@
         <name>preferenceInput</name>
         <tagclass>com.topcoder.web.tc.view.tag.PreferenceInput</tagclass>
         <attribute>
-            <name>class</name>
+            <name>styleClass</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
@@ -357,7 +357,7 @@
         <name>skillInput</name>
         <tagclass>com.topcoder.web.tc.view.tag.SkillInput</tagclass>
         <attribute>
-            <name>class</name>
+            <name>styleClass</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>

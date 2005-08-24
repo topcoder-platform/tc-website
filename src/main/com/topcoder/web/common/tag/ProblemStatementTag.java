@@ -13,7 +13,7 @@ import java.io.StringReader;
 
 public class ProblemStatementTag extends TagSupport {
 
-    private String tdClass = null;
+    private String styleClass = null;
     private String text;
     private Language language;
     private Problem problem;
@@ -32,8 +32,8 @@ public class ProblemStatementTag extends TagSupport {
      *
      * @param val
      */
-    public void setClass(String val) {
-        tdClass = val;
+    public void setStyleClass(String val) {
+        styleClass = val;
     }
 
     /**
@@ -96,7 +96,7 @@ public class ProblemStatementTag extends TagSupport {
         }
 
         ProblemRenderer pr = new ProblemRenderer(problem);
-        pr.setTdClass(tdClass);
+        pr.setTdClass(styleClass);
 
         try {
             pageContext.getOut().println(pr.toHTML(language));
@@ -114,7 +114,7 @@ public class ProblemStatementTag extends TagSupport {
      * end of execution
      */
     public int doEndTag() throws JspException {
-        this.tdClass = null;
+        this.styleClass = null;
         this.text = null;
         this.language = null;
         this.problem = null;

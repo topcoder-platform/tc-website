@@ -63,7 +63,6 @@ public class CheckboxTag extends TagSupport {
      */
     public int doEndTag() throws JspException {
         this.name = null;
-        ;
         this.value = null;
         this.checked = null;
 

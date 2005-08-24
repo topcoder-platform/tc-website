@@ -31,7 +31,7 @@ public interface CatalogHome extends EJBHome {
      * interface, provided that CatalogEJB has not been remapped or referenced
      * to a different location.
      */
-    public static final String EJB_REF_NAME = "CatalogEJB";
+    public static final String EJB_REF_NAME = "com.topcoder.dde.catalog.CatalogHome";
 
     /**
      * Returns an instance of <code>Catalog</code>, the remote interface of

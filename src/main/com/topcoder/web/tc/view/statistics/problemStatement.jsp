@@ -6,13 +6,13 @@
          ,com.topcoder.shared.problem.*
          ,com.topcoder.shared.language.*
          ,com.topcoder.shared.problemParser.*
-         ,com.topcoder.common.web.render.ProblemRenderer,
+         ,com.topcoder.web.common.render.ProblemRenderer,
           java.awt.*,
           java.io.StringReader"
 %>
 
-<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics - Problem Statement</TITLE>

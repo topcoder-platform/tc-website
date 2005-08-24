@@ -17,10 +17,10 @@
 
 </head>
 
-<jsp:useBean id="testSessionInfo" class="com.topcoder.web.corp.model.TestSessionInfo" />
-<jsp:useBean id="candidateInfo" class="com.topcoder.web.corp.model.CandidateInfo" />
-<jsp:useBean id="profileInfo" class="com.topcoder.web.corp.model.ProfileInfo" />
-<jsp:useBean id="testResultsInfo" class="com.topcoder.web.corp.model.TestResultsInfo" />
+<jsp:useBean id="testSessionInfo" class="com.topcoder.web.corp.model.TestSessionInfo" scope="request" />
+<jsp:useBean id="candidateInfo" class="com.topcoder.web.corp.model.CandidateInfo" scope="request"/>
+<jsp:useBean id="profileInfo" class="com.topcoder.web.corp.model.ProfileInfo" scope="request"/>
+<jsp:useBean id="testResultsInfo" class="com.topcoder.web.corp.model.TestResultsInfo" scope="request"/>
 
 <body>
 
@@ -110,12 +110,12 @@ if ( plugin ) {
                             document.write(' align="middle">');
                             document.write(' <param name="allowScriptAccess" value="sameDomain" />');
                             document.write(' <param name="movie" ');
-                            document.write(' value="/i/corp/screeningRatingOdd.swf?preference=<jsp:getProperty name="candidateInfo" property="preference"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId"/>"/>');
+                            document.write(' value="/i/corp/screeningRatingOdd.swf?preference=<jsp:getProperty name="candidateInfo" property="preference"/>&sendurl=/corp/testing?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId"/>"/>');
                             document.write(' <param name="menu" value="false" />');
                             document.write(' <param name="quality" value="high" />');
                             document.write(' <param name="bgcolor" value="#ffffff" />');
                             document.write(' <embed ');
-                            document.write(' src="/i/corp/screeningRatingOdd.swf?preference=<jsp:getProperty name="candidateInfo" property="preference"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId"/>" ');
+                            document.write(' src="/i/corp/screeningRatingOdd.swf?preference=<jsp:getProperty name="candidateInfo" property="preference"/>&sendurl=/corp/testing?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId"/>" ');
                             document.write(' menu="false" ');
                             document.write(' quality="high" ');
                             document.write(' bgcolor="#ffffff" ');
@@ -355,7 +355,10 @@ if ( plugin ) {
                   <%=j==0&&(solution.isSubmitted()||solution.isCompiled())?"<h3>Test Set A</h3>":""%>
                   <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
                   <tr>
-		            <td class="screeningCellOdd"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="<%=JavaLanguage.JAVA_LANGUAGE%>" class="bodyText"/></td>
+		            <td class="screeningCellOdd"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="<%=JavaLanguage.JAVA_LANGUAGE%>" styleClass="bodyText"/></td>
+<%--
+		            <td class="screeningCellOdd"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="Java" styleClass="bodyText"/></td>
+--%>
                   </tr>
                   <tr><td><br/></td></tr>
                   </table>
@@ -380,7 +383,10 @@ if ( plugin ) {
                   <%=j==0&&(solution.isSubmitted()||solution.isCompiled())?"<h3>Test Set B</h3>":""%>
                   <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
                   <tr>
-		            <td class="screeningCellOdd"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="<%=JavaLanguage.JAVA_LANGUAGE%>" class="bodyText"/></td>
+		            <td class="screeningCellOdd"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="<%=JavaLanguage.JAVA_LANGUAGE%>" styleClass="bodyText"/></td>
+<%--
+		            <td class="screeningCellOdd"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="Java" styleClass="bodyText"/></td>
+--%>
                   </tr>
                   <tr><td><br/></td></tr>
                   </table>
@@ -411,7 +417,7 @@ if ( plugin ) {
     </tr>
 </table>
 
-  <jsp:include page="../../foot.jsp" />
+  <jsp:include page="/foot.jsp" />
 
 </body>
 </html>

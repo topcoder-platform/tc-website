@@ -1,39 +1,37 @@
 #!/bin/ksh
-JAVA=/usr/java/bin/java
+JAVA=$JAVA_HOME/bin/java
 LOGFILE=emailEngine.log
 
 
 CLASSPATH=""
-CLASSPATH=$CLASSPATH:$WEB_HOME/lib/jars/jmsFix.jar
-CLASSPATH=$CLASSPATH:$WEB_HOME/lib/jars/xalan-j_2_4_0/bin/xalan.jar
-CLASSPATH=$CLASSPATH:$WEB_HOME/lib/jars/xalan-j_2_4_0/bin/xml-apis.jar
-CLASSPATH=$CLASSPATH:$WEB_HOME/lib/jars/xalan-j_2_4_0/bin/xercesImpl.jar
+CLASSPATH=$CLASSPATH:../../lib/jars/jmsFix.jar
+CLASSPATH=$CLASSPATH:../../lib/jars/xalan-j_2_4_0/bin/xalan.jar
+CLASSPATH=$CLASSPATH:../../lib/jars/xalan-j_2_4_0/bin/xml-apis.jar
+CLASSPATH=$CLASSPATH:../../lib/jars/xalan-j_2_4_0/bin/xercesImpl.jar
 
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/jars/weblogic510sp12.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/jars/weblogic510sp12boot.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/jars/weblogicaux.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/jars/weblog.jar
 CLASSPATH=${CLASSPATH}:${JAVA_HOME}/lib/tools.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/jars/log4j-1.2.7.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/jars/activation.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/jars/mail.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/jars/mailapi.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/jars/smtp.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/jars/pop3.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/jars/ifxjdbc.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/jars/bfograph.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/jars/junit.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/jars/upload.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/jars/configmanager2.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/jars/object_formatter.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/jars/tcs/catalog.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/jars/tcs/ddeforum.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/jars/tcs/forum.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/jars/tcs/user.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/lib/bin/Jive.jar
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/resources:
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/build/ejb_jars/EmailServices.jar:
-CLASSPATH=${CLASSPATH}:${WEB_HOME}/build/classes:
+CLASSPATH=${CLASSPATH}:../../lib/jars/jboss/jbossall-client.jar
+CLASSPATH=${CLASSPATH}:../../lib/jars/jboss/mail.jar
+CLASSPATH=${CLASSPATH}:../../lib/jars/log4j-1.2.7.jar
+CLASSPATH=${CLASSPATH}:../../lib/jars/activation.jar
+CLASSPATH=${CLASSPATH}:../../lib/jars/mail.jar
+CLASSPATH=${CLASSPATH}:../../lib/jars/mailapi.jar
+CLASSPATH=${CLASSPATH}:../../lib/jars/smtp.jar
+CLASSPATH=${CLASSPATH}:../../lib/jars/pop3.jar
+CLASSPATH=${CLASSPATH}:../../lib/jars/ifxjdbc.jar
+CLASSPATH=${CLASSPATH}:../../lib/jars/bfograph.jar
+CLASSPATH=${CLASSPATH}:../../lib/jars/junit.jar
+CLASSPATH=${CLASSPATH}:../../lib/jars/upload.jar
+CLASSPATH=${CLASSPATH}:../../lib/jars/configmanager2.jar
+CLASSPATH=${CLASSPATH}:../../lib/jars/object_formatter.jar
+CLASSPATH=${CLASSPATH}:../../lib/jars/tcs/catalog.jar
+CLASSPATH=${CLASSPATH}:../../lib/jars/tcs/ddeforum.jar
+CLASSPATH=${CLASSPATH}:../../lib/jars/tcs/forum.jar
+CLASSPATH=${CLASSPATH}:../../lib/jars/tcs/user.jar
+CLASSPATH=${CLASSPATH}:../..//lib/bin/Jive.jar
+CLASSPATH=${CLASSPATH}:../../resources
+CLASSPATH=${CLASSPATH}:${JBOSS_HOME}/server/all/deploy/EmailServices.jar
+CLASSPATH=${CLASSPATH}:../../build/classes
 
 echo "********************************************"
 echo $CLASSPATH

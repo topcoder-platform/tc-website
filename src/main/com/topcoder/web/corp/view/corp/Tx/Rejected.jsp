@@ -64,7 +64,7 @@
 </TABLE>
   <!-- Body Ends -->
 
-  <jsp:include page="../../foot.jsp"/>
+  <jsp:include page="/foot.jsp"/>
 
 </BODY>
 </HTML>

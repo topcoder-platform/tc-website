@@ -4,16 +4,16 @@
 <head>
 <title>TopCoder Member Card</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 
 <% boolean cardUnlocked = ((Boolean)request.getAttribute("cardUnlocked")).booleanValue(); %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 </head>
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -21,7 +21,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="my_home"/>
                 <jsp:param name="level2" value="card"/>
             </jsp:include>
@@ -32,8 +32,8 @@
          <td class="cardCell" WIDTH="100%">
 
         <jsp:include page="../page_title.jsp" >
-            <jsp:param name="image" value="cards"/>  
-            <jsp:param name="title" value="Instructions"/>  
+            <jsp:param name="image" value="cards"/>
+            <jsp:param name="title" value="Instructions"/>
         </jsp:include>
 
             <div class="bodyText">
@@ -105,12 +105,12 @@ document.write( 'id="tc_card" ');
 document.write( 'align="middle"&gt; ');
 document.write( '&lt;param name="allowScriptAccess" value="sameDomain" /&gt; ');
 document.write( '&lt;param name="movie" ');
-document.write( 'value="http://www.topcoder.com/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="UserId"/>"/&gt; ');
+document.write( 'value="http://www.topcoder.com/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="userId"/>"/&gt; ');
 document.write( '&lt;param name="menu" value="false" /&gt; ');
 document.write( '&lt;param name="quality" value="high" /&gt; ');
 document.write( '&lt;param name="bgcolor" value="#ffffff" /&gt; ');
 document.write( '&lt;embed ');
-document.write( 'src="http://www.topcoder.com/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="UserId"/>" ');
+document.write( 'src="http://www.topcoder.com/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="userId"/>" ');
 document.write( 'menu="false" ');
 document.write( 'quality="high" ');
 document.write( 'bgcolor="#ffffff" ');
@@ -166,12 +166,12 @@ height="410"
 id="tc_card"
 align="middle"&gt;
 &lt;param name="allowScriptAccess" value="sameDomain" /&gt;
-&lt;param name="movie" value="http://www.topcoder.com/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="UserId"/>"/&gt;
+&lt;param name="movie" value="http://www.topcoder.com/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="userId"/>"/&gt;
 &lt;param name="menu" value="false" /&gt;
 &lt;param name="quality" value="high" /&gt;
 &lt;param name="bgcolor" value="#ffffff" /&gt;
 &lt;embed
-src="http://www.topcoder.com/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="UserId"/>"
+src="http://www.topcoder.com/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="userId"/>"
 menu="false"
 quality="high"
 bgcolor="#ffffff"
@@ -194,7 +194,7 @@ pluginspage="http://www.macromedia.com/go/getflashplayer" /&gt;
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -206,7 +206,7 @@ pluginspage="http://www.macromedia.com/go/getflashplayer" /&gt;
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

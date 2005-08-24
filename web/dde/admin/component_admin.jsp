@@ -1,4 +1,5 @@
-<%@ page import="javax.naming.*" %>
+<%@ page import="javax.naming.*,
+                 org.apache.log4j.lf5.viewer.categoryexplorer.CategoryNode" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
@@ -98,11 +99,11 @@ class CategoryNode {
 %>
 
 <%
-Object objTechTypes = CONTEXT.lookup("CatalogEJB");
+Object objTechTypes = CONTEXT.lookup(CatalogHome.EJB_REF_NAME);
 CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
 Catalog catalog = home.create();
 
-Object objComponentMgr = CONTEXT.lookup("ComponentManagerEJB");
+Object objComponentMgr = CONTEXT.lookup(ComponentManagerHome.EJB_REF_NAME);
 ComponentManagerHome component_manager_home = (ComponentManagerHome) PortableRemoteObject.narrow(objComponentMgr, ComponentManagerHome.class);
 ComponentManager componentManager = null;
 

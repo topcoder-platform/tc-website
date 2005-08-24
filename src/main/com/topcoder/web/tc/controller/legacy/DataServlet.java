@@ -1,10 +1,6 @@
 package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.ServletConfig;
@@ -14,8 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.Map;
 
 
 /**
@@ -51,57 +45,17 @@ public class DataServlet extends HttpServlet {
 
     public void process(HttpServletRequest request, HttpServletResponse response) {
 
-        DataAccessInt dai = null;
-        Request dataRequest = null;
-        Map resultMap = null;
         ServletOutputStream o = null;
-        Iterator it = null;
-        Map.Entry entry = null;
-        String key = null;
         StringBuffer buf = null;
-        ResultSetContainer rsc = null;
-        RecordTag rootTag = null;
 
         try {
-//            if (isAuthenticated(request, response)) {
             if (request.getParameter(DataAccessConstants.COMMAND).equals("member_profile")) {
-/*
-                dai = new DataAccess(DBMS.DW_DATASOURCE_NAME);
-                dataRequest = new Request(HttpUtils.parseQueryString(request.getQueryString()));
-                resultMap = dai.getData(dataRequest);
-                // if the request is for an xml file, then go through all the result sets in the map
-                // get their associated xml and return that after setting the content type to be xml
-                if (dataRequest.getProperty("display") != null &&
-                        dataRequest.getProperty("display").equals("xmlfile")) {
-                    response.setContentType("text/xml");
-                    o = response.getOutputStream();
-                    rootTag = new RecordTag("RootElement");
-
-                    buf = new StringBuffer();
-                    it = resultMap.entrySet().iterator();
-                    while (it.hasNext()) {
-                        entry = (Map.Entry) it.next();
-                        key = entry.getKey().toString();
-                        rsc = (ResultSetContainer) resultMap.get(key);
-                        rootTag.addTag(rsc.getTag(key, "ResultRow"));
-                    }
-                    buf.append(rootTag.getXML(2));
-*/
 
                 buf = new StringBuffer(1000);
                 buf.append(getXML());
                 response.setContentType("text/xml");
                 o = response.getOutputStream();
-
-
                 o.write(asciiGetBytes(buf.toString()));
-/*
-                } else {
-                    request.setAttribute("DATA_DUMP", resultMap);
-                    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/dataDump.jsp");
-                    dispatcher.forward(request, response);
-                }
-*/
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -222,7 +176,7 @@ public class DataServlet extends HttpServlet {
             nav = (Navigation) request.getSession().getAttribute("navigation");
             if (nav == null || !nav.isIdentified())
                 response.sendRedirect("http://" + request.getServerName() +
-                        "/tc?&module=Login&message=" +
+                        "/tc?module=Login&message=" +
                         "You must log in to view this portion of the site.&nextpage=" +
                         request.getRequestURI());
 

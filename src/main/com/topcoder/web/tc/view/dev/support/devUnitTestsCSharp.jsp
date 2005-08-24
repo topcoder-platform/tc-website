@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  java.util.Map,
-                 com.topcoder.shared.dataAccess.DataAccessConstants, 
+                 com.topcoder.shared.dataAccess.DataAccessConstants,
                  com.topcoder.shared.util.ApplicationServer"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -23,7 +23,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="development"/>
                 <jsp:param name="level2" value="support"/>
                 <jsp:param name="level3" value="devTutorial"/>
@@ -37,7 +37,7 @@
 
 <!-- Center Column Begins -->
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
-			
+
 			<p><A href="/tc?module=Static&d1=dev&d2=support&d3=devTutorial">Back to tutorial</A></p>
 
 			<h2>Unit Tests - C#</h2>
@@ -52,7 +52,7 @@
 <pre>/*
  * TutorialLayoutTest.cs
  *
- * Copyright (c) 2004, TopCoder, Inc. All rights reserved  
+ * Copyright (c) 2004, TopCoder, Inc. All rights reserved
  */
  */
 using System;
@@ -77,7 +77,7 @@ namespace TopCoder.Util.Tutorial {
 		<span class=bodySubtitle>Accuracy Tests</span>
 		<p>Now we can add test code. Let's add a test to verify that saving blank files works as expected.</p>
 
-<pre>// File name and path for test saves 
+<pre>// File name and path for test saves
 private const string SAVEAS_OUTPUT = "test_files/unit_tests/output/test_saveas.txt";
 // Reference blank save file
 private const string SAVEAS_BLANK_REFERENCE = "test_files/unit_tests/blank_saveas.txt";
@@ -91,7 +91,7 @@ public void SaveAsBlank()
     TutorialLayout test_object = new TutorialLayout(TutorialLayout.SINGLE_DOCUMENT, true);
 
     test_object.SaveAs(SAVEAS_OUTPUT);
-    
+
     Assertion.Assert(file_compare(SAVEAS_OUTPUT, SAVEAS_BLANK_REFERENCE),"Files do not match.");
 }</pre>
 
@@ -99,7 +99,7 @@ public void SaveAsBlank()
 		<p>The test itself creates an instance of the class we're testing, and calls the function we're testing. Next, we use NUnit to test an assertion.&nbsp; Here, the assertion is that the function file_compare returns true.&nbsp; If it does not return true, the test will fail, and "Files do not match." will be given as the reason for failure.&nbsp; Note that the assert arguments are in the opposite order of JUnit assertions.</p>
 		<p>Now that we have one test, we can easily copy that test to create more tests!&nbsp; Let's write a test that verifies a more complex object saves as expected.</p>
 
-<pre>// Reference complex save file 
+<pre>// Reference complex save file
 private const string SAVEAS_COMPLEX_REFERENCE = "test_files/unit_tests/complex_saveas.txt";
 
 /// &lt;summary&gt;
@@ -109,12 +109,12 @@ private const string SAVEAS_COMPLEX_REFERENCE = "test_files/unit_tests/complex_s
 public void SaveAsComplex()
 {
 	TutorialLayout test_object = new TutorialLayout(TutorialLayout.MULTIPLE_DOCUMENT, true);
-	
+
 	// Add objects to the blank layout.
 	test_object.Add(new TutorialContents());
 	test_object.Add(new TutorialIndex());
 	test_object.Add(new TutorialChapter("First Chapter"));
-	
+
 	test_object.SaveAs(SAVEAS_OUTPUT);
 
 	Assertion.Assert(file_compare(SAVEAS_OUTPUT, SAVEAS_COMPLEX_REFERENCE), "Files do not match.");
@@ -130,7 +130,7 @@ public void SaveAsComplex()
 [Test]
 [ExpectedException(typeof(ArgumentNullException))]
 public void SaveAsNull()
-{	
+{
     TutorialLayout test_object = new TutorialLayout(TutorialLayout.SINGLE_DOCUMENT, true);
 
     // This call should throw an IAE

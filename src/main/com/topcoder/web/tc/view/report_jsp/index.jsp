@@ -9,7 +9,7 @@
           com.topcoder.common.web.data.report.*"
 
 %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%!
   private String getSpaces(int s) {
@@ -82,7 +82,7 @@
       <br/>
       <br/>
       <br/>
-      <a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?module=Static&d1=report_jsp&d2=newIndex">Additional Reports<a><br/><br/>
+      <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Static&d1=report_jsp&d2=newIndex">Additional Reports<a><br/><br/>
 
       <b>Profile Information<b><br/>
       <ul><li><a href=<%=Constants.SERVLET_ADDR + "&" + Constants.TASK_NAME_KEY + "=" + Constants.REPORT_PROFILE_LIST_MENU_KEY%>>Profile List<a></li></ul>

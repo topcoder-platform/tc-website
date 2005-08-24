@@ -10,13 +10,13 @@
 <head>
 <title>Why Join TopCoder?</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 
 </head>
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -25,7 +25,7 @@
 
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="about"/>
                 <jsp:param name="level2" value="whyjoin"/>
             </jsp:include>
@@ -39,9 +39,9 @@
 <!-- Center Column Begins -->
         <td class="bodyText" width="99%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
         <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="about_tc"/>  
-           <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value="Why Join TopCoder?"/>  
+           <jsp:param name="image" value="about_tc"/>
+           <jsp:param name="image1" value="white"/>
+           <jsp:param name="title" value="Why Join TopCoder?"/>
         </jsp:include>
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
@@ -77,7 +77,7 @@ We are aggressively seeking out companies that have a strong need for the level 
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="about"/>
             </jsp:include>
          </td>
@@ -89,7 +89,7 @@ We are aggressively seeking out companies that have a strong need for the level 
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

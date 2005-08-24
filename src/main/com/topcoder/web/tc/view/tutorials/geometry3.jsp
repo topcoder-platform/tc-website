@@ -4,7 +4,7 @@
 <head>
 <title>Algorithm Tutorials</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 <style type="text/css">
     .code
 {
@@ -24,7 +24,7 @@
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -32,7 +32,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="education"/>
                 <jsp:param name="level2" value="alg_tutorials"/>
             </jsp:include>
@@ -43,7 +43,7 @@
          <td width="100%" align="center">
 
          <div class="tutorBodyFull">
-            
+
             <h2>Geometry Concepts: Using Geometry in TopCoder Problems</h2>
 
 			<p>
@@ -110,7 +110,7 @@ String testPoint(verts, x, y){
     else return "INTERIOR";
 }
         </pre>
-    
+
         <br/><br/><a name="tvtower"></a>
             <a class="bodySubtitle" href="/tc?module=ProblemDetail&rd=4735&pm=2260">TVTower(SRM 183)</a><br/>
             Requires: <a href="/tc?module=Static&d1=tutorials&d2=geometry2#circle">Finding a Circle From 3 Points</a><br/><br/>
@@ -151,7 +151,7 @@ double minRadius(int[] x, int[] y){
             check(cx,cy);
             for(int k = j+1; k&lt;N; k++){
                 <font color="blue">//center gives the center of the circle with
-                //(x[i],y[i]), (x[j],y[j]), and (x[k],y[k]) on 
+                //(x[i],y[i]), (x[j],y[j]), and (x[k],y[k]) on
                 //the edge of the circle.</font>
                 double[] c = center(i,j,k);
                 check(c[0],c[1]);
@@ -193,7 +193,7 @@ In this case, the area of the parallelogram is the norm of the vector:
 <tt>sqrt(i*i+j*j+k*k)</tt>.<br/><br/>
 
 Hence, as before, we can determine the distance from a point (the center of the
-earth) to a line (the line from a satellite to a rocket).  However, 
+earth) to a line (the line from a satellite to a rocket).  However,
 the closest point on the line segment between a satellite and a rocket may be
 one of the end points of the segment, not the closest point on the line.  As before, we can use the dot product to check this.
 However, there is another way which is somewhat simpler to code.  Say that you
@@ -232,7 +232,7 @@ Requires: <a href="/tc?module=Static&d1=tutorials&d2=geometry1#line_point_distan
 The following problems all require geometry, and the topics discussed in this
 article will be useful.  However, they all require some additional skills.  If
 you got stuck on them, the editorials are a good place to look for a bit of
-help.  If you are still stuck, there has yet to be a problem related question on the 
+help.  If you are still stuck, there has yet to be a problem related question on the
 <a href="/rtables/index.jsp">round tables</a> that went unanswered.<br/>
 <a class="bodySubtitle" href="/tc?module=ProblemDetail&rd=5872&pm=2887">DogWoods (SRM 201)</a><br/>
 <a class="bodySubtitle" href="/tc?module=ProblemDetail&rd=5861&pm=2867">ShortCut (SRM 215)</a><br/>
@@ -241,7 +241,7 @@ help.  If you are still stuck, there has yet to be a problem related question on
 <a class="bodySubtitle" href="/tc?module=ProblemDetail&rd=5849&pm=2247">TurfRoller (SRM 203)</a><br/>
 <a class="bodySubtitle" href="/tc?module=ProblemDetail&rd=4685&pm=2014">Watchtower (SRM 176)</a><br/>
 </p>
-            
+
 
         </div>
         <p><br/></p>
@@ -250,7 +250,7 @@ help.  If you are still stuck, there has yet to be a problem related question on
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -262,7 +262,7 @@ help.  If you are still stuck, there has yet to be a problem related question on
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

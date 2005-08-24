@@ -4,11 +4,11 @@ com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
 com.topcoder.web.privatelabel.view.tag.DemographicInput,
 com.topcoder.web.common.BaseProcessor,
 com.topcoder.shared.util.ApplicationServer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="/privatelabel.tld" prefix="pl" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
-<jsp:usebean id="questionList" class="java.util.List" scope="request" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="privatelabel.tld" prefix="pl" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
+<jsp:useBean id="questionList" class="java.util.List" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
