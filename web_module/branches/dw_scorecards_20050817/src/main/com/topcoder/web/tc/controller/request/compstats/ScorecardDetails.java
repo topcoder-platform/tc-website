@@ -29,6 +29,20 @@ import java.util.Map;
  */
 public class ScorecardDetails extends Base {
 
+    private checkCompleted(String projId) throws TCWebException {
+
+            Request r = new Request();
+            r.setContentHandle("check_project_completed");
+
+            r.setProperty("pj", projId);
+
+            Map result = getDataAccess(true).getData(r);
+
+            ResultSetContainer rsc = (ResultSetContainer) result.get("check_project_completed");
+            if (rsc.getIntItem(0, "is_completed") != 1)  {
+                 throw new TCWebException("The project is not finished");
+            }
+        }
 
 
     protected void businessProcessing() throws TCWebException {
@@ -39,6 +53,7 @@ public class ScorecardDetails extends Base {
             String userId = StringUtils.checkNull(getRequest().getParameter("uid"));
             String reviewerId = getRequest().getParameter("rid");
 
+            checkCompleted(projectId);
 
             r.setContentHandle("get_scorecard");
             r.setProperty("pj", projectId);
@@ -48,6 +63,7 @@ public class ScorecardDetails extends Base {
 
             if (reviewerId == null) {
                 // screening
+                r.setProperty("rw", "-1");
                 rscScorecard = (ResultSetContainer) getDataAccess(true).getData(r).get("get_screening_scorecard");
 
             } else {
