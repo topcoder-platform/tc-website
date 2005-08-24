@@ -36,16 +36,12 @@ public class ResultSetItemTag extends FormatTag {
 
     public void setEscapeHtml(boolean escapeHTML) {
         this.escapeHTML = escapeHTML;
-        log.debug("set escapeHTML=" + escapeHTML);
     }
 
     public int doStartTag() throws JspException {
-        log.debug("START TAG! escapeHTML=" + escapeHTML);
-
         if (row == null) {
             if (escapeHTML) {
                 setObject(StringUtils.htmlEncode((String) set.getItem(rowIndex, name).getResultData()));
-                log.debug(StringUtils.htmlEncode((String) set.getItem(rowIndex, name).getResultData()));
             } else {
                 setObject(set.getItem(rowIndex, name).getResultData());
 
@@ -53,7 +49,6 @@ public class ResultSetItemTag extends FormatTag {
         } else {
             if (escapeHTML) {
                 setObject(StringUtils.htmlEncode((String) row.getItem(name).getResultData()));
-                log.debug(StringUtils.htmlEncode((String) row.getItem(name).getResultData()));
             } else {
                 setObject(row.getItem(name).getResultData());
             }
