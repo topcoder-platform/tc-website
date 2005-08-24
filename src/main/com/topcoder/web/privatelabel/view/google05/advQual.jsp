@@ -415,6 +415,7 @@
 <tr class="sidebarText"><td>Revenger</td><td>Qualification Set 5/8/12/20</td><td align="right">840.33</td></tr>
 <tr class="sidebarText"><td>Reyhot</td><td>Qualification Set 2/10/11/19</td><td align="right">794.82</td></tr>
 <tr class="sidebarText"><td>rgrig</td><td>Qualification Set 5/8/12/20</td><td align="right">818.31</td></tr>
+<tr class="sidebarText"><td>riff921</td><td>Qualification Set 3/9/14/16</td><td align="right">614.77</td></tr>
 <tr class="sidebarText"><td>rinoavd</td><td>Qualification Set 1/7/13/18</td><td align="right">709.43</td></tr>
 <tr class="sidebarText"><td>riveria</td><td>Qualification Set 3/9/14/16</td><td align="right">733.17</td></tr>
 <tr class="sidebarText"><td>rlp</td><td>Qualification Set 1/7/13/18</td><td align="right">696.01</td></tr>
@@ -460,7 +461,6 @@
 <tr class="sidebarText"><td>sql_lall</td><td>Qualification Set 1/7/13/18</td><td align="right">874.49</td></tr>
 <tr class="sidebarText"><td>sriramonly</td><td>Qualification Set 3/9/14/16</td><td align="right">894.48</td></tr>
 <tr class="sidebarText"><td>ssancho2</td><td>Qualification Set 4/6/15/17</td><td align="right">790.82</td></tr>
-<tr class="sidebarText"><td>starwiz</td><td>Qualification Set 3/9/14/16</td><td align="right">667.07</td></tr>
 <tr class="sidebarText"><td>StefanPochmann</td><td>Qualification Set 2/10/11/19</td><td align="right">658.32</td></tr>
 <tr class="sidebarText"><td>steffenp</td><td>Qualification Set 5/8/12/20</td><td align="right">743.76</td></tr>
 <tr class="sidebarText"><td>stevemm81</td><td>Qualification Set 4/6/15/17</td><td align="right">747.07</td></tr>
