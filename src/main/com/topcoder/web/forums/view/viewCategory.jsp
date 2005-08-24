@@ -72,8 +72,12 @@
 </tr>
 <tr>
     <td><b><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A>
-    <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory))%>'>
-        >> <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>&mc=<jsp:getProperty name="category" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A>
+    <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
+        <%  if (category.getID() != forumCategory.getID()) { %>
+            >> <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>&mc=<jsp:getProperty name="category" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A>
+        <%  } else { %>
+            >> <jsp:getProperty name="category" property="name"/>
+        <%  } %> 
     </tc-webtag:iterator>
     </b></td>
 </tr>
@@ -115,6 +119,7 @@
             <%  } %>
             
             <%  if (forumCategory.getCategoryCount() > 0) { %>
+            <%  if (forumCategory.getForumCount() > 0) { %><br><% } %>
             <table cellpadding="0" cellspacing="0" class="rtTable">
                 <tr>
                     <td class="rtHeader" width="80%">Category</td>

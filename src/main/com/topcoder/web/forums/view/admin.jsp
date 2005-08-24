@@ -4,12 +4,14 @@
                  com.jivesoftware.base.User,
                  com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.ReadTracker,
+                 com.topcoder.common.web.data.ContestAdmin,
            		 java.util.Iterator,
                  java.util.Enumeration"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
+<tc-webtag:useBean id="contestList" name="contestList" type="java.util.ArrayList" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <html>
@@ -61,10 +63,23 @@
       <td class="rtTextCell" nowrap="nowrap"><strong>Command:</strong></td>
       <td class="rtTextCell100">
         <select size="1" name="<%=ForumConstants.ADMIN_COMMAND%>">
-        <%  String[] commandNames = { "Change angle brackets in old messages to HTML equivalents" };
-            String[] commandValues = { ForumConstants.ADMIN_COMMAND_HTML_ESCAPE };
+        <%  String[] commandNames = { "Change angle brackets in old messages to HTML equivalents",
+                "Add forum - contest" };
+            String[] commandValues = { ForumConstants.ADMIN_COMMAND_HTML_ESCAPE,
+                ForumConstants.ADMIN_COMMAND_ADD_CONTEST };
             for (int i=0; i<commandNames.length; i++) { %>
                 <option value="<%=commandValues[i]%>"><%=commandNames[i]%></option>
+        <%  } %>
+        </select>
+      </td>
+   </tr>
+   <tr>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Contest:</strong></td>
+      <td class="rtTextCell100">
+        <select size="1" name="<%=ForumConstants.ADMIN_COMMAND%>">
+        <%  for (int i=0; i<contestList.size(); i++) { 
+                ContestAdmin contest = (ContestAdmin)commandList.get(i); %>
+                <option value="<%=contest.getContestId()%>"><%=contest.getContestName()%></option>
         <%  } %>
         </select>
       </td>
