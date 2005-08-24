@@ -61,6 +61,8 @@
 <!-- 2005 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
 
+                            <tr><td class="prHead"><A href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082405">TopCoder&#174; Announces 16 Finalists in Component Tournament of 2005 TopCoder Open</A> [August 24]<br/></td></tr>
+
                             <tr><td class="prHead"><A href="http://www.google.com/intl/en/press/pressrel/codejam3.html" target="_blank">Registration Opens for Google Code Jam 2005</A> [July 25 - Google]<br/></td></tr>
 
                             <tr><td class="prHead"><A href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_071105">TopCoder&#174; Announces Return of Premier Sponsor to 2005 TopCoder Open</A> [July 11]<br/></td></tr>
