@@ -55,7 +55,7 @@
 
 %>
 
-<table border="0" cellspacing="0" width="100%" class="formFrame">
+<table border="1" cellspacing="0" width="100%" class="formFrame">
 
 <rsc:iterator list="<%=scorecard%>" id="resultRow">
 
