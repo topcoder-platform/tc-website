@@ -1,7 +1,7 @@
 package com.topcoder.web.common.tag;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.common.StringUtils
+import com.topcoder.web.common.StringUtils;
 import javax.servlet.jsp.JspException;
 
 public class ResultSetItemTag extends FormatTag {
