@@ -77,6 +77,7 @@ public class ScorecardDetails extends Base {
 
             r = new Request();
             r.setContentHandle("scorecard_details");
+            r.setProperty("pj", projectId);
             r.setProperty("scr", scorecardId);
             r.setProperty("scrt", scorecardTemplateId);
 
