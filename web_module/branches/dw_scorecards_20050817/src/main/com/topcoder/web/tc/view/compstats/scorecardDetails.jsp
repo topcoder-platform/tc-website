@@ -90,7 +90,7 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
         <% if (resultRow.getStringItem("num_tests") == null) { %>
             <rsc:item name="evaluation" row="<%=resultRow%>"/>
         <% } else { %>
-            Passed: <rsc:item name="num_passed" row="<%=resultRow%>"/>
+            Passed: <rsc:item name="num_passed" row="<%=resultRow%>"/><br>
             Total: <rsc:item name="num_tests" row="<%=resultRow%>"/>
         <% } %>
     </td>
