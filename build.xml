@@ -829,6 +829,12 @@
          <delete dir="${jboss_deploy}/corp.war/META-INF"/>
          <unwar src="${war.dir}/privatelabel.war" dest="${jboss_deploy}/privatelabel.war/" overwrite="yes"/>
          <delete dir="${jboss_deploy}/privatelabel.war/META-INF"/>
+         <copy todir="${jboss_deploy}">
+             <fileset dir="${ejb_jars}">
+                 <include name="*.jar"/>
+                 <exclude name="security.jar"/>
+             </fileset>
+         </copy>
      </target>
 
 
