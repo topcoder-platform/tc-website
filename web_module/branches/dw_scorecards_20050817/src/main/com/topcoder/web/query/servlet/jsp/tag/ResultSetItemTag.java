@@ -23,9 +23,9 @@ public class ResultSetItemTag extends TagSupport {
         this.name = name;
     }
 
-    public void setEscapeHtml(boolean escapeHTML) {
+    public void setEscapeHtml(String escape) {
+        this.escapeHTML = escape.equals("true");
         log.debug("set escape to " + escapeHTML);
-        this.escapeHTML = escapeHTML;
     }
 
     public int doStartTag() throws JspException {
