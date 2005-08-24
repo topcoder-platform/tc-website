@@ -47,7 +47,7 @@ public class ResultSetItemTag extends FormatTag {
             }
         } else {
             if (escapeHTML) {
-                setObject(StringUtils.htmlEncode((String) set.getItem(name).getResultData()));
+                setObject(StringUtils.htmlEncode((String) row.getItem(name).getResultData()));
             } else {
                 setObject(row.getItem(name).getResultData());
             }
