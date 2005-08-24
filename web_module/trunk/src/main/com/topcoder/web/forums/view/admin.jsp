@@ -78,7 +78,7 @@
       <td class="rtTextCell100">
         <select size="1" name="<%=ForumConstants.ADMIN_COMMAND%>">
         <%  for (int i=0; i<contestList.size(); i++) { 
-                ContestAdmin contest = (ContestAdmin)commandList.get(i); %>
+                ContestAdmin contest = (ContestAdmin)contestList.get(i); %>
                 <option value="<%=contest.getContestId()%>"><%=contest.getContestName()%></option>
         <%  } %>
         </select>
