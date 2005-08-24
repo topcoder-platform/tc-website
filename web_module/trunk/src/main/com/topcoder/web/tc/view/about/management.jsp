@@ -44,7 +44,7 @@
             <jsp:param name="title" value=""/>
         </jsp:include>
 
-Founded by Jack Hughes in April, 2001, TopCoder was established with the purpose of identifying top computer software engineers world-wide. Since then, the company's worldwide membership has grown to over 50,000 developers with an accomplished management team that includes some of the most successful software development professionals in the industry. 
+Founded by Jack Hughes in April, 2001, TopCoder was established with the purpose of identifying top computer software engineers world-wide. Since then, the company's worldwide membership has grown to over 60,000 developers with an accomplished management team that includes some of the most successful software development professionals in the industry. 
 <br><br>
 <hr noshade="noshade" size="1" width="100%">
 <strong>Jack Hughes - Founder and Chairman</strong>
