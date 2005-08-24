@@ -74,10 +74,10 @@
         lastQuestion = resultRow.getStringItem("question_desc");
 %>
     <tr>
-    <td class="projectHeaders">
+    <td class="projectCells" bgcolor="#990000">
         <rsc:item name="question_desc" row="<%=resultRow%>"/> <rsc:item name="question_text" row="<%=resultRow%>"/>
     </td>
-    <td>
+    <td class="projectCells">
         <% if (resultRow.getStringItem("num_tests") == null) { %>
             <rsc:item name="evaluation" row="<%=resultRow%>"/>
         <% } else { %>
@@ -89,9 +89,9 @@
 <% } %>
 
     <tr>
-        <td><rsc:item name="response_text" row="<%=resultRow%>"/>
+        <td class="projectCells"><rsc:item name="response_text" row="<%=resultRow%>"/>
         </td>
-        <td><rsc:item name="response_type_desc" row="<%=resultRow%>"/>
+        <td class="projectCells"><rsc:item name="response_type_desc" row="<%=resultRow%>"/>
         </td>
 
     </tr>
