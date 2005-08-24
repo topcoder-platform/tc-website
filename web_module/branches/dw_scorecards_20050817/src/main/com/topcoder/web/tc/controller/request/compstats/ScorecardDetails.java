@@ -35,7 +35,7 @@ public class ScorecardDetails extends Base {
         try {
             Request r = new Request();
 
-            String projectId = StringUtils.checkNull(getRequest().getParameter("pi"));
+            String projectId = StringUtils.checkNull(getRequest().getParameter("pj"));
             String userId = StringUtils.checkNull(getRequest().getParameter("uid"));
             String reviewerId = getRequest().getParameter("rid");
 
@@ -48,13 +48,12 @@ public class ScorecardDetails extends Base {
 
             if (reviewerId == null) {
                 // screening
-                r.setProperty("rw", reviewerId);
-
-                rscScorecard = (ResultSetContainer) getDataAccess(true).getData(r).get("get_review_scorecard");
+                rscScorecard = (ResultSetContainer) getDataAccess(true).getData(r).get("get_screening_scorecard");
 
             } else {
                 // review
-                rscScorecard = (ResultSetContainer) getDataAccess(true).getData(r).get("get_screening_scorecard");
+                r.setProperty("rw", reviewerId);
+                rscScorecard = (ResultSetContainer) getDataAccess(true).getData(r).get("get_review_scorecard");
             }
 
             String scorecardId = rscScorecard.getStringItem(0, "scorecard_id");
@@ -84,13 +83,13 @@ public class ScorecardDetails extends Base {
 /*
 - COMMAND  get_scorecard
 
-> query get_review_scorecard
+> query get_screening_scorecard
 select scorecard_id, scorecard_template_id
 from submission_screening
 where project_id = @pj@
 and user_id = @cr@
 
-> query get_screening_scorecard
+> query get_review_scorecard
 select scorecard_id, scorecard_template_id
 from submission_review
 where project_id = @pj@
@@ -118,7 +117,7 @@ and sq.scorecard_question_id  = sr.scorecard_question_id
 and sq.scorecard_question_id  = sjr.scorecard_question_id
 and tr.scorecard_id = sr.scorecard_id
 and tr.scorecard_id = sjr.scorecard_id
-and tr.scorecard_id = @FIX@
-and sq.scorecard_template_id = @FIX@
+and tr.scorecard_id = @scr@
+and sq.scorecard_template_id = @scrt@
 order by sq.sort, sjr.sort
 */
