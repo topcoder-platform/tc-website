@@ -335,8 +335,8 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
 <p>
 At first, you might think that this problem would require some sort of
 complicated dynamic programming, or other algorithm.  However, a little more
-thought leads to a simple greedy algorithm.  In order for the sequence to be
-prime, the two numbers on the ends must match.  If they do, we can remove them,
+thought leads to a simple greedy algorithm.  In order for the sequence to be a palindrome, 
+the two numbers on the ends must match.  If they do, we can remove them,
 and continue working on the rest of the sequence.  If not, then the smaller of
 the two must get bigger (there is no way for the bigger one to get smaller).
 Hence, we combine the smaller of the two end numbers with the one adjacent to it
