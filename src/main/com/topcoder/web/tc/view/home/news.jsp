@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>08.24.05<br>5:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_082405">TCO05 Component Competition Finalists Press Release</A></span><br><br>
+      "We've seen a dramatic growth in the component division - more than twice the number of participants registered this year compared to last year and that really shows it's the hottest area of interest in TopCoder competitions," said Rob Hughes, President and COO of TopCoder.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=pressroom&d2=pr_082405">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.23.05<br>9:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -242,18 +254,6 @@ Algorithm, Design, and Development Statistics tabs under Member Profiles now inc
    <tr><td class="newsLinksCell">
          <A href="/index?t=statistics&c=srm256_prob">full story</A>&#160;|&#160;
          <A href="/?t=statistics&c=editorial_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>08.01.05<br>1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/?RoundId=8012&t=schedule&c=srm">SRM added on 08.22</A></span><br><br>
-      We've added a new SRM to the schedule on August 22.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/?RoundId=8012&t=schedule&c=srm">details</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
 
