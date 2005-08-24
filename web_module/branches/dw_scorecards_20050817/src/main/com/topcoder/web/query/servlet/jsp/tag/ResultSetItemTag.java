@@ -23,7 +23,7 @@ public class ResultSetItemTag extends TagSupport {
         this.name = name;
     }
 
-    public void setEscapeHTML(boolean escapeHTML) {
+    public void setEscapeHtml(boolean escapeHTML) {
         log.debug("set escape to " + escapeHTML);
         this.escapeHTML = escapeHTML;
     }

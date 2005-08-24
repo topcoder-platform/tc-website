@@ -98,7 +98,7 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
 <% } %>
 
     <tr>
-        <td class="projectCells"><rsc:item name="response_text" row="<%=resultRow%>" escapeHTML="true" />
+        <td class="projectCells"><rsc:item name="response_text" row="<%=resultRow%>" escapeHtml="true" />
         </td>
         <td class="projectCells"><rsc:item name="response_type_desc" row="<%=resultRow%>"/>
         </td>

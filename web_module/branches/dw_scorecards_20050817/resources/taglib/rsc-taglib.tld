@@ -72,7 +72,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>escapeHTML</name>
+            <name>escapeHtml</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
