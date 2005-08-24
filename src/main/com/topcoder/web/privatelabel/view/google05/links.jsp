@@ -28,15 +28,14 @@
             <% } %>
 
 <!-- Registration tab -->
+<%--
 
             <% if (selectedTab.equals("registration")) {%>
                  <font color="006633">Registration</font> &nbsp;|&nbsp;
             <% } else { %>
-<%--
-                  <a href="/pl/?module=Static&d1=google05&d2=login">Registration</a> &nbsp;|&nbsp;
---%>
                   <a href="/pl/?module=Static&d1=google05&d2=reg_closed">Registration</a> &nbsp;|&nbsp;
             <% } %>
+--%>
 
 <!-- Instructions tab -->
             <% if (selectedTab.equals("instructions")) {%>
@@ -53,13 +52,12 @@
             <% } %>
 
 <!-- Advancers tab -->
-<%--
             <% if (selectedTab.equals("advancers")) {%>
                  <font color="006633">Advancers</font> &nbsp;|&nbsp;
             <% } else { %>
                   <a href="/pl/?module=Static&d1=google05&d2=advancers">Advancers</a> &nbsp;|&nbsp;
             <% } %>
---%>
+
 <!-- Practice Arena  tab -->
             <% if (selectedTab.equals("arena")) {%>
                  <font color="006633">Competition Arena</font> &nbsp;|&nbsp;
@@ -69,8 +67,8 @@
 
 <!-- Google Groups  tab -->
             <% if (selectedTab.equals("forum")) {%>
-                 <font color="006633">Code Jam Group</font>
+               <font color="006633">Code Jam Group</font>
             <% } else { %>
-<a href="/?t=sponsor&c=link&link=http://groups-beta.google.com/group/google-code?hl=en&refer=gcj05site" target="_blank">Code Jam Group</a>
+               <a href="/?t=sponsor&c=link&link=http://groups-beta.google.com/group/google-code?hl=en&refer=gcj05site" target="_blank">Code Jam Group</a>
             <% } %>
 </font>

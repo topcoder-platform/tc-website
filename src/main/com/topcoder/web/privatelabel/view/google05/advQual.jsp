@@ -10,560 +10,559 @@
 
 
 <table border=0 width=100% cellpadding=0 cellspacing=0>
-	<tr>
-		<td width="49%">&#160;</td>
-		<td align=center>
-			<table border=0 width=100% cellpadding=0 cellspacing=0>
-				<tr>
-					<td width="49%"></td>
-					<td valign=bottom align=center><img border=0 src="/i/events/google2005/codejamLogo.gif" alt="Google Code Jam logo"></td>
-					<td width="49%"></td>
-				</tr>
-			</table>
-		</td>
-		<td width="49%"></td>
-	</tr>
-	<tr>
-		<td width="49%">&#160;</td>
-		<td>
-			<div class=greenBigBox>
+   <tr>
+      <td width="49%">&#160;</td>
+      <td align=center>
+         <table border=0 width=100% cellpadding=0 cellspacing=0>
+            <tr>
+               <td width="49%"></td>
+               <td valign=bottom align=center><img border=0 src="/i/events/google2005/codejamLogo.gif" alt="Google Code Jam logo"></td>
+               <td width="49%"></td>
+            </tr>
+         </table>
+      </td>
+      <td width="49%"></td>
+   </tr>
+   <tr>
+      <td width="49%">&#160;</td>
+      <td>
+         <div class=greenBigBox>
 
-			<!-- Tab bar links-->
-			<div align=center>
-			<jsp:include page="links.jsp" >
-			<jsp:param name="selectedTab" value="advancers"/>
-			</jsp:include>
-			</div>
+         <!-- Tab bar links-->
+         <div align=center>
+         <jsp:include page="links.jsp" >
+         <jsp:param name="selectedTab" value="advancers"/>
+         </jsp:include>
+         </div>
 
-			<br/><br/>
+         <br><br>
 
-			<span class=bigTitle>Advancers</span>
-			<span valign=top>
-			<jsp:include page="right.jsp" />
-			</span>
+         <span class="bigTitle">Advancers</span>
+         <span valign="top">
+         <jsp:include page="right.jsp" />
+         </span>
 
-			<br/><br/>
+         <br><br>
 
-			<table class=tableFrame cellpadding=5 cellspacing=2 border=0 width="400">
-			<tr>
-			<td class=advancersTitle colspan=3>Qualification Round</td>
-			</tr>
-			<tr>
-			<td class=advancersRound width="30%">Handle</td>
-			<td class=advancersRound width="40%">Problem Set</td>
-			<td class=advancersRound width="30%" align="right">Score</td>
-			</tr>
+         <table class="tableFrame" cellpadding="5" cellspacing="2" border="0" width="400">
+         <tr>
+         <td class="advancersTitle" colspan="3">Qualification Round</td>
+         </tr>
+         <tr>
+         <td class="advancersRound" width="30%">Handle</td>
+         <td class="advancersRound" width="40%">Problem Set</td>
+         <td class="advancersRound" width="30%" align="right">Score</td>
+         </tr>
 
-<tr class=sidebarText><td>rotoZOOM</td><td>Problem Sets 1 and 7</td><td align="right">1206.68</td></tr>
-<tr class=sidebarText><td>LiMing</td><td>Problem Sets 1 and 7</td><td align="right">1202.41</td></tr>
-<tr class=sidebarText><td>antimatter</td><td>Problem Sets 1 and 7</td><td align="right">1172.38</td></tr>
-<tr class=sidebarText><td>achurch</td><td>Problem Sets 1 and 7</td><td align="right">1051.72</td></tr>
-<tr class=sidebarText><td>Ryan</td><td>Problem Sets 1 and 7</td><td align="right">1043.76</td></tr>
-<tr class=sidebarText><td>tjq</td><td>Problem Sets 1 and 7</td><td align="right">1041.81</td></tr>
-<tr class=sidebarText><td>cnettel</td><td>Problem Sets 1 and 7</td><td align="right">1012.67</td></tr>
-<tr class=sidebarText><td>Vulpecular</td><td>Problem Sets 1 and 7</td><td align="right">1007.69</td></tr>
-<tr class=sidebarText><td>venco</td><td>Problem Sets 1 and 7</td><td align="right">998.90</td></tr>
-<tr class=sidebarText><td>texel</td><td>Problem Sets 1 and 7</td><td align="right">967.14</td></tr>
-<tr class=sidebarText><td>kedaizd</td><td>Problem Sets 1 and 7</td><td align="right">946.16</td></tr>
-<tr class=sidebarText><td>petko</td><td>Problem Sets 1 and 7</td><td align="right">945.36</td></tr>
-<tr class=sidebarText><td>Wernie</td><td>Problem Sets 1 and 7</td><td align="right">933.89</td></tr>
-<tr class=sidebarText><td>Mike Mirzayanov</td><td>Problem Sets 1 and 7</td><td align="right">931.18</td></tr>
-<tr class=sidebarText><td>Satka5</td><td>Problem Sets 1 and 7</td><td align="right">895.01</td></tr>
-<tr class=sidebarText><td>mickle</td><td>Problem Sets 1 and 7</td><td align="right">888.91</td></tr>
-<tr class=sidebarText><td>Minsk</td><td>Problem Sets 1 and 7</td><td align="right">869.85</td></tr>
-<tr class=sidebarText><td>StefanPochmann</td><td>Problem Sets 1 and 7</td><td align="right">862.20</td></tr>
-<tr class=sidebarText><td>Andrew_Lazarev</td><td>Problem Sets 1 and 7</td><td align="right">860.34</td></tr>
-<tr class=sidebarText><td>tosomja</td><td>Problem Sets 1 and 7</td><td align="right">859.74</td></tr>
-<tr class=sidebarText><td>nicka81</td><td>Problem Sets 1 and 7</td><td align="right">850.95</td></tr>
-<tr class=sidebarText><td>HilbertRaum</td><td>Problem Sets 1 and 7</td><td align="right">850.81</td></tr>
-<tr class=sidebarText><td>robymus</td><td>Problem Sets 1 and 7</td><td align="right">844.66</td></tr>
-<tr class=sidebarText><td>rem</td><td>Problem Sets 1 and 7</td><td align="right">844.01</td></tr>
-<tr class=sidebarText><td>ardiankp</td><td>Problem Sets 1 and 7</td><td align="right">839.74</td></tr>
-<tr class=sidebarText><td>Explorer</td><td>Problem Sets 1 and 7</td><td align="right">829.18</td></tr>
-<tr class=sidebarText><td>Baobab</td><td>Problem Sets 1 and 7</td><td align="right">820.21</td></tr>
-<tr class=sidebarText><td>ssancho2</td><td>Problem Sets 1 and 7</td><td align="right">817.86</td></tr>
-<tr class=sidebarText><td>Krzysan</td><td>Problem Sets 1 and 7</td><td align="right">808.73</td></tr>
-<tr class=sidebarText><td>reid</td><td>Problem Sets 1 and 7</td><td align="right">805.27</td></tr>
-<tr class=sidebarText><td>Larry</td><td>Problem Sets 1 and 7</td><td align="right">803.79</td></tr>
-<tr class=sidebarText><td>bladerunner</td><td>Problem Sets 1 and 7</td><td align="right">800.39</td></tr>
-<tr class=sidebarText><td>xs0</td><td>Problem Sets 1 and 7</td><td align="right">787.07</td></tr>
-<tr class=sidebarText><td>lars</td><td>Problem Sets 1 and 7</td><td align="right">784.08</td></tr>
-<tr class=sidebarText><td>the_one_smiley</td><td>Problem Sets 1 and 7</td><td align="right">777.04</td></tr>
-<tr class=sidebarText><td>bogklug</td><td>Problem Sets 1 and 7</td><td align="right">776.85</td></tr>
-<tr class=sidebarText><td>Ken_Vogel</td><td>Problem Sets 1 and 7</td><td align="right">773.72</td></tr>
-<tr class=sidebarText><td>timmac</td><td>Problem Sets 1 and 7</td><td align="right">769.00</td></tr>
-<tr class=sidebarText><td>kyky</td><td>Problem Sets 1 and 7</td><td align="right">768.00</td></tr>
-<tr class=sidebarText><td>gladius</td><td>Problem Sets 1 and 7</td><td align="right">758.47</td></tr>
-<tr class=sidebarText><td>abies</td><td>Problem Sets 1 and 7</td><td align="right">740.45</td></tr>
-<tr class=sidebarText><td>itman</td><td>Problem Sets 1 and 7</td><td align="right">740.31</td></tr>
-<tr class=sidebarText><td>qsort</td><td>Problem Sets 1 and 7</td><td align="right">733.94</td></tr>
-<tr class=sidebarText><td>notyou</td><td>Problem Sets 1 and 7</td><td align="right">726.40</td></tr>
-<tr class=sidebarText><td>szymcio</td><td>Problem Sets 1 and 7</td><td align="right">719.37</td></tr>
-<tr class=sidebarText><td>vividmxx</td><td>Problem Sets 1 and 7</td><td align="right">716.36</td></tr>
-<tr class=sidebarText><td>Parchandri</td><td>Problem Sets 1 and 7</td><td align="right">713.26</td></tr>
-<tr class=sidebarText><td>Maris</td><td>Problem Sets 1 and 7</td><td align="right">709.67</td></tr>
-<tr class=sidebarText><td>space</td><td>Problem Sets 1 and 7</td><td align="right">689.22</td></tr>
-<tr class=sidebarText><td>zig2</td><td>Problem Sets 1 and 7</td><td align="right">679.45</td></tr>
-<tr class=sidebarText><td>HardCoder</td><td>Problem Sets 1 and 7</td><td align="right">661.77</td></tr>
-<tr class=sidebarText><td>Sputnik</td><td>Problem Sets 1 and 7</td><td align="right">595.43</td></tr>
-<tr class=sidebarText><td>Yi_Zhang</td><td>Problem Sets 1 and 7</td><td align="right">593.39</td></tr>
-<tr class=sidebarText><td>jasonw</td><td>Problem Sets 1 and 7</td><td align="right">590.53</td></tr>
-<tr class=sidebarText><td>szd714</td><td>Problem Sets 1 and 7</td><td align="right">534.78</td></tr>
-<tr class=sidebarText><td>yuvalsapir</td><td>Problem Sets 1 and 7</td><td align="right">519.86</td></tr>
-<tr class=sidebarText><td>targo</td><td>Problem Sets 1 and 7</td><td align="right">469.38</td></tr>
-<tr class=sidebarText><td>bramandia</td><td>Problem Sets 1 and 7</td><td align="right">425.45</td></tr>
-<tr class=sidebarText><td>swelef</td><td>Problem Sets 1 and 7</td><td align="right">418.44</td></tr>
-<tr class=sidebarText><td>matic</td><td>Problem Sets 1 and 7</td><td align="right">401.13</td></tr>
-<tr class=sidebarText><td>chrisg</td><td>Problem Sets 1 and 7</td><td align="right">401.03</td></tr>
-<tr class=sidebarText><td>mbrierst</td><td>Problem Sets 1 and 7</td><td align="right">384.47</td></tr>
-<tr class=sidebarText><td>geminisoft</td><td>Problem Sets 1 and 7</td><td align="right">376.09</td></tr>
-<tr class=sidebarText><td>karate.dog</td><td>Problem Sets 1 and 7</td><td align="right">370.46</td></tr>
-<tr class=sidebarText><td>rajeshvm</td><td>Problem Sets 1 and 7</td><td align="right">364.12</td></tr>
-<tr class=sidebarText><td>Rustyoldman</td><td>Problem Sets 1 and 7</td><td align="right">285.49</td></tr>
-<tr class=sidebarText><td>asaveljevs</td><td>Problem Sets 1 and 7</td><td align="right">250.63</td></tr>
-<tr class=sidebarText><td>vfortuna</td><td>Problem Sets 1 and 7</td><td align="right">248.71</td></tr>
-<tr class=sidebarText><td>nick_patt</td><td>Problem Sets 1 and 7</td><td align="right">241.40</td></tr>
-<tr class=sidebarText><td>indigo9</td><td>Problem Sets 1 and 7</td><td align="right">232.61</td></tr>
-<tr class=sidebarText><td>dmytro</td><td>Problem Sets 1 and 7</td><td align="right">232.14</td></tr>
-<tr class=sidebarText><td>InsaneParadox</td><td>Problem Sets 1 and 7</td><td align="right">226.47</td></tr>
-<tr class=sidebarText><td>carp</td><td>Problem Sets 1 and 7</td><td align="right">226.39</td></tr>
-<tr class=sidebarText><td>t.dobek</td><td>Problem Sets 1 and 7</td><td align="right">222.49</td></tr>
-<tr class=sidebarText><td>bolu</td><td>Problem Sets 1 and 7</td><td align="right">221.81</td></tr>
-<tr class=sidebarText><td>Wojtek</td><td>Problem Sets 1 and 7</td><td align="right">218.24</td></tr>
-<tr class=sidebarText><td>Oleksiy</td><td>Problem Sets 1 and 7</td><td align="right">218.07</td></tr>
-<tr class=sidebarText><td>cbthiess</td><td>Problem Sets 1 and 7</td><td align="right">213.07</td></tr>
-<tr class=sidebarText><td>ucsbtex</td><td>Problem Sets 1 and 7</td><td align="right">204.94</td></tr>
-<tr class=sidebarText><td>BryanChen</td><td>Problem Sets 1 and 7</td><td align="right">191.22</td></tr>
-<tr class=sidebarText><td>gilbert</td><td>Problem Sets 1 and 7</td><td align="right">191.07</td></tr>
-<tr class=sidebarText><td>Joker</td><td>Problem Sets 1 and 7</td><td align="right">190.28</td></tr>
-<tr class=sidebarText><td>herchu</td><td>Problem Sets 1 and 7</td><td align="right">185.46</td></tr>
-<tr class=sidebarText><td>JeremyStein</td><td>Problem Sets 1 and 7</td><td align="right">182.18</td></tr>
-<tr class=sidebarText><td>lazyboy</td><td>Problem Sets 1 and 7</td><td align="right">179.97</td></tr>
-<tr class=sidebarText><td>fredphil</td><td>Problem Sets 1 and 7</td><td align="right">176.89</td></tr>
-<tr class=sidebarText><td>jpaquin</td><td>Problem Sets 1 and 7</td><td align="right">175.98</td></tr>
-<tr class=sidebarText><td>nadsuki</td><td>Problem Sets 1 and 7</td><td align="right">174.52</td></tr>
-<tr class=sidebarText><td>trieuvan</td><td>Problem Sets 1 and 7</td><td align="right">173.36</td></tr>
-<tr class=sidebarText><td>mido1236</td><td>Problem Sets 1 and 7</td><td align="right">168.43</td></tr>
-<tr class=sidebarText><td>hakojima</td><td>Problem Sets 1 and 7</td><td align="right">167.91</td></tr>
-<tr class=sidebarText><td>leibniz</td><td>Problem Sets 1 and 7</td><td align="right">164.33</td></tr>
-<tr class=sidebarText><td>dare</td><td>Problem Sets 1 and 7</td><td align="right">164.10</td></tr>
-<tr class=sidebarText><td>skrowl</td><td>Problem Sets 1 and 7</td><td align="right">161.55</td></tr>
-<tr class=sidebarText><td>agove</td><td>Problem Sets 1 and 7</td><td align="right">159.54</td></tr>
-<tr class=sidebarText><td>Mariyka</td><td>Problem Sets 1 and 7</td><td align="right">158.73</td></tr>
-<tr class=sidebarText><td>CrazyScratcher</td><td>Problem Sets 1 and 7</td><td align="right">156.01</td></tr>
-<tr class=sidebarText><td>alexrandnmt</td><td>Problem Sets 1 and 7</td><td align="right">152.51</td></tr>
-<tr class=sidebarText><td>sabu</td><td>Problem Sets 1 and 7</td><td align="right">148.33</td></tr>
-<tr class=sidebarText><td>MrSparkle</td><td>Problem Sets 1 and 7</td><td align="right">148.29</td></tr>
-<tr class=sidebarText><td>tok</td><td>Problem Sets 2 and 8</td><td align="right">1130.09</td></tr>
-<tr class=sidebarText><td>krijgertje</td><td>Problem Sets 2 and 8</td><td align="right">1121.06</td></tr>
-<tr class=sidebarText><td>jshute</td><td>Problem Sets 2 and 8</td><td align="right">1107.04</td></tr>
-<tr class=sidebarText><td>UFP2161</td><td>Problem Sets 2 and 8</td><td align="right">1008.51</td></tr>
-<tr class=sidebarText><td>monsoon</td><td>Problem Sets 2 and 8</td><td align="right">972.07</td></tr>
-<tr class=sidebarText><td>bstanescu</td><td>Problem Sets 2 and 8</td><td align="right">963.87</td></tr>
-<tr class=sidebarText><td>XuChuan</td><td>Problem Sets 2 and 8</td><td align="right">935.74</td></tr>
-<tr class=sidebarText><td>centipede80</td><td>Problem Sets 2 and 8</td><td align="right">932.59</td></tr>
-<tr class=sidebarText><td>qixin99</td><td>Problem Sets 2 and 8</td><td align="right">901.01</td></tr>
-<tr class=sidebarText><td>sjelkjd</td><td>Problem Sets 2 and 8</td><td align="right">900.58</td></tr>
-<tr class=sidebarText><td>Googly</td><td>Problem Sets 2 and 8</td><td align="right">899.20</td></tr>
-<tr class=sidebarText><td>martinp534</td><td>Problem Sets 2 and 8</td><td align="right">898.85</td></tr>
-<tr class=sidebarText><td>agh</td><td>Problem Sets 2 and 8</td><td align="right">891.42</td></tr>
-<tr class=sidebarText><td>quazee</td><td>Problem Sets 2 and 8</td><td align="right">887.63</td></tr>
-<tr class=sidebarText><td>tripleCross</td><td>Problem Sets 2 and 8</td><td align="right">875.63</td></tr>
-<tr class=sidebarText><td>ante</td><td>Problem Sets 2 and 8</td><td align="right">872.40</td></tr>
-<tr class=sidebarText><td>Fluff</td><td>Problem Sets 2 and 8</td><td align="right">857.69</td></tr>
-<tr class=sidebarText><td>forest</td><td>Problem Sets 2 and 8</td><td align="right">854.13</td></tr>
-<tr class=sidebarText><td>skanthak</td><td>Problem Sets 2 and 8</td><td align="right">850.26</td></tr>
-<tr class=sidebarText><td>tgu</td><td>Problem Sets 2 and 8</td><td align="right">849.55</td></tr>
-<tr class=sidebarText><td>polarsteam</td><td>Problem Sets 2 and 8</td><td align="right">844.61</td></tr>
-<tr class=sidebarText><td>xiangyu1</td><td>Problem Sets 2 and 8</td><td align="right">842.63</td></tr>
-<tr class=sidebarText><td>130358</td><td>Problem Sets 2 and 8</td><td align="right">838.08</td></tr>
-<tr class=sidebarText><td>Jasko</td><td>Problem Sets 2 and 8</td><td align="right">832.05</td></tr>
-<tr class=sidebarText><td>WishingBone</td><td>Problem Sets 2 and 8</td><td align="right">829.45</td></tr>
-<tr class=sidebarText><td>Minilek</td><td>Problem Sets 2 and 8</td><td align="right">820.83</td></tr>
-<tr class=sidebarText><td>amorosov</td><td>Problem Sets 2 and 8</td><td align="right">819.85</td></tr>
-<tr class=sidebarText><td>pako</td><td>Problem Sets 2 and 8</td><td align="right">818.35</td></tr>
-<tr class=sidebarText><td>konqueror</td><td>Problem Sets 2 and 8</td><td align="right">803.93</td></tr>
-<tr class=sidebarText><td>FrostDemon</td><td>Problem Sets 2 and 8</td><td align="right">786.49</td></tr>
-<tr class=sidebarText><td>ambrose</td><td>Problem Sets 2 and 8</td><td align="right">777.75</td></tr>
-<tr class=sidebarText><td>BillyBob</td><td>Problem Sets 2 and 8</td><td align="right">774.98</td></tr>
-<tr class=sidebarText><td>Im2Good</td><td>Problem Sets 2 and 8</td><td align="right">759.46</td></tr>
-<tr class=sidebarText><td>Artursz</td><td>Problem Sets 2 and 8</td><td align="right">747.66</td></tr>
-<tr class=sidebarText><td>BradAustin</td><td>Problem Sets 2 and 8</td><td align="right">742.62</td></tr>
-<tr class=sidebarText><td>steffend</td><td>Problem Sets 2 and 8</td><td align="right">740.92</td></tr>
-<tr class=sidebarText><td>prekageo</td><td>Problem Sets 2 and 8</td><td align="right">738.71</td></tr>
-<tr class=sidebarText><td>Rud0lf</td><td>Problem Sets 2 and 8</td><td align="right">737.30</td></tr>
-<tr class=sidebarText><td>aksonov</td><td>Problem Sets 2 and 8</td><td align="right">715.84</td></tr>
-<tr class=sidebarText><td>supernova</td><td>Problem Sets 2 and 8</td><td align="right">696.79</td></tr>
-<tr class=sidebarText><td>Klinck</td><td>Problem Sets 2 and 8</td><td align="right">689.80</td></tr>
-<tr class=sidebarText><td>Gronkowiec</td><td>Problem Sets 2 and 8</td><td align="right">662.62</td></tr>
-<tr class=sidebarText><td>gupta35895</td><td>Problem Sets 2 and 8</td><td align="right">644.52</td></tr>
-<tr class=sidebarText><td>geminisoft-2</td><td>Problem Sets 2 and 8</td><td align="right">644.12</td></tr>
-<tr class=sidebarText><td>nike</td><td>Problem Sets 2 and 8</td><td align="right">630.21</td></tr>
-<tr class=sidebarText><td>don.pratt</td><td>Problem Sets 2 and 8</td><td align="right">627.60</td></tr>
-<tr class=sidebarText><td>AleaActaEst</td><td>Problem Sets 2 and 8</td><td align="right">625.24</td></tr>
-<tr class=sidebarText><td>harisuthan</td><td>Problem Sets 2 and 8</td><td align="right">624.96</td></tr>
-<tr class=sidebarText><td>dmks</td><td>Problem Sets 2 and 8</td><td align="right">619.12</td></tr>
-<tr class=sidebarText><td>narita</td><td>Problem Sets 2 and 8</td><td align="right">609.21</td></tr>
-<tr class=sidebarText><td>yonch</td><td>Problem Sets 2 and 8</td><td align="right">601.56</td></tr>
-<tr class=sidebarText><td>Symme7ry</td><td>Problem Sets 2 and 8</td><td align="right">595.05</td></tr>
-<tr class=sidebarText><td>Cosmin.ro</td><td>Problem Sets 2 and 8</td><td align="right">593.26</td></tr>
-<tr class=sidebarText><td>Mozg</td><td>Problem Sets 2 and 8</td><td align="right">589.82</td></tr>
-<tr class=sidebarText><td>algorist</td><td>Problem Sets 2 and 8</td><td align="right">562.58</td></tr>
-<tr class=sidebarText><td>bakina</td><td>Problem Sets 2 and 8</td><td align="right">558.06</td></tr>
-<tr class=sidebarText><td>Dan[Popovici]</td><td>Problem Sets 2 and 8</td><td align="right">539.50</td></tr>
-<tr class=sidebarText><td>Dimka</td><td>Problem Sets 2 and 8</td><td align="right">532.08</td></tr>
-<tr class=sidebarText><td>sdweber</td><td>Problem Sets 2 and 8</td><td align="right">527.05</td></tr>
-<tr class=sidebarText><td>Dumitru</td><td>Problem Sets 2 and 8</td><td align="right">523.66</td></tr>
-<tr class=sidebarText><td>mariusmuja</td><td>Problem Sets 2 and 8</td><td align="right">489.77</td></tr>
-<tr class=sidebarText><td>assembler</td><td>Problem Sets 2 and 8</td><td align="right">487.57</td></tr>
-<tr class=sidebarText><td>BjarkeDahlEbert</td><td>Problem Sets 2 and 8</td><td align="right">471.35</td></tr>
-<tr class=sidebarText><td>Blytzstryke</td><td>Problem Sets 2 and 8</td><td align="right">470.59</td></tr>
-<tr class=sidebarText><td>rpcxdr</td><td>Problem Sets 2 and 8</td><td align="right">470.20</td></tr>
-<tr class=sidebarText><td>kinnla</td><td>Problem Sets 2 and 8</td><td align="right">467.82</td></tr>
-<tr class=sidebarText><td>psm321</td><td>Problem Sets 2 and 8</td><td align="right">465.41</td></tr>
-<tr class=sidebarText><td>CodeCat</td><td>Problem Sets 2 and 8</td><td align="right">454.66</td></tr>
-<tr class=sidebarText><td>tilps</td><td>Problem Sets 2 and 8</td><td align="right">442.38</td></tr>
-<tr class=sidebarText><td>Savior</td><td>Problem Sets 2 and 8</td><td align="right">433.25</td></tr>
-<tr class=sidebarText><td>kabirAhmed</td><td>Problem Sets 2 and 8</td><td align="right">423.97</td></tr>
-<tr class=sidebarText><td>jasonfoo</td><td>Problem Sets 2 and 8</td><td align="right">413.05</td></tr>
-<tr class=sidebarText><td>avinf</td><td>Problem Sets 2 and 8</td><td align="right">412.46</td></tr>
-<tr class=sidebarText><td>RalphFurmaniak</td><td>Problem Sets 2 and 8</td><td align="right">369.14</td></tr>
-<tr class=sidebarText><td>Enogipe</td><td>Problem Sets 2 and 8</td><td align="right">312.42</td></tr>
-<tr class=sidebarText><td>DjinnKahn</td><td>Problem Sets 2 and 8</td><td align="right">305.68</td></tr>
-<tr class=sidebarText><td>niphoton</td><td>Problem Sets 2 and 8</td><td align="right">305.19</td></tr>
-<tr class=sidebarText><td>Krumble</td><td>Problem Sets 2 and 8</td><td align="right">292.38</td></tr>
-<tr class=sidebarText><td>jerky</td><td>Problem Sets 2 and 8</td><td align="right">290.19</td></tr>
-<tr class=sidebarText><td>ragnabot</td><td>Problem Sets 2 and 8</td><td align="right">283.06</td></tr>
-<tr class=sidebarText><td>asif_coder</td><td>Problem Sets 2 and 8</td><td align="right">259.56</td></tr>
-<tr class=sidebarText><td>Dan-0411</td><td>Problem Sets 2 and 8</td><td align="right">254.44</td></tr>
-<tr class=sidebarText><td>cz</td><td>Problem Sets 2 and 8</td><td align="right">249.74</td></tr>
-<tr class=sidebarText><td>villiros</td><td>Problem Sets 2 and 8</td><td align="right">249.74</td></tr>
-<tr class=sidebarText><td>Crystal</td><td>Problem Sets 2 and 8</td><td align="right">237.22</td></tr>
-<tr class=sidebarText><td>jkraju</td><td>Problem Sets 2 and 8</td><td align="right">233.33</td></tr>
-<tr class=sidebarText><td>tmkarthi</td><td>Problem Sets 2 and 8</td><td align="right">233.14</td></tr>
-<tr class=sidebarText><td>karavanas</td><td>Problem Sets 2 and 8</td><td align="right">225.22</td></tr>
-<tr class=sidebarText><td>jdepree</td><td>Problem Sets 2 and 8</td><td align="right">224.20</td></tr>
-<tr class=sidebarText><td>tph</td><td>Problem Sets 2 and 8</td><td align="right">221.82</td></tr>
-<tr class=sidebarText><td>PongsriBunny</td><td>Problem Sets 2 and 8</td><td align="right">212.05</td></tr>
-<tr class=sidebarText><td>ArtV</td><td>Problem Sets 2 and 8</td><td align="right">205.61</td></tr>
-<tr class=sidebarText><td>Electrum</td><td>Problem Sets 2 and 8</td><td align="right">204.80</td></tr>
-<tr class=sidebarText><td>Pops</td><td>Problem Sets 2 and 8</td><td align="right">195.04</td></tr>
-<tr class=sidebarText><td>spotcatbug</td><td>Problem Sets 2 and 8</td><td align="right">194.05</td></tr>
-<tr class=sidebarText><td>jake_mundt</td><td>Problem Sets 2 and 8</td><td align="right">192.60</td></tr>
-<tr class=sidebarText><td>gfs</td><td>Problem Sets 2 and 8</td><td align="right">192.58</td></tr>
-<tr class=sidebarText><td>Avet</td><td>Problem Sets 2 and 8</td><td align="right">192.29</td></tr>
-<tr class=sidebarText><td>rcollins</td><td>Problem Sets 2 and 8</td><td align="right">190.77</td></tr>
-<tr class=sidebarText><td>jakabsz</td><td>Problem Sets 2 and 8</td><td align="right">187.98</td></tr>
-<tr class=sidebarText><td>arun_zero</td><td>Problem Sets 3 and 10</td><td align="right">1010.34</td></tr>
-<tr class=sidebarText><td>Yarin</td><td>Problem Sets 3 and 10</td><td align="right">889.63</td></tr>
-<tr class=sidebarText><td>mics</td><td>Problem Sets 3 and 10</td><td align="right">860.27</td></tr>
-<tr class=sidebarText><td>adams</td><td>Problem Sets 3 and 10</td><td align="right">836.11</td></tr>
-<tr class=sidebarText><td>ploh</td><td>Problem Sets 3 and 10</td><td align="right">796.92</td></tr>
-<tr class=sidebarText><td>zwang</td><td>Problem Sets 3 and 10</td><td align="right">771.14</td></tr>
-<tr class=sidebarText><td>frane</td><td>Problem Sets 3 and 10</td><td align="right">770.28</td></tr>
-<tr class=sidebarText><td>dangelo</td><td>Problem Sets 3 and 10</td><td align="right">738.84</td></tr>
-<tr class=sidebarText><td>FatClimber</td><td>Problem Sets 3 and 10</td><td align="right">738.21</td></tr>
-<tr class=sidebarText><td>TexWiller</td><td>Problem Sets 3 and 10</td><td align="right">731.02</td></tr>
-<tr class=sidebarText><td>maze_pallas</td><td>Problem Sets 3 and 10</td><td align="right">718.32</td></tr>
-<tr class=sidebarText><td>ankit_dube</td><td>Problem Sets 3 and 10</td><td align="right">390.35</td></tr>
-<tr class=sidebarText><td>doeth</td><td>Problem Sets 3 and 10</td><td align="right">385.41</td></tr>
-<tr class=sidebarText><td>Kawigi</td><td>Problem Sets 3 and 10</td><td align="right">382.90</td></tr>
-<tr class=sidebarText><td>daveagp</td><td>Problem Sets 3 and 10</td><td align="right">382.75</td></tr>
-<tr class=sidebarText><td>Eryx</td><td>Problem Sets 3 and 10</td><td align="right">380.34</td></tr>
-<tr class=sidebarText><td>hshenoy</td><td>Problem Sets 3 and 10</td><td align="right">379.70</td></tr>
-<tr class=sidebarText><td>LunaticFringe</td><td>Problem Sets 3 and 10</td><td align="right">379.56</td></tr>
-<tr class=sidebarText><td>radeye</td><td>Problem Sets 3 and 10</td><td align="right">377.92</td></tr>
-<tr class=sidebarText><td>riveria</td><td>Problem Sets 3 and 10</td><td align="right">377.05</td></tr>
-<tr class=sidebarText><td>Arka</td><td>Problem Sets 3 and 10</td><td align="right">375.37</td></tr>
-<tr class=sidebarText><td>RobertNix</td><td>Problem Sets 3 and 10</td><td align="right">374.31</td></tr>
-<tr class=sidebarText><td>merlecorey</td><td>Problem Sets 3 and 10</td><td align="right">374.18</td></tr>
-<tr class=sidebarText><td>snewman</td><td>Problem Sets 3 and 10</td><td align="right">371.86</td></tr>
-<tr class=sidebarText><td>maikuru</td><td>Problem Sets 3 and 10</td><td align="right">371.15</td></tr>
-<tr class=sidebarText><td>OpenGL4Dummies</td><td>Problem Sets 3 and 10</td><td align="right">370.22</td></tr>
-<tr class=sidebarText><td>dzadza</td><td>Problem Sets 3 and 10</td><td align="right">369.60</td></tr>
-<tr class=sidebarText><td>Modulator</td><td>Problem Sets 3 and 10</td><td align="right">368.53</td></tr>
-<tr class=sidebarText><td>hellstrom</td><td>Problem Sets 3 and 10</td><td align="right">368.50</td></tr>
-<tr class=sidebarText><td>aditsu</td><td>Problem Sets 3 and 10</td><td align="right">365.88</td></tr>
-<tr class=sidebarText><td>zoidal</td><td>Problem Sets 3 and 10</td><td align="right">364.49</td></tr>
-<tr class=sidebarText><td>bratell</td><td>Problem Sets 3 and 10</td><td align="right">364.40</td></tr>
-<tr class=sidebarText><td>benetin</td><td>Problem Sets 3 and 10</td><td align="right">364.07</td></tr>
-<tr class=sidebarText><td>bigbug</td><td>Problem Sets 3 and 10</td><td align="right">363.20</td></tr>
-<tr class=sidebarText><td>ded_guy</td><td>Problem Sets 3 and 10</td><td align="right">362.12</td></tr>
-<tr class=sidebarText><td>ryanp</td><td>Problem Sets 3 and 10</td><td align="right">361.07</td></tr>
-<tr class=sidebarText><td>Olexiy</td><td>Problem Sets 3 and 10</td><td align="right">360.31</td></tr>
-<tr class=sidebarText><td>mbjorklu</td><td>Problem Sets 3 and 10</td><td align="right">359.36</td></tr>
-<tr class=sidebarText><td>hauser</td><td>Problem Sets 3 and 10</td><td align="right">358.49</td></tr>
-<tr class=sidebarText><td>dzetkulict</td><td>Problem Sets 3 and 10</td><td align="right">357.39</td></tr>
-<tr class=sidebarText><td>greenpig</td><td>Problem Sets 3 and 10</td><td align="right">355.82</td></tr>
-<tr class=sidebarText><td>nchaly</td><td>Problem Sets 3 and 10</td><td align="right">355.55</td></tr>
-<tr class=sidebarText><td>toast</td><td>Problem Sets 3 and 10</td><td align="right">355.33</td></tr>
-<tr class=sidebarText><td>CanadaDoug</td><td>Problem Sets 3 and 10</td><td align="right">355.02</td></tr>
-<tr class=sidebarText><td>asinop</td><td>Problem Sets 3 and 10</td><td align="right">354.80</td></tr>
-<tr class=sidebarText><td>quickly</td><td>Problem Sets 3 and 10</td><td align="right">354.07</td></tr>
-<tr class=sidebarText><td>Aptor</td><td>Problem Sets 3 and 10</td><td align="right">354.04</td></tr>
-<tr class=sidebarText><td>marek.cygan</td><td>Problem Sets 3 and 10</td><td align="right">353.60</td></tr>
-<tr class=sidebarText><td>bsauerwine</td><td>Problem Sets 3 and 10</td><td align="right">353.13</td></tr>
-<tr class=sidebarText><td>madking</td><td>Problem Sets 3 and 10</td><td align="right">352.89</td></tr>
-<tr class=sidebarText><td>ntrshn</td><td>Problem Sets 3 and 10</td><td align="right">352.20</td></tr>
-<tr class=sidebarText><td>DAle</td><td>Problem Sets 3 and 10</td><td align="right">352.11</td></tr>
-<tr class=sidebarText><td>mm_aa</td><td>Problem Sets 3 and 10</td><td align="right">352.00</td></tr>
-<tr class=sidebarText><td>aneubeck</td><td>Problem Sets 3 and 10</td><td align="right">350.39</td></tr>
-<tr class=sidebarText><td>drrootfu</td><td>Problem Sets 3 and 10</td><td align="right">349.91</td></tr>
-<tr class=sidebarText><td>jakubr</td><td>Problem Sets 3 and 10</td><td align="right">349.21</td></tr>
-<tr class=sidebarText><td>RunningWild</td><td>Problem Sets 3 and 10</td><td align="right">349.04</td></tr>
-<tr class=sidebarText><td>LuckyLibran</td><td>Problem Sets 3 and 10</td><td align="right">348.39</td></tr>
-<tr class=sidebarText><td>axch</td><td>Problem Sets 3 and 10</td><td align="right">348.38</td></tr>
-<tr class=sidebarText><td>Josesan</td><td>Problem Sets 3 and 10</td><td align="right">346.72</td></tr>
-<tr class=sidebarText><td>pingelsn</td><td>Problem Sets 3 and 10</td><td align="right">344.59</td></tr>
-<tr class=sidebarText><td>Dr.Gluk</td><td>Problem Sets 3 and 10</td><td align="right">343.94</td></tr>
-<tr class=sidebarText><td>BitConductor</td><td>Problem Sets 3 and 10</td><td align="right">343.47</td></tr>
-<tr class=sidebarText><td>valeriy</td><td>Problem Sets 3 and 10</td><td align="right">342.87</td></tr>
-<tr class=sidebarText><td>space_monkey</td><td>Problem Sets 3 and 10</td><td align="right">342.66</td></tr>
-<tr class=sidebarText><td>belzebub</td><td>Problem Sets 3 and 10</td><td align="right">342.06</td></tr>
-<tr class=sidebarText><td>dickyjim</td><td>Problem Sets 3 and 10</td><td align="right">341.88</td></tr>
-<tr class=sidebarText><td>Pesho</td><td>Problem Sets 3 and 10</td><td align="right">341.69</td></tr>
-<tr class=sidebarText><td>she</td><td>Problem Sets 3 and 10</td><td align="right">341.27</td></tr>
-<tr class=sidebarText><td>aylex</td><td>Problem Sets 3 and 10</td><td align="right">340.84</td></tr>
-<tr class=sidebarText><td>dario</td><td>Problem Sets 3 and 10</td><td align="right">340.59</td></tr>
-<tr class=sidebarText><td>coshx</td><td>Problem Sets 3 and 10</td><td align="right">340.37</td></tr>
-<tr class=sidebarText><td>Zaknafein</td><td>Problem Sets 3 and 10</td><td align="right">340.37</td></tr>
-<tr class=sidebarText><td>scott</td><td>Problem Sets 3 and 10</td><td align="right">340.17</td></tr>
-<tr class=sidebarText><td>Trap</td><td>Problem Sets 3 and 10</td><td align="right">339.69</td></tr>
-<tr class=sidebarText><td>mktong</td><td>Problem Sets 3 and 10</td><td align="right">339.25</td></tr>
-<tr class=sidebarText><td>eleusive</td><td>Problem Sets 3 and 10</td><td align="right">339.03</td></tr>
-<tr class=sidebarText><td>zbogi</td><td>Problem Sets 3 and 10</td><td align="right">338.69</td></tr>
-<tr class=sidebarText><td>nerx</td><td>Problem Sets 3 and 10</td><td align="right">338.26</td></tr>
-<tr class=sidebarText><td>huntergt</td><td>Problem Sets 3 and 10</td><td align="right">336.97</td></tr>
-<tr class=sidebarText><td>reDragon</td><td>Problem Sets 3 and 10</td><td align="right">336.90</td></tr>
-<tr class=sidebarText><td>RandySaint</td><td>Problem Sets 3 and 10</td><td align="right">336.05</td></tr>
-<tr class=sidebarText><td>BEHiker57W</td><td>Problem Sets 3 and 10</td><td align="right">336.03</td></tr>
-<tr class=sidebarText><td>haykel</td><td>Problem Sets 3 and 10</td><td align="right">335.35</td></tr>
-<tr class=sidebarText><td>PaulJefferys</td><td>Problem Sets 3 and 10</td><td align="right">335.20</td></tr>
-<tr class=sidebarText><td>Osk</td><td>Problem Sets 3 and 10</td><td align="right">335.09</td></tr>
-<tr class=sidebarText><td>Vovik</td><td>Problem Sets 3 and 10</td><td align="right">335.01</td></tr>
-<tr class=sidebarText><td>quol</td><td>Problem Sets 3 and 10</td><td align="right">334.45</td></tr>
-<tr class=sidebarText><td>cleclerc</td><td>Problem Sets 3 and 10</td><td align="right">333.80</td></tr>
-<tr class=sidebarText><td>grotmol</td><td>Problem Sets 3 and 10</td><td align="right">333.77</td></tr>
-<tr class=sidebarText><td>siavach</td><td>Problem Sets 3 and 10</td><td align="right">333.29</td></tr>
-<tr class=sidebarText><td>thumper</td><td>Problem Sets 3 and 10</td><td align="right">333.09</td></tr>
-<tr class=sidebarText><td>Fred[dy]</td><td>Problem Sets 3 and 10</td><td align="right">332.71</td></tr>
-<tr class=sidebarText><td>Jumping-John</td><td>Problem Sets 3 and 10</td><td align="right">332.27</td></tr>
-<tr class=sidebarText><td>xmux</td><td>Problem Sets 3 and 10</td><td align="right">331.09</td></tr>
-<tr class=sidebarText><td>lincetto</td><td>Problem Sets 3 and 10</td><td align="right">330.90</td></tr>
-<tr class=sidebarText><td>cowtowncoder</td><td>Problem Sets 3 and 10</td><td align="right">330.72</td></tr>
-<tr class=sidebarText><td>Vovka</td><td>Problem Sets 3 and 10</td><td align="right">330.25</td></tr>
-<tr class=sidebarText><td>CodeDrJ</td><td>Problem Sets 3 and 10</td><td align="right">329.26</td></tr>
-<tr class=sidebarText><td>tomek2</td><td>Problem Sets 3 and 10</td><td align="right">329.01</td></tr>
-<tr class=sidebarText><td>gunnark</td><td>Problem Sets 4 and 9</td><td align="right">933.94</td></tr>
-<tr class=sidebarText><td>superjoel</td><td>Problem Sets 4 and 9</td><td align="right">917.10</td></tr>
-<tr class=sidebarText><td>overwise</td><td>Problem Sets 4 and 9</td><td align="right">901.01</td></tr>
-<tr class=sidebarText><td>Jan_Kuipers</td><td>Problem Sets 4 and 9</td><td align="right">899.01</td></tr>
-<tr class=sidebarText><td>amirshim</td><td>Problem Sets 4 and 9</td><td align="right">828.70</td></tr>
-<tr class=sidebarText><td>marian</td><td>Problem Sets 4 and 9</td><td align="right">805.38</td></tr>
-<tr class=sidebarText><td>WildGuruLarry</td><td>Problem Sets 4 and 9</td><td align="right">799.10</td></tr>
-<tr class=sidebarText><td>b0b0b0b</td><td>Problem Sets 4 and 9</td><td align="right">798.93</td></tr>
-<tr class=sidebarText><td>legakis</td><td>Problem Sets 4 and 9</td><td align="right">795.99</td></tr>
-<tr class=sidebarText><td>battyone</td><td>Problem Sets 4 and 9</td><td align="right">786.56</td></tr>
-<tr class=sidebarText><td>jms137</td><td>Problem Sets 4 and 9</td><td align="right">775.73</td></tr>
-<tr class=sidebarText><td>athenachu71</td><td>Problem Sets 4 and 9</td><td align="right">774.97</td></tr>
-<tr class=sidebarText><td>John_Dethridge</td><td>Problem Sets 4 and 9</td><td align="right">763.01</td></tr>
-<tr class=sidebarText><td>mgritter</td><td>Problem Sets 4 and 9</td><td align="right">750.71</td></tr>
-<tr class=sidebarText><td>mortijingle</td><td>Problem Sets 4 and 9</td><td align="right">744.05</td></tr>
-<tr class=sidebarText><td>Bytekeeper</td><td>Problem Sets 4 and 9</td><td align="right">733.19</td></tr>
-<tr class=sidebarText><td>theflea</td><td>Problem Sets 4 and 9</td><td align="right">728.89</td></tr>
-<tr class=sidebarText><td>along</td><td>Problem Sets 4 and 9</td><td align="right">568.26</td></tr>
-<tr class=sidebarText><td>jinxidoru</td><td>Problem Sets 4 and 9</td><td align="right">524.60</td></tr>
-<tr class=sidebarText><td>Jwalk</td><td>Problem Sets 4 and 9</td><td align="right">391.71</td></tr>
-<tr class=sidebarText><td>futo</td><td>Problem Sets 4 and 9</td><td align="right">388.48</td></tr>
-<tr class=sidebarText><td>anomaly</td><td>Problem Sets 4 and 9</td><td align="right">388.25</td></tr>
-<tr class=sidebarText><td>evd</td><td>Problem Sets 4 and 9</td><td align="right">385.65</td></tr>
-<tr class=sidebarText><td>nealzane</td><td>Problem Sets 4 and 9</td><td align="right">384.63</td></tr>
-<tr class=sidebarText><td>sean_henderson</td><td>Problem Sets 4 and 9</td><td align="right">383.37</td></tr>
-<tr class=sidebarText><td>jdmetz</td><td>Problem Sets 4 and 9</td><td align="right">382.95</td></tr>
-<tr class=sidebarText><td>DEathkNIghtS</td><td>Problem Sets 4 and 9</td><td align="right">382.79</td></tr>
-<tr class=sidebarText><td>ilham</td><td>Problem Sets 4 and 9</td><td align="right">382.57</td></tr>
-<tr class=sidebarText><td>turuthok</td><td>Problem Sets 4 and 9</td><td align="right">382.23</td></tr>
-<tr class=sidebarText><td>zhliu</td><td>Problem Sets 4 and 9</td><td align="right">381.12</td></tr>
-<tr class=sidebarText><td>oldbig</td><td>Problem Sets 4 and 9</td><td align="right">380.35</td></tr>
-<tr class=sidebarText><td>rsasanka</td><td>Problem Sets 4 and 9</td><td align="right">379.62</td></tr>
-<tr class=sidebarText><td>hilfiger</td><td>Problem Sets 4 and 9</td><td align="right">379.02</td></tr>
-<tr class=sidebarText><td>Mr.Sketch</td><td>Problem Sets 4 and 9</td><td align="right">378.82</td></tr>
-<tr class=sidebarText><td>m00tz</td><td>Problem Sets 4 and 9</td><td align="right">378.81</td></tr>
-<tr class=sidebarText><td>Abednego</td><td>Problem Sets 4 and 9</td><td align="right">377.54</td></tr>
-<tr class=sidebarText><td>Marvin</td><td>Problem Sets 4 and 9</td><td align="right">377.08</td></tr>
-<tr class=sidebarText><td>O_O</td><td>Problem Sets 4 and 9</td><td align="right">376.49</td></tr>
-<tr class=sidebarText><td>akeefer</td><td>Problem Sets 4 and 9</td><td align="right">376.24</td></tr>
-<tr class=sidebarText><td>Wasteland</td><td>Problem Sets 4 and 9</td><td align="right">376.13</td></tr>
-<tr class=sidebarText><td>dimkadimon</td><td>Problem Sets 4 and 9</td><td align="right">376.03</td></tr>
-<tr class=sidebarText><td>bugloaf</td><td>Problem Sets 4 and 9</td><td align="right">374.95</td></tr>
-<tr class=sidebarText><td>Vaduz</td><td>Problem Sets 4 and 9</td><td align="right">373.81</td></tr>
-<tr class=sidebarText><td>anikov</td><td>Problem Sets 4 and 9</td><td align="right">373.40</td></tr>
-<tr class=sidebarText><td>tyrithe</td><td>Problem Sets 4 and 9</td><td align="right">372.96</td></tr>
-<tr class=sidebarText><td>ltank</td><td>Problem Sets 4 and 9</td><td align="right">372.92</td></tr>
-<tr class=sidebarText><td>abi_k</td><td>Problem Sets 4 and 9</td><td align="right">371.94</td></tr>
-<tr class=sidebarText><td>s.stefanek</td><td>Problem Sets 4 and 9</td><td align="right">370.45</td></tr>
-<tr class=sidebarText><td>DimaGer</td><td>Problem Sets 4 and 9</td><td align="right">370.42</td></tr>
-<tr class=sidebarText><td>solman</td><td>Problem Sets 4 and 9</td><td align="right">369.73</td></tr>
-<tr class=sidebarText><td>cvoinescu</td><td>Problem Sets 4 and 9</td><td align="right">369.04</td></tr>
-<tr class=sidebarText><td>samispa</td><td>Problem Sets 4 and 9</td><td align="right">368.01</td></tr>
-<tr class=sidebarText><td>galvarr</td><td>Problem Sets 4 and 9</td><td align="right">367.99</td></tr>
-<tr class=sidebarText><td>pollo_diablo</td><td>Problem Sets 4 and 9</td><td align="right">366.74</td></tr>
-<tr class=sidebarText><td>emmpee</td><td>Problem Sets 4 and 9</td><td align="right">365.44</td></tr>
-<tr class=sidebarText><td>Mikhos</td><td>Problem Sets 4 and 9</td><td align="right">364.96</td></tr>
-<tr class=sidebarText><td>sindu</td><td>Problem Sets 4 and 9</td><td align="right">364.30</td></tr>
-<tr class=sidebarText><td>dannycool</td><td>Problem Sets 4 and 9</td><td align="right">363.66</td></tr>
-<tr class=sidebarText><td>mafattah</td><td>Problem Sets 4 and 9</td><td align="right">363.62</td></tr>
-<tr class=sidebarText><td>mcphee</td><td>Problem Sets 4 and 9</td><td align="right">362.48</td></tr>
-<tr class=sidebarText><td>netspade</td><td>Problem Sets 4 and 9</td><td align="right">362.46</td></tr>
-<tr class=sidebarText><td>msdawy</td><td>Problem Sets 4 and 9</td><td align="right">362.05</td></tr>
-<tr class=sidebarText><td>nullspace</td><td>Problem Sets 4 and 9</td><td align="right">361.71</td></tr>
-<tr class=sidebarText><td>qoqo</td><td>Problem Sets 4 and 9</td><td align="right">361.43</td></tr>
-<tr class=sidebarText><td>groovymother</td><td>Problem Sets 4 and 9</td><td align="right">361.43</td></tr>
-<tr class=sidebarText><td>toschek</td><td>Problem Sets 4 and 9</td><td align="right">360.85</td></tr>
-<tr class=sidebarText><td>lebedev.kirill</td><td>Problem Sets 4 and 9</td><td align="right">360.10</td></tr>
-<tr class=sidebarText><td>kalmakka</td><td>Problem Sets 4 and 9</td><td align="right">359.74</td></tr>
-<tr class=sidebarText><td>Katya_Lazareva</td><td>Problem Sets 4 and 9</td><td align="right">358.61</td></tr>
-<tr class=sidebarText><td>nat5an</td><td>Problem Sets 4 and 9</td><td align="right">357.36</td></tr>
-<tr class=sidebarText><td>Korbaxo</td><td>Problem Sets 4 and 9</td><td align="right">357.31</td></tr>
-<tr class=sidebarText><td>blackbeltcoder4</td><td>Problem Sets 4 and 9</td><td align="right">357.17</td></tr>
-<tr class=sidebarText><td>hendryjh</td><td>Problem Sets 4 and 9</td><td align="right">357.15</td></tr>
-<tr class=sidebarText><td>SteveStern</td><td>Problem Sets 4 and 9</td><td align="right">356.99</td></tr>
-<tr class=sidebarText><td>michiexile</td><td>Problem Sets 4 and 9</td><td align="right">355.98</td></tr>
-<tr class=sidebarText><td>kero</td><td>Problem Sets 4 and 9</td><td align="right">355.10</td></tr>
-<tr class=sidebarText><td>jburnim</td><td>Problem Sets 4 and 9</td><td align="right">354.41</td></tr>
-<tr class=sidebarText><td>nwc</td><td>Problem Sets 4 and 9</td><td align="right">353.87</td></tr>
-<tr class=sidebarText><td>Xero</td><td>Problem Sets 4 and 9</td><td align="right">352.85</td></tr>
-<tr class=sidebarText><td>merreborn</td><td>Problem Sets 4 and 9</td><td align="right">351.90</td></tr>
-<tr class=sidebarText><td>shuvovse</td><td>Problem Sets 4 and 9</td><td align="right">351.73</td></tr>
-<tr class=sidebarText><td>cjoa2</td><td>Problem Sets 4 and 9</td><td align="right">351.42</td></tr>
-<tr class=sidebarText><td>AndrewSmith</td><td>Problem Sets 4 and 9</td><td align="right">351.00</td></tr>
-<tr class=sidebarText><td>gensui</td><td>Problem Sets 4 and 9</td><td align="right">349.68</td></tr>
-<tr class=sidebarText><td>a2chang</td><td>Problem Sets 4 and 9</td><td align="right">349.51</td></tr>
-<tr class=sidebarText><td>TheSkipper</td><td>Problem Sets 4 and 9</td><td align="right">349.19</td></tr>
-<tr class=sidebarText><td>ovidiug</td><td>Problem Sets 4 and 9</td><td align="right">348.87</td></tr>
-<tr class=sidebarText><td>lualua</td><td>Problem Sets 4 and 9</td><td align="right">348.49</td></tr>
-<tr class=sidebarText><td>Chicken1</td><td>Problem Sets 4 and 9</td><td align="right">348.46</td></tr>
-<tr class=sidebarText><td>jorisvr</td><td>Problem Sets 4 and 9</td><td align="right">347.56</td></tr>
-<tr class=sidebarText><td>mcbevin</td><td>Problem Sets 4 and 9</td><td align="right">346.68</td></tr>
-<tr class=sidebarText><td>anne</td><td>Problem Sets 4 and 9</td><td align="right">345.73</td></tr>
-<tr class=sidebarText><td>mmsa</td><td>Problem Sets 4 and 9</td><td align="right">345.60</td></tr>
-<tr class=sidebarText><td>tkaesmayr</td><td>Problem Sets 4 and 9</td><td align="right">345.10</td></tr>
-<tr class=sidebarText><td>ariostosilva</td><td>Problem Sets 4 and 9</td><td align="right">344.58</td></tr>
-<tr class=sidebarText><td>wstubbs</td><td>Problem Sets 4 and 9</td><td align="right">344.03</td></tr>
-<tr class=sidebarText><td>ordinaryHuman</td><td>Problem Sets 4 and 9</td><td align="right">343.33</td></tr>
-<tr class=sidebarText><td>Ulan</td><td>Problem Sets 4 and 9</td><td align="right">342.87</td></tr>
-<tr class=sidebarText><td>nosnickid</td><td>Problem Sets 4 and 9</td><td align="right">342.83</td></tr>
-<tr class=sidebarText><td>tomek</td><td>Problem Sets 4 and 9</td><td align="right">342.13</td></tr>
-<tr class=sidebarText><td>AdrianKuegel</td><td>Problem Sets 5 and 6</td><td align="right">1056.03</td></tr>
-<tr class=sidebarText><td>pparys</td><td>Problem Sets 5 and 6</td><td align="right">1015.19</td></tr>
-<tr class=sidebarText><td>viktoras</td><td>Problem Sets 5 and 6</td><td align="right">873.48</td></tr>
-<tr class=sidebarText><td>dvickrey</td><td>Problem Sets 5 and 6</td><td align="right">852.88</td></tr>
-<tr class=sidebarText><td>Zis</td><td>Problem Sets 5 and 6</td><td align="right">848.62</td></tr>
-<tr class=sidebarText><td>Oblok</td><td>Problem Sets 5 and 6</td><td align="right">845.19</td></tr>
-<tr class=sidebarText><td>Veloso</td><td>Problem Sets 5 and 6</td><td align="right">844.37</td></tr>
-<tr class=sidebarText><td>PMH</td><td>Problem Sets 5 and 6</td><td align="right">823.52</td></tr>
-<tr class=sidebarText><td>kirkifer</td><td>Problem Sets 5 and 6</td><td align="right">819.26</td></tr>
-<tr class=sidebarText><td>dark_lord</td><td>Problem Sets 5 and 6</td><td align="right">797.76</td></tr>
-<tr class=sidebarText><td>jochang</td><td>Problem Sets 5 and 6</td><td align="right">792.80</td></tr>
-<tr class=sidebarText><td>haha</td><td>Problem Sets 5 and 6</td><td align="right">789.23</td></tr>
-<tr class=sidebarText><td>paranoia</td><td>Problem Sets 5 and 6</td><td align="right">785.13</td></tr>
-<tr class=sidebarText><td>bjarker</td><td>Problem Sets 5 and 6</td><td align="right">781.32</td></tr>
-<tr class=sidebarText><td>Ruberik</td><td>Problem Sets 5 and 6</td><td align="right">396.28</td></tr>
-<tr class=sidebarText><td>JongMan</td><td>Problem Sets 5 and 6</td><td align="right">392.72</td></tr>
-<tr class=sidebarText><td>lovro</td><td>Problem Sets 5 and 6</td><td align="right">391.28</td></tr>
-<tr class=sidebarText><td>_efer_</td><td>Problem Sets 5 and 6</td><td align="right">391.07</td></tr>
-<tr class=sidebarText><td>blekdrago</td><td>Problem Sets 5 and 6</td><td align="right">389.78</td></tr>
-<tr class=sidebarText><td>Totster</td><td>Problem Sets 5 and 6</td><td align="right">388.72</td></tr>
-<tr class=sidebarText><td>mathijs</td><td>Problem Sets 5 and 6</td><td align="right">387.86</td></tr>
-<tr class=sidebarText><td>tmyklebu</td><td>Problem Sets 5 and 6</td><td align="right">386.81</td></tr>
-<tr class=sidebarText><td>gepa</td><td>Problem Sets 5 and 6</td><td align="right">385.18</td></tr>
-<tr class=sidebarText><td>dhyanesh</td><td>Problem Sets 5 and 6</td><td align="right">384.59</td></tr>
-<tr class=sidebarText><td>bsdude</td><td>Problem Sets 5 and 6</td><td align="right">384.46</td></tr>
-<tr class=sidebarText><td>rrenaud</td><td>Problem Sets 5 and 6</td><td align="right">383.06</td></tr>
-<tr class=sidebarText><td>jvohome</td><td>Problem Sets 5 and 6</td><td align="right">380.97</td></tr>
-<tr class=sidebarText><td>Tomy</td><td>Problem Sets 5 and 6</td><td align="right">380.45</td></tr>
-<tr class=sidebarText><td>ValD</td><td>Problem Sets 5 and 6</td><td align="right">380.13</td></tr>
-<tr class=sidebarText><td>pigworlds</td><td>Problem Sets 5 and 6</td><td align="right">380.07</td></tr>
-<tr class=sidebarText><td>oog</td><td>Problem Sets 5 and 6</td><td align="right">379.81</td></tr>
-<tr class=sidebarText><td>lordbogy</td><td>Problem Sets 5 and 6</td><td align="right">379.60</td></tr>
-<tr class=sidebarText><td>NeverMore</td><td>Problem Sets 5 and 6</td><td align="right">379.36</td></tr>
-<tr class=sidebarText><td>aussie</td><td>Problem Sets 5 and 6</td><td align="right">379.28</td></tr>
-<tr class=sidebarText><td>liympanda</td><td>Problem Sets 5 and 6</td><td align="right">378.44</td></tr>
-<tr class=sidebarText><td>ceturc</td><td>Problem Sets 5 and 6</td><td align="right">377.85</td></tr>
-<tr class=sidebarText><td>userundefined</td><td>Problem Sets 5 and 6</td><td align="right">377.80</td></tr>
-<tr class=sidebarText><td>Kavan</td><td>Problem Sets 5 and 6</td><td align="right">376.68</td></tr>
-<tr class=sidebarText><td>tc</td><td>Problem Sets 5 and 6</td><td align="right">376.51</td></tr>
-<tr class=sidebarText><td>ivankovic</td><td>Problem Sets 5 and 6</td><td align="right">375.75</td></tr>
-<tr class=sidebarText><td>jpowell</td><td>Problem Sets 5 and 6</td><td align="right">375.70</td></tr>
-<tr class=sidebarText><td>wleite</td><td>Problem Sets 5 and 6</td><td align="right">375.31</td></tr>
-<tr class=sidebarText><td>TAG</td><td>Problem Sets 5 and 6</td><td align="right">375.19</td></tr>
-<tr class=sidebarText><td>amahmud</td><td>Problem Sets 5 and 6</td><td align="right">375.08</td></tr>
-<tr class=sidebarText><td>asundqui</td><td>Problem Sets 5 and 6</td><td align="right">375.06</td></tr>
-<tr class=sidebarText><td>cucu</td><td>Problem Sets 5 and 6</td><td align="right">373.79</td></tr>
-<tr class=sidebarText><td>fpmc</td><td>Problem Sets 5 and 6</td><td align="right">372.76</td></tr>
-<tr class=sidebarText><td>mikera7</td><td>Problem Sets 5 and 6</td><td align="right">372.41</td></tr>
-<tr class=sidebarText><td>fenzi</td><td>Problem Sets 5 and 6</td><td align="right">371.64</td></tr>
-<tr class=sidebarText><td>boets</td><td>Problem Sets 5 and 6</td><td align="right">371.57</td></tr>
-<tr class=sidebarText><td>Gandi</td><td>Problem Sets 5 and 6</td><td align="right">370.78</td></tr>
-<tr class=sidebarText><td>ggoprea</td><td>Problem Sets 5 and 6</td><td align="right">369.62</td></tr>
-<tr class=sidebarText><td>domino</td><td>Problem Sets 5 and 6</td><td align="right">369.51</td></tr>
-<tr class=sidebarText><td>schveiguy</td><td>Problem Sets 5 and 6</td><td align="right">369.09</td></tr>
-<tr class=sidebarText><td>FryGuy1013</td><td>Problem Sets 5 and 6</td><td align="right">368.77</td></tr>
-<tr class=sidebarText><td>pawel992</td><td>Problem Sets 5 and 6</td><td align="right">367.79</td></tr>
-<tr class=sidebarText><td>eldering</td><td>Problem Sets 5 and 6</td><td align="right">366.76</td></tr>
-<tr class=sidebarText><td>wisdompoet</td><td>Problem Sets 5 and 6</td><td align="right">366.74</td></tr>
-<tr class=sidebarText><td>olsner</td><td>Problem Sets 5 and 6</td><td align="right">366.67</td></tr>
-<tr class=sidebarText><td>yanivinbar</td><td>Problem Sets 5 and 6</td><td align="right">365.36</td></tr>
-<tr class=sidebarText><td>arnoldk</td><td>Problem Sets 5 and 6</td><td align="right">364.99</td></tr>
-<tr class=sidebarText><td>varun1</td><td>Problem Sets 5 and 6</td><td align="right">364.06</td></tr>
-<tr class=sidebarText><td>Bendis</td><td>Problem Sets 5 and 6</td><td align="right">363.95</td></tr>
-<tr class=sidebarText><td>jfreyss</td><td>Problem Sets 5 and 6</td><td align="right">363.74</td></tr>
-<tr class=sidebarText><td>peru</td><td>Problem Sets 5 and 6</td><td align="right">363.27</td></tr>
-<tr class=sidebarText><td>asdfgh</td><td>Problem Sets 5 and 6</td><td align="right">363.03</td></tr>
-<tr class=sidebarText><td>FRaiser</td><td>Problem Sets 5 and 6</td><td align="right">362.06</td></tr>
-<tr class=sidebarText><td>Farlox</td><td>Problem Sets 5 and 6</td><td align="right">361.78</td></tr>
-<tr class=sidebarText><td>alexcchan</td><td>Problem Sets 5 and 6</td><td align="right">360.82</td></tr>
-<tr class=sidebarText><td>kwsk</td><td>Problem Sets 5 and 6</td><td align="right">359.53</td></tr>
-<tr class=sidebarText><td>rmsousa</td><td>Problem Sets 5 and 6</td><td align="right">359.38</td></tr>
-<tr class=sidebarText><td>agnaveen</td><td>Problem Sets 5 and 6</td><td align="right">359.14</td></tr>
-<tr class=sidebarText><td>utkarshjain</td><td>Problem Sets 5 and 6</td><td align="right">358.96</td></tr>
-<tr class=sidebarText><td>FatHendrix</td><td>Problem Sets 5 and 6</td><td align="right">358.72</td></tr>
-<tr class=sidebarText><td>cintamani</td><td>Problem Sets 5 and 6</td><td align="right">358.06</td></tr>
-<tr class=sidebarText><td>alena</td><td>Problem Sets 5 and 6</td><td align="right">357.90</td></tr>
-<tr class=sidebarText><td>alanm</td><td>Problem Sets 5 and 6</td><td align="right">357.73</td></tr>
-<tr class=sidebarText><td>lindril</td><td>Problem Sets 5 and 6</td><td align="right">357.37</td></tr>
-<tr class=sidebarText><td>matmis</td><td>Problem Sets 5 and 6</td><td align="right">357.03</td></tr>
-<tr class=sidebarText><td>kclancy</td><td>Problem Sets 5 and 6</td><td align="right">357.00</td></tr>
-<tr class=sidebarText><td>gmenhorn</td><td>Problem Sets 5 and 6</td><td align="right">356.65</td></tr>
-<tr class=sidebarText><td>Nopik</td><td>Problem Sets 5 and 6</td><td align="right">356.31</td></tr>
-<tr class=sidebarText><td>weimashipig</td><td>Problem Sets 5 and 6</td><td align="right">356.25</td></tr>
-<tr class=sidebarText><td>federl</td><td>Problem Sets 5 and 6</td><td align="right">355.81</td></tr>
-<tr class=sidebarText><td>mozga</td><td>Problem Sets 5 and 6</td><td align="right">355.53</td></tr>
-<tr class=sidebarText><td>nigulh</td><td>Problem Sets 5 and 6</td><td align="right">354.78</td></tr>
-<tr class=sidebarText><td>haru</td><td>Problem Sets 5 and 6</td><td align="right">354.47</td></tr>
-<tr class=sidebarText><td>mas13081</td><td>Problem Sets 5 and 6</td><td align="right">353.82</td></tr>
-<tr class=sidebarText><td>lanenal</td><td>Problem Sets 5 and 6</td><td align="right">353.10</td></tr>
-<tr class=sidebarText><td>mmoll</td><td>Problem Sets 5 and 6</td><td align="right">352.31</td></tr>
-<tr class=sidebarText><td>Kathrrak</td><td>Problem Sets 5 and 6</td><td align="right">352.26</td></tr>
-<tr class=sidebarText><td>CMonkey</td><td>Problem Sets 5 and 6</td><td align="right">352.23</td></tr>
-<tr class=sidebarText><td>empraptor</td><td>Problem Sets 5 and 6</td><td align="right">351.97</td></tr>
-<tr class=sidebarText><td>j0hndoe</td><td>Problem Sets 5 and 6</td><td align="right">351.86</td></tr>
-<tr class=sidebarText><td>JWizard</td><td>Problem Sets 5 and 6</td><td align="right">350.06</td></tr>
-<tr class=sidebarText><td>isv</td><td>Problem Sets 5 and 6</td><td align="right">349.24</td></tr>
-<tr class=sidebarText><td>mthreat</td><td>Problem Sets 5 and 6</td><td align="right">349.19</td></tr>
-<tr class=sidebarText><td>marco_righele</td><td>Problem Sets 5 and 6</td><td align="right">349.19</td></tr>
-<tr class=sidebarText><td>Vash</td><td>Problem Sets 5 and 6</td><td align="right">347.92</td></tr>
-<tr class=sidebarText><td>andro</td><td>Problem Sets 5 and 6</td><td align="right">347.29</td></tr>
+<tr class="sidebarText"><td>_rev_</td><td>Qualification Set 5/8/12/20</td><td align="right">913.17</td></tr> 
+<tr class="sidebarText"><td>aaronike</td><td>Qualification Set 1/7/13/18</td><td align="right">602.82</td></tr>
+<tr class="sidebarText"><td>Abednego</td><td>Qualification Set 5/8/12/20</td><td align="right">790.89</td></tr>
+<tr class="sidebarText"><td>abiczo</td><td>Qualification Set 4/6/15/17</td><td align="right">848.22</td></tr>
+<tr class="sidebarText"><td>abstractwhiz</td><td>Qualification Set 1/7/13/18</td><td align="right">652.00</td></tr>
+<tr class="sidebarText"><td>achan1058</td><td>Qualification Set 5/8/12/20</td><td align="right">763.05</td></tr>
+<tr class="sidebarText"><td>achurch</td><td>Qualification Set 5/8/12/20</td><td align="right">813.94</td></tr>
+<tr class="sidebarText"><td>adic</td><td>Qualification Set 5/8/12/20</td><td align="right">792.88</td></tr>
+<tr class="sidebarText"><td>aditsu</td><td>Qualification Set 4/6/15/17</td><td align="right">812.30</td></tr>
+<tr class="sidebarText"><td>AdrianKuegel</td><td>Qualification Set 2/10/11/19</td><td align="right">781.91</td></tr>
+<tr class="sidebarText"><td>adrianpang</td><td>Qualification Set 5/8/12/20</td><td align="right">814.77</td></tr>
+<tr class="sidebarText"><td>agh</td><td>Qualification Set 2/10/11/19</td><td align="right">602.65</td></tr>
+<tr class="sidebarText"><td>agray</td><td>Qualification Set 5/8/12/20</td><td align="right">790.17</td></tr>
+<tr class="sidebarText"><td>alanm</td><td>Qualification Set 3/9/14/16</td><td align="right">660.03</td></tr>
+<tr class="sidebarText"><td>algorist</td><td>Qualification Set 1/7/13/18</td><td align="right">698.02</td></tr>
+<tr class="sidebarText"><td>algostorm</td><td>Qualification Set 2/10/11/19</td><td align="right">697.40</td></tr>
+<tr class="sidebarText"><td>amorosov</td><td>Qualification Set 1/7/13/18</td><td align="right">679.13</td></tr>
+<tr class="sidebarText"><td>AnakSibolga</td><td>Qualification Set 3/9/14/16</td><td align="right">648.58</td></tr>
+<tr class="sidebarText"><td>anderl</td><td>Qualification Set 5/8/12/20</td><td align="right">910.75</td></tr>
+<tr class="sidebarText"><td>Andrew_Lazarev</td><td>Qualification Set 4/6/15/17</td><td align="right">824.93</td></tr>
+<tr class="sidebarText"><td>andrewzta</td><td>Qualification Set 1/7/13/18</td><td align="right">917.70</td></tr>
+<tr class="sidebarText"><td>aneubeck</td><td>Qualification Set 5/8/12/20</td><td align="right">906.66</td></tr>
+<tr class="sidebarText"><td>anikov</td><td>Qualification Set 1/7/13/18</td><td align="right">613.89</td></tr>
+<tr class="sidebarText"><td>AnonnymousT</td><td>Qualification Set 5/8/12/20</td><td align="right">799.59</td></tr>
+<tr class="sidebarText"><td>ante</td><td>Qualification Set 3/9/14/16</td><td align="right">782.77</td></tr>
+<tr class="sidebarText"><td>anujmohan</td><td>Qualification Set 1/7/13/18</td><td align="right">930.45</td></tr>
+<tr class="sidebarText"><td>arBmind</td><td>Qualification Set 4/6/15/17</td><td align="right">693.05</td></tr>
+<tr class="sidebarText"><td>arun_zero</td><td>Qualification Set 2/10/11/19</td><td align="right">592.97</td></tr>
+<tr class="sidebarText"><td>asaveljevs</td><td>Qualification Set 1/7/13/18</td><td align="right">795.79</td></tr>
+<tr class="sidebarText"><td>asif_coder</td><td>Qualification Set 5/8/12/20</td><td align="right">777.59</td></tr>
+<tr class="sidebarText"><td>assembler</td><td>Qualification Set 4/6/15/17</td><td align="right">768.93</td></tr>
+<tr class="sidebarText"><td>asundqui</td><td>Qualification Set 1/7/13/18</td><td align="right">675.14</td></tr>
+<tr class="sidebarText"><td>athenachu71</td><td>Qualification Set 1/7/13/18</td><td align="right">936.31</td></tr>
+<tr class="sidebarText"><td>aussie</td><td>Qualification Set 3/9/14/16</td><td align="right">701.07</td></tr>
+<tr class="sidebarText"><td>aylex</td><td>Qualification Set 4/6/15/17</td><td align="right">813.05</td></tr>
+<tr class="sidebarText"><td>b0b0b0b</td><td>Qualification Set 2/10/11/19</td><td align="right">852.08</td></tr>
+<tr class="sidebarText"><td>bakina</td><td>Qualification Set 4/6/15/17</td><td align="right">705.94</td></tr>
+<tr class="sidebarText"><td>Baton</td><td>Qualification Set 2/10/11/19</td><td align="right">753.11</td></tr>
+<tr class="sidebarText"><td>battyone</td><td>Qualification Set 3/9/14/16</td><td align="right">881.25</td></tr>
+<tr class="sidebarText"><td>bcloud</td><td>Qualification Set 5/8/12/20</td><td align="right">842.55</td></tr>
+<tr class="sidebarText"><td>BeCool</td><td>Qualification Set 1/7/13/18</td><td align="right">757.65</td></tr>
+<tr class="sidebarText"><td>BEHiker57W</td><td>Qualification Set 5/8/12/20</td><td align="right">848.68</td></tr>
+<tr class="sidebarText"><td>benetin</td><td>Qualification Set 1/7/13/18</td><td align="right">774.93</td></tr>
+<tr class="sidebarText"><td>BenjaminHummel</td><td>Qualification Set 3/9/14/16</td><td align="right">664.73</td></tr>
+<tr class="sidebarText"><td>bernpi</td><td>Qualification Set 1/7/13/18</td><td align="right">704.01</td></tr>
+<tr class="sidebarText"><td>bgrainger</td><td>Qualification Set 4/6/15/17</td><td align="right">836.17</td></tr>
+<tr class="sidebarText"><td>BhaGeera</td><td>Qualification Set 2/10/11/19</td><td align="right">664.58</td></tr>
+<tr class="sidebarText"><td>BillyBob</td><td>Qualification Set 5/8/12/20</td><td align="right">832.84</td></tr>
+<tr class="sidebarText"><td>binarius</td><td>Qualification Set 4/6/15/17</td><td align="right">737.84</td></tr>
+<tr class="sidebarText"><td>bjansson</td><td>Qualification Set 4/6/15/17</td><td align="right">694.63</td></tr>
+<tr class="sidebarText"><td>BjarkeDahlEbert</td><td>Qualification Set 3/9/14/16</td><td align="right">814.89</td></tr>
+<tr class="sidebarText"><td>bl</td><td>Qualification Set 3/9/14/16</td><td align="right">668.05</td></tr>
+<tr class="sidebarText"><td>blackzorro</td><td>Qualification Set 2/10/11/19</td><td align="right">849.06</td></tr>
+<tr class="sidebarText"><td>bladerunner</td><td>Qualification Set 5/8/12/20</td><td align="right">838.51</td></tr>
+<tr class="sidebarText"><td>blekdrago</td><td>Qualification Set 2/10/11/19</td><td align="right">711.64</td></tr>
+<tr class="sidebarText"><td>Bluec</td><td>Qualification Set 1/7/13/18</td><td align="right">757.12</td></tr>
+<tr class="sidebarText"><td>bluequark</td><td>Qualification Set 2/10/11/19</td><td align="right">619.82</td></tr>
+<tr class="sidebarText"><td>bogklug</td><td>Qualification Set 2/10/11/19</td><td align="right">703.32</td></tr>
+<tr class="sidebarText"><td>bolu</td><td>Qualification Set 3/9/14/16</td><td align="right">797.79</td></tr>
+<tr class="sidebarText"><td>bramandia</td><td>Qualification Set 4/6/15/17</td><td align="right">832.38</td></tr>
+<tr class="sidebarText"><td>bruin</td><td>Qualification Set 4/6/15/17</td><td align="right">690.53</td></tr>
+<tr class="sidebarText"><td>bryan88</td><td>Qualification Set 4/6/15/17</td><td align="right">701.80</td></tr>
+<tr class="sidebarText"><td>bsauerwine</td><td>Qualification Set 3/9/14/16</td><td align="right">644.88</td></tr>
+<tr class="sidebarText"><td>bugzpodder</td><td>Qualification Set 1/7/13/18</td><td align="right">816.50</td></tr>
+<tr class="sidebarText"><td>burnpanck</td><td>Qualification Set 2/10/11/19</td><td align="right">594.07</td></tr>
+<tr class="sidebarText"><td>bvs</td><td>Qualification Set 3/9/14/16</td><td align="right">740.07</td></tr>
+<tr class="sidebarText"><td>Bytekeeper</td><td>Qualification Set 4/6/15/17</td><td align="right">767.11</td></tr>
+<tr class="sidebarText"><td>cagonzalezto</td><td>Qualification Set 1/7/13/18</td><td align="right">626.89</td></tr>
+<tr class="sidebarText"><td>caihl</td><td>Qualification Set 3/9/14/16</td><td align="right">639.12</td></tr>
+<tr class="sidebarText"><td>caleridas</td><td>Qualification Set 4/6/15/17</td><td align="right">801.86</td></tr>
+<tr class="sidebarText"><td>cardonha</td><td>Qualification Set 4/6/15/17</td><td align="right">692.83</td></tr>
+<tr class="sidebarText"><td>centipede80</td><td>Qualification Set 1/7/13/18</td><td align="right">598.74</td></tr>
+<tr class="sidebarText"><td>Charles28</td><td>Qualification Set 4/6/15/17</td><td align="right">781.53</td></tr>
+<tr class="sidebarText"><td>cheetah</td><td>Qualification Set 2/10/11/19</td><td align="right">754.32</td></tr>
+<tr class="sidebarText"><td>chenna</td><td>Qualification Set 3/9/14/16</td><td align="right">768.72</td></tr>
+<tr class="sidebarText"><td>chogyonim</td><td>Qualification Set 1/7/13/18</td><td align="right">686.86</td></tr>
+<tr class="sidebarText"><td>chrbanx</td><td>Qualification Set 2/10/11/19</td><td align="right">666.73</td></tr>
+<tr class="sidebarText"><td>cissy</td><td>Qualification Set 3/9/14/16</td><td align="right">705.21</td></tr>
+<tr class="sidebarText"><td>cloudkj</td><td>Qualification Set 1/7/13/18</td><td align="right">606.53</td></tr>
+<tr class="sidebarText"><td>cnettel</td><td>Qualification Set 4/6/15/17</td><td align="right">803.56</td></tr>
+<tr class="sidebarText"><td>ColinMacLeod</td><td>Qualification Set 2/10/11/19</td><td align="right">634.72</td></tr>
+<tr class="sidebarText"><td>CompuSciNut</td><td>Qualification Set 2/10/11/19</td><td align="right">612.94</td></tr>
+<tr class="sidebarText"><td>connect4</td><td>Qualification Set 3/9/14/16</td><td align="right">775.56</td></tr>
+<tr class="sidebarText"><td>Cosmin.ro</td><td>Qualification Set 1/7/13/18</td><td align="right">788.77</td></tr>
+<tr class="sidebarText"><td>CrazyScratcher</td><td>Qualification Set 2/10/11/19</td><td align="right">631.98</td></tr>
+<tr class="sidebarText"><td>crem</td><td>Qualification Set 2/10/11/19</td><td align="right">694.17</td></tr>
+<tr class="sidebarText"><td>cruizza</td><td>Qualification Set 5/8/12/20</td><td align="right">796.70</td></tr>
+<tr class="sidebarText"><td>Crush</td><td>Qualification Set 4/6/15/17</td><td align="right">713.87</td></tr>
+<tr class="sidebarText"><td>cryst</td><td>Qualification Set 1/7/13/18</td><td align="right">817.42</td></tr>
+<tr class="sidebarText"><td>cvoinescu</td><td>Qualification Set 5/8/12/20</td><td align="right">870.23</td></tr>
+<tr class="sidebarText"><td>cyfra</td><td>Qualification Set 5/8/12/20</td><td align="right">854.52</td></tr>
+<tr class="sidebarText"><td>daiwb</td><td>Qualification Set 5/8/12/20</td><td align="right">884.05</td></tr>
+<tr class="sidebarText"><td>daizisheng</td><td>Qualification Set 2/10/11/19</td><td align="right">758.85</td></tr>
+<tr class="sidebarText"><td>Dan[Popovici]</td><td>Qualification Set 2/10/11/19</td><td align="right">625.55</td></tr>
+<tr class="sidebarText"><td>danielb</td><td>Qualification Set 4/6/15/17</td><td align="right">699.80</td></tr>
+<tr class="sidebarText"><td>danw</td><td>Qualification Set 4/6/15/17</td><td align="right">678.86</td></tr>
+<tr class="sidebarText"><td>daveagp</td><td>Qualification Set 5/8/12/20</td><td align="right">862.91</td></tr>
+<tr class="sidebarText"><td>dearboy</td><td>Qualification Set 1/7/13/18</td><td align="right">640.07</td></tr>
+<tr class="sidebarText"><td>DEathkNIghtS</td><td>Qualification Set 2/10/11/19</td><td align="right">844.78</td></tr>
+<tr class="sidebarText"><td>derelikt</td><td>Qualification Set 2/10/11/19</td><td align="right">602.24</td></tr>
+<tr class="sidebarText"><td>dgarthur</td><td>Qualification Set 2/10/11/19</td><td align="right">887.67</td></tr>
+<tr class="sidebarText"><td>dimple</td><td>Qualification Set 3/9/14/16</td><td align="right">770.32</td></tr>
+<tr class="sidebarText"><td>DinhHongHa</td><td>Qualification Set 2/10/11/19</td><td align="right">824.92</td></tr>
+<tr class="sidebarText"><td>DjinnKahn</td><td>Qualification Set 4/6/15/17</td><td align="right">780.78</td></tr>
+<tr class="sidebarText"><td>dmitry2718</td><td>Qualification Set 4/6/15/17</td><td align="right">730.89</td></tr>
+<tr class="sidebarText"><td>dmks</td><td>Qualification Set 2/10/11/19</td><td align="right">869.31</td></tr>
+<tr class="sidebarText"><td>dmytro</td><td>Qualification Set 3/9/14/16</td><td align="right">788.58</td></tr>
+<tr class="sidebarText"><td>doeth</td><td>Qualification Set 4/6/15/17</td><td align="right">895.60</td></tr>
+<tr class="sidebarText"><td>domulys</td><td>Qualification Set 5/8/12/20</td><td align="right">760.31</td></tr>
+<tr class="sidebarText"><td>don.pratt</td><td>Qualification Set 4/6/15/17</td><td align="right">698.96</td></tr>
+<tr class="sidebarText"><td>dpecora</td><td>Qualification Set 5/8/12/20</td><td align="right">839.64</td></tr>
+<tr class="sidebarText"><td>drwiggin</td><td>Qualification Set 4/6/15/17</td><td align="right">703.58</td></tr>
+<tr class="sidebarText"><td>dzetkulict</td><td>Qualification Set 5/8/12/20</td><td align="right">765.39</td></tr>
+<tr class="sidebarText"><td>eduar09</td><td>Qualification Set 5/8/12/20</td><td align="right">850.63</td></tr>
+<tr class="sidebarText"><td>Egor</td><td>Qualification Set 3/9/14/16</td><td align="right">787.77</td></tr>
+<tr class="sidebarText"><td>eldering</td><td>Qualification Set 4/6/15/17</td><td align="right">739.73</td></tr>
+<tr class="sidebarText"><td>eleusive</td><td>Qualification Set 5/8/12/20</td><td align="right">817.67</td></tr>
+<tr class="sidebarText"><td>elizarov</td><td>Qualification Set 2/10/11/19</td><td align="right">811.19</td></tr>
+<tr class="sidebarText"><td>Elmiguel409</td><td>Qualification Set 4/6/15/17</td><td align="right">768.63</td></tr>
+<tr class="sidebarText"><td>embe</td><td>Qualification Set 5/8/12/20</td><td align="right">846.04</td></tr>
+<tr class="sidebarText"><td>Emilian_Miron</td><td>Qualification Set 1/7/13/18</td><td align="right">658.85</td></tr>
+<tr class="sidebarText"><td>emtec</td><td>Qualification Set 4/6/15/17</td><td align="right">799.53</td></tr>
+<tr class="sidebarText"><td>Encarta</td><td>Qualification Set 1/7/13/18</td><td align="right">603.98</td></tr>
+<tr class="sidebarText"><td>eoj</td><td>Qualification Set 2/10/11/19</td><td align="right">880.69</td></tr>
+<tr class="sidebarText"><td>ermite</td><td>Qualification Set 5/8/12/20</td><td align="right">850.32</td></tr>
+<tr class="sidebarText"><td>Eryx</td><td>Qualification Set 3/9/14/16</td><td align="right">889.94</td></tr>
+<tr class="sidebarText"><td>esteban</td><td>Qualification Set 5/8/12/20</td><td align="right">774.50</td></tr>
+<tr class="sidebarText"><td>evd</td><td>Qualification Set 5/8/12/20</td><td align="right">738.21</td></tr>
+<tr class="sidebarText"><td>fh</td><td>Qualification Set 4/6/15/17</td><td align="right">726.33</td></tr>
+<tr class="sidebarText"><td>fifka</td><td>Qualification Set 1/7/13/18</td><td align="right">606.04</td></tr>
+<tr class="sidebarText"><td>first_timer</td><td>Qualification Set 2/10/11/19</td><td align="right">782.71</td></tr>
+<tr class="sidebarText"><td>fluffy_</td><td>Qualification Set 1/7/13/18</td><td align="right">681.90</td></tr>
+<tr class="sidebarText"><td>frenetic</td><td>Qualification Set 3/9/14/16</td><td align="right">719.96</td></tr>
+<tr class="sidebarText"><td>fuwenjie</td><td>Qualification Set 3/9/14/16</td><td align="right">670.32</td></tr>
+<tr class="sidebarText"><td>fuyun</td><td>Qualification Set 5/8/12/20</td><td align="right">809.09</td></tr>
+<tr class="sidebarText"><td>gawry</td><td>Qualification Set 1/7/13/18</td><td align="right">806.61</td></tr>
+<tr class="sidebarText"><td>ged</td><td>Qualification Set 3/9/14/16</td><td align="right">708.41</td></tr>
+<tr class="sidebarText"><td>geekmug</td><td>Qualification Set 2/10/11/19</td><td align="right">649.27</td></tr>
+<tr class="sidebarText"><td>Gen_Witt</td><td>Qualification Set 4/6/15/17</td><td align="right">768.40</td></tr>
+<tr class="sidebarText"><td>geneying</td><td>Qualification Set 2/10/11/19</td><td align="right">708.22</td></tr>
+<tr class="sidebarText"><td>gepa</td><td>Qualification Set 2/10/11/19</td><td align="right">862.82</td></tr>
+<tr class="sidebarText"><td>ghg</td><td>Qualification Set 2/10/11/19</td><td align="right">752.42</td></tr>
+<tr class="sidebarText"><td>giginim</td><td>Qualification Set 5/8/12/20</td><td align="right">764.80</td></tr>
+<tr class="sidebarText"><td>Gigz</td><td>Qualification Set 3/9/14/16</td><td align="right">670.49</td></tr>
+<tr class="sidebarText"><td>gilbert</td><td>Qualification Set 2/10/11/19</td><td align="right">822.32</td></tr>
+<tr class="sidebarText"><td>goo</td><td>Qualification Set 3/9/14/16</td><td align="right">659.39</td></tr>
+<tr class="sidebarText"><td>Googly</td><td>Qualification Set 3/9/14/16</td><td align="right">751.88</td></tr>
+<tr class="sidebarText"><td>grotmol</td><td>Qualification Set 2/10/11/19</td><td align="right">706.88</td></tr>
+<tr class="sidebarText"><td>gsbhatia</td><td>Qualification Set 3/9/14/16</td><td align="right">623.20</td></tr>
+<tr class="sidebarText"><td>guanyxcn</td><td>Qualification Set 5/8/12/20</td><td align="right">769.96</td></tr>
+<tr class="sidebarText"><td>gunnark</td><td>Qualification Set 3/9/14/16</td><td align="right">673.00</td></tr>
+<tr class="sidebarText"><td>Gusmachine</td><td>Qualification Set 4/6/15/17</td><td align="right">678.18</td></tr>
+<tr class="sidebarText"><td>gutalin</td><td>Qualification Set 1/7/13/18</td><td align="right">590.89</td></tr>
+<tr class="sidebarText"><td>hagman</td><td>Qualification Set 1/7/13/18</td><td align="right">800.51</td></tr>
+<tr class="sidebarText"><td>haha</td><td>Qualification Set 1/7/13/18</td><td align="right">842.11</td></tr>
+<tr class="sidebarText"><td>hangmai</td><td>Qualification Set 4/6/15/17</td><td align="right">683.86</td></tr>
+<tr class="sidebarText"><td>HappyDude</td><td>Qualification Set 3/9/14/16</td><td align="right">683.97</td></tr>
+<tr class="sidebarText"><td>HardCoder</td><td>Qualification Set 2/10/11/19</td><td align="right">594.92</td></tr>
+<tr class="sidebarText"><td>haskell_master</td><td>Qualification Set 2/10/11/19</td><td align="right">686.52</td></tr>
+<tr class="sidebarText"><td>hauser</td><td>Qualification Set 5/8/12/20</td><td align="right">746.76</td></tr>
+<tr class="sidebarText"><td>HeaDacHe</td><td>Qualification Set 5/8/12/20</td><td align="right">844.34</td></tr>
+<tr class="sidebarText"><td>herbert_duarte</td><td>Qualification Set 3/9/14/16</td><td align="right">848.65</td></tr>
+<tr class="sidebarText"><td>hgliebe</td><td>Qualification Set 1/7/13/18</td><td align="right">625.97</td></tr>
+<tr class="sidebarText"><td>hhen926</td><td>Qualification Set 4/6/15/17</td><td align="right">814.38</td></tr>
+<tr class="sidebarText"><td>HilbertRaum</td><td>Qualification Set 2/10/11/19</td><td align="right">734.45</td></tr>
+<tr class="sidebarText"><td>HiltonLange</td><td>Qualification Set 4/6/15/17</td><td align="right">878.88</td></tr>
+<tr class="sidebarText"><td>hirai</td><td>Qualification Set 4/6/15/17</td><td align="right">685.02</td></tr>
+<tr class="sidebarText"><td>hmpf</td><td>Qualification Set 2/10/11/19</td><td align="right">696.67</td></tr>
+<tr class="sidebarText"><td>hubPL</td><td>Qualification Set 2/10/11/19</td><td align="right">609.17</td></tr>
+<tr class="sidebarText"><td>humblefool</td><td>Qualification Set 1/7/13/18</td><td align="right">677.78</td></tr>
+<tr class="sidebarText"><td>hyyylr</td><td>Qualification Set 1/7/13/18</td><td align="right">711.26</td></tr>
+<tr class="sidebarText"><td>IAC</td><td>Qualification Set 1/7/13/18</td><td align="right">887.64</td></tr>
+<tr class="sidebarText"><td>ichetan</td><td>Qualification Set 5/8/12/20</td><td align="right">907.39</td></tr>
+<tr class="sidebarText"><td>Idle</td><td>Qualification Set 1/7/13/18</td><td align="right">635.14</td></tr>
+<tr class="sidebarText"><td>iforiq</td><td>Qualification Set 3/9/14/16</td><td align="right">777.08</td></tr>
+<tr class="sidebarText"><td>igotcold2</td><td>Qualification Set 5/8/12/20</td><td align="right">933.91</td></tr>
+<tr class="sidebarText"><td>ilham</td><td>Qualification Set 2/10/11/19</td><td align="right">694.84</td></tr>
+<tr class="sidebarText"><td>Im2Good</td><td>Qualification Set 5/8/12/20</td><td align="right">836.12</td></tr>
+<tr class="sidebarText"><td>ingvarrr</td><td>Qualification Set 1/7/13/18</td><td align="right">609.25</td></tr>
+<tr class="sidebarText"><td>itsuki</td><td>Qualification Set 3/9/14/16</td><td align="right">895.38</td></tr>
+<tr class="sidebarText"><td>ivan_metelsky</td><td>Qualification Set 1/7/13/18</td><td align="right">841.54</td></tr>
+<tr class="sidebarText"><td>ivankovic</td><td>Qualification Set 5/8/12/20</td><td align="right">766.54</td></tr>
+<tr class="sidebarText"><td>IvanRomanov</td><td>Qualification Set 3/9/14/16</td><td align="right">817.97</td></tr>
+<tr class="sidebarText"><td>jakubr</td><td>Qualification Set 3/9/14/16</td><td align="right">843.99</td></tr>
+<tr class="sidebarText"><td>Jaky</td><td>Qualification Set 4/6/15/17</td><td align="right">688.67</td></tr>
+<tr class="sidebarText"><td>jambon_vn</td><td>Qualification Set 4/6/15/17</td><td align="right">720.51</td></tr>
+<tr class="sidebarText"><td>Jan_Kuipers</td><td>Qualification Set 1/7/13/18</td><td align="right">828.52</td></tr>
+<tr class="sidebarText"><td>Jasko</td><td>Qualification Set 5/8/12/20</td><td align="right">756.41</td></tr>
+<tr class="sidebarText"><td>jasonfoo</td><td>Qualification Set 1/7/13/18</td><td align="right">653.59</td></tr>
+<tr class="sidebarText"><td>jasonw</td><td>Qualification Set 4/6/15/17</td><td align="right">773.72</td></tr>
+<tr class="sidebarText"><td>Javi</td><td>Qualification Set 2/10/11/19</td><td align="right">736.62</td></tr>
+<tr class="sidebarText"><td>jdai</td><td>Qualification Set 5/8/12/20</td><td align="right">754.80</td></tr>
+<tr class="sidebarText"><td>jdmetz</td><td>Qualification Set 5/8/12/20</td><td align="right">909.73</td></tr>
+<tr class="sidebarText"><td>jfreyss</td><td>Qualification Set 4/6/15/17</td><td align="right">809.71</td></tr>
+<tr class="sidebarText"><td>jianqinf</td><td>Qualification Set 2/10/11/19</td><td align="right">752.89</td></tr>
+<tr class="sidebarText"><td>jinxidoru</td><td>Qualification Set 2/10/11/19</td><td align="right">714.44</td></tr>
+<tr class="sidebarText"><td>JJohansson</td><td>Qualification Set 5/8/12/20</td><td align="right">829.78</td></tr>
+<tr class="sidebarText"><td>jkburt</td><td>Qualification Set 4/6/15/17</td><td align="right">702.53</td></tr>
+<tr class="sidebarText"><td>jkl</td><td>Qualification Set 2/10/11/19</td><td align="right">849.44</td></tr>
+<tr class="sidebarText"><td>jms137</td><td>Qualification Set 2/10/11/19</td><td align="right">672.62</td></tr>
+<tr class="sidebarText"><td>John_Dethridge</td><td>Qualification Set 4/6/15/17</td><td align="right">797.47</td></tr>
+<tr class="sidebarText"><td>JongMan</td><td>Qualification Set 2/10/11/19</td><td align="right">915.85</td></tr>
+<tr class="sidebarText"><td>jorisvr</td><td>Qualification Set 3/9/14/16</td><td align="right">851.04</td></tr>
+<tr class="sidebarText"><td>jpg7</td><td>Qualification Set 4/6/15/17</td><td align="right">783.29</td></tr>
+<tr class="sidebarText"><td>jthread</td><td>Qualification Set 3/9/14/16</td><td align="right">665.80</td></tr>
+<tr class="sidebarText"><td>Jumping_John</td><td>Qualification Set 3/9/14/16</td><td align="right">703.71</td></tr>
+<tr class="sidebarText"><td>jvohome</td><td>Qualification Set 2/10/11/19</td><td align="right">723.99</td></tr>
+<tr class="sidebarText"><td>k_m</td><td>Qualification Set 2/10/11/19</td><td align="right">785.11</td></tr>
+<tr class="sidebarText"><td>kalinov</td><td>Qualification Set 5/8/12/20</td><td align="right">886.09</td></tr>
+<tr class="sidebarText"><td>kalmakka</td><td>Qualification Set 3/9/14/16</td><td align="right">878.41</td></tr>
+<tr class="sidebarText"><td>kathy</td><td>Qualification Set 4/6/15/17</td><td align="right">800.84</td></tr>
+<tr class="sidebarText"><td>kats</td><td>Qualification Set 3/9/14/16</td><td align="right">857.51</td></tr>
+<tr class="sidebarText"><td>Katya_Lazareva</td><td>Qualification Set 1/7/13/18</td><td align="right">729.27</td></tr>
+<tr class="sidebarText"><td>Kawigi</td><td>Qualification Set 1/7/13/18</td><td align="right">793.83</td></tr>
+<tr class="sidebarText"><td>kenny1har</td><td>Qualification Set 1/7/13/18</td><td align="right">811.34</td></tr>
+<tr class="sidebarText"><td>ketanjp</td><td>Qualification Set 4/6/15/17</td><td align="right">716.97</td></tr>
+<tr class="sidebarText"><td>kip_1</td><td>Qualification Set 2/10/11/19</td><td align="right">616.49</td></tr>
+<tr class="sidebarText"><td>kirkifer</td><td>Qualification Set 5/8/12/20</td><td align="right">824.64</td></tr>
+<tr class="sidebarText"><td>Klinck</td><td>Qualification Set 4/6/15/17</td><td align="right">691.55</td></tr>
+<tr class="sidebarText"><td>korntest</td><td>Qualification Set 4/6/15/17</td><td align="right">750.07</td></tr>
+<tr class="sidebarText"><td>krijgertje</td><td>Qualification Set 4/6/15/17</td><td align="right">909.40</td></tr>
+<tr class="sidebarText"><td>Krzysan</td><td>Qualification Set 2/10/11/19</td><td align="right">759.08</td></tr>
+<tr class="sidebarText"><td>ksoze7383</td><td>Qualification Set 5/8/12/20</td><td align="right">777.79</td></tr>
+<tr class="sidebarText"><td>kupo</td><td>Qualification Set 5/8/12/20</td><td align="right">869.82</td></tr>
+<tr class="sidebarText"><td>L</td><td>Qualification Set 5/8/12/20</td><td align="right">834.06</td></tr>
+<tr class="sidebarText"><td>laibo</td><td>Qualification Set 1/7/13/18</td><td align="right">617.22</td></tr>
+<tr class="sidebarText"><td>Larry</td><td>Qualification Set 5/8/12/20</td><td align="right">748.96</td></tr>
+<tr class="sidebarText"><td>Laura</td><td>Qualification Set 5/8/12/20</td><td align="right">764.68</td></tr>
+<tr class="sidebarText"><td>lazyboy</td><td>Qualification Set 4/6/15/17</td><td align="right">786.05</td></tr>
+<tr class="sidebarText"><td>lding1104</td><td>Qualification Set 3/9/14/16</td><td align="right">691.34</td></tr>
+<tr class="sidebarText"><td>leadhyena_inran</td><td>Qualification Set 1/7/13/18</td><td align="right">688.70</td></tr>
+<tr class="sidebarText"><td>leibniz</td><td>Qualification Set 4/6/15/17</td><td align="right">775.73</td></tr>
+<tr class="sidebarText"><td>lenardg</td><td>Qualification Set 5/8/12/20</td><td align="right">806.73</td></tr>
+<tr class="sidebarText"><td>lews</td><td>Qualification Set 3/9/14/16</td><td align="right">776.72</td></tr>
+<tr class="sidebarText"><td>lijun</td><td>Qualification Set 4/6/15/17</td><td align="right">757.98</td></tr>
+<tr class="sidebarText"><td>LimberG</td><td>Qualification Set 5/8/12/20</td><td align="right">780.60</td></tr>
+<tr class="sidebarText"><td>lincheng</td><td>Qualification Set 3/9/14/16</td><td align="right">715.65</td></tr>
+<tr class="sidebarText"><td>liympanda</td><td>Qualification Set 2/10/11/19</td><td align="right">749.45</td></tr>
+<tr class="sidebarText"><td>lordbogy</td><td>Qualification Set 5/8/12/20</td><td align="right">782.19</td></tr>
+<tr class="sidebarText"><td>lordmonsoon</td><td>Qualification Set 3/9/14/16</td><td align="right">687.10</td></tr>
+<tr class="sidebarText"><td>loveislife</td><td>Qualification Set 3/9/14/16</td><td align="right">721.64</td></tr>
+<tr class="sidebarText"><td>lovro</td><td>Qualification Set 5/8/12/20</td><td align="right">901.52</td></tr>
+<tr class="sidebarText"><td>lsubra</td><td>Qualification Set 2/10/11/19</td><td align="right">839.48</td></tr>
+<tr class="sidebarText"><td>ltank</td><td>Qualification Set 5/8/12/20</td><td align="right">800.84</td></tr>
+<tr class="sidebarText"><td>LuckyLibran</td><td>Qualification Set 4/6/15/17</td><td align="right">901.03</td></tr>
+<tr class="sidebarText"><td>lukasP</td><td>Qualification Set 3/9/14/16</td><td align="right">713.30</td></tr>
+<tr class="sidebarText"><td>madgreg</td><td>Qualification Set 1/7/13/18</td><td align="right">677.24</td></tr>
+<tr class="sidebarText"><td>madking</td><td>Qualification Set 4/6/15/17</td><td align="right">756.10</td></tr>
+<tr class="sidebarText"><td>magnet</td><td>Qualification Set 2/10/11/19</td><td align="right">633.64</td></tr>
+<tr class="sidebarText"><td>majia</td><td>Qualification Set 5/8/12/20</td><td align="right">807.37</td></tr>
+<tr class="sidebarText"><td>Major_Hostility</td><td>Qualification Set 5/8/12/20</td><td align="right">742.52</td></tr>
+<tr class="sidebarText"><td>malcin</td><td>Qualification Set 5/8/12/20</td><td align="right">770.12</td></tr>
+<tr class="sidebarText"><td>Malligarjunan_S</td><td>Qualification Set 5/8/12/20</td><td align="right">741.52</td></tr>
+<tr class="sidebarText"><td>maone</td><td>Qualification Set 4/6/15/17</td><td align="right">770.70</td></tr>
+<tr class="sidebarText"><td>marcoloco</td><td>Qualification Set 4/6/15/17</td><td align="right">672.44</td></tr>
+<tr class="sidebarText"><td>marek.cygan</td><td>Qualification Set 5/8/12/20</td><td align="right">873.89</td></tr>
+<tr class="sidebarText"><td>marijnk</td><td>Qualification Set 3/9/14/16</td><td align="right">811.43</td></tr>
+<tr class="sidebarText"><td>Maris</td><td>Qualification Set 3/9/14/16</td><td align="right">678.90</td></tr>
+<tr class="sidebarText"><td>martinp534</td><td>Qualification Set 1/7/13/18</td><td align="right">764.61</td></tr>
+<tr class="sidebarText"><td>Marvin</td><td>Qualification Set 4/6/15/17</td><td align="right">672.72</td></tr>
+<tr class="sidebarText"><td>Matei</td><td>Qualification Set 5/8/12/20</td><td align="right">874.60</td></tr>
+<tr class="sidebarText"><td>mathgodleo</td><td>Qualification Set 5/8/12/20</td><td align="right">830.97</td></tr>
+<tr class="sidebarText"><td>mathijs</td><td>Qualification Set 1/7/13/18</td><td align="right">868.62</td></tr>
+<tr class="sidebarText"><td>mathman</td><td>Qualification Set 5/8/12/20</td><td align="right">740.99</td></tr>
+<tr class="sidebarText"><td>matias</td><td>Qualification Set 3/9/14/16</td><td align="right">676.92</td></tr>
+<tr class="sidebarText"><td>maze_pallas</td><td>Qualification Set 5/8/12/20</td><td align="right">801.00</td></tr>
+<tr class="sidebarText"><td>MB__</td><td>Qualification Set 3/9/14/16</td><td align="right">695.32</td></tr>
+<tr class="sidebarText"><td>mbjorklu</td><td>Qualification Set 5/8/12/20</td><td align="right">749.90</td></tr>
+<tr class="sidebarText"><td>meetprateek</td><td>Qualification Set 2/10/11/19</td><td align="right">683.97</td></tr>
+<tr class="sidebarText"><td>mehak_neha</td><td>Qualification Set 3/9/14/16</td><td align="right">793.35</td></tr>
+<tr class="sidebarText"><td>merolish</td><td>Qualification Set 4/6/15/17</td><td align="right">674.96</td></tr>
+<tr class="sidebarText"><td>mfeugene</td><td>Qualification Set 1/7/13/18</td><td align="right">691.08</td></tr>
+<tr class="sidebarText"><td>Mg9H</td><td>Qualification Set 4/6/15/17</td><td align="right">707.60</td></tr>
+<tr class="sidebarText"><td>mickle</td><td>Qualification Set 3/9/14/16</td><td align="right">772.84</td></tr>
+<tr class="sidebarText"><td>midthal</td><td>Qualification Set 1/7/13/18</td><td align="right">612.85</td></tr>
+<tr class="sidebarText"><td>MikeMirzayanov</td><td>Qualification Set 1/7/13/18</td><td align="right">809.02</td></tr>
+<tr class="sidebarText"><td>Mikhos</td><td>Qualification Set 5/8/12/20</td><td align="right">806.47</td></tr>
+<tr class="sidebarText"><td>misof</td><td>Qualification Set 1/7/13/18</td><td align="right">876.40</td></tr>
+<tr class="sidebarText"><td>mkschmidt</td><td>Qualification Set 1/7/13/18</td><td align="right">707.59</td></tr>
+<tr class="sidebarText"><td>Modulator</td><td>Qualification Set 1/7/13/18</td><td align="right">771.35</td></tr>
+<tr class="sidebarText"><td>moggy</td><td>Qualification Set 1/7/13/18</td><td align="right">593.27</td></tr>
+<tr class="sidebarText"><td>moh_taha_eg</td><td>Qualification Set 2/10/11/19</td><td align="right">645.66</td></tr>
+<tr class="sidebarText"><td>mohandasks</td><td>Qualification Set 3/9/14/16</td><td align="right">799.08</td></tr>
+<tr class="sidebarText"><td>monti</td><td>Qualification Set 5/8/12/20</td><td align="right">744.22</td></tr>
+<tr class="sidebarText"><td>mooshu</td><td>Qualification Set 5/8/12/20</td><td align="right">788.62</td></tr>
+<tr class="sidebarText"><td>mprudhom</td><td>Qualification Set 5/8/12/20</td><td align="right">744.81</td></tr>
+<tr class="sidebarText"><td>mrinaldotnet</td><td>Qualification Set 2/10/11/19</td><td align="right">714.65</td></tr>
+<tr class="sidebarText"><td>mrozik</td><td>Qualification Set 1/7/13/18</td><td align="right">722.97</td></tr>
+<tr class="sidebarText"><td>msg555</td><td>Qualification Set 2/10/11/19</td><td align="right">757.38</td></tr>
+<tr class="sidebarText"><td>myprasanna</td><td>Qualification Set 3/9/14/16</td><td align="right">694.51</td></tr>
+<tr class="sidebarText"><td>mys</td><td>Qualification Set 2/10/11/19</td><td align="right">745.07</td></tr>
+<tr class="sidebarText"><td>nainiu</td><td>Qualification Set 1/7/13/18</td><td align="right">761.38</td></tr>
+<tr class="sidebarText"><td>natori</td><td>Qualification Set 5/8/12/20</td><td align="right">831.69</td></tr>
+<tr class="sidebarText"><td>neo_bd</td><td>Qualification Set 1/7/13/18</td><td align="right">709.17</td></tr>
+<tr class="sidebarText"><td>nerx</td><td>Qualification Set 3/9/14/16</td><td align="right">667.14</td></tr>
+<tr class="sidebarText"><td>NetCoderCN</td><td>Qualification Set 3/9/14/16</td><td align="right">668.03</td></tr>
+<tr class="sidebarText"><td>NeverMore</td><td>Qualification Set 4/6/15/17</td><td align="right">904.63</td></tr>
+<tr class="sidebarText"><td>nic1987</td><td>Qualification Set 2/10/11/19</td><td align="right">907.62</td></tr>
+<tr class="sidebarText"><td>nicka81</td><td>Qualification Set 2/10/11/19</td><td align="right">855.84</td></tr>
+<tr class="sidebarText"><td>nidonido</td><td>Qualification Set 2/10/11/19</td><td align="right">808.62</td></tr>
+<tr class="sidebarText"><td>niphoton</td><td>Qualification Set 5/8/12/20</td><td align="right">815.84</td></tr>
+<tr class="sidebarText"><td>nishantkumar</td><td>Qualification Set 5/8/12/20</td><td align="right">756.86</td></tr>
+<tr class="sidebarText"><td>nosnickid</td><td>Qualification Set 2/10/11/19</td><td align="right">837.07</td></tr>
+<tr class="sidebarText"><td>NotImplemented</td><td>Qualification Set 3/9/14/16</td><td align="right">660.31</td></tr>
+<tr class="sidebarText"><td>NPermyakov</td><td>Qualification Set 3/9/14/16</td><td align="right">870.41</td></tr>
+<tr class="sidebarText"><td>nullspace</td><td>Qualification Set 1/7/13/18</td><td align="right">895.80</td></tr>
+<tr class="sidebarText"><td>nya</td><td>Qualification Set 1/7/13/18</td><td align="right">650.22</td></tr>
+<tr class="sidebarText"><td>O_O</td><td>Qualification Set 4/6/15/17</td><td align="right">754.57</td></tr>
+<tr class="sidebarText"><td>oldbig</td><td>Qualification Set 2/10/11/19</td><td align="right">790.20</td></tr>
+<tr class="sidebarText"><td>olive</td><td>Qualification Set 4/6/15/17</td><td align="right">778.75</td></tr>
+<tr class="sidebarText"><td>olleck</td><td>Qualification Set 4/6/15/17</td><td align="right">716.20</td></tr>
+<tr class="sidebarText"><td>olliholliday</td><td>Qualification Set 4/6/15/17</td><td align="right">845.41</td></tr>
+<tr class="sidebarText"><td>OpenGL</td><td>Qualification Set 1/7/13/18</td><td align="right">730.21</td></tr>
+<tr class="sidebarText"><td>OpenGL4Dummies</td><td>Qualification Set 2/10/11/19</td><td align="right">779.25</td></tr>
+<tr class="sidebarText"><td>Optimus</td><td>Qualification Set 5/8/12/20</td><td align="right">740.78</td></tr>
+<tr class="sidebarText"><td>oracle_3000</td><td>Qualification Set 2/10/11/19</td><td align="right">680.68</td></tr>
+<tr class="sidebarText"><td>Osk</td><td>Qualification Set 1/7/13/18</td><td align="right">628.99</td></tr>
+<tr class="sidebarText"><td>oumapathy2</td><td>Qualification Set 5/8/12/20</td><td align="right">956.26</td></tr>
+<tr class="sidebarText"><td>OvejaCarnivora</td><td>Qualification Set 1/7/13/18</td><td align="right">587.81</td></tr>
+<tr class="sidebarText"><td>overwise</td><td>Qualification Set 4/6/15/17</td><td align="right">883.51</td></tr>
+<tr class="sidebarText"><td>padava</td><td>Qualification Set 5/8/12/20</td><td align="right">912.40</td></tr>
+<tr class="sidebarText"><td>paisa</td><td>Qualification Set 1/7/13/18</td><td align="right">615.06</td></tr>
+<tr class="sidebarText"><td>paltherr</td><td>Qualification Set 1/7/13/18</td><td align="right">615.08</td></tr>
+<tr class="sidebarText"><td>pandoratc</td><td>Qualification Set 5/8/12/20</td><td align="right">854.31</td></tr>
+<tr class="sidebarText"><td>pankaj.b</td><td>Qualification Set 3/9/14/16</td><td align="right">754.58</td></tr>
+<tr class="sidebarText"><td>panzhangsheng</td><td>Qualification Set 2/10/11/19</td><td align="right">841.36</td></tr>
+<tr class="sidebarText"><td>Pap</td><td>Qualification Set 3/9/14/16</td><td align="right">629.89</td></tr>
+<tr class="sidebarText"><td>paranoia</td><td>Qualification Set 5/8/12/20</td><td align="right">899.12</td></tr>
+<tr class="sidebarText"><td>paulhryu</td><td>Qualification Set 4/6/15/17</td><td align="right">699.82</td></tr>
+<tr class="sidebarText"><td>PaulJefferys</td><td>Qualification Set 1/7/13/18</td><td align="right">727.62</td></tr>
+<tr class="sidebarText"><td>pcalcina</td><td>Qualification Set 1/7/13/18</td><td align="right">691.59</td></tr>
+<tr class="sidebarText"><td>Per</td><td>Qualification Set 1/7/13/18</td><td align="right">855.31</td></tr>
+<tr class="sidebarText"><td>petko</td><td>Qualification Set 4/6/15/17</td><td align="right">846.06</td></tr>
+<tr class="sidebarText"><td>Petr</td><td>Qualification Set 1/7/13/18</td><td align="right">863.60</td></tr>
+<tr class="sidebarText"><td>phoenix53</td><td>Qualification Set 3/9/14/16</td><td align="right">763.30</td></tr>
+<tr class="sidebarText"><td>pigworlds</td><td>Qualification Set 4/6/15/17</td><td align="right">736.15</td></tr>
+<tr class="sidebarText"><td>pinano</td><td>Qualification Set 4/6/15/17</td><td align="right">722.98</td></tr>
+<tr class="sidebarText"><td>pinc</td><td>Qualification Set 2/10/11/19</td><td align="right">591.61</td></tr>
+<tr class="sidebarText"><td>Pisky</td><td>Qualification Set 3/9/14/16</td><td align="right">685.90</td></tr>
+<tr class="sidebarText"><td>ploh</td><td>Qualification Set 3/9/14/16</td><td align="right">746.38</td></tr>
+<tr class="sidebarText"><td>PMH</td><td>Qualification Set 1/7/13/18</td><td align="right">630.12</td></tr>
+<tr class="sidebarText"><td>po</td><td>Qualification Set 3/9/14/16</td><td align="right">760.68</td></tr>
+<tr class="sidebarText"><td>polchawa</td><td>Qualification Set 1/7/13/18</td><td align="right">628.32</td></tr>
+<tr class="sidebarText"><td>pparys</td><td>Qualification Set 1/7/13/18</td><td align="right">836.14</td></tr>
+<tr class="sidebarText"><td>pppancho</td><td>Qualification Set 3/9/14/16</td><td align="right">687.06</td></tr>
+<tr class="sidebarText"><td>pradhan_ptr</td><td>Qualification Set 2/10/11/19</td><td align="right">657.48</td></tr>
+<tr class="sidebarText"><td>prekageo</td><td>Qualification Set 2/10/11/19</td><td align="right">752.33</td></tr>
+<tr class="sidebarText"><td>Psyho</td><td>Qualification Set 4/6/15/17</td><td align="right">782.60</td></tr>
+<tr class="sidebarText"><td>punzki</td><td>Qualification Set 5/8/12/20</td><td align="right">851.70</td></tr>
+<tr class="sidebarText"><td>qixin99</td><td>Qualification Set 2/10/11/19</td><td align="right">771.22</td></tr>
+<tr class="sidebarText"><td>radeye</td><td>Qualification Set 4/6/15/17</td><td align="right">809.60</td></tr>
+<tr class="sidebarText"><td>Ragnarok</td><td>Qualification Set 4/6/15/17</td><td align="right">860.26</td></tr>
+<tr class="sidebarText"><td>rajsekar_manok</td><td>Qualification Set 1/7/13/18</td><td align="right">640.13</td></tr>
+<tr class="sidebarText"><td>RalphFurmaniak</td><td>Qualification Set 3/9/14/16</td><td align="right">804.56</td></tr>
+<tr class="sidebarText"><td>RandySaint</td><td>Qualification Set 3/9/14/16</td><td align="right">668.71</td></tr>
+<tr class="sidebarText"><td>raquib</td><td>Qualification Set 4/6/15/17</td><td align="right">710.94</td></tr>
+<tr class="sidebarText"><td>reid</td><td>Qualification Set 5/8/12/20</td><td align="right">861.29</td></tr>
+<tr class="sidebarText"><td>Rejun</td><td>Qualification Set 2/10/11/19</td><td align="right">716.67</td></tr>
+<tr class="sidebarText"><td>rem</td><td>Qualification Set 5/8/12/20</td><td align="right">825.39</td></tr>
+<tr class="sidebarText"><td>Revenger</td><td>Qualification Set 5/8/12/20</td><td align="right">840.33</td></tr>
+<tr class="sidebarText"><td>Reyhot</td><td>Qualification Set 2/10/11/19</td><td align="right">794.82</td></tr>
+<tr class="sidebarText"><td>rgrig</td><td>Qualification Set 5/8/12/20</td><td align="right">818.31</td></tr>
+<tr class="sidebarText"><td>rinoavd</td><td>Qualification Set 1/7/13/18</td><td align="right">709.43</td></tr>
+<tr class="sidebarText"><td>riveria</td><td>Qualification Set 3/9/14/16</td><td align="right">733.17</td></tr>
+<tr class="sidebarText"><td>rlp</td><td>Qualification Set 1/7/13/18</td><td align="right">696.01</td></tr>
+<tr class="sidebarText"><td>RobertDonald</td><td>Qualification Set 2/10/11/19</td><td align="right">665.87</td></tr>
+<tr class="sidebarText"><td>rolfkvinge</td><td>Qualification Set 5/8/12/20</td><td align="right">830.58</td></tr>
+<tr class="sidebarText"><td>romkatv</td><td>Qualification Set 3/9/14/16</td><td align="right">630.15</td></tr>
+<tr class="sidebarText"><td>rotoZOOM</td><td>Qualification Set 4/6/15/17</td><td align="right">761.04</td></tr>
+<tr class="sidebarText"><td>Rounder</td><td>Qualification Set 3/9/14/16</td><td align="right">734.07</td></tr>
+<tr class="sidebarText"><td>royappa</td><td>Qualification Set 5/8/12/20</td><td align="right">783.58</td></tr>
+<tr class="sidebarText"><td>rsasanka</td><td>Qualification Set 3/9/14/16</td><td align="right">699.68</td></tr>
+<tr class="sidebarText"><td>RunningWild</td><td>Qualification Set 5/8/12/20</td><td align="right">853.10</td></tr>
+<tr class="sidebarText"><td>Ryan</td><td>Qualification Set 2/10/11/19</td><td align="right">814.12</td></tr>
+<tr class="sidebarText"><td>ryanprichard</td><td>Qualification Set 3/9/14/16</td><td align="right">616.42</td></tr>
+<tr class="sidebarText"><td>s_senthil_kumar</td><td>Qualification Set 5/8/12/20</td><td align="right">771.96</td></tr>
+<tr class="sidebarText"><td>sabbir_yousuf</td><td>Qualification Set 2/10/11/19</td><td align="right">759.62</td></tr>
+<tr class="sidebarText"><td>sargentm</td><td>Qualification Set 2/10/11/19</td><td align="right">660.99</td></tr>
+<tr class="sidebarText"><td>Satka5</td><td>Qualification Set 1/7/13/18</td><td align="right">811.49</td></tr>
+<tr class="sidebarText"><td>Savior</td><td>Qualification Set 3/9/14/16</td><td align="right">828.27</td></tr>
+<tr class="sidebarText"><td>sean_henderson</td><td>Qualification Set 3/9/14/16</td><td align="right">840.10</td></tr>
+<tr class="sidebarText"><td>SeniorSanchez</td><td>Qualification Set 5/8/12/20</td><td align="right">804.79</td></tr>
+<tr class="sidebarText"><td>sephiroth79</td><td>Qualification Set 4/6/15/17</td><td align="right">689.65</td></tr>
+<tr class="sidebarText"><td>sghao126</td><td>Qualification Set 5/8/12/20</td><td align="right">815.32</td></tr>
+<tr class="sidebarText"><td>sh_maestro</td><td>Qualification Set 2/10/11/19</td><td align="right">626.52</td></tr>
+<tr class="sidebarText"><td>sheiech</td><td>Qualification Set 3/9/14/16</td><td align="right">635.74</td></tr>
+<tr class="sidebarText"><td>shinya</td><td>Qualification Set 4/6/15/17</td><td align="right">728.70</td></tr>
+<tr class="sidebarText"><td>shira</td><td>Qualification Set 3/9/14/16</td><td align="right">615.05</td></tr>
+<tr class="sidebarText"><td>shuvovse</td><td>Qualification Set 1/7/13/18</td><td align="right">587.69</td></tr>
+<tr class="sidebarText"><td>silversea</td><td>Qualification Set 2/10/11/19</td><td align="right">732.49</td></tr>
+<tr class="sidebarText"><td>sjelkjd</td><td>Qualification Set 4/6/15/17</td><td align="right">915.34</td></tr>
+<tr class="sidebarText"><td>skanthak</td><td>Qualification Set 3/9/14/16</td><td align="right">832.28</td></tr>
+<tr class="sidebarText"><td>smartgirl</td><td>Qualification Set 4/6/15/17</td><td align="right">832.89</td></tr>
+<tr class="sidebarText"><td>smell</td><td>Qualification Set 4/6/15/17</td><td align="right">858.95</td></tr>
+<tr class="sidebarText"><td>smile2ka10</td><td>Qualification Set 1/7/13/18</td><td align="right">617.20</td></tr>
+<tr class="sidebarText"><td>SmileyGirl256</td><td>Qualification Set 1/7/13/18</td><td align="right">717.35</td></tr>
+<tr class="sidebarText"><td>SnapDragon</td><td>Qualification Set 1/7/13/18</td><td align="right">885.24</td></tr>
+<tr class="sidebarText"><td>snewman</td><td>Qualification Set 1/7/13/18</td><td align="right">805.52</td></tr>
+<tr class="sidebarText"><td>Sord</td><td>Qualification Set 2/10/11/19</td><td align="right">600.26</td></tr>
+<tr class="sidebarText"><td>soul-net</td><td>Qualification Set 2/10/11/19</td><td align="right">727.28</td></tr>
+<tr class="sidebarText"><td>Soultaker</td><td>Qualification Set 3/9/14/16</td><td align="right">810.11</td></tr>
+<tr class="sidebarText"><td>space</td><td>Qualification Set 5/8/12/20</td><td align="right">773.59</td></tr>
+<tr class="sidebarText"><td>Sparrow</td><td>Qualification Set 3/9/14/16</td><td align="right">740.43</td></tr>
+<tr class="sidebarText"><td>Sputnik</td><td>Qualification Set 4/6/15/17</td><td align="right">849.54</td></tr>
+<tr class="sidebarText"><td>sql_lall</td><td>Qualification Set 1/7/13/18</td><td align="right">874.49</td></tr>
+<tr class="sidebarText"><td>sriramonly</td><td>Qualification Set 3/9/14/16</td><td align="right">894.48</td></tr>
+<tr class="sidebarText"><td>ssancho2</td><td>Qualification Set 4/6/15/17</td><td align="right">790.82</td></tr>
+<tr class="sidebarText"><td>starwiz</td><td>Qualification Set 3/9/14/16</td><td align="right">667.07</td></tr>
+<tr class="sidebarText"><td>StefanPochmann</td><td>Qualification Set 2/10/11/19</td><td align="right">658.32</td></tr>
+<tr class="sidebarText"><td>steffenp</td><td>Qualification Set 5/8/12/20</td><td align="right">743.76</td></tr>
+<tr class="sidebarText"><td>stevemm81</td><td>Qualification Set 4/6/15/17</td><td align="right">747.07</td></tr>
+<tr class="sidebarText"><td>sumintong98</td><td>Qualification Set 2/10/11/19</td><td align="right">747.76</td></tr>
+<tr class="sidebarText"><td>super_killer</td><td>Qualification Set 1/7/13/18</td><td align="right">866.85</td></tr>
+<tr class="sidebarText"><td>superjoel</td><td>Qualification Set 3/9/14/16</td><td align="right">706.23</td></tr>
+<tr class="sidebarText"><td>SuperRaskao</td><td>Qualification Set 1/7/13/18</td><td align="right">761.73</td></tr>
+<tr class="sidebarText"><td>swelef</td><td>Qualification Set 1/7/13/18</td><td align="right">626.00</td></tr>
+<tr class="sidebarText"><td>Swetko</td><td>Qualification Set 1/7/13/18</td><td align="right">716.22</td></tr>
+<tr class="sidebarText"><td>szd714</td><td>Qualification Set 2/10/11/19</td><td align="right">785.22</td></tr>
+<tr class="sidebarText"><td>szymcio</td><td>Qualification Set 3/9/14/16</td><td align="right">797.90</td></tr>
+<tr class="sidebarText"><td>t.dobek</td><td>Qualification Set 1/7/13/18</td><td align="right">586.78</td></tr>
+<tr class="sidebarText"><td>T.Friedrich</td><td>Qualification Set 5/8/12/20</td><td align="right">745.68</td></tr>
+<tr class="sidebarText"><td>tartanfirebird</td><td>Qualification Set 4/6/15/17</td><td align="right">754.30</td></tr>
+<tr class="sidebarText"><td>tck</td><td>Qualification Set 2/10/11/19</td><td align="right">631.97</td></tr>
+<tr class="sidebarText"><td>tdeepakmanohar</td><td>Qualification Set 1/7/13/18</td><td align="right">685.92</td></tr>
+<tr class="sidebarText"><td>TekGoNos</td><td>Qualification Set 4/6/15/17</td><td align="right">733.59</td></tr>
+<tr class="sidebarText"><td>texel</td><td>Qualification Set 2/10/11/19</td><td align="right">670.56</td></tr>
+<tr class="sidebarText"><td>tgu</td><td>Qualification Set 2/10/11/19</td><td align="right">701.50</td></tr>
+<tr class="sidebarText"><td>the_one_smiley</td><td>Qualification Set 3/9/14/16</td><td align="right">647.24</td></tr>
+<tr class="sidebarText"><td>Thief911</td><td>Qualification Set 3/9/14/16</td><td align="right">738.01</td></tr>
+<tr class="sidebarText"><td>tilps_kilm</td><td>Qualification Set 3/9/14/16</td><td align="right">810.24</td></tr>
+<tr class="sidebarText"><td>timmac</td><td>Qualification Set 2/10/11/19</td><td align="right">766.31</td></tr>
+<tr class="sidebarText"><td>tjlandy</td><td>Qualification Set 4/6/15/17</td><td align="right">741.71</td></tr>
+<tr class="sidebarText"><td>tjq</td><td>Qualification Set 3/9/14/16</td><td align="right">774.37</td></tr>
+<tr class="sidebarText"><td>tmyklebu</td><td>Qualification Set 5/8/12/20</td><td align="right">887.49</td></tr>
+<tr class="sidebarText"><td>Toivoa</td><td>Qualification Set 4/6/15/17</td><td align="right">697.91</td></tr>
+<tr class="sidebarText"><td>tomek2</td><td>Qualification Set 2/10/11/19</td><td align="right">621.32</td></tr>
+<tr class="sidebarText"><td>Tomy</td><td>Qualification Set 2/10/11/19</td><td align="right">902.74</td></tr>
+<tr class="sidebarText"><td>toschek</td><td>Qualification Set 1/7/13/18</td><td align="right">597.26</td></tr>
+<tr class="sidebarText"><td>tosomjafakt</td><td>Qualification Set 1/7/13/18</td><td align="right">837.37</td></tr>
+<tr class="sidebarText"><td>TPCoder</td><td>Qualification Set 4/6/15/17</td><td align="right">716.91</td></tr>
+<tr class="sidebarText"><td>traugust</td><td>Qualification Set 3/9/14/16</td><td align="right">634.14</td></tr>
+<tr class="sidebarText"><td>trinidad</td><td>Qualification Set 5/8/12/20</td><td align="right">758.80</td></tr>
+<tr class="sidebarText"><td>TriPhoenix</td><td>Qualification Set 1/7/13/18</td><td align="right">716.57</td></tr>
+<tr class="sidebarText"><td>turuthok</td><td>Qualification Set 2/10/11/19</td><td align="right">708.79</td></tr>
+<tr class="sidebarText"><td>UFP2161</td><td>Qualification Set 5/8/12/20</td><td align="right">785.70</td></tr>
+<tr class="sidebarText"><td>Ulan</td><td>Qualification Set 3/9/14/16</td><td align="right">825.33</td></tr>
+<tr class="sidebarText"><td>unChabonSerio</td><td>Qualification Set 1/7/13/18</td><td align="right">845.45</td></tr>
+<tr class="sidebarText"><td>userundefined</td><td>Qualification Set 1/7/13/18</td><td align="right">588.57</td></tr>
+<tr class="sidebarText"><td>vad2</td><td>Qualification Set 3/9/14/16</td><td align="right">683.07</td></tr>
+<tr class="sidebarText"><td>vavadera</td><td>Qualification Set 1/7/13/18</td><td align="right">594.01</td></tr>
+<tr class="sidebarText"><td>vdave</td><td>Qualification Set 3/9/14/16</td><td align="right">739.18</td></tr>
+<tr class="sidebarText"><td>vdovichenkoVP</td><td>Qualification Set 1/7/13/18</td><td align="right">635.09</td></tr>
+<tr class="sidebarText"><td>Vedensky</td><td>Qualification Set 5/8/12/20</td><td align="right">761.40</td></tr>
+<tr class="sidebarText"><td>venco</td><td>Qualification Set 2/10/11/19</td><td align="right">899.48</td></tr>
+<tr class="sidebarText"><td>vineet_chugh</td><td>Qualification Set 4/6/15/17</td><td align="right">873.86</td></tr>
+<tr class="sidebarText"><td>vinod.kone</td><td>Qualification Set 3/9/14/16</td><td align="right">636.87</td></tr>
+<tr class="sidebarText"><td>Vintik</td><td>Qualification Set 2/10/11/19</td><td align="right">675.32</td></tr>
+<tr class="sidebarText"><td>vip1711</td><td>Qualification Set 4/6/15/17</td><td align="right">732.19</td></tr>
+<tr class="sidebarText"><td>visualage</td><td>Qualification Set 1/7/13/18</td><td align="right">710.14</td></tr>
+<tr class="sidebarText"><td>vividmxx</td><td>Qualification Set 5/8/12/20</td><td align="right">811.93</td></tr>
+<tr class="sidebarText"><td>vkirub</td><td>Qualification Set 4/6/15/17</td><td align="right">686.22</td></tr>
+<tr class="sidebarText"><td>Voldemort</td><td>Qualification Set 3/9/14/16</td><td align="right">633.46</td></tr>
+<tr class="sidebarText"><td>Vytenis</td><td>Qualification Set 2/10/11/19</td><td align="right">667.83</td></tr>
+<tr class="sidebarText"><td>wackes</td><td>Qualification Set 4/6/15/17</td><td align="right">739.55</td></tr>
+<tr class="sidebarText"><td>Wallner</td><td>Qualification Set 4/6/15/17</td><td align="right">740.34</td></tr>
+<tr class="sidebarText"><td>warmingup</td><td>Qualification Set 5/8/12/20</td><td align="right">826.15</td></tr>
+<tr class="sidebarText"><td>Wasteland</td><td>Qualification Set 4/6/15/17</td><td align="right">815.32</td></tr>
+<tr class="sidebarText"><td>weimashizhu</td><td>Qualification Set 3/9/14/16</td><td align="right">698.65</td></tr>
+<tr class="sidebarText"><td>Wernie</td><td>Qualification Set 4/6/15/17</td><td align="right">729.71</td></tr>
+<tr class="sidebarText"><td>wleite</td><td>Qualification Set 1/7/13/18</td><td align="right">808.62</td></tr>
+<tr class="sidebarText"><td>Wojtek</td><td>Qualification Set 5/8/12/20</td><td align="right">805.13</td></tr>
+<tr class="sidebarText"><td>wout</td><td>Qualification Set 4/6/15/17</td><td align="right">680.94</td></tr>
+<tr class="sidebarText"><td>Wronkyn</td><td>Qualification Set 3/9/14/16</td><td align="right">708.44</td></tr>
+<tr class="sidebarText"><td>wstfgl</td><td>Qualification Set 2/10/11/19</td><td align="right">723.54</td></tr>
+<tr class="sidebarText"><td>WSX</td><td>Qualification Set 1/7/13/18</td><td align="right">734.57</td></tr>
+<tr class="sidebarText"><td>xaronik</td><td>Qualification Set 4/6/15/17</td><td align="right">699.55</td></tr>
+<tr class="sidebarText"><td>xibufeiche</td><td>Qualification Set 1/7/13/18</td><td align="right">824.27</td></tr>
+<tr class="sidebarText"><td>xihu24</td><td>Qualification Set 2/10/11/19</td><td align="right">596.47</td></tr>
+<tr class="sidebarText"><td>xnitin</td><td>Qualification Set 5/8/12/20</td><td align="right">800.12</td></tr>
+<tr class="sidebarText"><td>xs0</td><td>Qualification Set 4/6/15/17</td><td align="right">918.73</td></tr>
+<tr class="sidebarText"><td>XuChuan</td><td>Qualification Set 4/6/15/17</td><td align="right">837.07</td></tr>
+<tr class="sidebarText"><td>xuezaiyue</td><td>Qualification Set 3/9/14/16</td><td align="right">668.29</td></tr>
+<tr class="sidebarText"><td>yantaiapple</td><td>Qualification Set 4/6/15/17</td><td align="right">816.16</td></tr>
+<tr class="sidebarText"><td>yaojian518</td><td>Qualification Set 3/9/14/16</td><td align="right">655.19</td></tr>
+<tr class="sidebarText"><td>Yarin</td><td>Qualification Set 3/9/14/16</td><td align="right">812.90</td></tr>
+<tr class="sidebarText"><td>yimingsoftware</td><td>Qualification Set 5/8/12/20</td><td align="right">913.90</td></tr>
+<tr class="sidebarText"><td>yoho</td><td>Qualification Set 4/6/15/17</td><td align="right">745.41</td></tr>
+<tr class="sidebarText"><td>yubgi006</td><td>Qualification Set 3/9/14/16</td><td align="right">737.17</td></tr>
+<tr class="sidebarText"><td>yuku</td><td>Qualification Set 2/10/11/19</td><td align="right">590.89</td></tr>
+<tr class="sidebarText"><td>yuvalsapir</td><td>Qualification Set 2/10/11/19</td><td align="right">661.10</td></tr>
+<tr class="sidebarText"><td>YZF</td><td>Qualification Set 1/7/13/18</td><td align="right">725.91</td></tr>
+<tr class="sidebarText"><td>ZarkT</td><td>Qualification Set 2/10/11/19</td><td align="right">742.75</td></tr>
+<tr class="sidebarText"><td>zbogi</td><td>Qualification Set 4/6/15/17</td><td align="right">717.80</td></tr>
+<tr class="sidebarText"><td>zhliu</td><td>Qualification Set 3/9/14/16</td><td align="right">755.88</td></tr>
+<tr class="sidebarText"><td>zig2</td><td>Qualification Set 2/10/11/19</td><td align="right">828.54</td></tr>
+<tr class="sidebarText"><td>Zis</td><td>Qualification Set 5/8/12/20</td><td align="right">862.57</td></tr>
+<tr class="sidebarText"><td>zjq</td><td>Qualification Set 3/9/14/16</td><td align="right">807.68</td></tr>
+<tr class="sidebarText"><td>zonugata</td><td>Qualification Set 1/7/13/18</td><td align="right">639.07</td></tr>
+<tr class="sidebarText"><td>zuzic</td><td>Qualification Set 2/10/11/19</td><td align="right">818.89</td></tr>
+<tr class="sidebarText"><td>{dano}</td><td>Qualification Set 3/9/14/16</td><td align="right">657.05</td></tr>
+         </table>
 
-			</table>
 
-
-			<br/><br/>
-			To find out more detailed information about the Google Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google05&d2=rules">Terms and Conditions</a>.
-			</div>
-		</td>
-		<td width="49%">&#160;</td>
-	<tr>
+         <br><br>
+         To find out more detailed information about the Google Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google05&d2=rules">Terms and Conditions</a>.
+         </div>
+      </td>
+      <td width="49%">&#160;</td>
+   <tr>
 </table>
 <jsp:include page="foot.jsp" />
 </body>
