@@ -42,13 +42,13 @@ public class ScorecardDetails extends Base {
 
             r.setContentHandle("get_scorecard");
             r.setProperty("pj", projectId);
-            r.setProperty("cr", userId);  // FIX ok?
+            r.setProperty("cr", userId);
 
             ResultSetContainer rscScorecard = null;
 
             if (reviewerId == null) {
                 // screening
-                r.setProperty("??", reviewerId); // FIX
+                r.setProperty("rw", reviewerId);
 
                 rscScorecard = (ResultSetContainer) getDataAccess(true).getData(r).get("get_review_scorecard");
 
@@ -62,8 +62,8 @@ public class ScorecardDetails extends Base {
 
             r = new Request();
             r.setContentHandle("scorecard_details");
-            r.setProperty("", scorecardId); // FIX
-            r.setProperty("", scorecardTemplateId); // FIX
+            r.setProperty("scr", scorecardId);
+            r.setProperty("scrt", scorecardTemplateId);
 
             Map result = getDataAccess(true).getData(r);
 
@@ -88,14 +88,14 @@ public class ScorecardDetails extends Base {
 select scorecard_id, scorecard_template_id
 from submission_screening
 where project_id = @pj@
-and user_id = @FIX@
+and user_id = @cr@
 
 > query get_screening_scorecard
 select scorecard_id, scorecard_template_id
 from submission_review
 where project_id = @pj@
-and user_id = @FIX@
-and reviewer_id = @FIX@
+and user_id = @cr@
+and reviewer_id = @rw@
 
 - COMMAND scorecard_details
 query scorecard_details
