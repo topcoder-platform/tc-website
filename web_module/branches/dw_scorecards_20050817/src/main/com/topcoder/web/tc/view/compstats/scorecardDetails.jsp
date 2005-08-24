@@ -74,7 +74,7 @@
         lastQuestion = resultRow.getStringItem("question_desc");
 %>
     <tr>
-    <td class="projectHeaders" nowrap="false">
+    <td class="projectCells" color="#808080">
         <rsc:item name="question_desc" row="<%=resultRow%>"/> <rsc:item name="question_text" row="<%=resultRow%>"/>
     </td>
     <td class="projectCells">
