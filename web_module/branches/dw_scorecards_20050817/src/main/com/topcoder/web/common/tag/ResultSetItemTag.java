@@ -1,7 +1,7 @@
 package com.topcoder.web.common.tag;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-
+import com.topcoder.web.common.StringUtils
 import javax.servlet.jsp.JspException;
 
 public class ResultSetItemTag extends FormatTag {
@@ -40,9 +40,17 @@ public class ResultSetItemTag extends FormatTag {
 
     public int doStartTag() throws JspException {
         if (row == null) {
-            setObject(set.getItem(rowIndex, name).getResultData());
+            if (escapeHTML) {
+                setObject(StringUtils.htmlEncode((String) set.getItem(rowIndex, name).getResultData()));
+            } else {
+                setObject(set.getItem(rowIndex, name).getResultData());
+            }
         } else {
-            setObject(row.getItem(name).getResultData());
+            if (escapeHTML) {
+                setObject(StringUtils.htmlEncode((String) set.getItem(name).getResultData()));
+            } else {
+                setObject(row.getItem(name).getResultData());
+            }
         }
         return super.doStartTag();
     }
