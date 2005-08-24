@@ -10,6 +10,7 @@ public class ResultSetItemTag extends FormatTag {
     private ResultSetContainer set;
     private String name;
     private int rowIndex = 0;   //default to the first row
+    private boolean escapeHTML;
 
     protected String getTimeZone() {
         ResultSetContainer.ResultSetRow row = this.row == null ? set.getRow(rowIndex) : this.row;
@@ -31,6 +32,11 @@ public class ResultSetItemTag extends FormatTag {
 
     public void setRowIndex(int rowIndex) {
         this.rowIndex = rowIndex;
+    }
+
+    public void setEscapeHtml(boolean escapeHTML) {
+        this.escapeHTML = escapeHTML;
+        log.debug("set escape to " + escapeHTML);
     }
 
     public int doStartTag() throws JspException {
