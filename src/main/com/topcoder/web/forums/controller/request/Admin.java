@@ -45,8 +45,8 @@ public class Admin extends ForumsProcessor {
         
         log.info(user.getUsername() + " has accessed the admin tool.");
         
-        InitialContext ctx = TCContext.getInitial();
-        ContestAdminServices adminBean = (ContestAdminServices)createEJB(ctx, ContestAdminServices.class);
+        //InitialContext ctx = TCContext.getInitial();
+        //ContestAdminServices adminBean = (ContestAdminServices)createEJB(ctx, ContestAdminServices.class);
         
         // process command
         String command = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ADMIN_COMMAND));
@@ -56,8 +56,8 @@ public class Admin extends ForumsProcessor {
         } else if (command.equals(ForumConstants.ADMIN_COMMAND_ADD_CONTEST)) {
         }
         
-        ArrayList contestList = adminBean.getContestList();
-        getRequest().setAttribute("contestList", contestList);
+        //ArrayList contestList = adminBean.getContestList();
+        //getRequest().setAttribute("contestList", contestList);
 
         setNextPage("/admin.jsp");
         setIsNextPageInContext(true);
