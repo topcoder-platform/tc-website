@@ -29,7 +29,7 @@ import java.util.Map;
  */
 public class ScorecardDetails extends Base {
 
-    private void checkCompleted(String projId) throws TCWebException {
+    private void checkCompleted(String projId) throws Exception {
 
             Request r = new Request();
             r.setContentHandle("check_project_completed");
