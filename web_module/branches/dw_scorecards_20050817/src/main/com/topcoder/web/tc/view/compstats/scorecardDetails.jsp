@@ -72,7 +72,7 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
         lastSection = resultRow.getStringItem("section_desc");
 %>
     <tr>
-        <td class="projectTitles" colspan="3"><rsc:item name="section_desc" row="<%=resultRow%>"/> </td>
+        <td class="projectTitles" colspan="3">(<rsc:item name="section_weight" row="<%=resultRow%>"/>) <rsc:item name="section_desc" row="<%=resultRow%>"/> </td>
     </tr>
 
 
@@ -84,6 +84,7 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
 %>
     <tr>
     <td class="projectCells" color="#808080">
+        (<rsc:item name="question_weight" row="<%=resultRow%>"/>)
         <rsc:item name="question_desc" row="<%=resultRow%>"/> <rsc:item name="question_text" row="<%=resultRow%>"/>
     </td>
     <td class="projectCells">
