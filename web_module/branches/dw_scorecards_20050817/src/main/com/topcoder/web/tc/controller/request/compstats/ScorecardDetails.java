@@ -28,23 +28,6 @@ import java.util.Map;
  * @author cucu
  */
 public class ScorecardDetails extends Base {
-/*
-    private void checkCompleted(String projId) throws Exception {
-
-            Request r = new Request();
-            r.setContentHandle("check_project_completed");
-
-            r.setProperty("pj", projId);
-
-            Map result = getDataAccess(true).getData(r);
-
-            ResultSetContainer rsc = (ResultSetContainer) result.get("check_project_completed");
-            if (rsc.getIntItem(0, "is_completed") != 1)  {
-                 throw new TCWebException("The project is not finished");
-            }
-        }
-
-*/
     protected void businessProcessing() throws TCWebException {
         try {
             Request r = new Request();
@@ -52,8 +35,6 @@ public class ScorecardDetails extends Base {
             String projectId = StringUtils.checkNull(getRequest().getParameter("pj"));
             String userId = StringUtils.checkNull(getRequest().getParameter("uid"));
             String reviewerId = getRequest().getParameter("rid");
-
-//            checkCompleted(projectId);
 
             r.setContentHandle("get_scorecard");
             r.setProperty("pj", projectId);
