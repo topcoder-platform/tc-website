@@ -83,8 +83,8 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
 %>
     <tr>
     <td class="projectCells" color="#808080">
-        (<rsc:item name="question_weight" row="<%=resultRow%>" escapeHtml="true"  />)
-        <rsc:item name="question_desc" row="<%=resultRow%>"/> <rsc:item name="question_text" row="<%=resultRow%>"/>
+        (<rsc:item name="question_weight" row="<%=resultRow%>"/>)
+        <rsc:item name="question_desc" row="<%=resultRow%>"/> <rsc:item name="question_text" row="<%=resultRow%>" escapeHtml="true" />
     </td>
     <td class="projectCells">
         <% if (resultRow.getStringItem("num_tests") == null) { %>
