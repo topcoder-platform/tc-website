@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.common.BaseProcessor,
-         		 com.topcoder.web.forums.ForumConstants,
+                com.topcoder.web.forums.ForumConstants,
                  com.jivesoftware.forum.Query,
                  com.jivesoftware.util.StringUtils,
                  java.util.*"

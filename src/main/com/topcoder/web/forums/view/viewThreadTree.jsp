@@ -1,17 +1,17 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
-				 com.topcoder.web.common.BaseProcessor,
-         		 com.topcoder.web.forums.ForumConstants,
+             com.topcoder.web.common.BaseProcessor,
+                com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
-         		 com.topcoder.web.common.StringUtils,
-         		 com.jivesoftware.base.User,
+                com.topcoder.web.common.StringUtils,
+                com.jivesoftware.base.User,
                  com.jivesoftware.base.JiveConstants,
-         		 com.jivesoftware.forum.action.util.Page,
+                com.jivesoftware.forum.action.util.Page,
                  com.jivesoftware.forum.ForumMessage,
-         		 com.jivesoftware.forum.WatchManager,
-				 com.jivesoftware.forum.Watch,
+                com.jivesoftware.forum.WatchManager,
+             com.jivesoftware.forum.Watch,
                  com.jivesoftware.forum.ForumThread,
                  com.jivesoftware.forum.ReadTracker,
-         		 java.util.*,
+                java.util.*,
                  com.topcoder.shared.util.DBMS"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
@@ -25,9 +25,9 @@
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 <tc-webtag:useBean id="historyBean" name="historyBean" type="com.topcoder.web.ejb.messagehistory.MessageHistory" toScope="request"/>
 
-<%	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
-	User user = (User)request.getAttribute("user");
-	String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW));
+<%   HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
+   User user = (User)request.getAttribute("user");
+   String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW));
     ReadTracker readTracker = forumFactory.getReadTracker();
     ForumThread nextThread = (ForumThread)request.getAttribute("nextThread");
     ForumThread prevThread = (ForumThread)request.getAttribute("prevThread");
@@ -39,12 +39,12 @@
     String watchMessage = "";
     WatchManager watchManager = forumFactory.getWatchManager();
     if (!authToken.isAnonymous() && watchManager.isWatched(user, thread)) {
-    	Watch watch = watchManager.getWatch(user, thread);
-    	watchMessage = "Stop Watching Thread";
+       Watch watch = watchManager.getWatch(user, thread);
+       watchMessage = "Stop Watching Thread";
         cmd = "remove";
     } else {
         watchMessage = "Watch Thread";
-    	cmd = "add";
+       cmd = "add";
     } %>
 
 <html>
@@ -66,12 +66,12 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-		<td width="180">
-			<jsp:include page="includes/global_left.jsp">
-				<jsp:param name="level1" value="forums"/>
-				<jsp:param name="level2" value=""/>
-			</jsp:include>
-		</td>
+      <td width="180">
+         <jsp:include page="includes/global_left.jsp">
+            <jsp:param name="level1" value="forums"/>
+            <jsp:param name="level2" value=""/>
+         </jsp:include>
+      </td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
@@ -99,7 +99,7 @@
 </tr>
 
 <tr><td><b><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>
-	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >>
+   <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >>
    <jsp:getProperty name="thread" property="name"/></b>
    <%   if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br>
         <% if (prevThread != null) { %>
@@ -124,7 +124,7 @@
 <%-------------ACTIVE POST---------------%>
 <table cellpadding="0" cellspacing="0" class="rtTable">
    <tr>
-	   <td class="rtHeader" colspan="2">
+      <td class="rtHeader" colspan="2">
          <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
             <%  int editCount = historyBean.getEditCount(activeMessage.getID(), DBMS.FORUMS_DATASOURCE_NAME);
             if (editCount == 1) { %> 
@@ -166,29 +166,29 @@
         <td class="rtHeader">Author</td>
         <td class="rtHeader">Date</td>
     </tr>
-	<tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
-	<tr>
-		<td class="rtThreadCellWrap">
-		<%  boolean active = message.getID() == activeMessage.getID();
-			int depth=thread.getTreeWalker().getMessageDepth(message);
-			int width=Math.min(depth*10, 500);
-		if (depth > 0) { %><img src="/images/clear.gif" width="<%=width%>" height="1"/><% } %>
-		<% if (active) { %>
-			<b><A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink"><jsp:getProperty name="message" property="subject"/></A></b></td>
-		<% } else { %>
-			<A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink"><jsp:getProperty name="message" property="subject"/></A></td>
-		<% } %>
-      	<td class="rtThreadCell"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
-      	<td class="rtThreadCell"><strong><tc-webtag:beanWrite name="message" property="creationDate" format="MMM d, yyyy 'at' h:mm a z"/></strong></td>
+   <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
+   <tr>
+      <td class="rtThreadCellWrap">
+      <%  boolean active = message.getID() == activeMessage.getID();
+         int depth=thread.getTreeWalker().getMessageDepth(message);
+         int width=Math.min(depth*10, 500);
+      if (depth > 0) { %><img src="/images/clear.gif" width="<%=width%>" height="1"/><% } %>
+      <% if (active) { %>
+         <b><A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink"><jsp:getProperty name="message" property="subject"/></A></b></td>
+      <% } else { %>
+         <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink"><jsp:getProperty name="message" property="subject"/></A></td>
+      <% } %>
+         <td class="rtThreadCell"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></td>
+         <td class="rtThreadCell"><strong><tc-webtag:beanWrite name="message" property="creationDate" format="MMM d, yyyy 'at' h:mm a z"/></strong></td>
     </tr>
-	</tc-webtag:iterator>
+   </tc-webtag:iterator>
 </table>
 <%-------------POSTS END---------------%>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr><td><b><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>
-	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >>
-	<jsp:getProperty name="thread" property="name"/></b>
+   <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >>
+   <jsp:getProperty name="thread" property="name"/></b>
    <%   if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br>
         <% if (prevThread != null) { %>
             <%  prevPost = ForumsUtil.getLatestMessage(prevThread); 

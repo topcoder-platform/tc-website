@@ -1,10 +1,10 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
-				 com.topcoder.web.common.BaseProcessor,
-         		 com.topcoder.web.forums.ForumConstants,
+             com.topcoder.web.common.BaseProcessor,
+                com.topcoder.web.forums.ForumConstants,
                  com.jivesoftware.forum.action.util.Paginator,
                  com.jivesoftware.forum.Query,
                  com.jivesoftware.util.StringUtils,
-         		 java.util.*,
+                java.util.*,
                  java.text.SimpleDateFormat"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
@@ -13,7 +13,7 @@
 <tc-webtag:useBean id="dates" name="dates" type="java.util.HashMap" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
-<%	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
+<%   HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
     Paginator paginator = (Paginator)request.getAttribute("paginator");
     Query query = (Query)request.getAttribute("query");
     String searchScope = (String)request.getAttribute("searchScope");

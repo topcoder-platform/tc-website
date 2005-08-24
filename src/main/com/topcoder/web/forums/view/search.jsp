@@ -1,11 +1,11 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
-				 com.topcoder.web.common.BaseProcessor,
-         		 com.topcoder.web.forums.ForumConstants,
+             com.topcoder.web.common.BaseProcessor,
+                com.topcoder.web.forums.ForumConstants,
                  com.jivesoftware.base.User,
                  com.jivesoftware.forum.action.util.Paginator,
                  com.jivesoftware.forum.Query,
                  com.jivesoftware.util.StringUtils,
-         		 java.util.*,
+                java.util.*,
                  java.text.SimpleDateFormat"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
@@ -15,7 +15,7 @@
 <tc-webtag:useBean id="dates" name="dates" type="java.util.HashMap" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
-<%	User user = (User)request.getAttribute("user");
+<%   User user = (User)request.getAttribute("user");
     HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
     Paginator paginator = (Paginator)request.getAttribute("paginator");
     Query query = (Query)request.getAttribute("query");
@@ -114,12 +114,12 @@ function noenter(e)
         <option value="<%=categoryValue%>"><jsp:getProperty name="category" property="name"/></option>
     <%  } %>
     <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=category.getForums()%>'>
-	<%  String forumValue = "f" + forum.getID();
-	    if (searchScope != null && searchScope.equals(forumValue)) { %>
-	        <option value="<%=forumValue%>" selected>&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
-	    <%  } else { %>
-	        <option value="<%=forumValue%>">&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
-	    <%  } %>
+   <%  String forumValue = "f" + forum.getID();
+       if (searchScope != null && searchScope.equals(forumValue)) { %>
+           <option value="<%=forumValue%>" selected>&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
+       <%  } else { %>
+           <option value="<%=forumValue%>">&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
+       <%  } %>
     </tc-webtag:iterator>
 </tc-webtag:iterator>
 </select>
@@ -158,15 +158,15 @@ function noenter(e)
       <td class="rtTextCell100">
 <select size="1" name="<%=ForumConstants.SEARCH_RESULT_SIZE%>" id="<%=ForumConstants.SEARCH_RESULT_SIZE%>">
 <%  int[] resultSizes = { 10, 20, 30, 50 };
-	for (int i=0; i<resultSizes.length; i++) {
-		if ((query != null && paginator.getPageable().getResultFilter().getNumResults() == resultSizes[i]) ||
+   for (int i=0; i<resultSizes.length; i++) {
+      if ((query != null && paginator.getPageable().getResultFilter().getNumResults() == resultSizes[i]) ||
             (query == null && (authToken.isAnonymous() || user.getProperty("jiveSearchRange") == null) && resultSizes[i] == ForumConstants.DEFAULT_SEARCH_RANGE) ||
             (query == null && user != null && user.getProperty("jiveSearchRange") != null && resultSizes[i] == Integer.parseInt(user.getProperty("jiveSearchRange")))) { %>
-			<option value="<%=resultSizes[i]%>" selected><%=resultSizes[i]%></option>
-	<%	} else { %>
-			<option value="<%=resultSizes[i]%>"><%=resultSizes[i]%></option>
-	<%	}
-	} %>
+         <option value="<%=resultSizes[i]%>" selected><%=resultSizes[i]%></option>
+   <%   } else { %>
+         <option value="<%=resultSizes[i]%>"><%=resultSizes[i]%></option>
+   <%   }
+   } %>
 </select>
       </td>
    </tr>

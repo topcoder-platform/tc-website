@@ -1,10 +1,10 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
-				 com.topcoder.web.common.BaseProcessor,
-         		 com.topcoder.web.forums.ForumConstants,
-         		 com.jivesoftware.forum.stats.ViewCountManager,
-         		 com.jivesoftware.forum.ForumMessage,
-         		 com.jivesoftware.forum.ForumThread,
-         		 java.util.*,
+             com.topcoder.web.common.BaseProcessor,
+                com.topcoder.web.forums.ForumConstants,
+                com.jivesoftware.forum.stats.ViewCountManager,
+                com.jivesoftware.forum.ForumMessage,
+                com.jivesoftware.forum.ForumThread,
+                java.util.*,
                  com.topcoder.shared.util.DBMS"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
@@ -19,8 +19,8 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%  ForumMessage parentMessage = (ForumMessage)request.getAttribute("parentMessage");
-	ForumThread thread = (ForumThread)request.getAttribute("thread");
-	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
+   ForumThread thread = (ForumThread)request.getAttribute("thread");
+   HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
 
 <script type="text/javascript">
 function noenter(e)
@@ -99,20 +99,20 @@ function AllowTabCharacter() {
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
-	    <td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>
-			<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A>
-				<%	if (thread != null) { %>
-				>> <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="thread" property="name"/></A>
-				<%	} %>
-				>> <jsp:getProperty name="message" property="subject"/>
-	    </td>
-	    <!--<td align="right" class="rtbc"><a href="javascript:toggle('Options')" class="rtbcLink">Options</a></td>-->
+       <td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>
+         <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A>
+            <%   if (thread != null) { %>
+            >> <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="thread" property="name"/></A>
+            <%   } %>
+            >> <jsp:getProperty name="message" property="subject"/>
+       </td>
+       <!--<td align="right" class="rtbc"><a href="javascript:toggle('Options')" class="rtbcLink">Options</a></td>-->
     </tr>
 </table>
 <br/><div id="Options">Allowed tags: &lt;annot&gt;, &lt;a&gt;, &lt;abbr&gt;, &lt;acronym&gt;, &lt;blockquote&gt;, &lt;b&gt;, &lt;br&gt;, &lt;div&gt;, &lt;em&gt;, &lt;font&gt;, &lt;i&gt;, &lt;img&gt;, &lt;li&gt;, &lt;ol&gt;, &lt;p&gt;, &lt;pre&gt;, &lt;s&gt;, &lt;span&gt;, &lt;strike&gt;, &lt;sub&gt;, &lt;sup&gt;, &lt;strong&gt;, &lt;tt&gt;, &lt;u&gt;, &lt;ul&gt;. Syntax highlighting is applied to text within [code][/code], [cpp][/cpp], [java][/java], [c#][/c#], and [vb][/vb] blocks.</div>
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
-	<tr>
+   <tr>
         <td class="rtHeader" colspan="2">
             <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
                   <%  int editCount = historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME);
@@ -124,19 +124,19 @@ function AllowTabCharacter() {
                <a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="creationDate" format="MMM d, yyyy 'at' h:mm a z"/></a>
             </div>
             <jsp:getProperty name="message" property="subject"/>
-			<%	if (parentMessage != null) { %>
-					(response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=parentMessage.getID()%>" class="rtbcLink">post</A> by <tc-webtag:handle coderId="<%=parentMessage.getUser().getID()%>"/>)
-			<%	} %>
+         <%   if (parentMessage != null) { %>
+               (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=parentMessage.getID()%>" class="rtbcLink">post</A> by <tc-webtag:handle coderId="<%=parentMessage.getUser().getID()%>"/>)
+         <%   } %>
         </td>
     </tr>
-	<tr>
-	<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
-	<%  if (user.getProperty("imagePath") != null) { %>
-		<img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
-	<%  } %>
-	<span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=forumFactory.getUserMessageCount(user)%> posts</A></div></td>
-	<td class="rtTextCell100"><jsp:getProperty name="message" property="body"/></td>
-	</tr>
+   <tr>
+   <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
+   <%  if (user.getProperty("imagePath") != null) { %>
+      <img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
+   <%  } %>
+   <span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=forumFactory.getUserMessageCount(user)%> posts</A></div></td>
+   <td class="rtTextCell100"><jsp:getProperty name="message" property="body"/></td>
+   </tr>
 </table>
 
 <span class="bodySubtitle">Edit Message</span><br/>
@@ -151,7 +151,7 @@ function AllowTabCharacter() {
 <tr>
 <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
 <%  if (user.getProperty("imagePath") != null) { %>
-	<img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
+   <img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
 <%  } %>
 <tc-webtag:handle coderId="<%=user.getID()%>"/><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=forumFactory.getUserMessageCount(user)%> posts</A></div></td>
 <td class="rtTextCell100">

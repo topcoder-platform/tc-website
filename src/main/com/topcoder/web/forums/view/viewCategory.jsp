@@ -4,13 +4,13 @@
     response.setHeader( "Pragma", "no-cache" ); %>
 
 <%@ page import="com.topcoder.web.common.BaseServlet,
-         		 com.topcoder.web.forums.ForumConstants,
+                com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
                  com.jivesoftware.base.JiveConstants,
-         		 com.jivesoftware.base.User,
-         		 com.jivesoftware.forum.ResultFilter,
+                com.jivesoftware.base.User,
+                com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.ReadTracker,
-         		 java.util.Iterator,
+                java.util.Iterator,
                  java.util.Enumeration"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
