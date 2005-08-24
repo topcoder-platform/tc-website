@@ -36,7 +36,6 @@ public class ResultSetItemTag extends FormatTag {
 
     public void setEscapeHtml(boolean escapeHTML) {
         this.escapeHTML = escapeHTML;
-        log.debug("set escape to " + escapeHTML);
     }
 
     public int doStartTag() throws JspException {

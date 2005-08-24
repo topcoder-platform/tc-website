@@ -13,7 +13,6 @@ public class ResultSetItemTag extends TagSupport {
     private static Logger log = Logger.getLogger(ResultSetItemTag.class);
     private ResultSetContainer.ResultSetRow row;
     private String name;
-    private boolean escapeHTML;
 
     public void setRow(ResultSetContainer.ResultSetRow row) {
         this.row = row;
@@ -21,11 +20,6 @@ public class ResultSetItemTag extends TagSupport {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setEscapeHtml(String escape) {
-        this.escapeHTML = escape.equals("true");
-        log.debug("set escape to " + escapeHTML);
     }
 
     public int doStartTag() throws JspException {
