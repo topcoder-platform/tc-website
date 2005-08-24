@@ -53,12 +53,12 @@
          <td class="advancersRound" width="40%">Problem Set</td>
          <td class="advancersRound" width="30%" align="right">Score</td>
          </tr>
-
 <tr class="sidebarText"><td>_rev_</td><td>Qualification Set 5/8/12/20</td><td align="right">913.17</td></tr> 
 <tr class="sidebarText"><td>aaronike</td><td>Qualification Set 1/7/13/18</td><td align="right">602.82</td></tr>
 <tr class="sidebarText"><td>Abednego</td><td>Qualification Set 5/8/12/20</td><td align="right">790.89</td></tr>
 <tr class="sidebarText"><td>abiczo</td><td>Qualification Set 4/6/15/17</td><td align="right">848.22</td></tr>
 <tr class="sidebarText"><td>abstractwhiz</td><td>Qualification Set 1/7/13/18</td><td align="right">652.00</td></tr>
+<tr class="sidebarText"><td>accek</td><td>Qualification Set 5/8/12/20</td><td align="right">736.72</td></tr>
 <tr class="sidebarText"><td>achan1058</td><td>Qualification Set 5/8/12/20</td><td align="right">763.05</td></tr>
 <tr class="sidebarText"><td>achurch</td><td>Qualification Set 5/8/12/20</td><td align="right">813.94</td></tr>
 <tr class="sidebarText"><td>adic</td><td>Qualification Set 5/8/12/20</td><td align="right">792.88</td></tr>
@@ -371,7 +371,6 @@
 <tr class="sidebarText"><td>Optimus</td><td>Qualification Set 5/8/12/20</td><td align="right">740.78</td></tr>
 <tr class="sidebarText"><td>oracle_3000</td><td>Qualification Set 2/10/11/19</td><td align="right">680.68</td></tr>
 <tr class="sidebarText"><td>Osk</td><td>Qualification Set 1/7/13/18</td><td align="right">628.99</td></tr>
-<tr class="sidebarText"><td>oumapathy2</td><td>Qualification Set 5/8/12/20</td><td align="right">956.26</td></tr>
 <tr class="sidebarText"><td>OvejaCarnivora</td><td>Qualification Set 1/7/13/18</td><td align="right">587.81</td></tr>
 <tr class="sidebarText"><td>overwise</td><td>Qualification Set 4/6/15/17</td><td align="right">883.51</td></tr>
 <tr class="sidebarText"><td>padava</td><td>Qualification Set 5/8/12/20</td><td align="right">912.40</td></tr>
