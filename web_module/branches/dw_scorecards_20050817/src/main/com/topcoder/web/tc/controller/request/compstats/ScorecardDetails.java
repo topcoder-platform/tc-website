@@ -28,7 +28,7 @@ import java.util.Map;
  * @author cucu
  */
 public class ScorecardDetails extends Base {
-
+/*
     private void checkCompleted(String projId) throws Exception {
 
             Request r = new Request();
@@ -44,7 +44,7 @@ public class ScorecardDetails extends Base {
             }
         }
 
-
+*/
     protected void businessProcessing() throws TCWebException {
         try {
             Request r = new Request();
@@ -53,7 +53,7 @@ public class ScorecardDetails extends Base {
             String userId = StringUtils.checkNull(getRequest().getParameter("uid"));
             String reviewerId = getRequest().getParameter("rid");
 
-            checkCompleted(projectId);
+//            checkCompleted(projectId);
 
             r.setContentHandle("get_scorecard");
             r.setProperty("pj", projectId);
@@ -82,7 +82,18 @@ public class ScorecardDetails extends Base {
 
             Map result = getDataAccess(true).getData(r);
 
+           // check if the project is completed
+            ResultSetContainer projectInfo = (ResultSetContainer) result.get("project_info");
+            if ((projectInfo.getIntItem(0, "status_id") != 4) &&
+                (projectInfo.getIntItem(0, "status_id") != 5) &&
+                (projectInfo.getIntItem(0, "status_id") != 6)) {
+                 throw new TCWebException("The project is not finished");
+
+            }
+
             getRequest().setAttribute("resultMap", result);
+            getRequest().setAttribute("rid", reviewerId);
+            getRequest().setAttribute("uid", userId);
 
             setNextPage("/compstats/scorecardDetails.jsp");
             setIsNextPageInContext(true);
@@ -96,44 +107,3 @@ public class ScorecardDetails extends Base {
 
 }
 
-/*
-- COMMAND  get_scorecard
-
-> query get_screening_scorecard
-select scorecard_id, scorecard_template_id
-from submission_screening
-where project_id = @pj@
-and user_id = @cr@
-
-> query get_review_scorecard
-select scorecard_id, scorecard_template_id
-from submission_review
-where project_id = @pj@
-and user_id = @cr@
-and reviewer_id = @rw@
-
-- COMMAND scorecard_details
-query scorecard_details
-
-select sq.question_text,
-    sq.question_weight,
-        sq.section_weight,
-        sq.section_desc,
-        sq.question_desc,
-        (select evaluation_desc from evaluation_lu where evaluation_id = sr.evaluation_id) as evaluation,
-        tr.num_tests,
-        tr.num_passed,
-        sjr.response_text,
-    sjr.response_type_desc
-FROM scorecard_question sq,
-OUTER  scorecard_response sr, OUTER testcase_response tr,  OUTER subjective_response sjr
-where
-    sq.scorecard_question_id  = tr.scorecard_question_id
-and sq.scorecard_question_id  = sr.scorecard_question_id
-and sq.scorecard_question_id  = sjr.scorecard_question_id
-and tr.scorecard_id = sr.scorecard_id
-and tr.scorecard_id = sjr.scorecard_id
-and tr.scorecard_id = @scr@
-and sq.scorecard_template_id = @scrt@
-order by sq.sort, sjr.sort
-*/
