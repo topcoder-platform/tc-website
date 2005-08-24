@@ -2,7 +2,7 @@ package com.topcoder.web.query.servlet.jsp.tag;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.StringUtil;
+import com.topcoder.web.common.StringUtils;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -29,7 +29,7 @@ public class ResultSetItemTag extends TagSupport {
 
     public int doStartTag() throws JspException {
         try {
-            String text = escapeHTML? StringUtil.htmlEncode(row.getItem(name).toString()) : row.getItem(name).toString();
+            String text = escapeHTML? StringUtils.htmlEncode(row.getItem(name).toString()) : row.getItem(name).toString();
             pageContext.getOut().print(text);
         } catch (IOException e) {
             throw new JspException(e.getMessage());

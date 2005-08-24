@@ -61,6 +61,7 @@
 <A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A></span><br>
 
 Coder: <tc-webtag:handle coderId='<%= uid %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/>
+<br>
 Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/>
 
 <table border="1" cellspacing="0" width="100%" class="formFrame">
@@ -97,7 +98,7 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
 <% } %>
 
     <tr>
-        <td class="projectCells"><rsc:item name="response_text" row="<%=resultRow%>"/>
+        <td class="projectCells"><rsc:item name="response_text" row="<%=resultRow%>" escapeHTML="true" />
         </td>
         <td class="projectCells"><rsc:item name="response_type_desc" row="<%=resultRow%>"/>
         </td>
