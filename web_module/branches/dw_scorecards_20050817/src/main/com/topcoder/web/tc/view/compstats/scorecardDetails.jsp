@@ -45,11 +45,11 @@
 
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="statistics_w"/>
-<jsp:param name="title" value="Component List"/>
+<jsp:param name="title" value="Scorecard Detail"/>
 </jsp:include>
 
 <%
-    ResultSetContainer scorecard = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("scorecard");
+    ResultSetContainer scorecard = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("scorecard_details");
     String lastQuestion = "";
     String lastSection = "";
 
