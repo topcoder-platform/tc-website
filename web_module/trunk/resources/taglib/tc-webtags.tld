@@ -287,7 +287,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>class</name>
+            <name>styleClass</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
@@ -446,7 +446,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>class</name>
+            <name>styleClass</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
