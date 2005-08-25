@@ -6,6 +6,7 @@ package com.topcoder.apps.review;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This Model provides business logic through which users view all projects (for admins only).
@@ -14,6 +15,8 @@ import com.topcoder.apps.review.projecttracker.UserProjectInfo;
  * @version 1.0
  */
 public class ViewAllProjects implements Model {
+    
+    static private Logger log = Logger.getLogger(ViewAllProjects.class);
 
     /**
      * Retrieves all the available projects (no mather if they are still opened or not).
@@ -27,7 +30,7 @@ public class ViewAllProjects implements Model {
      *         (Errors and RuntimeExceptions are propagated so they aren't included in this category)
      */
     public ResultData start(ActionData data) {
-        LogHelper.logModel(this, data);
+        log.debug("Starting request to model class ViewAllProjects ...");
 
         if (!(data instanceof OnlineReviewData)) {
             // should never happen if front-end works properly
@@ -63,10 +66,10 @@ public class ViewAllProjects implements Model {
 
             // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Error e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Exception e) {
             return new FailureResult(e);

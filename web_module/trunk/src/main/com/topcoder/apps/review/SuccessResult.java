@@ -3,6 +3,8 @@
  */
 package com.topcoder.apps.review;
 
+import com.topcoder.shared.util.logging.Logger;
+
 /**
  * This class is returned to indicate that a called business logic method executed without error but no data was
  * returned.
@@ -11,6 +13,8 @@ package com.topcoder.apps.review;
  * @version 1.0
  */
 public class SuccessResult implements ResultData {
+    
+    private static Logger log = Logger.getLogger(SuccessResult.class);
 
     /**
      * Constructor.
@@ -22,7 +26,7 @@ public class SuccessResult implements ResultData {
         if (k >= 0) {
             s = s.substring(k + 1);
         }
-        LogHelper.log("SuccessResult: returning an instance of " + s);
+        log.debug("SuccessResult: returning an instance of " + s);
     }
 
 }

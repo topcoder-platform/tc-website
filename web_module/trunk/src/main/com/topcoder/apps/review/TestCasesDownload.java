@@ -6,6 +6,7 @@ package com.topcoder.apps.review;
 import com.topcoder.apps.review.document.DocumentManagerLocal;
 import com.topcoder.apps.review.document.TestCase;
 import com.topcoder.apps.review.projecttracker.*;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.net.URL;
 
@@ -17,6 +18,8 @@ import java.net.URL;
  */
 public class TestCasesDownload implements Model {
 
+    static private Logger log = Logger.getLogger(TestCasesDownload.class);
+    
     /**
      * Method for downloading the actual binary data of testcases. Available for admins, PMs and reviewers.
      *
@@ -32,7 +35,7 @@ public class TestCasesDownload implements Model {
      *         (Errors and RuntimeExceptions are propagated so they aren't included in this category)
      */
     public ResultData start(ActionData data) {
-        LogHelper.logModel(this, data);
+        log.debug("Starting request to model class TestCasesDownload ...");
 
         if (!(data instanceof SubmissionDownloadData)) {
             // should never happen if front-end works properly
@@ -98,10 +101,10 @@ public class TestCasesDownload implements Model {
 
             // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Error e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Exception e) {
             return new FailureResult(e);

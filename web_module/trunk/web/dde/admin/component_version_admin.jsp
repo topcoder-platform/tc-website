@@ -37,6 +37,9 @@
     String action = request.getParameter("a");
     String namespace = "com.topcoder.servlet.request.FileUpload";
     java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("MM/dd/yyyy");
+    
+    // Logger instance.
+    org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger("component_version_admin");
 %>
 
 
@@ -218,7 +221,7 @@ if (request.getMethod().equals("POST")) {
                         is.close();
 
                         // Extract the documents from archive
-                        System.err.println("Executing: jar -xf " + url.getAbsolutePath() + " in " + tmpDir.getAbsolutePath());
+                        log.debug("Executing: jar -xf " + url.getAbsolutePath() + " in " + tmpDir.getAbsolutePath());
                         Process process = Runtime.getRuntime().exec("jar -xf " + url.getAbsolutePath(), new String[0], tmpDir);
                         process.waitFor();
 
@@ -254,7 +257,7 @@ if (request.getMethod().equals("POST")) {
                                 if (((Long) nameType[1]).longValue() == Document.JAVADOCS) {
                                     File jDocDir = new File(targetDocFile.getParent(), "javadoc");
                                     jDocDir.mkdir();
-                                    System.err.println("Executing: jar -xf " + targetDocFile.getAbsolutePath() + " in " + jDocDir.getAbsolutePath());
+                                    log.debug("Executing: jar -xf " + targetDocFile.getAbsolutePath() + " in " + jDocDir.getAbsolutePath());
                                     Runtime.getRuntime().exec("jar -xf " + targetDocFile.getAbsolutePath(), new String[0], jDocDir).waitFor();
                                 }
 
@@ -294,7 +297,7 @@ if (request.getMethod().equals("POST")) {
                             if (lngType == Document.JAVADOCS) {
                                 File jDocDir = new File(f.getParent(), "javadoc");
                                 jDocDir.mkdir();
-                                System.err.println("Executing: jar -xf " + f.getAbsolutePath() + " in " + jDocDir.getAbsolutePath());
+                                log.debug("Executing: jar -xf " + f.getAbsolutePath() + " in " + jDocDir.getAbsolutePath());
                                 Runtime.getRuntime().exec("jar -xf " + f.getAbsolutePath(), new String[0], jDocDir);
 //                                sun.tools.jar.Main.main(new String[]{"-xf",f.getAbsolutePath(),"-C",jDocDir.getAbsolutePath()});
                             }
@@ -332,7 +335,7 @@ if (request.getMethod().equals("POST")) {
                         if (document.getType() == Document.JAVADOCS) {
                             File jDocDir = new File(f.getParent(),"javadoc");
                             jDocDir.mkdir();
-                            System.err.println("Executing: jar -xf "+f.getAbsolutePath()+" in "+jDocDir.getAbsolutePath());
+                            log.debug("Executing: jar -xf " + f.getAbsolutePath() + " in " + jDocDir.getAbsolutePath());
                             Runtime.getRuntime().exec("jar -xf "+f.getAbsolutePath(), new String[0], jDocDir);
 //                                sun.tools.jar.Main.main(new String[]{"-xf",f.getAbsolutePath(),"-C",jDocDir.getAbsolutePath()});
                         }
@@ -745,7 +748,7 @@ if (action != null) {
                 technologies.put("" + tech.getId(), "hit");
             }
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            log.error("An error occurred while updating version info", e);
             if (e.getMessage().startsWith("Online Review:")) {
                 strError += e.getMessage();
             } else {
@@ -1071,14 +1074,14 @@ if (action != null) {
             strError = "User handle must not be empty.";
         } else {
             try {
-                System.out.println("Locating entity EJBs...");
+                log.debug("Locating entity EJBs...");
                 LocalDDECompCatalogHome catalogHome
                     = (LocalDDECompCatalogHome) CONTEXT.lookup(LocalDDECompCatalogHome.EJB_REF_NAME);
 
                 LocalDDECategoriesHome categoriesHome
                     = (LocalDDECategoriesHome) CONTEXT.lookup(LocalDDECategoriesHome.EJB_REF_NAME);
 
-                System.out.println("Locating the user for handle '" + strUsername + "' ...");
+                log.debug("Locating the user for handle '" + strUsername + "' ...");
                 User user = USER_MANAGER.getUser(strUsername);
 
                 String event = "com.topcoder.dde.forum.ForumPostEvent " + componentManager.getForum(Forum.SPECIFICATION).getId();
@@ -1104,19 +1107,19 @@ if (action != null) {
                 buffer.append(" - Forum Post");
 
                 // Locate the Notification bean
-                System.out.println("Locating the Notification EJB ...");
+                log.debug("Locating the Notification EJB ...");
                 Object objNotification = CONTEXT.lookup(NotificationHome.EJB_REF_NAME);
                 NotificationHome notificationHome = (NotificationHome) PortableRemoteObject.narrow(objNotification, NotificationHome.class);
                 Notification notification = notificationHome.create();
 
                 // Assign notification event
-                System.out.println("Assigning notification event '" + event + "' to user " + user.getId());
+                log.info("Assigning notification event '" + event + "' to user " + user.getId());
                 notification.createNotification(event, user.getId(), Notification.FORUM_POST_TYPE_ID, buffer.toString());
 
             } catch (com.topcoder.dde.user.NoSuchUserException nsue) {
                 strError = "User '" + strUsername + "' was not found.";
             } catch (Exception e) {
-                e.printStackTrace();
+                log.error("An error occurred while assigning notification event to user", e);
                 strError = "An error occurred while assigning notification event to user : " + e;
             }
         }
@@ -1160,7 +1163,7 @@ if (action != null) {
             rootDir += "/";
         }
     } catch (ConfigManagerException cme) {
-        System.err.println(cme.toString());
+        log.error("Error reading configuration", cme);
     }
 
     if (action.equals("DeleteDocument")) {
@@ -1170,7 +1173,7 @@ if (action != null) {
         String deletedDocURL = document.getURL();
         componentManager.removeDocument(documentId);
         try{
-            System.out.println(deletedDocURL);
+            log.debug("Deleting " + deletedDocURL);
             java.io.File file = new java.io.File(rootDir + deletedDocURL);
             file.delete();
         }

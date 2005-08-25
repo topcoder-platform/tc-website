@@ -5,6 +5,7 @@ package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.projecttracker.*;
 import com.topcoder.security.TCSubject;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.scheduler.Job;
 import com.topcoder.util.scheduler.Schedulable;
 import com.topcoder.util.scheduler.Scheduler;
@@ -19,6 +20,8 @@ import java.util.*;
  */
 public class ReviewerAssignmentNotification implements Runnable, Schedulable {
 
+    private static Logger log = Logger.getLogger(RetrieveScreeningScorecards.class);
+    
     /**
      * Flag that indicates whether the weekly notification is running or not.
      */
@@ -36,11 +39,11 @@ public class ReviewerAssignmentNotification implements Runnable, Schedulable {
     public static void main(String[] args) {
         if (args != null && args.length > 0 && args[0].equals("now")) {
             EJBHelper.setTestMode(true);
-            LogHelper.log("Running reviewer assignment notification NOW ...");
+            log.debug("Running reviewer assignment notification NOW ...");
             new ReviewerAssignmentNotification().run();
         }
 
-        LogHelper.log("Setting up Job Scheduler ...");
+        log.debug("Setting up Job Scheduler ...");
 
         // start the Job scheduler
         Scheduler scheduler = new Scheduler(ConfigHelper.getConfigNamespace());
@@ -67,7 +70,7 @@ public class ReviewerAssignmentNotification implements Runnable, Schedulable {
             startDate.set(Calendar.MINUTE, minute);
             startDate.set(Calendar.SECOND, 0);
 
-            LogHelper.log("Setting up a job for " + startDate.getTime() + "...");
+            log.debug("Setting up a job for " + startDate.getTime() + "...");
 
             // add job
             scheduler.addJob(
@@ -77,11 +80,11 @@ public class ReviewerAssignmentNotification implements Runnable, Schedulable {
             );
 
             // start job
-            LogHelper.log("Starting Job Scheduler ...");
+            log.debug("Starting Job Scheduler ...");
             scheduler.start();
-            LogHelper.log("Job Scheduler started");
+            log.debug("Job Scheduler started");
         } catch (Throwable e) {
-            LogHelper.log("Error adding the weekly notifications job", e);
+            log.error("Error adding the weekly notifications job", e);
         }
     }
 
@@ -89,7 +92,7 @@ public class ReviewerAssignmentNotification implements Runnable, Schedulable {
      * Constructor.
      */
     public ReviewerAssignmentNotification() {
-        LogHelper.log("ReviewerAssignmentNotification instantiated");
+        log.debug("ReviewerAssignmentNotification instantiated");
     }
 
     /**
@@ -99,7 +102,7 @@ public class ReviewerAssignmentNotification implements Runnable, Schedulable {
      * All the participants in such projects which are reviewers are notified.
      */
     public synchronized void run() {
-        LogHelper.log("ReviewerAssignmentNotification started ...");
+        log.debug("ReviewerAssignmentNotification started ...");
         isDone = false;
 
         try {
@@ -165,9 +168,9 @@ public class ReviewerAssignmentNotification implements Runnable, Schedulable {
             for (Iterator it = developmentProjects.iterator(); it.hasNext();) {
                 ((Project) it.next()).setNotificationSent(true);
             }
-            LogHelper.log("ReviewerAssignmentNotification terminated without errors");
+            log.debug("ReviewerAssignmentNotification terminated without errors");
         } catch (Exception e) {
-            LogHelper.log("Error while sending weekly review assignment notifications: ", e);
+            log.error("Error while sending weekly review assignment notifications: ", e);
         } finally {
             isDone = true;
         }
@@ -198,4 +201,3 @@ public class ReviewerAssignmentNotification implements Runnable, Schedulable {
     }
 
 }
-

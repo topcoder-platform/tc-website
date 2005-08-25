@@ -9,6 +9,7 @@ import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This Model provides business logic through which users view review projects.
@@ -18,6 +19,8 @@ import com.topcoder.apps.review.projecttracker.UserProjectInfo;
  */
 public class ReviewProject implements Model {
 
+    private static Logger log = Logger.getLogger(ReviewProject.class);
+    
     /**
      * Allows an admin or a reviewer to retrieve the review scorecard and allows an admin or reviewer to
      * submit the review scorecard for a project.
@@ -34,7 +37,7 @@ public class ReviewProject implements Model {
      *         (Errors and RuntimeExceptions are propagated so they aren't included in this category)
      */
     public ResultData start(ActionData data) {
-        LogHelper.logModel(this, data);
+        log.debug("Starting request to model class ReviewProject ...");
 
         if (!(data instanceof ReviewData)) {
             // should never happen if front-end works properly
@@ -101,10 +104,10 @@ public class ReviewProject implements Model {
 
             // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Error e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Exception e) {
             return new FailureResult(e);

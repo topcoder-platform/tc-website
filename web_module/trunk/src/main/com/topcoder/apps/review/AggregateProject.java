@@ -10,6 +10,7 @@ import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import com.topcoder.security.TCSubject;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This Model provides business logic through which users perform aggregation tasks.
@@ -19,6 +20,8 @@ import com.topcoder.security.TCSubject;
  */
 public class AggregateProject implements Model {
 
+    static private Logger log = Logger.getLogger(AggregateProject.class);
+    
     /**
      * Allows an admin or a reviewer to retrieve the aggregation document and allows an admin or aggregator to submit
      * the aggregation for a project.
@@ -35,7 +38,7 @@ public class AggregateProject implements Model {
      *         (Errors and RuntimeExceptions are propagated so they aren't included in this category)
      */
     public ResultData start(ActionData data) {
-        LogHelper.logModel(this, data);
+        log.debug("Starting request to model class AggregateProject ...");
 
         if (!(data instanceof AggregationData)) {
             // should never happen if front-end works properly
@@ -109,10 +112,10 @@ public class AggregateProject implements Model {
 
             // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Error e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Exception e) {
             return new FailureResult(e);

@@ -4,7 +4,14 @@
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.*;
+import com.topcoder.apps.review.persistence.Common;
 import com.topcoder.apps.review.projecttracker.*;
+import com.topcoder.apps.screening.ScreeningTool;
+import com.topcoder.apps.screening.QueryInterface;
+import com.topcoder.apps.screening.ScreeningRecord;
+import com.topcoder.shared.util.logging.Logger;
+
+import java.sql.Connection;
 
 /**
  * This Model provides business logic through which users view project details.
@@ -13,6 +20,8 @@ import com.topcoder.apps.review.projecttracker.*;
  * @version 1.0
  */
 public class ProjectDetail implements Model {
+    
+    private static Logger log = Logger.getLogger(ProjectDetail.class);
 
     /**
      * Method for getting all the details of a project. Available for admins and anyone with project permission.
@@ -29,8 +38,7 @@ public class ProjectDetail implements Model {
      *         (Errors and RuntimeExceptions are propagated so they aren't included in this category)
      */
     public ResultData start(ActionData data) {
-
-        LogHelper.logModel(this, data);
+        log.debug("Starting request to model class ProjectDetail ...");
 
         if (!(data instanceof OnlineReviewProjectData)) {
             // should never happen if front-end works properly
@@ -94,14 +102,36 @@ public class ProjectDetail implements Model {
             // Get scorecard template id:s
             long[] templateId = projectTracker.getProjectTemplates(project.getId());
 
-            return new ProjectRetrieval(project, temp, submissions, testCases, templateId);
+            //////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Added by WishingBone - Automated Screening
+            QueryInterface query = ScreeningTool.createQuery();
+            ScreeningRecord[] history = null;
+            Connection conn = null;
+            try {
+                conn = Common.getDataSource().getConnection();
+                if (PermissionHelper.isAdmin(user) || user.equals(project.getProjectManager())) {
+                    history = query.getAllSubmissions(project.getId(), conn);
+                } else {
+                    history = query.getSubmissionStatus(project.getId(), user.getId(), conn);
+                }
+            } finally {
+                try {
+                    conn.close();
+                } catch (Exception e) {
+                    // ignore
+                }
+            }
+            ProjectRetrieval pr = new ProjectRetrieval(project, temp, submissions, testCases, templateId);
+            pr.setHistory(history);
+            return pr;
+            //////////////////////////////////////////////////////////////////////////////////////////////////////
 
             // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Error e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Exception e) {
             return new FailureResult(e);
