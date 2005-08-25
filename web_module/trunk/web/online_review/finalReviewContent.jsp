@@ -147,6 +147,5 @@
 		</td>
 
 	</tr>
-    </html:form>
 </table>
 <!-- End lists -->

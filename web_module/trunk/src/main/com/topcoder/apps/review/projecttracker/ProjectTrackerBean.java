@@ -35,10 +35,7 @@ import com.topcoder.security.policy.PolicyRemoteHome;
 import com.topcoder.util.TCException;
 import com.topcoder.util.idgenerator.bean.IdGen;
 import com.topcoder.util.idgenerator.bean.IdGenHome;
-import com.topcoder.util.log.Level;
-import com.topcoder.util.log.Log;
-import com.topcoder.util.log.LogException;
-import com.topcoder.util.log.LogFactory;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.project.phases.TCPhase;
 import com.topcoder.apps.review.TCWorkdays;
 
@@ -65,36 +62,12 @@ import java.util.List;
  * @author TCSDeveloper
  */
 public class ProjectTrackerBean implements SessionBean {
-    private Log log;
+    private Logger log;
     private SessionContext ejbContext;
     private DataSource dataSource;
     private DocumentManagerLocal documentManager;
     private IdGen idGen;
     //private ComponentManagerHome componentManagerHome;
-
-    private void info(String msg) {
-        try {
-            log.log(Level.INFO, msg);
-        } catch (LogException e1) {
-            e1.printStackTrace();
-        }
-    }
-
-    private void debug(String msg) {
-        try {
-            log.log(Level.DEBUG, msg);
-        } catch (LogException e1) {
-            e1.printStackTrace();
-        }
-    }
-
-    private void error(String msg) {
-        try {
-            log.log(Level.ERROR, msg);
-        } catch (LogException e1) {
-            e1.printStackTrace();
-        }
-    }
 
     /**
      * Get a Project from the database, given a specific UserProjectInfo.
@@ -119,7 +92,7 @@ public class ProjectTrackerBean implements SessionBean {
      * @throws RuntimeException DOCUMENT ME!
      */
     public Project getProjectById(long projectId, TCSubject requestor) {
-        debug("PT.getProjectById(), projectId: " + projectId + ", requestId: " + requestor.getUserId());
+        log.debug("PT.getProjectById(), projectId: " + projectId + ", requestId: " + requestor.getUserId());
 
         Project project = null;
 
@@ -239,9 +212,7 @@ public class ProjectTrackerBean implements SessionBean {
                 if (rsForum.next()) {
                     forumId = rsForum.getLong(1);
                 }
-                debug("PT.getProjectById(): forumId: " + forumId);
-
-                debug("PT.getProjectById(): forumId: " + forumId);
+                log.debug("PT.getProjectById(): forumId: " + forumId);
 
                 long[] templateId = getProjectTemplates(projectId);
 
@@ -339,7 +310,7 @@ public class ProjectTrackerBean implements SessionBean {
      * @throws RuntimeException DOCUMENT ME!
      */
     public UserProjectInfo[] getProjectInfo(TCSubject user) {
-        debug("PT.getProjectInfo( " + user.getUserId() + " )");
+        log.debug("PT.getProjectInfo( " + user.getUserId() + " )");
 
         LinkedList projectInfoList = new LinkedList();
 
@@ -358,7 +329,7 @@ public class ProjectTrackerBean implements SessionBean {
                 PolicyRemote policy = pHome.create();
                 isAdmin = policy.checkPermission(user, new AdminPermission());
             } catch (Exception e1) {
-                error("Exception when using policy manager: " + e1.toString());
+                log.error("Exception when using policy manager: " + e1.toString());
                 throw new RuntimeException(e1);
             }
             User plUser = Common.getUser(dataSource, user.getUserId());
@@ -547,7 +518,7 @@ public class ProjectTrackerBean implements SessionBean {
             throws InvalidEditException,
             GeneralSecurityException,
             ConcurrentModificationException {
-        debug("PT.saveProject( " + project.getId() + " )");
+        log.debug("PT.saveProject( " + project.getId() + " )");
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -575,13 +546,13 @@ public class ProjectTrackerBean implements SessionBean {
                         if (rs.getLong(1) != project.getVersionId()) {
                             String errorMsg = "PT.saveProject(): Concurrent error, projectId: " + project.getId() +
                                     ", projectVersionId: " + project.getVersionId();
-                            error(errorMsg);
+                            log.error(errorMsg);
                             ejbContext.setRollbackOnly();
                             throw new ConcurrentModificationException(errorMsg);
                         }
                     } else {
                         String errorMsg = "PT.saveProject(): Trying to save non-existing project, projectId: " + project.getId();
-                        error(errorMsg);
+                        log.error(errorMsg);
                         ejbContext.setRollbackOnly();
                         throw new InvalidEditException(errorMsg);
                     }
@@ -601,11 +572,11 @@ public class ProjectTrackerBean implements SessionBean {
                     ps.setLong(1, project.getId());
 
                     int nr = ps.executeUpdate();
-                    debug("PT.saveProject(): cur_version set to 0");
+                    log.debug("PT.saveProject(): cur_version set to 0");
 
                     if (nr == 0) {
                         String errorMsg = "PT.saveProject(): Trying to save non-existing project, projectId: " + project.getId();
-                        error(errorMsg);
+                        log.error(errorMsg);
                         ejbContext.setRollbackOnly();
                         throw new InvalidEditException(errorMsg);
                     }
@@ -638,17 +609,17 @@ public class ProjectTrackerBean implements SessionBean {
 
                     if (currentPhaseInstanceId == 0) {
                         String errorMsg = "PT.saveProject(): currentphase not valid!";
-                        error(errorMsg);
+                        log.error(errorMsg);
                         ejbContext.setRollbackOnly();
                         throw new InvalidEditException(errorMsg);
                     }
 
-                    debug("PT.saveProject(): about to set parameters for insert");
+                    log.debug("PT.saveProject(): about to set parameters for insert");
                     if (Common.tooBig(project.getOverview()) ||
                             Common.tooBig(project.getNotes()) ||
                             Common.tooBig(reason)) {
                         String errorMsg = "PT.saveProject(), text-field too long!";
-                        error(errorMsg);
+                        log.error(errorMsg);
                         throw new RuntimeException(errorMsg);
                     }
                     ps.setLong(1, project.getId());
@@ -664,7 +635,7 @@ public class ProjectTrackerBean implements SessionBean {
                     if (project.getProjectType() == null) {
                         String errorMsg = "PT.saveProject(),id: " + project.getId() +
                                 "ProjectType is null";
-                        error(errorMsg);
+                        log.error(errorMsg);
                         ejbContext.setRollbackOnly();
                         throw new InvalidEditException(errorMsg);
                     }
@@ -672,7 +643,7 @@ public class ProjectTrackerBean implements SessionBean {
                     if (project.getProjectStatus() == null) {
                         String errorMsg = "PT.saveProject(),id: " + project.getId() +
                                 "ProjectStatus is null";
-                        error(errorMsg);
+                        log.error(errorMsg);
                         ejbContext.setRollbackOnly();
                         throw new InvalidEditException(errorMsg);
                     }
@@ -689,11 +660,11 @@ public class ProjectTrackerBean implements SessionBean {
 
                     if (nr != 1) {
                         String errorMsg = "PT.saveProject(): Could not insert project! , projectId: " + project.getId();
-                        error(errorMsg);
+                        log.error(errorMsg);
                         ejbContext.setRollbackOnly();
                         throw new InvalidEditException(errorMsg);
                     }
-                    debug("PT.saveProject(): inserted new project version!");
+                    log.debug("PT.saveProject(): inserted new project version!");
                 } finally {
                     Common.close(ps);
                 }
@@ -701,11 +672,11 @@ public class ProjectTrackerBean implements SessionBean {
 
                 if (oldPhaseId != currentPhase.getId()) {
                     if (currentPhase.getId() == Phase.ID_AGGREGATION) {
-                        debug("PT.saveProject(), Creating Aggregation Worksheet");
+                        log.debug("PT.saveProject(), Creating Aggregation Worksheet");
                         documentManager.createAggregation(project);
                     } else if (currentPhase.getId() == Phase.ID_SCREENING ||
                             currentPhase.getId() == Phase.ID_REVIEW) {
-                        debug("PT.saveProject(), Selecting scorecard template for project");
+                        log.debug("PT.saveProject(), Selecting scorecard template for project");
                         int scorecardType;
                         long scorecardTemplateId;
                         if (currentPhase.getId() == Phase.ID_SCREENING) {
@@ -752,7 +723,7 @@ public class ProjectTrackerBean implements SessionBean {
                                 try {
                                     if (scorecardTemplateId == -1) {
                                         String errorMsg = "PT.saveProject(): missing scorecard template id! projectId: " + project.getId();
-                                        error(errorMsg);
+                                        log.error(errorMsg);
                                         throw new RuntimeException(errorMsg);
                                     }
                                     ps1 = conn.prepareStatement(
@@ -765,7 +736,7 @@ public class ProjectTrackerBean implements SessionBean {
                                     int nr = ps1.executeUpdate();
                                     if (nr != 1) {
                                         String errorMsg = "PT.saveProject(): Could not insert new project_template! , projectId: " + project.getId();
-                                        error(errorMsg);
+                                        log.error(errorMsg);
                                         throw new RuntimeException(errorMsg);
                                     }
                                 } finally {
@@ -902,14 +873,14 @@ public class ProjectTrackerBean implements SessionBean {
                                 String errorMsg = "PT.saveProject(): Concurrent error saving phaseInstance, projectId: " + project.getId() +
                                         ", phaseInstanceId: " + phaseInstance[i] + ", phaseInstanceVersionId: " +
                                         phaseInstance[i].getVersionId();
-                                error(errorMsg);
+                                log.error(errorMsg);
                                 ejbContext.setRollbackOnly();
                                 throw new ConcurrentModificationException(errorMsg);
                             }
                         } else {
                             String errorMsg = "PT.saveProject(): Trying to save non-existing phaseInstance, phaseInstanceId: " +
                                     phaseInstance[i].getId();
-                            error(errorMsg);
+                            log.error(errorMsg);
                             ejbContext.setRollbackOnly();
                             throw new InvalidEditException(errorMsg);
                         }
@@ -930,11 +901,11 @@ public class ProjectTrackerBean implements SessionBean {
                         if (nr == 0) {
                             String errorMsg = "PT.saveProject(): Trying to save non-existing phaseInstance, phaseInstanceId: " +
                                     phaseInstance[i].getId();
-                            error(errorMsg);
+                            log.error(errorMsg);
                             ejbContext.setRollbackOnly();
                             throw new InvalidEditException(errorMsg);
                         }
-                        debug("PT.saveProject(): phase_instance.cur_version set to 0!");
+                        log.debug("PT.saveProject(): phase_instance.cur_version set to 0!");
                     } finally {
                         Common.close(ps);
                     }
@@ -968,12 +939,12 @@ public class ProjectTrackerBean implements SessionBean {
                         if (nr != 1) {
                             String errorMsg = "PT.saveProject(): Could not insert phaseInstance! , phaseInstanceId: " +
                                     phaseInstance[i].getId();
-                            error(errorMsg);
+                            log.error(errorMsg);
                             ejbContext.setRollbackOnly();
                             throw new InvalidEditException(errorMsg);
                         }
 
-                        debug("PT.saveProject(): phase_instance inserted!");
+                        log.debug("PT.saveProject(): phase_instance inserted!");
                     } finally {
                         Common.close(ps);
                     }
@@ -1021,14 +992,14 @@ public class ProjectTrackerBean implements SessionBean {
                                     String errorMsg = "PT.saveProject(): Concurrent error saving userRole, projectId: " + project.getId() +
                                             ", userRoleId: " + userRole[i].getId() + ", userRoleVersionId: " +
                                             userRole[i].getVersionId();
-                                    error(errorMsg);
+                                    log.error(errorMsg);
                                     ejbContext.setRollbackOnly();
                                     throw new ConcurrentModificationException(errorMsg);
                                 }
                             } else {
                                 String errorMsg = "PT.saveProject(): Trying to save non-existing userRole, userRoleId: " +
                                         userRole[i].getId();
-                                error(errorMsg);
+                                log.error(errorMsg);
                                 ejbContext.setRollbackOnly();
                                 throw new InvalidEditException(errorMsg);
                             }
@@ -1049,7 +1020,7 @@ public class ProjectTrackerBean implements SessionBean {
                             if (nr == 0) {
                                 String errorMsg = "PT.saveProject(): Trying to save non-existing userRole, userRoleId: " +
                                         userRole[i].getId();
-                                error(errorMsg);
+                                log.error(errorMsg);
                                 ejbContext.setRollbackOnly();
                                 throw new InvalidEditException(errorMsg);
                             }
@@ -1103,7 +1074,7 @@ public class ProjectTrackerBean implements SessionBean {
 
                         if (nr != 1) {
                             String errorMsg = "PT.saveProject(): Could not insert userRole! , userRoleId: " + userRole[i].getId();
-                            error(errorMsg);
+                            log.error(errorMsg);
                             ejbContext.setRollbackOnly();
                             throw new InvalidEditException(errorMsg);
                         }
@@ -1131,13 +1102,13 @@ public class ProjectTrackerBean implements SessionBean {
                                 String errorMsg = "PT.saveProject(): Concurrent error saving paymentInfo, projectId: " + project.getId() +
                                         ", paymentInfoId: " + paymentInfo + ", paymentInfoVersionId: " +
                                         paymentInfo.getVersionId();
-                                error(errorMsg);
+                                log.error(errorMsg);
                                 ejbContext.setRollbackOnly();
                                 throw new ConcurrentModificationException(errorMsg);
                             }
                         } else {
                             String errorMsg = "PT.saveProject(): saving non-existing paymentInfo!";
-                            error(errorMsg);
+                            log.error(errorMsg);
                             ejbContext.setRollbackOnly();
                             throw new InvalidEditException(errorMsg);
                         }
@@ -1157,7 +1128,7 @@ public class ProjectTrackerBean implements SessionBean {
 
                         if (nr == 0) {
                             String errorMsg = "PT.saveProject():saving non-existing paymentInfo!";
-                            error(errorMsg);
+                            log.error(errorMsg);
                             ejbContext.setRollbackOnly();
                             throw new InvalidEditException(errorMsg);
                         }
@@ -1175,7 +1146,7 @@ public class ProjectTrackerBean implements SessionBean {
                         ps.setLong(1, paymentInfo.getId());
                         ps.setFloat(2, paymentInfo.getPayment());
                         if (paymentInfo.getPaymentStatus() == null) {
-                            error("ProjectTrackerBean.saveProject, project_id: " + project.getId() +
+                            log.error("ProjectTrackerBean.saveProject, project_id: " + project.getId() +
                                     "PaymentInfo has PaymentStatus=null, paymentinfo_id: " + paymentInfo.getId());
                             throw new InvalidEditException("ProjectTrackerBean.saveProject, project_id: " + project.getId() +
                                     "PaymentInfo has PaymentStatus=null, paymentinfo_id: " + paymentInfo.getId());
@@ -1187,7 +1158,7 @@ public class ProjectTrackerBean implements SessionBean {
 
                         if (nr != 1) {
                             String errorMsg = "PT.saveProject(): Could not save PaymentInfo to database.";
-                            error(errorMsg);
+                            log.error(errorMsg);
                             ejbContext.setRollbackOnly();
                             throw new InvalidEditException(errorMsg);
                         }
@@ -1246,7 +1217,7 @@ public class ProjectTrackerBean implements SessionBean {
     } //saveProject done
 
     private PhaseInstance[] getPhaseInstances(long projectId) {
-        debug("PT.getPhaseInstances( " + projectId + " )");
+        log.debug("PT.getPhaseInstances( " + projectId + " )");
 
         List phaseInstanceList = new ArrayList();
 
@@ -1276,16 +1247,16 @@ public class ProjectTrackerBean implements SessionBean {
                 long phaseId = rs.getLong(4);
                 long piVersionId = rs.getLong(5);
 
-                debug("PT.getPhaseInstances(), " +
+                log.debug("PT.getPhaseInstances(), " +
                         "start: " + startDate + ", end: " + endDate +
                         ", phaseId: " + phaseId);
 
                 PhaseManager phaseManager = (PhaseManager) Common.getFromCache("PhaseManager");
-                debug("pm: " + phaseManager);
+                log.debug("pm: " + phaseManager);
 
                 Phase phase = phaseManager.getPhase(phaseId);
-                debug("phase: " + phase);
-                debug("phase.id: " + phase.getId());
+                log.debug("phase: " + phase);
+                log.debug("phase.id: " + phase.getId());
 
                 PhaseInstance phaseInstance = new PhaseInstance(phaseInstanceId, phase, startDate, endDate,
                         piVersionId);
@@ -1323,7 +1294,7 @@ public class ProjectTrackerBean implements SessionBean {
      * @throws RuntimeException DOCUMENT ME!
      */
     private UserRole[] getUserRoles(long projectId, User user) {
-        debug("PT.getUserRoles(), project: " + projectId + ", user: " + (user == null ? -1 : user.getId()));
+        log.debug("PT.getUserRoles(), project: " + projectId + ", user: " + (user == null ? -1 : user.getId()));
 
         List userRoleList = new LinkedList();
 
@@ -1594,7 +1565,7 @@ public class ProjectTrackerBean implements SessionBean {
             Date[] dates,
             TCSubject requestor,
             long levelId) throws TCException {
-        debug("PT.createProject: compVersId: " + compVersId);
+        log.debug("PT.createProject: compVersId: " + compVersId);
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -1624,11 +1595,11 @@ public class ProjectTrackerBean implements SessionBean {
             Common.close(rs);
             Common.close(ps);
 
-            debug("About to create new projectId!");
+            log.debug("About to create new projectId!");
             projectId = idGen.nextId();
             long modUserId = requestor.getUserId();
             long firstPhaseInstanceId = idGen.nextId();
-            debug("projectId: " + firstPhaseInstanceId);
+            log.debug("projectId: " + firstPhaseInstanceId);
 
             // Create project
             ps = conn.prepareStatement(
@@ -1651,7 +1622,7 @@ public class ProjectTrackerBean implements SessionBean {
             if (Common.tooBig(overview) ||
                     Common.tooBig(notes)) {
                 String errorMsg = "PT.createProject(), text-field too long!";
-                error(errorMsg);
+                log.error(errorMsg);
                 throw new RuntimeException(errorMsg);
             }
             ps.setString(4, overview);
@@ -1664,7 +1635,7 @@ public class ProjectTrackerBean implements SessionBean {
             ps.executeUpdate();
 
             // Create phase instances for project
-            debug("Creating phase instances");
+            log.debug("Creating phase instances");
             PhaseManager phaseManager = (PhaseManager) Common.getFromCache("PhaseManager");
             Phase[] phaseArr = phaseManager.getPhases();
 
@@ -1722,7 +1693,7 @@ public class ProjectTrackerBean implements SessionBean {
 
 
             // Create payment infos?
-            debug("Creating payment infos");
+            log.debug("Creating payment infos");
             ps = conn.prepareStatement(
                     "INSERT INTO payment_info "
                     + "(payment_info_v_id, payment_info_id, "
@@ -1747,7 +1718,7 @@ public class ProjectTrackerBean implements SessionBean {
             ps = null;
 
             // Create user roles for project
-            debug("Creating user roles");
+            log.debug("Creating user roles");
             long revRespId = 1;
             // TODO Change to references
             ps = conn.prepareStatement(
@@ -1812,7 +1783,7 @@ public class ProjectTrackerBean implements SessionBean {
             ps = null;
 
             // Create security manager roles for project
-            debug("Creating security manager roles");
+            log.debug("Creating security manager roles");
             PrincipalMgrRemote principalMgr;
             PolicyMgrRemote policyMgr;
             try {
@@ -2003,7 +1974,7 @@ public class ProjectTrackerBean implements SessionBean {
 
             return result;
         } catch (Exception e) {
-            debug("Couldn't calculate the project dates due to: " + e);
+            log.error("Couldn't calculate the project dates due to: " + e);
             return null;
         }
 
@@ -2089,7 +2060,7 @@ public class ProjectTrackerBean implements SessionBean {
 
     public void userInquiry(long userId, long projectId)
             throws TCException {
-        debug("PT.userInquiry; userId: " + userId +
+       log.debug("PT.userInquiry; userId: " + userId +
                 " ,projectId: " + projectId);
 
         Connection conn = null;
@@ -2291,7 +2262,7 @@ public class ProjectTrackerBean implements SessionBean {
      * @return
      */
     private long getRoleId(String roleName) {
-        debug("PT.getRoleId(), roleName: " + roleName);
+        log.debug("PT.getRoleId(), roleName: " + roleName);
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -2327,7 +2298,7 @@ public class ProjectTrackerBean implements SessionBean {
      * @return array with screening and review template id:s
      */
     public long[] getProjectTemplates(long projectId) {
-        debug("PT.getProjectTemplates(), projectId: " + projectId);
+        log.debug("PT.getProjectTemplates(), projectId: " + projectId);
 
         long[] ret = new long[2];
         ret[0] = -1;
@@ -2572,7 +2543,7 @@ public class ProjectTrackerBean implements SessionBean {
     private void ddeRename(long componentId, long compVersId,
                            String oldName, String newName,
                            String oldVersion, String newVersion) {
-        debug("PT.ddeRename(), componentId: " + componentId +
+        log.debug("PT.ddeRename(), componentId: " + componentId +
                 "compVersId: " + compVersId);
         Connection conn = null;
         PreparedStatement ps = null;
@@ -2679,7 +2650,7 @@ public class ProjectTrackerBean implements SessionBean {
                 long ptId = ((Long) iterProjectType.next()).longValue();
                 String oldV = (String) iterOldVersion.next();
                 String newV = (String) iterNewVersion.next();
-                debug("PT.ddeRename(), renaming roles for project, compVersId: " + cvId);
+                log.debug("PT.ddeRename(), renaming roles for project, compVersId: " + cvId);
 
                 ProjectTypeManager projectTypeManager = (ProjectTypeManager) Common.getFromCache("ProjectTypeManager");
                 ProjectType projectType = projectTypeManager.getProjectType(ptId);
@@ -2703,7 +2674,7 @@ public class ProjectTrackerBean implements SessionBean {
                 psRoles.setString(2, oldRoleName);
                 int nr = psRoles.executeUpdate();
                 if (nr != 1) {
-                    info("Could not change rolename: " + oldRoleName);
+                    log.error("Could not change rolename: " + oldRoleName);
                     //throw new RuntimeException("Could not change rolename: " + oldRoleName);
                 }
                 newRoleName = prefixNew + "Submit";
@@ -2712,7 +2683,7 @@ public class ProjectTrackerBean implements SessionBean {
                 psRoles.setString(2, oldRoleName);
                 nr = psRoles.executeUpdate();
                 if (nr != 1) {
-                    info("Could not change rolename: " + oldRoleName);
+                    log.error("Could not change rolename: " + oldRoleName);
                     //throw new RuntimeException("Could not change rolename: " + oldRoleName);
                 }
                 newRoleName = prefixNew + "Screen";
@@ -2721,7 +2692,7 @@ public class ProjectTrackerBean implements SessionBean {
                 psRoles.setString(2, oldRoleName);
                 nr = psRoles.executeUpdate();
                 if (nr != 1) {
-                    info("Could not change rolename: " + oldRoleName);
+                    log.error("Could not change rolename: " + oldRoleName);
                     //throw new RuntimeException("Could not change rolename: " + oldRoleName);
                 }
                 newRoleName = prefixNew + "Review";
@@ -2730,7 +2701,7 @@ public class ProjectTrackerBean implements SessionBean {
                 psRoles.setString(2, oldRoleName);
                 nr = psRoles.executeUpdate();
                 if (nr != 1) {
-                    info("Could not change rolename: " + oldRoleName);
+                    log.error("Could not change rolename: " + oldRoleName);
                     //throw new RuntimeException("Could not change rolename: " + oldRoleName);
                 }
                 newRoleName = prefixNew + "Aggregation";
@@ -2739,7 +2710,7 @@ public class ProjectTrackerBean implements SessionBean {
                 psRoles.setString(2, oldRoleName);
                 nr = psRoles.executeUpdate();
                 if (nr != 1) {
-                    info("Could not change rolename: " + oldRoleName);
+                    log.error("Could not change rolename: " + oldRoleName);
                     //throw new RuntimeException("Could not change rolename: " + oldRoleName);
                 }
                 newRoleName = prefixNew + "Submit Final Fix";
@@ -2748,7 +2719,7 @@ public class ProjectTrackerBean implements SessionBean {
                 psRoles.setString(2, oldRoleName);
                 nr = psRoles.executeUpdate();
                 if (nr != 1) {
-                    info("Could not change rolename: " + oldRoleName);
+                    log.error("Could not change rolename: " + oldRoleName);
                     //throw new RuntimeException("Could not change rolename: " + oldRoleName);
                 }
                 newRoleName = prefixNew + "Final Review";
@@ -2757,7 +2728,7 @@ public class ProjectTrackerBean implements SessionBean {
                 psRoles.setString(2, oldRoleName);
                 nr = psRoles.executeUpdate();
                 if (nr != 1) {
-                    info("Could not change rolename: " + oldRoleName);
+                    log.error("Could not change rolename: " + oldRoleName);
                     //throw new RuntimeException("Could not change rolename: " + oldRoleName);
                 }
                 Common.close(psRoles);
@@ -2801,13 +2772,9 @@ public class ProjectTrackerBean implements SessionBean {
             throw new CreateException("Could not find bean!" + e);
         }
 
-        try {
-            log = LogFactory.getInstance().getLog("com.topcoder.apps.review.projecttracker.ProjectTrackerBean");
-        } catch (LogException e) {
-            e.printStackTrace();
-        }
+        log = Logger.getLogger(ProjectTrackerBean.class);
 
-        debug("ProjectTrackerBean created");
+        log.debug("ProjectTrackerBean created");
     }
 
     /**
@@ -2990,6 +2957,5 @@ public class ProjectTrackerBean implements SessionBean {
         }
 
     }
-
 
 }
