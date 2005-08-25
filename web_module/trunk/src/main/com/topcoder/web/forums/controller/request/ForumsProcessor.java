@@ -78,6 +78,10 @@ public abstract class ForumsProcessor extends BaseProcessor {
     public DataAccessInt getDataAccess(boolean cached) throws Exception {
         return getDataAccess(DBMS.OLTP_DATASOURCE_NAME, cached);
     }
+    
+    public DataAccessInt getDataAccess(String datasource) throws Exception {
+        return getDataAccess(datasource, false);
+    }
 
     public DataAccessInt getDataAccess(String datasource, boolean cached) throws Exception {
         if (datasource == null) return null;
