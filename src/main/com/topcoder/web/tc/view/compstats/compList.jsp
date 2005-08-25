@@ -5,6 +5,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -14,8 +15,6 @@
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-<%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
   <jsp:include page="../script.jsp" />
 <script type="text/javascript">
