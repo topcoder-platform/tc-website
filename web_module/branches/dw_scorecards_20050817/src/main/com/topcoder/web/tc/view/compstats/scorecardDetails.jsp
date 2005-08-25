@@ -58,12 +58,22 @@
     String appealText = null;
     String appealResponse = null;
     List lasts = new ArrayList();
+
+    System.out.println("HI");
+    int count = 0;
     for(Iterator it = scorecard.iterator(); it.hasNext(); ) {
 
         ResultSetContainer.ResultSetRow rr = (ResultSetContainer.ResultSetRow) it.next();
-        System.out.println( lastQuestion.equals(rr.getStringItem("question_desc")));
-        lastQuestion = rr.getStringItem("question_desc");
+        if (lastQuestion.equals(rr.getStringItem("question_desc"))) count++;
+        else {
+            System.out.println(lastQuestion + ":" + count);
+            lastQuestion = rr.getStringItem("question_desc");
+            count = 0;
+        }
     }
+            System.out.println(lastQuestion + ":" + count);
+
+    System.out.println("BYE");
 
 %>
 
