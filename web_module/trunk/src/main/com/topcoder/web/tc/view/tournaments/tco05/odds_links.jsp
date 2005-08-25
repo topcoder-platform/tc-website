@@ -21,7 +21,6 @@
                   <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=odds_rd2">Round 2</a> 
             <% } %>
 
-<%--
             &nbsp;|&nbsp;
             
 <!-- round3 -->
@@ -31,6 +30,7 @@
                   <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=odds_rd3">Round 3</a> 
             <% } %>
             
+<%--
             &nbsp;|&nbsp;
             
 <!-- round4 -->
