@@ -1,6 +1,6 @@
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
-          java.util.Map"%>
+          java.util.*"%>
 
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -57,6 +57,14 @@
     String lastSection = "";
     String appealText = null;
     String appealResponse = null;
+    List lasts = new ArrayList();
+    for(Iterator it = scorecard.iterator(); iterator.hasNext(); ) {
+
+        ResultRow rr = (ResultRow) it.next();
+        System.out.println( lastQuestion.equals(rr.getStringItem("question_desc"));
+        lastQuestion = rr.getStringItem("question_desc");
+    }
+
 %>
 
 <A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A></span><br>
