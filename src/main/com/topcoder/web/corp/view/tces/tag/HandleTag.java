@@ -123,7 +123,7 @@ public class HandleTag extends TagSupport {
                 StringBuffer buf = new StringBuffer(200);
                 buf.append("http://");
                 buf.append(ApplicationServer.CORP_SERVER_NAME);
-                buf.append("/tces/?task=MemberProfileTask");
+                buf.append("/tces?task=MemberProfileTask");
                 buf.append("&");
                 buf.append(TCESConstants.MEMBER_ID_PARAM);
                 buf.append("=");
