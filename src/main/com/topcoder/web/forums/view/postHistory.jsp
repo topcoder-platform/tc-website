@@ -22,20 +22,20 @@
     StringBuffer linkBuffer = new StringBuffer("?module=History");
     linkBuffer.append("&").append(ForumConstants.USER_ID).append("=").append(historyUser.getID());
     
-    StringBuffer threadLinkBuffer = new StringBuffer(linkBuffer.toString());
+    StringBuffer messageLinkBuffer = new StringBuffer(linkBuffer.toString());
     StringBuffer dateLinkBuffer = new StringBuffer(linkBuffer.toString());
-    threadLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.THREAD_NAME);
+    messageLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.MESSAGE_NAME);
     dateLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.MODIFICATION_DATE);
-    if (sortField.equals(String.valueOf(JiveConstants.THREAD_NAME))) {
+    if (sortField.equals(String.valueOf(JiveConstants.MESSAGE_NAME))) {
         if (sortOrder.equals(String.valueOf(ResultFilter.ASCENDING))) {
-            threadLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
+            messageLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
         } else if (sortOrder.equals(String.valueOf(ResultFilter.DESCENDING))) {
-            threadLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+            messageLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
         } else {  // default
-            threadLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+            messageLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
         }
     } else {  // default
-        threadLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+        messageLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
     }
     if (sortField.equals(String.valueOf(JiveConstants.MODIFICATION_DATE))) {
         if (sortOrder.equals(String.valueOf(ResultFilter.ASCENDING))) {
@@ -48,7 +48,7 @@
     } else {  // default
         dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
     }
-    String threadLink = threadLinkBuffer.toString();
+    String messageLink = messageLinkBuffer.toString();
     String dateLink = dateLinkBuffer.toString();
 
     if (!sortField.equals("")) {
@@ -138,7 +138,7 @@
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
-        <td class="rtHeader" width="50%"><a href="<%=threadLink%>" class="rtbcLink">Post</a></td>
+        <td class="rtHeader" width="50%"><a href="<%=messageLink%>" class="rtbcLink">Post</a></td>
         <td class="rtHeader" width="25%">Forum</td>
         <td class="rtHeader" width="15%"><a href="<%=dateLink%>" class="rtbcLink">Date</a></td>
         <td class="rtHeader" align="right" width="5%">Replies</td>
@@ -153,7 +153,7 @@
          <td class="rtThreadCell"><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=message.getForum().getID()%>&mc=<%=message.getForum().getMessageCount()%>" class="rtbcLink"><%=message.getForum().getName()%></A></td>
          <td class="rtThreadCell"><strong><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy h:mm a z"/></strong></td>
          <td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getChildCount(message)%></td>
-        <td class="rtThreadCell" align="right"><A href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink"><%=historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME)%></A></td>
+         <td class="rtThreadCell" align="right"><A href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink"><%=historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME)%></A></td>
     </tr>
    </tc-webtag:iterator>
 </table>
