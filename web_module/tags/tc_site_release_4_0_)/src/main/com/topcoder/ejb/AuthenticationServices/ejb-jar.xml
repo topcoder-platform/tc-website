@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE ejb-jar PUBLIC
+      "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+      "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
+
+<ejb-jar>
+    <description>Authentication Services Jar</description>
+    <display-name>Authentication Services Jar</display-name>
+    <enterprise-beans>
+        <session>
+            <description>Authentication Services EJB</description>
+            <display-name>Authentication Services EJB</display-name>
+            <ejb-name>AuthenticationServices</ejb-name>
+            <home>com.topcoder.ejb.AuthenticationServices.AuthenticationServicesHome</home>
+            <remote>com.topcoder.ejb.AuthenticationServices.AuthenticationServices</remote>
+<!--
+            <local-home>org.jboss.ha.httpsession.beanimpl.interfaces.LocalClusteredHTTPSessionHome</local-home>
+            <local>org.jboss.ha.httpsession.beanimpl.interfaces.LocalClusteredHTTPSession</local>
+-->
+            <ejb-class>com.topcoder.ejb.AuthenticationServices.AuthenticationServicesBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
+            <session-type>Stateless</session-type>
+            <env-entry>
+                <env-entry-name>DS</env-entry-name>
+                <env-entry-type>java.lang.String </env-entry-type>
+                <env-entry-value>OLTP</env-entry-value>
+            </env-entry>
+            <env-entry>
+                <env-entry-name>STAFF_GROUP_ID</env-entry-name>
+                <env-entry-type>java.lang.Integer </env-entry-type>
+                <env-entry-value>13</env-entry-value>
+            </env-entry>
+        </session>
+    </enterprise-beans>
+    <assembly-descriptor>
+        <container-transaction>
+            <method>
+                <ejb-name>AuthenticationServices</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+    </assembly-descriptor>
+</ejb-jar>
