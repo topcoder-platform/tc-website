@@ -58,9 +58,9 @@
     String appealText = null;
     String appealResponse = null;
     List lasts = new ArrayList();
-    for(Iterator it = scorecard.iterator(); iterator.hasNext(); ) {
+    for(Iterator it = scorecard.iterator(); it.hasNext(); ) {
 
-        ResultRow rr = (ResultRow) it.next();
+        ResultSetContainer.ResultRow rr = (ResultSetContainer.ResultRow) it.next();
         System.out.println( lastQuestion.equals(rr.getStringItem("question_desc"));
         lastQuestion = rr.getStringItem("question_desc");
     }
