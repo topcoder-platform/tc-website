@@ -47,6 +47,7 @@
         <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
         <pathelement location="${jars.dir}/ifxjdbc.jar"/>
         <pathelement location="${struts.lib.dir}/struts.jar"/>
+
         <pathelement location="${jars.dir}/idgenerator.jar"/>
 
         <!-- tcs components -->
@@ -68,6 +69,14 @@
         <pathelement location="${jars.dir}/tcs/tcsUtil.jar"/>
         <pathelement location="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
         <pathelement location="${jars.dir}/tcs/workdays/1.0/workdays.jar"/>
+        <pathelement location="${jars.dir}/tcs/compression_utility/2.0/compression_utility.jar"/>
+        <pathelement location="${jars.dir}/tcs/data_validation/1.0/data_validation.jar"/>
+        <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
+        <pathelement location="${jars.dir}/tcs/directory_validation/1.0/directory_validation.jar"/>
+        <pathelement location="${jars.dir}/tcs/generic_event_manager/1.0/generic_event_manager.jar"/>
+        <pathelement location="${jars.dir}/tcs/magic_numbers/1.0/magic_numbers.jar"/>
+        <pathelement location="${jars.dir}/tcs/xmi_parser/1.0/xmi_parser.jar"/>
+        <pathelement location="${jars.dir}/tcs/executable_wrapper.jar"/>
     </path>
 
     <target name="init">
@@ -218,8 +227,8 @@
 
         <jar jarfile="${ejb.jars.dir}/user.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/DDEException.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/util/Constants.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/util/ConstantsInt.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/util/Constants.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/util/ConstantsInt.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/user/**"/>
             <metainf dir="${java.dir}/com/topcoder/dde/user" includes="*.xml"/>
         </jar>
@@ -238,6 +247,10 @@
             <metainf dir="${java.dir}/com/topcoder/apps/review/autopilottimer" includes="*.xml"/>
         </jar>
 
+    </target>
+
+    <target name="build-screening" depends="compile">
+        <jar jarfile="${bin.dir}/screening.jar" basedir="${classes.dir}" includes="com/topcoder/apps/screening/**"/>
     </target>
 
     <target name="copy-conf">
@@ -331,14 +344,58 @@
             </fileset>
         </copy>
         <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/xmi_parser/1.0">
+                <include name="xmi_parser.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/data_validation/1.0">
+                <include name="data_validation.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/directory_validation/1.0">
+                <include name="directory_validation.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/compression_utility/2.0">
+                <include name="compression_utility.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/magic_numbers/1.0">
+                <include name="magic_numbers.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}">
+                <include name="executable_wrapper.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/generic_event_manager/1.0">
+                <include name="generic_event_manager.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/db_connection_factory/1.0">
+                <include name="db_connection_factory.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${bin.dir}">
+                <include name="screening.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
             <fileset dir="${bin.dir}">
                 <include name="shared.jar"/>
             </fileset>
         </copy>
     </target>
 
-    <target name="deploy" depends="war-dde,war-or,build-ejbs,build-sars">
-
+    <target name="build-ear" depends="war-dde,war-or,build-ejbs,build-sars">
         <ear earfile="${ear.dir}/dde.ear" appxml="${resources.dir}/dde/application.xml">
             <fileset dir="${sar.dir}">
                 <include name="*.sar"/>
@@ -353,7 +410,9 @@
                 <include name="forum.jar"/>
             </fileset>
         </ear>
+    </target>
 
+    <target name="explode" depends="">
         <mkdir dir="${jboss.deploy.dir}/dde.ear"/>
         <unjar src="${ear.dir}/dde.ear" dest="${jboss.deploy.dir}/dde.ear" overwrite="yes"/>
 
@@ -362,8 +421,9 @@
 
         <unwar src="${war.dir}/review.war" dest="${jboss.deploy.dir}/dde.ear/review.war/" overwrite="yes"/>
         <delete dir="${jboss.deploy.dir}/dde.ear/review.war/META-INF"/>
-
     </target>
 
+    <target name="deploy" depends="build-ear,build-screening">
+        <antcall target="explode"/>
+    </target>
 </project>
-
