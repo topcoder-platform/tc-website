@@ -12,6 +12,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
@@ -61,7 +62,7 @@ public class Admin extends ForumsProcessor {
     private ArrayList getRoundList() throws Exception {
         Request r = new Request();
         r.setContentHandle("Rounds_By_Date");
-        ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("Rounds_By_Date");
+        ResultSetContainer rsc = (ResultSetContainer) getDataAccess(DBMS.DW_DATASOURCE_NAME).getData(r).get("Rounds_By_Date");
         ArrayList roundList = new ArrayList();
         
         for (int i=0; i<rsc.size(); i++) {
