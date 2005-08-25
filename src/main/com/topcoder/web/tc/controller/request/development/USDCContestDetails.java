@@ -15,6 +15,8 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 
 import java.util.Map;
+import java.util.Iterator;
+import java.util.HashMap;
 
 /**
  *
@@ -29,10 +31,16 @@ public class USDCContestDetails extends StatBase {
             return;
 
         Request dataRequest = new Request();
-        Map map = getRequest().getParameterMap();
-        map.remove(Constants.MODULE_KEY);
-        map.remove(DataAccessConstants.SORT_COLUMN);
-        map.remove(DataAccessConstants.SORT_DIRECTION);
+        Map paramMap = getRequest().getParameterMap();
+        Map map = new HashMap();
+        Map.Entry me = null;
+        for (Iterator it = paramMap.entrySet().iterator(); it.hasNext();) {
+            me = (Map.Entry)it.next();
+            if (!me.getKey().equals(Constants.MODULE_KEY)&&!me.getKey().equals(DataAccessConstants.SORT_COLUMN)&&
+                    !me.getKey().equals(DataAccessConstants.SORT_DIRECTION)) {
+                map.put(me.getKey(), me.getValue());
+            }
+        }
 
         try {
             dataRequest.setProperties(map);
