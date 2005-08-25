@@ -72,6 +72,7 @@
 </tr>
 </table>
 
+            <%  if (forumFactory.getRootForumCategory().getForumCount() > 0) { %>
             <table cellpadding="0" cellspacing="0" class="rtTable">
                 <tr>
                     <td class="rtHeader" width="80%">Forum</td>
@@ -104,6 +105,7 @@
                     </tr>
                 </tc-webtag:iterator>
             </table>
+            <%  } %>
             
             <%  if (deepCategories.size() > 0) { %>
             <br><table cellpadding="0" cellspacing="0" class="rtTable">
