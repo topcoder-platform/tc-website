@@ -55,8 +55,8 @@
     String rid = (String) request.getAttribute("rid");
     String lastQuestion = "";
     String lastSection = "";
-    String appealText = "";
-    String appealResponse = "";
+    String appealText = null;
+    String appealResponse = null;
 %>
 
 <A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A></span><br>
@@ -82,11 +82,32 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
 
 <% if (!lastQuestion.equals(resultRow.getStringItem("question_desc"))) {
         lastQuestion = resultRow.getStringItem("question_desc");
+
+     if (appealText != null) { %>
+
+        <tr>
+            <td>
+
+           <table border="1" cellspacing="0" width="100%" class="formFrame">
+                <tr>
+                <td rowspan="2" width="50" class="projectCells">Appeal
+                    <td class="projectCells"><%= appealText%></td>
+                </tr>
+                <tr>
+                    <td class="projectCells"><%= appealResponse%></td>
+                </tr>
+           </table>
+           </td>
+           <td class="projectCells">&nbsp;</td>
+        </tr>
+<%
+       }
+
         appealText = resultRow.getStringItem("appeal_text");
         appealResponse = resultRow.getStringItem("appeal_response");
 %>
     <tr>
-    <td class="projectCells" color="#808080">
+    <td class="projectCells">
         (<rsc:item name="question_weight" row="<%=resultRow%>"/>)
         <rsc:item name="question_desc" row="<%=resultRow%>"/> <rsc:item name="question_text" row="<%=resultRow%>" escapeHtml="true" />
     </td>
@@ -100,24 +121,6 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
     </td>
     </tr>
 
-    <% if (appealText != null) { %>
-        <tr>
-            <td>
-
-           <table border="1" cellspacing="0" width="100%" class="formFrame">
-                <tr>
-                <td rowspan="2" width="50" class="projectHeader">Appeal
-                    <td><%= appealText%></td>
-                </tr>
-                <tr>
-                    <td><%= appealResponse%></td>
-                </tr>
-           </table>
-           </td>
-           <td>&nbsp;</td>
-        </tr>
-
-    <% } %>
 
 <% } %>
 
