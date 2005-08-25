@@ -105,7 +105,7 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
             <td>
            <table border="1" cellspacing="0" width="100%" class="formFrame">
             <tr>
-                <td colspan="2" rowspan="2">Appeal
+                <td rowspan="2">Appeal
                 </td>
             </tr>
                 <tr>
