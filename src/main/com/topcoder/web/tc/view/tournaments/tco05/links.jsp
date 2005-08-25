@@ -173,7 +173,7 @@
 <%--
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_bracket"><% if (tabLev3.equals("bracket")) {%><img src="/i/tournament/tco05/tabs/L3_bracketOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_bracketOff.gif" border=0 /><% } %></a></td>
 --%>
-                  <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=odds_rd2" target="_blank"><% if (tabLev3.equals("odds")) {%><img src="/i/tournament/tco05/tabs/L3_oddsOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_oddsOff.gif" border=0 /><% } %></a></td>
+                  <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=odds_rd3" target="_blank"><% if (tabLev3.equals("odds")) {%><img src="/i/tournament/tco05/tabs/L3_oddsOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_oddsOff.gif" border=0 /><% } %></a></td>
                <% } else if (tabLev2.equals("summary")) {%>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_sum_onlinerounds"><% if (tabLev3.equals("online")) {%><img src="/i/tournament/tco05/tabs/L3_onlineroundsOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_onlineroundsOff.gif" border=0 /><% } %></a></td>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room1_analysis"><% if (tabLev3.equals("room1")) {%><img src="/i/tournament/tco05/tabs/L3_room1On.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_room1Off.gif" border=0 /><% } %></a></td>
