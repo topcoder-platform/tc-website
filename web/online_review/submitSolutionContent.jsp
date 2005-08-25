@@ -1,6 +1,6 @@
 <%@ page language="java" %>
-<%@ page import="com.topcoder.apps.review.projecttracker.ProjectType" %>
-<%@ page import="com.topcoder.apps.review.ApplicationServer" %>
+<%@ page import="com.topcoder.apps.review.projecttracker.ProjectType,
+                 com.topcoder.apps.review.ApplicationServer" %>
 <%@ taglib uri="/WEB-INF/review.tld" prefix="review" %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
@@ -52,6 +52,14 @@
 				<bean:define id="projectId" name="projectInfo" property="id" />
 				<bean:define id="url" value='<%="/saveSolution.do?id="+String.valueOf(projectId)%>' />
 
+			    <tr>
+			        <td class="forumTextOdd"><bean:message key="overview.autoScreening" /></td>
+			    </tr>
+			    <tr>
+			    <tr>
+                    <td class="whiteBkgnd"><img src="/images/clear.gif" alt="" width="1" height="10" border="0"></td>
+                </tr>
+
                 <form action='<html:rewrite page="<%=String.valueOf(url)%>" />' enctype="multipart/form-data" method="post" >
 				<tr>
 					<td class="blueBkgnd "><img src="/images/clear.gif" alt="" width="1" height="3" border="0"></td>
@@ -82,7 +90,7 @@
 					<td class="blueBkgnd"><img src="/images/clear.gif" alt="" width="1" height="8" border="0"></td>
 				</tr>
 				<tr>
-					<td class="forumTextsrc="Odd">Not sure what to send? A <a href='<%="http://"+ApplicationServer.TC_SERVER+"/tc?module=Static&d1=dev&d2=support&d3=compDocumentation"%>'>sample submission and Documentation</a> are available on Topcoder.com</td>
+					<td class="forumTextCenterOdd">Not sure what to send? A <a href='<%="http://"+ApplicationServer.TC_SERVER+"/tc?module=Static&d1=dev&d2=support&d3=compDocumentation"%>'>sample submission and Documentation</a> are available on Topcoder.com</td>
 				</tr>
                 </form>
 			</table>

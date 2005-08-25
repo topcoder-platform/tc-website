@@ -100,10 +100,19 @@
         <exec dir="../shared" executable="cvs">
             <arg line="update -dP src"/>
         </exec>
-
         <ant antfile="build.xml" target="clean"/>
-        <ant antfile="build_tcs.xml" target="deploy"/>
+        <ant antfile="build_tcs.xml" target="build-ear"/>
+        <ant antfile="build_tcs.xml" target="build-screening"/>
 
+        <jar destfile="software.jar" update="true">
+            <fileset dir=".">
+                <include name="lib/bin/shared.jar"/>
+                <include name="lib/bin/screening.jar"/>
+                <include name="build/ears/dde.ear"/>
+                <include name="build/wars/review.war"/>
+                <include name="build/wars/dde.war"/>
+            </fileset>
+        </jar>
     </target>
 
     <target name="package-forums" depends="">

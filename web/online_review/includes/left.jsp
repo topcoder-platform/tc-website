@@ -1,8 +1,7 @@
-<%@ page import="com.topcoder.apps.review.ApplicationServer"%>
-<script type="text/javascript">
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%><script type="text/javascript">
 <!--
 function arena() {
-  w=window.open("http://<%=ApplicationServer.TC_SERVER%>/tc?module=Static&d1=applet&d2=launch","Launch","top=2,left=2,width=300,height=225,resizable=yes,status=1");
+  w=window.open("http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=applet&d2=launch","Launch","top=2,left=2,width=300,height=225,resizable=yes,status=1");
   return;
 }
 -->
@@ -28,7 +27,7 @@ function arena() {
 <!-- TC Round Tables begins -->
                 <tr>
                     <td id="<%=level2.equals("tcRoundtables")?"leftNavOn":"leftNav"%>">
-                        <img src="/images/nav_arrow_<%=level2.equals("tcRoundtables")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/rtables/viewForum.jsp?forum=205768&mc=239" class="<%=level2.equals("tcRoundtables")?"leftOn":"left"%>">TC Developer Round Tables</a>
+                        <img src="/images/nav_arrow_<%=level2.equals("tcRoundtables")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=205768" class="<%=level2.equals("tcRoundtables")?"leftOn":"left"%>">TC Developer Forums</a>
                     </td>
                 </tr>
 
