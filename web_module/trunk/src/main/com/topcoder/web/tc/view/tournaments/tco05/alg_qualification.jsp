@@ -10,7 +10,7 @@
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 </head>
@@ -32,7 +32,7 @@
 		<div class=bodySpacer>
 
 		  <p class=bigTitle>Advancers</p>
- 
+
             <table width="500" border="0" cellpadding="6" cellspacing="0" class="formFrame">
                 <tr>
                   <td class="advTitle" width="100%" colspan="5">Qualification Round</td>
@@ -64,7 +64,7 @@
                        </a>
                    </td>
                 </tr>
-                
+
                                 <%boolean even = false;%>
                 <rsc:iterator list="<%=rsc%>" id="resultRow"><tr>
                 <td class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="seed" row="<%=resultRow%>"/></td>
@@ -75,9 +75,9 @@
                 </tr>
                    <%even=!even;%>
                 </rsc:iterator>
-             
+
             </table>
-            
+
         </div>
 		</td>
 

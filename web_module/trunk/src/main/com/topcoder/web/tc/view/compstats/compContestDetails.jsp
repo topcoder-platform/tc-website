@@ -13,7 +13,7 @@
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 </head>
 
 <body>
@@ -76,7 +76,7 @@
 <%--<a href='/tc?module=CompList&pi=<rsc:item set="<%=projectInfo%>" name="phase_id"/>' class="statLink">--%>
 <rsc:item set="<%=projectInfo%>" name="phase_desc"/>
 <%--</a>--%>
- > Contest Details: 
+ > Contest Details:
 <rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></span><br>
 <span class="bc">
 <% if (dates.size() > 1) { %>

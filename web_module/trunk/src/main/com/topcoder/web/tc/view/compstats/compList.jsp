@@ -15,7 +15,7 @@
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
   <jsp:include page="../script.jsp" />
 <script type="text/javascript">
@@ -108,8 +108,8 @@ function submitEnter(e) {
       <td class="divider" >
          <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
             <tr><td class="tableTitle" colspan="7">
-            <% if ("112".equals(phaseId)) { %>Design 
-            <% } else { %>Development 
+            <% if ("112".equals(phaseId)) { %>Design
+            <% } else { %>Development
             <% } %>
             Contest Details
             </td></tr>
@@ -147,9 +147,9 @@ function submitEnter(e) {
 <div class="pagingBox">
    <%=(list.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
    | <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
-   
+
    <br>
-   
+
    View &#160;
    <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onkeypress="submitEnter(event)"/>
    &#160;at a time starting with &#160;
