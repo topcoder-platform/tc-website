@@ -745,6 +745,8 @@ public final class TaskDevelopment {
     static void register(long userId, long componentId, long projectId, int rating, String comment, boolean agreedToTerms, int phase, int version) throws Exception {
         Context ctx = null;
         try {
+            log.debug(ApplicationServer.SECURITY_CONTEXT_FACTORY);
+            log.debug(ApplicationServer.TCS_APP_SERVER_URL);
             ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
             log.debug("creating user");
             Object objUserManager = ctx.lookup(UserManagerRemoteHome.EJB_REF_NAME);
