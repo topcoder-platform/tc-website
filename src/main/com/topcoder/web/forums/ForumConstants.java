@@ -15,6 +15,10 @@ public interface ForumConstants {
 	public final static String MESSAGE_ID = "messageID";
     public final static String USER_ID = "userID";
 	
+    public final static String CATEGORY_MAIN = "Round Tables";
+    public final static String CATEGORY_NEWS = "News Article Discussions";
+    public final static String CATEGORY_EMPLOYMENT = "Employment Discussions";
+    
     public final static String THREAD_VIEW = "view";
     public final static String THREAD_ERROR = "error";
     
