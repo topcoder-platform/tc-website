@@ -41,18 +41,16 @@ public class ThreadList extends ForumsProcessor {
 
         String sortField = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SORT_FIELD));
         String sortOrder = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SORT_ORDER));
-
+        if (sortField.equals("")) {
+            sortField = String.valueOf(JiveConstants.MODIFICATION_DATE);
+        }
+        if (sortOrder.equals("")) {
+            sortOrder = String.valueOf(ResultFilter.DESCENDING);
+        }
+        
         ResultFilter resultFilter = ResultFilter.createDefaultThreadFilter();
-        if (!sortField.equals("")) {
-            resultFilter.setSortField(Integer.parseInt(sortField));
-        }
-        if (!sortOrder.equals("")) {
-            resultFilter.setSortOrder(Integer.parseInt(sortOrder));
-        } else {
-            if (resultFilter.getSortField() == JiveConstants.THREAD_NAME) {
-                resultFilter.setSortOrder(ResultFilter.ASCENDING);
-            }
-        }
+        resultFilter.setSortField(Integer.parseInt(sortField));
+        resultFilter.setSortOrder(Integer.parseInt(sortOrder));
         resultFilter.setStartIndex(startIdx);
         resultFilter.setNumResults(threadRange);
         int totalItemCount = forum.getThreadCount(resultFilter);
