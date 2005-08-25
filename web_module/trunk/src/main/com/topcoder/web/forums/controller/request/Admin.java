@@ -68,7 +68,7 @@ public class Admin extends ForumsProcessor {
         for (int i=0; i<rsc.size(); i++) {
             Round round = new Round(rsc.getIntItem(i, "contest_id"));
             round.setRoundId(rsc.getIntItem(i, "round_id"));
-            String contestName = rsc.getStringItem(i, 4);     // contest name
+            String contestName = rsc.getStringItem(i, 3);     // contest name
             if (contestName.startsWith("Single Round Match")) {
                 round.setRoundName(contestName);
             } else {
