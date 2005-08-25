@@ -8,6 +8,7 @@ import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.Forum;
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.forums.controller.ForumsUtil;
 
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -32,7 +33,8 @@ public class Category extends ForumsProcessor {
 		Iterator itForums = forumCategory.getForums(resultFilter);
         
         // For news, only display non-empty forums
-        if (forumCategory.getName().equals(ForumConstants.CATEGORY_NEWS)) {
+        Iterator itCategoryTree = ForumsUtil.getCategoryTree(forumCategory);
+        if (itCategoryTree.hasNext() && ((ForumCategory)itCategoryTree.next()).getName().equals(ForumConstants.CATEGORY_NEWS)) {
             ArrayList a = new ArrayList();
             while (itForums.hasNext()) {
                 Forum f = (Forum)itForums.next();
