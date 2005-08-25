@@ -103,12 +103,10 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
     <% if (appealText != null) { %>
         <tr>
             <td>
+
            <table border="1" cellspacing="0" width="100%" class="formFrame">
-            <tr>
-                <td rowspan="2">Appeal
-                </td>
-            </tr>
                 <tr>
+                <td rowspan="2" width="50" class="projectHeader">Appeal
                     <td><%= appealText%></td>
                 </tr>
                 <tr>
