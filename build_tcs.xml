@@ -47,6 +47,7 @@
         <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
         <pathelement location="${jars.dir}/ifxjdbc.jar"/>
         <pathelement location="${struts.lib.dir}/struts.jar"/>
+        <pathelement location="${struts.lib.dir}/httpunit.jar"/>
 
         <pathelement location="${jars.dir}/idgenerator.jar"/>
 
