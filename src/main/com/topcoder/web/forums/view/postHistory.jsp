@@ -24,9 +24,9 @@
     
     StringBuffer messageLinkBuffer = new StringBuffer(linkBuffer.toString());
     StringBuffer dateLinkBuffer = new StringBuffer(linkBuffer.toString());
-    messageLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.MESSAGE_NAME);
+    messageLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.MESSAGE_SUBJECT);
     dateLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.MODIFICATION_DATE);
-    if (sortField.equals(String.valueOf(JiveConstants.MESSAGE_NAME))) {
+    if (sortField.equals(String.valueOf(JiveConstants.MESSAGE_SUBJECT))) {
         if (sortOrder.equals(String.valueOf(ResultFilter.ASCENDING))) {
             messageLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
         } else if (sortOrder.equals(String.valueOf(ResultFilter.DESCENDING))) {
