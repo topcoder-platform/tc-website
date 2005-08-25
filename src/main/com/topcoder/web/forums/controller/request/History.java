@@ -51,9 +51,24 @@ public class History extends ForumsProcessor {
             } catch (Exception ignored) {}
         }
 
+        String sortField = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SORT_FIELD));
+        String sortOrder = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SORT_ORDER));
+        
         ResultFilter resultFilter = ResultFilter.createDefaultMessageFilter();
         resultFilter.setSortField(JiveConstants.MODIFICATION_DATE);
         resultFilter.setSortOrder(ResultFilter.DESCENDING);
+        
+        if (!sortField.equals("")) {
+            resultFilter.setSortField(Integer.parseInt(sortField));
+        }
+        if (!sortOrder.equals("")) {
+            resultFilter.setSortOrder(Integer.parseInt(sortOrder));
+        } else {
+            if (resultFilter.getSortField() == JiveConstants.MODIFICATION_DATE) {
+                resultFilter.setSortOrder(ResultFilter.DESCENDING);
+            }
+        }
+        
         resultFilter.setStartIndex(startIdx);
         resultFilter.setNumResults(range);
         int totalItemCount = forumFactory.getUserMessageCount(historyUser, resultFilter);
@@ -70,6 +85,8 @@ public class History extends ForumsProcessor {
         getRequest().setAttribute("messages", itMessages);
         getRequest().setAttribute("paginator", paginator);
         getRequest().setAttribute("historyBean", historyBean);
+        getRequest().setAttribute("sortField", sortField);
+        getRequest().setAttribute("sortOrder", sortOrder);
 
 		setNextPage("/postHistory.jsp");
 		setIsNextPageInContext(true);

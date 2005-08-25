@@ -1,8 +1,10 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
-                com.topcoder.web.forums.ForumConstants,
-                com.jivesoftware.forum.stats.ViewCountManager,
-                com.jivesoftware.forum.action.util.Page,
-                java.util.*,
+                 com.topcoder.web.forums.ForumConstants,
+                 com.jivesoftware.forum.stats.ViewCountManager,
+                 com.jivesoftware.forum.action.util.Page,
+                 com.jivesoftware.base.JiveConstants,
+                 com.jivesoftware.forum.ResultFilter,
+                 java.util.*,
                  com.topcoder.shared.util.DBMS"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
@@ -13,6 +15,50 @@
 <tc-webtag:useBean id="historyUser" name="historyUser" type="com.jivesoftware.base.User" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 <tc-webtag:useBean id="historyBean" name="historyBean" type="com.topcoder.web.ejb.messagehistory.MessageHistory" toScope="request"/>
+
+<%  String sortField = (String)request.getAttribute("sortField");
+    String sortOrder = (String)request.getAttribute("sortOrder");
+    
+    StringBuffer linkBuffer = new StringBuffer("?module=History");
+    linkBuffer.append("&").append(ForumConstants.USER_ID).append("=").append(historyUser.getID());
+    
+    StringBuffer threadLinkBuffer = new StringBuffer(linkBuffer.toString());
+    StringBuffer dateLinkBuffer = new StringBuffer(linkBuffer.toString());
+    threadLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.THREAD_NAME);
+    dateLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.MODIFICATION_DATE);
+    if (sortField.equals(String.valueOf(JiveConstants.THREAD_NAME))) {
+        if (sortOrder.equals(String.valueOf(ResultFilter.ASCENDING))) {
+            threadLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
+        } else if (sortOrder.equals(String.valueOf(ResultFilter.DESCENDING))) {
+            threadLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+        } else {  // default
+            threadLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+        }
+    } else {  // default
+        threadLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+    }
+    if (sortField.equals(String.valueOf(JiveConstants.MODIFICATION_DATE))) {
+        if (sortOrder.equals(String.valueOf(ResultFilter.ASCENDING))) {
+            dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
+        } else if (sortOrder.equals(String.valueOf(ResultFilter.DESCENDING))) {
+            dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+        } else {  // default
+            dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
+        }
+    } else {  // default
+        dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
+    }
+    String threadLink = threadLinkBuffer.toString();
+    String dateLink = dateLinkBuffer.toString();
+
+    if (!sortField.equals("")) {
+        linkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(sortField);
+    }
+    if (!sortOrder.equals("")) {
+        linkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(sortOrder);
+    }
+    String link = linkBuffer.toString();
+%>
 
 <html>
 <head>
@@ -69,7 +115,7 @@
 <% if (paginator.getNumPages() > 1) { %>
    <td class="rtbc" align="right" width=20% nowrap="nowrap"><b>
       <%  if (paginator.getPreviousPage()) { %>
-         <A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="historyUser" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
+         <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
                << PREV</A>&#160;&#160;&#160;
         <%  } %> [
         <%  Page[] pages = paginator.getPages(5);
@@ -78,13 +124,13 @@
                  <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
                        <span class="currentPage"><%= pages[i].getNumber() %></span>
                  <%  } else { %>
-                        <A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="historyUser" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
+                        <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
                          <%= pages[i].getNumber() %></A>
                    <%  } %>
             <%  } %>
         <%  } %> ]
       <%  if (paginator.getNextPage()) { %>
-         &#160;&#160;&#160;<A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="historyUser" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT>></A>
+         &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT>></A>
         <%  } %>
    </b></td></tr>
 <% } %>
@@ -92,9 +138,9 @@
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
-        <td class="rtHeader" width="50%">Post</td>
+        <td class="rtHeader" width="50%"><a href="<%=threadLink%>" class="rtbcLink">Post</a></td>
         <td class="rtHeader" width="25%">Forum</td>
-        <td class="rtHeader" width="15%">Date</td>
+        <td class="rtHeader" width="15%"><a href="<%=dateLink%>" class="rtbcLink">Date</a></td>
         <td class="rtHeader" align="right" width="5%">Replies</td>
         <td class="rtHeader" align="right" width="5%">Edits</td>
     </tr>

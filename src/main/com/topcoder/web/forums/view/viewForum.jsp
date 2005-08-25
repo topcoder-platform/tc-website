@@ -4,19 +4,19 @@
     response.setHeader( "Pragma", "no-cache" ); %>
 
 <%@ page import="com.topcoder.web.common.BaseServlet,
-                com.topcoder.web.forums.ForumConstants,
+                 com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
-                com.topcoder.web.forums.model.Paging,
+                 com.topcoder.web.forums.model.Paging,
                  com.jivesoftware.base.JiveConstants,
                  com.jivesoftware.base.JiveGlobals,
-                com.jivesoftware.base.User,
-                com.jivesoftware.forum.stats.ViewCountManager,
+                 com.jivesoftware.base.User,
+                 com.jivesoftware.forum.stats.ViewCountManager,
                  com.jivesoftware.forum.ForumMessage,
-                com.jivesoftware.forum.ResultFilter,
+                 com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.ReadTracker,
-                com.jivesoftware.forum.action.util.Page,
-                com.jivesoftware.forum.action.util.Paginator,
-                java.util.Iterator,
+                 com.jivesoftware.forum.action.util.Page,
+                 com.jivesoftware.forum.action.util.Paginator,
+                 java.util.Iterator,
                  java.util.Enumeration"
 %>
 
@@ -31,7 +31,7 @@
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 
-<%   ReadTracker readTracker = forumFactory.getReadTracker();
+<%  ReadTracker readTracker = forumFactory.getReadTracker();
     User user = (User)request.getAttribute("user");
     String sortField = (String)request.getAttribute("sortField");
     String sortOrder = (String)request.getAttribute("sortOrder");
