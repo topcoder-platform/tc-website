@@ -63,10 +63,6 @@ public class History extends ForumsProcessor {
         }
         if (!sortOrder.equals("")) {
             resultFilter.setSortOrder(Integer.parseInt(sortOrder));
-        } else {
-            if (resultFilter.getSortField() == JiveConstants.MODIFICATION_DATE) {
-                resultFilter.setSortOrder(ResultFilter.DESCENDING);
-            }
         }
         
         resultFilter.setStartIndex(startIdx);
