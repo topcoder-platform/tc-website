@@ -60,8 +60,8 @@
     List lasts = new ArrayList();
     for(Iterator it = scorecard.iterator(); it.hasNext(); ) {
 
-        ResultSetContainer.ResultRow rr = (ResultSetContainer.ResultRow) it.next();
-        System.out.println( lastQuestion.equals(rr.getStringItem("question_desc"));
+        ResultSetContainer.ResultSetRow rr = (ResultSetContainer.ResultSetRow) it.next();
+        System.out.println( lastQuestion.equals(rr.getStringItem("question_desc")));
         lastQuestion = rr.getStringItem("question_desc");
     }
 
