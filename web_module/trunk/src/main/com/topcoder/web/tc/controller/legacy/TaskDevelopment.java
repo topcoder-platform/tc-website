@@ -747,6 +747,7 @@ public final class TaskDevelopment {
         try {
             log.debug(ApplicationServer.SECURITY_CONTEXT_FACTORY);
             log.debug(ApplicationServer.TCS_APP_SERVER_URL);
+            log.debug(UserManagerRemoteHome.EJB_REF_NAME);
             ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
             log.debug("creating user");
             Object objUserManager = ctx.lookup(UserManagerRemoteHome.EJB_REF_NAME);
