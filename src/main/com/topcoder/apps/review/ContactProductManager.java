@@ -7,6 +7,7 @@ import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.User;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This Model provides business logic through which users contact a product manager.
@@ -16,6 +17,8 @@ import com.topcoder.apps.review.projecttracker.UserProjectInfo;
  */
 public class ContactProductManager implements Model {
 
+    private static Logger log = Logger.getLogger(ContactProductManager.class);
+    
     /**
      * Sends a mail to the product manager of a project.
      *
@@ -28,7 +31,7 @@ public class ContactProductManager implements Model {
      *         (Errors and RuntimeExceptions are propagated so they aren't included in this category)
      */
     public ResultData start(ActionData data) {
-        LogHelper.logModel(this, data);
+        log.debug("Starting request to model class ContactProductManager ...");
 
         if (!(data instanceof ContactPMData)) {
             // should never happen if front-end works properly
@@ -70,10 +73,10 @@ public class ContactProductManager implements Model {
 
             // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Error e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Exception e) {
             return new FailureResult(e);

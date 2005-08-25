@@ -6,7 +6,9 @@ package com.topcoder.apps.review;
 import com.topcoder.apps.review.document.DocumentManagerLocal;
 import com.topcoder.apps.review.document.FinalFixSubmission;
 import com.topcoder.apps.review.document.InitialSubmission;
+import com.topcoder.apps.review.document.AbstractSubmission;
 import com.topcoder.apps.review.projecttracker.*;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.net.URL;
 
@@ -18,6 +20,8 @@ import java.net.URL;
  */
 public class SubmissionDownload implements Model {
 
+    private static Logger log = Logger.getLogger(SubmissionDownload.class);
+    
     /**
      * Method for downloading the actual binary data of a submission. Available for admins, PMs and reviewers.
      *
@@ -33,7 +37,7 @@ public class SubmissionDownload implements Model {
      *         (Errors and RuntimeExceptions are propagated so they aren't included in this category)
      */
     public ResultData start(ActionData data) {
-        LogHelper.logModel(this, data);
+        log.debug("Starting request to model class SubmissionDownload ...");
 
         if (!(data instanceof SubmissionDownloadData)) {
             // should never happen if front-end works properly
@@ -76,6 +80,17 @@ public class SubmissionDownload implements Model {
             User submitter = null;
 
             // ID > 0 means initial submission
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Added by WishingBone - Automated Screening
+            if (submissionDownloadData.getVersionId() > 0) {
+                AbstractSubmission submission =
+                        documentManager.getSubmissionByVersion(project, submissionDownloadData.getVersionId(), user.getTCSubject());
+                if (submission != null) {
+                    submissionURL = submission.getURL();
+                    submitter = submission.getSubmitter();
+                }
+            } else
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////
             if (submissionDownloadData.getSubmissionId() > 0) {
                 // find the submission with that id
                 InitialSubmission initialSubmission =
@@ -117,10 +132,10 @@ public class SubmissionDownload implements Model {
 
             // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Error e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Exception e) {
             return new FailureResult(e);

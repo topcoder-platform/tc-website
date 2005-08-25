@@ -8,6 +8,7 @@ import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This Model provides business logic through which users view test cases.
@@ -17,6 +18,8 @@ import com.topcoder.apps.review.projecttracker.UserProjectInfo;
  */
 public class TestCaseReview implements Model {
 
+    static private Logger log = Logger.getLogger(TestCaseReview.class);
+    
     /**
      * Allows an admin or a reviewer to retrieve the test case review document and allows an admin or reviewer to
      * submit one.
@@ -33,7 +36,7 @@ public class TestCaseReview implements Model {
      *         (Errors and RuntimeExceptions are propagated so they aren't included in this category)
      */
     public ResultData start(ActionData data) {
-        LogHelper.logModel(this, data);
+        log.debug("Starting request to model class TestCaseReview ...");
 
         if (!(data instanceof TestCaseReviewData)) {
             // should never happen if front-end works properly
@@ -93,10 +96,10 @@ public class TestCaseReview implements Model {
 
             // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Error e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Exception e) {
             return new FailureResult(e);

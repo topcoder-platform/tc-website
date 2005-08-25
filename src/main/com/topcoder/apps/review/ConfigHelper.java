@@ -7,6 +7,7 @@ import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.ConfigManagerException;
 import com.topcoder.util.config.ConfigManagerInterface;
 import com.topcoder.util.config.UnknownNamespaceException;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -111,6 +112,8 @@ public class ConfigHelper implements ConfigManagerInterface {
      * The list of properties.
      */
     private static List props;
+    
+    private static Logger log = Logger.getLogger(ConfigHelper.class);
 
     /**
      * Static initializer. Loads the configuration file.
@@ -130,7 +133,7 @@ public class ConfigHelper implements ConfigManagerInterface {
             ConfigManager.getInstance().add(NAMESPACE, CONFIG_FILE, ConfigManager.CONFIG_PROPERTIES_FORMAT);
             ConfigManager.getInstance().refreshAll();
         } catch (ConfigManagerException e) {
-            LogHelper.log("Error while loading the business logic config file: ", e);
+            log.error("Error while loading the business logic config file: ", e);
         }
     }
 

@@ -11,7 +11,7 @@
 <!-- Component Page begins -->
     <% } else if ((level1.equals("components"))) { %>
                 <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
-                <img src="/images/headFeaturedComponents.gif" width="170" height="29" alt="Featured Components" border="0"><br>
+                <img src="/images/headFeaturedComponents.gif" alt="Featured Components" border="0"><br>
                 <a href="/catalog/c_component.jsp?comp=2803908&ver=1"><img src="/images/feat_comp_math_expression.gif" width="170" height="104" alt="Math Expression Evaluator" border="0"></a><br>
                 <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
                 <a href="/catalog/c_component.jsp?comp=6511227&ver=1"><img src="/images/feat_comp_priority_queue.gif" width="170" height="119" alt="Priority Queue" border="0"></a><br>

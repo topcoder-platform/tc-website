@@ -10,6 +10,7 @@ import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import com.topcoder.util.format.FormatMethodFactory;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.io.File;
 import java.io.InputStream;
@@ -23,6 +24,8 @@ import java.util.Date;
  */
 public class SubmitFinalFix implements Model {
 
+    private static Logger log = Logger.getLogger(SubmitFinalFix.class);
+    
     /**
      * This method allows the winning submitter to make a new final fix submission.
      * The File submitted by the user is copied in the directory indicated in the business_logic_config.properties file
@@ -37,7 +40,7 @@ public class SubmitFinalFix implements Model {
      *         (Errors and RuntimeExceptions are propagated so they aren't included in this category)
      */
     public ResultData start(ActionData data) {
-        LogHelper.logModel(this, data);
+        log.debug("Starting request to model class SubmitFinalFix ...");
 
         if (!(data instanceof SolutionData)) {
             // should never happen if front-end works properly
@@ -110,10 +113,10 @@ public class SubmitFinalFix implements Model {
 
             // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Error e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Exception e) {
             return new FailureResult(e);

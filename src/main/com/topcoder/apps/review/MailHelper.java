@@ -14,6 +14,7 @@ import com.topcoder.file.render.xsl.XSLTransformerWrapper;
 import com.topcoder.file.render.xsl.XSLTransformerWrapperException;
 import com.topcoder.message.email.EmailEngine;
 import com.topcoder.message.email.TCSEmailMessage;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.io.*;
 import java.util.Calendar;
@@ -53,6 +54,8 @@ class MailHelper {
      */
     static final int PLACE_SCREENING_FAIL = -1;
 
+    static private Logger log = Logger.getLogger(MailHelper.class);
+    
     /**
      * Constructor (inhibits outside instantiation).
      */
@@ -308,15 +311,15 @@ class MailHelper {
             message.setToAddress(formatAddress(to), TCSEmailMessage.TO);
             message.setSubject(subject);
             message.setBody(messageText);
-            LogHelper.log("Sending e-mail to address: " + formatAddress(to));
+            log.info("Sending e-mail to address: " + formatAddress(to));
             EmailEngine.send(message);
         } else {
-            LogHelper.log("--mail--");
-            LogHelper.log("From: " + formatAddress(from));
-            LogHelper.log("To: " + formatAddress(to));
-            LogHelper.log("Subject: " + subject);
-            LogHelper.log(messageText);
-            LogHelper.log("---end--");
+            log.debug("--mail--");
+            log.debug("From: " + formatAddress(from));
+            log.debug("To: " + formatAddress(to));
+            log.debug("Subject: " + subject);
+            log.debug(messageText);
+            log.debug("---end--");
         }
     }
 
@@ -358,7 +361,7 @@ class MailHelper {
             throws XSLTransformerWrapperException, FileNotFoundException {
         String xmlData = xmlDocument.createXML();
         if (EJBHelper.isTestMode()) {
-            LogHelper.log(xmlData);
+            log.debug(xmlData);
         }
         XSLTransformerWrapper xslt = new XSLTransformerWrapper(new FileInputStream(bodyXSL));
         ByteArrayOutputStream out = new ByteArrayOutputStream();

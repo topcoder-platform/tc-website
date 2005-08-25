@@ -518,6 +518,15 @@ A.edit:active
 	padding: 5px;
 }
 
+.screeningErrorText
+{
+	font-size: 12px; 
+	color: #C00; 
+	font-style: normal; 
+	font-weight: bold; 
+	padding: 2px;
+}
+
 .footer
 {
 	font-size: 11px;

@@ -11,6 +11,7 @@ import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -40,6 +41,8 @@ public class ProjectAdministration implements Model {
      * The minimum score that allows a submitter to win.
      */
     private static double minscore = -1;
+    
+    private static Logger log = Logger.getLogger(ProjectAdministration.class);
 
     /**
      * Method for the administration of a project. The front-end passes an instance of a Project in which the front-end
@@ -73,7 +76,7 @@ public class ProjectAdministration implements Model {
      *         (Errors and RuntimeExceptions are propagated so they aren't included in this category)
      */
     public ResultData start(ActionData data) {
-        LogHelper.logModel(this, data);
+        log.debug("Starting request to model class ProjectAdministration ...");
 
         if (!(data instanceof ProjectData)) {
             // should never happen if front-end works properly
@@ -334,13 +337,13 @@ public class ProjectAdministration implements Model {
                 Context initial = new InitialContext();
                 ut = (UserTransaction) initial.lookup("UserTransaction");
                 try {
-                    LogHelper.log("before begin, ut.getStatus(): " + ut.getStatus());
+                    log.debug("before begin, ut.getStatus(): " + ut.getStatus());
                 } catch (SystemException e) {
                 }
                 shouldRollback = true;
                 ut.begin();
                 try {
-                    LogHelper.log("after begin, ut.getStatus(): " + ut.getStatus());
+                    log.debug("after begin, ut.getStatus(): " + ut.getStatus());
                 } catch (SystemException e) {
                 }
             }
@@ -545,7 +548,7 @@ public class ProjectAdministration implements Model {
                 }
             }
             if (projectData.getSubmitterRemoval() && !problemSet.isEmpty()) {
-                LogHelper.log("Remove submitter roles");
+                log.debug("Remove submitter roles");
                 UserRole[] keepRoles = new UserRole[newRoles.length - problemSet.size()];
                 int j = 0;
                 for (int i = 0; i < newRoles.length; i++) {
@@ -636,7 +639,7 @@ public class ProjectAdministration implements Model {
                     if (newProject.getCurrentPhase().getOrder() > phaseManager.getPhase(Phase.ID_APPEALS_RESPONSE).getOrder()
                             && RoleHelper.isSubmitterOnly(rev, newProject)
                             && !rev.equals(newProject.getWinner())) {
-                        LogHelper.log("Not sending mail to submitter " + rev.getHandle()
+                        log.debug("Not sending mail to submitter " + rev.getHandle()
                                     + " because the phase is past review and he is not a winner");
                     // do not send mails to "fake" submitters, or to the autopilot user
                     } else if (!RoleHelper.isFakeSubmitter(rev, newProject, user)
@@ -697,14 +700,14 @@ public class ProjectAdministration implements Model {
                         RolePrincipal rolePrincipal = getRolePrincipal(removeUserRole, oldProject, user.getTCSubject(), newProject.getId());
                         if (rolePrincipal != null) {
                             principalMgr.unAssignRole(userPrincipal, rolePrincipal, user.getTCSubject());
-                            LogHelper.log(userPrincipal.getName() + " has lost role " + rolePrincipal.getName());
+                            log.debug(userPrincipal.getName() + " has lost role " + rolePrincipal.getName());
 
                             // remove the generic View Project permission
                             String roleName = oldProject.getName() + " " + oldProject.getVersion() + " " +
                                     oldProject.getProjectType().getName() + " " + "View Project " + oldProject.getId();
                             rolePrincipal = getRolePrincipal(roleName, user.getTCSubject());
                             principalMgr.unAssignRole(userPrincipal, rolePrincipal, user.getTCSubject());
-                            LogHelper.log(userPrincipal.getName() + " has lost role " + rolePrincipal.getName());
+                            log.debug(userPrincipal.getName() + " has lost role " + rolePrincipal.getName());
                         }
                     }
                 }
@@ -724,7 +727,7 @@ public class ProjectAdministration implements Model {
                                 // unassign and assign in case the user already had the role
                                 principalMgr.unAssignRole(userPrincipal, rolePrincipal, user.getTCSubject());
                                 principalMgr.assignRole(userPrincipal, rolePrincipal, user.getTCSubject());
-                                LogHelper.log(userPrincipal.getName() + " has got role " + rolePrincipal.getName());
+                                log.debug(userPrincipal.getName() + " has got role " + rolePrincipal.getName());
 
                                 // add the generic View Project permission
                                 String roleName = oldProject.getName() + " " + oldProject.getVersion() + " " +
@@ -733,7 +736,7 @@ public class ProjectAdministration implements Model {
                                 // unassign and assign in case the user already had the role
                                 principalMgr.unAssignRole(userPrincipal, rolePrincipal, user.getTCSubject());
                                 principalMgr.assignRole(userPrincipal, rolePrincipal, user.getTCSubject());
-                                LogHelper.log(userPrincipal.getName() + " has got role " + rolePrincipal.getName());
+                                log.debug(userPrincipal.getName() + " has got role " + rolePrincipal.getName());
 
                                 // add the forum permission
                                 roleName = "ForumUser " + oldProject.getForumId();
@@ -741,7 +744,7 @@ public class ProjectAdministration implements Model {
                                 // unassign and assign in case the user already had the role
                                 principalMgr.unAssignRole(userPrincipal, rolePrincipal, user.getTCSubject());
                                 principalMgr.assignRole(userPrincipal, rolePrincipal, user.getTCSubject());
-                                LogHelper.log(userPrincipal.getName() + " has got role " + rolePrincipal.getName());
+                                log.debug(userPrincipal.getName() + " has got role " + rolePrincipal.getName());
                             }
                         }
                     }
@@ -782,12 +785,12 @@ public class ProjectAdministration implements Model {
             if (ut != null) {
                 ut.commit();
                 shouldRollback = false;
-                LogHelper.log("Changes committed successfully");
+                log.debug("Changes committed successfully");
             }
 
-            LogHelper.log("SendMail-flag: " + projectData.getSendMail());
+            log.debug("SendMail-flag: " + projectData.getSendMail());
             if (projectData.getSendMail()) {
-                LogHelper.log("Sending mails ...");
+                log.debug("Sending mails ...");
                 // everything finished successfully so we can send mail notifications
                 for (Iterator it = mailQueue.iterator(); it.hasNext();) {
                     Object obj = it.next();
@@ -807,11 +810,11 @@ public class ProjectAdministration implements Model {
             // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
             handleRollback(shouldRollback, ut);
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Error e) {
             handleRollback(shouldRollback, ut);
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Exception e) {
             handleRollback(shouldRollback, ut);
@@ -821,27 +824,27 @@ public class ProjectAdministration implements Model {
 
     private void handleRollback(boolean shouldRollback, UserTransaction ut) {
         if (!shouldRollback) {
-            LogHelper.log("No changes made or changes committed ... no rollback");
+            log.debug("No changes made or changes committed ... no rollback");
             if (ut != null) {
                 try {
-                    LogHelper.log("ut.getStatus(): " + ut.getStatus());
+                    log.debug("ut.getStatus(): " + ut.getStatus());
                 } catch (SystemException e) {
                 }
             }
         } else if (ut != null) {
             try {
-                LogHelper.log("Rolling back transaction ... hope it works");
+                log.debug("Rolling back transaction ... hope it works");
                 try {
-                    LogHelper.log("ut.getStatus(): " + ut.getStatus());
+                    log.debug("ut.getStatus(): " + ut.getStatus());
                 } catch (SystemException e) {
                 }
                 ut.rollback();
                 try {
-                    LogHelper.log("ut.getStatus(): " + ut.getStatus());
+                    log.debug("ut.getStatus(): " + ut.getStatus());
                 } catch (SystemException e) {
                 }
             } catch (Exception e) {
-                LogHelper.log("ProjectAdministration rollback exception: ", e);
+                log.debug("ProjectAdministration rollback exception: ", e);
             }
         }
     }
@@ -905,7 +908,7 @@ public class ProjectAdministration implements Model {
             }
             result = (RolePrincipal) rolesCache.get(roleName);
             if (result == null) {
-                LogHelper.log("Role cache contents:");
+                log.debug("Role cache contents:");
                 for (Iterator it = rolesCache.keySet().iterator(); it.hasNext();) {
                     System.err.println((String) it.next());
                 }

@@ -13,10 +13,10 @@
                 <Value>no</Value>
         </Property>
         <Property name="max_single_file_size">
-                <Value>5000000</Value>
+                <Value>10000000</Value>
         </Property>
         <Property name="max_total_file_size">
-                <Value>5000000</Value>
+                <Value>10000000</Value>
         </Property>
 </CMConfig>
 

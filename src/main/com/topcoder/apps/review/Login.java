@@ -8,6 +8,7 @@ import com.topcoder.apps.review.projecttracker.UserManagerLocal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.login.AuthenticationException;
 import com.topcoder.security.login.LoginRemote;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This Model provides business logic through which users login to the system.
@@ -17,6 +18,8 @@ import com.topcoder.security.login.LoginRemote;
  */
 public class Login implements Model {
 
+    private static Logger log = Logger.getLogger(Login.class);
+    
     /**
      * Performs the login for a user with the name and password given inside a LoginData object.
      *
@@ -28,7 +31,7 @@ public class Login implements Model {
      *         (Errors and RuntimeExceptions are propagated so they aren't included in this category)
      */
     public ResultData start(ActionData data) {
-        LogHelper.logModel(this, data);
+        log.debug("Starting request to model class Login ...");
 
         if (!(data instanceof LoginData)) {
             // should never happen if front-end works properly
@@ -52,10 +55,10 @@ public class Login implements Model {
         } catch (AuthenticationException e) {
             return new FailureResult("User name or password is incorrect", e);
         } catch (RuntimeException e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Error e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Exception e) {
             return new FailureResult(e);

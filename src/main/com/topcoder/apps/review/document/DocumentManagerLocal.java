@@ -147,6 +147,7 @@ public interface DocumentManagerLocal extends EJBLocalObject {
     public InitialSubmission[] getInitialSubmissions(Project project, boolean retrieveRemoved, TCSubject requestor);
 
     public InitialSubmission getInitialSubmission(Project project, long subId, TCSubject requestor);
+    public AbstractSubmission getSubmissionByVersion(Project project, long versionId, TCSubject requestor);
 
     /**
      * DOCUMENT ME!

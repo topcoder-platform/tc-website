@@ -69,12 +69,22 @@ public final class ProjectDetailAction extends ReviewAction {
         if (result instanceof SuccessResult) {
             UtilityBean utility = (UtilityBean) request.getSession().getAttribute(Constants.UTILITY_KEY);
             ProjectRetrieval pr = (ProjectRetrieval) result;
+
             boolean isAdmin = utility.getAdmin();
             boolean isPM = orpd.getUser().equals(pr.getProject().getProjectManager());
             long phaseId = pr.getProject().getCurrentPhase().getId();
             String action = String.valueOf(request.getParameter(Constants.ACTION_KEY));
             AbstractSubmission[] submissions = null;
             int len = pr.getSubmissions().length;
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Added by WishingBone - Automated Screening
+            if (pr.getHistory() != null && pr.getHistory().length > 0 &&
+                (String.valueOf(Constants.PHASE_SUBMISSION).equals(action) ||
+                 pr.getProject().getCurrentPhase().getId() == Constants.PHASE_SUBMISSION)) {
+                request.setAttribute(Constants.HISTORY_LIST_KEY, pr.getHistory());
+            }
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             // Classify the initial submissions and final submission
             if (len > 0 && pr.getSubmissions()[len - 1] instanceof FinalFixSubmission) {

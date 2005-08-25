@@ -307,6 +307,20 @@ public final class BusinessDelegate {
     }
 
     /**
+     * Show screening responses.
+     *
+     * @param data The input action data.
+     * @return the result of submission file download.
+     */
+    public ResultData showScreening(ActionData data) {
+        if (useMockup) {
+            return new FailureResult();
+        } else {
+            return new ShowScreening().start(data);
+        }
+    }
+
+    /**
      * Return whether the user is admin.
      *
      * @param user The user to be checked.

@@ -88,10 +88,23 @@ public class SubmissionDownloadAction extends ReviewAction {
         } catch (NumberFormatException e) {
             sid = -1;
         }
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Added by WishingBone - Automated Screening
+        long vid = -1;
+        try {
+            vid = Long.parseLong(String.valueOf(request.getParameter(Constants.VERSION_ID_KEY)));
+        } catch (NumberFormatException e) {
+            vid = -1;
+        }
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // Call the business layer
         BusinessDelegate businessDelegate = new BusinessDelegate();
         SubmissionDownloadData data = new SubmissionDownloadData(orpd, sid);
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Added by WishingBone - Automated Screening
+        data.setVersionId(vid);
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ResultData result = businessDelegate.submissionDownload(data);
 
         if (result instanceof SuccessResult) {

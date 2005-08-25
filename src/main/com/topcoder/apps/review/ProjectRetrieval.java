@@ -7,6 +7,7 @@ import com.topcoder.apps.review.document.AbstractScorecard;
 import com.topcoder.apps.review.document.AbstractSubmission;
 import com.topcoder.apps.review.document.TestCase;
 import com.topcoder.apps.review.projecttracker.Project;
+import com.topcoder.apps.screening.ScreeningRecord;
 
 /**
  * Retrieval class used by the Model classes to return a project and the scorecards for that project.
@@ -40,6 +41,11 @@ public class ProjectRetrieval extends SuccessResult {
      * Array of scorecard template id:s
      */
     long[] templateId = null;
+
+    /**
+     * Array of submission history.
+     */
+    private ScreeningRecord[] history = null;
 
     /**
      * Constructor.
@@ -97,5 +103,24 @@ public class ProjectRetrieval extends SuccessResult {
     public long[] getTemplateId() {
         return templateId;
     }
+
+    /**
+     * Get the submission history.
+     *
+     * @return submission history
+     */
+    public ScreeningRecord[] getHistory() {
+        return history;
+    }
+
+    /**
+     * Set the submission history.
+     *
+     * @param history submission history
+     */
+    public void setHistory(ScreeningRecord[] history) {
+        this.history = history;
+    }
+
 }
 

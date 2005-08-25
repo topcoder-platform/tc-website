@@ -1,9 +1,10 @@
 /**
- * Copyright � 2003, TopCoder, Inc. All rights reserved
+ * Copyright (c) 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.DocumentAlreadySubmittedException;
+import com.topcoder.shared.util.logging.Logger;
 
 
 /**
@@ -24,12 +25,14 @@ public class FailureResult implements ResultData {
      * The test case review.
      */
     private String message = null;
+    
+    private static Logger log = Logger.getLogger(FailureResult.class);
 
     /**
      * Constructor (message and cause will be null).
      */
     FailureResult() {
-        LogHelper.log("FailureResult: (no message, no cause)");
+        log.warn("FailureResult: (no message, no cause)");
     }
 
     /**
@@ -39,7 +42,7 @@ public class FailureResult implements ResultData {
      */
     FailureResult(String message) {
         this.message = message;
-        LogHelper.log("FailureResult: " + message);
+        log.warn("FailureResult: " + message);
     }
 
     /**
@@ -56,7 +59,7 @@ public class FailureResult implements ResultData {
             this.message = "This document has already been submitted (and marked as complete) so it cannot be "
                     + "resubmitted again without PM intervention";
         }
-        LogHelper.log("FailureResult: " + message + ": ", cause);
+        log.warn("FailureResult: " + message + ": ", cause);
     }
 
     /**
@@ -68,7 +71,7 @@ public class FailureResult implements ResultData {
     FailureResult(String message, Exception cause) {
         this.message = message;
         this.cause = cause;
-        LogHelper.log("FailureResult: " + message + ": ", cause);
+        log.warn("FailureResult: " + message + ": ", cause);
     }
 
     /**
@@ -91,4 +94,3 @@ public class FailureResult implements ResultData {
     }
 
 }
-

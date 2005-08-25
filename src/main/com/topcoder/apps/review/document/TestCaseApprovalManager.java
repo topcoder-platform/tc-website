@@ -50,8 +50,6 @@ public class TestCaseApprovalManager implements Refreshable {
      * @see com.topcoder.util.cache.refreshable.Refreshable#refresh()
      */
     public void refresh() throws RefreshException {
-        System.out.println("TestCaseApproval.refresh()");
-
         Map newMap = new HashMap();
 
         Connection conn = null;
@@ -68,8 +66,6 @@ public class TestCaseApprovalManager implements Refreshable {
             while (rs.next()) {
                 long id = rs.getLong(1);
                 String name = rs.getString(2);
-
-                System.out.println("TestCaseApproval.refresh(): id: " + id + ", name: " + name);
 
                 TestCaseApproval testCaseApproval = new TestCaseApproval(id, name);
                 newMap.put(new Long(id), testCaseApproval);

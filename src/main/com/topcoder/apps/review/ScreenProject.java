@@ -9,6 +9,7 @@ import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This Model provides business logic through which users screen projects.
@@ -18,6 +19,8 @@ import com.topcoder.apps.review.projecttracker.UserProjectInfo;
  */
 public class ScreenProject implements Model {
 
+    private static Logger log = Logger.getLogger(ScreenProject.class);
+    
     /**
      * Allows an admin or a reviewer to retrieve the screening document and allows an admin or screener to
      * submit the screening scorecard for a project.
@@ -34,7 +37,7 @@ public class ScreenProject implements Model {
      *         (Errors and RuntimeExceptions are propagated so they aren't included in this category)
      */
     public ResultData start(ActionData data) {
-        LogHelper.logModel(this, data);
+        log.debug("Starting request to model class ScreenProject ...");
 
         if (!(data instanceof ScreeningData)) {
             // should never happen if front-end works properly
@@ -103,10 +106,10 @@ public class ScreenProject implements Model {
 
             // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Error e) {
-            LogHelper.log("", e);
+            log.error("", e);
             throw e;
         } catch (Exception e) {
             return new FailureResult(e);

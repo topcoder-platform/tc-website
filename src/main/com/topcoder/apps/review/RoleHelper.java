@@ -1,10 +1,11 @@
 /**
- * Copyright � 2003, TopCoder, Inc. All rights reserved
+ * Copyright (c) 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.InitialSubmission;
 import com.topcoder.apps.review.projecttracker.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Helper class for checking the role of a user.
@@ -13,6 +14,8 @@ import com.topcoder.apps.review.projecttracker.*;
  * @version 1.0
  */
 class RoleHelper {
+    
+    static private Logger log = Logger.getLogger(RoleHelper.class);
 
     /**
      * Constructor (inhibits outside instantiation).
@@ -147,7 +150,7 @@ class RoleHelper {
         // get the user role id
         //LogHelper.log("looking at " + roles.length + " roles");
         for (int i = 0; i < roles.length; i++) {
-            LogHelper.log("looking at role " + roles[i].getRole().getName() + ", " +
+            log.debug("looking at role " + roles[i].getRole().getName() + ", " +
                     (roles[i].getUser() == null ? "null" : roles[i].getUser().getHandle()) +
                     " (for " + user.getHandle() + ")");
             if (RoleHelper.isSubmitter(roles[i]) && user.equals(roles[i].getUser())) {
@@ -161,7 +164,7 @@ class RoleHelper {
         // get the user role id
         //LogHelper.log("looking at " + roles.length + " roles");
         for (int i = 0; i < roles.length; i++) {
-            LogHelper.log("looking at role " + roles[i].getRole().getName() + ", " +
+            log.debug("looking at role " + roles[i].getRole().getName() + ", " +
                     (roles[i].getUser() == null ? "null" : roles[i].getUser().getHandle()) +
                     " (for " + user.getHandle() + ")");
             if (RoleHelper.isReviewer(roles[i]) && user.equals(roles[i].getUser())) {
