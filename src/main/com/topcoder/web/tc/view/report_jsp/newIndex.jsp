@@ -1,7 +1,6 @@
 <%@  page
   language="java"
   import="java.util.*,
-          weblogic.security.acl.Security,
           com.topcoder.common.web.data.report.Constants,
           com.topcoder.shared.dataAccess.DataAccessConstants,
           com.topcoder.common.web.data.report.Query"
@@ -101,7 +100,7 @@
         <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=recent_contacts&"+Constants.DB_KEY+"="+Query.TRANSACTIONAL%>">Recent Contacts</A></LI>
         <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=TCCC05%20Yahoo%20Members&"+Constants.DB_KEY+"="+Query.TRANSACTIONAL%>">TCCC05 Yahoo Member List</A></LI>
       </UL>
-      
+
       Technical Assessment
       <UL>
         <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=technical_assessment_session_status&"+Constants.DB_KEY+"=SCREENING_OLTP"%>">Technical Assessment Session Status</A></LI>
