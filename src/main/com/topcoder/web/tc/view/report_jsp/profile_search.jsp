@@ -172,7 +172,7 @@ f<%@  page
       <tr><td class="left">Resume:</td><td class="right"> <tc-webtag:chkBox name="resume"/></td></tr>
       <tr><td class="left">Willing to travel/relocate:</td><td class="right"> <tc-webtag:chkBox name="travel"/></td></tr>
       <tr><td class="left">US Authorization:</td><td class="right"> <tc-webtag:chkBox name="auth"/></td></tr>
-      <tr><td class="left">Notifications:<br/><a href="JavaScript:deselect('notifications')">Deselect</a> </td><td class="right"><tc-webtag:multiRSCSelect class="multiSel1" fieldValue="notify_id" fieldText="name" name="notifications" size="5" useTopValue="false" list="<%=notifications%>" multiple="true" selected='<%=(Set)selectedMap.get("notifications")%>'/></td></tr>
+      <tr><td class="left">Notifications:<br/><a href="JavaScript:deselect('notifications')">Deselect</a> </td><td class="right"><tc-webtag:multiRSCSelect styleClass="multiSel1" fieldValue="notify_id" fieldText="name" name="notifications" size="5" useTopValue="false" list="<%=notifications%>" multiple="true" selected='<%=(Set)selectedMap.get("notifications")%>'/></td></tr>
 </table></td><td valign="top" class="centertop">
 <table class="search">
       <rsc:iterator list="<%=demographic_questions%>" id="resultRow">
@@ -181,7 +181,7 @@ f<%@  page
         <a href="JavaScript:deselect('demo_<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>')">Deselect</a>
         </td><td class="right">
         <% int questionId = resultRow.getIntItem("demographic_question_id");%>
-        <tc-webtag:listSelect class="multiSel2" name='<%="demo_"+questionId%>' size="<%=String.valueOf(Math.min(4,((List)demoMap.get(new Integer(questionId))).size()))%>" useTopValue="false" multiple="true" list="<%=(List)demoMap.get(new Integer(questionId))%>"/>
+        <tc-webtag:listSelect styleClass="multiSel2" name='<%="demo_"+questionId%>' size="<%=String.valueOf(Math.min(4,((List)demoMap.get(new Integer(questionId))).size()))%>" useTopValue="false" multiple="true" list="<%=(List)demoMap.get(new Integer(questionId))%>"/>
         </td></tr>
       </rsc:iterator>
 </table></td><td class="righttop" valign="top"><table class="search">
@@ -189,7 +189,7 @@ f<%@  page
         <tr><td nowrap>
         <rsc:item name="skill_type_desc" row="<%=resultRow%>"/>:<br/>
         <% int skillType = resultRow.getIntItem("skill_type_id");%>
-        <tc-webtag:listSelect class="multiSel3" name='<%="skilltype"+skillType%>' useTopValue="false" multiple="true" size="12" list="<%=(List)skillMap.get(new Integer(skillType))%>"/>
+        <tc-webtag:listSelect styleClass="multiSel3" name='<%="skilltype"+skillType%>' useTopValue="false" multiple="true" size="12" list="<%=(List)skillMap.get(new Integer(skillType))%>"/>
         <select size="12" name="skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
         <option>1</option>
         <option>2</option>
@@ -197,7 +197,7 @@ f<%@  page
         <option>4</option>
         <option>5</option>
         </select>
-        <tc-webtag:listSelect class="multiSel3" name='<%="skillset"+skillType%>' multiple="true" useTopValue="false" multiple="true" size="12" list='<%=(List)skillSetMap.get("skillset"+skillType)%>'/>
+        <tc-webtag:listSelect styleClass="multiSel3" name='<%="skillset"+skillType%>' multiple="true" useTopValue="false" multiple="true" size="12" list='<%=(List)skillSetMap.get("skillset"+skillType)%>'/>
         </td><td>
         <a href="JavaScript:itemAdd('skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Add skill</a><br/>
         <a href="JavaScript:remove('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Remove skills</a><br/>
