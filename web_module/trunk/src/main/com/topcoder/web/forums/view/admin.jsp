@@ -4,14 +4,14 @@
                  com.jivesoftware.base.User,
                  com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.ReadTracker,
-                 com.topcoder.common.web.data.ContestAdmin,
-                  java.util.Iterator,
+                 com.topcoder.common.web.data.Round,
+           		 java.util.Iterator,
                  java.util.Enumeration"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
-<tc-webtag:useBean id="contestList" name="contestList" type="java.util.ArrayList" toScope="request"/>
+<tc-webtag:useBean id="roundList" name="roundList" type="java.util.ArrayList" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <html>
@@ -77,9 +77,9 @@
       <td class="rtTextCell" nowrap="nowrap"><strong>Contest:</strong></td>
       <td class="rtTextCell100">
         <select size="1" name="<%=ForumConstants.ADMIN_COMMAND%>">
-        <%  for (int i=0; i<contestList.size(); i++) { 
-                ContestAdmin contest = (ContestAdmin)contestList.get(i); %>
-                <option value="<%=contest.getContestId()%>"><%=contest.getContestName()%></option>
+        <%  for (int i=0; i<roundList.size(); i++) { 
+                Round round = (Round)roundList.get(i); %>
+                <option value="<%=round.getRoundId()%>"><%=round.getRoundName()%></option>
         <%  } %>
         </select>
       </td>
