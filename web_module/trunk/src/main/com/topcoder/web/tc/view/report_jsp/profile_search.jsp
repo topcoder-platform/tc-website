@@ -1,4 +1,4 @@
-<%@  page
+f<%@  page
   language="java"
   import="java.util.*,
           com.topcoder.common.web.data.report.*,
@@ -136,8 +136,8 @@
   <a href="JavaScript:submitForm()">Submit</a>
 </td></tr><tr><td valign="top" class="lefttop">
     <table class="search">
-      <tr><td class="left">Show count only:</td><td class="right"> <tc-webtag:chkBox onKeyPress="submitEnter(event)" name="count"/></td></tr>
-      <tr><td class="left">Case Sensitive:</td><td class="right"> <tc-webtag:chkBox onKeyPress="submitEnter(event)" name="casesensitive"/></td></tr>
+      <tr><td class="left">Show count only:</td><td class="right"> <tc-webtag:chkBox name="count"/></td></tr>
+      <tr><td class="left">Case Sensitive:</td><td class="right"> <tc-webtag:chkBox name="casesensitive"/></td></tr>
       <tr><td class="left">Handle: </td><td class="right"><tc-webtag:textInput onKeyPress="submitEnter(event)" name="handle" size="15"/></td></tr>
       <tr><td class="left">E-Mail: </td><td class="right"><tc-webtag:textInput onKeyPress="submitEnter(event)" name="email" size="15"/></td></tr>
       <tr><td class="left">First Name: </td><td class="right"><tc-webtag:textInput onKeyPress="submitEnter(event)" name="firstname" size="15"/></td></tr>
