@@ -9,6 +9,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.25.05<br>12:55 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=tco05_online_rd_2">TCO05 Round 2 - Problem Set & Analysis</A></span><br><br>
+      The competition heated up with round 2 of the TCO.  Out of 400 excellent coders, only 200 could advance.  Most coders were able to solve the easy problem without too much trouble, and many coders moved on to the medium within a few minutes.</td>
+      <td class="newsPhoto"><img src="/i/m/lbackstrom_mug.gif" /><br>by <tc-webtag:handle coderId="159052" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=tco05_online_rd_2">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>08.25.05<br>11:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview">TCO05 Algorithm Round 2 results</A></span><br><br>
       Find out who advanced to the next round in the Algorithm Competition.
@@ -240,18 +255,6 @@ Algorithm, Design, and Development Statistics tabs under Member Profiles now inc
    <tr><td class="newsLinksCell">
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=506838">details</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>08.04.05<br>10:25 AM</td>
-     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=7992">Learning environment survey</A></span><br><br>
-       Which of the following do you feel taught you the most about programming?
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?&module=ViewSurvey&sid=7992">view survey</A>&#160;|&#160;
-         <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
 
 
