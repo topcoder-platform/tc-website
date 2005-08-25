@@ -750,7 +750,7 @@ public final class TaskDevelopment {
             log.debug(UserManagerRemoteHome.EJB_REF_NAME);
             ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
             log.debug("creating user");
-            Object objUserManager = ctx.lookup("java:dde/UserManager");
+            Object objUserManager = ctx.lookup(UserManagerRemoteHome.EJB_REF_NAME);
             UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome) PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
             UserManagerRemote USER_MANAGER = userManagerHome.create();
 
