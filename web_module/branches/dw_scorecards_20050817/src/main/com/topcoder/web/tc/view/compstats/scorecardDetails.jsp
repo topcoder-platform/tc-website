@@ -55,6 +55,8 @@
     String rid = (String) request.getAttribute("rid");
     String lastQuestion = "";
     String lastSection = "";
+    String appealText = "";
+    String appealResponse = "";
 %>
 
 <A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A></span><br>
@@ -80,6 +82,8 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
 
 <% if (!lastQuestion.equals(resultRow.getStringItem("question_desc"))) {
         lastQuestion = resultRow.getStringItem("question_desc");
+        appealText = resultRow.getStringItem("appeal_text");
+        appealResponse = resultRow.getStringItem("appeal_response");
 %>
     <tr>
     <td class="projectCells" color="#808080">
@@ -95,6 +99,19 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
         <% } %>
     </td>
     </tr>
+
+    <% if (appealText != null) { %>
+        <tr>
+            <td><%= appealText%></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><%= appealResponse%></td>
+            <td></td>
+        </tr>
+
+    <% } %>
+
 <% } %>
 
     <tr>
