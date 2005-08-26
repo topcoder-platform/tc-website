@@ -95,6 +95,7 @@
     String rid = (String) request.getAttribute("rid");
     String lastQuestion = "";
     String lastSection = "";
+    String expanded = ",1,5,6"; //request.getAttribute("expanded");
 
     List lastSubjective = new ArrayList();
     boolean first = true;
@@ -112,6 +113,8 @@
     lastSubjective.add(Boolean.TRUE);
 
     Iterator lastIt = lastSubjective.iterator();
+
+    int questionNumber = 0;
 %>
 
 <A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A></span><br>
@@ -140,11 +143,26 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
 %>
     <tr>
     <td class="projectCells">
+
+<% if (expanded.indexOf("," + questionNumber + ",") < 0) { %>
+
+<a href="<%=expand%>,<%=questionNumber%>">[+]</a>
+
+<% } else {
+int posic = expanded.indexOf("," + questionNumber + ",");
+String removed = expand.substring(0,posic) + expand.substring(posic +  (questionNumber+ ",,").length());
+%>
+<a href="<%=removed%>"[-]</a>
+<% } %>
+
+
         (<rsc:item name="question_weight" row="<%=resultRow%>"/>)
         <rsc:item name="question_desc" row="<%=resultRow%>"/>
 
 
-                <% String txt;
+                <%
+                questionNumber++;
+                String txt;
                 int posic = resultRow.getStringItem("question_text").indexOf(".");
                 if (posic < 0) txt = resultRow.getStringItem("question_text");
                 else txt = resultRow.getStringItem("question_text").substring(0,posic);
