@@ -63,7 +63,7 @@
         ResultSetContainer.ResultSetRow rr = (ResultSetContainer.ResultSetRow) it.next();
 
         if (!first) {
-            lastSubjective.add(lastQuestion.equals(rr.getStringItem("question_desc")? Boolean.FALSE : Boolean.TRUE);
+            lastSubjective.add(lastQuestion.equals(rr.getStringItem("question_desc")? Boolean.FALSE : Boolean.TRUE));
         } else {
             fist = false;
         }
