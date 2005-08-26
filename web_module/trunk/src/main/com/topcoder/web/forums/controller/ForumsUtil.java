@@ -206,11 +206,11 @@ public class ForumsUtil {
         return null;
     }
     
-    // Returns the forum object's category hierarchy (by increasing depth), not including the root level.
+    // Returns the forum object's category hierarchy by increasing depth, starting from the root level.
     public static Iterator getCategoryTree(ForumCategory category) {
         ArrayList categoryList = new ArrayList();
         categoryList.add(category);
-        while ((category = category.getParentCategory()) != null && category.getCategoryDepth() > 0) {
+        while ((category = category.getParentCategory()) != null) {
             categoryList.add(0, category);
         }
         return categoryList.iterator();

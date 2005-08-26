@@ -71,12 +71,12 @@
     </td>
 </tr>
 <tr>
-    <td><b><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A>
+    <td><b>
     <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
         <%  if (category.getID() != forumCategory.getID()) { %>
-            >> <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>&mc=<jsp:getProperty name="category" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A>
+            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>&mc=<jsp:getProperty name="category" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >> 
         <%  } else { %>
-            >> <jsp:getProperty name="category" property="name"/>
+            <jsp:getProperty name="category" property="name"/>
         <%  } %> 
     </tc-webtag:iterator>
     </b></td>
@@ -91,7 +91,7 @@
                     <td class="rtHeader" align="center" colspan="2">Last Post</td>
                 </tr>
                 <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
-                    <%  trackerClass = (user == null || forum.getMessageCount() <= 0 || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
+                    <%  trackerClass = (user == null || forum.getLatestMessage() == null || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
                     <tr>
                         <td class="rtThreadCellWrap">
                         <%  if (user == null) { %>
@@ -127,7 +127,7 @@
                     <td class="rtHeader" align="center" colspan="2">Last Post</td>
                 </tr>
                 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categories")%>'>
-                    <%  trackerClass = (user == null || category.getMessageCount() <= 0 || readTracker.getReadStatus(user, category.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
+                    <%  trackerClass = (user == null || category.getLatestMessage() == null || readTracker.getReadStatus(user, category.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
                     <tr>
                         <td class="rtThreadCellWrap">
                         <%  if (user == null) { %>
@@ -137,7 +137,7 @@
                         <%  } %>
                             <% if (category.getDescription() != null) { %><br/><div class="rtDescIndent"><jsp:getProperty name="category" property="description"/></div><% } %></td>
                         <td class="rtThreadCell"><jsp:getProperty name="category" property="threadCount"/>&#160;/&#160;<jsp:getProperty name="category" property="messageCount"/></td>
-                        <% if (category.getMessageCount() > 0) { %>
+                        <% if (category.getLatestMessage() != null) { %>
                             <tc-webtag:useBean id="message" name="category" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
                             <td class="rtThreadCell"><b><tc-webtag:beanWrite name="message" property="modificationDate" format="EEE, MMM d yyyy 'at' h:mm a"/></b></td>
                             <% if (message.getUser() != null) { %>
