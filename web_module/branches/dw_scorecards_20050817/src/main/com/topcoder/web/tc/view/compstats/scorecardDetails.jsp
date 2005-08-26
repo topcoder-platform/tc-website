@@ -159,29 +159,14 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
     <tr>
         <td class="subjectiveResponseCells"><rsc:item name="response_text" row="<%=resultRow%>" escapeHtml="true" />
         </td>
-        <td class="subjectiveResponseCells"><rsc:item name="response_type_desc" row="<%=resultRow%>"/>
+        <td class="subjectiveResponseCells">
+            <%= resultRow.getStringItem("response_type_desc").substring(0,resultRow.getStringItem("response_type_desc").indexOf('.')) %>
+
         </td>
     </tr>
 
 <%     if (Boolean.TRUE.equals((Boolean) lastIt.next()) && (resultRow.getStringItem("appeal_text") != null) ) { %>
 
-<!--
-        <tr>
-            <td>
-
-           <table border="1" cellspacing="0" width="100%" class="formFrame">
-                <tr>
-                <td rowspan="2" width="50" class="appealTitle">Appeal</td>
-                    <td class="appealCells"><rsc:item name="appeal_text" row="<%=resultRow%>" escapeHtml="true" /></td>
-                </tr>
-                <tr>
-                    <td class="appealCells"><rsc:item name="appeal_response" row="<%=resultRow%>" escapeHtml="true" /></td>
-                </tr>
-           </table>
-           </td>
-           <td class="projectCells">&nbsp;</td>
-        </tr>
--->
         <tr>
             <td class="appealCells"><rsc:item name="appeal_text" row="<%=resultRow%>" escapeHtml="true" /></td>
             <td rowspan="2" class="appealTitle">Appeal</td>
