@@ -55,26 +55,23 @@
     String rid = (String) request.getAttribute("rid");
     String lastQuestion = "";
     String lastSection = "";
-    String appealText = null;
-    String appealResponse = null;
-    List lasts = new ArrayList();
 
-    System.out.println("HI");
-    int count = 0;
+    List lastSubjective = new ArrayList();
+    boolean first = true;
+
     for(Iterator it = scorecard.iterator(); it.hasNext(); ) {
-
         ResultSetContainer.ResultSetRow rr = (ResultSetContainer.ResultSetRow) it.next();
-        if (lastQuestion.equals(rr.getStringItem("question_desc"))) count++;
-        else {
-            System.out.println(lastQuestion + ":" + count);
-            lastQuestion = rr.getStringItem("question_desc");
-            count = 0;
+
+        if (!first) {
+            lastSubjective.add(lastQuestion.equals(rr.getStringItem("question_desc")? Boolean.FALSE : Boolean.TRUE);
+        } else {
+            fist = false;
         }
+        lastQuestion = rr.getStringItem("question_desc");
     }
-            System.out.println(lastQuestion + ":" + count);
+    lastSubjective.add(Boolean.TRUE);
 
-    System.out.println("BYE");
-
+    Iterator lastIt = lastSubjective.iterator();
 %>
 
 <A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A></span><br>
@@ -100,29 +97,6 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
 
 <% if (!lastQuestion.equals(resultRow.getStringItem("question_desc"))) {
         lastQuestion = resultRow.getStringItem("question_desc");
-
-     if (appealText != null) { %>
-
-        <tr>
-            <td>
-
-           <table border="1" cellspacing="0" width="100%" class="formFrame">
-                <tr>
-                <td rowspan="2" width="50" class="projectCells">Appeal
-                    <td class="projectCells"><%= appealText%></td>
-                </tr>
-                <tr>
-                    <td class="projectCells"><%= appealResponse%></td>
-                </tr>
-           </table>
-           </td>
-           <td class="projectCells">&nbsp;</td>
-        </tr>
-<%
-       }
-
-        appealText = resultRow.getStringItem("appeal_text");
-        appealResponse = resultRow.getStringItem("appeal_response");
 %>
     <tr>
     <td class="projectCells">
@@ -147,8 +121,26 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
         </td>
         <td class="projectCells"><rsc:item name="response_type_desc" row="<%=resultRow%>"/>
         </td>
-
     </tr>
+
+<%     if (Boolean.TRUE.equals((Boolean) lastIt.next())) { %>
+        <tr>
+            <td>
+
+           <table border="1" cellspacing="0" width="100%" class="formFrame">
+                <tr>
+                <td rowspan="2" width="50" class="projectCells">Appeal
+                    <td class="projectCells"><rsc:item name="appeal_text" row="<%=resultRow%>" escapeHtml="true" /></td>
+                </tr>
+                <tr>
+                    <td class="projectCells"><rsc:item name="appeal_response" row="<%=resultRow%>" escapeHtml="true" /></td>
+                </tr>
+           </table>
+           </td>
+           <td class="projectCells">&nbsp;</td>
+        </tr>
+<%  } %>
+
 </rsc:iterator>
 
 </table>
