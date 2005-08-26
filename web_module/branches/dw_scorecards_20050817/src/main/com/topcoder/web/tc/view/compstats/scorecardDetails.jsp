@@ -170,7 +170,9 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
     </tr>
 
 
-<% } %>
+<%
+        questionNumber++;
+    } %>
 
     <tr>
         <td class="subjectiveResponseCells">
