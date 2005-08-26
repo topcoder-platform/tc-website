@@ -1,5 +1,5 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
-            com.topcoder.web.common.BaseProcessor,
+                com.topcoder.web.common.BaseProcessor,
                 com.topcoder.web.forums.ForumConstants,
                 com.topcoder.web.forums.controller.ForumsUtil,
                 com.topcoder.web.common.StringUtils,
@@ -8,7 +8,7 @@
                 com.jivesoftware.forum.action.util.Page,
                 com.jivesoftware.forum.ForumMessage,
                 com.jivesoftware.forum.WatchManager,
-            com.jivesoftware.forum.Watch,
+                com.jivesoftware.forum.Watch,
                 com.jivesoftware.forum.ResultFilter,
                 com.jivesoftware.forum.ForumThread,
                 com.jivesoftware.forum.ReadTracker,
@@ -26,9 +26,9 @@
 <tc-webtag:useBean id="resultFilter" name="resultFilter" type="com.jivesoftware.forum.ResultFilter" toScope="request"/>
 <tc-webtag:useBean id="historyBean" name="historyBean" type="com.topcoder.web.ejb.messagehistory.MessageHistory" toScope="request"/>
 
-<%   HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
-   User user = (User)request.getAttribute("user");
-   String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW));
+<%  HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
+    User user = (User)request.getAttribute("user");
+    String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW));
     ReadTracker readTracker = forumFactory.getReadTracker();
     ForumThread nextThread = (ForumThread)request.getAttribute("nextThread");
     ForumThread prevThread = (ForumThread)request.getAttribute("prevThread");
@@ -103,7 +103,10 @@
    </td>
 </tr>
 
-<tr><td><b><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>
+<tr><td><b><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A>
+   <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
+        >> <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>&mc=<jsp:getProperty name="category" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> 
+   </tc-webtag:iterator> >>
    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >>
    <jsp:getProperty name="thread" property="name"/></b>
    <%   if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br>
@@ -188,7 +191,10 @@
 <%-------------POSTS END---------------%>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr><td><b><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>
+<tr><td><b><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A>
+   <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
+        >> <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>&mc=<jsp:getProperty name="category" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> 
+   </tc-webtag:iterator> >>
    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >>
    <jsp:getProperty name="thread" property="name"/></b>
    <%   if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br>
