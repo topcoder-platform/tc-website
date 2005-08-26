@@ -20,9 +20,21 @@
   <jsp:include page="../script.jsp" />
 
 <style type="text/css">
+.appealTitle
+{
+    background-color: #900000;
+    color: #333333;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
 .appealCells
 {
-    background-color: #EEA0A0;
+    background-color: #800000;
     color: #333333;
     font-size: 11px;
     font-weight: normal;
@@ -32,6 +44,19 @@
     padding-left: 5px;
     padding-right: 5px;
 }
+.subjectiveResponseCells
+{
+    background-color: #FFFFFF;
+    color: #333333;
+    font-size: 11px;
+    font-weight: normal;
+    text-decoration: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 </style>
 
 
@@ -132,19 +157,19 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
 <% } %>
 
     <tr>
-        <td class="projectCells"><rsc:item name="response_text" row="<%=resultRow%>" escapeHtml="true" />
+        <td class="subjectiveResponseCells"><rsc:item name="response_text" row="<%=resultRow%>" escapeHtml="true" />
         </td>
-        <td class="projectCells"><rsc:item name="response_type_desc" row="<%=resultRow%>"/>
+        <td class="subjectiveResponseCells"><rsc:item name="response_type_desc" row="<%=resultRow%>"/>
         </td>
     </tr>
 
-<%     if (Boolean.TRUE.equals((Boolean) lastIt.next())) { %>
+<%     if (Boolean.TRUE.equals((Boolean) lastIt.next()) && (resultRow.getStringItem("appeal_text") != null) ) { %>
         <tr>
             <td>
 
            <table border="1" cellspacing="0" width="100%" class="formFrame">
                 <tr>
-                <td rowspan="2" width="50" class="projectCells">Appeal
+                <td rowspan="2" width="50" class="appealTitle">Appeal
                     <td class="appealCells"><rsc:item name="appeal_text" row="<%=resultRow%>" escapeHtml="true" /></td>
                 </tr>
                 <tr>
