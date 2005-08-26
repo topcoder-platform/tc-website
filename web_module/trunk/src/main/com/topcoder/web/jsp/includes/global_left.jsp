@@ -107,7 +107,7 @@
                 <% } %>
                 <tr><td id="<%=level2.equals("contests")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=dev&d2=usdc_overview" class="<%=level2.equals("contests")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("contests")?"bottom":"right"%>.gif" alt="" border="0"/>Contests</a></td></tr>
                 <% if (level2.equals("contests")) { %>
-                	<tr><td id="<%=level3.equals("ultimate")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=dev&d2=usdc_overview">Ultimate Contest</A></td></tr>
+                   <tr><td id="<%=level3.equals("ultimate")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=dev&d2=usdc_overview">Ultimate Contest</A></td></tr>
                     <tr><td id="<%=level3.equals("descontest2")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=des_bonus_contest_2">Design Bonus Contest 2</A></td></tr>
                     <tr><td id="<%=level3.equals("descontest1")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=bonus_contest_0303">Design Bonus Contest 1</A></td></tr>
                     <tr><td id="<%=level3.equals("open")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=tournaments&c=tourny_index">TCO & TCCC Component Contests</A></td></tr>
@@ -115,10 +115,10 @@
                 <tr><td id="<%=level2.equals("support")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=getting_started" class="<%=level2.equals("support")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("support")?"bottom":"right"%>.gif" alt="" border="0"/>Support / FAQs</a></td></tr>
                 <% if (level2.equals("support")) { %>
                     <tr><td id="<%=level3.equals("gettingStarted")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=getting_started">Getting Started</A></td></tr>
-                	<tr><td id="<%=level3.equals("compDocumentation")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=dev&d2=support&d3=compDocumentation">Component Documentation</A></td></tr>
-                	<tr><td id="<%=level3.equals("ratings")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=dev&d2=support&d3=ratings">Rating System</A></td></tr>
-                	<tr><td id="<%=level3.equals("reliability")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=dev&d2=support&d3=reliability">Reliability Rating</A></td></tr>
-                	<tr><td id="<%=level3.equals("getPaid")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=development&c=dev_payment">How to Get Paid</A></td></tr>
+                   <tr><td id="<%=level3.equals("compDocumentation")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=dev&d2=support&d3=compDocumentation">Component Documentation</A></td></tr>
+                   <tr><td id="<%=level3.equals("ratings")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=dev&d2=support&d3=ratings">Rating System</A></td></tr>
+                   <tr><td id="<%=level3.equals("reliability")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=dev&d2=support&d3=reliability">Reliability Rating</A></td></tr>
+                   <tr><td id="<%=level3.equals("getPaid")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=development&c=dev_payment">How to Get Paid</A></td></tr>
                 <% } %>
             </table>
 
@@ -192,8 +192,13 @@
             <% } %>
 <%-- Events ends --%>
 
-	<%-- Forums begins --%>
-                <tr><td id="<%=level1.equals("forums")?"leftNavSelect":"leftNav"%>"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>" class="<%=level1.equals("forums")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/<%=level1.equals("forums")?"clear":"nav_arrow_right"%>.gif" border="0"/>Forums</a></td></tr>
+   <%-- Forums begins --%>
+                <tr><td id="<%=level1.equals("forums")?"leftNavSelect":"leftNav"%>"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=1" class="<%=level1.equals("forums")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/<%=level1.equals("forums")?"clear":"nav_arrow_right"%>.gif" border="0"/>Forums</a></td></tr>
+            <% if (level1.equals("forums")) { %>
+                <tr><td id="<%=level2.equals("roundtables")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=1">Round Tables</A></td></tr>
+                <tr><td id="<%=level2.equals("news")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=8">News Discussions</A></td></tr>
+                <tr><td id="<%=level2.equals("sponsors")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=6">Sponsor Discussions</A></td></tr>
+            <% } %>
     <%-- Forums ends --%>
 
 
