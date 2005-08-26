@@ -19,6 +19,21 @@
 
   <jsp:include page="../script.jsp" />
 
+<style type="text/css">
+.appealCells
+{
+    background-color: #EEA0A0;
+    color: #333333;
+    font-size: 11px;
+    font-weight: normal;
+    text-decoration: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+</style>
+
 
 </head>
 
@@ -63,9 +78,9 @@
         ResultSetContainer.ResultSetRow rr = (ResultSetContainer.ResultSetRow) it.next();
 
         if (!first) {
-            lastSubjective.add(lastQuestion.equals(rr.getStringItem("question_desc")? Boolean.FALSE : Boolean.TRUE));
+            lastSubjective.add(lastQuestion.equals(rr.getStringItem("question_desc"))? Boolean.FALSE : Boolean.TRUE);
         } else {
-            fist = false;
+            first = false;
         }
         lastQuestion = rr.getStringItem("question_desc");
     }
@@ -130,10 +145,10 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
            <table border="1" cellspacing="0" width="100%" class="formFrame">
                 <tr>
                 <td rowspan="2" width="50" class="projectCells">Appeal
-                    <td class="projectCells"><rsc:item name="appeal_text" row="<%=resultRow%>" escapeHtml="true" /></td>
+                    <td class="appealCells"><rsc:item name="appeal_text" row="<%=resultRow%>" escapeHtml="true" /></td>
                 </tr>
                 <tr>
-                    <td class="projectCells"><rsc:item name="appeal_response" row="<%=resultRow%>" escapeHtml="true" /></td>
+                    <td class="appealCells"><rsc:item name="appeal_response" row="<%=resultRow%>" escapeHtml="true" /></td>
                 </tr>
            </table>
            </td>
