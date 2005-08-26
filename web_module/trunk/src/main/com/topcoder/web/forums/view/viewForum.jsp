@@ -114,15 +114,20 @@
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr valign="top">
-    <td nowrap="nowrap" valign="top">
-      <jsp:include page="searchHeader.jsp" ></jsp:include>
-    </td>
-      <td align="right" nowrap="nowrap" valign="top">
-         <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post New Thread</A>&#160;&#160;|&#160;&#160;<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
-      </td>
+	<td nowrap="nowrap" valign="top">
+	   <jsp:include page="searchHeader.jsp" ></jsp:include>
+	</td>
+	<td align="right" nowrap="nowrap" valign="top">
+	   <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post New Thread</A>&#160;&#160;|&#160;&#160;<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+	</td>
 </tr>
-<tr><td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>
-   <jsp:getProperty name="forum" property="name"/></td>
+<tr>
+    <td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A>
+	    <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
+	       >> <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>&mc=<jsp:getProperty name="category" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> 
+	    </tc-webtag:iterator> >> 
+        <jsp:getProperty name="forum" property="name"/>
+    </td>
 <% Page[] pages; %>
 <% if (paginator.getNumPages() > 1) { %>
    <td class="rtbc" align="right"><b>

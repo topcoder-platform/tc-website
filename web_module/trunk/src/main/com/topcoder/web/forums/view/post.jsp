@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
-             com.topcoder.web.common.BaseProcessor,
+                com.topcoder.web.common.BaseProcessor,
                 com.topcoder.web.forums.ForumConstants,
+                com.topcoder.web.forums.controller.ForumsUtil,
                 com.jivesoftware.forum.stats.ViewCountManager,
                 com.jivesoftware.forum.ForumMessage,
                 com.jivesoftware.forum.ForumThread,
@@ -16,8 +17,8 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%  ForumMessage message = (ForumMessage)request.getAttribute("message");
-   ForumThread thread = (ForumThread)request.getAttribute("thread");
-   HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
+    ForumThread thread = (ForumThread)request.getAttribute("thread");
+    HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
 
 <script type="text/javascript">
 function noenter(e)
@@ -85,7 +86,7 @@ function AllowTabCharacter() {
 
 <!-- Center Column Begins -->
 <%  String postHeading = "";
-   String postDesc = "";
+    String postDesc = "";
 
    if (postMode.equals("New")) {
       postHeading = "New Thread";
@@ -115,7 +116,10 @@ function AllowTabCharacter() {
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
    <tr>
-       <td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>
+       <td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A>
+       <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
+            >> <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>&mc=<jsp:getProperty name="category" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> 
+       </tc-webtag:iterator> >>
          <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A>
             <%   if (thread != null) { %>
                >> <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="thread" property="name"/></A>
