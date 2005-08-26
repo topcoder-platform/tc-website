@@ -157,17 +157,17 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
 <% } %>
 
     <tr>
-        <td class="subjectiveResponseCells"><rsc:item name="response_text" row="<%=resultRow%>" escapeHtml="true" />
-        </td>
         <td class="subjectiveResponseCells">
-        <% String txt;
-        int posic = resultRow.getStringItem("response_type_desc").indexOf('.');
-        if (posic < 0) txt = resultRow.getStringItem("response_type_desc");
-        else txt = resultRow.getStringItem("response_type_desc").substring(0,posic);
-        %>
+                <% String txt;
+                int posic = resultRow.getStringItem("response_text").indexOf(".");
+                if (posic < 0) txt = resultRow.getStringItem("response_text");
+                else txt = resultRow.getStringItem("response_text").substring(0,posic);
+                %>
 
             <%= txt %>
-
+        </td>
+        <td class="subjectiveResponseCells">
+            <rsc:item name="response_type_desc" row="<%=resultRow%>"/>
         </td>
     </tr>
 
