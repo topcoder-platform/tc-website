@@ -3,12 +3,13 @@
  */
 package com.topcoder.web.forums.controller.request;
 
-import com.jivesoftware.base.JiveConstants;
-import com.jivesoftware.forum.ResultFilter;
-import com.jivesoftware.forum.ForumCategory;
+//import com.jivesoftware.base.JiveConstants;
+//import com.jivesoftware.forum.ResultFilter;
+//import com.jivesoftware.forum.ForumCategory;
+import com.topcoder.web.forums.ForumConstants;
 
-import java.util.Iterator;
-import java.util.ArrayList;
+//import java.util.Iterator;
+//import java.util.ArrayList;
 
 /**
  * @author mtong
@@ -19,6 +20,10 @@ public class ForumList extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
 
+        setNextPage("/?module=Category&" + ForumConstants.CATEGORY_ID + "=1");
+        setIsNextPageInContext(false);
+        
+        /*
         ResultFilter resultFilter = new ResultFilter();
         resultFilter.setSortField(JiveConstants.MODIFICATION_DATE);
         resultFilter.setSortOrder(ResultFilter.DESCENDING);
@@ -46,5 +51,6 @@ public class ForumList extends ForumsProcessor {
 
 		setNextPage("/main.jsp");
 		setIsNextPageInContext(true);
+        */
 	}
 }
