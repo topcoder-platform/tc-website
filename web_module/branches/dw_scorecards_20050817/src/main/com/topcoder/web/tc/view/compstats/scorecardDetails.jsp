@@ -164,12 +164,14 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
     </tr>
 
 <%     if (Boolean.TRUE.equals((Boolean) lastIt.next()) && (resultRow.getStringItem("appeal_text") != null) ) { %>
+
+<!--
         <tr>
             <td>
 
            <table border="1" cellspacing="0" width="100%" class="formFrame">
                 <tr>
-                <td rowspan="2" width="50" class="appealTitle">Appeal
+                <td rowspan="2" width="50" class="appealTitle">Appeal</td>
                     <td class="appealCells"><rsc:item name="appeal_text" row="<%=resultRow%>" escapeHtml="true" /></td>
                 </tr>
                 <tr>
@@ -179,6 +181,16 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
            </td>
            <td class="projectCells">&nbsp;</td>
         </tr>
+-->
+        <tr>
+            <td class="appealCells"><rsc:item name="appeal_text" row="<%=resultRow%>" escapeHtml="true" /></td>
+            <td rowspan="2" class="appealTitle">Appeal</td>
+        </tr>
+        <tr>
+            <td class="appealCells"><rsc:item name="appeal_response" row="<%=resultRow%>" escapeHtml="true" /></td>
+        </tr>
+
+
 <%  } %>
 
 </rsc:iterator>
