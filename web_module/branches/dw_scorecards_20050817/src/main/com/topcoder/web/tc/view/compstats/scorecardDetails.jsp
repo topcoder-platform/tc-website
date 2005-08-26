@@ -58,6 +58,12 @@
 }
 
 </style>
+<script>
+function expand(complete)
+{
+    alert(complete);
+}
+</script>
 
 
 </head>
@@ -95,7 +101,6 @@
     String rid = (String) request.getAttribute("rid");
     String lastQuestion = "";
     String lastSection = "";
-    String expanded = ",1,5,6"; //request.getAttribute("expanded");
 
     List lastSubjective = new ArrayList();
     boolean first = true;
@@ -146,17 +151,9 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
         (<rsc:item name="question_weight" row="<%=resultRow%>"/>)
         <rsc:item name="question_desc" row="<%=resultRow%>"/>
 
-        <% if (expanded.indexOf("," + questionNumber + ",") < 0) { %>
 
-            <a href="collapse=<%=questionNumber%>">[+]</a>
+            <a href='javascript:open("<rsc:item name="question_text" row="<%=resultRow%>" escapeHtml="true" />")'>[+]</a>
             <rsc:item name="question_header" row="<%=resultRow%>" escapeHtml="true" />
-
-        <% } else { %>
-            <a href="expand=<%=questionNumber%>">[-]</a>
-            <rsc:item name="question_text" row="<%=resultRow%>" escapeHtml="true" />
-
-        <% } %>
-
 
     </td>
     <td class="projectCells">
