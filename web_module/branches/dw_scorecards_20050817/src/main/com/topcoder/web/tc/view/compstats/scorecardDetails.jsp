@@ -184,7 +184,8 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
         </td>
     </tr>
 
-<%     if (Boolean.TRUE.equals((Boolean) lastIt.next()) && (resultRow.getStringItem("appeal_text") != null) ) { %>
+<%     if (Boolean.TRUE.equals((Boolean) lastIt.next()) &&
+        ((resultRow.getStringItem("appeal_text") != null) || (resultRow.getStringItem("testcase_appeal_text") != null) )) { %>
 
         <tr>
             <td class="appealCells"><rsc:item name="appeal_text" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
