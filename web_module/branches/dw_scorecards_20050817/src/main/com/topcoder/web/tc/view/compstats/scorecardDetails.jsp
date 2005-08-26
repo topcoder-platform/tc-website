@@ -143,21 +143,21 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
 %>
     <tr>
     <td class="projectCells">
+        (<rsc:item name="question_weight" row="<%=resultRow%>"/>)
+        <rsc:item name="question_desc" row="<%=resultRow%>"/>
 
 <% if (expanded.indexOf("," + questionNumber + ",") < 0) { %>
 
-<a href="<%=expanded%>,<%=questionNumber%>">[+]</a>
+    <a href="collapse=<%=questionNumber%>">[+]</a>
+    <rsc:item name="question_header" row="<%=resultRow%>" escapeHtml="true" />
 
-<% } else {
-int posic = expanded.indexOf("," + questionNumber + ",");
-String removed = expanded.substring(0,posic) + expanded.substring(posic +  (questionNumber+ ",,").length());
-%>
-<a href="<%=removed%>">[-]</a>
+<% } else { %>
+    <a href="expand=<%=questionNumber%>">[-]</a>
+    <rsc:item name="question_text" row="<%=resultRow%>" escapeHtml="true" />
+
 <% } %>
 
 
-        (<rsc:item name="question_weight" row="<%=resultRow%>"/>)
-        <rsc:item name="question_desc" row="<%=resultRow%>"/>
 
 
                 <%
