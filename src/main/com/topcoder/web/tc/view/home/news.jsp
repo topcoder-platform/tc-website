@@ -9,6 +9,17 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>08.26.05<br>3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">Software Royalties updated in Member Profiles</span><br><br>
+      "Software Royalties" in TopCoder Member Profiles have been updated to include the first half of 2005.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.25.05<br>12:55 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -242,18 +253,6 @@ Algorithm, Design, and Development Statistics tabs under Member Profiles now inc
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=contracting&d2=citigroup">details</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>08.04.05<br>2:55 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">New internship opening at <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=506838">Yahoo!</A></span><br><br>
-      Yahoo! has a new internship opening for a Web Developer
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=506838">details</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
