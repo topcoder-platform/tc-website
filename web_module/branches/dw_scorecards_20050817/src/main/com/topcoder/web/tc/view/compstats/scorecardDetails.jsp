@@ -146,11 +146,11 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
 
 <% if (expanded.indexOf("," + questionNumber + ",") < 0) { %>
 
-<a href="<%=expand%>,<%=questionNumber%>">[+]</a>
+<a href="<%=expanded%>,<%=questionNumber%>">[+]</a>
 
 <% } else {
 int posic = expanded.indexOf("," + questionNumber + ",");
-String removed = expand.substring(0,posic) + expand.substring(posic +  (questionNumber+ ",,").length());
+String removed = expanded.substring(0,posic) + expanded.substring(posic +  (questionNumber+ ",,").length());
 %>
 <a href="<%=removed%>"[-]</a>
 <% } %>
