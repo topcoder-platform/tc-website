@@ -152,7 +152,7 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
 int posic = expanded.indexOf("," + questionNumber + ",");
 String removed = expanded.substring(0,posic) + expanded.substring(posic +  (questionNumber+ ",,").length());
 %>
-<a href="<%=removed%>"[-]</a>
+<a href="<%=removed%>">[-]</a>
 <% } %>
 
 
@@ -164,7 +164,7 @@ String removed = expanded.substring(0,posic) + expanded.substring(posic +  (ques
                 questionNumber++;
                 String txt;
                 int posic = resultRow.getStringItem("question_text").indexOf(".");
-                if (posic < 0) txt = resultRow.getStringItem("question_text");
+                if (posic < 0 || (expanded.indexOf("," + questionNumber + ",") < 0)) txt = resultRow.getStringItem("question_text");
                 else txt = resultRow.getStringItem("question_text").substring(0,posic);
                 %>
 
