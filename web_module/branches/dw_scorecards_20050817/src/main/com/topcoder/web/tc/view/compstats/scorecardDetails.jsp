@@ -22,7 +22,7 @@
 <style type="text/css">
 .appealTitle
 {
-    background-color: #900000;
+    background-color: #DDDDEE;
     color: #333333;
     font-size: 14px;
     font-weight: bold;
@@ -34,7 +34,7 @@
 }
 .appealCells
 {
-    background-color: #800000;
+    background-color: #EEEEFF;
     color: #333333;
     font-size: 11px;
     font-weight: normal;
@@ -47,7 +47,7 @@
 .subjectiveResponseCells
 {
     background-color: #FFFFFF;
-    color: #333333;
+    color: #000000;
     font-size: 11px;
     font-weight: normal;
     text-decoration: none;
