@@ -17,12 +17,12 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-		<td width="180">
-			<jsp:include page="../includes/global_left.jsp">
-				<jsp:param name="level1" value=""/>
-				<jsp:param name="level2" value=""/>
-			</jsp:include>
-		</td>
+      <td width="180">
+         <jsp:include page="../includes/global_left.jsp">
+            <jsp:param name="level1" value=""/>
+            <jsp:param name="level2" value=""/>
+         </jsp:include>
+      </td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
@@ -34,7 +34,9 @@
             <jsp:param name="title" value="Component Competitions"/>
         </jsp:include>
 
-<table border=0 cellpadding=2 cellspacing=0 width="100%">
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">08.26.05 3:00 PM - </td><td width="100%">Software Royalties updated in Member Profiles</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">08.17.05 8:00 PM - </td><td width="100%">New Statistics: Component Contest Details</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.12.05 3:50 PM - </td><td width="100%"><A href="http://software.topcoder.com/index.jsp">software.topcoder.com</A> will be down for maintenance on 7/18</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.27.05 5:45 PM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=support&d3=desReviewSample">New Sample Design Review Scorecard now available</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.23.05 11:20 AM - </td><td width="100%"><A href="/i/development/downloads/topcoder_global.build">Global NAnt properties file now available</A></td></tr>
