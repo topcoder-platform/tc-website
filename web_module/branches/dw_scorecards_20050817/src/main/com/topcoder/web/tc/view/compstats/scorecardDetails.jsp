@@ -146,29 +146,16 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
         (<rsc:item name="question_weight" row="<%=resultRow%>"/>)
         <rsc:item name="question_desc" row="<%=resultRow%>"/>
 
-<% if (expanded.indexOf("," + questionNumber + ",") < 0) { %>
+        <% if (expanded.indexOf("," + questionNumber + ",") < 0) { %>
 
-    <a href="collapse=<%=questionNumber%>">[+]</a>
-    <rsc:item name="question_header" row="<%=resultRow%>" escapeHtml="true" />
+            <a href="collapse=<%=questionNumber%>">[+]</a>
+            <rsc:item name="question_header" row="<%=resultRow%>" escapeHtml="true" />
 
-<% } else { %>
-    <a href="expand=<%=questionNumber%>">[-]</a>
-    <rsc:item name="question_text" row="<%=resultRow%>" escapeHtml="true" />
+        <% } else { %>
+            <a href="expand=<%=questionNumber%>">[-]</a>
+            <rsc:item name="question_text" row="<%=resultRow%>" escapeHtml="true" />
 
-<% } %>
-
-
-
-
-                <%
-                questionNumber++;
-                String txt;
-                int posic = resultRow.getStringItem("question_text").indexOf(".");
-                if (posic < 0 || (expanded.indexOf("," + questionNumber + ",") < 0)) txt = resultRow.getStringItem("question_text");
-                else txt = resultRow.getStringItem("question_text").substring(0,posic);
-                %>
-
-            <%= txt %>
+        <% } %>
 
 
     </td>
