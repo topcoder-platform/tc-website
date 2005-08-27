@@ -14,10 +14,6 @@ public interface ForumConstants {
 	public final static String THREAD_ID = "threadID";
 	public final static String MESSAGE_ID = "messageID";
     public final static String USER_ID = "userID";
-	
-    public final static String CATEGORY_MAIN = "Round Tables";
-    public final static String CATEGORY_NEWS = "News Article Discussions";
-    public final static String CATEGORY_EMPLOYMENT = "Employment Discussions";
     
     public final static String THREAD_VIEW = "view";
     public final static String THREAD_ERROR = "error";
@@ -36,6 +32,9 @@ public interface ForumConstants {
     
     public final static String SORT_FIELD = "sortField";
     public final static String SORT_ORDER = "sortOrder";
+    
+    // Extended Properties
+    public final static String HIDE_EMPTY_FORUMS = "hideEmptyForums";
     
     // Admin
     public final static String ADMIN_COMMAND = "cmd";
