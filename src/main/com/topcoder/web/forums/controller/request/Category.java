@@ -32,9 +32,7 @@ public class Category extends ForumsProcessor {
         Iterator itCategories = forumCategory.getCategories();
 		Iterator itForums = forumCategory.getForums(resultFilter);
         
-        // For news, only display non-empty forums
-        Iterator itCategoryTree = ForumsUtil.getCategoryTree(forumCategory);
-        if (itCategoryTree.hasNext() && ((ForumCategory)itCategoryTree.next()).getName().equals(ForumConstants.CATEGORY_NEWS)) {
+        if ("true".equals(forumCategory.getProperty(ForumConstants.HIDE_EMPTY_FORUMS))) {
             ArrayList a = new ArrayList();
             while (itForums.hasNext()) {
                 Forum f = (Forum)itForums.next();
