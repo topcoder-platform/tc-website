@@ -1,4 +1,4 @@
-package com.topcoder.web.codinginterface.techassess.model;
+package com.topcoder.web.codinginterface.messaging;
 
 import com.topcoder.shared.messaging.ResponsePool;
 import com.topcoder.shared.messaging.TimeOutException;
