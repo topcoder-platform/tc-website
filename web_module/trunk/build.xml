@@ -21,11 +21,12 @@
      <property name="taglib" value="${resources}/taglib"/>
      <property name="images" value="images"/>
      <property name="shared.jar" value="${bin}/shared.jar"/>
+     <property name="long.jar" value="${bin}/long.jar"/>
      <property name="web" value="src/main/com/topcoder/web"/>
-     <property name="jboss_home" value="../jboss-4.0.2"/>
-     <property name="jboss_deploy" value="${jboss_home}/server/all/deploy"/>
-     <property name="jboss_lib" value="${jboss_home}/server/all/lib"/>
-     <property name="jboss_conf" value="${jboss_home}/server/all/conf"/>
+     <property name="jboss_home" value="../jboss-4.0.1"/>
+     <property name="jboss_deploy" value="${jboss_home}/server/default/deploy"/>
+     <property name="jboss_lib" value="${jboss_home}/server/default/lib"/>
+     <property name="jboss_conf" value="${jboss_home}/server/default/conf"/>
      <property environment="env"/>
 
      <property name="deprecation" value="true"/>
@@ -1019,6 +1020,7 @@
              <classes dir="${classes}">
                  <include name="com/topcoder/web/codinginterface/techassess/**"/>
                  <include name="com/topcoder/web/codinginterface/view/tag/**"/>
+                 <include name="com/topcoder/web/codinginterface/messaging/**"/>
                  <include name="com/topcoder/web/codinginterface/*.class"/>
                  <include name="com/topcoder/web/common/**"/>
              </classes>
@@ -1597,5 +1599,89 @@
              </classpath>
          </java>
      </target>
+      <target name="compile_longcontest" depends="init">
+          <javac
+              srcdir="${java}"
+              destdir="${classes}"
+              classpathref="class.path"
+              deprecation="${deprecation}"
+              debug="${debug}"
+              >
+              <include name="com/topcoder/web/codinginterface/**"/>
+              <include name="com/topcoder/web/common/**"/>
+          </javac>
+      </target>
+
+      <target name="war-longcontest" depends="jar_shared, compile_longcontest">
+          <jar jarfile="${long.jar}">
+              <fileset dir="${classes}">
+                  <include name="com/topcoder/common/web/data/*.class"/>
+                  <include name="com/topcoder/common/web/error/*.class"/>
+                  <include name="com/topcoder/common/web/util/*.class"/>
+                  <include name="com/topcoder/web/tc/model/*.class"/>
+                  <include name="com/topcoder/web/common/**"/>
+              </fileset>
+          </jar>
+          <war warfile="${war.dir}/longcontest.war" webxml="${resources}/longcontest/web.xml">
+              <classes dir="${classes}">
+                  <include name="com/topcoder/web/codinginterface/longcontest/**"/>
+                  <include name="com/topcoder/web/codinginterface/view/tag/**"/>
+                  <include name="com/topcoder/web/codinginterface/*.class"/>
+                  <include name="com/topcoder/web/codinginterface/messaging/**"/>
+                  <include name="com/topcoder/web/codinginterface/techassess/model/**"/>
+                  <include name="com/topcoder/security/**/*.class"/>
+                  <include name="com/topcoder/shared/**/*.class"/>
+                  <include name="com/topcoder/web/common/**"/>
+                  <include name="com/topcoder/common/web/render/**"/>
+              </classes>
+              <webinf dir="${resources}/taglib">
+                  <include name="tc-webtags.tld"/>
+                  <include name="codinginterface.tld"/>
+                  <include name="tc-taglib.tld"/>
+                  <include name="rsc-taglib.tld"/>
+                  <!--
+                  <include name="screening.tld"/>
+                  <include name="tc.tld"/>
+                  <include name="tces-taglib.tld"/>
+                  <include name="privatelabel.tld"/>
+                  -->
+              </webinf>
+              <webinf dir="${struts.dir}">
+                  <include name="*.tld"/>
+              </webinf>
+              <lib dir="${struts.dir}">
+                  <include name="*.jar"/>
+              </lib>
+ 
+ 
+              <fileset dir="${java}/com/topcoder/web/codinginterface/longcontest/view">
+                  <include name="**/*.jsp"/>
+              </fileset>
+              <fileset dir="${java}/com/topcoder/web/jsp">
+                  <include name="*.jsp"/>
+                  <include name="includes/*.jsp"/>
+              </fileset>
+ 
+          </war>
+      </target>
+      <target name="deploy-longcontest" depends="war-longcontest">
+          <copy file="${shared.jar}" todir="${jboss_home}/server/default/lib" overwrite="true"/>
+          <!--<copy file="${long.jar}" todir="${jboss_home}/server/default/lib" overwrite="true"/>-->
+          <copy todir="${jboss_home}/server/default/deploy" overwrite="true">
+              <fileset dir="${war.dir}">
+                  <include name="longcontest.war"/>
+              </fileset>
+          </copy>
+      </target>
+      <target name="deploy-longcontest-expanded" depends="war-longcontest,expand-longcontest">
+      </target>
+      <target name="expand-longcontest" depends="">
+          <copy file="${resources}/LongContest.properties" todir="${jboss_home}/server/default/conf" overwrite="true"/>
+          <copy file="${shared.jar}" todir="${jboss_home}/server/default/lib" overwrite="true"/>
+          <delete file="${jboss_home}/server/default/deploy/longcontest.war"/>
+          <unwar src="${war.dir}/longcontest.war" dest="${jboss_home}/server/default/deploy/longcontest.war/" overwrite="yes"/>
+          <delete dir="${jboss_home}/server/default/deploy/longcontest.war/META-INF"/>
+      </target>
+
  </project>
 
