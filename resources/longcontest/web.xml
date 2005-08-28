@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+  <!DOCTYPE web-app PUBLIC
+	"-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+	"http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+    <servlet>
+        <servlet-name>main</servlet-name>
+        <servlet-class>com.topcoder.web.codinginterface.longcontest.controller.MainServlet</servlet-class>
+        <init-param>
+            <param-name>module_key</param-name>
+            <param-value>module</param-value>
+            <description>the url parameter that defines which processor to execute</description>
+        </init-param>
+        <init-param>
+            <param-name>default_processor</param-name>
+            <param-value>Index</param-value>
+            <description>the processor to execute if none is specified in the request</description>
+        </init-param>
+        <init-param>
+            <param-name>login_processor</param-name>
+            <param-value>Login</param-value>
+            <description>the processor to execute when we need to direct the user to login</description>
+        </init-param>
+        <init-param>
+            <param-name>login_servlet</param-name>
+            <param-value>/tc</param-value>
+            <description>the servlet path to use when we need to direct the user to login</description>
+        </init-param>
+            <init-param>
+            <param-name>processor_path</param-name>
+            <param-value>com.topcoder.web.codinginterface.longcontest.controller.request.</param-value>
+            <description>the path to the processors for this app</description>
+        </init-param>
+        <init-param>
+            <param-name>error_page</param-name>
+            <param-value>/error.jsp</param-value>
+            <description>where to forward for errors</description>
+        </init-param>
+<!--        <load-on-startup>2</load-on-startup>-->
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>main</servlet-name>
+        <url-pattern>/longcontest</url-pattern>
+    </servlet-mapping>
+
+    <session-config>
+        <session-timeout>60</session-timeout>
+    </session-config>
+
+
+    <!--
+      <taglib>
+        <taglib-uri>/WEB-INF/struts-bean.tld</taglib-uri>
+        <taglib-location>/WEB-INF/struts-bean.tld</taglib-location>
+      </taglib>
+    -->
+
+
+    <!--
+        <ejb-ref>
+            <ejb-ref-name>security/Login</ejb-ref-name>
+            <ejb-ref-type>Session</ejb-ref-type>
+            <home>com.topcoder.security.login.LoginRemoteHome</home>
+            <remote>com.topcoder.security.login.LoginRemote</remote>
+        </ejb-ref>
+    -->
+
+
+</web-app>
+
+
+
+
+
+
+
