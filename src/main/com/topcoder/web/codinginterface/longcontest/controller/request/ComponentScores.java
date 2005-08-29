@@ -79,7 +79,7 @@ public class ComponentScores extends Base{
                 }
             }
             lrr.sort(order);
-            request.setAttribute(Constants.RESULTS, lrr.getRecords());
+            request.setAttribute(Constants.RESULTS, lrr);
             request.setAttribute(Constants.CONTEST_OVER, new Boolean(over));
             request.setAttribute(Constants.START_ROW, new Integer(startRow));
             request.setAttribute(Constants.START_COL, new Integer(startCol));
