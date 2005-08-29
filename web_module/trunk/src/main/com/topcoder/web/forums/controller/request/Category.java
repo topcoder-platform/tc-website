@@ -41,15 +41,13 @@ public class Category extends ForumsProcessor {
         ResultFilter resultFilter = new ResultFilter();
         resultFilter.setSortField(JiveConstants.MODIFICATION_DATE);
         resultFilter.setSortOrder(ResultFilter.DESCENDING);
-        resultFilter.setStartIndex(startIdx);
-        resultFilter.setNumResults(forumRange);
         
         Iterator itCategories = forumCategory.getCategories();
         Iterator itForums = null;
         int totalItemCount = 0;
         
         if ("true".equals(forumCategory.getProperty(ForumConstants.HIDE_EMPTY_FORUMS))) {
-            itForums = forumCategory.getForums();
+            itForums = forumCategory.getForums(resultFilter);
             ArrayList a = new ArrayList();
             while (itForums.hasNext()) {
                 Forum f = (Forum)itForums.next();
@@ -59,7 +57,11 @@ public class Category extends ForumsProcessor {
             }
             itForums = a.iterator();
             totalItemCount = a.size();
+            resultFilter.setStartIndex(startIdx);
+            resultFilter.setNumResults(forumRange);
         } else {
+            resultFilter.setStartIndex(startIdx);
+            resultFilter.setNumResults(forumRange);
             itForums = forumCategory.getForums(resultFilter);
             totalItemCount = forumCategory.getForumCount(resultFilter);
         }
