@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>08.29.05<br>10:35 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://timesofindia.indiatimes.com/articleshow/1212895.cms" target="_blank">Wanna codejam? May the best techie win</A></span><br><br>
+      "It’s the grand slam of programming or, as the tourney organiser calls it, 'the X-games of software development'. It’s gruelling and needs speed, accuracy and skill. Sounds like a sports contest?" [Times of India]
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://timesofindia.indiatimes.com/articleshow/1212895.cms" target="_blank">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>08.26.05<br>3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">Software Royalties updated in Member Profiles</span><br><br>
       "Software Royalties" in TopCoder Member Profiles have been updated to include the first half of 2005.
@@ -242,18 +254,6 @@ Algorithm, Design, and Development Statistics tabs under Member Profiles now inc
    <tr><td class="newsLinksCell">
          <A href="/index?t=statistics&c=srm257_prob">full story</A>&#160;|&#160;
          <A href="/?t=statistics&c=editorial_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>08.08.05<br>9:15 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=citigroup">Citigroup chat session scheduled for SRM 257</A></span><br><br>
-      Citigroup will be in the Arena Applet at 8:00 PM tonight, just before the start of SRM 257, to discuss working at Citigroup.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=contracting&d2=citigroup">details</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
 
