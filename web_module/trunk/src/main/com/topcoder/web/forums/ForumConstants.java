@@ -35,6 +35,7 @@ public interface ForumConstants {
     
     // Extended Properties
     public final static String HIDE_EMPTY_FORUMS = "hideEmptyForums";
+    public final static String HIDE_SEARCH_FORUMS = "hideSearchForums";
     
     // Admin
     public final static String ADMIN_COMMAND = "cmd";
