@@ -58,7 +58,7 @@
         <td width="180">
             <jsp:include page="includes/global_left.jsp">
                 <jsp:param name="level1" value="forums"/>
-                <jsp:param name="level2" value="<%=forumCategory.getProperty("leftNavName")%>"/>
+                <jsp:param name="level2" value="<%=forumCategory.getProperty(ForumConstants.LEFT_NAV_NAME)%>"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
