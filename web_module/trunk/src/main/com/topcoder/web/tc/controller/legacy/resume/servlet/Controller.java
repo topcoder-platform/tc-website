@@ -6,6 +6,7 @@ import com.topcoder.web.tc.controller.legacy.resume.bean.ResumeTask;
 import com.topcoder.web.tc.controller.legacy.resume.common.Constants;
 import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
 
 import javax.naming.InitialContext;
 import javax.servlet.RequestDispatcher;
@@ -32,6 +33,7 @@ public class Controller
         String taskStepName = null;
         try {
             TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
             taskName = tcRequest.getParameter(Constants.TASK_KEY);
             taskStepName = tcRequest.getParameter(Constants.STEP_KEY);
             log.info("[**** resume **** " + taskName + " **** " + request.getRemoteHost() + " ****]");
@@ -64,11 +66,11 @@ public class Controller
 
                 task.setRequest(tcRequest);
 
-                task.servletPreAction(request, response);
+                task.servletPreAction(tcRequest, tcResponse);
 
                 task.processStep(taskStepName);
 
-                task.servletPostAction(request, response);
+                task.servletPostAction(tcRequest, tcResponse);
 
                 request.setAttribute(taskName, task);
 
