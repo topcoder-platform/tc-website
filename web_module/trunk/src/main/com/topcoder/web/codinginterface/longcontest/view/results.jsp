@@ -66,7 +66,7 @@
     int tests = tids.size();
     boolean over = ((Boolean)request.getAttribute(Constants.CONTEST_OVER)).booleanValue();
     String sort = (String)request.getAttribute(Constants.SORT_ORDER);
-    String className = (String)request.getAttribute(Constants.CLASS_NAME);
+    String className = ((LongRoundResults.Record)al.get(0)).getParent().getClassName();
     DecimalFormat df = new DecimalFormat("0.000");
 %>
 
