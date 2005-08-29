@@ -29,10 +29,10 @@
     
     StringBuffer linkBuffer = new StringBuffer("?module=Category");
     linkBuffer.append("&").append(ForumConstants.CATEGORY_ID).append("=").append(forumCategory.getID());
-    linkBuffer.append(ForumConstants.START_IDX).append("=");
+    linkBuffer.append("&").append(ForumConstants.START_IDX).append("=");
     String link = linkBuffer.toString();
-    String prevLink = (linkBuffer.append(paginator.getPreviousPageStart())).toString();
-    String nextLink = (linkBuffer.append(paginator.NextPageStart())).toString();
+    String prevLink = linkBuffer.toString()+String.valueOf(paginator.getPreviousPageStart());
+    String nextLink = linkBuffer.toString()+String.valueOf(paginator.getNextPageStart());
 %>
 
 <html>
@@ -104,7 +104,7 @@
 	                 <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
 	                       <span class="currentPage"><%= pages[i].getNumber() %></span>
 	                 <%  } else { %>
-	                        <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
+	                        <A href="<%=link%><%=pages[i].getStart()%>" class="rtbcLink">
 	                         <%= pages[i].getNumber() %></A>
 	                   <%  } %>
 	            <%  } else { %> ... <%  } %>
