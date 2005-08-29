@@ -153,6 +153,7 @@
 <% } %>
 </table>
 
+<%  if (forum.getThreadCount() > 0) { %>
 <table cellpadding="0" cellspacing="0" class="rtTable">
 <tr>
 <td class="rtHeader" width="70%"><a href="<%=threadLink%>" class="rtbcLink">Thread</a></td>
@@ -230,6 +231,15 @@
         <td align="right"><a href="?module=RSS&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
     </tr>
 </table>
+<%  } else { %>
+<table cellpadding="0" cellspacing="0" class="rtbcTable">
+    <tr>
+        <td class="rtbc">
+            <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Be the first to post in this forum!</A>
+        </td>
+    </tr>
+</table>
+<%  } %>
 
         <p><br/></p>
         </td>

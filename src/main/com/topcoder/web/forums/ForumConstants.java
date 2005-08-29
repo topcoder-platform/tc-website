@@ -81,6 +81,7 @@ public interface ForumConstants {
     public final static String WATCHES_DELETE_THREAD = "delete";
     
     // Defaults
+    public final static int DEFAULT_MAX_FORUMS_PER_PAGE = 50;
     public final static int DEFAULT_MAX_THREADS_PER_PAGE = 100;
     public final static int DEFAULT_MAX_MESSAGES_PER_PAGE = 100;
     public final static int DEFAULT_MAX_SEARCH_RESULTS_PER_PAGE = 100;
@@ -88,6 +89,7 @@ public interface ForumConstants {
     public final static int DEFAULT_SEARCH_RANGE = 20;
     public final static int DEFAULT_MESSAGE_RANGE = 15;
     public final static int DEFAULT_THREAD_RANGE = 15;  
+    public final static int DEFAULT_FORUM_RANGE = 10;
     public final static int DEFAULT_HISTORY_RANGE = 10;
     public final static String DEFAULT_GUEST_THREAD_VIEW = "flat";
     
@@ -100,6 +102,8 @@ public interface ForumConstants {
         "Error: Message body exceeds " + MESSAGE_SUBJECT_MAX_LENGTH + " characters.";
     public final static String ERR_LONG_MESSAGE_BODY =
         "Error: Message body exceeds " + MESSAGE_BODY_MAX_LENGTH + " characters.";
+    public final static String ERR_FORUM_RANGE_EXCEEDED =
+        "Error: Forum view range exceeded.";
     public final static String ERR_THREAD_RANGE_EXCEEDED =
         "Error: Thread view range exceeded.";
     public final static String ERR_MESSAGE_RANGE_EXCEEDED =
