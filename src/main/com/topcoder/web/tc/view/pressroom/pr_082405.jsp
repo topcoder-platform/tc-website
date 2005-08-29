@@ -88,11 +88,25 @@ The 16 finalists in the Component Design and Development Tournaments are:
 <br><br>
 The TopCoder Component tournament challenges contestants to submit component designs that adhere to strict project specifications and development solutions for those designs. Submissions are independently reviewed and scored by TopCoder's Architecture and Design Review Boards to determine final ranking placement for each component. 
 <br><br>
-Review Board
-Design   Development
-Jiazhi Wu, China   Mihai Pasca, Romania
-Pavlo Aksonov, Ukraine   Alejandro Marcu, Argentina
-Adrian Nicolae Carcu, Romania   Francois Bonin, Ghana
+<div align="center"><span class="bodySubtitle">Review Board</span></div>
+<table class="sidebarBox" align="center" border="0" cellpadding="6" cellspacing="2" width="500">
+<tr>
+   <td class="sidebarTitle" align="center" width="50%">Design</td>
+   <td class="sidebarTitle" align="center" width="50%">Development</td>
+</tr>
+<tr class="sidebarText">
+   <td>Jiazhi Wu, China</td>
+   <td>Mihai Pasca, Romania</td>
+</tr>      
+<tr class="sidebarText">
+   <td>Pavlo Aksonov, Ukraine</td>
+   <td>Alejandro Marcu, Argentina</td>
+</tr>      
+<tr class="sidebarText">
+   <td>Adrian Nicolae Carcu, Romania</td>
+   <td>Francois Bonin, Ghana</td>
+</tr>      
+</table>
 <br><br>
 "We've seen a dramatic growth in the component division - more than twice the number of participants registered this year compared to last year and that really shows it's the hottest area of interest in TopCoder competitions," said Rob Hughes, President and COO of TopCoder. "It's a perfect parallel to our TopCoder Software component competitions which allow members to win prize money online, 24 hours a day, seven days a week." 
 <br><br>
