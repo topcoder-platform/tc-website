@@ -120,7 +120,7 @@ return false;
                 <tr>
 	            <td class=<%=cssClasses[i % 2]%> valign=top nowrap=nowrap><%=skill.getText()%></td>
 				<td class=<%=cssClasses[i % 2]%> valign=top>&#160;</td>
-	            <tc:skillInput class="<%=cssClasses[i++ % 2]%>" skill="<%=skill%>" />
+	            <tc:skillInput styleClass="<%=cssClasses[i++ % 2]%>" skill="<%=skill%>" />
                 </tr>
                 </tc:skillIterator>
 		</table>
