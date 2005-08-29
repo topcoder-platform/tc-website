@@ -1,9 +1,9 @@
-<%--                   
+<%--
 /**
  *  result.jsp
  */
 --%>
-<%@  page 
+<%@  page
   language="java"
   import="java.util.*,
           com.topcoder.common.web.data.report.*"
@@ -27,7 +27,7 @@
     columnHeadings = r.getColumnHeadings();
     a = r.getResult();
   }
-    
+
 %>
 
 <html>
@@ -46,7 +46,7 @@
     </font>
     <br/>
     <br/>
-    <table cellpadding="0" cellspacing="0" border="1" > 
+    <table cellpadding="0" cellspacing="0" border="1" >
 <%
     if (columnHeadings != null) {
 %>
@@ -71,36 +71,37 @@
 
 <%
     for (int i=0; i<a.size(); i++) {
-      if (i%2 == 1)
+      if (i%2 == 1) {
 %>
       <tr bgcolor="#ccffcc">
 <%
-        else
+      } else {
 %>
         <tr>
-<%
+<%    }
       ResultItem[] results = (ResultItem[])a.get(i);
       for (int j=0; j<results.length; j++) {
-        if (results[j] instanceof FloatResult || results[j] instanceof IntResult)
+        if (results[j] instanceof FloatResult || results[j] instanceof IntResult) {
 %>
         <td align="right">
-<%     
-        else
+<%
+        } else {
 %>
         <td>
+<%      } %>
 <%=
-          (results[j].toString()==null||results[j].toString().length()==0)?"&#160;":results[j].toString() 
+          (results[j].toString()==null||results[j].toString().length()==0)?"&#160;":results[j].toString()
 %>
         </td>
-<%    
+<%
       }
 %>
-      </tr>      
+      </tr>
 <%
     }
 %>
     </table>
     </center>
-  </body> 
+  </body>
 </html>
 
