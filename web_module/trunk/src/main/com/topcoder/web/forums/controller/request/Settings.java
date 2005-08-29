@@ -21,13 +21,15 @@ import java.text.ParseException;
  * Manages and saves user settings. Some functionality is replicated from Jive's UserSettingsAction.
  */
 public class Settings extends ForumsProcessor {
+    private int maxForumsPerPage = 
+        JiveGlobals.getJiveIntProperty("skin.default.maxForumsPerPage", ForumConstants.DEFAULT_MAX_FORUMS_PER_PAGE);
     private int maxThreadsPerPage =
-            JiveGlobals.getJiveIntProperty("skin.default.maxThreadsPerPage", ForumConstants.DEFAULT_MAX_THREADS_PER_PAGE);
+        JiveGlobals.getJiveIntProperty("skin.default.maxThreadsPerPage", ForumConstants.DEFAULT_MAX_THREADS_PER_PAGE);
     private int maxMessagesPerPage =
-            JiveGlobals.getJiveIntProperty("skin.default.maxMessagesPerPage", ForumConstants.DEFAULT_MAX_MESSAGES_PER_PAGE);
+        JiveGlobals.getJiveIntProperty("skin.default.maxMessagesPerPage", ForumConstants.DEFAULT_MAX_MESSAGES_PER_PAGE);
     private int maxSearchResultsPerPage =
         JiveGlobals.getJiveIntProperty("skin.default.maxSearchResultsPerPage", ForumConstants.DEFAULT_MAX_SEARCH_RESULTS_PER_PAGE);
-
+    
     // For watch email notification setting of "never"
     public final static int FREQUENCY_NEVER = -1;
     private int FREQUENCY_NEVER_YEAR = 2098;
@@ -41,6 +43,7 @@ public class Settings extends ForumsProcessor {
         int watchFrequency = -1;
         String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SETTINGS_STATUS));
         if (status.equals("save")) {
+            int forumsPerPage = Integer.parseInt(getRequest().getParameter("forumsPerPage"));
             int threadsPerPage = Integer.parseInt(getRequest().getParameter("threadsPerPage"));
             int messagesPerPage = Integer.parseInt(getRequest().getParameter("messagesPerPage"));
             int messagesPerHistoryPage = Integer.parseInt(getRequest().getParameter("messagesPerHistoryPage"));
@@ -52,6 +55,12 @@ public class Settings extends ForumsProcessor {
             String autoWatchReplies = getRequest().getParameter("autoWatchReplies");
             watchFrequency = Integer.parseInt(getRequest().getParameter("watchFrequency"));
 
+            if (forumsPerPage <= maxForumsPerPage) {
+                user.setProperty(("jiveForumRange"), String.valueOf(forumsPerPage));
+            } else {
+                addError(ForumConstants.SETTINGS_STATUS, ForumConstants.ERR_FORUM_RANGE_EXCEEDED);
+                status = "error";
+            }
             if (threadsPerPage <= maxThreadsPerPage) {
             	user.setProperty(("jiveThreadRange"), String.valueOf(threadsPerPage));
             } else {

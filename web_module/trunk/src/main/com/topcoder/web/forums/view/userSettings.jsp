@@ -75,6 +75,25 @@
       <td class="rtHeader" colspan="2">General Settings</td>
    </tr>
    <tr>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Forums per Category Page:</strong></td>
+      <td class="rtTextCell100">
+      <select size="1" name="forumsPerPage">
+      <%  int[] forumCounts = { 10, 15, 25 };
+            int forumRange = ForumConstants.DEFAULT_FORUM_RANGE;
+            try {
+                forumRange = Integer.parseInt(user.getProperty("jiveForumRange"));
+            } catch (Exception ignored) {}
+         for (int i=0; i<forumCounts.length; i++) {
+            if (forumCounts[i] == forumRange) { %>
+               <option value="<%=forumCounts[i]%>" selected><%=forumCounts[i]%></option>
+         <%   } else { %>
+               <option value="<%=forumCounts[i]%>"><%=forumCounts[i]%></option>
+         <%   }
+         } %>
+      </select>
+      </td>
+   </tr>
+   <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Threads per Forum Page:</strong></td>
       <td class="rtTextCell100">
       <select size="1" name="threadsPerPage">
