@@ -24,7 +24,7 @@
             <env-entry>
                 <env-entry-name>DS</env-entry-name>
                 <env-entry-type>java.lang.String </env-entry-type>
-                <env-entry-value>OLTP</env-entry-value>
+                <env-entry-value>java:/OLTP</env-entry-value>
             </env-entry>
             <env-entry>
                 <env-entry-name>STAFF_GROUP_ID</env-entry-name>
