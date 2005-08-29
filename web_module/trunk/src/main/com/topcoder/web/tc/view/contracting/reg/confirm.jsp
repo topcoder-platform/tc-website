@@ -14,7 +14,7 @@
 <head>
 <title>TopCoder Placement Registration</title>
 
-<jsp:include page="../../../script.jsp" />
+<jsp:include page="../../script.jsp" />
 
 <%
 List prefList = (List)request.getAttribute("prefs");
@@ -29,7 +29,7 @@ List industryList = (List)request.getAttribute("industrySkills");
 
 <body>
 
-<jsp:include page="../../../top.jsp" >
+<jsp:include page="../../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -218,7 +218,7 @@ List industryList = (List)request.getAttribute("industrySkills");
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../../public_right.jsp">
+            <jsp:include page="../../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -230,7 +230,7 @@ List industryList = (List)request.getAttribute("industrySkills");
     </tr>
 </table>
 
-<jsp:include page="../../../foot.jsp" />
+<jsp:include page="../../foot.jsp" />
 
 </body>
 
