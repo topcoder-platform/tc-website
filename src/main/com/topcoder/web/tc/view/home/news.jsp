@@ -11,7 +11,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>08.29.05<br>5:10 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=nsa">NSA chat session scheduled for SRM 261</A></span><br><br>
-      NSA will be in the Arena Applet at 8:00 PM tomorrow, just before the start of SRM 261, to discuss working at NSA.
+      NSA will be in the Arena Applet at 8:00 PM just before the start of SRM 261, to discuss working at NSA.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
