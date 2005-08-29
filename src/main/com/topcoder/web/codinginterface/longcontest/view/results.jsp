@@ -62,7 +62,7 @@
     int rowCount = ((Integer)request.getAttribute(Constants.ROW_COUNT)).intValue();
     int colCount = ((Integer)request.getAttribute(Constants.COL_COUNT)).intValue();
     int primary = ((Integer)request.getAttribute(Constants.PRIMARY_COLUMN)).intValue();
-    ArrayList tids = ((LongRoundResults.Record)al.get(0)).getParent().getTestCaseIds();
+    ArrayList tids = al.size() == 0 ? new ArrayList() : ((LongRoundResults.Record)al.get(0)).getParent().getTestCaseIds();
     int tests = tids.size();
     boolean over = ((Boolean)request.getAttribute(Constants.CONTEST_OVER)).booleanValue();
     String sort = (String)request.getAttribute(Constants.SORT_ORDER);
