@@ -185,13 +185,13 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
         ((resultRow.getStringItem("appeal_text") != null) || (resultRow.getStringItem("testcase_appeal_text") != null) )) { %>
 
         <tr>
-            <td class="appealCells"><rsc:item name="appeal_text" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
+            <td class="appealCells"><b>Appeal Text:</b><rsc:item name="appeal_text" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
                                     <rsc:item name="testcase_appeal_text" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
             </td>
             <td rowspan="2" class="appealTitle">Appeal</td>
         </tr>
         <tr>
-            <td class="appealCells"><rsc:item name="appeal_response" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
+            <td class="appealCells"><b>Appeal Response:</b><rsc:item name="appeal_response" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
                                     <rsc:item name="testcase_appeal_response" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
             </td>
         </tr>
