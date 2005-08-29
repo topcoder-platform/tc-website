@@ -48,14 +48,19 @@ public class Category extends ForumsProcessor {
         
         if ("true".equals(forumCategory.getProperty(ForumConstants.HIDE_EMPTY_FORUMS))) {
             itForums = forumCategory.getForums(resultFilter);
-            ArrayList a = new ArrayList();
+            ArrayList a = new ArrayList();  // all results
             while (itForums.hasNext()) {
                 Forum f = (Forum)itForums.next();
                 if (f.getMessageCount() > 0) {
                     a.add(f);
                 }
             }
-            itForums = a.iterator();
+            int endIdx = Math.min(startIdx+forumRange, a.size());
+            ArrayList pageList = new ArrayList();   // page results
+            for (int i=startIdx; i<endIdx; i++) {
+                pageList.add(a.get(i));
+            }
+            itForums = pageList.iterator();
             totalItemCount = a.size();
             resultFilter.setStartIndex(startIdx);
             resultFilter.setNumResults(forumRange);
