@@ -47,6 +47,21 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
+<!-- Times of India -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://timesofindia.indiatimes.com/articleshow/1212895.cms" target="_blank"><img src="/i/pressroom/toi_logo.gif" alt="Times of India" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://timesofindia.indiatimes.com/articleshow/1212895.cms" target="_blank">Wanna codejam? May the best techie win</A></strong></font><br />
+It’s the grand slam of programming or, as the tourney organiser calls it, 'the X-games of software development'. It’s gruelling and needs speed, accuracy and skill. Sounds like a sports contest?<span class="prHead"> [August 28 - Times of India]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!--  TCO05 Component Finalists -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
