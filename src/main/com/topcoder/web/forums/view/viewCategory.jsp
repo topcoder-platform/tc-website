@@ -10,6 +10,8 @@
                  com.jivesoftware.base.User,
                  com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.ReadTracker,
+                 com.jivesoftware.forum.action.util.Page,
+                 com.jivesoftware.forum.action.util.Paginator,
                  java.util.Iterator,
                  java.util.Enumeration"
 %>
@@ -18,11 +20,20 @@
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forumCategory" name="forumCategory" type="com.jivesoftware.forum.ForumCategory" toScope="request"/>
+<tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 
 <%  User user = (User)request.getAttribute("user"); 
     ResultFilter resultFilter = (ResultFilter)request.getAttribute("resultFilter"); 
     ReadTracker readTracker = forumFactory.getReadTracker(); 
-    String trackerClass = ""; %>
+    String trackerClass = ""; 
+    
+    StringBuffer linkBuffer = new StringBuffer("?module=Category");
+    linkBuffer.append("&").append(ForumConstants.CATEGORY_ID).append("=").append(forumCategory.getID());
+    linkBuffer.append(ForumConstants.START_IDX).append("=");
+    String link = linkBuffer.toString();
+    String prevLink = (linkBuffer.append(paginator.getPreviousPageStart())).toString();
+    String nextLink = (linkBuffer.append(paginator.NextPageStart())).toString();
+%>
 
 <html>
 <head>
@@ -80,6 +91,29 @@
         <%  } %> 
     </tc-webtag:iterator>
     </b></td>
+	<% Page[] pages; %>
+	<% if (paginator.getNumPages() > 1) { %>
+	   <td class="rtbc" align="right"><b>
+	      <%  if (paginator.getPreviousPage()) { %>
+	         <A href="<%=prevLink%>" class="rtbcLink">
+	               << PREV</A>&#160;&#160;&#160;
+	        <%  } %> [
+	        <%  pages = paginator.getPages(5);
+	            for (int i=0; i<pages.length; i++) {
+	        %>  <%  if (pages[i] != null) { %>
+	                 <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
+	                       <span class="currentPage"><%= pages[i].getNumber() %></span>
+	                 <%  } else { %>
+	                        <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
+	                         <%= pages[i].getNumber() %></A>
+	                   <%  } %>
+	            <%  } else { %> ... <%  } %>
+	        <%  } %> ]
+	      <%  if (paginator.getNextPage()) { %>
+	          &#160;&#160;&#160;<A href="<%=nextLink%>" class="rtbcLink">NEXT >></A>
+	      <%  } %>
+	   </b></td></tr>
+	<% } %>
 </tr>
 </table>
 
