@@ -58,11 +58,12 @@ public class Admin extends ForumsProcessor {
                         "Description for Test Forum "+fc.getForumCount(), fc);
             }
         } else if (command.equals("Delete test forums")) {
-            Iterator it = forumFactory.getForumCategory(8).getForums();
+            com.jivesoftware.forum.ForumCategory fc = forumFactory.getForumCategory(8);
+            Iterator it = fc.getForums();
             while (it.hasNext()) {
                 Forum f = (Forum)it.next();
                 if (f.getName().startsWith("Test Forum")) {
-                    forumFactory.deleteForum(f);
+                    fc.deleteForum(f);
                 }
             }
         }
