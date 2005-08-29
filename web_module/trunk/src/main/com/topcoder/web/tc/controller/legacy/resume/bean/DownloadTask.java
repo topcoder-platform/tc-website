@@ -3,13 +3,13 @@ package com.topcoder.web.tc.controller.legacy.resume.bean;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.ejb.resume.ResumeServices;
 
 import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -22,13 +22,13 @@ public class DownloadTask extends ResumeTask {
         super();
     }
 
-    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
+    public void servletPreAction(TCRequest request, TCResponse response)
             throws Exception {
         HttpSession session = request.getSession(true);
         Navigation navigation = (Navigation) session.getAttribute("navigation");
         BasicAuthentication auth = new BasicAuthentication(
-                new SessionPersistor(request.getSession()), HttpObjectFactory.createRequest(request),
-                HttpObjectFactory.createResponse(response), BasicAuthentication.MAIN_SITE);
+                new SessionPersistor(request.getSession()), request,
+                response, BasicAuthentication.MAIN_SITE);
         if (navigation == null) navigation = new Navigation();
         if (!navigation.isIdentified() && auth.getActiveUser().isAnonymous()) {
             log.debug("User not logged in, can't download a file.");
@@ -39,16 +39,16 @@ public class DownloadTask extends ResumeTask {
             else
                 userId = (int) auth.getActiveUser().getId();
         }
-        if (getRequestParameter(request, "compid") != null) {
-            companyId = Long.parseLong(getRequestParameter(request, "compid"));
+        if (getRequest().getParameter("compid") != null) {
+            companyId = Long.parseLong(getRequest().getParameter("compid"));
             db = getCompanyDb(companyId);
         }
     }
 
-    public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
+    public void servletPostAction(TCRequest request, TCResponse response)
             throws Exception {
 //        response.setHeader("content-disposition","attachment; filename="+resume.getFileName());
-        response.setHeader("content-disposition", "inline; filename=" + resume.getFileName());
+        response.addHeader("content-disposition", "inline; filename=" + resume.getFileName());
         response.setContentType(resume.getMimeType());
         ServletOutputStream sos = response.getOutputStream();
         sos.write(resume.getFile());

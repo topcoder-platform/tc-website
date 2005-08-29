@@ -1,6 +1,5 @@
 package com.topcoder.web.tc.controller.legacy.resume.bean;
 
-import com.topcoder.servlet.request.FileUpload;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -8,10 +7,10 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
 
 import javax.naming.InitialContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 public abstract class ResumeTask {
@@ -19,7 +18,8 @@ public abstract class ResumeTask {
 
     private InitialContext ctx;
     private String nextPage;
-    private FileUpload fileUpload;
+    //private FileUpload fileUpload;
+    private TCRequest request;
     private boolean nextPageInternal;
     protected long companyId = -1;
     protected String db = DBMS.OLTP_DATASOURCE_NAME;
@@ -27,17 +27,14 @@ public abstract class ResumeTask {
     public ResumeTask() {
         setInitialContext(null);
         setNextPage(null);
-        setFileUpload(null);
         setNextPageInternal(true);
     }
 
+/*
     protected String getRequestParameter(HttpServletRequest request, String key) {
-        if (fileUpload == null) {
-            return request.getParameter(key);
-        } else {
-            return fileUpload.getParameter(key);
-        }
+        request.getParameter(key);
     }
+*/
 
     public abstract void processStep(String step) throws Exception;
 
@@ -57,12 +54,22 @@ public abstract class ResumeTask {
         return nextPage;
     }
 
+/*
     public FileUpload getFileUpload() {
         return fileUpload;
     }
 
     public void setFileUpload(FileUpload fileUpload) {
         this.fileUpload = fileUpload;
+    }
+*/
+
+    public void setRequest(TCRequest request) {
+        this.request = request;
+    }
+
+    public TCRequest getRequest() {
+        return request;
     }
 
     public long getCompanyId() {
@@ -77,11 +84,11 @@ public abstract class ResumeTask {
         this.companyId = companyId;
     }
 
-    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
+    public void servletPreAction(TCRequest request, TCResponse response)
             throws Exception {
     }
 
-    public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
+    public void servletPostAction(TCRequest request, TCResponse response)
             throws Exception {
     }
 
