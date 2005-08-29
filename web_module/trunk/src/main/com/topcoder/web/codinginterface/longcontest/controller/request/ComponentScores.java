@@ -111,7 +111,6 @@ public class ComponentScores extends Base{
         if(!started){
             throw new TCWebException("The contest has not started yet.");
         }
-        lrr.setClassName(className);
         Map totalScores = new TreeMap();//need to use tree for the ordering
         Map testScores = new TreeMap();
         Map coders = new TreeMap();
@@ -149,6 +148,8 @@ public class ComponentScores extends Base{
             }
         }
         log.info(coders);
-        return new LongRoundResults(new ArrayList(testScores.values()), new ArrayList(testCases), new ArrayList(coders.keySet()), new ArrayList(totalScores.values()), new ArrayList(coders.values()), cid, rd);
+        LongRoundResults ret = new LongRoundResults(new ArrayList(testScores.values()), new ArrayList(testCases), new ArrayList(coders.keySet()), new ArrayList(totalScores.values()), new ArrayList(coders.values()), cid, rd);
+        ret.setClassName(className);
+        return ret;
     }
 }
