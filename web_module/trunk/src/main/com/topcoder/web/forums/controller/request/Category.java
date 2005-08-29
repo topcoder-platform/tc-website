@@ -43,14 +43,13 @@ public class Category extends ForumsProcessor {
         resultFilter.setSortOrder(ResultFilter.DESCENDING);
         resultFilter.setStartIndex(startIdx);
         resultFilter.setNumResults(forumRange);
-        int totalItemCount = forumCategory.getForumCount(resultFilter);
-
-        Paging paging = new Paging(resultFilter, totalItemCount);
-        Paginator paginator = new Paginator(paging);
+        
         Iterator itCategories = forumCategory.getCategories();
-		Iterator itForums = forumCategory.getForums(resultFilter);
+        Iterator itForums = null;
+        int totalItemCount = 0;
         
         if ("true".equals(forumCategory.getProperty(ForumConstants.HIDE_EMPTY_FORUMS))) {
+            itForums = forumCategory.getForums();
             ArrayList a = new ArrayList();
             while (itForums.hasNext()) {
                 Forum f = (Forum)itForums.next();
@@ -59,7 +58,13 @@ public class Category extends ForumsProcessor {
                 }
             }
             itForums = a.iterator();
+            totalItemCount = a.size();
+        } else {
+            itForums = forumCategory.getForums(resultFilter);
+            totalItemCount = forumCategory.getForumCount(resultFilter);
         }
+        Paging paging = new Paging(resultFilter, totalItemCount);
+        Paginator paginator = new Paginator(paging);
         
         getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("forumCategory", forumCategory);
