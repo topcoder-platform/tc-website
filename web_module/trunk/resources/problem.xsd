@@ -69,7 +69,6 @@
 <xs:group name="inline">
     <xs:choice>
         <xs:element ref="type"/>
-        <xs:element ref="table"/>
         <xs:group ref="fontstyle"/>
         <xs:group ref="heading"/>
         <xs:group ref="special"/>
@@ -182,31 +181,37 @@
 
 <xs:element name="signature">
     <xs:complexType>
-        <xs:all>
-            <xs:element name="class" type="xs:token"/>
-            <xs:element name="method" type="xs:token"/>
-            <xs:element name="return">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element ref="type"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="params">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="param" minOccurs="0" maxOccurs="unbounded">
-                            <xs:complexType>
-                                <xs:sequence>
-                                    <xs:element name="type" type="tctype"/>
-                                    <xs:element name="name" type="xs:token"/>
-                                </xs:sequence>
-                            </xs:complexType>
-                        </xs:element>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-        </xs:all>
+        <xs:sequence>
+        <xs:element name="class" type="xs:token"/>
+        <xs:element name="method" minOccurs="1" maxOccurs="unbounded">
+            <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:token"/>
+                <xs:element name="return">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="type"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="params">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="param" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="type" type="tctype"/>
+                                        <xs:element name="name" type="xs:token"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            </xs:complexType>
+        </xs:element>
+        </xs:sequence>
     </xs:complexType>
 </xs:element>
 
@@ -245,13 +250,13 @@
         </xs:sequence>
     </xs:complexType>
 </xs:element>
-<xs:element name="table" >
+<xs:element name="table">
     <xs:complexType>
         <xs:sequence>
-            <xs:element name="tr" minOccurs="0" maxOccurs="unbounded" >
+            <xs:element name="tr" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="td" type="xs:string" minOccurs="0" maxOccurs="unbounded" >
+                        <xs:element name="td" type="xs:string" minOccurs="0" maxOccurs="unbounded">
                         </xs:element>
                     </xs:sequence>
                 </xs:complexType>
@@ -260,6 +265,5 @@
         <xs:attribute name="border" type="xs:int"/>
     </xs:complexType>
 </xs:element>
-
 </xs:schema>
 
