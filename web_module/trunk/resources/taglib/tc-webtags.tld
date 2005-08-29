@@ -667,5 +667,20 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
+    
+    <tag>
+        <name>forumLink</name>
+        <tagclass>com.topcoder.web.common.tag.ForumLinkTag</tagclass>
+        <attribute>
+            <name>forumID</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>message</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 
 </taglib>
