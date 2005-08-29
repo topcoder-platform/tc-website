@@ -1,11 +1,11 @@
 package com.topcoder.web.tc.controller.legacy.resume.servlet;
 
-import com.topcoder.servlet.request.FileUpload;
-import com.topcoder.servlet.request.InvalidContentTypeException;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tc.controller.legacy.resume.bean.ResumeTask;
 import com.topcoder.web.tc.controller.legacy.resume.common.Constants;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.TCRequest;
 
 import javax.naming.InitialContext;
 import javax.servlet.RequestDispatcher;
@@ -14,7 +14,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Enumeration;
 
@@ -28,24 +27,13 @@ public class Controller
 
     public void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
-        HttpSession session = null;
         InitialContext ctx = null;
-        FileUpload fu = null;
         String taskName = null;
         String taskStepName = null;
         try {
-            try {
-                fu = new FileUpload(request, false);
-            } catch (InvalidContentTypeException ignore) {
-                //that's ok, we'll just procede with out
-            }
-            if (fu == null) {
-                taskName = request.getParameter(Constants.TASK_KEY);
-                taskStepName = request.getParameter(Constants.STEP_KEY);
-            } else {
-                taskName = fu.getParameter(Constants.TASK_KEY);
-                taskStepName = fu.getParameter(Constants.STEP_KEY);
-            }
+            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            taskName = tcRequest.getParameter(Constants.TASK_KEY);
+            taskStepName = tcRequest.getParameter(Constants.STEP_KEY);
             log.info("[**** resume **** " + taskName + " **** " + request.getRemoteHost() + " ****]");
             log.debug(taskName);
             if (taskName == null || !isWord(taskName)) {
@@ -53,8 +41,7 @@ public class Controller
                 forwardToError(request, response, new Exception(Constants.TASK_KEY + " not found in request."));
                 return;
             }
-            ctx = (InitialContext) TCContext.getInitial();
-            session = request.getSession(true);
+            ctx = TCContext.getInitial();
             ResumeTask task = null;
             Class taskClass = null;
             log.debug("about to make task: " + taskName);
@@ -75,7 +62,7 @@ public class Controller
                     }
                 }
 
-                task.setFileUpload(fu);
+                task.setRequest(tcRequest);
 
                 task.servletPreAction(request, response);
 

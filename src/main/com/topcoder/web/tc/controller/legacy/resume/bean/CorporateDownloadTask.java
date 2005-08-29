@@ -6,7 +6,8 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
@@ -14,7 +15,6 @@ import com.topcoder.web.corp.common.TCESConstants;
 import com.topcoder.web.ejb.resume.ResumeServices;
 
 import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
@@ -33,14 +33,14 @@ public class CorporateDownloadTask extends ResumeTask {
         super();
     }
 
-    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
+    public void servletPreAction(TCRequest request, TCResponse response)
             throws Exception {
 
         /* User authorization checking */
         SessionPersistor persistor = new SessionPersistor(request.getSession(true));
         WebAuthentication authToken = new BasicAuthentication(persistor,
-                HttpObjectFactory.createRequest(request),
-                HttpObjectFactory.createResponse(response), BasicAuthentication.CORP_SITE);
+                request,
+                response, BasicAuthentication.CORP_SITE);
 
         if (!authToken.getActiveUser().isAnonymous()) {
             log.debug("User not logged in, can't download a file.");
@@ -70,9 +70,9 @@ public class CorporateDownloadTask extends ResumeTask {
 
     }
 
-    public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
+    public void servletPostAction(TCRequest request, TCResponse response)
             throws Exception {
-        response.setHeader("content-disposition", "inline; filename=" + resume.getFileName());
+        response.addHeader("content-disposition", "inline; filename=" + resume.getFileName());
         response.setContentType(resume.getMimeType());
         ServletOutputStream sos = response.getOutputStream();
         sos.write(resume.getFile());

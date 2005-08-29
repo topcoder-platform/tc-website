@@ -4,14 +4,13 @@ import com.topcoder.common.web.data.Navigation;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.tc.controller.legacy.resume.common.Constants;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class ViewUploadTask extends ResumeTask {
@@ -28,14 +27,14 @@ public class ViewUploadTask extends ResumeTask {
         setFileTypes(null);
     }
 
-    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
+    public void servletPreAction(TCRequest request, TCResponse response)
             throws Exception {
         HttpSession session = request.getSession(true);
         Navigation navigation = (Navigation) session.getAttribute("navigation");
         BasicAuthentication auth = new BasicAuthentication(
                 new SessionPersistor(request.getSession()),
-                HttpObjectFactory.createRequest(request),
-                HttpObjectFactory.createResponse(response), BasicAuthentication.MAIN_SITE);
+                request,
+                response, BasicAuthentication.MAIN_SITE);
         if (navigation == null) navigation = new Navigation();
         if (!navigation.isIdentified() && auth.getActiveUser().isAnonymous()) {
             log.debug("User not logged in, can't download a file.");
@@ -46,8 +45,8 @@ public class ViewUploadTask extends ResumeTask {
             else
                 userId = (int) auth.getActiveUser().getId();
         }
-        if (getRequestParameter(request, "compid") != null) {
-            companyId = Long.parseLong(getRequestParameter(request, "compid"));
+        if (request.getParameter("compid") != null) {
+            companyId = Long.parseLong(request.getParameter("compid"));
             db = getCompanyDb(companyId);
         }
     }

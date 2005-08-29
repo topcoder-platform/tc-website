@@ -4,7 +4,9 @@ import com.topcoder.common.web.data.Navigation;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.ejb.resume.ResumeServices;
@@ -13,7 +15,6 @@ import com.topcoder.web.tc.controller.legacy.resume.common.Constants;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.Iterator;
 
 public class UploadTask extends ResumeTask {
     private byte file[] = null;
@@ -31,14 +32,14 @@ public class UploadTask extends ResumeTask {
         }
     }
 
-    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
+    public void servletPreAction(TCRequest request, TCResponse response)
             throws Exception {
         HttpSession session = request.getSession(true);
         Navigation navigation = (Navigation) session.getAttribute("navigation");
         BasicAuthentication auth = new BasicAuthentication(
                 new SessionPersistor(request.getSession()),
-                HttpObjectFactory.createRequest(request),
-                HttpObjectFactory.createResponse(response), BasicAuthentication.MAIN_SITE);
+                request,
+                response, BasicAuthentication.MAIN_SITE);
         if (navigation == null) navigation = new Navigation();
         if (!navigation.isIdentified() && auth.getActiveUser().isAnonymous()) {
             log.debug("User not logged in, can't upload a file.");
@@ -49,31 +50,23 @@ public class UploadTask extends ResumeTask {
             else
                 userId = (int) auth.getActiveUser().getId();
         }
-        if (getRequestParameter(request, "compid") != null) {
-            companyId = Long.parseLong(getRequestParameter(request, "compid"));
+        if (request.getParameter("compid") != null) {
+            companyId = Long.parseLong(request.getParameter("compid"));
             db = getCompanyDb(companyId);
         }
         UploadedFile uf = null;
         byte[] fileBytes = null;
         try {
-            Iterator it = super.getFileUpload().getAllUploadedFiles();
-            //only need to worry about a single resume
-            if (it.hasNext()) {
-                uf = (UploadedFile) it.next();
-                log.debug(uf.getContentType());
+            uf = ((MultipartRequest)request).getUploadedFile("file1");
                 if (uf == null) {
                     throw new ResumeTaskException("Empty file uploaded");
                 } else {
                     fileBytes = new byte[(int) uf.getSize()];
                     uf.getInputStream().read(fileBytes);
-                    fileType = Integer.parseInt(super.getFileUpload().getParameter("fileType"));
+                    fileType = Integer.parseInt(request.getParameter("fileType"));
                     fileName = uf.getRemoteFileName();
                     file = fileBytes;
-
                 }
-            } else {
-                throw new ResumeTaskException("No files uploaded");
-            }
         } catch (Exception e) {
             e.printStackTrace();
             throw new ResumeTaskException(e);
