@@ -53,6 +53,15 @@ public class ComponentScores extends Base{
                     }
                 }
             }
+            Request r = new Request();
+            r.setContentHandle("long_contest_over");
+            r.setProperty(Constants.COMPONENT_ID,String.valueOf(cid));
+            r.setProperty(Constants.ROUND_ID,String.valueOf(rd));
+            DataAccessInt dataAccess = getDataAccess(false);
+            Map m = dataAccess.getData(r);
+            boolean over = ((ResultSetContainer)m.get("long_contest_over")).getBooleanItem(0,0);
+
+
             StringTokenizer st = new StringTokenizer(sort,"_");
             int[] order = new int[st.countTokens()];
             for(int i = 0; i<order.length; i++){
@@ -71,6 +80,7 @@ public class ComponentScores extends Base{
             }
             lrr.sort(order);
             request.setAttribute(Constants.RESULTS, lrr.getRecords());
+            request.setAttribute(Constants.CONTEST_OVER, new Boolean(over));
             request.setAttribute(Constants.START_ROW, new Integer(startRow));
             request.setAttribute(Constants.START_COL, new Integer(startCol));
             request.setAttribute(Constants.ROW_COUNT, new Integer(rowCount));
@@ -97,13 +107,11 @@ public class ComponentScores extends Base{
         ResultSetContainer tests = (ResultSetContainer)m.get("long_test_scores");
         int count = ((ResultSetContainer)m.get("long_test_count")).getIntItem(0,0);
         boolean started = ((ResultSetContainer)m.get("long_contest_started")).getBooleanItem(0,0);
-        boolean over = ((ResultSetContainer)m.get("long_contest_over")).getBooleanItem(0,0);
         String className = ((ResultSetContainer)m.get("long_class_name")).getStringItem(0,0);
         if(!started){
             throw new TCWebException("The contest has not started yet.");
         }
-        getRequest().setAttribute(Constants.CONTEST_OVER,new Boolean(over));
-        getRequest().setAttribute(Constants.CLASS_NAME,className);
+        lrr.setClassName(className);
         Map totalScores = new TreeMap();//need to use tree for the ordering
         Map testScores = new TreeMap();
         Map coders = new TreeMap();
