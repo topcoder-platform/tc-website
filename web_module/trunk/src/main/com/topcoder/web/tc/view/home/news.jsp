@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>08.29.05<br>11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=tcs_chat_082705">TopCoder Software chat session</A></span><br><br>
+      TCS spoke with the members on Saturday, just before the start of SRM 260, to discuss working at TopCoder Software.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=contracting&d2=tcs_chat_082705">view</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>08.29.05<br>10:35 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://timesofindia.indiatimes.com/articleshow/1212895.cms" target="_blank">Wanna codejam? May the best techie win</A></span><br><br>
       "It’s the grand slam of programming or, as the tourney organiser calls it, 'the X-games of software development'. It’s gruelling and needs speed, accuracy and skill. Sounds like a sports contest?" [Times of India]
@@ -239,21 +251,6 @@ Algorithm, Design, and Development Statistics tabs under Member Profiles now inc
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=contracting&d2=citigroup_chat_080805">view</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.09.05<br>10:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm257_prob">SRM 257 - Problem Set & Analysis</A></span><br><br>
-      With solid times on all three problems, <tc-webtag:handle coderId="10574855" context="algorithm"/> took first by over 100 points. <tc-webtag:handle coderId="8547850" context="algorithm"/> had the best time one the hard problem by far, and despite a failed medium submission, he took second.</td>
-      <td class="newsPhoto"><img src="/i/m/lbackstrom_mug.gif" /><br>by <tc-webtag:handle coderId="159052" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm257_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
 
 
