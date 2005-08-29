@@ -8,8 +8,8 @@ import com.topcoder.shared.screening.common.ScreeningContext;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.common.ApplicationServer;
-import com.topcoder.shared.common.TCContext;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.codinginterface.messaging.WebQueueResponseManager;
@@ -48,7 +48,7 @@ public class MainServlet extends BaseServlet {
 
         Context context = null;
         try {
-            context = TCContext.getJMSContext();
+            context = TCContext.getInitial();
         } catch (NamingException e) {
             throw new ServletException(e);
         }

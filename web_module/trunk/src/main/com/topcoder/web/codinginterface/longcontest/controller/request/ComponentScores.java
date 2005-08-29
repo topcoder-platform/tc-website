@@ -39,11 +39,13 @@ public class ComponentScores extends Base{
             try {
                 cc = CacheClientFactory.createCacheClient();
                 lrr = (LongRoundResults) (cc.get(key));
+                log.debug(lrr);
             } catch (Exception e) {
                 log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
                 hasCacheConnection = false;
             }
             if(lrr == null){
+                log.debug(key+" is not in cache");
                 lrr = getLongRoundResults(cid,rd);
                 if (hasCacheConnection) {
                     try {
