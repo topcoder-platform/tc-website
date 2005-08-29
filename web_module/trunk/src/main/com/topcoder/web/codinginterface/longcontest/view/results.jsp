@@ -56,17 +56,18 @@
     }
 %>
 <%
-    ArrayList al = (ArrayList)request.getAttribute(Constants.RESULTS);
+    LongRoundResults lrr = (LongRoundResults)request.getAttribute(Constants.RESULTS);
+    ArrayList al = lrr.getRecords();
     int startRow = ((Integer)request.getAttribute(Constants.START_ROW)).intValue();
     int startCol = ((Integer)request.getAttribute(Constants.START_COL)).intValue();
     int rowCount = ((Integer)request.getAttribute(Constants.ROW_COUNT)).intValue();
     int colCount = ((Integer)request.getAttribute(Constants.COL_COUNT)).intValue();
     int primary = ((Integer)request.getAttribute(Constants.PRIMARY_COLUMN)).intValue();
-    ArrayList tids = al.size() == 0 ? new ArrayList() : ((LongRoundResults.Record)al.get(0)).getParent().getTestCaseIds();
+    ArrayList tids = lrr.getTestCaseIds();
     int tests = tids.size();
     boolean over = ((Boolean)request.getAttribute(Constants.CONTEST_OVER)).booleanValue();
+    String className = lrr.getClassName();
     String sort = (String)request.getAttribute(Constants.SORT_ORDER);
-    String className = ((LongRoundResults.Record)al.get(0)).getParent().getClassName();
     DecimalFormat df = new DecimalFormat("0.000");
 %>
 
