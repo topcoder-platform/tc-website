@@ -1,11 +1,11 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
-             com.topcoder.web.common.BaseProcessor,
-                com.topcoder.web.forums.ForumConstants,
+                 com.topcoder.web.common.BaseProcessor,
+                 com.topcoder.web.forums.ForumConstants,
                  com.jivesoftware.base.User,
                  com.jivesoftware.forum.action.util.Paginator,
                  com.jivesoftware.forum.Query,
                  com.jivesoftware.util.StringUtils,
-                java.util.*,
+                 java.util.*,
                  java.text.SimpleDateFormat"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
@@ -113,6 +113,7 @@ function noenter(e)
     <%  } else { %>
         <option value="<%=categoryValue%>"><jsp:getProperty name="category" property="name"/></option>
     <%  } %>
+    <%  if (!"true".equals(category.getProperty(ForumConstants.HIDE_SEARCH_FORUMS))) { %> 
     <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=category.getForums()%>'>
    <%  String forumValue = "f" + forum.getID();
        if (searchScope != null && searchScope.equals(forumValue)) { %>
@@ -121,6 +122,7 @@ function noenter(e)
            <option value="<%=forumValue%>">&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
        <%  } %>
     </tc-webtag:iterator>
+    <%  } %>
 </tc-webtag:iterator>
 </select>
       </td>
