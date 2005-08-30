@@ -16,7 +16,7 @@
 <head>
 <title>TopCoder | Login</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="../../script.jsp" />
 
 <SCRIPT type="text/javascript">
 function submitEnter(e) {
@@ -36,7 +36,7 @@ function submitEnter(e) {
 <body>
 
 <!-- Top begins -->
-<jsp:include page="../top.jsp" >
+<jsp:include page="../../top.jsp" >
     <jsp:param name="level1" value="login"/>
 </jsp:include>
 <!-- Top ends -->
@@ -46,7 +46,7 @@ function submitEnter(e) {
 
 <!-- Left Column Begins -->
         <td width="170">
-            <jsp:include page="../includes/global_left.jsp">
+            <jsp:include page="../../includes/global_left.jsp">
                 <jsp:param name="level1" value="login"/>
             </jsp:include>
         </td>
@@ -133,7 +133,7 @@ function submitEnter(e) {
 </table>
 
 <!-- Footer begins -->
-  <jsp:include page="../foot.jsp"/>
+  <jsp:include page="../../foot.jsp"/>
 <!-- Footer ends -->
 
 </body>
