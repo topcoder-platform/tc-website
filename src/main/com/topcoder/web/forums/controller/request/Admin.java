@@ -51,7 +51,7 @@ public class Admin extends ForumsProcessor {
         //    log.info(user.getUsername() + " running command: " + command);
         //    escapeHTML();
         } else if (command.equals(ForumConstants.ADMIN_COMMAND_ADD_CONTEST)) {
-        } else if (command.equals("Add test forums")) {
+        } /*else if (command.equals("Add test forums")) {
             for (int i=0; i<50; i++) {
                 com.jivesoftware.forum.ForumCategory fc = forumFactory.getForumCategory(8);
                 forumFactory.createForum("Test Forum "+fc.getForumCount(), 
@@ -66,7 +66,7 @@ public class Admin extends ForumsProcessor {
                     fc.deleteForum(f);
                 }
             }
-        }
+        }*/
         
         getRequest().setAttribute("roundList", getRoundList());
 
