@@ -75,7 +75,7 @@
 <A HREF="<%=buildHref(request.getParameterMap(), Constants.START_ROW, String.valueOf(startRow+rowCount))%>">next page</A>
 <%}%>
 <%if(startRow > 0){%>
-<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_ROW, String.valueOf(Math.max(0,startRow-rowCount)))%>">next page</A>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_ROW, String.valueOf(Math.max(0,startRow-rowCount)))%>">previous page</A>
 <%}%>
 <table>
 <tr>
