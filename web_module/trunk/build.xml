@@ -769,6 +769,9 @@
                  <include name="statServlet.xml"/>
              </fileset>
          </copy>
+         <mkdir dir="${jboss_conf}/com/topcoder/security"/>
+         <mkdir dir="${jboss_conf}/com/topcoder/util/config"/>
+         <mkdir dir="${jboss_conf}/com/topcoder/servlet/request"/>
          <copy todir="${jboss_conf}/com/topcoder/security">
              <fileset dir="${resources}/com/topcoder/security">
                  <include name="Util.properties"/>
