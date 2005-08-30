@@ -4,7 +4,7 @@
             <table width="100%" border="0" cellspacing="0" cellpadding="3">
                 <tr valign="middle">
                     <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Coders Point of View</font></td>
-                    <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>View All</strong></a></td>
+                    <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>View All</strong></a></td>
                 </tr>
             </table>
 
