@@ -82,7 +82,7 @@ function submitEnter(e) {
 
 
          <table width="100%" cellpadding="0" cellspacing="5" class="bodyText" align="center" >
-           <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
+           <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE05_REG_SUBMIT%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
@@ -99,7 +99,7 @@ function submitEnter(e) {
                     Handle
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="Handle"/>
+                    <jsp:getProperty name="regInfo" property="handle"/>
                 </td>
             </tr>
 
@@ -222,7 +222,7 @@ function submitEnter(e) {
                 <td align="right"><b>Demographics</b>
                 </td>
                 <td align="left">
-                    <a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE05_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
+                    <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE05_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
                 </td>
             </tr>
             <tr>
