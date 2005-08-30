@@ -84,7 +84,7 @@
                                                             <!-- <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="15"><A HREF="/?t=statistics&amp;c=srm104_prob" CLASS="bodyGeneric">&#160;Problem&#160;Set&#160;</A></TD>
                                                             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="/?t=statistics&amp;c=srm103_rookie" CLASS="bodyGeneric">&#160;Rookie&#160;Review&#160;</A></TD> -->
                                                             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC">
-                                                                <A HREF="/index?t=statistics&amp;c=editorial_archive" CLASS="bodyGeneric">&#160;Archive&#160;</A>
+                                                                <A HREF="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" CLASS="bodyGeneric">&#160;Archive&#160;</A>
                                                             </TD>
                                                             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC">
                                                                 <A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">&#160;Comments/Ideas?&#160;</A>
@@ -100,9 +100,9 @@
                                         <!--<A HREF="stat?c=round_stats&amp;rd=4165&amp;dn=2" CLASS="bodyGeneric">-->
                                         
                                         <p><b>Single Round Match 140</b><br/>
-										Wednesday 26, March 2003 
-										</p>
-										
+                              Wednesday 26, March 2003 
+                              </p>
+                              
                                        <p><B>Problem Set Analysis &amp; Opinion</B></p>
 
 <font size="+2"><b>SoccerLeague</b></font><br />
@@ -284,7 +284,7 @@ Used as: Division-I, Level 3:
 
 <p>Now it's time to merge the two halves (see picture). We start with the combination in the first half which has the highest value (and weight) and in the second half with the lowest value. Then we keep either going up in the left half or down in the right half depending on whether the total weight of the current combination in the left and right half is less than or greater than <i>maxWeight</i>. After every step, we check if the new merging of the combination to the left and combination to the right is better than the best one found so far. This is repeated until we reached the top in the left half or the bottom in the right half. We will then have found the optimal solution.</p>
 
-													
+                                       
 
                                        
 

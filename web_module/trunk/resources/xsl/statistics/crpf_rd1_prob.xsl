@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">CRPF Charity Challenge Round 1</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -269,22 +269,22 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
 <p> 
 Two different solutions to this problem come to mind, both of which use an array to cache results in a dynamic programming fashion.  The first method loops over the different kinds of buttons.  Once the ith iteration is complete, the array will store the least possible number of presses required to produce any target, using the first i buttons.   Code for this method follows:<pre>
 public int minPushes(int current, int target, int[] buttons) {
-	int[] dp = new int[100000];
-	Arrays.fill(dp,-1);
-	dp[current] = 0;
-	for (int i = 0; i &lt; buttons.length; i++) {
-		for (int xx = 0; xx &lt; dp.length; xx++) {
-			int x = xx;
-			if (dp[x]==-1) continue;
-			int next = (x+buttons[i])%100000;
-			while (dp[next] ==-1 || dp[next] &gt; dp[x]+1) { //HERE
-				dp[next] = dp[x]+1;
-				x = next;
-				next = (next+buttons[i])%100000;
-			}
-		}
-	}
-	return dp[target];	
+   int[] dp = new int[100000];
+   Arrays.fill(dp,-1);
+   dp[current] = 0;
+   for (int i = 0; i &lt; buttons.length; i++) {
+      for (int xx = 0; xx &lt; dp.length; xx++) {
+         int x = xx;
+         if (dp[x]==-1) continue;
+         int next = (x+buttons[i])%100000;
+         while (dp[next] ==-1 || dp[next] &gt; dp[x]+1) { //HERE
+            dp[next] = dp[x]+1;
+            x = next;
+            next = (next+buttons[i])%100000;
+         }
+      }
+   }
+   return dp[target];   
 }
 </pre>
 For a given button, to efficiently account for all reachable targets, we loop over each value.  Then, in the loop marked HERE, we continually push the button, as long as it continues to improve the scores for the targets we reach.  Another method used by many coders, was to implement a table-aided breadth-first-search.  Instead of looping over buttons, we loop over the number of button presses, stopping when we reach the target.  Since the table stores the targets already produced earlier in the search, we can avoid reexamining those values.

@@ -67,7 +67,7 @@
                             </tr>
                           
                             <tr valign="middle">
-                                <td class="bodyText" align="center" bgcolor="#CCCCCC"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyGeneric">Archive</a></td>
+                                <td class="bodyText" align="center" bgcolor="#CCCCCC"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyGeneric">Archive</a></td>
                                 <td class="bodyText" align="center" bgcolor="#CCCCCC"><a href="mailto:editorial@topcoder.com" class="bodyGeneric">Comments/Ideas?</a></td>
                             </tr>
                         </table>
@@ -78,7 +78,7 @@
                                         
                         <p><strong>Single Round Match 147</strong><br />
                       Thursday, May 22, 2003</p>
-										
+                              
                         <h2>Match summary</h2>
                         
                         <p>This match provided some very impressive performances, perhaps <b>SnapDragon</b> and <b>Yarin</b> have some new competitors coming up the ranks.  <b>bladerunner</b> continues to improve 
@@ -113,9 +113,9 @@ effect as subtracting 26.  So, this leads us to the short solution below (this i
 
 </p>
 <pre>
-	char[] c = cipherText.toCharArray();
-	for (int i = 0; i &lt; c.length; i++) c[i] = (char)((((c[i]-'A')+26-shift)%26)+'A');
-	return new String(c);
+   char[] c = cipherText.toCharArray();
+   for (int i = 0; i &lt; c.length; i++) c[i] = (char)((((c[i]-'A')+26-shift)%26)+'A');
+   return new String(c);
 </pre>
 
 
@@ -151,17 +151,17 @@ we do here makes the rest of the code a little simpler.
 </p>
 
 <pre>
-	char[] ret = new char[numMales+numFemales];
-	Arrays.fill(ret,'M');
-	int pos = ret.length-1;
-	for (int i = 0; i &lt; numFemales; i++) {
-		for (int c = 0; c &lt; K;) {
-			pos = (pos+1)%ret.length;
-			if (ret[pos]=='M') c++;
-		} 
-		ret[pos] = 'F';
-	} 
-	return new String(ret);
+   char[] ret = new char[numMales+numFemales];
+   Arrays.fill(ret,'M');
+   int pos = ret.length-1;
+   for (int i = 0; i &lt; numFemales; i++) {
+      for (int c = 0; c &lt; K;) {
+         pos = (pos+1)%ret.length;
+         if (ret[pos]=='M') c++;
+      } 
+      ret[pos] = 'F';
+   } 
+   return new String(ret);
 </pre>
      
 <font size="+2"><b>GoldenChain</b></font><br />
@@ -190,16 +190,16 @@ the number of remaining sections after opening all of the links in one section i
 below.  Otherwise, we aren't going to open up every single link in the section.  Instead, we open up a number of links equal to the number of remaining sections, including the current one.  
 It takes a little tinkering to get everything exactly right - no off by 1 errors.
 </p><pre>
-	Arrays.sort(s);
-	int links = 0, i;
-	for(i = 0;i&lt;s.length; i++){
-		if(s.length-i-1>=s[i]+links)
-			links+=s[i];
-		else 
-			links+=Math.max(s.length-links-i,0);
-		
-	}
-	return links;
+   Arrays.sort(s);
+   int links = 0, i;
+   for(i = 0;i&lt;s.length; i++){
+      if(s.length-i-1>=s[i]+links)
+         links+=s[i];
+      else 
+         links+=Math.max(s.length-links-i,0);
+      
+   }
+   return links;
 </pre>
 
 <font size="+2"><b>Dragons</b></font><br />
@@ -219,12 +219,12 @@ This is a pretty straightforward simulation - nothing like last week's.  There a
 food from each other, and how much each one starts with, and have to return how much one of them has after a given number of rounds.  The first thing to do here is set 
 up an adjacency matrix representing which dragons steal from which.  For example (each 1 represents that the dragon in that row steals from the dragon in that column).</p>
 <pre>
-int[][] adj = {	{0,0,1,1,1,1},
-		{0,0,1,1,1,1},
-		{1,1,0,0,1,1},
-		{1,1,0,0,1,1},
-		{1,1,1,1,0,0},
-		{1,1,1,1,0,0}};
+int[][] adj = {   {0,0,1,1,1,1},
+      {0,0,1,1,1,1},
+      {1,1,0,0,1,1},
+      {1,1,0,0,1,1},
+      {1,1,1,1,0,0},
+      {1,1,1,1,0,0}};
 </pre>
 <p>This makes it pretty simple to do the stealing.  For each dragon, we give him an amount of food equal to the sum of 1/4 of the food from each of his neighbors.  We can do this 
 with a couple of nested for loops, by using our adjacency matrix.  The tricky part though, is that we can't simply use doubles, because the return requires that we use fractions 
@@ -238,24 +238,24 @@ must be divisible by 2.  So, rather than multiplying the denominator by 4 each t
 the first time, because dragons on opposite sides may have a different amount the first time.)  2^45 will fit in a 64 bit datatype with no problem, so that would work fine.  
 Then at the end, we reduce the fraction and return it.  Putting it all together:</p>
 <pre>
-	long[] num = new long[6];
-	long de = 2;
-	for(int i = 0; i&lt;6; i++){num[i] = 2*initialFood[i];}
-	for(int i = 0; i&lt;rounds; i++){
-		de*=2;
-		long num2[] = new long[6];
-		for(int j = 0; j&lt;6; j++){
-			for(int k = 0; k&lt;6; k++){
-				if(adj[j][k]==1)num2[j]+=num[k];
-			}
-			num2[j]/=2;
-		}
-		num = num2;
-	}
-	long rnum = num[2] / gcd(de,num[2]);
-	long rde = de / gcd(de,num[2]);
-	if(rde==1)return ""+rnum;
-	return rnum+"/"+rde;
+   long[] num = new long[6];
+   long de = 2;
+   for(int i = 0; i&lt;6; i++){num[i] = 2*initialFood[i];}
+   for(int i = 0; i&lt;rounds; i++){
+      de*=2;
+      long num2[] = new long[6];
+      for(int j = 0; j&lt;6; j++){
+         for(int k = 0; k&lt;6; k++){
+            if(adj[j][k]==1)num2[j]+=num[k];
+         }
+         num2[j]/=2;
+      }
+      num = num2;
+   }
+   long rnum = num[2] / gcd(de,num[2]);
+   long rde = de / gcd(de,num[2]);
+   if(rde==1)return ""+rnum;
+   return rnum+"/"+rde;
 </pre>
 <p>A couple of notes on this.  You don't need a proper GCD function, since the denominator is always a power of 2.  You can just divide out all of the twos.  
 Also, if you wanted to, you could use C++'s long doubles to solve this problem.  Long doubles are precise when the denominator of the fraction is a power of 2,

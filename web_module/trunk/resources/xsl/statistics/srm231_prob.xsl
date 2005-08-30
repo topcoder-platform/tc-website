@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                 <table width="100%" border="0" cellspacing="0" cellpadding="3">
                    <tr valign="middle">
                       <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 231</font></td>
-                      <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                      <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                    </tr>
 
                    <tr valign="middle">
@@ -85,7 +85,7 @@ function openWin(url, name, w, h) {
 <h2>Match summary</h2>
 <p>
 SRM 231 gave division 2 coders a welcome reprieve from the
-difficulties of the last few matches.  	chrbanx, in his
+difficulties of the last few matches.     chrbanx, in his
 10<sup>th</sup> SRM beat out second place Mojito1 by a comfortable
 margin, and solved all three problems in a little over 26 minutes.
 The best newcomer was masti who took 8<sup>th</sup> place.<br/><br/>

@@ -52,39 +52,39 @@
     <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 <!--body contextual links-->
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="250" ALIGN="right">
- 	<TR>
+    <TR>
         <TD ROWSPAN="5" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
         <TD COLSPAN="2" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
     </TR> 
-	<TR><TD COLSPAN="2" BGCOLOR="#999999" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD></TR>
-	<TR>
-		<TD VALIGN="top" BGCOLOR="#999999" CLASS="moduleTitle">&#160; &#160;</TD>
-		<TD BGCOLOR="#999999" VALIGN="top" CLASS="moduleTitle">MATCH EDITORIAL LINKS:</TD>
-	</TR>                    
-	<TR>
-    	<TD COLSPAN="4" VALIGN="top" BGCOLOR="#999999">
-		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
-		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm95_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/index?t=statistics&amp;c=editorial_archive" CLASS="bodyText">Editorial Archive</A></TD>
-		</TR>
-		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm95_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyText">Comments? Ideas?</A></TD>
-		</TR>
-		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm95_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyText">Want to write a feature?</A></TD>
-		</TR>
-	    <TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm95_lessons" CLASS="bodyText">&#160;&#160;Lessons Learned</A></TD>
-			<TD VALIGN="top" CLASS="bodyText">&#160;</TD>
-		</TR>
-		<TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
-		</TABLE>
-		</TD>
-	</TR>
- 	<TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
+   <TR><TD COLSPAN="2" BGCOLOR="#999999" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD></TR>
+   <TR>
+      <TD VALIGN="top" BGCOLOR="#999999" CLASS="moduleTitle">&#160; &#160;</TD>
+      <TD BGCOLOR="#999999" VALIGN="top" CLASS="moduleTitle">MATCH EDITORIAL LINKS:</TD>
+   </TR>                    
+   <TR>
+       <TD COLSPAN="4" VALIGN="top" BGCOLOR="#999999">
+      <TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
+      <TR>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm95_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" CLASS="bodyText">Editorial Archive</A></TD>
+      </TR>
+      <TR>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm95_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyText">Comments? Ideas?</A></TD>
+      </TR>
+      <TR>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm95_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyText">Want to write a feature?</A></TD>
+      </TR>
+       <TR>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm95_lessons" CLASS="bodyText">&#160;&#160;Lessons Learned</A></TD>
+         <TD VALIGN="top" CLASS="bodyText">&#160;</TD>
+      </TR>
+      <TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>          
+      </TABLE>
+      </TD>
+   </TR>
+    <TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
 </TABLE>
 <!--end contextual links-->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="48" BORDER="0"/><BR/>
@@ -127,18 +127,18 @@ rid of meaningless characters, and a second to correctly format the
 number.  On the night, I came up with something like:
 <pre>
 StringBuffer sb = new StringBuffer();
-for (i=0; i &lt; input.length() ; i++) {	
-	c = input.charAt(i);
-	if (Character.isLetter(c)) {
-		if (c == 'Q' || c == 'Z') {
-			sb.append(0);	
-		} else {
-			if (c &gt; 'Q') c--;
-			int digit = c / 3 + 2;
-			sb.append(digit);	
-		}	
-	}
-	if (Character.isDigit(c)) sb.append(c);	
+for (i=0; i &lt; input.length() ; i++) {   
+   c = input.charAt(i);
+   if (Character.isLetter(c)) {
+      if (c == 'Q' || c == 'Z') {
+         sb.append(0);   
+      } else {
+         if (c &gt; 'Q') c--;
+         int digit = c / 3 + 2;
+         sb.append(digit);   
+      }   
+   }
+   if (Character.isDigit(c)) sb.append(c);   
 }
 </pre>
 </P>
@@ -156,11 +156,11 @@ of "if" statements:
 
 <P>
 <pre>
-for (i=0; i &lt; input.length() ; i++) {	
-	c = input.charAt(c);
-	if (c >= 'A' &amp;&amp; c &lt;= 'C')
-		sb.append(2);		
-	if (c ....
+for (i=0; i &lt; input.length() ; i++) {   
+   c = input.charAt(c);
+   if (c >= 'A' &amp;&amp; c &lt;= 'C')
+      sb.append(2);      
+   if (c ....
 }
 </pre>
 </P>
@@ -172,15 +172,15 @@ And the third solution was to initialise an array:
 <P>
 <pre>
 String[] digitClass = { "ABC","DEF","GHI","JKL","MNO"....};
-for (i=0; i &lt; input.length() ; i++) {	
-	char c = input.charAt(i);
-	for (j=0; j &lt; digitClass.length ; j++) {	
-		if (digitClass[j].indexOf(c) != -1)
-			sb.append(j+2);
-	}	
-	if ("QZ".indexOf(c) != -1) sb.append(0);
-	if (Character.isDigit(c)) sb.append(c);
-}	
+for (i=0; i &lt; input.length() ; i++) {   
+   char c = input.charAt(i);
+   for (j=0; j &lt; digitClass.length ; j++) {   
+      if (digitClass[j].indexOf(c) != -1)
+         sb.append(j+2);
+   }   
+   if ("QZ".indexOf(c) != -1) sb.append(0);
+   if (Character.isDigit(c)) sb.append(c);
+}   
 </pre>
 </P>
 
@@ -188,9 +188,9 @@ for (i=0; i &lt; input.length() ; i++) {
 This strikes me as a classic problem contest trade-off.  What do I want
 from the solution?
 <OL>
-	<LI> Fast coding time.</LI>
-	<LI> Reliability (ie works first time, and I trust it.)</LI>
-	<LI> (A very poor third) Elegance.</LI>
+   <LI> Fast coding time.</LI>
+   <LI> Reliability (ie works first time, and I trust it.)</LI>
+   <LI> (A very poor third) Elegance.</LI>
 </OL>
 </P>
 
@@ -207,14 +207,14 @@ Anyway, back to the errors.
 <P>
 Problems:
 <OL>
-	<LI> Mistyping the characters that were checked (eg "if (c =='Q' || c == 'Q')")</LI>
-	<LI> In the "formatting phase", making indexing errors taking substrings.</LI>
-	<LI> In the formatting phase, using ">7" instead of ">=7" when checking for 
-	    numbers which are too short.</LI>
-	<LI> Range checking: "if ('A'&lt;=ch &amp;&amp; ch&lt;='Z') {"</LI>
-	<LI> Misreading the problem regarding range checking, so that the solution doesn't
-	     deal with anything other than 7 or 10 digits.</LI>
-	<LI> Indexing from 1 instead of 0 in an sprintf statement.</LI>
+   <LI> Mistyping the characters that were checked (eg "if (c =='Q' || c == 'Q')")</LI>
+   <LI> In the "formatting phase", making indexing errors taking substrings.</LI>
+   <LI> In the formatting phase, using ">7" instead of ">=7" when checking for 
+       numbers which are too short.</LI>
+   <LI> Range checking: "if ('A'&lt;=ch &amp;&amp; ch&lt;='Z') {"</LI>
+   <LI> Misreading the problem regarding range checking, so that the solution doesn't
+        deal with anything other than 7 or 10 digits.</LI>
+   <LI> Indexing from 1 instead of 0 in an sprintf statement.</LI>
 </OL>
 </P>
 
@@ -242,15 +242,15 @@ With hindsight, I'd suggest using an ArrayList or Vector, then converting
 that to an int[].  This would avoid the risk of indexing errors:
 <pre>
 Vector vec = new Vector();
-for (i=0; i &lt; input.length ; i++) {	
-	if (i % K == segNum) {
-		vec.add(new Integer(input[i]));
-	}
-}	
+for (i=0; i &lt; input.length ; i++) {   
+   if (i % K == segNum) {
+      vec.add(new Integer(input[i]));
+   }
+}   
 int ret[] = new int[vec.size];
-for (i=0; i &lt; ret.length ; i++) {	
-	ret[i] = ((Integer)vec.elementAt(i)).intValue();
-}	
+for (i=0; i &lt; ret.length ; i++) {   
+   ret[i] = ((Integer)vec.elementAt(i)).intValue();
+}   
 </pre>
 (Of course, you should use ArrayList because Vector is dead slow, but my
 fingers know the Vector api better...)
@@ -261,17 +261,17 @@ of the solutions I've looked at used arithmetic to do the indexing...
 <P>
 Problems:
 <OL>
-	<LI> Indexing errors resulting in exceptions.</LI>
-	<LI> Logic which incremented the index into the returned array, based on
-	    code like the following</LI>
-	 <pre>
-	 	lastseg = seg;
-	         seg = (seq + 1) % K;
-	         if (seq &lt; lastseq) index++;
-	 </pre>
-	     This fails if K == 1;
-	<LI> Although I didn't spot this, allocating too long an array was another
-	     possible error.</LI>
+   <LI> Indexing errors resulting in exceptions.</LI>
+   <LI> Logic which incremented the index into the returned array, based on
+       code like the following</LI>
+    <pre>
+       lastseg = seg;
+            seg = (seq + 1) % K;
+            if (seq &lt; lastseq) index++;
+    </pre>
+        This fails if K == 1;
+   <LI> Although I didn't spot this, allocating too long an array was another
+        possible error.</LI>
 </OL>
 </P>
 
@@ -301,8 +301,8 @@ and almost a third of submissions there failed also, compared 52% in Div2.
 <P>
 Problems: 
 <OL>
-	<LI> Indexing errors resulting in exceptions.</LI>
-	<LI> Failing to pad correctly.</LI>
+   <LI> Indexing errors resulting in exceptions.</LI>
+   <LI> Failing to pad correctly.</LI>
 </OL>
 </P>
 
@@ -313,26 +313,26 @@ On challenge phase, 32 of 91 buggy solutions were caught.
 <IMG SRC="/i/m/slowjoe_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;slowjoe<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=271917" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
-					</TD>
-					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-				<TR>
-					<TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-				</TR>   	
-				<TR>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>	
-				<TR>
-					<TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-			</TABLE>
-		</TD>
+               </TD>
+               <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+            </TR>
+            <TR>
+               <TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+            </TR>      
+            <TR>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+            </TR>   
+            <TR>
+               <TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+            </TR>
+         </TABLE>
+      </TD>
   <!-- Center Column Ends -->
 <!-- Body Area Ends -->
 

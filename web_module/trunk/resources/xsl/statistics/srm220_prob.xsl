@@ -47,39 +47,39 @@ function openWin(url, name, w, h) {
  <tr valign="top">
 
 <!-- Left Column Begins  -->
-	 <td width="170" bgcolor="#FFFFFF">
-		 <xsl:call-template name="global_left"/>
-	 </td>
+    <td width="170" bgcolor="#FFFFFF">
+       <xsl:call-template name="global_left"/>
+    </td>
 <!-- Left Column Ends  -->
 
 <!-- Gutter Begins  -->
-	 <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" alt="" border="0" /></td>
+    <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" alt="" border="0" /></td>
 <!-- Gutter Ends  -->
 
 <!-- Center Column Begins  -->
-	 <td class="bodyText" width="100%">
-		 <xsl:call-template name="BodyTop">
-			 <xsl:with-param name="image1">white</xsl:with-param>
-			 <xsl:with-param name="image">statisticsw</xsl:with-param>
-			 <xsl:with-param name="title">Last Match Editorials</xsl:with-param>
-		 </xsl:call-template>
+    <td class="bodyText" width="100%">
+       <xsl:call-template name="BodyTop">
+          <xsl:with-param name="image1">white</xsl:with-param>
+          <xsl:with-param name="image">statisticsw</xsl:with-param>
+          <xsl:with-param name="title">Last Match Editorials</xsl:with-param>
+       </xsl:call-template>
 
-		 <table border="0" cellspacing="10" cellpadding="0" width="100%">
-		 <tr valign="top">
-				 <td class="bodyText" width="100%">
+       <table border="0" cellspacing="10" cellpadding="0" width="100%">
+       <tr valign="top">
+             <td class="bodyText" width="100%">
 
 <!--body contextual links -->
-					 <table width="100%" border="0" cellspacing="0" cellpadding="3">
-						 <tr valign="middle">
-							 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 220</font></td>
-							 <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
-						 </tr>
+                <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                   <tr valign="middle">
+                      <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 220</font></td>
+                      <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
+                   </tr>
 
-						 <tr valign="middle">
-							 <td class="bodyText">Tuesday, November 23, 2004</td>
-							 <td class="bodyText" align="right"><a href="mailto:editorial@topcoder.com">Comments / Ideas?</a></td>
-						 </tr>
-					 </table>
+                   <tr valign="middle">
+                      <td class="bodyText">Tuesday, November 23, 2004</td>
+                      <td class="bodyText" align="right"><a href="mailto:editorial@topcoder.com">Comments / Ideas?</a></td>
+                   </tr>
+                </table>
 <!--end contextual links -->
 
 
@@ -144,8 +144,8 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
 <pre>
 int count = 0;
 for (int y = born + 1; y &lt;= year; y++)
-	if (y%4 ==0 &amp;&amp; (y%100 != 0 || y%400 == 0))
-		count++;
+   if (y%4 ==0 &amp;&amp; (y%100 != 0 || y%400 == 0))
+      count++;
 return count;
 </pre>
 </p>
@@ -242,24 +242,24 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
 <p>I think the premise of looking for numbers without knowing why must have been inspired by having watched the movie, "Holes".  This parsing and sorting problem wasn't hard to figure out, but the particulars could be a problem to some implementations, including at least one which actually timed out.  Another potential challenge was doing the comparisons for sorting, but the constraints allowed for the main piece of sorting to be done by converting the strings to 64-bit integers and comparing them.  Some coders discovered that parsing them as doubles and comparing them didn't necessarily work.  After that, if they were equal in value, you had to account for how many leading zeros each had.  If you know your language's mechanism for sorting with a custom comparer, the rest was easy, the final task being to leave out the right number of elements.</p>
 <p>The comparison could also be done without conversion to longs, like so:</p>
 <pre>
-	public int compare(Object o1, Object o2)
-	{
-		String s1 = (String)o1;
-		String s2 = (String)o2;
-		int originalLength1 = s1.length();
-		int originalLength2 = s2.length();
-		while (s1.startsWith("0"))
-			s1 = s1.substring(1);
-		while (s2.startsWith("0"))
-			s2 = s2.substring(1);
-		if (s1.length() &gt; s2.length())
-			return 1;
-		if (s2.length() &gt; s1.length())
-			return -1;
-		if (s1.equals(s2))
-			return originalLength1-originalLength2;
-		return s1.compareTo(s2);
-	}
+   public int compare(Object o1, Object o2)
+   {
+      String s1 = (String)o1;
+      String s2 = (String)o2;
+      int originalLength1 = s1.length();
+      int originalLength2 = s2.length();
+      while (s1.startsWith("0"))
+         s1 = s1.substring(1);
+      while (s2.startsWith("0"))
+         s2 = s2.substring(1);
+      if (s1.length() &gt; s2.length())
+         return 1;
+      if (s2.length() &gt; s1.length())
+         return -1;
+      if (s1.equals(s2))
+         return originalLength1-originalLength2;
+      return s1.compareTo(s2);
+   }
 </pre>
 <p>Using this allows you to avoid worrying about the particulars of your language's string-to-long conversion.</p>
 </p>
@@ -436,60 +436,60 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
 //minimum of all elements:
 int min = Integer.MAX_VALUE;
 for (int i=0; i&lt;weights.length; i++)
-	min = Math.min(min, weights[i]);
+   min = Math.min(min, weights[i]);
 boolean[] done = new boolean[weights.length];
 int total = 0;
 for (int i=0; i&lt;weights.length; i++)
 {
-	if (!done[i])
-	{
-		int sum = 0;			//sum of weights in a cycle
-		int cyclemin = weights[i];	//minimum of weights in a cycle
-		int ind = i;
-		int count = 0;			//number of weights in a cycle
-		while (!done[ind])
-		{
-			done[ind] = true;
-			count++;
-			sum += weights[ind];
-			cyclemin = Math.min(cyclemin, weights[ind]);
-			ind = finalPositions[ind];
-		}
-		//minimum of the cost to resolve and the cost to swap in and resolve.
-		total += Math.min(sum+cyclemin*(count-2), cyclemin+min+sum+min*count);
-	}
+   if (!done[i])
+   {
+      int sum = 0;         //sum of weights in a cycle
+      int cyclemin = weights[i];   //minimum of weights in a cycle
+      int ind = i;
+      int count = 0;         //number of weights in a cycle
+      while (!done[ind])
+      {
+         done[ind] = true;
+         count++;
+         sum += weights[ind];
+         cyclemin = Math.min(cyclemin, weights[ind]);
+         ind = finalPositions[ind];
+      }
+      //minimum of the cost to resolve and the cost to swap in and resolve.
+      total += Math.min(sum+cyclemin*(count-2), cyclemin+min+sum+min*count);
+   }
 }
 return total;
 </pre>
 </p>
 
-					 <p>
-					 <img src="/i/m/Kawigi_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-					 By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=8416646"><strong>Kawigi</strong></a><br />
-					 <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-					 </p>
-				 </td>
-			 </tr>
-		 </table>
+                <p>
+                <img src="/i/m/Kawigi_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+                By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=8416646"><strong>Kawigi</strong></a><br />
+                <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+                </p>
+             </td>
+          </tr>
+       </table>
 
-		 <p><br /></p>
+       <p><br /></p>
 
-	 </td>
+    </td>
 <!-- Center Column Ends  -->
 
 <!-- Gutter  -->
-	 <td width="4"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
+    <td width="4"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
 <!-- Gutter Ends  -->
 
 <!-- Right Column Begins  -->
-	 <td width="170">
-		 <img src="/i/clear.gif" width="170" height="1" border="0"/><br />
-		 <xsl:call-template name="public_right_col"/>
-	 </td>
+    <td width="170">
+       <img src="/i/clear.gif" width="170" height="1" border="0"/><br />
+       <xsl:call-template name="public_right_col"/>
+    </td>
 <!-- Right Column Ends  -->
 
 <!-- Gutter  -->
-	 <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends  -->
 
  </tr>

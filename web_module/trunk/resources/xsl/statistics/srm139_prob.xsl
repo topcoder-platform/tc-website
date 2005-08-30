@@ -84,7 +84,7 @@
                                                             <!-- <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="15"><A HREF="/?t=statistics&amp;c=srm104_prob" CLASS="bodyGeneric">&#160;Problem&#160;Set&#160;</A></TD>
                                                             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="/?t=statistics&amp;c=srm103_rookie" CLASS="bodyGeneric">&#160;Rookie&#160;Review&#160;</A></TD> -->
                                                             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC">
-                                                                <A HREF="/index?t=statistics&amp;c=editorial_archive" CLASS="bodyGeneric">&#160;Archive&#160;</A>
+                                                                <A HREF="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" CLASS="bodyGeneric">&#160;Archive&#160;</A>
                                                             </TD>
                                                             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC">
                                                                 <A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">&#160;Comments/Ideas?&#160;</A>
@@ -100,214 +100,214 @@
                                         <!--<A HREF="stat?c=round_stats&amp;rd=4165&amp;dn=2" CLASS="bodyGeneric">-->
                                         
                                         <p><b>Single Round Match 139</b><br/>
-										Tuesday 18, March 2003 
-										</p>
-										
+                              Tuesday 18, March 2003 
+                              </p>
+                              
                                         <P><B>Problem Set Analysis &amp; Opinion</B></P>
-										<p>
-										This SRM featured a set of unique problems that gave many coders a hard time.  The division 
-										1 medium, a numerical analysis problem, had a few tricks that caught many competitors.  
-										The division 1 hard asked coders to embed a path on the surface of a rectangular solid.  
-										At first glance, the problem seems trivial, but rectangular solids aren't as simple as they look.  
-										As a result, few coders solved all of the problems correctly.  Once the challenge phase was over, 
-										antimatter led the pack with SnapDragon close behind.  In division 2, a newcomer by the name of 
-										aneubeck beat all competitors with an impressive 1673.43. 
-										</p>
-										<font size="+2"><b>Serpentine</b></font><br/>
-										Used as: Division 2 - Level 1:
-										<blockquote>
-										<table cellspacing="2">
-											<tr>
-												<td style="background: #eee;" class="bodyText"><b>Value</b></td>
-												<td style="background: #eee;" class="bodyText">350</td></tr><tr><td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td>
-												<td style="background: #eee;" class="bodyText">137 / 175  (78.29%) </td>
-											</tr>
-											<tr>
-												<td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
-												<td style="background: #eee;" class="bodyText">87 / 137  (63.50%)</td>
-											</tr>
-											<tr>
-												<td style="background: #eee;" class="bodyText"><b>High Score</b></td>
-												<td style="background: #eee;" class="bodyText"><b>aneubeck</b> for 336.53 points</td>
-											</tr>
-										</table>
-										</blockquote>
-										
-										<p>
-										To solve this problem we have to keep track of the position in the current row, and which direction 
-										the row is going.  Using these two pieces of information we can calculate our column and thus 
-										produce the returned string.  Code such as this will do the trick:
-										</p>
-										<pre>
+                              <p>
+                              This SRM featured a set of unique problems that gave many coders a hard time.  The division 
+                              1 medium, a numerical analysis problem, had a few tricks that caught many competitors.  
+                              The division 1 hard asked coders to embed a path on the surface of a rectangular solid.  
+                              At first glance, the problem seems trivial, but rectangular solids aren't as simple as they look.  
+                              As a result, few coders solved all of the problems correctly.  Once the challenge phase was over, 
+                              antimatter led the pack with SnapDragon close behind.  In division 2, a newcomer by the name of 
+                              aneubeck beat all competitors with an impressive 1673.43. 
+                              </p>
+                              <font size="+2"><b>Serpentine</b></font><br/>
+                              Used as: Division 2 - Level 1:
+                              <blockquote>
+                              <table cellspacing="2">
+                                 <tr>
+                                    <td style="background: #eee;" class="bodyText"><b>Value</b></td>
+                                    <td style="background: #eee;" class="bodyText">350</td></tr><tr><td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td>
+                                    <td style="background: #eee;" class="bodyText">137 / 175  (78.29%) </td>
+                                 </tr>
+                                 <tr>
+                                    <td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
+                                    <td style="background: #eee;" class="bodyText">87 / 137  (63.50%)</td>
+                                 </tr>
+                                 <tr>
+                                    <td style="background: #eee;" class="bodyText"><b>High Score</b></td>
+                                    <td style="background: #eee;" class="bodyText"><b>aneubeck</b> for 336.53 points</td>
+                                 </tr>
+                              </table>
+                              </blockquote>
+                              
+                              <p>
+                              To solve this problem we have to keep track of the position in the current row, and which direction 
+                              the row is going.  Using these two pieces of information we can calculate our column and thus 
+                              produce the returned string.  Code such as this will do the trick:
+                              </p>
+                              <pre>
 String column(String s, int width, int index) {
-	String ret = "";
-	for (int pos = 0, col = 0, dir = 1; pos &lt; s.length(); col+=dir) {
-		if (col&lt;0 || col &gt;= width) dir = -dir;
-		else {
-			if (col == index) ret+=s.charAt(pos);
-			pos++;
-		}
-	} return ret;
+   String ret = "";
+   for (int pos = 0, col = 0, dir = 1; pos &lt; s.length(); col+=dir) {
+      if (col&lt;0 || col &gt;= width) dir = -dir;
+      else {
+         if (col == index) ret+=s.charAt(pos);
+         pos++;
+      }
+   } return ret;
 }
-										</pre>
-										
+                              </pre>
+                              
 
-										<font size="+2"><b>HalfRange</b></font><br/>
-										Used as: Division 2 - Level 2:
-										<blockquote>
-										<table cellspacing="2">
-											<tr>
-												<td style="background: #eee;" class="bodyText"><b>Value</b></td>
-												<td style="background: #eee;" class="bodyText">500</td>
-											</tr>
-											<tr>
-												<td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td>
-												<td style="background: #eee;" class="bodyText">99 / 175  (56.57%) </td>
-											</tr>
-											<tr>
-												<td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
-												<td style="background: #eee;" class="bodyText">60 / 175  (60.61%)</td>
-											</tr>
-											<tr>
-												<td style="background: #eee;" class="bodyText"><b>High Score</b></td>
-												<td style="background: #eee;" class="bodyText"><b>MPhk</b> for 482.69 points</td>
-											</tr>
-										</table>
-										</blockquote>
-										
-										<p>
-										Here we are trying to find the smallest range that contains at least half of the numbers.  I
-										t is useful to realize that the bounds of the range must be numbers in the list.  Using 
-										this information, we first sort the list.  Then, we loop through checking values that enclose 
-										half the list.  The closest pair becomes our range.  This concept is shown in the following code:
-										</p>
-										<pre>
+                              <font size="+2"><b>HalfRange</b></font><br/>
+                              Used as: Division 2 - Level 2:
+                              <blockquote>
+                              <table cellspacing="2">
+                                 <tr>
+                                    <td style="background: #eee;" class="bodyText"><b>Value</b></td>
+                                    <td style="background: #eee;" class="bodyText">500</td>
+                                 </tr>
+                                 <tr>
+                                    <td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td>
+                                    <td style="background: #eee;" class="bodyText">99 / 175  (56.57%) </td>
+                                 </tr>
+                                 <tr>
+                                    <td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
+                                    <td style="background: #eee;" class="bodyText">60 / 175  (60.61%)</td>
+                                 </tr>
+                                 <tr>
+                                    <td style="background: #eee;" class="bodyText"><b>High Score</b></td>
+                                    <td style="background: #eee;" class="bodyText"><b>MPhk</b> for 482.69 points</td>
+                                 </tr>
+                              </table>
+                              </blockquote>
+                              
+                              <p>
+                              Here we are trying to find the smallest range that contains at least half of the numbers.  I
+                              t is useful to realize that the bounds of the range must be numbers in the list.  Using 
+                              this information, we first sort the list.  Then, we loop through checking values that enclose 
+                              half the list.  The closest pair becomes our range.  This concept is shown in the following code:
+                              </p>
+                              <pre>
 int halfRange(int[] data) {
-	java.util.Arrays.sort(data);
-	int start = 0, end = (data.length-1)/2, score = data[end]-data[start];
-	for (;end!=data.length;start++,end++) score = Math.min(score,data[end]-data[start]);
-	return score;
+   java.util.Arrays.sort(data);
+   int start = 0, end = (data.length-1)/2, score = data[end]-data[start];
+   for (;end!=data.length;start++,end++) score = Math.min(score,data[end]-data[start]);
+   return score;
 }
-										</pre>
-										
-										
-										<font size="+2"><b>Tourney</b></font><br/>
-										Used as: Division 2 - Level 3:
-										<blockquote>
-										<table cellspacing="2">
-											<tr>
-												<td style="background: #eee;" class="bodyText"><b>Value</b></td>
-												<td style="background: #eee;" class="bodyText">1000</td>
-											</tr>
-											<tr>
-												<td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td>
-												<td style="background: #eee;" class="bodyText">76 / 175  (43.43%) </td>
-											</tr>
-											<tr>
-												<td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
-												<td style="background: #eee;" class="bodyText">52 / 76 (68.42%)</td>
-											</tr>
-											<tr>
-												<td style="background: #eee;" class="bodyText"><b>High Score</b></td>
-												<td style="background: #eee;" class="bodyText"><b>vegeta</b> for 915.05 points</td>
-											</tr>
-											</table>
-											</blockquote>
-											
-											Used as: Division 1 - Level 1:
-											<blockquote>
-											<table cellspacing="2">
-												<tr>
-													<td style="background: #eee;" class="bodyText"><b>Value</b></td>
-													<td style="background: #eee;" class="bodyText">300</td>
-												</tr>
-												<tr>
-													<td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td>
-													<td style="background: #eee;" class="bodyText">138 / 138  (100.00%) </td>
-												</tr>
-												<tr>
-													<td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
-													<td style="background: #eee;" class="bodyText">125 / 138 (90.58%)</td>
-												</tr>
-												<tr>
-													<td style="background: #eee;" class="bodyText"><b>High Score</b></td>
-													<td style="background: #eee;" class="bodyText"><b>sjelkjd</b> for 296.31 points</td>
-												</tr>
-											</table>
-											</blockquote>
-											
-											<p>
-											The most popular way to solve this involved using 2 lists: a current list, and a next list.  
-											Looping through the current list 2 at a time you check for the word "bye".  If you find it, 
-											the other team in the pair is added to the back of the next list.  If not, you determine which 
-											of the pair to add based on the current element of the winnings parameter.  Once you have 
-											exhausted the current list, you assign the next list to the current list, clear the next list, 
-											and repeat the process.  The winner is the last team left.
-											</p>
-											
-											<font size="+2"><b>Errors</b></font><br/>
-											Used as: Division 1 - Level 2:
-											<blockquote>
-											<table cellspacing="2">
-												<tr>
-													<td style="background: #eee;" class="bodyText"><b>Value</b></td>
-													<td style="background: #eee;" class="bodyText">500</td>
-												</tr>
-												<tr>
-													<td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td>
-													<td style="background: #eee;" class="bodyText">118 / 138  (85.51%) </td>
-												</tr>
-												<tr>
-													<td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
-													<td style="background: #eee;" class="bodyText">39 / 118 (33.05%)</td>
-												</tr>
-												<tr>
-													<td style="background: #eee;" class="bodyText"><b>High Score</b></td>
-													<td style="background: #eee;" class="bodyText"><b>dgarthur</b> for 454.65 points</td>
-												</tr>
-												</table>
-												</blockquote>
-												
-												<p>
-												Given a particular operation to perform, you try every combination of adding or subtracting 
-												the error from each operand.  Given all these results you can figure what the maximum and 
-												mininum possible values are.  Subtracting the min from the max you arrive at the required 
-												range size.  The only catch is the division operation.  If the denominator error 
-												(parameter/1000) is greater than or equal to the measured denominator value, 
-												the range may potentially be infinite, so return "INFINITY".  Otherwise return the 
-												properly formatted result.
-												</p>
-												
-												<font size="+2"><b>Skyscraper</b></font><br/>
-												Used as: Division 1 - Level 3:
-												<blockquote>
-												<table cellspacing="2">
-													<tr>
-														<td style="background: #eee;" class="bodyText"><b>Value</b></td>
-														<td style="background: #eee;" class="bodyText">900</td>
-													</tr>
-													<tr>
-														<td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td>
-														<td style="background: #eee;" class="bodyText">50 / 138  (36.23%) </td>
-													</tr>
-													<tr>
-														<td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
-														<td style="background: #eee;" class="bodyText">12 / 50 (24.00%)</td>
-													</tr>
-													<tr>
-														<td style="background: #eee;" class="bodyText"><b>High Score</b></td>
-														<td style="background: #eee;" class="bodyText"><b>SnapDragon</b> for 560.64 points</td>
-													</tr>
-													</table>
-													</blockquote>
-													
-													<p>
-													Many tricks lie beneath the surface of this problem even though the solution is very 
-													easy to type.  The actual code can comfortably fit on 3 lines.  The basic trick is 
-													realizing all possible ways to run the wire when calculating the distances.  The 
-													following pictures may illuminate the topic: 
-													</p>
-													<pre>
+                              </pre>
+                              
+                              
+                              <font size="+2"><b>Tourney</b></font><br/>
+                              Used as: Division 2 - Level 3:
+                              <blockquote>
+                              <table cellspacing="2">
+                                 <tr>
+                                    <td style="background: #eee;" class="bodyText"><b>Value</b></td>
+                                    <td style="background: #eee;" class="bodyText">1000</td>
+                                 </tr>
+                                 <tr>
+                                    <td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td>
+                                    <td style="background: #eee;" class="bodyText">76 / 175  (43.43%) </td>
+                                 </tr>
+                                 <tr>
+                                    <td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
+                                    <td style="background: #eee;" class="bodyText">52 / 76 (68.42%)</td>
+                                 </tr>
+                                 <tr>
+                                    <td style="background: #eee;" class="bodyText"><b>High Score</b></td>
+                                    <td style="background: #eee;" class="bodyText"><b>vegeta</b> for 915.05 points</td>
+                                 </tr>
+                                 </table>
+                                 </blockquote>
+                                 
+                                 Used as: Division 1 - Level 1:
+                                 <blockquote>
+                                 <table cellspacing="2">
+                                    <tr>
+                                       <td style="background: #eee;" class="bodyText"><b>Value</b></td>
+                                       <td style="background: #eee;" class="bodyText">300</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td>
+                                       <td style="background: #eee;" class="bodyText">138 / 138  (100.00%) </td>
+                                    </tr>
+                                    <tr>
+                                       <td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
+                                       <td style="background: #eee;" class="bodyText">125 / 138 (90.58%)</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="background: #eee;" class="bodyText"><b>High Score</b></td>
+                                       <td style="background: #eee;" class="bodyText"><b>sjelkjd</b> for 296.31 points</td>
+                                    </tr>
+                                 </table>
+                                 </blockquote>
+                                 
+                                 <p>
+                                 The most popular way to solve this involved using 2 lists: a current list, and a next list.  
+                                 Looping through the current list 2 at a time you check for the word "bye".  If you find it, 
+                                 the other team in the pair is added to the back of the next list.  If not, you determine which 
+                                 of the pair to add based on the current element of the winnings parameter.  Once you have 
+                                 exhausted the current list, you assign the next list to the current list, clear the next list, 
+                                 and repeat the process.  The winner is the last team left.
+                                 </p>
+                                 
+                                 <font size="+2"><b>Errors</b></font><br/>
+                                 Used as: Division 1 - Level 2:
+                                 <blockquote>
+                                 <table cellspacing="2">
+                                    <tr>
+                                       <td style="background: #eee;" class="bodyText"><b>Value</b></td>
+                                       <td style="background: #eee;" class="bodyText">500</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td>
+                                       <td style="background: #eee;" class="bodyText">118 / 138  (85.51%) </td>
+                                    </tr>
+                                    <tr>
+                                       <td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
+                                       <td style="background: #eee;" class="bodyText">39 / 118 (33.05%)</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="background: #eee;" class="bodyText"><b>High Score</b></td>
+                                       <td style="background: #eee;" class="bodyText"><b>dgarthur</b> for 454.65 points</td>
+                                    </tr>
+                                    </table>
+                                    </blockquote>
+                                    
+                                    <p>
+                                    Given a particular operation to perform, you try every combination of adding or subtracting 
+                                    the error from each operand.  Given all these results you can figure what the maximum and 
+                                    mininum possible values are.  Subtracting the min from the max you arrive at the required 
+                                    range size.  The only catch is the division operation.  If the denominator error 
+                                    (parameter/1000) is greater than or equal to the measured denominator value, 
+                                    the range may potentially be infinite, so return "INFINITY".  Otherwise return the 
+                                    properly formatted result.
+                                    </p>
+                                    
+                                    <font size="+2"><b>Skyscraper</b></font><br/>
+                                    Used as: Division 1 - Level 3:
+                                    <blockquote>
+                                    <table cellspacing="2">
+                                       <tr>
+                                          <td style="background: #eee;" class="bodyText"><b>Value</b></td>
+                                          <td style="background: #eee;" class="bodyText">900</td>
+                                       </tr>
+                                       <tr>
+                                          <td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td>
+                                          <td style="background: #eee;" class="bodyText">50 / 138  (36.23%) </td>
+                                       </tr>
+                                       <tr>
+                                          <td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
+                                          <td style="background: #eee;" class="bodyText">12 / 50 (24.00%)</td>
+                                       </tr>
+                                       <tr>
+                                          <td style="background: #eee;" class="bodyText"><b>High Score</b></td>
+                                          <td style="background: #eee;" class="bodyText"><b>SnapDragon</b> for 560.64 points</td>
+                                       </tr>
+                                       </table>
+                                       </blockquote>
+                                       
+                                       <p>
+                                       Many tricks lie beneath the surface of this problem even though the solution is very 
+                                       easy to type.  The actual code can comfortably fit on 3 lines.  The basic trick is 
+                                       realizing all possible ways to run the wire when calculating the distances.  The 
+                                       following pictures may illuminate the topic: 
+                                       </p>
+                                       <pre>
 
 Case 1:                      Case 2:                  Case 3:
     _______________          ________________         |     |      |
@@ -332,23 +332,23 @@ __________|_______|_______         |______|
           |       |       |        |      |      |
           |       |       |        |      |      |
                                    |      |      |
-													
-													</pre>                                        
-													
-													<p>
-													Each picture above represents one of the cases that must be considered when measuring the 
-													distance from a point on the front, to a point on the right.  In each picture above, 
-													the rectangular solid has been taken apart and laid flat to illuminate the way to measure 
-													the distance.  The following code handles all 5 of these cases:
-													</p>
-													<pre>
+                                       
+                                       </pre>                                        
+                                       
+                                       <p>
+                                       Each picture above represents one of the cases that must be considered when measuring the 
+                                       distance from a point on the front, to a point on the right.  In each picture above, 
+                                       the rectangular solid has been taken apart and laid flat to illuminate the way to measure 
+                                       the distance.  The following code handles all 5 of these cases:
+                                       </p>
+                                       <pre>
 int dist(int x1, int y1, int x2, int y2) { return (int)Math.ceil(Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1)));}
 int wire(int w, int x, int y, int xx, int yy) {
-	return Math.min(dist(x,y,200+xx,yy),Math.min(dist(x,y,200+yy,-xx),
-		   Math.min(dist(x,y,200+w-xx,-w-yy),Math.min(dist(x,y,-xx,-200-yy),dist(x,y,-w-yy,-200-w+xx)))));
+   return Math.min(dist(x,y,200+xx,yy),Math.min(dist(x,y,200+yy,-xx),
+         Math.min(dist(x,y,200+w-xx,-w-yy),Math.min(dist(x,y,-xx,-200-yy),dist(x,y,-w-yy,-200-w+xx)))));
 }
-													</pre>
-													
+                                       </pre>
+                                       
 
                                        
 

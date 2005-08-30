@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 181</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -261,12 +261,12 @@ The algorithm given in the problem statement to open an arbitrary combination lo
     int dir = 1;       //we're calling 1 counterclockwise and 1 clockwise
     for (int i = 0; i &lt; L; i++, N--) {
         int K;
-	if (dir == 1) K = combo[i] - at;
-	else K = at - combo[i];
-	if (K &lt; 0) K += size;
-	ret += 360.0 * (N + 1.0*K/size);
-	at = combo[i];
-	dir = -dir;
+   if (dir == 1) K = combo[i] - at;
+   else K = at - combo[i];
+   if (K &lt; 0) K += size;
+   ret += 360.0 * (N + 1.0*K/size);
+   at = combo[i];
+   dir = -dir;
     }
     return ret;
 </pre>
@@ -331,8 +331,8 @@ What we want is the smallest non-prime that isn't divisible by any of the first 
 
     bool prime (int k) {
         for (int i = 0; i &lt; at &amp;&amp; p[i] * p[i] &lt;= k; i++)
-	    if (k % p[i] == 0) return false;
-	p[at++] = k;
+       if (k % p[i] == 0) return false;
+   p[at++] = k;
         return true;
     }
 
@@ -342,7 +342,7 @@ What we want is the smallest non-prime that isn't divisible by any of the first 
         long long last = -1;
         for (int i = 3; at &lt;= N; i += 2)
             if (prime(i)) last = i;
-	return last * last;
+   return last * last;
     }
 </pre>
 
@@ -464,19 +464,19 @@ z<pre>
     int recurse(int x) {
         if (x == 0) return 0;
         if (best[x] != 0) return best[x];
-	int ret = 2000000000;
-	for (int i = 0; i &lt; N; i++) {
-	    if ((x &amp; (1 &lt;&lt; i)) != 0) {
-	        int s = health[i];
-		for (int j = 0; j &lt; N; j++) {
-		    if (i != j &amp;&amp; (x &amp; 1 &lt;&lt; j) != 0 &amp;&amp; shots[j+1][i+1] &lt; s)
-		        s = shots[j+1][i+1];
-		}
-		int q = recurse(x ^ (1 &lt;&lt; i)) + s;
-		if (q &lt; ret) ret = q;
-	    }
-	}
-	return ret;
+   int ret = 2000000000;
+   for (int i = 0; i &lt; N; i++) {
+       if ((x &amp; (1 &lt;&lt; i)) != 0) {
+           int s = health[i];
+      for (int j = 0; j &lt; N; j++) {
+          if (i != j &amp;&amp; (x &amp; 1 &lt;&lt; j) != 0 &amp;&amp; shots[j+1][i+1] &lt; s)
+              s = shots[j+1][i+1];
+      }
+      int q = recurse(x ^ (1 &lt;&lt; i)) + s;
+      if (q &lt; ret) ret = q;
+       }
+   }
+   return ret;
     }
 
     int leastShots(vector&lt;string&gt; damageChart, vector&lt;int&gt; bossHealth) {
@@ -485,11 +485,11 @@ z<pre>
             shots[0][i+1] = health[i] = bossHealth[i];
         for (int i = 0; i &lt; N; i++)
             for (int j = 0; j &lt; N; j++) {
-	        if (i == j || damageChart[i][j] == '0') shots[i+1][j+1] = 1000000;
-		else shots[i+1][j+1] = (health[j] + damageChart[i][j] - '1') /
-		                       (damageChart[i][j] - '0');
+           if (i == j || damageChart[i][j] == '0') shots[i+1][j+1] = 1000000;
+      else shots[i+1][j+1] = (health[j] + damageChart[i][j] - '1') /
+                             (damageChart[i][j] - '0');
             }
-	return recurse((1 &lt;&lt; N)-1);    
+   return recurse((1 &lt;&lt; N)-1);    
     }
 </pre>
 

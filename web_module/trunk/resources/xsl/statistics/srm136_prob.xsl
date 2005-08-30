@@ -84,7 +84,7 @@
                                                             <!-- <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="15"><A HREF="/?t=statistics&amp;c=srm104_prob" CLASS="bodyGeneric">&#160;Problem&#160;Set&#160;</A></TD>
                                                             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="/?t=statistics&amp;c=srm103_rookie" CLASS="bodyGeneric">&#160;Rookie&#160;Review&#160;</A></TD> -->
                                                             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC">
-                                                                <A HREF="/index?t=statistics&amp;c=editorial_archive" CLASS="bodyGeneric">&#160;Archive&#160;</A>
+                                                                <A HREF="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" CLASS="bodyGeneric">&#160;Archive&#160;</A>
                                                             </TD>
                                                             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC">
                                                                 <A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">&#160;Comments/Ideas?&#160;</A>
@@ -172,16 +172,16 @@ Used as: Division 2 - Level 3:
 int ptr = 0;
 int score = 0;
 for(int frame = 0; frame&lt;10; frame++){
-	if(pinsDown[ptr]==10){//STRIKE
-		score = score + pinsDown[ptr] + pinsDown[ptr+1] + pinsDown[ptr+2];
-		ptr = ptr + 1;
-	}else if(pinsDown[ptr] + pinsDown[ptr+1] == 10){//SPARE
-		score = score + pinsDown[ptr] + pinsDown[ptr+1] + pinsDown[ptr+2];
-		ptr = ptr + 2;
-	}else{//NORMAL
-		score = score + pinsDown[ptr] + pinsDown[ptr+1];
-		ptr = ptr + 2;
-	}
+   if(pinsDown[ptr]==10){//STRIKE
+      score = score + pinsDown[ptr] + pinsDown[ptr+1] + pinsDown[ptr+2];
+      ptr = ptr + 1;
+   }else if(pinsDown[ptr] + pinsDown[ptr+1] == 10){//SPARE
+      score = score + pinsDown[ptr] + pinsDown[ptr+1] + pinsDown[ptr+2];
+      ptr = ptr + 2;
+   }else{//NORMAL
+      score = score + pinsDown[ptr] + pinsDown[ptr+1];
+      ptr = ptr + 2;
+   }
 }
 </pre>
 <font size="+2"><b>Cribbage</b></font><BR/>
@@ -253,54 +253,54 @@ using namespace std;
 class PrefixSynchronization {
 public:
 string shortest(vector &lt;string&gt; codewords) {
-	int len = codewords.size();
-	vector&lt;int&gt; pos;
-	for(int i = 0; i&lt;len; i++){
-		pos.push_back(0);
-		for(int j = 0; j&lt;codewords[i].size(); j++)
-			pos[i] |= 1&lt;&lt;j;
-	}
-	vector&lt;vector&lt;int&gt; &gt;queue;
-	vector&lt;string&gt; seq;
-	vector&lt;int&gt; length;
-	map&lt;vector&lt;int&gt;,int&gt; cache;
-	queue.push_back(pos);
-	seq.push_back("");
-	int h = 0;
-	while(queue.size()!=h){
-		vector&lt;int&gt; p = queue[h];
-		for(char ch = '0'; ch&lt;='1'; ch++){
-			vector&lt;int&gt; n;
-			bool start = false;
-			bool done = true;
-			for(int i = 0; i&lt;len; i++){
-				n.push_back(0);
-				for(int j = 0; j&lt;codewords[i].size(); j++){
-					if((p[i] &amp; (1&lt;&lt;j)) &amp;&amp; codewords[i][j]==ch){
-						if(j+1==codewords[i].size()){
-							start = true;
-						}else{
-							done = false;
-							n[i] |= 1&lt;&lt;(j+1);
-						}
-					}
-				}
-			}
-			for(int i = 0; i&lt;len &amp;&amp; start; i++)n[i] |= 1;
-			if(!cache[n]){
-				cache[n] = 1;
-				queue.push_back(n);
-				seq.push_back(seq[h] + ch);
-				if(done){
-					int t = seq.size()-1;
-					cout &lt;&lt; t &lt;&lt; endl;
-					return seq[t];
-				}
-			}
-		}
-		h++;
-	}
-	return "NONE";
+   int len = codewords.size();
+   vector&lt;int&gt; pos;
+   for(int i = 0; i&lt;len; i++){
+      pos.push_back(0);
+      for(int j = 0; j&lt;codewords[i].size(); j++)
+         pos[i] |= 1&lt;&lt;j;
+   }
+   vector&lt;vector&lt;int&gt; &gt;queue;
+   vector&lt;string&gt; seq;
+   vector&lt;int&gt; length;
+   map&lt;vector&lt;int&gt;,int&gt; cache;
+   queue.push_back(pos);
+   seq.push_back("");
+   int h = 0;
+   while(queue.size()!=h){
+      vector&lt;int&gt; p = queue[h];
+      for(char ch = '0'; ch&lt;='1'; ch++){
+         vector&lt;int&gt; n;
+         bool start = false;
+         bool done = true;
+         for(int i = 0; i&lt;len; i++){
+            n.push_back(0);
+            for(int j = 0; j&lt;codewords[i].size(); j++){
+               if((p[i] &amp; (1&lt;&lt;j)) &amp;&amp; codewords[i][j]==ch){
+                  if(j+1==codewords[i].size()){
+                     start = true;
+                  }else{
+                     done = false;
+                     n[i] |= 1&lt;&lt;(j+1);
+                  }
+               }
+            }
+         }
+         for(int i = 0; i&lt;len &amp;&amp; start; i++)n[i] |= 1;
+         if(!cache[n]){
+            cache[n] = 1;
+            queue.push_back(n);
+            seq.push_back(seq[h] + ch);
+            if(done){
+               int t = seq.size()-1;
+               cout &lt;&lt; t &lt;&lt; endl;
+               return seq[t];
+            }
+         }
+      }
+      h++;
+   }
+   return "NONE";
 }
 };
 </pre>

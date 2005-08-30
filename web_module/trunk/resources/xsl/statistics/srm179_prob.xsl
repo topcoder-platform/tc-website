@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 179</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -144,16 +144,16 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
 <p> 
 The simplest way to solve this problem is with two nested loops.  The outer loop iterates over each element in the input, while the inner loop iterates over the k prior elements.  If there are not k prior elements, then you should just iterate over all of the prior elements.  Then, all you have to do is count how many of the prior scores are higher than each score.  In fact, since you want the sum, you don't even need to compute the rank of each score, since you can accumulate them all in the same variable:
 <pre>
-	public int calcRanks(int k, int[] scores){
-		int ret = 0;
-		for(int i = 0; i&lt;scores.length; i++){
-			ret++;
-			for(int j = Math.max(0,i-k); j&lt;i; j++){
-				if(scores[j] &gt; scores[i])ret++;
-			}
-		}
-		return ret;
-	}
+   public int calcRanks(int k, int[] scores){
+      int ret = 0;
+      for(int i = 0; i&lt;scores.length; i++){
+         ret++;
+         for(int j = Math.max(0,i-k); j&lt;i; j++){
+            if(scores[j] &gt; scores[i])ret++;
+         }
+      }
+      return ret;
+   }
 </pre>
 </p> 
 
@@ -208,19 +208,19 @@ Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
 <p> 
 Coders came up with a lot of different ways to determine how to split up the large and small packs.  However, the incredibly low success rate suggests that most approaches are subtly flawed.  Instead of trying to be clever and come up with some greedy way to split up the packs, it is best to just try all possibilities.  With only 1000 of each type of pack, a brute force solution should be plenty fast.  In fact, we can write one that runs in O(n) time, which is no problem at all when n is only 1000.  First, we observe that each person requires his or her own horse.  Furthermore, aside from the bags we put on horses with people, there is no question of how to distribute the bags: just load up horses with small bags until there are none left, and then load up horses with large bags.  So, really the only decision our code has to make is how many small bags to put on horses with people, and how many large bags to put on horses with people.  So, we can simply loop over the number of people, trying each value as the number of horses to put small bags on with our people.  The remaining horses, we load up with large bags, and then we put the left over bags on their own horses:
 <pre>
-	int horses(int p, int x, int y){
-		int ret = 10000;
-		for(int i = 0; i&lt;=p; i++){
-			int xx = max(0,x - i*2);
+   int horses(int p, int x, int y){
+      int ret = 10000;
+      for(int i = 0; i&lt;=p; i++){
+         int xx = max(0,x - i*2);
 <font color="blue">//xx is the number of small bags remaining after 
 //i horses are loaded with one person and two small bags.</font>
-			int yy = max(0,y - (p-i));
+         int yy = max(0,y - (p-i));
 <font color="blue">//yy is the number of large bags remaining after 
 //the other p-i horses are loaded with large bags.</font>
-			ret = min(ret, p + (xx+2)/3 + (yy+1)/2);
-		}
-		return ret;
-	}
+         ret = min(ret, p + (xx+2)/3 + (yy+1)/2);
+      }
+      return ret;
+   }
 
 </pre>
 Note that (xx+2)/3 is just a way of taking the ceiling of xx/3.
@@ -325,18 +325,18 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
 This problem is a little bit similar to problems that have been used in the past.  The one important difference is that rather than being located at lattice points, the relevant coordinates are offset by (0.5,0.5) from lattice points.  However, the solution to this problem is similar in that solving the problem requires GCD.  First, consider the case when the path from one point to another does not pass through any lattice points.  In this case, if the path is from (x<sub>1</sub>,y<sub>1</sub>) to (x<sub>2</sub>,y<sub>2</sub>) then it crosses exactly |x<sub>1</sub>-x<sub>2</sub>| vertical boundaries, and |y<sub>1</sub>-y<sub>2</sub>| horizontal boundaries.  Thus, the path passes through |x<sub>1</sub>-x<sub>2</sub>| + |y<sub>1</sub>-y<sub>2</sub>| regions.  The tricky part is that the path might touch the corner of a region, in which case it crosses both a horizontal and vertical border simultaneously, and causes our count to be too high.  To deal with this case, the first thing to do is to note that we can break any path up into a number of identical paths by factoring out the GCD(|y<sub>1</sub>-y<sub>2</sub>|,|x<sub>1</sub>-x<sub>2</sub>|).  For example, a path from (3,2) to (6,5) has a difference of (3,3), and is identical to three paths with difference of (1,1), each of which ends at the center of a region.  Doing this allows us to work with paths whose differences in x and y coordinates are relatively prime (have no common factors).  We can break these paths into two cases: those with two odd differences, and those with an odd difference and an even difference.  When both the differences are odd, the path passes through a single corner, half way along the path.  You can see this by noting that half of an odd integer is always an integer plus 0.5, and since we started at an integer plus 0.5, we end up at an integer for both coordinates.  Since the numbers are relatively prime, there is no fraction other than one half that has this property.  In the other case, when one of the differences is even, there is no fraction at all that gives you two numbers that are integers plus 0.5.<br/><br/>
 Putting this all together, we traverse the path, each time adding the differences in x and y coordinates to our running total, and subtracting the number of corners along each leg.  The number of corners is either the GCD of the differences (the number of identical, relatively prime paths), or else 0:
 <pre>
-	int numTaxes(int[] row, int[] col){
-		long ret = 0;
-		for(int i = 0; i+1 &lt; row.length; i++){
-			int rx = abs(row[i+1]-row[i]);
-			int cx = abs(col[i+1]-col[i]);
-			int g = gcd(rx,cx);
-			if(g==0)continue;
-			ret += rx + cx - (rx/g%2==cx/g%2?g:0);
-		}
-		return ret>2000000000?-1:(int)ret;
-	}
-	int gcd(int a, int b){return b==0?a:gcd(b,a%b);}
+   int numTaxes(int[] row, int[] col){
+      long ret = 0;
+      for(int i = 0; i+1 &lt; row.length; i++){
+         int rx = abs(row[i+1]-row[i]);
+         int cx = abs(col[i+1]-col[i]);
+         int g = gcd(rx,cx);
+         if(g==0)continue;
+         ret += rx + cx - (rx/g%2==cx/g%2?g:0);
+      }
+      return ret>2000000000?-1:(int)ret;
+   }
+   int gcd(int a, int b){return b==0?a:gcd(b,a%b);}
 </pre>
 </p> 
 
@@ -474,64 +474,64 @@ There were two ways to solve this problem.  The shorter, but more advanced one u
 <tt>20000*(10000/gcd) - gcd*(10000/gcd)*(10000/gcd+1) + 10000</tt>
 <br/>The one exception to this whole discussion is when all the differences are 0 and the GCD is undefined (all elements of xForm are the same).  As noted in an example, the answer is simply ".00010000" in this case.  Here is brett's code, using the formula mentioned.
 <pre>
-	String unstable(int[] vals) {
-		int d = 0, big = 10000, ret = big;
-		for (int a = 0; a &lt; 4; a++){
-			for (int b = 0; b &lt; a; b++) {
-				int k = abs(vals[a]-vals[b]);
-				if (k==0) continue;
-				d = (d==0) ? k : gcd(d,k);
-			}
-		}
-		if (d!=0) ret += 2*big*(big/d) - d*(big/d)*(big/d+1);
-		String temp = ret+"";
-		while (temp.length() &lt; 8) temp = "0"+temp;
-		return d==1?"1.00000000":"."+temp;
-	}
+   String unstable(int[] vals) {
+      int d = 0, big = 10000, ret = big;
+      for (int a = 0; a &lt; 4; a++){
+         for (int b = 0; b &lt; a; b++) {
+            int k = abs(vals[a]-vals[b]);
+            if (k==0) continue;
+            d = (d==0) ? k : gcd(d,k);
+         }
+      }
+      if (d!=0) ret += 2*big*(big/d) - d*(big/d)*(big/d+1);
+      String temp = ret+"";
+      while (temp.length() &lt; 8) temp = "0"+temp;
+      return d==1?"1.00000000":"."+temp;
+   }
 </pre>
 Another way to solve this problem doesn't require any number theory or GCD.  Instead, we can simply determine which differences are achievable by repeatedly moving the particles.  The simplest way to make a solution like this run in time is to do a breadth first search (you'll probably blow the stack if you use recursion).  The other trick to make this work is to never let the difference go above 40,000 or below 0.  Since, any time we go above 40,000, we will have to come back down in order to have a relevent difference, we might as well go down first, and then back up later.  Also, since negative differences are pretty much equivalent to their positive counterparts, there is no need to consider them.  Once we figure out which differences are achievable, we can loop over all of the pairs, and see which ones have achievable differences.  In pseudocode:
 <pre>
-	int dif[6]
-	boolean achievable[40001]
-	String unstable(int[] xForm){
-		int ptr = 0
-		for a = 0 to 3
-			for b = 0 to a-1
-				dif[ptr++] = abs(xForm[a]-xForm[b])
-			end for
-		end for
+   int dif[6]
+   boolean achievable[40001]
+   String unstable(int[] xForm){
+      int ptr = 0
+      for a = 0 to 3
+         for b = 0 to a-1
+            dif[ptr++] = abs(xForm[a]-xForm[b])
+         end for
+      end for
 
-		int queue[40001]
-		queue[0] = 0
-		achievable[0] = true
-		int h = 0
-		int t = 1
-		while (t&gt;h)
-			for i = 0 to 5
-				int x = queue[h] + dif[i]
-				if(x&gt;=0 &amp;&amp; x &lt;= 40000 &amp;&amp; !achievable[x])
-					queue[t++] = x
-					achievable[x] = true
-				end if
-				x = queue[h] - dif[i]
-				if(x&gt;=0 &amp;&amp; x &lt;= 40000 &amp;&amp; !achievable[x])
-					queue[t++] = x
-					achievable[x] = true
-				end if
-			end for
-			h++
-		end while
+      int queue[40001]
+      queue[0] = 0
+      achievable[0] = true
+      int h = 0
+      int t = 1
+      while (t&gt;h)
+         for i = 0 to 5
+            int x = queue[h] + dif[i]
+            if(x&gt;=0 &amp;&amp; x &lt;= 40000 &amp;&amp; !achievable[x])
+               queue[t++] = x
+               achievable[x] = true
+            end if
+            x = queue[h] - dif[i]
+            if(x&gt;=0 &amp;&amp; x &lt;= 40000 &amp;&amp; !achievable[x])
+               queue[t++] = x
+               achievable[x] = true
+            end if
+         end for
+         h++
+      end while
 
-		int ret = 0;
-		for a = 0 to 9999
-			for b = 0 to 9999
-				if(achievable[abs(a-b)]) 
-					ret++
-				end if
-			end for
-		end for
-		return ret as a probability
-	}
+      int ret = 0;
+      for a = 0 to 9999
+         for b = 0 to 9999
+            if(achievable[abs(a-b)]) 
+               ret++
+            end if
+         end for
+      end for
+      return ret as a probability
+   }
 </pre>
 </p> 
 

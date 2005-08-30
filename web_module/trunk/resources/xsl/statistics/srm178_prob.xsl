@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 178</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -406,45 +406,45 @@ accomplish this task.  Java code for one such method follows:
 <pre>
 public double getProbability(String[] rulesa, String[] rulesb, 
                              String[] rulesc, int finalState, int maxLength) {
-	double[] ret = new double[rulesa.length+1], actual = new double[ret.length];
-	double[][][] probs = new double[ret.length][ret.length][3];
-	String[][] arrs = {rulesa, rulesb, rulesc};
-	//Parse the input, and store it in probs
-	//The value ret.length-1 is used for the state 999
-	for (int a = 0; a &lt; 3; a++) {
-		for (int r = 0; r &lt; arrs[a].length; r++) {
-			String toks[] = arrs[a][r].split(" ");
-			int left = 100;
-			if (arrs[a][r].length()==0) {
-				probs[r][ret.length-1][a] = left/100.0;
-				continue;
-			}
-			for (int c = 0; c &lt; toks.length; c++) {
-				String[] pair = toks[c].split(":");
-				int st = Integer.parseInt(pair[0]), 
-				    prob = Integer.parseInt(pair[1]);
-				probs[r][st][a] = prob/100.0;
-				left-=prob;
-			} probs[r][ret.length-1][a] = left/100.0;
-		} probs[ret.length-1][ret.length-1][a] = 1;
-	}
-	//Now the actual good stuff begins
-	double num = 1, denom = 4, adder = 9;
-	ret[0] = actual[0] = 1;
-	for (int i = 0; i &lt; maxLength; i++) {
-		double[] newprob = new double[ret.length];
-		for (int a = 0; a &lt; 3; a++) 
-			for (int s = 0; s &lt; newprob.length; s++) 
-				for (int t = 0; t &lt; newprob.length; t++) 
-					newprob[t] += actual[s]*probs[s][t][a]/3.0;
-		for (int s = 0; s &lt; ret.length; s++) 
-			ret[s] = (num*ret[s] + (denom-num)*newprob[s]) / denom;
-		actual = newprob;
-		num = denom;
-		denom+= adder;
-		adder*=3;
-	}
-	return ret[finalState==999?ret.length-1:finalState];
+   double[] ret = new double[rulesa.length+1], actual = new double[ret.length];
+   double[][][] probs = new double[ret.length][ret.length][3];
+   String[][] arrs = {rulesa, rulesb, rulesc};
+   //Parse the input, and store it in probs
+   //The value ret.length-1 is used for the state 999
+   for (int a = 0; a &lt; 3; a++) {
+      for (int r = 0; r &lt; arrs[a].length; r++) {
+         String toks[] = arrs[a][r].split(" ");
+         int left = 100;
+         if (arrs[a][r].length()==0) {
+            probs[r][ret.length-1][a] = left/100.0;
+            continue;
+         }
+         for (int c = 0; c &lt; toks.length; c++) {
+            String[] pair = toks[c].split(":");
+            int st = Integer.parseInt(pair[0]), 
+                prob = Integer.parseInt(pair[1]);
+            probs[r][st][a] = prob/100.0;
+            left-=prob;
+         } probs[r][ret.length-1][a] = left/100.0;
+      } probs[ret.length-1][ret.length-1][a] = 1;
+   }
+   //Now the actual good stuff begins
+   double num = 1, denom = 4, adder = 9;
+   ret[0] = actual[0] = 1;
+   for (int i = 0; i &lt; maxLength; i++) {
+      double[] newprob = new double[ret.length];
+      for (int a = 0; a &lt; 3; a++) 
+         for (int s = 0; s &lt; newprob.length; s++) 
+            for (int t = 0; t &lt; newprob.length; t++) 
+               newprob[t] += actual[s]*probs[s][t][a]/3.0;
+      for (int s = 0; s &lt; ret.length; s++) 
+         ret[s] = (num*ret[s] + (denom-num)*newprob[s]) / denom;
+      actual = newprob;
+      num = denom;
+      denom+= adder;
+      adder*=3;
+   }
+   return ret[finalState==999?ret.length-1:finalState];
 }
 </pre>
 </p> 
@@ -517,16 +517,16 @@ costs for smaller substrips.  Java code implementing memoization follows:
 int[][][] cache = new int[3][50][51];
 int BIG = 3000;
 int stripScore(int[][] row, int[][][] cache, int start, int needed, int prev) {
-	if (needed > 0 &amp;&amp; start >= row[0].length) return BIG;
-	if (needed == 0 || start >= row[0].length) return 0;
-	if (cache[prev][start][needed] != -1) return cache[prev][start][needed];
-	int best = BIG;
-	for (int i = 0; i &lt; 3; i++) {
-		int newneeded = needed, adder = 0;
-		if (i == 0 || i == prev) newneeded--;
-		if (i == 0 || i!=row[1][start]) adder += row[0][start];
-		best = Math.min(best,stripScore(row,rowid,start+1,newneeded,i)+adder);
-	} return cache[prev][start][needed] = Math.min(BIG,best);
+   if (needed > 0 &amp;&amp; start >= row[0].length) return BIG;
+   if (needed == 0 || start >= row[0].length) return 0;
+   if (cache[prev][start][needed] != -1) return cache[prev][start][needed];
+   int best = BIG;
+   for (int i = 0; i &lt; 3; i++) {
+      int newneeded = needed, adder = 0;
+      if (i == 0 || i == prev) newneeded--;
+      if (i == 0 || i!=row[1][start]) adder += row[0][start];
+      best = Math.min(best,stripScore(row,rowid,start+1,newneeded,i)+adder);
+   } return cache[prev][start][needed] = Math.min(BIG,best);
 }
 </pre>
 In the code above, prev denotes the color we used to paint the region immediately to the left of the

@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 175</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -149,11 +149,11 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
 <p> 
 Modular arithmetic is the key to solving this problem with a high score.  If you are at <tt>h</tt> on the clock, then moving forward <tt>n</tt> hours puts you at <tt>(h+n)%12</tt>.  This isn't too hard to see, if you understand the % operator.  Basically, what this does is subtract out all the extra twelves, so 13 becomes 1, and 26 becomes 2.  The case where you go backwards is a bit trickier.  If you get into negative values, <tt>%12</tt> will no longer give you the correct position.  However, if you add some large number that is divisible by 12, then subtract and finally do <tt>%12</tt>, then you will get the right result: <tt>(h-n+120)%12</tt>.  Another solution is to just start at some large number that is divisible by 12, and not do any % operations until the end:
 <pre>
-	int h = 6000;
-	for(int i = 0; i&lt;flips.length(); i++){
-		h += flips.charAt(i)=='h'?(i+1):(-i-1);
-	}
-	return 12-(12-h%12)%12;
+   int h = 6000;
+   for(int i = 0; i&lt;flips.length(); i++){
+      h += flips.charAt(i)=='h'?(i+1):(-i-1);
+   }
+   return 12-(12-h%12)%12;
 </pre>
 Note that the fancy return statement returns <tt>h%12</tt> if <tt>h%12 != 0</tt> and 12 otherwise.
 </p> 
@@ -372,19 +372,19 @@ In past editorials, I've suggested that a limit of 20 should immediately set off
 <tt>len[i] = 1+max(len[j] s.t. j&lt;i &amp;&amp; book[j] &lt;= book[i])</tt>
 <br/>In plain English, the length of the LIS ending at element i is either one plus the length of the LIS ending at j, where the book at j comes before i alphabetically, or else 1 if there is no such book.  Implementing the recurrence is a textbook example of dynamic programming, and something that every TopCoder should probably familiarize themselves with:
 <pre>
-	public int sortMoves(String[] titles){
-		int[] dp = new int[titles.length];
-		int ret = 0;
-		for(int i = 0; i&lt;titles.length; i++){
-			dp[i] = 1;
-			for(int j = 0; j&lt;i; j++){
-				if(titles[i].compareTo(titles[j])&gt;=0)
-					dp[i] = Math.max(dp[i],dp[j]+1);
-			}
-			ret = Math.max(ret,dp[i]);
-		}
-		return titles.length-ret;
-	}
+   public int sortMoves(String[] titles){
+      int[] dp = new int[titles.length];
+      int ret = 0;
+      for(int i = 0; i&lt;titles.length; i++){
+         dp[i] = 1;
+         for(int j = 0; j&lt;i; j++){
+            if(titles[i].compareTo(titles[j])&gt;=0)
+               dp[i] = Math.max(dp[i],dp[j]+1);
+         }
+         ret = Math.max(ret,dp[i]);
+      }
+      return titles.length-ret;
+   }
 </pre>
 </p> 
 
@@ -442,18 +442,18 @@ One way to solve this problem is to think of the BinaryQuipu as a non-determinis
 int counter = 0;
 set cache;
 void recurse(set s){
-	cache.add(s);
-	counter++;
-	foreach string t in s
-		remove the first character of t
-	set s1 = null;
-	foreach string t in s that starts with 's'
-		s1.add(t)
-	if(s1!=null &amp;&amp; !cache.contains(s1))recurse(s1);
-	set s2 = null;
-	foreach string t in s that starts with 'b'
-		s2.add(t)
-	if(s2!=null &amp;&amp; !cache.contains(s2))recurse(s2);
+   cache.add(s);
+   counter++;
+   foreach string t in s
+      remove the first character of t
+   set s1 = null;
+   foreach string t in s that starts with 's'
+      s1.add(t)
+   if(s1!=null &amp;&amp; !cache.contains(s1))recurse(s1);
+   set s2 = null;
+   foreach string t in s that starts with 'b'
+      s2.add(t)
+   if(s2!=null &amp;&amp; !cache.contains(s2))recurse(s2);
 }
 </pre>
 As a challenge, either find an example where one could make a more compact non-deterministic Quipu (one with multiple branches to the same type of knot), or else prove that one does not exist.

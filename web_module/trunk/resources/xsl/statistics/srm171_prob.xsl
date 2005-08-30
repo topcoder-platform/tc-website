@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 171</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -154,8 +154,8 @@ value is given by (min+max)/2.  The input is in the form "ndx", if it is parsed 
 following code will find the minimum, maximum, and average die rolls and store it in the array <i>ret</i>:
 <pre>
 for (int i=0;i&lt; n.size();i++) {
-	ret[0]+=n[i];
-	ret[1]+=n[i]*d[i];
+   ret[0]+=n[i];
+   ret[1]+=n[i]*d[i];
 }
 ret[2]=(ret[0]+ret[1])/2;
 </pre>
@@ -260,15 +260,15 @@ and comparator, and then the sorting is done for you.  Using the standard templa
 comparator could be declared like this:
 <pre>
 struct  team {
-	int score;
-	int sixth;
-	char name;
+   int score;
+   int sixth;
+   char name;
 };
 
 bool operator &lt; (const team &amp; lhs, const team &amp; rhs) {
-	if (lhs.score!=rhs.score) return lhs.score&lt; rhs.score;
-	if (lhs.sixth!=rhs.sixth) return lhs.sixth&lt; rhs.sixth;
-	return lhs.name&lt; rhs.name;
+   if (lhs.score!=rhs.score) return lhs.score&lt; rhs.score;
+   if (lhs.sixth!=rhs.sixth) return lhs.sixth&lt; rhs.sixth;
+   return lhs.name&lt; rhs.name;
 }
 </pre>
 As long as you score the teams correctly, remove teams that didn't have at least five runners finish, and assign a 
@@ -277,24 +277,24 @@ exactly how the problem specifies.  The following code demonstrates this:
 <pre>
 vector&lt; team &gt; teamScores;
 for (int i=0;i&lt; numTeams;i++) {
-	int numFinished=0;
-	team t;
-	t.score=0;
-	t.sixth=1000000;
-	t.name='A'+i;
-	for (int j=0;j&lt; finishOrder.size();j++) {
-		if (finishOrder[j]==('A'+i)) {
-			if (numFinished&lt;  5) {
-				numFinished++;
-				t.score+=j;
-			} else if (numFinished==5) {
-				t.sixth=j;
-				numFinished++;
-			}
-		}
-	}
-	if (numFinished&gt; =5)
-		teamScores.push_back(t);
+   int numFinished=0;
+   team t;
+   t.score=0;
+   t.sixth=1000000;
+   t.name='A'+i;
+   for (int j=0;j&lt; finishOrder.size();j++) {
+      if (finishOrder[j]==('A'+i)) {
+         if (numFinished&lt;  5) {
+            numFinished++;
+            t.score+=j;
+         } else if (numFinished==5) {
+            t.sixth=j;
+            numFinished++;
+         }
+      }
+   }
+   if (numFinished&gt; =5)
+      teamScores.push_back(t);
 }
 sort(teamScores.begin(),teamScores.end());
 </pre>
@@ -302,7 +302,7 @@ Now that the teams are sorted in the correct order, all that remains is to go th
 <pre>
 string ret;
 for (int i=0;i&lt; teamScores.size();i++)
-	ret+=teamScores[i].name;
+   ret+=teamScores[i].name;
 return ret;
 </pre>
 </p>
@@ -363,19 +363,19 @@ C++ this can be done as follows using stringstreams:
 <pre>
 string t;
 for (int i=0;i&lt; text.size();i++) {
-	t+=text[i];
-	t+=' ';
+   t+=text[i];
+   t+=' ';
 }
 stringstream ss(t);
 vector&lt; string &gt; v;
 string temp;
 int back=-1;
 while (ss &gt;&gt; temp) {
-	if (v.size()&gt; 0 &amp;&amp; v[back].size()+1+temp.size() &lt; =width) v[back]+=" "+temp;
-	else {
-		v.push_back(temp);
-		back++;
-	}
+   if (v.size()&gt; 0 &amp;&amp; v[back].size()+1+temp.size() &lt; =width) v[back]+=" "+temp;
+   else {
+      v.push_back(temp);
+      back++;
+   }
 };
 </pre>
 This code first takes the input text and makes one large string out of it.  Then it takes one word at a time out of the string 
@@ -384,14 +384,14 @@ Now we have to reorder the text.  If you are careful about how many lines there 
 minimal coding.  The thing to note is that with an even number of lines, there will be an equal number of lines per column, 
 but with an odd number there will be one more line in the first column.
 <pre>
-	vector&lt;string&gt; ret(v.size());
-	int offset=v.size()%2;
-	for (int i=0;i&lt; v.size();i++)
-	if (i%2==0) {
-		ret[i]=v[i/2];
-	} else {
-		ret[i]=v[i/2+v.size()/2+offset];
-	}
+   vector&lt;string&gt; ret(v.size());
+   int offset=v.size()%2;
+   for (int i=0;i&lt; v.size();i++)
+   if (i%2==0) {
+      ret[i]=v[i/2];
+   } else {
+      ret[i]=v[i/2+v.size()/2+offset];
+   }
 </pre>
 </p>
 
@@ -453,18 +453,18 @@ that of the one resistor itself.  For a Java implementation of this, see <b>writ
 some incomplete C++ code that gives the general idea:
 <pre>
 set &lt; double &gt; getAllCombos(vector &lt; double &gt; vr) {
-	if (vr.size()&lt;=1) return set&lt;double&gt;(vr.begin(),vr.end());
-	vector &lt; double &gt; A,B;
-	set &lt; double &gt; comboA,comboB;
-	set &lt; double &gt; ret;
-	for all combinations of non-empty sets A and B such that the union of A and B is in vr
-		comboA=getAllCombos(A);
-		comboB=getAllCombos(B);
-		for every element EA in comboA
-			for every element EB in comboB
-				ret.insert(EA+EB); //series combination
-				ret.insert((EA*EB)/(EA+EB)); //parallel combination
-	return ret;
+   if (vr.size()&lt;=1) return set&lt;double&gt;(vr.begin(),vr.end());
+   vector &lt; double &gt; A,B;
+   set &lt; double &gt; comboA,comboB;
+   set &lt; double &gt; ret;
+   for all combinations of non-empty sets A and B such that the union of A and B is in vr
+      comboA=getAllCombos(A);
+      comboB=getAllCombos(B);
+      for every element EA in comboA
+         for every element EB in comboB
+            ret.insert(EA+EB); //series combination
+            ret.insert((EA*EB)/(EA+EB)); //parallel combination
+   return ret;
 }
 </pre>
 Also be sure to find all combinations, not just combinations that use all of the resistors.  Once all possible combinations have 
@@ -538,38 +538,38 @@ room <i>i</i> is unsealed, and 0 otherwise.  Now use the Floyd-Warshall algorith
 find what rooms can be reached if we don't use doors from one specific room.
 <pre>
 bool canBeSealed(vector &lt; vector &lt; int &gt; &gt; adj,vector &lt; int &gt; unsealed,int room) {
-	for (int k=0;k &lt; adj.size();k++)
-	for (int i=0;i &lt; adj.size();i++)
-	for (int j=0;j &lt; adj.size();j++) {
-		if (i==room || k==room) continue;
-		adj[i][j] &lt; =adj[i][k]+adj[k][j];
-	}
-	for (int i=0;i &lt; unsealed.size();i++)
-		if (unsealed[i] &amp;&amp; adj[0][i]==1000000) return false;
-	return true;
+   for (int k=0;k &lt; adj.size();k++)
+   for (int i=0;i &lt; adj.size();i++)
+   for (int j=0;j &lt; adj.size();j++) {
+      if (i==room || k==room) continue;
+      adj[i][j] &lt; =adj[i][k]+adj[k][j];
+   }
+   for (int i=0;i &lt; unsealed.size();i++)
+      if (unsealed[i] &amp;&amp; adj[0][i]==1000000) return false;
+   return true;
 }
 </pre>
 The small modification is that we can't use edges that begin in room <i>room</i>.  Now that we have this, all we have to do is check rooms one at a time to see what we can seal.
 <pre>
 vector &lt; int &gt; ret;
 for (int i=0;i &lt; adj.size();i++) {
-	int j=0;
-	while (j &lt; adj.size()) {
-		if (! unsealed[j]) {
-			j++;
-			continue;
-		}
-		vector &lt; vector &lt; int &gt; &gt; temp=adj;
-		for (int k=0;k &lt; adj.size();k++)
-		temp[j][k]=1000000;		
-		if (canBeSealed(temp,unsealed,j)) {
-			unsealed[j]=0;
-			adj=temp;
-			ret.push_back(j);
-			break;
-		}
-		j++;
-	}
+   int j=0;
+   while (j &lt; adj.size()) {
+      if (! unsealed[j]) {
+         j++;
+         continue;
+      }
+      vector &lt; vector &lt; int &gt; &gt; temp=adj;
+      for (int k=0;k &lt; adj.size();k++)
+      temp[j][k]=1000000;      
+      if (canBeSealed(temp,unsealed,j)) {
+         unsealed[j]=0;
+         adj=temp;
+         ret.push_back(j);
+         break;
+      }
+      j++;
+   }
 }
 ret.push_back(0);
 return ret;

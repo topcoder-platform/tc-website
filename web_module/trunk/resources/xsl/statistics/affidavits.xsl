@@ -57,40 +57,40 @@ All four requirements must be met for TopCoder to release payment.<BR/>
 </P>
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2" WIDTH="100%">
-	<TR>
-		<TD CLASS="statText" VALIGN="top">1.</TD><TD CLASS="statText" VALIGN="top">Valid member profile information. We will mail the check to the address in your TopCoder profile, so please make sure that this information is current.</TD>
-	</TR>
-	<TR>
-		<TD CLASS="statText" VALIGN="top">2.</TD><TD CLASS="statText" VALIGN="top">A Completed Affidavit of Eligibility, Liability, and Publicity Release. You must fill out, sign, and return an affidavit of eligibility before we can pay out prize money. The affidavit is a verification of your eligibility to participate in the match, as well as a publicity release. The affidavit must be postmarked no later than 60 days after the competition date - otherwise, you forfeit your prize for this competition.</TD>
-	</TR>	
-	<TR>
-		<TD CLASS="statText" VALIGN="top">3.</TD><TD CLASS="statText" VALIGN="top">One notarized affidavit on file with TopCoder.
-		TopCoder requires all winners (both direct or through referral commissions) to have one notarized affidavit on file with TopCoder before the prize can be paid. If you never had an affidavit notarized for TopCoder, you must do so for this Single Round Match before you will be paid. You need only have one affidavit notarized. All subsequent winnings will be paid upon receipt of a signed TopCoder affidavit.</TD>
-	</TR>	
-	<TR>
-		<TD CLASS="statText" VALIGN="top">4.</TD><TD CLASS="statText" VALIGN="top">One completed tax form on file with TopCoder.<BR/>
-		<A HREF="/?t=support&amp;c=form_faq" CLASS="statText">TopCoder FAQ regarding these forms >></A><BR/>
-	    The W-9 form should be filled out by all U.S. Citizens, including U.S resident aliens.<BR/>
-	    <A HREF="/i/iw9.pdf" CLASS="statText">Click here for W-9 form instructions >></A><BR/>
-	    <A HREF="/i/fw9.pdf" CLASS="statText">Click here for the W-9 form >></A><BR/>
-	    The W-8BEN form should be filled out by all non-U.S. Citizens.<BR/>
-	    <A HREF="/i/iw8ben.pdf" CLASS="statText">Click here for W-8BEN form instructions >></A><BR/>
-	    <A HREF="/i/fw8ben.pdf" CLASS="statText">Click here for the W-8BEN form >></A><BR/>		
-		</TD>
-	</TR>	
+   <TR>
+      <TD CLASS="statText" VALIGN="top">1.</TD><TD CLASS="statText" VALIGN="top">Valid member profile information. We will mail the check to the address in your TopCoder profile, so please make sure that this information is current.</TD>
+   </TR>
+   <TR>
+      <TD CLASS="statText" VALIGN="top">2.</TD><TD CLASS="statText" VALIGN="top">A Completed Affidavit of Eligibility, Liability, and Publicity Release. You must fill out, sign, and return an affidavit of eligibility before we can pay out prize money. The affidavit is a verification of your eligibility to participate in the match, as well as a publicity release. The affidavit must be postmarked no later than 60 days after the competition date - otherwise, you forfeit your prize for this competition.</TD>
+   </TR>   
+   <TR>
+      <TD CLASS="statText" VALIGN="top">3.</TD><TD CLASS="statText" VALIGN="top">One notarized affidavit on file with TopCoder.
+      TopCoder requires all winners (both direct or through referral commissions) to have one notarized affidavit on file with TopCoder before the prize can be paid. If you never had an affidavit notarized for TopCoder, you must do so for this Single Round Match before you will be paid. You need only have one affidavit notarized. All subsequent winnings will be paid upon receipt of a signed TopCoder affidavit.</TD>
+   </TR>   
+   <TR>
+      <TD CLASS="statText" VALIGN="top">4.</TD><TD CLASS="statText" VALIGN="top">One completed tax form on file with TopCoder.<BR/>
+      <A HREF="/?t=support&amp;c=form_faq" CLASS="statText">TopCoder FAQ regarding these forms >></A><BR/>
+       The W-9 form should be filled out by all U.S. Citizens, including U.S resident aliens.<BR/>
+       <A HREF="/i/iw9.pdf" CLASS="statText">Click here for W-9 form instructions >></A><BR/>
+       <A HREF="/i/fw9.pdf" CLASS="statText">Click here for the W-9 form >></A><BR/>
+       The W-8BEN form should be filled out by all non-U.S. Citizens.<BR/>
+       <A HREF="/i/iw8ben.pdf" CLASS="statText">Click here for W-8BEN form instructions >></A><BR/>
+       <A HREF="/i/fw8ben.pdf" CLASS="statText">Click here for the W-8BEN form >></A><BR/>      
+      </TD>
+   </TR>   
 </TABLE>
 
 
 <P CLASS="statText">
 Mailing address for forms and affidavits: TopCoder, 703 Hebron Avenue, Glastonbury, CT 06033
 </P>
-	    <A HREF="/?t=statistics&amp;c=getaffidavit" CLASS="statText">- View affidavit page -</A><BR/>
+       <A HREF="/?t=statistics&amp;c=getaffidavit" CLASS="statText">- View affidavit page -</A><BR/>
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
           <xsl:variable name="size">
             <xsl:value-of select="/TC/STATLISTS/EarningsHistory/Scroll/Size"/>
           </xsl:variable>
           <TR>
-            <TD BACKGROUND="/i/steel_gray_bg3.gif" CLASS="statTextBig" COLSPAN="5" HEIGHT="18">&#160;Affidavits for</TD>		
+            <TD BACKGROUND="/i/steel_gray_bg3.gif" CLASS="statTextBig" COLSPAN="5" HEIGHT="18">&#160;Affidavits for</TD>      
          </TR>   
           <TR>
             <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    

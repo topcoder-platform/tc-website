@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                 <table width="100%" border="0" cellspacing="0" cellpadding="3">
                    <tr valign="middle">
                       <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 241</font></td>
-                      <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                      <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                    </tr>
 
                    <tr valign="middle">
@@ -151,17 +151,17 @@ isn't an issue here.
 
 <pre>
 public int winnings(int bet, int dealer, int dealerBlackjack, int player, int blackjack) {
-	if (player &gt; 21 || player &lt; dealer &amp;&amp; dealer &#8804; 21)
-		return -bet;
-	if (dealerBlackjack == 1 &amp;&amp; blackjack == 1)
-		return 0;
-	if (dealerBlackjack == 1 &amp;&amp; blackjack == 0)
-		return -bet;
-	if (blackjack == 1 &amp;&amp; dealerBlackjack == 0)
-		return bet * 3 / 2;
-	if (dealer &gt; 21 || player &gt; dealer)
-		return bet;		
-	return 0;
+   if (player &gt; 21 || player &lt; dealer &amp;&amp; dealer &#8804; 21)
+      return -bet;
+   if (dealerBlackjack == 1 &amp;&amp; blackjack == 1)
+      return 0;
+   if (dealerBlackjack == 1 &amp;&amp; blackjack == 0)
+      return -bet;
+   if (blackjack == 1 &amp;&amp; dealerBlackjack == 0)
+      return bet * 3 / 2;
+   if (dealer &gt; 21 || player &gt; dealer)
+      return bet;      
+   return 0;
 }
 </pre>
 
@@ -273,25 +273,25 @@ sort the resulting list of allowed users, which is handled trivially by the API 
 language of choice.</p>
 <pre>
 public String[] whoCanSee(String[] userNames, String[] allowedData, String[] reportData) {
-	boolean[] b = new boolean[userNames.length];
-	int c = 0;
-	for (int i = 0; i &lt; userNames.length; i++) {
-		allowedData[i] = " " + allowedData[i] + " ";
-		b[i] = true;
-		for (int j = 0; j &lt; reportData.length; j++)
-			if (allowedData[i].indexOf(" " + reportData[j] + " ") == -1)
-				b[i] = false;
-		if (b[i]) c++;
-	}
-	String[] ret = new String[c];
-	c = 0;
-	for (int i = 0; i &lt; userNames.length; i++)
-		if (b[i]) {
-			ret[c] = userNames[i];
-			c++;
-		}
-	Arrays.sort(ret);
-	return ret;
+   boolean[] b = new boolean[userNames.length];
+   int c = 0;
+   for (int i = 0; i &lt; userNames.length; i++) {
+      allowedData[i] = " " + allowedData[i] + " ";
+      b[i] = true;
+      for (int j = 0; j &lt; reportData.length; j++)
+         if (allowedData[i].indexOf(" " + reportData[j] + " ") == -1)
+            b[i] = false;
+      if (b[i]) c++;
+   }
+   String[] ret = new String[c];
+   c = 0;
+   for (int i = 0; i &lt; userNames.length; i++)
+      if (b[i]) {
+         ret[c] = userNames[i];
+         c++;
+      }
+   Arrays.sort(ret);
+   return ret;
 }
 </pre>
 
@@ -366,7 +366,7 @@ double[][] d;
 double mul = 3.14159265358979323 / 180;
 
 public double cdist(double lat1, double lon1, double lat2, double lon2) {
-	return 4000 * Math.acos(Math.sin(lat1 * mul) 
+   return 4000 * Math.acos(Math.sin(lat1 * mul) 
             * Math.sin(lat2 * mul) + Math.cos(lat1 * mul) 
             * Math.cos(lat2 * mul) * Math.cos(lon1 * mul - lon2 * mul));
 }
@@ -374,24 +374,24 @@ public double cdist(double lat1, double lon1, double lat2, double lon2) {
 public double shortestTrip(int[] latitude, int[] longitude, String[] canTravel, int origin, int destination) {
 d = new double[latitude.length][latitude.length];
 for (int i = 0; i &lt; latitude.length; i++) for (int j = 0; j &lt; latitude.length; j++)
-	if (i == j) d[i][j] = 0; else d[i][j] = 999999;
+   if (i == j) d[i][j] = 0; else d[i][j] = 999999;
 for (int i = 0; i &lt; canTravel.length; i++) {
-	String[] s = canTravel[i].split(" ");
-	for (int j = 0; j &lt; s.length; j++) {
-		int k = Integer.parseInt(s[j]);
-		if (i != k) {
-			double t = cdist(latitude[i], longitude[i], latitude[k], longitude[k]);
-			System.out.println(i+" "+k+" "+t);
-			d[i][k] = Math.min(d[i][k], t);
-		}
-	}
+   String[] s = canTravel[i].split(" ");
+   for (int j = 0; j &lt; s.length; j++) {
+      int k = Integer.parseInt(s[j]);
+      if (i != k) {
+         double t = cdist(latitude[i], longitude[i], latitude[k], longitude[k]);
+         System.out.println(i+" "+k+" "+t);
+         d[i][k] = Math.min(d[i][k], t);
+      }
+   }
 }
 
 for (int n = latitude.length - 2; n &#8805; 0; n--)
-	for (int i = n; i &lt; latitude.length; i++)
-		for (int j = 0; j &lt; latitude.length; j++)
-			for (int k = 0; k &lt; latitude.length; k++)
-				d[i][j] = Math.min(d[i][j], d[i][k] + d[k][j]);
+   for (int i = n; i &lt; latitude.length; i++)
+      for (int j = 0; j &lt; latitude.length; j++)
+         for (int k = 0; k &lt; latitude.length; k++)
+            d[i][j] = Math.min(d[i][j], d[i][k] + d[k][j]);
 if (d[origin][destination] == 999999) return -1;
 return d[origin][destination];
 }
@@ -475,125 +475,125 @@ int r = 0;
 // add a value to the queue
 void add(int i)
 {
-	q[p] = i;
-	p++;
+   q[p] = i;
+   p++;
 }
 
 // pull next value from queue
 int get()
 {
-	r++;
-	return q[r - 1];
+   r++;
+   return q[r - 1];
 }
 
 // is there anything in the queue?
 boolean full()
 {
-	return (p &gt; r);
+   return (p &gt; r);
 }
 public int fewestKeys(int[] keys, String operators, int target) {
-	// which operations can we do
-	boolean plus = (operators.indexOf("+") &gt; -1);
-	boolean sub = (operators.indexOf("-") &gt; -1);
-	boolean mul = (operators.indexOf("*") &gt; -1);
-	boolean div = (operators.indexOf("/") &gt; -1);
+   // which operations can we do
+   boolean plus = (operators.indexOf("+") &gt; -1);
+   boolean sub = (operators.indexOf("-") &gt; -1);
+   boolean mul = (operators.indexOf("*") &gt; -1);
+   boolean div = (operators.indexOf("/") &gt; -1);
 
-	// initialize our infinity values
-	for (int i = 0; i &lt; 1000; i++) 
-	{
-		best[i] = 999999;
-		bestnop[i] = 999999;
-	}
+   // initialize our infinity values
+   for (int i = 0; i &lt; 1000; i++) 
+   {
+      best[i] = 999999;
+      bestnop[i] = 999999;
+   }
 
-	// everything we can type with three numbers
-	for (int i = 0; i &lt; keys.length; i++)
-		for (int j = 0; j &lt; keys.length; j++) 
-			for (int k = 0; k &lt; keys.length; k++)
-			{
-				bestnop[keys[i] * 100 + keys[j] * 10 + keys[k]] = 3;
-				best[keys[i] * 100 + keys[j] * 10 + keys[k]] = 3;
-				add(keys[i] * 100 + keys[j] * 10 + keys[k]);
-			}
-	
-	// ...with two numbers
-	for (int i = 0; i &lt; keys.length; i++)
-		for (int j = 0; j &lt; keys.length; j++) 
-		{
-			bestnop[keys[i] * 10 + keys[j]] = 2;
-			best[keys[i] * 10 + keys[j]] = 2;
-			add(keys[i] * 10 + keys[j]);
-		}
-		
-	// ... with one number
-	for (int i = 0; i &lt; keys.length; i++)
-	{
-		bestnop[keys[i]] = 1;
-		best[keys[i]] = 1;
-		add(keys[i]);
-	}
-	
-	// if we don't need any operators, no need to continue
-	if (best[target] &lt; 999999) return best[target];
-	
-	// we know we have to perform an operation, so add that keypress
-	for (int i = 0; i &lt; 1000; i++)
-		if (best[i] &lt; 999999) best[i]++;
-	
-	// while there's more searching to do...
-	while (full())
-	{
-		// get next value to search
-		int n = get();
-		
-		// try each allowed operation using each number we can reach without operators
-		// ... lather, rinse, repeat
-		for (int i = 0; i &lt; 1000; i++)
-			if (bestnop[i] &lt; 999999) 
-			{
-				if (plus &amp;&amp; n + i &lt; 1000) 
-				{
-					int t = best[n] + bestnop[i] + 1;
-					if (t &lt; best[n + i]) 
-					{
-						best[n + i] = t;
-						add(n + i);
-					}
-				}
-				if (sub &amp;&amp; n - i &#8805; 0)
-				{
-					int t = best[n] + bestnop[i] + 1;
-					if (t &lt; best[n - i]) 
-					{
-						best[n - i] = t;
-						add(n - i);
-					}
-				}
-				if (mul &amp;&amp; n * i &lt; 1000)
-				{
-					int t = best[n] + bestnop[i] + 1;
-					if (t &lt; best[n * i]) 
-					{
-						best[n * i] = t;
-						add(n * i);
-					}
-				}
-				if (div &amp;&amp; i &gt; 0)
-				{
-					int t = best[n] + bestnop[i] + 1;
-					if (t &lt; best[n / i]) 
-					{
-						best[n / i] = t;
-						add(n / i);
-					}
-				}
-			}
-	}
+   // everything we can type with three numbers
+   for (int i = 0; i &lt; keys.length; i++)
+      for (int j = 0; j &lt; keys.length; j++) 
+         for (int k = 0; k &lt; keys.length; k++)
+         {
+            bestnop[keys[i] * 100 + keys[j] * 10 + keys[k]] = 3;
+            best[keys[i] * 100 + keys[j] * 10 + keys[k]] = 3;
+            add(keys[i] * 100 + keys[j] * 10 + keys[k]);
+         }
+   
+   // ...with two numbers
+   for (int i = 0; i &lt; keys.length; i++)
+      for (int j = 0; j &lt; keys.length; j++) 
+      {
+         bestnop[keys[i] * 10 + keys[j]] = 2;
+         best[keys[i] * 10 + keys[j]] = 2;
+         add(keys[i] * 10 + keys[j]);
+      }
+      
+   // ... with one number
+   for (int i = 0; i &lt; keys.length; i++)
+   {
+      bestnop[keys[i]] = 1;
+      best[keys[i]] = 1;
+      add(keys[i]);
+   }
+   
+   // if we don't need any operators, no need to continue
+   if (best[target] &lt; 999999) return best[target];
+   
+   // we know we have to perform an operation, so add that keypress
+   for (int i = 0; i &lt; 1000; i++)
+      if (best[i] &lt; 999999) best[i]++;
+   
+   // while there's more searching to do...
+   while (full())
+   {
+      // get next value to search
+      int n = get();
+      
+      // try each allowed operation using each number we can reach without operators
+      // ... lather, rinse, repeat
+      for (int i = 0; i &lt; 1000; i++)
+         if (bestnop[i] &lt; 999999) 
+         {
+            if (plus &amp;&amp; n + i &lt; 1000) 
+            {
+               int t = best[n] + bestnop[i] + 1;
+               if (t &lt; best[n + i]) 
+               {
+                  best[n + i] = t;
+                  add(n + i);
+               }
+            }
+            if (sub &amp;&amp; n - i &#8805; 0)
+            {
+               int t = best[n] + bestnop[i] + 1;
+               if (t &lt; best[n - i]) 
+               {
+                  best[n - i] = t;
+                  add(n - i);
+               }
+            }
+            if (mul &amp;&amp; n * i &lt; 1000)
+            {
+               int t = best[n] + bestnop[i] + 1;
+               if (t &lt; best[n * i]) 
+               {
+                  best[n * i] = t;
+                  add(n * i);
+               }
+            }
+            if (div &amp;&amp; i &gt; 0)
+            {
+               int t = best[n] + bestnop[i] + 1;
+               if (t &lt; best[n / i]) 
+               {
+                  best[n / i] = t;
+                  add(n / i);
+               }
+            }
+         }
+   }
 
-	// is it impossible?
-	if (best[target] == 999999) return -1;
-	
-	// otherwise return the result
-	return best[target];
+   // is it impossible?
+   if (best[target] == 999999) return -1;
+   
+   // otherwise return the result
+   return best[target];
 }
 </pre>
 <font size="+2">
@@ -693,93 +693,93 @@ public int c;
 
 // cut out a pattern, rotated, at a given position
 public void cut(int x, int y, int r) {
-	for (int i = 0; i &lt; p[r].length; i++)
-		for (int j = 0; j &lt; p[r][i].length(); j++)
-			if (p[r][i].charAt(j) == 'X') b[x + j][y + i] = true;
+   for (int i = 0; i &lt; p[r].length; i++)
+      for (int j = 0; j &lt; p[r][i].length(); j++)
+         if (p[r][i].charAt(j) == 'X') b[x + j][y + i] = true;
 }
 
 // paste the pattern back in
 public void paste(int x, int y, int r) {
-	for (int i = 0; i &lt; p[r].length; i++)
-		for (int j = 0; j &lt; p[r][i].length(); j++)
-			if (p[r][i].charAt(j) == 'X') b[x + j][y + i] = false;
+   for (int i = 0; i &lt; p[r].length; i++)
+      for (int j = 0; j &lt; p[r][i].length(); j++)
+         if (p[r][i].charAt(j) == 'X') b[x + j][y + i] = false;
 }
 
 // can we cut the pattern out from here?
 public boolean canCut(int x, int y, int r) {
-	if (x + p[r][0].length() &gt; mx) return false;
-	if (y + p[r].length &gt; my) return false;
-	for (int i = 0; i &lt; p[r].length; i++)
-		for (int j = 0; j &lt; p[r][i].length(); j++)
-			if (p[r][i].charAt(j) == 'X' &amp;&amp; b[x + j][y + i]) return false;
-	return true;
+   if (x + p[r][0].length() &gt; mx) return false;
+   if (y + p[r].length &gt; my) return false;
+   for (int i = 0; i &lt; p[r].length; i++)
+      for (int j = 0; j &lt; p[r][i].length(); j++)
+         if (p[r][i].charAt(j) == 'X' &amp;&amp; b[x + j][y + i]) return false;
+   return true;
 }
 
 // Determine the most cuttings we can do, starting at (x, y),
 //  knowing that we don't care about results less than min
 public int partialMax(int x, int y, int min) {
-	int best = 0;
-	while (y &lt; my) {
-		int maxRemain = (my - y - 1) * mx + (mx - x);
-		maxRemain /= c;
-		if (min &gt; maxRemain) return best;
-		if (best &gt; maxRemain) return best;
-		int localbest = best;
-		for (int r = 0; r &lt; 4; r++)
-			if (canCut(x, y, r)) {
-				cut(x, y, r);
-				x++; if (x &#8805; mx) { x = 0; y++; }
-				localbest = Math.max(localbest, 1 + partialMax(x, y, localbest));
-				x--; if (x &lt; 0) { x = mx - 1; y--; }
-				paste(x, y, r);
-			}
-		best = Math.max(best, localbest);
-		x++; if (x &#8805; mx) { x = 0; y++; }
-	}
-	return best;
+   int best = 0;
+   while (y &lt; my) {
+      int maxRemain = (my - y - 1) * mx + (mx - x);
+      maxRemain /= c;
+      if (min &gt; maxRemain) return best;
+      if (best &gt; maxRemain) return best;
+      int localbest = best;
+      for (int r = 0; r &lt; 4; r++)
+         if (canCut(x, y, r)) {
+            cut(x, y, r);
+            x++; if (x &#8805; mx) { x = 0; y++; }
+            localbest = Math.max(localbest, 1 + partialMax(x, y, localbest));
+            x--; if (x &lt; 0) { x = mx - 1; y--; }
+            paste(x, y, r);
+         }
+      best = Math.max(best, localbest);
+      x++; if (x &#8805; mx) { x = 0; y++; }
+   }
+   return best;
 }
 
 public int getMax(int width, int height, String[] pattern) {
-	// Deal with the trivial cases that could cause a timeout
-	if (pattern.length * pattern[0].length() == 2)
-		return (height * width / 2);
-	if (pattern.length * pattern[0].length() == 1)
-		return height * width;
-	
-	// Determine the size of paper, and number of blocks in our pattern
-	c = 0;
-	for (int i = 0; i &lt; pattern.length; i++) for (int j = 0; j &lt; pattern[i].length(); j++)
-		if (pattern[i].charAt(j) == 'X') c++;
-	my = height;
-	mx = width;
+   // Deal with the trivial cases that could cause a timeout
+   if (pattern.length * pattern[0].length() == 2)
+      return (height * width / 2);
+   if (pattern.length * pattern[0].length() == 1)
+      return height * width;
+   
+   // Determine the size of paper, and number of blocks in our pattern
+   c = 0;
+   for (int i = 0; i &lt; pattern.length; i++) for (int j = 0; j &lt; pattern[i].length(); j++)
+      if (pattern[i].charAt(j) == 'X') c++;
+   my = height;
+   mx = width;
 
-	// create our virtual paper
-	b = new boolean[width][height];
-	
-	// and our pattern rotations
-	p = new String[4][];
-	p[0] = pattern;
-	p[2] = new String[pattern.length];
-	for (int i = 0; i &lt; pattern.length; i++) {
-		p[2][i] = "";
-		for (int j = 0; j &lt; pattern[0].length(); j++)
-			p[2][i] += pattern[pattern.length - 1 - i].charAt(pattern[0].length() - 1 - j);
-	}
-	p[1] = new String[pattern[0].length()];
-	for (int i = 0; i &lt; pattern[0].length(); i++) {
-		p[1][i] = "";
-		for (int j = 0; j &lt; pattern.length; j++)
-			p[1][i] += pattern[j].charAt(pattern[j].length() - i - 1);
-	}
-	p[3] = new String[pattern[0].length()];
-	for (int i = 0; i &lt; pattern[0].length(); i++) {
-		p[3][i] = "";
-		for (int j = 0; j &lt; pattern.length; j++)
-			p[3][i] += pattern[pattern.length - 1 - j].charAt(i);
-	}
+   // create our virtual paper
+   b = new boolean[width][height];
+   
+   // and our pattern rotations
+   p = new String[4][];
+   p[0] = pattern;
+   p[2] = new String[pattern.length];
+   for (int i = 0; i &lt; pattern.length; i++) {
+      p[2][i] = "";
+      for (int j = 0; j &lt; pattern[0].length(); j++)
+         p[2][i] += pattern[pattern.length - 1 - i].charAt(pattern[0].length() - 1 - j);
+   }
+   p[1] = new String[pattern[0].length()];
+   for (int i = 0; i &lt; pattern[0].length(); i++) {
+      p[1][i] = "";
+      for (int j = 0; j &lt; pattern.length; j++)
+         p[1][i] += pattern[j].charAt(pattern[j].length() - i - 1);
+   }
+   p[3] = new String[pattern[0].length()];
+   for (int i = 0; i &lt; pattern[0].length(); i++) {
+      p[3][i] = "";
+      for (int j = 0; j &lt; pattern.length; j++)
+         p[3][i] += pattern[pattern.length - 1 - j].charAt(i);
+   }
 
-	// start our search-cutting from the upper left
-	return partialMax(0, 0, 0);
+   // start our search-cutting from the upper left
+   return partialMax(0, 0, 0);
 }
 </pre>
 

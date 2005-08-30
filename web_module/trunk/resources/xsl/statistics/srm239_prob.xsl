@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                 <table width="100%" border="0" cellspacing="0" cellpadding="3">
                    <tr valign="middle">
                       <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 239</font></td>
-                      <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                      <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                    </tr>
 
                    <tr valign="middle">
@@ -160,7 +160,7 @@ One vote received counts towards exclusion more than any number of votes given, 
 <pre>
      for (i = 0; i &lt; n; i++) score[i] = 0; 
      for (i = 0; i &lt; voter.length ; i++)  
-     {				 
+     {             
          score[voter[i]]++; score[excluded[i]] += 100;
      }
 </pre>
@@ -289,10 +289,10 @@ double go(int[] a, int[] b, int[] c, int[] d)
     {
         for (int j = 0; j&lt;c.length; j++)
         { 
-	    double d1 = a[i] - c[j]; 
-	    double d2 = b[i] - d[j]; 
-	    ret = Math.min(re , Math.sqrt(d1 * d1 + d2 * d2)); 
-	}
+       double d1 = a[i] - c[j]; 
+       double d2 = b[i] - d[j]; 
+       ret = Math.min(re , Math.sqrt(d1 * d1 + d2 * d2)); 
+   }
    } 
    return ret; 
 }

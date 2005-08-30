@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 176</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -485,14 +485,14 @@ solution in the practice room for an implementation of this in C++.
 </p>
 <pre>
 long long numDerangements(S)
-	long long ret=numPermutations(S);
-	for i from 1 to the number of elements in S
-		for each combination, C, of i elements in S
-			if (i is odd) ret=ret-numPermutations(S-C);
-			if (i is even) ret=ret+numPermutations(S-C);
-		end
-	end
-	return ret;
+   long long ret=numPermutations(S);
+   for i from 1 to the number of elements in S
+      for each combination, C, of i elements in S
+         if (i is odd) ret=ret-numPermutations(S-C);
+         if (i is even) ret=ret+numPermutations(S-C);
+      end
+   end
+   return ret;
 end
 </pre>
 </p>

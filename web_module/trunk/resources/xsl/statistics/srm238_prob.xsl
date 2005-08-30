@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                 <table width="100%" border="0" cellspacing="0" cellpadding="3">
                    <tr valign="middle">
                       <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 238</font></td>
-                      <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                      <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                    </tr>
 
                    <tr valign="middle">
@@ -147,11 +147,11 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
 <p>
 To solve this problem, we iterate over the entire input and apply the given formula to each entry.  An interesting feature of the formula, is that the position of each letter has no effect on the final return value.  The important factors are the number of times each letter occurs, the number of elements in the input, and the number of characters in each element of the input.  Java code follows :<pre>
 public int getHash(String[] input) {
-	int ret = 0;
-	for (int i = 0; i &lt; input.length; i++) 
-		for (int j = 0; j &lt; input[i].length(); j++)
-			ret += input[i].charAt(j) - 'A' + i + j;
-	return ret;
+   int ret = 0;
+   for (int i = 0; i &lt; input.length; i++) 
+      for (int j = 0; j &lt; input[i].length(); j++)
+         ret += input[i].charAt(j) - 'A' + i + j;
+   return ret;
 }
 </pre>
 </p>
@@ -250,17 +250,17 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
 <p>
 In this problem we must write code that simulates a multithreaded system.  Since we are explicitly given the time slices alocated to each thread, the solution amounts to simple iteration code.  In a separate array, we maintain the position of each thread, so that subsequent executions begin properly.  Java code follows: <pre>
 public String getOutput(String[] threads, String[] slices) {
-	StringBuffer ret = new StringBuffer();
-	int[] pc = new int[threads.length];
-	for (int i = 0; i &lt; slices.length; i++) {
-		String[] toks = slices[i].split(" ");
-		int threadNum = Integer.parseInt(toks[0]), time = Integer.parseInt(toks[1]);
-		for (int j = 0; j &lt; time; j++) {
-			ret.append(threads[threadNum].charAt(pc[threadNum]));
-			pc[threadNum] = (pc[threadNum] + 1) % threads[threadNum].length();
-		}
-	}
-	return ret+"";
+   StringBuffer ret = new StringBuffer();
+   int[] pc = new int[threads.length];
+   for (int i = 0; i &lt; slices.length; i++) {
+      String[] toks = slices[i].split(" ");
+      int threadNum = Integer.parseInt(toks[0]), time = Integer.parseInt(toks[1]);
+      for (int j = 0; j &lt; time; j++) {
+         ret.append(threads[threadNum].charAt(pc[threadNum]));
+         pc[threadNum] = (pc[threadNum] + 1) % threads[threadNum].length();
+      }
+   }
+   return ret+"";
 }
 </pre> 
 </p>
@@ -319,13 +319,13 @@ possible roots.  Based on a divisibility argument, the length of a root must div
 of the string.  Thus, to find all non-redundant roots, we iterate over all possible divisors.  Java code
 follows:<pre>
 public int howMany(int length) {
-	if (length == 1) return 0;
-	int ret = 0;
-	for (int sub = 1; sub &lt; length; sub++) 
-		if (length % sub == 0)
-		//# of Non-Redundant = Total - Redundant
-			ret += (1 &lt;&lt; sub) - howMany(sub);
-	return ret;
+   if (length == 1) return 0;
+   int ret = 0;
+   for (int sub = 1; sub &lt; length; sub++) 
+      if (length % sub == 0)
+      //# of Non-Redundant = Total - Redundant
+         ret += (1 &lt;&lt; sub) - howMany(sub);
+   return ret;
 }</pre>
 </p>
 
@@ -466,18 +466,18 @@ strings, but in reality there are only (2B-1)*A*C*D strings.  When all 4 letters
 at 0, this formula must be subtracted 4 times, for each potential case of overcounting.  Java code
 follows: <pre>
 public long howMany(int[] abounds, int[] bbounds, int[] cbounds, int[] dbounds) {
-	int[][] arrs = {abounds,bbounds,cbounds,dbounds};
-	int cnts[] = new int[4], lowSum = 0;
-	long ret = 1, simp = 0;
-	for (int i = 0; i &lt; cnts.length; i++) {
-		simp = ret *= cnts[i] = arrs[i][1] - arrs[i][0] + 1;
-		lowSum += arrs[i][0];
-	}
-	ret *= ret;
-	for (int i = 0; i &lt; 4; i++) 
-		if (arrs[i][0] == lowSum) 
-		        ret -= simp*(cnts[i] - 1)*(cnts[i] - 1)/cnts[i];
-	return ret;
+   int[][] arrs = {abounds,bbounds,cbounds,dbounds};
+   int cnts[] = new int[4], lowSum = 0;
+   long ret = 1, simp = 0;
+   for (int i = 0; i &lt; cnts.length; i++) {
+      simp = ret *= cnts[i] = arrs[i][1] - arrs[i][0] + 1;
+      lowSum += arrs[i][0];
+   }
+   ret *= ret;
+   for (int i = 0; i &lt; 4; i++) 
+      if (arrs[i][0] == lowSum) 
+              ret -= simp*(cnts[i] - 1)*(cnts[i] - 1)/cnts[i];
+   return ret;
 }
 </pre>
 </p>

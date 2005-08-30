@@ -10,9 +10,9 @@
 
       <xsl:for-each select="/TC/STATLISTS/Main/ContestItem">
 
-	  	<xsl:sort select="ContestStart" order="descending"/>
+        <xsl:sort select="ContestStart" order="descending"/>
 
-		<xsl:sort select="RoundId" order="descending"/>
+      <xsl:sort select="RoundId" order="descending"/>
 
         <OPTION>
 
@@ -78,9 +78,9 @@
 
       <xsl:for-each select="/TC/STATLISTS/Main/ContestItem">
 
-	  	<xsl:sort select="ContestStart" order="descending"/>
+        <xsl:sort select="ContestStart" order="descending"/>
 
-		<xsl:sort select="RoundId" order="descending"/>
+      <xsl:sort select="RoundId" order="descending"/>
 
         <OPTION>
 

@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%" nowrap="nowrap"><font size="3">TCO - Qualification Round 2 Summary</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -224,13 +224,13 @@ As directed by the problem, we must check each integer x in [0,max] to determine
 Beginning with z(0)=c, we can iteratively compute the values of z(x) for all pertinent x, and test for magnitudes above 2.  Java code follows:
 <pre>
 public int iterations(int max, double origa, double origb) {
-	double a = origa, b = origb;
-	for (int i = 0; i &lt;= max; i++) {
-		if (Math.sqrta*a+b*b)&gt;2) return i;
-		double tempa = (a*a-b*b)+origa;
-		b =  2*a*b+origb; 
-		a = tempa;
-	} return -1;
+   double a = origa, b = origb;
+   for (int i = 0; i &lt;= max; i++) {
+      if (Math.sqrta*a+b*b)&gt;2) return i;
+      double tempa = (a*a-b*b)+origa;
+      b =  2*a*b+origb; 
+      a = tempa;
+   } return -1;
 }
 </pre>
 Alternatively, we could have computed z(x) recursively, but this could take some extra doing, seeing as a complex value need be passed through the call chain.  Many coders accidently computed z(x+1)=z(x)*z(x)+z(x), generating multiple questions about incorrect test cases.
@@ -287,11 +287,11 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
 The hard clearly stood out from the rest, in terms of required code amount.  In this problem, we must turn character input into a graph, and return edge information.  The heart of the solution loops over each character of the input, and determines whether it is a node.  If so, check all neighboring squares for edges, and traverse all paths to their ends.  Traversals were done both recursively and iteratively by competitors, both with varied success.  The most significant issue was accounting for loops, so as to not count them twice at a node.  Simply removing all traversed edge characters will not work, since multiple edges may share edge characters.  To avoid such a problem, I marked all edge characters used while processing a single node.  Once done processing the node, I removed all markings.  This way, the edges would remain, if needed by another node.<br/>
 <br/>
 To handle the return value sorting, I used the built in String sorting features.  This required some doing, do to varying number lengths.  Lets say I was storing each piece of edge data as "dest:len".  Simply sorting the strings could produce incorrect results since a string like "10:4" would lexicographically occur before "2:4".  To alleviate this issue, I stored all the numbers using a DecimalFormat that forced them to be at least 10 characters in length.  This was done with code similar to the following:<pre>
-	int dest = something, len = somethingelse;
-	DecimalFormat df = new DecimalFormat("000000000");
-	edgeStorage.add(df.format(dest)+":"+df.format(len));
-	/*later*/
-	Collections.sort(edgeStorage);
+   int dest = something, len = somethingelse;
+   DecimalFormat df = new DecimalFormat("000000000");
+   edgeStorage.add(df.format(dest)+":"+df.format(len));
+   /*later*/
+   Collections.sort(edgeStorage);
 </pre>
 Such a method will correctly format the strings, and produce the necessary sorting method using the native string comparator.
 </p>

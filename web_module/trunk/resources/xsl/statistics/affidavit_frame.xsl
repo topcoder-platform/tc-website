@@ -13,9 +13,9 @@
       </HEAD>
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFFFFF" WIDTH="100%">
-	<TR>
-	    <TD WIDTH="4"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
-		<TD CLASS="bodyText">
+   <TR>
+       <TD WIDTH="4"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
+      <TD CLASS="bodyText">
 <P>
  I understand that I retain any rights to ownership in any materials posted, uploaded or otherwise sent to TopCoder or its Web site; TopCoder will not gain ownership rights to this material. I also understand that by posting, uploading or otherwise sending any source code to TopCoder or its Web site, I grant (or warrant that the owner of such rights has expressly granted) to TopCoder a perpetual, royalty-free, irrevocable, non-exclusive right and license to use, reproduce and publish such code into any form, medium or technology. With respect to any other material posted, uploaded or otherwise sent, I grant (or warrant that the owner of such rights has expressly granted) TopCoder the same license as pertains to source code with the additional license to modify, adapt, translate, create derivative works from, and distribute such materials or incorporate such materials into any form, medium or technology.
 </P>
@@ -30,12 +30,12 @@ I understand that I will be disqualified from receiving and agree to return to T
 
 <P>
 It is understood and agreed that this is a complete RELEASE and DISCHARGE of all claims and rights of the undersigned against the TopCoder and the Sponsors and that no action will be taken by or on behalf of the undersigned with respect to any such rights, it being understood that this release shall be binding upon the heirs, executors, and administrators of the undersigned.
-	
+   
 </P>
-	
-		</TD>
-		<TD WIDTH="4"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
-	</TR>
+   
+      </TD>
+      <TD WIDTH="4"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
+   </TR>
 </TABLE>
 </BODY>
     </HTML>

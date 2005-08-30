@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%" nowrap="nowrap"><font size="3">TCO - Qualification Round 1 Summary</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -146,35 +146,35 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
 <p> 
 There are a couple of ways to go about this problem.  If you know a little bit about your language's string library, you can do something like this (shown here in Java):
 <pre>
-	public String getMissingLetters(String sentence){
-		String s = sentence.toUpperCase();
-		String ret = "";
-		for(char c = 'A'; c&lt;='Z'; c++){
-			if(s.indexOf(c)==-1)ret+=c;
-		}
-		return ret;
-	}
+   public String getMissingLetters(String sentence){
+      String s = sentence.toUpperCase();
+      String ret = "";
+      for(char c = 'A'; c&lt;='Z'; c++){
+         if(s.indexOf(c)==-1)ret+=c;
+      }
+      return ret;
+   }
 </pre>
 Without the indexOf() and the toUpperCase() function, you could always initialize a boolean array with 26 elements, each of which represents whether or not a character is present.  It would go like this (in C++ this time):
 
 <pre>
-	string getMissingLetters(string sentence){
-		bool present[26] = {};
-		for(int i = 0; i&lt;sentence.size(); i++){
-			if(sentence[i] &gt;='A' &amp;&amp; sentence[i] &lt;= 'Z'){
-				present[sentence[i]-'A'] = true;
-			}else if(sentence[i] &gt;='a' &amp;&amp; sentence[i] &lt;= 'z'){
-				present[sentence[i]-'a'] = true;
-			}
-		}
-		string ret;
-		for(int i = 0; i&lt;26; i++){
-			if(!present[i]){
-				ret.push_back((char)(i+'A'));
-			}
-		}
-		return ret;
-	}
+   string getMissingLetters(string sentence){
+      bool present[26] = {};
+      for(int i = 0; i&lt;sentence.size(); i++){
+         if(sentence[i] &gt;='A' &amp;&amp; sentence[i] &lt;= 'Z'){
+            present[sentence[i]-'A'] = true;
+         }else if(sentence[i] &gt;='a' &amp;&amp; sentence[i] &lt;= 'z'){
+            present[sentence[i]-'a'] = true;
+         }
+      }
+      string ret;
+      for(int i = 0; i&lt;26; i++){
+         if(!present[i]){
+            ret.push_back((char)(i+'A'));
+         }
+      }
+      return ret;
+   }
 </pre>
 </p> 
 
@@ -231,49 +231,49 @@ Again, familiarity with the string operations in your language makes this proble
 <pre>
 <font color="blue">//initialize the index of the occurrence to -1 so that we search 
 //from character 0 the first time</font>
-	int pos = -1;
+   int pos = -1;
 <font color="blue">//loop up to <b>index</b> times, each time finding the next 
 //occurrence of <b>before</b></font>
-	for(int j = 0; j &lt; index; j++)
-	{
+   for(int j = 0; j &lt; index; j++)
+   {
 <font color="blue">//set pos to the position of the next occurrence of <b>before</b>,
 //starting one character after the current position</font>
-		pos = original.indexOf(before, pos+1);
+      pos = original.indexOf(before, pos+1);
 <font color="blue">//if pos is -1, there are no more occurrences, so break out of 
 //the loop</font>
-		if(pos==-1)break;
-	}
+      if(pos==-1)break;
+   }
 <font color="blue">//here, pos is either the position of the correct occurrence of 
 //<b>before</b>, or else it is -1</font>
 </pre>
 Once you've found the proper position to do the insert, you can easily add &lt;insert&gt;, like this:
 <pre>
-	if(pos!=-1)
-		original=original.substring(0,pos)+insert+original.substring(pos);
+   if(pos!=-1)
+      original=original.substring(0,pos)+insert+original.substring(pos);
 </pre>
 
 That's pretty much it, you just run through all of the commands, tokenize them, do the insert, and then return the modified original string at the end:
 <pre>
-	public String insert(String[] commands, String original)
-	{
-		for(int i = 0; i&lt;commands.length;i++)
-		{ 
-			StringTokenizer st = new StringTokenizer(commands[i],"#");
-			String insert = st.nextToken();
-			st.nextToken();
-			String before = st.nextToken();
-			int index = Integer.parseInt(st.nextToken().substring(1));
-			int pos = -1;
-			for(int j = 0; j &lt; index; j++)
-			{
-				pos = original.indexOf(before, pos+1);
-				if(pos==-1)break;
-			}
-			if(pos!=-1)
-				original=original.substring(0,pos)+insert+original.substring(pos);
-		}
-		return original;
-	}
+   public String insert(String[] commands, String original)
+   {
+      for(int i = 0; i&lt;commands.length;i++)
+      { 
+         StringTokenizer st = new StringTokenizer(commands[i],"#");
+         String insert = st.nextToken();
+         st.nextToken();
+         String before = st.nextToken();
+         int index = Integer.parseInt(st.nextToken().substring(1));
+         int pos = -1;
+         for(int j = 0; j &lt; index; j++)
+         {
+            pos = original.indexOf(before, pos+1);
+            if(pos==-1)break;
+         }
+         if(pos!=-1)
+            original=original.substring(0,pos)+insert+original.substring(pos);
+      }
+      return original;
+   }
 </pre>
 </p> 
 
@@ -338,16 +338,16 @@ We start with a boolean array, each of whose elements represents whether or not 
 bool pos[lengthOf(rooms)];
 pos[start] = true;
 foreach character c in doors
-	bool next[lengthOf(rooms)];
-	for i = 0 to lengthOf(rooms)-1
-		if(pos[i])
-			for j = 0 to lengthOf(rooms)-1
-				if(door from i to j is open on c)
-					next[j] = true;
-				end if
-			end for
-		end if
-	end for
+   bool next[lengthOf(rooms)];
+   for i = 0 to lengthOf(rooms)-1
+      if(pos[i])
+         for j = 0 to lengthOf(rooms)-1
+            if(door from i to j is open on c)
+               next[j] = true;
+            end if
+         end for
+      end if
+   end for
 end for
 //return an int array each of whose elements is one a 'true' in pos
 </pre>

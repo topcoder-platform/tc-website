@@ -84,7 +84,7 @@
                                                             <!-- <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="15"><A HREF="/?t=statistics&amp;c=srm104_prob" CLASS="bodyGeneric">&#160;Problem&#160;Set&#160;</A></TD>
                                                             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="/?t=statistics&amp;c=srm103_rookie" CLASS="bodyGeneric">&#160;Rookie&#160;Review&#160;</A></TD> -->
                                                             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC">
-                                                                <A HREF="/index?t=statistics&amp;c=editorial_archive" CLASS="bodyGeneric">&#160;Archive&#160;</A>
+                                                                <A HREF="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" CLASS="bodyGeneric">&#160;Archive&#160;</A>
                                                             </TD>
                                                             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC">
                                                                 <A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">&#160;Comments/Ideas?&#160;</A>
@@ -100,9 +100,9 @@
                                         <!--<A HREF="stat?c=round_stats&amp;rd=4165&amp;dn=2" CLASS="bodyGeneric">-->
                                         
                                         <p><b>Single Round Match 141</b><br/>
-										Thursday, April 10 2003 
-										</p>
-										
+                              Thursday, April 10 2003 
+                              </p>
+                              
                                        <P><B>Problem Set Analysis &amp; Opinion</B></P>
                         <p>
                         SnapDragon brought his A game to this match, beating everyone by over 200 points. Most people were 
@@ -175,47 +175,47 @@
                         <FONT size="+2"><B>Widget</B></FONT><BR />
                         Used as: Division-II, Level 3: 
                         <BLOCKQUOTE>
-  						<TABLE cellspacing="2" cellpadding="2">
-   						<TR>
-      					<TD style="BACKGROUND: #eee" class="bodyText"><B>Value</B></TD>
-      					<TD style="BACKGROUND: #eee" class="bodyText">1000</TD>
-      					</TR>
-    					<TR>
-      					<TD style="BACKGROUND: #eee" class="bodyText"><B>Submission Rate</B></TD>
-      					<TD style="BACKGROUND: #eee" class="bodyText">37 / 227 (16.30%) </TD>
-      					</TR>
-    					<TR>
-      					<TD style="BACKGROUND: #eee" class="bodyText"><B>Success Rate</B></TD>
-      					<TD style="BACKGROUND: #eee" class="bodyText">28 / 37 (75.68%)</TD>
-      					</TR>
-   						<TR>
-      					<TD style="BACKGROUND: #eee" class="bodyText"><B>High Score</B></TD>
-      					<TD style="BACKGROUND: #eee" class="bodyText"><B>dary</B> for 782.05 points</TD>
-      					</TR>
-      					</TABLE>
-      					</BLOCKQUOTE>
-      					<BR />
-      					Used as: Division-I, Level 2: 
-						<BLOCKQUOTE>
- 						<TABLE cellspacing="2" cellpadding="2">
-    					<TR>
-      					<TD class="bodyText" style="BACKGROUND: #eee"><B>Value</B></TD>
-      					<TD class="bodyText" style="BACKGROUND: #eee">500</TD>
-      					</TR>
-    					<TR>
-      					<TD class="bodyText" style="BACKGROUND: #eee"><B>Submission Rate</B></TD>
-      					<TD class="bodyText" style="BACKGROUND: #eee">93 / 127 (73.23%) </TD>
-      					</TR>
-    					<TR>
-      					<TD class="bodyText" style="BACKGROUND: #eee"><B>Success Rate</B></TD>
-      					<TD class="bodyText" style="BACKGROUND: #eee">79 / 93 (84.95%)</TD>
-      					</TR>
-    					<TR>
-      					<TD class="bodyText" style="BACKGROUND: #eee"><B>High Score</B></TD>
-      					<TD class="bodyText" style="BACKGROUND: #eee"><B>ZorbaTHut</B> for 468.58 points</TD>
-      					</TR>
-      					</TABLE>
-      					</BLOCKQUOTE>
+                    <TABLE cellspacing="2" cellpadding="2">
+                     <TR>
+                     <TD style="BACKGROUND: #eee" class="bodyText"><B>Value</B></TD>
+                     <TD style="BACKGROUND: #eee" class="bodyText">1000</TD>
+                     </TR>
+                   <TR>
+                     <TD style="BACKGROUND: #eee" class="bodyText"><B>Submission Rate</B></TD>
+                     <TD style="BACKGROUND: #eee" class="bodyText">37 / 227 (16.30%) </TD>
+                     </TR>
+                   <TR>
+                     <TD style="BACKGROUND: #eee" class="bodyText"><B>Success Rate</B></TD>
+                     <TD style="BACKGROUND: #eee" class="bodyText">28 / 37 (75.68%)</TD>
+                     </TR>
+                     <TR>
+                     <TD style="BACKGROUND: #eee" class="bodyText"><B>High Score</B></TD>
+                     <TD style="BACKGROUND: #eee" class="bodyText"><B>dary</B> for 782.05 points</TD>
+                     </TR>
+                     </TABLE>
+                     </BLOCKQUOTE>
+                     <BR />
+                     Used as: Division-I, Level 2: 
+                  <BLOCKQUOTE>
+                   <TABLE cellspacing="2" cellpadding="2">
+                   <TR>
+                     <TD class="bodyText" style="BACKGROUND: #eee"><B>Value</B></TD>
+                     <TD class="bodyText" style="BACKGROUND: #eee">500</TD>
+                     </TR>
+                   <TR>
+                     <TD class="bodyText" style="BACKGROUND: #eee"><B>Submission Rate</B></TD>
+                     <TD class="bodyText" style="BACKGROUND: #eee">93 / 127 (73.23%) </TD>
+                     </TR>
+                   <TR>
+                     <TD class="bodyText" style="BACKGROUND: #eee"><B>Success Rate</B></TD>
+                     <TD class="bodyText" style="BACKGROUND: #eee">79 / 93 (84.95%)</TD>
+                     </TR>
+                   <TR>
+                     <TD class="bodyText" style="BACKGROUND: #eee"><B>High Score</B></TD>
+                     <TD class="bodyText" style="BACKGROUND: #eee"><B>ZorbaTHut</B> for 468.58 points</TD>
+                     </TR>
+                     </TABLE>
+                     </BLOCKQUOTE>
 <p>
 <b>Implementation</b><br />
 Widget layout can be a pretty complicated problem, especially when you have 
@@ -235,7 +235,7 @@ and make sure that the right is to the right of left, and the top is above
 bottom. If everything checks out, just return the location of the widget. 
 </p>
 
-						<font size="+2"><b>Bounce</b></font><BR />
+                  <font size="+2"><b>Bounce</b></font><BR />
                         Used as: Division I - Level 1:
                         <blockquote>
                         <table cellspacing="2" cellpadding="2">
@@ -306,29 +306,29 @@ else
   cost(i,j) = infinity
 
 </pre>
-						<p>Where cost(i,j) represents the cost of playing i+1 chords, and ending up in position j. Since we can 
-						start in any position, when i = 0, we have cost(0,j) = 0 if chord 0 is playable in position j, and cost
-						(0,j) = infinity otherwise. The recurrence is pretty easy to implement, and all that we have left to 
-						do is write a function to determine if a chord can be played in a given position. At first glance, 
-						it seems that a greedy approach to assigning notes would work, but then you have the open notes, 
-						which make things tricky. Since there are only 6 strings, the simplest way to determine if a chord 
-						is playable is probably just to try all possible assignments of notes to strings. 6! is pretty small, 
-						so timeout shouldn't be an issue. Then, all you have to do is figure out what to return. Since you can 
-						end in any position, you want to return the minimum cost for any position to have played all chords. 
-						If this value is infinity, return -1.<br />
-						One noteworthy thing to watch for is that there are only 24 frets. So, if position is 23, you can 
-						only use frets 23 and 24. It turns out that there is no reason to ever be in a position above 21. 
+                  <p>Where cost(i,j) represents the cost of playing i+1 chords, and ending up in position j. Since we can 
+                  start in any position, when i = 0, we have cost(0,j) = 0 if chord 0 is playable in position j, and cost
+                  (0,j) = infinity otherwise. The recurrence is pretty easy to implement, and all that we have left to 
+                  do is write a function to determine if a chord can be played in a given position. At first glance, 
+                  it seems that a greedy approach to assigning notes would work, but then you have the open notes, 
+                  which make things tricky. Since there are only 6 strings, the simplest way to determine if a chord 
+                  is playable is probably just to try all possible assignments of notes to strings. 6! is pretty small, 
+                  so timeout shouldn't be an issue. Then, all you have to do is figure out what to return. Since you can 
+                  end in any position, you want to return the minimum cost for any position to have played all chords. 
+                  If this value is infinity, return -1.<br />
+                  One noteworthy thing to watch for is that there are only 24 frets. So, if position is 23, you can 
+                  only use frets 23 and 24. It turns out that there is no reason to ever be in a position above 21. 
                         </p>
 
 
 
 
-		
+      
 
                                        
 
                                          <IMG SRC="/i/m/lbackstrom_mug.jpg" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-                       					 By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+                                       By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
                                        
                                         <P>
                                             <BR/>

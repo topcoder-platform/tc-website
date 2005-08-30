@@ -64,7 +64,7 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 152</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -220,7 +220,7 @@
                         with it. Anyhow, here it is in code: 
                         </p>
                         
-                        <PRE>	
+                        <PRE>   
 int S0 = 0, S1 = 1, S2 = 2, S3 = 3;
 String ops = "+*-/";
 if (dotForm.length() &lt; 1 || dotForm.length() &gt; 25) 
@@ -228,21 +228,21 @@ if (dotForm.length() &lt; 1 || dotForm.length() &gt; 25)
 boolean good = true;
 int STATE = S0;
 for (int i = 0; i &lt; dotForm.length(); i++) {
-		char curr = dotForm.charAt(i);
-		good = true;
-		if (STATE == S0) {
-			if (Character.isDigit(curr)) STATE = S1;
-			else good = false;
-		} else if (STATE == S1 || STATE == S2){
-			if (curr=='.')STATE = S2;
-			else if (ops.indexOf(curr)!=-1) STATE = S3;
-			else good = false;
-		} else if (STATE == S3) {
-			if (curr=='.') STATE = S3;
-			else if (Character.isDigit(curr)) STATE = S1;
-			else good = false;
-		}
-		if (!good) return "dotForm is not in dot notation, check character "+i+".";
+      char curr = dotForm.charAt(i);
+      good = true;
+      if (STATE == S0) {
+         if (Character.isDigit(curr)) STATE = S1;
+         else good = false;
+      } else if (STATE == S1 || STATE == S2){
+         if (curr=='.')STATE = S2;
+         else if (ops.indexOf(curr)!=-1) STATE = S3;
+         else good = false;
+      } else if (STATE == S3) {
+         if (curr=='.') STATE = S3;
+         else if (Character.isDigit(curr)) STATE = S1;
+         else good = false;
+      }
+      if (!good) return "dotForm is not in dot notation, check character "+i+".";
 } if (STATE!=S1) return "dotForm is not in dot notation, check character "+(dotForm.length())+".";
 return "";
 </PRE>

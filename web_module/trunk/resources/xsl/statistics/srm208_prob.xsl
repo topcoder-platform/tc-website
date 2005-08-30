@@ -47,39 +47,39 @@ function openWin(url, name, w, h) {
  <tr valign="top">
 
 <!-- Left Column Begins -->
-	 <td width="170" bgcolor="#FFFFFF">
-		 <xsl:call-template name="global_left"/>
-	 </td>
+    <td width="170" bgcolor="#FFFFFF">
+       <xsl:call-template name="global_left"/>
+    </td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-	 <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" alt="" border="0" /></td>
+    <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-	 <td class="bodyText" width="100%">
-		 <xsl:call-template name="BodyTop">
-			 <xsl:with-param name="image1">white</xsl:with-param>
-			 <xsl:with-param name="image">statisticsw</xsl:with-param>
-			 <xsl:with-param name="title">Last Match Editorials</xsl:with-param>
-		 </xsl:call-template>
+    <td class="bodyText" width="100%">
+       <xsl:call-template name="BodyTop">
+          <xsl:with-param name="image1">white</xsl:with-param>
+          <xsl:with-param name="image">statisticsw</xsl:with-param>
+          <xsl:with-param name="title">Last Match Editorials</xsl:with-param>
+       </xsl:call-template>
 
-		 <table border="0" cellspacing="10" cellpadding="0" width="100%">
-		 <tr valign="top">
-				 <td class="bodyText" width="100%">
+       <table border="0" cellspacing="10" cellpadding="0" width="100%">
+       <tr valign="top">
+             <td class="bodyText" width="100%">
 
 <!--body contextual links-->
-					 <table width="100%" border="0" cellspacing="0" cellpadding="3">
-						 <tr valign="middle">
-							 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 208</font></td>
-							 <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
-						 </tr>
+                <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                   <tr valign="middle">
+                      <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 208</font></td>
+                      <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
+                   </tr>
 
-						 <tr valign="middle">
-							 <td class="bodyText">Wednesday, August 18, 2004</td>
-							 <td class="bodyText" align="right"><a href="mailto:editorial@topcoder.com">Comments / Ideas?</a></td>
-						 </tr>
-					 </table>
+                   <tr valign="middle">
+                      <td class="bodyText">Wednesday, August 18, 2004</td>
+                      <td class="bodyText" align="right"><a href="mailto:editorial@topcoder.com">Comments / Ideas?</a></td>
+                   </tr>
+                </table>
 <!--end contextual links-->
 
 <h2>Match summary</h2>
@@ -103,44 +103,44 @@ The Problems
 "18" width="60" src="/i/rate_it.gif"/></A><br/>
 Used as: Division Two - Level One: <blockquote><table cellspacing="2">
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Value</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  250
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Value</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     250
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Submission Rate</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  174 / 199 (87.44%)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Submission Rate</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     174 / 199 (87.44%)
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Success Rate</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  169 / 174 (97.13%)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Success Rate</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     169 / 174 (97.13%)
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>High Score</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  <b>ahri</b> for 249.59 points (1 mins 9 secs)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>High Score</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     <b>ahri</b> for 249.59 points (1 mins 9 secs)
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Average Score</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  213.30 (for 169 correct submissions)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Average Score</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     213.30 (for 169 correct submissions)
+   </td>
   </tr>
 </table></blockquote>
 <p>
@@ -149,11 +149,11 @@ of strings.  To accomplish this, we loop over each character of the collection a
 membership in the given string.  Java code follows: 
 <pre>
 int count(String dithered, String[] screen) {
-	int n = 0;
-	for(int i = 0; i &lt; screen.length; i++)
-	for(int j = 0; j &lt; screen[i].length(); j++)
-		if(dithered.indexOf(screen[i].charAt(j)) != -1)  n++;
-	return n;
+   int n = 0;
+   for(int i = 0; i &lt; screen.length; i++)
+   for(int j = 0; j &lt; screen[i].length(); j++)
+      if(dithered.indexOf(screen[i].charAt(j)) != -1)  n++;
+   return n;
 }
 </pre>
 </p>
@@ -164,44 +164,44 @@ int count(String dithered, String[] screen) {
 "18" width="60" src="/i/rate_it.gif"/></A><br/>
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Value</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  600
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Value</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     600
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Submission Rate</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  115 / 199 (57.79%)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Submission Rate</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     115 / 199 (57.79%)
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Success Rate</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  94 / 115 (81.74%)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Success Rate</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     94 / 115 (81.74%)
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>High Score</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  <b>rem</b> for 562.90 points (7 mins 23 secs)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>High Score</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     <b>rem</b> for 562.90 points (7 mins 23 secs)
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Average Score</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  373.56 (for 94 correct submissions)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Average Score</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     373.56 (for 94 correct submissions)
+   </td>
   </tr>
 </table></blockquote>
 <p>
@@ -212,10 +212,10 @@ exponentiate in a timely fashion.  More precisely, we need a function
 that computes base<SUP>exponent</SUP> % mod.  The following code does this inefficiently:
 <pre>
 int ModularExponentiationSlow(int base, int exponent, int mod) {
-	int ret = 1;
-	for (int i = 0; i &lt; exponent; i++) 
-		ret = (ret * base) % mod;
-	return ret;
+   int ret = 1;
+   for (int i = 0; i &lt; exponent; i++) 
+      ret = (ret * base) % mod;
+   return ret;
 }
 </pre>
 Notice how we use % mod after each multiplication to keep the size of the values manageable.  Even
@@ -223,13 +223,13 @@ though the code above is correct, the number of iterations of the loop is linear
 exponent.  Taking advantage of repeated squaring, we can get the following optimized version: 
 <pre>
 int ModularExponentiation(int base, int exponent, int mod) {
-	if (exponent == 0) return 1;
-	if (exponent % 2 == 0) { //exponent is even
-		int temp = ModularExponentiation(base,exponent/2,mod);
-	return (temp * temp) % mod;
-	} else { //exponent is odd
-	return (base * ModularExponentiation(base,exponent-1,mod)) % mod;
-	}
+   if (exponent == 0) return 1;
+   if (exponent % 2 == 0) { //exponent is even
+      int temp = ModularExponentiation(base,exponent/2,mod);
+   return (temp * temp) % mod;
+   } else { //exponent is odd
+   return (base * ModularExponentiation(base,exponent-1,mod)) % mod;
+   }
 }
 </pre>
 The recursive code given above checks to see if the exponent is even.  If so, we can halve the
@@ -240,12 +240,12 @@ exercise, you can check to see why the following iterative code correctly comput
 function: 
 <pre>
 int ModularExponentiationIter(int base, int exponent, int mod) {
-	int ret = 1;
-	for ( ; exponent &gt; 0 ; exponent /= 2) {
-	if (exponent % 2 == 1) ret = (ret * base) % mod;
-	base = (base * base) % mod;
-	}
-	return ret;
+   int ret = 1;
+   for ( ; exponent &gt; 0 ; exponent /= 2) {
+   if (exponent % 2 == 1) ret = (ret * base) % mod;
+   base = (base * base) % mod;
+   }
+   return ret;
 }
 </pre>
 </p>
@@ -256,87 +256,87 @@ int ModularExponentiationIter(int base, int exponent, int mod) {
 "18" width="60" src="/i/rate_it.gif"/></A><br/>
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Value</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  1000
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Value</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     1000
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Submission Rate</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  12 / 199 (6.03%)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Submission Rate</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     12 / 199 (6.03%)
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Success Rate</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  9 / 12 (75.00%)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Success Rate</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     9 / 12 (75.00%)
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>High Score</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  <b>bwpow</b> for 560.74 points (30 mins 47 secs)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>High Score</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     <b>bwpow</b> for 560.74 points (30 mins 47 secs)
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Average Score</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  482.42 (for 9 correct submissions)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Average Score</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     482.42 (for 9 correct submissions)
+   </td>
   </tr>
 </table></blockquote>
 
 Used as: Division One - Level Two: <blockquote><table cellspacing="2">
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Value</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  500
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Value</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     500
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Submission Rate</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  105 / 177 (59.32%)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Submission Rate</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     105 / 177 (59.32%)
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Success Rate</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  96 / 105 (91.43%)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Success Rate</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     96 / 105 (91.43%)
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>High Score</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  <b>venco</b> for 392.20 points (15 mins 49 secs)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>High Score</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     <b>venco</b> for 392.20 points (15 mins 49 secs)
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Average Score</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  246.77 (for 96 correct submissions)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Average Score</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     246.77 (for 96 correct submissions)
+   </td>
   </tr>
 </table></blockquote>
 <p>
@@ -357,44 +357,44 @@ needed by the algorithm.
 "18" width="60" src="/i/rate_it.gif"/></A><br/>
 Used as: Division One - Level One: <blockquote><table cellspacing="2">
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Value</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  250
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Value</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     250
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Submission Rate</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  176 / 177 (99.44%)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Submission Rate</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     176 / 177 (99.44%)
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Success Rate</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  167 / 176 (94.89%)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Success Rate</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     167 / 176 (94.89%)
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>High Score</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  <b>ZorbaTHut</b> for 246.83 points (3 mins 13 secs)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>High Score</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     <b>ZorbaTHut</b> for 246.83 points (3 mins 13 secs)
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Average Score</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  216.47 (for 167 correct submissions)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Average Score</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     216.47 (for 167 correct submissions)
+   </td>
   </tr>
 </table></blockquote>
 <p>
@@ -410,44 +410,44 @@ always loop through to find minima or maxima.
 "18" width="60" src="/i/rate_it.gif"/></A><br/>
 Used as: Division One - Level Three: <blockquote><table cellspacing="2">
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Value</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  1000
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Value</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     1000
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Submission Rate</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  38 / 177 (21.47%)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Submission Rate</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     38 / 177 (21.47%)
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Success Rate</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  12 / 38 (31.58%)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Success Rate</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     12 / 38 (31.58%)
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>High Score</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  <b>snewman</b> for 791.53 points (15 mins 27 secs)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>High Score</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     <b>snewman</b> for 791.53 points (15 mins 27 secs)
+   </td>
   </tr>
   <tr>
-	<td class="bodyText" style="background: #eee;">
-	  <b>Average Score</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-	  608.21 (for 12 correct submissions)
-	</td>
+   <td class="bodyText" style="background: #eee;">
+     <b>Average Score</b>
+   </td>
+   <td class="bodyText" style="background: #eee;">
+     608.21 (for 12 correct submissions)
+   </td>
   </tr>
 </table></blockquote>
 <p>
@@ -478,33 +478,33 @@ middle path.  Finally move the lowest path.  To see code that implements this al
 solution in the practice room. 
 </p>
 
-					 <p>
-					 <img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-					 By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=251317"><strong>brett1479</strong></a><br />
-					 <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-					 </p>
-				 </td>
-			 </tr>
-		 </table>
+                <p>
+                <img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+                By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=251317"><strong>brett1479</strong></a><br />
+                <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+                </p>
+             </td>
+          </tr>
+       </table>
 
-		 <p><br /></p>
+       <p><br /></p>
 
-	 </td>
+    </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-	 <td width="4"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
+    <td width="4"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-	 <td width="170">
-		 <img src="/i/clear.gif" width="170" height="1" border="0"/><br />
-		 <xsl:call-template name="public_right_col"/>
-	 </td>
+    <td width="170">
+       <img src="/i/clear.gif" width="170" height="1" border="0"/><br />
+       <xsl:call-template name="public_right_col"/>
+    </td>
 <!-- Right Column Ends -->
 
 <!-- Gutter -->
-	 <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
  </tr>

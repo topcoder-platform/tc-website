@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 180</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -187,13 +187,13 @@ is exactly the size of the population increase in males and in females.
 </p><pre>
 
 def dinky(capacity, male, female):
-	if (male+female > 2*capacity):
-		return 0
-	if (female &lt; male):
-		inc = female
-	else:
-		inc = male
-	return 1 + dinky(capacity, male+inc, female+inc)
+   if (male+female > 2*capacity):
+      return 0
+   if (female &lt; male):
+      inc = female
+   else:
+      inc = male
+   return 1 + dinky(capacity, male+inc, female+inc)
 
 </pre><p>
 
@@ -313,24 +313,24 @@ and hashing functions, a solution looks something like the following.
 </p>
 <pre>
 def filter(spam, mail):
-	spam_hash = {}
-	for message in spam:
-		for tok in re.findall("[a-zA-Z]+", message.lower()):
-			spam_hash[tok] = 1
-	ret = []
-	for i in range(len(mail)):
-		message_hash = {}
-		ct = 0
-		for tok in re.findall("[a-zA-Z]+", mail[i].lower()):
-			if (not message_hash.has_key(tok) and spam_hash.has_key(tok)):
-				ct = ct+1
-			message_hash[tok] = 1
-		if (4*ct/3 >= len(message_hash.keys())):
-			for tok in message_hash.keys():
-				spam_hash[tok] = 1
-		else:
-			ret.append(i)
-	return ret
+   spam_hash = {}
+   for message in spam:
+      for tok in re.findall("[a-zA-Z]+", message.lower()):
+         spam_hash[tok] = 1
+   ret = []
+   for i in range(len(mail)):
+      message_hash = {}
+      ct = 0
+      for tok in re.findall("[a-zA-Z]+", mail[i].lower()):
+         if (not message_hash.has_key(tok) and spam_hash.has_key(tok)):
+            ct = ct+1
+         message_hash[tok] = 1
+      if (4*ct/3 >= len(message_hash.keys())):
+         for tok in message_hash.keys():
+            spam_hash[tok] = 1
+      else:
+         ret.append(i)
+   return ret
 </pre>
 <p>
 
@@ -346,25 +346,25 @@ their own tokenizing function.
 </p>
 <pre>
 def tokenize(message):
-	ret = []
-	tok = ""
-	for c in message:
-		if (c in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"):
-			tok = tok+c
-		else:
-			if (tok != ""):
-				ret.append(tok)
-			tok = ""
-	if (tok != ""):
-		ret.append(tok)
-	return ret
+   ret = []
+   tok = ""
+   for c in message:
+      if (c in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"):
+         tok = tok+c
+      else:
+         if (tok != ""):
+            ret.append(tok)
+         tok = ""
+   if (tok != ""):
+      ret.append(tok)
+   return ret
 </pre>
 
 There is still some cheating going on, since the conditional expression
 
 <p>
 <pre>
-		if (c in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"):
+      if (c in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"):
 </pre>
 
 uses a high-level function to check for membership of a character in a
@@ -372,12 +372,12 @@ string. The same can be accomplished by means of a loop.
 </p>
 
 <pre>
-		alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-		found = 0
-		for i in range(52):
-			if (alpha[i] == c):
-				found = 1
-		if (found == 1):
+      alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+      found = 0
+      for i in range(52):
+         if (alpha[i] == c):
+            found = 1
+      if (found == 1):
 </pre>
 <p>
 
@@ -487,46 +487,46 @@ int n, ct = 0, speeds[], x1[], y1[], x2[], y2[], x3[], y3[], ret[];
 boolean used1[], used2[];
 
 void doit(int pos) {
-	if (pos == n) {
-		ct++;
-		for (int i = 0; i &lt; n; i++)
-			ret[i] = speeds[i];
-		return;
-	}
-	int i, j, dx, dy, speed;
-	for (i = 0; i &lt; n; i++) {
-		if (used1[i])
-			continue;
-		dx = x2[i]-x1[pos];
-		dy = y2[i]-y1[pos];
-		speed = (int) Math.round(Math.sqrt(dx*dx+dy*dy));
-		used1[i] = true;
-		for (j = 0; j &lt; n; j++)
-			if (!used2[j] &amp;&amp; x3[j]-x2[i] == dx &amp;&amp; y3[j]-y2[i] == dy) {
-				used2[j] = true;
-				speeds[pos] = speed;
-				doit(pos+1);
-				used2[j] = false;
-			}
-		used1[i] = false;
-	}
+   if (pos == n) {
+      ct++;
+      for (int i = 0; i &lt; n; i++)
+         ret[i] = speeds[i];
+      return;
+   }
+   int i, j, dx, dy, speed;
+   for (i = 0; i &lt; n; i++) {
+      if (used1[i])
+         continue;
+      dx = x2[i]-x1[pos];
+      dy = y2[i]-y1[pos];
+      speed = (int) Math.round(Math.sqrt(dx*dx+dy*dy));
+      used1[i] = true;
+      for (j = 0; j &lt; n; j++)
+         if (!used2[j] &amp;&amp; x3[j]-x2[i] == dx &amp;&amp; y3[j]-y2[i] == dy) {
+            used2[j] = true;
+            speeds[pos] = speed;
+            doit(pos+1);
+            used2[j] = false;
+         }
+      used1[i] = false;
+   }
 }
 
 public int[] deduceSpeeds(int[] x1, int[] y1, int[] x2, int[] y2, int[] x3, int[] y3) {
-	this.x1 = x1; this.y1 = y1;
-	this.x2 = x2; this.y2 = y2;
-	this.x3 = x3; this.y3 = y3;
-	n = x1.length;
-	speeds = new int[n];
-	ret = new int[n];
-	used1 = new boolean[n];
-	used2 = new boolean[n];
-	for (int i = 0; i &lt; n; i++)
-		used1[i] = used2[i] = false;
-	doit(0);
-	if (ct == 1)
-		return ret;
-	return new int[0];
+   this.x1 = x1; this.y1 = y1;
+   this.x2 = x2; this.y2 = y2;
+   this.x3 = x3; this.y3 = y3;
+   n = x1.length;
+   speeds = new int[n];
+   ret = new int[n];
+   used1 = new boolean[n];
+   used2 = new boolean[n];
+   for (int i = 0; i &lt; n; i++)
+      used1[i] = used2[i] = false;
+   doit(0);
+   if (ct == 1)
+      return ret;
+   return new int[0];
 }
 </pre>
 <p>
@@ -637,23 +637,23 @@ grid, a cell at location <i>(i,j)</i> is rotated to <i>(j,n-1-i)</i>.
 </p>
 <pre>
 def square(grille):
-	n = len(grille)
-	for i in range(n/2):
-		for j in range(n/2):
-			ct = 0
-			ii = i
-			jj = j
-			for k in range(4):
-				if (grille[ii][jj] == '.'):
-					ct = ct+1
-				tt = ii
-				ii = jj
-				jj = n-1-tt
-			if (ct > 1):
-				return []
-			if (ct == 0):
-				grille[i] = grille[i][:j]+"."+grille[i][j+1:]
-	return grille
+   n = len(grille)
+   for i in range(n/2):
+      for j in range(n/2):
+         ct = 0
+         ii = i
+         jj = j
+         for k in range(4):
+            if (grille[ii][jj] == '.'):
+               ct = ct+1
+            tt = ii
+            ii = jj
+            jj = n-1-tt
+         if (ct > 1):
+            return []
+         if (ct == 0):
+            grille[i] = grille[i][:j]+"."+grille[i][j+1:]
+   return grille
 </pre>
 <p>
 
@@ -861,11 +861,11 @@ to Cartesian coordinates.
 
 <pre>
 double[] sph2car(double altitude, double latitude, double longitude) {
-	double[] ret = new double[3];
-	ret[0] = altitude * Math.cos(latitude) * Math.sin(longitude);
-	ret[1] = altitude * Math.sin(latitude);
-	ret[2] = altitude * Math.cos(latitude) * Math.cos(longitude);
-	return ret;
+   double[] ret = new double[3];
+   ret[0] = altitude * Math.cos(latitude) * Math.sin(longitude);
+   ret[1] = altitude * Math.sin(latitude);
+   ret[2] = altitude * Math.cos(latitude) * Math.cos(longitude);
+   return ret;
 }
 </pre>
 
@@ -876,8 +876,8 @@ to another.
 
 <pre>
 void p2p(double[] pFrom, double[] pTo) {
-	for (int i = 0; i &lt; 3; i++)
-		pTo[i] = pFrom[i];
+   for (int i = 0; i &lt; 3; i++)
+      pTo[i] = pFrom[i];
 }
 </pre>
 
@@ -889,24 +889,24 @@ respectively.
 
 <pre>
 for (int i = 0; i &lt; rocs.length; i++) {
-	for (int j = 0; j &lt; sats.length; j++) {
-		double r[] = new double[3], s[] = new double[3];
-		double dr, ds;
-		p2p(rocs[i], r);
-		p2p(sats[j], s);
-		while (true) {
-			dr = Math.sqrt(r[0]*r[0]+r[1]*r[1]+r[2]*r[2]);
-			ds = Math.sqrt(s[0]*s[0]+s[1]*s[1]+s[2]*s[2]);
-			if (Math.abs(dr-ds) &lt; 1e-6)
-				break;
-			double[] m = {(r[0]+s[0])/2, (r[1]+s[1])/2, (r[2]+s[2])/2};
-			if (dr &gt; ds)
-				p2p(m, r);
-			else
-				p2p(m, s);
-		}
-		dist[i][j] = dr;
-	}
+   for (int j = 0; j &lt; sats.length; j++) {
+      double r[] = new double[3], s[] = new double[3];
+      double dr, ds;
+      p2p(rocs[i], r);
+      p2p(sats[j], s);
+      while (true) {
+         dr = Math.sqrt(r[0]*r[0]+r[1]*r[1]+r[2]*r[2]);
+         ds = Math.sqrt(s[0]*s[0]+s[1]*s[1]+s[2]*s[2]);
+         if (Math.abs(dr-ds) &lt; 1e-6)
+            break;
+         double[] m = {(r[0]+s[0])/2, (r[1]+s[1])/2, (r[2]+s[2])/2};
+         if (dr &gt; ds)
+            p2p(m, r);
+         else
+            p2p(m, s);
+      }
+      dist[i][j] = dr;
+   }
 }
 </pre>
 

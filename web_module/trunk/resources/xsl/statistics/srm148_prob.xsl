@@ -67,7 +67,7 @@
                             </tr>
                           
                             <tr valign="middle">
-                                <td class="bodyText" align="center" bgcolor="#CCCCCC"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyGeneric">Archive</a></td>
+                                <td class="bodyText" align="center" bgcolor="#CCCCCC"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyGeneric">Archive</a></td>
                                 <td class="bodyText" align="center" bgcolor="#CCCCCC"><a href="mailto:editorial@topcoder.com" class="bodyGeneric">Comments/Ideas?</a></td>
                             </tr>
                         </table>
@@ -78,7 +78,7 @@
                                         
                         <p><strong>Single Round Match 148</strong><br />
                       Wednesday, May 28, 2003</p>
-										
+                              
                         <h2>Match summary</h2>
                         
                         <p>SRM 148 went off without a hitch.  The division one set featured a deceivingly hard 1100 point problem that stumped most of the coders.  <b>SnapDragon</b>, who won the match, finished the first two problems before most 
@@ -121,16 +121,16 @@ he last didn't affect it.  Thus, the cap that ended on the 'A'-key was the 'D'-c
 Java code to do this looks like:
 <pre>
 public String decipher(String typed, String[] switches) {
-	String hmm = "";
-	for (int i =0; i &lt;typed.length(); i++) {
-		char curr = typed.charAt(i);
-		for (int k = 0; k &lt; switches.length; k++) {
-			if (switches[k].charAt(0)==curr) 
-				curr=switches[k].charAt(2);
-			else if (switches[k].charAt(2)==curr) 
-				curr=switches[k].charAt(0);
-		} hmm+=curr;
-	} return hmm;
+   String hmm = "";
+   for (int i =0; i &lt;typed.length(); i++) {
+      char curr = typed.charAt(i);
+      for (int k = 0; k &lt; switches.length; k++) {
+         if (switches[k].charAt(0)==curr) 
+            curr=switches[k].charAt(2);
+         else if (switches[k].charAt(2)==curr) 
+            curr=switches[k].charAt(0);
+      } hmm+=curr;
+   } return hmm;
 }
 </pre>
 </p>
@@ -166,35 +166,35 @@ permutation function much like the one found in the C++ library.  Such an implem
 //Members of vals must be distinct
 //Based on C++ next_permutation function
 int[] nextperm(int[] vals) {
-	int i =  vals.length-1;
-	while (true) {
-		int ii =  i;
-		i--;
-		if (vals[i] &lt; vals[ii]) {
-			int j = vals.length;
-			while (vals[i] >= vals[--j]);
-				int temp = vals[i];  //Swap
-				vals[i] = vals[j]; 
-				vals[j] = temp;
-			int begin = ii, end = vals.length-1;
-			while (end>begin) {
-					int stemp = vals[end];	//Swap
-					vals[end] = vals[begin]; 
-					vals[begin] = stemp;
-				end--; begin++;
-			}	
-			return vals;
-		} else if (vals[i] == vals[0]) {
-			int begin = 0, end = vals.length-1;
-			while (end>begin) {
-					int stemp = vals[end];	//Swap
-					vals[end] = vals[begin]; 
-					vals[begin] = stemp;
-				end--; begin++;
-			}	
-			return vals;
-		}
-	}
+   int i =  vals.length-1;
+   while (true) {
+      int ii =  i;
+      i--;
+      if (vals[i] &lt; vals[ii]) {
+         int j = vals.length;
+         while (vals[i] >= vals[--j]);
+            int temp = vals[i];  //Swap
+            vals[i] = vals[j]; 
+            vals[j] = temp;
+         int begin = ii, end = vals.length-1;
+         while (end>begin) {
+               int stemp = vals[end];   //Swap
+               vals[end] = vals[begin]; 
+               vals[begin] = stemp;
+            end--; begin++;
+         }   
+         return vals;
+      } else if (vals[i] == vals[0]) {
+         int begin = 0, end = vals.length-1;
+         while (end>begin) {
+               int stemp = vals[end];   //Swap
+               vals[end] = vals[begin]; 
+               vals[begin] = stemp;
+            end--; begin++;
+         }   
+         return vals;
+      }
+   }
 }
 </pre>
 

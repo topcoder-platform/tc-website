@@ -67,7 +67,7 @@
                             </tr>
                           
                             <tr valign="middle">
-                                <td class="bodyText" align="center" bgcolor="#CCCCCC"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyGeneric">Archive</a></td>
+                                <td class="bodyText" align="center" bgcolor="#CCCCCC"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyGeneric">Archive</a></td>
                                 <td class="bodyText" align="center" bgcolor="#CCCCCC"><a href="mailto:editorial@topcoder.com" class="bodyGeneric">Comments/Ideas?</a></td>
                             </tr>
                         </table>
@@ -78,7 +78,7 @@
                                         
                         <p><strong>Single Round Match 145</strong><br />
                         Tuesday, May 6, 2003</p>
-										
+                              
                         <h2>Match summary</h2>
 
                             <p>
@@ -86,9 +86,9 @@
                             number problems. The set seemed to be pretty well-balanced also. Despite a rather wordy div 1 medium /div 2 hard problem, 
                             the submission percentages were all pretty well in line with the averages.</p>
                             <p>
-		        <b>SnapDragon</b> and <b>Yarin</b> were neck and neck during the challenge phase, and <b>Yarin</b> could have won the round 
-			if he had gotten one more challenge. But, in the end <b>SnapDragon</b> was able to hold on for the win, thanks to <b>Yarin's</b> 
-			resubmission of the 600 point problem. In division 2, <b>shadowless</b> was able to narrowly edge out first timer <b>andlehay</b> for the win.
+              <b>SnapDragon</b> and <b>Yarin</b> were neck and neck during the challenge phase, and <b>Yarin</b> could have won the round 
+         if he had gotten one more challenge. But, in the end <b>SnapDragon</b> was able to hold on for the win, thanks to <b>Yarin's</b> 
+         resubmission of the 600 point problem. In division 2, <b>shadowless</b> was able to narrowly edge out first timer <b>andlehay</b> for the win.
 
                         <p><strong>Problem Set Analysis &amp; Opinion</strong></p>
 
@@ -135,10 +135,10 @@
                         So, to solve this, you can loop over either seconds, or over percentages.  Either way, you can get one from the other, and then determine if they are both 
                         exact or not.  Here is how you would do it if looping over percentages, if <tt>s</tt> is the total number of seconds that the workout lasts:
 <pre>
-	int ret = 0;
-	for(int i = 1; i&lt;100; i++){
-		if((s*i)%100==0)ret++;
-	}
+   int ret = 0;
+   for(int i = 1; i&lt;100; i++){
+      if((s*i)%100==0)ret++;
+   }
 </pre>
                     It also turns out that the answer is always <tt>gcd(s,100)-1</tt>.  This is a lot harder to come up with, but much easier to code.  I'll leave the proof as an 
                     exercise to the reader.  As a hint of where to start, consider the case where gcd(s,100) = 2.  In this case, the only number the display shows is 50%.  

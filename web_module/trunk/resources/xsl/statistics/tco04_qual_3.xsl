@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">TCO04 Qualification Problem Set 3</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -236,37 +236,37 @@ also, the we multiply the above value by the probability that gene j is
 dominant, which gives us the probability that both j and i are dominant.
 </p>
 <pre>
-	double[] p;
-	int[] dep;
-	public double cross(String p1a, String p1b, String p2a, String p2b, int[] dom, int[] rec, int[] dep){
-		this.dep = dep;
-		char[][] ch = new char[4][];
-		ch[0]=p1a.toCharArray();
-		ch[1]=p1b.toCharArray();
-		ch[2]=p2a.toCharArray();
-		ch[3]=p2b.toCharArray();
-		p = new double[p1a.length()];
-		for(int i = 0; i&lt;p1a.length(); i++){
+   double[] p;
+   int[] dep;
+   public double cross(String p1a, String p1b, String p2a, String p2b, int[] dom, int[] rec, int[] dep){
+      this.dep = dep;
+      char[][] ch = new char[4][];
+      ch[0]=p1a.toCharArray();
+      ch[1]=p1b.toCharArray();
+      ch[2]=p2a.toCharArray();
+      ch[3]=p2b.toCharArray();
+      p = new double[p1a.length()];
+      for(int i = 0; i&lt;p1a.length(); i++){
         for(int j = 0; j&lt;2; j++){
-				for(int k = 0; k&lt;2; k++){
-					char c1 = ch[j][i];
-					char c2 = ch[k+2][i];
-					if(c1&gt;='A'&amp;&amp;c1&lt;='Z')p[i] += .25;
-					else if(c2&gt;='A'&amp;&amp;c2&lt;='Z')p[i] += .25;
-				}
-			}
-		}
-		double ret = 0;
-		for(int i = 0; i&lt;r.length; i++){
+            for(int k = 0; k&lt;2; k++){
+               char c1 = ch[j][i];
+               char c2 = ch[k+2][i];
+               if(c1&gt;='A'&amp;&amp;c1&lt;='Z')p[i] += .25;
+               else if(c2&gt;='A'&amp;&amp;c2&lt;='Z')p[i] += .25;
+            }
+         }
+      }
+      double ret = 0;
+      for(int i = 0; i&lt;r.length; i++){
             double r = rec(i);
             ret += r * dom[i] + (1-r)*rec[i];
-		}
-		return ret;
-	}
-	double rec(int idx){
-		if(dep[idx] == -1)return p[idx];
-		else return p[idx] * rec(dep[idx]);
-	}
+      }
+      return ret;
+   }
+   double rec(int idx){
+      if(dep[idx] == -1)return p[idx];
+      else return p[idx] * rec(dep[idx]);
+   }
 </pre>
 
                         <p>

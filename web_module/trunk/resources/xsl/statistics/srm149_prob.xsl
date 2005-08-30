@@ -64,7 +64,7 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 149</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -73,7 +73,7 @@
                             </tr>
                         </table>
 <!--end contextual links-->
-										
+                              
                         <h2>Match summary</h2>
 
                         <p>SRM 149 was pretty wild with 100 successful challenges, and only 15 successful solutions to what seemed like a pretty easy division 1 medium. The hard 
@@ -115,17 +115,17 @@ digits, and repeat. Last, add the dollar sign and return. That is the approach
 I'll show in the reference solution here. Another way to do it is to add the 
 dollars all at once, and then insert the commas afterwards. If you really knew 
 your libraries well, there are formatting functions which can help. 
-<pre>	String s = "."+(cents&lt;10?"0":"")+cents;
-	do{
-		s = (dollars%1000)+s;
-		if(dollars/1000 &gt; 0){
-			if(dollars%1000&lt;100)s = "0"+s;
-			if(dollars%1000&lt;10)s = "0"+s;
-		}
-		dollars/=1000;
-		if(dollars&gt;0)s=","+s;
-	}while(dollars&gt;0);
-	return "$"+s;
+<pre>   String s = "."+(cents&lt;10?"0":"")+cents;
+   do{
+      s = (dollars%1000)+s;
+      if(dollars/1000 &gt; 0){
+         if(dollars%1000&lt;100)s = "0"+s;
+         if(dollars%1000&lt;10)s = "0"+s;
+      }
+      dollars/=1000;
+      if(dollars&gt;0)s=","+s;
+   }while(dollars&gt;0);
+   return "$"+s;
 </pre>
 </p>
 
@@ -172,9 +172,9 @@ so far, and if it is, we update the maximum wait time. Then, we increase the
 current time by the amount of time it takes to prepare he food. <pre>int t = 0;
 int ret = 0;
 for(int i = 0; i &lt; arrival.length; i++){
-	if(arrival[i] &gt; t)t=arrival[i];
-	ret = Math.max(ret,t-arrival[i]);
-	t += service[i];
+   if(arrival[i] &gt; t)t=arrival[i];
+   ret = Math.max(ret,t-arrival[i]);
+   t += service[i];
 }
 return ret;
 </pre>
@@ -206,30 +206,30 @@ groups, we simply allow multiple groups to have the same price. So, to pick the
 4 group prices, we just have 4 nested for loops. Then, we go through all of the 
 people, and assign them to the group with the highest price that they are 
 willing to pay. If we sort the input first, it makes things a little simpler and 
-faster: <pre>	Arrays.sort(price);
-	int ret = 0;
-	for(int i = 0; i&lt;price.length; i++){
-		for(int j = i; j&lt;price.length; j++){
-			for(int k = j; k&lt;price.length; k++){
-				for(int m = k; m&lt;price.length; m++){
-					int rev = 0;
-					for(int n = 0; n&lt;price.length; n++){
-						if(price[n]&gt;=price[m]){
-							rev+=price[m];
-						}else if(price[n]&gt;=price[k]){
-							rev+=price[k];
-						}else if(price[n]&gt;=price[j]){
-							rev+=price[j];
-						}else if(price[n]&gt;=price[i]){
-							rev+=price[i];
-						}
-					}
-					ret=Math.max(ret,rev);
-				}
-			}
-		}
-	}
-	return ret;
+faster: <pre>   Arrays.sort(price);
+   int ret = 0;
+   for(int i = 0; i&lt;price.length; i++){
+      for(int j = i; j&lt;price.length; j++){
+         for(int k = j; k&lt;price.length; k++){
+            for(int m = k; m&lt;price.length; m++){
+               int rev = 0;
+               for(int n = 0; n&lt;price.length; n++){
+                  if(price[n]&gt;=price[m]){
+                     rev+=price[m];
+                  }else if(price[n]&gt;=price[k]){
+                     rev+=price[k];
+                  }else if(price[n]&gt;=price[j]){
+                     rev+=price[j];
+                  }else if(price[n]&gt;=price[i]){
+                     rev+=price[i];
+                  }
+               }
+               ret=Math.max(ret,rev);
+            }
+         }
+      }
+   }
+   return ret;
 </pre>
 </p>
 
@@ -372,7 +372,7 @@ writer's solution, which uses this approach:
             double t1 = Math.max(time[i-1], time[j-1]-period); //start
             double t2 = Math.min(time[i], time[j]-period);    //end
             if(t1&gt;t2) continue;
-	    double oldmax = max;
+       double oldmax = max;
             max = Math.max( max, area(t1,i,t1+period,j) );  //equal slopes?
             if(max&gt;oldmax)System.out.println("improve "+t1+" =&gt;"+max);
             max = Math.max( max, eqHt(i,j, t1,t2, period) );
@@ -398,7 +398,7 @@ writer's solution, which uses this approach:
 </pre>
 </p>
 
-		     <!-- <p><img src="/i/m/brett1479_mug.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" /><br />
+           <!-- <p><img src="/i/m/brett1479_mug.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" /><br />
                         By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=251317"><strong>brett1479</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" /></p> -->
                         

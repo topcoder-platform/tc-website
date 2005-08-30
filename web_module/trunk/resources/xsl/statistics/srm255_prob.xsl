@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                 <table width="100%" border="0" cellspacing="0" cellpadding="3">
                    <tr valign="middle">
                       <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 255</font></td>
-                     <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                     <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                    </tr>
 
                    <tr valign="middle">
@@ -144,22 +144,22 @@ numerical array. After that we can sort new numerical array in a usual way and
 convert its back to the string array.
 </p>
 <pre>
-	int[] tmp = new int[sequence.length];
-	for(int i = 0; i &lt; sequence.length; i++)
-		tmp[i] = Integer.parseInt(sequence[i]);
-	Arrays.sort(ret);
-	for(int i = 0; i &lt; sequence.length; i++)
-		sequence[i]=""+tmp[i];
+   int[] tmp = new int[sequence.length];
+   for(int i = 0; i &lt; sequence.length; i++)
+      tmp[i] = Integer.parseInt(sequence[i]);
+   Arrays.sort(ret);
+   for(int i = 0; i &lt; sequence.length; i++)
+      sequence[i]=""+tmp[i];
 </pre>
 <p>Another way to solve this problem is to use a sort function which receives 
 a comparing function (called 'comparator') as an argument.</p>
 <pre>
-	Arrays.sort(sequence,
-		    new Comparator&lt;String>() {
-	    		public int compare(String a, String b) {
-					return new Integer(a).compareTo(new Integer(b));
-	    		}
-	        });
+   Arrays.sort(sequence,
+          new Comparator&lt;String>() {
+             public int compare(String a, String b) {
+               return new Integer(a).compareTo(new Integer(b));
+             }
+           });
 
 </pre>
 
@@ -260,19 +260,19 @@ be stored in associative array (like hash map). After that we can iterate over t
 player and calculate his score. Here is <b>antimatter</b> C++ solution who have made this problem in 1.5 
 minutes.</p>
 <pre>
-	string score(vector &lt;string&gt; a, vector &lt;string&gt; b, vector &lt;string&gt; c) {
-		map&lt;string,int&gt; C;
-		for (int i = 0; i &lt; a.si; i++) C[a[i]]++;
-		for (int i = 0; i &lt; b.si; i++) C[b[i]]++;
-		for (int i = 0; i &lt; c.si; i++) C[c[i]]++;
-		int AA=0,BB=0,CC=0;
-		for (int i = 0; i &lt; a.si; i++) AA += 4-C[a[i]];
-		for (int i = 0; i &lt; b.si; i++) BB += 4-C[b[i]];
-		for (int i = 0; i &lt; c.si; i++) CC += 4-C[c[i]];
-		char buf[100];
-		sprintf(buf, "%d/%d/%d", AA,BB,CC);
-		return string(buf);
-	}
+   string score(vector &lt;string&gt; a, vector &lt;string&gt; b, vector &lt;string&gt; c) {
+      map&lt;string,int&gt; C;
+      for (int i = 0; i &lt; a.si; i++) C[a[i]]++;
+      for (int i = 0; i &lt; b.si; i++) C[b[i]]++;
+      for (int i = 0; i &lt; c.si; i++) C[c[i]]++;
+      int AA=0,BB=0,CC=0;
+      for (int i = 0; i &lt; a.si; i++) AA += 4-C[a[i]];
+      for (int i = 0; i &lt; b.si; i++) BB += 4-C[b[i]];
+      for (int i = 0; i &lt; c.si; i++) CC += 4-C[c[i]];
+      char buf[100];
+      sprintf(buf, "%d/%d/%d", AA,BB,CC);
+      return string(buf);
+   }
 
 </pre>
 
@@ -329,21 +329,21 @@ find its period. If we know that sequence X has a period of length L starting fr
 the index i (i &gt; K) the X<sub>K</sub> will be the same as the element with the index 
 <i>(K-i) mod L + i</i>. Here is a sample Java code.</p>
 <pre>
-	Map&lt;Integer, Integer&gt; seen = new HashMap();
-	List&lt;Integer&gt; sequence = new ArrayList&lt;Integer&gt;();
-	int X = 0;
-	for (int i = 0;; i++) {
-		if (seen.containsKey(X)) {
-			if (i &gt; K) 
-				return sequence.get(K);
-			int L = i - seen.get(X);
-			int ind = seen.get(X);
-			return sequence.get(ind + (K-ind) % L);
-		}
-		seen.put(X,i);
-		sequence.add(X);
-		X = A*F(X)+B;
-	}
+   Map&lt;Integer, Integer&gt; seen = new HashMap();
+   List&lt;Integer&gt; sequence = new ArrayList&lt;Integer&gt;();
+   int X = 0;
+   for (int i = 0;; i++) {
+      if (seen.containsKey(X)) {
+         if (i &gt; K) 
+            return sequence.get(K);
+         int L = i - seen.get(X);
+         int ind = seen.get(X);
+         return sequence.get(ind + (K-ind) % L);
+      }
+      seen.put(X,i);
+      sequence.add(X);
+      X = A*F(X)+B;
+   }
 
 </pre>
 
@@ -408,7 +408,7 @@ invalid if d1=d2. Let n0 be a first digit of N and N1 be a number N without a fi
 <pre>
 A[d1,d2,L,N] = 0;
 for(char ch='0'; ch&lt;n0; ch++)
-	A[d1,d2,L,N] += (d1==d2 &amp;&amp; d2==ch) ? 10<sup>L-1</sup> : A[d2,ch,L-1,10<sup>L-1</sup>-1];
+   A[d1,d2,L,N] += (d1==d2 &amp;&amp; d2==ch) ? 10<sup>L-1</sup> : A[d2,ch,L-1,10<sup>L-1</sup>-1];
 A[d1,d2,L,N] += (d1==d2 &amp;&amp; d2==n0) ? N1+1 : A[d2,n0,L-1,N1];
 
 </pre>
@@ -470,23 +470,23 @@ odd-digitable numbers in the increasing order. Finally, take all numbers in the 
 <p>There are no sense to put duplicates into the queue because they will generate the same numbers, so 
 we'll skip produced numbers which are already in the queue. Here is the sample Java code.</p>
 <pre>
-	List&lt;Integer&gt; al = new ArrayList(); 
-	List&lt;String&gt; as = new ArrayList();
-	boolean[] mark = new boolean[N];
-	al.add(0); 
-	as.add(""); 
-	for (int i = 0; i &lt; al.size(); i++) {
-		int c = al.get(i);
-		if (c == M &amp;&amp; i &gt; 0) return as.get(i);
-		for (int j = 1; j &lt;= 9; j+=2) {
-			int x = (c*10+j)%N;
-			if (mark[x]) continue;
-			mark[(c*10+j)%N] = true;
-			al.add(x);
-			as.add(as.get(i)+j);
-		}
-	} 
-	return "-1";
+   List&lt;Integer&gt; al = new ArrayList(); 
+   List&lt;String&gt; as = new ArrayList();
+   boolean[] mark = new boolean[N];
+   al.add(0); 
+   as.add(""); 
+   for (int i = 0; i &lt; al.size(); i++) {
+      int c = al.get(i);
+      if (c == M &amp;&amp; i &gt; 0) return as.get(i);
+      for (int j = 1; j &lt;= 9; j+=2) {
+         int x = (c*10+j)%N;
+         if (mark[x]) continue;
+         mark[(c*10+j)%N] = true;
+         al.add(x);
+         as.add(as.get(i)+j);
+      }
+   } 
+   return "-1";
 
 </pre>
 
