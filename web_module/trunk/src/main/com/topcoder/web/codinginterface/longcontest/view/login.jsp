@@ -16,7 +16,7 @@
 <head>
 <title>TopCoder | Login</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="script.jsp" />
 
 <SCRIPT type="text/javascript">
 function submitEnter(e) {
