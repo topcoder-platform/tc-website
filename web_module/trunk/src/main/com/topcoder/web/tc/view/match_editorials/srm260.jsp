@@ -23,7 +23,7 @@
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="statistics"/>
-                <jsp:param name="level2" value="editorial_archive"/>
+                <jsp:param name="level2" value="match_editorials"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -36,7 +36,9 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
-<h2>Match summary</h2>
+<div align="right"><tc-webtag:forumLink forumID="505057" message="Discuss this editorial" /></div>
+
+<span class="bigTitle">Match summary</span>
 
 <p>
 SRM 260 was the most popular single round match in TopCoder history. Coders were gearing up for round 3 of the TCO and round 1 of the Google Code Jam as there was a record setting 807 registrants. This shattered the previous best of 700 registrants in SRM 100, the end of the weekly money match era.

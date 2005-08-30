@@ -96,7 +96,7 @@
                             <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=editorial_archive</xsl:attribute>Match Editorials</A>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=match_editorials&amp;d2=archive</xsl:attribute>Match Editorials</A>
                     </td>
                 </tr>
 
