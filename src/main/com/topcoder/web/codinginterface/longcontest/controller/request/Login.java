@@ -31,7 +31,7 @@ public class Login extends Base{
             try {
                 getAuthentication().login(possibleUser);
                 log.debug("user " + possibleUser.getUserName() + " has logged in");
-                setNextPage(getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY).toString());
+                setNextPage(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
                 setIsNextPageInContext(false);
             } catch (LoginException e) {
                 addError(Constants.KEY_USER_HANDLE, "Login Unsuccessful");
