@@ -20,7 +20,7 @@ public class HttpObjectFactory {
             try {
                 ret = new MultipartRequest(r);
             } catch (IOException ex) {
-                throw new RuntimeException("Failed when reading multipart request " + ex);
+                throw new RuntimeException(ex);
             }
         } else {
             //don't have the implementation for this yet
