@@ -232,13 +232,7 @@
     </tr>
 </table>
 <%  } else { %>
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
-    <tr>
-        <td class="rtbc">
-            <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Be the first to post in this forum!</A>
-        </td>
-    </tr>
-</table>
+    <span class="bigRed"><A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="bigRed">Be the first to post in this forum!</A></span>
 <%  } %>
 
         <p><br/></p>
