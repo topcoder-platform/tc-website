@@ -675,7 +675,7 @@
             <name>forumID</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
-        </attribute>
+        </attribute> 
         <attribute>
             <name>message</name>
             <required>false</required>
