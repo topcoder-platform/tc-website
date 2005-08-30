@@ -10,7 +10,7 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <html>
 <head>
-<title>Submit - <%=request.getAttribute(Constants.CLASS_NAME)%></title>
+<title>Submit - <%=request.getSession().getAttribute(Constants.CLASS_NAME)%></title>
 </head>
 <body>
 <%
