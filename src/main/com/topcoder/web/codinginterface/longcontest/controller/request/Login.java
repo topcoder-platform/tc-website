@@ -7,13 +7,13 @@ import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.codinginterface.longcontest.request.Base;
 
 /**
- * @author  dok
+ * @author  lbackstrom
  * @version  $Revision$ $Date$
- * Create Date: May 2, 2005
  */
-public class Login extends BaseProcessor {
+public class Login extends Base{
 
     private static final Logger log = Logger.getLogger(Login.class);
 
