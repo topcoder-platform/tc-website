@@ -122,7 +122,7 @@
 
   <init-param>
     <param-name>data_source</param-name>
-    <param-value>TC_EMAIL</param-value>
+    <param-value>java:/TC_EMAIL</param-value>
     <description>
        The name of the data source for the db
     </description>
