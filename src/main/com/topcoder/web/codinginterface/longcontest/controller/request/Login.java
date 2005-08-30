@@ -37,6 +37,7 @@ public class Login extends Base{
                 setNextPage(Constants.LOGIN_JSP);
                 setIsNextPageInContext(true);
             } catch (Exception ae) {
+                ae.printStackTrace();
                 throw new TCWebException(ae);
             }
         }
