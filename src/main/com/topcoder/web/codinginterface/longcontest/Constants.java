@@ -56,6 +56,9 @@ public class Constants implements CodingInterfaceConstants {
     public static int PROBLEM_REFRESH;
     public static String CLASS_NAME;
     public static String CONTEST_OVER;
+    public static String KEY_USER_HANDLE;
+    public static String KEY_USER_PASS;
+    public static String LOGIN_JSP;
 
     static {
         initialize();
