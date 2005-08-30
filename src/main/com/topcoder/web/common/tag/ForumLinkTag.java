@@ -20,7 +20,6 @@ import javax.servlet.jsp.tagext.TagSupport;
 public class ForumLinkTag extends TagSupport {
     private long forumID = -1;
     private String message = "";
-    private String cssclass = "";
 
     public int doStartTag() throws JspException {
         StringBuffer ret = new StringBuffer(150);
@@ -29,12 +28,7 @@ public class ForumLinkTag extends TagSupport {
         StringBuffer url = new StringBuffer();
         url.append("http://").append(ApplicationServer.FORUMS_SERVER_NAME).append("/");
         url.append("?module=ThreadList&").append(ForumConstants.FORUM_ID).append("=").append(forumID);
-        ret.append(" HREF=\"").append(url).append("\" ");
-        if (!cssclass.equals("")) {
-            ret.append("CLASS=\"");
-            ret.append(cssclass);
-            ret.append("\"");
-        }
+        ret.append(" HREF=\"").append(url).append("\"");
         ret.append(">");
         
 //        ForumFactory forumFactory = ForumFactory.getInstance(AuthFactory.getAnonymousAuthToken());
@@ -61,21 +55,15 @@ public class ForumLinkTag extends TagSupport {
     public void setMessage(String message) {
         this.message = message;
     }
-    
-    public void setStyleClass(String cssclass) {
-        this.cssclass = cssclass;
-    }
 
     protected void init() {
         forumID = -1;
-        message = "Discuss";
-        cssclass = "";
+        message = "Discuss this";
     }
     
     public int doEndTag() throws JspException {
         forumID = -1;
         message = "";
-        cssclass = "";
         return super.doEndTag();
     }
 }
