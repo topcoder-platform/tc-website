@@ -7,7 +7,7 @@ import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.codinginterface.longcontest.request.Base;
+import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
 
 /**
  * @author  lbackstrom
