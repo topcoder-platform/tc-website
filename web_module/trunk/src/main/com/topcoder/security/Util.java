@@ -58,11 +58,16 @@ public class Util implements ConfigManagerInterface {
         ConfigManager cm = ConfigManager.getInstance();
         //logger.debug("got ConfigManager");
         try {
+/*
             if (cm.existsNamespace(PROPERTIES_NAMESPACE)) {
                 //logger.debug("getConfigManager if");
                 cm.refresh(PROPERTIES_NAMESPACE);
             } else {
                 //logger.debug("getConfigManager else");
+                cm.add(PROPERTIES_NAMESPACE, PROPERTIES_FORMAT);
+            }
+*/
+            if (!cm.existsNamespace(PROPERTIES_NAMESPACE)) {
                 cm.add(PROPERTIES_NAMESPACE, PROPERTIES_FORMAT);
             }
         } catch (ConfigManagerException e) {
