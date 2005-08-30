@@ -98,17 +98,6 @@
          <mkdir dir="${ear.dir}"/>
      </target>
 
-     <target name="move_file_upload_xml">
-         <property name="toDir" value="${resources}/com/topcoder/servlet/request"/>
-         <mkdir dir="${toDir}"/>
-         <copy todir="${toDir}">
-             <fileset dir="${resources}">
-                 <include name="FileUpload.xml"/>
-             </fileset>
-         </copy>
-     </target>
-
-
      <target name="compile_shared" depends="init">
          <javac
              srcdir="${shared}"
@@ -781,8 +770,18 @@
              </fileset>
          </copy>
          <copy todir="${jboss_conf}/com/topcoder/security">
-             <fileset dir="${conf}/com/topcoder/security">
+             <fileset dir="${resources}/com/topcoder/security">
                  <include name="Util.properties"/>
+             </fileset>
+         </copy>
+         <copy todir="${jboss_conf}/com/topcoder/util/config">
+             <fileset dir="${resources}/com/topcoder/util/config">
+                 <include name="ConfigManager.properties"/>
+             </fileset>
+         </copy>
+         <copy todir="${jboss_conf}/com/topcoder/servlet/request">
+             <fileset dir="${resources}/com/topcoder/servlet/request">
+                 <include name="FileUpload.xml"/>
              </fileset>
          </copy>
      </target>
@@ -1308,9 +1307,11 @@
                  <include name="com/topcoder/web/tc/**/*.class"/>
                  <include name="com/fx4m/**/*.class"/>
              </classes>
+<!--
              <classes dir="${resources}">
                  <include name="com/topcoder/servlet/request/FileUpload.xml"/>
              </classes>
+-->
              <webinf dir="${resources}/taglib">
                  <include name="tc.tld"/>
                  <include name="rsc-taglib.tld"/>
