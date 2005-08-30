@@ -191,7 +191,9 @@
             
             <table cellpadding="0" cellspacing="0" class="rtbcTable">
                 <tr>
+                    <%  if (forumCategory.getID() != 1) { %>
                     <td>A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.</td>
+                    <%  } %>
                     <td align="right"><a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="forumCategory" property="ID"/>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
                 </tr>
             </table>
