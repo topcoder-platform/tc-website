@@ -23,7 +23,7 @@
      <property name="shared.jar" value="${bin}/shared.jar"/>
      <property name="long.jar" value="${bin}/long.jar"/>
      <property name="web" value="src/main/com/topcoder/web"/>
-     <property name="jboss_home" value="../jboss-4.0.1"/>
+     <property name="jboss_home" value="../jboss-4.0.2"/>
      <property name="jboss_deploy" value="${jboss_home}/server/all/deploy"/>
      <property name="jboss_lib" value="${jboss_home}/server/all/lib"/>
      <property name="jboss_conf" value="${jboss_home}/server/all/conf"/>
