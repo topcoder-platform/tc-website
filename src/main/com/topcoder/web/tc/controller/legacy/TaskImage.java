@@ -28,6 +28,7 @@ public final class TaskImage {
             fis = new FileInputStream(rsc.getItem(getNextIndex(dataRequest.toString(), rsc.size()), "file_path").toString());
             result = new byte[fis.available()];
             fis.read(result);
+            fis.close();
             return result;
         } catch (Exception e) {
             throw new NavigationException(e);
