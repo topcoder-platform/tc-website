@@ -1,10 +1,13 @@
 <%@  page language="java"  %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Employment Opportunities</title>
+<title>TopCoder Statisics</title>
 
 <jsp:include page="../script.jsp" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 
 </head>
 
@@ -19,18 +22,18 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="employment"/>
-                <jsp:param name="level2" value="openings"/>
+                <jsp:param name="level1" value="statistics"/>
+                <jsp:param name="level2" value="editorial_archive"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
 <td class="statTableSpacer" width="100%" valign="top">
-
+<div class="bodyText">
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="statistics_w"/>
-<jsp:param name="title" value="Algorithm Rating History"/>
+<jsp:param name="title" value="Match Editorials"/>
 </jsp:include>
 
 <h2>Match summary</h2>
@@ -43,7 +46,6 @@ Division 1 coders were not upset to find a difficult 1100 point problem as they 
 </p>
 <p>
 Division 2 was topped by two newcomers, <b>tywok</b> and <b>BukTop</b>, both of whom not only solved all three problems but also made at least one successful challenge. We will welcome them and the remaining ten coders who solved all three problems into division 1.
-
 </p>
 
 <H1>
@@ -441,10 +443,11 @@ Some coders noticed that there is a way to calculate the integral exactly, witho
 
 <p>
 <img src="/i/m/Ryan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=284007"><strong>Ryan</strong></a><br />
+By&#160;<tc-webtag:handle coderId="284007" context="algorithm"/><br />
 <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
 </p>
 
+</div>
 </td>
 <!-- Center Column Ends -->
 
