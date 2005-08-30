@@ -59,7 +59,10 @@
 
 
          <!-- TCS Components -->
+<!--
          <pathelement location="${jars.dir}/configmanager2.jar"/>
+-->
+         <pathelement location="${jars.dir}/tcs/configuration_manager/2.1.3/configuration_manager.jar"/>
          <pathelement location="${jars.dir}/object_formatter.jar"/>
          <pathelement location="${jars.dir}/idgenerator.jar"/>
          <pathelement location="${jars.dir}/upload.jar"/>
@@ -800,7 +803,9 @@
              <fileset dir="${jars.dir}">
                  <include name="ifxjdbc.jar"/>
                  <include name="bfograph.jar"/>
+<!--
                  <include name="configmanager2.jar"/>
+-->
                  <include name="object_formatter.jar"/>
                  <include name="idgenerator.jar"/>
                  <include name="upload.jar"/>
@@ -808,11 +813,6 @@
                  <include name="fileconvert.jar"/>
                  <include name="httpunit.jar"/>
                  <include name="itext-1.1.jar"/>
-                 <!-- these are just so we can deploy the tcs ejbs on our side.  we can wack when we don't anymore-->
-<!--
-                 <include name="render.jar"/>
-                 <include name="searchengine.jar"/>
--->
              </fileset>
          </copy>
 
@@ -820,13 +820,11 @@
              <fileset dir="${jars.dir}/tcs">
                  <include name="catalog.jar"/>
                  <include name="user.jar"/>
-                 <!-- these are just so we can deploy the tcs ejbs on our side.  we can wack when we don't anymore-->
-<!--                 <include name="forum.jar"/>
-                 <include name="logging_wrapper.jar"/>
-                 <include name="simple_cache.jar"/>
-                 <include name="refreshable_cache.jar"/>
-                 <include name="email_engine.jar"/>
-                 <include name="base_exception.jar"/>-->
+             </fileset>
+         </copy>
+         <copy todir="${jboss_lib}">
+             <fileset dir="${jars.dir}/tcs/configuration_manager/2.1.3">
+                 <include name="configuration_manager.jar"/>
              </fileset>
          </copy>
          <copy todir="${jboss_lib}">
