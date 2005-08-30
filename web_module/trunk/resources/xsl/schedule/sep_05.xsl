@@ -110,14 +110,14 @@
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
                                     <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=alg_schedule">Details</A>
                                     </td>
+                                <td id="calendar">8</td>
                                 <td id="calendarSRM">
-                                    <span id="calendarSRMDate">8</span><br />
+                                    <span id="calendarSRMDate">9</span><br />
                                     <strong>Match 262</strong><br />
                                     Register: 8:00&#160;AM<br />
                                     Compete: 11:00&#160;AM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=7996&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
-                                <td id="calendar">9</td>
                                 <td id="calendar">10</td>
                             </tr>
                             
