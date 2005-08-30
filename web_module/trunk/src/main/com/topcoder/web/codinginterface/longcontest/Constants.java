@@ -85,9 +85,11 @@ public class Constants implements CodingInterfaceConstants {
                     }
                 }
                 if (f[i].get(null) == null){
-                    log.error("**DID NOT LOAD** " + f[i].getName() + " constant");
                     if (f[i].getType().getName().equals("java.lang.String")) {
+                        log.debug("DID NOT LOAD " + f[i].getName() + " constant.  Setting to default");
                         f[i].set(null, f[i].getName());
+                    }else{
+                        log.error("**DID NOT LOAD** " + f[i].getName() + " constant");
                     }
                 }else
                     log.debug(f[i].getName() + " <== " + f[i].get(null));
