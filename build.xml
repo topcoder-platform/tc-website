@@ -1046,8 +1046,8 @@
      </target>
 
      <target name="deploy-techassess" depends="war-techassess">
-         <copy file="${shared.jar}" todir="${jboss_home}/server/default/lib" overwrite="true"/>
-         <copy todir="${jboss_home}/server/default/deploy" overwrite="true">
+         <copy file="${shared.jar}" todir="${jboss_home}/server/all/lib" overwrite="true"/>
+         <copy todir="${jboss_home}/server/all/deploy" overwrite="true">
              <fileset dir="${war.dir}">
                  <include name="techassess.war"/>
              </fileset>
@@ -1058,11 +1058,11 @@
      </target>
 
      <target name="expand-techassess" depends="">
-         <copy file="${resources}/TechAssess.properties" todir="${jboss_home}/server/default/conf" overwrite="true"/>
-         <copy file="${shared.jar}" todir="${jboss_home}/server/default/lib" overwrite="true"/>
-         <delete file="${jboss_home}/server/default/deploy/techassess.war"/>
-         <unwar src="${war.dir}/techassess.war" dest="${jboss_home}/server/default/deploy/techassess.war/" overwrite="yes"/>
-         <delete dir="${jboss_home}/server/default/deploy/techassess.war/META-INF"/>
+         <copy file="${resources}/TechAssess.properties" todir="${jboss_home}/server/all/conf" overwrite="true"/>
+         <copy file="${shared.jar}" todir="${jboss_home}/server/all/lib" overwrite="true"/>
+         <delete file="${jboss_home}/server/all/deploy/techassess.war"/>
+         <unwar src="${war.dir}/techassess.war" dest="${jboss_home}/server/all/deploy/techassess.war/" overwrite="yes"/>
+         <delete dir="${jboss_home}/server/all/deploy/techassess.war/META-INF"/>
      </target>
 
  	 <target name="package-TCUser" depends="compile_TCUser">
@@ -1667,9 +1667,9 @@
           </war>
       </target>
       <target name="deploy-longcontest" depends="war-longcontest">
-          <copy file="${shared.jar}" todir="${jboss_home}/server/default/lib" overwrite="true"/>
-          <!--<copy file="${long.jar}" todir="${jboss_home}/server/default/lib" overwrite="true"/>-->
-          <copy todir="${jboss_home}/server/default/deploy" overwrite="true">
+          <copy file="${shared.jar}" todir="${jboss_home}/server/all/lib" overwrite="true"/>
+          <!--<copy file="${long.jar}" todir="${jboss_home}/server/all/lib" overwrite="true"/>-->
+          <copy todir="${jboss_home}/server/all/deploy" overwrite="true">
               <fileset dir="${war.dir}">
                   <include name="longcontest.war"/>
               </fileset>
@@ -1678,11 +1678,11 @@
       <target name="deploy-longcontest-expanded" depends="war-longcontest,expand-longcontest">
       </target>
       <target name="expand-longcontest" depends="">
-          <copy file="${resources}/LongContest.properties" todir="${jboss_home}/server/default/conf" overwrite="true"/>
-          <copy file="${shared.jar}" todir="${jboss_home}/server/default/lib" overwrite="true"/>
-          <delete file="${jboss_home}/server/default/deploy/longcontest.war"/>
-          <unwar src="${war.dir}/longcontest.war" dest="${jboss_home}/server/default/deploy/longcontest.war/" overwrite="yes"/>
-          <delete dir="${jboss_home}/server/default/deploy/longcontest.war/META-INF"/>
+          <copy file="${resources}/LongContest.properties" todir="${jboss_home}/server/all/conf" overwrite="true"/>
+          <copy file="${shared.jar}" todir="${jboss_home}/server/all/lib" overwrite="true"/>
+          <delete file="${jboss_home}/server/all/deploy/longcontest.war"/>
+          <unwar src="${war.dir}/longcontest.war" dest="${jboss_home}/server/all/deploy/longcontest.war/" overwrite="yes"/>
+          <delete dir="${jboss_home}/server/all/deploy/longcontest.war/META-INF"/>
       </target>
 
  </project>
