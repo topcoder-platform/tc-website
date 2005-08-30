@@ -75,7 +75,7 @@ function submitEnter(e) {
                 <tr valign="middle">
                   <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>">
                     <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
-                    <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="Login">
+                    <input type="hidden" name="module" value="Login">
                     <td class="bodyText" align="center">
                         <table border="0" cellpadding="3" cellspacing="0">
                            <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
@@ -102,7 +102,7 @@ function submitEnter(e) {
                         <p><br/></p>
 
                     <script>
-                      document.frmLogin.<%=Constants.KEY_USER_NAME%>.focus();
+                      document.frmLogin.<%=Constants.KEY_USER_HANDLE%>.focus();
                     </script>
 
                     </td>
