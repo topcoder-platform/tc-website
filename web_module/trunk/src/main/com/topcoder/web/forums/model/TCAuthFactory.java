@@ -5,6 +5,8 @@ import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.base.Log;
 import com.jivesoftware.base.UnauthorizedException;
 import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
@@ -20,7 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class TCAuthFactory extends AuthFactory {
 
-
+    protected static Logger log = Logger.getLogger(BaseProcessor.class);
+    
     /**
      * The same token can be used for all anonymous users, so cache it.
      */
@@ -33,14 +36,25 @@ public class TCAuthFactory extends AuthFactory {
      * @return
      * @throws UnauthorizedException
      */
-    public static AuthToken getAuthToken(HttpServletRequest httpServletRequest,
-                                         HttpServletResponse httpServletResponse) throws UnauthorizedException {
-    	WebAuthentication auth = null;
+    public AuthToken createAuthToken(HttpServletRequest httpServletRequest,
+                                     HttpServletResponse httpServletResponse) throws UnauthorizedException {        
+        WebAuthentication auth = null;
         try {
             auth = new BasicAuthentication(new SessionPersistor(httpServletRequest.getSession()),
                     HttpObjectFactory.createRequest(httpServletRequest), HttpObjectFactory.createResponse(httpServletResponse));
         } catch (Exception e) {
-            Log.error(e);
+            log.error(e);
+        }
+        if (auth.getActiveUser().isAnonymous() && 
+                httpServletRequest.getParameter("username") != null && 
+                httpServletRequest.getParameter("password") != null &&
+                httpServletRequest.getParameter("password").length() <= 31) {
+            try {
+                auth.login(new SimpleUser(0, httpServletRequest.getParameter("username"), 
+                    httpServletRequest.getParameter("password")), false);
+            } catch (Exception e) {
+                log.error(e);
+            }
         }
         return new TCAuthToken(auth.getActiveUser().getId());
     }
