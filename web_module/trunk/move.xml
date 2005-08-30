@@ -46,7 +46,6 @@
                 <include name="resources/TC.properties"/>
                 <include name="resources/PrivateLabel.properties"/>
                 <include name="move.xml"/>
-                <include name="lib/bin/Jive.jar"/>
                 <include name="lib/bin/shared.jar"/>
                 <include name="lib/bin/classes.jar"/>
             </fileset>
