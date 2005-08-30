@@ -30,14 +30,13 @@ public class Login extends Base{
             try {
                 getAuthentication().login(possibleUser);
                 log.debug("user " + possibleUser.getUserName() + " has logged in");
-                setNextPage(getRequest().getContextPath());
+                setNextPage(request.getAttribute(BaseServlet.NEXT_PAGE_KEY));
                 setIsNextPageInContext(false);
             } catch (LoginException e) {
                 addError(Constants.KEY_USER_HANDLE, "Login Unsuccessful");
                 setNextPage(Constants.LOGIN_JSP);
                 setIsNextPageInContext(true);
             } catch (Exception ae) {
-                ae.printStackTrace();
                 throw new TCWebException(ae);
             }
         }
