@@ -164,7 +164,7 @@
                 <% } %>
                 <tr><td id="<%=level2.equals("problem_archive")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ProblemArchive">Problem Archive</a></td></tr>
                 <tr><td id="<%=level2.equals("coder_ratings")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&module=AlgoRank">Coder Rankings</a></td></tr>
-                <tr><td id="<%=level2.equals("editorial_archive")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?t=statistics&c=editorial_archive">Match Editorials</a></td></tr>
+                <tr><td id="<%=level2.equals("match_editorials")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?t=statistics&c=editorial_archive">Match Editorials</a></td></tr>
                 <tr><td id="<%=level2.equals("quick_stats")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?t=statistics&c=quick_stats">Quick Stats</a></td></tr>
                 <tr><td id="<%=level2.equals("coder_of_month")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=SimpleStats&trans=true&c=com_history&d1=statistics&d2=coderOfMonth">Coder of the Month</a></td></tr>
                 <tr><td id="<%=level2.equals("search")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewAdvanced">Advanced Member Search</a></td></tr>
@@ -193,16 +193,15 @@
 <%-- Events ends --%>
 
    <%-- Forums begins --%>
-                <tr><td id="<%=level1.equals("forums")?"leftNavSelect":"leftNav"%>"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>" class="<%=level1.equals("forums")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/<%=level1.equals("forums")?"clear":"nav_arrow_right"%>.gif" border="0"/>Forums</a></td></tr>
-
             <%-- ONCE CATEGORIES ARE IN, UNCOMMENT THIS AND REMOVE THE LINE ABOVE
-                <tr><td id="<%=level1.equals("forums")?"leftNavSelect":"leftNav"%>"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=13" class="<%=level1.equals("forums")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/<%=level1.equals("forums")?"clear":"nav_arrow_right"%>.gif" border="0"/>Forums</a></td></tr>
+                <tr><td id="<%=level1.equals("forums")?"leftNavSelect":"leftNav"%>"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>" class="<%=level1.equals("forums")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/<%=level1.equals("forums")?"clear":"nav_arrow_right"%>.gif" border="0"/>Forums</a></td></tr>
+            --%>
+                <tr><td id="<%=level1.equals("forums")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=13" class="<%=level1.equals("forums")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("forums")?"bottom":"right"%>.gif" border="0"/>Forums</a></td></tr>
             <% if (level1.equals("forums")) { %>
                 <tr><td id="<%=level2.equals("roundtables")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=13">Round Tables</A></td></tr>
                 <tr><td id="<%=level2.equals("news")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=8">News Discussions</A></td></tr>
                 <tr><td id="<%=level2.equals("sponsors")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=6">Sponsor Discussions</A></td></tr>
             <% } %>
-            --%>
 
     <%-- Forums ends --%>
 
