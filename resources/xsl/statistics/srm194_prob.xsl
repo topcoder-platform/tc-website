@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                      <table width="100%" border="0" cellspacing="0" cellpadding="3">
                          <tr valign="middle">
                              <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 194</font></td>
-                             <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                             <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                          </tr>
 
                          <tr valign="middle">
@@ -173,11 +173,11 @@ Here is the code:
 <pre>
 public int maxPoints(int[] wins, int[] ties)
 {
-	int max=-1;
-	for (int i=0; i&lt;=wins.length-1; i++)
-		max=Math.max(max,3*wins[i]+ties[i]);
+   int max=-1;
+   for (int i=0; i&lt;=wins.length-1; i++)
+      max=Math.max(max,3*wins[i]+ties[i]);
 
-	return max;
+   return max;
 }
 </pre>
 </p> 
@@ -281,9 +281,9 @@ write a function that evaluates each card:
 <pre>
 public int card(String card)
 {
-	if (card.equals("A")) return 11;
-	if (card.equals("J") || card.equals("Q") || card.equals("K")) return 10;
-	return Integer.parseInt(card);
+   if (card.equals("A")) return 11;
+   if (card.equals("J") || card.equals("Q") || card.equals("K")) return 10;
+   return Integer.parseInt(card);
 }</pre>
 
 Note that we have assigned Ace to have a value of 11. The only time when
@@ -300,29 +300,29 @@ highest total:</p>
 <pre>
 public int findWinner(String[] hands)
 {
-	int pos=0;
-	double max=-1;
-	
-	for (int i=0; i&lt;=hands.length-1; i++)
-	{
-		String[] cur=hands[i].split(" ");
-		double total=0;
+   int pos=0;
+   double max=-1;
+   
+   for (int i=0; i&lt;=hands.length-1; i++)
+   {
+      String[] cur=hands[i].split(" ");
+      double total=0;
 
-		for (int k=0; k&lt;=cur.length-1; k++)
-			total+=card(cur[k]);
+      for (int k=0; k&lt;=cur.length-1; k++)
+         total+=card(cur[k]);
 
-		if (cur[0].equals(cur[1]) &amp;&amp; cur[1].equals(cur[2])) total = 30.5;
-			
-		if (total&gt;31) total-=10;
-			
-		if (total&gt;max)
-		{
-			max=total;
-			pos=i;
-		}		
-	}
+      if (cur[0].equals(cur[1]) &amp;&amp; cur[1].equals(cur[2])) total = 30.5;
+         
+      if (total&gt;31) total-=10;
+         
+      if (total&gt;max)
+      {
+         max=total;
+         pos=i;
+      }      
+   }
 
-	return pos;
+   return pos;
 }
 </pre>
 
@@ -391,17 +391,17 @@ will be 1 for clockwise and -1 for counter-clockwise:
 <pre>
 int dist(int sectorA, int sectorB, int dir) 
 {
-	int count=0;
-	
-	while (sectorA!=sectorB)
-	{
-		sectorA+=dir;
-		count++;
-		if (sectorA==101) sectorA=1;
-		if (sectorA==0) sectorA=100;
-	}
+   int count=0;
+   
+   while (sectorA!=sectorB)
+   {
+      sectorA+=dir;
+      count++;
+      if (sectorA==101) sectorA=1;
+      if (sectorA==0) sectorA=100;
+   }
 
-	return count;
+   return count;
 }
 </pre>
 
@@ -415,30 +415,30 @@ return is the minimum distance of all those combinations:
 <pre>
 public int optimize(int start, int[] sectors)
 {
-	Arrays.sort(sectors);
-	int min=Integer.MAX_VALUE;
-	
-	for (int i=0; i&lt;=sectors.length-1; i++)
-	{
-		int previousSector=sectors[(i-1+sectors.length)%sectors.length];
-		int nextSector=sectors[(i+1)%sectors.length];
+   Arrays.sort(sectors);
+   int min=Integer.MAX_VALUE;
+   
+   for (int i=0; i&lt;=sectors.length-1; i++)
+   {
+      int previousSector=sectors[(i-1+sectors.length)%sectors.length];
+      int nextSector=sectors[(i+1)%sectors.length];
 
-		//go clockwise then counter-clockwise
-		int dist1=dist(start,sectors[i],1);
-		//check if reversal is required
-		if (dist(start,nextSector,1)&gt;=dist1)
-			dist1+=dist(sectors[i],nextSector,-1);
+      //go clockwise then counter-clockwise
+      int dist1=dist(start,sectors[i],1);
+      //check if reversal is required
+      if (dist(start,nextSector,1)&gt;=dist1)
+         dist1+=dist(sectors[i],nextSector,-1);
 
-		//go counter-clockwise then clockwise
-		int dist2=dist(start,sectors[i],-1);
-		//check if reversal is required
-		if (dist(start,previousSector,-1)&gt;=dist2)
-			dist2+=dist(sectors[i],previousSector,1);
+      //go counter-clockwise then clockwise
+      int dist2=dist(start,sectors[i],-1);
+      //check if reversal is required
+      if (dist(start,previousSector,-1)&gt;=dist2)
+         dist2+=dist(sectors[i],previousSector,1);
 
-		min=Math.min(min,Math.min(dist1,dist2));
-	}
+      min=Math.min(min,Math.min(dist1,dist2));
+   }
 
-	return min;
+   return min;
 }
 </pre>
 
@@ -502,12 +502,12 @@ most solutions began with a loop that counts the number of odds and evens
 in both <b>sums</b> and <b>products</b>:
 <pre>
 for (int i=0; i&lt;=products.length-1; i++)
-{	
-	if (sums[i].equals("ODD")) oddsInSums++;
-	else evensInSums++;
+{   
+   if (sums[i].equals("ODD")) oddsInSums++;
+   else evensInSums++;
 
-	if (products[i].equals("ODD")) oddsInProducts++;
-	else evensInProducts++;
+   if (products[i].equals("ODD")) oddsInProducts++;
+   else evensInProducts++;
 }
 </pre>
 
@@ -528,10 +528,10 @@ The final code looks like this:
 <pre>
 for (int x=0; x&lt;=total; x++)
 {
-	int y=total-x;
+   int y=total-x;
 
-	if (x*(x-1)/2==oddsInProducts &amp;&amp; x*y==oddsInSums)
-		return "EVEN "+y+" ODD "+x;
+   if (x*(x-1)/2==oddsInProducts &amp;&amp; x*y==oddsInSums)
+      return "EVEN "+y+" ODD "+x;
 }
 
 return "IMPOSSIBLE";
@@ -624,14 +624,14 @@ initialize queue q
 initialize table best 
 insert (0) into q 
 while(q is not empty) 
-	tuple t = q.removeFirst() 
-	foreach (tuple t' which is reachable from t) 
-		int cost = best(t) + weightFrom(t,t') 
-		if(best does not contain t' or best(t') &gt;; cost) 
-			q.insert(t') 
-			best(t') = cost 
-		end 
-	end 
+   tuple t = q.removeFirst() 
+   foreach (tuple t' which is reachable from t) 
+      int cost = best(t) + weightFrom(t,t') 
+      if(best does not contain t' or best(t') &gt;; cost) 
+         q.insert(t') 
+         best(t') = cost 
+      end 
+   end 
 end 
 </pre> 
 <p>

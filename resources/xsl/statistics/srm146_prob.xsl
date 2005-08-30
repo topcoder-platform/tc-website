@@ -67,7 +67,7 @@
                             </tr>
                           
                             <tr valign="middle">
-                                <td class="bodyText" align="center" bgcolor="#CCCCCC"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyGeneric">Archive</a></td>
+                                <td class="bodyText" align="center" bgcolor="#CCCCCC"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyGeneric">Archive</a></td>
                                 <td class="bodyText" align="center" bgcolor="#CCCCCC"><a href="mailto:editorial@topcoder.com" class="bodyGeneric">Comments/Ideas?</a></td>
                             </tr>
                         </table>
@@ -78,7 +78,7 @@
                                         
                         <p><strong>Single Round Match 146</strong><br />
                         Wednesday, May 14, 2003</p>
-										
+                              
                         <h2>Match summary</h2>
                         
                         <p>I don't know when it happened the last time, but in this SRM the top-scorer

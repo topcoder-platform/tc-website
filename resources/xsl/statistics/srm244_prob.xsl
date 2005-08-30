@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                 <table width="100%" border="0" cellspacing="0" cellpadding="3">
                    <tr valign="middle">
                       <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 244</font></td>
-                     <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                     <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                    </tr>
 
                    <tr valign="middle">
@@ -146,13 +146,13 @@ height="18" width="60" src="/i/rate_it.gif"/></A><br /> Used as: Division Two - 
 <p>
 The problem is fairly straightforward. First, we count the bias of each prediction in a single loop:
 <pre>
-	vector&lt;int&gt; result(7);
-	for(int i = 0; i &lt; predictedGrades.size(); ++i)
-		++result[abs(predictedGrades[i] - actualGrades[i])]; </pre> Then we convert the result into percentages and return it:
+   vector&lt;int&gt; result(7);
+   for(int i = 0; i &lt; predictedGrades.size(); ++i)
+      ++result[abs(predictedGrades[i] - actualGrades[i])]; </pre> Then we convert the result into percentages and return it:
 <pre>
-	for(int i = 0; i &lt; 7; ++i)
-		result[i] = result[i] * 100 / predictedGrades.size();
-	return result;
+   for(int i = 0; i &lt; 7; ++i)
+      result[i] = result[i] * 100 / predictedGrades.size();
+   return result;
 </pre>
 </p>
 
@@ -207,17 +207,17 @@ height="18" width="60" src="/i/rate_it.gif"/></A><br /> Used as: Division Two - 
 <p>
 Some coders hard-coded the distance matrix or the coordinates of keys for calculation, which is a doable approach. However, in a fast-paced SRM, it is usually better to save some typing by computing them at run-time:
 <pre>
-	string pad = "123456789*0#";
-	int result = 0, x = 1, y = 1;
-	for(int i = 0; i &lt; phoneNumber.size(); ++i){
-		int index = pad.find(phoneNumber[i]);
-		int row = index / 3;
-		int col = index % 3;
-		result += abs(x - col) + abs(y - row);
-		y = row;
-		x = col;	
-	}	
-	return result;
+   string pad = "123456789*0#";
+   int result = 0, x = 1, y = 1;
+   for(int i = 0; i &lt; phoneNumber.size(); ++i){
+      int index = pad.find(phoneNumber[i]);
+      int row = index / 3;
+      int col = index % 3;
+      result += abs(x - col) + abs(y - row);
+      y = row;
+      x = col;   
+   }   
+   return result;
 </pre>
 </p>
 
@@ -337,11 +337,11 @@ the <i>(k+1)</i>th and <i>k</i>th) are still adjacent. So the solution holds opt
 Another compelling reason to convince yourself is that a SRM div 1 easy must be easy : ) Anyway, once you are convinced, the implementation can be really short:
 </p>
 <pre>
-	sort(heights.begin(), heights.end());
-	int result = 0;
-	for(int i = 2; i &lt; heights.size(); ++i)
-		result = max(result, heights[i] - heights[i-2]);
-	return result;
+   sort(heights.begin(), heights.end());
+   int result = 0;
+   for(int i = 2; i &lt; heights.size(); ++i)
+      result = max(result, heights[i] - heights[i-2]);
+   return result;
 </pre>
 
 <font size="+2">
@@ -409,10 +409,10 @@ that's it.  If you work it out on paper a bit, you'll see that reflecting twice
 either adds or subtracts twice the distance between the parallel edges, giving
 us the following solution:
 <pre>
-	double ret = Double.POSITIVE_INFINITY;
+   double ret = Double.POSITIVE_INFINITY;
     for (int i = -2; i &lt;= 2; i+=4) for (int j = -2; j &lt;= 2; j+=4) 
         ret = Math.min(ret,dist(x0,y0,x1+i*a,y1+j*b));
-	return ret;
+   return ret;
 </pre>
 </p>
 

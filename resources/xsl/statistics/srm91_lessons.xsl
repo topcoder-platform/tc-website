@@ -52,39 +52,39 @@
     <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 <!--body contextual links-->
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="250" ALIGN="right">
- 	<TR>
+    <TR>
         <TD ROWSPAN="5" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
         <TD COLSPAN="2" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
     </TR> 
-	<TR><TD COLSPAN="2" BGCOLOR="#999999" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD></TR>
-	<TR>
-		<TD VALIGN="top" BGCOLOR="#999999" CLASS="moduleTitle">&#160; &#160;</TD>
-		<TD BGCOLOR="#999999" VALIGN="top" CLASS="moduleTitle">MATCH EDITORIAL LINKS:</TD>
-	</TR>                    
-	<TR>
-    	<TD COLSPAN="4" VALIGN="top" BGCOLOR="#999999">
-		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
-		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm91_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/index?t=statistics&amp;c=editorial_archive" CLASS="bodyText">Editorial Archive</A></TD>
-		</TR>
-		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm91_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyText">Comments? Ideas?</A></TD>
-		</TR>
-		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm91_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyText">Want to write a feature?</A></TD>
-		</TR>
-		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm91_lessons" CLASS="bodyText">&#160;&#160;Lessons Learned</A></TD>
-			<TD VALIGN="top" CLASS="bodyText">&#160;</TD>
-		</TR>		
-		<TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
-		</TABLE>
-		</TD>
-	</TR>
- 	<TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
+   <TR><TD COLSPAN="2" BGCOLOR="#999999" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD></TR>
+   <TR>
+      <TD VALIGN="top" BGCOLOR="#999999" CLASS="moduleTitle">&#160; &#160;</TD>
+      <TD BGCOLOR="#999999" VALIGN="top" CLASS="moduleTitle">MATCH EDITORIAL LINKS:</TD>
+   </TR>                    
+   <TR>
+       <TD COLSPAN="4" VALIGN="top" BGCOLOR="#999999">
+      <TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
+      <TR>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm91_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" CLASS="bodyText">Editorial Archive</A></TD>
+      </TR>
+      <TR>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm91_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyText">Comments? Ideas?</A></TD>
+      </TR>
+      <TR>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm91_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyText">Want to write a feature?</A></TD>
+      </TR>
+      <TR>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm91_lessons" CLASS="bodyText">&#160;&#160;Lessons Learned</A></TD>
+         <TD VALIGN="top" CLASS="bodyText">&#160;</TD>
+      </TR>      
+      <TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>          
+      </TABLE>
+      </TD>
+   </TR>
+    <TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
 </TABLE>
 <!--end contextual links <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">NDBronson</A> -->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="48" BORDER="0"/><BR/>
@@ -126,9 +126,9 @@ quite sufficient:
 sum = 1;
 for (i=2; i&#60;sqrt(n+1); i++) {
     if (n % i == 0) {
-	sum+= i;
-	if (i &#60; n/i) {
-	    sum+= n/i;
+   sum+= i;
+   if (i &#60; n/i) {
+       sum+= n/i;
         }
     }
 }
@@ -138,10 +138,10 @@ for (i=2; i&#60;sqrt(n+1); i++) {
 <P>
 Problems:
 <OL>
-	<LI>Only checking up to sqrt(n), without adding the second of a pair of 
-	divisors.</LI>    
-	<LI>Using (sum &#60; n) as a loop guard.</LI>
-	<LI>Including sqrt of n twice when counting factors.</LI>
+   <LI>Only checking up to sqrt(n), without adding the second of a pair of 
+   divisors.</LI>    
+   <LI>Using (sum &#60; n) as a loop guard.</LI>
+   <LI>Including sqrt of n twice when counting factors.</LI>
 </OL>
 </P>
 
@@ -163,12 +163,12 @@ challenge.
 <P>
 Problems:
 <OL>
-	<LI>Assuming that the scores table was sorted.  (All the examples were
-	sorted)</LI>    
-	<LI>In a solution which created three ArrayLists to contain the scores
+   <LI>Assuming that the scores table was sorted.  (All the examples were
+   sorted)</LI>    
+   <LI>In a solution which created three ArrayLists to contain the scores
 in each case, adding the "success" score, to the "fail" List.</LI>
-	<LI>Divide by zero exception.</LI>
-	<LI>Errors in indexing into the array.  This cropped up in a solution
+   <LI>Divide by zero exception.</LI>
+   <LI>Errors in indexing into the array.  This cropped up in a solution
 which counted how many results were less than a particular score. Had the coder counted the number greater, it is likely the error 
 would not have occurred.</LI>
 </OL>
@@ -205,12 +205,12 @@ its output.
 <P>
 Problems:
 <OL>
-	<LI>Trying to use if-then-else to handle the logic.  Since some steps
-	        output state depended on their input state, this could not work.</LI>    
-	<LI>Mis-understanding the problem description.  This was definitely a 
+   <LI>Trying to use if-then-else to handle the logic.  Since some steps
+           output state depended on their input state, this could not work.</LI>    
+   <LI>Mis-understanding the problem description.  This was definitely a 
    problem worth reading more than once.  Some people simply coded the
    wrong rules.</LI>
-	<LI>Not realising that input state was inportant for some steps.</LI>
+   <LI>Not realising that input state was inportant for some steps.</LI>
 </OL>
 </P>
 
@@ -225,26 +225,26 @@ the errors crop up.
 <IMG SRC="/i/m/slowjoe_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;slowjoe<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=271917" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
-					</TD>
-					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-				<TR>
-					<TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-				</TR>   	
-				<TR>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>	
-				<TR>
-					<TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-			</TABLE>
-		</TD>
+               </TD>
+               <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+            </TR>
+            <TR>
+               <TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+            </TR>      
+            <TR>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+            </TR>   
+            <TR>
+               <TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+            </TR>
+         </TABLE>
+      </TD>
   <!-- Center Column Ends -->
 <!-- Body Area Ends -->
 

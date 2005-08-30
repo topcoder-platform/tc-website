@@ -47,39 +47,39 @@ function openWin(url, name, w, h) {
  <tr valign="top">
 
 <!-- Left Column Begins -->
-	 <td width="170" bgcolor="#FFFFFF">
-		 <xsl:call-template name="global_left"/>
-	 </td>
+    <td width="170" bgcolor="#FFFFFF">
+       <xsl:call-template name="global_left"/>
+    </td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-	 <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" alt="" border="0" /></td>
+    <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-	 <td class="bodyText" width="100%">
-		 <xsl:call-template name="BodyTop">
-			 <xsl:with-param name="image1">white</xsl:with-param>
-			 <xsl:with-param name="image">statisticsw</xsl:with-param>
-			 <xsl:with-param name="title">Last Match Editorials</xsl:with-param>
-		 </xsl:call-template>
+    <td class="bodyText" width="100%">
+       <xsl:call-template name="BodyTop">
+          <xsl:with-param name="image1">white</xsl:with-param>
+          <xsl:with-param name="image">statisticsw</xsl:with-param>
+          <xsl:with-param name="title">Last Match Editorials</xsl:with-param>
+       </xsl:call-template>
 
-		 <table border="0" cellspacing="10" cellpadding="0" width="100%">
-		 <tr valign="top">
-				 <td class="bodyText" width="100%">
+       <table border="0" cellspacing="10" cellpadding="0" width="100%">
+       <tr valign="top">
+             <td class="bodyText" width="100%">
 
 <!--body contextual links-->
-					 <table width="100%" border="0" cellspacing="0" cellpadding="3">
-						 <tr valign="middle">
-							 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 222</font></td>
-							 <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
-						 </tr>
+                <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                   <tr valign="middle">
+                      <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 222</font></td>
+                      <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
+                   </tr>
 
-						 <tr valign="middle">
-							 <td class="bodyText">Tuesday, December 7, 2004</td>
-							 <td class="bodyText" align="right"><a href="mailto:editorial@topcoder.com">Comments / Ideas?</a></td>
-						 </tr>
-					 </table>
+                   <tr valign="middle">
+                      <td class="bodyText">Tuesday, December 7, 2004</td>
+                      <td class="bodyText" align="right"><a href="mailto:editorial@topcoder.com">Comments / Ideas?</a></td>
+                   </tr>
+                </table>
 <!--end contextual links-->
 
 
@@ -156,11 +156,11 @@ started with the largest first, and started at the left, you know you've got the
 
 <pre>
 public String longestRepeat(String sourceText) {
-	for (int i = sourceText.length() / 2; i &gt; 0; i--)
-		for (int j = 0; j &lt; sourceText.length() - i; j++)
-			if (sourceText.indexOf(sourceText.substring(j, j + i), j + i) &gt; 0)
-				return sourceText.substring(j, j + i);
-	return "";
+   for (int i = sourceText.length() / 2; i &gt; 0; i--)
+      for (int j = 0; j &lt; sourceText.length() - i; j++)
+         if (sourceText.indexOf(sourceText.substring(j, j + i), j + i) &gt; 0)
+            return sourceText.substring(j, j + i);
+   return "";
 }
 </pre>
 
@@ -502,62 +502,62 @@ and determining the original permutation given the index and the number of eleme
 
 <pre>
 int[] indexToPerm(int j, int d) {
-	if (d == 1)
-		return new int[]{0};
-	int f = 1;
-	for (int i = 2; i &lt; d; i++)
-		f *= i;		
-	int[] r = new int[d];
-	r[0] = j / f;
-	int[] t = indexToPerm(j % f, d - 1);
-	for (int i = 0; i &lt; t.length; i++)
-		if (t[i] &gt;= r[0]) t[i]++;
-	System.arraycopy(t, 0, r, 1, t.length);
-	return r;
+   if (d == 1)
+      return new int[]{0};
+   int f = 1;
+   for (int i = 2; i &lt; d; i++)
+      f *= i;      
+   int[] r = new int[d];
+   r[0] = j / f;
+   int[] t = indexToPerm(j % f, d - 1);
+   for (int i = 0; i &lt; t.length; i++)
+      if (t[i] &gt;= r[0]) t[i]++;
+   System.arraycopy(t, 0, r, 1, t.length);
+   return r;
 }
 
 int permToIndex(int[] p) {
-	if (p.length == 2)
-		return p[0];
-	int f = 1;
-	for (int i = 1; i &lt; p.length; i++)
-		f *= i;
-	int[] r = new int[p.length - 1];
-	System.arraycopy(p, 1, r, 0, p.length - 1);
-	for (int i = 0; i &lt; r.length; i++)
-		if (r[i] &gt; p[0]) r[i]--;
-	return f * p[0] + permToIndex(r);
+   if (p.length == 2)
+      return p[0];
+   int f = 1;
+   for (int i = 1; i &lt; p.length; i++)
+      f *= i;
+   int[] r = new int[p.length - 1];
+   System.arraycopy(p, 1, r, 0, p.length - 1);
+   for (int i = 0; i &lt; r.length; i++)
+      if (r[i] &gt; p[0]) r[i]--;
+   return f * p[0] + permToIndex(r);
 }
 </pre>
 
 
-					 <p>
-					 <img src="/i/m/timmac_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-					 By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=10407399"><strong>timmac</strong></a><br />
-					 <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-					 </p>
-				 </td>
-			 </tr>
-		 </table>
+                <p>
+                <img src="/i/m/timmac_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+                By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=10407399"><strong>timmac</strong></a><br />
+                <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+                </p>
+             </td>
+          </tr>
+       </table>
 
-		 <p><br /></p>
+       <p><br /></p>
 
-	 </td>
+    </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-	 <td width="4"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
+    <td width="4"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-	 <td width="170">
-		 <img src="/i/clear.gif" width="170" height="1" border="0"/><br />
-		 <xsl:call-template name="public_right_col"/>
-	 </td>
+    <td width="170">
+       <img src="/i/clear.gif" width="170" height="1" border="0"/><br />
+       <xsl:call-template name="public_right_col"/>
+    </td>
 <!-- Right Column Ends -->
 
 <!-- Gutter -->
-	 <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
  </tr>

@@ -52,39 +52,39 @@
     <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 <!--body contextual links-->
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="250" ALIGN="right">
- 	<TR>
+    <TR>
         <TD ROWSPAN="5" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
         <TD COLSPAN="2" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
     </TR> 
-	<TR><TD COLSPAN="2" BGCOLOR="#999999" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD></TR>
-	<TR>
-		<TD VALIGN="top" BGCOLOR="#999999" CLASS="moduleTitle">&#160; &#160;</TD>
-		<TD BGCOLOR="#999999" VALIGN="top" CLASS="moduleTitle">MATCH EDITORIAL LINKS:</TD>
-	</TR>                    
-	<TR>
-    	<TD COLSPAN="4" VALIGN="top" BGCOLOR="#999999">
-		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
-		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm89_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/index?t=statistics&amp;c=editorial_archive" CLASS="bodyText">Editorial Archive</A></TD>
-		</TR>
-		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm89_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyText">Comments? Ideas?</A></TD>
-		</TR>
-		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm89_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyText">Want to write a feature?</A></TD>
-		</TR>
-		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm89_lessons" CLASS="bodyText">&#160;&#160;Lessons Learned</A></TD>
-			<TD VALIGN="top" CLASS="bodyText">&#160;</TD>
-		</TR>
-		<TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
-		</TABLE>
-		</TD>
-	</TR>
- 	<TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
+   <TR><TD COLSPAN="2" BGCOLOR="#999999" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD></TR>
+   <TR>
+      <TD VALIGN="top" BGCOLOR="#999999" CLASS="moduleTitle">&#160; &#160;</TD>
+      <TD BGCOLOR="#999999" VALIGN="top" CLASS="moduleTitle">MATCH EDITORIAL LINKS:</TD>
+   </TR>                    
+   <TR>
+       <TD COLSPAN="4" VALIGN="top" BGCOLOR="#999999">
+      <TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
+      <TR>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm89_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" CLASS="bodyText">Editorial Archive</A></TD>
+      </TR>
+      <TR>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm89_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyText">Comments? Ideas?</A></TD>
+      </TR>
+      <TR>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm89_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyText">Want to write a feature?</A></TD>
+      </TR>
+      <TR>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm89_lessons" CLASS="bodyText">&#160;&#160;Lessons Learned</A></TD>
+         <TD VALIGN="top" CLASS="bodyText">&#160;</TD>
+      </TR>
+      <TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>          
+      </TABLE>
+      </TD>
+   </TR>
+    <TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
 </TABLE>
 <!--end contextual links <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">NDBronson</A> -->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="48" BORDER="0"/><BR/>
@@ -142,19 +142,19 @@ following is much more likely to work:</P>
 maxBase = maxPow = 0
 // Quite important for the loop to allow square roots.
 for (int base = 2; base &#60; Math.sqrt(number+1); base++) {
-	int result = 1;
-	for (int pow = 2; pow &#60; 32; pow++) {
-		result &#42;= base;
-	}
-	if (pow &#62; maxPow) {
-		maxPow = pow;
-		maxBase = base;
-	}
+   int result = 1;
+   for (int pow = 2; pow &#60; 32; pow++) {
+      result &#42;= base;
+   }
+   if (pow &#62; maxPow) {
+      maxPow = pow;
+      maxBase = base;
+   }
 }
 if (maxPow &#62; 0) {
-	return ""+maxBase+"^"+maxPow;
+   return ""+maxBase+"^"+maxPow;
 } else {
-	return "NOT A PERFECT POWER";
+   return "NOT A PERFECT POWER";
 }
 </pre>
 
@@ -191,22 +191,22 @@ store the result of the check, then compare the input to the data.</P>
 1.  One technique used was to check around a particular element:<BR/>
 <pre>
 boolean inCross(int x, int y, char&#91;&#93;&#91;&#93; data) {
-	if (centre(x+!, y, data)) return true;
-	if (centre(x-1!, y, data)) return true;
-	if (centre(x, y+1, data)) return true;
-	if (centre(x, y+1, data)) return true;
-	if (centre(x, y, data)) return true;
-	return false;
+   if (centre(x+!, y, data)) return true;
+   if (centre(x-1!, y, data)) return true;
+   if (centre(x, y+1, data)) return true;
+   if (centre(x, y+1, data)) return true;
+   if (centre(x, y, data)) return true;
+   return false;
 }
 
 boolean centre(int x, int y, char&#91;&#93; data) {
-	if (x&#62;=0 || y>=0 || x&#60;=maxX || yx&#60;=maxY) return false;
-	if (data&#91;x-1&#93;&#91;y&#93; != '1') return false;
-	if (data&#91;x+1&#93;&#91;y&#93; != '1') return false;
-	if (data&#91;x&#93;&#91;y-1&#93; != '1') return false;
-	if (data&#91;x&#93;&#91;y+1&#93; != '1') return false;
-	// Note: no check on the centre
-	return true;
+   if (x&#62;=0 || y>=0 || x&#60;=maxX || yx&#60;=maxY) return false;
+   if (data&#91;x-1&#93;&#91;y&#93; != '1') return false;
+   if (data&#91;x+1&#93;&#91;y&#93; != '1') return false;
+   if (data&#91;x&#93;&#91;y-1&#93; != '1') return false;
+   if (data&#91;x&#93;&#91;y+1&#93; != '1') return false;
+   // Note: no check on the centre
+   return true;
 }
 </pre></P>
 <P>This would fail on:<BR/><BR/>
@@ -236,43 +236,43 @@ a couple of people have asked that I cover algorithms in a little more depth.</P
 <IMG SRC="/i/m/slowjoe_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;slowjoe<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=271917" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
-					</TD>
-					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-				<TR>
-					<TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-				</TR>   	
-				<TR>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>	
-				<TR>
-					<TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-			</TABLE>
-		</TD>
+               </TD>
+               <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+            </TR>
+            <TR>
+               <TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+            </TR>      
+            <TR>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+            </TR>   
+            <TR>
+               <TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+            </TR>
+         </TABLE>
+      </TD>
   <!-- Center Column Ends -->
 <!-- Body Area Ends -->
 
-	<!-- Gutter -->
-		<TD WIDTH="4" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
+   <!-- Gutter -->
+      <TD WIDTH="4" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
-	<!-- Right Column Begins -->
-		<TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><br/>
+   <!-- Right Column Begins -->
+      <TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><br/>
 <!-- Right Column Include Begins --> 
         <xsl:call-template name="public_right_col"/>       
 <!-- Right Column Include Ends -->        
         </TD>
-	<!-- Right Column Ends -->
-	<!-- Gutter -->
-		<TD WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+   <!-- Right Column Ends -->
+   <!-- Gutter -->
+      <TD WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
-	</TR>
+   </TR>
 </TABLE>
 <!-- Body Ends -->
         <xsl:call-template name="Foot"/>

@@ -84,7 +84,7 @@
                                                             <!-- <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="15"><A HREF="/?t=statistics&amp;c=srm104_prob" CLASS="bodyGeneric">&#160;Problem&#160;Set&#160;</A></TD>
                                                             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="/?t=statistics&amp;c=srm103_rookie" CLASS="bodyGeneric">&#160;Rookie&#160;Review&#160;</A></TD> -->
                                                             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC">
-                                                                <A HREF="/index?t=statistics&amp;c=editorial_archive" CLASS="bodyGeneric">&#160;Archive&#160;</A>
+                                                                <A HREF="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" CLASS="bodyGeneric">&#160;Archive&#160;</A>
                                                             </TD>
                                                             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC">
                                                                 <A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">&#160;Comments/Ideas?&#160;</A>
@@ -146,11 +146,11 @@
                                             <b>spaces</b> numbers in your sorted array.  Another way to do this, which is perhaps simpler, is to loop backwards through all possible frequencies (the max is 1000), and add the numbers to an array as they are found.
                                         </p>
                                         <pre>
-	String ret[] = new String[spaces];
-	int ptr = 0;
-	for(int i = 1000; i&gt;=0; i--) for(int j = 0; j&lt;freq.length &amp;&amp; ptr!=spaces; j++)
-		if(freq[j]==i)ret[ptr++] = n[j];
-	return ret;
+   String ret[] = new String[spaces];
+   int ptr = 0;
+   for(int i = 1000; i&gt;=0; i--) for(int j = 0; j&lt;freq.length &amp;&amp; ptr!=spaces; j++)
+      if(freq[j]==i)ret[ptr++] = n[j];
+   return ret;
                                         </pre>
 
 
@@ -224,18 +224,18 @@
                                             Most people had little trouble with this, and getting it correct was not algorithmically difficult.  Basically just check each character, and see if it is the start of a run of length greater than 4.  If it is, delete the run, and replace it with a slash and the number of characters in the run.  You could also do it by building a wholly new string out of the old one.
                                         </p>
                                         <pre>
-	StringBuffer r = new StringBuffer(50);
-	for(int i = 0; i&lt;input.length(); i++){
-		int j = i;
-		while(++j&lt;input.length() &amp;&amp; input.charAt(j)==input.charAt(i));
-		if(j-i>4){
-			r.append('/');
-			r.append(new DecimalFormat("00").format(j-i));
-			r.append(input.charAt(i));
-			i = j-1;
-		}else r.append(input.charAt(i));
-	}
-	return r.toString();
+   StringBuffer r = new StringBuffer(50);
+   for(int i = 0; i&lt;input.length(); i++){
+      int j = i;
+      while(++j&lt;input.length() &amp;&amp; input.charAt(j)==input.charAt(i));
+      if(j-i>4){
+         r.append('/');
+         r.append(new DecimalFormat("00").format(j-i));
+         r.append(input.charAt(i));
+         i = j-1;
+      }else r.append(input.charAt(i));
+   }
+   return r.toString();
                                         </pre>
 
                                         <font size="+2">
@@ -352,28 +352,28 @@
                                             In the end, the solution seems surprisingly simple, which is what led to the misleading points assignment.  The most common mistake seems to be the mishandling of the case where one or both of the directions is negative.  People also had trouble when the line ran along an edge.  There were also some solutions which timed out because they did not use division and modulus, but used addition and subtraction to accomplish the same thing.  Here is something similar to the way most people did it:
                                         </p>
                                         <pre>
-	int w = in[0], h = in[1], sx = in[2], sy = in[3], dx = in[4], dy = in[5];
-	if(dx==0||dy==0)return 1;
-	if(dx&lt;0){
-		sx = (w-sx)%w;
-		dx = -dx;
-	}
-	if(dy&lt;0){
-		sy = (h-sy)%h;
-		dy = -dy;
-	}
-	int g = gcd(dx,dy);
-	dx/=g;dy/=g;
-	int ret = 0;
-	int nx = sx, ny = sy;
-	while(true){
-		ret+=(nx+dx)/w + (ny+dy)/h;
-		nx = (nx+dx)%w;
-		ny = (ny+dy)%h;
-		if(nx==0 &amp;&amp; ny==0)ret--;
-		if((nx-sx)*dy == (ny-sy) * dx &amp;&amp; ret !=0)break;
-	}
-	return ret;
+   int w = in[0], h = in[1], sx = in[2], sy = in[3], dx = in[4], dy = in[5];
+   if(dx==0||dy==0)return 1;
+   if(dx&lt;0){
+      sx = (w-sx)%w;
+      dx = -dx;
+   }
+   if(dy&lt;0){
+      sy = (h-sy)%h;
+      dy = -dy;
+   }
+   int g = gcd(dx,dy);
+   dx/=g;dy/=g;
+   int ret = 0;
+   int nx = sx, ny = sy;
+   while(true){
+      ret+=(nx+dx)/w + (ny+dy)/h;
+      nx = (nx+dx)%w;
+      ny = (ny+dy)%h;
+      if(nx==0 &amp;&amp; ny==0)ret--;
+      if((nx-sx)*dy == (ny-sy) * dx &amp;&amp; ret !=0)break;
+   }
+   return ret;
                                         </pre>
                                         <p>The above code is quite similar to all 3 successful submission, and was the easiest way to do it.  However, for those who are interested, there is also a constant time solution (well, actually it's logrithmic in the size of the numbers because of gcd, but constant with respect to the answer) to this problem.  The first thing to note in order to come up with this solution is that, unless the line hits a corner, the start location does not matter.  To see this, imagine that you start at some point in the square, and draw all of the line segments.  Then, if you shift the point one square to the right, all of the segments will shift one square to the right.  It should not be too hard to verify that if shifting causes a segment to hit a corner, the total number of segments decreases by 1, while if shifting causes no segment to hit a corner, when it did before, then the number of segments increases by 1.  So, this suggests that we should first start by calculating the number of segments in the case where none of the segments hits a corner.  To do this, consider how far the segment goes up, each time it goes across the paper.  A little algebra gives you
                                             <tt>w*dy/dx</tt>, or
@@ -402,25 +402,25 @@
                                             That was probably a bit confusing, but if you try to work it out yourself with a paper and pencil, it should become clearer.  Anyhow, here is the code:
                                         </p>
                                         <pre>
-	int w = params[0], h = params[1], sx = params[2], sy = params[3], dx = params[4], dy = params[5];
-	if(dx==0||dy==0)return 1;
-	if(dx&lt;0){dx=-dx;sx=(w-sx)%w;}
-	if(dy&lt;0){dy=-dy;sy=(h-sy)%h;}
-	int g = gcd(dx,dy);
-	dx/=g;dy/=g;
-	int n = w*dy;
-	int d = dx*h;
-	g = gcd(n,d);
-	d/=g; n/=g;
-	int ret = d+n;
-	int nsy = sy*dx+dy*(w-sx);
-	int dsy = dx*h;
-	g = gcd(nsy,dsy);
-	dsy/=g;nsy/=g;
-	if(d%dsy==0){
-		ret--;
-	}
-	return ret;
+   int w = params[0], h = params[1], sx = params[2], sy = params[3], dx = params[4], dy = params[5];
+   if(dx==0||dy==0)return 1;
+   if(dx&lt;0){dx=-dx;sx=(w-sx)%w;}
+   if(dy&lt;0){dy=-dy;sy=(h-sy)%h;}
+   int g = gcd(dx,dy);
+   dx/=g;dy/=g;
+   int n = w*dy;
+   int d = dx*h;
+   g = gcd(n,d);
+   d/=g; n/=g;
+   int ret = d+n;
+   int nsy = sy*dx+dy*(w-sx);
+   int dsy = dx*h;
+   g = gcd(nsy,dsy);
+   dsy/=g;nsy/=g;
+   if(d%dsy==0){
+      ret--;
+   }
+   return ret;
                                         </pre>
 
                                         <font size="+2">

@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                 <table width="100%" border="0" cellspacing="0" cellpadding="3">
                    <tr valign="middle">
                       <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 249</font></td>
-                     <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                     <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                    </tr>
 
                    <tr valign="middle">
@@ -149,7 +149,7 @@ This problem is easily solved using the available string processing routines.  J
 public int howMany(String[] transcript, String name) {
     int ret = 0;
     for (int i = 0; i &lt; transcript.length; i++) 
-	if (transcript[i].startsWith(name+":")) ret++;
+   if (transcript[i].startsWith(name+":")) ret++;
     return ret;
 }
 </pre>
@@ -212,14 +212,14 @@ public int[] getPairs(String[] data) {
     ArrayList&lt;Integer&gt; al = new ArrayList();
     int cnt = 0;
     for (int c = 0; c &lt; data[0].length(); c++) {
-	boolean allSpaces = true;
-	for (int r = 0; r &lt; data.length; r++) 
-		if (data[r].charAt(c) != ' ') allSpaces = false;
-	if (!allSpaces &amp;&amp; cnt &gt; 0) {
-		al.add(cnt); 
-		cnt = 0;
-	}
-	if (allSpaces) cnt++;
+   boolean allSpaces = true;
+   for (int r = 0; r &lt; data.length; r++) 
+      if (data[r].charAt(c) != ' ') allSpaces = false;
+   if (!allSpaces &amp;&amp; cnt &gt; 0) {
+      al.add(cnt); 
+      cnt = 0;
+   }
+   if (allSpaces) cnt++;
     }
     int[] ret = new int[al.size()];
     for (int i = 0; i &lt; ret.length; i++) ret[i] = al.get(i);
@@ -333,7 +333,7 @@ requiring 2 tables enters.  Each way of seating them occurs with probability 1/9
 probability is associated with a group arriving that requires 2 tables).  One possible way is
 drawn below (T for empty table, U for used table):
 <pre>
-	T   T   T   U   U   T   T   T   T   T
+   T   T   T   U   U   T   T   T   T   T
 </pre>
 Our function can now be called recursively with this seating configuration.  Combining the
 expectations associated with each possible seating (accounting for their respective probabilities), 
@@ -402,8 +402,8 @@ gives rise to the following pseudcode:
 <pre>
     For 1 .. (number of people)
         1) Allow everyone who can write a message do so (see below).
-	2) Let the lowest numbered person that can leave do so.  
-	   If no person can exit, return invalid.
+   2) Let the lowest numbered person that can leave do so.  
+      If no person can exit, return invalid.
 </pre>
 Now we explain who <i>can</i> write a message.  If everyone in the chat room needs to see a
 particular person write a message, then that person is allowed to do so.  Otherwise, writing a message

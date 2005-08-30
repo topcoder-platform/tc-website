@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                      <table width="100%" border="0" cellspacing="0" cellpadding="3">
                          <tr valign="middle">
                              <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 201</font></td>
-                             <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                             <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                          </tr>
 
                          <tr valign="middle">
@@ -414,11 +414,11 @@ For this problem, you were basically given the algorithm and left to do the math
 <p>
 Since all the really interesting cases were gotten rid of by the constraints (intersecting trees, trees whose closest points to the center were at the same distance from the center as another tree's furthest point from the center, trees that covered the center), all you really had to do was iterate until the dog hit the center:
 <ul>
-	<li>Find the tree that you would hit first in this diameter (if there isn't one, return -1).</li>
-	<li>Travel around that tree until you are closest to the center. There are two cases here:</li>
+   <li>Find the tree that you would hit first in this diameter (if there isn't one, return -1).</li>
+   <li>Travel around that tree until you are closest to the center. There are two cases here:</li>
 <ol>
-		<li>The point on that tree closest to the center is outside the circle of radius 10 (simpler).</li>
-		<li>The point on that tree closest to the center is inside the circle of radius 10. In this case, you then have to intersect that tree with the circle of radius 10 at the center of the woods and use that point instead.</li>
+      <li>The point on that tree closest to the center is outside the circle of radius 10 (simpler).</li>
+      <li>The point on that tree closest to the center is inside the circle of radius 10. In this case, you then have to intersect that tree with the circle of radius 10 at the center of the woods and use that point instead.</li>
 </ol>
 </ul>
 Add up the distances as you go (distance around an arc is pi * radians * radius), and return. Simple double arithmetic works here, there's nothing fancy you have to do to avoid precision problems.

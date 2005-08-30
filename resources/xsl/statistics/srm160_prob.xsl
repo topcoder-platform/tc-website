@@ -64,7 +64,7 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 160</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -286,28 +286,28 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
 <p> 
 The tricky part about this problem was figuring out exactly how to spiral out.  Once you had that down, the rest was pretty simple.  First, you start with a big 2-D char array, say 200 x 200.  Initialize them all to something that won't be in the return, like 0.  Then, start with x and y at 100.  Now, you'll want to have two arrays, lets call them dx, and dy, each with 4 elements, each of which represents how to move in each direction.  For example, in java, you'd have:
 <pre>
-	int[] dx = {0,-1,0,1};
-	int[] dy = {-1,0,1,0};
+   int[] dx = {0,-1,0,1};
+   int[] dy = {-1,0,1,0};
 </pre>
 You also have a variable, dir, representing what direction you are currently heading.  Last, you have two variables, gone and toGo, representing how far you have gone in one direction, and how far you need to go.
 You initialize dir to 0, gone to 0, and toGo to 1.  So, you start at (100, 100), and add a section of quilt, whose color is determined by the three simple rules (finding which color to add can be done simply by looping over all of the 8 adjacent locations).
 Then, you move dx[dir] in the x direction, and dy[dir] in the y direction, and increment gone.  If gone equals toGo, then you increment dir, mod 4.  The key step is knowing when to increase toGo.  If you look at the pattern, it turns out that you should increment gone whenever you increment dir to 2 or back to 0.  So, you have something like this:
 <pre>
-	char quilt[200][200];
-	int x = 100, y = 100, dir = 0, gone = 0, toGo = 1;
-	for(int i = 0; i &lt; length*width; i++){
-		place a section of quilt at x,y.
-		x = x + dx[dir];
-		y = y + dy[dir];
-		gone = gone + 1;
-		if(gone == toGo){
-			dir = (dir + 1)%4;
-			if(dir==2 || dir == 0){
-				toGo = toGo + 1;
-			}
-			gone = 0;
-		}
-	}
+   char quilt[200][200];
+   int x = 100, y = 100, dir = 0, gone = 0, toGo = 1;
+   for(int i = 0; i &lt; length*width; i++){
+      place a section of quilt at x,y.
+      x = x + dx[dir];
+      y = y + dy[dir];
+      gone = gone + 1;
+      if(gone == toGo){
+         dir = (dir + 1)%4;
+         if(dir==2 || dir == 0){
+            toGo = toGo + 1;
+         }
+         gone = 0;
+      }
+   }
 </pre>
 Then, all thats left is to trim your big 2-D char array down to a String[], which isn't too hard.
 </p> 
@@ -422,52 +422,52 @@ For each potential LCM, I took the prime factorization of that number, which gav
 <pre>
 import java.util.*;
 public class Permutation{
-	String ch = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	public String best(int n){
-		int max = 1;
-		for(int i = 1; i&lt;200000 ; i++){
-			if(sum(pf(i)) &lt;= n)max = i;
-		}
-		int[] p = pf(max);
-		int s = sum(p);
-		Arrays.sort(p);
-		String ret = "";
-		for(int i = 0; i&lt;n-s; i++){
-			ret+=ch.charAt(0);
-			ch = ch.substring(1);
-		}
-		for(int i = 0; i&lt;p.length; i++){
-			String st = ch.substring(0,p[i]);
-			ch = ch.substring(p[i]);
-			ret += st.substring(1)+st.charAt(0);
-		}
-		return ret;
-	}
-	/**
-	 * returns the prime factorization of n
-	 */
-	int[] pf(int n){
-		ArrayList al = new ArrayList(10);
-		for(int i = 2; i*i&lt;=n; i++){
-			int push = 1;
-			while(n%i==0){
-				n/=i;
-				push*=i;
-			}
-			if(push&gt;1)
-				al.add(new Integer(push));
-		}
-		if(n&gt;1)al.add(new Integer(n));
-		int[] ret = new int[al.size()];
-	for(int i = 0; i&lt;ret.length; i++)ret[i]=((Integer)al.get(i)).intValue();
-		return ret;
-	}
-	int sum(int[] n){
-		int ret = 0;
-		for(int i = 0; i&lt;n.length; i++)
-			ret+=n[i];
-		return ret;
-	}
+   String ch = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+   public String best(int n){
+      int max = 1;
+      for(int i = 1; i&lt;200000 ; i++){
+         if(sum(pf(i)) &lt;= n)max = i;
+      }
+      int[] p = pf(max);
+      int s = sum(p);
+      Arrays.sort(p);
+      String ret = "";
+      for(int i = 0; i&lt;n-s; i++){
+         ret+=ch.charAt(0);
+         ch = ch.substring(1);
+      }
+      for(int i = 0; i&lt;p.length; i++){
+         String st = ch.substring(0,p[i]);
+         ch = ch.substring(p[i]);
+         ret += st.substring(1)+st.charAt(0);
+      }
+      return ret;
+   }
+   /**
+    * returns the prime factorization of n
+    */
+   int[] pf(int n){
+      ArrayList al = new ArrayList(10);
+      for(int i = 2; i*i&lt;=n; i++){
+         int push = 1;
+         while(n%i==0){
+            n/=i;
+            push*=i;
+         }
+         if(push&gt;1)
+            al.add(new Integer(push));
+      }
+      if(n&gt;1)al.add(new Integer(n));
+      int[] ret = new int[al.size()];
+   for(int i = 0; i&lt;ret.length; i++)ret[i]=((Integer)al.get(i)).intValue();
+      return ret;
+   }
+   int sum(int[] n){
+      int ret = 0;
+      for(int i = 0; i&lt;n.length; i++)
+         ret+=n[i];
+      return ret;
+   }
 }
 </pre>
 Most of the solutions I saw did essentially the same thing - find a set of integers whose product was maximized and whose sum did not exceed n.  However, most people did it with some sort of a recursive search, instead of taking prime factorizations.

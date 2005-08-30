@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                 <table width="100%" border="0" cellspacing="0" cellpadding="3">
                    <tr valign="middle">
                       <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 234</font></td>
-                      <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                      <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                    </tr>
 
                    <tr valign="middle">
@@ -149,7 +149,7 @@ loop over the input string, and count the length of each potential substring.  J
 public int howLong(String moves) {
     int ret = 1;
     for (int i = 1, c = 1; i &lt; moves.length(); i++) 
-	ret = Math.max(ret, c = moves.charAt(i) == moves.charAt(i-1) ? c+1 : 1);
+   ret = Math.max(ret, c = moves.charAt(i) == moves.charAt(i-1) ? c+1 : 1);
     return ret;
 }
 </pre>
@@ -256,10 +256,10 @@ public String[] getSum(int nn, int dd) {
     long n = nn, d = dd;
     ArrayList al = new ArrayList();
     while (n &gt; 0) {
-	long x = (d+n-1)/n;
-	al.add("1/"+x);
-	n = n*x - d;
-	d *= x;
+   long x = (d+n-1)/n;
+   al.add("1/"+x);
+   n = n*x - d;
+   d *= x;
     } 
     return (String[])al.toArray(new String[0]);
 }
@@ -317,9 +317,9 @@ This problem can be paraphrased as follows: Write a parser.  Since the grammar i
 the CFG rules can be hardcoded into the solution.  The structure of the CFG, combined with the
 constraints, insure that there will always be a unique solution.  Essentially, this means that the
 input string would belong to the set
-<pre>	     { a<sup>n</sup>b<sup>m</sup> | n != m } </pre>
+<pre>        { a<sup>n</sup>b<sup>m</sup> | n != m } </pre>
 or the set
-<pre>	     { bxa | x is a positive length string }. </pre>
+<pre>        { bxa | x is a positive length string }. </pre>
 The early replacement steps entirely depend on which of the above sets contains the input string.
 The later steps are determined by m and n, or the contents of x.
 </p>

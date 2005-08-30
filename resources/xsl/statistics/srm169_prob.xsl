@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 169</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -185,44 +185,44 @@ the river current is greater than or equal to the swimmer's speed then the
 swimmer will never make it back. In such a case we return -1.<br/><br/>
 
 <b>Simple formula:</b><br/>
-&#160;&#160;&#160;&#160;	The time to swim from point A to point B is given 
+&#160;&#160;&#160;&#160;   The time to swim from point A to point B is given 
 by <br/>
-&#160;&#160;&#160;&#160;	TimeFromAtoB = ABDistance/(speedOfSwimmer + 
+&#160;&#160;&#160;&#160;   TimeFromAtoB = ABDistance/(speedOfSwimmer + 
 speedOfCurrent) <br/>
-&#160;&#160;&#160;&#160;	Here the swimmer is taking advantage of the fact 
+&#160;&#160;&#160;&#160;   Here the swimmer is taking advantage of the fact 
 that his/her speed gets added<br/>
-&#160;&#160;&#160;&#160;	to the speed of the current.<br/><br/>
+&#160;&#160;&#160;&#160;   to the speed of the current.<br/><br/>
 
-&#160;&#160;&#160;&#160;	The time to swim back from point B to point A 
+&#160;&#160;&#160;&#160;   The time to swim back from point B to point A 
 (against the current) is given by<br/>
-&#160;&#160;&#160;&#160;	TimeFromBtoA = ABDistance/(speedOfSwimmer - 
+&#160;&#160;&#160;&#160;   TimeFromBtoA = ABDistance/(speedOfSwimmer - 
 speedOfCurrent)<br/>
-&#160;&#160;&#160;&#160;	Here the swimmer has to fight the current and in 
+&#160;&#160;&#160;&#160;   Here the swimmer has to fight the current and in 
 fact looses speed which <br/>
-&#160;&#160;&#160;&#160;	basically means that the current speed gets 
+&#160;&#160;&#160;&#160;   basically means that the current speed gets 
 subtracted from the swimmer's speed.<br/>
-&#160;&#160;&#160;&#160;	Thus the total time that the swimmer takes to 
+&#160;&#160;&#160;&#160;   Thus the total time that the swimmer takes to 
 complete their round is going to be the addition of these two.<br/><br/>
 
 <b>Contraints:</b><br/>
-	There were a number of things to watch out for though:<br/><br/>
+   There were a number of things to watch out for though:<br/><br/>
 
 &#160;&#160;&#160;&#160;(1) The return value was to be rounded down (take 
 the floor of the result) but one <br/>
 &#160;&#160;&#160;&#160;has to be careful <u>not to do</u> the 
 following:<br/><br/>
 
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;	floor(ABDistance/(speedOfSwimmer 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;   floor(ABDistance/(speedOfSwimmer 
 + speedOfCurrent)) + <br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;	floor(ABDistance/(speedOfSwimmer 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;   floor(ABDistance/(speedOfSwimmer 
 - speedOfCurrent))<br/><br/>
 
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;	as this would result 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;   as this would result 
 occasionally in too small a value.<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;	We need to do the 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;   We need to do the 
 following:<br/><br/>
 
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;	floor( 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;   floor( 
 (ABDistance/(speedOfSwimmer + speedOfCurrent)+ <br/>
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;               
 (ABDistance/(speedOfSwimmer - speedOfCurrent)<br/>
@@ -252,30 +252,30 @@ would fail if we only checked for the less-than condition.<br/><br/>
 <b>Sample java code:</b><br/>
 
 <pre>
-	int[] result = new int[speeds.length];
+   int[] result = new int[speeds.length];
 
-	for(int i=0; i &lt; speeds.length; i++)
-	{
-	   // case (2)
-	   if(distances[i] &lt;= 0)
-	   {
-	      result[i] = 0;
-	      continue;
-	   }
-	   // case (3) note the (equal-to).
-	   if(speeds[i] &lt;= current)
-	   {
-	      result[i] = -1;
-	   }
-	   // case (1)
-	   else
-	   {
-	      double temp = ((double)distances[i]/(speeds[i]+current));
-	      temp += ((double)distances[i]/(speeds[i]-current));
-	      result[i] = (int)(Math.floor(temp));
-	   }
-	}
-	return result;
+   for(int i=0; i &lt; speeds.length; i++)
+   {
+      // case (2)
+      if(distances[i] &lt;= 0)
+      {
+         result[i] = 0;
+         continue;
+      }
+      // case (3) note the (equal-to).
+      if(speeds[i] &lt;= current)
+      {
+         result[i] = -1;
+      }
+      // case (1)
+      else
+      {
+         double temp = ((double)distances[i]/(speeds[i]+current));
+         temp += ((double)distances[i]/(speeds[i]-current));
+         result[i] = (int)(Math.floor(temp));
+      }
+   }
+   return result;
 
 </pre>
 <b>Where did code fail:</b><br/>
@@ -352,101 +352,101 @@ Lets look at two sample transformations necessary for this question:<br/><br/>
 
 <u><b>Transformation (1) - year 1</b></u><br/><br/>
 
-&#160;&#160;&#160;&#160;	- If a word starts with "x", replace the "x" with a 
+&#160;&#160;&#160;&#160;   - If a word starts with "x", replace the "x" with a 
 "z".<br/>
-&#160;&#160;&#160;&#160;	- Change all remaining "x"s to "ks"s.<br/><br/>
+&#160;&#160;&#160;&#160;   - Change all remaining "x"s to "ks"s.<br/><br/>
 
-	<u>Solution pseudo-code:</u><br/><br/>
+   <u>Solution pseudo-code:</u><br/><br/>
 
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;		find all the "x"'s in the 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;      find all the "x"'s in the 
 input string and for each "x" do the following test:<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;		(beginning of a word 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;      (beginning of a word 
 test)<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;		if the x is the very first 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;      if the x is the very first 
 character in the string (beginning of a word special <br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;		case) then<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;	replace 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;      case) then<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;   replace 
 this 'x' with 'z'<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;		else if the character just 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;      else if the character just 
 before the current 'x' is a space character ' ' then<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;	replace 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;   replace 
 this 'x' with 'z'<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;		(inside the word)<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;			else<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;				replace 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;      (inside the word)<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;         else<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;            replace 
 the 'x' with "ks"<br/><br/>
 
-	<u>Faster Trick Solution:</u><br/><br/>
+   <u>Faster Trick Solution:</u><br/><br/>
 
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;		Add to the beginning of 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;      Add to the beginning of 
 the input String a space: input  = " "+input. This will <br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;		collapse the word test 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;      collapse the word test 
 code above from two cases to one generic case.<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;		Replace each occurrence of 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;      Replace each occurrence of 
 " x" with " z" (note the added space to test a beginning of a word)<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;		Replace remaining 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;      Replace remaining 
 occurrences of "x" with "ks"<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;			Remove the extra at the 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;         Remove the extra at the 
 beginning " ": input = input.substring(1, input.length());<br/><br/>
 
-		<u>Here is a java code snippet:</u>
-		<pre>
-		input = " " + input;
-		input = input.replaceAll(" x", " z");
-		input = input.replaceAll("x","ks" );
-		input = input.substring(1);
-		</pre>
+      <u>Here is a java code snippet:</u>
+      <pre>
+      input = " " + input;
+      input = input.replaceAll(" x", " z");
+      input = input.replaceAll("x","ks" );
+      input = input.substring(1);
+      </pre>
 
 <u><b>Transformation (5) year 5</b></u><br/><br/>
 
-&#160;&#160;&#160;&#160;	- If a word starts with "sch", change the "sch" to 
+&#160;&#160;&#160;&#160;   - If a word starts with "sch", change the "sch" to 
 a "sk".<br/>
-&#160;&#160;&#160;&#160;	- If a "ch" is directly followed by an "r", change 
+&#160;&#160;&#160;&#160;   - If a "ch" is directly followed by an "r", change 
 the "ch" to a "k".<br/>
-&#160;&#160;&#160;&#160;	- After applying the above rules, change all "c"s 
+&#160;&#160;&#160;&#160;   - After applying the above rules, change all "c"s 
 that are not directly followed<br/>
-&#160;&#160;&#160;&#160;	  by an "h", to a "k".<br/>
-&#160;&#160;&#160;&#160;	 (This includes all "c"s that are the last letter 
+&#160;&#160;&#160;&#160;     by an "h", to a "k".<br/>
+&#160;&#160;&#160;&#160;    (This includes all "c"s that are the last letter 
 of a word.)<br/><br/>
 
-	<u>Solution pseudo-code:</u><br/><br/>
+   <u>Solution pseudo-code:</u><br/><br/>
 
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;		Add to the beginning of 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;      Add to the beginning of 
 the input String a space: input  = " "+input;<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;		Replace each occurrence of 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;      Replace each occurrence of 
 " sch" with " sk" (note the added space to test a <br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;		beginning of a word)<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;		Replace each occurrence of 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;      beginning of a word)<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;      Replace each occurrence of 
 "chr" with " kr"<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;		Append a space to the 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;      Append a space to the 
 input string: input = input + " " (This is a nice trick to <br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;		ensure that we can test 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;      ensure that we can test 
 for the last letter without falling off the edge)<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;		Replace all occurrences of 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;      Replace all occurrences of 
   "c" not followed by an "h" to a "k":<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;		(Find all 'c' and then 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;      (Find all 'c' and then 
 check if the next character to the right is an 'h'<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;			if(not) 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;         if(not) 
 then<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;				replace 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;            replace 
 the 'c' with "k"<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;		)<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;		Remove the helper spaces 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;      )<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;      Remove the helper spaces 
 from beginning and end.<br/><br/>
 
-		<u>Here is a java code snippet:</u>
-		<pre>
-		input = " " + input + " ";
-		input = input.replaceAll(" sch", " sk");
-		input = input.replaceAll("chr","kr" );
-		for(int i=0; i &lt; input.length(); i++)
-		{
-		   if(input.charAt(i) == 'c' &amp;&amp; input.charAt(i+1) != 'h')
-		   input = input.substring(0, i) + "k" +
-       		   input.substring(i+1);
-		}
-		input = input.substring(1, input.length()-1);
-		</pre>
+      <u>Here is a java code snippet:</u>
+      <pre>
+      input = " " + input + " ";
+      input = input.replaceAll(" sch", " sk");
+      input = input.replaceAll("chr","kr" );
+      for(int i=0; i &lt; input.length(); i++)
+      {
+         if(input.charAt(i) == 'c' &amp;&amp; input.charAt(i+1) != 'h')
+         input = input.substring(0, i) + "k" +
+                input.substring(i+1);
+      }
+      input = input.substring(1, input.length()-1);
+      </pre>
 
 
 As can be seen just going over two transformations this can be quite time 
@@ -468,20 +468,20 @@ the solution before you write code<br/>
 against a couple sample test cases (no code yet)<br/>
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(4) if you find that the 
 question is very time consuming (i.e. for the 500 I would say if<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;	    within 25 minutes you 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;       within 25 minutes you 
 are not testing the code) you might consider skipping this <br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;	    question for now and 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;       question for now and 
 peek if  the next question is perhaps more to your liking.<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;	    You can always come 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;       You can always come 
 back (with a loss of time and thus points of course) if you find<br/>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;	    the other question even 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;       the other question even 
 harder.<br/><br/>
 
-	In SRM 169 it turns out that the 1000 point question for Div II was 
+   In SRM 169 it turns out that the 1000 point question for Div II was 
 actually pretty
-	accessible and doable. Skipping the 500 question would have been preferable 
+   accessible and doable. Skipping the 500 question would have been preferable 
 (I think) to
-	a lot of people.<br/><br/>
+   a lot of people.<br/><br/>
 
 </p>
 <font size="+2">
@@ -638,42 +638,42 @@ Basically we have found at this point a solution that distributes the
 folders better.<br/>
 Once we go through all these sets we return the current GlobalMax.<br/><br/>
 
-	This can be done in a recursive manner as follows (after lanenal's solution 
+   This can be done in a recursive manner as follows (after lanenal's solution 
 from room 2)<br/>
 <pre>
-	int globalMax;
-	public int getMostWork(int[] f, int w)
-	{
-		for(int i=0; i&lt;f.length; i++) globalMax += f[i];
-		genSubsets(f, -1, w, 0);
-		return globalMax;
-	}
-	void genSubsets(int[] f, int from, int w, int localMax)
-	{
-	   int sum = 0;
-	   // Final subset
-	   if(w==1)
-	   {
-	  	// get the folders for this subset
-		for( int i=from+1; i&lt;=f.length-w; i++) sum += f[i];
-		   // is this the most folders for the current subsets?
-		   // If yes then update the localMax
-		   if(localMax&lt;sum) localMax = sum;
-		   // Is our localMax less than (better) the globalMax
-		   if(localMax &lt; globalMax) globalMax = localMax;
-		   return;
-	   }
+   int globalMax;
+   public int getMostWork(int[] f, int w)
+   {
+      for(int i=0; i&lt;f.length; i++) globalMax += f[i];
+      genSubsets(f, -1, w, 0);
+      return globalMax;
+   }
+   void genSubsets(int[] f, int from, int w, int localMax)
+   {
+      int sum = 0;
+      // Final subset
+      if(w==1)
+      {
+        // get the folders for this subset
+      for( int i=from+1; i&lt;=f.length-w; i++) sum += f[i];
+         // is this the most folders for the current subsets?
+         // If yes then update the localMax
+         if(localMax&lt;sum) localMax = sum;
+         // Is our localMax less than (better) the globalMax
+         if(localMax &lt; globalMax) globalMax = localMax;
+         return;
+      }
 
-	   for( int i=from+1; i&lt;=f.length-w; i++)
-	   {
-	   	// the LeftSubset folders sum
-		sum += f[i];
-		// Generate the RightSubset by dividing the current
-		// subset in two with the pivot at i.
-		// Propagate localMax to the RightSubset
-		genSubsets(f, i, w-1, sum&gt;localMax?sum:localMax);
-	   }
-	}
+      for( int i=from+1; i&lt;=f.length-w; i++)
+      {
+         // the LeftSubset folders sum
+      sum += f[i];
+      // Generate the RightSubset by dividing the current
+      // subset in two with the pivot at i.
+      // Propagate localMax to the RightSubset
+      genSubsets(f, i, w-1, sum&gt;localMax?sum:localMax);
+      }
+   }
 </pre>
 
 (2) Application of Binary Search. For a non-recursive example of this 
@@ -773,29 +773,29 @@ neighbors:<br/><br/>
 Here is a java snippet for (2) assuming the grid is made to be [10][10]<br/>
 
 <pre>
-	char[][] grid = new char[10][10];
+   char[][] grid = new char[10][10];
 
-	int count;
-	for(int row=1; row &lt;= 9; row++)
-	{
-		for(int col=1; col &lt;= 9; col++)
-		{
-			count=0;
-			if(grid[row][col] = 'M') continue;
-			// Test all neighbours
-			// (Note no need to test if outside of grid)
-			for(int r = row-1; r &lt; = row+1; r++)
-			{
-				for(int c = col-1; c &lt; = col+1; c++)
-				{
-					if(row==r &amp;&amp; col==c) continue;
-					if(grid[r][c] == 'M')
-						count++;
-				}
-			}
-			grid[row][col] = count;
-		}
-	}
+   int count;
+   for(int row=1; row &lt;= 9; row++)
+   {
+      for(int col=1; col &lt;= 9; col++)
+      {
+         count=0;
+         if(grid[row][col] = 'M') continue;
+         // Test all neighbours
+         // (Note no need to test if outside of grid)
+         for(int r = row-1; r &lt; = row+1; r++)
+         {
+            for(int c = col-1; c &lt; = col+1; c++)
+            {
+               if(row==r &amp;&amp; col==c) continue;
+               if(grid[r][c] == 'M')
+                  count++;
+            }
+         }
+         grid[row][col] = count;
+      }
+   }
 
 </pre>
 <b>Where did code fail:</b><br/>

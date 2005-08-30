@@ -47,39 +47,39 @@ function openWin(url, name, w, h) {
  <tr valign="top">
 
 <!-- Left Column Begins -->
-	 <td width="170" bgcolor="#FFFFFF">
-		 <xsl:call-template name="global_left"/>
-	 </td>
+    <td width="170" bgcolor="#FFFFFF">
+       <xsl:call-template name="global_left"/>
+    </td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-	 <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" alt="" border="0" /></td>
+    <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-	 <td class="bodyText" width="100%">
-		 <xsl:call-template name="BodyTop">
-			 <xsl:with-param name="image1">white</xsl:with-param>
-			 <xsl:with-param name="image">statisticsw</xsl:with-param>
-			 <xsl:with-param name="title">Last Match Editorials</xsl:with-param>
-		 </xsl:call-template>
+    <td class="bodyText" width="100%">
+       <xsl:call-template name="BodyTop">
+          <xsl:with-param name="image1">white</xsl:with-param>
+          <xsl:with-param name="image">statisticsw</xsl:with-param>
+          <xsl:with-param name="title">Last Match Editorials</xsl:with-param>
+       </xsl:call-template>
 
-		 <table border="0" cellspacing="10" cellpadding="0" width="100%">
-		 <tr valign="top">
-				 <td class="bodyText" width="100%">
+       <table border="0" cellspacing="10" cellpadding="0" width="100%">
+       <tr valign="top">
+             <td class="bodyText" width="100%">
 
 <!--body contextual links-->
-					 <table width="100%" border="0" cellspacing="0" cellpadding="3">
-						 <tr valign="middle">
-							 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 225</font></td>
-							 <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
-						 </tr>
+                <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                   <tr valign="middle">
+                      <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 225</font></td>
+                      <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
+                   </tr>
 
-						 <tr valign="middle">
-							 <td class="bodyText">Tuesday, December 28, 2004</td>
-							 <td class="bodyText" align="right"><a href="mailto:editorial@topcoder.com">Comments / Ideas?</a></td>
-						 </tr>
-					 </table>
+                   <tr valign="middle">
+                      <td class="bodyText">Tuesday, December 28, 2004</td>
+                      <td class="bodyText" align="right"><a href="mailto:editorial@topcoder.com">Comments / Ideas?</a></td>
+                   </tr>
+                </table>
 <!--end contextual links-->
 
 <h2>Match summary</h2>
@@ -288,43 +288,43 @@ This problem was inspired by my father, who uses steganography tools in his work
 <p>The final trick was that you had to encode an "end of message" number, which is basically putting a 3 in every spot after the message is done.</p>
 <p>I avoided special-casing anything in my solution, which is hardly minimal:</p>
 <p><pre>
-	public String[] encode(String[] image, String message)
-	{
-		String[] ret = new String[image.length];
-		int[] encoded = new int[801];
-		for (int i=0; i&lt;encoded.length/3; i++)
-		{
-			int letter = 63;
-			if (i &lt; message.length())
-			{
-				if (message.charAt(i) == ' ')
-					letter = 0;
-				else if (message.charAt(i) &gt;= 'A' &amp;&amp; message.charAt(i) &lt;= 'Z')
-					letter = 1+message.charAt(i)-'A';
-				else if (message.charAt(i) &gt;= 'a' &amp;&amp; message.charAt(i) &lt;= 'z')
-					letter = 27+message.charAt(i)-'a';
-				else if (message.charAt(i) &gt;= '0' &amp;&amp; message.charAt(i) &lt;= '9')
-					letter = 53+message.charAt(i)-'0';
-			}
-			encoded[i*3] = 3&amp;letter;
-			encoded[i*3+1] = 3&amp;(letter&gt;&gt;2);
-			encoded[i*3+2] = 3&amp;(letter&gt;&gt;4);
-		}
-		int index = 0;
-		DecimalFormat fmt = new DecimalFormat("000");
-		for (int i=0; i&lt;ret.length; i++)
-		{
-			ret[i] = "";
-			for (int j=0; j&lt;image[i].length(); j+= 3)
-			{
-				int current = Integer.parseInt(image[i].substring(j, j+3));
-				current = current/4 * 4 + encoded[index++];
-				ret[i] += fmt.format(current);
-			}
-		}
-		//System.out.println(decode(ret));
-		return ret;
-	}
+   public String[] encode(String[] image, String message)
+   {
+      String[] ret = new String[image.length];
+      int[] encoded = new int[801];
+      for (int i=0; i&lt;encoded.length/3; i++)
+      {
+         int letter = 63;
+         if (i &lt; message.length())
+         {
+            if (message.charAt(i) == ' ')
+               letter = 0;
+            else if (message.charAt(i) &gt;= 'A' &amp;&amp; message.charAt(i) &lt;= 'Z')
+               letter = 1+message.charAt(i)-'A';
+            else if (message.charAt(i) &gt;= 'a' &amp;&amp; message.charAt(i) &lt;= 'z')
+               letter = 27+message.charAt(i)-'a';
+            else if (message.charAt(i) &gt;= '0' &amp;&amp; message.charAt(i) &lt;= '9')
+               letter = 53+message.charAt(i)-'0';
+         }
+         encoded[i*3] = 3&amp;letter;
+         encoded[i*3+1] = 3&amp;(letter&gt;&gt;2);
+         encoded[i*3+2] = 3&amp;(letter&gt;&gt;4);
+      }
+      int index = 0;
+      DecimalFormat fmt = new DecimalFormat("000");
+      for (int i=0; i&lt;ret.length; i++)
+      {
+         ret[i] = "";
+         for (int j=0; j&lt;image[i].length(); j+= 3)
+         {
+            int current = Integer.parseInt(image[i].substring(j, j+3));
+            current = current/4 * 4 + encoded[index++];
+            ret[i] += fmt.format(current);
+         }
+      }
+      //System.out.println(decode(ret));
+      return ret;
+   }
 </pre></p>
 <p>An interesting exercise I did while writing this problem is writing a decoder for the image.
 </p>
@@ -377,31 +377,31 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
 <p>
 The best part about this problem is how many possible ways there are to look at it.  One way, for instance, is to model the problem as an unweighted directed graph, and make edges from each element to the next element to start with each letter.  Then it becomes a very typical shortest-path algorithm.  Another method is to start from each element and make an array of best distances.  The starting element always requires 0 keystrokes, then for each element, the next element starting with each letter of the alphabet requires no more than one more keystroke than the current element.  My implementation looks like this:</p>
 <p><pre>
-	public int minimumKeystrokes(String[] elements)
-	{
-		String e = "";
-		for (int i=0; i&lt;elements.length; i++)
-			e += elements[i].toLowerCase().charAt(0);
-		int max = 0;
-		for (int i=0; i&lt;e.length(); i++)
-		{
-			int[] dists = new int[e.length()];
-			Arrays.fill(dists, 1000000000);
-			dists[0] = 0;
-			String e2 = e.substring(i) + e.substring(0, i);
-			for (int j=0; j&lt;e.length(); j++)
-			{
-				for (char c = 'a'; c &lt;= 'z'; c++)
-				{
-					int ind = e2.indexOf(c, j+1);
-					if (ind &gt;= 0)
-						dists[ind] = Math.min(dists[ind], dists[j] + 1);
-				}
-				max = Math.max(max, dists[j]);
-			}
-		}
-		return max;
-	}
+   public int minimumKeystrokes(String[] elements)
+   {
+      String e = "";
+      for (int i=0; i&lt;elements.length; i++)
+         e += elements[i].toLowerCase().charAt(0);
+      int max = 0;
+      for (int i=0; i&lt;e.length(); i++)
+      {
+         int[] dists = new int[e.length()];
+         Arrays.fill(dists, 1000000000);
+         dists[0] = 0;
+         String e2 = e.substring(i) + e.substring(0, i);
+         for (int j=0; j&lt;e.length(); j++)
+         {
+            for (char c = 'a'; c &lt;= 'z'; c++)
+            {
+               int ind = e2.indexOf(c, j+1);
+               if (ind &gt;= 0)
+                  dists[ind] = Math.min(dists[ind], dists[j] + 1);
+            }
+            max = Math.max(max, dists[j]);
+         }
+      }
+      return max;
+   }
 </pre></p>
 <p>One of the things that makes this implementation simple is that I am always starting from the first element of the combo box, and I manipulate the combo box to start on each element in sequence.
 </p>
@@ -458,33 +458,33 @@ This problem is a very common thing to do in the area of computer graphics, beca
 <p>The basic algorithm required to do this involved starting from the first point, and trying to insert a line from that point to every non-adjacent point after that.  For each of these lines, if the line doesn't intersect any previous lines or any of the edges of the polygon, and if it's inside the polygon, you can add it to your output.</p>
 <p>At this point, the problem becomes two simpler problems now - how do you check if two lines intersect, and how do you determine if a line is inside a polygon (if the line doesn't intersect any of the edges of the polygon, it will either be all inside or all outside the polygon).  To answer these questions, I recommend reading the recent TopCoder editorials on geometry: <a href="http://www.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=geometry2#line_line_intersection">This one</a> explains how to find out where two lines intersect (you then must decide if that point is on both line segments).  <a href="http://www.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=geometry3#pointinpolygon">This one</a> explains how to decide if a point is inside a polygon (just try it with the midpoint of the new line).
 </p>
-					 <p>
-					 <img src="/i/m/Kawigi_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-					 By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=8416646"><strong>Kawigi</strong></a><br />
-					 <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-					 </p>
-				 </td>
-			 </tr>
-		 </table>
+                <p>
+                <img src="/i/m/Kawigi_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+                By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=8416646"><strong>Kawigi</strong></a><br />
+                <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+                </p>
+             </td>
+          </tr>
+       </table>
 
-		 <p><br /></p>
+       <p><br /></p>
 
-	 </td>
+    </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-	 <td width="4"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
+    <td width="4"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-	 <td width="170">
-		 <img src="/i/clear.gif" width="170" height="1" border="0"/><br />
-		 <xsl:call-template name="public_right_col"/>
-	 </td>
+    <td width="170">
+       <img src="/i/clear.gif" width="170" height="1" border="0"/><br />
+       <xsl:call-template name="public_right_col"/>
+    </td>
 <!-- Right Column Ends -->
 
 <!-- Gutter -->
-	 <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
  </tr>

@@ -52,39 +52,39 @@
     <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 <!--body contextual links-->
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="250" ALIGN="right">
- 	<TR>
+    <TR>
         <TD ROWSPAN="5" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
         <TD COLSPAN="2" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
     </TR> 
-	<TR><TD COLSPAN="2" BGCOLOR="#999999" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD></TR>
-	<TR>
-		<TD VALIGN="top" BGCOLOR="#999999" CLASS="moduleTitle">&#160; &#160;</TD>
-		<TD BGCOLOR="#999999" VALIGN="top" CLASS="moduleTitle">MATCH EDITORIAL LINKS:</TD>
-	</TR>                    
-	<TR>
-    	<TD COLSPAN="4" VALIGN="top" BGCOLOR="#999999">
-		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
-		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm101_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/index?t=statistics&amp;c=editorial_archive" CLASS="bodyText">Editorial Archive</A></TD>
-		</TR>
-		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm101_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyText">Comments? Ideas?</A></TD>
-		</TR>
-		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm101_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyText">Want to write a feature?</A></TD>
-		</TR>
-	    <TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm101_lessons" CLASS="bodyText">&#160;&#160;Lessons Learned</A></TD>
-			<TD VALIGN="top" CLASS="bodyText">&#160;</TD>
-		</TR>
-		<TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
-		</TABLE>
-		</TD>
-	</TR>
- 	<TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
+   <TR><TD COLSPAN="2" BGCOLOR="#999999" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD></TR>
+   <TR>
+      <TD VALIGN="top" BGCOLOR="#999999" CLASS="moduleTitle">&#160; &#160;</TD>
+      <TD BGCOLOR="#999999" VALIGN="top" CLASS="moduleTitle">MATCH EDITORIAL LINKS:</TD>
+   </TR>                    
+   <TR>
+       <TD COLSPAN="4" VALIGN="top" BGCOLOR="#999999">
+      <TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
+      <TR>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm101_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" CLASS="bodyText">Editorial Archive</A></TD>
+      </TR>
+      <TR>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm101_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyText">Comments? Ideas?</A></TD>
+      </TR>
+      <TR>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm101_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyText">Want to write a feature?</A></TD>
+      </TR>
+       <TR>
+         <TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm101_lessons" CLASS="bodyText">&#160;&#160;Lessons Learned</A></TD>
+         <TD VALIGN="top" CLASS="bodyText">&#160;</TD>
+      </TR>
+      <TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>          
+      </TABLE>
+      </TD>
+   </TR>
+    <TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
 </TABLE>
 <!--end contextual links-->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="48" BORDER="0"/><BR/>
@@ -132,9 +132,9 @@ is also a suffix of the square.
 This is a straightforward problem, solvable in a few lines of code.
 Two approaches are obvious: 
 <OL>
-	<LI> Compare characters or digits starting with the least significant/
-	 end of String.</LI>
-	<LI> Convert to Strings, and check for substrings.</LI>
+   <LI> Compare characters or digits starting with the least significant/
+    end of String.</LI>
+   <LI> Convert to Strings, and check for substrings.</LI>
 </OL>
 </P>
 
@@ -142,9 +142,9 @@ Two approaches are obvious:
 <P>
 Problems:
 <OL>
-	<LI> Working with prefixes instead of suffixes.</LI>
-	<LI> Counting common digits after the first difference has occurred.</LI>
-	<LI> Counting common digits instead of different digits.</LI>
+   <LI> Working with prefixes instead of suffixes.</LI>
+   <LI> Counting common digits after the first difference has occurred.</LI>
+   <LI> Counting common digits instead of different digits.</LI>
 </OL>
 </P>
 
@@ -167,16 +167,16 @@ who know std_algorithm.h have a definite advantage here.
 <P>
 I have library code:
 <pre>
-	boolean makePerm(boolean[] bs) {
-		int i,j,len = bs.length;
-		for (i = 0; i &lt; len &amp;&amp; bs[i];i++);
-		if (i == len) return false;
-		for (j = 0; j &lt; i; j++) {
-			bs[j] = false;
-		}
-		bs[i] = true;
-		return true;
-	}
+   boolean makePerm(boolean[] bs) {
+      int i,j,len = bs.length;
+      for (i = 0; i &lt; len &amp;&amp; bs[i];i++);
+      if (i == len) return false;
+      for (j = 0; j &lt; i; j++) {
+         bs[j] = false;
+      }
+      bs[i] = true;
+      return true;
+   }
 </pre>
 </P>
 
@@ -190,8 +190,8 @@ problem with timing.  It's used as follows:
 <pre>
 boolean[] bs = new boolean[3];
 while (makePerm(bs)) {
-	current = count(bs, problemScores, times);
-	best = (best &gt;= current) ? best : current;
+   current = count(bs, problemScores, times);
+   best = (best &gt;= current) ? best : current;
 }
 return best;
 </pre>
@@ -205,9 +205,9 @@ each of the eight cases individually.
 <P>
 Problems:
 <OL>
-	<LI> Checking cases individually, but not checking all of them.</LI>
-	<LI> Overly complex code.</LI>
-	<LI> Fencepost errors when the total time taken is exactly 75 minutes.</LI>
+   <LI> Checking cases individually, but not checking all of them.</LI>
+   <LI> Overly complex code.</LI>
+   <LI> Fencepost errors when the total time taken is exactly 75 minutes.</LI>
 </OL>
 </P>
 
@@ -233,9 +233,9 @@ of the problem is to test effectively.
 <P>
 Problems:
 <OL>
-	<LI> ArrayIndexOutOfBoundsExceptions on empty input.</LI>
-	<LI> Not dealing with offences exactly a year apart correctly.</LI>
-	<LI> My initial solution assumed European "dd/mm/yy" style dates.</LI>
+   <LI> ArrayIndexOutOfBoundsExceptions on empty input.</LI>
+   <LI> Not dealing with offences exactly a year apart correctly.</LI>
+   <LI> My initial solution assumed European "dd/mm/yy" style dates.</LI>
 </OL>
 </P>
 
@@ -243,26 +243,26 @@ Problems:
 <IMG SRC="/i/m/slowjoe_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;slowjoe<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=271917" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
-					</TD>
-					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-				<TR>
-					<TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-				</TR>   	
-				<TR>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>	
-				<TR>
-					<TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-			</TABLE>
-		</TD>
+               </TD>
+               <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+            </TR>
+            <TR>
+               <TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+            </TR>      
+            <TR>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+            </TR>   
+            <TR>
+               <TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+            </TR>
+         </TABLE>
+      </TD>
   <!-- Center Column Ends -->
 <!-- Body Area Ends -->
 

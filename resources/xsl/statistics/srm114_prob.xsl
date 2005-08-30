@@ -52,26 +52,26 @@
     <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 <!--body contextual links-->
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="100%">
- 	<TR>
+    <TR>
         <TD COLSPAN="2" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
     </TR> 
-	<TR><TD COLSPAN="2" BGCOLOR="#43515E" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD></TR>
-	<TR>
-		<TD VALIGN="top" BGCOLOR="#43515E" CLASS="moduleTitle">&#160; &#160;</TD>
-		<TD BGCOLOR="#43515E" VALIGN="top" CLASS="moduleTitle">MATCH EDITORIAL LINKS:</TD>
-	</TR>                    
-	<TR>
-    	<TD COLSPAN="2" VALIGN="top" BGCOLOR="#43515E">
-		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="1" CELLPADDING="" BGCOLOR="#FFFFFF">
-		<TR>
-			<!-- <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="15"><A HREF="/?t=statistics&amp;c=srm104_prob" CLASS="bodyGeneric">&#160;Problem&#160;Set&#160;</A></TD>
-			<TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="/?t=statistics&amp;c=srm103_rookie" CLASS="bodyGeneric">&#160;Rookie&#160;Review&#160;</A></TD> -->
-			<TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="/index?t=statistics&amp;c=editorial_archive" CLASS="bodyGeneric">&#160;Archive&#160;</A></TD>
-		    <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">&#160;Comments/Ideas?&#160;</A></TD>
-		</TR>    		
-		</TABLE>
-		</TD>
-	</TR>               
+   <TR><TD COLSPAN="2" BGCOLOR="#43515E" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD></TR>
+   <TR>
+      <TD VALIGN="top" BGCOLOR="#43515E" CLASS="moduleTitle">&#160; &#160;</TD>
+      <TD BGCOLOR="#43515E" VALIGN="top" CLASS="moduleTitle">MATCH EDITORIAL LINKS:</TD>
+   </TR>                    
+   <TR>
+       <TD COLSPAN="2" VALIGN="top" BGCOLOR="#43515E">
+      <TABLE BORDER="0" WIDTH="100%" CELLSPACING="1" CELLPADDING="" BGCOLOR="#FFFFFF">
+      <TR>
+         <!-- <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="15"><A HREF="/?t=statistics&amp;c=srm104_prob" CLASS="bodyGeneric">&#160;Problem&#160;Set&#160;</A></TD>
+         <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="/?t=statistics&amp;c=srm103_rookie" CLASS="bodyGeneric">&#160;Rookie&#160;Review&#160;</A></TD> -->
+         <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" CLASS="bodyGeneric">&#160;Archive&#160;</A></TD>
+          <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">&#160;Comments/Ideas?&#160;</A></TD>
+      </TR>          
+      </TABLE>
+      </TD>
+   </TR>               
 </TABLE>
 <!--end contextual links-->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/><BR/>
@@ -109,7 +109,7 @@ Tuesday, September 24, 2002
         <td style="background: #eee;" class="bodyText">195 / 235 (82.98%) 
 </td>
       </tr>
-	  <tr>
+     <tr>
         <td style="background: #eee;" class="bodyText">
           <b>Average Score</b>
         </td>
@@ -135,10 +135,10 @@ Most people got this one pretty easily. You just had to set up a simple loop to 
 <PRE>
 int days=0;
 while (depth>0) {
-	days++;
-	depth-=dayUp;
-	if (depth&lt;=0) return days;
-	depth+=nightDown;	
+   days++;
+   depth-=dayUp;
+   if (depth&lt;=0) return days;
+   depth+=nightDown;   
 }
 </PRE>
 </P>
@@ -159,9 +159,9 @@ Reference Implementation: <B>Penwiper</B>, practice room
 <BR/>
 
     Used as: Division II - Level 2 &amp; Division I - Level 1 
-	:<blockquote>
+   :<blockquote>
     <table cellspacing="2">
-	<tr>
+   <tr>
         <td style="background: #eee;" class="bodyText" colspan="2">
           <b>Div-II stats</b>
         </td>
@@ -186,7 +186,7 @@ Reference Implementation: <B>Penwiper</B>, practice room
         <td style="background: #eee;" class="bodyText">118 / 172 (68.60%) 
 </td>
       </tr>
-	   <tr>
+      <tr>
         <td style="background: #eee;" class="bodyText">
           <b>Average Score</b>
         </td>
@@ -202,9 +202,9 @@ Reference Implementation: <B>Penwiper</B>, practice room
                 </td>
       </tr>
     </table>
-	<BR/>
-	 <table cellspacing="2">
-	<tr>
+   <BR/>
+    <table cellspacing="2">
+   <tr>
         <td style="background: #eee;" class="bodyText" colspan="2">
           <b>Div-I stats</b>
         </td>
@@ -229,7 +229,7 @@ Reference Implementation: <B>Penwiper</B>, practice room
         <td style="background: #eee;" class="bodyText">128 / 141 (90.78%) 
 </td>
       </tr>
-	   <tr>
+      <tr>
         <td style="background: #eee;" class="bodyText">
           <b>Average Score</b>
         </td>
@@ -262,7 +262,7 @@ Virtually everyone had the right idea for this problem. The mistakes that were m
 <BR/>
 
     Used as: Division II - Level 3 
-	:<blockquote>
+   :<blockquote>
     <table cellspacing="2">
       <tr>
         <td style="background: #eee;" class="bodyText">
@@ -284,7 +284,7 @@ Virtually everyone had the right idea for this problem. The mistakes that were m
         <td style="background: #eee;" class="bodyText">3 / 49 (6.12%) 
 </td>
       </tr>
-	  <tr>
+     <tr>
         <td style="background: #eee;" class="bodyText">
           <b>Average Score</b>
         </td>
@@ -300,7 +300,7 @@ Virtually everyone had the right idea for this problem. The mistakes that were m
                 </td>
       </tr>
     </table>
-	</blockquote>
+   </blockquote>
   <P>
   Only three coders (<B>vorthys</B>, <B>puzzlehacker</B>, and <B>vesko8</B>) managed to solve this problem correctly. Given the low submission numbers and success rate for this problem, it probably should have been worth a bit more. All three of them used dynamic programming in their solutions. If you tried to solve this problem by trying all of the tile combinations until you got beyond 100,000, then your solution would time out for situations in which there are a large number of tiles that do not add up to 64 easily. For example, take 50 3x3 tiles. No combination of 3x3 tiles adds up to 64, but there are literally hundreds of millions of combinations (approx. 50C8) that come close and would have to be tried!
   </P>
@@ -309,9 +309,9 @@ Instead, set up an array of 65 values which represents the number of tile combin
   </P>
   <PRE>
   for (int i=0;i&lt;numtiles;i++) {
-	for (int j=64;j&gt;=tilesize[i];j--) {
-		numcombos[j]+=numcombos[j-tilesize[i]];
-	}
+   for (int j=64;j&gt;=tilesize[i];j--) {
+      numcombos[j]+=numcombos[j-tilesize[i]];
+   }
 }
   </PRE>
 
@@ -328,7 +328,7 @@ Instead, set up an array of 65 values which represents the number of tile combin
 <BR/>
 
     Used as: Division I - Level 2 
-	:<blockquote>
+   :<blockquote>
     <table cellspacing="2">
       <tr>
         <td style="background: #eee;" class="bodyText">
@@ -350,7 +350,7 @@ Instead, set up an array of 65 values which represents the number of tile combin
         <td style="background: #eee;" class="bodyText">117 / 134 (87.31%) 
 </td>
       </tr>
-	  <tr>
+     <tr>
         <td style="background: #eee;" class="bodyText">
           <b>Average Score</b>
         </td>
@@ -366,10 +366,10 @@ Instead, set up an array of 65 values which represents the number of tile combin
                 </td>
       </tr>
     </table>
-	</blockquote>
+   </blockquote>
 
   <P>
-	  Remind me to never play cards with Chris. This problem required way less work than most Div I - Level 2 problems. Chris is cheating by looking at his friend's cards and optimally re-arranging his own cards. The simplest way for Chris to think about optimizing his own cards is to sort both the hand that he is dealt and the hand that his friend is dealt. Chris then applies his best card to the best card his friend has which is also lower than Chris' best card. Chris then applies his second best card, to the highest card left of his friend's which is also lower than Chris' second best card, and so on. Here's a pseudo-code snippet for Chris' strategy, based on my solution:
+     Remind me to never play cards with Chris. This problem required way less work than most Div I - Level 2 problems. Chris is cheating by looking at his friend's cards and optimally re-arranging his own cards. The simplest way for Chris to think about optimizing his own cards is to sort both the hand that he is dealt and the hand that his friend is dealt. Chris then applies his best card to the best card his friend has which is also lower than Chris' best card. Chris then applies his second best card, to the highest card left of his friend's which is also lower than Chris' second best card, and so on. Here's a pseudo-code snippet for Chris' strategy, based on my solution:
   </P>
 <PRE>  
 Sort(chriscards);
@@ -378,14 +378,14 @@ int friend_index = number of friend cards - 1
 int numWinners=0;
 int chris_index = friend_index
 while (friend_index>=0) {
-	if (chris[chris_index]&gt;friend[friend_index]) {
-		numWinners++;
-		chris_index--;
-		friend_index--;
-	}
-	else {
-		friend_index--;
-	}
+   if (chris[chris_index]&gt;friend[friend_index]) {
+      numWinners++;
+      chris_index--;
+      friend_index--;
+   }
+   else {
+      friend_index--;
+   }
 }
 return nW;
 </PRE>
@@ -398,7 +398,7 @@ return nW;
 <BR/>
 
     Used as: Division I - Level 3 
-	:<blockquote>
+   :<blockquote>
     <table cellspacing="2">
       <tr>
         <td style="background: #eee;" class="bodyText">
@@ -420,7 +420,7 @@ return nW;
         <td style="background: #eee;" class="bodyText">37 / 53 (69.81%) 
 </td>
       </tr>
-	  <tr>
+     <tr>
         <td style="background: #eee;" class="bodyText">
           <b>Average Score</b>
         </td>
@@ -436,8 +436,8 @@ return nW;
                 </td>
       </tr>
     </table>
-	</blockquote>
-	
+   </blockquote>
+   
   <P>
   This problem was reasonably straightforward, so far as Div I - Level 3 problems go. You are given a map describing how pipes are buried in the ground, and need to calculate how much pressure is available in one of the lowest buried pipes. The pressure available in the first pipe on the top level is defined as 100. The pressure in each pipe below the first level is calculated based on the pipes from the previous level. If two pipes are directly on top of one another, then all of the pressure from the top pipe gets transferred to the pipe below it. If there is a horizontal separation between the two pipes however, the amount of pressure transferred to the lower pipe is inversely proportional to the horizontal distance, such that if two pipes p1 and p2 are distances x1 and x2 from the higher pipe, then the amount of pressure transferred to p1 will be (x2/x1) times the amount of pressure transferred to p2. I'm not certain if this is how pressure is really distributed between vertical pipes, but it sounds reasonable. 
   </P>
@@ -446,10 +446,10 @@ Given n pipes separated by the distances x1, x2, x3, ..., xn (where none of the 
   </P>
   
   <OL>
-	<LI>Find the smallest distance, and call it xmin.</LI>
-	<LI>Calculate a pressure ratio for each pipe: pratio(i) = xmin / x(i)</LI>
-	<LI>Sum all of the ratios.</LI>
-	<LI>Calculate pressure in each pipe as: p(i) = pratio(i) / (Sum of ratios) * P and round down in all cases.</LI>
+   <LI>Find the smallest distance, and call it xmin.</LI>
+   <LI>Calculate a pressure ratio for each pipe: pratio(i) = xmin / x(i)</LI>
+   <LI>Sum all of the ratios.</LI>
+   <LI>Calculate pressure in each pipe as: p(i) = pratio(i) / (Sum of ratios) * P and round down in all cases.</LI>
   </OL>
   
   <P>
@@ -461,43 +461,43 @@ Given n pipes separated by the distances x1, x2, x3, ..., xn (where none of the 
 <IMG SRC="/i/m/Penwiper_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;Penwiper<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=150527" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
-					</TD>
-					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-				<TR>
-					<TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-				</TR>   	
-				<TR>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>	
-				<TR>
-					<TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-			</TABLE>
-		</TD>
+               </TD>
+               <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+            </TR>
+            <TR>
+               <TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+            </TR>      
+            <TR>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+            </TR>   
+            <TR>
+               <TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+            </TR>
+         </TABLE>
+      </TD>
   <!-- Center Column Ends -->
 <!-- Body Area Ends -->
 
-	<!-- Gutter -->
-		<TD WIDTH="4" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
+   <!-- Gutter -->
+      <TD WIDTH="4" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
-	<!-- Right Column Begins -->
-		<TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><br/>
+   <!-- Right Column Begins -->
+      <TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><br/>
 <!-- Right Column Include Begins --> 
         <xsl:call-template name="public_right_col"/>       
 <!-- Right Column Include Ends -->        
         </TD>
-	<!-- Right Column Ends -->
-	<!-- Gutter -->
-		<TD WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+   <!-- Right Column Ends -->
+   <!-- Gutter -->
+      <TD WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
-	</TR>
+   </TR>
 </TABLE>
 <!-- Body Ends -->
         <xsl:call-template name="Foot"/>

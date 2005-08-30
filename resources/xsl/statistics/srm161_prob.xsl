@@ -64,7 +64,7 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 161</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -120,16 +120,16 @@ information, is to check whether to deal another round. Java code follows:
     String[] players = new String[numPlayers];
     java.util.Arrays.fill(players,""); //null Strings are annoying
     for (int left = deck.length(); left &gt;= numPlayers; ) 
-	for (int i = 0; i &lt; numPlayers; i++, left--) 
-	    players[i]+=deck.charAt(deck.length()-left);
+   for (int i = 0; i &lt; numPlayers; i++, left--) 
+       players[i]+=deck.charAt(deck.length()-left);
     return players;
 }
 </PRE>An alternate way would use modulus: <PRE>public String[] dealHands(int numPlayers, String deck) {
     String[] players = new String[numPlayers];
     java.util.Arrays.fill(players,""); //null Strings are still annoying
     for (int i = 0; i &lt; deck.length(); i++) {
-	if (i%numPlayers==0 &amp;&amp; deck.length()-i&lt;numPlayers) break; 
-	players[i%numPlayers]+=deck.charAt(i); 
+   if (i%numPlayers==0 &amp;&amp; deck.length()-i&lt;numPlayers) break; 
+   players[i%numPlayers]+=deck.charAt(i); 
     }
     return players;
 }
@@ -168,18 +168,18 @@ follows:
 <PRE>public String buildTrain(String[] cars) {
     String Train = cars[0]; //Setup Train
     for (int index = 1; index &lt; cars.length; index++) {
-	for (int startSuffix = 1; startSuffix &lt; Train.length(); startSuffix++) {
-	    String suffix = Train.substring(startSuffix);
-	    if (cars[index].startsWith(suffix) &amp;&amp; suffix.length() != cars[index].length()) {
-		Train += cars[index].substring(suffix.length());
-		break; //stop looking for suffix
-	    }
-	}
+   for (int startSuffix = 1; startSuffix &lt; Train.length(); startSuffix++) {
+       String suffix = Train.substring(startSuffix);
+       if (cars[index].startsWith(suffix) &amp;&amp; suffix.length() != cars[index].length()) {
+      Train += cars[index].substring(suffix.length());
+      break; //stop looking for suffix
+       }
+   }
     }
     String ret = ""; //For returning
     for (int charPos = Train.length()-1; charPos &gt;= 0; charPos--) {
-	char current = Train.charAt(charPos);
-	if (ret.indexOf(current)==-1) ret = current+ret;
+   char current = Train.charAt(charPos);
+   if (ret.indexOf(current)==-1) ret = current+ret;
     }
     return Train.length()+" "+ret;
 }
@@ -272,17 +272,17 @@ manner. Java code follows:
 <PRE>public int howMany(int numLength, String[] forbidden, int allowed) {
     int ret = 0; //to be returned
     for (int gen = 0; gen &lt; (1&lt;&lt;numLength); gen++) {  //Generate 000... through 111...
-	char[] buffer = new char[numLength];
-	for (int digitMask = 1,j=0; digitMask &lt; (1&lt;&lt;numLength); digitMask *= 2,j++) { //loop through bits
-	    if ( (digitMask &amp; gen) != 0 ) buffer[j]= 'c';  //test mask against binary string
-	    else buffer[j]= 'd';
-	}
-	String correspond = new String(buffer);
-	int countForb = 0; //counts forbidden sequences
-	for (int charPos = 0; charPos &lt; correspond.length(); charPos++) 
-	    for (int forbIndex = 0; forbIndex &lt; forbidden.length; forbIndex++) 
-		if (correspond.startsWith(forbidden[forbIndex],charPos)) countForb++;
-	if (countForb &lt; allowed) ret++;
+   char[] buffer = new char[numLength];
+   for (int digitMask = 1,j=0; digitMask &lt; (1&lt;&lt;numLength); digitMask *= 2,j++) { //loop through bits
+       if ( (digitMask &amp; gen) != 0 ) buffer[j]= 'c';  //test mask against binary string
+       else buffer[j]= 'd';
+   }
+   String correspond = new String(buffer);
+   int countForb = 0; //counts forbidden sequences
+   for (int charPos = 0; charPos &lt; correspond.length(); charPos++) 
+       for (int forbIndex = 0; forbIndex &lt; forbidden.length; forbIndex++) 
+      if (correspond.startsWith(forbidden[forbIndex],charPos)) countForb++;
+   if (countForb &lt; allowed) ret++;
     }
     return ret;
 }
@@ -297,20 +297,20 @@ this method just barely runs in time (approx. 6 seconds on some test cases).
 recursive fashion. Among other things, this allows us to eliminate groups of bad 
 strings early on. Java code follows: 
 <PRE>public int howMany(int numLength, String[] forbidden, int allowed) {
-	return rec(0,numLength,"",allowed, forbidden);
+   return rec(0,numLength,"",allowed, forbidden);
 }
 
 int rec(int index, int numLength, String curr, int allowed, String[] forbidden) {
     if (index == numLength) return 1; //Base case
     int ret = 0;  //to be returned
     for (char stroke = 'c'; stroke&lt;='d'; stroke++) {
-	int newAllowed = allowed;
-   	String newCurr = curr+stroke;
-	for (int forbIndex = 0; forbIndex &lt; forbidden.length; forbIndex++) {
-	    if (newCurr.endsWith(forbidden[forbIndex])) newAllowed++;
-	}
-	if (newAllowed &lt;= 0) continue;
-	ret+=rec(index+1, numLength, newCurr, newAllowed, forbidden);
+   int newAllowed = allowed;
+      String newCurr = curr+stroke;
+   for (int forbIndex = 0; forbIndex &lt; forbidden.length; forbIndex++) {
+       if (newCurr.endsWith(forbidden[forbIndex])) newAllowed++;
+   }
+   if (newAllowed &lt;= 0) continue;
+   ret+=rec(index+1, numLength, newCurr, newAllowed, forbidden);
     } 
     return ret;
 }
@@ -382,9 +382,9 @@ matrix. When you want to compute the results of ~, the second operation, use the
 target matrix. Java code follows: <PRE>public String[] numBad(String[] source, String[] target, int[] mapping) {
     ArrayList al = new ArrayList();
     for (int a = 0; a &lt; source.length; a++) 
-	for (int b = 0; b &lt; source.length; b++) 
-	    if (mapping[source[a].charAt(b)-'0'] != target[mapping[a]].charAt(mapping[b])-'0') 
-		al.add("("+a+","+b+")");
+   for (int b = 0; b &lt; source.length; b++) 
+       if (mapping[source[a].charAt(b)-'0'] != target[mapping[a]].charAt(mapping[b])-'0') 
+      al.add("("+a+","+b+")");
     return (String[])al.toArray(new String[0]);
 }
 </PRE>

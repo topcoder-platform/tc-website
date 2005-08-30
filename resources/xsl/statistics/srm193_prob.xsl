@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                      <table width="100%" border="0" cellspacing="0" cellpadding="3">
                          <tr valign="middle">
                              <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 193</font></td>
-                             <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                             <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                          </tr>
 
                          <tr valign="middle">
@@ -159,9 +159,9 @@ as dot-product).  The result is the total water volume, so we divide
 by the given height to get the answer.  Java code follows:
 <pre>
     public int area(int[] rates, int[] durations, int height) {
-	int water = 0;
-	for (int i = 0; i &lt; rates.length; i++) water +=rates[i]*durations[i];
-	return water/height;
+   int water = 0;
+   for (int i = 0; i &lt; rates.length; i++) water +=rates[i]*durations[i];
+   return water/height;
     }
 </pre>
 </p>
@@ -265,11 +265,11 @@ up to 100000, testing each value along the way.  If one satisfies all
 given congruences, you have the solution.  Java code follows:
 <pre>
     public int findSolution(int[] mods, int[] vals) {
-	outer:	for (int i = 0; ;i++) {
-	    for (int j = 0; j &lt; vals.length; j++) 
-		if ( i % mods[j] != vals[j] ) continue outer;
-	    return i;
-	}  
+   outer:   for (int i = 0; ;i++) {
+       for (int j = 0; j &lt; vals.length; j++) 
+      if ( i % mods[j] != vals[j] ) continue outer;
+       return i;
+   }  
     }
 </pre>
 </p>

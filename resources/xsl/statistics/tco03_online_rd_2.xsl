@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%" nowrap="nowrap"><font size="3">TCO - Online Round 2 Summary</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -257,7 +257,7 @@ Once we have our flood fill method written, it's not too hard to pick out which 
                 int index = order.indexOf(block(i,j).color);
                 if(visited[block(i,j)] || block(i,j)==empty || index &gt; bestColorIndex)continue;
                 int size = floodFill(block(i,j))
-		if(size==1)continue;
+      if(size==1)continue;
                 if(index &lt; bestColorIndex){
                     bestColorIndex = index;
                     smallest = 10000;

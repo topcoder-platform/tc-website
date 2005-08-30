@@ -64,7 +64,7 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 156</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -101,18 +101,18 @@ unallocated data. At this point, the greedy algorithm is actually a very good st
 first fill up the largest, then the next largest, and so forth until all data is allocated. Thus, sort <b>total</b>, and go through from greatest to 
 least, subtracting from your data total until it reaches or passes zero.</p><pre>
 public class DiskSpace {
-	public int minDrives(int[] used, int[] total) {
-		int data = 0;
-		for (int i = 0; i &lt; used.length; i++)
-			data += used[i];
-		Arrays.sort(total);
-		int answer = 0;
-		for (int i = total.length - 1; data &gt; 0; i--) {
-			data -= total[i];
-			answer++;
-		}
-		return answer;
-	}
+   public int minDrives(int[] used, int[] total) {
+      int data = 0;
+      for (int i = 0; i &lt; used.length; i++)
+         data += used[i];
+      Arrays.sort(total);
+      int answer = 0;
+      for (int i = total.length - 1; data &gt; 0; i--) {
+         data -= total[i];
+         answer++;
+      }
+      return answer;
+   }
 }
 </pre><font size="+2"><b>BombSweeper</b>
 </font><A href="Javascript:openProblemRating(1778)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
@@ -164,15 +164,15 @@ word. If it is composed in this fashion, you must return the smallest number of 
 divided.</p><p>Solving this problem requires knowledge of either dynamic programming or memoization, programming tricks which are rarely seen 
 in Division-II.  I personally have always been a fan of the latter technique; memoized recursion seems both easier to comprehend and 
 easier to code than DP.</p><p>To make things easier, it is wise to start your solution by creating a dictionary of valid word parts.  Simply create a new array and 
-add to it every prefix and suffix of <b>original</b>, including the whole word itself.</p><pre>	vector&lt;string&gt; dict;
-	for (int i = 1, i &lt; original.length() - 1; i++)
-		dict.push_back(original.substr(0, i));  
-		// Add every prefix
-	for (int i = 1; i &lt; original.length() - 1; i++)
-		dict.push_back(original.substr(i));     
-		// Add every suffix
-	dict.push_back(original);                       
-	// Add the entire word
+add to it every prefix and suffix of <b>original</b>, including the whole word itself.</p><pre>   vector&lt;string&gt; dict;
+   for (int i = 1, i &lt; original.length() - 1; i++)
+      dict.push_back(original.substr(0, i));  
+      // Add every prefix
+   for (int i = 1; i &lt; original.length() - 1; i++)
+      dict.push_back(original.substr(i));     
+      // Add every suffix
+   dict.push_back(original);                       
+   // Add the entire word
 </pre><p>With our dictionary in hand, we can now launch our recursive function.  This function need take only one parameter: the current 
 position in <b>compound</b>.  It operates by checking each word in the dictionary against the current position in <b>compound</b>.  If 
 there is a match, it recurses on the remainder of the string and updates the best result found so far.  For the outline of the function, 
@@ -237,7 +237,7 @@ int timeWaiting(int[] passengerState, int currentFloor, int currentTime) {
          let newPassengerState = passengerState with p dropped off
          let completionTime = timeWaiting(newPassengerState, newFloor, newTime)
       if completionTime &lt; answer
-	   set answer = completionTime
+      set answer = completionTime
    return answer
 }
 </pre><font size="+2"><b>PathFinding</b>

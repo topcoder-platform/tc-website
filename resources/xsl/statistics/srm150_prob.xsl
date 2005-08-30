@@ -64,7 +64,7 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 150</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -73,7 +73,7 @@
                             </tr>
                         </table>
 <!--end contextual links-->
-										
+                              
                         <h2>Match summary</h2>
 
                         <p>Divison-I had a tricky medium level problem which most competitors got stuck at; in the end, only 11 people solved two or more problems. Most likely more
@@ -478,7 +478,7 @@ while (nodes[curNode].edge[curDir]&gt;=0) {
 and thus avoid the while-loop in the code above, see <strong>SnapDragons</strong> solution
 for an implementation of that version.</p>
 
-		     <!-- <p><img src="/i/m/brett1479_mug.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" /><br />
+           <!-- <p><img src="/i/m/brett1479_mug.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" /><br />
                         By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=251317"><strong>brett1479</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" /></p> -->
                         

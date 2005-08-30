@@ -14,8 +14,8 @@
       </HEAD>
       <BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0"> 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#CCCCCC" WIDTH="80%">
-	<TR>
-		<TD><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
+   <TR>
+      <TD><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
 <!-- Body Area -->
   <!-- Center Column Begins -->  
     <TD CLASS="bodyText" WIDTH="100%" bgcolor="#FFFFFF" valign="top">
@@ -25,7 +25,7 @@
   <xsl:with-param name="title">&#160;Affidavit</xsl:with-param>
 </xsl:call-template>
      </TD>
-	</TR>
+   </TR>
 </TABLE>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="80%">
   <TR>
@@ -44,10 +44,10 @@ MAC hold down the Command key and press "P" on your keyboard<BR/>
 <P><BR/></P>
      </TD>
      <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>     
-	</TR>	
-	<!-- <TR>
-		<TD BACKGROUND="/i/steel_bluebv_bg.gif" COLSPAN="5" CLASS="statText" VALIGN="middle" HEIGHT="20"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>		
-	</TR> -->
+   </TR>   
+   <!-- <TR>
+      <TD BACKGROUND="/i/steel_bluebv_bg.gif" COLSPAN="5" CLASS="statText" VALIGN="middle" HEIGHT="20"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>      
+   </TR> -->
 </TABLE>
       </BODY>
     </HTML>

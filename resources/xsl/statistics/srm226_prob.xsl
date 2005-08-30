@@ -47,39 +47,39 @@ function openWin(url, name, w, h) {
  <tr valign="top">
 
 <!-- Left Column Begins -->
-	 <td width="170" bgcolor="#FFFFFF">
-		 <xsl:call-template name="global_left"/>
-	 </td>
+    <td width="170" bgcolor="#FFFFFF">
+       <xsl:call-template name="global_left"/>
+    </td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-	 <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" alt="" border="0" /></td>
+    <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-	 <td class="bodyText" width="100%">
-		 <xsl:call-template name="BodyTop">
-			 <xsl:with-param name="image1">white</xsl:with-param>
-			 <xsl:with-param name="image">statisticsw</xsl:with-param>
-			 <xsl:with-param name="title">Last Match Editorials</xsl:with-param>
-		 </xsl:call-template>
+    <td class="bodyText" width="100%">
+       <xsl:call-template name="BodyTop">
+          <xsl:with-param name="image1">white</xsl:with-param>
+          <xsl:with-param name="image">statisticsw</xsl:with-param>
+          <xsl:with-param name="title">Last Match Editorials</xsl:with-param>
+       </xsl:call-template>
 
-		 <table border="0" cellspacing="10" cellpadding="0" width="100%">
-		 <tr valign="top">
-				 <td class="bodyText" width="100%">
+       <table border="0" cellspacing="10" cellpadding="0" width="100%">
+       <tr valign="top">
+             <td class="bodyText" width="100%">
 
 <!--body contextual links-->
-					 <table width="100%" border="0" cellspacing="0" cellpadding="3">
-						 <tr valign="middle">
-							 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 226</font></td>
-							 <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
-						 </tr>
+                <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                   <tr valign="middle">
+                      <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 226</font></td>
+                      <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
+                   </tr>
 
-						 <tr valign="middle">
-							 <td class="bodyText">Wednesday, January 5, 2005</td>
-							 <td class="bodyText" align="right"><a href="mailto:editorial@topcoder.com">Comments / Ideas?</a></td>
-						 </tr>
-					 </table>
+                   <tr valign="middle">
+                      <td class="bodyText">Wednesday, January 5, 2005</td>
+                      <td class="bodyText" align="right"><a href="mailto:editorial@topcoder.com">Comments / Ideas?</a></td>
+                   </tr>
+                </table>
 <!--end contextual links-->
 
 <h2>Match summary</h2>
@@ -431,9 +431,9 @@ set of data, knowing the probability of obtaining each raw score (which, in the 
 from 0 to 50) suffices to calculate the standard deviation.  The procedure to do this is pretty simple:</p>
 
 <ul>
-	<li>For each raw score value, multiply the probability times the square of the deviation from the mean</li>
-	<li>Add up each of the values obtained above.</li>
-	<li>Calculate the square root of that sum.</li>
+   <li>For each raw score value, multiply the probability times the square of the deviation from the mean</li>
+   <li>Add up each of the values obtained above.</li>
+   <li>Calculate the square root of that sum.</li>
 </ul>
 
 <p>I'll leave it as an exercise to the reader to work out exactly why that works.</p>
@@ -447,33 +447,33 @@ of the first <i>n</i> questions were answered correctly, and <i>Q(a)</i> is the 
 arbitrary person answering question <i>a</i> correctly, then we can use the recurrence
 <i>P(a, n) = P(a - 1, n - 1) * Q(a) + P(a, n - 1) * (1 - Q(a)), P(0, 0)</i> = 1 to build our DP.</p>
 
-					 <p>
-					 <img src="/i/m/timmac_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-					 By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=10407399"><strong>timmac</strong></a><br />
-					 <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-					 </p>
-				 </td>
-			 </tr>
-		 </table>
+                <p>
+                <img src="/i/m/timmac_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+                By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=10407399"><strong>timmac</strong></a><br />
+                <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+                </p>
+             </td>
+          </tr>
+       </table>
 
-		 <p><br /></p>
+       <p><br /></p>
 
-	 </td>
+    </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-	 <td width="4"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
+    <td width="4"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-	 <td width="170">
-		 <img src="/i/clear.gif" width="170" height="1" border="0"/><br />
-		 <xsl:call-template name="public_right_col"/>
-	 </td>
+    <td width="170">
+       <img src="/i/clear.gif" width="170" height="1" border="0"/><br />
+       <xsl:call-template name="public_right_col"/>
+    </td>
 <!-- Right Column Ends -->
 
 <!-- Gutter -->
-	 <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
  </tr>

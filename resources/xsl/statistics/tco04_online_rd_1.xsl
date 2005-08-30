@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">TCO04 Online Round 1 Problem Set</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -331,11 +331,11 @@ String ops = "*+-/";
 //inorder traversal modified to add helpful spaces
 String inorder(String[] tree, int node) {
     if (ops.indexOf(tree[node].charAt(0))!=-1) {
-	String[] toks = tree[node].split(" ");
-	String ret = inorder(tree,Integer.parseInt(toks[1]));
-	ret += " "+toks[0]+" ";
-	return ret + inorder(tree,Integer.parseInt(toks[2]));
-    } else return tree[node];		
+   String[] toks = tree[node].split(" ");
+   String ret = inorder(tree,Integer.parseInt(toks[1]));
+   ret += " "+toks[0]+" ";
+   return ret + inorder(tree,Integer.parseInt(toks[2]));
+    } else return tree[node];      
 }
 
 //Executed after the inorder traversal
@@ -343,18 +343,18 @@ int eval(String expr) {
     if (expr.indexOf(' ')==-1) return Integer.parseInt(expr);
     ArrayList al = new ArrayList( Arrays.asList(expr.split(" ")) );
     while (true) {
-	if (al.size() == 1) return Integer.parseInt(al.get(0)+"");
-	int high = al.indexOf("*");
-	if (high &lt; 0 || (al.indexOf("/") &gt; -1 &amp;&amp; al.indexOf("/") &lt; high)) 
-	    high = al.indexOf("/");
-	if (high == -1) high = 1;
-	String B = al.remove(high+1)+"", OP = al.remove(high)+"", A = al.remove(high-1)+"";
-	int a = Integer.parseInt(A), b = Integer.parseInt(B), c = 0;
-	if (OP.equals("*")) c = a*b;
-	if (OP.equals("+")) c = a+b;
-	if (OP.equals("-")) c = a-b;
-	if (OP.equals("/")) c = a/b;
-	al.add(high-1,c+"");
+   if (al.size() == 1) return Integer.parseInt(al.get(0)+"");
+   int high = al.indexOf("*");
+   if (high &lt; 0 || (al.indexOf("/") &gt; -1 &amp;&amp; al.indexOf("/") &lt; high)) 
+       high = al.indexOf("/");
+   if (high == -1) high = 1;
+   String B = al.remove(high+1)+"", OP = al.remove(high)+"", A = al.remove(high-1)+"";
+   int a = Integer.parseInt(A), b = Integer.parseInt(B), c = 0;
+   if (OP.equals("*")) c = a*b;
+   if (OP.equals("+")) c = a+b;
+   if (OP.equals("-")) c = a-b;
+   if (OP.equals("/")) c = a/b;
+   al.add(high-1,c+"");
     }
 }
 </pre>
@@ -479,23 +479,23 @@ int shortRec(int pa, int pb, int pc) {
     //here i = 1 means I put the first char from String a in the supersequence
     //j and k denote the same things for Strings b and c respectively
     for (int i = 0; i &lt;= 1; i++) 
-	for (int j = 0; j &lt;= 1; j++) 
-	    for (int k = 0; k &lt;=1; k++) {
-		if (i+j+k == 0) continue;
-		if (pa + i &gt; A || pb + j &gt; B || pc + k &gt; C) continue;
-		if (i &gt; 0 &amp;&amp; j &gt; 0 &amp;&amp; a.charAt(pa) != b.charAt(pb)) continue;
-		if (i &gt; 0 &amp;&amp; k &gt; 0 &amp;&amp; a.charAt(pa) != c.charAt(pc)) continue;
-		if (k &gt; 0 &amp;&amp; j &gt; 0 &amp;&amp; c.charAt(pc) != b.charAt(pb)) continue;
-		best = Math.min(best,1+shortRec(pa+i,pb+j,pc+k));
-	    } return cache[pa][pb][pc] = best;
+   for (int j = 0; j &lt;= 1; j++) 
+       for (int k = 0; k &lt;=1; k++) {
+      if (i+j+k == 0) continue;
+      if (pa + i &gt; A || pb + j &gt; B || pc + k &gt; C) continue;
+      if (i &gt; 0 &amp;&amp; j &gt; 0 &amp;&amp; a.charAt(pa) != b.charAt(pb)) continue;
+      if (i &gt; 0 &amp;&amp; k &gt; 0 &amp;&amp; a.charAt(pa) != c.charAt(pc)) continue;
+      if (k &gt; 0 &amp;&amp; j &gt; 0 &amp;&amp; c.charAt(pc) != b.charAt(pb)) continue;
+      best = Math.min(best,1+shortRec(pa+i,pb+j,pc+k));
+       } return cache[pa][pb][pc] = best;
 }
 
 public int shortest(String a, String b, String c) {
     this.a = a; this.b = b; this.c = c;
     cache = new int[a.length()+1][b.length()+1][c.length()+1];
     for (int i = 0; i &lt; cache.length; i++) 
-	for (int j = 0; j &lt; cache[i].length; j++)
-	    for (int k = 0; k &lt; cache[i][j].length; k++) cache[i][j][k] = -1;
+   for (int j = 0; j &lt; cache[i].length; j++)
+       for (int k = 0; k &lt; cache[i][j].length; k++) cache[i][j][k] = -1;
     return shortRec(0,0,0);
 }
 </pre>

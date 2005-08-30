@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                      <table width="100%" border="0" cellspacing="0" cellpadding="3">
                          <tr valign="middle">
                              <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 196</font></td>
-                             <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                             <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                          </tr>
 
                          <tr valign="middle">
@@ -323,9 +323,9 @@ Because the flood plain is infinitely high, and the lake infinitely deep, it mak
 For each day, we need to determine that the change in the lake level will be. The logic for how much the level changes is identical whether flooded or not, with the exception of whether or not we use the flooded evaporation rate or the normal evaporation rate. (That may seem obvious if you recognize this problem as essentially being one function composed of two linear functions). Basically, there are three options for each day:
 </p>
 <ol>
-	<li>The lake will stay in the same state (although the level may change).</li>
-	<li>The change in lake level is enough to make it reach the boundary between states, but not so much that it actually changes. This happens when the expected change given the current state and rain is greater than the current level and when the rain for the day is between the flooded evaporation rate and the normal evaporation rate. In this case, an equilibrium is reached, and the lake ends up at exactly the full level.</li>
-	<li>The lake will change states. This option requires determining during what fraction of the day the lake will be flooded and during what fraction of the day the lake will be normal - this is what tripped up many coders for this problem.</li>
+   <li>The lake will stay in the same state (although the level may change).</li>
+   <li>The change in lake level is enough to make it reach the boundary between states, but not so much that it actually changes. This happens when the expected change given the current state and rain is greater than the current level and when the rain for the day is between the flooded evaporation rate and the normal evaporation rate. In this case, an equilibrium is reached, and the lake ends up at exactly the full level.</li>
+   <li>The lake will change states. This option requires determining during what fraction of the day the lake will be flooded and during what fraction of the day the lake will be normal - this is what tripped up many coders for this problem.</li>
 </ol>
 <font size="+2"> 
 <b><a href="/stat?c=problem_statement&amp;pm=1283&amp;rd=5071">Assemble</a></b> 
@@ -381,9 +381,9 @@ While I'm still not the best at programming with DP, I do recognize it fairly re
 Basically, you have a recursive function which takes a <b>from</b> index, a <b>to</b> index, and the array of connect values. Within the recursion, there are a few base cases:
 </p>
 <ol>
-	<li>If you've calculated this result before, return it as stored.</li>
-	<li>(<b>from</b> == <b>to</b>) - this simply returns 0.</li>
-	<li>(<b>from</b> + 1 == <b>to</b>) - adjacent components. For this, you use the formula given.</li>
+   <li>If you've calculated this result before, return it as stored.</li>
+   <li>(<b>from</b> == <b>to</b>) - this simply returns 0.</li>
+   <li>(<b>from</b> + 1 == <b>to</b>) - adjacent components. For this, you use the formula given.</li>
 </ol>
 
 <p>
@@ -439,10 +439,10 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
 This problem seems a little tricky at first, and indeed it is. The first thing to do is sort the names alphabetically. The constraints here are small enough to use an iterative approach on the number of rows to use. Basically, just start with 1 row, and increment until you find a solution. Within each trial for a number of rows, iterate over the number of columns to try. Now, within each column iteration, do the following:
 </p>
 <ul>
-	<li>Append the current name to the next row in the output, keeping track of how long the longest one is in the current column.</li>
-	<li>At the end of the column, pad each row with enough spaces to make it equivalent to the longest, plus one more for spacing between columns.</li>
-	<li>If, at any point in appending names to a row, it becomes wider than the page is, fail and go to the next highest number of rows.</li>
-	<li>Once a solution is found, store it if it is the best (determining best by the "rightmost non-space character as far to the left as possible" and "fewest columns" rules).</li>
+   <li>Append the current name to the next row in the output, keeping track of how long the longest one is in the current column.</li>
+   <li>At the end of the column, pad each row with enough spaces to make it equivalent to the longest, plus one more for spacing between columns.</li>
+   <li>If, at any point in appending names to a row, it becomes wider than the page is, fail and go to the next highest number of rows.</li>
+   <li>Once a solution is found, store it if it is the best (determining best by the "rightmost non-space character as far to the left as possible" and "fewest columns" rules).</li>
 </ul>
   
                      <p>

@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">TCO05 Online Round 1 Problem Set</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -163,19 +163,19 @@ following differences: rightMin-leftMax, leftMin-rightMax.  Java code follows: <
 boolean r(double v, double m, double M) { return v &#8805; m &amp;&amp; v &#8804; M; }
 public double bottomRange(double topMin, double topMax, 
                           double leftMin, double leftMax, 
-			  double rightMin, double rightMax) {
-	double M = 0, m = 0;
-	if (r(rightMin,leftMin,leftMax) || r(rightMax,leftMin,leftMax) ||
-	    r(leftMin,rightMin,rightMax) || r(leftMax,rightMin,rightMax) ) {
-		m = topMin;
-	} else {
-		double x = min(abs(leftMin-rightMax),abs(leftMax-rightMin));
-		m = sqrt(x*x + topMin*topMin);
-	}
-	double y = max(abs(leftMax-rightMin),abs(leftMin-rightMax));
-	M = sqrt(y*y+topMax*topMax);
-	return abs(M - m);
-}	
+           double rightMin, double rightMax) {
+   double M = 0, m = 0;
+   if (r(rightMin,leftMin,leftMax) || r(rightMax,leftMin,leftMax) ||
+       r(leftMin,rightMin,rightMax) || r(leftMax,rightMin,rightMax) ) {
+      m = topMin;
+   } else {
+      double x = min(abs(leftMin-rightMax),abs(leftMax-rightMin));
+      m = sqrt(x*x + topMin*topMin);
+   }
+   double y = max(abs(leftMax-rightMin),abs(leftMin-rightMax));
+   M = sqrt(y*y+topMax*topMax);
+   return abs(M - m);
+}   
 </pre>
 </p>
 

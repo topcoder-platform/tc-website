@@ -84,7 +84,7 @@
                                                             <!-- <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="15"><A HREF="/?t=statistics&amp;c=srm104_prob" CLASS="bodyGeneric">&#160;Problem&#160;Set&#160;</A></TD>
                                                             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="/?t=statistics&amp;c=srm103_rookie" CLASS="bodyGeneric">&#160;Rookie&#160;Review&#160;</A></TD> -->
                                                             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC">
-                                                                <A HREF="/index?t=statistics&amp;c=editorial_archive" CLASS="bodyGeneric">&#160;Archive&#160;</A>
+                                                                <A HREF="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" CLASS="bodyGeneric">&#160;Archive&#160;</A>
                                                             </TD>
                                                             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC">
                                                                 <A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">&#160;Comments/Ideas?&#160;</A>
@@ -195,13 +195,13 @@ public int quickLine(int size, String[] chosen) {
                 diff[x] = curri[x]-currj[x];
                 while (diff[x]%div!=0) div--;
             } for (int x = 0; x &lt; diff.length; x++) diff[x] /= div;
-        outer:	for (int x = -10; x &lt;= 10; x++) {
+        outer:   for (int x = -10; x &lt;= 10; x++) {
                 int[] temp = (int[])diff.clone();
                 for (int y = 0; y &lt; temp.length; y++) {
                     temp[y] = curri[y]+x*temp[y];
                     if (temp[y] &gt;= size || temp[y] &lt; 0) continue outer;
                 }
-            outer2:	for (int y = 0; y &lt; chosen.length; y++) {
+            outer2:   for (int y = 0; y &lt; chosen.length; y++) {
                     for (int k = 0; k &lt; temp.length; k++)
                         if (chosen[y].charAt(k)-'0'!=temp[k]) continue outer2;
                     cntused++;

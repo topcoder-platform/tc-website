@@ -52,26 +52,26 @@
     <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 <!--body contextual links-->
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="100%">
- 	<TR>
+    <TR>
         <TD COLSPAN="2" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
     </TR> 
-	<TR><TD COLSPAN="2" BGCOLOR="#43515E" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD></TR>
-	<TR>
-		<TD VALIGN="top" BGCOLOR="#43515E" CLASS="moduleTitle">&#160; &#160;</TD>
-		<TD BGCOLOR="#43515E" VALIGN="top" CLASS="moduleTitle">MATCH EDITORIAL LINKS:</TD>
-	</TR>                    
-	<TR>
-    	<TD COLSPAN="2" VALIGN="top" BGCOLOR="#43515E">
-		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="1" CELLPADDING="" BGCOLOR="#FFFFFF">
-		<TR>
-			<!-- <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="15"><A HREF="/?t=statistics&amp;c=srm104_prob" CLASS="bodyGeneric">&#160;Problem&#160;Set&#160;</A></TD>
-			<TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="/?t=statistics&amp;c=srm103_rookie" CLASS="bodyGeneric">&#160;Rookie&#160;Review&#160;</A></TD> -->
-			<TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="/index?t=statistics&amp;c=editorial_archive" CLASS="bodyGeneric">&#160;Archive&#160;</A></TD>
-		    <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">&#160;Comments/Ideas?&#160;</A></TD>
-		</TR>    		
-		</TABLE>
-		</TD>
-	</TR>               
+   <TR><TD COLSPAN="2" BGCOLOR="#43515E" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD></TR>
+   <TR>
+      <TD VALIGN="top" BGCOLOR="#43515E" CLASS="moduleTitle">&#160; &#160;</TD>
+      <TD BGCOLOR="#43515E" VALIGN="top" CLASS="moduleTitle">MATCH EDITORIAL LINKS:</TD>
+   </TR>                    
+   <TR>
+       <TD COLSPAN="2" VALIGN="top" BGCOLOR="#43515E">
+      <TABLE BORDER="0" WIDTH="100%" CELLSPACING="1" CELLPADDING="" BGCOLOR="#FFFFFF">
+      <TR>
+         <!-- <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="15"><A HREF="/?t=statistics&amp;c=srm104_prob" CLASS="bodyGeneric">&#160;Problem&#160;Set&#160;</A></TD>
+         <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="/?t=statistics&amp;c=srm103_rookie" CLASS="bodyGeneric">&#160;Rookie&#160;Review&#160;</A></TD> -->
+         <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" CLASS="bodyGeneric">&#160;Archive&#160;</A></TD>
+          <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">&#160;Comments/Ideas?&#160;</A></TD>
+      </TR>          
+      </TABLE>
+      </TD>
+   </TR>               
 </TABLE>
 <!--end contextual links-->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/><BR/>
@@ -192,25 +192,25 @@ Reference implementation: <B>slavik</B> (practice room)
 
 <PRE>
 int cmp(pair&lt;int,int&gt; a,pair&lt;int,int&gt; b) {
-	return (a.first-2)*a.second &gt; (b.first-2)*b.second;
+   return (a.first-2)*a.second &gt; (b.first-2)*b.second;
 }
 
 int get_size(int a) {
-	char temp[20];
-	sprintf(temp,"%d",a);
-	return strlen(temp);
+   char temp[20];
+   sprintf(temp,"%d",a);
+   return strlen(temp);
 }
 
 int assignNumbers(vector &lt;int&gt; a, vector &lt;int&gt; b, int c) {
-	vector&lt;pair&lt;int,int&gt; &gt; numbers;
-	for (int i=0;i&lt;a.size();i++) numbers.push_back(make_pair(get_size(a[i]),b[i]));	
-	sort(numbers.begin(),numbers.end(),cmp);
-	int total=0;
-	for (int k=0;k&lt;numbers.size();k++) {
-		if (k&gt;=c) total+=numbers[k].second*numbers[k].first;
-		else 	  total+=numbers[k].second*2;
-	}
-	return total;
+   vector&lt;pair&lt;int,int&gt; &gt; numbers;
+   for (int i=0;i&lt;a.size();i++) numbers.push_back(make_pair(get_size(a[i]),b[i]));   
+   sort(numbers.begin(),numbers.end(),cmp);
+   int total=0;
+   for (int k=0;k&lt;numbers.size();k++) {
+      if (k&gt;=c) total+=numbers[k].second*numbers[k].first;
+      else      total+=numbers[k].second*2;
+   }
+   return total;
 }
 
 </PRE>
@@ -309,10 +309,10 @@ Once the problem is understood it is not that hard to come up with a brute force
 <P>
 I have solved this problem using a recursive function which would try all possible combinations of valid day schedules:
 <OL>
-	<LI> Make sure your wake up time is always between 7 and 14.</LI>
-	<LI> If there is a real life even you must wake up at a given time or before that time otherwise entire branch of recursion is not valid. </LI>
-	<LI> Try to stay up from 15 to 17 hours and see what happens in every case.</LI> 
-	<LI> if you have to go bad two hours after the competition starts you can participate in it.</LI>
+   <LI> Make sure your wake up time is always between 7 and 14.</LI>
+   <LI> If there is a real life even you must wake up at a given time or before that time otherwise entire branch of recursion is not valid. </LI>
+   <LI> Try to stay up from 15 to 17 hours and see what happens in every case.</LI> 
+   <LI> if you have to go bad two hours after the competition starts you can participate in it.</LI>
 </OL>
 </P>
 
@@ -325,24 +325,24 @@ get maximum number of competitions. If the number of competitions so far is less
 <PRE>
 int best=0;
 void do_it(int so_far,int cur,int index,vector &lt;int&gt; &amp;a, vector &lt;int&gt; &amp;b) {
-	if (cur&lt;7 || cur&gt;14) return;
-	if (index==a.size()) 
-		if (so_far>best) best=so_far;
-		return ;
-	}
-	if (a[index]!=-1 &amp;&amp; cur&gt;a[index]) return;
-	for (int i=15;i&lt;=17;i++) {
-		int wake_up=(cur+i+8)%24;
-		int go_to_bad=(cur+i)%24;
-		if (b[index]!=-1 &amp;&amp; go_to_bad>=b[index]+2 &amp;&amp; go_to_bad!=23) 
-			do_it(so_far+1,wake_up,index+1,a,b);
-		else 
-			do_it(so_far,wake_up,index+1,a,b);
-	}
+   if (cur&lt;7 || cur&gt;14) return;
+   if (index==a.size()) 
+      if (so_far>best) best=so_far;
+      return ;
+   }
+   if (a[index]!=-1 &amp;&amp; cur&gt;a[index]) return;
+   for (int i=15;i&lt;=17;i++) {
+      int wake_up=(cur+i+8)%24;
+      int go_to_bad=(cur+i)%24;
+      if (b[index]!=-1 &amp;&amp; go_to_bad>=b[index]+2 &amp;&amp; go_to_bad!=23) 
+         do_it(so_far+1,wake_up,index+1,a,b);
+      else 
+         do_it(so_far,wake_up,index+1,a,b);
+   }
 }
 int howMany(vector &lt;int&gt; a, vector &lt;int&gt; b) {
 for (int i=7;i&lt;=14;i++) do_it(0,i,0,a,b);
-	return best;
+   return best;
 }
 </PRE>
 
@@ -494,43 +494,43 @@ Now we have to pass through all those rectangles and calculate the number of dif
 <IMG SRC="/i/m/slavik_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;slavik<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=160082" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
-					</TD>
-					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-				<TR>
-					<TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-				</TR>   	
-				<TR>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>	
-				<TR>
-					<TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-			</TABLE>
-		</TD>
+               </TD>
+               <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+            </TR>
+            <TR>
+               <TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+            </TR>      
+            <TR>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+            </TR>   
+            <TR>
+               <TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+            </TR>
+         </TABLE>
+      </TD>
   <!-- Center Column Ends -->
 <!-- Body Area Ends -->
 
-	<!-- Gutter -->
-		<TD WIDTH="4" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
+   <!-- Gutter -->
+      <TD WIDTH="4" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
-	<!-- Right Column Begins -->
-		<TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><br/>
+   <!-- Right Column Begins -->
+      <TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><br/>
 <!-- Right Column Include Begins --> 
         <xsl:call-template name="public_right_col"/>       
 <!-- Right Column Include Ends -->        
         </TD>
-	<!-- Right Column Ends -->
-	<!-- Gutter -->
-		<TD WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+   <!-- Right Column Ends -->
+   <!-- Gutter -->
+      <TD WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
-	</TR>
+   </TR>
 </TABLE>
 <!-- Body Ends -->
         <xsl:call-template name="Foot"/>

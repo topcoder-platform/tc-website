@@ -64,7 +64,7 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 159</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -139,18 +139,18 @@ This problem was relatively easy if you simply followed instructions from the pr
 
 <p>All we have to do now is loop through all the characters in street (without the first and last two) and count all valid '-' positions:</p>
 
-<pre>	for (int i=1; i&lt;street.length()-2; i++) 
-	{
-		char current = street.charAt(i);
-		char previous = street.charAt(i-1);
-		char next = street.charAt(i+1);
-		char next2 = street.charAt(i+2);
+<pre>   for (int i=1; i&lt;street.length()-2; i++) 
+   {
+      char current = street.charAt(i);
+      char previous = street.charAt(i-1);
+      char next = street.charAt(i+1);
+      char next2 = street.charAt(i+2);
 
-		if (current=='-' &#38;&#38;
-		   next!='B' &#38;&#38; next2!='B' &#38;&#38;
-		   previous!='S' &#38;&#38; next!='S')
-			count++;
-	}
+      if (current=='-' &#38;&#38;
+         next!='B' &#38;&#38; next2!='B' &#38;&#38;
+         previous!='S' &#38;&#38; next!='S')
+         count++;
+   }
 </pre>
 
 
@@ -207,16 +207,16 @@ This problem dealt with sets and three of their most common operations: union, i
 
 <p>To implement the union operation we add all the elements from set A to our result, then loop through set B and add all of its elements which are not already in result:</p>
 
-<pre>	for (int i=0; i&lt;A.length; i++)
-		result.add(""+A[i]);
-	for (int i=0; i&lt;B.length; i++)
-		if (!result.contains(""+B[i])) result.add(""+B[i]);</pre>
+<pre>   for (int i=0; i&lt;A.length; i++)
+      result.add(""+A[i]);
+   for (int i=0; i&lt;B.length; i++)
+      if (!result.contains(""+B[i])) result.add(""+B[i]);</pre>
 
 <p>To implement the intersection operation we loop through set A and add all of its elements, which can be found in set B:</p>
 
-<pre>	for (int i=0; i&lt;A.length; i++)
-		for (int k=0; k&lt;B.length; k++)
-			if (A[i]==B[k]) result.add(""+A[i]);</pre>
+<pre>   for (int i=0; i&lt;A.length; i++)
+      for (int k=0; k&lt;B.length; k++)
+         if (A[i]==B[k]) result.add(""+A[i]);</pre>
 
 <p>Symmetric difference can be found by taking the union of A and B and then removing all the elements that belong to the intersection of A and B. I leave this as an exercise to the reader. In general, coders did well on this problem. However, some failed because they did not properly handle the case with empty sets.</p>
  
@@ -328,22 +328,22 @@ j&lt;i and prices[j] &lt; prices[i].</i></p>
 <p>Based on the above relationships we can derive the following pseudo-code:</p>
 
 <pre>
-	initialize int[] out to {0,0}
+   initialize int[] out to {0,0}
 
-	for all i&lt;prices.length
-		initialize temp to 0
-		for all k&lt;i
-			if prices[k]&lt;prices[i] then temp = Max{temp, S[k]}
-		for all k&lt;i
-			if S[k] == temp and prices[k]&lt;prices[i] then increment L[i] by L[k]
-		if L[i] is still 0 then L[i] = 1
-		S[i] = 1 + temp
-		out[0] = Max{out[0], S[i]}
+   for all i&lt;prices.length
+      initialize temp to 0
+      for all k&lt;i
+         if prices[k]&lt;prices[i] then temp = Max{temp, S[k]}
+      for all k&lt;i
+         if S[k] == temp and prices[k]&lt;prices[i] then increment L[i] by L[k]
+      if L[i] is still 0 then L[i] = 1
+      S[i] = 1 + temp
+      out[0] = Max{out[0], S[i]}
 
-	for all i&lt;prices.length
-		if S[i] == out[0] then increment out[1] by L[i]
+   for all i&lt;prices.length
+      if S[i] == out[0] then increment out[1] by L[i]
 
-	return out
+   return out
 </pre>
 
 <p>To compute each S[i] value we must make (i-1) comparisons. Thus, the time complexity of this algorithm is O(n^2). By using advanced data structures we can improve the complexity to O(n*log(n)). Surprisingly, this problem has parallels with real-world applications. The same algorithm is used for finding common subsequences in DNA strands, and is closely related to spelling correction algorithms.

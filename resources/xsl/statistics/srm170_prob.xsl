@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
                                 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 170</font></td>
-                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                                <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
                             <tr valign="middle">
@@ -468,12 +468,12 @@ the earliest time at which all the cities are connected, and we return that time
     int cities[N] = {0, 1, ... , N - 1};
     for each d in distances {
         if cities a and b just connected at time d {
-	    for (i = 0; i &lt; N; i++) {
-	        if (cities[i] = cities[b]) cities[i] = cities[a];
-	    }
+       for (i = 0; i &lt; N; i++) {
+           if (cities[i] = cities[b]) cities[i] = cities[a];
+       }
         }
-	if cities[i] == cities[0] for all i
-	    return d;
+   if cities[i] == cities[0] for all i
+       return d;
     }
 </pre>
 
@@ -599,14 +599,14 @@ of the coders who correctly solved the 1000 used this solution.
     x = 0, y = 0, count = 0;
     while (x &lt;= xmax &amp;&amp; y &lt;= ymax) {
         if (f(x) &lt; g(y))
-	    x++;
-	else if (g(y) &lt; f(x))
-	    y++;
-	else {
-	    x++;
-	    y++;
-	    count = count + 1;
-	}
+       x++;
+   else if (g(y) &lt; f(x))
+       y++;
+   else {
+       x++;
+       y++;
+       count = count + 1;
+   }
     }
     return count;
 </pre>

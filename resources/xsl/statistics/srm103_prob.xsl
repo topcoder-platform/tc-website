@@ -52,26 +52,26 @@
     <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 <!--body contextual links-->
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="100%">
- 	<TR>
+    <TR>
         <TD COLSPAN="2" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
     </TR> 
-	<TR><TD COLSPAN="2" BGCOLOR="#43515E" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD></TR>
-	<TR>
-		<TD VALIGN="top" BGCOLOR="#43515E" CLASS="moduleTitle">&#160; &#160;</TD>
-		<TD BGCOLOR="#43515E" VALIGN="top" CLASS="moduleTitle">MATCH EDITORIAL LINKS:</TD>
-	</TR>                    
-	<TR>
-    	<TD COLSPAN="2" VALIGN="top" BGCOLOR="#43515E">
-		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="1" CELLPADDING="" BGCOLOR="#FFFFFF">
-		<TR>
-			<TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="15"><A HREF="/?t=statistics&amp;c=srm103_prob" CLASS="bodyGeneric">&#160;Problem&#160;Set&#160;</A></TD>
-			<TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="/?t=statistics&amp;c=srm103_rookie" CLASS="bodyGeneric">&#160;Rookie&#160;Review&#160;</A></TD>
-			<TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="/index?t=statistics&amp;c=editorial_archive" CLASS="bodyGeneric">&#160;Archive&#160;</A></TD>
-		    <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">&#160;Comments/Ideas/Want&#160;to&#160;Write?&#160;</A></TD>
-		</TR>    		
-		</TABLE>
-		</TD>
-	</TR>               
+   <TR><TD COLSPAN="2" BGCOLOR="#43515E" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD></TR>
+   <TR>
+      <TD VALIGN="top" BGCOLOR="#43515E" CLASS="moduleTitle">&#160; &#160;</TD>
+      <TD BGCOLOR="#43515E" VALIGN="top" CLASS="moduleTitle">MATCH EDITORIAL LINKS:</TD>
+   </TR>                    
+   <TR>
+       <TD COLSPAN="2" VALIGN="top" BGCOLOR="#43515E">
+      <TABLE BORDER="0" WIDTH="100%" CELLSPACING="1" CELLPADDING="" BGCOLOR="#FFFFFF">
+      <TR>
+         <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="15"><A HREF="/?t=statistics&amp;c=srm103_prob" CLASS="bodyGeneric">&#160;Problem&#160;Set&#160;</A></TD>
+         <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="/?t=statistics&amp;c=srm103_rookie" CLASS="bodyGeneric">&#160;Rookie&#160;Review&#160;</A></TD>
+         <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" CLASS="bodyGeneric">&#160;Archive&#160;</A></TD>
+          <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">&#160;Comments/Ideas/Want&#160;to&#160;Write?&#160;</A></TD>
+      </TR>          
+      </TABLE>
+      </TD>
+   </TR>               
 </TABLE>
 <!--end contextual links-->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/><BR/>
@@ -102,8 +102,8 @@ return 0;
 <P>
 <B>Common bugs:</B>
 <OL>
-	<LI> The size of every next word in the list should be more or equal then the size of the previous word</LI>
-	<LI> The next word should start with previous word and NOT contain previous word.</LI>
+   <LI> The size of every next word in the list should be more or equal then the size of the previous word</LI>
+   <LI> The next word should start with previous word and NOT contain previous word.</LI>
 </OL>
 </P>
 
@@ -114,11 +114,11 @@ return 0;
 <P>
 The entire problem could be solved in 5 lines:
 <OL>
-	<LI> Calculate time for Hare to finish the route: Float H_time= (float) distance /hare_speed.</LI>
-	<LI> Calculate time for Tortoise to finish the route: Float T_time = (float) distance /tortoise_speed.</LI> 
-	<LI> Calculate time left for Hare to sleep: Float sleep_time = T_time-H_time-winTime+ 0.5+1e-6</LI>
-	<LI> Take care of the special case: if sleep_time&lt;=0.0 return 0</LI>
-	<LI> Return sleep_tim;</LI>
+   <LI> Calculate time for Hare to finish the route: Float H_time= (float) distance /hare_speed.</LI>
+   <LI> Calculate time for Tortoise to finish the route: Float T_time = (float) distance /tortoise_speed.</LI> 
+   <LI> Calculate time left for Hare to sleep: Float sleep_time = T_time-H_time-winTime+ 0.5+1e-6</LI>
+   <LI> Take care of the special case: if sleep_time&lt;=0.0 return 0</LI>
+   <LI> Return sleep_tim;</LI>
 </OL>
 </P>
 
@@ -131,9 +131,9 @@ I have added 0.5 to the sleep time to round the result to the nearest integer an
 <P>
 <B>Common bugs:</B>
 <OL>
-	<LI> Use of ceiling or flow functions without adding or subtracting 0.5 </LI>
-	<LI> Round off error.  Example: 97,61,904,0 = 5.500084502,  84,35,750,8 = 4.5 
-	(it would return 4 instead of 5 if you don't add extremely small number).</LI>
+   <LI> Use of ceiling or flow functions without adding or subtracting 0.5 </LI>
+   <LI> Round off error.  Example: 97,61,904,0 = 5.500084502,  84,35,750,8 = 4.5 
+   (it would return 4 instead of 5 if you don't add extremely small number).</LI>
 </OL>
 </P>
 
@@ -145,16 +145,16 @@ I have added 0.5 to the sleep time to round the result to the nearest integer an
 <P>
 Simple Brute Force recursive function would work fine for this problem:
 <PRE>
-1	int do_it(int x,int y,vector&lt;string&gt; &amp;enc,int dx,int dy) {
-2		if (x==dx &amp;&amp; y==dy) return 1;
-3		if (enc[y][x]=='X') return 0;
-4		int total=0;
-5		if (dx&gt;x) total+=do_it(x+1,y,enc,dx,dy);
-6		if (dx&lt;x) total+=do_it(x-1,y,enc,dx,dy);
-7		if (dy&gt;y) total+=do_it(x,y+1,enc,dx,dy);
-8		if (dy&lt;y) total+=do_it(x,y-1,enc,dx,dy);
-9		return total;
-10	}
+1   int do_it(int x,int y,vector&lt;string&gt; &amp;enc,int dx,int dy) {
+2      if (x==dx &amp;&amp; y==dy) return 1;
+3      if (enc[y][x]=='X') return 0;
+4      int total=0;
+5      if (dx&gt;x) total+=do_it(x+1,y,enc,dx,dy);
+6      if (dx&lt;x) total+=do_it(x-1,y,enc,dx,dy);
+7      if (dy&gt;y) total+=do_it(x,y+1,enc,dx,dy);
+8      if (dy&lt;y) total+=do_it(x,y-1,enc,dx,dy);
+9      return total;
+10   }
 </PRE>
 </P>
 
@@ -196,11 +196,11 @@ if ((line1 &amp; line2) == 0) /* lines do not overlap */
 I think Slamin has very good and clear solution on how to combine all lines together:
 </P>
 <PRE>
-void doit(int n, int idx) {    	
+void doit(int n, int idx) {       
 // n is current canvas and idx is current line
-if (idx &gt;= v.size()) {	
+if (idx &gt;= v.size()) {   
 // base case - all lines are added
-res.insert(n);		
+res.insert(n);      
 // insert solution into the set
 return;
 }
@@ -236,64 +236,64 @@ Many solutions timed out - the wrong data structure was selected to represent a 
 I think this problem was the hardest one in SRM 103 and has biggest rate of failed solutions. There were 65 submissions overall for this problem and only 27 of them have passed the system test.
 </P>
 
-<!-- 	pass	Failed 	Challenged	
-1	5	7	1	
-2	7	2	3	
-3	5	5	2	
-4	6	7	0	
-5	2	6	3	
-6	2	2	0	
-total:	27	29	9	-->  
+<!--    pass   Failed    Challenged   
+1   5   7   1   
+2   7   2   3   
+3   5   5   2   
+4   6   7   0   
+5   2   6   3   
+6   2   2   0   
+total:   27   29   9   -->  
 
 <TABLE BORDER="1" CELLSPACING="0" CELLPADDING="0" WIDTH="80%" ALIGN="center">
-	<TR>
-		<TD CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><B>Room</B></TD>
-		<TD CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><B>Pass</B></TD>
-		<TD CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><B>Failed</B></TD>
-		<TD CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><B>Challenged</B></TD>
-	</TR>
-	<TR>
-		<TD CLASS="bodyText" ALIGN="center">1</TD>
-		<TD CLASS="bodyText" ALIGN="center">5</TD>
-		<TD CLASS="bodyText" ALIGN="center">7</TD>
-		<TD CLASS="bodyText" ALIGN="center">1</TD>
-	</TR>
-	<TR>
-		<TD CLASS="bodyText" ALIGN="center">2</TD>
-		<TD CLASS="bodyText" ALIGN="center">7</TD>
-		<TD CLASS="bodyText" ALIGN="center">2</TD>
-		<TD CLASS="bodyText" ALIGN="center">3</TD>
-	</TR>	
-	<TR>
-		<TD CLASS="bodyText" ALIGN="center">3</TD>
-		<TD CLASS="bodyText" ALIGN="center">5</TD>
-		<TD CLASS="bodyText" ALIGN="center">5</TD>
-		<TD CLASS="bodyText" ALIGN="center">2</TD>
-	</TR>	
-	<TR>
-		<TD CLASS="bodyText" ALIGN="center">4</TD>
-		<TD CLASS="bodyText" ALIGN="center">6</TD>
-		<TD CLASS="bodyText" ALIGN="center">7</TD>
-		<TD CLASS="bodyText" ALIGN="center">0</TD>
-	</TR>	
-	<TR>
-		<TD CLASS="bodyText" ALIGN="center">5</TD>
-		<TD CLASS="bodyText" ALIGN="center">2</TD>
-		<TD CLASS="bodyText" ALIGN="center">6</TD>
-		<TD CLASS="bodyText" ALIGN="center">3</TD>
-	</TR>	
-	<TR>
-		<TD CLASS="bodyText" ALIGN="center">5</TD>
-		<TD CLASS="bodyText" ALIGN="center">2</TD>
-		<TD CLASS="bodyText" ALIGN="center">2</TD>
-		<TD CLASS="bodyText" ALIGN="center">0</TD>
-	</TR>	
-	<TR>
-		<TD CLASS="bodyText" ALIGN="center"><B>Total</B></TD>
-		<TD CLASS="bodyText" ALIGN="center"><B>27</B></TD>
-		<TD CLASS="bodyText" ALIGN="center"><B>29</B></TD>
-		<TD CLASS="bodyText" ALIGN="center"><B>9</B></TD>
-	</TR>		
+   <TR>
+      <TD CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><B>Room</B></TD>
+      <TD CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><B>Pass</B></TD>
+      <TD CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><B>Failed</B></TD>
+      <TD CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><B>Challenged</B></TD>
+   </TR>
+   <TR>
+      <TD CLASS="bodyText" ALIGN="center">1</TD>
+      <TD CLASS="bodyText" ALIGN="center">5</TD>
+      <TD CLASS="bodyText" ALIGN="center">7</TD>
+      <TD CLASS="bodyText" ALIGN="center">1</TD>
+   </TR>
+   <TR>
+      <TD CLASS="bodyText" ALIGN="center">2</TD>
+      <TD CLASS="bodyText" ALIGN="center">7</TD>
+      <TD CLASS="bodyText" ALIGN="center">2</TD>
+      <TD CLASS="bodyText" ALIGN="center">3</TD>
+   </TR>   
+   <TR>
+      <TD CLASS="bodyText" ALIGN="center">3</TD>
+      <TD CLASS="bodyText" ALIGN="center">5</TD>
+      <TD CLASS="bodyText" ALIGN="center">5</TD>
+      <TD CLASS="bodyText" ALIGN="center">2</TD>
+   </TR>   
+   <TR>
+      <TD CLASS="bodyText" ALIGN="center">4</TD>
+      <TD CLASS="bodyText" ALIGN="center">6</TD>
+      <TD CLASS="bodyText" ALIGN="center">7</TD>
+      <TD CLASS="bodyText" ALIGN="center">0</TD>
+   </TR>   
+   <TR>
+      <TD CLASS="bodyText" ALIGN="center">5</TD>
+      <TD CLASS="bodyText" ALIGN="center">2</TD>
+      <TD CLASS="bodyText" ALIGN="center">6</TD>
+      <TD CLASS="bodyText" ALIGN="center">3</TD>
+   </TR>   
+   <TR>
+      <TD CLASS="bodyText" ALIGN="center">5</TD>
+      <TD CLASS="bodyText" ALIGN="center">2</TD>
+      <TD CLASS="bodyText" ALIGN="center">2</TD>
+      <TD CLASS="bodyText" ALIGN="center">0</TD>
+   </TR>   
+   <TR>
+      <TD CLASS="bodyText" ALIGN="center"><B>Total</B></TD>
+      <TD CLASS="bodyText" ALIGN="center"><B>27</B></TD>
+      <TD CLASS="bodyText" ALIGN="center"><B>29</B></TD>
+      <TD CLASS="bodyText" ALIGN="center"><B>9</B></TD>
+   </TR>      
 </TABLE>
 
 <P>
@@ -311,8 +311,8 @@ To count all the numbers, which can be represented with given number of 1s, we s
 <PRE>
 int part1 = 2^floor(log2(n))-1;   
 int part2 = UL-part1+1;
-So, if upper limit is 155  	(10011011), 
-2^floor(log2(n))=128  	(10000000)  or it can be calculated as    
+So, if upper limit is 155     (10011011), 
+2^floor(log2(n))=128     (10000000)  or it can be calculated as    
 for( int x = 1; x*2 &lt;= UL; x *= 2 ); (SnapDragon)
 and second number is 27     (00011011)
 </PRE>
@@ -331,15 +331,15 @@ So, entire function would look like that (SnapDragon):
 <PRE>
 map&lt;pair&lt;int, int&gt;, int> mem; 
 int do_it(int u, int c) { 
-   if( c == 0 || u == 0 ) return 1; 			
+   if( c == 0 || u == 0 ) return 1;          
    // base case 
-   int &amp;ret = mem[pair&lt;int,int&gt;(u,c)]; 		
+   int &amp;ret = mem[pair&lt;int,int&gt;(u,c)];       
    // DP map
-   if (ret) return ret; 				
+   if (ret) return ret;             
    // if called before return the result
-   for( int x = 1; x*2 &lt;= u; x *= 2 ); 			
+   for( int x = 1; x*2 &lt;= u; x *= 2 );          
    // find pivot point:  2^floor(log2(n))
-   return (ret = do_it(x-1, c) + do_it(u-x, c-1)); 	
+   return (ret = do_it(x-1, c) + do_it(u-x, c-1));    
    // reduce the input and calculate separately
 } 
 </PRE>
@@ -355,43 +355,43 @@ There were only 23 submissions for this problem and only 7 of them have failed c
 <IMG SRC="/i/m/slavik_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;slavik<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=160082" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
-					</TD>
-					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-				<TR>
-					<TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-				</TR>   	
-				<TR>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>	
-				<TR>
-					<TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-			</TABLE>
-		</TD>
+               </TD>
+               <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+            </TR>
+            <TR>
+               <TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+            </TR>      
+            <TR>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+            </TR>   
+            <TR>
+               <TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+               <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+            </TR>
+         </TABLE>
+      </TD>
   <!-- Center Column Ends -->
 <!-- Body Area Ends -->
 
-	<!-- Gutter -->
-		<TD WIDTH="4" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
+   <!-- Gutter -->
+      <TD WIDTH="4" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
-	<!-- Right Column Begins -->
-		<TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><br/>
+   <!-- Right Column Begins -->
+      <TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><br/>
 <!-- Right Column Include Begins --> 
         <xsl:call-template name="public_right_col"/>       
 <!-- Right Column Include Ends -->        
         </TD>
-	<!-- Right Column Ends -->
-	<!-- Gutter -->
-		<TD WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+   <!-- Right Column Ends -->
+   <!-- Gutter -->
+      <TD WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
-	</TR>
+   </TR>
 </TABLE>
 <!-- Body Ends -->
         <xsl:call-template name="Foot"/>

@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                 <table width="100%" border="0" cellspacing="0" cellpadding="3">
                    <tr valign="middle">
                       <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 237</font></td>
-                      <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
+                      <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
                    </tr>
 
                    <tr valign="middle">
@@ -152,8 +152,8 @@ public String[] dealHands(int numPlayers, String deck) {
      String[] players = new String[numPlayers];
      java.util.Arrays.fill(players,""); //null Strings are annoying
      for (int left = deck.length(); left &gt;= numPlayers; )
- 	for (int i = 0; i &lt; numPlayers; i++, left--)
- 	    players[i]+=deck.charAt(deck.length()-left);
+    for (int i = 0; i &lt; numPlayers; i++, left--)
+        players[i]+=deck.charAt(deck.length()-left);
      return players;
 }
 </pre>
@@ -169,8 +169,8 @@ public String[] dealHands(int numPlayers, String deck) {
      String[] players = new String[numPlayers];
      java.util.Arrays.fill(players,""); //null Strings are still annoying
      for (int i = 0; i &lt; deck.length(); i++) {
- 	if (i%numPlayers==0 &amp;&amp; deck.length()-i&lt;numPlayers) break;
- 	players[i%numPlayers]+=deck.charAt(i);
+    if (i%numPlayers==0 &amp;&amp; deck.length()-i&lt;numPlayers) break;
+    players[i%numPlayers]+=deck.charAt(i);
      }
      return players;
 }

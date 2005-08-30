@@ -13,7 +13,7 @@
         <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
       </HEAD>
       <BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">  
-  <xsl:call-template name="Foot"/>	
+  <xsl:call-template name="Foot"/>   
       </BODY>
     </HTML>
   </xsl:template>
