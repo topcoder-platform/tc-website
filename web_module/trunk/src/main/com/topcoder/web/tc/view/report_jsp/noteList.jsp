@@ -21,7 +21,7 @@
 
         <tr><td colspan=4 align=center><b><font size="+2"><%=request.getAttribute(com.topcoder.web.tc.Constants.HANDLE)%></font></b></td></tr>
         <tr><td colspan=4 align=center><a href="/tc?module=LegacyReport&t=profile&ha=<%=request.getAttribute(com.topcoder.web.tc.Constants.HANDLE)%>">View Report Profile</a></td></tr>
-        <tr><td colspan=4 align=center><a href="/tc?module=LegacyReport&t=new_report&c=placement_people&db=OLTP">View Placement Registrants</a></td></tr>
+        <tr><td colspan=4 align=center><a href="/tc?module=LegacyReport&t=new_report&c=placement_people&db=java:OLTP">View Placement Registrants</a></td></tr>
         <tr><td colspan=4 align=center>
                 <% if (((Boolean)request.getAttribute("registered_for_placement")).booleanValue()) { %>
                      <A HREF="/tc?module=PlacementInfoDetail&uid=<%=request.getAttribute(com.topcoder.web.tc.Constants.USER_ID)%>">View Placement Information</A>
