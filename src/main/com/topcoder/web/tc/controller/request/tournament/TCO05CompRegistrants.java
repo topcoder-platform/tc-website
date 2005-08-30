@@ -31,7 +31,7 @@ public class TCO05CompRegistrants extends Base {
             Request r = new Request();
             r.setContentHandle("tco05_comp_registrants");
 
-            Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, false).getData(r);
+            Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
 
             ResultSetContainer rsc = (ResultSetContainer)m.get("tco05_comp_registrants");
 
