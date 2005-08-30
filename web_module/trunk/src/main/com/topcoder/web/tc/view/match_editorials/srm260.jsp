@@ -33,7 +33,7 @@
 <div class="bodyText">
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="statistics_w"/>
-<jsp:param name="title" value="Match Editorials"/>
+<jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
 <h2>Match summary</h2>
