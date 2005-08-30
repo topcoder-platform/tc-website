@@ -25,7 +25,7 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/index?t=statistics&c=srm236_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
  
 <%-------------------SURVEY-------------------------------------%>

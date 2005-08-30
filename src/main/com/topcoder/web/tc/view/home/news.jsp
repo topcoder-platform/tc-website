@@ -31,7 +31,7 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/index?t=statistics&c=srm260_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
@@ -81,7 +81,7 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/index?t=statistics&c=tco05_online_rd_2">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
@@ -121,7 +121,7 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/index?t=statistics&c=srm259_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
@@ -149,7 +149,7 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/index?t=statistics&c=tco05_online_rd_1">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
@@ -241,7 +241,7 @@ Algorithm, Design, and Development Statistics tabs under Member Profiles now inc
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/index?t=statistics&c=srm258_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
@@ -278,8 +278,8 @@ Algorithm, Design, and Development Statistics tabs under Member Profiles now inc
    <tr class="bodyText">
       <td><A href="/tc?&module=SurveyList"><img src="/i/home/icons/survey.gif" alt="Surveys" border="0" /></A></td>
       <td><A href="/tc?&module=SurveyList">Surveys</A></td>
-      <td><A href="/?t=statistics&c=editorial_archive"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /></A></td>
-      <td><A href="/?t=statistics&c=editorial_archive">Problem Sets & Analyses</A></td>
+      <td><A href="/tc?module=Static&d1=match_editorials&d2=archive"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /></A></td>
+      <td><A href="/tc?module=Static&d1=match_editorials&d2=archive">Problem Sets & Analyses</A></td>
    </tr>
    <tr class="bodyText">
       <td><A href="/tc?module=Static&d1=home&d2=news_archive_tournie"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /></A></td>
