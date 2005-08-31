@@ -148,10 +148,15 @@
                     <tr>
                        <td class="rtHeader" width="80%"><jsp:getProperty name="category" property="name"/></td>
                        <td class="rtHeader" width="20%">T./M.</td>
-                        <td class="rtHeader" align="center" colspan="2">Last Post</td>
+                       <td class="rtHeader" align="center" colspan="2">Last Post</td>
                     </tr>
+                    <%  if (category.getProperty("displayLimit") != null) { 
+                            resultFilter.setNumResults(Integer.parseInt(category.getProperty("displayLimit")));
+                        } else { 
+                            resultFilter.setNumResults(ResultFilter.NULL_INT);
+                        } %>
                     <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=category.getForums(resultFilter)%>'>
-                       <%  trackerClass = (user == null || forum.getMessageCount() <= 0 || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
+                        <%  trackerClass = (user == null || forum.getMessageCount() <= 0 || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
                         <tr>
                            <td class="rtThreadCellWrap">
                                 <%  if (user == null) { %>
