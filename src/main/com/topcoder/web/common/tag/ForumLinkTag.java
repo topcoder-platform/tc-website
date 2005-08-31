@@ -37,7 +37,12 @@ public class ForumLinkTag extends TagSupport {
         ForumFactory forumFactory = ForumFactory.getInstance(AuthFactory.getAnonymousAuthToken());
         try {
             Forum forum = forumFactory.getForum(forumID);
-            ret.append(this.message).append(" (").append(forum.getMessageCount()).append(" comments)");
+            ret.append(this.message).append(" (").append(forum.getMessageCount());
+            if (forum.getMessageCount() == 1) {
+                ret.append(" comment)");
+            } else {
+                ret.append(" comments)");
+            }
         } catch (Exception ignored) {}
         //ret.append(this.message);
 
