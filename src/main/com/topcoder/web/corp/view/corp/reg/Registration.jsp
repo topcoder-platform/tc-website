@@ -12,7 +12,7 @@
 <title>TopCoder | Registration</title>
 
 <jsp:include page="../includes/css.jsp" />
-<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <script language="JavaScript" type="text/javascript" src="/js/script.js"></script>
 
@@ -49,7 +49,7 @@
                 </tr>
             </table>
 
-            <div align="center"><form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="frmPrimReg">
+            <div align="center"><form action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>" method="POST" name="frmPrimReg">
 
             <table border="0" cellpadding="3" cellspacing="0" class="testFrame">
                 <tr><td colspan="2" class="testTableTitle">Name and Contact Info</td></tr>
