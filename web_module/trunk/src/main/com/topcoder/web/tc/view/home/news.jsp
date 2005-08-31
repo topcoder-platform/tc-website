@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>08.31.05<br>10:20 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/?RoundId=8007&t=schedule&c=srm">$5,000 prize purse for SRM 265, new time</A></span><br><br>
+      SRM 265, sponsored by VeriSign, will include $5,000 in prizes.  The time has also been changed to 9:00AM.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/?RoundId=8007&t=schedule&c=srm">details</A>&#160;|&#160;
+         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505002">discuss this</a>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.31.05<br>9:15 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -255,18 +268,6 @@ Algorithm, Design, and Development Statistics tabs under Member Profiles now inc
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>08.11.05<br>10:10 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_081005">Sun chat session</A></span><br><br>
-      Sun spoke with the members last night, just before the start of SRM 258, to discuss Java Studio Creator.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_081005">view</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 
