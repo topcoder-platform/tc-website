@@ -1,6 +1,7 @@
 package com.topcoder.web.common.tag;
 
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.forums.ForumConstants;
 
 import com.jivesoftware.base.AuthFactory;
@@ -18,12 +19,14 @@ import javax.servlet.jsp.tagext.TagSupport;
  */
 
 public class ForumLinkTag extends TagSupport {
+    private final static Logger log = Logger.getLogger(FormatTag.class);
     private long forumID = -1;
     private String message = "";
 
     public int doStartTag() throws JspException {
         StringBuffer ret = new StringBuffer(150);
 
+        log.debug("!!@@@@@@@ForumTagLink: start");
         ret.append("<A");
         StringBuffer url = new StringBuffer();
         url.append("http://").append(ApplicationServer.FORUMS_SERVER_NAME).append("/");
@@ -39,6 +42,7 @@ public class ForumLinkTag extends TagSupport {
         //ret.append(this.message);
 
         ret.append("</A>");
+        log.debug("!!@@@@@@@ForumTagLink ret value: " + ret.toString());
 
         try {
             pageContext.getOut().print(ret.toString());

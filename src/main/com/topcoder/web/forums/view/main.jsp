@@ -146,7 +146,11 @@
             <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)categories.iterator()%>'>
             <br><table cellpadding="0" cellspacing="0" class="rtTable">
                     <tr>
-                       <td class="rtHeader" width="80%"><jsp:getProperty name="category" property="name"/></td>
+                       <td class="rtHeader" width="80%"><jsp:getProperty name="category" property="name"/>
+                            <%  if (category.getProperty("displayLimit") != null) { %> 
+                                    (<A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink">see all</A>) 
+                            <%  } %> 
+                       </td>
                        <td class="rtHeader" width="20%">T./M.</td>
                        <td class="rtHeader" align="center" colspan="2">Last Post</td>
                     </tr>
