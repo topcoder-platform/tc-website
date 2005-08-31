@@ -9,6 +9,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.31.05<br>9:15 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm261">SRM 261 - Problem Set & Analysis</A></span><br><br>
+      Division 1 was faced with a pretty standard problemset, with the medium problem slightly harder than average. <tc-webtag:handle coderId="7446789" context="algorithm"/> was between the first coders to submit all three problems.</td>
+      <td class="newsPhoto"><img src="/i/m/misof_mug.gif" /><br>by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm261">full story</A>&#160;|&#160;
+         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505001">discuss this</a>&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>08.11.05<br>6:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=8">"News Discussions" now in the Forums</A></span><br><br>
       As news items are posted here, you will be able to discuss each of them in the News Discussions forums.
@@ -251,21 +267,6 @@ Algorithm, Design, and Development Statistics tabs under Member Profiles now inc
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_081005">view</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.11.05<br>9:20 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm258_prob">SRM 258 - Problem Set & Analysis</A></span><br><br>
-      Both divisions saw a good number of coders finishing all three problems fairly quickly.  In both divisions, the challenge phase proved to be very eventful, with a lot of solutions dropping like flies</td>
-      <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" /><br>by <tc-webtag:handle coderId="10407399" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm258_prob">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 
