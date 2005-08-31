@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Sets the status on all affidavits older than a specified time
@@ -17,14 +18,15 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
  */
 
 public class ExpireOldAffidavits {
+    private static Logger log = Logger.getLogger(ExpireOldAffidavits.class);
     private void expireAffidavits() {
         try {
             DataInterfaceBean d = new DataInterfaceBean();
             int affidavitsExpired = d.expireOldAffidavits();
-            System.out.println("ExpireOldAffidavits: " + affidavitsExpired + " affidavits expired.");
+            log.debug("ExpireOldAffidavits: " + affidavitsExpired + " affidavits expired.");
         } catch (Exception e) {
-            System.out.println("ExpireOldAffidavits: Program execution unsuccessful.  Cause:");
-            System.out.println(e.getMessage());
+            log.warn("ExpireOldAffidavits: Program execution unsuccessful.  Cause:");
+            log.warn(e.getMessage());
         }
     }
 

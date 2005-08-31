@@ -76,14 +76,14 @@ public class FileConversionBean implements SessionBean {
 
         // start the conversion
         try {
-            System.out.println("STARTING");
+            log.debug("STARTING");
             InputStream finishedFile = client.convertSync(input, outFormat.getType());
 
             byte[] b = new byte[finishedFile.available()];
             finishedFile.read(b);
             finishedFile.close();
 
-            System.out.println(b.length);
+            log.debug(b.length);
 
             return b;
           } catch (ConversionException ce) {

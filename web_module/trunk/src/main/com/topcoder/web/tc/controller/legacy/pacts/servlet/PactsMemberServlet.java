@@ -259,7 +259,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
             RequestDispatcher disp = getServletConfig().getServletContext().
                     getRequestDispatcher(href);
             if (disp == null) {
-                System.out.println("The page was invalid error");
+                log.warn("The page was invalid error");
                 return;
             }
 

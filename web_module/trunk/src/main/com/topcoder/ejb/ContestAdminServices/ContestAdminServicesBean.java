@@ -98,7 +98,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
                     ps = null;
                 }
             } catch (Exception Ignore) {
-                System.out.println("Contest: saveContest: ps close error in finally");
+                log.debug("Contest: saveContest: ps close error in finally");
                 Ignore.printStackTrace();
             }
             try {
@@ -107,7 +107,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
                     conn = null;
                 }
             } catch (Exception Ignore) {
-                System.out.println("Contest: saveContest: conn close error in finally");
+                log.debug("Contest: saveContest: conn close error in finally");
                 Ignore.printStackTrace();
             }
         }
@@ -1121,6 +1121,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
                 throw new EJBException("Error in ReverseChallenge: no information retrieved for challenge_id: " + challenge_id);
             }
 
+/*
             System.out.println("problem_id: " + problem_id);
             System.out.println("round_id: " + round_id);
             System.out.println("defendant_id: " + defendant_id);
@@ -1128,6 +1129,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             System.out.println("succeeded: " + succeeded);
             System.out.println("message: " + message);
             System.out.println("submission_points: " + submission_points);
+*/
 
             if (succeeded == 1)
                 overturnSucceededChallenge(conn, problem_id, round_id, defendant_id, challenger_id, challenge_id, message, submission_points);
@@ -1189,7 +1191,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             try {
                 conn.rollback();
             } catch (Exception ex) {
-                System.out.println("Error Rolling Back: ");
+                log.debug("Error Rolling Back: ");
                 ex.printStackTrace();
             }
             throw new EJBException("Error in overturnSucceededChallenge: " + e.getMessage());
@@ -1230,7 +1232,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             try {
                 conn.rollback();
             } catch (Exception ex) {
-                System.out.println("Error Rolling Back: ");
+                log.debug("Error Rolling Back: ");
                 ex.printStackTrace();
             }
             throw new EJBException("Error in overturnUnsucceededChallenge: " + e.getMessage());

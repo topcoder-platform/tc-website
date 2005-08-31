@@ -34,7 +34,6 @@
                     </td>
                 </tr>
             </table>
-            <% System.out.println("path: " + sessionInfo.getServletPath());%>
 
             <screen:form name='note' method='POST' action='<%=sessionInfo.getServletPath()%>'>
             <INPUT type="hidden" name='<%=Constants.MODULE_KEY%>' value='NoteCreate'/>
