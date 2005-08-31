@@ -100,8 +100,10 @@ public class Confirm extends ContractingBase {
                 } else {
                     getRequest().setAttribute("resume", "Not Supplied");
                 }
-            } else
-                getRequest().setAttribute("resume", "Attached (" + info.getResume().getRemoteFileName() + ")");
+            } else {
+//                getRequest().setAttribute("resume", "Attached (" + info.getResume().getRemoteFileName() + ")");
+                getRequest().setAttribute("resume", "Attached (" + info.getResume().getName() + ")");
+            }
 
             //tech skill
             ArrayList techSkills = new ArrayList();

@@ -21,6 +21,7 @@ import com.topcoder.web.tc.Constants;
 import javax.transaction.TransactionManager;
 import javax.transaction.Status;
 import java.util.*;
+import java.io.FileInputStream;
 
 /**
  *
@@ -83,20 +84,22 @@ public class Submit extends ContractingBase {
                     String fileName = "";
                     int fileType = 7; //generic
 
-                    fileBytes = new byte[(int) info.getResume().getSize()];
-                    info.getResume().getInputStream().read(fileBytes);
+                    //fileBytes = new byte[(int) info.getResume().getSize()];
+                    fileBytes = new byte[(int) info.getResumeSize()];
+                    FileInputStream fis = new FileInputStream(info.getResume());
+                    fis.read(fileBytes);
                     if (fileBytes == null || fileBytes.length == 0) {
                         //ignore this
                     } else {
                         //fileType = Integer.parseInt(file.getParameter("fileType"));
                         Map types = getFileTypes();
-                        if (types.containsKey(info.getResume().getContentType())) {
+                        if (types.containsKey(info.getResumeContentType())) {
                             log.debug("FOUND TYPE");
-                            fileType = ((Long) types.get(info.getResume().getContentType())).intValue();
+                            fileType = ((Long) types.get(info.getResumeContentType())).intValue();
                         } else {
-                            log.info("DID NOT FIND TYPE " + info.getResume().getContentType());
+                            log.info("DID NOT FIND TYPE " + info.getResumeContentType());
                         }
-                        fileName = info.getResume().getRemoteFileName();
+                        fileName = info.getResumeFileName();
                         ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
                         resumeServices.putResume(info.getUserID(), fileType, fileName, fileBytes, DBMS.OLTP_DATASOURCE_NAME);
                     }

@@ -83,7 +83,6 @@ public class FileConversionBean implements SessionBean {
             finishedFile.read(b);
             finishedFile.close();
 
-            log.debug(b.length);
 
             return b;
           } catch (ConversionException ce) {
