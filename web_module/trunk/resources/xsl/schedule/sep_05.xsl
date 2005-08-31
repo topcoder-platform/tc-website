@@ -161,8 +161,8 @@
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">27</span><br />
                                     <strong>Match 265</strong><br />
-                                    Register: 6:00&#160;PM<br />
-                                    Compete: 9:00&#160;PM<br />
+                                    Register: 6:00&#160;AM<br />
+                                    Compete: 9:00&#160;AM<br />
                                     Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=verisign">VeriSign</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=8007&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
