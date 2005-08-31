@@ -102,7 +102,7 @@ public class Confirm extends ContractingBase {
                 }
             } else {
 //                getRequest().setAttribute("resume", "Attached (" + info.getResume().getRemoteFileName() + ")");
-                getRequest().setAttribute("resume", "Attached (" + info.getResume().getName() + ")");
+                getRequest().setAttribute("resume", "Attached (" + info.getResumeFileName() + ")");
             }
 
             //tech skill
