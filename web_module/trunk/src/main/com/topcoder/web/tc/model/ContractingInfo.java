@@ -7,7 +7,6 @@
 package com.topcoder.web.tc.model;
 
 import java.io.Serializable;
-import java.io.File;
 import java.util.Hashtable;
 import java.util.Iterator;
 
@@ -22,10 +21,9 @@ public class ContractingInfo implements Serializable, Cloneable {
     private Hashtable skills = new Hashtable();
     private Hashtable notes = new Hashtable();
     //private UploadedFile resume;
-    private File resume = null;
+    private byte[] resume = null;
     private String resumeContentType = null;;
     private boolean edit = false;
-    private long resumeSize = 0;
     private String resumeFileName = null;
 
 
@@ -91,11 +89,11 @@ public class ContractingInfo implements Serializable, Cloneable {
     }
 */
 
-    public void setResume(File u) {
+    public void setResume(byte[] u) {
         resume = u;
     }
 
-    public File getResume() {
+    public byte[] getResume() {
         return resume;
     }
 
@@ -136,14 +134,6 @@ public class ContractingInfo implements Serializable, Cloneable {
         this.resumeContentType = resumeContentType;
     }
 
-    public long getResumeSize() {
-        return resumeSize;
-    }
-
-    public void setResumeSize(long resumeSize) {
-        this.resumeSize = resumeSize;
-    }
-
     public String getResumeFileName() {
         return resumeFileName;
     }
@@ -160,7 +150,6 @@ public class ContractingInfo implements Serializable, Cloneable {
         newInfo.setResume(getResume());
         newInfo.setResumeContentType(getResumeContentType());
         newInfo.setResumeFileName(getResumeFileName());
-        newInfo.setResumeSize(getResumeSize());
 
 
         Iterator i = getNoteNames();

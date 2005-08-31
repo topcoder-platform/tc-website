@@ -21,7 +21,6 @@ import com.topcoder.web.tc.Constants;
 import javax.transaction.TransactionManager;
 import javax.transaction.Status;
 import java.util.*;
-import java.io.FileInputStream;
 
 /**
  *
@@ -80,15 +79,10 @@ public class Submit extends ContractingBase {
 
                 //resume
                 if (info.getResume() != null) {
-                    byte[] fileBytes = null;
-                    String fileName = "";
                     int fileType = 7; //generic
 
                     //fileBytes = new byte[(int) info.getResume().getSize()];
-                    fileBytes = new byte[(int) info.getResumeSize()];
-                    FileInputStream fis = new FileInputStream(info.getResume());
-                    fis.read(fileBytes);
-                    if (fileBytes == null || fileBytes.length == 0) {
+                    if (info.getResume() == null || info.getResume().length == 0) {
                         //ignore this
                     } else {
                         //fileType = Integer.parseInt(file.getParameter("fileType"));
@@ -99,11 +93,9 @@ public class Submit extends ContractingBase {
                         } else {
                             log.info("DID NOT FIND TYPE " + info.getResumeContentType());
                         }
-                        fileName = info.getResumeFileName();
                         ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
-                        resumeServices.putResume(info.getUserID(), fileType, fileName, fileBytes, DBMS.OLTP_DATASOURCE_NAME);
+                        resumeServices.putResume(info.getUserID(), fileType, info.getResumeFileName(), info.getResume(), DBMS.OLTP_DATASOURCE_NAME);
                     }
-                    fis.close();
                 }
 
                 //skills

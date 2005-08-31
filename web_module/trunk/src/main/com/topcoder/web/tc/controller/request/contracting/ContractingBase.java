@@ -30,6 +30,7 @@ import com.topcoder.web.tc.model.ContractingInfo;
 import javax.naming.InitialContext;
 import java.util.Enumeration;
 import java.util.Iterator;
+import java.io.IOException;
 
 
 /**
@@ -188,7 +189,7 @@ abstract public class ContractingBase extends BaseProcessor {
 
     protected abstract void setNextPage();
 
-    protected ContractingInfo updateContractingInfo(ContractingInfo info) {
+    protected ContractingInfo updateContractingInfo(ContractingInfo info) throws IOException {
         if (getRequestParameter("previouspage") != null && getRequestParameter("previouspage").equals("preferences")) {
             log.debug("LOADING DATA FROM REQUEST");
             info.clearPreferences();
@@ -227,10 +228,14 @@ abstract public class ContractingBase extends BaseProcessor {
                 if (file != null && file.getContentType() != null) {
                     log.debug("FOUND RESUME");
                     //info.setResume(file);
-                    info.setResume(file.getFile());
+
+                    byte[] fileBytes = new byte[(int) file.getSize()];
+                    file.getInputStream().read(fileBytes);
+
+
+                    info.setResume(fileBytes);
                     info.setResumeContentType(file.getContentType());
                     info.setResumeFileName(file.getRemoteFileName());
-                    info.setResumeSize(file.getSize());
                 }
             }
         } else if (getRequestParameter("previouspage") != null && getRequestParameter("previouspage").equals("skills")) {
