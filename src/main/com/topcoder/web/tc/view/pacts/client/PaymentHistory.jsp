@@ -49,14 +49,8 @@ function goTo(selection){
 <%
 
     PaymentHeader[] payments = null;
-    try {
         payments = (PaymentHeader [])
 	    request.getAttribute(PactsConstants.PACTS_MEMBER_RESULT);
-    } catch (Exception e) {
-	// there must have been a type problem
-	payments = null;
-	System.out.println("We got excepted");
-    }
 
     if(payments!=null) {
 	// build the table

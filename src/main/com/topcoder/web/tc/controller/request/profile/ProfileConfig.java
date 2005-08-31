@@ -37,12 +37,12 @@ import com.topcoder.shared.security.ClassResource;
  *
  * @author rfairfax
  */
-public class ProfileConfig extends BaseProcessor { 
+public class ProfileConfig extends BaseProcessor {
 
     protected void businessProcessing() throws TCWebException {
         if (!((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin())
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        try {        
+        try {
             //lookup user id
             int uid = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter("uid")));
 
@@ -76,7 +76,7 @@ public class ProfileConfig extends BaseProcessor {
                 for(int i = 0; i < rsc.size(); i++) {
                     ResultSetContainer rscSkills = skillbean.getSkillsByType(info.getUserID(), rsc.getIntItem(i, "skill_type_id"),DBMS.OLTP_DATASOURCE_NAME);
                     for(int j = 0; j < rscSkills.size(); j++) {
-                        Skill s = new Skill(); 
+                        Skill s = new Skill();
                         s.setID(rscSkills.getIntItem(j, "skill_id"));
                         s.setText(rscSkills.getStringItem(j, "skill_desc"));
 
@@ -105,33 +105,35 @@ public class ProfileConfig extends BaseProcessor {
 
                 getRequest().setAttribute("configInfo", info);
             } else {
-                
+
             }
-            
-            
+
+
             //debugging / probably want to pass these cookies in for processing
+/*
             Cookie[] cookies = getRequest().getCookies();
             for(int i = 0; i < cookies.length; i++) {
                 System.out.println(cookies[i].getName() + ":" + cookies[i].getValue());
             }
-            
+*/
+
             //load any data
 
-            setNextPage(Constants.PROFILE_CONFIG_PAGE); 
+            setNextPage(Constants.PROFILE_CONFIG_PAGE);
             setIsNextPageInContext(true);
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-        
+
     }
-    
-    protected static DataAccessInt getDWDataAccess() throws Exception { 
+
+    protected static DataAccessInt getDWDataAccess() throws Exception {
        DataAccessInt dAccess = null;
        dAccess = new DataAccess(DBMS.DW_DATASOURCE_NAME);
        return dAccess;
     }
-    
-    protected static DataAccessInt getDataAccess() throws Exception { 
+
+    protected static DataAccessInt getDataAccess() throws Exception {
        DataAccessInt dAccess = null;
        dAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
        return dAccess;

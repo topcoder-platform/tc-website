@@ -71,14 +71,8 @@ The <B>W-8BEN form</B> should be filled out by all non-U.S. Citizens.<BR><A clas
 <%
 
     TaxFormHeader[] taxForms = null;
-    try {
         taxForms = (TaxFormHeader [])
 	    request.getAttribute(PactsConstants.PACTS_MEMBER_RESULT);
-    } catch (Exception e) {
-	// there must have been a type problem
-	taxForms = null;
-	System.out.println("We got excepted");
-    }
 
     if(taxForms!=null) {
 	// build the table

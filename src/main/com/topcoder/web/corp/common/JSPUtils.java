@@ -131,7 +131,7 @@ public class JSPUtils {
             Map curMap = (Map) maps.next();
 
             if (curMap.get(fieldName) == null) {
-                System.out.println(curMap);
+                log.debug(curMap);
                 Iterator it = curMap.keySet().iterator();
                 while (it.hasNext())
                     log.debug(it.next());

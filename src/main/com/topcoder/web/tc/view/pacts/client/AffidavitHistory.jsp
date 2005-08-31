@@ -46,14 +46,8 @@ function goTo(selection){
 
 <%
     Affidavit[] affidavits = null;
-    try {
         affidavits = (Affidavit[])
 	    request.getAttribute(PactsConstants.PACTS_MEMBER_RESULT);
-    } catch (Exception e) {
-	// there must have been a type problem
-	affidavits = null;
-	System.out.println("We got excepted");
-    }
 
     if(affidavits!=null) {
 	String href;

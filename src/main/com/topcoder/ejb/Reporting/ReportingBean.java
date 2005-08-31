@@ -44,20 +44,10 @@ public class ReportingBean extends BaseEJB {
             }
         } catch (SQLException sqe) {
             log.debug("query: " + query);
-            if (returnTypes != null) {
-                for (int i = 0; i < returnTypes.length; i++)
-                    System.out.print(returnTypes[i] + ",");
-                System.out.println(" ");
-            }
             DBMS.printSqlException(true, sqe);
             throw new RemoteException(sqe.getMessage());
         } catch (Exception e) {
             log.debug("query: " + query);
-            if (returnTypes != null) {
-                for (int i = 0; i < returnTypes.length; i++)
-                    System.out.print(returnTypes[i] + ",");
-                System.out.println("  ");
-            }
             e.printStackTrace();
             throw new RemoteException(e.getMessage());
         } finally {

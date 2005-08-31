@@ -99,7 +99,6 @@
     <tr>
         <td class="statText">School:</td>
         <td class="statText">
-        <% System.out.println("blkaldkjflkajsf: " + JobHitData.getSchool()); %>
             <jsp:getProperty name="JobHitData" property="school" />
       </td>
     </tr>

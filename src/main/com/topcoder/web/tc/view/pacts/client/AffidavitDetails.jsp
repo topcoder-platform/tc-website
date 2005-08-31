@@ -46,13 +46,8 @@ function goTo(selection){
 <%
 
     AffidavitWithText a=null;
-    try {
         a = (AffidavitWithText)
 	    request.getAttribute(PactsConstants.PACTS_MEMBER_RESULT);
-    } catch (Exception e) {
-	System.out.println("We caught an exception " + e);
-	a = null;
-    }
 
     if(a!=null) {
 	if(!a.getAffidavit().getHeader().isAffirmed()) {

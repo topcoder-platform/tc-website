@@ -693,7 +693,7 @@ public class AuthenticationServicesBean extends BaseEJB {
                 try {
                     conn.close();
                 } catch (Exception ignore) {
-                    System.out.println("loadCoder cx NOT closed...");
+                    //System.out.println("loadCoder cx NOT closed...");
                 }
             }
         }

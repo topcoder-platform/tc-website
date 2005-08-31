@@ -49,14 +49,8 @@ function goTo(selection){
 <%
 
     TaxFormWithText taxForm = null;
-    try {
         taxForm = (TaxFormWithText)
 	    request.getAttribute(PactsConstants.PACTS_MEMBER_RESULT);
-    } catch (Exception e) {
-	// there must have been a type problem
-	taxForm = null;
-	System.out.println("We got excepted");
-    }
 
     if(taxForm!=null) {
 	// build the table

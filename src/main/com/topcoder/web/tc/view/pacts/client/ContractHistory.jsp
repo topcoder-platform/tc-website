@@ -48,14 +48,8 @@ function goTo(selection){
 <%
 
     ContractHeader[] contracts = null;
-    try {
         contracts = (ContractHeader [])
 	    request.getAttribute(PactsConstants.PACTS_MEMBER_RESULT);
-    } catch (Exception e) {
-	// there must have been a type problem
-	contracts = null;
-	System.out.println("We got excepted");
-    }
 
     if(contracts!=null) {
 	String href;
