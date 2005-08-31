@@ -10,7 +10,7 @@
 <head>
 <title>TopCoder | Corporate Services</title>
 
-<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:include page="../includes/css.jsp" />
 
 <script language="JavaScript" type="text/javascript" src="/js/script.js"></script>
@@ -49,7 +49,7 @@
                 <tr>
             </table>
 
-            <form method="POST" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" name="frmUserEdit">
+            <form method="POST" action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>" name="frmUserEdit">
 
             <table cellspacing="0" cellpadding="3" width="80%" class="testFrame">
                 <tr><td class="testTableTitle" colspan="3">User Info</td></tr>
