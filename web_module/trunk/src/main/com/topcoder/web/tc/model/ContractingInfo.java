@@ -6,9 +6,8 @@
 
 package com.topcoder.web.tc.model;
 
-import com.topcoder.servlet.request.UploadedFile;
-
 import java.io.Serializable;
+import java.io.File;
 import java.util.Hashtable;
 import java.util.Iterator;
 
@@ -18,21 +17,20 @@ import java.util.Iterator;
  */
 public class ContractingInfo implements Serializable, Cloneable {
 
-    private long userID;
-    private Hashtable preferences;
-    private Hashtable skills;
-    private Hashtable notes;
-    private UploadedFile resume;
-    private boolean edit;
+    private long userID = 0;
+    private Hashtable preferences = new Hashtable();
+    private Hashtable skills = new Hashtable();
+    private Hashtable notes = new Hashtable();
+    //private UploadedFile resume;
+    private File resume = null;
+    private String resumeContentType = null;;
+    private boolean edit = false;
+    private long resumeSize = 0;
+    private String resumeFileName = null;
+
 
     /** Creates a new instance of ContractingInfo */
     public ContractingInfo() {
-        userID = 0;
-        preferences = new Hashtable();
-        skills = new Hashtable();
-        notes = new Hashtable();
-        resume = null;
-        edit = false;
     }
 
     public void removePref(String pref) {
@@ -83,6 +81,7 @@ public class ContractingInfo implements Serializable, Cloneable {
         edit = b;
     }
 
+/*
     public void setResume(UploadedFile u) {
         resume = u;
     }
@@ -90,6 +89,16 @@ public class ContractingInfo implements Serializable, Cloneable {
     public UploadedFile getResume() {
         return resume;
     }
+*/
+
+    public void setResume(File u) {
+        resume = u;
+    }
+
+    public File getResume() {
+        return resume;
+    }
+
 
     public void setUserID(long u) {
         userID = u;
@@ -119,11 +128,40 @@ public class ContractingInfo implements Serializable, Cloneable {
         return userID;
     }
 
+    public String getResumeContentType() {
+        return resumeContentType;
+    }
+
+    public void setResumeContentType(String resumeContentType) {
+        this.resumeContentType = resumeContentType;
+    }
+
+    public long getResumeSize() {
+        return resumeSize;
+    }
+
+    public void setResumeSize(long resumeSize) {
+        this.resumeSize = resumeSize;
+    }
+
+    public String getResumeFileName() {
+        return resumeFileName;
+    }
+
+    public void setResumeFileName(String resumeFileName) {
+        this.resumeFileName = resumeFileName;
+    }
+
+
     public Object clone() {
         ContractingInfo newInfo = new ContractingInfo();
         newInfo.setEdit(isEdit());
         newInfo.setUserID(getUserID());
         newInfo.setResume(getResume());
+        newInfo.setResumeContentType(getResumeContentType());
+        newInfo.setResumeFileName(getResumeFileName());
+        newInfo.setResumeSize(getResumeSize());
+
 
         Iterator i = getNoteNames();
         while (i.hasNext()) {
