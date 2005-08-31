@@ -103,6 +103,7 @@ public class Submit extends ContractingBase {
                         ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
                         resumeServices.putResume(info.getUserID(), fileType, fileName, fileBytes, DBMS.OLTP_DATASOURCE_NAME);
                     }
+                    fis.close();
                 }
 
                 //skills
