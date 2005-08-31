@@ -3,9 +3,9 @@ package com.topcoder.web.common.tag;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.forums.ForumConstants;
 
-//import com.jivesoftware.base.AuthFactory;
-//import com.jivesoftware.forum.ForumFactory;
-//import com.jivesoftware.forum.Forum;
+import com.jivesoftware.base.AuthFactory;
+import com.jivesoftware.forum.ForumFactory;
+import com.jivesoftware.forum.Forum;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -31,12 +31,12 @@ public class ForumLinkTag extends TagSupport {
         ret.append(" HREF=\"").append(url).append("\"");
         ret.append(">");
         
-//        ForumFactory forumFactory = ForumFactory.getInstance(AuthFactory.getAnonymousAuthToken());
-//        try {
-//            Forum forum = forumFactory.getForum(forumID);
-//            ret.append(this.message).append(" (").append(forum.getMessageCount()).append(" comments)");
-//        } catch (Exception ignored) {}
-        ret.append(this.message);
+        ForumFactory forumFactory = ForumFactory.getInstance(AuthFactory.getAnonymousAuthToken());
+        try {
+            Forum forum = forumFactory.getForum(forumID);
+            ret.append(this.message).append(" (").append(forum.getMessageCount()).append(" comments)");
+        } catch (Exception ignored) {}
+        //ret.append(this.message);
 
         ret.append("</A>");
 
