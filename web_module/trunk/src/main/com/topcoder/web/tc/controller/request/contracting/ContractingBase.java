@@ -226,7 +226,11 @@ abstract public class ContractingBase extends BaseProcessor {
 
                 if (file != null && file.getContentType() != null) {
                     log.debug("FOUND RESUME");
-                    info.setResume(file);
+                    //info.setResume(file);
+                    info.setResume(file.getFile());
+                    info.setResumeContentType(file.getContentType());
+                    info.setResumeFileName(file.getRemoteFileName());
+                    info.setResumeSize(file.getSize());
                 }
             }
         } else if (getRequestParameter("previouspage") != null && getRequestParameter("previouspage").equals("skills")) {
