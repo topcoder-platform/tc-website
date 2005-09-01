@@ -10,39 +10,39 @@
 
 
 <table border=0 width=100% cellpadding=0 cellspacing=0>
-	<tr>
-		<td width="49%">&#160;</td>
-		<td align=center>
-			<table border=0 width=100% cellpadding=0 cellspacing=0>
-				<tr>
-					<td width="49%"></td>
-					<td valign=bottom align=center><img border=0 src="/i/events/google2005/codejamLogo.gif" alt="Google Code Jam logo"></td>
-					<td width="49%"></td>
-				</tr>
-			</table>
-		</td>
-		<td width="49%"></td>
-	</tr>
-	<tr>
-		<td width="49%">&#160;</td>
-		<td>
-			<div class=greenBigBox>
+   <tr>
+      <td width="49%">&#160;</td>
+      <td align=center>
+         <table border=0 width=100% cellpadding=0 cellspacing=0>
+            <tr>
+               <td width="49%"></td>
+               <td valign=bottom align=center><img border=0 src="/i/events/google2005/codejamLogo.gif" alt="Google Code Jam logo"></td>
+               <td width="49%"></td>
+            </tr>
+         </table>
+      </td>
+      <td width="49%"></td>
+   </tr>
+   <tr>
+      <td width="49%">&#160;</td>
+      <td>
+         <div class=greenBigBox>
 
-			<!-- Tab bar links-->
-			<div align=center>
-			<jsp:include page="links.jsp" >
-			<jsp:param name="selectedTab" value="instructions"/>
-			</jsp:include>
-			</div>
+         <!-- Tab bar links-->
+         <div align=center>
+         <jsp:include page="links.jsp" >
+         <jsp:param name="selectedTab" value="instructions"/>
+         </jsp:include>
+         </div>
 
-			<br/><br/>
+         <br/><br/>
 
-			<span class=bigTitle>Tough problems. Intense competition. No pressure.</span>
-			<span valign=top>
-			<jsp:include page="right.jsp" />
-			</span>
+         <span class=bigTitle>Tough problems. Intense competition. No pressure.</span>
+         <span valign=top>
+         <jsp:include page="right.jsp" />
+         </span>
 
-			<br/><br/>
+         <br/><br/>
 
 <span class="greenSubtitle">Loading the Competition Arena</span><br>
 Load the application by clicking the Competition Arena link at the top.  You need at least <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version 1.4</A> to run the Arena.  Click <A href="http://java.sun.com/getjava/index.jsp " target="_blank">here</A> if you do not have Java Runtime 1.4 installed.
@@ -246,12 +246,12 @@ An administrator will respond to your question in the chat area.
 <br><br>
 If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to <A href="googlecodejam@topcoder.com?subject=Question regarding Google Code Jam">googlecodejam@topcoder.com</A> . Please include a detailed description of the problem that you are having.
 
-			<br/><br/>
-			To find out more detailed information about the Google Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google05&d2=rules">Terms and Conditions</a>.
-			</div>
-		</td>
-		<td width="49%">&#160;</td>
-	<tr>
+         <br/><br/>
+         To find out more detailed information about the Google Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google05&d2=rules">Terms and Conditions</a>.
+         </div>
+      </td>
+      <td width="49%">&#160;</td>
+   <tr>
 </table>
 <jsp:include page="foot.jsp" />
 </body>
