@@ -67,8 +67,9 @@ public class UploadTask extends ResumeTask {
                     fileName = uf.getRemoteFileName();
                     file = fileBytes;
                 }
+        } catch (ResumeTaskException e) {
+            throw e;
         } catch (Exception e) {
-            e.printStackTrace();
             throw new ResumeTaskException(e);
         }
     }
