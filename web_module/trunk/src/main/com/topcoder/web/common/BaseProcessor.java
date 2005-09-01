@@ -200,7 +200,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     }
 
     protected void setDefault(String key, Object o) {
-        //log.debug("setting " + key + " to " + o);
+        log.debug("setting " + key + " to " + o);
         defaults.put(key, o);
     }
 
