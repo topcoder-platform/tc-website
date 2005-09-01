@@ -9,6 +9,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>09.01.05<br>9:40 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco05_online_rd_3">TCO05 - Online Round 3 - Problem Set & Analysis</A></span><br><br>
+      The competition heated up in round 3 of the TCO.  Coders had little trouble with the easy problem, and many of them submitted the medium shortly thereafter.</td>
+      <td class="newsPhoto"><img src="/i/m/lbackstrom_mug.gif" /><br>by <tc-webtag:handle coderId="159052" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=tco05_online_rd_3">full story</A>&#160;|&#160;
+         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505003">discuss this</a>&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>08.31.05<br>10:20 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/?RoundId=8007&t=schedule&c=srm">$5,000 prize purse for SRM 265, new time</A></span><br><br>
       SRM 265, sponsored by VeriSign, will include $5,000 in prizes.  The time has also been changed to 9:00AM.
@@ -258,16 +274,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tutorials&d2=java_1_5">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>08.11.05<br>5:50 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">New Rating Distribution Graphs</span><br><br>
-Algorithm, Design, and Development Statistics tabs under Member Profiles now include Rating Distribution Graphs.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 
