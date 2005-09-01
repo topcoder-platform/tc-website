@@ -37,11 +37,8 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
-<%--
-<div style="float: right;" align="right"><tc-webtag:forumLink forumID="505003" message="Discuss this match" /></div>
---%>
 <div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
-<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505003">Discuss this match</A></div>
+<tc-webtag:forumLink forumID="505003" message="Discuss this match" /></div>
 <span class="bodySubtitle">TCO05 - Online Round 3</span><br>Wednesday, August 31, 2005
 <br><br>
 
