@@ -38,20 +38,20 @@
          </jsp:include>
          </div>
 
-			<br><br>
-			<div style="float: left">
-			<span class="bigTitle">Registration</span>
+         <br><br>
+         <div style="float: left">
+         <span class="bigTitle">Registration</span>
          </div>
-			<div style="float: right">
-			<jsp:include page="right_reg.jsp" />
-			</div>
-			<br><br>
+         <div style="float: right">
+         <jsp:include page="right_reg.jsp" />
+         </div>
+         <br><br>
 
          Please enter your email address below.  You should receive an email shortly with your username and password.
          <br><br>
 
-			<table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
-			<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="GET" name="regForm">
+         <table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
+         <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="GET" name="regForm">
             <tc-webtag:hiddenInput name="<%=Constants.COMPANY_ID%>"/>
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE05_CREDENTIALS%>"/>
             <tr>
@@ -69,7 +69,7 @@
             </tr>
             <tr><td></td><td><a href="javascript: document.regForm.submit();">Send Email</a></td></tr>
             </form>
-		</table>
+      </table>
 
 
          <br><br>

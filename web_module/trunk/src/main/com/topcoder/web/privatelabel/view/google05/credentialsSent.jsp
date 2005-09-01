@@ -35,14 +35,14 @@
          </jsp:include>
          </div>
 
-			<br><br>
-			<div style="float: left">
-			<span class="bigTitle">Registration</span>
+         <br><br>
+         <div style="float: left">
+         <span class="bigTitle">Registration</span>
          </div>
-			<div style="float: right">
-			<jsp:include page="right_reg.jsp" />
-			</div>
-			<br><br>
+         <div style="float: right">
+         <jsp:include page="right_reg.jsp" />
+         </div>
+         <br><br>
 
 Your login credentials have been sent to the provided email address.
 

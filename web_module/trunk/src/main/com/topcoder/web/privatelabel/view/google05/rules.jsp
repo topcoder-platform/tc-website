@@ -10,38 +10,38 @@
 
 
 <table border=0 width=100% cellpadding=0 cellspacing=0>
-	<tr>
-		<td width="49%">&#160;</td>
-		<td align=center>
-			<table border=0 width=100% cellpadding=0 cellspacing=0>
-				<tr>
-					<td width="49%"></td>
-					<td valign=bottom align=center><img border=0 src="/i/events/google2005/codejamLogo.gif" alt="Google Code Jam logo"></td>
-					<td width="49%"></td>
-				</tr>
-			</table>
-		</td>
-		<td width="49%"></td>
-	</tr>
-	<tr>
-		<td width="49%">&#160;</td>
-		<td>
-			<div class="greenBigBox">
+   <tr>
+      <td width="49%">&#160;</td>
+      <td align=center>
+         <table border=0 width=100% cellpadding=0 cellspacing=0>
+            <tr>
+               <td width="49%"></td>
+               <td valign=bottom align=center><img border=0 src="/i/events/google2005/codejamLogo.gif" alt="Google Code Jam logo"></td>
+               <td width="49%"></td>
+            </tr>
+         </table>
+      </td>
+      <td width="49%"></td>
+   </tr>
+   <tr>
+      <td width="49%">&#160;</td>
+      <td>
+         <div class="greenBigBox">
 
-			<!-- Tab bar links-->
-			<div align=center>
-			<jsp:include page="links.jsp" >
-			<jsp:param name="selectedTab" value="rules"/>
-			</jsp:include>
-			</div>
+         <!-- Tab bar links-->
+         <div align=center>
+         <jsp:include page="links.jsp" >
+         <jsp:param name="selectedTab" value="rules"/>
+         </jsp:include>
+         </div>
 
 
-			<br><br>
-			<span class="bigTitle">Official Rules and Regulations</span>
-			<span valign=top>
-			<jsp:include page="right.jsp" />
-			</span>
-			<br><br>
+         <br><br>
+         <span class="bigTitle">Official Rules and Regulations</span>
+         <span valign=top>
+         <jsp:include page="right.jsp" />
+         </span>
+         <br><br>
 
 <span class="bigRed">No purchase necessary to enter or win.  The tournament is void where prohibited.</span>
 <br><br>
@@ -145,7 +145,7 @@ Each online and onsite round of competition (excluding the Qualification Round) 
 </ul>
 
 <b>Onsite Championship Round</b><br>
-The 100 advancers from Round 2 will travel to Google's headquarters to compete in the Championship Round of the tournament being held on Friday, September 23, 2005.  Each finalist must confirm his/her attendance in the Championship Round by September 8, 2005. That is, contestants must have acquired any necessary travel visas and know for certain that they can travel to the US by that date and time. If a contestant does not confirm his/her attendance in the Championship Round by said date, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest scorer from Round 2.
+The 100 advancers from Round 2 will travel to Google's headquarters to compete in the Championship Round of the tournament being held on Friday, September 23, 2005.  Each finalist must confirm his/her attendance in the Championship Round by September 8, 2005, 5PM EDT. That is, contestants must have acquired any necessary travel visas and know for certain that they can travel to the US by that date and time. If a contestant does not confirm his/her attendance in the Championship Round by said date, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest scorer from Round 2.
 <br><br>
 Google will provide all travel accommodations for each finalist to attend the Championship Round.  In addition, Google will provide overnight accommodations and all travel arrangements to and from the airport, as well as to and from Google's headquarters.  All other expenses are the responsibility of the contestant.
 <br><br>
@@ -225,10 +225,10 @@ The tournament is void in whole or in part where prohibited by law.
 <br><br>
 This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue, Glastonbury, CT 06033 and Google Inc. (http://www.google.com) 1600 Amphitheatre Parkway, Mountain View, CA 94043.
 
-			</div>
-		</td>
-		<td width="49%">&#160;</td>
-	<tr>
+         </div>
+      </td>
+      <td width="49%">&#160;</td>
+   <tr>
 </table>
 <jsp:include page="foot.jsp" />
 </body>
