@@ -1,12 +1,11 @@
 package com.topcoder.web.common.tag;
 
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.forums.ForumConstants;
 
-import com.jivesoftware.base.AuthFactory;
-import com.jivesoftware.forum.ForumFactory;
-import com.jivesoftware.forum.Forum;
+//import com.jivesoftware.base.AuthFactory;
+//import com.jivesoftware.forum.ForumFactory;
+//import com.jivesoftware.forum.Forum;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -19,14 +18,12 @@ import javax.servlet.jsp.tagext.TagSupport;
  */
 
 public class ForumLinkTag extends TagSupport {
-    private final static Logger log = Logger.getLogger(FormatTag.class);
     private long forumID = -1;
     private String message = "";
 
     public int doStartTag() throws JspException {
         StringBuffer ret = new StringBuffer(150);
 
-        log.debug("!!@@@@@@@ForumTagLink: start");
         ret.append("<A");
         StringBuffer url = new StringBuffer();
         url.append("http://").append(ApplicationServer.FORUMS_SERVER_NAME).append("/");
@@ -34,6 +31,7 @@ public class ForumLinkTag extends TagSupport {
         ret.append(" HREF=\"").append(url).append("\"");
         ret.append(">");
         
+        /*
         ForumFactory forumFactory = ForumFactory.getInstance(AuthFactory.getAnonymousAuthToken());
         try {
             Forum forum = forumFactory.getForum(forumID);
@@ -44,10 +42,10 @@ public class ForumLinkTag extends TagSupport {
                 ret.append(" comments)");
             }
         } catch (Exception ignored) {}
-        //ret.append(this.message);
+        */
+        ret.append(this.message);
 
         ret.append("</A>");
-        log.debug("!!@@@@@@@ForumTagLink ret value: " + ret.toString());
 
         try {
             pageContext.getOut().print(ret.toString());
