@@ -38,7 +38,10 @@
 </jsp:include>
 
 <div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+<%--
 <tc-webtag:forumLink forumID="505003" message="Discuss this match" /></div>
+--%>
+<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505003">Discuss this match</A></div>
 <span class="bodySubtitle">TCO05 - Online Round 3</span><br>Wednesday, August 31, 2005
 <br><br>
 
@@ -159,8 +162,7 @@ that a computer can't do it in under 2 seconds pretty easily.
 </p>
 
 <font size="+2">
-<b><a href="/stat?c=problem_statement&amp;pm=4013&amp;rd=8016" name="4013">Optim
-alTax</a></b>
+<b><a href="/stat?c=problem_statement&amp;pm=4013&amp;rd=8016" name="4013">OptimalTax</a></b>
 </font>
 <A href="Javascript:openProblemRating(4013)"><img hspace="10" border="0" height="
 18" width="60" src="/i/rate_it.gif"/></A><br>
