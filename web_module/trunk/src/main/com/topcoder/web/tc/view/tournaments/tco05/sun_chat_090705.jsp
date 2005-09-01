@@ -29,13 +29,14 @@ The 2005 TopCoder&#174; Open has reached the last online elimination round.  The
 TCO05 is sponsored by Sun Microsystems&#174;, one hour prior to Online Round 4, Joe Nuxoll from Sun Microsystems&#174; will be in arena to chat about JSF components and Java Studio Creator.  The chat starts at 8:30PM EDT.
 <br><br>
 <strong>Already a TopCoder Member?</strong><br>
-Launch the Arena as an <A class="bodyText" href="Javascript:arena()">Applet</A> or as a <A class="bodyText" href="/contest/arena/ContestAppletProd.jnlp">Java Web Start Application</A><br/>
-Don't have JWS? <A class="bodyText" href="http://java.sun.com/products/javawebstart/index.html" target="_blank">Download</A> it on java.sun.com<br/>
-Check out the <A class="bodyText" href="/?t=arena&amp;c=plugins">plugins</A> available for the Competition Arena
+Launch the Arena.
 <br><br>
 <strong>Not Yet a TopCoder Member?</strong><br>
 Click <A href="/reg/index.jsp">here</A> to register as a TopCoder member.<br>
-Check your email and activate your new TopCoder account.<br>
+Check your email and activate your new TopCoder account.
+Launch the Arena.
+<br><br>
+<strong>How to Launch the Arena</strong><br>
 Launch the Arena as an <A class="bodyText" href="Javascript:arena()">Applet</A> or as a <A class="bodyText" href="/contest/arena/ContestAppletProd.jnlp">Java Web Start Application</A><br/>
 Don't have JWS? <A class="bodyText" href="http://java.sun.com/products/javawebstart/index.html" target="_blank">Download</A> it on java.sun.com<br/>
 Check out the <A class="bodyText" href="/?t=arena&amp;c=plugins">plugins</A> available for the Competition Arena
