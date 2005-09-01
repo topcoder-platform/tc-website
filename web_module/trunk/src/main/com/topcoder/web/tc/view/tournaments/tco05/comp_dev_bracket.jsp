@@ -36,7 +36,6 @@ The finalists are sorted alphabetically.
    </tr>
    <tr>
       <td style="padding: 15px" valign="middle" align="center">
-      <tc-webtag:handle coderId="10336829" context="development"/><br><br>
       <tc-webtag:handle coderId="7489235" context="development"/><br><br>
       <tc-webtag:handle coderId="7210680" context="development"/><br><br>
       <tc-webtag:handle coderId="10098406" context="development"/><br><br>
