@@ -16,7 +16,10 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview">results</A>&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505004">discuss this</A>&#160;|&#160;
+<%--
          <tc-webtag:forumLink forumID="505004" message="discuss this" />&#160;|&#160;
+--%>
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
@@ -32,7 +35,10 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=match_editorials&d2=tco05_online_rd_3">full story</A>&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505003">discuss this</A>&#160;|&#160;
+<%--
          <tc-webtag:forumLink forumID="505003" message="discuss this" />&#160;|&#160;
+--%>
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
@@ -45,7 +51,10 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/?RoundId=8007&t=schedule&c=srm">details</A>&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505002">discuss this</A>&#160;|&#160;
+<%--
          <tc-webtag:forumLink forumID="505002" message="discuss this" />&#160;|&#160;
+--%>
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
@@ -61,7 +70,10 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=match_editorials&d2=srm261">full story</A>&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505001">discuss this</A>&#160;|&#160;
+<%--
          <tc-webtag:forumLink forumID="505001" message="discuss this" />&#160;|&#160;
+--%>
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
@@ -73,7 +85,10 @@
    </tr>
    <tr><td class="newsLinksCell">
          <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=8">view</a>&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505000">discuss this</A>&#160;|&#160;
+<%--
          <tc-webtag:forumLink forumID="505000" message="discuss this" />&#160;|&#160;
+--%>
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
