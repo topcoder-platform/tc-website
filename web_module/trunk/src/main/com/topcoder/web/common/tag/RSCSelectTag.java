@@ -75,6 +75,7 @@ public class RSCSelectTag extends SelectTag {
     }
 
     protected void init() {
+        super.init();
         this.fieldValue = null;
         this.fieldText = null;
         this.list = null;
