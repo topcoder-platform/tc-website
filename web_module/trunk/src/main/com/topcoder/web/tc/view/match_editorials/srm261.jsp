@@ -37,11 +37,8 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
-<%--
-<div style="float: right;" align="right"><tc-webtag:forumLink forumID="505001" message="Discuss this match" /></div>
---%>
 <div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
-<a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505001">Discuss this match</a></div>
+<tc-webtag:forumLink forumID="505001" message="Discuss this match" /></div>
 <span class="bodySubtitle">SRM 261</span><br>Tuesday, August 30, 2005
 <br><br>
 

@@ -36,9 +36,6 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
-<%--
-<div align="right"><tc-webtag:forumLink forumID="505057" message="Discuss this editorial" /></div>
---%>
 
 <span class="bigTitle">Match summary</span>
 

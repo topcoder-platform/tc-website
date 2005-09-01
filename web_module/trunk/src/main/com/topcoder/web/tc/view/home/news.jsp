@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.01.05<br>11:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview">TCO05 Algorithm Round 3 results</A></span><br><br>
+      Find out who advanced to the next round in the Algorithm Competition.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview">results</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505004" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>09.01.05<br>9:40 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -19,7 +32,7 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=match_editorials&d2=tco05_online_rd_3">full story</A>&#160;|&#160;
-         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505003">discuss this</a>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505003" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
@@ -32,7 +45,7 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/?RoundId=8007&t=schedule&c=srm">details</A>&#160;|&#160;
-         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505002">discuss this</a>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505002" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
@@ -48,7 +61,7 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=match_editorials&d2=srm261">full story</A>&#160;|&#160;
-         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505001">discuss this</a>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505001" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
@@ -60,7 +73,7 @@
    </tr>
    <tr><td class="newsLinksCell">
          <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=8">view</a>&#160;|&#160;
-         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505000">discuss this</a>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505000" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
@@ -259,21 +272,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tutorials&d2=strategyPattern">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>08.12.05<br>9:05 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=java_1_5">New Features of Java 1.5</A></span><br><br>
-       This new release of Java brings many significant improvements, not only in the APIs, but also in the language itself. Old code can still run with Java 1.5; but when writing code for this new version you must profit of the new great features that will make your code more robust, powerful and clearer.</td>
-      <td class="newsPhoto"><img src="/i/m/cucu_mug.gif" /><br>by <tc-webtag:handle coderId="7545675" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=java_1_5">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
 
 
