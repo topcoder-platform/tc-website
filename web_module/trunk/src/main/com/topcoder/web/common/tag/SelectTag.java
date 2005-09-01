@@ -90,6 +90,7 @@ public abstract class SelectTag extends BaseTag {
         this.multiple = null;
         this.topValue = null;
         this.topText = null;
+        this.useTopValue=true;
     }
 
     String getSelected() throws JspException {
