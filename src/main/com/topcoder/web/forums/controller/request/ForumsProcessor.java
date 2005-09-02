@@ -54,7 +54,7 @@ public abstract class ForumsProcessor extends BaseProcessor {
             boolean isCategoryRead = true;
             while (isCategoryRead && itForums.hasNext()) {
                 Forum forum = (Forum)itForums.next();
-                if (forum.getLatestMessage() != null && readTracker.getReadStatus(user, forum.getLatestMessage()) != ReadTracker.READ) {
+                if (user != null && forum.getLatestMessage() != null && readTracker.getReadStatus(user, forum.getLatestMessage()) != ReadTracker.READ) {
                     isCategoryRead = false;
                 }
             }
