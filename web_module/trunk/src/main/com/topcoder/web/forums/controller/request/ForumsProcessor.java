@@ -6,7 +6,11 @@ package com.topcoder.web.forums.controller.request;
 import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.base.User;
 import com.jivesoftware.forum.ForumFactory;
+import com.jivesoftware.forum.ForumCategory;
+import com.jivesoftware.forum.Forum;
+import com.jivesoftware.forum.ReadTracker;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
@@ -14,6 +18,7 @@ import com.topcoder.shared.util.DBMS;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Iterator;
 
 /**
  * @author mtong
@@ -37,6 +42,32 @@ public abstract class ForumsProcessor extends BaseProcessor {
     protected void businessProcessing() throws Exception {
         getRequest().setAttribute("authToken", authToken);
         getRequest().setAttribute("user", user);
+        
+        // Determine categories with unread forums
+        ReadTracker readTracker = forumFactory.getReadTracker();
+        StringBuffer unreadCategories = new StringBuffer();
+        ForumCategory rootCategory = forumFactory.getRootForumCategory();
+        Iterator itCategories = rootCategory.getCategories();
+        while (itCategories.hasNext()) {
+            ForumCategory category = (ForumCategory)itCategories.next();
+            Iterator itForums = category.getForums();
+            boolean isCategoryRead = true;
+            while (isCategoryRead && itForums.hasNext()) {
+                Forum forum = (Forum)itForums.next();
+                if (forum.getLatestMessage() != null && readTracker.getReadStatus(user, forum.getLatestMessage()) != ReadTracker.READ) {
+                    isCategoryRead = false;
+                }
+            }
+            if (!isCategoryRead && category.getProperty(ForumConstants.LEFT_NAV_NAME) != null) {
+                unreadCategories.append(category.getProperty(ForumConstants.LEFT_NAV_NAME)).append(',');
+            }
+        }
+        if (unreadCategories.length() > 0) {
+            getRequest().setAttribute("unreadCategories", 
+                    unreadCategories.substring(0,unreadCategories.length()-1));
+        } else {
+            getRequest().setAttribute("unreadCategories", "");
+        }
     }
 
     public HttpServletRequest getHttpRequest() {
