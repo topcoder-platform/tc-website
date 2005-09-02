@@ -95,7 +95,7 @@
             <b>Algorithm Statistics</b><br>
             Current Rating: <%=MemberStats.getItem(0, "rating").toString()%><br>
             Current Ranking: <%=MemberStats.getItem(0, "rank").toString()%><br />
-            Rating Percentile: <%=MemberStats.getItem(0, "percentile").toString()%> (<A HREF="JavaScript:getGraph('/corp/graph/?c=rating_distribution_graph&cm=<jsp:getProperty name="MemberProfileTask" property="companyId"/>','600','400','distribution')" class="bodyText">Distribution Graph</a>)<br>
+            Rating Percentile: <%=MemberStats.getItem(0, "percentile").toString()%> (<A HREF="JavaScript:getGraph('/corp/graph?c=rating_distribution_graph&cm=<jsp:getProperty name="MemberProfileTask" property="companyId"/>','600','400','distribution')" class="bodyText">Distribution Graph</a>)<br>
             Number of Ratings: <%=MemberStats.getItem(0, "num_ratings").toString()%><br>
             Highest Rating: <%=MemberStats.getItem(0, "highest_rating").toString()%><br>
             Lowest Rating: <%=MemberStats.getItem(0, "lowest_rating").toString()%><br>
@@ -114,7 +114,7 @@
             Number of Ratings: <br>
             Highest Rating: <br>
             Lowest Rating: <br>
-            Most Recent Rated Event: 
+            Most Recent Rated Event:
             <br><br>
 
             <b>Component Development Statistics</b><br>
@@ -124,7 +124,7 @@
             Number of Ratings: <br>
             Highest Rating: <br>
             Lowest Rating: <br>
-            Most Recent Rated Event: 
+            Most Recent Rated Event:
             <br><br>
 --%>
 
