@@ -14,6 +14,7 @@
     String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
     String level2 = request.getParameter("level2")==null?"":request.getParameter("level2");
     String level3 = request.getParameter("level3")==null?"":request.getParameter("level3");
+    String unreadCategories = request.getParameter("unreadCategories")==null?"":request.getParameter("unreadCategories");
     CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
     //bleh, gott do this for registration cuz it does a redirect to a jsp
     if (info==null) info = new Navigation(request, response).getSessionInfo();
@@ -195,9 +196,9 @@
    <%-- Forums begins --%>
                 <tr><td id="<%=level1.equals("forums")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=13" class="<%=level1.equals("forums")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("forums")?"bottom":"right"%>.gif" border="0"/>Forums</a></td></tr>
             <% if (level1.equals("forums")) { %>
-                <tr><td id="<%=level2.equals("roundtables")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=13">Round Tables</A></td></tr>
-                <tr><td id="<%=level2.equals("news")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=8">News Discussions</A></td></tr>
-                <tr><td id="<%=level2.equals("sponsors")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=6">Sponsor Discussions</A></td></tr>
+                <tr><td id="<%=unreadCategories.indexOf("roundtables")!=-1?"leftNavApplet":level2.equals("roundtables")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=13">Round Tables</A></td></tr>
+                <tr><td id="<%=unreadCategories.indexOf("news")!=-1?"leftNavApplet":level2.equals("news")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=8">News Discussions</A></td></tr>
+                <tr><td id="<%=unreadCategories.indexOf("sponsors")!=-1?"leftNavApplet":level2.equals("sponsors")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=6">Sponsor Discussions</A></td></tr>
             <% } %>
 
     <%-- Forums ends --%>
