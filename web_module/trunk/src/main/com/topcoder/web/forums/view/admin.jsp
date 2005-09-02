@@ -12,6 +12,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <tc-webtag:useBean id="roundList" name="roundList" type="java.util.ArrayList" toScope="request"/>
+<tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <html>
@@ -38,6 +39,7 @@
          <jsp:include page="includes/global_left.jsp">
             <jsp:param name="level1" value="forums"/>
             <jsp:param name="level2" value=""/>
+            <jsp:param name="unreadCategories" value="<%=unreadCategories%>"/>
          </jsp:include>
       </td>
 <!-- Left Column Ends -->

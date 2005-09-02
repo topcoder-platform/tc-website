@@ -13,7 +13,7 @@
 <tc-webtag:useBean id="dates" name="dates" type="java.util.HashMap" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
-<%   HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
+<%  HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
     Paginator paginator = (Paginator)request.getAttribute("paginator");
     Query query = (Query)request.getAttribute("query");
     String searchScope = (String)request.getAttribute("searchScope");
@@ -54,6 +54,7 @@ function noenter(e)
          <jsp:include page="includes/global_left.jsp">
             <jsp:param name="level1" value="forums"/>
             <jsp:param name="level2" value=""/>
+            <jsp:param name="unreadCategories" value="<%=unreadCategories%>"/>
          </jsp:include>
       </td>
 <!-- Left Column Ends -->

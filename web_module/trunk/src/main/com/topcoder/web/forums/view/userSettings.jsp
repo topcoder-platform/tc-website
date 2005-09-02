@@ -11,6 +11,7 @@
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
 <tc-webtag:useBean id="status" name="status" type="java.lang.String" toScope="request"/>
 <tc-webtag:useBean id="selectedWatchFrequency" name="selectedWatchFrequency" type="java.lang.Integer" toScope="request"/>
+<tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <html>
@@ -38,6 +39,7 @@
          <jsp:include page="includes/global_left.jsp">
             <jsp:param name="level1" value="forums"/>
             <jsp:param name="level2" value=""/>
+            <jsp:param name="unreadCategories" value="<%=unreadCategories%>"/>
          </jsp:include>
       </td>
 <!-- Left Column Ends -->

@@ -13,6 +13,7 @@
 
 <tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
 <tc-webtag:useBean id="dates" name="dates" type="java.util.HashMap" toScope="request"/>
+<tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%   User user = (User)request.getAttribute("user");
@@ -58,6 +59,7 @@ function noenter(e)
          <jsp:include page="includes/global_left.jsp">
             <jsp:param name="level1" value="forums"/>
             <jsp:param name="level2" value=""/>
+            <jsp:param name="unreadCategories" value="<%=unreadCategories%>"/>
          </jsp:include>
       </td>
 <!-- Left Column Ends -->

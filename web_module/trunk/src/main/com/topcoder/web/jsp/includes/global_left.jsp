@@ -199,6 +199,7 @@
                 <tr><td id="<%=level2.equals("roundtables")?"leftSubnavOn":unreadCategories.indexOf("roundtables")!=-1?"leftNavApplet":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=13">Round Tables</A></td></tr>
                 <tr><td id="<%=level2.equals("news")?"leftSubnavOn":unreadCategories.indexOf("news")!=-1?"leftNavApplet":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=8">News Discussions</A></td></tr>
                 <tr><td id="<%=level2.equals("sponsors")?"leftSubnavOn":unreadCategories.indexOf("sponsors")!=-1?"leftNavApplet":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=6">Sponsor Discussions</A></td></tr>
+                <tr><td id="<%=level2.equals("matches")?"leftSubnavOn":unreadCategories.indexOf("matches")!=-1?"leftNavApplet":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=14">Algorithm Matches</A></td></tr>
             <% } %>
 
     <%-- Forums ends --%>

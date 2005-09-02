@@ -24,6 +24,7 @@
 <tc-webtag:useBean id="activeMessage" name="activeMessage" type="com.jivesoftware.forum.ForumMessage" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 <tc-webtag:useBean id="historyBean" name="historyBean" type="com.topcoder.web.ejb.messagehistory.MessageHistory" toScope="request"/>
+<tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
 <%  HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
     User user = (User)request.getAttribute("user");
@@ -70,6 +71,7 @@
          <jsp:include page="includes/global_left.jsp">
             <jsp:param name="level1" value="forums"/>
             <jsp:param name="level2" value="<%=forum.getForumCategory().getProperty(ForumConstants.LEFT_NAV_NAME)%>"/>
+            <jsp:param name="unreadCategories" value="<%=unreadCategories%>"/>
          </jsp:include>
       </td>
 <!-- Left Column Ends -->

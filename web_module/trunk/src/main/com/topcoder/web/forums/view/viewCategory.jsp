@@ -21,6 +21,7 @@
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forumCategory" name="forumCategory" type="com.jivesoftware.forum.ForumCategory" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
+<tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
 <%  User user = (User)request.getAttribute("user"); 
     ResultFilter resultFilter = (ResultFilter)request.getAttribute("resultFilter"); 
@@ -59,6 +60,7 @@
             <jsp:include page="includes/global_left.jsp">
                 <jsp:param name="level1" value="forums"/>
                 <jsp:param name="level2" value="<%=forumCategory.getProperty(ForumConstants.LEFT_NAV_NAME)%>"/>
+                <jsp:param name="unreadCategories" value="<%=unreadCategories%>"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->

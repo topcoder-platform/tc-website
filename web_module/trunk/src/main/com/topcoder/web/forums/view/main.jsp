@@ -18,6 +18,7 @@
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="categories" name="categories" type="java.util.ArrayList" toScope="request"/>
 <tc-webtag:useBean id="deepCategories" name="deepCategories" type="java.util.ArrayList" toScope="request"/>
+<tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
 <%  User user = (User)request.getAttribute("user"); 
     ResultFilter resultFilter = (ResultFilter)request.getAttribute("resultFilter"); 
@@ -48,6 +49,7 @@
          <jsp:include page="includes/global_left.jsp">
             <jsp:param name="level1" value="forums"/>
             <jsp:param name="level2" value=""/>
+            <jsp:param name="unreadCategories" value="<%=unreadCategories%>"/>
          </jsp:include>
       </td>
 <!-- Left Column Ends -->
