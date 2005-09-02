@@ -142,9 +142,7 @@
             <% if (tabLev1.equals("overview")) { %>
                <% if (tabLev2.equals("join_us")) {%>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=onsite_schedule"><% if (tabLev3.equals("schedule")) {%><img src="/i/tournament/tco05/tabs/L3_scheduleOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_scheduleOff.gif" border=0 /><% } %></a></td>
-<%--
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=dev_conferences"><% if (tabLev3.equals("dev_conferences")) {%><img src="/i/tournament/tco05/tabs/L3_devconferencesOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_devconferencesOff.gif" border=0 /><% } %></a></td>
---%>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=directions"><% if (tabLev3.equals("directions")) {%><img src="/i/tournament/tco05/tabs/L3_directionsOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_directionsOff.gif" border=0 /><% } %></a></td>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=transportation"><% if (tabLev3.equals("transportation")) {%><img src="/i/tournament/tco05/tabs/L3_transportationOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_transportationOff.gif" border=0 /><% } %></a></td>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=hotels"><% if (tabLev3.equals("hotels")) {%><img src="/i/tournament/tco05/tabs/L3_hotelsOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_hotelsOff.gif" border=0 /><% } %></a></td>
