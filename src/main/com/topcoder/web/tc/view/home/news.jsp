@@ -9,6 +9,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>09.02.05<br>10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_090205" target="_blank">Announcing the 2005 TopCoder Open Developer Conference</A></span><br><br>
+      Attendees will be invited to participate in an open forum with lead technologists from TopCoder, clients and TopCoder Open finalists discussing real world examples.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=pressroom&d2=pr_090205" target="_blank">full story</A>&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505005">discuss this</A>&#160;|&#160;
+<%--
+         <tc-webtag:forumLink forumID="505005" message="discuss this" />&#160;|&#160;
+--%>
+         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.01.05<br>11:45 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview">TCO05 Algorithm Round 3 results</A></span><br><br>
       Find out who advanced to the next round in the Algorithm Competition.
@@ -272,21 +288,6 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_bracket">Design</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_bracket">Development</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>08.16.05<br>4:20 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=strategyPattern">The Strategy Pattern</A></span><br><br>
-       This pattern is one of my favorite patterns and is in almost every design I have ever done. In fact, I once took this to an extreme and designed a whole system using the strategy pattern for every class.</td>
-      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <tc-webtag:handle coderId="119676" context="design"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=strategyPattern">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
    </td></tr>
 
 
