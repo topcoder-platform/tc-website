@@ -9,18 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>09.02.05<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_090205" target="_blank">Announcing the 2005 TopCoder Open Developer Conference</A></span><br><br>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.02.05<br>10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=dev_conferences">Announcing the 2005 TopCoder Open Developer Conference</A></span><br><br>
       Attendees will be invited to participate in an open forum with lead technologists from TopCoder, clients and TopCoder Open finalists discussing real world examples.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=pressroom&d2=pr_090205" target="_blank">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=dev_conferences">details</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=pressroom&d2=pr_090205">press release</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505005">discuss this</A>&#160;|&#160;
 <%--
          <tc-webtag:forumLink forumID="505005" message="discuss this" />&#160;|&#160;
 --%>
-         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
