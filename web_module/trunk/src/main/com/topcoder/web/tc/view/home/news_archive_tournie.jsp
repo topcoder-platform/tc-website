@@ -17,12 +17,12 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-		<td width="180">
-			<jsp:include page="../includes/global_left.jsp">
-				<jsp:param name="level1" value=""/>
-				<jsp:param name="level2" value=""/>
-			</jsp:include>
-		</td>
+      <td width="180">
+         <jsp:include page="../includes/global_left.jsp">
+            <jsp:param name="level1" value=""/>
+            <jsp:param name="level2" value=""/>
+         </jsp:include>
+      </td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
@@ -35,6 +35,7 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">09.02.05 10:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=dev_conferences">Announcing the 2005 TopCoder Open Developer Conference</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.01.05 11:45 AM - </td><td width="100%"><A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview">TCO05 Algorithm Round 3 results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.29.05 5:10 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=nsa">NSA chat session scheduled for SRM 261</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.25.05 11:30 AM - </td><td width="100%"><A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview">TCO05 Algorithm Round 2 results</A></td></tr>
