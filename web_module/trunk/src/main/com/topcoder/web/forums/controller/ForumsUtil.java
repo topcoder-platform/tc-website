@@ -226,7 +226,8 @@ public class ForumsUtil {
     }
     
     public static String display(int numItems, String itemName) {
-        StringBuffer ret = new StringBuffer(numItems);
+        StringBuffer ret = new StringBuffer();
+        ret.append(numItems);
         ret.append(' ');
         ret.append(itemName);
         if (numItems != 1) {
