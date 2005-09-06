@@ -74,7 +74,7 @@ public class UserEdit extends BaseProcessor {
     }
 
     protected void setNextPage() {
-        setIsNextPageInContext(true);
+        setIsNextPageInContext(false);
         setNextPage(successPage);
     }
 
