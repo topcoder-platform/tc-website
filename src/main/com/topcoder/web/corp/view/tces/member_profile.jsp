@@ -8,6 +8,7 @@
           com.topcoder.web.corp.common.TCESConstants" %>
 
 <%@ taglib uri="tces-taglib.tld" prefix="tces"%>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -31,7 +32,7 @@
       <td width="50%"><jsp:include page="left.jsp" /></td>
       <!-- Center Column Begins -->
       <td class=recruitingBody>
-      <img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br>
+      <img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br />
       <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
          <tr valign="top">
             <td class="bodyText" colspan="2">
@@ -39,94 +40,96 @@
             <tces:trailIterator id="trailItem" trailList="<%=MemberProfileTask.getTrail()%>">
             <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
             </tces:trailIterator>
-            <br>
+            <br />
             <span class=testHead>Member Profile: <%= MemberInfo.getItem(0, "handle").toString()%> </span>
-            <br><br>
+            <br /><br />
          </tr>
          <tr>
             <td class="bodyText" width="50%" valign="top">
-            <strong>Name:</strong> <%= MemberInfo.getItem(0, "first_name").toString()%> <%= MemberInfo.getItem(0, "middle_name").toString()%> <%= MemberInfo.getItem(0, "last_name").toString()%><br>
-            <strong>Address:</strong><br>
-            <%= MemberInfo.getItem(0, "address1").toString()%><br>
-            <%= MemberInfo.getItem(0, "address2").toString().length()==0?"":MemberInfo.getStringItem(0, "address2")+"<br>"%>
-            <%= MemberInfo.getItem(0, "address3").toString().length()==0?"":MemberInfo.getStringItem(0, "address3")+"<br>"%>
+            <strong>Name:</strong> <%= MemberInfo.getItem(0, "first_name").toString()%> <%= MemberInfo.getItem(0, "middle_name").toString()%> <%= MemberInfo.getItem(0, "last_name").toString()%><br />
+            <strong>Address:</strong><br />
+            <%= MemberInfo.getItem(0, "address1").toString()%><br />
+            <%= MemberInfo.getItem(0, "address2").toString().length()==0?"":MemberInfo.getStringItem(0, "address2")+"<br />"%>
+            <%= MemberInfo.getItem(0, "address3").toString().length()==0?"":MemberInfo.getStringItem(0, "address3")+"<br />"%>
             <%= MemberInfo.getItem(0, "province").toString()%>
             <%= MemberInfo.getItem(0, "city").toString()%>,
             <%= MemberInfo.getItem(0, "state_code").toString()%>
             <%= MemberInfo.getItem(0, "zip").toString()%>
             <%= MemberInfo.getItem(0, "country_name").toString()%>
-            <br>
-            <strong>Email:</strong> <A HREF="mailto:<%=MemberInfo.getStringItem(0, "email")%>" class="bodyText"><%= MemberInfo.getStringItem(0, "email")%></A><br>
+            <br />
+            <strong>Email:</strong> <A HREF="mailto:<%=MemberInfo.getStringItem(0, "email")%>" class="bodyText"><%= MemberInfo.getStringItem(0, "email")%></A><br />
             <strong>Phone:</strong> <%= MemberInfo.getStringItem(0, "home_phone")%>
-            <br><br>
-            <B>Member Type:</B> <%=MemberInfo.getItem(0, "coder_type_desc").toString()%> <br>
-            <B>TopCoder Member Since:</B> <%=MemberInfo.getItem(0, "member_since_date").toString()%><br>
+            <br /><br />
+            <B>Member Type:</B> <%=MemberInfo.getItem(0, "coder_type_desc").toString()%> <br />
+            <B>TopCoder Member Since:</B> <%=MemberInfo.getItem(0, "member_since_date").toString()%><br />
             <% if (MemberProfileTask.getIsStudent()) { %>
-            <B>School:</B> <%=MemberInfo.getItem(0, "school_name").toString()%> <br>
-            <B>Degree:</B> <%=MemberInfo.getItem(0, "degree").toString()%> <br>
-            <B>Major:</B> <%=MemberInfo.getItem(0, "major").toString()%> <br>
+            <B>School:</B> <%=MemberInfo.getItem(0, "school_name").toString()%> <br />
+            <B>Degree:</B> <%=MemberInfo.getItem(0, "degree").toString()%> <br />
+            <B>Major:</B> <%=MemberInfo.getItem(0, "major").toString()%> <br />
             <% if (MemberInfo.getItem(0, "gpa").toString().trim().length()>0) {%>
-            <B>GPA:</B> <%=MemberInfo.getItem(0, "gpa").toString()%> <br>
+            <B>GPA:</B> <%=MemberInfo.getItem(0, "gpa").toString()%> <br />
             <% } %>
             <B>Graduation Date:</B> <%=MemberInfo.getItem(0, "grad_month").toString()%>
             <%=MemberInfo.getItem(0, "grad_month").toString().trim().length()==0?"":", "%>
             <%=MemberInfo.getItem(0, "grad_year").toString()%>
             <% } %>
-            <br><br>
+            <br /><br />
             <A HREF="<jsp:getProperty name="MemberProfileTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="bodyText">Coder Demographic Info</A>
-            <br>
+            <br />
             <A HREF="<jsp:getProperty name="MemberProfileTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="bodyText">Coder Competition History</A>
-            <br>
+            <br />
             <A HREF="<jsp:getProperty name="MemberProfileTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="bodyText">Coder Problem Submissions</A>
-            <br><br>
+            <br /><br />
             <% if (MemberProfileTask.hasResume()) { %>
             <a href="<jsp:getProperty name="MemberProfileTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="campaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="jobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="memberID"/>" class="bodyText"><B>Resume</B></a>
-            <br><br>
+            <br /><br />
             <% } %>
             <strong>Interested in:</strong> <jsp:getProperty name="MemberProfileTask" property="jobName"/>
-            <br>
+            <br />
             <A HREF="<jsp:getProperty name="MemberProfileTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="campaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="jobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="memberID"/>" class="bodyText">View all position interest for <%= MemberInfo.getItem(0, "handle")%></A>
-            <br><br>
+            <br /><br />
             </td>
             <td class="bodyText" width="50%" valign="top">
             <% if (MemberProfileTask.getIsRanked()) { %>
                 <A HREF="/tc?module=MemberProfile&cr=<%=MemberProfileTask.getMemberID()%>" target="blank" class="bodyText">Full TopCoder Profile</a>
-            <br><br>
-            <b>Algorithm Statistics</b><br>
-            Current Rating: <%=MemberStats.getItem(0, "rating").toString()%><br>
+            <br /><br />
+            <b>Algorithm Statistics</b><br />
+            Current Rating: <%=MemberStats.getItem(0, "rating").toString()%><br />
             Current Ranking: <%=MemberStats.getItem(0, "rank").toString()%><br />
-            Rating Percentile: <%=MemberStats.getItem(0, "percentile").toString()%> (<A HREF="JavaScript:getGraph('/corp/graph?c=rating_distribution_graph&cm=<jsp:getProperty name="MemberProfileTask" property="companyId"/>','600','400','distribution')" class="bodyText">Distribution Graph</a>)<br>
-            Number of Ratings: <%=MemberStats.getItem(0, "num_ratings").toString()%><br>
-            Highest Rating: <%=MemberStats.getItem(0, "highest_rating").toString()%><br>
-            Lowest Rating: <%=MemberStats.getItem(0, "lowest_rating").toString()%><br>
-            Most Recent Rated Event: <%=MemberStats.getItem(0, "last_rated_event").toString()%><br>
+            Rating Percentile: <%=MemberStats.getItem(0, "percentile").toString()%> (<A HREF="JavaScript:getGraph('/corp/graph?c=rating_distribution_graph&cm=<jsp:getProperty name="MemberProfileTask" property="companyId"/>','600','400','distribution')" class="bodyText">Distribution Graph</a>)<br />
+            Number of Ratings: <%=MemberStats.getItem(0, "num_ratings").toString()%><br />
+            Highest Rating: <%=MemberStats.getItem(0, "highest_rating").toString()%><br />
+            Lowest Rating: <%=MemberStats.getItem(0, "lowest_rating").toString()%><br />
+            Most Recent Rated Event: <%=MemberStats.getItem(0, "last_rated_event").toString()%><br />
             <A href="#division">Statistics by Division</A>
             <% } else { %>
             Not rated
             <% } %>
-            <br><br>
-<%--
+            <br /><br />
 
-            <b>Component Design Statistics</b><br>
-            Current Rating: <rsc:item name="dev_rating" format="#" row="<%=MemberStats%>" ifNull="Not Rated"/>
-            Current Ranking: <br>
-            Rating Percentile: <br>
-            Number of Ratings: <br>
-            Highest Rating: <br>
-            Lowest Rating: <br>
-            Most Recent Rated Event:
-            <br><br>
+            <% if (MemberStats.getStringItem(0, "num_dev_ratings")!=null) { %>
+                <b>Component Design Statistics</b><br />
+                Current Rating: <rsc:item name="design_rating" format="#" set="<%=MemberStats%>" ifNull="Not Rated"/> <br />
+                Current Ranking: <rsc:item name="design_rank" format="#" set="<%=MemberStats%>" ifNull="Not Ranked"/><br />
+                Rating Percentile: <rsc:item name="design_percentile" set="<%=MemberStats%>" ifNull="Not Ranked"/><br />
+                Number of Ratings: <rsc:item name="num_design_ratings" format="#" set="<%=MemberStats%>" ifNull="Not Rated"/><br />
+                Highest Rating: <rsc:item name="highest_design_rating" format="#" set="<%=MemberStats%>" ifNull="Not Rated"/><br />
+                Lowest Rating: <rsc:item name="lowest_design_rating" format="#" set="<%=MemberStats%>" ifNull="Not Rated"/><br />
+                Most Recent Rated Event: <rsc:item name="last_rated_design_project" format="MM/dd/yyyy" set="<%=MemberStats%>" ifNull="Not Rated"/><br />
+                <br />
+            <% } %>
 
-            <b>Component Development Statistics</b><br>
-            Current Rating: <rsc:item name="design_rating" format="#" row="<%=MemberStats%>" ifNull="Not Rated"/>
-            Current Ranking: <br>
-            Rating Percentile: <br>
-            Number of Ratings: <br>
-            Highest Rating: <br>
-            Lowest Rating: <br>
-            Most Recent Rated Event:
-            <br><br>
---%>
+            <% if (MemberStats.getStringItem(0, "num_dev_ratings")!=null) { %>
+                <b>Component Development Statistics</b><br />
+                Current Rating: <rsc:item name="dev_rating" format="#" set="<%=MemberStats%>" ifNull="Not Rated"/> <br />
+                Current Ranking: <rsc:item name="dev_rank" format="#" set="<%=MemberStats%>" ifNull="Not Ranked"/><br />
+                Rating Percentile: <rsc:item name="dev_percentile" set="<%=MemberStats%>" ifNull="Not Ranked"/><br />
+                Number of Ratings: <rsc:item name="num_dev_ratings" format="#" set="<%=MemberStats%>" ifNull="Not Rated"/><br />
+                Highest Rating: <rsc:item name="highest_dev_rating" format="#" set="<%=MemberStats%>" ifNull="Not Rated"/><br />
+                Lowest Rating: <rsc:item name="lowest_dev_rating" format="#" set="<%=MemberStats%>" ifNull="Not Rated"/><br />
+                Most Recent Rated Event: <rsc:item name="last_rated_dev_project" format="MM/dd/yyyy" set="<%=MemberStats%>" ifNull="Not Rated"/><br />
+                <br />
+            <% } %>
 
             </td>
          </tr>
@@ -136,7 +139,7 @@
 <% if (MemberProfileTask.getIsRanked()) { %>
    <% if (MemberProfileTask.hasDivisionI()) { %>
 
-      <br><br>
+      <br /><br />
       <A name="division"></A>
       <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
          <TR><TD COLSPAN="10" class="screeningTitle"><B>Division-I Performance</B></TD</TR>
@@ -147,11 +150,11 @@
             <TD class="screeningHeader" align="center"><b>Submitted</b></TD>
             <TD class="screeningHeader" align="center"><b>Submit %</b></TD>
             <TD class="screeningHeader" align="center"><b>Correct</b></TD>
-            <TD class="screeningHeader" align="center"><b>Submission<br>Accuracy</b></TD>
-            <TD class="screeningHeader" align="center"><b>Overall<br>Accuracy</b></TD>
-            <TD class="screeningHeader" align="center"><b>Avg Points for<br>Submissions</b></TD>
-            <TD class="screeningHeader" align="center"><b>Avg<br>Points<br>Overall</b></TD>
-            <TD class="screeningHeader" align="center"><b>Avg Time<br>to Submit</b></TD>
+            <TD class="screeningHeader" align="center"><b>Submission<br />Accuracy</b></TD>
+            <TD class="screeningHeader" align="center"><b>Overall<br />Accuracy</b></TD>
+            <TD class="screeningHeader" align="center"><b>Avg Points for<br />Submissions</b></TD>
+            <TD class="screeningHeader" align="center"><b>Avg<br />Points<br />Overall</b></TD>
+            <TD class="screeningHeader" align="center"><b>Avg Time<br />to Submit</b></TD>
          </TR>
 
 <%
@@ -198,9 +201,9 @@ i++;
             <TD class="screeningHeader" align="center">Submitted</TD>
             <TD class="screeningHeader" align="center">Submit %</TD>
             <TD class="screeningHeader" align="center">Correct</TD>
-            <TD class="screeningHeader" align="center">Submission<br>Accuracy</TD>
-            <TD class="screeningHeader" align="center">Avg Points for<br>Submissions</TD>
-            <TD class="screeningHeader" align="center">Avg Time to<br>Submit</TD>
+            <TD class="screeningHeader" align="center">Submission<br />Accuracy</TD>
+            <TD class="screeningHeader" align="center">Avg Points for<br />Submissions</TD>
+            <TD class="screeningHeader" align="center">Avg Time to<br />Submit</TD>
          </TR>
 
 <%
@@ -241,7 +244,7 @@ i++;
 
 <% if (MemberProfileTask.hasDivisionII()) { %>
 
-      <br><br>
+      <br /><br />
 
       <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
          <TR><TD COLSPAN="10" class="screeningTitle">Division-II Performance</TD</TR>
@@ -253,11 +256,11 @@ i++;
             <TD class="screeningHeader" align="center">Submitted</TD>
             <TD class="screeningHeader" align="center">Submit %</TD>
             <TD class="screeningHeader" align="center">Correct</TD>
-            <TD class="screeningHeader" align="center">Submission<br>Accuracy</TD>
-            <TD class="screeningHeader" align="center">Overall<br>Accuracy</TD>
-            <TD class="screeningHeader" align="center">Avg Points for<br>Submissions</TD>
-            <TD class="screeningHeader" align="center">Avg<br>Points<br>Overall</TD>
-            <TD class="screeningHeader" align="center">Avg Time to<br>Submit</TD>
+            <TD class="screeningHeader" align="center">Submission<br />Accuracy</TD>
+            <TD class="screeningHeader" align="center">Overall<br />Accuracy</TD>
+            <TD class="screeningHeader" align="center">Avg Points for<br />Submissions</TD>
+            <TD class="screeningHeader" align="center">Avg<br />Points<br />Overall</TD>
+            <TD class="screeningHeader" align="center">Avg Time to<br />Submit</TD>
          </TR>
 
 
@@ -306,9 +309,9 @@ i++;
             <TD class="screeningHeader" align="center">Submitted</TD>
             <TD class="screeningHeader" align="center">Submit %</TD>
             <TD class="screeningHeader" align="center">Correct</TD>
-            <TD class="screeningHeader" align="center">Submission<br>Accuracy</TD>
-            <TD class="screeningHeader" align="center">Avg Points for<br>Submissions</TD>
-            <TD class="screeningHeader" align="center">Avg Time to<br>Submit</TD>
+            <TD class="screeningHeader" align="center">Submission<br />Accuracy</TD>
+            <TD class="screeningHeader" align="center">Avg Points for<br />Submissions</TD>
+            <TD class="screeningHeader" align="center">Avg Time to<br />Submit</TD>
          </TR>
 
 <%
@@ -355,7 +358,7 @@ i++;
       </TABLE>
 <% } %>
 
-                  <P><br></P>
+                  <P><br /></P>
        </TD>
   <!-- Center Column Ends -->
       <td class=homeRightPromos width="50%"><jsp:include page="right.jsp" /></td>
