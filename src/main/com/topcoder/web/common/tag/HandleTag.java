@@ -99,17 +99,21 @@ public class HandleTag extends TagSupport {
                 link = DEFAULT_LINK + coderId;
             }
             output.append(link);
-            if (algorithm) {
+            if (algorithm && rsc.getIntItem(0, "algorithm_rating")>0) {
                 output.append("&tab=alg");
-            } else if (design) {
+            } else if (design && rsc.getIntItem(0, "design_rating")>0) {
                 output.append("&tab=des");
-            } else if (development) {
+            } else if (development && rsc.getIntItem(0, "development_rating")>0) {
                 output.append("&tab=dev");
             } else if (component) {
                 if (rsc.getIntItem(0, "design_rating") >= rsc.getIntItem(0, "development_rating")) {
-                    output.append("&tab=des");
+                    if (rsc.getIntItem(0, "design_rating")>0) {
+                        output.append("&tab=des");
+                    }
                 } else {
-                    output.append("&tab=dev");
+                    if (rsc.getIntItem(0, "development_rating")>0) {
+                        output.append("&tab=dev");
+                    }
                 }
             }
             output.append("\" class=\"");
