@@ -47,6 +47,11 @@
    <tr><td class="bodyText">08.24.05</td><td class="bodyText" nowrap="0" width="100%">TCO05 - Online Round 2 - <a href="/index?t=statistics&c=tco05_online_rd_2">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">08.22.05</td><td class="bodyText" nowrap="0" width="100%">SRM 259 - <a href="/index?t=statistics&c=srm259_prob">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">08.20.05</td><td class="bodyText" nowrap="0" width="100%">TCO05 - Online Round 1 - <a href="/index?t=statistics&c=tco05_online_rd_1">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">08.16.05</td><td class="bodyText" nowrap="0" width="100%">TCO05 - Qualification 5 - <a href="/tc?module=Static&d1=match_editorials&d2=tco05_qual5">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">08.16.05</td><td class="bodyText" nowrap="0" width="100%">TCO05 - Qualification 4 - <a href="/tc?module=Static&d1=match_editorials&d2=tco05_qual4">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">08.16.05</td><td class="bodyText" nowrap="0" width="100%">TCO05 - Qualification 3 - <a href="/tc?module=Static&d1=match_editorials&d2=tco05_qual3">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">08.16.05</td><td class="bodyText" nowrap="0" width="100%">TCO05 - Qualification 2 - <a href="/tc?module=Static&d1=match_editorials&d2=tco05_qual2">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">08.16.05</td><td class="bodyText" nowrap="0" width="100%">TCO05 - Qualification 1 - <a href="/tc?module=Static&d1=match_editorials&d2=tco05_qual1">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">08.10.05</td><td class="bodyText" nowrap="0" width="100%">SRM 258 - <a href="/index?t=statistics&c=srm258_prob">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">08.08.05</td><td class="bodyText" nowrap="0" width="100%">SRM 257 - <a href="/index?t=statistics&c=srm257_prob">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">08.02.05</td><td class="bodyText" nowrap="0" width="100%">SRM 256 - <a href="/index?t=statistics&c=srm256_prob">Problem Set & Analysis</a></td></tr>
