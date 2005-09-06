@@ -1,4 +1,5 @@
 <%@  page language="java"  %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -34,8 +35,6 @@
             <jsp:param name="image" value="alg_tut"/>
             <jsp:param name="title" value="&#160;"/>
         </jsp:include>
-
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
          <table width="100%" border="0" cellspacing="0" cellpadding="3">
             <tr valign=top><td class="bodyText"><b>Author</b></td><td class="bodyText" nowrap=nowrap width="100%"><b>Title</b></td></tr>

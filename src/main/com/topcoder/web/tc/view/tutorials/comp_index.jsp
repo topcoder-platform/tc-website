@@ -1,4 +1,5 @@
 <%@  page language="java"  %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -35,39 +36,37 @@
             <jsp:param name="title" value="&#160;"/>
         </jsp:include>
 
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-
-			<table width="100%" border="0" cellspacing="0" cellpadding="3">
-				<tr valign=top><td class="bodyText"><b>Author</b></td><td class="bodyText" nowrap=nowrap width="100%"><b>Title</b></td></tr>
-				<tr valign=top><td class="bodyText">
+         <table width="100%" border="0" cellspacing="0" cellpadding="3">
+            <tr valign=top><td class="bodyText"><b>Author</b></td><td class="bodyText" nowrap=nowrap width="100%"><b>Title</b></td></tr>
+            <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="152342" context="design"/>
-					</td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=dev&d2=support&d3=desTutorial"><strong>Design Tutorial</strong></a>
-				</td></tr>
-				<tr valign=top><td class="bodyText">
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=dev&d2=support&d3=desTutorial"><strong>Design Tutorial</strong></a>
+            </td></tr>
+            <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="251989" context="development"/>
-					</td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=dev&d2=support&d3=devTutorial"><strong>Development Tutorial</strong></a>
-				</td></tr>
-				<tr valign=top><td class="bodyText">
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=dev&d2=support&d3=devTutorial"><strong>Development Tutorial</strong></a>
+            </td></tr>
+            <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="296145" context="development"/>
-					</td><td class="bodyText" nowrap=nowrap><a href="/index?t=features&c=feat_031703"><strong>Component-Based Development: TopCoder Style</strong></a>
-				</td></tr>
-				<tr valign=top><td class="bodyText">
+               </td><td class="bodyText" nowrap=nowrap><a href="/index?t=features&c=feat_031703"><strong>Component-Based Development: TopCoder Style</strong></a>
+            </td></tr>
+            <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="119676" context="design"/>
-					</td><td class="bodyText" nowrap=nowrap><strong>The Design Process:</strong><br>
-					&#160;-&#160;<a href="/tc?module=Static&d1=features&d2=040405"><strong>Section 1: some advice</strong></a><br>
-					&#160;-&#160;<a href="/tc?module=Static&d1=features&d2=041105"><strong>Section 2: appeals phase don'ts</strong></a><br>
-					&#160;-&#160;<a href="/tc?module=Static&d1=features&d2=041905"><strong>Section 3: appeals phase do's</strong></a><br>
-					&#160;-&#160;<a href="/tc?module=Static&d1=features&d2=042505"><strong>Section 4: the wrap up</strong></a><br>
-				</td></tr>
-				<tr valign=top><td class="bodyText">
+               </td><td class="bodyText" nowrap=nowrap><strong>The Design Process:</strong><br>
+               &#160;-&#160;<a href="/tc?module=Static&d1=features&d2=040405"><strong>Section 1: some advice</strong></a><br>
+               &#160;-&#160;<a href="/tc?module=Static&d1=features&d2=041105"><strong>Section 2: appeals phase don'ts</strong></a><br>
+               &#160;-&#160;<a href="/tc?module=Static&d1=features&d2=041905"><strong>Section 3: appeals phase do's</strong></a><br>
+               &#160;-&#160;<a href="/tc?module=Static&d1=features&d2=042505"><strong>Section 4: the wrap up</strong></a><br>
+            </td></tr>
+            <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="119676" context="design"/>
-					</td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=singletons"><strong>The Singleton Pattern</strong></a>
-				</td></tr>
-				<tr valign=top><td class="bodyText">
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=singletons"><strong>The Singleton Pattern</strong></a>
+            </td></tr>
+            <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="119676" context="design"/>
-					</td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=strategyPattern"><strong>The Strategy Pattern</strong></a>
-				</td></tr>
-			</table>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=strategyPattern"><strong>The Strategy Pattern</strong></a>
+            </td></tr>
+         </table>
         </div>
         <p><br></p>
         </td>
