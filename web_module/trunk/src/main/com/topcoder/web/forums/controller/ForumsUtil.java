@@ -224,4 +224,14 @@ public class ForumsUtil {
     public static Iterator getCategoryTree(ForumMessage message) {
         return getCategoryTree(message.getForum().getForumCategory());
     }
+    
+    public static String display(int numItems, String itemName) {
+        StringBuffer ret = new StringBuffer(numItems);
+        ret.append(' ');
+        ret.append(itemName);
+        if (numItems != 1) {
+            ret.append('s');
+        }
+        return ret.toString();
+    }
 }
