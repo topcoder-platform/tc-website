@@ -9,15 +9,15 @@
 <style type="text/css">
 .code
 {
-	width: 500;
-	padding: 10px;
-	margin: 20px;
-	color: #333;
-	font-size: 11px;
-	font-weight: normal;
-	line-height: 14px;
-	background-color: #EEEEEE;
-	border: 1px solid #999;
+   width: 500;
+   padding: 10px;
+   margin: 20px;
+   color: #333;
+   font-size: 11px;
+   font-weight: normal;
+   line-height: 14px;
+   background-color: #EEEEEE;
+   border: 1px solid #999;
 }
 </style>
 </head>
@@ -46,11 +46,11 @@
 
             <h2>Data Structures</h2>
 
-			<p>
-			<img src="/i/m/timmac_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-			By&#160;<tc-webtag:handle coderId="10407399" context="algorithm"/><br />
-			<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-			</p>
+<p>
+<img src="/i/m/timmac_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+By&#160;<tc-webtag:handle coderId="10407399" context="algorithm"/><br />
+<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+</p>
 
 <p>
 Even though computers can perform literally millions of mathematical computations per second, when a problem gets large and complicated, performance can nonetheless be an important consideration.  One of the most crucial aspects to how quickly a problem can be solved is how the data is stored in memory.
@@ -80,8 +80,8 @@ A typical linked list implementation would have code that defines a node, and lo
 
 <pre class="code">
 class ListNode {
-	String data;
-	ListNode nextNode;
+   String data;
+   ListNode nextNode;
 }
 ListNode firstNode;
 </pre>
@@ -97,8 +97,8 @@ Iterating through all of the items in the list is a simple task:
 
 ListNode curNode = firstNode;
 while (curNode != null) {
-	ProcessData(curNode);
-	curNode = curNode.nextNode;
+   ProcessData(curNode);
+   curNode = curNode.nextNode;
 }
 </pre>
 A related data structure, the doubly linked list, helps this problem somewhat.  The difference from a typical linked list is that the root data structure stores a pointer to both the first and last nodes.  Each individual node then has a link to both the previous and next node in the list.  This creates a more flexible structure that allows travel in both directions.  Even still, however, this is rather limited.
@@ -118,33 +118,33 @@ A queue implementation may be as simple as an array, and a pointer to the curren
 
 <pre class="code">
 class StateNode {
-	int xPos;
-	int yPos;
-	int moveCount;
+   int xPos;
+   int yPos;
+   int moveCount;
 }
 
 class MyQueue {
-	StateNode[] queueData = new StateNode[2500];
-	int queueFront = 0;
-	int queueBack = 0;
+   StateNode[] queueData = new StateNode[2500];
+   int queueFront = 0;
+   int queueBack = 0;
 
-	void Enqueue(StateNode node) {
-		queueData[queueBack] = node;
-		queueBack++;
-	}
+   void Enqueue(StateNode node) {
+      queueData[queueBack] = node;
+      queueBack++;
+   }
 
-	StateNode Dequeue() {
-		StateNode returnValue = null;
-		if (queueBack > queueFront) {
-		returnValue = queueData[queueFront];
-		QueueFront++;
-	}
-	return returnValue;
-	}
+   StateNode Dequeue() {
+      StateNode returnValue = null;
+      if (queueBack > queueFront) {
+      returnValue = queueData[queueFront];
+      QueueFront++;
+   }
+   return returnValue;
+   }
 
-	boolean isNotEmpty() {
-		return (queueBack > queueFront);
-	}
+   boolean isNotEmpty() {
+      return (queueBack > queueFront);
+   }
 }
 </pre>
 
@@ -154,13 +154,13 @@ Then, the main code of your solution looks something like this.  (Note that if o
 MyQueue queue = new MyQueue();
 queue.Enqueue(initialState);
 while (queue.isNotEmpty()) {
-	StateNode curState = queue.Dequeue();
-	if (curState == destState)
+   StateNode curState = queue.Dequeue();
+   if (curState == destState)
 return curState.moveCount;
-	for (int dir = 0; dir < 3; dir++) {
-		if (CanMove(curState, dir))
-			queue.Enqueue(MoveState(curState, dir));
-	}
+   for (int dir = 0; dir < 3; dir++) {
+      if (CanMove(curState, dir))
+         queue.Enqueue(MoveState(curState, dir));
+   }
 }
 </pre>
 

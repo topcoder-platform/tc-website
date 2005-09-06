@@ -8,15 +8,15 @@
 <style type="text/css">
     .code
 {
-	width: 100%;
-	padding: 10px;
-	margin: 20px;
-	color: #333;
-	font-size: 11px;
-	font-weight: normal;
-	line-height: 14px;
-	background-color: #EEEEEE;
-	border: 1px solid #999;
+   width: 100%;
+   padding: 10px;
+   margin: 20px;
+   color: #333;
+   font-size: 11px;
+   font-weight: normal;
+   line-height: 14px;
+   background-color: #EEEEEE;
+   border: 1px solid #999;
     }
 
 </style>
@@ -47,24 +47,24 @@
 
             <h2>Introduction to graphs and their data structures: Section 2</h2>
 
-			<p>
-			<img src="/i/m/gladius_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-			By&#160;<a class="bodyText" href="/tc?module=MemberProfile&cr=268851"><strong>gladius</strong></a><br />
-			<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-			</p>
+<p>
+<img src="/i/m/gladius_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+By&#160;<tc-webtag:handle coderId="268851" context="algorithm"/><br />
+<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+</p>
 
 <A href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs1">...read Section 1</A>
 <br/><br/>
 <span class="outline1"><A href="#basic">Basic methods for searching graphs</A></span><br/>
-	<span class="outline2"><A href="#introduction">Introduction</A></span><br/>
-	<span class="outline2"><A href="#stack">Stack</A></span><br/>
-	<span class="outline2"><A href="#depth">Depth First Search</A></span><br/>
-	<span class="outline2"><A href="#queue">Queue</A></span><br/>
-	<span class="outline2"><A href="#breadth">Breadth First Search</A></span>
+   <span class="outline2"><A href="#introduction">Introduction</A></span><br/>
+   <span class="outline2"><A href="#stack">Stack</A></span><br/>
+   <span class="outline2"><A href="#depth">Depth First Search</A></span><br/>
+   <span class="outline2"><A href="#queue">Queue</A></span><br/>
+   <span class="outline2"><A href="#breadth">Breadth First Search</A></span>
 
 <br/><br/>
 
-			<p>
+         <p>
 <a name="basic"></a>
 <span class=bodySubtitle>Basic methods for searching graphs</span><br/>
 <a name="introduction"></a>
@@ -175,12 +175,12 @@ int doFill(int x, int y) {
 This solution should work fine, however there is a limitation due to the architecture of computer programs.  Unfortunately, the memory for the implicit stack, which is what we are using for the recursion above is more limited than the general heap memory.  In this instance, we will probably overflow the maximum size of our stack due to the way the recursion works, so we will next discuss the explicit method of solving this problem.
 </p>
 
-		<div class=sideNote>
-		<b>Sidenote:</b><br/>
-		Stack memory is used whenever you call a function; the variables to the function are pushed onto the stack by the compiler for you.  When using a recursive function, the variables keep getting pushed on until the function returns.  Also any variables the compiler needs to save between function calls must be pushed onto the stack as well.  This makes it somewhat difficult to predict if you will run into stack difficulties.  I recommend using the explicit Depth First search for every situation you are at least somewhat concerned about recursion depth.
-		<br/><br/>
-		In this problem we may recurse a maximum of 600 * 400 times (consider the empty grid initially, and what the depth first search will do, it will first visit 0,0 then 1,0, then 2,0, then 3,0 ... until 599, 0.  Then it will go to 599, 1 then 598, 1, then 597, 1, etc. until it reaches 599, 399.  This will push 600 * 400 * 2 integers onto the stack in the best case, but depending on what your compiler does it may in fact be more information.  Since an integer takes up 4 bytes we will be pushing 1,920,000 bytes of memory onto the stack, which is a good sign we may run into trouble.
-		</div>
+      <div class=sideNote>
+      <b>Sidenote:</b><br/>
+      Stack memory is used whenever you call a function; the variables to the function are pushed onto the stack by the compiler for you.  When using a recursive function, the variables keep getting pushed on until the function returns.  Also any variables the compiler needs to save between function calls must be pushed onto the stack as well.  This makes it somewhat difficult to predict if you will run into stack difficulties.  I recommend using the explicit Depth First search for every situation you are at least somewhat concerned about recursion depth.
+      <br/><br/>
+      In this problem we may recurse a maximum of 600 * 400 times (consider the empty grid initially, and what the depth first search will do, it will first visit 0,0 then 1,0, then 2,0, then 3,0 ... until 599, 0.  Then it will go to 599, 1 then 598, 1, then 597, 1, etc. until it reaches 599, 399.  This will push 600 * 400 * 2 integers onto the stack in the best case, but depending on what your compiler does it may in fact be more information.  Since an integer takes up 4 bytes we will be pushing 1,920,000 bytes of memory onto the stack, which is a good sign we may run into trouble.
+      </div>
 
 <p>
 We can use the same function definition, and the structure of the function will be quite similar, just we won't use any recursion any more:
@@ -350,15 +350,15 @@ int minTurns(String[] board) {
    for (int player1YDelta = -1; player1YDelta <= -1; player1YDelta++) {
     for (int player2XDelta = -1; player2XDelta <= -1; player2XDelta++) {
      for (int player2YDelta = -1; player2YDelta <= -1; player2YDelta++) {
-	  // Careful though!  We have to make sure that player 1 and 2 did not swap positions on this turn
+     // Careful though!  We have to make sure that player 1 and 2 did not swap positions on this turn
       if (top.player1X == top.player2X + player2XDelta && top.player1Y == top.player2Y + player2YDelta &&
-	      top.player2X == top.player1X + player1XDelta && top.player2Y == top.player1Y + player1YDelta)
-		  continue;
+         top.player2X == top.player1X + player1XDelta && top.player2Y == top.player1Y + player1YDelta)
+        continue;
 
-	  // Add the new node into the queue
+     // Add the new node into the queue
       q.push(node(top.player1X + player1XDelta, top.player1Y + player1YDelta,
-				  top.player2X + player2XDelta, top.player2Y + player2YDelta,
-				  top.steps + 1));
+              top.player2X + player2XDelta, top.player2Y + player2YDelta,
+              top.steps + 1));
      }
     }
    }
@@ -377,7 +377,7 @@ This ended up being quite a bit more complicated than the basic Breadth First se
 Inviational 02 Semifinal Room 2 - Div 1 500 - <A href="/tc?module=ProblemDetail&rd=4371&pm=1170">Escape</A>
 <br/><br/>
 <A href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs3">...continue to Section 3</A>
-			</p>
+         </p>
 
 
         </div>

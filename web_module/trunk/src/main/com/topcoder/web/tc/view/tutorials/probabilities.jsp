@@ -32,11 +32,11 @@
 
             <h2>Understanding Probabilities</h2>
 
-			<p>
-			<img src="/i/m/supernova_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-			By&#160;<tc-webtag:handle coderId="7371063" context="algorithm"/><br />
-			<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-			</p>
+<p>
+<img src="/i/m/supernova_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+By&#160;<tc-webtag:handle coderId="7371063" context="algorithm"/><br />
+<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+</p>
 
 <p>
 It has been said that life is a school of probability. A major effect of probability theory on everyday life is in risk assessment. Let's suppose you have an exam and you are not  so well prepared. There are 20 possible subjects, but you only had time to prepare for 15. If two subjects are given, what chances do you have to be familiar with both?  This is an example of a simple question inspired by the world in which we live today. Life is a very complex chain of <b>events</b> and almost everything can be imagined in terms of probabilities.

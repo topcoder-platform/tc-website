@@ -32,11 +32,11 @@
 
             <h2>How To Dissect a TopCoder Problem Statement</h2>
 
-         <p>
-         <img src="/i/m/antimatter_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-         By&#160;<a class="bodyText" href="/tc?module=MemberProfile&cr=275071"><strong>antimatter</strong></a><br />
-         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-         </p>
+<p>
+<img src="/i/m/antimatter_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+By&#160;<tc-webtag:handle coderId="275071" context="algorithm"/><br />
+<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+</p>
 
 <p>
 How many times has this happened to you: you register for the SRM, go into your assigned room when the system tells you to, and when the match starts, you open the 250... and find it incomprehensible.

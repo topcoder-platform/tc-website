@@ -1,4 +1,5 @@
 <%@  page language="java"  %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -8,15 +9,15 @@
 <style type="text/css">
 .codeBox
 {
-	width: 600;
-	padding: 10px;
-	margin: 20px;
-	color: #333;
-	font-size: 11px;
-	font-weight: normal;
-	line-height: 14px;
-	background-color: #EEEEEE;
-	border: 1px solid #999;
+   width: 600;
+   padding: 10px;
+   margin: 20px;
+   color: #333;
+   font-size: 11px;
+   font-weight: normal;
+   line-height: 14px;
+   background-color: #EEEEEE;
+   border: 1px solid #999;
 }
 </style>
 </head>
@@ -45,11 +46,11 @@
 
             <h2>Computational Complexity: Section 1</h2>
 
-			<p>
-			<img src="/i/m/misof_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-			By&#160;<a class="bodyText" href="/tc?module=MemberProfile&cr=8357090"><strong>misof</strong></a><br />
-			<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-			</p>
+         <p>
+         <img src="/i/m/misof_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+         By&#160;<tc-webtag:handle coderId="8357090" context="algorithm"/><br />
+         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+         </p>
 
 <P>
 In this article I'll try to introduce you to the area of computation

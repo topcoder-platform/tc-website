@@ -46,11 +46,11 @@
 
             <h2>Dynamic Programming: From novice to advanced</h2>
 
-         <p>
-         <img src="/i/m/Dumitru_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-         By&#160;<a class="bodyText" href="/tc?module=MemberProfile&cr=7305703"><strong>Dumitru</strong></a><br />
-         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-         </p>
+<p>
+<img src="/i/m/Dumitru_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+By&#160;<tc-webtag:handle coderId="7305703" context="algorithm"/><br />
+<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+</p>
 
 <p>
 An important part of given problems can be solved with the help of dynamic programming (<b>DP</b> for short).  Being able to tackle problems of this type would greatly increase your skill.
