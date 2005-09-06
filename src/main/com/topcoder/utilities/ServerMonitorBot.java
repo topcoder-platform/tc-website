@@ -39,7 +39,7 @@ public class ServerMonitorBot {
 
                 System.out.println("STARTING");
                 String[] callAndArgs = {"wget",
-                                        "http://192.168.12.51:7030",
+                                        "http://192.168.10.92",
                                         "--header=Host: www.topcoder.com",
                                         "--timeout=30",
                                         "-t1",
@@ -83,7 +83,7 @@ public class ServerMonitorBot {
                 }
                 
                 String[] callAndArgs2 = {"wget",
-                                         "http://192.168.10.151:8080/index.jsp",
+                                         "http://192.168.12.151:8080/index.jsp",
                                          "--timeout=30",
                                          "-t1",
                                          ""};
@@ -99,14 +99,14 @@ public class ServerMonitorBot {
                     if (software) {
                         software = false;
                         System.out.println("FAILED, SENDING MAIL");
-                        addError("connetion to 10.151 failed");
+                        addError("connetion to 12.151 failed");
                         sendError();
                     }
                 } else if (ret.indexOf("200 OK") == -1) {
                     if (software) {
                         software = false;
                         System.out.println("FAILED, SENDING MAIL");
-                        addError("response from 10.151 failed");
+                        addError("response from 12.151 failed");
                         addError(ret);
                         sendError();
                     }
