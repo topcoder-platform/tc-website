@@ -39,7 +39,7 @@ public class ServerMonitorBot {
 
                 System.out.println("STARTING");
                 String[] callAndArgs = {"wget",
-                                        "http://192.168.10.92",
+                                        "http://192.168.12.51:8080",
                                         "--header=Host: www.topcoder.com",
                                         "--timeout=30",
                                         "-t1",
