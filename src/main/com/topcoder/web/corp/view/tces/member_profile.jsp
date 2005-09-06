@@ -107,7 +107,7 @@
             <% } %>
             <br /><br />
 
-            <% if (MemberStats.getStringItem(0, "num_dev_ratings")!=null) { %>
+            <% if (MemberStats.getStringItem(0, "num_design_ratings")!=null) { %>
                 <b>Component Design Statistics</b><br />
                 Current Rating: <rsc:item name="design_rating" format="#" set="<%=MemberStats%>" ifNull="Not Rated"/> <br />
                 Current Ranking: <rsc:item name="design_rank" format="#" set="<%=MemberStats%>" ifNull="Not Ranked"/><br />
