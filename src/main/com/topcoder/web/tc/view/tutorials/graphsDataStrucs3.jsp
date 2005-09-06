@@ -8,15 +8,15 @@
 <style type="text/css">
     .code
 {
-	width: 100%;
-	padding: 10px;
-	margin: 20px;
-	color: #333;
-	font-size: 11px;
-	font-weight: normal;
-	line-height: 14px;
-	background-color: #EEEEEE;
-	border: 1px solid #999;
+   width: 100%;
+   padding: 10px;
+   margin: 20px;
+   color: #333;
+   font-size: 11px;
+   font-weight: normal;
+   line-height: 14px;
+   background-color: #EEEEEE;
+   border: 1px solid #999;
     }
 
 </style>
@@ -47,21 +47,21 @@
 
             <h2>Introduction to graphs and their data structures: Section 3</h2>
 
-			<p>
-			<img src="/i/m/gladius_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-			By&#160;<a class="bodyText" href="/stat?tc?module=MemberProfile&amp;cr=268851"><strong>gladius</strong></a><br />
-			<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-			</p>
+         <p>
+         <img src="/i/m/gladius_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+         By&#160;<a class="bodyText" href="/tc?module=MemberProfile&cr=268851"><strong>gladius</strong></a><br />
+         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+         </p>
 
 <A href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs2">...read Section 2</A>
 <br/><br/>
 <span class="outline1"><A href="#finding">Finding the best path through a graph</A></span><br/>
-	<span class="outline2"><A href="#dijkstra">Dijkstra (Heap method)</A></span><br/>
-	<span class="outline2"><A href="#floydWarshall">Floyd-Warshall</A></span>
+   <span class="outline2"><A href="#dijkstra">Dijkstra (Heap method)</A></span><br/>
+   <span class="outline2"><A href="#floydWarshall">Floyd-Warshall</A></span>
 
 
 <br/><br/>
-			<p>
+         <p>
 <a name="finding"></a>
 <span class=bodySubtitle>Finding the best path through a graph</span><br/>
 An extremely common problem on TopCoder is to find the shortest path from one position to another.  There are a few different ways for going about this, each of which has different uses.  We will be discussing two different methods, Dijkstra using a Heap and the Floyd Warshall method.
@@ -71,10 +71,10 @@ An extremely common problem on TopCoder is to find the shortest path from one po
 Dijkstra using a Heap is one of the most powerful techniques to add to your TopCoder arsenal.  It essentially allows you to write a Breadth First search, and instead of using a Queue you use a Priority Queue and define a sorting function on the nodes such that the node with the lowest cost is at the top of the Priority Queue.  This allows us to find the best path through a graph in O(m * log(n)) time where n is the number of vertices and m is the number of edges in the graph.
 </p>
 
-		<div class=sideNote>
-		<b>Sidenote:</b><br/>
-		If you haven't seen big-O notation before then I recommend reading <A href="http://www.cprogramming.com/tutorial/computersciencetheory/algorithmicefficiency1.html" target="_blank">this</A>.
-		</div>
+      <div class=sideNote>
+      <b>Sidenote:</b><br/>
+      If you haven't seen big-O notation before then I recommend reading <A href="http://www.cprogramming.com/tutorial/computersciencetheory/algorithmicefficiency1.html" target="_blank">this</A>.
+      </div>
 
 <p>
 First however, an introduction to the Priority Queue/Heap structure is in order.  The Heap is a fundamental data structure and is extremely useful for a variety of tasks.  The property we are most interested in though is that it is a semi-ordered data structure.  What I mean by semi-ordered is that we define some ordering on elements that are inserted into the structure, then the structure keeps the smallest (or largest) element at the top.  The Heap has the very nice property that inserting an element or removing the top element takes O(log n) time, where n is the number of elements in the heap.  Simply getting the top value is an O(1) operation as well, so the Heap is perfectly suited for our needs.
@@ -243,7 +243,7 @@ for (k = 1 to n)
 As you can see, this is extremely simple to remember and type.  If the graph is small (less than 100 nodes) then this technique can be used to great effect for a quick submission.
 <br/><br/>
 An excellent problem to test this out on is the Division 2 1000 from SRM 184, <A href="/tc?module=ProblemDetail&rd=4740&pm=2356">TeamBuilder</A>.
-			</p>
+         </p>
 
 
         </div>

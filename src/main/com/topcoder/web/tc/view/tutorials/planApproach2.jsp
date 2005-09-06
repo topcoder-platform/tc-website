@@ -32,11 +32,11 @@
 
             <h2>How To Dissect a TopCoder Problem Statement</h2>
 
-			<p>
-			<img src="/i/m/leadhyena_inran_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-			By&#160;<a class="bodyText" href="/stat?tc?module=MemberProfile&amp;cr=282560"><strong>leadhyena_inran</strong></a><br />
-			<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-			</p>
+         <p>
+         <img src="/i/m/leadhyena_inran_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+         By&#160;<a class="bodyText" href="/tc?module=MemberProfile&cr=282560"><strong>leadhyena_inran</strong></a><br />
+         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+         </p>
 
 <p>
 <A href="/tc?module=Static&d1=tutorials&d2=planApproach1">...read Section 1</A>

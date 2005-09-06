@@ -8,15 +8,15 @@
 <style type="text/css">
     .code
 {
-	width: 500;
-	padding: 10px;
-	margin: 20px;
-	color: #333;
-	font-size: 11px;
-	font-weight: normal;
-	line-height: 14px;
-	background-color: #EEEEEE;
-	border: 1px solid #999;
+   width: 500;
+   padding: 10px;
+   margin: 20px;
+   color: #333;
+   font-size: 11px;
+   font-weight: normal;
+   line-height: 14px;
+   background-color: #EEEEEE;
+   border: 1px solid #999;
     }
 
 </style>
@@ -46,11 +46,11 @@
 
             <h2>Geometry Concepts: Basic Concepts</h2>
 
-			<p>
-			<img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-			By&#160;<a class="bodyText" href="/stat?tc?module=MemberProfile&amp;cr=159052"><strong>lbackstrom</strong></a><br />
-			<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-			</p>
+         <p>
+         <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+         By&#160;<a class="bodyText" href="/tc?module=MemberProfile&cr=159052"><strong>lbackstrom</strong></a><br />
+         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+         </p>
 
 <span class="outline1"><a href="#introduction">Introduction</a></span><br/>
 <span class="outline1"><a href="#vectors">Vectors</a></span><br/>
