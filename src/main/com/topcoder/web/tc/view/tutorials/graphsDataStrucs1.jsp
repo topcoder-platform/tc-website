@@ -8,15 +8,15 @@
 <style type="text/css">
     .code
 {
-	width: 500;
-	padding: 10px;
-	margin: 20px;
-	color: #333;
-	font-size: 11px;
-	font-weight: normal;
-	line-height: 14px;
-	background-color: #EEEEEE;
-	border: 1px solid #999;
+   width: 500;
+   padding: 10px;
+   margin: 20px;
+   color: #333;
+   font-size: 11px;
+   font-weight: normal;
+   line-height: 14px;
+   background-color: #EEEEEE;
+   border: 1px solid #999;
     }
 
 </style>
@@ -47,23 +47,23 @@
 
             <h2>Introduction to graphs and their data structures: Section 1</h2>
 
-			<p>
-			<img src="/i/m/gladius_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-			By&#160;<a class="bodyText" href="/tc?module=MemberProfile&cr=268851"><strong>gladius</strong></a><br />
-			<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-			</p>
+<p>
+<img src="/i/m/gladius_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+By&#160;<tc-webtag:handle coderId="268851" context="algorithm"/><br />
+<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+</p>
 
 <span class="outline1"><A href="#introduction">Introduction</A></span><br/>
 <span class="outline1"><A href="#recognize">Recognizing a graph problem</A></span><br/>
 <span class="outline1"><A href="#represent">Representing a graph and key concepts</A></span><br/>
-	<span class="outline2"><A href="#singlyLinked">Singly linked lists</A></span><br/>
-	<span class="outline2"><A href="#trees">Trees</A></span><br/>
-	<span class="outline2"><A href="#graphs">Graphs</A></span><br/>
-	<span class="outline2"><A href="#arrayRep">Array representation</A></span>
+   <span class="outline2"><A href="#singlyLinked">Singly linked lists</A></span><br/>
+   <span class="outline2"><A href="#trees">Trees</A></span><br/>
+   <span class="outline2"><A href="#graphs">Graphs</A></span><br/>
+   <span class="outline2"><A href="#arrayRep">Array representation</A></span>
 
 <br/><br/>
 
-			<p>
+         <p>
 <a name="introduction"></a>
 <span class=bodySubtitle>Introduction</span><br/>
 Graphs are a fundamental data structure in the world of programming, and this is no less so on TopCoder.  Usually appearing as the hard problem in Division 2, or the medium or hard problem in Division 1, there are many different forms solving a graph problem can take.  They can range in difficulty from finding a path on a 2D grid from a start location to an end location, to something as hard as finding the maximum amount of water that you can route through a set of pipes, each of which has a maximum capacity (also known as the maximum-flow minimum-cut problem - which we will discuss later).  Knowing the correct data structures to use with graph problems is critical.  A problem that appears intractable may prove to be a few lines with the proper data structure, and luckily for us the standard libraries of the languages used by TopCoder help us a great deal here!
@@ -102,8 +102,8 @@ An example of one of the simplest types of graphs is a singly linked list!  Now 
 A singly linked list has one "head" node, and each node has a link to the next node.  So the structure looks like this:
 <pre class="code">
 structure node
-	[node] link;
-	[data]
+   [node] link;
+   [data]
 end
 
 node head;
@@ -120,8 +120,8 @@ This would be represented graphically as head -> B -> C -> null.  I've used null
 Getting back to the concept of a cost function, our cost function would look as follows:
 <pre class="code">
 cost(X, Y) := if (X.link = Y) return 1;
-			  else if (X = Y) return 0;
-			  else "Not possible"
+           else if (X = Y) return 0;
+           else "Not possible"
 </pre>
 This cost function represents the fact that we can only move directly to the link node from our current node.  Get used to seeing cost functions because anytime that you encounter a graph problem you will be dealing with them in some form or another!  A question that you may be asking at this point is "Wait a second, the cost from A to C would return not possible, but I can get to C from A by stepping through B!"  This is a very valid point, but the cost function simply encodes the *direct* cost from a node to another.  We will cover how to find distances in generic graphs later on.
 <br/><br/>
@@ -132,8 +132,8 @@ Now that we have seen an example of the one of the simplest types of graphs, we 
 There will be a whole section written on trees.  We are going to cover them very briefly as a stepping-stone along the way to a full-fledged graph.  In our list example above we are somewhat limited in the type of data we can represent.  For example, if you wanted to start a family tree (a hierarchal organization of children to parents, starting from one child) you would not be able to store more than one parent per child.  So we obviously need a new type of data structure.  Our new node structure will look something like this:
 <pre class="code">
 structure node
-	[node] mother, father;
-	[string] name
+   [node] mother, father;
+   [string] name
 end
 
 node originalChild;
@@ -141,8 +141,8 @@ node originalChild;
 With a cost function of:
 <pre class="code">
 cost(X, Y) := if ((X.mother = Y) or (X.father = Y)) return 1;
-			  else if (X = Y) return 0;
-			  else "Not possible"
+           else if (X = Y) return 0;
+           else "Not possible"
 </pre>
 Here we can see that every node has a mother and father.  And since node is a recursive structure definition, every mother has mother and father, and every father has a mother and father, and so on.  One of the problems here is that it might be possible to form a loop if you actually represented this data structure on a computer.  And a tree clearly cannot have a loop.  A little mind exercise will make this clear: a father of a child is also the son of that child?  It's starting to make my head hurt already.  So you have to be very careful when constructing a tree to make sure that it is truly a tree structure, and not a more general graph.  A more formal definition of a tree is that it is a connected acyclic graph.  This simply means that there are no cycles in the graph and every node is connected to at least one other node in the graph.
 <br/><br/>
@@ -155,12 +155,12 @@ A tree only allows a node to have children, and there cannot be any loops in the
 The way that we will represent this is to have a concept of a node (or vertex) that contains links to other nodes, and the data associated with that node.  So for our flight path example we might have the name of the airport as the node data, and for every flight leaving that city we have an element in neighbors that points to the destination.
 <pre class="code">
 structure node
-	[list of nodes] neighbors
-	[data]
+   [list of nodes] neighbors
+   [data]
 end
 
 cost(X, Y) := if (X.neighbors contains Y) return X.neighbors[Y];
-			  else "Not possible"
+           else "Not possible"
 
 list<node> nodes;
 </pre>
@@ -187,7 +187,7 @@ This representation is very convenient for graphs that do not have multiple edge
 
 <br/><br/>
 <A href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs2">...continue to Section 2</A>
-			</p>
+         </p>
 
 
         </div>

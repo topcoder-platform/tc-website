@@ -32,11 +32,11 @@
 
             <h2>The Singleton Pattern</h2>
 
-			<p>
-			<img src="/i/m/Pops_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-			By&#160;<tc-webtag:handle coderId="119676" context="design"/><br />
-			<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-			</p>
+<p>
+<img src="/i/m/Pops_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+By&#160;<tc-webtag:handle coderId="119676" context="design"/><br />
+<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+</p>
 
 <p>
 <span class="bodySubtitle">Definition</span><br>

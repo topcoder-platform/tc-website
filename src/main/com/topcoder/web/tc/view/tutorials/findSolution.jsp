@@ -47,11 +47,11 @@
 
             <h2>How to Find a Solution</h2>
 
-         <p>
-         <img src="/i/m/Dumitru_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-         By&#160;<tc-webtag:handle coderId="7305703" context="algorithm"/><br />
-         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-         </p>
+<p>
+<img src="/i/m/Dumitru_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+By&#160;<tc-webtag:handle coderId="7305703" context="algorithm"/><br />
+<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+</p>
 
 <span class="outline1"><a href="#introduction">Introduction</a></span><br>
 <span class="outline1"><a href="#straightforward">Straight-forward problems that don't require a special technique</a></span><br>

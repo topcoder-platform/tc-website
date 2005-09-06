@@ -9,28 +9,28 @@
 <style type="text/css">
 .codeBox
 {
-	width: 600;
-	padding: 10px;
-	margin: 20px;
-	color: #333;
-	font-size: 11px;
-	font-weight: normal;
-	line-height: 14px;
-	background-color: #EEEEEE;
-	border: 1px solid #999;
+   width: 600;
+   padding: 10px;
+   margin: 20px;
+   color: #333;
+   font-size: 11px;
+   font-weight: normal;
+   line-height: 14px;
+   background-color: #EEEEEE;
+   border: 1px solid #999;
     }
 .GAtableText, .GAtableText2, .GAtableText3, .GAtableText4, .GAtableText5
 {
-	color: #333;
-	font-size: 11px;
-	font-weight: normal;
-	line-height: 14px;
+   color: #333;
+   font-size: 11px;
+   font-weight: normal;
+   line-height: 14px;
 }
-.GAtableText{	background-color: #EEEEEE; }
-.GAtableText2{	background-color: #FF6600; }
-.GAtableText3{	background-color: #FFCC00; }
-.GAtableText4{	background-color: #FFFF00; }
-.GAtableText5{	background-color: #FFFF99; }
+.GAtableText{   background-color: #EEEEEE; }
+.GAtableText2{   background-color: #FF6600; }
+.GAtableText3{   background-color: #FFCC00; }
+.GAtableText4{   background-color: #FFFF00; }
+.GAtableText5{   background-color: #FFFF99; }
 
 </style>
 </head>
@@ -59,11 +59,11 @@
 
             <h2>Greedy is Good</h2>
 
-			<p>
-			<img src="/i/m/supernova_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-			By&#160;<tc-webtag:handle coderId="7371063" context="algorithm"/><br />
-			<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-			</p>
+<p>
+<img src="/i/m/supernova_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+By&#160;<tc-webtag:handle coderId="7371063" context="algorithm"/><br />
+<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+</p>
 
 <p>
 John Smith is in trouble! He is a TopCoder member and once he learned to master the "Force" of dynamic programming, he began solving problem after problem. But his once obedient computer acts quite unfriendly today. Following his usual morning ritual, John woke up at 10 AM, had a cup of coffee and went to solve a problem before breakfast. Something didn't seem right from the beginning, but based on his vast newly acquired experience, he wrote the algorithm in a flash. Tired of allocating matrices morning after morning, the computer complained: <strong>"Segmentation fault!"</strong>. Despite his empty stomach, John has a brilliant idea and gets rid of his beloved matrix by adding an extra "for cycle". But the computer cries again: <strong>"Time limit exceeded!"</strong>
@@ -134,7 +134,7 @@ Being a very energetic guy, John wants to have the time of his life! With so man
 <br><br>
 He now wishes to take advantage of as many as he can.  Such careful planning requires some cleverness, but his mind has gone on vacation too. This is John Smith's problem and he needs our help.
 <br><br>
-Could we help him have a nice holiday?	Maybe we can! But let's make an assumption first. As John is a meticulous programmer, once he agrees on something, he sticks to the plan. So, individual activities may either be chosen or not.  For each of the two choices regarding the first activity, we can make another two choices regarding the second. After a short analysis, we find out that we have 2 ^ N possible choices, in our case 1024.  Then, we can check each one individually to see whether it abides the time restrictions or not. From these, finding the choice with the most activities selected should be trivial. There are quite a lot of alternatives, so John would need to enlist the help of his tired computer. But what happens if we have 50 activities? Even with the most powerful computer in the world, handling this situation would literally take years. So, this approach is clearly not feasible.
+Could we help him have a nice holiday?   Maybe we can! But let's make an assumption first. As John is a meticulous programmer, once he agrees on something, he sticks to the plan. So, individual activities may either be chosen or not.  For each of the two choices regarding the first activity, we can make another two choices regarding the second. After a short analysis, we find out that we have 2 ^ N possible choices, in our case 1024.  Then, we can check each one individually to see whether it abides the time restrictions or not. From these, finding the choice with the most activities selected should be trivial. There are quite a lot of alternatives, so John would need to enlist the help of his tired computer. But what happens if we have 50 activities? Even with the most powerful computer in the world, handling this situation would literally take years. So, this approach is clearly not feasible.
 <br><br>
 Let's simply the problem and trust our basic instinct for a moment. A good approach may be to take the chance as the first opportunity arises. That is, if we have two activities we can follow and they clash, we choose the one that starts earlier in order to save some time. In this case John will start his first evening by debugging his room. Early the next morning, he has a plane to catch. It is less than a day, and he has already started the second activity. This is great! Actually, <strong>the best choice</strong> for now. But what happens next? Spending 5 days in Hawaii is time consuming and by Saturday evening, he will still have only two activities performed.  Think of all the activities he could have done during this five day span! Although very fast and simple, this approach is unfortunately not accurate.
 <br><br>

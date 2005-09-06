@@ -46,11 +46,11 @@
 
             <h2>New Features of Java 1.5</h2>
 
-         <p>
-         <img src="/i/m/cucu_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-         By&#160;<tc-webtag:handle coderId="7545675" context="algorithm"/><br />
-         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-         </p>
+<p>
+<img src="/i/m/cucu_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+By&#160;<tc-webtag:handle coderId="7545675" context="algorithm"/><br />
+<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+</p>
 
 <span class="outline1"><a href="#introduction">Introduction</a></span><br>
 <span class="outline1"><a href="#autoboxing">Auto Boxing and Auto Unboxing</a></span><br>

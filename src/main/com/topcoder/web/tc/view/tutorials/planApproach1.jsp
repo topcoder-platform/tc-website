@@ -47,11 +47,11 @@
 
             <h2>How To Dissect a TopCoder Problem Statement</h2>
 
-         <p>
-         <img src="/i/m/leadhyena_inran_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-         By&#160;<a class="bodyText" href="/tc?module=MemberProfile&cr=282560"><strong>leadhyena_inran</strong></a><br />
-         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-         </p>
+<p>
+<img src="/i/m/leadhyena_inran_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+By&#160;<tc-webtag:handle coderId="282560" context="algorithm"/><br />
+<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+</p>
 
 <p>
 Planning an approach is a finicky art; it can stump the most seasoned coders as much as it stumps the newer ones, and it can be extremely hard to put into words. It can involve many calculations and backtracks, as well as foresight, intuition, creativity, and even dumb luck, and when these factors don't work in concert it can inject a feeling of helplessness in any coder. Sometimes it's this feeling of helplessness that discourages coders from even attempting the Div I Hard. There are even coders that stop competing because they abhor that mental enfeeblement that comes with some problems. However, if one stays diligent, the solution is never really out of the mind's reach. This tutorial will attempt to flesh out the concepts that will enable you to pick an approach to attack the problems with a solid plan.
