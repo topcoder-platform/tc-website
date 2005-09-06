@@ -9,6 +9,16 @@
           com.topcoder.web.common.model.CoderSessionInfo,
           com.topcoder.web.common.BaseServlet"
 %>
+
+<script type="text/javascript">
+function arena() {
+  w=window.open("http://www.topcoder.com/tc?module=Static&d1=applet&d2=launch","Launch","top=2,left=2,width=300,height=225,resizable=yes,status=1");
+  return;
+}
+</script>
+
+
+
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%
     String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
