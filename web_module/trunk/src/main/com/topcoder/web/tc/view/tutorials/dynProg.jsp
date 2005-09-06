@@ -8,15 +8,15 @@
 <style type="text/css">
     .code
 {
-	width: 500;
-	padding: 10px;
-	margin: 20px;
-	color: #333;
-	font-size: 11px;
-	font-weight: normal;
-	line-height: 14px;
-	background-color: #EEEEEE;
-	border: 1px solid #999;
+   width: 500;
+   padding: 10px;
+   margin: 20px;
+   color: #333;
+   font-size: 11px;
+   font-weight: normal;
+   line-height: 14px;
+   background-color: #EEEEEE;
+   border: 1px solid #999;
     }
 
 </style>
@@ -46,11 +46,11 @@
 
             <h2>Dynamic Programming: From novice to advanced</h2>
 
-			<p>
-			<img src="/i/m/Dumitru_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-			By&#160;<a class="bodyText" href="/stat?tc?module=MemberProfile&amp;cr=7305703"><strong>Dumitru</strong></a><br />
-			<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-			</p>
+         <p>
+         <img src="/i/m/Dumitru_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+         By&#160;<a class="bodyText" href="/tc?module=MemberProfile&cr=7305703"><strong>Dumitru</strong></a><br />
+         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+         </p>
 
 <p>
 An important part of given problems can be solved with the help of dynamic programming (<b>DP</b> for short).  Being able to tackle problems of this type would greatly increase your skill.
@@ -99,7 +99,7 @@ Min[0]=0
 
 For i = 1 to S
 For j = 0 to N - 1
-	If (V<sub>j</sub> i AND Min[i-V<sub>j</sub>]+1&lt;Min[i])
+   If (V<sub>j</sub> i AND Min[i-V<sub>j</sub>]+1&lt;Min[i])
 Then Min[i]=Min[i-V<sub>j</sub>]+1
 
 Output Min[S]
@@ -107,72 +107,72 @@ Output Min[S]
 Here are the solutions found for all sums:
 <br/><br/>
 <table width=400 cellspacing=0 cellpadding=5 class=formFrame align=center>
-	<tr>
-		<td class=sidebarTitle nowrap=nowrap>Sum</td>
-		<td class=sidebarTitle nowrap=nowrap>Min. nr. of coins</td>
-		<td class=sidebarTitle nowrap=nowrap>Coin value added to a smaller sum to<br/>obtain this sum (it is displayed in brackets)</td>
-	</tr>
-	<tr>
-		<td class=sidebarText>0</td>
-		<td class=sidebarText>0</td>
-		<td class=sidebarText>-</td>
-	</tr>
-	<tr>
-		<td class=sidebarText>1</td>
-		<td class=sidebarText>1</td>
-		<td class=sidebarText>1 (0)</td>
-	</tr>
-	<tr>
-		<td class=sidebarText>2</td>
-		<td class=sidebarText>2</td>
-		<td class=sidebarText>1 (1)</td>
-	</tr>
-	<tr>
-		<td class=sidebarText>3</td>
-		<td class=sidebarText>1</td>
-		<td class=sidebarText>3 (0)</td>
-	</tr>
-	<tr>
-		<td class=sidebarText>4</td>
-		<td class=sidebarText>2</td>
-		<td class=sidebarText>1 (3)</td>
-	</tr>
-	<tr>
-		<td class=sidebarText>5</td>
-		<td class=sidebarText>1</td>
-		<td class=sidebarText>5 (0)</td>
-	</tr>
-	<tr>
+   <tr>
+      <td class=sidebarTitle nowrap=nowrap>Sum</td>
+      <td class=sidebarTitle nowrap=nowrap>Min. nr. of coins</td>
+      <td class=sidebarTitle nowrap=nowrap>Coin value added to a smaller sum to<br/>obtain this sum (it is displayed in brackets)</td>
+   </tr>
+   <tr>
+      <td class=sidebarText>0</td>
+      <td class=sidebarText>0</td>
+      <td class=sidebarText>-</td>
+   </tr>
+   <tr>
+      <td class=sidebarText>1</td>
+      <td class=sidebarText>1</td>
+      <td class=sidebarText>1 (0)</td>
+   </tr>
+   <tr>
+      <td class=sidebarText>2</td>
+      <td class=sidebarText>2</td>
+      <td class=sidebarText>1 (1)</td>
+   </tr>
+   <tr>
+      <td class=sidebarText>3</td>
+      <td class=sidebarText>1</td>
+      <td class=sidebarText>3 (0)</td>
+   </tr>
+   <tr>
+      <td class=sidebarText>4</td>
+      <td class=sidebarText>2</td>
+      <td class=sidebarText>1 (3)</td>
+   </tr>
+   <tr>
+      <td class=sidebarText>5</td>
+      <td class=sidebarText>1</td>
+      <td class=sidebarText>5 (0)</td>
+   </tr>
+   <tr>
 
-		<td class=sidebarText>6</td>
-		<td class=sidebarText>2</td>
-		<td class=sidebarText>3 (3)</td>
-	</tr>
-	<tr>
-		<td class=sidebarText>7</td>
-		<td class=sidebarText>3</td>
-		<td class=sidebarText>1 (6)</td>
-	</tr>
-	<tr>
-		<td class=sidebarText>8</td>
-		<td class=sidebarText>2</td>
-		<td class=sidebarText>3 (5)</td>
-	</tr>
-	<tr>
-		<td class=sidebarText>9</td>
-		<td class=sidebarText>3</td>
-		<td class=sidebarText>1 (8)</td>
-	</tr>
-	<tr>
-		<td class=sidebarText>10</td>
-		<td class=sidebarText>2</td>
-		<td class=sidebarText>5 (5)</td>
-	</tr>
-	<tr>
-		<td class=sidebarText>11</td>
-		<td class=sidebarText>3</td>
-		<td class=sidebarText>1 (10)</td>
-	</tr>
+      <td class=sidebarText>6</td>
+      <td class=sidebarText>2</td>
+      <td class=sidebarText>3 (3)</td>
+   </tr>
+   <tr>
+      <td class=sidebarText>7</td>
+      <td class=sidebarText>3</td>
+      <td class=sidebarText>1 (6)</td>
+   </tr>
+   <tr>
+      <td class=sidebarText>8</td>
+      <td class=sidebarText>2</td>
+      <td class=sidebarText>3 (5)</td>
+   </tr>
+   <tr>
+      <td class=sidebarText>9</td>
+      <td class=sidebarText>3</td>
+      <td class=sidebarText>1 (8)</td>
+   </tr>
+   <tr>
+      <td class=sidebarText>10</td>
+      <td class=sidebarText>2</td>
+      <td class=sidebarText>5 (5)</td>
+   </tr>
+   <tr>
+      <td class=sidebarText>11</td>
+      <td class=sidebarText>3</td>
+      <td class=sidebarText>1 (10)</td>
+   </tr>
 </table>
 <br/><br/>
 As a result we have found a solution of 3 coins which sum up to 11.
@@ -201,41 +201,41 @@ This way we consecutively find the best solutions for each <b>i</b>, until last 
 Let's see what happens for a randomly generated sequence: 5, 3, 4, 8, 6, 7:
 <br/><br/>
 <table width=400 cellspacing=0 cellpadding=5 class=formFrame align=center>
-	<tr>
-		<td class=sidebarTitle nowrap=nowrap width="100%">I</td>
-		<td class=sidebarTitle nowrap=nowrap>The length of the longest<br/>non-decreasing sequence<br/>of first i numbers</td>
-		<td class=sidebarTitle nowrap=nowrap>The last sequence i from<br/>which we "arrived"<br/>to this one</td>
-	</tr>
-	<tr>
-		<td class=sidebarText>1</td>
-		<td class=sidebarText>1</td>
-		<td class=sidebarText>1 (first number itself)</td>
-	</tr>
-	<tr>
-		<td class=sidebarText>2</td>
-		<td class=sidebarText>1</td>
-		<td class=sidebarText>2 (second number itself)</td>
-	</tr>
-	<tr>
-		<td class=sidebarText>3</td>
-		<td class=sidebarText>2</td>
-		<td class=sidebarText>2</td>
-	</tr>
-	<tr>
-		<td class=sidebarText>4</td>
-		<td class=sidebarText>3</td>
-		<td class=sidebarText>3</td>
-	</tr>
-	<tr>
-		<td class=sidebarText>5</td>
-		<td class=sidebarText>3</td>
-		<td class=sidebarText>3</td>
-	</tr>
-	<tr>
-		<td class=sidebarText>6</td>
-		<td class=sidebarText>4</td>
-		<td class=sidebarText>4</td>
-	</tr>
+   <tr>
+      <td class=sidebarTitle nowrap=nowrap width="100%">I</td>
+      <td class=sidebarTitle nowrap=nowrap>The length of the longest<br/>non-decreasing sequence<br/>of first i numbers</td>
+      <td class=sidebarTitle nowrap=nowrap>The last sequence i from<br/>which we "arrived"<br/>to this one</td>
+   </tr>
+   <tr>
+      <td class=sidebarText>1</td>
+      <td class=sidebarText>1</td>
+      <td class=sidebarText>1 (first number itself)</td>
+   </tr>
+   <tr>
+      <td class=sidebarText>2</td>
+      <td class=sidebarText>1</td>
+      <td class=sidebarText>2 (second number itself)</td>
+   </tr>
+   <tr>
+      <td class=sidebarText>3</td>
+      <td class=sidebarText>2</td>
+      <td class=sidebarText>2</td>
+   </tr>
+   <tr>
+      <td class=sidebarText>4</td>
+      <td class=sidebarText>3</td>
+      <td class=sidebarText>3</td>
+   </tr>
+   <tr>
+      <td class=sidebarText>5</td>
+      <td class=sidebarText>3</td>
+      <td class=sidebarText>3</td>
+   </tr>
+   <tr>
+      <td class=sidebarText>6</td>
+      <td class=sidebarText>4</td>
+      <td class=sidebarText>4</td>
+   </tr>
 </table>
 <br/><br/>
 <b>Practice problem:</b><br/>
@@ -269,9 +269,9 @@ From above, a recurrent relation can be easily obtained:<br/>
 Pseudocode:
 <pre class="code">
 For i = 0 to N - 1
-	For j = 0 to M - 1
-	S[i][j] = A[i][j] +
-		max(S[i][j-1], if j>0 ; S[i-1][j], if i>0 ; 0)
+   For j = 0 to M - 1
+   S[i][j] = A[i][j] +
+      max(S[i][j-1], if j>0 ; S[i-1][j], if i>0 ; 0)
 
 Output S[n-1][m-1]
 </pre>
@@ -318,10 +318,10 @@ less than Infinity - exit While loop.
 Mark state(k,l) as visited
 
 For All Neighbors p of Vertex k.
-	If (l-S[p]>=0 AND
+   If (l-S[p]>=0 AND
     Min[p][l-S[p]]>Min[k][l]+Dist[k][p])
-		Then Min[p][l-S[p]]=Min[k][l]+Dist[k][p]
-	i.e.
+      Then Min[p][l-S[p]]=Min[k][l]+Dist[k][p]
+   i.e.
 If for state(i,j) there are enough money left for
 going to vertex p (l-S[p] represents the money that
 will remain after passing to vertex p), and the

@@ -32,11 +32,11 @@
 
             <h2>How To Dissect a TopCoder Problem Statement</h2>
 
-			<p>
-			<img src="/i/m/antimatter_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-			By&#160;<a class="bodyText" href="/stat?tc?module=MemberProfile&amp;cr=275071"><strong>antimatter</strong></a><br />
-			<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-			</p>
+         <p>
+         <img src="/i/m/antimatter_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+         By&#160;<a class="bodyText" href="/tc?module=MemberProfile&cr=275071"><strong>antimatter</strong></a><br />
+         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+         </p>
 
 <p>
 How many times has this happened to you: you register for the SRM, go into your assigned room when the system tells you to, and when the match starts, you open the 250... and find it incomprehensible.
@@ -60,43 +60,43 @@ The constraints section is arguably the most important.  It lists specific const
 Finally, a set of examples is provided.  These give sample inputs against which you can test your program.  The given parameters will be in the correct order, followed by the expected return value and, optionally, an explanation of the test case.
 <br/><br/>
 
-	<ul>
-	<li>
-	<span class=bodySubtitle>Introduction</span><br/>
-	The problem statement usually begins by motivating the problem.  It gives a situation or context for the problem, before diving into the gory details.  This is usually irrelevant to solving the problem, so ignore it if necessary.  In some cases, the motivation can cause serious ambiguities if it is treated as binding - see <A href="/tc?module=ProblemDetail&rd=4775&pm=2911">MatchMaking</A> (SRM 203 Div I Easy / Div II Medium).  Also note that for some simple problems, the initial context may be left out.
-	<br/><br/>
-	The ordering of the rest of this section varies greatly from problem to problem, based on the writing style of the problem author.
-	<br/><br/>
-	There will be a description of what you need to do, in high-level terms.  Take, for example, <A href="/tc?module=ProblemDetail&rd=4775&pm=2913">UserName</A> (SRM 203, Div 2 easy).  What the problem is asking for you to do is to find the first variant of a given username that is not already taken.  Note that the problem has not yet said anything about variable names or types, or input formats.
-	<br/><br/>
-	There will also be a low-level description of the input.  At the bare minimum, the types and variable names of the inputs will be given to you, as well as what they correspond to and what they mean.  Sometimes much more information about input formats will be given; this typically occurs in more complicated problems.
-	<br/><br/>
-	Sometimes, even more detailed background information needs to be provided.  That is also typically given here, or sometimes in the Notes section.
-	<br/><br/>
-	</li>
-	<li>
-	<span class=bodySubtitle>The Definition</span><br/>
-	This is a very barebones description of what TopCoder wants you to submit.  It gives the class name, the method name to create inside that class, the parameters it should take, the return value, and a method signature.  As mentioned before, the basic form of a submitted solution is to create a class containing a method with the required signature.  Make sure that the class is declared public if not using C++, and make sure to declare the method public also.
-	<br/><br/>
-	</li>
-	<li>
-	<span class=bodySubtitle>Notes and Constraints</span><br/>
-	Notes don't always appear.  If they do, READ THEM!  Typically they will highlight issues that may have come up during testing, or they may provide background information that you may not have known beforehand. The constraints section gives a list of constraints on the input variables.  These include constraints on sizes of strings and arrays, or allowed characters, or values of numbers.  These will be checked automatically, so there is no need to worry about writing code to check for these cases.
-	<br/><br/>
-	Be careful of the constraints.  Sometimes they may rule out certain algorithms, or make it possible for simpler but less efficient algorithms to run in time.  There can be a very big difference between an input of 50 numbers and an input of 5, both in terms of solutions that will end up passing, and in terms of ease of coding.
-	<br/><br/>
-	</li>
-	<li>
-	<span class=bodySubtitle>Examples</span><br/>
-	These are a list of sample test cases to test your program against.  It gives the inputs (in the correct order) and then the expected return value, and sometimes an annotation below, to explain the case further if necessary.
-	<br/><br/>
-	It goes without saying that you should test your code against all of the examples, at the very least.  There may be tricky cases, large cases, or corner cases that you have not considered when writing the solution; fixing issues before you submit is infinitely preferable to having your solution challenged or having it fail during system testing.
-	<br/><br/>
-	The examples are not always comprehensive!  Be aware of this.  For some problems, passing the examples is almost the same as passing every test case.
-	<br/><br/>
-	For others, however, they may intentionally (or not) leave out some test case that you should be aware of.  If you are not completely sure that your code is correct, test extensively, and try to come up with your own test cases as well.  You may even be able to use them in the challenge phase.
-	</li>
-	</ul>
+   <ul>
+   <li>
+   <span class=bodySubtitle>Introduction</span><br/>
+   The problem statement usually begins by motivating the problem.  It gives a situation or context for the problem, before diving into the gory details.  This is usually irrelevant to solving the problem, so ignore it if necessary.  In some cases, the motivation can cause serious ambiguities if it is treated as binding - see <A href="/tc?module=ProblemDetail&rd=4775&pm=2911">MatchMaking</A> (SRM 203 Div I Easy / Div II Medium).  Also note that for some simple problems, the initial context may be left out.
+   <br/><br/>
+   The ordering of the rest of this section varies greatly from problem to problem, based on the writing style of the problem author.
+   <br/><br/>
+   There will be a description of what you need to do, in high-level terms.  Take, for example, <A href="/tc?module=ProblemDetail&rd=4775&pm=2913">UserName</A> (SRM 203, Div 2 easy).  What the problem is asking for you to do is to find the first variant of a given username that is not already taken.  Note that the problem has not yet said anything about variable names or types, or input formats.
+   <br/><br/>
+   There will also be a low-level description of the input.  At the bare minimum, the types and variable names of the inputs will be given to you, as well as what they correspond to and what they mean.  Sometimes much more information about input formats will be given; this typically occurs in more complicated problems.
+   <br/><br/>
+   Sometimes, even more detailed background information needs to be provided.  That is also typically given here, or sometimes in the Notes section.
+   <br/><br/>
+   </li>
+   <li>
+   <span class=bodySubtitle>The Definition</span><br/>
+   This is a very barebones description of what TopCoder wants you to submit.  It gives the class name, the method name to create inside that class, the parameters it should take, the return value, and a method signature.  As mentioned before, the basic form of a submitted solution is to create a class containing a method with the required signature.  Make sure that the class is declared public if not using C++, and make sure to declare the method public also.
+   <br/><br/>
+   </li>
+   <li>
+   <span class=bodySubtitle>Notes and Constraints</span><br/>
+   Notes don't always appear.  If they do, READ THEM!  Typically they will highlight issues that may have come up during testing, or they may provide background information that you may not have known beforehand. The constraints section gives a list of constraints on the input variables.  These include constraints on sizes of strings and arrays, or allowed characters, or values of numbers.  These will be checked automatically, so there is no need to worry about writing code to check for these cases.
+   <br/><br/>
+   Be careful of the constraints.  Sometimes they may rule out certain algorithms, or make it possible for simpler but less efficient algorithms to run in time.  There can be a very big difference between an input of 50 numbers and an input of 5, both in terms of solutions that will end up passing, and in terms of ease of coding.
+   <br/><br/>
+   </li>
+   <li>
+   <span class=bodySubtitle>Examples</span><br/>
+   These are a list of sample test cases to test your program against.  It gives the inputs (in the correct order) and then the expected return value, and sometimes an annotation below, to explain the case further if necessary.
+   <br/><br/>
+   It goes without saying that you should test your code against all of the examples, at the very least.  There may be tricky cases, large cases, or corner cases that you have not considered when writing the solution; fixing issues before you submit is infinitely preferable to having your solution challenged or having it fail during system testing.
+   <br/><br/>
+   The examples are not always comprehensive!  Be aware of this.  For some problems, passing the examples is almost the same as passing every test case.
+   <br/><br/>
+   For others, however, they may intentionally (or not) leave out some test case that you should be aware of.  If you are not completely sure that your code is correct, test extensively, and try to come up with your own test cases as well.  You may even be able to use them in the challenge phase.
+   </li>
+   </ul>
 
 <span class=bodySubtitle>Solving a problem</span><br/>
 Now we'll walk through a simple problem and dissect it, bit by bit.
@@ -154,7 +154,7 @@ SRM 170 Div 1 Easy - <A href="/tc?module=ProblemDetail&rd=4655&pm=1915">Recurren
 SRM 177 Div 1 Easy - <A href="/tc?module=ProblemDetail&rd=4690&pm=1609">TickTick</A><br/>
 SRM 169 Div 2 Hard - <A href="/tc?module=ProblemDetail&rd=4650&pm=1876">Twain</A><br/>
 SRM 155 Div 1 Med  - <A href="/tc?module=ProblemDetail&rd=4580&pm=1694">QuipuReader</A>
-			</p>
+         </p>
 
 
         </div>
