@@ -1,4 +1,5 @@
 <%@  page language="java"  %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -46,11 +47,10 @@
          <div class="tutorBodyFull">
             
             <h2>Using Regular Expressions</h2>
-
       <p>
       <img src="/i/m/Dan[Popovici]_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-      By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=7465390"><strong>Dan[Popovici]</strong></a> 
-         & <a class="bodyText" href="/tc?module=MemberProfile&amp;cr=294328"><strong>mariusmuja</strong></a><br />
+      By&#160;<tc-webtag:handle coderId="7465390" context="algorithm"/> 
+         & <tc-webtag:handle coderId="294328" context="algorithm"/><br />
       <span class="smallText"><em>TopCoder Members</em></span><br clear="all" />
       </p>
 
