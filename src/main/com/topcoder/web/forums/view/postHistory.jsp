@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.forums.ForumConstants,
+                 com.topcoder.web.forums.controller.ForumsUtil,
                  com.jivesoftware.forum.stats.ViewCountManager,
                  com.jivesoftware.forum.action.util.Page,
                  com.jivesoftware.base.JiveConstants,
@@ -101,7 +102,7 @@
             </jsp:include>
 
 <div class="topLinksL">
-<span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> >> Post History: <tc-webtag:handle coderId="<%=historyUser.getID()%>"/> (<%=forumFactory.getUserMessageCount(historyUser)%> posts) </span><br><br>
+<span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> >> Post History: <tc-webtag:handle coderId="<%=historyUser.getID()%>"/> (<%=ForumsUtil.display(forumFactory.getUserMessageCount(historyUser), "post")%>) </span><br><br>
 </div>
 <div class="topLinksR">
 <%  if (user.getUsername() == historyUser.getUsername()) { %>
