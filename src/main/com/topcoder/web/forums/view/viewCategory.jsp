@@ -4,6 +4,7 @@
     response.setHeader( "Pragma", "no-cache" ); %>
 
 <%@ page import="com.topcoder.web.common.BaseServlet,
+                 com.topcoder.web.common.StringUtils,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
                  com.jivesoftware.base.JiveConstants,
@@ -163,8 +164,12 @@
                     <td class="rtHeader" align="center" colspan="2">Last Post</td>
                 </tr>
                 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categories")%>'>
-                    <%  trackerClass = (user == null || category.getLatestMessage() == null || readTracker.getReadStatus(user, category.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
-                    <%  if (forumCategory.getID() == 1) { trackerClass = "rtLinkBold"; } %>
+                    <%  if (forumCategory.getID() == 1) {
+                            String leftNavName = StringUtils.checkNull(category.getProperty(ForumConstants.LEFT_NAV_NAME));
+                            trackerClass = (!leftNavName.equals("") && unreadCategories.indexOf(leftNavName) == -1) ? "rtLinkOld" : "rtLinkBold";
+                        } else {
+                            trackerClass = (user == null || category.getLatestMessage() == null || readTracker.getReadStatus(user, category.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold";
+                        } %>
                     <tr>
                         <td class="rtThreadCellWrap">
                         <%  if (user == null) { %>
