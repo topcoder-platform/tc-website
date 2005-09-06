@@ -157,7 +157,7 @@
          <%  if (activeMessage.getUser() != null && !("false".equals(activeMessage.getUser().getProperty("jiveDisplayMemberPhoto"))) && activeMessage.getUser().getProperty("imagePath") != null) { %>
             <img src="<%=activeMessage.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br>
          <%  } %>
-         <span class="bodyText"><%if (activeMessage.getUser() != null) {%><tc-webtag:handle coderId="<%=activeMessage.getUser().getID()%>"/><%}%></span><br><%if (activeMessage.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=activeMessage.getUser().getID()%>"><%=forumFactory.getUserMessageCount(activeMessage.getUser())%> posts</A><%}%>
+         <span class="bodyText"><%if (activeMessage.getUser() != null) {%><tc-webtag:handle coderId="<%=activeMessage.getUser().getID()%>"/><%}%></span><br><%if (activeMessage.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=activeMessage.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(activeMessage.getUser()), "post")%></A><%}%>
       </div>
    </td>
    <td class="rtTextCell" width="100%"><jsp:getProperty name="activeMessage" property="body"/></td></tr>
