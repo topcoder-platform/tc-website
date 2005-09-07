@@ -77,7 +77,7 @@ public class Admin extends ForumsProcessor {
     private ArrayList getRoundList() throws Exception {
         Request r = new Request();
         r.setContentHandle("Rounds_By_Date_short_name");
-        ResultSetContainer rsc = (ResultSetContainer) getDataAccess(DBMS.DW_DATASOURCE_NAME).getData(r).get("Rounds_By_Date");
+        ResultSetContainer rsc = (ResultSetContainer) getDataAccess(DBMS.DW_DATASOURCE_NAME).getData(r).get("Rounds_By_Date_short_name");
         ArrayList roundList = new ArrayList();
         
         for (int i=0; i<rsc.size(); i++) {
