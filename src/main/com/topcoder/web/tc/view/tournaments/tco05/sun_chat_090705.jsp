@@ -24,6 +24,7 @@
       <div class="bodySpacer">
             
 <div align="center"><img src="/i/tournament/tco05/sun_logo.gif" alt="Sun" border="0" /></div>
+<br><br>
 The 2005 TopCoder&#174; Open has reached the last online elimination round.  The best developers from around the world have been narrowed down to 100 and will battle for the chance to fly to California for the finals.  Only 48 will get the chance to win $20,000 after Online Round 4.  Watch the action online on September 7th at 9:30PM EDT by logging into the TopCoder Competition Arena.
 <br><br>
 TCO05 is sponsored by Sun Microsystems&#174;, one hour prior to Online Round 4, Joe Nuxoll from Sun Microsystems&#174; will be in arena to chat about JSF components and Java Studio Creator.  The chat starts at 8:30PM EDT.
