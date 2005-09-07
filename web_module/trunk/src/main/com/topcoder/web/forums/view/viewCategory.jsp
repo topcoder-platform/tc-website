@@ -60,7 +60,7 @@
         <td width="180">
             <jsp:include page="includes/global_left.jsp">
                 <jsp:param name="level1" value="forums"/>
-                <jsp:param name="level2" value="<%=forumCategory.getProperty(ForumConstants.LEFT_NAV_NAME)%>"/>
+                <jsp:param name="level2" value="<%=forumCategory.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME)%>"/>
                 <jsp:param name="unreadCategories" value="<%=unreadCategories%>"/>
             </jsp:include>
         </td>
@@ -165,7 +165,7 @@
                 </tr>
                 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categories")%>'>
                     <%  if (forumCategory.getID() == 1) {
-                            String leftNavName = StringUtils.checkNull(category.getProperty(ForumConstants.LEFT_NAV_NAME));
+                            String leftNavName = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME));
                             trackerClass = (!leftNavName.equals("") && unreadCategories.indexOf(leftNavName) == -1) ? "rtLinkOld" : "rtLinkBold";
                         } else {
                             trackerClass = (user == null || category.getLatestMessage() == null || readTracker.getReadStatus(user, category.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold";

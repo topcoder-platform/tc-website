@@ -38,7 +38,7 @@
       <td width="180">
          <jsp:include page="includes/global_left.jsp">
             <jsp:param name="level1" value="forums"/>
-            <jsp:param name="level2" value="<%=forum.getForumCategory().getProperty(ForumConstants.LEFT_NAV_NAME)%>"/>
+            <jsp:param name="level2" value="<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME)%>"/>
             <jsp:param name="unreadCategories" value="<%=unreadCategories%>"/>
          </jsp:include>
       </td>

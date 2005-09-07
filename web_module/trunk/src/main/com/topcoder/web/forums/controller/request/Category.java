@@ -39,14 +39,18 @@ public class Category extends ForumsProcessor {
         }
         
         ResultFilter resultFilter = new ResultFilter();
-        resultFilter.setSortField(JiveConstants.MODIFICATION_DATE);
-        resultFilter.setSortOrder(ResultFilter.DESCENDING);
+        if ("fixed".equals(forumCategory.getProperty(ForumConstants.PROPERTY_SORT))) {
+            resultFilter = ResultFilter.createDefaultForumFilter();
+        } else {
+            resultFilter.setSortField(JiveConstants.MODIFICATION_DATE);
+            resultFilter.setSortOrder(ResultFilter.DESCENDING);
+        }
         
         Iterator itCategories = forumCategory.getCategories();
         Iterator itForums = null;
         int totalItemCount = 0;
         
-        if ("true".equals(forumCategory.getProperty(ForumConstants.HIDE_EMPTY_FORUMS))) {
+        if ("true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_HIDE_EMPTY_FORUMS))) {
             itForums = forumCategory.getForums(resultFilter);
             ArrayList a = new ArrayList();  // all results
             while (itForums.hasNext()) {

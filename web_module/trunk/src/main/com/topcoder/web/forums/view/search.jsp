@@ -115,7 +115,7 @@ function noenter(e)
     <%  } else { %>
         <option value="<%=categoryValue%>"><jsp:getProperty name="category" property="name"/></option>
     <%  } %>
-    <%  if (!"true".equals(category.getProperty(ForumConstants.HIDE_SEARCH_FORUMS))) { %> 
+    <%  if (!"true".equals(category.getProperty(ForumConstants.PROPERTY_HIDE_SEARCH_FORUMS))) { %> 
     <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=category.getForums()%>'>
    <%  String forumValue = "f" + forum.getID();
        if (searchScope != null && searchScope.equals(forumValue)) { %>

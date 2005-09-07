@@ -76,19 +76,14 @@ public class Admin extends ForumsProcessor {
     
     private ArrayList getRoundList() throws Exception {
         Request r = new Request();
-        r.setContentHandle("Rounds_By_Date");
+        r.setContentHandle("Rounds_By_Date_short_name");
         ResultSetContainer rsc = (ResultSetContainer) getDataAccess(DBMS.DW_DATASOURCE_NAME).getData(r).get("Rounds_By_Date");
         ArrayList roundList = new ArrayList();
         
         for (int i=0; i<rsc.size(); i++) {
             Round round = new Round(rsc.getIntItem(i, "contest_id"));
             round.setRoundId(rsc.getIntItem(i, "round_id"));
-            String contestName = rsc.getStringItem(i, 3);     // contest name
-            if (contestName.startsWith("Single Round Match")) {
-                round.setRoundName(contestName);
-            } else {
-                round.setRoundName(rsc.getStringItem(i, "full_name"));
-            }
+            round.setRoundName(rsc.getStringItem(i, "short_name"));
             roundList.add(round);
         }
         return roundList;
