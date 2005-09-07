@@ -34,9 +34,10 @@ public interface ForumConstants {
     public final static String SORT_ORDER = "sortOrder";
     
     // Extended Properties
-    public final static String HIDE_EMPTY_FORUMS = "hideEmptyForums";
-    public final static String HIDE_SEARCH_FORUMS = "hideSearchForums";
-    public final static String LEFT_NAV_NAME = "leftNavName";
+    public final static String PROPERTY_HIDE_EMPTY_FORUMS = "hideEmptyForums";
+    public final static String PROPERTY_HIDE_SEARCH_FORUMS = "hideSearchForums";
+    public final static String PROPERTY_LEFT_NAV_NAME = "leftNavName";
+    public final static String PROPERTY_SORT = "sort";
     
     // Admin
     public final static String ADMIN_COMMAND = "cmd";
