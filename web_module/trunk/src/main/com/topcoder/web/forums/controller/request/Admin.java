@@ -6,6 +6,7 @@ package com.topcoder.web.forums.controller.request;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.PermissionsManager;
 import com.jivesoftware.forum.Forum;
+import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumMessageIterator;
 import com.topcoder.shared.dataAccess.Request;
@@ -45,13 +46,23 @@ public class Admin extends ForumsProcessor {
         
         log.info(user.getUsername() + " has accessed the admin tool.");
         
+        ArrayList roundList = getRoundList();
+        
         // process command
         String command = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ADMIN_COMMAND));
+        if (command.equals(ForumConstants.ADMIN_CREATE_FORUMS_ALGO)) {
+            ForumCategory algoCategory = forumFactory.getForumCategory(14);
+            for (int i=0; i<roundList.size(); i++) {
+               String roundName = (String)roundList.get(i);
+               forumFactory.createForum(roundName, "", algoCategory); 
+            }
+        }
+        /*
         if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
         //    log.info(user.getUsername() + " running command: " + command);
         //    escapeHTML();
         } else if (command.equals(ForumConstants.ADMIN_COMMAND_ADD_CONTEST)) {
-        } /*else if (command.equals("Add test forums")) {
+        } else if (command.equals("Add test forums")) {
             for (int i=0; i<50; i++) {
                 com.jivesoftware.forum.ForumCategory fc = forumFactory.getForumCategory(8);
                 forumFactory.createForum("Test Forum "+fc.getForumCount(), 
@@ -67,8 +78,7 @@ public class Admin extends ForumsProcessor {
                 }
             }
         }*/
-        
-        getRequest().setAttribute("roundList", getRoundList());
+        getRequest().setAttribute("roundList", roundList);
 
         setNextPage("/admin.jsp");
         setIsNextPageInContext(true);
