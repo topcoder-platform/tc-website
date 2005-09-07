@@ -51,8 +51,8 @@ public class Admin extends ForumsProcessor {
         // process command
         String command = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ADMIN_COMMAND));
         if (command.equals(ForumConstants.ADMIN_CREATE_FORUMS_ALGO)) {
-            if (forumFactory.getForumCount() < 20) {
-                ForumCategory algoCategory = forumFactory.getForumCategory(14);
+            ForumCategory algoCategory = forumFactory.getForumCategory(14);
+            if (algoCategory.getForumCount() < 20) {
                 for (int i=0; i<roundList.size(); i++) {
                    String roundName = ((Round)roundList.get(i)).getRoundName();
                    forumFactory.createForum(roundName, "", algoCategory); 
