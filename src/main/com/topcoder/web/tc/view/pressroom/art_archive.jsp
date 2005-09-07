@@ -45,10 +45,9 @@
 <!-- 2005  -->
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
 
+<tr><td class="newsText"><A href="http://www.adtmag.com/article.asp?id=11752" target="_blank">Components for SOAs and Other App Dev Projects</A> [September 7 - ADT]<br/></td></tr>
 <tr><td class="newsText"><A href="http://timesofindia.indiatimes.com/articleshow/1212895.cms" target="_blank">Wanna codejam? May the best techie win</A> [August 28 - Times of India]<br/></td></tr>
-
 <tr><td class="newsText"><A href="/pdfs/press_room/cnn_072105.pdf">On your marks, get set, code!</A> [July 21]<br/></td></tr>
-
 <tr><td class="newsText"><A href="http://www.queensjournal.ca/articlephp/point-vol133/issue1/news/story1" target="_blank">Computer programmer wins big</A> [May 24 - QU The Journal]</td></tr>
 
 <tr><td class="newsText"><A href="http://www.roanoke.com/business%5C24837.html" target="_blank">Geeks for Charity holds code to help New River charities</A> [June 4 - Roanoke.com]</td></tr>
