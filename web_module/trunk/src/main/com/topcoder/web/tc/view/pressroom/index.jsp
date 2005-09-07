@@ -47,6 +47,21 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
+<!-- ADT -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://timesofindia.indiatimes.com/articleshow/1212895.cms" target="_blank"><img src="/i/pressroom/adt_logo.gif" alt="ADT" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.adtmag.com/article.asp?id=11752" target="_blank">Components for SOAs and Other App Dev Projects</A></strong></font><br />
+The result of the partnership between LogicLibrary and TopCoder reached earlier this year is that TopCoder’s components for Java and .NET are now stored in Logidex, LogicLibrary's collaborative SDA management solution. <span class="prHead"> [September 6 - ADT]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!--  TCO05 Component Finalists -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
