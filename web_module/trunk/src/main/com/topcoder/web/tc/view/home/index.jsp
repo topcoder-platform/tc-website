@@ -158,12 +158,12 @@
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            Components for SOAs and Other App Dev Projects <A href="http://www.adtmag.com/article.asp?id=11752" target="_blank">...more</A><br>[September 6]<br><br>
             TopCoder&#174; Announces First Software Developer Conference at 2005 TopCoder Open <A href="/tc?module=Static&d1=pressroom&d2=pr_090205">...more</A><br>[September 2]<br><br>
             Wanna codejam? May the best techie win <A href="http://timesofindia.indiatimes.com/articleshow/1212895.cms" target="_blank">...more</A><br>[August 29]<br><br>
             TopCoder&#174; Announces 16 Finalists in Component Tournament of 2005 TopCoder Open <A href="/tc?module=Static&d1=pressroom&d2=pr_082405">...more</A><br>[August 24]<br><br>
             Registration Opens for Google Code Jam 2005 <A href="http://www.google.com/intl/en/press/pressrel/codejam3.html">...more</A><br>[July 25]<br><br>
             On your marks, get set, code! [PDF] <A href="/pdfs/press_room/cnn_072105.pdf">...more</A><br>[July 21]<br><br>
-            TopCoder&#174; Announces Return of Premier Sponsor to 2005 TopCoder Open <A href="/tc?module=Static&d1=pressroom&d2=pr_071105">...more</A><br>[July 11]<br><br>
             </td>
          </tr>
       </table>

@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>09.06.05<br>3:10 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.adtmag.com/article.asp?id=11752" target="_blank">Components for SOAs and Other App Dev Projects</A></span><br><br>
+      "The result of the partnership between LogicLibrary and TopCoder reached earlier this year is that TopCoder’s components for Java and .NET are now stored in Logidex, LogicLibrary's collaborative SDA management solution." [ADT]
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://www.adtmag.com/article.asp?id=11752" target="_blank">full story</A>&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505017">discuss this</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.07.05<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_090705">Sun chat session scheduled for TCO05 Algorithm Round 4</A></span><br><br>
       Sun will be in the Arena Applet at 8:30 PM just before the start of TCO05 Online Round 4, <b>Joe Nuxoll</b> from Sun will be in arena to chat about JSF components and Java Studio Creator.
@@ -302,18 +315,6 @@
    <tr><td class="newsLinksCell">
          <A href="/index?t=statistics&c=tco05_online_rd_1">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>08.22.05<br>8:50 AM</td>
-     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=8012">Job preferences survey</A></span><br><br>
-       When looking for a job, which of the following is more important to you?
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?&module=ViewSurvey&sid=8012">view survey</A>&#160;|&#160;
-         <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
 
 
