@@ -5,12 +5,12 @@
 
 <%@ page import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.forums.ForumConstants,
+                 com.topcoder.web.common.StringUtils,
                  com.jivesoftware.base.JiveConstants,
                  com.jivesoftware.base.User,
                  com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.ReadTracker,
-                 java.util.Iterator,
-                 java.util.Enumeration"
+                 java.util.*"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -144,21 +144,34 @@
             </table>
             <%  } %>
 
-            <%  if (categories.size() > 0) { %>
+            <%  if (categories.size() > 0) { 
+                    Calendar calendar = Calendar.getInstance(); 
+                    calendar.set(Calendar.MILLISECOND, 0);
+                    calendar.set(Calendar.SECOND, 0);
+                    calendar.set(Calendar.MINUTE, 0);
+                }   %>
             <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)categories.iterator()%>'>
-            <%  if (!"0".equals(category.getProperty("displayLimit"))) { %>
+            <%  String limit = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_DISPLAY_LIMIT));
+                if (!"0".equals(limit)) { %>
             <br><table cellpadding="0" cellspacing="0" class="rtTable">
                     <tr>
                        <td class="rtHeader" width="80%"><jsp:getProperty name="category" property="name"/>
-                            <%  if (category.getProperty("displayLimit") != null) { %> 
+                            <%  if (!"".equals(limit)) { %> 
                                     (<A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink">see all</A>) 
                             <%  } %> 
                        </td>
                        <td class="rtHeader" width="20%">T./M.</td>
                        <td class="rtHeader" align="center" colspan="2">Last Post</td>
                     </tr>
-                    <%  if (category.getProperty("displayLimit") != null) { 
-                            resultFilter.setNumResults(Integer.parseInt(category.getProperty("displayLimit")));
+                    <%  if (!"".equals(limit)) { 
+                            if (limit.endsWith("d")) {
+                                int numDays = Integer.parseInt(limit.substring(0, limit.length()-1));
+                                calendar.add(Calendar.DATE, numDays*-1);
+                                resultFilter.setModificationDateRangeMin(calendar.getTime());
+                                calendar.add(Calendar.DATE, numDays);
+                            } else {
+                                resultFilter.setNumResults(Integer.parseInt(category.getProperty("displayLimit")));
+                            }
                         } else { 
                             resultFilter.setNumResults(ResultFilter.NULL_INT);
                         } %>
