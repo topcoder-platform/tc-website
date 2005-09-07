@@ -37,6 +37,7 @@ public interface ForumConstants {
     public final static String PROPERTY_HIDE_EMPTY_FORUMS = "hideEmptyForums";
     public final static String PROPERTY_HIDE_SEARCH_FORUMS = "hideSearchForums";
     public final static String PROPERTY_LEFT_NAV_NAME = "leftNavName";
+    public final static String PROPERTY_DISPLAY_LIMIT = "displayLimit";
     public final static String PROPERTY_SORT = "sort";
     
     // Admin
