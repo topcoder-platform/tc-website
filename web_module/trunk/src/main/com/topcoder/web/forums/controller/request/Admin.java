@@ -53,7 +53,7 @@ public class Admin extends ForumsProcessor {
         if (command.equals(ForumConstants.ADMIN_CREATE_FORUMS_ALGO)) {
             ForumCategory algoCategory = forumFactory.getForumCategory(14);
             for (int i=0; i<roundList.size(); i++) {
-               String roundName = (String)roundList.get(i);
+               String roundName = ((Round)roundList.get(i)).getRoundName();
                forumFactory.createForum(roundName, "", algoCategory); 
             }
         }
