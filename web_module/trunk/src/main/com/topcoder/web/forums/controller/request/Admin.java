@@ -51,10 +51,12 @@ public class Admin extends ForumsProcessor {
         // process command
         String command = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ADMIN_COMMAND));
         if (command.equals(ForumConstants.ADMIN_CREATE_FORUMS_ALGO)) {
-            ForumCategory algoCategory = forumFactory.getForumCategory(14);
-            for (int i=0; i<roundList.size(); i++) {
-               String roundName = ((Round)roundList.get(i)).getRoundName();
-               forumFactory.createForum(roundName, "", algoCategory); 
+            if (forumFactory.getForumCount() < 20) {
+                ForumCategory algoCategory = forumFactory.getForumCategory(14);
+                for (int i=0; i<roundList.size(); i++) {
+                   String roundName = ((Round)roundList.get(i)).getRoundName();
+                   forumFactory.createForum(roundName, "", algoCategory); 
+                }
             }
         }
         /*
@@ -79,6 +81,7 @@ public class Admin extends ForumsProcessor {
             }
         }*/
         getRequest().setAttribute("roundList", roundList);
+        getRequest().setAttribute("forumFactory", forumFactory);
 
         setNextPage("/admin.jsp");
         setIsNextPageInContext(true);

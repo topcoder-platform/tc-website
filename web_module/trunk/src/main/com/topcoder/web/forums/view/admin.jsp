@@ -1,5 +1,5 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
-                com.topcoder.web.forums.ForumConstants,
+                 com.topcoder.web.forums.ForumConstants,
                  com.jivesoftware.base.JiveConstants,
                  com.jivesoftware.base.User,
                  com.jivesoftware.forum.ResultFilter,
@@ -11,6 +11,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
+<tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="roundList" name="roundList" type="java.util.ArrayList" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
