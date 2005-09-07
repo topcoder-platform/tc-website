@@ -42,7 +42,7 @@
           <a target="_blank" href="http://www.santaclaramarriott.com">www.santaclaramarriott.com</a><br />
             <p>
                 TopCoder is continuing the tradition of the Competitor Game Room at the onsite activities. The room
-                will be open from 9:00AM through 5:00PM on Wednesday, October 12. Competitors who wish to arrive on
+                will be open from 10:00AM through 5:00PM on Wednesday, October 12. Competitors who wish to arrive on
                 Tuesday, October 11 may do so and take advantage of the room on October 12. TopCoder will run a Poker
                 tournament with prizes for 1st, 2nd, and 3rd place, and will also have various other games available
                 (Backgammon, Cards, Checkers, Chess, Clue, Monopoly, Othello, Risk, Scrabble, Trivial Pursuit,
