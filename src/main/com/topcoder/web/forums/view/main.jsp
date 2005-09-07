@@ -149,7 +149,7 @@
                     calendar.set(Calendar.MILLISECOND, 0);
                     calendar.set(Calendar.SECOND, 0);
                     calendar.set(Calendar.MINUTE, 0);
-                }   %>
+                    %>
             <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)categories.iterator()%>'>
             <%  String limit = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_DISPLAY_LIMIT));
                 if (!"0".equals(limit)) { %>
@@ -169,6 +169,7 @@
                                 calendar.add(Calendar.DATE, numDays*-1);
                                 resultFilter.setModificationDateRangeMin(calendar.getTime());
                                 calendar.add(Calendar.DATE, numDays);
+                                resultFilter.setNumResults(ForumConstants.MAX_DISPLAYED_FORUMS_PER_CATEGORY);
                             } else {
                                 resultFilter.setNumResults(Integer.parseInt(category.getProperty("displayLimit")));
                             }
