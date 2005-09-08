@@ -39,6 +39,7 @@ public interface ForumConstants {
     public final static String PROPERTY_LEFT_NAV_NAME = "leftNavName";
     public final static String PROPERTY_DISPLAY_LIMIT = "displayLimit";
     public final static String PROPERTY_SORT = "sort";
+    public final static String PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN = "showEmptyForumsOnMain";
     
     // Admin
     public final static String ADMIN_COMMAND = "cmd";
