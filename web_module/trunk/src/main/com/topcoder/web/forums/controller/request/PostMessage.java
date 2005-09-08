@@ -115,7 +115,7 @@ public class PostMessage extends ForumsProcessor {
 				ForumMessage parentMessage = forumFactory.getMessage(messageID);
 				thread.addMessage(parentMessage, message);
                 if ("true".equals(user.getProperty("jiveAutoWatchReplies")) && !watchManager.isWatched(user, thread) && 
-                        watchManager.getTotalWatchCount(user, JiveConstants.THREAD) < ForumConstants.DEFAULT_MAX_THREAD_WATCHES) {
+                        watchManager.getTotalWatchCount(user, JiveConstants.THREAD) < ForumConstants.MAX_THREAD_WATCHES) {
                     watchManager.createWatch(user, thread);
                 }
 			}
@@ -123,7 +123,7 @@ public class PostMessage extends ForumsProcessor {
 			thread = forum.createThread(message);
 			forum.addThread(thread);
             if ("true".equals(user.getProperty("jiveAutoWatchNewTopics")) && !watchManager.isWatched(user, thread) && 
-                    watchManager.getTotalWatchCount(user, JiveConstants.THREAD) < ForumConstants.DEFAULT_MAX_THREAD_WATCHES) {
+                    watchManager.getTotalWatchCount(user, JiveConstants.THREAD) < ForumConstants.MAX_THREAD_WATCHES) {
                 watchManager.createWatch(user, thread);
             }
 		}

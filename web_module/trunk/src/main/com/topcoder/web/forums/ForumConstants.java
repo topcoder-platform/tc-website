@@ -85,11 +85,6 @@ public interface ForumConstants {
     public final static String WATCHES_DELETE_THREAD = "delete";
     
     // Defaults
-    public final static int DEFAULT_MAX_FORUMS_PER_PAGE = 50;
-    public final static int DEFAULT_MAX_THREADS_PER_PAGE = 100;
-    public final static int DEFAULT_MAX_MESSAGES_PER_PAGE = 100;
-    public final static int DEFAULT_MAX_SEARCH_RESULTS_PER_PAGE = 100;
-    public final static int DEFAULT_MAX_THREAD_WATCHES = 200;
     public final static int DEFAULT_SEARCH_RANGE = 20;
     public final static int DEFAULT_MESSAGE_RANGE = 15;
     public final static int DEFAULT_THREAD_RANGE = 15;  
@@ -98,11 +93,11 @@ public interface ForumConstants {
     public final static String DEFAULT_GUEST_THREAD_VIEW = "flat";
     
     // Maximums
-    //public final static int MAX_FORUMS_PER_PAGE = 50;
-    //public final static int MAX_THREADS_PER_PAGE = 100;
-    //public final static int MAX_MESSAGES_PER_PAGE = 100;
-    //public final static int MAX_SEARCH_RESULTS_PER_PAGE = 100;
-    //public final static int MAX_THREAD_WATCHES = 200;
+    public final static int MAX_FORUMS_PER_PAGE = 50;
+    public final static int MAX_THREADS_PER_PAGE = 100;
+    public final static int MAX_MESSAGES_PER_PAGE = 100;
+    public final static int MAX_SEARCH_RESULTS_PER_PAGE = 100;
+    public final static int MAX_THREAD_WATCHES = 200;
     public final static int MAX_DISPLAYED_FORUMS_PER_CATEGORY = 15;
     
     // Error messages
@@ -125,7 +120,7 @@ public interface ForumConstants {
     public final static String ERR_SEARCH_RANGE_EXCEEDED =
         "Error: Search result view range exceeded.";
     public final static String ERR_THREAD_WATCHES_EXCEEDED =
-        "A maximum of " + DEFAULT_MAX_THREAD_WATCHES + " threads can be watched. " +
+        "A maximum of " + MAX_THREAD_WATCHES + " threads can be watched. " +
         "Delete some watches in \"My Watches\" to free additional space.";
     public final static String ERR_NO_SEARCH_TERMS = 
         "Please enter some search terms.";
