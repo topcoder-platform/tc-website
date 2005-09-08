@@ -40,6 +40,10 @@
    <tr valign="middle"><td class="statTextLarge" bgcolor="#999999" colspan="2"><font size="3">Match Editorial Archive - 2005</font></td></tr>
    
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+   <tr><td valign="middle" class="bodyText" colspan="2"><strong>September</strong></td></tr>
+   <tr><td class="bodyText">09.07.05</td><td class="bodyText" nowrap="0" width="100%">TCO05 - Online Round 4 - <a href="/tc?module=Static&d1=match_editorials&d2=tco05_online_rd_4">Problem Set & Analysis</a></td></tr>
+
+   <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>August</strong></td></tr>
    <tr><td class="bodyText">08.31.05</td><td class="bodyText" nowrap="0" width="100%">TCO05 - Online Round 3 - <a href="/tc?module=Static&d1=match_editorials&d2=tco05_online_rd_3">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">08.30.05</td><td class="bodyText" nowrap="0" width="100%">SRM 261 - <a href="/tc?module=Static&d1=match_editorials&d2=srm261">Problem Set & Analysis</a></td></tr>
