@@ -55,7 +55,18 @@ public class Admin extends ForumsProcessor {
             if (algoCategory.getForumCount() < 20) {
                 for (int i=roundList.size()-1; i>=0; i--) {
                    String roundName = ((Round)roundList.get(i)).getRoundName();
-                   forumFactory.createForum(roundName, "", algoCategory); 
+                   if (roundName.indexOf("Sponsor") == -1) {
+                       forumFactory.createForum(roundName, "", algoCategory);
+                   }
+                }
+            }
+        } else if (command.equals(ForumConstants.ADMIN_DELETE_FORUMS_ALGO)) {
+            ForumCategory algoCategory = forumFactory.getForumCategory(14);
+            Iterator itForums = algoCategory.getForums();
+            while (itForums.hasNext()) {
+                Forum forum = (Forum)itForums.next();
+                if (forum.getThreadCount() == 0) {
+                    algoCategory.deleteForum(forum);
                 }
             }
         }
