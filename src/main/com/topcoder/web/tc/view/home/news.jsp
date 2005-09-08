@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>09.08.05<br>11:20 AM</td>
+     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=6535">TCO05 Superlatives Survey</A></span><br><br>
+      Here's your chance to vote for your favorite TopCoder finalists.  Voting will be from September 8, 2005 - September 15, 2005 5PM EDT (GMT -4).  Results will be announced in the TCO05 program.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=ViewSurvey&sid=211">view survey</A>&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505390">discuss this</A>&#160;|&#160;
+         <A href="/tc?&module=SurveyList">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.08.05<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview">TCO05 Algorithm Round 4 results</A></span><br><br>
       Find out who advanced to the onsite portion of the Algorithm Competition.
@@ -278,18 +291,6 @@
 
          <A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview">results</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>08.24.05<br>5:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_082405">TCO05 Component Competition Finalists Press Release</A></span><br><br>
-      "We've seen a dramatic growth in the component division - more than twice the number of participants registered this year compared to last year and that really shows it's the hottest area of interest in TopCoder competitions," said Rob Hughes, President and COO of TopCoder.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=pressroom&d2=pr_082405">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
 
 
