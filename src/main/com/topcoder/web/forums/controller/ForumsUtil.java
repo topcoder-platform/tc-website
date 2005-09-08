@@ -206,6 +206,31 @@ public class ForumsUtil {
         return null;
     }
     
+    // Returns forums in a category, with empty forums omitted or placed at the list's end.
+    public static ArrayList getForums(ForumCategory forumCategory, ResultFilter resultFilter, 
+            int startIdx, int forumRange, boolean excludeEmptyForums) {
+        Iterator itForums = forumCategory.getForums(resultFilter);
+        ArrayList a = new ArrayList();
+        ArrayList emptyForums = new ArrayList();
+        while (itForums.hasNext()) {
+            Forum f = (Forum)itForums.next();
+            if (f.getMessageCount() > 0) {
+                a.add(f);
+            } else {
+                emptyForums.add(f);
+            }
+        }
+        if (!excludeEmptyForums) {
+            a.addAll(emptyForums);
+        }
+        int endIdx = Math.min(startIdx+forumRange, a.size());
+        ArrayList pageList = new ArrayList();   // page results
+        for (int i=startIdx; i<endIdx; i++) {
+            pageList.add(a.get(i));
+        }
+        return pageList;
+    }
+    
     // Returns the forum object's category hierarchy by increasing depth, starting from the root level.
     public static Iterator getCategoryTree(ForumCategory category) {
         ArrayList categoryList = new ArrayList();
