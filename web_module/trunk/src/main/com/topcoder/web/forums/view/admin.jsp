@@ -67,9 +67,11 @@
       <td class="rtTextCell100">
         <select size="1" name="<%=ForumConstants.ADMIN_COMMAND%>">
         <%  String[] commandNames = { "Change angle brackets in old messages to HTML equivalents",
-                "Add test forums", "Delete test forums", "Create algorithm forums" };
+                "Add test forums", "Delete test forums", "Create algorithm forums", 
+                "Delete algorithm forums" };
             String[] commandValues = { ForumConstants.ADMIN_COMMAND_HTML_ESCAPE,
-                "Add test forums", "Delete test forums", ForumConstants.ADMIN_CREATE_FORUMS_ALGO };
+                "Add test forums", "Delete test forums", ForumConstants.ADMIN_CREATE_FORUMS_ALGO,
+                ForumConstants.ADMIN_DELETE_FORUMS_ALGO };
             for (int i=0; i<commandNames.length; i++) { %>
                 <option value="<%=commandValues[i]%>"><%=commandNames[i]%></option>
         <%  } %>
