@@ -4,6 +4,7 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveConstants;
+import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.action.util.Paginator;
@@ -50,7 +51,8 @@ public class Category extends ForumsProcessor {
         int totalItemCount = 0;
         
         boolean excludeEmptyForums = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_HIDE_EMPTY_FORUMS));
-        ArrayList forumsList = ForumsUtil.getForums(forumCategory, resultFilter, startIdx, forumRange, excludeEmptyForums);
+        ArrayList forumsList = ForumsUtil.getForums(forumCategory, resultFilter, excludeEmptyForums);
+        ArrayList pageList = ForumsUtil.getForumsPage(forumsList, startIdx, forumRange);
         totalItemCount = forumsList.size();
         resultFilter.setStartIndex(startIdx);
         resultFilter.setNumResults(forumRange);
@@ -111,7 +113,7 @@ public class Category extends ForumsProcessor {
         
         getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("forumCategory", forumCategory);
-		getRequest().setAttribute("forums", forumsList.iterator());
+		getRequest().setAttribute("forums", pageList.iterator());
         getRequest().setAttribute("categories", itCategories);
         getRequest().setAttribute("resultFilter", resultFilter);
         getRequest().setAttribute("paginator", paginator);

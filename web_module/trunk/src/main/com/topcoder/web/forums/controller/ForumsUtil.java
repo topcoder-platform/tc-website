@@ -208,25 +208,30 @@ public class ForumsUtil {
     
     // Returns forums in a category, with empty forums omitted or placed at the list's end.
     public static ArrayList getForums(ForumCategory forumCategory, ResultFilter resultFilter, 
-            int startIdx, int forumRange, boolean excludeEmptyForums) {
+            boolean excludeEmptyForums) {
         Iterator itForums = forumCategory.getForums(resultFilter);
-        ArrayList a = new ArrayList();
+        ArrayList forumsList = new ArrayList();
         ArrayList emptyForums = new ArrayList();
         while (itForums.hasNext()) {
             Forum f = (Forum)itForums.next();
             if (f.getMessageCount() > 0) {
-                a.add(f);
+                forumsList.add(f);
             } else {
                 emptyForums.add(f);
             }
         }
         if (!excludeEmptyForums) {
-            a.addAll(emptyForums);
+            forumsList.addAll(emptyForums);
         }
-        int endIdx = Math.min(startIdx+forumRange, a.size());
-        ArrayList pageList = new ArrayList();   // page results
+        return forumsList;
+    }
+    
+    // Returns one page of forums in a category
+    public static ArrayList getForumsPage(ArrayList forumsList, int startIdx, int forumRange) {
+        int endIdx = Math.min(startIdx+forumRange, forumsList.size());
+        ArrayList pageList = new ArrayList();
         for (int i=startIdx; i<endIdx; i++) {
-            pageList.add(a.get(i));
+            pageList.add(forumsList.get(i));
         }
         return pageList;
     }
