@@ -2846,7 +2846,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setLong(1, a.getHeader().getUser().getId());
             ps.setInt(2, a.getHeader().getStatusId());
             ps.setInt(3, (a.getHeader().isNotarized() ? 1 : 0));
-            ps.setLong(4, a.getPayment().getId());
+            if (a.getPayment().getId()>0) {
+                ps.setLong(4, a.getPayment().getId());
+            } else {
+                ps.setNull(4, Types.NUMERIC);
+            }
             ps.setString(5, a.getHeader().getDescription());
             ps.setInt(6, a.getHeader().getTypeId());
             ps.setLong(7, a.getHeader().getId());
