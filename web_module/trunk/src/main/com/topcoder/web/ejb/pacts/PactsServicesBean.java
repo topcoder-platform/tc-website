@@ -4228,7 +4228,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 throw new IllegalUpdateException("Round " + roundId + " does not exist or is not unique");
             }
             String roundName = rsc.getItem(0, 0).toString() + " " + rsc.getItem(0, 1).toString();
-            String dueDate = TCData.getTCDate(rsc.getRow(0), "due_date", null, false);
+            String dueDate = TCData.getTCDate(rsc.getRow(0), "due_date", null, true);
 
             StringBuffer getWinners = new StringBuffer(300);
             getWinners.append("SELECT rr.room_id, rr.coder_id, rr.room_placed, rp.paid, c.country_code ");

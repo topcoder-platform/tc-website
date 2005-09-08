@@ -107,7 +107,7 @@ public class AffidavitHeader implements PactsConstants, java.io.Serializable {
                 TCData.getTCString(rsr, "handle", "default handle", true));
         notarized = (0 != TCData.getTCInt(rsr, "notarized", 0, true));
         affirmed = (0 != TCData.getTCInt(rsr, "affirmed", 0, true));
-        creationDate = TCData.getTCDate(rsr, "date_created", "00/00/00", true);
+        creationDate = TCData.getTCDate(rsr, "date_created", "00/00/00", false);
         typeDesc = TCData.getTCString(rsr, "affidavit_type_desc", "default affidavit type", true);
         typeId = TCData.getTCInt(rsr, "affidavit_type_id", 0, true);
         description = TCData.getTCString(rsr, "affidavit_desc", "default description", true);
