@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.08.05<br>10:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_090705">Sun chat session from TCO05 Algorithm Round 4</A></span><br><br>
+      Just prior to the TCO05 Online Round 4, Joe Nuxoll from Sun Microsystems&#174; was in arena to chat about JSF components and Java Studio Creator.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_090705">details</A>&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505389">discuss this</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>09.08.05<br>10:10 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -20,9 +33,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=match_editorials&d2=tco05_online_rd_4">full story</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505388">discuss this</A>&#160;|&#160;
-<%--
-         <tc-webtag:forumLink forumID="505003" message="discuss this" />&#160;|&#160;
---%>
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
@@ -30,7 +40,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>09.06.05<br>3:10 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.adtmag.com/article.asp?id=11752" target="_blank">Components for SOAs and Other App Dev Projects</A></span><br><br>
-      "The result of the partnership between LogicLibrary and TopCoder reached earlier this year is that TopCoder’s components for Java and .NET are now stored in Logidex, LogicLibrary's collaborative SDA management solution." [ADT]
+      "The result of the partnership between LogicLibrary and TopCoder reached earlier this year is that TopCoder's components for Java and .NET are now stored in Logidex, LogicLibrary's collaborative SDA management solution." [ADT]
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -49,9 +59,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_090705">details</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505016">discuss this</A>&#160;|&#160;
-<%--
-         <tc-webtag:forumLink forumID="505005" message="discuss this" />&#160;|&#160;
---%>
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
@@ -71,9 +78,6 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=tco05_qual3">set 3</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=tco05_qual4">set 4</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=tco05_qual5">set 5</A>&#160;|&#160;
-<%--
-         <tc-webtag:forumLink forumID="505003" message="discuss this" />&#160;|&#160;
---%>
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
@@ -88,9 +92,6 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=dev_conferences">details</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=pressroom&d2=pr_090205">press release</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505005">discuss this</A>&#160;|&#160;
-<%--
-         <tc-webtag:forumLink forumID="505005" message="discuss this" />&#160;|&#160;
---%>
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
@@ -104,9 +105,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview">results</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505004">discuss this</A>&#160;|&#160;
-<%--
-         <tc-webtag:forumLink forumID="505004" message="discuss this" />&#160;|&#160;
---%>
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
@@ -123,9 +121,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=match_editorials&d2=tco05_online_rd_3">full story</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505003">discuss this</A>&#160;|&#160;
-<%--
-         <tc-webtag:forumLink forumID="505003" message="discuss this" />&#160;|&#160;
---%>
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
@@ -139,9 +134,6 @@
    <tr><td class="newsLinksCell">
          <A href="/?RoundId=8007&t=schedule&c=srm">details</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505002">discuss this</A>&#160;|&#160;
-<%--
-         <tc-webtag:forumLink forumID="505002" message="discuss this" />&#160;|&#160;
---%>
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
@@ -158,9 +150,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=match_editorials&d2=srm261">full story</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505001">discuss this</A>&#160;|&#160;
-<%--
-         <tc-webtag:forumLink forumID="505001" message="discuss this" />&#160;|&#160;
---%>
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
@@ -173,9 +162,6 @@
    <tr><td class="newsLinksCell">
          <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=8">view</a>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505000">discuss this</A>&#160;|&#160;
-<%--
-         <tc-webtag:forumLink forumID="505000" message="discuss this" />&#160;|&#160;
---%>
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
@@ -234,7 +220,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>08.29.05<br>10:35 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://timesofindia.indiatimes.com/articleshow/1212895.cms" target="_blank">Wanna codejam? May the best techie win</A></span><br><br>
-      "It’s the grand slam of programming or, as the tourney organiser calls it, 'the X-games of software development'. It’s gruelling and needs speed, accuracy and skill. Sounds like a sports contest?" [Times of India]
+      "It's the grand slam of programming or, as the tourney organiser calls it, 'the X-games of software development'. It's gruelling and needs speed, accuracy and skill. Sounds like a sports contest?" [Times of India]
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -306,19 +292,6 @@
    <tr><td class="newsLinksCell">
          <A href="/index?t=statistics&c=srm259_prob">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>08.22.05<br>11:40 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview">TCO05 Algorithm Round 1 results</A></span><br><br>
-      Find out who advanced to the next round in the Algorithm Competition.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-
-         <A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview">results</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 
