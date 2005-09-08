@@ -22,13 +22,13 @@ import java.text.ParseException;
  */
 public class Settings extends ForumsProcessor {
     private int maxForumsPerPage = 
-        JiveGlobals.getJiveIntProperty("skin.default.maxForumsPerPage", ForumConstants.DEFAULT_MAX_FORUMS_PER_PAGE);
+        JiveGlobals.getJiveIntProperty("skin.default.maxForumsPerPage", ForumConstants.MAX_FORUMS_PER_PAGE);
     private int maxThreadsPerPage =
-        JiveGlobals.getJiveIntProperty("skin.default.maxThreadsPerPage", ForumConstants.DEFAULT_MAX_THREADS_PER_PAGE);
+        JiveGlobals.getJiveIntProperty("skin.default.maxThreadsPerPage", ForumConstants.MAX_THREADS_PER_PAGE);
     private int maxMessagesPerPage =
-        JiveGlobals.getJiveIntProperty("skin.default.maxMessagesPerPage", ForumConstants.DEFAULT_MAX_MESSAGES_PER_PAGE);
+        JiveGlobals.getJiveIntProperty("skin.default.maxMessagesPerPage", ForumConstants.MAX_MESSAGES_PER_PAGE);
     private int maxSearchResultsPerPage =
-        JiveGlobals.getJiveIntProperty("skin.default.maxSearchResultsPerPage", ForumConstants.DEFAULT_MAX_SEARCH_RESULTS_PER_PAGE);
+        JiveGlobals.getJiveIntProperty("skin.default.maxSearchResultsPerPage", ForumConstants.MAX_SEARCH_RESULTS_PER_PAGE);
     
     // For watch email notification setting of "never"
     public final static int FREQUENCY_NEVER = -1;

@@ -34,7 +34,7 @@ public class Watch extends ForumsProcessor {
         if (type == JiveConstants.THREAD) {
             ForumThread thread = forumFactory.getForumThread(id);
         	if (cmd.equals("add")) {
-                if (watchManager.getTotalWatchCount(user, JiveConstants.THREAD) < ForumConstants.DEFAULT_MAX_THREAD_WATCHES) {
+                if (watchManager.getTotalWatchCount(user, JiveConstants.THREAD) < ForumConstants.MAX_THREAD_WATCHES) {
                     watchManager.createWatch(user, thread);
                 } else {
                 	errors = ForumConstants.WATCH_THREAD;
