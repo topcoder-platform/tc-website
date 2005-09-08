@@ -46,6 +46,7 @@ public interface ForumConstants {
     public final static String ADMIN_COMMAND_HTML_ESCAPE = "htmlEscape";
     public final static String ADMIN_COMMAND_ADD_CONTEST = "addContest";
     public final static String ADMIN_CREATE_FORUMS_ALGO = "createForumsAlgo";
+    public final static String ADMIN_DELETE_FORUMS_ALGO = "deleteForumsAlgo";
     
     public final static String ADMIN_MATCH = "match";
     
