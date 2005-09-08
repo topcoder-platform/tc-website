@@ -9,8 +9,8 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>09.08.05<br>11:20 AM</td>
-     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=6535">TCO05 Superlatives Survey</A></span><br><br>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>09.08.05<br>12:00 PM</td>
+     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=211">TCO05 Superlatives Survey</A></span><br><br>
       Here's your chance to vote for your favorite TopCoder finalists.  Voting will be from September 8, 2005 - September 15, 2005 5PM EDT (GMT -4).  Results will be announced in the TCO05 program.
       </td>
    </tr>
