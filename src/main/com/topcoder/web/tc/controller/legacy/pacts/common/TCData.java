@@ -14,7 +14,7 @@ import java.util.StringTokenizer;
 public class TCData {
     private static Logger log = Logger.getLogger(TCData.class);
 
-    private static final boolean LOG_EXCEPTIONS = true;
+    private static final boolean LOG_EXCEPTIONS = false;
 
     public static long getTCLong(ResultSetContainer.ResultSetRow row,
                                  String key, long defaultVal,
@@ -97,9 +97,9 @@ public class TCData {
             return returnString + year;
         } catch (Exception e) {
             log.debug("getTCDate got excepted with key=" + key);
-            if (printException) {
+/*            if (printException) {
                 e.printStackTrace();
-            }
+            }*/
             if (defaultVal != null && defaultVal.equals("00/00/00"))
                 return "00/00/0000";
             else
