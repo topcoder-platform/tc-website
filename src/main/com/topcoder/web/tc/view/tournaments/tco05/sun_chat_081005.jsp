@@ -8,24 +8,24 @@
 <STYLE TYPE="text/css">
 .light
 {
-   background-color: #FFFFFF;	
-	color: #333333;
-	font-size: 12px;
-	font-weight: normal;
-	text-decoration: none;
-	vertical-align:top;
-	padding: 3px 5px 3px 5px;
+background-color: #FFFFFF;
+color: #333333;
+font-size: 12px;
+font-weight: normal;
+text-decoration: none;
+vertical-align:top;
+padding: 3px 5px 3px 5px;
 }
 
 .dark
 {
-   background-color: #EEEEEE;	
-	color: #333333;
-	font-size: 12px;
-	font-weight: normal;
-	text-decoration: none;
-	vertical-align:top;
-	padding: 3px 5px 3px 5px;
+background-color: #EEEEEE;
+color: #333333;
+font-size: 12px;
+font-weight: normal;
+text-decoration: none;
+vertical-align:top;
+padding: 3px 5px 3px 5px;
 }
 </STYLE>
 </head>
@@ -40,9 +40,9 @@
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
-	<tr valign="top">
-		<td valign="top" align="center">
-		<div class="bodySpacer">
+<tr valign="top">
+<td valign="top" align="center">
+<div class="bodySpacer">
             
 <div align="center"><img src="/i/tournament/tco05/sun_logo.gif" alt="Sun" border="0" /></div>
 <br><br>
@@ -371,7 +371,7 @@
 </table>
 
         </div>
-		</td>
+</td>
         
          
 <!-- Right Column-->
@@ -380,12 +380,12 @@
             <jsp:param name="level1" value="tco05"/>
             </jsp:include>
          </td>
-		
-	</tr>
-	
+
+</tr>
+
 </table>
-	
-	
+
+
 
 
 <jsp:include page="../../foot.jsp" />
