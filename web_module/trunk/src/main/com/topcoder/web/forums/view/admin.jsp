@@ -68,7 +68,7 @@
         <select size="1" name="<%=ForumConstants.ADMIN_COMMAND%>">
         <%  String[] commandNames = { "Change angle brackets in old messages to HTML equivalents",
                 "Add test forums", "Delete test forums", "Create algorithm forums", 
-                "Delete algorithm forums" };
+                "Delete empty algorithm forums" };
             String[] commandValues = { ForumConstants.ADMIN_COMMAND_HTML_ESCAPE,
                 "Add test forums", "Delete test forums", ForumConstants.ADMIN_CREATE_FORUMS_ALGO,
                 ForumConstants.ADMIN_DELETE_FORUMS_ALGO };
