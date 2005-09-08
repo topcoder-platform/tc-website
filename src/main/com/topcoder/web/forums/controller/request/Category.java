@@ -69,10 +69,34 @@ public class Category extends ForumsProcessor {
             resultFilter.setStartIndex(startIdx);
             resultFilter.setNumResults(forumRange);
         } else {
+            // Place forums containing posts before empty forums
+            
+            itForums = forumCategory.getForums(resultFilter);
+            ArrayList a = new ArrayList();  // all results
+            ArrayList emptyList = new ArrayList();
+            while (itForums.hasNext()) {
+                Forum f = (Forum)itForums.next();
+                if (f.getMessageCount() > 0) {
+                    a.add(f);
+                } else {
+                    emptyList.add(f);
+                }
+            }
+            a.addAll(emptyList);
+            int endIdx = Math.min(startIdx+forumRange, a.size());
+            ArrayList pageList = new ArrayList();   // page results
+            for (int i=startIdx; i<endIdx; i++) {
+                pageList.add(a.get(i));
+            }
+            itForums = pageList.iterator();
+            totalItemCount = a.size();
             resultFilter.setStartIndex(startIdx);
             resultFilter.setNumResults(forumRange);
-            itForums = forumCategory.getForums(resultFilter);
-            totalItemCount = forumCategory.getForumCount(resultFilter);
+            
+            //resultFilter.setStartIndex(startIdx);
+            //resultFilter.setNumResults(forumRange);
+            //itForums = forumCategory.getForums(resultFilter);
+            //totalItemCount = forumCategory.getForumCount(resultFilter);
         }
         Paging paging = new Paging(resultFilter, totalItemCount);
         Paginator paginator = new Paginator(paging);
