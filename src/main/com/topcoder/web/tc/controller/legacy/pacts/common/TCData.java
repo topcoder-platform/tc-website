@@ -97,9 +97,9 @@ public class TCData {
             return returnString + year;
         } catch (Exception e) {
             log.debug("getTCDate got excepted with key=" + key);
-/*            if (printException) {
+            if (printException) {
                 e.printStackTrace();
-            }*/
+            }
             if (defaultVal != null && defaultVal.equals("00/00/00"))
                 return "00/00/0000";
             else
