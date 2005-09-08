@@ -24,10 +24,7 @@ public class ResultSetItemTag extends TagSupport {
 
     public int doStartTag() throws JspException {
         try {
-            log.debug("escape=" + escapeHTML);
-            String text = escapeHTML? StringUtils.htmlEncode(row.getItem(name).toString()) : row.getItem(name).toString();
-            log.debug("text=" + text);
-            pageContext.getOut().print(text);
+            pageContext.getOut().print(row.getItem(name).toString());
         } catch (IOException e) {
             throw new JspException(e.getMessage());
         }
