@@ -43,6 +43,11 @@
                 <li>Made the top of the page color handle based on highest rating</li>
             </ul>
         </p>
+        <p> 4.0.0 - 2005.08.31
+            <ul>
+                <li>Migrated to new application server</li>
+            </ul>
+        </p>
 
          </td>
 <!-- Center Column Ends -->
