@@ -3,13 +3,13 @@
 <!DOCTYPE ejb-jar PUBLIC '-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN' 'http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd'>
 
 <ejb-jar>
-    <display-name>Forum</display-name>
+    <display-name>MessageHistory</display-name>
 	<enterprise-beans>
 		<session>
 			<ejb-name>MessageHistory</ejb-name>
-			<home>com.topcoder.web.ejb.MessageHistory.MessageHistoryHome</home>
-			<remote>com.topcoder.web.ejb.MessageHistory.MessageHistory</remote>
-			<ejb-class>com.topcoder.web.ejb.MessageHistory.MessageHistoryBean</ejb-class>
+			<home>com.topcoder.web.ejb.messagehistory.MessageHistoryHome</home>
+			<remote>com.topcoder.web.ejb.messagehistory.MessageHistory</remote>
+			<ejb-class>com.topcoder.web.ejb.messagehistory.MessageHistoryBean</ejb-class>
 			<session-type>Stateless</session-type>
 			<transaction-type>Container</transaction-type>
     	</session>
