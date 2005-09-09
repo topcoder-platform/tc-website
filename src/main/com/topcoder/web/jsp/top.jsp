@@ -14,7 +14,7 @@
    String styleClass = "coderTextWhite";
    int rating = 0;
    if (!sessionInfo.isAnonymous()) {
-       rating = sessionInfo.getRating();
+       rating = sessionInfo.getHighestRating();
        if ( rating > 2199 ) {
          styleClass = "coderTextRed";
        } else if ( rating > 1499 && rating < 2200 ) {
