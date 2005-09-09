@@ -51,8 +51,11 @@ public class Category extends ForumsProcessor {
         int totalItemCount = 0;
         
         boolean excludeEmptyForums = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_HIDE_EMPTY_FORUMS));
+        log.debug("##########obtaining forumsList....");
         ArrayList forumsList = ForumsUtil.getForums(forumCategory, resultFilter, excludeEmptyForums);
+        log.debug("##########obtaining pageList....");
         ArrayList pageList = ForumsUtil.getForumsPage(forumsList, startIdx, forumRange);
+        log.debug("##########obtained pageList....");
         totalItemCount = forumsList.size();
         resultFilter.setStartIndex(startIdx);
         resultFilter.setNumResults(forumRange);
