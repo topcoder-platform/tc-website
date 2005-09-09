@@ -384,6 +384,7 @@ public final class MainServlet extends BaseServlet {
                 document.addTag(new ValueTag("UserId", nav.getUserId()));
                 document.addTag(new ValueTag("Handle", nav.getSessionInfo().getHandle()));
                 document.addTag(new ValueTag("Rating", nav.getSessionInfo().getRating()));
+                document.addTag(new ValueTag("HighestRating", nav.getSessionInfo().getHighestRating()));
                 document.addTag(new ValueTag("Ranking", nav.getSessionInfo().getRank()));
                 document.addTag(new ValueTag("HasImage", nav.getSessionInfo().hasImage()));
                 document.addTag(new ValueTag("ActivationCode", nav.getSessionInfo().getActivationCode()));

@@ -82,7 +82,11 @@ public class CoderSessionInfo extends SessionInfo {
     }
 
     public int getHighestRating() {
-        return Math.max(designRating, Math.max(rating, devRating));
+        if (rating < 0) {
+            return rating;
+        } else {
+            return Math.max(designRating, Math.max(rating, devRating));
+        }
     }
 
     public int getRank() {

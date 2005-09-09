@@ -23,7 +23,7 @@
             <xsl:choose>
                 <xsl:when test="/TC/LoggedIn='true'">
                     <strong>Hello,</strong>&#160;<span class="smallText"><A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=member_profile&amp;Coder_Id=<xsl:value-of select="/TC/UserId"/></xsl:attribute>
-                    <xsl:attribute name="class"><xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="/TC/Rating"/></xsl:with-param></xsl:call-template></xsl:attribute>
+                    <xsl:attribute name="class"><xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="/TC/HighestRating"/></xsl:with-param></xsl:call-template></xsl:attribute>
                     <xsl:value-of select="/TC/Handle"/>
                     </A></span>
                     &#160;&#160;|&#160;&#160;<A class="loginLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?&amp;module=Logout</xsl:attribute>Logout</A>
