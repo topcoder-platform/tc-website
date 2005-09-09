@@ -8,7 +8,7 @@ import javax.ejb.EJBException;
 
 public interface Forum extends EJBObject {
     
-    public void createForum(int roundID) throws EJBException, RemoteException;
+    public void createMatchForum(int roundID) throws EJBException, RemoteException;
 
     public String[] getCategoryNames() throws EJBException, RemoteException;
 }
