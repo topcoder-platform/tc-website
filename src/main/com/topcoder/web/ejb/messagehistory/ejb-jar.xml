@@ -6,10 +6,10 @@
     <display-name>Forum</display-name>
 	<enterprise-beans>
 		<session>
-			<ejb-name>Forum</ejb-name>
-			<home>com.topcoder.web.ejb.Forum.ForumHome</home>
-			<remote>com.topcoder.web.ejb.Forum.Forum</remote>
-			<ejb-class>com.topcoder.web.ejb.Forum.ForumBean</ejb-class>
+			<ejb-name>MessageHistory</ejb-name>
+			<home>com.topcoder.web.ejb.MessageHistory.MessageHistoryHome</home>
+			<remote>com.topcoder.web.ejb.MessageHistory.MessageHistory</remote>
+			<ejb-class>com.topcoder.web.ejb.MessageHistory.MessageHistoryBean</ejb-class>
 			<session-type>Stateless</session-type>
 			<transaction-type>Container</transaction-type>
     	</session>
@@ -17,8 +17,8 @@
     <assembly-descriptor>
 		<container-transaction>
 	  		<method>
-	    		<ejb-name>Forum</ejb-name>
-	    		<method-intf>Remote</method-intf>
+	    		<ejb-name>MessageHistory</ejb-name>
+	    		<method-intf>Remote</method-intf> 
 	    		<method-name>*</method-name>
 	  		</method>
   	    	<trans-attribute>Required</trans-attribute>
