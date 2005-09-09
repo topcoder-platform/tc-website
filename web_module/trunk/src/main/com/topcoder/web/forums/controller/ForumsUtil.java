@@ -218,12 +218,12 @@ public class ForumsUtil {
         ArrayList forumsList = new ArrayList();
         ArrayList emptyForums = new ArrayList();
         while (itForums.hasNext()) {
-            Forum f = (Forum)itForums.next();
-            if (f.getMessageCount() > 0) {
-                forumsList.add(f);
-            } else {
-                emptyForums.add(f);
-            }
+            //Forum f = (Forum)itForums.next();
+            //if (f.getMessageCount() > 0) {
+            //    forumsList.add(f);
+            //} else {
+            //    emptyForums.add(f);
+            //}
         }
         log.debug("$$$$$$$$$$$separated forums()");
         if (!excludeEmptyForums) {
