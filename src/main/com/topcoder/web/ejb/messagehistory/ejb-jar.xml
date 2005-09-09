@@ -18,7 +18,7 @@
 		<container-transaction>
 	  		<method>
 	    		<ejb-name>MessageHistory</ejb-name>
-	    		<method-intf>Remote</method-intf> 
+	    		<method-intf>Remote</method-intf>
 	    		<method-name>*</method-name>
 	  		</method>
   	    	<trans-attribute>Required</trans-attribute>
