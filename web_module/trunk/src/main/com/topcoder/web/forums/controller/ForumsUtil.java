@@ -18,6 +18,8 @@ import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.database.DbForumFactory;
 import com.jivesoftware.forum.database.DbForumMessage;
 import com.jivesoftware.util.StringUtils;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
 
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -26,6 +28,7 @@ import java.util.ArrayList;
  * @author mtong
  */
 public class ForumsUtil {
+    protected static Logger log = Logger.getLogger(BaseProcessor.class);
     private static boolean filterHTMLEnabled
         = JiveGlobals.getJiveBooleanProperty("search.filterHTMLEnabled",true);
 
@@ -209,7 +212,9 @@ public class ForumsUtil {
     // Returns forums in a category, with empty forums omitted or placed at the list's end.
     public static ArrayList getForums(ForumCategory forumCategory, ResultFilter resultFilter, 
             boolean excludeEmptyForums) {
+        log.debug("$$$$$$$$$$$in getForums()");
         Iterator itForums = forumCategory.getForums(resultFilter);
+        log.debug("$$$$$$$$$$$obtained forums()");
         ArrayList forumsList = new ArrayList();
         ArrayList emptyForums = new ArrayList();
         while (itForums.hasNext()) {
@@ -220,9 +225,11 @@ public class ForumsUtil {
                 emptyForums.add(f);
             }
         }
+        log.debug("$$$$$$$$$$$separated forums()");
         if (!excludeEmptyForums) {
             forumsList.addAll(emptyForums);
         }
+        log.debug("$$$$$$$$$$$combined forums()");
         return forumsList;
     }
     
