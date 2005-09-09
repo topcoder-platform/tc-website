@@ -39,6 +39,8 @@ function goTo(selection){
             <jsp:param name="title" value="Affidavits"/>
         </jsp:include>
 
+<p class="bigRed" align="left">Learn <A href="/tc?module=Static&d1=help&d2=algPayment" class="bigRed">How to Get Paid</A> from TopCoder for your algorithm winnings.</p>
+
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
    <TR>
       <TD CLASS="affidavitText" COLSPAN="2">
