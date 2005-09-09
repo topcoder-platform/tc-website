@@ -38,7 +38,7 @@
            <jsp:param name="title" value="TopCoder Web Site Change Log"/>
         </jsp:include>
 
-        <p>
+        <p> 4.0.1 - 2005.XX.XX
             <ul>
                 <li>Made the top of the page color handle based on highest rating</li>
             </ul>
