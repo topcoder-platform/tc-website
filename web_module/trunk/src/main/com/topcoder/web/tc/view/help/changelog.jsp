@@ -45,7 +45,7 @@
         </p>
         <p> 4.0.0 - 2005.08.31
             <ul>
-                <li>Migrated to new application server</li>
+                <li>Migrated to new application server and Java 1.4.2</li>
             </ul>
         </p>
 
