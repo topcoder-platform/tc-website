@@ -54,7 +54,7 @@ function goTo(selection){
 %>
 
 <P class="bodyText"><B>Prize Payment Requirements:</B><P>
-<p class="bigRed">Learn <A href="/tc?module=Static&d1=help&d2=algPayment" class="bigRed">How to Get Paid</A> from TopCoder for your algorithm winnings.</p>
+<p class="bigRed">Learn <A href="/tc?module=Static&d1=help&d2=algPayment" class="bigRed">How to Get Paid</A> from TopCoder for your algorithm competition winnings.</p>
 
 <% if (!a.hasNotarizedAffidavit()||a.canAffirmOnline()) { %>
 <p><a href="PactsMemberServlet?t=affidavit&c=render_affidavit&affidavit_id=<%=a.getAffidavit().getHeader().getId()%>">click here for a printer friendly version of the affidavit</a></p>
