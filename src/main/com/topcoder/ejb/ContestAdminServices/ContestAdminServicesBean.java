@@ -977,6 +977,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
                 sysAttr = new SystemTestCaseReport();
                 sysAttr.setCoderId(rs.getInt(1));
                 sysAttr.setHandle(rs.getString(2));
+                sysAttr.setRoundId(roundId);
                 coders.add(sysAttr);
             }
 
