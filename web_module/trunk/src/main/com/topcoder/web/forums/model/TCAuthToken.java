@@ -20,7 +20,7 @@ public class TCAuthToken implements AuthToken, Serializable {
      *
      * @param userID the userID to create an authToken token with.
      */
-    protected TCAuthToken(long userID) {
+    public TCAuthToken(long userID) {
         this.u = new SimpleUser(userID, "", "");
     }
 

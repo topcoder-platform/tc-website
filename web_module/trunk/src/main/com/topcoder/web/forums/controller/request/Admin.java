@@ -14,13 +14,17 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.ejb.messagehistory.MessageHistory;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.common.web.data.Round;
 
 import java.util.*;
+
+import javax.naming.InitialContext;
 
 /**
  * @author mtong
@@ -69,6 +73,11 @@ public class Admin extends ForumsProcessor {
                     algoCategory.deleteForum(forum);
                 }
             }
+        } else if (command.equals("Create forum from EJB")) {
+            InitialContext ctx = TCContext.getInitial();
+            com.topcoder.web.ejb.forum.Forum forum = 
+                (com.topcoder.web.ejb.forum.Forum)createEJB(ctx, Forum.class);
+            
         }
         /*
         if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
