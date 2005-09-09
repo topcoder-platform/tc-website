@@ -54,7 +54,8 @@ public class Admin extends ForumsProcessor {
         
         // process command
         String command = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ADMIN_COMMAND));
-        if (command.equals(ForumConstants.ADMIN_CREATE_FORUMS_ALGO)) {
+        String match = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ADMIN_MATCH));
+        if (command.equals(ForumConstants.ADMIN_COMMAND_CREATE_FORUMS_ALGO)) {
             ForumCategory algoCategory = forumFactory.getForumCategory(14);
             if (algoCategory.getForumCount() < 20) {
                 for (int i=roundList.size()-1; i>=0; i--) {
@@ -64,7 +65,7 @@ public class Admin extends ForumsProcessor {
                    }
                 }
             }
-        } else if (command.equals(ForumConstants.ADMIN_DELETE_FORUMS_ALGO)) {
+        } else if (command.equals(ForumConstants.ADMIN_COMMAND_DELETE_FORUMS_ALGO)) {
             ForumCategory algoCategory = forumFactory.getForumCategory(14);
             Iterator itForums = algoCategory.getForums();
             while (itForums.hasNext()) {
@@ -73,11 +74,12 @@ public class Admin extends ForumsProcessor {
                     algoCategory.deleteForum(forum);
                 }
             }
-        } else if (command.equals("Create forum from EJB")) {
+        } else if (command.equals("Create forum from EJB") && !match.equals("")) {
             InitialContext ctx = TCContext.getInitial();
             com.topcoder.web.ejb.forum.Forum forum = 
                 (com.topcoder.web.ejb.forum.Forum)createEJB(ctx, Forum.class);
-            
+            int matchID = Integer.parseInt(match);
+            forum.createMatchForum(matchID);
         }
         /*
         if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
