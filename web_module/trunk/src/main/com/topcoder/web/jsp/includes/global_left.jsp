@@ -225,6 +225,9 @@ function arena() {
                 <tr><td id="<%=level2.equals("ratings")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=support&c=ratings">Ratings Overview</A></td></tr>
                 <tr><td id="<%=level2.equals("charity")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=support&c=charities">Charity Donations</A></td></tr>
                 <tr><td id="<%=level2.equals("samples")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=support&c=sample_problems">Sample Problem Statements</A></td></tr>
+<%--
+                <tr><td id="<%=level2.equals("algPayment")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=help&d2=algPayment">How to Get Paid</A></td></tr>
+--%>
             <% } %>
     <%-- Support/FAQs ends --%>
 
