@@ -40,7 +40,7 @@
 
         <p> 4.0.1 - 2005.XX.XX
             <ul>
-                <li>Made the top of the page color handle based on highest rating</li>
+                <li>Made the top color handle based on highest rating</li>
             </ul>
         </p>
         <p> 4.0.0 - 2005.08.31
