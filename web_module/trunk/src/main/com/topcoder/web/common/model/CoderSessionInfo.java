@@ -81,6 +81,10 @@ public class CoderSessionInfo extends SessionInfo {
         return designRating;
     }
 
+    public int getHighestRating() {
+        return Math.max(designRating, Math.max(rating, devRating));
+    }
+
     public int getRank() {
         return rank;
     }
