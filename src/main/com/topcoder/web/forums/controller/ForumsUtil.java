@@ -212,9 +212,7 @@ public class ForumsUtil {
     // Returns forums in a category, with empty forums omitted or placed at the list's end.
     public static ArrayList getForums(ForumCategory forumCategory, ResultFilter resultFilter, 
             boolean excludeEmptyForums) {
-        log.debug("$$$$$$$$$$$in getForums()");
         Iterator itForums = forumCategory.getForums(resultFilter);
-        log.debug("$$$$$$$$$$$obtained forums()");
         ArrayList forumsList = new ArrayList();
         ArrayList emptyForums = new ArrayList();
         while (itForums.hasNext()) {
@@ -225,11 +223,9 @@ public class ForumsUtil {
                 emptyForums.add(f);
             }
         }
-        log.debug("$$$$$$$$$$$separated forums()");
         if (!excludeEmptyForums) {
             forumsList.addAll(emptyForums);
         }
-        log.debug("$$$$$$$$$$$combined forums()");
         return forumsList;
     }
     
