@@ -7,9 +7,9 @@
 	<enterprise-beans>
 		<session>
 			<ejb-name>Forum</ejb-name>
-			<home>com.topcoder.web.ejb.Forum.ForumHome</home>
-			<remote>com.topcoder.web.ejb.Forum.Forum</remote>
-			<ejb-class>com.topcoder.web.ejb.Forum.ForumBean</ejb-class>
+			<home>com.topcoder.web.ejb.forum.ForumHome</home>
+			<remote>com.topcoder.web.ejb.forum.Forum</remote>
+			<ejb-class>com.topcoder.web.ejb.forum.ForumBean</ejb-class>
 			<session-type>Stateless</session-type>
 			<transaction-type>Container</transaction-type>
     	</session>
