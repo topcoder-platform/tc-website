@@ -18,7 +18,7 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.ejb.messagehistory.MessageHistory;
+import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.common.web.data.Round;
 
@@ -76,10 +76,9 @@ public class Admin extends ForumsProcessor {
             }
         } else if (command.equals("Create forum from EJB") && !match.equals("")) {
             InitialContext ctx = TCContext.getInitial();
-            com.topcoder.web.ejb.forum.Forum forum = 
-                (com.topcoder.web.ejb.forum.Forum)createEJB(ctx, Forum.class);
+            Forums forums = (Forums)createEJB(ctx, Forums.class);
             int matchID = Integer.parseInt(match);
-            forum.createMatchForum(matchID);
+            forums.createMatchForum(matchID);
         }
         /*
         if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
