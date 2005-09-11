@@ -20,11 +20,11 @@
 %>
 
 <body>
-<table width="100%" border="0" cellpadding=0 cellspacing=0>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
 <%-- Header --%>
    <tr>
       <td colspan=7>
-      <table width="100%" border="0" cellpadding=0 cellspacing=0>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
          <tr>
              <td class="homeTopBar" align=left>
               <span class="time">Current Member Count</span>&#160;:&#160;<%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%> -
@@ -35,8 +35,7 @@
          </tr>
          <tr>
             <td width="50%" class="homeLogo"><img src="/i/home/TC_homeLogo.gif" alt=""/></td>
-            <td class="BIGPromoBox" align="center">
-            <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about"><IMG SRC="/i/home/promos/tco05.gif" BORDER="0" ALT="TCO05" /></a><br></td>
+            <td class="BIGPromoBox" align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about"><IMG SRC="/i/home/promos/tco05.gif" border="0" ALT="TCO05" /></a></td>
             <td width="50%" class="homeLogo">&#160;</td>
          </tr>
       </table>
@@ -45,25 +44,25 @@
 
 <%-- Banners --%>
    <tr>
-      <td width="50%" rowspan=2>&#160;</td>
-      <td class="homeLeftBan"><A href="/tc"><img src="/i/home/tab_developercenter.gif" border="0" /></A></td>
+      <td width="50%" rowspan="2">&#160;</td>
+      <td class="homeLeftBan"><A href="/tc"><img src="/i/home/tab_developercenter.gif" alt="Developer Center" border="0" /></A></td>
       <td class="homeGutter" rowspan=2>&#160;</td>
-      <td class="homeCentBan"><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/home/tab_corporateservices.gif" border="0" /></A></td>
+      <td class="homeCentBan"><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/home/tab_corporateservices.gif" alt="Corporate Services" border="0" /></A></td>
       <td class="homeGutter" rowspan=2>&#160;</td>
-      <td class="homeRightBan"><A href="/tc?module=Static&d1=pressroom&d2=index"><img src="/i/home/tab_newsevents.gif" border="0" /></A></td>
-      <td width="50%" rowspan=2>&#160;</td>
+      <td class="homeRightBan"><A href="/tc?module=Static&d1=pressroom&d2=index"><img src="/i/home/tab_newsevents.gif" alt="News & Events" border="0" /></A></td>
+      <td width="50%" rowspan="2">&#160;</td>
    </tr>
 <%-- Body --%>
    <tr>
 <%-- Left Column --%>
-      <td class=homeLeftCol>
-      <table width="100%" border="0" cellpadding=0 cellspacing=0>
-         <tr><td class="homeBigPromo"><A href="/tc"><img src="/i/home/promos/developercenter.gif" border="0" /></A></td></tr>
+      <td class="homeLeftCol">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+         <tr><td class="homeBigPromo"><A href="/tc"><img src="/i/home/promos/developercenter.gif" alt="Developer Center" border="0" /></A></td></tr>
       </table>
-      <table width="100%" border="0" cellpadding=0 cellspacing=0>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
          <tr>
-            <td class="homeArrow"><img src="/i/home/triangle.gif" border="0" /></td>
-            <td class="homeTitle"><A href="/tc" class=homeTitleLink>Algorithm Competitions</A></td>
+            <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
+            <td class="homeTitle"><A href="/tc" class="homeTitleLink">Algorithm Competitions</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
@@ -71,8 +70,8 @@
          </tr>
 
          <tr>
-            <td class="homeArrow"><img src="/i/home/triangle.gif" border="0" /></td>
-            <td class="homeTitle"><A href="/?t=development&c=index" class=homeTitleLink>Software Competitions</A></td>
+            <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
+            <td class="homeTitle"><A href="/?t=development&c=index" class="homeTitleLink">Software Competitions</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
@@ -80,8 +79,8 @@
          </tr>
 
          <tr>
-            <td class="homeArrow"><img src="/i/home/triangle.gif" border="0" /></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=contracting&d2=index" class=homeTitleLink>Employment Opportunities</A></td>
+            <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
+            <td class="homeTitle"><A href="/tc?module=Static&d1=contracting&d2=index" class="homeTitleLink">Employment Opportunities</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
@@ -89,8 +88,8 @@
          </tr>
 
          <tr>
-            <td class="homeArrow"><img src="/i/home/triangle.gif" border="0" /></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=about&d2=jobs" class=homeTitleLink>Work for TopCoder</A></td>
+            <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
+            <td class="homeTitle"><A href="/tc?module=Static&d1=about&d2=jobs" class="homeTitleLink">Work for TopCoder</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
@@ -99,14 +98,14 @@
       </table>
       </td>
 <%-- Center Column --%>
-      <td class=homeCentCol>
-      <table width="100%" border="0" cellpadding=0 cellspacing=0>
-         <tr><td class="homeBigPromo"><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/home/promos/placement.gif" alt="Corporate Services" border="0" /></A></td></tr>
+      <td class="homeCentCol">
+      <table border="0" cellpadding="0" cellspacing="0">
+         <tr><td class="homeBigPromo"><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/home/promos/placement.gif" alt="Corporate Services" style="border: 1px solid #666666;" /></A></td></tr>
       </table>
-      <table width="100%" border="0" cellpadding=0 cellspacing=0>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
          <tr>
-            <td class="homeArrow"><img src="/i/home/triangle.gif" border="0" /></td>
-            <td class="homeTitle"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class=homeTitleLink>Software</A></td>
+            <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
+            <td class="homeTitle"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class="homeTitleLink">Software</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
@@ -114,16 +113,16 @@
          </tr>
 
          <tr>
-            <td class="homeArrow"><img src="/i/home/triangle.gif" border="0" /></td>
-            <td class="homeTitle"><A href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=index" class=homeTitleLink>Marketing Services</A></td>
+            <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
+            <td class="homeTitle"><A href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=index" class="homeTitleLink">Marketing Services</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText">Is your company looking to interact with developers from around the world? TopCoder offers many <A href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=index">opportunities</A> to do just that.</td>
          </tr>
          <tr>
-            <td class="homeArrow"><img src="/i/home/triangle.gif" border="0" /></td>
-            <td class="homeTitle"><A href="/corp/?module=Static&d1=corp&d2=tces_home" class=homeTitleLink>Employment Services</A></td>
+            <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
+            <td class="homeTitle"><A href="/corp/?module=Static&d1=corp&d2=tces_home" class="homeTitleLink">Employment Services</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
@@ -132,13 +131,13 @@
       </table>
       </td>
 <%-- Right Column --%>
-      <td class=homeRightCol>
-      <table width="100%" border="0" cellpadding=0 cellspacing=0>
+      <td class="homeRightCol">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
          <tr><td class="homeBigPromo"><A href="/movies/press/cnn_072405.mp4"><img src="/i/home/mov_cnn_072405.jpg" alt="TopCoder Movies" border="0" /></A></td></tr>
       </table>
-      <table width="100%" border="0" cellpadding=0 cellspacing=0>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
          <tr>
-            <td class="homeArrow"><img src="/i/home/triangle.gif" border="0" /></td>
+            <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
             <td class="homeTitle"><A href="/?t=schedule&c=index" class="homeTitleLink">September Events:</A></td>
          </tr>
          <tr>
@@ -152,8 +151,8 @@
             </td>
          </tr>
          <tr>
-            <td class="homeArrow"><img src="/i/home/triangle.gif" border="0" /></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=pressroom&d2=index" class=homeTitleLink>Press Room Highlights</A></td>
+            <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
+            <td class="homeTitle"><A href="/tc?module=Static&d1=pressroom&d2=index" class="homeTitleLink">Press Room Highlights</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
@@ -170,7 +169,7 @@
       </td>
    </tr>
 <%-- Footer --%>
-    <tr><td class="homeFooter" colspan=7>
+    <tr><td class="homeFooter" colspan="7">
             <A href="/" class="footerLinks">Home</A>&#160;&#160;|&#160;&#160;
             <A href="/tc?module=Static&d1=about&d2=index" class="footerLinks">About TopCoder</A>&#160;&#160;|&#160;&#160;
             <A href="/tc?module=Static&d1=pressroom&d2=index" class="footerLinks">Press Room</A>&#160;&#160;|&#160;&#160;
@@ -180,9 +179,10 @@
          <br>
             <A href="/tc" class="footerLinks">Developer Center</A>&#160;&#160;|&#160;&#160;
             <A href="/corp/?module=Static&d1=corp&d2=index" class="footerLinks">Corporate Services</A>
-    <tr><td width="100%" class="copyright" colspan=7>Copyright &#169; 2001-2004, TopCoder, Inc. All rights reserved.</td></tr>
+    <tr><td width="100%" class="copyright" colspan="7">Copyright &#169; 2001-2004, TopCoder, Inc. All rights reserved.</td></tr>
 </table>
 
 
 </body>
 </html>
+ 
