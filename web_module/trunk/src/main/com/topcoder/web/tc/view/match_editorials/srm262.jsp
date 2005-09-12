@@ -63,7 +63,6 @@ The Problems
 <b><a href="/stat?c=problem_statement&amp;pm=4556&amp;rd=7996" name="4556">DivToZero</a></b>
 </font>
 <A href="Javascript:openProblemRating(4556)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br>
-
 Used as: Division Two - Level One: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -73,40 +72,36 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
       250
     </td>
   </tr>
-
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      282 / 304 (92.76%)
+      279 / 301 (92.69%)
     </td>
   </tr>
   <tr>
-
     <td class="bodyText" style="background: #eee;">
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      254 / 282 (90.07%)
+      251 / 279 (89.96%)
     </td>
   </tr>
   <tr>
     <td class="bodyText" style="background: #eee;">
-
       <b>High Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      <b>tyrian</b> for 249.98 points (0 mins 17 secs)
+      <b>meisterT</b> for 247.60 points (2 mins 48 secs)
     </td>
   </tr>
   <tr>
     <td class="bodyText" style="background: #eee;">
-
       <b>Average Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      210.36 (for 254 correct submissions)
+      208.62 (for 251 correct submissions)
     </td>
   </tr>
 </table></blockquote>
@@ -138,7 +133,6 @@ Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Value</b>
-
     </td>
     <td class="bodyText" style="background: #eee;">
       500
@@ -148,9 +142,8 @@ Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
     <td class="bodyText" style="background: #eee;">
       <b>Submission Rate</b>
     </td>
-
     <td class="bodyText" style="background: #eee;">
-      222 / 304 (73.03%)
+      220 / 301 (73.09%)
     </td>
   </tr>
   <tr>
@@ -158,8 +151,7 @@ Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-
-      138 / 222 (62.16%)
+      136 / 220 (61.82%)
     </td>
   </tr>
   <tr>
@@ -167,19 +159,17 @@ Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
       <b>High Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      <b>phoenix7</b> for 499.98 points (0 mins 11 secs)
+      <b>isv</b> for 474.92 points (6 mins 35 secs)
     </td>
-
   </tr>
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Average Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      338.77 (for 138 correct submissions)
+      338.32 (for 136 correct submissions)
     </td>
   </tr>
-
 </table></blockquote>
 
 
@@ -191,17 +181,15 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
     <td class="bodyText" style="background: #eee;">
       250
     </td>
-
   </tr>
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      235 / 243 (96.71%)
+      235 / 242 (97.11%)
     </td>
   </tr>
-
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Success Rate</b>
@@ -211,7 +199,6 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
     </td>
   </tr>
   <tr>
-
     <td class="bodyText" style="background: #eee;">
       <b>High Score</b>
     </td>
@@ -220,7 +207,6 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
     </td>
   </tr>
   <tr>
-
     <td class="bodyText" style="background: #eee;">
       <b>Average Score</b>
     </td>
@@ -264,7 +250,6 @@ public int[] checkManually(String[] field1, String[] field2) {
 </font>
 <A href="Javascript:openProblemRating(4800)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br>
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
-
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Value</b>
@@ -274,17 +259,15 @@ Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
     </td>
   </tr>
   <tr>
-
     <td class="bodyText" style="background: #eee;">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      54 / 304 (17.76%)
+      54 / 301 (17.94%)
     </td>
   </tr>
   <tr>
     <td class="bodyText" style="background: #eee;">
-
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
@@ -294,7 +277,6 @@ Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>High Score</b>
-
     </td>
     <td class="bodyText" style="background: #eee;">
       <b>dynamitehacker</b> for 716.53 points (23 mins 37 secs)
@@ -303,7 +285,6 @@ Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Average Score</b>
-
     </td>
     <td class="bodyText" style="background: #eee;">
       589.19 (for 9 correct submissions)
@@ -373,7 +354,6 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Value</b>
-
     </td>
     <td class="bodyText" style="background: #eee;">
       500
@@ -383,9 +363,8 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
     <td class="bodyText" style="background: #eee;">
       <b>Submission Rate</b>
     </td>
-
     <td class="bodyText" style="background: #eee;">
-      160 / 243 (65.84%)
+      160 / 242 (66.12%)
     </td>
   </tr>
   <tr>
@@ -393,7 +372,6 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-
       57 / 160 (35.62%)
     </td>
   </tr>
@@ -404,7 +382,6 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
     <td class="bodyText" style="background: #eee;">
       <b>monsoon</b> for 416.43 points (13 mins 17 secs)
     </td>
-
   </tr>
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -414,7 +391,6 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
       294.06 (for 57 correct submissions)
     </td>
   </tr>
-
 </table></blockquote>
 
 <p>
@@ -460,7 +436,6 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Value</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-
       1000
     </td>
   </tr>
@@ -469,9 +444,8 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      63 / 243 (25.93%)
+      63 / 242 (26.03%)
     </td>
-
   </tr>
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -481,7 +455,6 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       11 / 63 (17.46%)
     </td>
   </tr>
-
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>High Score</b>
@@ -490,7 +463,6 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>kalinov</b> for 682.52 points (21 mins 36 secs)
     </td>
   </tr>
-
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Average Score</b>
