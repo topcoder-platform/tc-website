@@ -6,6 +6,7 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.common.StringUtils,
+                 com.topcoder.web.forums.controller.ForumsUtil,
                  com.jivesoftware.base.JiveConstants,
                  com.jivesoftware.base.User,
                  com.jivesoftware.forum.Forum,
@@ -163,18 +164,17 @@
                                 resultFilter.setModificationDateRangeMin(calendar.getTime());
                                 calendar.add(Calendar.DATE, numDays);
                                 resultFilter.setNumResults(ForumConstants.MAX_DISPLAYED_FORUMS_PER_CATEGORY);
-                                itForums = category.getForums(resultFilter);
+                                itForums = category.getForums(resultFilter); itForumsCopy = category.getForums(resultFilter);
                             } else {
                                 //resultFilter.setNumResults(Integer.parseInt(category.getProperty("displayLimit")));
-                                ArrayList forumsList = ForumsUtil.getForums(forumCategory, resultFilter, true);
+                                ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, true);
                                 ArrayList pageList = ForumsUtil.getForumsPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
-                                itForums = pageList.iterator();
+                                itForums = pageList.iterator(); itForumsCopy = pageList.iterator();               
                             }
                         } else { 
                             resultFilter.setNumResults(ResultFilter.NULL_INT);
-                            itForums = category.getForums(resultFilter); 
+                            itForums = category.getForums(resultFilter); itForumsCopy = category.getForums(resultFilter);
                         }
-                        itForumsCopy = itForums;
                         while (itForums.hasNext()) {
                             if (((Forum)itForums.next()).getMessageCount() > 0) numActiveForums++;
                         }
