@@ -164,7 +164,7 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-            Poland Leads TopCoder <A href="/tc?module=Static&d1=pressroom&d2=art_091205">...more</A><br>[September 12 - IDG.pl]<br><br>
+            Poland Takes the Lead <A href="/tc?module=Static&d1=pressroom&d2=art_091205">...more</A><br>[September 12 - PCWK]<br><br>
             Components for SOAs and Other App Dev Projects <A href="http://www.adtmag.com/article.asp?id=11752" target="_blank">...more</A><br>[September 6 - ADT]<br><br>
             TopCoder&#174; Announces First Software Developer Conference at 2005 TopCoder Open <A href="/tc?module=Static&d1=pressroom&d2=pr_090205">...more</A><br>[September 2]<br><br>
             Wanna codejam? May the best techie win <A href="http://timesofindia.indiatimes.com/articleshow/1212895.cms" target="_blank">...more</A><br>[August 29 - Times of India]<br><br>

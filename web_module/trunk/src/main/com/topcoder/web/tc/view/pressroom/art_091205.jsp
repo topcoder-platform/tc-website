@@ -36,18 +36,18 @@
                         <jsp:param name="title" value="Article"/>
                     </jsp:include>
                         <div align="center">
-                        <p><span class="bodyTitle">Poland Leads TopCoder</span><br />
-                        [Translation of IDG.pl article, found <A href="http://www.idg.pl/news/82941.html">here</A>]
+                        <p><span class="bodyTitle">Poland Takes the Lead</span><br />
+                        [Translation of PC World Komputer Poland article, found <A href="http://www.pcworld.pl/news/82941.html">here</A>]
                         </p>
                         </div>
                         
-                        <p><strong>September 12, 2005&#151;</strong>Poland has just overtaken the United States as first place in the TopCoder country ranking. Warsaw University is first place in university ranking , University of Wroclaw is 13th, and Jagiellonian University is 14th.
+                        <p><strong>September 12, 2005&#151;</strong>Poland has just left the US behind and taken first place in TopCoder's country ranking. Warsaw University occupies the first place in university ranking (University of Wroclaw is 13th, Jagiellonian University is 14th).
 <br><br>
-TopCoder programming competitions take place every week. At least once a year a huge tournament with onsite finals is held. TopCoder Inc, the company that runs the competitions, has given out over $2 mill in prizes, including $1.3 mill in tournaments and $800,000 in weekly online competitions over the past four years.
+TopCoder programming competitions take place every week. At least once a year a huge tournament with onsite finals is held. TopCoder, Inc, the company that runs the competitions, has given out over $2 Million in prizes, including $1.3 Million in tournaments and $800,000 in weekly online competitions since its beginning four years ago.
 <br><br>
-Warsaw University has been in first place since February. There are three more Polish universities in the top 25 schools worldwide: University of Wroclaw (13th place), Jagiellonian University (14th place) and Poznan University of Technology (21st place). Ranking is based on performance of the best students from each school.
+The first place ranking of Warsaw University is no surprise - the school has been number one since February. There are three more Polish universities in the top 25 school worldwide: University of Wroclaw, (13th place), Jagiellonian University, (14th place) and Poznan University of Technology, (21st place). Ranking is based on the performance of the best students from each school.
 <br><br>
-We are very proud of the excellent results of Polish students, which have put Poland in first place in the TopCoder country ranking, followed by USA, Russia, Canada, and China.
+Now we have a new reason to be proud - thanks to the excellent results of Polish students, Poland has just taken the first place in country ranking. We are followed by the US, Russia, Canada and China.
                         </p>
                         <p>###</p>
                         <p><br /></p>

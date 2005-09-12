@@ -47,15 +47,15 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
-<!-- IDG.pl -->
+<!-- PCWK -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=art_091205"><img src="/i/pressroom/idgpl_logo.gif" alt="IDG.pl" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=art_091205"><img src="/i/pressroom/pcwk_logo.gif" alt="PCWK" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=art_091205">Poland Leads TopCoder</A></strong> [Translation]</font><br />
-Poland has just overtaken the United States as first place in the TopCoder country ranking. Warsaw University is first place in university ranking , University of Wroclaw is 13th, and Jagiellonian University is 14th. <span class="prHead"> [September 12 - IDG.pl - <A href="http://www.idg.pl/news/82941.html">original article</A>]</span></p>
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=art_091205">Poland Takes the Lead</A></strong> [Translation]</font><br />
+Poland has just left the US behind and taken first place in TopCoder's country ranking. Warsaw University occupies the first place in university ranking (University of Wroclaw is 13th, Jagiellonian University is 14th). <span class="prHead"> [September 12 - PCWK - <A href="http://www.pcworld.pl/news/82941.html">original article</A>]</span></p>
                     </td>
                 </tr>
             </table>
