@@ -48,7 +48,7 @@
 <span class="bigTitle">Match summary</span>
 
 <p>
-Friday's early SRM featured something not seen in quite a while, precomputation.  Petr and marian,
+Friday's early SRM featured something not seen in quite a while, precomputation.  marian and Petr,
 who finished second and third respectively, both submitted precomputed solutions to the Div 1 hard.
 Despite this sturdy opposition, kalinov's precomputation-free solution earned him the first place
 crown.  In Division 2, dynamitehacker and pashka took first and second place with scores over 1350.
