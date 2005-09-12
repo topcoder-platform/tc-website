@@ -39,7 +39,7 @@ public class ForumsBean extends BaseEJB {
                 "short_name",
                 new String[]{"round_id"},
                 new String[]{String.valueOf(roundID)},
-                DBMS.DW_DATASOURCE_NAME);
+                DBMS.OLTP_DATASOURCE_NAME);
         
         try {
             ForumFactory forumFactory = ForumFactory.getInstance(new TCAuthToken(100129));
@@ -50,7 +50,7 @@ public class ForumsBean extends BaseEJB {
                         new String[]{String.valueOf(forum.getID())},
                         new String[]{"round_id"},
                         new String[]{String.valueOf(roundID)},
-                        DBMS.DW_DATASOURCE_NAME);
+                        DBMS.OLTP_DATASOURCE_NAME);
         } catch (UnauthorizedException uae) {
             uae.printStackTrace();
         } catch (ForumCategoryNotFoundException fe) {
