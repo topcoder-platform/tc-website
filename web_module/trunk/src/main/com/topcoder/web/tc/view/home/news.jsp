@@ -27,7 +27,7 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm262">SRM 262 - Problem Set & Analysis</A></span><br><br>
-      Friday's early SRM featured something not seen in quite a while, precomputation.  <tc-webtag:handle coderId="10574855" context="algorithm"/> and <tc-webtag:handle coderId="7479769" context="algorithm"/>, who finished second and third respectively, both submitted precomputed solutions to the Div 1 hard.</td>
+      Friday's early SRM featured something not seen in quite a while, precomputation.  <tc-webtag:handle coderId="7479769" context="algorithm"/> and <tc-webtag:handle coderId="10574855" context="algorithm"/>, who finished second and third respectively, both submitted precomputed solutions to the Div 1 hard.</td>
       <td class="newsPhoto"><img src="/i/m/brett1479_mug.gif" /><br>by <tc-webtag:handle coderId="251317" context="algorithm"/></td></tr></table>
       </td>
    </tr>
