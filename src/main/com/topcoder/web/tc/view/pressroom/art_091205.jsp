@@ -36,7 +36,7 @@
                         <jsp:param name="title" value="Article"/>
                     </jsp:include>
                         <div align="center">
-                        <p><span class="bodyTitle">Poland leads TopCoder</span><br />
+                        <p><span class="bodyTitle">Poland Leads TopCoder</span><br />
                         [Translation of IDG.pl article, found <A href="http://www.idg.pl/news/82941.html">here</A>]
                         </p>
                         </div>
