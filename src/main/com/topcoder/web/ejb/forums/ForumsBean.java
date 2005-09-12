@@ -42,8 +42,13 @@ public class ForumsBean extends BaseEJB {
                 DBMS.OLTP_DATASOURCE_NAME);
         
         try {
+            log.debug("*** before ForumFactory ***");
             ForumFactory forumFactory = ForumFactory.getInstance(new TCAuthToken(100129));
+            log.debug("*** before Forum ***");
             Forum forum = forumFactory.createForum(roundName, "", forumFactory.getForumCategory(14));
+            if (forum == null) {
+                log.debug("*** forum is null ***");
+            }
             
             this.update("round",
                         new String[]{"forum_id"},
