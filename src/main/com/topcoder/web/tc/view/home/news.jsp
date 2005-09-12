@@ -10,13 +10,13 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>09.12.05<br>2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=art_091205">Poland Leads TopCoder</A> [Translation]</span><br><br>
-"Poland has just overtaken the United States as first place in the TopCoder country ranking. Warsaw University is first place in university ranking , University of Wroclaw is 13th, and Jagiellonian University is 14th." [IDG.pl]
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=art_091205">Poland Takes the Lead</A> [Translation]</span><br><br>
+"Poland has just left the US behind and taken first place in TopCoder's country ranking. Warsaw University occupies the first place in university ranking (University of Wroclaw is 13th, Jagiellonian University is 14th)." [PCWK]
       </td>
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=pressroom&d2=art_091205">translation</A>&#160;|&#160;
-         <A href="http://www.idg.pl/news/82941.html">original</A>&#160;|&#160;
+         <A href="http://www.pcworld.pl/news/82941.html">original</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505392">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
