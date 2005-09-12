@@ -4,7 +4,6 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveConstants;
-import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.action.util.Paginator;
@@ -26,6 +25,10 @@ public class Category extends ForumsProcessor {
 		super.businessProcessing();
 
         long categoryID = Long.parseLong(getRequest().getParameter(ForumConstants.CATEGORY_ID));
+        if (categoryID == 1) {
+            setNextPage("?module=Main");
+            setIsNextPageInContext(false);
+        }
         ForumCategory forumCategory = forumFactory.getForumCategory(categoryID);
         
         int startIdx = 0;
