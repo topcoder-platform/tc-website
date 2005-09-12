@@ -28,6 +28,7 @@ public class Category extends ForumsProcessor {
         if (categoryID == 1) {
             setNextPage("?module=Main");
             setIsNextPageInContext(false);
+            return;
         }
         ForumCategory forumCategory = forumFactory.getForumCategory(categoryID);
         
