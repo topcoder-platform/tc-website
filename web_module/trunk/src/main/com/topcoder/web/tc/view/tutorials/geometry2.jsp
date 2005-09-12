@@ -78,8 +78,8 @@ However, we are rarely given lines in this format, but we can easily generate
 such an equation from two points.  Say we are given two different points,
 (x<sub>1</sub>, y<sub>1</sub>) and (x<sub>2</sub>, y<sub>2</sub>), and want to
 find A, B and C for the equation above.  We can do so by setting <br/>
-<tt>A = x<sub>1</sub>-x<sub>2</sub><br/>
-B = y<sub>2</sub>-y<sub>1</sub><br/>
+<tt>A = y<sub>2</sub>-y<sub>1</sub><br/>
+B = x<sub>1</sub>-x<sub>2</sub><br/>
 C = A*x<sub>1</sub>+B*y<sub>1</sub><br/></tt>
 Regardless of how the lines are specified, you should be able to generate two
 different points along the line, and then generate A, B and C.  Now, lets say
