@@ -154,21 +154,27 @@
             <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)categories.iterator()%>'>
             <%  String limit = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_DISPLAY_LIMIT));
                 if (!"0".equals(limit)) { %>
-                    <%  if (!"".equals(limit)) { 
+                    <%  Iterator itForums = null, itForumsCopy = null;
+                        int numActiveForums = 0;
+                        if (!"".equals(limit)) { 
                             if (limit.endsWith("d")) {
                                 int numDays = Integer.parseInt(limit.substring(0, limit.length()-1));
                                 calendar.add(Calendar.DATE, numDays*-1);
                                 resultFilter.setModificationDateRangeMin(calendar.getTime());
                                 calendar.add(Calendar.DATE, numDays);
                                 resultFilter.setNumResults(ForumConstants.MAX_DISPLAYED_FORUMS_PER_CATEGORY);
+                                itForums = category.getForums(resultFilter);
                             } else {
-                                resultFilter.setNumResults(Integer.parseInt(category.getProperty("displayLimit")));
+                                //resultFilter.setNumResults(Integer.parseInt(category.getProperty("displayLimit")));
+                                ArrayList forumsList = ForumsUtil.getForums(forumCategory, resultFilter, true);
+                                ArrayList pageList = ForumsUtil.getForumsPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
+                                itForums = pageList.iterator();
                             }
                         } else { 
                             resultFilter.setNumResults(ResultFilter.NULL_INT);
-                        } 
-                        Iterator itForums = category.getForums(resultFilter); 
-                        int numActiveForums = 0; 
+                            itForums = category.getForums(resultFilter); 
+                        }
+                        itForumsCopy = itForums;
                         while (itForums.hasNext()) {
                             if (((Forum)itForums.next()).getMessageCount() > 0) numActiveForums++;
                         }
@@ -181,7 +187,7 @@
 				                       <td class="rtHeader" width="20%">T./M.</td>
 				                       <td class="rtHeader" align="center" colspan="2">Last Post</td>
 				                    </tr>
-				                    <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=category.getForums(resultFilter)%>'>
+				                    <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=itForumsCopy%>'>
 				                        <%  trackerClass = (user == null || forum.getMessageCount() <= 0 || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
 				                        <%  if (forum.getMessageCount() > 0 || ("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)))) { %>
 					                        <tr>
