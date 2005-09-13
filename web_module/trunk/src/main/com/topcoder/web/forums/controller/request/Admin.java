@@ -50,14 +50,11 @@ public class Admin extends ForumsProcessor {
         
         log.info(user.getUsername() + " has accessed the admin tool.");
         
-        ArrayList roundList = null; 
+        ArrayList roundList = getRoundList();
         
         // process command
         String command = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ADMIN_COMMAND));
         String match = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ADMIN_MATCH));
-        if (!command.equals("Create forum from EJB")) {
-            roundList = getRoundList(); 
-        }
         if (command.equals(ForumConstants.ADMIN_COMMAND_CREATE_FORUMS_ALGO)) {
             ForumCategory algoCategory = forumFactory.getForumCategory(14);
             if (algoCategory.getForumCount() < 20) {
@@ -122,7 +119,7 @@ public class Admin extends ForumsProcessor {
             round.setRoundId(rsc.getIntItem(i, "round_id"));
             round.setRoundName(rsc.getStringItem(i, "short_name"));
             roundList.add(round);
-        }
+        }     
         return roundList;
     }
     
