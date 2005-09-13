@@ -11,17 +11,7 @@
 			<remote>com.topcoder.web.ejb.forums.Forums</remote>
 			<ejb-class>com.topcoder.web.ejb.forums.ForumsBean</ejb-class>
 			<session-type>Stateless</session-type>
-			<transaction-type>Container</transaction-type>
+			<transaction-type>Bean</transaction-type>
     	</session>
    	</enterprise-beans>
-    <assembly-descriptor>
-		<container-transaction>
-	  		<method>
-	    		<ejb-name>Forums</ejb-name>
-	    		<method-intf>Remote</method-intf>
-	    		<method-name>*</method-name>
-	  		</method>
-  	    	<trans-attribute>Required</trans-attribute>
-      	</container-transaction>
-    </assembly-descriptor>
 </ejb-jar>
