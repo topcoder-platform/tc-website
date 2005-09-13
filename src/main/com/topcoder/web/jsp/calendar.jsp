@@ -83,7 +83,7 @@
                                 <td id="calendarBlankMini">&#160;</td> 
                             </tr>
                             
-                            <tr><td colspan="7" class="statText" nowrap="nowrap" align="right"><A class="statText" HREF="/?t=schedule&c=index">More Match Dates&#160;</A></td></tr>
+                            <tr><td colspan="7" class="statText" nowrap="nowrap" align="right"><A class="statText" HREF="/tc?module=Static&d1=calendar&d2=thisMonth">More Match Dates&#160;</A></td></tr>
                         </table>
                     </td>
                 </tr>
