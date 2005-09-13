@@ -31,11 +31,11 @@
 <div class="bodyText">
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="calendar"/>
-<jsp:param name="title" value="November 2005"/>
+<jsp:param name="title" value="December 2005"/>
 </jsp:include>
 
 <jsp:include page="dropdown.jsp" >
-<jsp:param name="currMonth" value="nov_05"/>
+<jsp:param name="currMonth" value="dec_05"/>
 </jsp:include>
 
 <table width="100%" cellspacing="1" cellpadding="3" id="calendarFrame">
@@ -58,45 +58,39 @@
             &#160;<br />
             &#160;</td>
         <td id="calendarBlank">&#160;</td>
+        <td id="calendarBlank">&#160;</td>
+        <td id="calendarBlank">&#160;</td>
         <td id="calendar">1</td>
         <td id="calendar">2</td>
-        <td id="calendarSRM">
-            <span id="calendarSRMDate">3</span><br />
-            <strong>Match 270</strong><br />
-            Register: 8:00&#160;AM<br />
-            Compete: 11:00&#160;AM<br />
-            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8000&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
-        <td id="calendar">4</td>
-        <td id="calendar">5</td>
+        <td id="calendar">3</td>
     </tr>
     
     <tr> 
+        <td id="calendar">4</td>
+        <td id="calendar">5</td>
         <td id="calendar">6</td>
         <td id="calendar">7</td>
         <td id="calendarSRM">
             <span id="calendarSRMDate">8</span><br />
-            <strong>Match 271</strong><br />
-            Register: 6:00&#160;PM<br />
-            Compete: 9:00&#160;PM<br />
+            <strong>Match 276</strong><br />
+            Register: 8:00&#160;AM<br />
+            Compete: 11:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=8000&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
         <td id="calendar">9</td>
         <td id="calendar">10</td>
-        <td id="calendar">11</td>
-        <td id="calendar">12</td>
     </tr>
     
     <tr> 
+        <td id="calendar">11</td>
+        <td id="calendar">12</td>
         <td id="calendar">13</td>
         <td id="calendar">14</td>
         <td id="calendar">15</td>
         <td id="calendar">16</td>
-        <td id="calendar">17</td>
-        <td id="calendar">18</td>
         <td id="calendarSRM">
-            <span id="calendarSRMDate">19</span><br />
-            <strong>Match 272</strong><br />
+            <span id="calendarSRMDate">17</span><br />
+            <strong>Match 277</strong><br />
             Register: 9:00&#160;AM<br />
             Compete: 12:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
@@ -104,47 +98,41 @@
     </tr>
     
     <tr> 
-        <td id="calendar">20</td>
+        <td id="calendar">18</td>
         <td id="calendarSRM">
-            <span id="calendarSRMDate">21</span><br />
-            <strong>Match 273</strong><br />
+            <span id="calendarSRMDate">19</span><br />
+            <strong>Match 278</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=8000&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
-        <td id="calendar">22</td>
+        <td id="calendar">20</td>
         <td id="calendarSRM">
-            <span id="calendarSRMDate">23</span><br />
-            <strong>Match 274</strong><br />
+            <span id="calendarSRMDate">21</span><br />
+            <strong>Match 279</strong><br />
             Register: 4:00&#160;AM<br />
             Compete: 7:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=8000&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+        <td id="calendar">22</td>
+        <td id="calendar">23</td>
         <td id="calendar">24</td>
-        <td id="calendar">25</td>
-        <td id="calendar">26</td>
     </tr>
     
     <tr> 
+        <td id="calendar">25</td>
+        <td id="calendar">26</td>
         <td id="calendar">27</td>
-        <td id="calendar">28</td>
-        <td id="calendar">29</td>
         <td id="calendarSRM">
-            <span id="calendarSRMDate">30</span><br />
-            <strong>Match 275</strong><br />
+            <span id="calendarSRMDate">28</span><br />
+            <strong>Match 280</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=8000&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
-        <td id="calendarBlank">&#160;</td>
-        <td id="calendarBlank">&#160;</td>
-        <td id="calendarBlank">
-            &#160;<br />
-            &#160;<br />
-            &#160;<br />
-            &#160;<br />
-            &#160;<br />
-            &#160;</td>
+        <td id="calendar">29</td>
+        <td id="calendar">30</td>
+        <td id="calendar">31</td>
     </tr>
 </table>
 
