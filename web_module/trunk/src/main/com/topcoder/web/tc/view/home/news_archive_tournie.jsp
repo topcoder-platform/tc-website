@@ -34,7 +34,7 @@
             <jsp:param name="title" value="Tournaments"/>
         </jsp:include>
 
-<table border=0 cellpadding=2 cellspacing=0 width="100%">
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
 <tr class="bodyText"><td nowrap="nowrap">09.13.05 9:35 AM - </td><td width="100%"><A href="/tc?module=SimpleStats&c=tco05_spon_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=spon_adv_overview">AdrianKuegel wins the TCO05 Sponsor Track</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.08.05 11:00 AM - </td><td width="100%"><A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview">TCO05 Algorithm Round 4 results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.08.05 10:45 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_090705">Sun chat session from TCO05 Algorithm Round 4</A></td></tr>
