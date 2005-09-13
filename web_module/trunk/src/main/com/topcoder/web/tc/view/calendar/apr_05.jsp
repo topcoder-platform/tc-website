@@ -5,6 +5,7 @@
 <html>
 <head>
 <title>TopCoder Events Calendar</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 </head>
