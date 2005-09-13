@@ -50,11 +50,14 @@ public class Admin extends ForumsProcessor {
         
         log.info(user.getUsername() + " has accessed the admin tool.");
         
-        ArrayList roundList = getRoundList();
+        ArrayList roundList = null; 
         
         // process command
         String command = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ADMIN_COMMAND));
         String match = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ADMIN_MATCH));
+        if (!command.equals("Create forum from EJB")) {
+            roundList = getRoundList(); 
+        }
         if (command.equals(ForumConstants.ADMIN_COMMAND_CREATE_FORUMS_ALGO)) {
             ForumCategory algoCategory = forumFactory.getForumCategory(14);
             if (algoCategory.getForumCount() < 20) {
