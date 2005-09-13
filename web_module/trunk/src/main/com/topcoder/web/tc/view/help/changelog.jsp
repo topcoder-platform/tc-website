@@ -38,6 +38,11 @@
            <jsp:param name="title" value="TopCoder Web Site Change Log"/>
         </jsp:include>
 
+        <p> 4.0.2 - 2005.XX.XX
+            <ul>
+                <li>Changed links in the registration activation email to the schedule</li>
+            </ul>
+        </p>
         <p> 4.0.1 - 2005.09.13
             <ul>
                 <li>Made the top color handle based on highest rating</li>

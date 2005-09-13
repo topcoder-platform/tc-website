@@ -1944,7 +1944,7 @@ public class Registration
                     msgText.append("major tournaments will require that you have participated in ");
                     msgText.append("at least three rated events.  You can view a schedule of TopCoder ");
                     msgText.append("events here:\n");
-                    msgText.append("<http://www.topcoder.com/?t=schedule&c=index>\n\n");
+                    msgText.append("<http://www.topcoder.com/tc?module=Static&d1=calendar&d2=thisMonth>\n\n");
                     msgText.append("You may view all current development projects here: ");
                     msgText.append("<http://www.topcoder.com/?t=development&c=index> (you must login ");
                     msgText.append("with your TopCoder handle and password).\n\n\n");
@@ -1960,7 +1960,7 @@ public class Registration
                     msgText.append("http://www.topcoder.com/?t=schedule&c=practice_room\n\n");
                     msgText.append("We also suggest that you read up on the rules and competition process ");
                     msgText.append("from the FAQs and links that are available here:\n");
-                    msgText.append("http://www.topcoder.com/?t=support&c=index\n\n");
+                    msgText.append("http://www.topcoder.com/tc?module=Static&d1=help&d2=index\n\n");
                     msgText.append("If you have any questions about how to participate, feel free ");
                     msgText.append("to email them to service@topcoder.com.\n\n");
                     msgText.append("Thank you for registering with TopCoder and we look forward ");
@@ -2000,7 +2000,7 @@ public class Registration
                     msgText.append("major tournaments will require that you have participated in ");
                     msgText.append("at least three rated events.  You can view a schedule of TopCoder ");
                     msgText.append("events here:\n");
-                    msgText.append("<http://www.topcoder.com/?t=schedule&c=index>\n\n");
+                    msgText.append("<http://www.topcoder.com/tc?module=Static&d1=calendar&d2=thisMonth>\n\n");
                     msgText.append("You may view all current development projects here: ");
                     msgText.append("<http://www.topcoder.com/?t=development&c=index> (you must login ");
                     msgText.append("with your TopCoder handle and password).\n\n\n");
@@ -2016,7 +2016,7 @@ public class Registration
                     msgText.append("http://www.topcoder.com/?t=schedule&c=practice_room\n\n");
                     msgText.append("We also suggest that you read up on the rules and competition process ");
                     msgText.append("from the FAQs and links that are available here:\n");
-                    msgText.append("http://www.topcoder.com/?t=support&c=index\n\n");
+                    msgText.append("http://www.topcoder.com/tc?module=Static&d1=help&d2=index\n\n");
                     msgText.append("If you have any questions about how to participate, feel free ");
                     msgText.append("to email them to service@topcoder.com.\n\n");
                     msgText.append("Thank you for registering with TopCoder and we look forward ");
