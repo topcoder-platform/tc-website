@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Statisics</title>
+<title>TopCoder Events Calendar</title>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 </head>
@@ -65,9 +65,9 @@
             <strong>Match 245</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
-            Sponsored by: <A href="/pl/?&amp;module=Static&amp;d1=javaone05&amp;d2=overview">Sun &amp; JavaOne</A><br />
+            Sponsored by: <A href="/pl/?&module=Static&d1=javaone05&d2=overview">Sun & JavaOne</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=7220&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=7220&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">2</td>
         <td id="calendar">3</td>
         <td id="calendar">4</td>
@@ -83,9 +83,9 @@
             <strong>Match 246</strong><br />
             Register: 10:00&#160;AM<br />
             Compete: 1:00&#160;PM<br />
-            Sponsored by: <A href="/tc?module=Static&amp;d1=contracting&amp;d2=index">TC Employment Services</A><br />
+            Sponsored by: <A href="/tc?module=Static&d1=contracting&d2=index">TC Employment Services</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=7221&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=7221&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">10</td>
         <td id="calendar">11</td>
     </tr>
@@ -99,7 +99,7 @@
             &#160;<br />
             &#160;<br />
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-            <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=comp_schedule">Details</A>
+            <A class="calendarTCO05Link" href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_schedule">Details</A>
             </td>
         <td id="calendar">14</td>
         <td id="calendar">15</td>
@@ -111,7 +111,7 @@
             Register: 9:00&#160;AM<br />
             Compete: 12:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=7222&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=7222&t=schedule&c=srm">Details</A><br/><br/></td>
     </tr>
     
     <tr> 
@@ -122,9 +122,9 @@
             <strong>Match 248</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
-            Sponsored by: <A href="/tc?module=Static&amp;d1=contracting&amp;d2=citigroup">Citigroup</A><br />
+            Sponsored by: <A href="/tc?module=Static&d1=contracting&d2=citigroup">Citigroup</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=7223&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=7223&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">22</td>
         <td id="calendar">23</td>
         <td id="calendar">24</td>
@@ -140,8 +140,8 @@
             <strong>Match 249</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
-            Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=yahoo">Yahoo!</A><br />
-            <A href="/?RoundId=7224&amp;t=schedule&amp;c=srm">Details</A></td>
+            Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo">Yahoo!</A><br />
+            <A href="/?RoundId=7224&t=schedule&c=srm">Details</A></td>
         <td id="calendar" rowspan="2">30</td>
         <td id="calendarBlank" rowspan="2">&#160;</td>
         <td id="calendarBlank" rowspan="2">&#160;</td>
@@ -149,8 +149,8 @@
     <tr> 
         <td id="calendarTCO05">
             <strong>2005 TopCoder Open Component Competition</strong><br/>
-            Registration Closes &amp; Week 1 Projects Posted: 9:00 AM ET<br/>
-            <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=comp_schedule">Details</A>
+            Registration Closes & Week 1 Projects Posted: 9:00 AM ET<br/>
+            <A class="calendarTCO05Link" href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_schedule">Details</A>
             </td>
     </tr>
 </table>

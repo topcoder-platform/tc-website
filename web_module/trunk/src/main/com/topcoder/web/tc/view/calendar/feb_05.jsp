@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Statisics</title>
+<title>TopCoder Events Calendar</title>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 </head>
@@ -68,7 +68,7 @@
             Compete: 9:30 PM<br/>
             &#160;<br />
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-            <A class="calendarTCCC05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=alg_schedule">Details</A>
+            <A class="calendarTCCC05Link" href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_schedule">Details</A>
             </td>
         <td id="calendar">3</td>
         <td id="calendar">4</td>
@@ -83,9 +83,9 @@
             <strong>Match 230</strong><br />
             Register: 7:00&#160;PM<br />
             Compete: 10:00&#160;PM<br />
-            Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=yahoo">Yahoo!</A><br />
+            Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=yahoo">Yahoo!</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=6519&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=6519&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">9</td>
         <td id="calendar">10</td>
         <td id="calendar">11</td>
@@ -104,9 +104,9 @@
             <strong>Match 231</strong><br />
             Register: 9:00&#160;AM<br />
             Compete: 12:00&#160;PM<br />
-            Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=yahoo">Yahoo!</A><br />
+            Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=yahoo">Yahoo!</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=6520&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=6520&t=schedule&c=srm">Details</A><br/><br/></td>
     </tr>
     
     <tr> 
@@ -118,9 +118,9 @@
             <strong>Match 232</strong><br />
             Register: 5:00&#160;PM<br />
             Compete: 8:00&#160;PM<br />
-            Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=motorola">Motorola</A><br />
+            Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=motorola">Motorola</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=6521&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=6521&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">24</td>
         <td id="calendar">25</td>
         <td id="calendar">26</td>
