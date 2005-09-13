@@ -79,23 +79,23 @@ return false;
         }
     </script>
 
-		<FORM ACTION="/tc" METHOD=POST onSubmit="" enctype="multipart/form-data" name="frmPref">
-		<input type="hidden" name="module" value="ContractingLanguages"/>
-		<input type="hidden" name="previouspage" value="preferences" />
+      <FORM ACTION="/tc" METHOD=POST onSubmit="" enctype="multipart/form-data" name="frmPref">
+      <input type="hidden" name="module" value="ContractingLanguages"/>
+      <input type="hidden" name="previouspage" value="preferences" />
 
         <table border=0 cellpadding=0 cellspacing=0 width="100%" class=bodyText>
-			<tr>
-				<td class=oppDesc width="100%" valign=top>
-				<span class=bodySubtitle>Preferences</span>
-				<br/><br/>
-				</td>
-				<td valign=top>
-				<jsp:include page="breadcrumb.jsp" >
-				<jsp:param name="phase" value="preferences"/>
-				</jsp:include>
-				</td>
-			</tr>
-		</table>
+         <tr>
+            <td class=oppDesc width="100%" valign=top>
+            <span class=bodySubtitle>Preferences</span>
+            <br/><br/>
+            </td>
+            <td valign=top>
+            <jsp:include page="breadcrumb.jsp" >
+            <jsp:param name="phase" value="preferences"/>
+            </jsp:include>
+            </td>
+         </tr>
+      </table>
 
         <% if (!request.getAttribute("isRated").equals("true")) { %>
             <table border=0 cellpadding=0 cellspacing=0 width="100%" class=bodyText>
@@ -115,7 +115,7 @@ return false;
         <% } %>
 
 
-		<tc:preferenceGroupIterator id="prefGroup" list="<%=prefList%>">
+      <tc:preferenceGroupIterator id="prefGroup" list="<%=prefList%>">
                     <span class=bodySubtitle><%=prefGroup.getName()%></span>
                     <br/>
                     <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
@@ -131,52 +131,52 @@ return false;
                         </tc-webtag:errorIterator>
                         <tr>
                                 <%if(pref.getType() == Constants.PREFERENCE_MULTIPLE_ANSWER) { %>
-				<td width="100%" class=<%=cssClasses[i % 2]%>><%=pref.getText()%>:</td>
-				<td class=<%=cssClasses[i++ % 2]%>>
+            <td width="100%" class=<%=cssClasses[i % 2]%>><%=pref.getText()%>:</td>
+            <td class=<%=cssClasses[i++ % 2]%>>
                                         <tc:preferenceInput preference="<%=pref%>" />
-				</td>
-				<% } else if(pref.getType() == Constants.PREFERENCE_TEXT_ANSWER) { %>
-				<td width="100%" colspan=2 class=<%=cssClasses[i++ % 2]%>><%=pref.getText()%>:<br/><tc:preferenceInput preference="<%=pref%>" /></td>
-				<% } else { %>
-				<td width="100%" class=<%=cssClasses[i % 2]%>><label><tc:preferenceInput preference="<%=pref%>" /> <%=pref.getText()%></label></td>
-				<td class=<%=cssClasses[i++ % 2]%>>
+            </td>
+            <% } else if(pref.getType() == Constants.PREFERENCE_TEXT_ANSWER) { %>
+            <td width="100%" colspan=2 class=<%=cssClasses[i++ % 2]%>><%=pref.getText()%>:<br/><tc:preferenceInput preference="<%=pref%>" /></td>
+            <% } else { %>
+            <td width="100%" class=<%=cssClasses[i % 2]%>><label><tc:preferenceInput preference="<%=pref%>" /> <%=pref.getText()%></label></td>
+            <td class=<%=cssClasses[i++ % 2]%>>
                                         &nbsp;
-				</td>
-				<% } %>
-			</tr>
+            </td>
+            <% } %>
+         </tr>
                         </tc:preferenceIterator>
                     </table>
 
                     <br/><br/>
 
-		</tc:preferenceGroupIterator>
-		<p align=center class=bodyText><b>Please check to make sure that your contact information is up-to-date in your profile.</b></p>
+      </tc:preferenceGroupIterator>
+      <p align=center class=bodyText><b>Please check to make sure that your contact information is up-to-date in your profile.</b></p>
 
         <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
-			<tr>
-				<td class=bodyText>Attach your <b>resume</b> here and we'll include it in your profile</td>
-			</tr>
-			<tc-webtag:errorIterator id="err" name="Resume">
+         <tr>
+            <td class=bodyText>Attach your <b>resume</b> here and we'll include it in your profile</td>
+         </tr>
+         <tc-webtag:errorIterator id="err" name="Resume">
                             <tr>
                                 <td class=bodyText>
                                     <span class="bigRed"><%=err%></span>
                                 </td>
                             </tr>
                         </tc-webtag:errorIterator>
-			<%if(request.getAttribute("hasResume") != null && request.getAttribute("hasResume").equals("true")) {%>
-			<tr>
-				<td class=bodyText><a href="/Resume?&t=DownloadTask">Download your existing resume</a></td>
-			</tr>
-			<%}%>
-			<tr>
-				<td width=100%><input type=file name="Resume"></td>
-			</tr>
-		</table>
+         <%if(request.getAttribute("hasResume") != null && request.getAttribute("hasResume").equals("true")) {%>
+         <tr>
+            <td class=bodyText><a href="/Resume?&t=DownloadTask">Download your existing resume</a></td>
+         </tr>
+         <%}%>
+         <tr>
+            <td width=100%><input type=file name="Resume"></td>
+         </tr>
+      </table>
 
-		<div width="100%" align=center><br/><br/><a href="javascript:goToPage('ContractingLanguages');"><img src="/i/submit.jpg" border=0/></a>
-		<%if(isEdit) {%><a href="javascript:goToPage('ContractingConfirm');"><img src="/i/jumpToEnd.jpg" border=0/></a><%}%></div>
+      <div width="100%" align=center><br/><br/><a href="javascript:goToPage('ContractingLanguages');"><img src="/i/submit.jpg" border=0/></a>
+      <%if(isEdit) {%><a href="javascript:goToPage('ContractingConfirm');"><img src="/i/jumpToEnd.jpg" border=0/></a><%}%></div>
 
-		</FORM>
+      </FORM>
 
         </div>
         <p><br/></p>

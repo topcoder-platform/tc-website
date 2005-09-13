@@ -145,7 +145,7 @@ margin:0px auto;
       <table border="0" cellpadding="0" cellspacing="0">
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
-            <td class="homeTitle"><A href="/?t=schedule&c=index" class="homeTitleLink">September Events:</A></td>
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">September Events:</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
