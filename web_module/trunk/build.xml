@@ -716,12 +716,12 @@
 	 	</jar>
  	</target>
  	
- 	<target name="package-EJB-ForumBean" depends="compile">
- 		 	<jar jarfile="${ejb_jars}/forum.jar">
+ 	<target name="package-EJB-ForumsBean" depends="compile">
+ 		 	<jar jarfile="${ejb_jars}/forums.jar">
  			 	<zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
  			 	<zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
- 			 	<zipfileset dir="${classes}" includes="com/topcoder/web/ejb/forum/*.class"/>
- 			 	<metainf dir="${java}/com/topcoder/web/ejb/forum" includes="*.xml"/>
+ 			 	<zipfileset dir="${classes}" includes="com/topcoder/web/ejb/forums/*.class"/>
+ 			 	<metainf dir="${java}/com/topcoder/web/ejb/forums" includes="*.xml"/>
  		 	</jar>
  	</target>
  		
