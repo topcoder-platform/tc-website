@@ -4,7 +4,7 @@
 <form>
 <select name="month" size="1" onchange="window.location='/tc?module=Static&d1=calendar&d2='+this.options[this.selectedIndex].value">
    <option value="thisMonth">-------- 2006 --------</option>
-   <option value="aug_05"<% if (currMonth.equals("jan_06")) { %> selected<% } %>>January</option>
+   <option value="jan_06"<% if (currMonth.equals("jan_06")) { %> selected<% } %>>January</option>
    <option value="thisMonth">-------- 2005 --------</option>
    <option value="dec_05"<% if (currMonth.equals("dec_05")) { %> selected<% } %>>December</option>
    <option value="nov_05"<% if (currMonth.equals("nov_05")) { %> selected<% } %>>November</option>
