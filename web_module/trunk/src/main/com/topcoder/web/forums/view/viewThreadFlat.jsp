@@ -160,9 +160,9 @@
          <div style="float: right; padding-left: 5px; white-space: nowrap;">
             <%  int editCount = historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME);
             if (editCount > 0) { %> 
-                <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/>"><%=ForumsUtil.display(editCount, "edit")%></a> | 
+                <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:beanWrite name="message" property="modificationDate" format="EEE, MMM d, yyyy 'at' h:mm a z"/>"><%=ForumsUtil.display(editCount, "edit")%></a> | 
             <%  } %>
-            <a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="creationDate" format="MMM d, yyyy 'at' h:mm a z"/>
+            <a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="creationDate" format="EEE, MMM d, yyyy 'at' h:mm a z"/>
          </div>
          <jsp:getProperty name="message" property="subject"/></a>
          <%  if (message.getParentMessage() != null) { %>
