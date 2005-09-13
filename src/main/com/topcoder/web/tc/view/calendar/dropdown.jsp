@@ -1,8 +1,7 @@
 <%
     String currMonth = request.getParameter("currMonth")==null?"":request.getParameter("currMonth");
 %>
-<form>
-<select name="month" size="1" onchange="window.location='/tc?module=Static&d1=calendar&d2='+this.options[this.selectedIndex].value">
+<form><select name="month" size="1" onchange="window.location='/tc?module=Static&d1=calendar&d2='+this.options[this.selectedIndex].value">
    <option value="thisMonth">-------- 2006 --------</option>
    <option value="jan_06"<% if (currMonth.equals("jan_06")) { %> selected<% } %>>January</option>
    <option value="thisMonth">-------- 2005 --------</option>
@@ -17,5 +16,4 @@
    <option value="apr_05"<% if (currMonth.equals("apr_05")) { %> selected<% } %>>April</option>
    <option value="mar_05"<% if (currMonth.equals("mar_05")) { %> selected<% } %>>March</option>
    <option value="feb_05"<% if (currMonth.equals("feb_05")) { %> selected<% } %>>February</option>
-</select>
-</form>
+</select></form>

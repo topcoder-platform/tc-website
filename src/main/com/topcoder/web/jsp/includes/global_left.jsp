@@ -149,8 +149,8 @@ function arena() {
                         <tr><td id="<%=level2.equals("pacts")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/PactsMemberServlet?t=affidavit&c=affidavit_history">Affidavits</A></td></tr>
                     <% } %>
                 <% } %>
-<%-- Schedule begins --%>
-                <tr><td id="<%=level1.equals("schedule")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=schedule&c=index" class="<%=level1.equals("schedule")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level1.equals("schedule")?"bottom":"right"%>.gif" alt="" border="0"/>Calendar</a></td></tr>
+<%-- Calendar begins --%>
+                <tr><td id="<%=level1.equals("calendar")?"leftNavSelect":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=calendar&d2=thisMonth" class="<%=level1.equals("calendar")?"leftOn":"left"%>"><img alt="" src="/images/<%=level1.equals("calendar")?"clear":"nav_arrow_right"%>.gif" border="0"/>Calendar</a></td></tr>
 <%-- Statistics begins --%>
                 <tr><td id="<%=level1.equals("statistics")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/stat?&c=round_overview" class="<%=level1.equals("statistics")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level1.equals("statistics")?"bottom":"right"%>.gif" alt="" border="0"/>Statistics</a></td></tr>
 
