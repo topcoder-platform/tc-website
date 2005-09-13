@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>09.13.05<br>4:40 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">Event calendar updated for <A href="/tc?module=Static&d1=calendar&d2=nov_05">November</A>, <A href="/tc?module=Static&d1=calendar&d2=dec_05">December</A>, and <A href="/tc?module=Static&d1=calendar&d2=jan_06">January</A></span><br><br>
+      We've updated the Calendar for events through the end of the year and into January 2006.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <a href="/tc?module=Static&d1=calendar&d2=thisMonth">view calendar</a>&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505394">discuss this</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.13.05<br>9:35 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&c=tco05_spon_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=spon_adv_overview">AdrianKuegel wins the TCO05 Sponsor Track</A></span><br><br>
       Congratulations to <tc-webtag:handle coderId="307060" context="algorithm"/>, the 2005 TopCoder Open Sponsor Track Champion.
@@ -283,18 +295,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=contracting&d2=tcs_chat_082705">view</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>08.29.05<br>10:35 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://timesofindia.indiatimes.com/articleshow/1212895.cms" target="_blank">Wanna codejam? May the best techie win</A></span><br><br>
-      "It's the grand slam of programming or, as the tourney organiser calls it, 'the X-games of software development'. It's gruelling and needs speed, accuracy and skill. Sounds like a sports contest?" [Times of India]
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://timesofindia.indiatimes.com/articleshow/1212895.cms" target="_blank">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
 
 
