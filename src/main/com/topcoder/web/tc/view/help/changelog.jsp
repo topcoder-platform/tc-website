@@ -38,9 +38,10 @@
            <jsp:param name="title" value="TopCoder Web Site Change Log"/>
         </jsp:include>
 
-        <p> 4.0.1 - 2005.XX.XX
+        <p> 4.0.1 - 2005.09.13
             <ul>
                 <li>Made the top color handle based on highest rating</li>
+                <li>Allowed existing members that don't meet current handle criteria to update their profile without a handle change</li>
             </ul>
         </p>
         <p> 4.0.0 - 2005.08.31
