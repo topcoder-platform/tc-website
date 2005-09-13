@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Statisics</title>
+<title>TopCoder Events Calendar</title>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 </head>
@@ -68,9 +68,9 @@
             <strong>Match 266</strong><br />
             Register: 9:00&#160;AM<br />
             Compete: 12:00&#160;PM<br />
-            Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=yahoo">Yahoo!</A><br />
+            Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo">Yahoo!</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=7999&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=7999&t=schedule&c=srm">Details</A><br/><br/></td>
     </tr>
     
     <tr> 
@@ -82,9 +82,9 @@
             <strong>Match 267</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
-            Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=sun">Sun</A><br />
+            Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun">Sun</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8000&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=8000&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">6</td>
         <td id="calendar">7</td>
         <td id="calendar">8</td>
@@ -100,7 +100,7 @@
             Championship Round Submission Deadline: 4:00 PM ET<br/>
             &#160;<br />
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-            <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=comp_schedule">Details</A>
+            <A class="calendarTCO05Link" href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_schedule">Details</A>
             </td>
         <td id="calendarTCO05">
             <span id="calendarTCO05Date">13</span><br/>
@@ -110,17 +110,17 @@
             &#160;<br />
             &#160;<br />
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-            <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=alg_schedule">Details</A>
+            <A class="calendarTCO05Link" href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_schedule">Details</A>
             </td>
         <td id="calendarTCO05">
             <span id="calendarTCO05Date">14</span><br/>
             <strong>2005 TopCoder Open Algorithm Competition</strong><br/>
-            WildCard &amp; Finals<br/>
+            WildCard & Finals<br/>
             &#160;<br />
             &#160;<br />
             &#160;<br />
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-            <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=alg_schedule">Details</A>
+            <A class="calendarTCO05Link" href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_schedule">Details</A>
             </td>
         <td id="calendar">15</td>
     </tr>
@@ -134,7 +134,7 @@
             Register: 8:00&#160;AM<br />
             Compete: 11:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8001&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=8001&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">19</td>
         <td id="calendar">20</td>
         <td id="calendar">21</td>
@@ -150,9 +150,9 @@
             <strong>Match 269</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
-            Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=nsa">NSA</A><br />
+            Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=nsa">NSA</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8002&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=8002&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">27</td>
         <td id="calendar">28</td>
         <td id="calendar">29</td>

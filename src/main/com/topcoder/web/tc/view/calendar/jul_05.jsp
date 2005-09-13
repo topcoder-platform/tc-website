@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Statisics</title>
+<title>TopCoder Events Calendar</title>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 </head>
@@ -73,18 +73,18 @@
         <td id="calendarTCO05">
             <span id="calendarTCO05Date">6</span><br/>
             <strong>2005 TopCoder Open Component Competition</strong><br/>
-            Week 1 Submission Deadline &amp; Week 2 Projects Posted: 9:00 AM ET<br/>
+            Week 1 Submission Deadline & Week 2 Projects Posted: 9:00 AM ET<br/>
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-            <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=comp_schedule">Details</A>
+            <A class="calendarTCO05Link" href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_schedule">Details</A>
             </td>
         <td id="calendarSRM">
             <span id="calendarSRMDate">7</span><br />
             <strong>Match 250</strong><br />
             Register: 8:00&#160;AM<br />
             Compete: 11:00&#160;AM<br />
-            Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=verisign">VeriSign</A><br />
+            Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign">VeriSign</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=7225&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=7225&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">8</td>
         <td id="calendar">9</td>
     </tr>
@@ -97,15 +97,15 @@
             <strong>Match 251</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
-            Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=sun">Sun</A><br />
+            Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun">Sun</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=7226&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=7226&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendarTCO05">
             <span id="calendarTCO05Date">13</span><br/>
             <strong>2005 TopCoder Open Component Competition</strong><br/>
-            Week 2 Submission Deadline &amp; Week 3 Projects Posted: 9:00 AM ET<br/>
+            Week 2 Submission Deadline & Week 3 Projects Posted: 9:00 AM ET<br/>
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-            <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=comp_schedule">Details</A>
+            <A class="calendarTCO05Link" href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_schedule">Details</A>
             </td>
         <td id="calendar">14</td>
         <td id="calendar">15</td>
@@ -120,15 +120,15 @@
             <strong>Match 252</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
-            Sponsored by: <A href="/tc?module=Static&amp;d1=contracting&amp;d2=citigroup">Citigroup</A><br />
+            Sponsored by: <A href="/tc?module=Static&d1=contracting&d2=citigroup">Citigroup</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8004&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=8004&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendarTCO05">
             <span id="calendarTCO05Date">20</span><br/>
             <strong>2005 TopCoder Open Component Competition</strong><br/>
-            Week 3 Submission Deadline &amp; Week 4 Projects Posted: 9:00 AM ET<br/>
+            Week 3 Submission Deadline & Week 4 Projects Posted: 9:00 AM ET<br/>
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-            <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=comp_schedule">Details</A>
+            <A class="calendarTCO05Link" href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_schedule">Details</A>
             </td>
         <td id="calendar">21</td>
         <td id="calendar">22</td>
@@ -138,7 +138,7 @@
             Register: 9:00&#160;AM<br />
             Compete: 12:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=7227&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=7227&t=schedule&c=srm">Details</A><br/><br/></td>
     </tr>
     
     <tr> 
@@ -150,22 +150,22 @@
             Register: 4:00&#160;AM<br />
             Compete: 7:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8006&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=8006&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendarTCO05">
             <span id="calendarTCO05Date">27</span><br/>
             <strong>2005 TopCoder Open Component Competition</strong><br/>
-            Week 4 Submission Deadline &amp; Week 5 Projects Posted: 9:00 AM ET<br/>
+            Week 4 Submission Deadline & Week 5 Projects Posted: 9:00 AM ET<br/>
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-            <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=comp_schedule">Details</A>
+            <A class="calendarTCO05Link" href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_schedule">Details</A>
             </td>
         <td id="calendarSRM">
             <span id="calendarSRMDate">28</span><br />
             <strong>Match 255</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
-            Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=nsa">NSA</A><br />
+            Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=nsa">NSA</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=7228&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=7228&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">29</td>
         <td id="calendar">30</td>
     </tr>

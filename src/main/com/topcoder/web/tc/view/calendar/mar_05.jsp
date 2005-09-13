@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Statisics</title>
+<title>TopCoder Events Calendar</title>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 </head>
@@ -66,9 +66,9 @@
             <strong>Match 233</strong><br />
             Register: 6:00&#160;AM<br />
             Compete: 9:00&#160;AM<br />
-            Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=nvidia">NVIDIA</A><br />
+            Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=nvidia">NVIDIA</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=6532&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=6532&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">4</td>
         <td id="calendar">5</td>
     </tr>
@@ -85,7 +85,7 @@
             &#160;<br />
             &#160;<br />
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-            <A class="calendarTCCC05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=onsite_schedule">Details</A>
+            <A class="calendarTCCC05Link" href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=onsite_schedule">Details</A>
             </td>
         <td id="calendarTCCC05">
             <span id="calendarTCCC05Date">11</span><br/>
@@ -94,7 +94,7 @@
             &#160;<br />
             &#160;<br />
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-            <A class="calendarTCCC05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=onsite_schedule">Details</A>
+            <A class="calendarTCCC05Link" href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=onsite_schedule">Details</A>
             </td>
         <td id="calendar">12</td>
     </tr>
@@ -108,9 +108,9 @@
             <strong>Match 234</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
-            Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=yahoo">Yahoo!</A><br />
+            Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=yahoo">Yahoo!</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=6533&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=6533&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">17</td>
         <td id="calendar">18</td>
         <td id="calendar">19</td>
@@ -124,9 +124,9 @@
             <strong>Match 235</strong><br />
             Register: 7:00&#160;PM<br />
             Compete: 10:00&#160;PM<br />
-            Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=motorola">Motorola</A><br />
+            Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=motorola">Motorola</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=6534&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=6534&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">23</td>
         <td id="calendar">24</td>
         <td id="calendar">25</td>

@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Statisics</title>
+<title>TopCoder Events Calendar</title>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 </head>
@@ -54,7 +54,13 @@
         <td id="calendar">2</td>
         <td id="calendar">3</td>
         <td id="calendar">4</td>
-        <td id="calendar">5</td>
+        <td id="calendarSRM">
+            <span id="calendarSRMDate">5</span><br />
+            <strong>Match 281</strong><br />
+            Register: 8:00&#160;AM<br />
+            Compete: 11:00&#160;AM<br />
+            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+            <A href="/?RoundId=8078&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">6</td>
         <td id="calendar">7</td>
     </tr>
@@ -62,7 +68,13 @@
     <tr> 
         <td id="calendar">8</td>
         <td id="calendar">9</td>
-        <td id="calendar">10</td>
+        <td id="calendarSRM">
+            <span id="calendarSRMDate">10</span><br />
+            <strong>Match 282</strong><br />
+            Register: 6:00&#160;PM<br />
+            Compete: 9:00&#160;PM<br />
+            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+            <A href="/?RoundId=8079&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">11</td>
         <td id="calendar">12</td>
         <td id="calendar">13</td>
@@ -74,15 +86,33 @@
         <td id="calendar">16</td>
         <td id="calendar">17</td>
         <td id="calendar">18</td>
-        <td id="calendar">19</td>
+        <td id="calendarSRM">
+            <span id="calendarSRMDate">19</span><br />
+            <strong>Match 283</strong><br />
+            Register: 4:00&#160;AM<br />
+            Compete: 7:00&#160;AM<br />
+            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+            <A href="/?RoundId=8080&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">20</td>
-        <td id="calendar">21</td>
+        <td id="calendarSRM">
+            <span id="calendarSRMDate">21</span><br />
+            <strong>Match 284</strong><br />
+            Register: 9:00&#160;AM<br />
+            Compete: 12:00&#160;PM<br />
+            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+            <A href="/?RoundId=8081&t=schedule&c=srm">Details</A><br/><br/></td>
     </tr>
     
     <tr> 
         <td id="calendar">22</td>
         <td id="calendar">23</td>
-        <td id="calendar">24</td>
+        <td id="calendarSRM">
+            <span id="calendarSRMDate">24</span><br />
+            <strong>Match 285</strong><br />
+            Register: 8:00&#160;AM<br />
+            Compete: 11:00&#160;AM<br />
+            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+            <A href="/?RoundId=8082&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">25</td>
         <td id="calendar">26</td>
         <td id="calendar">27</td>
@@ -91,7 +121,13 @@
     
     <tr> 
         <td id="calendar">29</td>
-        <td id="calendar">30</td>
+        <td id="calendarSRM">
+            <span id="calendarSRMDate">21</span><br />
+            <strong>Match 286</strong><br />
+            Register: 6:00&#160;PM<br />
+            Compete: 9:00&#160;PM<br />
+            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+            <A href="/?RoundId=8083&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">31</td>
         <td id="calendarBlank">&#160;</td>
         <td id="calendarBlank">&#160;</td>

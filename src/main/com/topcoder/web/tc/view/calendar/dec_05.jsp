@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Statisics</title>
+<title>TopCoder Events Calendar</title>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 </head>
@@ -76,7 +76,7 @@
             Register: 8:00&#160;AM<br />
             Compete: 11:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8000&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=8073&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">9</td>
         <td id="calendar">10</td>
     </tr>
@@ -94,7 +94,7 @@
             Register: 9:00&#160;AM<br />
             Compete: 12:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8000&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=8074&t=schedule&c=srm">Details</A><br/><br/></td>
     </tr>
     
     <tr> 
@@ -105,7 +105,7 @@
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8000&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=8075&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">20</td>
         <td id="calendarSRM">
             <span id="calendarSRMDate">21</span><br />
@@ -113,7 +113,7 @@
             Register: 4:00&#160;AM<br />
             Compete: 7:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8000&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=8076&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">22</td>
         <td id="calendar">23</td>
         <td id="calendar">24</td>
@@ -129,7 +129,7 @@
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8000&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+            <A href="/?RoundId=8077&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">29</td>
         <td id="calendar">30</td>
         <td id="calendar">31</td>
