@@ -447,7 +447,7 @@ public class Registration
 
             if (isEmpty(this.handle)) {
                 addError(HANDLE, "Please enter your desired handle.");
-            } else if (isRegister()&&s!isValidHandle(this.handle)) {
+            } else if (isRegister()&&!isValidHandle(this.handle)) {
                 addError(HANDLE, "Your handle may contain only letters, numbers, {}[]()-_.");
             } else if
             (
