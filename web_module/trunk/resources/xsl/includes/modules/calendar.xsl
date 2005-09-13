@@ -85,7 +85,7 @@
                                 <td id="calendarBlankMini">&#160;</td> 
                             </tr>
                             
-                            <tr><td colspan="7" class="statText" nowrap="nowrap" align="right"><A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=schedule&amp;c=index</xsl:attribute>More Match Dates&#160;</A></td></tr>
+                            <tr><td colspan="7" class="statText" nowrap="nowrap" align="right"><A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth</xsl:attribute>More Match Dates&#160;</A></td></tr>
                         </table>
                     </td>
                 </tr>
