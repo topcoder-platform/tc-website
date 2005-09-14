@@ -62,13 +62,16 @@
               <td width="20%" class="tableHeader">Author</td>
               <td width="60%" class="tableHeader">Feature</td>
           </tr>
-      <%boolean even = true;%>          
+          <tr>
+              <td class="statDk">September 14</td>
+              <td class="statDk"><tc-webtag:handle coderId="251317"/></td>
+              <td class="statDk"><A href="/tc?module=Static&amp;d1=features&amp;d2=091405">Competing tomek-style</A></td>
+          </tr>
           <tr>
               <td class="statDk">July 8</td>
               <td class="statDk"><tc-webtag:handle coderId="7371063"/></td>
               <td class="statDk"><A href="/tc?module=Static&amp;d1=features&amp;d2=070805">The Story of Petr Mitrichev - Target in Six Steps</A></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">March 2</td>
               <td class="statDk"><tc-webtag:handle coderId="269886"/></td>
@@ -83,73 +86,61 @@
               <td width="20%" class="tableHeader">Author</td>
               <td width="60%" class="tableHeader">Feature</td>
           </tr>
-      <%even = true;%>          
           <tr>
               <td class="statDk">December 7</td>
               <td class="statDk"><tc-webtag:handle coderId="10407399"/></td>
               <td class="statDk"><A href="/index?t=features&amp;c=feat_120704">More on Encryption and Security</A></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">November 2</td>
               <td class="statDk"><tc-webtag:handle coderId="10407399"/></td>
               <td class="statDk"><A href="/index?t=features&amp;c=feat_110204">Encryption Algorithms</A></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">October 4</td>
               <td class="statDk"><tc-webtag:handle coderId="10135324"/></td>
               <td class="statDk"><A href="/index?t=features&amp;c=feat_100404">Peer 2 Fear: Solutions for developers for designing secure P2P applications</A></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">September 1</td>
               <td class="statDk"><tc-webtag:handle coderId="282560"/></td>
               <td class="statDk"><A href="/index?t=features&amp;c=feat_090104">On Sentinels</A></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">August 3</td>
               <td class="statDk"><tc-webtag:handle coderId="156859"/></td>
               <td class="statDk"><A href="/index?t=features&amp;c=feat_080304">Reviewing Software for Fun and Profit</A></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">July 7</td>
               <td class="statDk"><tc-webtag:handle coderId="276230"/></td>
               <td class="statDk"><A href="/index?t=features&amp;c=feat_070704">Healthy Computing</A></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">June 2</td>
               <td class="statDk"><tc-webtag:handle coderId="251184"/></td>
               <td class="statDk"><A href="/index?t=features&amp;c=feat_060204">Java for C++ coders, and vice versa</A></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">April 29</td>
               <td class="statDk"><tc-webtag:handle coderId="251184"/></td>
               <td class="statDk"><A href="/index?t=features&amp;c=feat_042904">All I really need to know about Software Development I learned from TopCoder</A></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">April 1</td>
               <td class="statDk"><tc-webtag:handle coderId="299177"/></td>
               <td class="statDk"><A href="/index?t=features&amp;c=feat_040104">Dynamic Programming</A></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">March 1</td>
               <td class="statDk"><tc-webtag:handle coderId="290395"/></td>
               <td class="statDk"><A href="/index?t=features&amp;c=feat_030104">The Educational Component of TopCoding</A></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">February 10</td>
               <td class="statDk"><tc-webtag:handle coderId="119676"/></td>
               <td class="statDk"><A href="/index?t=features&amp;c=feat_021004">The 5 Most Common Design Mistakes</A></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">January 14</td>
               <td class="statDk"><tc-webtag:handle coderId="251184"/></td>
@@ -166,79 +157,66 @@
               <td width="20%" class="tableHeader">Author</td>
               <td width="60%" class="tableHeader">Feature</td>
           </tr>
-      <%even = true;%>
           <tr>
               <td class="statDk">December 22</td>
               <td class="statDk"><tc-webtag:handle coderId="273434"/></td>
               <td class="statDk"><A href="/index?t=features&amp;c=feat_122203">Not Round, Not a Table</A></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">October 24</td>
               <td class="statDk"><tc-webtag:handle coderId="299709"/></td>
               <td class="statDk"><A href="/index?t=features&amp;c=feat_102403">Challenging 101</A></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">September 17</td>
               <td class="statDk"><tc-webtag:handle coderId="271144"/></td>
               <td class="statDk"><A href="/index?t=features&amp;c=feat_091703">A Crash Course in the Java Collections Framework</A></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">August 28</td>
               <td class="statDk"><tc-webtag:handle coderId="269554"/></td>
               <td class="statDk"><A href="/index?t=features&amp;c=feat_082803">A Crash Course in the C++ STL</A></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">July 29</td>
               <td class="statDk"><tc-webtag:handle coderId="119676"/></td>
               <td class="statDk"><A href="/index?t=features&amp;c=feat_072903">The TopCoder Design Contest #2</A></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">July 10</td>
               <td class="statDk"><tc-webtag:handle coderId="299177"/></td>
               <td class="statDk"><A href="/index?t=features&amp;c=feat_071003">Immutable Objects</A></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">June 26</td>
               <td class="statDk"><tc-webtag:handle coderId="271917"/></td>
               <td class="statDk"><A href="/index?t=features&amp;c=feat_062603">Simple Performance Improvement</A></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">May 27</td>
               <td class="statDk"><tc-webtag:handle coderId="273217"/></td>
               <td class="statDk"><A href="/index?t=features&amp;c=feat_052703">Threads and Atomicity</A></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">April 8</td>
               <td class="statDk"><tc-webtag:handle coderId="303718"/></td>
               <td class="statDk"><a href="/index?t=features&amp;c=feat_040803">TopCoder Competitions vs. The Real World</a></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">March 17</td>
               <td class="statDk"><tc-webtag:handle coderId="296145"/></td>
               <td class="statDk"><a href="/index?t=features&amp;c=feat_031703">Component-Based Development: TopCoder Style</a></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">February 20</td>
               <td class="statDk">David Tanacea</td>
               <td class="statDk"><a href="/index?t=features&amp;c=feat_022003">Component-Based Development: Why Hasn't the Vision Met Reality?</a></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">January 22</td>
               <td class="statDk"><tc-webtag:handle coderId="292607"/></td>
               <td class="statDk"><a href="/index?t=features&amp;c=feat_012203">Who needs another UI framework?</a></td>
           </tr>
-      <%even=!even;%>      
           <tr>
               <td class="statDk">January 8</td>
               <td class="statDk"><tc-webtag:handle coderId="277659"/></td>
