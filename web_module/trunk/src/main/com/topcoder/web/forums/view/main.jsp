@@ -76,6 +76,7 @@
 </tr>
 </table>
 
+            <%--
             <%  if (forumFactory.getRootForumCategory().getForumCount() > 0) { %>
             <table cellpadding="0" cellspacing="0" class="rtTable">
                 <tr>
@@ -145,6 +146,7 @@
                 </tc-webtag:iterator>
             </table>
             <%  } %>
+            --%>
 
             <%  if (categories.size() > 0) { 
                     Calendar calendar = Calendar.getInstance(); 
