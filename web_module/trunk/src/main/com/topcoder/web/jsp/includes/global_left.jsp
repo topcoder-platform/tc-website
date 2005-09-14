@@ -189,7 +189,7 @@ function arena() {
             <% if (level1.equals("education")) { %>
                 <tr><td id="<%=level2.equals("alg_tutorials")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tutorials&d2=alg_index">Algorithm Tutorials</A></td></tr>
                 <tr><td id="<%=level2.equals("comp_tutorials")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tutorials&d2=comp_index">Component Tutorials</A></td></tr>
-                <tr><td id="<%=level2.equals("features")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=features&c=index">Features</A></td></tr>
+                <tr><td id="<%=level2.equals("features")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=features&d2=archive">Features</A></td></tr>
                 <tr><td id="<%=level2.equals("tutor_transcripts")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tutor_transcripts&d2=index">Tutor Transcripts</A></td></tr>
             <% } %>
 
