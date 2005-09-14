@@ -14,6 +14,7 @@
                  com.jivesoftware.forum.ForumMessage,
                  com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.ReadTracker,
+                 com.jivesoftware.forum.WatchManager,
                  com.jivesoftware.forum.action.util.Page,
                  com.jivesoftware.forum.action.util.Paginator,
                  java.util.Iterator,
@@ -32,7 +33,8 @@
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
-<%  ReadTracker readTracker = forumFactory.getReadTracker();
+<%  WatchManager watchManager = forumFactory.getWatchManager();
+    ReadTracker readTracker = forumFactory.getReadTracker();
     User user = (User)request.getAttribute("user");
     String sortField = (String)request.getAttribute("sortField");
     String sortOrder = (String)request.getAttribute("sortOrder");
