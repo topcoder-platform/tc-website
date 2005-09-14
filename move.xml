@@ -149,6 +149,7 @@
                 <include name="lib/jars/tcfilters.jar"/>
                 <include name="build/wars/forums.war"/>
                 <include name="build/ejb_jars/messagehistory.jar"/>
+                <include name="build/ejb_jars/forums.jar"/>
                 <include name="lib/bin/shared.jar"/>
             </fileset>
         </jar>
