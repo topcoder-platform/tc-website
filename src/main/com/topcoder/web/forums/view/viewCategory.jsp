@@ -94,29 +94,29 @@
         <%  } %> 
     </tc-webtag:iterator>
     </b></td>
-	<% Page[] pages; %>
-	<% if (paginator.getNumPages() > 1) { %>
-	   <td class="rtbc" align="right"><b>
-	      <%  if (paginator.getPreviousPage()) { %>
-	         <A href="<%=prevLink%>" class="rtbcLink">
-	               << PREV</A>&#160;&#160;&#160;
-	        <%  } %> [
-	        <%  pages = paginator.getPages(5);
-	            for (int i=0; i<pages.length; i++) {
-	        %>  <%  if (pages[i] != null) { %>
-	                 <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
-	                       <span class="currentPage"><%= pages[i].getNumber() %></span>
-	                 <%  } else { %>
-	                        <A href="<%=link%><%=pages[i].getStart()%>" class="rtbcLink">
-	                         <%= pages[i].getNumber() %></A>
-	                   <%  } %>
-	            <%  } else { %> ... <%  } %>
-	        <%  } %> ]
-	      <%  if (paginator.getNextPage()) { %>
-	          &#160;&#160;&#160;<A href="<%=nextLink%>" class="rtbcLink">NEXT >></A>
-	      <%  } %>
-	   </b></td></tr>
-	<% } %>
+   <% Page[] pages; %>
+   <% if (paginator.getNumPages() > 1) { %>
+      <td class="rtbc" align="right"><b>
+         <%  if (paginator.getPreviousPage()) { %>
+            <A href="<%=prevLink%>" class="rtbcLink">
+                  << PREV</A>&#160;&#160;&#160;
+           <%  } %> [
+           <%  pages = paginator.getPages(5);
+               for (int i=0; i<pages.length; i++) {
+           %>  <%  if (pages[i] != null) { %>
+                    <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
+                          <span class="currentPage"><%= pages[i].getNumber() %></span>
+                    <%  } else { %>
+                           <A href="<%=link%><%=pages[i].getStart()%>" class="rtbcLink">
+                            <%= pages[i].getNumber() %></A>
+                      <%  } %>
+               <%  } else { %> ... <%  } %>
+           <%  } %> ]
+         <%  if (paginator.getNextPage()) { %>
+             &#160;&#160;&#160;<A href="<%=nextLink%>" class="rtbcLink">NEXT >></A>
+         <%  } %>
+      </b></td></tr>
+   <% } %>
 </tr>
 </table>
 
