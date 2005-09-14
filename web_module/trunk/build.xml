@@ -1439,6 +1439,7 @@
          <antcall target="package-TCAuth"/>
          <antcall target="package-TCFilters"/>
          <antcall target="package-EJB-MessageHistoryBean"/>
+         <antcall target="package-EJB-ForumsBean"/>
      </target>
 
      <target name="war-forums" depends="compile">
@@ -1509,6 +1510,7 @@
          <copy todir="${jboss_lib}" file="${bin.dir}/shared.jar"/>
 
          <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
+         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
 
      </target>
 
