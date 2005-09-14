@@ -9,6 +9,7 @@ import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
+import com.jivesoftware.forum.ForumPermissions;
 import com.jivesoftware.forum.WatchManager;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.TCContext;
@@ -71,6 +72,12 @@ public class PostMessage extends ForumsProcessor {
         }
         if (body.length() > ForumConstants.MESSAGE_BODY_MAX_LENGTH) {
         	addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_LONG_MESSAGE_BODY);
+        }
+        if (thread == null && !forum.isAuthorized(ForumPermissions.CREATE_THREAD)) {
+            addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_CANNOT_POST_THREAD);
+        }
+        if (!forum.isAuthorized(ForumPermissions.CREATE_MESSAGE)) {
+            addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_CANNOT_POST_MESSAGE);
         }
 		if (hasErrors()) {
 			setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
