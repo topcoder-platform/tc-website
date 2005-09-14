@@ -57,31 +57,12 @@ public class Settings extends ForumsProcessor {
             String markWatchesRead = getRequest().getParameter("markWatchesRead");
             watchFrequency = Integer.parseInt(getRequest().getParameter("watchFrequency"));
 
-            if (forumsPerPage <= maxForumsPerPage) {
-                user.setProperty(("jiveForumRange"), String.valueOf(forumsPerPage));
-            } else {
-                addError(ForumConstants.SETTINGS_STATUS, ForumConstants.ERR_FORUM_RANGE_EXCEEDED);
-            }
-            if (threadsPerPage <= maxThreadsPerPage) {
-            	user.setProperty(("jiveThreadRange"), String.valueOf(threadsPerPage));
-            } else {
-            	addError(ForumConstants.SETTINGS_STATUS, ForumConstants.ERR_THREAD_RANGE_EXCEEDED);
-            }
-            if (messagesPerPage <= maxMessagesPerPage) {
-            	user.setProperty(("jiveMessageRange"), String.valueOf(messagesPerPage));
-            } else {
-                addError(ForumConstants.SETTINGS_STATUS, ForumConstants.ERR_MESSAGE_RANGE_EXCEEDED);
-            }
-            if (messagesPerHistoryPage <= maxMessagesPerPage) {
-                user.setProperty(("jiveHistoryRange"), String.valueOf(messagesPerHistoryPage));
-            } else {
-                addError(ForumConstants.SETTINGS_STATUS, ForumConstants.ERR_MESSAGE_HISTORY_RANGE_EXCEEDED);
-            }
-            if (resultsPerSearchPage <= maxSearchResultsPerPage) {
-                user.setProperty(("jiveSearchRange"), String.valueOf(resultsPerSearchPage));
-            } else {
-                addError(ForumConstants.SETTINGS_STATUS, ForumConstants.ERR_SEARCH_RANGE_EXCEEDED);
-            }
+            checkMax(forumsPerPage, maxForumsPerPage, "jiveForumRange", ForumConstants.ERR_FORUM_RANGE_EXCEEDED);
+            checkMax(threadsPerPage, maxThreadsPerPage, "jiveThreadRange", ForumConstants.ERR_THREAD_RANGE_EXCEEDED);
+            checkMax(messagesPerPage, maxMessagesPerPage, "jiveMessageRange", ForumConstants.ERR_MESSAGE_RANGE_EXCEEDED);
+            checkMax(messagesPerHistoryPage, maxMessagesPerPage, "jiveHistoryRange", ForumConstants.ERR_MESSAGE_HISTORY_RANGE_EXCEEDED);
+            checkMax(resultsPerSearchPage, maxSearchResultsPerPage, "jiveSearchRange", ForumConstants.ERR_SEARCH_RANGE_EXCEEDED);
+            
             if (hasErrors()) {
                 status = "error";
             }
@@ -181,5 +162,13 @@ public class Settings extends ForumsProcessor {
             Log.error(e);
         }
         return null;
+    }
+    
+    private void checkMax(int value, int maxValue, String property, String error) throws Exception {
+        if (value <= maxValue) {
+            user.setProperty((property), String.valueOf(value));
+        } else {
+            addError(ForumConstants.SETTINGS_STATUS, error);
+        }
     }
 }
