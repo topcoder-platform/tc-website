@@ -242,6 +242,19 @@
          <%= (user.getProperty("jiveAutoWatchReplies") == null || "false".equals(user.getProperty("jiveAutoWatchReplies"))) ? "checked" : ""%>>
       <label for="autoWatchRepliesNo">No</label>
       </td>
+   </tr>
+   <tr>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Mark watched threads as read:</strong></td>
+      <td class="rtTextCell100">
+      <input name="markWatchesRead" value="true" id="markWatchesReadYes" type="radio"
+         <%= ("true".equals(user.getProperty("markWatchesRead"))) ? "checked" : ""%>>
+      <label for="markWatchesReadYes">Yes</label>
+      &#160;
+      <input name="markWatchesRead" value="false" id="markWatchesReadNo" type="radio"
+         <%= (user.getProperty("markWatchesRead") == null || "false".equals(user.getProperty("markWatchesRead"))) ? "checked" : ""%>>
+      <label for="markWatchesReadNo">No</label>
+      </td>
+   </tr>
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Send watch emails:</strong></td>
       <td class="rtTextCell100">
@@ -259,7 +272,6 @@
          </select>
          (<%= user.getEmail() %>)
       </td>
-   </tr>
    </tr>
 </table>
 <div align="right">

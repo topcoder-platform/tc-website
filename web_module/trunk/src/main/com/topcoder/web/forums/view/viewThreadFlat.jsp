@@ -43,9 +43,9 @@
     if (!authToken.isAnonymous() && watchManager.isWatched(user, thread)) {
        Watch watch = watchManager.getWatch(user, thread);
        watchMessage = "Stop Watching Thread";
-        cmd = "remove";
+       cmd = "remove";
     } else {
-        watchMessage = "Watch Thread";
+       watchMessage = "Watch Thread";
        cmd = "add";
     }
 %>
