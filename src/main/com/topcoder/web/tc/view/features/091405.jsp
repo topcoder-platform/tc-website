@@ -58,8 +58,7 @@
 <span class="bodySubtitle">Introduction: A Recipe for Success</span><br/>
 Ever wonder what allows certain TC members to solve 3 hard problems in under an hour, while others
 struggle to submit a single solution?  This question has both fascinated and puzzled me for some
-time.  In this series of articles, we try to find an answer by analyzing coders at the top of their
-game.  And who is an obvious choice?
+time.  
 <br><br>
 Since his first competition 2 years ago, <tc-webtag:handle coderId="144400"/> has consistently dominated in the arena.  Perhaps most
 impressive is his stellar tournament record.  Seemingly unfazed by the high stakes, <tc-webtag:handle coderId="144400"/> always
