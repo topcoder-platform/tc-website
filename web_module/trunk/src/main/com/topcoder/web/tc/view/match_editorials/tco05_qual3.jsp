@@ -5,7 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Statisics</title>
+<title>TopCoder Statistics</title>
 
 <jsp:include page="../script.jsp" />
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
@@ -41,7 +41,7 @@
 <%--
 <tc-webtag:forumLink forumID="505003" message="Discuss this match" /></div>
 --%>
-<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505012">Discuss this match</A></div>
+<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505751">Discuss this match</A></div>
 <span class="bodySubtitle">TCO05 - Qualification 3</span><br>August 16-17, 2005
 <br><br>
 
