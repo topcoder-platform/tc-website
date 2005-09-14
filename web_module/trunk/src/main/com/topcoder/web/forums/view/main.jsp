@@ -214,6 +214,7 @@
                                       </tr>
                                    <%  } %>
                                 </tc-webtag:iterator>
+                                 <tr><td class="rtThreadCell" colspan="4"><A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtLinkNew">...more</A></td></tr>
                         </table>
                         <%  } %>
                 <%  } %>
