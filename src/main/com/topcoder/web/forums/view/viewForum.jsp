@@ -166,27 +166,28 @@
 </tr>
 <tc-webtag:iterator id="thread" type="com.jivesoftware.forum.ForumThread" iterator='<%=(Iterator)request.getAttribute("threads")%>'>
     <%  ForumMessage lastPost = ForumsUtil.getLatestMessage(thread); 
-        String trackerClass = (user == null || readTracker.getReadStatus(user, lastPost) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
+        String trackerClass = (user == null || readTracker.getReadStatus(user, lastPost) == ReadTracker.READ ||
+            ("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, thread))) ? "rtLinkOld" : "rtLinkBold"; %>
     <tr>
     <tc-webtag:useBean id="message" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
-   <td class="rtThreadCellWrap">
-      <%   if (((authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat")) || user.getProperty("jiveThreadMode").equals("flat")) { %>
+    <td class="rtThreadCellWrap">
+        <%  if (((authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat")) || user.getProperty("jiveThreadMode").equals("flat")) { %>
             <%  if (!authToken.isAnonymous()) { %>
             <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0" class="<%=trackerClass%>"><%=thread.getRootMessage().getSubject()%></A>
             <%  } else { %>
                 <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
             <%  } %>
-         <%  Paginator threadPaginator;
+         <% Paginator threadPaginator;
             ResultFilter resultFilter = ResultFilter.createDefaultMessageFilter();
             resultFilter.setStartIndex(0);
             int range = JiveGlobals.getJiveIntProperty("skin.default.defaultMessagesPerPage", 
-                    ForumConstants.DEFAULT_MESSAGE_RANGE);
-              if (user != null) {
+                  ForumConstants.DEFAULT_MESSAGE_RANGE);
+            if (user != null) {
                   try {
                       range = Integer.parseInt(user.getProperty("jiveMessageRange"));
                   } catch (Exception ignored) {}
-              }
-              resultFilter.setNumResults(range);
+            }
+            resultFilter.setNumResults(range);
             threadPaginator = new Paginator(new Paging(resultFilter, thread.getMessageCount()));
 
             if (threadPaginator.getNumPages() > 1) { %> [

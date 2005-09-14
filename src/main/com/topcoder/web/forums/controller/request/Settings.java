@@ -8,6 +8,7 @@ import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.action.UserSettingsAction;
 import com.jivesoftware.util.CronTimer;
+import com.sun.rsasign.t;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
@@ -53,36 +54,35 @@ public class Settings extends ForumsProcessor {
             String displayMemberPhoto = getRequest().getParameter("displayMemberPhoto");
             String autoWatchNewTopics = getRequest().getParameter("autoWatchNewTopics");
             String autoWatchReplies = getRequest().getParameter("autoWatchReplies");
+            String markWatchesRead = getRequest().getParameter("markWatchesRead");
             watchFrequency = Integer.parseInt(getRequest().getParameter("watchFrequency"));
 
             if (forumsPerPage <= maxForumsPerPage) {
                 user.setProperty(("jiveForumRange"), String.valueOf(forumsPerPage));
             } else {
                 addError(ForumConstants.SETTINGS_STATUS, ForumConstants.ERR_FORUM_RANGE_EXCEEDED);
-                status = "error";
             }
             if (threadsPerPage <= maxThreadsPerPage) {
             	user.setProperty(("jiveThreadRange"), String.valueOf(threadsPerPage));
             } else {
             	addError(ForumConstants.SETTINGS_STATUS, ForumConstants.ERR_THREAD_RANGE_EXCEEDED);
-                status = "error";
             }
             if (messagesPerPage <= maxMessagesPerPage) {
             	user.setProperty(("jiveMessageRange"), String.valueOf(messagesPerPage));
             } else {
                 addError(ForumConstants.SETTINGS_STATUS, ForumConstants.ERR_MESSAGE_RANGE_EXCEEDED);
-                status = "error";
             }
             if (messagesPerHistoryPage <= maxMessagesPerPage) {
                 user.setProperty(("jiveHistoryRange"), String.valueOf(messagesPerHistoryPage));
             } else {
                 addError(ForumConstants.SETTINGS_STATUS, ForumConstants.ERR_MESSAGE_HISTORY_RANGE_EXCEEDED);
-                status = "error";
             }
             if (resultsPerSearchPage <= maxSearchResultsPerPage) {
                 user.setProperty(("jiveSearchRange"), String.valueOf(resultsPerSearchPage));
             } else {
                 addError(ForumConstants.SETTINGS_STATUS, ForumConstants.ERR_SEARCH_RANGE_EXCEEDED);
+            }
+            if (hasErrors()) {
                 status = "error";
             }
 
@@ -91,6 +91,7 @@ public class Settings extends ForumsProcessor {
             user.setProperty(("jiveShowPrevNextThreads"), showPrevNextThreads);
             user.setProperty(("jiveAutoWatchNewTopics"), autoWatchNewTopics);
             user.setProperty(("jiveAutoWatchReplies"), autoWatchReplies);
+            user.setProperty(("markWatchesRead"), markWatchesRead);
 
             CronTimer current = forumFactory.getWatchManager().getBatchTimer(user);
             if (current == null && watchFrequency != UserSettingsAction.FREQUENCY_IMMEDIATELY) {
