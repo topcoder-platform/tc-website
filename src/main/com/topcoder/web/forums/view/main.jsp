@@ -225,6 +225,10 @@
                     <td>A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.</td>
                     <td align="right"><a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=1"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
                 </tr>
+                <tr>
+                    <td>The five most recent forums are displayed for each category other than Round Tables. Click a category's name to view its complete forum list.</td>
+                    <td></td>
+                </tr>
             </table>
         </td>
 <!-- Center Column Ends -->
