@@ -107,6 +107,10 @@ public interface ForumConstants {
         "Please include a message subject.";
     public final static String ERR_EMPTY_MESSAGE_BODY =
         "Please include a message body.";
+    public final static String ERR_CANNOT_POST_THREAD =
+        "You do not have permission to post a new thread in this forum.";
+    public final static String ERR_CANNOT_POST_MESSAGE =
+        "You do not have permission to post a new message in this forum.";
     public final static String ERR_LONG_MESSAGE_SUBJECT =
         "Error: Message body exceeds " + MESSAGE_SUBJECT_MAX_LENGTH + " characters.";
     public final static String ERR_LONG_MESSAGE_BODY =

@@ -127,7 +127,7 @@
 
 <%-------------POSTS---------------%>
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
-   <%  int depth=thread.getTreeWalker().getMessageDepth(message);
+  <%  int depth=thread.getTreeWalker().getMessageDepth(message);
       int width=Math.round(Math.min(500,500-((depth-50)*(depth-50))/5));
       if (depth > 0) { %>
 <div style="padding:0px 0px 0px <%=width%>px;">
@@ -146,10 +146,10 @@
             <%   if (message.getParentMessage() != null) { %>
                (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
             <%   } %>
-             &#160;>>&#160; <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">Reply</A>
-             <%  if (message.getUser() != null && message.getUser().equals(user)) { %>
-             | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">Edit</A>
-             <%   } %>
+            &#160;>>&#160; <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">Reply</A>
+            <%  if (message.getUser() != null && message.getUser().equals(user)) { %>
+            | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">Edit</A>
+            <%   } %>
           </td>
         </tr>
       <tr>
