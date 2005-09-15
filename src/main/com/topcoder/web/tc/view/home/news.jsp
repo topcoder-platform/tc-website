@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>09.15.05<br>3:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/dndj_082005.pdf">Engineering + Reuse = Savings</A></span><br><br>
+"Why are contract outsourcing and offshore development failing to deliver the expected benefit of lower costs and increased end-user satisfaction to enterprise software development users?" [DNDJ]
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/pdfs/press_room/dndj_082005.pdf">full story</A>&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505765">discuss this</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>09.15.05<br>2:40 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -290,18 +303,6 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm261">full story</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505758">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>08.11.05<br>6:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=8">"News Discussions" now in the Forums</A></span><br><br>
-      As news items are posted here, you will be able to discuss each of them in the News Discussions forums.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=8">view</a>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505000">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 
