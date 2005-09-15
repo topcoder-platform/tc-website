@@ -9,6 +9,7 @@ import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ReadTracker;
+import com.jivesoftware.forum.WatchManager;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -45,6 +46,7 @@ public abstract class ForumsProcessor extends BaseProcessor {
         
         // Determine categories with unread forums
         ReadTracker readTracker = forumFactory.getReadTracker();
+        WatchManager watchManager = forumFactory.getWatchManager();
         StringBuffer unreadCategories = new StringBuffer();
         ForumCategory rootCategory = forumFactory.getRootForumCategory();
         Iterator itCategories = rootCategory.getCategories();
@@ -54,7 +56,9 @@ public abstract class ForumsProcessor extends BaseProcessor {
             boolean isCategoryRead = true;
             while (isCategoryRead && itForums.hasNext()) {
                 Forum forum = (Forum)itForums.next();
-                if (user != null && forum.getLatestMessage() != null && readTracker.getReadStatus(user, forum.getLatestMessage()) != ReadTracker.READ) {
+                if (user != null && forum.getLatestMessage() != null 
+                        && readTracker.getReadStatus(user, forum.getLatestMessage()) != ReadTracker.READ
+                        && !("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, forum.getLatestMessage().getForumThread()))) {
                     isCategoryRead = false;
                 }
             }
