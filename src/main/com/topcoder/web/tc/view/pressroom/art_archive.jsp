@@ -45,34 +45,23 @@
 <!-- 2005  -->
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
 
+<tr><td class="newsText"><A href="/pdfs/press_room/dndj_082005.pdf">Engineering + Reuse = Savings</A> [August - DNDJ]<br/></td></tr>
 <tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_091205">Poland Takes the Lead</A> [September 12 - PCWK - <A href="http://www.pcworld.pl/news/82941.html">original article</A>]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.adtmag.com/article.asp?id=11752" target="_blank">Components for SOAs and Other App Dev Projects</A> [September 7 - ADT]<br/></td></tr>
 <tr><td class="newsText"><A href="http://timesofindia.indiatimes.com/articleshow/1212895.cms" target="_blank">Wanna codejam? May the best techie win</A> [August 28 - Times of India]<br/></td></tr>
 <tr><td class="newsText"><A href="/pdfs/press_room/cnn_072105.pdf">On your marks, get set, code!</A> [July 21]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.queensjournal.ca/articlephp/point-vol133/issue1/news/story1" target="_blank">Computer programmer wins big</A> [May 24 - QU The Journal]</td></tr>
-
 <tr><td class="newsText"><A href="http://www.roanoke.com/business%5C24837.html" target="_blank">Geeks for Charity holds code to help New River charities</A> [June 4 - Roanoke.com]</td></tr>
-
 <tr><td class="newsText"><A href="http://www.sourcingmag.com/home/home.aspx?i=18_6/3/2005_cn_507_2_00_00" target="_blank">How To Hire Best-of-Breed Programmers for Your Project</A> [June 2 - Sourcing Mag]</td></tr>
-
 <tr><td class="newsText"><A href="http://www.boilerstation.com/planet/stories/200505160purdue_planet1116219600.shtml" target="_blank">Purdue computer programmer making his mark in competitions</A> [May 16 - Boiler Station]</td></tr>
-
 <tr><td class="newsText"><A href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_051205">Interview with Jack Hughes</A> [April 22 - The Wall Street Transcript]</td></tr>
-
 <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_04_08_05">Code Warriors</A> [April 8 - Chronicle of Higher Education]</td></tr>
-
 <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_04_22_05">How Google Searches - For Talent</A> [April 22 - BusinessWeek]</td></tr>
-
 <tr><td class="newsText"><A href="/i/pressroom/SDT_041305.jpg" target="_blank">LogicLibrary, TopCoder Business Brief</A> [April 13 - SDT]</td></tr>
-
 <tr><td class="newsText"><A href="http://www.sys-con.com/story/?storyid=49134" target="_blank">LogicLibrary Checks Out TopCoder to Enable SOA</A> [April 9 - .NET Developer's Journal]</td></tr>
-
 <tr><td class="newsText"><A href="/i/pressroom/040105.pdf" target="_blank">University computer whiz wins big at tech tourney</A> [April 1 - Barrhaven Independent]</td></tr>
-
 <tr><td class="newsText"><A href="http://www.computeruser.com/articles/2404,1,1,1,0401,05.html" target="_blank">Do you have what it takes?</A> [April - ComputerUser]</td></tr>
-
 <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_02_13_05">Program for life</A> [February 13 - NewsWeek Poland]</td></tr>
-
 <tr><td class="newsText"><A href="http://www.wired.com/news/medtech/0,1286,66458,00.html?tw=wn_tophead_1" target="_blank">Software Taming Gene Data Pool</A> [February 2 - Wired]</td></tr>
 
 <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_02_01_05">DE-CODER: The kings of coding</A> [February 1 - ADT]</td></tr>
