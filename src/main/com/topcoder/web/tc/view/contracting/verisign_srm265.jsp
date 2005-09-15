@@ -35,7 +35,7 @@ Billions of times each day, people all over the world will visit Web pages, make
 VeriSign has developer opportunites in India - do you want to work for VeriSign?  
 <br><br>
 <b>Step One:</b><br>
-Not yet a TopCoder member?  You'll need to register here.  You may register as a TopCoder member anytime between now and the start of the competition.
+Not yet a TopCoder member?  You'll need to register <A href="/Registration">here</A>.  You may register as a TopCoder member anytime between now and the start of the competition.
 <br><br>
 <b>Step Two:</b><br>
 Read through the <A href="/tc?module=Static&d1=help&d2=index">Algorithm Competition Manual</A> to see how the competition works.
