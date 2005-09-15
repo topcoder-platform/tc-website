@@ -18,9 +18,9 @@
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
-	<tr valign="top">
-		<td valign="top" align="center">
-		<div class="bodySpacer">
+   <tr valign="top">
+      <td valign="top" align="center">
+      <div class="bodySpacer">
             
 <div align="center"><img src="/i/tournament/tco05/sun_logo.gif" alt="Sun" border="0" /></div>
 <p align="center"><A href=http://www.topcoder.com/?t=sponsor&refer=sun&c=link&link=https://softwarereg.sun.com/registration/developer/en_US/login?create=1" target="_blank"">Join SDN now</A>
@@ -29,6 +29,7 @@
 &#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_081005">SRM 258 Chat Transcript</A>
 <br>
 <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_090705">TCO05 Round 4 Chat Transcript</A>
+&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_091405">SRM 263 Chat Transcript</A>
 </p>
 <A href="http://www.topcoder.com/?t=sponsor&refer=sun&c=link&link=https://softwarereg.sun.com/registration/developer/en_US/login?create=1" target="_blank"><img src="/i/tournament/tco05/sun_duke.gif" alt="Sun" border="0" align="right"/></A>
 The Sun&#153; Developer Network, Sun Microsystem's premier developer community, is proud to sponsor the 2005 TopCoder Open.
@@ -52,7 +53,7 @@ Stay tuned here for information on the Creator 2 Early Access Program launch dat
 <br><br>
 Let the Coding begin!
         </div>
-		</td>
+      </td>
         
          
 <!-- Right Column-->
@@ -61,12 +62,12 @@ Let the Coding begin!
             <jsp:param name="level1" value="tco05"/>
             </jsp:include>
          </td>
-		
-	</tr>
-	
+      
+   </tr>
+   
 </table>
-	
-	
+   
+   
 
 
 <jsp:include page="../../foot.jsp" />
