@@ -134,7 +134,7 @@
          <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>&mc=<jsp:getProperty name="thread" property="messageCount"/><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">
                << PREV</A>&#160;&#160;&#160;
         <%  } %> [
-        <%  Page[] pages = paginator.getPages();
+        <%  Page[] pages = paginator.getPages(5);
             for (int i=0; i<pages.length; i++) {
         %>  <%  if (pages[i] != null) { %>
                  <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
@@ -219,7 +219,7 @@
          <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>&mc=<jsp:getProperty name="thread" property="messageCount"/><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">
                << PREV</A>&#160;&#160;&#160;
         <%  } %> [
-        <%  Page[] pages = paginator.getPages();
+        <%  Page[] pages = paginator.getPages(5);
             for (int i=0; i<pages.length; i++) {
         %>  <%  if (pages[i] != null) { %>
                  <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
