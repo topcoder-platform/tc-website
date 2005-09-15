@@ -55,13 +55,15 @@ resubmission of the easy problem (and unsuccessful attempt at
 solving the medium using a probabilistic algorithm) dropped his rating
 to 2996, causing him to lose his target for the first time in two years.</p><p>
 Meanwhile in Division 2, loveislife breezed through all three problems in a
-whopping 33 minutes and made two successfully challenges, beating second-place
+whopping 33 minutes and made two successful challenges, beating second-place
 finisher onyx by over 65 points. Newcomers eric0 and elimgta took third and
 fourth place, respectively.
 </p>
+
 <H1>
 The Problems
 </H1>
+
 <font size="+2">
 
 <b><a href="/stat?c=problem_statement&amp;pm=4772&amp;rd=7997" name="4772">Party</a></b>
@@ -336,25 +338,27 @@ int minDeques(vector&lt;int&gt; data) {
   for (int i=0; i < data.size(); i++) {
     bool hasBeenPushed = false;
     for (int j=0; j &lt; fronts.size(); j++) {
-      bool isSafe = true;
-      if (data[i] &lt; fronts[j])
+      if (data[i] &lt; fronts[j]) {
+        bool isSafe = true;
         for (int k=0; k &lt; data.size(); k++)
           if (data[i] &lt; data[k] &amp;&amp; data[k] &lt; fronts[j])
             isSafe = false;
-      if (isSafe) {
-        fronts[j] = data[i];
-        hasBeenPushed = true;
-        break;
+        if (isSafe) {
+          fronts[j] = data[i];
+          hasBeenPushed = true;
+          break;
+        }
       }
-      isSafe = true;
-      if (data[i] &gt; backs[j])
+      if (data[i] &gt; backs[j]) {
+        bool isSafe = true;
         for (int k=0; k &lt; data.size(); k++)
           if (data[i] &gt; data[k] &amp;&amp; data[k] &gt; backs[j])
             isSafe = false;
-      if (isSafe) {
-        backs[j] = data[i];
-        hasBeenPushed = true;
-        break;
+        if (isSafe) {
+          backs[j] = data[i];
+          hasBeenPushed = true;
+          break;
+        }
       }
     }
     if (!hasBeenPushed) {
@@ -363,6 +367,7 @@ int minDeques(vector&lt;int&gt; data) {
     }
   }
   return fronts.size();
+}
 
 </pre>
 </p>
@@ -508,6 +513,7 @@ terminate.</p><p>For more information, try a Google search on [<a
 href="http://www.google.com/search?q=stable%20marriage%20algorithm">stable
 marriage algorithm</a>].
 </p>
+
 <p>
 <img src="/i/m/LunaticFringe_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
 By&#160;<tc-webtag:handle coderId="288584" context="algorithm"/><br />
