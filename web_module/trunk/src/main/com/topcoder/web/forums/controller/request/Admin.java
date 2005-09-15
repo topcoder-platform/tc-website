@@ -132,13 +132,16 @@ public class Admin extends ForumsProcessor {
             Iterator itForums = forumFactory.getForums();
             while (itForums.hasNext()) {
                 Forum f = (Forum)itForums.next();
-                log.info(user.getUsername() + " running escapeHTML() on forum: " + f.getName());
-                ForumMessageIterator itMessages = f.getMessages();
-                while (itMessages.hasNext()) {
-                    ForumMessage m = (ForumMessage)itMessages.next();
-                    if (m.getCreationDate().before(calendar.getTime())) {
-                        m.setBody(parse(m.getUnfilteredBody()));
+                if ("true".equals(f.getProperty("Escape HTML"))) {
+                    log.info(user.getUsername() + " running escapeHTML() on forum: " + f.getName());
+                    ForumMessageIterator itMessages = f.getMessages();
+                    while (itMessages.hasNext()) {
+                        ForumMessage m = (ForumMessage)itMessages.next();
+                        if (m.getCreationDate().before(calendar.getTime())) {
+                            m.setBody(parse(m.getUnfilteredBody()));
+                        }
                     }
+                    f.deleteProperty("Escape HTML");
                 }
             }
         } catch (Exception e) {
