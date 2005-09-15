@@ -9,6 +9,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>09.15.05<br>2:40 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm263">SRM 263 - Problem Set & Analysis</A></span><br><br>
+      For Division 1 coders, Wednesday's SRM proved to be quite challenging.<tc-webtag:handle coderId="9906197" context="algorithm"/> took home the gold on a problem set with a 500-pointer solved by only 44 coders, and a 1050-pointer solved by no one.</td>
+      <td class="newsPhoto"><img src="/i/m/LunaticFringe_mug.gif" /><br>by <tc-webtag:handle coderId="288584" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm263">full story</A>&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505762">discuss this</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.15.05<br>2:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_091405">Sun chat session from SRM 263</A></span><br><br>
       Just prior to the SRM 263,Sun Microsystems&#174; was in arena to chat about JSF components and Java Studio Creator.
@@ -286,18 +302,6 @@
          <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=8">view</a>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505000">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>08.30.05<br>5:25 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/?RoundId=7996&t=schedule&c=srm">SRM 262 date changed</A></span><br><br>
-      SRM 262 has been moved from September 8 to September 9, same time.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/?RoundId=7996&t=schedule&c=srm">details</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
 

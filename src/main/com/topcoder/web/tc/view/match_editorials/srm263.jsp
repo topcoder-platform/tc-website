@@ -55,7 +55,7 @@ resubmission of the easy problem (and unsuccessful attempt at
 solving the medium using a probabilistic algorithm) dropped his rating
 to 2996, causing him to lose his target for the first time in two years.</p><p>
 Meanwhile in Division 2, loveislife breezed through all three problems in a
-whopping 33 minutes and made two successfuly challenges, beating second-place
+whopping 33 minutes and made two successfully challenges, beating second-place
 finisher onyx by over 65 points. Newcomers eric0 and elimgta took third and
 fourth place, respectively.
 </p>
@@ -322,7 +322,7 @@ Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
 To start off, you know that the contents of each deque will need to always be
 sorted, since they have to be combined into a single, sorted list at the end.
 As it turns out, this problem can be solved with a simple greedy solution. All
-you need two arrays of ints to keep track of the first and last elements of each deque you've
+you need are two arrays of ints to keep track of the first and last elements of each deque you've
 created. Then you iterate through each element in data, and decide if you can
 safely push it onto the front or back of any preexisting deque. You can safely push
 <i>data[i]</i> onto the front of deque <i>d</i> if and only if there are no
