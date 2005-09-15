@@ -54,7 +54,7 @@
                     <td width="274"><A href="/pdfs/press_room/dndj_082005.pdf"><img src="/i/pressroom/dndj_logo.gif" alt="DNDJ" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/pdfs/press_room/dndj_082005.pdf">Engineering + Reuse = Savings</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/pdfs/press_room/dndj_082005.pdf">Engineering + Reuse = Savings</A> [PDF]</strong></font><br />
 Why are contract outsourcing and offshore development failing to deliver the expected benefit of lower costs and increased end-user satisfaction to enterprise software development users? <span class="prHead"> [August - DNDJ]</span></p>
                     </td>
                 </tr>
