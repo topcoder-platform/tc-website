@@ -10,7 +10,7 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>09.15.05<br>3:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/dndj_082005.pdf">Engineering + Reuse = Savings</A></span><br><br>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/dndj_082005.pdf">Engineering + Reuse = Savings</A> [PDF]</span><br><br>
 "Why are contract outsourcing and offshore development failing to deliver the expected benefit of lower costs and increased end-user satisfaction to enterprise software development users?" [DNDJ]
       </td>
    </tr>
