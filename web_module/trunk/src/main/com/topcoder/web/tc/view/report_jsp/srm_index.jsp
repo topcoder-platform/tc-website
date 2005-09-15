@@ -1,18 +1,11 @@
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessInt,
+                 com.topcoder.shared.dataAccess.CachedDataAccess,
+                 com.topcoder.common.web.data.report.Constants,
+                 java.util.Map,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.common.web.data.report.Query"%>
 <%@  page
-  language="java"
-  import="java.util.*,
-          com.topcoder.common.web.data.report.Constants,
-          com.topcoder.shared.dataAccess.DataAccessConstants,
-          com.topcoder.common.web.data.report.Query,
-		  com.topcoder.shared.dataAccess.*,
-		  com.topcoder.shared.dataAccess.resultSet.*,
-		  com.topcoder.shared.util.TCContext,
-		  java.text.DecimalFormat,
-		  java.math.BigInteger
-
-		  "
-
-%>
+  language="java"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <% String round = request.getParameter("rd");
 	    if (round==null) {
