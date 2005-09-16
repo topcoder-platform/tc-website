@@ -81,17 +81,17 @@
       <td class="rtTextCell100">
       <select size="1" name="forumsPerPage">
       <%  int[] forumCounts = { 10, 15, 25 };
-            int forumRange = ForumConstants.DEFAULT_FORUM_RANGE;
-            try {
-                forumRange = Integer.parseInt(user.getProperty("jiveForumRange"));
-            } catch (Exception ignored) {}
-         for (int i=0; i<forumCounts.length; i++) {
-            if (forumCounts[i] == forumRange) { %>
-               <option value="<%=forumCounts[i]%>" selected><%=forumCounts[i]%></option>
-         <%   } else { %>
-               <option value="<%=forumCounts[i]%>"><%=forumCounts[i]%></option>
-         <%   }
-         } %>
+          int forumRange = ForumConstants.DEFAULT_FORUM_RANGE;
+          try {
+              forumRange = Integer.parseInt(user.getProperty("jiveForumRange"));
+          } catch (Exception ignored) {}
+          for (int i=0; i<forumCounts.length; i++) {
+	          if (forumCounts[i] == forumRange) { %>
+	              <option value="<%=forumCounts[i]%>" selected><%=forumCounts[i]%></option>
+	      <%  } else { %>
+	              <option value="<%=forumCounts[i]%>"><%=forumCounts[i]%></option>
+	      <%  }
+          } %>
       </select>
       </td>
    </tr>
@@ -139,7 +139,7 @@
       <td class="rtTextCell" nowrap="nowrap"><strong>Messages per Post History Page:</strong></td>
       <td class="rtTextCell100">
       <select size="1" name="messagesPerHistoryPage">
-      <%  int[] historyCounts = { 10, 15, 25, 50 };
+      <% int[] historyCounts = { 10, 15, 25, 50 };
          int historyRange = ForumConstants.DEFAULT_HISTORY_RANGE;
          try {
             historyRange = Integer.parseInt(user.getProperty("jiveHistoryRange"));
