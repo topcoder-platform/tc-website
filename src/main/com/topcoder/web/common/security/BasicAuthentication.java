@@ -125,12 +125,12 @@ public class BasicAuthentication implements WebAuthentication {
          * is quicker than accessing the cookie because of the hash.  if they are
          * not logged in, hope is not lost, we may have cached them in the persistor
          * before as being "identified", in this case, use that.  if that too is not
-         * there, we're forced to go to the cookie, but cache that for subsequence
+         * there, we're forced to go to the cookie, but cache that for subsequent
          * requests in the persistor.  if they're not in the cookie either, then
          * they're anonymous
          */
         User u = getUserFromPersistor();
-        
+
         if (u == null) {
             u = (User) persistor.getObject(request.getSession().getId() + USER_COOKIE_NAME);
             if (u == null) {
@@ -213,7 +213,7 @@ public class BasicAuthentication implements WebAuthentication {
             hex.append(Integer.toHexString(raw[i] & 0xff));
         return hex.toString();
     }
-    
+
     /** Compute a one-way hash of a password, similar to how a userid/password combination is hashed. */
     public String hashPassword(String password) throws Exception {
         MessageDigest md = MessageDigest.getInstance("MD5");
