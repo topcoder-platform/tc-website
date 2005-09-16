@@ -165,18 +165,18 @@ margin:0px auto;
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
 
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/dndj_logo.gif" alt="DNDJ" border="0" /></div>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/dndj_logo.gif" width="67" height="20" alt="DNDJ" border="0" /></div>
             Engineering + Reuse = Savings [PDF] <A href="/pdfs/press_room/dndj_082005.pdf">...more</A><br>[August]<br><br>
 
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/pcwk_logo.gif" alt="PCWK" border="0" /></div>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/pcwk_logo.gif" width="67" height="34" alt="PCWK" border="0" /></div>
             Poland Takes the Lead <A href="/tc?module=Static&d1=pressroom&d2=art_091205">...more</A><br>[September 12]<br><br>
 
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/adt_logo.gif" alt="ADT" border="0" /></div>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/adt_logo.gif" width="67" height="23" alt="ADT" border="0" /></div>
             Components for SOAs and Other App Dev Projects <A href="http://www.adtmag.com/article.asp?id=11752" target="_blank">...more</A><br>[September 6 - ADT]<br><br>
 
             TopCoder&#174; Announces First Software Developer Conference at 2005 TopCoder Open <A href="/tc?module=Static&d1=pressroom&d2=pr_090205">...more</A><br>[September 2]<br><br>
 
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/toi_logo.gif" alt="Times of India" border="0" /></div>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/toi_logo.gif" width="67" height="20" alt="Times of India" border="0" /></div>
             Wanna codejam? May the best techie win <A href="http://timesofindia.indiatimes.com/articleshow/1212895.cms" target="_blank">...more</A><br>[August 29 - Times of India]<br><br>
 
             TopCoder&#174; Announces 16 Finalists in Component Tournament of 2005 TopCoder Open <A href="/tc?module=Static&d1=pressroom&d2=pr_082405">...more</A><br>[August 24]<br><br>
