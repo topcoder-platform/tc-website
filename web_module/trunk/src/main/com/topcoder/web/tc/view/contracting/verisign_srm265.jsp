@@ -41,7 +41,9 @@ Not yet a TopCoder member?  You'll need to register <A href="/Registration">here
 Read through the <A href="/tc?module=Static&d1=help&d2=index">Algorithm Competition Manual</A> to see how the competition works.
 <br><br>
 <b>Step Three:</b><br>
-Launch the Competition Arena and try some of the problems in the practice area Launch the Arena as an <A class="bodyText" href="Javascript:arena()">Applet</A> or as a <A class="bodyText" href="/contest/arena/ContestAppletProd.jnlp">Java Web Start Application</A>
+Launch the Competition Arena and try some of the problems in the practice area.
+<br><br>
+Launch the Arena as an <A class="bodyText" href="Javascript:arena()">Applet</A> or as a <A class="bodyText" href="/contest/arena/ContestAppletProd.jnlp">Java Web Start Application</A>
 <br><br>
 Don't have JWS? <A class="bodyText" href="http://java.sun.com/products/javawebstart/index.html" target="_blank">Download</A> it on java.sun.com
 <br><br>
@@ -51,9 +53,9 @@ Register for the competition from within the Competition Arena between 3:30 PM a
 <b>Step Five:</b><br>
 Within the Competition Arena, chat with VeriSign representatives in the VeriSign Chat Room about their developer career opportunities in India.  The chat will take place from 5:30 PM to 6:30 PM IST (UTC +5:30) on Tuesday, September 27.
 <br><br>
-The competition will begin at 6:30 PM IST (UTC +5:30) on Tuesday, Sept. 27 
+The competition will begin at 6:30 PM IST (UTC +5:30) on Tuesday, September 27. 
 <br><br>
-Check <A href="/?RoundId=8007&t=schedule&c=srm">here</A> for rules, regulations, eligibility, and information on prizes:
+Check <A href="/?RoundId=8007&t=schedule&c=srm">here</A> for rules, regulations, eligibility, and information on prizes.
       <br/><br/>
         <p><br></p>
         </td>
