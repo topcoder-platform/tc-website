@@ -10,12 +10,13 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>09.15.05<br>3:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/dndj_082005.pdf">Engineering + Reuse = Savings</A> [PDF]</span><br><br>
-"Why are contract outsourcing and offshore development failing to deliver the expected benefit of lower costs and increased end-user satisfaction to enterprise software development users?" [DNDJ]
+      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/dndj_082005.pdf" target="_blank">Engineering + Reuse = Savings</A> [PDF]</span><br><br>
+      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/dndj_logo.gif" alt="DNDJ" border="0" /></div>
+      "Why are contract outsourcing and offshore development failing to deliver the expected benefit of lower costs and increased end-user satisfaction to enterprise software development users?" [DNDJ]
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/pdfs/press_room/dndj_082005.pdf">full story</A>&#160;|&#160;
+         <A href="/pdfs/press_room/dndj_082005.pdf" target="_blank">full story</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505765">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
@@ -107,7 +108,8 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>09.12.05<br>2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=art_091205">Poland Takes the Lead</A> [Translation]</span><br><br>
-"Poland has just left the US behind and taken first place in TopCoder's country ranking. Warsaw University occupies the first place in university ranking (University of Wroclaw is 13th, Jagiellonian University is 14th)." [PCWK]
+      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/pcwk_logo.gif" alt="PCWK" border="0" /></div>
+      "Poland has just left the US behind and taken first place in TopCoder's country ranking. Warsaw University occupies the first place in university ranking (University of Wroclaw is 13th, Jagiellonian University is 14th)." [PCWK]
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -192,6 +194,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>09.06.05<br>3:10 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.adtmag.com/article.asp?id=11752" target="_blank">Components for SOAs and Other App Dev Projects</A></span><br><br>
+      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/adt_logo.gif" alt="ADT" border="0" /></div>
       "The result of the partnership between LogicLibrary and TopCoder reached earlier this year is that TopCoder's components for Java and .NET are now stored in Logidex, LogicLibrary's collaborative SDA management solution." [ADT]
       </td>
    </tr>
