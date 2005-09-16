@@ -4675,7 +4675,7 @@ log.debug("creating appeals with " + totalPass + "/" + totalTests + " tests");
                         ps.setLong(8, appeal.getRawEvaluation().getId());
                     }
 
-                    if (appeal.getRawTotalTests() >= 0) {
+                    if (appeal.getRawTotalTests() < 0) {
                         ps.setNull(9, Types.DECIMAL);
 log.debug("saving null for total tests");
                     } else {
@@ -4683,7 +4683,7 @@ log.debug("saving null for total tests");
 log.debug("saving "+appeal.getRawTotalTests()+" for total tests");
                     }
 
-                    if (appeal.getRawTotalPass() >= 0) {
+                    if (appeal.getRawTotalPass() < 0) {
                         ps.setNull(10, Types.DECIMAL);
 log.debug("saving null for pass tests");
                     } else {
