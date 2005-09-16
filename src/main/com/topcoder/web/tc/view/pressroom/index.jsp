@@ -229,7 +229,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.queensjournal.ca/articlephp/point-vol133/issue1/news/story1" target="_blank">Computer programmer wins big</A></strong></font><br />
-						   It's not often a student is awarded $13,000 U.S. for seven hours of work. Gary Linscott, ArtSci '05, took home the cash as the top prize winner in the 2005 TopCoder Collegiate Challenge. <span class="prHead"> [May 24 - QU The Journal]</span></p>
+                     It's not often a student is awarded $13,000 U.S. for seven hours of work. Gary Linscott, ArtSci '05, took home the cash as the top prize winner in the 2005 TopCoder Collegiate Challenge. <span class="prHead"> [May 24 - QU The Journal]</span></p>
                     </td>
                 </tr>
             </table>
@@ -258,7 +258,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.roanoke.com/business%5C24837.html" target="_blank">Geeks for Charity holds code to help New River charities</A></strong></font><br />
-						   If Brett Malone's plan works, some New River Valley organizations could benefit from a different kind of technology boom. <span class="prHead"> [June 4 - Roanoke.com]</span></p>
+                     If Brett Malone's plan works, some New River Valley organizations could benefit from a different kind of technology boom. <span class="prHead"> [June 4 - Roanoke.com]</span></p>
                     </td>
                 </tr>
             </table>
@@ -273,7 +273,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.sourcingmag.com/home/home.aspx?i=18_6/3/2005_cn_507_2_00_00" target="_blank">How To Hire Best-of-Breed Programmers for Your Project</A></strong></font><br />
-						   TopCoder Software literally calls on the services of thousands of programmers all around the world for its development work -- and only the best results end up getting used in the code they provide to their clients. They believe their approach saves clients money and time. How do they pull it off? <span class="prHead"> [June 2 - Sourcing Mag]</span></p>
+                     TopCoder Software literally calls on the services of thousands of programmers all around the world for its development work -- and only the best results end up getting used in the code they provide to their clients. They believe their approach saves clients money and time. How do they pull it off? <span class="prHead"> [June 2 - Sourcing Mag]</span></p>
                     </td>
                 </tr>
             </table>
@@ -288,7 +288,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.boilerstation.com/planet/stories/200505160purdue_planet1116219600.shtml" target="_blank">Purdue computer programmer making his mark in competitions</A></strong></font><br />
-						   Tomasz Czajka, 23-year-old Purdue doctoral candidate, has already improved software for Microsoft and performed research for IBM. This summer he's headed to California to intern with a smaller company named Google. <span class="prHead"> [May 16 - Boiler Station]</span></p>
+                     Tomasz Czajka, 23-year-old Purdue doctoral candidate, has already improved software for Microsoft and performed research for IBM. This summer he's headed to California to intern with a smaller company named Google. <span class="prHead"> [May 16 - Boiler Station]</span></p>
                     </td>
                 </tr>
             </table>
@@ -303,7 +303,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=art_051205">Interview with Jack Hughes</A></strong></font><br />
-						   The following is an interview The Wall Street Transcript had with Jack Hughes.<span class="prHead"> [April 22 - The Wall Street Transcript]</span></p>
+                     The following is an interview The Wall Street Transcript had with Jack Hughes.<span class="prHead"> [April 22 - The Wall Street Transcript]</span></p>
                     </td>
                 </tr>
             </table>
@@ -332,7 +332,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/?&t=news_events&c=art_04_08_05">Code Warriors</A></strong></font><br />
-						   Young computer programmers battle for fame, money, and the love of algorithms<span class="prHead"> [April 8 - Chronicle of Higher Education]</span></p>
+                     Young computer programmers battle for fame, money, and the love of algorithms<span class="prHead"> [April 8 - Chronicle of Higher Education]</span></p>
                     </td>
                 </tr>
             </table>
@@ -347,7 +347,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/?&t=news_events&c=art_04_22_05">How Google Searches - For Talent</A></strong></font><br />
-						   "It's a dog-eat-dog world," says Robert Hughes, president of TopCoder Inc., the Glastonbury (Conn.) testing company that runs the Code Jams. "Wherever the best talent is, Google wants them."<span class="prHead">[April 22 - BusinessWeek]</span></p>
+                     "It's a dog-eat-dog world," says Robert Hughes, president of TopCoder Inc., the Glastonbury (Conn.) testing company that runs the Code Jams. "Wherever the best talent is, Google wants them."<span class="prHead">[April 22 - BusinessWeek]</span></p>
                     </td>
                 </tr>
             </table>
@@ -362,7 +362,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/i/pressroom/SDT_041305.jpg" target="_blank">LogicLibrary, TopCoder Business Brief</A></strong></font><br />
-						   Through a joint agreement, LogicLibrary will make TopCoder Software's component catalog available to the users of the Logidex asset management system.<span class="prHead">[April 13 - SDT]</span></p>
+                     Through a joint agreement, LogicLibrary will make TopCoder Software's component catalog available to the users of the Logidex asset management system.<span class="prHead">[April 13 - SDT]</span></p>
                     </td>
                 </tr>
             </table>
@@ -377,7 +377,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.sys-con.com/story/?storyid=49134" target="_blank">LogicLibrary Checks Out TopCoder to Enable SOA</A></strong></font><br />
-						   This strategic partnership is intended to bolster the collection of "out-of-the box" content preinstalled with Logidex. <span class="prHead">[April 9 - .NET Developer's Journal]</span></p>
+                     This strategic partnership is intended to bolster the collection of "out-of-the box" content preinstalled with Logidex. <span class="prHead">[April 9 - .NET Developer's Journal]</span></p>
                     </td>
                 </tr>
             </table>
@@ -392,7 +392,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/i/pressroom/040105.pdf" target="_blank">University computer whiz wins big at tech tourney</A></strong></font><br />
-						   A nice piece on the TCCC05 Component Development Competition Champion, Gary Linscott, aka gladius.<span class="prHead">[April 1 - Barrhaven Independent]</span></p>
+                     A nice piece on the TCCC05 Component Development Competition Champion, Gary Linscott, aka gladius.<span class="prHead">[April 1 - Barrhaven Independent]</span></p>
                     </td>
                 </tr>
             </table>
@@ -407,7 +407,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.computeruser.com/articles/2404,1,1,1,0401,05.html" target="_blank">Do you have what it takes?</A></strong></font><br />
-						CIOs and other H.R. decision-makers have some specific ideas about what they want from IT job applicants. Setting yourself apart from the pack has never been more crucial, but how does one go about doing that?<span class="prHead">[April - ComputerUser]</span></p>
+                  CIOs and other H.R. decision-makers have some specific ideas about what they want from IT job applicants. Setting yourself apart from the pack has never been more crucial, but how does one go about doing that?<span class="prHead">[April - ComputerUser]</span></p>
                     </td>
                 </tr>
             </table>
@@ -437,7 +437,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/?&t=news_events&c=pr_03_14_05b">LogicLibrary Teams with TopCoder to Accelerate SOA Deployments</A></strong></font><br />
-						      "As developers turn to SOA, reusable components are becoming the building blocks of applications because of their ability to reduce costs, streamline projects and improve productivity."<span class="prHead"> [March 14]</span></p>
+                        "As developers turn to SOA, reusable components are becoming the building blocks of applications because of their ability to reduce costs, streamline projects and improve productivity."<span class="prHead"> [March 14]</span></p>
                     </td>
                 </tr>
             </table>
@@ -452,7 +452,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/?&t=news_events&c=art_02_13_05">Program for life</A></strong></font><br />
-						      They get their Ph.D.'s at the age of twenty. At thirty they become professors in America. Warsaw University graduates are some of the best computer scientists in the world.<span class="prHead"> [February 13 - NewsWeek Poland]</span></p>
+                        They get their Ph.D.'s at the age of twenty. At thirty they become professors in America. Warsaw University graduates are some of the best computer scientists in the world.<span class="prHead"> [February 13 - NewsWeek Poland]</span></p>
                     </td>
                 </tr>
             </table>
@@ -538,7 +538,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.wired.com/news/medtech/0,1286,66458,00.html?tw=wn_tophead_1" target="_blank">Software Taming Gene Data Pool</A></strong></font><br />
-						Software engineers are finally getting together with biologists to translate the pile of letters and numbers into scientific discoveries. <span class="prHead">[February 2 - Wired]</span></p>
+                  Software engineers are finally getting together with biologists to translate the pile of letters and numbers into scientific discoveries. <span class="prHead">[February 2 - Wired]</span></p>
                     </td>
                 </tr>
             </table>
@@ -553,7 +553,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/?&t=news_events&c=art_02_01_05">DE-CODER: The kings of coding</A></strong></font><br />
-						      "Tomek" and "Pops" may be unfamiliar names to you, but in the world of coding competitions, they're as big as rock stars.  Now they're at the top of the stack, according to their peers who participate in online programming contests at TopCoder.com, a mecca for those willing to publicly test their programming chops.<span class="prHead"> [February 1 - ADT]</span></p>
+                        "Tomek" and "Pops" may be unfamiliar names to you, but in the world of coding competitions, they're as big as rock stars.  Now they're at the top of the stack, according to their peers who participate in online programming contests at TopCoder.com, a mecca for those willing to publicly test their programming chops.<span class="prHead"> [February 1 - ADT]</span></p>
                     </td>
                 </tr>
             </table>
@@ -597,7 +597,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.computerworld.com/industrytopics/financial/story/0,10801,98834,00.html" target="_blank">Code Reuse Pays Off for ING </A></strong></font><br />
-						ING Americas last month finished work on a quality-management application built using an innovative development process that the company estimated saved it $300,000 and 1,200 man-hours. <span class="prHead">[January 10 - ComputerWorld]</span></p>
+                  ING Americas last month finished work on a quality-management application built using an innovative development process that the company estimated saved it $300,000 and 1,200 man-hours. <span class="prHead">[January 10 - ComputerWorld]</span></p>
                     </td>
                 </tr>
             </table>
@@ -634,7 +634,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/?&t=news_events&c=art_12_03_04">Top coders seek bigger prize than cash</A></strong></font><br />
-						At the semi-annual event, held earlier this month in California, four mainland programmers competed in a field of just 24, having beaten out more than 1,500 in preliminary events. To hear them tell it, they came for the networking opportunities as much as for the prize money.<span class="prHead"> [December 3 - SCMP]</span></p>
+                  At the semi-annual event, held earlier this month in California, four mainland programmers competed in a field of just 24, having beaten out more than 1,500 in preliminary events. To hear them tell it, they came for the networking opportunities as much as for the prize money.<span class="prHead"> [December 3 - SCMP]</span></p>
                     </td>
                 </tr>
             </table>
@@ -649,7 +649,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/?&t=news_events&c=pr_11_15_04">Champions Announced In 2004 TopCoder&#174; Open Sponsored by Microsoft&#174;</A></strong></font><br />
-						TopCoder announced that Tomasz Czajka of Stalowej, Poland, Adrian Nicolae Carcu of Bistrita, Romania, and Jin GuanZhou of HangZhou City, China have won the Algorithm, Design and Development Competitions of the 2004 TopCoder Open, sponsored by Microsoft.  <span class="prHead">[November 15]</span></p>
+                  TopCoder announced that Tomasz Czajka of Stalowej, Poland, Adrian Nicolae Carcu of Bistrita, Romania, and Jin GuanZhou of HangZhou City, China have won the Algorithm, Design and Development Competitions of the 2004 TopCoder Open, sponsored by Microsoft.  <span class="prHead">[November 15]</span></p>
                     </td>
                 </tr>
             </table>
@@ -664,7 +664,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/i/pressroom/cnn_110404.pdf">Brain teasers help Google recruit workers</A></strong></font><br />
-						As its rapidly growing business creates hundreds of new jobs, Google is trying to lure premier talent with offbeat tactics, including a computer-coding competition and a brain-twisting aptitude test that mixes geek humor with a daunting mathematical workout.<span class="prHead"> [November 4 - CNN]</span></p>
+                  As its rapidly growing business creates hundreds of new jobs, Google is trying to lure premier talent with offbeat tactics, including a computer-coding competition and a brain-twisting aptitude test that mixes geek humor with a daunting mathematical workout.<span class="prHead"> [November 4 - CNN]</span></p>
                     </td>
                 </tr>
             </table>
@@ -679,7 +679,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/?&t=news_events&c=pr_11_01_04">TopCoder&#174; Announces Finalists for 2004 TopCoder Open Sponsored by Microsoft&#174;</A></strong></font><br />
-						The semifinalists endured numerous online elimination rounds to earn a trip to the prestigious onsite finals, and will now compete head-to-head over two days of intense competition to determine the winners who will share the $150,000 prize purse.  <span class="prHead">[November 1]</span></p>
+                  The semifinalists endured numerous online elimination rounds to earn a trip to the prestigious onsite finals, and will now compete head-to-head over two days of intense competition to determine the winners who will share the $150,000 prize purse.  <span class="prHead">[November 1]</span></p>
                     </td>
                 </tr>
             </table>
@@ -694,7 +694,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/?&t=news_events&c=art_10_25_04">Google's creative search for elite programmers</A></strong></font><br />
-						Google Inc. finds almost anything on the Internet within seconds, but finding the sharp-minded computer engineers who program the company's lightning-quick search engine takes more time -- and a quirky bit of ingenuity.<span class="prHead"> [October 25 - Associated Press]</span></p>
+                  Google Inc. finds almost anything on the Internet within seconds, but finding the sharp-minded computer engineers who program the company's lightning-quick search engine takes more time -- and a quirky bit of ingenuity.<span class="prHead"> [October 25 - Associated Press]</span></p>
                     </td>
                 </tr>
             </table>
@@ -709,7 +709,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/?&t=news_events&c=art_10_19_04">Google holds coding contest</A></strong></font><br />
-						Some people like to play tennis or golf to blow off steam after a hard day. Bolek Szewcyzk likes to pound out line after line after line of code on his computer, solving complex problems or just exulting in the art of creation.<span class="prHead">[October 19 - SJ Mercury]</span></p>
+                  Some people like to play tennis or golf to blow off steam after a hard day. Bolek Szewcyzk likes to pound out line after line after line of code on his computer, solving complex problems or just exulting in the art of creation.<span class="prHead">[October 19 - SJ Mercury]</span></p>
                     </td>
                 </tr>
             </table>
@@ -724,7 +724,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/i/pressroom/tendances_tomek.pdf">Dream Job and Juicy Premiums for Young, Crackshot Programmers</A></strong> [Translation]</font><br />
-						<span class="prHead">[October]</span></p>
+                  <span class="prHead">[October]</span></p>
                     </td>
                 </tr>
             </table>
@@ -739,7 +739,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/?&t=news_events&c=pr_10_05_04">Google announces 50 Google Code Jam Finalists</A></strong></font><br />
-						Google Inc. today announced the 50 finalists in the second annual Google Code Jam, Google's online coding competition consisting of a series of problem-solving challenges that invite participants to select a programming language and use their programming skills to code solutions to the problems. <span class="prHead">[October 5]</span></p>
+                  Google Inc. today announced the 50 finalists in the second annual Google Code Jam, Google's online coding competition consisting of a series of problem-solving challenges that invite participants to select a programming language and use their programming skills to code solutions to the problems. <span class="prHead">[October 5]</span></p>
                     </td>
                 </tr>
             </table>
@@ -754,7 +754,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.newsforge.com/article.pl?sid=04/09/30/187225" target="_blank">Coders win, winners code</A></strong></font><br />
-						TopCoder announced on September 29 the completion of the final elimination round in the Algorithm Competition portion of its 2004 annual TopCoder Open coding contest. But the real winner may be TopCoder's open source development model, which gives programmers a chance to build enterprise applications for cash prizes. <span class="prHead">[October 5]</span></p>
+                  TopCoder announced on September 29 the completion of the final elimination round in the Algorithm Competition portion of its 2004 annual TopCoder Open coding contest. But the real winner may be TopCoder's open source development model, which gives programmers a chance to build enterprise applications for cash prizes. <span class="prHead">[October 5]</span></p>
                     </td>
                 </tr>
             </table>
@@ -783,7 +783,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.brainerddispatch.com/stories/100204/bus_1002040018.shtml" target="_blank">Hometown hero</A></strong></font><br />
-						Jimb Esser left Minnesota for San Jose, Calif., after being sought by Cryptic Studios, makers of the City of Heroes online game. Cryptic Studios sought Esser after finding him -- where else but online -- through the TopCoder Web site and a programming tournament. <span class="prHead">[October 2]</span></p>
+                  Jimb Esser left Minnesota for San Jose, Calif., after being sought by Cryptic Studios, makers of the City of Heroes online game. Cryptic Studios sought Esser after finding him -- where else but online -- through the TopCoder Web site and a programming tournament. <span class="prHead">[October 2]</span></p>
                     </td>
                 </tr>
             </table>
