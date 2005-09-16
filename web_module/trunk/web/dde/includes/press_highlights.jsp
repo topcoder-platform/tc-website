@@ -6,7 +6,7 @@
 </table>
 <table width="530" border="0" cellspacing="0" cellpadding="4">   
    <tr><td class="prHead">
-         <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/dndj_logo.gif" width="67" height="20" alt="DNDJ" border="0" /></div>
+         <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/dndj_logo.gif" width="67" height="20" alt="DNDJ" border="0" /></div>
          <A href="http://www.topcoder.com/pdfs/press_room/dndj_082005.pdf" target="_blank">Engineering + Reuse = Savings</A> [August - DNDJ]
    </td></tr>
    <tr><td class="prHead"><A href="http://www.adtmag.com/article.asp?id=11752" target="_blank">Components for SOAs and Other App Dev Projects</A> [September 6]</td></tr>
