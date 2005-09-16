@@ -5,7 +5,6 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -183,6 +182,9 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
 
 <%     if (Boolean.TRUE.equals((Boolean) lastIt.next()) &&
         ((resultRow.getStringItem("appeal_text") != null) || (resultRow.getStringItem("testcase_appeal_text") != null) )) { %>
+
+        <tr>
+        </tr>
 
         <tr>
             <td class="appealCells"><b>Appeal Text:</b><rsc:item name="appeal_text" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
