@@ -4479,7 +4479,7 @@ public class DocumentManagerBean implements SessionBean {
                     User appealer = Common.getUser(dataSource, requestor.getUserId());
                     User submitter = Common.getUser(dataSource, submitterId);
                     User reviewer = Common.getUser(dataSource, reviewerId);
-
+log.debug("creating appeals with " + totalPass + "/" + totalTests + " tests");
                     Appeal appeal = new Appeal(-1, null, null,
                             false, question, appealer, submitter, reviewer,
                             submissionId, submissionId,  -1, evaluation, totalTests, totalPass);
@@ -4677,14 +4677,18 @@ public class DocumentManagerBean implements SessionBean {
 
                     if (appeal.getRawTotalTests() >= 0) {
                         ps.setNull(9, Types.DECIMAL);
+log.debug("saving null for total tests");
                     } else {
-                        ps.setLong(9, appeal.getRawTotalTests());
+                        ps.setInt(9, appeal.getRawTotalTests());
+log.debug("saving "+appeal.getRawTotalTests()+" for total tests");
                     }
 
                     if (appeal.getRawTotalPass() >= 0) {
                         ps.setNull(10, Types.DECIMAL);
+log.debug("saving null for pass tests");
                     } else {
-                        ps.setLong(10, appeal.getRawTotalPass());
+                        ps.setInt(10, appeal.getRawTotalPass());
+log.debug("saving "+appeal.getRawTotalPass()+" for pass tests");
                     }
 
                     int nr = ps.executeUpdate();
