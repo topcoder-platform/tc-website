@@ -4670,19 +4670,19 @@ public class DocumentManagerBean implements SessionBean {
                     ps.setLong(7, requestor.getUserId());
 
                     if (appeal.getRawEvaluation() == null) {
-                        ps.setNull(8, Types.Decimal);
+                        ps.setNull(8, Types.DECIMAL);
                     } else {
                         ps.setLong(8, appeal.getRawEvaluation().getId());
                     }
 
                     if (appeal.getRawTotalTests() >= 0) {
-                        ps.setNull(9, Types.Decimal);
+                        ps.setNull(9, Types.DECIMAL);
                     } else {
                         ps.setLong(9, appeal.getRawTotalTests());
                     }
 
                     if (appeal.getRawTotalPass() >= 0) {
-                        ps.setNull(10, Types.Decimal);
+                        ps.setNull(10, Types.DECIMAL);
                     } else {
                         ps.setLong(10, appeal.getRawTotalPass());
                     }

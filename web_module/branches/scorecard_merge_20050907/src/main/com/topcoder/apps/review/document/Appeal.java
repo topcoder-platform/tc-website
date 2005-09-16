@@ -32,7 +32,7 @@ public class Appeal implements Serializable {
     private boolean dirtyFlag = false;
     private long versionId;
     private Evaluation rawEvaluation;
-    private int rawTotalTests
+    private int rawTotalTests;
     private int rawTotalPass;
 
 
