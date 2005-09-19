@@ -4,7 +4,8 @@
 
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -13,8 +14,6 @@
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-<%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 
   <jsp:include page="../script.jsp" />
 
@@ -184,13 +183,24 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
         ((resultRow.getStringItem("appeal_text") != null) || (resultRow.getStringItem("testcase_appeal_text") != null) )) { %>
 
         <tr>
+            <td class="appealCells">
+            <b>Previous Score:</b>
+            <% if ((resultRow.getStringItem("raw_num_passed") != null) && (resultRow.getStringItem("raw_num_passed"))) { %>
+                <rsc:item name="raw_num_passed" row="<%=resultRow%>" />/<rsc:item name="raw_num_passed" row="<%=raw_num_tests%>" />
+            <% } else { %>
+                <rsc:item name="raw_evaluation" row="<%=resultRow%>" escapeHtml="true" ifNull="N/A"/>
+            <% } %>
+
+            </td>
+
+           <td rowspan="3" class="appealTitle">Appeal</td>
         </tr>
 
         <tr>
             <td class="appealCells"><b>Appeal Text:</b><rsc:item name="appeal_text" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
                                     <rsc:item name="testcase_appeal_text" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
             </td>
-            <td rowspan="2" class="appealTitle">Appeal</td>
+
         </tr>
         <tr>
             <td class="appealCells"><b>Appeal Response:</b><rsc:item name="appeal_response" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
