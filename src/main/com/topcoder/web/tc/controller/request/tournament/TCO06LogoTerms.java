@@ -5,6 +5,7 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
+import com.topcoder.web.ejb.coder.CoderImage;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.DBMS;
 
@@ -21,6 +22,9 @@ public class TCO06LogoTerms extends Base {
         } else {
             UserTermsOfUse ut = (UserTermsOfUse)createEJB(getInitialContext(), UserTermsOfUse.class);
             if (ut.hasTermsOfUse(getUser().getId(), Constants.TCO06_LOGO_TERMS_ID, DBMS.OLTP_DATASOURCE_NAME)) {
+                CoderImage coderImage = (CoderImage)createEJB(getInitialContext(), CoderImage.class);
+                getRequest().setAttribute("submissionCount",
+                        coderImage.getImages(getUser().getId(), TCO06LogoSubmit.IMAGE_TYPE, DBMS.OLTP_DATASOURCE_NAME));
                 setNextPage("/tournaments/tco06/logo_submit.jsp");
                 setIsNextPageInContext(true);
             } else {
