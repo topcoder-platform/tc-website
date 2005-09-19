@@ -46,7 +46,7 @@ public class PostMessage extends ForumsProcessor {
             (getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
         String textareaBody = body.replaceAll("<?", "&lt;?").
-            replaceAll("?>", "?&gt;").replaceAll("&","&amp;");
+            replaceAll(">?", "&gt;?").replaceAll("&","&amp;");
         
         if (postMode.equals("New")) {
             forumID = Long.parseLong(forumIDStr);
