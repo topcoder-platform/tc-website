@@ -1,9 +1,10 @@
-<%@ page import="com.topcoder.web.tc.Constants"%>
+<%@ page import="com.topcoder.web.tc.Constants,
+                 com.topcoder.web.tc.controller.request.tournament.TCO06LogoSubmit"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>2005 TopCoder Open - Logo Design Contest</title>
+<title>2006 TopCoder Open - Logo Design Contest</title>
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
@@ -49,28 +50,30 @@
 
          <div class="pageSpacer">
 
-            <div class="logoBox"><img src="/i/tournament/tco05/logo_logo.gif" alt="TCO05 Logo Contest" border="0"/></div>
+            <div class="logoBox"><img src="/i/tournament/tco06/logo_logo.gif" alt="TCO06 Logo Contest" border="0"/></div>
             <div align="center">
    			<jsp:include page="logo_links.jsp" >
    			<jsp:param name="selectedTab" value="submit"/>
    			</jsp:include>
             </div>
 
-            <span class="bodySubtitle">Sorry, the submission period is over.</span><br>
-
-<%--
             <br><br>
             <span class="bodySubtitle">Logo submission</span><br>
-            Thank you for accepting the terms of the TCO05 Logo Contest. Please use the form below to attach your logo submission:
+            Thank you for accepting the terms of the TCO06 Logo Contest. Please use the form below to attach your logo submission:
             <br><br>
+
+            <% int submissionCount = ((Integer)request.getAttribute("submissionCount")).intValue();
+                if (submissionCount == TCO06LogoSubmit.MAX_SUBMISSIONS-1) { %>
+                <span class="bigReg">Please be aware that this will be your final submission.</span>
+                <% } %>
+            <br /><br />
             <span class="bigRed">The maximum file size per submission is 2.0 MB.</span>
             <br><br>
 			<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="logoSubmission" enctype="multipart/form-data">
-            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCO05LogoSubmit"/>
+            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCO06LogoSubmit"/>
             <b>Logo:</b><br><input type="file" name="<%=Constants.LOGO%>">
             </form>
             <A href="javascript:document.logoSubmission.submit();"><img src="/i/submit.gif" alt="Submit" border="0" /></A>
---%>
 
          </div>
 
