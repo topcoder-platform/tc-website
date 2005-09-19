@@ -185,8 +185,8 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
         <tr>
             <td class="appealCells">
             <b>Previous Score:</b>
-            <% if ((resultRow.getStringItem("raw_num_passed") != null) && (resultRow.getStringItem("raw_num_passed") != null)) { %>
-                <rsc:item name="raw_num_passed" row="<%=resultRow%>" />/<rsc:item name="raw_num_passed" row="<%=raw_num_tests%>" />
+            <% if ((resultRow.getStringItem("raw_num_passed") != null) && (resultRow.getStringItem("raw_num_tests") != null)) { %>
+                <rsc:item name="raw_num_passed" row="<%=resultRow%>" />/<rsc:item name="raw_num_tests" row="<%=resultRow%>" />
             <% } else { %>
                 <rsc:item name="raw_evaluation" row="<%=resultRow%>" escapeHtml="true" ifNull="N/A"/>
             <% } %>
