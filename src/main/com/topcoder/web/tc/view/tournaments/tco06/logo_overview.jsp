@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>2005 TopCoder Open - Logo Design Contest</title>
+<title>2006 TopCoder Open - Logo Design Contest</title>
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 
@@ -47,7 +47,7 @@
 
          <div class="pageSpacer">
 
-            <div class="logoBox"><img src="/i/tournament/tco05/logo_logo.gif" alt="TCO05 Logo Contest" border="0"/></div>
+            <div class="logoBox"><img src="/i/tournament/tco06/logo_logo.gif" alt="TCO06 Logo Contest" border="0"/></div>
             <div align="center">
    			<jsp:include page="logo_links.jsp" >
    			<jsp:param name="selectedTab" value="overview"/>
@@ -55,24 +55,24 @@
             </div>
 
             <br><br>
-            <span class="bodySubtitle">Design the face of the TCO05</span><br>
-            At this year's TopCoder Open we are adding yet another competition into the mix.  This time, we will be offering any member a chance to win $2500 by designing the tournament logo for the TCO05!
+            <span class="bodySubtitle">Design the face of the TCO06</span><br>
+            At this year's TopCoder Open we are adding yet another competition into the mix.  This time, we will be offering any member a chance to win $2500 by designing the tournament logo for the TCO06!
             <br><br>
             TopCoder would like to give any member the opportunity to put their creativity to the test and come up with the logo design that we'll be using to brand this year's TCO.  That includes our website, t-shirts, the stage at the onsite finals, and anywhere else that the TCO might show up.  So here is your chance to express what TopCoder tournaments mean to you, by designing the face of this year's TopCoder Open.
             <br><br>
             <b>Color guidelines</b><br>
-            <img src="/i/tournament/tco05/logo_colors.gif" alt="" border="0" align="right" />
+            <img src="/i/tournament/tco06/logo_colors.gif" alt="" border="0" align="right" />
             We've selected these 2 colors on the right to be the "coloring theme", meaning you must use them in your logo design.  You are not limited to these 2 colors.  We will allow the use of black(000000), white(FFFFFF), or any gray in between.
             <br><br>
             <b>The Theme</b><br>
-            Design a logo that will fit into the 2005 TopCoder Open theme: a high-speed race.  TopCoder contestants can be compared to the likes of racing cars, screaming airplanes, and thundering horses. Think of speed and accuracy, combined with all the pressure it takes to reach the end FIRST. Think of movement, noise, blurred colors and shapes. Thoughts and calculations careening through minds at warp speed. Yeah, we need a logo for that!
+            Design a logo that will fit into the 2006 TopCoder Open theme: a high-speed race.  TopCoder contestants can be compared to the likes of racing cars, screaming airplanes, and thundering horses. Think of speed and accuracy, combined with all the pressure it takes to reach the end FIRST. Think of movement, noise, blurred colors and shapes. Thoughts and calculations careening through minds at warp speed. Yeah, we need a logo for that!
 <%--
             <br><br>
             <b>Not a TopCoder member yet?</b><br>
             <A href="/Registration">Register here</A>
             <br><br>
             <b>Ready to submit your design?</b><br>
-            <A href="/tc?module=TCO05LogoTerms">Submit now</A>
+            <A href="/tc?module=TCO06LogoTerms">Submit now</A>
 --%>
          </div>
 

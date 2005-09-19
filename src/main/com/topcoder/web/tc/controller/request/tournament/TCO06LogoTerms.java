@@ -24,7 +24,7 @@ public class TCO06LogoTerms extends Base {
             if (ut.hasTermsOfUse(getUser().getId(), Constants.TCO06_LOGO_TERMS_ID, DBMS.OLTP_DATASOURCE_NAME)) {
                 CoderImage coderImage = (CoderImage)createEJB(getInitialContext(), CoderImage.class);
                 getRequest().setAttribute("submissionCount",
-                        coderImage.getImages(getUser().getId(), TCO06LogoSubmit.IMAGE_TYPE, DBMS.OLTP_DATASOURCE_NAME));
+                        new Integer(coderImage.getImages(getUser().getId(), TCO06LogoSubmit.IMAGE_TYPE, DBMS.OLTP_DATASOURCE_NAME).size()));
                 setNextPage("/tournaments/tco06/logo_submit.jsp");
                 setIsNextPageInContext(true);
             } else {

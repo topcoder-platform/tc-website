@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>2005 TopCoder Open - Logo Design Contest</title>
+<title>2006 TopCoder Open - Logo Design Contest</title>
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -50,7 +50,7 @@
 
          <div class="pageSpacer">
 
-            <div class="logoBox"><img src="/i/tournament/tco05/logo_logo.gif" alt="TCO05 Logo Contest" border="0"/></div>
+            <div class="logoBox"><img src="/i/tournament/tco06/logo_logo.gif" alt="TCO06 Logo Contest" border="0"/></div>
             <div align="center">
    			<jsp:include page="logo_links.jsp" >
    			<jsp:param name="selectedTab" value="finalists"/>
@@ -59,11 +59,11 @@
 
 <br><br>
 <table cellpadding="10" cellspacing="0" align="center" border="0" class="bodyText">
-<tr><td>A - <tc-webtag:handle coderId="14947661"/>: 335 votes<br><br><img src="/i/tournament/tco05/logo_submissions/085.gif" alt="" border="0" /><br><hr></td></tr>
-<tr><td>B - <tc-webtag:handle coderId="14946338"/>: 90 votes<br><br><img src="/i/tournament/tco05/logo_submissions/089.gif" alt="" border="0" /><br><hr></td></tr>
-<tr><td>C - <tc-webtag:handle coderId="14947701"/>: 288 votes<br><br><img src="/i/tournament/tco05/logo_submissions/090.gif" alt="" border="0" /><br><hr></td></tr>
-<tr><td>D - <tc-webtag:handle coderId="15047259"/>: 169 votes<br><br><img src="/i/tournament/tco05/logo_submissions/437.gif" alt="" border="0" /><br><hr></td></tr>
-<tr><td>E - <tc-webtag:handle coderId="13372886"/>: 140 votes<br><br><img src="/i/tournament/tco05/logo_submissions/498.gif" alt="" border="0" /><br><hr></td></tr>
+<tr><td>A - <tc-webtag:handle coderId="14947661"/>: 335 votes<br><br><img src="/i/tournament/tco06/logo_submissions/085.gif" alt="" border="0" /><br><hr></td></tr>
+<tr><td>B - <tc-webtag:handle coderId="14946338"/>: 90 votes<br><br><img src="/i/tournament/tco06/logo_submissions/089.gif" alt="" border="0" /><br><hr></td></tr>
+<tr><td>C - <tc-webtag:handle coderId="14947701"/>: 288 votes<br><br><img src="/i/tournament/tco06/logo_submissions/090.gif" alt="" border="0" /><br><hr></td></tr>
+<tr><td>D - <tc-webtag:handle coderId="15047259"/>: 169 votes<br><br><img src="/i/tournament/tco06/logo_submissions/437.gif" alt="" border="0" /><br><hr></td></tr>
+<tr><td>E - <tc-webtag:handle coderId="13372886"/>: 140 votes<br><br><img src="/i/tournament/tco06/logo_submissions/498.gif" alt="" border="0" /><br><hr></td></tr>
 </table>
          </div>
 

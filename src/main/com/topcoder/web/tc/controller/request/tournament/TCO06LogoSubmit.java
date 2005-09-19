@@ -27,8 +27,8 @@ import java.util.Date;
 public class TCO06LogoSubmit extends Base {
     private static final String IMAGE_PATH = ApplicationServer.BASE_DIR + "images/tco06logo/";
     private static final int PATH_ID = 19;
-    static final int IMAGE_TYPE = 14;
-    private static final int MAX_SUBMISSIONS = 3;
+    public static final int IMAGE_TYPE = 14;
+    public static final int MAX_SUBMISSIONS = 3;
 
     protected void businessProcessing() throws Exception {
 

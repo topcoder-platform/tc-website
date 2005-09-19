@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>2005 TopCoder Open - Logo Design Contest</title>
+<title>2006 TopCoder Open - Logo Design Contest</title>
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 
@@ -47,7 +47,7 @@
 
          <div class="pageSpacer">
 
-            <div class="logoBox"><img src="/i/tournament/tco05/logo_logo.gif" alt="TCO05 Logo Contest" border="0"/></div>
+            <div class="logoBox"><img src="/i/tournament/tco06/logo_logo.gif" alt="TCO06 Logo Contest" border="0"/></div>
             <div align="center">
    			<jsp:include page="logo_links.jsp" >
    			<jsp:param name="selectedTab" value="rules"/>
@@ -55,11 +55,11 @@
             </div>
 
             <br><br>
-            <span class="bodySubtitle">Official Contest Rules - 2005 TopCoder&#174; Open Logo Design Contest</span><br><br>
+            <span class="bodySubtitle">Official Contest Rules - 2006 TopCoder&#174; Open Logo Design Contest</span><br><br>
 <b>NO PURCHASE NECESSARY TO ENTER OR WIN.  VOID WHERE PROHIBITED.</b>
 <br><br>
 <b>OVERVIEW</b><br>
-TopCoder, Inc. will be conducting a contest for graphic designers prior to the 2005 TopCoder Open (TCO05).  As a result of this contest, one logo will be selected as the tournament logo for the TCO05.
+TopCoder, Inc. will be conducting a contest for graphic designers prior to the 2006 TopCoder Open (TCO06).  As a result of this contest, one logo will be selected as the tournament logo for the TCO06.
 <br><br>
 <b>ELIGIBILITY</b><br>
 To be eligible for the contest, you must be:
@@ -69,24 +69,24 @@ To be eligible for the contest, you must be:
 <li>A registered member of TopCoder in good standing</li>
 </ul>
 
-Employees of TopCoder, Inc., their affiliated companies, advertising and promotion agencies and immediate family members of each are not eligible. Employees of any TCO05 sponsoring companies are allowed to compete in the 2005 TopCoder Open Logo Design Contest.  All federal, state and local laws and regulations apply. Void where prohibited.
+Employees of TopCoder, Inc., their affiliated companies, advertising and promotion agencies and immediate family members of each are not eligible. Employees of any TCO06 sponsoring companies are allowed to compete in the 2006 TopCoder Open Logo Design Contest.  All federal, state and local laws and regulations apply. Void where prohibited.
 <br><br>
 <b>TO ENTER</b><br>
-If not already a member, register for TopCoder electronically at www.topcoder.com.  Once registered at TopCoder, submit designs using the submission functionality at www.topcoder.com/logocontest.   TopCoder will accept the first three (3) designs submitted by each registrant.  <span class="bigRed">The logos must be in EPS (Encapsulated PostScript) format and must be submitted by 5:00pm EDT on Friday, May 13, 2005.</span>  Submissions received after that time or by any other method will not be considered.
+If not already a member, register for TopCoder electronically at www.topcoder.com.  Once registered at TopCoder, submit designs using the submission functionality at www.topcoder.com/logocontest.   TopCoder will accept the first three (3) designs submitted by each registrant.  <span class="bigRed">The logos must be in EPS (Encapsulated PostScript) format and must be submitted by 5:00pm EDT on Friday, May 13, 2006.</span>  Submissions received after that time or by any other method will not be considered.
 <br><br>
 The logo must adhere to these guidelines:
 <ul>
-<li>Theme:   Design a logo that will fit into the 2005 TopCoder Open theme: a high-speed race.  TopCoder contestants can be compared to the likes of racing cars, screaming airplanes, and thundering horses. Think of speed and accuracy, combined with all the pressure it takes to reach the end FIRST. Think of movement, noise, blurred colors and shapes. Thoughts and calculations careening through minds at warp speed. Yeah, we need a logo for that!</li>
+<li>Theme:   Design a logo that will fit into the 2006 TopCoder Open theme: a high-speed race.  TopCoder contestants can be compared to the likes of racing cars, screaming airplanes, and thundering horses. Think of speed and accuracy, combined with all the pressure it takes to reach the end FIRST. Think of movement, noise, blurred colors and shapes. Thoughts and calculations careening through minds at warp speed. Yeah, we need a logo for that!</li>
 <li>Colors:  The main colors for the TCO will be yellow (RGB: FFEA53) and blue/gray (RGB: 5C6F7C).  White, black and grays can be used as compliments.  Other colors should be avoided.</li>
 </ul>
-<div align="center"><img src="/i/tournament/tco05/logo_colors.gif" alt="" border="0"/></div>
+<div align="center"><img src="/i/tournament/tco06/logo_colors.gif" alt="" border="0"/></div>
 <ul>
 <li>Font:  All fonts are acceptable with the exception of Bank Gothic or anything in the Bank Gothic family.</li>
 <li>TopCoder name:  The TopCoder name must be used and should not be abbreviated in any way.</li>
 </ul>
 
 <b>SELECTION OF WINNER</b><br>
-Up to five (5) designs will be chosen by TopCoder staff, at their discretion, and put in front of the TopCoder member base for a vote.  The voting will begin at 10:00am EDT on Wednesday, May 18 and will end at 5:00pm EDT on Wednesday, May 25, 2005.  The logo design with the most votes from the TopCoder member base will be selected as the winning design.
+Up to five (5) designs will be chosen by TopCoder staff, at their discretion, and put in front of the TopCoder member base for a vote.  The voting will begin at 10:00am EDT on Wednesday, May 18 and will end at 5:00pm EDT on Wednesday, May 25, 2006.  The logo design with the most votes from the TopCoder member base will be selected as the winning design.
 <br><br>
 <b>PRIZES</b><br>
 The contest will award cash prizes totaling $5,000 to up to 5 competitors.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:
@@ -118,7 +118,7 @@ The contest will award cash prizes totaling $5,000 to up to 5 competitors.  Any 
 </tr>
 </table>
 <br><br>
-The winning design as voted on by the TopCoder member base will be used as the tournament logo for the 2005 TopCoder Open.
+The winning design as voted on by the TopCoder member base will be used as the tournament logo for the 2006 TopCoder Open.
 <br><br>
 <b>GENERAL CONDITIONS</b><br>
 By participating in the contest, participants agree to be bound by these rules and to any and all subsequent changes and decisions of TopCoder, which are final, binding and conclusive in all matters.
