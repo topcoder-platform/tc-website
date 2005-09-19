@@ -715,7 +715,7 @@
 		 	<metainf dir="${java}/com/topcoder/web/ejb/messagehistory" includes="*.xml"/>
 	 	</jar>
  	</target>
- 	
+
  	<target name="package-EJB-ForumsBean" depends="compile">
  		 	<jar jarfile="${ejb_jars}/forums.jar">
  			 	<zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -724,7 +724,7 @@
  			 	<metainf dir="${java}/com/topcoder/web/ejb/forums" includes="*.xml"/>
  		 	</jar>
  	</target>
- 		
+
  	<target name="package-EJB-ContestAdminServices" depends="compile">
  		<jar jarfile="${ejb_jars}/ContestAdminServices.jar">
  			 <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
@@ -1404,9 +1404,12 @@
                  <include name="ddepersistence.jar"/>
                  <include name="Email.jar"/>
                  <include name="FileConversion.jar"/>
+                 <include name="Image.jar"/>
                  <include name="JavaDocServices.jar"/>
                  <include name="JobPostingServices.jar"/>
+<!--
                  <include name="orpersistence.jar"/>
+-->
                  <include name="PactsServices.jar"/>
                  <include name="Password.jar"/>
                  <include name="Phone.jar"/>
