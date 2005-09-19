@@ -146,8 +146,8 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
 %>
     <tr>
     <td class="projectCells">
-        (<rsc:item name="question_weight" row="<%=resultRow%>"/>)
-        <rsc:item name="question_desc" row="<%=resultRow%>"/>
+        (<rsc:item name="question_weight" row="<%=resultRow%>" ifNull="" />)
+        <rsc:item name="question_desc" row="<%=resultRow%>" ifNull="" />
 
 
             <a href='javascript:expand("<rsc:item name="question_text" row="<%=resultRow%>" escapeHtml="true" />")'>[+]</a>
