@@ -77,7 +77,7 @@ function expand(complete)
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="statistics"/>
                 <jsp:param name="level2" value=""/>
             </jsp:include>
