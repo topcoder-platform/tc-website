@@ -41,7 +41,8 @@ public class PreviewMessage extends ForumsProcessor {
         String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags(
                 getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
-        String textareaBody = body.replaceAll("&","&amp;");
+        String textareaBody = body.replaceAll("<?", "&lt;?").
+            replaceAll("?>", "?&gt;").replaceAll("&","&amp;");
         
         if (postMode.equals("New")) {
             forumID = Long.parseLong(forumIDStr);
@@ -81,10 +82,10 @@ public class PreviewMessage extends ForumsProcessor {
             }
         }
         
-		if (subject.equals("")) {
+		if (subject.trim().equals("")) {
 			addError(ForumConstants.MESSAGE_SUBJECT, ForumConstants.ERR_EMPTY_MESSAGE_SUBJECT);
 		}
-		if (body.equals("")) {
+		if (body.trim().equals("")) {
 			addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_EMPTY_MESSAGE_BODY);
 		}
         if (subject.length() > ForumConstants.MESSAGE_SUBJECT_MAX_LENGTH) {
