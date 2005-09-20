@@ -91,8 +91,8 @@ public class AnswerInput extends BaseTag {
         StringBuffer s = new StringBuffer(200);
         if (question.getStyleId() == Question.LONG_ANSWER) {
             s.append("<textarea ");
-            s.append("cols=\"").append(60).append("\" ");
-            s.append("rows=\"").append(8).append("\" ");
+            s.append("cols=\"").append(55).append("\" ");
+            s.append("rows=\"").append(6).append("\" ");
             s.append("wrap=\"").append("virtual").append("\" ");
             s.append("name=\"").append(name).append("\" ");
             if (styleClass != null) {
