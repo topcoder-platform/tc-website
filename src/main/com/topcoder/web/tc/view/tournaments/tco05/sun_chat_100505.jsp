@@ -55,7 +55,7 @@ Launch the Arena.
 <br><br>
 <strong>Not Yet a TopCoder Member?</strong><br>
 Click <A href="/Registration">here</A> to register as a TopCoder member.<br>
-Check your email and activate your new TopCoder account.
+Check your email and activate your new TopCoder account.<br>
 Launch the Arena.
 <br><br>
 <strong>How to Launch the Arena</strong><br>
