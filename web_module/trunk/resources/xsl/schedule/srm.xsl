@@ -117,13 +117,10 @@
                       <TR>
                         <TD COLSPAN="3" ALIGN="left" class="bodyText">
                             <center><BR/>All times are Eastern Time unless otherwise noted, click <a><xsl:attribute name="HREF">http://www.timeanddate.com/worldclock/fixedtime.html?day=<xsl:value-of select="/TC/SCHEDULE/Round/Details/day"/>&amp;month=<xsl:value-of select="/TC/SCHEDULE/Round/Details/month"/>&amp;year=<xsl:value-of select="/TC/SCHEDULE/Round/Details/year"/>&amp;hour=<xsl:value-of select="/TC/SCHEDULE/Round/Details/hour"/>&amp;min=<xsl:value-of select="/TC/SCHEDULE/Round/Details/minute"/>&amp;sec=0&amp;p1=179</xsl:attribute>here</a>
-                            to see when coding begins in other time zones.<br/><br/></center>
+                            to see when coding begins in other time zones.<br/></center>
                             <xsl:if test="/TC/SCHEDULE/Round/Details/forum_id!=''">
-                                <center><BR/><A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/ForumsHost"/>/?module=ThreadList&amp;forumID=<xsl:value-of select="/TC/SCHEDULE/Round/Details/forum_id"/></xsl:attribute>Discuss this match</A><br/><br/></center>
+                                <center><A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/ForumsHost"/>/?module=ThreadList&amp;forumID=<xsl:value-of select="/TC/SCHEDULE/Round/Details/forum_id"/></xsl:attribute>Discuss this match</A><br/><br/></center>
                             </xsl:if>
-
-
-
                             <xsl:choose>
                             <xsl:when test="$roundId=4710">
                                 <b>For information on how to win an Intel&#174; Centrino(TM) mobile technology-based notebook computer click <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_intel">here</a></b><br/><br/>
