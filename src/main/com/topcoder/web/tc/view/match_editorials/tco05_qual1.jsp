@@ -38,10 +38,7 @@
 </jsp:include>
 
 <div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
-<%--
-<tc-webtag:forumLink forumID="505003" message="Discuss this match" /></div>
---%>
-<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505749">Discuss this match</A></div>
+<tc-webtag:forumLink forumID="505749" message="Discuss this match" /></div>
 <span class="bodySubtitle">TCO05 - Qualification 1</span><br>August 16-17, 2005
 <br><br>
 
