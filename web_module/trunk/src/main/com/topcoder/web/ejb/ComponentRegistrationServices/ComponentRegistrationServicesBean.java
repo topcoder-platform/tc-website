@@ -2,10 +2,13 @@ package com.topcoder.web.ejb.ComponentRegistrationServices;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
+
+import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -372,5 +375,95 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
         return reg_count;
     }
 
+    public ResultSetContainer getActiveQuestions() throws EJBException {
+        return selectSet("comp_reg_question",
+                new String[]{"*"}, 
+                new String[]{"is_active"},
+                new String[]{"t"},
+                DBMS.OLTP_DATASOURCE_NAME);
+    }
+    
+    public ResultSetContainer getActiveAnswers() throws EJBException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        InitialContext ctx = null;
+
+        try {
+            conn = DBMS.getConnection(DBMS.OLTP_DATASOURCE_NAME);
+            
+            StringBuffer query = new StringBuffer(1024);
+
+            query.append("select a.* from comp_reg_answer a, comp_reg_question q ");
+            query.append("where a.comp_reg_question_id = q.comp_reg_question_id ");
+            query.append("and q.is_active = 't'" );
+            query.append("order by comp_reg_question_id, sort_order");
+
+            ps = conn.prepareStatement(query.toString());
+            rs = ps.executeQuery();
+            return new ResultSetContainer(rs);   
+        } catch (SQLException _sqle) {
+            DBMS.printSqlException(true, _sqle);
+            throw(new EJBException(_sqle.getMessage()));
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+    }
+    
+    public ResultSetContainer getAnswers(long questionId) throws EJBException {
+        return selectSet("comp_reg_answer",
+                new String[]{"*"}, 
+                new String[]{"com_reg_question_id"},
+                new String[]{String.valueOf(questionId)},
+                DBMS.OLTP_DATASOURCE_NAME);
+    }
+    
+    public void createResponse(long projectId, long userId, long questionId, long answerId) throws EJBException {
+        insert("comp_reg_response",
+                new String[]{"question_id", "answer_id", "user_id", "project_id"},
+                new String[]{String.valueOf(questionId), String.valueOf(answerId), 
+                    String.valueOf(userId), String.valueOf(projectId)},
+                DBMS.OLTP_DATASOURCE_NAME);
+    }
+
+    public void createResponse(long projectId, long userId, long questionId, String text) throws EJBException {
+        insert("comp_reg_response",
+                new String[]{"question_id", "response_text", "user_id", "project_id"},
+                new String[]{String.valueOf(questionId), text, 
+                    String.valueOf(userId), String.valueOf(projectId)},
+                DBMS.OLTP_DATASOURCE_NAME);
+    }
+
+    public boolean responseExists(long projectId, long userId, long questionId) throws EJBException {
+        PreparedStatement ps = null;
+        Connection conn = null;
+        InitialContext ctx = null;
+
+        try {
+            conn = DBMS.getConnection(DBMS.OLTP_DATASOURCE_NAME);
+            ps = conn.prepareStatement("SELECT '1' FROM comp_reg_response " +
+                    "WHERE project_id = ? AND user_id = ? AND question_id = ?");
+            ps.setLong(1, projectId);
+            ps.setLong(2, userId);
+            ps.setLong(3, questionId);
+
+            ResultSet rs = ps.executeQuery();
+            return rs.next();   
+        } catch (SQLException _sqle) {
+            DBMS.printSqlException(true, _sqle);
+            throw(new EJBException(_sqle.getMessage()));
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        } finally {
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+    }
 }
 

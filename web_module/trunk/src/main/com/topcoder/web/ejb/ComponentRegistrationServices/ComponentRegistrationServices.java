@@ -3,6 +3,7 @@ package com.topcoder.web.ejb.ComponentRegistrationServices;
 import javax.ejb.EJBException;
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 public interface ComponentRegistrationServices extends EJBObject {
     /**
@@ -25,5 +26,18 @@ public interface ComponentRegistrationServices extends EJBObject {
     int getUnratedRegistrantCount(long projectId, String dataSource) throws RemoteException, EJBException;
 
     int getRatedRegistrantCount(long projectId, String dataSource) throws RemoteException, EJBException;
+    
+    // Survey methods
+    public ResultSetContainer getActiveQuestions() throws RemoteException, EJBException;
+ 
+    public ResultSetContainer getActiveAnswers() throws RemoteException, EJBException;
+    
+    public ResultSetContainer getAnswers(long questionId) throws RemoteException, EJBException;
+    
+    public void createResponse(long projectId, long userId, long questionId, long answerId) throws RemoteException, EJBException;
+
+    public void createResponse(long projectId, long userId, long questionId, String text) throws RemoteException, EJBException;
+
+    public boolean responseExists(long projectId, long userId, long questionId) throws RemoteException, EJBException;
 }
 
