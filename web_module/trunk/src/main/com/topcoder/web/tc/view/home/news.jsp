@@ -9,6 +9,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>09.22.05<br>9:45 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm264">SRM 264 - Problem Set & Analysis</A></span><br><br>
+      In Division 1, only <tc-webtag:handle coderId="10574855" context="algorithm"/> (1st) and <tc-webtag:handle coderId="11829284" context="algorithm"/> (2nd) managed to solve all three problems. <tc-webtag:handle coderId="10498974" context="algorithm"/> was the third of the three to solve the 1000 pointer; his 500 was taken down in the challenge phase, though this did not cost him 3rd place.</td>
+      <td class="newsPhoto"><%--<img src="/i/m/LunaticFringe_mug.gif" /><br>--%>by <tc-webtag:handle coderId="10083726" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm264">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505767" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.19.05<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=nsa">NSA chat session scheduled for SRM 264</A></span><br><br>
       NSA will be in the Arena Applet at 8:00 PM just before the start of SRM 264 to discuss working for NSA.
@@ -274,22 +289,6 @@
          <A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview">results</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505004">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>09.01.05<br>9:40 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco05_online_rd_3">TCO05 - Online Round 3 - Problem Set & Analysis</A></span><br><br>
-      The competition heated up in round 3 of the TCO.  Coders had little trouble with the easy problem, and many of them submitted the medium shortly thereafter.</td>
-      <td class="newsPhoto"><img src="/i/m/lbackstrom_mug.gif" /><br>by <tc-webtag:handle coderId="159052" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=tco05_online_rd_3">full story</A>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505759">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 
