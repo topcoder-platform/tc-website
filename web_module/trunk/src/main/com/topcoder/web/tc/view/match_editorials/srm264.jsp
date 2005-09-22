@@ -273,7 +273,7 @@ candidatePos) {
     int withoutUsingBlank =
 recur(target,candidate,candidatePos+1,targetPos)+diff;
     int usingBlank = best(target,candidate,candidatePos+1,targetPos+1);
-    if (withoutUsingBlank<usingBlank) return without;
+    if (withoutUsingBlank &lt; usingBlank) return without;
     else return usingBlank;
 }</pre>
 </p>
