@@ -37,7 +37,7 @@ public interface ComponentRegistrationServices extends EJBObject {
     public void createResponse(long projectId, long userId, long questionId, long answerId) throws RemoteException, EJBException;
 
     public void createResponse(long projectId, long userId, long questionId, String text) throws RemoteException, EJBException;
-
+    
     public boolean responseExists(long projectId, long userId, long questionId) throws RemoteException, EJBException;
 }
 

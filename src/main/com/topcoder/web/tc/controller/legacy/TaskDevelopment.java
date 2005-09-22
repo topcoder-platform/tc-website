@@ -96,7 +96,8 @@ public final class TaskDevelopment {
 
             if (command.equals("tcs_inquire") || command.equals("tcs_app_inquire")) {
                 if (nav.isLoggedIn()) {
-
+                    ResultSetContainer rsc = null;
+                    
                     int phase = Integer.parseInt(request.getParameter("phase"));
                     int version = Integer.parseInt(request.getParameter("version"));
                     devTag.addTag(new ValueTag("phase", phase));
@@ -112,8 +113,16 @@ public final class TaskDevelopment {
                     }
                     devTag.addTag(new ValueTag("projectId", projectId));
 
+                    if (command.equals("tcs_inquire")) {
+                        InitialContext ctx = TCContext.getInitial();
+                        ComponentRegistrationServices cregBean = (ComponentRegistrationServices) BaseProcessor.createEJB(ctx, ComponentRegistrationServices.class);
+                        rsc = cregBean.getActiveQuestions();
+                        devTag.addTag(rsc.getTag("Questions", "Question"));
+                        rsc = cregBean.getActiveAnswers();
+                        devTag.addTag(rsc.getTag("Answers", "Answer"));
+                    }
+                    
                     Request dataRequest = null;
-                    ResultSetContainer rsc = null;
                     Map resultMap = null;
                     log.debug("getting dai");
                     dataRequest = new Request();
@@ -287,7 +296,6 @@ public final class TaskDevelopment {
 
                         //get fancy new ejb
                         InitialContext ctx = TCContext.getInitial();
-
                         ComponentRegistrationServices cregBean = (ComponentRegistrationServices) BaseProcessor.createEJB(ctx, ComponentRegistrationServices.class);
 
                         if (!isSuspended(nav.getSessionInfo().getUserId())) {
@@ -306,7 +314,23 @@ public final class TaskDevelopment {
                                                 devTag.addTag(new ValueTag("max_reg", cregBean.getMaxRatedRegistrants(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME)));
                                                 xsldocURLString = XSL_DIR + "reg_full_rated.xsl";
                                             } else {
-
+                                                //reg succeeded - add survey responses
+                                                ResultSetContainer rscQuestions = cregBean.getActiveQuestions();
+                                                int rowCount = rscQuestions.getRowCount();
+                                                for (int i=0; i<rowCount; i++) {
+                                                    int questionId = rscQuestions.getIntItem(i, "comp_reg_question_id");
+                                                    int questionStyleId = rscQuestions.getIntItem(i, "question_style_id");
+                                                    if (questionStyleId == 1 || questionStyleId == 2) {
+                                                        String[] selectedAnswers = request.getParameterValues("q"+questionId);
+                                                        for (int j=0; j<selectedAnswers.length; j++) {
+                                                            cregBean.createResponse(projectId, nav.getUserId(), questionId, Integer.parseInt(selectedAnswers[j]));
+                                                        }
+                                                    } else if (questionStyleId == 3 || questionStyleId == 4) {
+                                                        String responseText = request.getParameter("q"+questionId);
+                                                        cregBean.createResponse(projectId, nav.getUserId(), questionId, responseText);
+                                                    }
+                                                }
+                                                
                                                 register(nav.getSessionInfo().getUserId(), componentId, projectId, rating, comment, agreedToTerms, phase, version);
                                                 String activeForumId = String.valueOf(getActiveForumId(componentId));
                                                 devTag.addTag(new ValueTag("forumId", activeForumId));
