@@ -118,9 +118,9 @@ public final class TaskDevelopment {
                         ComponentRegistrationServices cregBean = (ComponentRegistrationServices) BaseProcessor.createEJB(ctx, ComponentRegistrationServices.class);
                         rsc = cregBean.getActiveQuestions();
                         devTag.addTag(rsc.getTag("Questions", "Question"));
+                        devTag.addTag(new ValueTag("numSurveyQs", rsc.getRowCount()));
                         rsc = cregBean.getActiveAnswers();
                         devTag.addTag(rsc.getTag("Answers", "Answer"));
-                        devTag.addTag(new ValueTag("numSurveyQs", rsc.getRowCount()));
                     }
                     
                     Request dataRequest = null;
