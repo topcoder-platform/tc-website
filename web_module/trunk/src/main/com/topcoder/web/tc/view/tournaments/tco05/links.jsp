@@ -10,7 +10,6 @@
 <area shape="poly" alt="" coords="392,29, 364,1, 536,1, 564,29" href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_description" />
 </map>
 
-
 <table width="100%" border=0 cellpadding=0 cellspacing=0> 
 <!-- LEVEL 1 TABS -->
 <% if (tabLev1.equals("overview")) {%>
