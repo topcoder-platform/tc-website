@@ -89,9 +89,9 @@
                <td class="nav"><A href="/tc?module=TCO05AlgRegistrants"><img src="/i/tournament/tco05/tabs/L2_registrantsOff.gif" alt="" border=0 /></A></td>
             <% } %>
             <% if (tabLev2.equals("advancers")) {%>
-               <td class="nav"><A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview"><img src="/i/tournament/tco05/tabs/L2_advancersOn.gif" alt="" border=0 /></A></td>
+               <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_bracket"><img src="/i/tournament/tco05/tabs/L2_advancersOn.gif" alt="" border=0 /></A></td>
             <% } else { %>
-               <td class="nav"><A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview"><img src="/i/tournament/tco05/tabs/L2_advancersOff.gif" alt="" border=0 /></A></td>
+               <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_bracket"><img src="/i/tournament/tco05/tabs/L2_advancersOff.gif" alt="" border=0 /></A></td>
             <% } %>
 <%--
             <% if (tabLev2.equals("summary")) {%>
