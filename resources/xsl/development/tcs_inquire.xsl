@@ -95,17 +95,17 @@
 	                <xsl:variable name="qStyleId">
 	                	<xsl:value-of select="question_style_id"/>
 	                </xsl:variable>
-	                <xsl:if test="$qStyleId = '1'">
-	                	<xsl:variable name="widgetType">radio</xsl:variable>
-	               	</xsl:if>
-	                <xsl:if test="$qStyleId = '2'">
-	                	<xsl:variable name="widgetType">checkbox</xsl:variable>
-	               	</xsl:if>
+	               	<xsl:variable name="widgetType">
+				    	<xsl:choose>
+				    		<xsl:when test="$qStyleId = '1'">radio</xsl:when>
+							<xsl:when test="$qStyleId = '2'">checkbox</xsl:when>
+				   		</xsl:choose>
+				   	</xsl:variable>
 	               	<xsl:variable name="qId">
 						<xsl:value-of select="comp_reg_question_id"/>
 					</xsl:variable>
 					<xsl:variable name="widgetName" select="concat('q',$qId)"/>
-	                
+					
 					<xsl:value-of select="question_text"/><br/>
 					<xsl:for-each select="/TC/DEVELOPMENT/Answers/Answer">
 						<xsl:variable name="aqId">
@@ -114,42 +114,20 @@
 						<xsl:variable name="aId">
 							<xsl:value-of select="comp_reg_answer_id"/>
 						</xsl:variable>
-						<xsl:variable name="widgetId" select="concat($widgetName,$aId)"/>
+						<xsl:variable name="widgetId" select="concat(concat($widgetName,'a'),$aId)"/>
 						
-						<xsl:if test="{$qStyleId} &lt;= '2'">
-							<xsl:if test="${qId} = ${aqId}">
-								<input name="{$widgetName}" value="{pos}" id="{$widgetId}" type="{$widgetType}"/> 
+						<xsl:if test="$qStyleId &lt;= '2'">
+							<xsl:if test="$qId = $aqId">
+								<input name="{$widgetName}" value="{$aId}" id="{$widgetId}" type="{$widgetType}"/> 
 								<label for="{$widgetId}"><xsl:value-of select="answer_text"/></label><br/>
 							</xsl:if>
 						</xsl:if>
-						<xsl:if test="{$qStyleId} &gt; '2'">
+						<xsl:if test="$qStyleId &gt; '2'">
 							<textarea name="{$widgetName}" rows="5" cols="50"/>
 						</xsl:if>
 					</xsl:for-each>
-					</p>
+	                </p>
 				</xsl:for-each>
-                
-                <!--
-               	<p>
-                1) Which of the following most contributed to your decision to register for this component?<br/>
-                <input name="q1" value="a1" id="q1a1" type="radio"/>
-      			<label for="q1a1">The specific technologies are familiar to me</label><br/>
-      			<input name="q1" value="a2" id="q1a2" type="radio"/>
-      			<label for="q1a2">The number of people already registered is appealing to me</label><br/>
-      			<input name="q1" value="a5" id="q1a5" type="radio"/>
-      			<label for="q1a5">Other (specify in Comments):</label><br/>
-      			</p>
-      			
-      			<p>
-      			2) Which of the following contributed to your decision to register for this component?<br/>
-                <input name="q2" value="a1" id="q2a1" type="checkbox"/>
-      			<label for="q2a1">The specific technologies are familiar to me</label><br/>
-      			<input name="q2" value="a2" id="q2a2" type="checkbox"/>
-      			<label for="q2a2">The number of people already registered is appealing to me</label><br/>
-      			<input name="q2" value="a5" id="q2a5" type="checkbox"/>
-      			<label for="q2a5">Other (specify in Comments):</label><br/>
-      			</p>
-      			--!>
                 
                 <p>Terms &amp; Conditions<br/>
                 <img src="/i/clear.gif" alt="" width="10" height="3" border="0"/><br/>
@@ -237,13 +215,13 @@ If you have any questions regarding these Terms, contact us at service@topcoders
 				  	{alert("Please answer survey question 1.");}
 				  else if (checkAnswers(document.frmSend.q2) == -1)
 				  	{alert("Please answer survey question 2.");}
-				  else {document.frmSend.submit();}
+			      else {alert("Submit");}
                   return;
                 }
               ]]></script>
 
             </form>
-
+<!--				  else {document.frmSend.submit();}-->
             <p><br/></p>
 
          </td>
