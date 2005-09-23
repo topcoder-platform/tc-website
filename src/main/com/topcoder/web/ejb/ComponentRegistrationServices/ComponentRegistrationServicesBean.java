@@ -426,7 +426,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
     
     public void createResponse(long projectId, long userId, long questionId, long answerId) throws EJBException {
         insert("comp_reg_response",
-                new String[]{"question_id", "answer_id", "user_id", "project_id"},
+                new String[]{"comp_reg_question_id", "comp_reg_answer_id", "user_id", "project_id"},
                 new String[]{String.valueOf(questionId), String.valueOf(answerId), 
                     String.valueOf(userId), String.valueOf(projectId)},
                 DBMS.OLTP_DATASOURCE_NAME);
@@ -434,7 +434,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
 
     public void createResponse(long projectId, long userId, long questionId, String text) throws EJBException {
         insert("comp_reg_response",
-                new String[]{"question_id", "response_text", "user_id", "project_id"},
+                new String[]{"comp_reg_question_id", "response_text", "user_id", "project_id"},
                 new String[]{String.valueOf(questionId), text, 
                     String.valueOf(userId), String.valueOf(projectId)},
                 DBMS.OLTP_DATASOURCE_NAME);
@@ -448,7 +448,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
         try {
             conn = DBMS.getConnection(DBMS.OLTP_DATASOURCE_NAME);
             ps = conn.prepareStatement("SELECT '1' FROM comp_reg_response " +
-                    "WHERE project_id = ? AND user_id = ? AND question_id = ?");
+                    "WHERE project_id = ? AND user_id = ? AND comp_reg_question_id = ?");
             ps.setLong(1, projectId);
             ps.setLong(2, userId);
             ps.setLong(3, questionId);
