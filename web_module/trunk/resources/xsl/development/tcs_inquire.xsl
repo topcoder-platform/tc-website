@@ -214,29 +214,29 @@ If you have any questions regarding these Terms, contact us at service@topcoders
               
                 function submitForm() {
                   var answered=new Array();
-                  for(i=0; i<document.frmSend.elements.length; i++) {
+                  for (i=0; i<document.frmSend.elements.length; i++) {
                   	if (document.frmSend.elements[i].name.charAt(0) == 'q') {
-                  		if ((document.frmSend.elements[i].type == 'radio' || document.frmSend.elements[i].type == 'checkbox') &&
-                  			document.frmSend.elements[i].checked) {
-	                  		var found = false;
-							for (int j=0; j<answered.length; j++) {
-								if (answered[j] == document.frmSend.elements[i].name) found = true;
+                  		if (document.frmSend.elements[i].type == 'radio' || document.frmSend.elements[i].type == 'checkbox') {
+                  			if (document.frmSend.elements[i].checked) {
+		                  		var found = false;
+								for (j=0; j<answered.length; j++) {
+									if (answered[j] == document.frmSend.elements[i].name) found = true;
+								}
+								if (!found) {answered.push(document.frmSend.elements[i].name);}
 							}
-							if (!found) {answered.push(document.frmSend.elements[i].name);}
 						} else {answered.push(document.frmSend.elements[i].name);}
                   	}
                   }
                   if (!document.frmSend.terms.checked) 
 					{alert("Please read and agree to terms to apply for this project.");}
-				  else if (answered.length < document.frmSend.numSurveyQs)
+				  else if (answered.length < document.frmSend.numSurveyQs.value)
 				  	{alert("Please answer all survey questions.");}
-			      else {alert("Submit");}
+			      else {document.frmSend.submit();}
                   return;
                 }
               ]]></script>
 
             </form>
-<!--				  else {document.frmSend.submit();}-->
             <p><br/></p>
 
          </td>
