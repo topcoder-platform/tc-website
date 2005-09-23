@@ -377,7 +377,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
 
     public ResultSetContainer getActiveQuestions() throws EJBException {
         return selectSet("comp_reg_question",
-                new String[]{"*"}, 
+                new String[]{"comp_reg_question_id", "question_text", "question_style_id"}, 
                 new String[]{"is_active"},
                 new String[]{"t"},
                 DBMS.OLTP_DATASOURCE_NAME);
@@ -394,7 +394,8 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             
             StringBuffer query = new StringBuffer(1024);
 
-            query.append("select a.* from comp_reg_answer a, comp_reg_question q ");
+            query.append("select a.comp_reg_answer_id, a.comp_reg_question_id, a.answer_text, a.sort_order ");
+            query.append("from comp_reg_answer a, comp_reg_question q ");
             query.append("where a.comp_reg_question_id = q.comp_reg_question_id ");
             query.append("and q.is_active = 't'" );
             query.append("order by comp_reg_question_id, sort_order");
@@ -417,7 +418,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
     
     public ResultSetContainer getAnswers(long questionId) throws EJBException {
         return selectSet("comp_reg_answer",
-                new String[]{"*"}, 
+                new String[]{"comp_reg_answer_id", "comp_reg_question_id", "answer_text", "sort_order"}, 
                 new String[]{"com_reg_question_id"},
                 new String[]{String.valueOf(questionId)},
                 DBMS.OLTP_DATASOURCE_NAME);
