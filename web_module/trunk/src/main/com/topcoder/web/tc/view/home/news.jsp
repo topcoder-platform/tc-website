@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.19.05<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_bracket">TCO05 Algorithm Semifinalists Bracket</A></span><br><br>
+      Check out the semifinalists bracket for the Algorithm Competition.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_bracket">details</A>&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505768">discuss this</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>09.22.05<br>9:45 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -275,19 +288,6 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=dev_conferences">details</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=pressroom&d2=pr_090205">press release</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505005">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.01.05<br>11:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview">TCO05 Algorithm Round 3 results</A></span><br><br>
-      Find out who advanced to the next round in the Algorithm Competition.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview">results</A>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505004">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
