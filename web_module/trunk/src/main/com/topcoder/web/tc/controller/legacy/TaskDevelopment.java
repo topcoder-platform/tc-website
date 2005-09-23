@@ -120,6 +120,7 @@ public final class TaskDevelopment {
                         devTag.addTag(rsc.getTag("Questions", "Question"));
                         rsc = cregBean.getActiveAnswers();
                         devTag.addTag(rsc.getTag("Answers", "Answer"));
+                        devTag.addTag(new ValueTag("numSurveyQs", rsc.getRowCount()));
                     }
                     
                     Request dataRequest = null;

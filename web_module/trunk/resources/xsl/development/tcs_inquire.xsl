@@ -84,6 +84,10 @@
                 <input type="hidden" name="To">
                     <xsl:attribute name="VALUE">service@topcodersoftware.com</xsl:attribute>
                 </input>
+                
+                <input type="hidden" name="numSurveyQs">
+                    <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/numSurveyQs"/></xsl:attribute>
+                </input>
 
                 <h2><xsl:value-of select="/TC/DEVELOPMENT/ProjectName"/></h2>
 
@@ -209,12 +213,23 @@ If you have any questions regarding these Terms, contact us at service@topcoders
               	}
               
                 function submitForm() {
+                  var answered=new Array();
+                  for(i=0; i<document.frmSend.elements.length; i++) {
+                  	if (document.frmSend.elements[i].name.charAt(0) == 'q') {
+                  		if ((document.frmSend.elements[i].type == 'radio' || document.frmSend.elements[i].type == 'checkbox') &&
+                  			document.frmSend.elements[i].checked) {
+	                  		var found = false;
+							for (int j=0; j<answered.length; j++) {
+								if (answered[j] == document.frmSend.elements[i].name) found = true;
+							}
+							if (!found) {answered.push(document.frmSend.elements[i].name);}
+						} else {answered.push(document.frmSend.elements[i].name);}
+                  	}
+                  }
                   if (!document.frmSend.terms.checked) 
 					{alert("Please read and agree to terms to apply for this project.");}
-				  else if (checkAnswers(document.frmSend.q1) == -1)
-				  	{alert("Please answer survey question 1.");}
-				  else if (checkAnswers(document.frmSend.q2) == -1)
-				  	{alert("Please answer survey question 2.");}
+				  else if (answered.length < document.frmSend.numSurveyQs)
+				  	{alert("Please answer all survey questions.");}
 			      else {alert("Submit");}
                   return;
                 }
