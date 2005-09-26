@@ -380,7 +380,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
                 new String[]{"comp_reg_question_id", "question_text", "question_style_id"}, 
                 new String[]{"is_active"},
                 new String[]{"t"},
-                DBMS.OLTP_DATASOURCE_NAME);
+                DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
     
     public ResultSetContainer getActiveAnswers() throws EJBException {
@@ -390,7 +390,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
         InitialContext ctx = null;
 
         try {
-            conn = DBMS.getConnection(DBMS.OLTP_DATASOURCE_NAME);
+            conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
             
             StringBuffer query = new StringBuffer(1024);
 
@@ -421,7 +421,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
                 new String[]{"comp_reg_answer_id", "comp_reg_question_id", "answer_text", "sort_order"}, 
                 new String[]{"com_reg_question_id"},
                 new String[]{String.valueOf(questionId)},
-                DBMS.OLTP_DATASOURCE_NAME);
+                DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
     
     public void createResponse(long projectId, long userId, long questionId, long answerId) throws EJBException {
@@ -429,7 +429,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
                 new String[]{"comp_reg_question_id", "comp_reg_answer_id", "user_id", "project_id"},
                 new String[]{String.valueOf(questionId), String.valueOf(answerId), 
                     String.valueOf(userId), String.valueOf(projectId)},
-                DBMS.OLTP_DATASOURCE_NAME);
+                DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
 
     public void createResponse(long projectId, long userId, long questionId, String text) throws EJBException {
@@ -437,7 +437,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
                 new String[]{"comp_reg_question_id", "response_text", "user_id", "project_id"},
                 new String[]{String.valueOf(questionId), text, 
                     String.valueOf(userId), String.valueOf(projectId)},
-                DBMS.OLTP_DATASOURCE_NAME);
+                DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
 
     public boolean responseExists(long projectId, long userId, long questionId) throws EJBException {
@@ -446,7 +446,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
         InitialContext ctx = null;
 
         try {
-            conn = DBMS.getConnection(DBMS.OLTP_DATASOURCE_NAME);
+            conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
             ps = conn.prepareStatement("SELECT '1' FROM comp_reg_response " +
                     "WHERE project_id = ? AND user_id = ? AND comp_reg_question_id = ?");
             ps.setLong(1, projectId);
