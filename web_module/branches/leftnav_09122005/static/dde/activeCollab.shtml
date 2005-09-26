@@ -1,0 +1,141 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+ 
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+</head>
+
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+
+<body class="body" marginheight="0" marginwidth="0">
+
+<form action="#" method="#">
+
+<!--#include virtual="includes/headerNotLogged.shtml" -->
+<!--#include virtual="includes/navActive.shtml" -->
+
+<!-- breadcrumb begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td valign="middle" width="1%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td valign="middle" width="1%" class="breadcrumb" nowrap><strong>Active Collaborations</strong></td>
+		<td valign="middle" width="98%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+</table>
+<!-- breadcrumb ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+	<tr valign="top">
+
+<!-- Left Column begins -->
+		<td width="165" class="leftColumn">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Subscription promo -->
+				<tr valign="top"><td><a href="subscription.shtml"><img src="images/promoSubscription.gif" alt="Buy a Subscription" width="165" height="90" border="0" /></a></td></tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Collaboration promo -->
+				<tr valign="top"><td><a href="collabEventEngine.shtml"><img src="images/promoCollaborate.gif" alt="Collaborate!" width="165" height="120" border="0"></a></td></tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Viewpoint -->
+				<tr valign="top"><td><img src="images/promoViewPlattner.gif" alt="Viewpoint" width="165" height="157" border="0" /></td></tr>
+				<tr><td height="20"><img src="images/clear.gif" alt="" width="10" height="20" border="0" /></td></tr>
+			</table>
+		</td>
+		<td width="5" class="leftColumn"><img src="images/clear.gif" alt="" width="5" height="10" border="0"></td>
+<!-- Left Column ends -->
+
+<!-- Gutter 1 begins -->
+		<td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0"></td>
+<!-- Gutter 1 ends -->
+
+<!-- Middle Column begins -->
+		<td width="100%">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr valign="top">
+					<td width="100%">
+						<table width="100%" border="0" cellpadding="0" cellspacing="0">
+							<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+							<tr><td class="normal"><img src="images/headActiveCollab.gif" alt="Active Collaborations" width="304" height="35" border="0" /></td></tr>
+							<tr><td height="10"><img src="images/clear.gif" alt="" width="10" height="10" border="0"/></td></tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+				
+			<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
+				<tr valign="top">
+					<td width="5%" class="forumTitleCenter">New</td>
+					<td width="25%" class="forumTitle">Collaboration</td>
+					<td width="60%" class="forumTitle">Description</td>
+				</tr>
+
+				<tr valign="top">
+					<td class="forumTextCenter"><img src="images/iconStatusCollabSm.gif" alt="" width="17" height="12" border="0" /></td>
+					<td class="forumComponent" align="left"><a href="collabIndex.shtml"><strong>Event Engine</strong> version 3</a></td>
+					<td class="forumText">An event driven service that manages the triggering of events based on the receiving of 
+						alerts. Lorem ipsum dolor sit amet consetetur sadipscing...  <a class="more" href="catalogIndex.shtml">::&nbsp;more</a></td>
+				</tr>
+
+				<tr valign="top">
+					<td class="forumTextCenter"><img src="images/iconStatusCollabSm.gif" alt="" width="17" height="12" border="0" /></td>
+					<td class="forumComponent" align="left"><a href="collabIndex.shtml"><strong>Rules Engine</strong> version 2</a></td>
+					<td class="forumText">An event driven service that manages the triggering of events based on the receiving of 
+						alerts. Lorem ipsum dolor sit amet consetetur sadipscing...  <a class="more" href="catalogIndex.shtml">::&nbsp;more</a></td>
+				</tr>
+
+				<tr valign="top">
+					<td class="forumTextCenter"><img src="images/iconStatusCollabSm.gif" alt="" width="17" height="12" border="0" /></td>
+					<td class="forumComponent" align="left"><a href="collabIndex.shtml"><strong>Calendar</strong> version 1</a></td>
+					<td class="forumText">An event driven service that manages the triggering of events based on the receiving of 
+						alerts. Lorem ipsum dolor sit amet consetetur sadipscing...  <a class="more" href="catalogIndex.shtml">::&nbsp;more</a></td>
+				</tr>
+
+				<tr valign="top">
+					<td class="forumTextCenter">&nbsp;</td>
+					<td class="forumComponent" align="left"><a href="collabIndex.shtml"><strong>Configuration Manager</strong> version 2</a></td>
+					<td class="forumText">An event driven service that manages the triggering of events based on the receiving of 
+						alerts. Lorem ipsum dolor sit amet consetetur sadipscing...  <a class="more" href="catalogIndex.shtml">::&nbsp;more</a></td>
+				</tr>
+
+				<tr valign="top">
+					<td class="forumTextCenter"><img src="images/iconStatusCollabSm.gif" alt="" width="17" height="12" border="0" /></td>
+					<td class="forumComponent" align="left"><a href="collabIndex.shtml"><strong>Notification Assembly</strong> version 1</a></td>
+					<td class="forumText">An event driven service that manages the triggering of events based on the receiving of 
+						alerts. Lorem ipsum dolor sit amet consetetur sadipscing...  <a class="more" href="catalogIndex.shtml">::&nbsp;more</a></td>
+				</tr>
+
+				<tr valign="top">
+					<td class="forumTextCenter">&nbsp;</td>
+					<td class="forumComponent" align="left"><a href="collabIndex.shtml"><strong>PDF Conversion</strong> version 2</a></td>
+					<td class="forumText">An event driven service that manages the triggering of events based on the receiving of 
+						alerts. Lorem ipsum dolor sit amet consetetur sadipscing...  <a class="more" href="catalogIndex.shtml">::&nbsp;more</a></td>
+				</tr>
+
+				<tr valign="top">
+					<td class="forumTextCenter"><img src="images/iconStatusCollabSm.gif" alt="" width="17" height="12" border="0" /></td>
+					<td class="forumComponent" align="left"><a href="collabIndex.shtml"><strong>Dependency Map</strong> version 1</a></td>
+					<td class="forumText">An event driven service that manages the triggering of events based on the receiving of 
+						alerts. Lorem ipsum dolor sit amet consetetur sadipscing...  <a class="more" href="catalogIndex.shtml">::&nbsp;more</a></td>
+				</tr>
+
+				<tr valign="top"><td class="forumTitle" colspan="3"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
+				<tr valign="top"><td class="forumSearch" colspan="3"><img src="images/iconStatusCollabSm.gif" alt="*" width="17" height="12" border="0" /> New messages since your last visit</td></tr>
+			</table>
+		</td>
+<!-- Middle Column ends -->
+
+<!-- Gutter 3 begins -->
+		<td width="10"><img src="images/clear.gif" alt="" width="10" height="10" border="0" /></td>
+<!-- Gutter 3 ends -->
+	</tr>
+</table>
+	
+<!-- Footer begins -->
+<!--#include virtual="includes/footer.shtml" -->
+<!-- Footer ends -->
+
+</body>
+</html>

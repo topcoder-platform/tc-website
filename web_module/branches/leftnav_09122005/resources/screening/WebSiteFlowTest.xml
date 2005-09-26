@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- couldn't decide where to put this DTD file-->
+<!DOCTYPE web-site-flow-test SYSTEM "file:///F:/Topcoder/web/resources/screening/web-site-flow-test.dtd">
+<web-site-flow-test>
+   <parameters>
+      <common-url-base>http://65.112.118.205/screening/</common-url-base>
+      <logging-mode>System.out.println</logging-mode>
+   </parameters>
+   <pages>
+      <page name="Login">
+         <httpurl>screening?rp=Login
+	  </httpurl>
+         <identification>
+            <text-pattern>Candidate Evaluation Application</text-pattern>
+         </identification>
+         <links/>
+         <forms>
+            <form>
+               <index>0</index>
+               <parameter>
+                  <name>handle</name>
+                  <value>dok</value>
+               </parameter>
+               <parameter>
+                  <name>password</name>
+                  <value>password</value>
+               </parameter>
+               <submit-button-name/>
+               <target-name>Main</target-name>
+            </form>
+         </forms>
+      </page>
+      <page name="LoginBad">
+         <httpurl>screening?rp=Login&amp;handle=Aaa&amp;password=Ppp</httpurl>
+         <identification>
+            <text-pattern>Incorrect username and/or password</text-pattern>
+         </identification>
+      </page>
+      <page name="LoginZero">
+         <httpurl>screening?rp=Login&amp;handle=Aaa&amp;password=Ppp</httpurl>
+         <identification>
+            <text-pattern>Please enter both a username and a password.</text-pattern>
+         </identification>
+      </page>
+      <page name="Main">
+         <httpurl>screening?</httpurl>
+         <identification>
+            <re-pattern>.*Welcome.*Step 1.*Create a Test Profile.*</re-pattern>
+            <re-pattern>.*Step 2.*Set-Up or Add a Candidate.*</re-pattern>
+         </identification>
+         <links>
+            <link>
+               <with-text>Create a New Session</with-text>
+               <url>/screening/?rp=PopulateSession</url>
+               <target-name>PopulateSession</target-name>
+            </link>
+            <link>
+               <with-text>Test Profiles</with-text>
+               <url>/screening/?rp=ProfileList</url>
+               <target-name>ProfileList</target-name>
+            </link>
+            <link>
+               <with-text>Problems</with-text>
+               <url>/screening/?rp=ProblemList</url>
+               <target-name>ProblemList</target-name>
+            </link>
+            <link>
+               <with-text>Candidates</with-text>
+               <url>/screening/?rp=BuildCandidateList</url>
+               <target-name>BuildCandidateList</target-name>
+            </link>
+         </links>
+      </page>
+      <page name="TestResults">
+         <httpurl>?rp=TestResults</httpurl>
+         <identification>
+            <re-pattern>.*Test Results.*Candidate:.*Test Profile:.*</re-pattern>
+         </identification>
+         <links>
+            <link>
+               <with-text>Create a new session</with-text>
+               <url/>
+               <target-name>SessionSetup</target-name>
+            </link>
+            <link>
+               <with-text>Test Profiles</with-text>
+               <url/>
+               <target-name>ProfileList</target-name>
+            </link>
+            <link>
+               <with-text>Problems</with-text>
+               <url/>
+               <target-name>ProblemList</target-name>
+            </link>
+            <link>
+               <with-text>Candidates</with-text>
+               <url/>
+               <target-name>BuildCandidateList</target-name>
+            </link>
+         </links>
+      </page>
+      <page name="ProblemList">
+         <httpurl>?rp=ProblemList</httpurl>
+         <identification>
+            <text-pattern>Overall Accuracy</text-pattern>
+         </identification>
+         <links>
+            <link>
+               <with-text>Create a new session</with-text>
+               <url/>
+               <target-name>SessionSetup</target-name>
+            </link>
+            <link>
+               <with-text>Test Profiles</with-text>
+               <url/>
+               <target-name>ProfileList</target-name>
+            </link>
+            <link>
+               <with-text>Candidates</with-text>
+               <url/>
+               <target-name>BuildCandidateList</target-name>
+            </link>
+         </links>
+      </page>
+      <page name="TCProblemResult">
+         <httpurl>?rp=TCProblemResult</httpurl>
+         <identification>
+            <text-pattern>Top TopCoder Problem Results</text-pattern>
+         </identification>
+         <links/>
+      </page>
+      <page name="BuildCandidateList">
+         <httpurl>?rp=BuildCandidateList</httpurl>
+         <identification>
+            <re-pattern>.*Candidate List.*Handle.*Profile.*Begin.*End.*Status.*Notes.*</re-pattern>
+         </identification>
+         <links>
+            <link>
+               <with-text>Add Candidate</with-text>
+               <url>?rp=PopulateCandidate&amp;referrer=BuildCandidateList</url>
+               <target-name>PopulateCandidate</target-name>
+            </link>
+         </links>
+      </page>
+      <page name="PopulateCandidate">
+         <httpurl>?rp=PopulateCandidate</httpurl>
+         <identification>
+            <re-pattern>.*Candidate List.*Set-Up a Candidate.*Email Address.*Password.*</re-pattern>
+         </identification>
+      </page>
+      <page name="ProblemResult">
+         <httpurl>?rp=ProblemResult</httpurl>
+         <identification>
+            <text-pattern>Problem Results</text-pattern>
+            <re-pattern>.*Code:.*System Test.*Top TopCoder Solutions.*</re-pattern>
+         </identification>
+      </page>
+      <page name="ConfirmProfile">
+         <httpurl>?rp=ConfirmProfile</httpurl>
+         <identification>
+            <text-pattern>profileConfirmForm</text-pattern>
+         </identification>
+         <links>
+            <link>
+               <with-text>Update</with-text>
+               <url/>
+               <target-name>PopulateProfileSetup</target-name>
+            </link>
+            <link>
+               <with-text>Edit</with-text>
+               <url/>
+               <target-name>UpdateProfile</target-name>
+            </link>
+         </links>
+      </page>
+      <page name="PopulateSession">
+         <httpurl>?rp=PopulateSession</httpurl>
+         <identification>
+            <text-pattern>Create a New Session</text-pattern>
+            <re-pattern>.*Test Profile.*Candidate.*Begin Time.*End Time.*</re-pattern>
+         </identification>
+         <forms>
+            <form>
+               <index>0</index>
+               <parameter>
+                  <name>rp</name>
+                  <value>CreateProfile</value>
+               </parameter>
+               <target-name>CreateProfile</target-name>
+            </form>
+            <form>
+               <index>0</index>
+               <parameter>
+                  <name>rp</name>
+                  <value>CreateCandidate</value>
+               </parameter>
+               <target-name>CreateCandidate</target-name>
+            </form>
+            <form>
+               <index>0</index>
+               <parameter>
+                  <name>rp</name>
+                  <value>ConfirmSession</value>
+               </parameter>
+               <target-name>ConfirmSession</target-name>
+            </form>
+         </forms>
+      </page>
+      <page name="PopulateProfileSetup">
+         <httpurl>?rp=PopulateProfileSetup</httpurl>
+         <identification>
+            <re-pattern>.*Create a New Session -.*Set-Up a New Test Profile.*</re-pattern>
+         </identification>
+         <forms>
+            <form>
+               <index>0</index>
+               <parameter>
+                  <name>testSetBAdd</name>
+                  <value>4050</value>
+               </parameter>
+               <parameter>
+                  <name>profileName</name>
+                  <value>Test 0033</value>
+               </parameter>
+               <parameter>
+                  <name>rp</name>
+                  <value>AddProfileProblems</value>
+               </parameter>
+               <target-name>PopulateProfileSetup</target-name>
+            </form>
+         </forms>
+      </page>
+      <page name="PopulateProblemDetail">
+         <httpurl>?rp=PopulateProblemDetail&amp;roundProblemId=4001,168</httpurl>
+         <identification>
+            <re-pattern>.*Problem Detail.*Problem Statement.*Definition.*TopCoder.*</re-pattern>
+         </identification>
+      </page>
+   </pages>
+   <paths>
+      <path name="LoginToLoginBad">
+         <step type="start">Login</step>
+         <step type="form">
+            <form>
+               <index>0</index>
+               <parameter>
+                  <name>handle</name>
+                  <value>ccoorrpp</value>
+               </parameter>
+               <parameter>
+                  <name>password</name>
+                  <value>ppppppp</value>
+               </parameter>
+               <submit-button-name/>
+               <target-name>LoginBad</target-name>
+            </form>
+         </step>
+         <step type="finish">LoginBad</step>
+      </path>
+      <path name="LoginToLoginZero">
+         <step type="start">Login</step>
+         <step type="form">
+            <form>
+               <index>0</index>
+               <parameter>
+                  <name>handle</name>
+                  <value/>
+               </parameter>
+               <parameter>
+                  <name>password</name>
+                  <value/>
+               </parameter>
+               <submit-button-name/>
+               <target-name>LoginZero</target-name>
+            </form>
+         </step>
+         <step type="finish">LoginZero</step>
+      </path>
+      <path name="LoginToPopulateCandidate">
+         <step type="start">Login</step>
+         <step type="form">
+            <form>
+               <index>0</index>
+               <parameter>
+                  <name>handle</name>
+                  <value>dok</value>
+               </parameter>
+               <parameter>
+                  <name>password</name>
+                  <value>password</value>
+               </parameter>
+               <submit-button-name/>
+               <target-name>Main</target-name>
+            </form>
+         </step>
+         <step type="link">
+            <link>
+               <with-text>Candidates</with-text>
+               <url>/screening/?rp=BuildCandidateList</url>
+               <target-name>BuildCandidateList</target-name>
+            </link>
+         </step>
+         <step type="link">
+            <link>
+               <with-text>Add Candidate</with-text>
+               <url>?rp=PopulateCandidate&amp;referrer=BuildCandidateList</url>
+               <target-name>PopulateCandidate</target-name>
+            </link>
+         </step>
+         <step type="finish">PopulateCandidate</step>
+      </path>
+      <path name="LoginToConfirmProfile">
+         <step type="start">Login</step>
+         <step type="form">
+            <form>
+               <index>0</index>
+               <parameter>
+                  <name>handle</name>
+                  <value>dok</value>
+               </parameter>
+               <parameter>
+                  <name>password</name>
+                  <value>password</value>
+               </parameter>
+               <submit-button-name/>
+               <target-name>Main</target-name>
+            </form>
+         </step>
+         <step type="form">
+            <form>
+               <index>0</index>
+               <parameter>
+                  <name>rp</name>
+                  <value>CreateProfile</value>
+               </parameter>
+               <parameter>
+                  <name>testSetBAdd</name>
+                  <value>4050</value>
+               </parameter>
+               <parameter>
+                  <name>profileName</name>
+                  <value>Test 0033</value>
+               </parameter>
+               <submit-button-name/>
+               <target-name>PopulateProfileSetup</target-name>
+            </form>
+         </step>
+         <step type="form">
+            <form>
+               <index>0</index>
+               <parameter>
+                  <name>rp</name>
+                  <value>ConfirmProfile</value>
+               </parameter>
+               <parameter>
+                  <name>testSetBAdd</name>
+                  <value>4050</value>
+               </parameter>
+               <parameter>
+                  <name>profileName</name>
+                  <value>Test 0033</value>
+               </parameter>
+               <parameter>
+                  <name>language</name>
+                  <value>1</value>
+               </parameter>
+               <submit-button-name/>
+               <target-name>ConfirmProfile</target-name>
+            </form>
+         </step>
+         <step type="form">
+            <form>
+               <index>0</index>
+               <parameter>
+                  <name>rp</name>
+                  <value>PopulateProfileSetup</value>
+               </parameter>
+               <submit-button-name/>
+               <target-name>PopulateProfileSetup</target-name>
+            </form>
+         </step>
+         <step type="finish">ConfirmProfile</step>
+      </path>
+   </paths>
+</web-site-flow-test>
