@@ -110,7 +110,11 @@
 					</xsl:variable>
 					<xsl:variable name="widgetName" select="concat('q',$qId)"/>
 					
-					<xsl:value-of select="question_text"/><br/>
+					<xsl:value-of select="question_text"/>
+					<xsl:if test="$qStyleId = '2'">
+						(Select all that apply.)
+					</xsl:if>
+					<br/>
 					<xsl:for-each select="/TC/DEVELOPMENT/Answers/Answer">
 						<xsl:variable name="aqId">
 							<xsl:value-of select="comp_reg_question_id"/>
@@ -126,10 +130,10 @@
 								<label for="{$widgetId}"><xsl:value-of select="answer_text"/></label><br/>
 							</xsl:if>
 						</xsl:if>
-						<xsl:if test="$qStyleId &gt; '2'">
-							<textarea name="{$widgetName}" rows="5" cols="50"/>
-						</xsl:if>
 					</xsl:for-each>
+					<xsl:if test="$qStyleId = '3'">
+						<textarea name="{$widgetName}" rows="5" cols="50"/>
+					</xsl:if>
 	                </p>
 				</xsl:for-each>
                 
