@@ -58,12 +58,6 @@
                   <a href="/pl/?module=Static&d1=google05&d2=advancers">Advancers</a> &nbsp;|&nbsp;
             <% } %>
             
-<!-- Winners tab -->
-            <% if (selectedTab.equals("winners")) {%>
-                 <font color="006633">Winners</font> &nbsp;|&nbsp;
-            <% } else { %>
-                  <a href="/pl/?module=Static&d1=google05&d2=advWinners">Advancers</a> &nbsp;|&nbsp;
-            <% } %>
 
 <!-- Practice Arena  tab -->
             <% if (selectedTab.equals("arena")) {%>
