@@ -37,7 +37,7 @@
 
          <br><br>
 
-         <span class="bigTitle">Advancers</span>
+         <span class="bigTitle">Winners</span>
          <span valign="top">
          <jsp:include page="right.jsp" />
          </span>
@@ -46,7 +46,7 @@
 
          <table class="tableFrame" cellpadding="5" cellspacing="2" border="0" width="400">
          <tr>
-         <td class="advancersTitle" colspan="3">Qualification Round</td>
+         <td class="advancersTitle" colspan="3">Final Round</td>
          </tr>
          <tr>
          <td class="advancersRound" width="30%">Handle</td>
