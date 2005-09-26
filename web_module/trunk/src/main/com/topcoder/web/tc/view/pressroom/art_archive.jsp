@@ -45,6 +45,7 @@
 <!-- 2005  -->
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
 
+<tr><td class="newsText"><A href="http://www.irishdev.com/NewsArticle.aspx?id=1046" target="_blank">Google announce Winner of 2005 Code Jam</A> [September 26 - IDN]<br/></td></tr>
 <tr><td class="newsText"><A href="/pdfs/press_room/dndj_082005.pdf" target="_blank">Engineering + Reuse = Savings</A> [August - DNDJ]<br/></td></tr>
 <tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_091205">Poland Takes the Lead</A> [September 12 - PCWK - <A href="http://www.pcworld.pl/news/82941.html">original article</A>]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.adtmag.com/article.asp?id=11752" target="_blank">Components for SOAs and Other App Dev Projects</A> [September 7 - ADT]<br/></td></tr>
