@@ -93,7 +93,7 @@
 
                 <img src="/i/clear.gif" alt="" width="10" height="3" border="0"/><br/>
                 
-                Survey Questions
+                In order to register for this component, you must 1) answer the survey question listed below and 2) agree to the terms listed below. 
                 <xsl:for-each select="/TC/DEVELOPMENT/Questions/Question">
 	                <p>
 	                <xsl:variable name="qStyleId">
