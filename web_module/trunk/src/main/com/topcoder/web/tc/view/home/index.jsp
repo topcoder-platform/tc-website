@@ -165,6 +165,9 @@ margin:0px auto;
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
 
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/irishdev_logo.gif" width="67" height="48" alt="IDN" border="0" /></div>
+            Google announces Winner of 2005 Code Jam <A href="http://www.irishdev.com/NewsArticle.aspx?id=1046">...more</A><br>[September 26]<br><br>
+
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/dndj_logo.gif" width="67" height="20" alt="DNDJ" border="0" /></div>
             Engineering + Reuse = Savings [PDF] <A href="/pdfs/press_room/dndj_082005.pdf">...more</A><br>[August]<br><br>
 
@@ -179,7 +182,6 @@ margin:0px auto;
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/toi_logo.gif" width="67" height="20" alt="Times of India" border="0" /></div>
             Wanna codejam? May the best techie win <A href="http://timesofindia.indiatimes.com/articleshow/1212895.cms" target="_blank">...more</A><br>[August 29 - Times of India]<br><br>
 
-            TopCoder&#174; Announces 16 Finalists in Component Tournament of 2005 TopCoder Open <A href="/tc?module=Static&d1=pressroom&d2=pr_082405">...more</A><br>[August 24]<br><br>
             </td>
          </tr>
       </table>
