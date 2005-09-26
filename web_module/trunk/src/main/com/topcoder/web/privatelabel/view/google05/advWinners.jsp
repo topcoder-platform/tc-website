@@ -50,7 +50,6 @@
          </tr>
          <tr>
          <td class="advancersRound" width="30%">Handle</td>
-         <td class="advancersRound" width="40%">Problem Set</td>
          <td class="advancersRound" width="30%" align="right">Score</td>
          </tr>
 <tr class="sidebarText"><td>marek.cygan</td><td align="right">607.48</td></tr>
