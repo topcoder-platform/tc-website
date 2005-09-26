@@ -456,7 +456,7 @@ public class Legacy extends Base {
             Query memberCountsDailyQuery = new Query(MEMBER_COUNTS_DAILY, MEMBER_COUNTS_DAILY_TYPES);
             Query memberCountsWeeklyQuery = new Query(MEMBER_COUNTS_WEEKLY, MEMBER_COUNTS_WEEKLY_TYPES, Query.WAREHOUSE);
             Query registrationBySchoolQuery = new Query(REGISTRATION_BY_SCHOOL, REGISTRATION_BY_SCHOOL_TYPES);
-            Query matchSummaryQuery = new Query(MATCH_SUMMARY, MATCH_SUMMARY_TYPES);
+            //Query matchSummaryQuery = new Query(MATCH_SUMMARY, MATCH_SUMMARY_TYPES);
             Query referralQuery = new Query(REFERRAL, REFERRAL_TYPES);
             Query otherReferralQuery = new Query(OTHER_REFERRAL, OTHER_REFERRAL_TYPES);
             Query connectionHistoryQuery = new Query(CONNECTION_HISTORY, CONNECTION_HISTORY_TYPES);
@@ -592,12 +592,14 @@ public class Legacy extends Base {
             registrationInfo.addChild(new ReportNode(report));
 
 
+/*
             report = new Report();
             report.setId(MATCH_SUMMARY_ID);
             report.setTitle(MATCH_SUMMARY_TITLE);
             report.setColumnHeadings(MATCH_SUMMARY_HEADINGS);
             report.setQuery(matchSummaryQuery);
             matchSummary.addChild(new ReportNode(report));
+*/
 
             report = new Report();
             report.setId(REFERRAL_ID);
@@ -939,6 +941,7 @@ public class Legacy extends Base {
             " ORDER BY 1,2";
 
 
+/*
     private static final Integer MATCH_SUMMARY_ID = new Integer(9);
     private static final String MATCH_SUMMARY_TITLE = "Single Round Match Summary";
     private static final int[] MATCH_SUMMARY_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.FLOAT};
@@ -963,6 +966,7 @@ public class Legacy extends Base {
             " JOIN coder co ON rr.coder_id = co.coder_id" +
             " GROUP BY r.round_id" +
             " ORDER BY 2";
+*/
 
     private static final Integer REFERRAL_ID = new Integer(10);
     private static final String REFERRAL_TITLE = "Referrals";
