@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>09.26.05<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign">VeriSign chat session scheduled for SRM 265</A></span><br><br>
+      VeriSign will in the Arena Applet at 8:00 AM just before the start of SRM 265 to discuss working at VeriSign.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505771" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>09.26.05<br>2:40 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.irishdev.com/NewsArticle.aspx?id=1046" target="_blank">Google announces Winner of 2005 Code Jam</A></span><br><br>
       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/irishdev_logo.gif" width="67" height="48" alt="Irish Developer's Network" border="0" /></div>
@@ -270,25 +283,6 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_090705">details</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505016">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>09.06.05<br>9:20 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">TCO05 - Qualification Round - Problem Sets & Analyses</span><br><br>
-      Check out the match editorials for all 5 problem sets of the TCO05 Qualification Round.</td>
-      <td class="newsPhoto"><img src="/i/m/brett1479_mug.gif" /><br>by <tc-webtag:handle coderId="251317" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=tco05_qual1">set 1</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=tco05_qual2">set 2</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=tco05_qual3">set 3</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=tco05_qual4">set 4</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=tco05_qual5">set 5</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 

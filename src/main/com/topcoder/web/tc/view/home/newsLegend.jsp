@@ -54,13 +54,14 @@
 
 <%------------------EMPLOYMENT OPPS--------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>04.01.05<br>3:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">New job opening at <A href="/tc?module=Static&d1=contracting&d2=comac">Comac</A></span><br><br>
-      <A href="/tc?module=Static&d1=contracting&d2=comac">Comac</A> is offering a position as a Senior Software Developer, available to <strong>ALL</strong> members.
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>09.26.05<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign">VeriSign chat session scheduled for SRM 265</A></span><br><br>
+      VeriSign will in the Arena Applet at 8:00 AM just before the start of SRM 265 to discuss working at VeriSign.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign">see all available jobs</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505771" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
