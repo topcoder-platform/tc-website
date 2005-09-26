@@ -42,11 +42,18 @@
 <!-- Upcoming Tournaments begins -->
 
 <%--
---%>
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="header">Upcoming Private Label Events</td></tr>
             </table>
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+--%>
+<!-- Past Tournaments begins -->
+            <table width="100%" border="0" cellpadding="4" cellspacing="0">
+                <tr><td class="header">Past Private Label Events</td></tr>
+            </table>
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+
+
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274" rowspan="2"><A href="/pl/?&module=Static&d1=google05&d2=overview" target="_blank"><img src="/i/events/gcj05.gif" alt="GCJ 05" width="274" height="66" border="0" /></A></td>
@@ -63,14 +70,7 @@
                 </tr>
             </table>
 
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-
-<!-- Past Tournaments begins -->
-            <table width="100%" border="0" cellpadding="4" cellspacing="0">
-                <tr><td class="header">Past Private Label Events</td></tr>
-            </table>
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-
+                <hr width="100%" size="1" noshade="noshade" />
 
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
