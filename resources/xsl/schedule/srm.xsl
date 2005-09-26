@@ -119,7 +119,7 @@
                             <center><BR/>All times are Eastern Time unless otherwise noted, click <a><xsl:attribute name="HREF">http://www.timeanddate.com/worldclock/fixedtime.html?day=<xsl:value-of select="/TC/SCHEDULE/Round/Details/day"/>&amp;month=<xsl:value-of select="/TC/SCHEDULE/Round/Details/month"/>&amp;year=<xsl:value-of select="/TC/SCHEDULE/Round/Details/year"/>&amp;hour=<xsl:value-of select="/TC/SCHEDULE/Round/Details/hour"/>&amp;min=<xsl:value-of select="/TC/SCHEDULE/Round/Details/minute"/>&amp;sec=0&amp;p1=179</xsl:attribute>here</a>
                             to see when coding begins in other time zones.<br/></center>
                             <xsl:if test="/TC/SCHEDULE/Round/Details/forum_id!=''">
-                                <center><span class="bigSubtitle"><A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/ForumsHost"/>/?module=ThreadList&amp;forumID=<xsl:value-of select="/TC/SCHEDULE/Round/Details/forum_id"/></xsl:attribute>Discuss this match</A></span><br/><br/></center>
+                                <center><strong><A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/ForumsHost"/>/?module=ThreadList&amp;forumID=<xsl:value-of select="/TC/SCHEDULE/Round/Details/forum_id"/></xsl:attribute>Discuss this match</A></strong><br/><br/></center>
                             </xsl:if>
                             <xsl:choose>
                             <xsl:when test="$roundId=4710">
