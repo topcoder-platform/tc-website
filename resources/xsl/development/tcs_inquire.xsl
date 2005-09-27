@@ -93,7 +93,10 @@
 
                 <img src="/i/clear.gif" alt="" width="10" height="3" border="0"/><br/>
                 
-                In order to register for this component, you must 1) answer the survey question listed below and 2) agree to the terms listed below. 
+                In order to register for this component:<br/>
+				1) Choose a response to the survey question(s) outlined below<br/>
+				2) Review the terms and check the "Agree to Terms" box<br/>
+				3) Click the "Register" link at the bottom
                 <xsl:for-each select="/TC/DEVELOPMENT/Questions/Question">
 	                <p>
 	                <xsl:variable name="qStyleId">
@@ -197,13 +200,9 @@ If you have any questions regarding these Terms, contact us at service@topcoders
 
                 <p>Agree to Terms <input type="checkbox" name="terms"/></p>
 
-                <p>Comments<br />
-                <img src="/i/clear.gif" alt="" width="10" height="3" border="0"/><br/>
-                <textarea name="Comment" rows="5" cols="50"/></p>
-
                 <p><br/></p>
 
-                <p align="center"><strong><A href="Javascript:submitForm();">Submit Inquiry</A> &gt;&gt;</strong></p>
+                <p align="center"><strong><A href="Javascript:submitForm();">Register</A> &gt;&gt;</strong></p>
 
               <script type="text/javascript"><![CDATA[
               	function checkAnswers(q) {
