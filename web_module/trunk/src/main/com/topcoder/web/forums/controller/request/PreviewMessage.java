@@ -9,6 +9,7 @@ import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.StringUtil;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
@@ -41,8 +42,7 @@ public class PreviewMessage extends ForumsProcessor {
         String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags(
                 getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
-        String textareaBody = body.replaceAll("<?", "&lt;?").
-            replaceAll(">?", "&gt;?").replaceAll("&","&amp;");
+        String textareaBody = this.createTextAreaBody(body);
         
         if (postMode.equals("New")) {
             forumID = Long.parseLong(forumIDStr);
@@ -109,4 +109,10 @@ public class PreviewMessage extends ForumsProcessor {
         setNextPage("/preview.jsp");
 		setIsNextPageInContext(true);
 	}
+    
+    public String createTextAreaBody(String body) {
+        String textareaBody = StringUtil.replace(body, "<?", "&lt;?");
+        textareaBody = StringUtil.replace(body, ">?", "&gt;?");
+        return textareaBody.replaceAll("&","&amp;");
+    }
 }
