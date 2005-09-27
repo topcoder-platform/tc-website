@@ -123,7 +123,7 @@
     <tr> 
         <td id="calendar">29</td>
         <td id="calendarSRM">
-            <span id="calendarSRMDate">21</span><br />
+            <span id="calendarSRMDate">30</span><br />
             <strong>Match 286</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
