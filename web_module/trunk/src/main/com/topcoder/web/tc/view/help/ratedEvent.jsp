@@ -135,9 +135,16 @@
       <li>unused personal library code</li>
       <li>comments not directly related to the solution</li>
       </ul>
-      In ALL cases, TopCoder will make the final decision as to whether or not a code submission has an excessive amount of unused content. If TopCoder determines that a submission violates this policy, the competitor will receive zero points for that submission. No challenges will be overturned or nullified as a result of a violation in this policy. We encourage any TopCoder competitor to notify us in the event that you feel that a code submission during a rated event violates this policy.
+      In ALL cases, TopCoder will make the final decision as to whether or not a code submission has an
+      excessive amount of unused content. If TopCoder determines that a submission violates this policy,
+      the competitor will receive 20% of the point value of the problem for that submission. No challenges will be overturned or
+      nullified as a result of a violation in this policy. We encourage any TopCoder competitor to notify
+      us in the event that you feel that a code submission during a rated event violates this policy.
       <br/><br/>
-      In an effort to help competitors determine how much extra content can be contained in a submission and still not violate this policy, we provide the following general guideline. You may have a maximum of 300 non-space characters that are considered extra content or a maximum of 30% of your submission be considered extra, whichever is greater.
+      In an effort to help competitors determine how much extra content can be contained in a submission and
+      still not violate this policy, we provide the following general guideline. You may have a maximum of
+      300 non-space characters that are considered extra content or a maximum of 30% of your submission be
+      considered extra, whichever is greater.
       </p>
 
       <a name="broadcastmessages"></a>
