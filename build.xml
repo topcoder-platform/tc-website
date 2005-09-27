@@ -755,6 +755,24 @@
 
      </target>
 
+     <target name="expand">
+         <antcall target="expand-tc"/>
+         <antcall target="expand-admin"/>
+         <antcall target="expand-query"/>
+         <antcall target="expand-email"/>
+         <antcall target="expand-corp"/>
+         <antcall target="expand-privatelabel"/>
+
+         <antcall target="move-libs"/>
+         <antcall target="move-conf"/>
+         <copy todir="${jboss_deploy}">
+             <fileset dir="${ear.dir}">
+                 <include name="security.ear"/>
+             </fileset>
+         </copy>
+
+     </target>
+
      <target name="move-conf">
          <copy todir="${jboss_conf}">
              <fileset dir="${resources}">
@@ -893,13 +911,21 @@
      <target name="deploy-query" depends="compile">
          <antcall target="package-EJB-QueryServicesBean"/>
          <antcall target="war-query"/>
+         <antcall target="expand-query"/>
+
+     </target>
+
+     <target name="expand-query">
          <copy todir="${jboss_deploy}">
              <fileset dir="${ejb_jars}">
                  <include name="QueryServices.jar"/>
              </fileset>
          </copy>
+         <unwar src="${war.dir}/query.war" dest="${jboss_deploy}/query.war/" overwrite="yes"/>
+         <delete dir="${jboss_deploy}/query.war/META-INF"/>
 
      </target>
+
 
      <target name="war-email" depends="compile">
          <war warfile="${war.dir}/email.war" webxml="${resources}/email/web.xml">
@@ -926,11 +952,18 @@
      <target name="deploy-email" depends="compile">
          <antcall target="package-EJB-EmailServicesBean"/>
          <antcall target="war-email"/>
+
+         <antcall target="expand-email"/>
+     </target>
+
+     <target name="expand-email">
          <copy todir="${jboss_deploy}">
              <fileset dir="${ejb_jars}">
                  <include name="EmailServices.jar"/>
              </fileset>
          </copy>
+         <unwar src="${war.dir}/email.war" dest="${jboss_deploy}/email.war/" overwrite="yes"/>
+         <delete dir="${jboss_deploy}/email.war/META-INF"/>
 
      </target>
 
@@ -1002,6 +1035,10 @@
          <antcall target="package-EJB-SessionProfileBean"/>
          <antcall target="package-EJB-TermsOfUseBean"/>
          <antcall target="package-EJB-UserBean"/>
+         <antcall target="expand-corp"/>
+     </target>
+
+     <target name="expand-corp">
          <copy todir="${jboss_deploy}">
              <fileset dir="${ejb_jars}">
                  <include name="DataCache.jar"/>
@@ -1020,6 +1057,8 @@
                  <include name="User.jar"/>
              </fileset>
          </copy>
+         <unwar src="${war.dir}/corp.war" dest="${jboss_deploy}/corp.war/" overwrite="yes"/>
+         <delete dir="${jboss_deploy}/corp.war/META-INF"/>
 
      </target>
 
@@ -1156,6 +1195,10 @@
                  <include name="jboss-web.xml"/>
              </webinf>
          </war>
+         <antcall target="expand-admin"/>
+     </target>
+
+     <target name="expand-admin">
          <unwar src="${war.dir}/admin.war" dest="${jboss_deploy}/admin.war/" overwrite="yes"/>
          <delete dir="${jboss_deploy}/admin.war/META-INF"/>
 
@@ -1164,8 +1207,8 @@
                  <include name="ContestAdminServices.jar"/>
              </fileset>
          </copy>
-
      </target>
+
 
      <target name="deploy-security" depends="build-security">
          <copy todir="${jboss_deploy}">
@@ -1233,7 +1276,10 @@
          <antcall target="package-EJB-UserBean"/>
 
          <antcall target="war-privatelabel"/>
+         <antcall target="expand-privatelabel"/>
+     </target>
 
+     <target name="expand-privatelabel">
          <copy todir="${jboss_deploy}">
              <fileset dir="${ejb_jars}">
                  <include name="Address.jar"/>
@@ -1247,8 +1293,8 @@
                  <include name="User.jar"/>
              </fileset>
          </copy>
-
-
+         <unwar src="${war.dir}/privatelabel.war" dest="${jboss_deploy}/privatelabel.war/" overwrite="yes"/>
+         <delete dir="${jboss_deploy}/privatelabel.war/META-INF"/>
      </target>
 
      <target name="war-privatelabel" depends="compile">
@@ -1392,6 +1438,12 @@
          <antcall target="package-EJB-UserServicesBean"/>
          <antcall target="package-EJB-UtilBean"/>
 
+         <antcall target="war-tc"/>
+         <antcall target="expand-tc"/>
+
+     </target>
+
+     <target name="expand-tc">
          <copy todir="${jboss_deploy}">
              <fileset dir="${ejb_jars}">
                  <include name="Address.jar"/>
@@ -1429,10 +1481,8 @@
                  <include name="Util.jar"/>
              </fileset>
          </copy>
-
-
-         <antcall target="war-tc"/>
-
+         <unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes"/>
+         <delete dir="${jboss_deploy}/tc.war/META-INF"/>
      </target>
 
 
