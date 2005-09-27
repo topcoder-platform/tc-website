@@ -135,7 +135,7 @@
 						</xsl:if>
 					</xsl:for-each>
 					<xsl:if test="$qStyleId = '3'">
-						<textarea name="{$widgetName}" rows="5" cols="50"/>
+						<textarea name="{$widgetName}" rows="5" cols="50" onkeyup="this.value = this.value.slice(0, 400)"/>
 					</xsl:if>
 	                </p>
 				</xsl:for-each>
