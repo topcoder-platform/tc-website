@@ -38,9 +38,12 @@
            <jsp:param name="title" value="TopCoder Web Site Change Log"/>
         </jsp:include>
 
-        <p> 4.0.2 - 2005.XX.XX
+        <p> 4.0.2 - 2005.09.27
             <ul>
                 <li>Changed links in the registration activation email to the schedule</li>
+                <li>Added link to forums from the srm details page</li>
+                <li>Fixed bug in Internal PACTS where affirming an affidavit with no payment set payment id to 0</li>
+
             </ul>
         </p>
         <p> 4.0.1 - 2005.09.13

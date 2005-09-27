@@ -36,6 +36,7 @@
             <fileset dir=".">
                 <include name="build/ejb_jars/**"/>
                 <include name="build/wars/**"/>
+                <include name="build/ears/security.ear"/>
                 <include name="resources/xsl/**"/>
                 <include name="resources/taglib/**"/>
                 <include name="resources/tc/**"/>
