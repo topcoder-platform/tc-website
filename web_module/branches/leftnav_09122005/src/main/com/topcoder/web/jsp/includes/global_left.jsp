@@ -1,3 +1,206 @@
+
+<%@  page
+  language="java"
+  errorPage="../errorPage.jsp"
+  import="com.topcoder.common.web.data.Navigation,
+          java.text.SimpleDateFormat,
+          java.util.HashMap,
+          java.util.Iterator,
+          com.topcoder.shared.util.ApplicationServer,
+          com.topcoder.web.common.model.CoderSessionInfo,
+          com.topcoder.web.common.BaseServlet"
+%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%
+    String L1 = request.getParameter("level1")==null?"":request.getParameter("level1");
+    String L2 = request.getParameter("level2")==null?"":request.getParameter("level2");
+    String L3 = request.getParameter("level3")==null?"":request.getParameter("level3");
+    String L4 = request.getParameter("level4")==null?"":request.getParameter("level4");
+    CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
+    //bleh, gott do this for registration cuz it does a redirect to a jsp
+    if (info==null) info = new Navigation(request, response).getSessionInfo();
+%>
+
+<script language="javascript" type="text/javascript">
+<!--
+function toggleMenu(objectID){
+   var object = document.getElementById(objectID);
+   if(object.style.display == 'block') object.style.display = 'none';
+   else if(object.className == 'OPEN' && object.style.display != 'none') object.style.display = 'none';
+   else object.style.display = 'block';
+   return;
+}
+// -->
+</script>
+
+<div id="navbar">
+<ul>
+<li><a href="javascript:toggleMenu('m_competitors')" class="exp">Competitions</a>
+   <ul id="m_competitors" <% if (L1.equals("competitors")) { %>class="OPEN"<% } %>>
+   <li><a href="">Home</a></li>
+   <li><a href="javascript:toggleMenu('m_my_tc')" class="exp">My TopCoder</a>
+      <ul id="m_my_tc" <% if (L2.equals("my_tc")) { %>class="OPEN"<% } %>>
+      <li><a href="">Update My Profile</a></li>
+      <li><a href="">Members I've Referred</a></li>
+      <li><a href="">Affidavits</a></li>
+      <li><a href="">Card/Badges</a></li>
+      </ul>
+   </li>
+   <li><a href="javascript:toggleMenu('m_alg_comp')" class="exp">Algorithm Competitions</a>
+      <ul id="m_alg_comp" <% if (L2.equals("alg_comp")) { %>class="OPEN"<% } %>>
+      <li><a href="">Launch Arena Applet</a></li>
+      <li><a href="">Calendar</a></li>
+      <li><a href="javascript:toggleMenu('m_alg_stats')" class="exp">Statistics</a>
+         <ul id="m_alg_stats" <% if (L3.equals("alg_stats")) { %>class="OPEN"<% } %>>
+         <li><a href="">Match Results</a></li>
+         <li><a href="">Match Editorials</a></li>
+         <li><a href="">Problem Archive</a></li>
+         <li><a href="">Achievements</a></li>
+         </ul>
+      </li>
+      <li><a href="javascript:toggleMenu('m_alg_support')" class="exp">Support/FAQs</a>
+         <ul id="m_alg_support" <% if (L3.equals("alg_support")) { %>class="OPEN"<% } %>>
+         <li><a href="">Competition Guide</a></li>
+         <li><a href="">FAQs</a></li>
+         <li><a href="">Sample Problem Statements</a></li>
+         <li><a href="">Rating System</a></li>
+         <li><a href="">Forms W-9 & W-8BEN</a></li>
+         <li><a href="">Charity Donations</a></li>
+         </ul>
+      </li>
+      </ul>
+   </li>
+   <li><a href="javascript:toggleMenu('m_comp_comp')" class="exp">Component Competitions</a>
+      <ul id="m_comp_comp" <% if (L2.equals("comp_comp")) { %>class="OPEN"<% } %>>
+      <li><a href="">Design/Develop Components</a></li>
+      <li><a href="">Review Competitors' Submissions</a></li>
+      <li><a href="javascript:toggleMenu('m_comp_stats')" class="exp">Statistics</a>
+         <ul id="m_comp_stats" <% if (L3.equals("comp_stats")) { %>class="OPEN"<% } %>>
+         <li><a href="">Contest List</a></li>
+         <li><a href="">Achievements</a></li>
+         </ul>
+      </li>
+      <li><a href="">Meet the Review Boards</a></li>
+      <li><a href="">Development Methodology</a></li>
+      <li><a href="javascript:toggleMenu('m_comp_support')" class="exp">Support/FAQs</a>
+         <ul id="m_comp_support" <% if (L3.equals("comp_support")) { %>class="OPEN"<% } %>>
+         <li><a href="">Getting Started</a></li>
+         <li><a href="">Component Help Docs</a></li>
+         <li><a href="">Rating System</a></li>
+         <li><a href="">Reliability Rating System</a></li>
+         <li><a href="">How to Get Paid</a></li>
+         </ul>
+      </li>
+      </ul>
+   </li>
+   <li><a href="javascript:toggleMenu('m_emp_opps')" class="exp">Employment Opportunities</a>
+      <ul id="m_emp_opps" <% if (L2.equals("emp_opps")) { %>class="OPEN"<% } %>>
+      <li><a href="">Job Openings</a></li>
+      <li><a href="">Registration</a></li>
+      </ul>
+   </li>
+   <li><a href="javascript:toggleMenu('m_education')" class="exp">Educational Content</a>
+      <ul id="m_education" <% if (L2.equals("education")) { %>class="OPEN"<% } %>>
+      <li><a href="">Algorithm Tutorials</a></li>
+      <li><a href="">Component Tutorials</a></li>
+      <li><a href="">Features</a></li>
+      <li><a href="">Tutor Transcripts</a></li>
+      </ul>
+   </li>
+   <li><a href="">Coder of the Month</a></li>
+   <li><a href="">Member Surveys</a></li>
+   <li><a href="javascript:toggleMenu('m_events')" class="exp">Events</a>
+      <ul id="m_events" <% if (L2.equals("events")) { %>class="OPEN"<% } %>>
+      <li><a href="">TopCoder Events</a></li>
+      <li><a href="">Private Label</a></li>
+      <li><a href="">Charity</a></li>
+      </ul>
+   </ul>
+</li>
+<li><a href="javascript:toggleMenu('m_corp_services')" class="exp">Corporate Services</a>
+   <ul id="m_corp_services" <% if (L1.equals("corp_services")) { %>class="OPEN"<% } %>>
+   <li><a href="javascript:toggleMenu('m_software')" class="exp">Software</a>
+      <ul id="m_software" <% if (L2.equals("software")) { %>class="OPEN"<% } %>>
+      <li><a href="javascript:toggleMenu('m_components')" class="exp">Components</a>
+         <ul id="m_components" <% if (L3.equals("components")) { %>class="OPEN"<% } %>>
+         <li><a href="">What Are Software Components?</a></li>
+         <li><a href="">Methodology</a></li>
+         <li><a href="">Find Components</a></li>
+         <li><a href="">Purchase Components</a></li>
+         <li><a href="">Suggest a Component</a></li>
+         </ul>
+      </li>
+      <li><a href="javascript:toggleMenu('m_applications')" class="exp">Applications</a>
+         <ul id="m_applications" <% if (L3.equals("applications")) { %>class="OPEN"<% } %>>
+         <li><a href="">Overview</a></li>
+         <li><a href="">Methodology</a></li>
+         </ul>
+      </li>
+      <li><a href="">Current Customers</a></li>
+      </ul>
+   </li>
+   <li><a href="javascript:toggleMenu('m_emp_services')" class="exp">Employment Services</a>
+      <ul id="m_emp_services" <% if (L2.equals("emp_services")) { %>class="OPEN"<% } %>>
+      <li><a href="">Event Sponsorship</a></li>
+      <li><a href="javascript:toggleMenu('m_sourcing')" class="exp">Sourcing</a>
+         <ul id="m_sourcing" <% if (L3.equals("sourcing")) { %>class="OPEN"<% } %>>
+         <li><a href="">Overview</a></li>
+         <li><a href="">Reports</a></li>
+         </ul>
+      </li>
+      <li><a href="javascript:toggleMenu('m_skills_ass')" class="exp">Skills Assessment</a>
+         <ul id="m_skills_ass" <% if (L3.equals("skills_ass")) { %>class="OPEN"<% } %>>
+         <li><a href="">Process</a></li>
+         <li><a href="">Attributes</a></li>
+         <li><a href="">Demo</a></li>
+         <li><a href="">Launch Technical Assessment</a></li>
+         </ul>
+      </li>
+      <li><a href="">Placement</a></li>
+      </ul>
+   </li>
+   <li><a href="javascript:toggleMenu('m_mark_services')" class="exp">Marketing Services</a>
+      <ul id="m_mark_services" <% if (L2.equals("mark_services")) { %>class="OPEN"<% } %>>
+      <li><a href="javascript:toggleMenu('m_tournaments')" class="exp">Tournaments</a>
+         <ul id="m_tournaments" <% if (L3.equals("sourcing")) { %>class="OPEN"<% } %>>
+         <li><a href="">Overview</a></li>
+         <li><a href="">Reports</a></li>
+         </ul>
+      </li>
+      </ul>
+   </li>
+   </ul>
+</li>
+<li><a href="javascript:toggleMenu('m_forums')" class="exp">Forums</a>
+   <ul id="m_forums" <% if (L1.equals("forums")) { %>class="OPEN"<% } %>>
+   <li><a href="">Round Tables</a></li>
+   <li><a href="">Algorithm Matches</a></li>
+   <li><a href="">News Discussions</a></li>
+   <li><a href="">Sponsor Discussions</a></li>
+   </ul>
+</li>
+<li><a href="">Press Room</a></li>
+<li><a href="">Contact Us</a></li>
+<li><a href="javascript:toggleMenu('m_about_tc')" class="exp">About TopCoder</a>
+   <ul id="m_about_tc" <% if (L1.equals("about_tc")) { %>class="OPEN"<% } %>>
+   <li><a href="">Overview</a></li>
+   <li><a href="">Why Join TopCoder?</a></li>
+   <li><a href="">Working at TopCoder</a></li>
+   <li><a href="">Terms</a></li>
+   <li><a href="">Privacy Policy</a></li>
+   <li><a href="">Management Team</a></li>
+   </ul>
+</li>
+</ul>
+</div>
+<div style="padding: 15px; 0px; 15px; 20px;">
+<jsp:include page="../includes/modules/leftNavSearch.jsp"/>
+</div>
+
+
+
+
+<%--
 <%@  page
   language="java"
   errorPage="../errorPage.jsp"
@@ -35,11 +238,9 @@ function arena() {
 
 <% if ((level1.equals("about")) || (level1.equals("review_board")) || (level1.equals("press_room")) || (level1.equals("management"))) { %>
 
-<%-- TopCoder Info begins *************************** --%>
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr><td id="leftNavTitle">TopCoder Info:</td></tr>
 
-<%-- About TopCoder begins --%>
                 <tr><td id="<%=level1.equals("about")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=index" class="<%=level1.equals("about")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("about")?"bottom":"right"%>.gif" border="0"/>About TopCoder</a></td></tr>
 
             <% if (level1.equals("about")) { %>
@@ -49,53 +250,31 @@ function arena() {
                 <tr><td id="<%=level2.equals("terms")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=terms">Terms, Revisions</a></td></tr>
                  <tr><td id="<%=level2.equals("privacy")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=privacy">Privacy Policy</a></td></tr>
             <% } %>
-<%-- About TopCoder ends --%>
-
-<%-- Review Boards begins --%>
                 <tr><td id="<%=level1.equals("review_board")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&ph=112" class="<%=level1.equals("review_board")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("review_board")?"bottom":"right"%>.gif" border="0"/>Review Boards</a></td></tr>
             <% if (level1.equals("review_board")) { %>
                 <tr><td id="<%=level2.equals("design")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&ph=112">Design</a></td></tr>
                 <tr><td id="<%=level2.equals("development")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&ph=113">Development</a></td></tr>
             <% } %>
-<%-- Review Boards ends --%>
-
-<%-- Press Room begins --%>
                 <tr><td id="<%=level1.equals("press_room")?"leftNavSelect":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=pressroom&d2=index" class="<%=level1.equals("press_room")?"leftOn":"left"%>"><img alt="" src="/images/<%=level1.equals("press_room")?"clear":"nav_arrow_right"%>.gif" border="0"/>Press Room</a></td></tr>
-<%-- Press Room ends --%>
-
-<%-- Management begins --%>
                 <tr><td id="<%=level1.equals("management")?"leftNavSelect":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=management" class="<%=level1.equals("management")?"leftOn":"left"%>"><img alt="" src="/images/<%=level1.equals("management")?"clear":"nav_arrow_right"%>.gif" border="0"/>Management Team</a></td></tr>
-<%-- Management ends --%>
-
-<%-- Contacts begins --%>
                 <tr><td id="<%=level1.equals("contacts")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=contacts&c=index" class="<%=level1.equals("contacts")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("contacts")?"bottom":"right"%>.gif" border="0"/>Contact Us</a></td></tr>
-<%-- Contacts ends --%>
-
             </table>
-<%-- TopCoder Info ends *************************** --%>
-
-<%-- Employment Opportunities *************************** --%>
 <% } else if (level1.equals("employment")) { %>
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr><td id="leftNavTitle" >Employment Opportunities:</td></tr>
                 <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
-<%-- My Home --%>
                 <% if (!info.isAnonymous() || level1.equals("my_home")) { %>
                     <tr><td id="<%=level1.equals("my_home")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=my_home&d2=index" class="<%=level1.equals("my_home")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("my_home")?"bottom":"right"%>.gif" border="0"/>$HOME</a></td></tr>
                 <% } %>
-<%-- Emp Opps Home --%>
                 <tr><td id="<%=level2.equals("openings")?"leftNavSelect":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=contracting&d2=index" class="<%=level2.equals("openings")?"leftOn":"left"%>"><img alt="" src="/images/<%=level2.equals("openings")?"clear":"nav_arrow_right"%>.gif" border="0"/>Job Openings</a></td></tr>
-<%-- Registration --%>
                 <tr><td id="<%=level2.equals("registration")?"leftNavSelect":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ContractingPreferences" class="<%=level2.equals("registration")?"leftOn":"left"%>"><img alt="" src="/images/<%=level2.equals("registration")?"clear":"nav_arrow_right"%>.gif" border="0"/>Registration</a></td></tr>
             </table>
 
 
-<%-- Development *************************** --%>
 <% } else if (level1.equals("development")) { %>
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr><td id="leftNavTitle" >Development:</td></tr>
                 <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
-<%-- My Home --%>
                 <% if (!info.isAnonymous() || level1.equals("my_home")) { %>
                     <tr><td id="<%=level1.equals("my_home")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=my_home&d2=index" class="<%=level1.equals("my_home")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("my_home")?"bottom":"right"%>.gif" border="0"/>$HOME</a></td></tr>
                     <% if (level1.equals("my_home")) { %>
@@ -135,11 +314,9 @@ function arena() {
 
 <% } else { %>
 
-<%-- Competition begins *************************** --%>
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr><td id="leftNavTitle" >Competition:</td></tr>
                 <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
-<%-- My Home --%>
                 <% if (!info.isAnonymous() || level1.equals("my_home")) { %>
                     <tr><td id="<%=level1.equals("my_home")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=my_home&d2=index" class="<%=level1.equals("my_home")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("my_home")?"bottom":"right"%>.gif" border="0"/>$HOME</a></td></tr>
                     <% if (level1.equals("my_home")) { %>
@@ -149,9 +326,7 @@ function arena() {
                         <tr><td id="<%=level2.equals("pacts")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/PactsMemberServlet?t=affidavit&c=affidavit_history">Affidavits</A></td></tr>
                     <% } %>
                 <% } %>
-<%-- Schedule begins --%>
                 <tr><td id="<%=level1.equals("schedule")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=schedule&c=index" class="<%=level1.equals("schedule")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level1.equals("schedule")?"bottom":"right"%>.gif" alt="" border="0"/>Calendar</a></td></tr>
-<%-- Statistics begins --%>
                 <tr><td id="<%=level1.equals("statistics")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/stat?&c=round_overview" class="<%=level1.equals("statistics")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level1.equals("statistics")?"bottom":"right"%>.gif" alt="" border="0"/>Statistics</a></td></tr>
 
             <% if (level1.equals("statistics")) { %>
@@ -181,9 +356,6 @@ function arena() {
                 <tr><td id="<%=level2.equals("search")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewAdvanced">Advanced Member Search</a></td></tr>
                 <tr><td id="<%=level2.equals("member_surveys")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&module=SurveyList">Member Surveys</a></td></tr>
             <% } %>
-<%-- Statistics ends --%>
-
-<%-- Educational Content begins --%>
                 <tr><td id="<%=level1.equals("education")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tutorials&d2=alg_index" class="<%=level1.equals("education")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("education")?"bottom":"right"%>.gif" border="0"/>Educational Content</a></td></tr>
 
             <% if (level1.equals("education")) { %>
@@ -193,7 +365,6 @@ function arena() {
                 <tr><td id="<%=level2.equals("tutor_transcripts")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tutor_transcripts&d2=index">Tutor Transcripts</A></td></tr>
             <% } %>
 
-<%-- Events begins --%>
                 <tr><td id="<%=level1.equals("events")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=tournaments&c=tourny_index" class="<%=level1.equals("events")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("events")?"bottom":"right"%>.gif" border="0"/>Events</a></td></tr>
 
             <% if (level1.equals("events")) { %>
@@ -201,9 +372,7 @@ function arena() {
                 <tr><td id="<%=level2.equals("charity")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&amp;module=CRPFStatic&amp;d1=crpf&amp;d2=crpf_photos">Charity</A></td></tr>
                 <tr><td id="<%=level2.equals("private_label")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/pl/">Private Label</A></td></tr>
             <% } %>
-<%-- Events ends --%>
 
-   <%-- Forums begins --%>
                 <tr><td id="<%=level1.equals("forums")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=13" class="<%=level1.equals("forums")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("forums")?"bottom":"right"%>.gif" border="0"/>Forums</a></td></tr>
             <% if (level1.equals("forums")) { %>
                 <tr><td id="<%if (unreadCategories.indexOf("roundtables")==-1) {%><%=level2.equals("roundtables")?"leftSubnavOldOn":"leftSubnavOld"%><%} else {%><%=level2.equals("roundtables")?"leftSubnavOn":"leftSubnav"%><%}%>"><A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=13">Round Tables</A></td></tr>
@@ -212,10 +381,8 @@ function arena() {
                 <tr><td id="<%if (unreadCategories.indexOf("sponsors")==-1) {%><%=level2.equals("sponsors")?"leftSubnavOldOn":"leftSubnavOld"%><%} else {%><%=level2.equals("sponsors")?"leftSubnavOn":"leftSubnav"%><%}%>"><A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=6">Sponsor Discussions</A></td></tr>
             <% } %>
 
-    <%-- Forums ends --%>
 
 
-    <%-- Support/FAQs begins --%>
                     <tr><td id="<%=level1.equals("support")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=help&d2=index" class="<%=level1.equals("support")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("support")?"bottom":"right"%>.gif" border="0"/>Support / FAQs</a></td></tr>
             <% if (level1.equals("support")) { %>
                 <tr><td id="<%=level2.equals("guide")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=help&d2=index">Algorithm Competition Guide</A></td></tr>
@@ -227,26 +394,11 @@ function arena() {
                 <tr><td id="<%=level2.equals("samples")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=support&c=sample_problems">Sample Problem Statements</A></td></tr>
                 <tr><td id="<%=level2.equals("algPayment")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=help&d2=algPayment">How to Get Paid</A></td></tr>
             <% } %>
-    <%-- Support/FAQs ends --%>
 
             </table>
-    <%-- Competition ends *************************** --%>
 
 <% } %>
 
-<%-- PACTS begins *************************** --%>
-<%--
-<% if (request.getServletPath().indexOf("pacts")>-1) { %>
-            <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <tr><td id="leftNavTitle">P.A.C.T.s:</td>
-                <tr><td id="leftSubnav"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/PactsMemberServlet?t=payments&amp;c=payment_history">Payments</a></td></tr>
-                <tr><td id="leftSubnav"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/PactsMemberServlet?t=affidavit&amp;c=affidavit_history">Affidavits</a></td></tr>
-                <tr><td id="leftSubnav"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/PactsMemberServlet?t=contracts&amp;c=contract_history">Contracts</a></td></tr>
-                <tr><td id="leftSubnav"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/PactsMemberServlet?t=tax_forms&amp;c=tax_forms_history">Tax Forms</a></td></tr>
-            </table>
-<% } %>
---%>
-<%-- PACTS ends *************************** --%>
 
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr><td bgcolor="#990000"><jsp:include page="../includes/modules/simpleSearch.jsp"/></td></tr>
@@ -263,3 +415,6 @@ function arena() {
     <% } %>
 
             <div align="center"><img src="/i/logo_ghosted_bracket.gif" width="160" height="77" alt="[ TopCoder ]" vspace="10" border="0"/></div><br /><br />
+
+
+--%>
