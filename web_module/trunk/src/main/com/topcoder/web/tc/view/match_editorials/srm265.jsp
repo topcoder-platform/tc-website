@@ -63,57 +63,52 @@ The Problems
 </p>
 
 <font size="+2">
-<b><a href="/stat?c=problem_statement&amp;pm=2000&amp;rd=8007"
-name="2000">FontSize</a></b>
+<b><a href="/stat?c=problem_statement&amp;pm=2000&amp;rd=8007" name="2000">FontSize</a></b>
 </font>
-<a href="Javascript:openProblemRating(2000)"><img hspace="10" border="0"
-height="18" width="60" src="/i/rate_it.gif"/></a><br>
+<A href="Javascript:openProblemRating(2000)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br>
 Used as: Division Two - Level One: <blockquote><table cellspacing="2">
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>Value</b>
-     </td>
-     <td class="bodyText" style="background: #eee;">
-
-       250
-     </td>
-   </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>Submission Rate</b>
-     </td>
-     <td class="bodyText" style="background: #eee;">
-       405 / 473 (85.62%)
-     </td>
-
-   </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>Success Rate</b>
-     </td>
-     <td class="bodyText" style="background: #eee;">
-       377 / 405 (93.09%)
-     </td>
-   </tr>
-
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>High Score</b>
-     </td>
-     <td class="bodyText" style="background: #eee;">
-       <b>ckarthik</b> for 249.88 points (0 mins 38 secs)
-     </td>
-   </tr>
-
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>Average Score</b>
-     </td>
-     <td class="bodyText" style="background: #eee;">
-       203.72 (for 377 correct submissions)
-     </td>
-   </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Value</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      250
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Submission Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      402 / 467 (86.08%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Success Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      374 / 402 (93.03%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>High Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      <b>piyush___</b> for 249.69 points (0 mins 59 secs)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Average Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      202.42 (for 374 correct submissions)
+    </td>
+  </tr>
 </table></blockquote>
+
 
 <p> This problem demonstrates an excellent use of a table. Typically the 
 size of each character depends on which font face is used, whether the font 
@@ -131,107 +126,96 @@ number of inter-character pixels equal to one less than the number of
 characters in the sentence.</p>
 
 <font size="+2">
-<b><a href="/stat?c=problem_statement&amp;pm=1993&amp;rd=8007"
-name="1993">ScheduleStrength</a></b>
+<b><a href="/stat?c=problem_statement&amp;pm=1993&amp;rd=8007" name="1993">ScheduleStrength</a></b>
 </font>
-<a href="Javascript:openProblemRating(1993)"><img hspace="10" border="0"
-height="18" width="60" src="/i/rate_it.gif"/></a><br>
+<A href="Javascript:openProblemRating(1993)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br>
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
-   <tr>
-
-     <td class="bodyText" style="background: #eee;">
-       <b>Value</b>
-     </td>
-     <td class="bodyText" style="background: #eee;">
-       500
-     </td>
-   </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-
-       <b>Submission Rate</b>
-     </td>
-     <td class="bodyText" style="background: #eee;">
-       234 / 473 (49.47%)
-     </td>
-   </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>Success Rate</b>
-
-     </td>
-     <td class="bodyText" style="background: #eee;">
-       167 / 234 (71.37%)
-     </td>
-   </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>High Score</b>
-     </td>
-
-     <td class="bodyText" style="background: #eee;">
-       <b>lk</b> for 498.83 points (1 mins 22 secs)
-     </td>
-   </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>Average Score</b>
-     </td>
-
-     <td class="bodyText" style="background: #eee;">
-       249.11 (for 167 correct submissions)
-     </td>
-   </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Value</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      500
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Submission Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      233 / 467 (49.89%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Success Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      166 / 233 (71.24%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>High Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      <b>leiz</b> for 438.13 points (10 mins 59 secs)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Average Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      247.60 (for 166 correct submissions)
+    </td>
+  </tr>
 </table></blockquote>
 
 
 Used as: Division One - Level One: <blockquote><table cellspacing="2">
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>Value</b>
-
-     </td>
-     <td class="bodyText" style="background: #eee;">
-       250
-     </td>
-   </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>Submission Rate</b>
-     </td>
-
-     <td class="bodyText" style="background: #eee;">
-       301 / 333 (90.39%)
-     </td>
-   </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>Success Rate</b>
-     </td>
-     <td class="bodyText" style="background: #eee;">
-
-       283 / 301 (94.02%)
-     </td>
-   </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>High Score</b>
-     </td>
-     <td class="bodyText" style="background: #eee;">
-       <b>Michael_Levin</b> for 233.85 points (7 mins 34 secs)
-     </td>
-
-   </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>Average Score</b>
-     </td>
-     <td class="bodyText" style="background: #eee;">
-       169.98 (for 283 correct submissions)
-     </td>
-   </tr>
-
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Value</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      250
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Submission Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      301 / 333 (90.39%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Success Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      283 / 301 (94.02%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>High Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      <b>Michael_Levin</b> for 233.85 points (7 mins 34 secs)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Average Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      169.52 (for 283 correct submissions)
+    </td>
+  </tr>
 </table></blockquote>
+
 
 <p> Most sports have a way to break ties that will determine which team 
 makes the play offs, but usually they are never used. Truthfully, how many 
@@ -260,57 +244,50 @@ calculating team i's opponent's cumulative winning percentage):</p>
 </pre>
 
 <font size="+2">
-<b><a href="/stat?c=problem_statement&amp;pm=2001&amp;rd=8007"
-name="2001">PipePuzzle</a></b>
+<b><a href="/stat?c=problem_statement&amp;pm=2001&amp;rd=8007" name="2001">PipePuzzle</a></b>
 </font>
-<a href="Javascript:openProblemRating(2001)"><img hspace="10" border="0"
-height="18" width="60" src="/i/rate_it.gif"/></a><br>
+<A href="Javascript:openProblemRating(2001)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br>
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>Value</b>
-     </td>
-
-     <td class="bodyText" style="background: #eee;">
-       1000
-     </td>
-   </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>Submission Rate</b>
-     </td>
-     <td class="bodyText" style="background: #eee;">
-
-       21 / 473 (4.44%)
-     </td>
-   </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>Success Rate</b>
-     </td>
-     <td class="bodyText" style="background: #eee;">
-       16 / 21 (76.19%)
-     </td>
-
-   </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>High Score</b>
-     </td>
-     <td class="bodyText" style="background: #eee;">
-       <b>agray</b> for 714.70 points (19 mins 40 secs)
-     </td>
-
-   </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>Average Score</b>
-     </td>
-     <td class="bodyText" style="background: #eee;">
-       494.15 (for 16 correct submissions)
-     </td>
-   </tr>
-
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Value</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      1000
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Submission Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      21 / 467 (4.50%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Success Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      16 / 21 (76.19%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>High Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      <b>agray</b> for 714.70 points (19 mins 40 secs)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Average Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      494.15 (for 16 correct submissions)
+    </td>
+  </tr>
 </table></blockquote>
 
 <p>It turns out that as you follow the flow of water you only need to make a 
@@ -339,57 +316,50 @@ the pipes unused and following the other direction as you come back to each
 </p>
 
 <font size="+2">
-<b><a href="/stat?c=problem_statement&amp;pm=4708&amp;rd=8007"
-name="4708">Recipe</a></b>
+<b><a href="/stat?c=problem_statement&amp;pm=4708&amp;rd=8007" name="4708">Recipe</a></b>
 </font>
-<a href="Javascript:openProblemRating(4708)"><img hspace="10" border="0"
-height="18" width="60" src="/i/rate_it.gif"/></a><br>
+<A href="Javascript:openProblemRating(4708)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br>
 Used as: Division One - Level Two: <blockquote><table cellspacing="2">
-
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>Value</b>
-     </td>
-     <td class="bodyText" style="background: #eee;">
-       500
-     </td>
-   </tr>
-   <tr>
-
-     <td class="bodyText" style="background: #eee;">
-       <b>Submission Rate</b>
-     </td>
-     <td class="bodyText" style="background: #eee;">
-       135 / 333 (40.54%)
-     </td>
-   </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-
-       <b>Success Rate</b>
-     </td>
-     <td class="bodyText" style="background: #eee;">
-       82 / 135 (60.74%)
-     </td>
-   </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>High Score</b>
-
-     </td>
-     <td class="bodyText" style="background: #eee;">
-       <b>misof</b> for 397.80 points (15 mins 14 secs)
-     </td>
-   </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>Average Score</b>
-
-     </td>
-     <td class="bodyText" style="background: #eee;">
-       270.79 (for 82 correct submissions)
-     </td>
-   </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Value</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      500
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Submission Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      135 / 333 (40.54%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Success Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      82 / 135 (60.74%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>High Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      <b>misof</b> for 397.80 points (15 mins 14 secs)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Average Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      270.79 (for 82 correct submissions)
+    </td>
+  </tr>
 </table></blockquote>
 
 <p>The first complication to this problem is that each ingredient is given 
@@ -430,56 +400,50 @@ into the most cups possible, then the most tablespoons, and keep the rest in
 teaspoons.</p>
 
 <font size="+2">
-<b><a href="/stat?c=problem_statement&amp;pm=1981&amp;rd=8007"
-name="1981">PokerDeck</a></b>
+<b><a href="/stat?c=problem_statement&amp;pm=1981&amp;rd=8007" name="1981">PokerDeck</a></b>
 </font>
-<a href="Javascript:openProblemRating(1981)"><img hspace="10" border="0"
-height="18" width="60" src="/i/rate_it.gif"/></a><br>
+<A href="Javascript:openProblemRating(1981)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br>
 Used as: Division One - Level Three: <blockquote><table cellspacing="2">
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-
-       <b>Value</b>
-     </td>
-     <td class="bodyText" style="background: #eee;">
-       1000
-     </td>
-   </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>Submission Rate</b>
-
-     </td>
-     <td class="bodyText" style="background: #eee;">
-       7 / 333 (2.10%)
-     </td>
-   </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>Success Rate</b>
-     </td>
-
-     <td class="bodyText" style="background: #eee;">
-       1 / 7 (14.29%)
-     </td> </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>High Score</b>
-     </td>
-     <td class="bodyText" style="background: #eee;">
-
-       <b>misof</b> for 451.71 points (45 mins 5 secs)
-     </td>
-   </tr>
-   <tr>
-     <td class="bodyText" style="background: #eee;">
-       <b>Average Score</b>
-     </td>
-     <td class="bodyText" style="background: #eee;">
-
-       451.71 (for 1 correct submission)
-     </td>
-   </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Value</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      1000
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Submission Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      7 / 333 (2.10%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Success Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      1 / 7 (14.29%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>High Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      <b>misof</b> for 451.71 points (45 mins 5 secs)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Average Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      451.71 (for 1 correct submission)
+    </td>
+  </tr>
 </table></blockquote>
 
 <p> One of the things that makes a good poker player is being very familiar 
