@@ -91,18 +91,6 @@
         </select>
       </td>
    </tr>
-   <tr>
-      <td class="rtTextCell" nowrap="nowrap"><strong>Online Users:</strong></td>
-      <td class="rtTextCell100">
-        <%=presenceManager.getOnlineUserCount()%>
-      </td>
-   </tr>
-   <tr>
-      <td class="rtTextCell" nowrap="nowrap"><strong>Online Guests:</strong></td>
-      <td class="rtTextCell100">
-        <%=presenceManager.getOnlineGuestCount()%>
-      </td>
-   </tr>
 </table>
 <div align="right">
 <input type="image" src="/i/roundTables/update.gif" alt="Update" />
