@@ -135,6 +135,12 @@
       <li>unused personal library code</li>
       <li>comments not directly related to the solution</li>
       </ul>
+      The following things are excluded from the rule (They are not considered unused):
+      <ul>
+      <li>Library import statements (#include, imports, using, Imports)</li>
+      <li>Comments identifying plugins used</li>
+      <li>Comments directly related to the solution (explaining algorithms, etc.)</li>
+      </ul>
       In ALL cases, TopCoder will make the final decision as to whether or not a code submission has an
       excessive amount of unused content. If TopCoder determines that a submission violates this policy,
       the competitor will receive 20% of the point value of the problem for that submission. No challenges will be overturned or
