@@ -9,6 +9,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>09.29.05<br>11:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm265">SRM 265 - Problem Set & Analysis</A></span><br><br>
+      As a few of the Google Code Jam finalists were still making their way back to their respective homes, SRM 265 started early tuesday morning. In fact the top four placers were also finalists.</td>
+      <td class="newsPhoto"><img src="/i/m/Ryan_mug.gif" /><br>by <tc-webtag:handle coderId="284007" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm265">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505770" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>09.28.05<br>11:10 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_092805">TCO05 Finalists Press Release</A></span><br><br>
       The 61 TopCoder onsite finalists represent 19 countries including China, Poland, the Russian Federation, South Africa, Japan, Australia and Argentina as well as the US.
@@ -269,20 +285,6 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=tco05_online_rd_4">full story</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505760">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>09.06.05<br>3:10 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.adtmag.com/article.asp?id=11752" target="_blank">Components for SOAs and Other App Dev Projects</A></span><br><br>
-      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/adt_logo.gif" width="67" height="23" alt="ADT" border="0" /></div>
-      "The result of the partnership between LogicLibrary and TopCoder reached earlier this year is that TopCoder's components for Java and .NET are now stored in Logidex, LogicLibrary's collaborative SDA management solution." [ADT]
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://www.adtmag.com/article.asp?id=11752" target="_blank">full story</A>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505017">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
 
 
