@@ -16,6 +16,8 @@
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
+<%  com.jivesoftware.base.PresenceManager presenceManager = forumFactory.getPresenceManager(); %>
+
 <html>
 <head>
 <title>TopCoder Forums</title>
@@ -87,6 +89,18 @@
                 <option value="<%=round.getRoundId()%>"><%=round.getRoundName()%></option>
         <%  } %>
         </select>
+      </td>
+   </tr>
+   <tr>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Online Users:</strong></td>
+      <td class="rtTextCell100">
+        <%=presenceManager.getOnlineUserCount()%>
+      </td>
+   </tr>
+   <tr>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Online Guests:</strong></td>
+      <td class="rtTextCell100">
+        <%=presenceManager.getOnlineGuestCount()%>
       </td>
    </tr>
 </table>

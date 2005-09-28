@@ -2,7 +2,6 @@ package com.topcoder.web.forums.model;
 
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
-import com.jivesoftware.base.Log;
 import com.jivesoftware.base.UnauthorizedException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.logging.Logger;
@@ -14,6 +13,7 @@ import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * User: dok
@@ -38,25 +38,35 @@ public class TCAuthFactory extends AuthFactory {
      */
     public AuthToken createAuthToken(HttpServletRequest httpServletRequest,
                                      HttpServletResponse httpServletResponse) throws UnauthorizedException {        
-        WebAuthentication auth = null;
-        try {
-            auth = new BasicAuthentication(new SessionPersistor(httpServletRequest.getSession()),
-                    HttpObjectFactory.createRequest(httpServletRequest), HttpObjectFactory.createResponse(httpServletResponse));
-        } catch (Exception e) {
-            log.error(e);
-        }
-        if (auth.getActiveUser().isAnonymous() && 
-                httpServletRequest.getParameter("username") != null && 
-                httpServletRequest.getParameter("password") != null &&
-                httpServletRequest.getParameter("password").length() <= 31) {
-            try {
-                auth.login(new SimpleUser(0, httpServletRequest.getParameter("username"), 
-                    httpServletRequest.getParameter("password")), false);
-            } catch (Exception e) {
-                log.error(e);
-            }
-        }
-        return new TCAuthToken(auth.getActiveUser().getId());
+       HttpSession session = httpServletRequest.getSession(); 
+       AuthToken authToken = (AuthToken)session.getAttribute(SESSION_AUTHORIZATION);
+       if (authToken != null && !authToken.isAnonymous()) {
+           //log.debug("authToken pulled from session: "+authToken.getUserID());
+           return authToken;
+       }
+       
+       WebAuthentication auth = null;
+       try {
+           auth = new BasicAuthentication(new SessionPersistor(httpServletRequest.getSession()),
+                   HttpObjectFactory.createRequest(httpServletRequest), HttpObjectFactory.createResponse(httpServletResponse));
+       } catch (Exception e) {
+           log.error(e);
+       }
+       if (auth.getActiveUser().isAnonymous() && 
+               httpServletRequest.getParameter("username") != null && 
+               httpServletRequest.getParameter("password") != null &&
+               httpServletRequest.getParameter("password").length() <= 31) {
+           try {
+               auth.login(new SimpleUser(0, httpServletRequest.getParameter("username"), 
+                   httpServletRequest.getParameter("password")), false);
+           } catch (Exception e) {
+               log.error(e);
+           }
+       }
+       authToken = new TCAuthToken(auth.getActiveUser().getId());
+       //log.debug("authToken placed into session: "+authToken.getUserID());
+       session.setAttribute(SESSION_AUTHORIZATION, authToken);
+       return authToken;
     }
 
 

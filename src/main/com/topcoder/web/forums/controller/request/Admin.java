@@ -36,7 +36,7 @@ public class Admin extends ForumsProcessor {
     
     protected void businessProcessing() throws Exception {
         super.businessProcessing();
-        if (isGuest() ) {
+        if (isGuest()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
      
