@@ -43,364 +43,528 @@
 <br><br>
 
 <span class="bigTitle">Match summary</span>
-<p>
-In Division 1, only Petr (1st) and andrewzta (2nd) managed to solve all three problems. evgeni was the third of the three to solve the 1000 pointer; his 500 was taken down in the challenge phase, though this did not cost him 3rd place. Special recognition to Hardcoder in 4th, who submitted only the 250 point problem, but racked up 11 successful challenges without any unsuccessful.
-<br><br>
-Gluk made a very strong Division 2 showing, finishing all three problems in just over 30 minutes, and passing his nearest competitor .Invader by over 150 points. First-timers wlodzislaw and Gassa came in 3rd and 4th and will be taking on Division 1 next match.
-</p>
+<p>As a few of the Google Code Jam finalists were still making their way 
+back to their respective homes, SRM 265 started early tuesday morning. In 
+fact the top four placers were also finalists: <b>ploh</b> in fourth, 
+<b>venco</b> taking third, <b>Petr</b> in second, and solving all three 
+<b>misof</b> in first. They, as well as the other top three finishers in 
+each room, were also awarded with a cash prize which gave further incentive 
+to compete in the early match.</p>
+
+<p>The competition in division 2 was also fierce with 12 coders solving all 
+three problems and the top two finishers in each room winning a prize. 
+<b>agray</b> won the division and advances to division 1 for the first time, 
+<b>seliv</b> took second, and competing for the first time <b>bertas</b> 
+took third.</p>
+
 <H1>
 The Problems
 </H1>
 </p>
-<font size="+2">
-<b><a href="/stat?c=problem_statement&amp;pm=4782&amp;rd=7998"
-name="4782">GradingSystem</a></b>
-</font>
-<A href="Javascript:openProblemRating(4782)"><img hspace="10"
-border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br> Used as: Division Two - Level One: <blockquote><table cellspacing="2">
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Value</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      250
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Submission Rate</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      217 / 326 (66.56%)
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Success Rate</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      171 / 217 (78.80%)
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>High Score</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      <b>kudlatyPL</b> for 241.01 points (5 mins 31 secs)
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Average Score</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      162.20 (for 171 correct submissions)
-    </td>
-  </tr>
-</table></blockquote>
-<p>
-Since we are looking for the sum of the differences, and since every student will receive at least as high a grade in the first scheme as in the second, we may sum the grades in the first scheme and subtract those in the second.
 
-The students' scores are given in ascending order, with higher desired grades breaking ties between identical scores and coming first. So to find grades given that the desired grade is a lower bound on the actual grade for students of a certain score or higher (the first scheme), we may iterate from the beginning to end, storing the highest seen desired grade:
-<pre>int sum = 0;
-int highest = 0;
-for (int i = 0; i < scores.length; i++) {
-    if (grades[i]>highest) highest = grades[i];
-    sum += highest;
-}</pre>
-To use the second grading scheme, we do the same thing except
-backwards: iterate from the end to the beginning, storing the lowest seen desired grade.
-</p>
 <font size="+2">
-<b><a href="/stat?c=problem_statement&amp;pm=4816&amp;rd=7998"
-name="4816">DivisibilityRules</a></b>
+<b><a href="/stat?c=problem_statement&amp;pm=2000&amp;rd=8007"
+name="2000">FontSize</a></b>
 </font>
-<A href="Javascript:openProblemRating(4816)"><img hspace="10"
-border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br> Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Value</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      500
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Submission Rate</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      102 / 326 (31.29%)
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Success Rate</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      31 / 102 (30.39%)
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>High Score</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      <b>ravi_kiran</b> for 456.46 points (8 mins 56 secs)
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Average Score</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      306.77 (for 31 correct submissions)
-    </td>
-  </tr>
+<a href="Javascript:openProblemRating(2000)"><img hspace="10" border="0"
+height="18" width="60" src="/i/rate_it.gif"/></a><br>
+Used as: Division Two - Level One: <blockquote><table cellspacing="2">
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>Value</b>
+     </td>
+     <td class="bodyText" style="background: #eee;">
+
+       250
+     </td>
+   </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>Submission Rate</b>
+     </td>
+     <td class="bodyText" style="background: #eee;">
+       405 / 473 (85.62%)
+     </td>
+
+   </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>Success Rate</b>
+     </td>
+     <td class="bodyText" style="background: #eee;">
+       377 / 405 (93.09%)
+     </td>
+   </tr>
+
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>High Score</b>
+     </td>
+     <td class="bodyText" style="background: #eee;">
+       <b>ckarthik</b> for 249.88 points (0 mins 38 secs)
+     </td>
+   </tr>
+
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>Average Score</b>
+     </td>
+     <td class="bodyText" style="background: #eee;">
+       203.72 (for 377 correct submissions)
+     </td>
+   </tr>
 </table></blockquote>
+
+<p> This problem demonstrates an excellent use of a table. Typically the 
+size of each character depends on which font face is used, whether the font 
+is bold or italic, and the point-size of the font. Modern fonts don't 
+actually keep an image of each character but rather a mathematical 
+description that can be used to calculate how to draw it at different sizes. 
+In cases where these calculations can be time consuming it is a good idea to 
+just draw each character once into a table.  </p>
+<p> For this problem the entire character isn't drawn into a table, but the 
+width of each character is. Thus to determine the width of a string you 
+simply need to look each character up in the table and add its width to the 
+running total. The only complications are dealing with uppercase letters, 
+lowercase letters, and the space character separately. Finally you can add a 
+number of inter-character pixels equal to one less than the number of 
+characters in the sentence.</p>
+
+<font size="+2">
+<b><a href="/stat?c=problem_statement&amp;pm=1993&amp;rd=8007"
+name="1993">ScheduleStrength</a></b>
+</font>
+<a href="Javascript:openProblemRating(1993)"><img hspace="10" border="0"
+height="18" width="60" src="/i/rate_it.gif"/></a><br>
+Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
+   <tr>
+
+     <td class="bodyText" style="background: #eee;">
+       <b>Value</b>
+     </td>
+     <td class="bodyText" style="background: #eee;">
+       500
+     </td>
+   </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+
+       <b>Submission Rate</b>
+     </td>
+     <td class="bodyText" style="background: #eee;">
+       234 / 473 (49.47%)
+     </td>
+   </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>Success Rate</b>
+
+     </td>
+     <td class="bodyText" style="background: #eee;">
+       167 / 234 (71.37%)
+     </td>
+   </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>High Score</b>
+     </td>
+
+     <td class="bodyText" style="background: #eee;">
+       <b>lk</b> for 498.83 points (1 mins 22 secs)
+     </td>
+   </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>Average Score</b>
+     </td>
+
+     <td class="bodyText" style="background: #eee;">
+       249.11 (for 167 correct submissions)
+     </td>
+   </tr>
+</table></blockquote>
+
 
 Used as: Division One - Level One: <blockquote><table cellspacing="2">
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Value</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      250
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Submission Rate</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      258 / 286 (90.21%)
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Success Rate</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      126 / 258 (48.84%)
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>High Score</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      <b>sql_lall</b> for 243.77 points (4 mins 33 secs)
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Average Score</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      192.49 (for 126 correct submissions)
-    </td>
-  </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>Value</b>
+
+     </td>
+     <td class="bodyText" style="background: #eee;">
+       250
+     </td>
+   </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>Submission Rate</b>
+     </td>
+
+     <td class="bodyText" style="background: #eee;">
+       301 / 333 (90.39%)
+     </td>
+   </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>Success Rate</b>
+     </td>
+     <td class="bodyText" style="background: #eee;">
+
+       283 / 301 (94.02%)
+     </td>
+   </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>High Score</b>
+     </td>
+     <td class="bodyText" style="background: #eee;">
+       <b>Michael_Levin</b> for 233.85 points (7 mins 34 secs)
+     </td>
+
+   </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>Average Score</b>
+     </td>
+     <td class="bodyText" style="background: #eee;">
+       169.98 (for 283 correct submissions)
+     </td>
+   </tr>
+
 </table></blockquote>
-<p>
-Each multiplier in a divisibility rule is dependent only on the last multiplier, the base, and the divisor, simply:
-<pre>m[0] = 1
-m[i] = (m[i-1] * base) % divisor</pre>
-A good way to detect cycles in this case is to set up an array of used digits and mark each digit as you use it. Be careful about your stopping criteria. The most common error in this problem was to store only (1,3) for the rule (1,3,1,3,1,3...). This is a problem because then (1,3,3,3,3...) will be stored as (1,3) also, and result in an incorrect match.
-<pre>m[0] = 1;
-for (int i = 1; i < 1000; i++) {
-    m[i] = (m[0]*base)%divisor;
-    if (used[i]!=0) return m;
-    used[i] = 1;
-}</pre>
-Once you've calculated the divisibility rule for the given base and divisor, you can move on to calculate the rule for every other digit in that base and compare them. It turns out that to compare rules, you need only calculate the first 50 or so multipliers, and in fact could calculate and compare rules simultaneously to shortcircuit, though those optimizations were not necessary.
+
+<p> Most sports have a way to break ties that will determine which team 
+makes the play offs, but usually they are never used. Truthfully, how many 
+of you know exactly how to determine who will advance to the finals of the 
+TCO in case of a tie? In American football, however, since the season is 
+only 16 games, ties are a common occurence allowing strength of schedule to 
+come into play. </p>
+<p> This problem, although somewhat complex, is straight forward. As long as 
+you follow each direction in the problem statement (which may require 
+reading and rereading to get the details right) you can solve the problem. 
 </p>
+<p>The first step is to calculate for each team their opponent's cumulative 
+winning percentage. To do this simply count the number of wins and total 
+number of games which a) are by a team that played the current team and b) 
+are for a game that did not involve the current team. Once you have these 
+two numbers then you know their opponent's cumulative winning percentage is 
+wins/games. </p>
+<p>Now you can sort each team first on its opponent's winning percentage and 
+secondly on the team's name. Here you must be careful how you do the sort if 
+you are using floating point numbers. In this problem it's not too difficult 
+to avoid floating point numbers by using the standard way to compare 
+rational numbers (assuming wins[i] and games[i] are those used for 
+calculating team i's opponent's cumulative winning percentage):</p>
+<pre>
+<center>wins[i]*games[j] < wins[j]*games[i]</center>
+</pre>
+
 <font size="+2">
-<b><a href="/stat?c=problem_statement&amp;pm=4442&amp;rd=7998"
-name="4442">SetMetric</a></b>
+<b><a href="/stat?c=problem_statement&amp;pm=2001&amp;rd=8007"
+name="2001">PipePuzzle</a></b>
 </font>
-<A href="Javascript:openProblemRating(4442)"><img hspace="10"
-border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br> Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Value</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      1000
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Submission Rate</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      88 / 326 (26.99%)
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Success Rate</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      20 / 88 (22.73%)
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>High Score</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      <b>agray</b> for 949.59 points (6 mins 36 secs)
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Average Score</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      676.45 (for 20 correct submissions)
-    </td>
-  </tr>
+<a href="Javascript:openProblemRating(2001)"><img hspace="10" border="0"
+height="18" width="60" src="/i/rate_it.gif"/></a><br>
+Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>Value</b>
+     </td>
+
+     <td class="bodyText" style="background: #eee;">
+       1000
+     </td>
+   </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>Submission Rate</b>
+     </td>
+     <td class="bodyText" style="background: #eee;">
+
+       21 / 473 (4.44%)
+     </td>
+   </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>Success Rate</b>
+     </td>
+     <td class="bodyText" style="background: #eee;">
+       16 / 21 (76.19%)
+     </td>
+
+   </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>High Score</b>
+     </td>
+     <td class="bodyText" style="background: #eee;">
+       <b>agray</b> for 714.70 points (19 mins 40 secs)
+     </td>
+
+   </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>Average Score</b>
+     </td>
+     <td class="bodyText" style="background: #eee;">
+       494.15 (for 16 correct submissions)
+     </td>
+   </tr>
+
 </table></blockquote>
-<p>
-A greedy approach will not work for this problem, and 20 elements is too many to try all possible permutations. The key here is to recognize that if target[i] < target[j] and candidate[k] < candidate[m], you should never need to match target[j] with candidate[k] and target[i] with candidate[m]. In other words, both sets may be sorted first and then matched in order, with certain elements in candidate skipped. Consider both lists sorted, and try swapping any two elements; you'll should see that this is at least a locally optimal arrangement. A recursive solution is most straightforward. At each stage, either match the next element of candidate with the next element of target, or skip the next element of candidate, whichever yields the best solution. Once all of target and all of candidate is used, you're done.
-<pre>int recur(int[] target, int[] candidate, int targetPos, int
-candidatePos) {
-    if (targetPos==target.length) return 0;
-    if (candidatePos-targetPos==candidate.length) return 9999999;
-    int diff = candidate[candidatePos]-target[targetPos];
-    if (diff<0) diff = -diff;
-    int withoutUsingBlank =
-recur(target,candidate,candidatePos+1,targetPos)+diff;
-    int usingBlank = best(target,candidate,candidatePos+1,targetPos+1);
-    if (withoutUsingBlank &lt; usingBlank) return without;
-    else return usingBlank;
-}</pre>
+
+<p>It turns out that as you follow the flow of water you only need to make a 
+decision as to how to place the 'L' pipes. If you encounter either a '-' or 
+a '+' then you can always place it such that the pipe is aligned along the 
+direction that the water flows. Since there can be at most 20 'L' pipes 
+there are at most 2<sup>20</sup> paths. This is small enough that you can 
+follow each path and count the number of pipes used. </p>
+<p>First start off at the square that contains the water source and keep 
+track of which direction the water is flowing. Then move to the next square 
+based on what the current direction is. If you've moved off the grid or onto 
+the source then you know that the path has ended. Otherwise check that you 
+haven't used the current pipe and then mark it used unless it is a '+' (the 
+only pipes you can use more than once are the '+' pipes). If the current 
+pipe is a '+' then change it to a '-', since using one direction allows the 
+other direction to be used (also note that you can never enter a pipe along 
+the same direction since that would imply a cycle in the path, but there 
+can't be a cycle since the source can never be entered). When the current 
+pipe is '-' or '+' then the direction of the water doesn't change so the 
+next pipe will be in that direction. If the current pipe is 'L' then the 
+path will split; it can either change the direction to turn right or left. 
+You can then add one to the current path length and recursively follow the 
+path to the next pipe. Once the path has ended, retrace it backwards marking 
+the pipes unused and following the other direction as you come back to each 
+'L'.
 </p>
+
 <font size="+2">
-<b><a href="/stat?c=problem_statement&amp;pm=4608&amp;rd=7998"
-name="4608">GradingGridIns</a></b>
+<b><a href="/stat?c=problem_statement&amp;pm=4708&amp;rd=8007"
+name="4708">Recipe</a></b>
 </font>
-<A href="Javascript:openProblemRating(4608)"><img hspace="10"
-border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br> Used as: Division One - Level Two: <blockquote><table cellspacing="2">
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Value</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      500
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Submission Rate</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      114 / 286 (39.86%)
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Success Rate</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      46 / 114 (40.35%)
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>High Score</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      <b>John Dethridge</b> for 360.65 points (19 mins 17 secs)
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Average Score</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      238.05 (for 46 correct submissions)
-    </td>
-  </tr>
-</table></blockquote>
-<p>
-There were two main parts to this problem: parsing and checking for nearly correct answers. The parsing was straightforward, if somewhat long, as long as you made sure to catch certain not-so-obvious cases such as "1  2" (malformed) and "123." (not malformed). To avoid double imprecision problems, either use epsilons or keep all values in fraction form. Convert ".123" to a numerator, 123, and a denominator, 1000, for example.
+<a href="Javascript:openProblemRating(4708)"><img hspace="10" border="0"
+height="18" width="60" src="/i/rate_it.gif"/></a><br>
+Used as: Division One - Level Two: <blockquote><table cellspacing="2">
 
-The second part was most easily solved by trying all possible inputs (there are only 13 allowed characters and only 13<sup>4</sup> allowed strings).
-You should already have a way to tell if an answer is malformed and to extract its value if not, so it is a simple matter to generate every possible four character string, check to see if it is malformed, and if not extract its value. Sorting all of the values, we have a tool to determine whether some answer is the closest to one of the range bounds. Again, epsilons or fractions are very necessary to keep imprecision in check.
-</p>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>Value</b>
+     </td>
+     <td class="bodyText" style="background: #eee;">
+       500
+     </td>
+   </tr>
+   <tr>
+
+     <td class="bodyText" style="background: #eee;">
+       <b>Submission Rate</b>
+     </td>
+     <td class="bodyText" style="background: #eee;">
+       135 / 333 (40.54%)
+     </td>
+   </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+
+       <b>Success Rate</b>
+     </td>
+     <td class="bodyText" style="background: #eee;">
+       82 / 135 (60.74%)
+     </td>
+   </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>High Score</b>
+
+     </td>
+     <td class="bodyText" style="background: #eee;">
+       <b>misof</b> for 397.80 points (15 mins 14 secs)
+     </td>
+   </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>Average Score</b>
+
+     </td>
+     <td class="bodyText" style="background: #eee;">
+       270.79 (for 82 correct submissions)
+     </td>
+   </tr>
+</table></blockquote>
+
+<p>The first complication to this problem is that each ingredient is given 
+with different units, so it becomes easier to solve if they are all 
+converted into a standard unit, the teaspoon. This is quite similar to how 
+in many of the problems with time in hours, minutes, and seconds it is 
+almost always easier to just convert everything into seconds.</p>
+<p> Now we can ask, given a recipe, what is the smallest amount that we can 
+make and still keep them in proportion to each other. Let's name this 
+smallest amount the <i>minimum serving</i>. Since the smallest measuring 
+device we have is a teaspoon, the minimum serving will have to have an 
+integral number of teaspoons of each ingredient. There is some number G>=1 
+such that if we make G minimum servings then we get the same amount as the 
+original recipe, but what is not so obvious is that G is an integer. If G is 
+not an integer then let H be the smallest integer less than G. We can make 
+the original recipe and then take out H minimum servings and have some 
+amount that is a fraction of the minimum serving yet still has each 
+ingredient in proportion. This contradicts the definition of minimal 
+serving, so G must be an integer.</p>
+
+<p>Since we can make G minimum servings to equal the original recipe, G must 
+divide each ingredient. Conversely, if an integer d divides each ingredient 
+in the original recipe then we can split each ingredient in the original 
+recipe into d piles and make d batches of some serving amount with each 
+ingredient still being used in the same proportion. Thus since G is a common 
+divisor and each common divisor can make a serving of some size, the 
+smallest serving will correspond to the largest common divisor. Therefore G 
+is the greatest common divisor of all the ingredients. </p>
+<p>Now that the hard part is done, the next task is to determine how much to 
+make. We must make some multiple of the minimum serving, and further we must 
+make at least G minimum servings. Now we can loop through each ingredient in 
+the bowl and determine the smallest number of minimum servings needed to 
+fully use that ingredient by division rounding up; we must make a number of 
+minimum servings equal to the maximum of these numbers.</p>
+<p>After knowing how much to make, it is a simple manner to loop through 
+each ingredient and determine how much more to add to the bowl. Convert this 
+into the most cups possible, then the most tablespoons, and keep the rest in 
+teaspoons.</p>
+
 <font size="+2">
-<b><a href="/stat?c=problem_statement&amp;pm=4445&amp;rd=7998"
-name="4445">PolygonDecomposition</a></b>
+<b><a href="/stat?c=problem_statement&amp;pm=1981&amp;rd=8007"
+name="1981">PokerDeck</a></b>
 </font>
-<A href="Javascript:openProblemRating(4445)"><img hspace="10"
-border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br> Used as: Division One - Level Three: <blockquote><table cellspacing="2">
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Value</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      1000
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Submission Rate</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      8 / 286 (2.80%)
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Success Rate</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      3 / 8 (37.50%)
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>High Score</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      <b>Petr</b> for 733.23 points (18 mins 37 secs)
-    </td>
-  </tr>
-  <tr>
-    <td class="bodyText" style="background: #eee;">
-      <b>Average Score</b>
-    </td>
-    <td class="bodyText" style="background: #eee;">
-      645.12 (for 3 correct submissions)
-    </td>
-  </tr>
+<a href="Javascript:openProblemRating(1981)"><img hspace="10" border="0"
+height="18" width="60" src="/i/rate_it.gif"/></a><br>
+Used as: Division One - Level Three: <blockquote><table cellspacing="2">
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+
+       <b>Value</b>
+     </td>
+     <td class="bodyText" style="background: #eee;">
+       1000
+     </td>
+   </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>Submission Rate</b>
+
+     </td>
+     <td class="bodyText" style="background: #eee;">
+       7 / 333 (2.10%)
+     </td>
+   </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>Success Rate</b>
+     </td>
+
+     <td class="bodyText" style="background: #eee;">
+       1 / 7 (14.29%)
+     </td> </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>High Score</b>
+     </td>
+     <td class="bodyText" style="background: #eee;">
+
+       <b>misof</b> for 451.71 points (45 mins 5 secs)
+     </td>
+   </tr>
+   <tr>
+     <td class="bodyText" style="background: #eee;">
+       <b>Average Score</b>
+     </td>
+     <td class="bodyText" style="background: #eee;">
+
+       451.71 (for 1 correct submission)
+     </td>
+   </tr>
 </table></blockquote>
+
+<p> One of the things that makes a good poker player is being very familiar 
+with the odds of making certain hands. Changing up the composition of cards 
+or rules of the game (Such as having a full house less than a flush) can 
+upset their game and even the playing field.</p>
+<p> Overall, this is a combinatorial problem. Instead of calculating the 
+probability of each type of hand, we can count the number of hands which are 
+that type. Once we know the counts, we can sort based on the count and break 
+ties by the name of the type.</p>
+<p> Calculating the counts is not an easy task, and it can be simplified by 
+how the data is represented. One way is to keep a few arrays:</p>
+<pre>
+
+int ranks[13];         <font color=blue>// ranks[i] = number of cards in the 
+deck of rank i</font>
+int suits[4];          <font color=blue>// suits[i] = number of cards in the 
+deck of suit i</font>
+int suit_ranks[4][13]; <font color=blue>// suit_ranks[i][j] = number of 
+cards in the deck of suit i and rank j</font>
+</pre>
+<p> By reading the input, these arrays can be filled. During the calculating 
+we will also need to calculate some binomial coefficients. choose(n,k) is 
+the number of ways of selecting k items from a collection of n items. This 
+can be calculated as n!/(k!(n-k)!). Note that if k &gt; n then choose(n,k) = 
+0.</p>
+<p>Finally, the counts for each type of hand can be found as follows:</p>
+
+<dl>
+  <dt>FIVE OF A KIND</dt>
+  <dd>Sum for each rank choose(rank[i],5)</dd>
+  <dt>ROYAL FLUSH</dt>
+  <dd>Sum for each suit, s, of the product of suit_ranks[s][i] with i from 
+10 to A</dd>
+  <dt>STRAIGHT FLUSH</dt>
+  <dd>Sum for each suit, s, of the number of straights flushes for that 
+suit. Loop over the starting rank and take the product of the 5 ranks that 
+make up the straight. </dd>
+
+  <dt>STRAIGHT</dt>
+  <dd>Similar to counting the number of straight flushes but use ranks[i] 
+instead of suit_ranks[s][i] and also include straights starting with 10. 
+Subtract the number of royal and straight flushes.</dd>
+  <dt>FLUSH</dt>
+  <dd>Sum for each suit, s, of choose(suits[s],5). Subtract the number of 
+royal and straight flushes.</dd>
+</dl>
+
+  <p> The idea from here is to count each type of hand once using ranks[i] 
+and then to subtract all of that type hand which would be flushes by using 
+suit_ranks[s][i].</p>
+
+<dl>
+  <dt>FULL HOUSE</dt>
+  <dd>Sum for each pair of ranks, i and j, of 
+choose(ranks[i],3)*choose(ranks[j],2). Subtract for each suit, s, 
+choose(suit_ranks[s][i],3)*choose(suit_ranks[s][j],2).</dd>
+  <dt>FOUR OF A KIND</dt>
+  <dd>Sum for each pair of ranks, i and j, of 
+choose(ranks[i],4)*choose(ranks[j],1). Subtract for each suit, s, 
+choose(suit_ranks[s][i],4)*choose(suit_ranks[s][j],1).</dd>
+  <dt>THREE OF A KIND</dt>
+
+  <dd>Sum for each pair of ranks, i and j, of 
+choose(ranks[i],3)*choose(deck_size-ranks[j],2). Subtract for each suit, s, 
+choose(suit_ranks[s][i],3)*choose(suits[s]-suit_ranks[s][j],2). Subtract the 
+number of full houses.</dd>
+  <dt>TWO PAIR</dt>
+  <dd>Sum for each pair of ranks, i and j, of 
+choose(ranks[i],2)*choose(ranks[j],2)*(deck_size-ranks[i]-ranks[j]). 
+Subtract for each suit, s, 
+choose(suit_ranks[s][i],2)*choose(suit_ranks[s][j],2)*(suits[s]-suit_ranks[s][i]-suit_ranks[s][j]).</dd>
+  <dt>ONE PAIR</dt>
+  <dd>Sum for each quadruple of ranks, i, x, y, and z with x &lt; y &lt; z, 
+of choose(ranks[i],2)*ranks[x]*ranks[y]*ranks[z]. Subtract for each suit, s, 
+choose(suit_ranks[s][i],2)*suit_ranks[s][x]*suit_ranks[s][y]*suit_ranks[s][z].</dd>
+
+  <dt>NOTHING</dt>
+  <dd>choose(deck_size,5) - the counts of all other types of hands.</dd>
+</dl>
+
+
 <p>
-There were two methods used to solve this problem, only one of which runs in time. It should be fairly clear from the outset that this is a dynamic programming (or recursion with memoization) problem. The question is how to subdivide a problem into smaller ones. We will use a table of results for polygons of size N split into K different
-polygons: f(N,K). First of all, if K==1, there is always 1 way; if K is less than 1, there are 0 ways; if K is more than N-2, there are 0 ways; and if N is less than 3, there are 0 ways. Now for the recursive
-case:
-
-Consider a polygon of size N to be cut into K pieces. Choose one vertex. Either there will be a cut through that vertex or there will not be. Suppose there is not. Then either that vertex will be part of a triangle or it will not. If it will be part of a triangle, then there are f(N-1,K-1) ways to cut the remainder. If it won't, then we can envision that vertex 'collapsed' into a line joining the two adjacent vertices, and there are f(N-1,K) ways to cut the remainder.
-Now suppose the vertex will be cut. Then starting at one of the adjacent vertices and indexing (starting with 0) the other vertices in order around the polygon, for each way of cutting the polygon, there is some vertex with the smallest index i that is on the other end of a cut through our chosen vertex. After cutting, the polygon made of the larger vertices can be cut in f(N-i,m) ways with m the number of polygons it will be cut into. The polygon made of the smaller vertices needs to be constrained to make sure that the chosen vertex is never cut through. We've seen how to do that in the first case; since this new polygon will have i+1 vertices, it can be cut in
-f(i+1,K-m-1)+f(i+1,K-m) ways.
-
-In short, then, to compute f(N,K), we do the following:
-<pre>f(N,K) += f(N-1,K-1);
-f(N,K) += f(N-1,K);
-for (int i = 1; i < N-1; i++) {
-    for (int m = 1; m < K; m++) {
-        f(N,K) += f(N-i,m)*(f(i+1,K-m-1) + f(i+1,K-m));
-    }
-}</pre>
-
-Everything must be taken modulo 1000000000, of course.
-</p>
-
-<p>
-<%--<img src="/i/m/LunaticFringe_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />--%>
-By&#160;<tc-webtag:handle coderId="10083726" context="algorithm"/><br />
+<img src="/i/m/Ryan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+By&#160;<tc-webtag:handle coderId="284007" context="algorithm"/><br />
 <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
 </p>
 
