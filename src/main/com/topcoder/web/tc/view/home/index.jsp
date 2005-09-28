@@ -166,7 +166,7 @@ margin:0px auto;
             <td class="homeText"><br>
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/carynews_logo.gif" width="67" height="20" alt="CN" border="0" /></div>
-            Ready, again, for TopCoder battle <A href="http://www.carynews.com/enterprise/story/2805639p-9249369c.html">...more</A><br>[September 28]<br><br>
+            Ready, again, for TopCoder battle <A href="http://www.carynews.com/enterprise/story/2805639p-9249369c.html" target="_blank">...more</A><br>[September 28]<br><br>
 
             Onsite Finalists Announced In 2005 TopCoder Open Sponsored by Sun Microsystems <A href="/tc?module=Static&d1=pressroom&d2=pr_092805">...more</A><br>[September 2]<br><br>
 
