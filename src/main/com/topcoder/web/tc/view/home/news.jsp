@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>09.28.05<br>11:10 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_092805">TCO05 Finalists Press Release</A></span><br><br>
+      The 61 TopCoder onsite finalists represent 19 countries including China, Poland, the Russian Federation, South Africa, Japan, Australia and Argentina as well as the US.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=pressroom&d2=pr_092805" target="_blank">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505772" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>09.26.05<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign">VeriSign chat session scheduled for SRM 265</A></span><br><br>
       VeriSign will in the Arena Applet at 8:00 AM just before the start of SRM 265 to discuss working at VeriSign.
@@ -270,19 +283,6 @@
          <A href="http://www.adtmag.com/article.asp?id=11752" target="_blank">full story</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505017">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.07.05<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_090705">Sun chat session scheduled for TCO05 Algorithm Round 4</A></span><br><br>
-      Sun will be in the Arena Applet at 8:30 PM just before the start of TCO05 Online Round 4, <b>Joe Nuxoll</b> from Sun will be in arena to chat about JSF components and Java Studio Creator.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_090705">details</A>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505016">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 
