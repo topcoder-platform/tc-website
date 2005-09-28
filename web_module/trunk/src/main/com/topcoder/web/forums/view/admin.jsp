@@ -16,7 +16,8 @@
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
-<%  com.jivesoftware.base.PresenceManager presenceManager = forumFactory.getPresenceManager(); %>
+<%--  com.jivesoftware.base.PresenceManager presenceManager = forumFactory.getPresenceManager(); 
+    Iterator itOnline = presenceManager.getOnlineUsers(); --%>
 
 <html>
 <head>
@@ -91,6 +92,17 @@
         </select>
       </td>
    </tr>
+   <%--
+   <tr>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Online users:</strong></td>
+      <td class="rtTextCell100">
+        <%  while (itOnline.hasNext()) { %>
+            <%  User u = (User)itOnline.next(); %>
+            <tc-webtag:handle coderId="<%=u.getID()%>"/><%  if (itOnline.hasNext()) { %>, <% } %>
+        <%  } %>
+      </td>
+   </tr>
+   --%>
 </table>
 <div align="right">
 <input type="image" src="/i/roundTables/update.gif" alt="Update" />
