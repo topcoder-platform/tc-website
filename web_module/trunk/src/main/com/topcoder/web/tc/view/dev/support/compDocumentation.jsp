@@ -67,8 +67,8 @@
                The screening and review scorecards are used by the Architecture Review Board to score component submissions. All members who submit a design solution will be able to log in to TopCoder Software Project Submit & Review and view their corresponding project's screening and review scorecards. These are sample screen shots from the Submit & Review application.
                </td>
                <td class="projectCells" valign="top" align="center">
-               06.30.2004<br/>
-               06.30.2004
+               01.05.2005<br/>
+               06.08.2005
                </td>
                <td class="projectCells" valign="top" align="right" nowrap="nowrap">
                <A href="/tc?module=Static&d1=dev&d2=support&d3=desScreeningSample">Sample Design Screening Scorecard</A><br/>
