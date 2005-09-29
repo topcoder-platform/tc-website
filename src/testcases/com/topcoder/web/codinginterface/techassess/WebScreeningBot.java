@@ -10,6 +10,11 @@
 
 package com.topcoder.web.codinginterface.techassess;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import com.meterware.httpunit.GetMethodWebRequest;
 import com.meterware.httpunit.WebConversation;
 import com.meterware.httpunit.WebForm;
@@ -20,6 +25,7 @@ import com.topcoder.shared.language.CPPLanguage;
 import com.topcoder.shared.language.CSharpLanguage;
 import com.topcoder.shared.language.JavaLanguage;
 import com.topcoder.shared.language.VBLanguage;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
@@ -87,6 +93,7 @@ public class WebScreeningBot {
                 em.addToAddress("thaas@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("ivern@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("mtong@topcoder.com", TCSEmailMessage.TO);
+                em.addToAddress("mfogleman@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("javier-topcoder-alarm@ivern.org", TCSEmailMessage.TO);
                 em.addToAddress("8602686127@messaging.sprintpcs.com", TCSEmailMessage.TO);
 
@@ -332,11 +339,10 @@ public class WebScreeningBot {
         while(b) {
             client.runTests();
             client.printErrors();
+            client.cleanup();
             try {
                 Thread.sleep(5 * 60 * 1000);
-            } catch (Exception e) {
-
-            }
+            } catch (Exception e) {}
         }
     }
 
@@ -350,4 +356,86 @@ public class WebScreeningBot {
         log.info("Good Response from " + resp.getURL().toString());
         return true;
     }
+    
+    
+    
+    private static final int COMPONENT_STATE_ID = 1710451;
+    private static final int SUBMISSION_NUMBER_THRESHOLD = 3;
+    
+    // delete submission records to avoid field overflows (submission_number, compile_count, etc)
+    private void cleanup() {
+        log.info("Performing cleanup...");
+        Connection connection;
+        try {
+            connection = DBMS.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return;
+        }
+        
+        int submissionNumber = getSubmissionNumber(connection);
+        log.info("submission_number = " + submissionNumber + ", threshold = " + SUBMISSION_NUMBER_THRESHOLD);
+        if (submissionNumber >= SUBMISSION_NUMBER_THRESHOLD) {
+            executeCleanupUpdate(connection, "delete from submission where component_state_id = ?;");
+            executeCleanupUpdate(connection, "delete from submission_class_file where component_state_id = ?;");
+            executeCleanupUpdate(connection, "update component_state set submission_number = 1, compile_count = 1, test_count = 1 where component_state_id = ?;");
+        }
+        
+        try {
+            connection.close();
+        } catch (SQLException e) {}
+    }
+    
+    private int getSubmissionNumber(Connection connection) {
+        String query = "select submission_number from component_state where component_state_id = ?;";
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        int result = 0;
+        try {
+            statement = prepareStatement(connection, query);
+            rs = statement.executeQuery();
+            if (rs.next()) {
+                result = rs.getInt(1);
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                if (rs != null) rs.close();
+            } catch (SQLException e) {}
+            try {
+                if (statement != null) statement.close();
+            } catch (SQLException e) {}
+        }
+        return result;
+    }
+    
+    private int executeCleanupUpdate(Connection connection, String query) {
+        log.info("Executing cleanup update: " + query);
+        PreparedStatement statement = null;
+        int result = 0;
+        try {
+            statement = prepareStatement(connection, query);
+            result = statement.executeUpdate();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                if (statement != null) statement.close();
+            } catch (SQLException e) {}
+        }
+        log.info(result + " records modified");
+        return result;
+    }
+    
+    private PreparedStatement prepareStatement(Connection connection, String query) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, COMPONENT_STATE_ID);
+        return statement;
+    }
+
 }
