@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.29.05<br>6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_prize_winners">TCO05 Online Component Contest Prize Winners</A></span><br><br>
+      Check out who took home the titles for biggest rating increase, first unrated member to win, and most passing submissions.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_prize_winners">view</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505802" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.29.05<br>11:45 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/tournaments/tco05_program.pdf">TCO05 Program</A> [PDF - 10 MB]</span><br><br>
       Featuring superlatives, admin trivia, and tons of facts and statistics on all the onsite competitors.
@@ -270,19 +283,6 @@
          <A href="/tc?module=ViewSurvey&sid=211">view survey</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505390">discuss this</A>&#160;|&#160;
          <A href="/tc?&module=SurveyList">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.08.05<br>11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview">TCO05 Algorithm Round 4 results</A></span><br><br>
-      Find out who advanced to the onsite portion of the Algorithm Competition.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview">results</A>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505763">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 </table>
