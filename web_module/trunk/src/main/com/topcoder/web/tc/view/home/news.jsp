@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.29.05<br>11:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/tournaments/tco05_program.pdf">TCO05 Program</A> [PDF - 10 MB]</span><br><br>
+      Featuring superlatives, admin trivia, and tons of facts and statistics on all the onsite competitors.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/pdfs/tournaments/tco05_program.pdf">view</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505801" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>09.28.05<br>2:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.carynews.com/enterprise/story/2805639p-9249369c.html" target="_blank">Ready, again, for TopCoder battle</A></span><br><br>
       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/carynews_logo.gif" width="67" height="20" alt="Irish Developer's Network" border="0" /></div>
@@ -269,19 +282,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview">results</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505763">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.08.05<br>10:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_090705">Sun chat session from TCO05 Algorithm Round 4</A></span><br><br>
-      Just prior to the TCO05 Online Round 4, Joe Nuxoll from Sun Microsystems&#174; was in arena to chat about JSF components and Java Studio Creator.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_090705">details</A>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505389">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
