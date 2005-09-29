@@ -1,9 +1,9 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
-                com.topcoder.web.forums.ForumConstants,
+                 com.topcoder.web.forums.ForumConstants,
                  com.jivesoftware.base.JiveGlobals,
-                com.jivesoftware.forum.action.UserSettingsAction,
+                 com.jivesoftware.forum.action.UserSettingsAction,
                  com.topcoder.web.forums.controller.request.Settings,
-                java.util.*"
+                 java.util.*"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -205,7 +205,7 @@
       </td>
    </tr>
    <tr>
-      <td class="rtTextCell" nowrap="nowrap"><strong>Display member photo:</strong></td>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Display my member photo:</strong></td>
       <td class="rtTextCell100">
       <input name="displayMemberPhoto" value="true" id="displayMemberPhotoYes" type="radio"
           <%= (user.getProperty("jiveDisplayMemberPhoto") == null || "true".equals(user.getProperty("jiveDisplayMemberPhoto"))) ? "checked" : ""%>>
@@ -214,6 +214,18 @@
       <input name="displayMemberPhoto" value="false" id="displayMemberPhotoNo" type="radio"
           <%= ("false".equals(user.getProperty("jiveDisplayMemberPhoto"))) ? "checked" : ""%>>
       <label for="jiveDisplayMemberPhotoNo">No</label>
+      </td>
+   </tr>
+   <tr>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Display member photos:</strong></td>
+      <td class="rtTextCell100">
+      <input name="displayAllMemberPhotos" value="true" id="displayAllMemberPhotosYes" type="radio"
+          <%= (user.getProperty("jiveDisplayAllMemberPhotos") == null || "true".equals(user.getProperty("jiveDisplayAllMemberPhotos"))) ? "checked" : ""%>>
+      <label for="jiveDisplayAllMemberPhotosYes">Yes</label>
+      &#160;
+      <input name="displayAllMemberPhotos" value="false" id="displayAllMemberPhotosNo" type="radio"
+          <%= ("false".equals(user.getProperty("jiveDisplayAllMemberPhotos"))) ? "checked" : ""%>>
+      <label for="jiveDisplayAllMemberPhotosNo">No</label>
       </td>
    </tr>
    <tr>

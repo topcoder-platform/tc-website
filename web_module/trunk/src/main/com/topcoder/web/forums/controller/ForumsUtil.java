@@ -8,6 +8,7 @@ import com.jivesoftware.base.FilterManager;
 import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.base.Log;
+import com.jivesoftware.base.User;
 import com.jivesoftware.base.filter.Profanity;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.Forum;
@@ -267,5 +268,16 @@ public class ForumsUtil {
             ret.append('s');
         }
         return ret.toString();
+    }
+    
+    public static boolean displayMemberPhoto(User user, User author) {
+        boolean displayPhoto = true;
+        if (user != null && "false".equals(user.getProperty("jiveDisplayAllMemberPhotos"))) {
+            return false;
+        }
+        if (author == null || ("false".equals(author.getProperty("jiveDisplayMemberPhoto"))) || author.getProperty("imagePath") == null) {
+            return false;
+        }
+        return true;
     }
 }
