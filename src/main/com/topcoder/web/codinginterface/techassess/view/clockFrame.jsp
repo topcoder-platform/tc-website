@@ -14,30 +14,31 @@
   </head>
   <body>
     <script language="javascript">
-
-        //perform clock sync, time below is in milliseconds after epoch
-        var serverTime = new Date(<%=request.getAttribute(Constants.CURRENT_TIME)%>);
-        var localTime = new Date();
-
-        var serverOffset = <%=TimeZone.getDefault().getOffset(new Date().getTime())/(60*60*1000)%>
-        var offset = localTime.getTimezoneOffset();
-        offset = offset / 60;
-        offset = offset * -1
-
-        serverTime = new Date(serverTime.getTime() - ((serverOffset - offset) * 60 * 60 * 1000));
-        var syncedOffset = localTime.getTime() - serverTime.getTime();
+    
+		function pad(number) {
+			if (number < 10) return "0" + number;
+			return "" + number;
+		}
+		
+		function toString(date) {
+			offset = date.getTimezoneOffset() / -60;
+			hour = date.getHours();
+			min = date.getMinutes();
+			sec = date.getSeconds();
+			offsetString = " GMT";
+			if (offset >= 0) offsetString += "+";
+			offsetString += offset;
+			return pad(hour) + ":" + pad(min) + ":" + pad(sec) + offsetString;
+		}
+    
+    	var serverTime = new Date(<%=request.getAttribute(Constants.CURRENT_TIME)%>);
+    	var localTime = new Date();
+    	var adjustment = serverTime.getTime() - localTime.getTime();
 
         function update() {
-            var d = new Date();
-            d = new Date(d.getTime() - syncedOffset);
-            var offset = d.getTimezoneOffset();
-            offset = offset / 60;
-            offset = offset * -1
-
-            <%--var leadingIdent = d.getHours() >= 12 ? "PM" : "AM" ;--%>
-
-            <%--var text = padWithZeroes(d.getHours() % 12) + ":" + padWithZeroes(d.getMinutes()) + ":" + padWithZeroes(d.getSeconds()) + " " + leadingIdent + " GMT" + offset;--%>
-            var text = padWithZeroes(d.getHours()) + ":" + padWithZeroes(d.getMinutes()) + ":" + padWithZeroes(d.getSeconds()) + " GMT" + offset;
+			localTime = (new Date()).getTime() + adjustment;
+			currentTime = new Date(localTime);
+			text = toString(currentTime);
 
             if (top.mainFrame) {
                 updateDivOrSpan(top.mainFrame.document, "currentTime", text);
