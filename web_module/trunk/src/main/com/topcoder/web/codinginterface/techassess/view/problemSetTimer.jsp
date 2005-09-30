@@ -27,7 +27,6 @@ if (o!=null) {
         %>
         var PS_EXAMPLE_SET = <%=Constants.EXAMPLE_ID%>;
         
-        
         var serverTime = new Date(<%=request.getAttribute(Constants.CURRENT_TIME)%>);
         var localTime = new Date();
         var adjustment = serverTime.getTime() - localTime.getTime();
