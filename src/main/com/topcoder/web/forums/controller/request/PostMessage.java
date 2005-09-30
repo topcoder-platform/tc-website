@@ -143,6 +143,8 @@ public class PostMessage extends ForumsProcessor {
     public String createTextAreaBody(String body) {
         String textareaBody = StringUtil.replace(body, "<?", "&lt;?");
         textareaBody = StringUtil.replace(body, ">?", "&gt;?");
-        return textareaBody.replaceAll("&","&amp;");
+        textareaBody = textareaBody.replaceAll("&","&amp;");
+        log.debug("###textareabody: "+textareaBody);
+        return textareaBody;
     }
 }
