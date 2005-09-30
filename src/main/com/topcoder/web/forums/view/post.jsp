@@ -143,7 +143,7 @@ function AllowTabCharacter() {
 <tr><td class="rtHeader" colspan="2"><%=postHeading%></td></tr>
 <tr>
 <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
-<%  if (user.getProperty("imagePath") != null && !("false".equals(user.getProperty("jiveDisplayMemberPhoto")))) { %>
+<%  if (ForumsUtil.displayMemberPhoto(user, user)) { %>
    <img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
 <%  } %>
 <span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></A></div></td>
@@ -169,7 +169,7 @@ function AllowTabCharacter() {
         </a></td></tr>
         <tr>
         <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
-        <%  if (message.getUser().getProperty("imagePath") != null && !("false".equals(message.getUser().getProperty("jiveDisplayMemberPhoto")))) { %>
+        <%  if (ForumsUtil.displayMemberPhoto(user, message.getUser())) { %>
             <img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
         <%  } %>
         <span class="bodyText"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(message.getUser()), "post")%></A></div></td>
