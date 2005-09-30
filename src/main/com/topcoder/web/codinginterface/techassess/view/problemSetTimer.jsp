@@ -32,14 +32,9 @@ if (o!=null) {
         var adjustment = serverTime.getTime() - localTime.getTime();
 
         function problemSetUpdate() {
-        alert("problemSetUpdate()");
 			localTime = (new Date()).getTime() + adjustment;
-		alert("1");
-			currentTime = new Date(localTime);
-			alert("2");
 			
 			for (i = 0; i < psEndTimes.length; i++) {
-			alert("3");
 				if (psTypes[i] == PS_EXAMPLE_SET) {
 					text = "N/A";
 				}
@@ -48,7 +43,7 @@ if (o!=null) {
 						timeLeft = psEndTimes[i];
 					}
 					else {
-						timeLeft = psEndTimes[i] - currentTime.getTime();
+						timeLeft = psEndTimes[i] - localTime;
 					}
 					
 					if (timeLeft > 0) {
