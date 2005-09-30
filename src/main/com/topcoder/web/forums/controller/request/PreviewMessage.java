@@ -111,8 +111,10 @@ public class PreviewMessage extends ForumsProcessor {
 	}
     
     public String createTextAreaBody(String body) {
+        log.debug("###body: "+body);
         String textareaBody = StringUtil.replace(body, "<?", "&lt;?");
         textareaBody = StringUtil.replace(body, ">?", "&gt;?");
+        log.debug("###textareabody (replaced): "+textareaBody);
         textareaBody = textareaBody.replaceAll("&","&amp;");
         log.debug("###textareabody: "+textareaBody);
         return textareaBody;
