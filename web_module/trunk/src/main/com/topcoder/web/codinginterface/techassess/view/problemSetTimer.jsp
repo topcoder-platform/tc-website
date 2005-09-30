@@ -36,6 +36,7 @@ if (o!=null) {
 			currentTime = new Date(localTime);
 			
 			for (i = 0; i < psEndTimes.length; i++) {
+			alert(i);
 				if (psTypes[i] == PS_EXAMPLE_SET) {
 					text = "N/A";
 				}
