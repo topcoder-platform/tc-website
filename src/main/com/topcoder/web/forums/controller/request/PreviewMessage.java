@@ -111,34 +111,9 @@ public class PreviewMessage extends ForumsProcessor {
 	}
     
     public String createTextAreaBody(String body) {
-        log.debug("###body: "+body);
-        String textareaBody = this.replace(body, "<?", "&lt;?");
-        textareaBody = this.replace(body, ">?", "&gt;?");
-        log.debug("###textareabody (replaced): "+textareaBody);
+        String textareaBody = StringUtil.replace(body, "<?", "&lt;?");
+        textareaBody = StringUtil.replace(textareaBody, ">?", "&gt;?");
         textareaBody = textareaBody.replaceAll("&","&amp;");
-        log.debug("###textareabody: "+textareaBody);
         return textareaBody;
-    }
-    
-    public String replace(String original, String changeFrom, String changeTo) {
-        int dif = changeTo.length() - changeFrom.length();
-        StringBuffer ret = new StringBuffer(original.length() + (dif > 0 ? dif * 5 : 0));
-        for (int i = 0; i < original.length(); i++) {
-            if (i <= original.length() - changeFrom.length()) {
-                if (original.substring(i, i + changeFrom.length()).equals(changeFrom)) {
-                    log.debug("###FOUND");
-                    ret.append(changeTo);
-                    i += (changeFrom.length() - 1);
-                } else {
-                    log.debug("###FOUND AT END(1)");
-                    ret.append(original.charAt(i));
-                }
-            } else {
-                log.debug("###FOUND AT END(2)");
-                ret.append(original.charAt(i));
-            }
-        }
-
-        return ret.toString();
     }
 }
