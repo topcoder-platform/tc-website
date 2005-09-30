@@ -45,7 +45,7 @@ if (o!=null) {
 						timeLeft = psEndTimes[i];
 					}
 					else {
-						timeLeft = psEndTimes[i] + adjustment;
+						timeLeft = psEndTimes[i] - currentTime.getTime();
 					}
 					
 					if (timeLeft > 0) {
