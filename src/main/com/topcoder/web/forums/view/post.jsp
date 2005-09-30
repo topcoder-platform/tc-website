@@ -169,7 +169,7 @@ function AllowTabCharacter() {
         </a></td></tr>
         <tr>
         <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
-        <%  if (message.getUser().getProperty("imagePath") != null) { %>
+        <%  if (message.getUser().getProperty("imagePath") != null && !("false".equals(message.getUser().getProperty("jiveDisplayMemberPhoto")))) { %>
             <img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
         <%  } %>
         <span class="bodyText"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(message.getUser()), "post")%></A></div></td>
