@@ -23,7 +23,7 @@
                 <tr>
                     <td valign="top">
                         <table width="100%" border="0" cellspacing="1" cellpadding="1">
-                     <tr><td colspan="7" class="statTextBig" nowrap="nowrap" height="18">&#160;Match Dates: September</td></tr>
+                     <tr><td colspan="7" class="statTextBig" nowrap="nowrap" height="18">&#160;Match Dates: October</td></tr>
                             
                             <tr> 
                                 <td id="calendarDays" width="15%">S</td>
@@ -40,51 +40,59 @@
                                 <td id="calendarBlankMini">&#160;</td> 
                                 <td id="calendarBlankMini">&#160;</td> 
                                 <td id="calendarBlankMini">&#160;</td> 
-                                <td id="calendarMini">1</td>
-                                <td id="calendarMini">2</td>
-                                <td id="calendarMini">3</td>
+                                <td id="calendarBlankMini">&#160;</td> 
+                                <td id="calendarBlankMini">&#160;</td> 
+                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=7999&amp;t=schedule&amp;c=srm">1</A></td>
                             </tr>
                       
                             <tr> 
+                                <td id="calendarMini">2</td>
+                                <td id="calendarMini">3</td>
                                 <td id="calendarMini">4</td>
-                                <td id="calendarMini">5</td>
+                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=8000&amp;t=schedule&amp;c=srm">5</A></td>
                                 <td id="calendarMini">6</td>
-                                <td id="calendarTCO05Mini"><A id="calendarTCO05Date" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=about">7</A></td>
+                                <td id="calendarMini">7</td>
                                 <td id="calendarMini">8</td>
-                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=7996&amp;t=schedule&amp;c=srm">9</A></td>
-                                <td id="calendarMini">10</td>
                             </tr>
                             
                             <tr> 
+                                <td id="calendarMini">9</td>
+                                <td id="calendarMini">10</td>
                                 <td id="calendarMini">11</td>
-                                <td id="calendarMini">12</td>
-                                <td id="calendarMini">13</td>
-                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=7997&amp;t=schedule&amp;c=srm">14</A></td>
+                                <td id="calendarTCO05Mini"><A id="calendarTCO05Date" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=about">12</A></td>
+                                <td id="calendarTCO05Mini"><A id="calendarTCO05Date" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=about">13</A></td>
+                                <td id="calendarTCO05Mini"><A id="calendarTCO05Date" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=about">14</A></td>
                                 <td id="calendarMini">15</td>
+                            </tr>
+                            
+                            <tr> 
                                 <td id="calendarMini">16</td>
                                 <td id="calendarMini">17</td>
-                            </tr>
-                            
-                            <tr> 
-                                <td id="calendarMini">18</td>
+                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=8001&amp;t=schedule&amp;c=srm">18</A></td>
                                 <td id="calendarMini">19</td>
-                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=7998&amp;t=schedule&amp;c=srm">20</A></td>
+                                <td id="calendarMini">20</td>
                                 <td id="calendarMini">21</td>
                                 <td id="calendarMini">22</td>
+                            </tr>
+                            
                                 <td id="calendarMini">23</td>
                                 <td id="calendarMini">24</td>
-                            </tr>
-                            
-                            <tr> 
                                 <td id="calendarMini">25</td>
-                                <td id="calendarMini">26</td>
-                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=8007&amp;t=schedule&amp;c=srm">27</A></td>
+                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=8002&amp;t=schedule&amp;c=srm">26</A></td>
+                                <td id="calendarMini">27</td>
                                 <td id="calendarMini">28</td>
                                 <td id="calendarMini">29</td>
+                            
+                            <tr> 
                                 <td id="calendarMini">30</td>
+                                <td id="calendarMini">31</td>
+                                <td id="calendarBlankMini">&#160;</td> 
+                                <td id="calendarBlankMini">&#160;</td> 
+                                <td id="calendarBlankMini">&#160;</td> 
+                                <td id="calendarBlankMini">&#160;</td> 
                                 <td id="calendarBlankMini">&#160;</td> 
                             </tr>
-                            
+
                             <tr><td colspan="7" class="statText" nowrap="nowrap" align="right"><A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth</xsl:attribute>More Match Dates&#160;</A></td></tr>
                         </table>
                     </td>
