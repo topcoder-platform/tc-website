@@ -56,6 +56,7 @@ if (o!=null) {
 				}
 				else {
 					time = 0;
+					
 					if (countDown) {
 						time = endTimes[i] - pLocalTime;
 						if (time < 0) time = 0;
@@ -65,17 +66,22 @@ if (o!=null) {
 							time = submitTimes[i] - startTimes[i];
 						}
 						else {
-							time = pLocalTime - startTimes[i];
-							if (time > times[i] && types[i] != EXAMPLE_SET) time = times[i];
+							if (startTimes[i] > 0) {
+								time = pLocalTime - startTimes[i];
+								if (time > times[i] && types[i] != EXAMPLE_SET) time = times[i];
+							}
+							else {
+								time = 0;
+							}
 						}
 					}
-				}
-				
-				if ((countDown && time == 0) || (!countDown && time == times[i])) {
-					text = "Expired";
-				}
-				else {
-					text = convertToTimeString(time);
+					
+					if ((countDown && time == 0) || (!countDown && time == times[i])) {
+						text = "Expired";
+					}
+					else {
+						text = convertToTimeString(time);
+					}
 				}
 				
 				if (top.mainFrame) {
