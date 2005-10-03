@@ -205,6 +205,7 @@ public class ReliabilityRating {
             " and pi.cur_version = 1" +
             " and pi.phase_id = 1" +
             " and pr.reliability_ind = 1" +
+            " and pr.reliable_submission_ind is not null" +
             " order by ci.create_time asc";
 
     private class ReliabilityHistory {
@@ -363,6 +364,7 @@ public class ReliabilityRating {
             " and pi.start_date < ?" +
             " and pi.project_id = pr.project_id" +
             " and pr.reliability_ind = 1" +
+            " and pr.reliable_submission_ind is not null" +
             " order by ci.create_time asc";
 
     private static final String oldReliabilityUsers =
