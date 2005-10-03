@@ -446,6 +446,11 @@ public class ReliabilityRating {
      * will have a reliability rating.  the second query is for the new way.
      * in this case, anyone that has scored over the minimum review
      * score will be included.
+     *
+     * this is the list of people that will have a reliability rating in user_reliability
+     * that may not be the same list as the list of people who have a non-empty reliability
+     * history.  if people submitted prior to the new rules and were not successful, those
+     * submissions will count against them the next time they submit.
      */
     private static final String includedUsers =
             " select pr.user_id" +
