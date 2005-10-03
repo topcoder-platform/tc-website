@@ -147,6 +147,7 @@ public class ReliabilityRating {
                         if (instance.isAfterStart()) {
                             ps2.clearParameters();
                             if (instance.isFirst()) {
+                                System.out.println("first for " + userId + " is " + instance.getProjectId());
                                 ps2.setNull(1, Types.DOUBLE);
                             } else {
                                 ps2.setDouble(1, instance.getRecentOldReliability());
