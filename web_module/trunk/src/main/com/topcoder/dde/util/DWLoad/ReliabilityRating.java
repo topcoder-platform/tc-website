@@ -394,6 +394,7 @@ public class ReliabilityRating {
                     userId = rs3.getLong("user_id");
                     ps.clearParameters();
                     ps.setLong(1, userId);
+                    ps.setDate(2, START_DATE);
                     rs = ps.executeQuery();
                     int projectCount = 0;
                     int reliableCount = 0;
@@ -423,6 +424,8 @@ public class ReliabilityRating {
         } finally {
             close(rs);
             close(ps);
+            close(ps2);
+            close(ps3);
         }
 
         return ret;
