@@ -62,10 +62,10 @@ The Problems
 </H1>
 </p>
 <font size="+2">
-<b><a href="http://mail.yahoo.com/config/login?/stat?c=problem_statement&amp;pm=4821&amp;rd=7999" name="4821">SwimmersDelight</a></b>
+<b><a href="/stat?c=problem_statement&amp;pm=4821&amp;rd=7999" name="4821">SwimmersDelight</a></b>
 
 </font>
-<A href="http://mail.yahoo.com/config/login?/_Javascript:openProblemRating(4821)"><img hspace="10" border="0" height="
+<A href="Javascript:openProblemRating(4821)"><img hspace="10" border="0" height="
 18" width="60" src="/i/rate_it.gif"/></A><br>
 Used as: Division Two - Level One: <blockquote><table cellspacing="2">
   <tr>
@@ -152,9 +152,9 @@ The distance you were asked to compute in this problem is also known as the frog
 </p>
 
 <font size="+2">
-<b><a href="http://mail.yahoo.com/config/login?/stat?c=problem_statement&amp;pm=4809&amp;rd=7999" name="4809">ExploringEuropa</a></b>
+<b><a href="/stat?c=problem_statement&amp;pm=4809&amp;rd=7999" name="4809">ExploringEuropa</a></b>
 </font>
-<A href="http://mail.yahoo.com/config/login?/_Javascript:openProblemRating(4809)"><img hspace="10" border="0" height="
+<A href="Javascript:openProblemRating(4809)"><img hspace="10" border="0" height="
 18" width="60" src="/i/rate_it.gif"/></A><br>
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
   <tr>
@@ -344,9 +344,9 @@ Now you can enjoy the trip!<br></br>
 </p>
 
 <font size="+2">
-<b><a href="http://mail.yahoo.com/config/login?/stat?c=problem_statement&amp;pm=4808&amp;rd=7999" name="4808">ZCurve</a></b>
+<b><a href="/stat?c=problem_statement&amp;pm=4808&amp;rd=7999" name="4808">ZCurve</a></b>
 </font>
-<A href="http://mail.yahoo.com/config/login?/_Javascript:openProblemRating(4808)"><img hspace="10" border="0" height="
+<A href="Javascript:openProblemRating(4808)"><img hspace="10" border="0" height="
 18" width="60" src="/i/rate_it.gif"/></A><br>
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
   <tr>
@@ -468,10 +468,10 @@ Multiply each character-digit of r with 2 and add 1 to it if its corresponding c
 </p>
 
 <font size="+2">
-<b><a href="http://mail.yahoo.com/config/login?/stat?c=problem_statement&amp;pm=4440&amp;rd=7999" name="4440">AntiChess</a></b>
+<b><a href="/stat?c=problem_statement&amp;pm=4440&amp;rd=7999" name="4440">AntiChess</a></b>
 </font>
 
-<A href="http://mail.yahoo.com/config/login?/_Javascript:openProblemRating(4440)"><img hspace="10" border="0" height="
+<A href="Javascript:openProblemRating(4440)"><img hspace="10" border="0" height="
 18" width="60" src="/i/rate_it.gif"/></A><br>
 Used as: Division One - Level Three: <blockquote><table cellspacing="2">
   <tr>
