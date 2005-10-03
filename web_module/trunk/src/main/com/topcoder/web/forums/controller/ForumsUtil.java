@@ -285,8 +285,8 @@ public class ForumsUtil {
     public static String createTextAreaBody(String body) {
         String textareaBody = StringUtil.replace(body, "<?", "&lt;?");
         textareaBody = StringUtil.replace(textareaBody, ">?", "&gt;?");
-        textareaBody = textareaBody.replaceAll("&","&amp;");
         textareaBody = StringUtil.replace(textareaBody, "\"", "&quot;");
+        textareaBody = textareaBody.replaceAll("&","&amp;");
         return textareaBody;
     }
 }
