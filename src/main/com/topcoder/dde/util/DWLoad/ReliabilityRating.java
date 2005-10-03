@@ -145,7 +145,7 @@ public class ReliabilityRating {
 
                     ReliabilityInstance instance = null;
                     for (Iterator records = rh.getHistory(); records.hasNext();) {
-                        instance = (ReliabilityInstance)records.next();
+                        instance = (ReliabilityInstance) records.next();
                         if (instance.isAfterStart()) {
                             ps2.clearParameters();
                             if (instance.isFirst()) {
@@ -156,12 +156,12 @@ public class ReliabilityRating {
                             ps2.setDouble(2, instance.getRecentNewReliability());
                             ps2.setLong(3, instance.getProjectId());
                             ps2.setLong(4, userId);
-                            ret+=ps2.executeUpdate();
+                            ret += ps2.executeUpdate();
                         }
                     }
                     //update or create a user_reliability record for everyone that is included
                     //that would be whether they are included because of the old way, or the new way
-                    if (instance!=null) {
+                    if (instance != null) {
                         update.clearParameters();
                         update.setDouble(1, instance.getRecentNewReliability());
                         update.setLong(2, userId);
@@ -226,11 +226,11 @@ public class ReliabilityRating {
                 rs = ps.executeQuery();
                 while (rs.next()) {
                     history.add(new ReliabilityInstance(rs.getLong("project_id"),
-                            userId, rs.getInt("reliable_submission_ind")==1, rs.getInt("after_start_flag")==1));
+                            userId, rs.getInt("reliable_submission_ind") == 1, rs.getInt("after_start_flag") == 1));
                 }
 
                 if (!history.isEmpty()) {
-                    ((ReliabilityInstance)history.get(0)).setFirst(true);
+                    ((ReliabilityInstance) history.get(0)).setFirst(true);
                 }
 
                 //calculate/populate reliabilities for the given history length. that means only incuode historyLength records
@@ -238,31 +238,34 @@ public class ReliabilityRating {
                 double fullOldRel = 0.0d;
                 double fullNewRel = 0.0d;
                 int fullReliableCount = 0;
-                for (int i=0; i<history.size(); i++) {
+                for (int i = 0; i < history.size(); i++) {
                     fullOldRel = fullNewRel;
-                    if (((ReliabilityInstance)history.get(i)).isReliable()) {
+                    if (((ReliabilityInstance) history.get(i)).isReliable()) {
                         fullReliableCount++;
                     }
-                    fullNewRel = (double)fullReliableCount / (double) (i+1);
+                    fullNewRel = (double) fullReliableCount / (double) (i + 1);
 
                     int window = 0;
                     double oldRel = 0.0d;
                     double newRel = 0.0d;
                     int reliableCount = 0;
-                    for (int j=i; j>=0 && window<historyLength; j--,window++) {
-                        cur = (ReliabilityInstance)history.get(j);
+                    for (int j = i; j >= 0 && window < historyLength; j--, window++) {
+                        cur = (ReliabilityInstance) history.get(j);
                         oldRel = newRel;
-                        if (cur.reliable) {
+                        if (cur.isReliable()) {
                             reliableCount++;
                         }
-                        newRel =(double)reliableCount / (double) (window+1);
+                        newRel = (double) reliableCount / (double) (window + 1);
                     }
 
-                    ((ReliabilityInstance)history.get(i)).setRecentNewReliability(newRel);
-                    ((ReliabilityInstance)history.get(i)).setRecentOldReliability(oldRel);
-                    ((ReliabilityInstance)history.get(i)).setNewReliability(fullNewRel);
-                    ((ReliabilityInstance)history.get(i)).setOldReliability(fullOldRel);
+                    ((ReliabilityInstance) history.get(i)).setRecentNewReliability(newRel);
+                    ((ReliabilityInstance) history.get(i)).setRecentOldReliability(oldRel);
+                    ((ReliabilityInstance) history.get(i)).setNewReliability(fullNewRel);
+                    ((ReliabilityInstance) history.get(i)).setOldReliability(fullOldRel);
+
+                    System.out.println(history.get(i).toString());
                 }
+
             } finally {
                 close(rs);
                 close(ps);
@@ -348,6 +351,30 @@ public class ReliabilityRating {
 
         public void setFirst(boolean first) {
             this.first = first;
+        }
+
+        public String toString() {
+            StringBuffer buf = new StringBuffer(1000);
+            buf.append(projectId):
+            buf.append(" ");
+            buf.append(userId);
+            buf.append(" ");
+            buf.append(reliable);
+            buf.append(" ");
+            buf.append(afterStart);
+            buf.append(" ");
+            buf.append(oldReliability);
+            buf.append(" ");
+            buf.append(newReliability);
+            buf.append(" ");
+            buf.append(recentOldReliability);
+            buf.append(" ");
+            buf.append(recentNewReliability);
+            buf.append(" ");
+            buf.append(first);
+            return buf.toString();
+
+
         }
 
     }
@@ -466,7 +493,7 @@ public class ReliabilityRating {
             " and pr.project_id = p.project_id" +
             " and p.cur_version = 1" +
             " and p.project_type_id+111=?" +
-" and pr.user_id = 119676" +
+            " and pr.user_id = 119676" +
             " union" +
             " select pr.user_id" +
             " from project_result pr" +
@@ -480,7 +507,7 @@ public class ReliabilityRating {
             " and pr.final_score >= ?" +
             " and pr.project_id = p.project_id" +
             " and p.cur_version = 1" +
-" and pr.user_id = 119676" +
+            " and pr.user_id = 119676" +
             " and p.project_type_id+111=?";
 
     private Set getIncludedUsers(Connection conn, long phaseId) throws SQLException {
