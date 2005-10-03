@@ -149,7 +149,11 @@ public class ReliabilityRating {
                         instance = (ReliabilityInstance)records.next();
                         if (instance.isAfterStart()) {
                             ps2.clearParameters();
-                            ps2.setDouble(1, instance.getRecentOldReliability());
+                            if (instance.isFirst()) {
+                                ps2.setNull(1, Types.DOUBLE);
+                            } else {
+                                ps2.setDouble(1, instance.getRecentOldReliability());
+                            }
                             ps2.setDouble(2, instance.getRecentNewReliability());
                             ps2.setLong(3, instance.getProjectId());
                             ps2.setLong(4, userId);
