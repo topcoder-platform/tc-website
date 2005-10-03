@@ -14,6 +14,7 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.messagehistory.MessageHistory;
+import com.topcoder.web.forums.controller.ForumsUtil;
 import com.topcoder.web.forums.ForumConstants;
 
 /**
@@ -42,7 +43,7 @@ public class PreviewMessage extends ForumsProcessor {
         String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags(
                 getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
-        String textareaBody = this.createTextAreaBody(body);
+        String textareaBody = ForumsUtil.createTextAreaBody(body);
         
         if (postMode.equals("New")) {
             forumID = Long.parseLong(forumIDStr);
@@ -109,11 +110,4 @@ public class PreviewMessage extends ForumsProcessor {
         setNextPage("/preview.jsp");
 		setIsNextPageInContext(true);
 	}
-    
-    public String createTextAreaBody(String body) {
-        String textareaBody = StringUtil.replace(body, "<?", "&lt;?");
-        textareaBody = StringUtil.replace(textareaBody, ">?", "&gt;?");
-        textareaBody = textareaBody.replaceAll("&","&amp;");
-        return textareaBody;
-    }
 }
