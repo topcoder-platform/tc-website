@@ -36,12 +36,12 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.29.05<br>11:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/tournaments/tco05_program.pdf">TCO05 Program</A> [PDF - 10 MB]</span><br><br>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/tournaments/tco05_program.pdf&refer=homepage">TCO05 Program</A> [PDF - 10 MB]</span><br><br>
       Featuring superlatives, admin trivia, and tons of facts and statistics on all the onsite competitors.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/pdfs/tournaments/tco05_program.pdf">view</A>&#160;|&#160;
+         <A href="/pdfs/tournaments/tco05_program.pdf&refer=homepage">view</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505801" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>

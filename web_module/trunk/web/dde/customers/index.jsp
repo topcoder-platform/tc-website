@@ -94,7 +94,7 @@
                     <td width="170"><img src="/images/clients/id_manage_logo.gif" alt="Identity Management" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">With a proven track record of success within Fortune 100 organizations, TopCoder Software’s identity and access management solutions centralize users and passwords, allowing organizations to reduce maintenance cost, improve accessibility and enforce consistent security policies.<br><br>
-                    <A href="http://<%=ApplicationServer.TC_SERVER%>/?t=sponsor&c=link&link=http://software.topcoder.com/pdfs/casestudies/identity_management.pdf&refer=homepage" target="_blank">case study</A>
+                    <A href="http://<%=ApplicationServer.TC_SERVER%>/?t=sponsor&c=link&link=http://software.topcoder.com/pdfs/casestudies/identity_management.pdf&refer=customer_index" target="_blank">case study</A>
                      </td>
                 </tr>
             </table>
@@ -125,7 +125,7 @@
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">StageStores, Inc. brings nationally recognized brand name apparel, accessories, cosmetics and footwear for the entire family to small and mid-size towns and communities with over 520 stores in 27 states.<br><br>
                     <A href="http://www.stagestores.com/" target="_blank">homepage</A>&#160;|&#160;
-                     <A href="http://<%=ApplicationServer.TC_SERVER%>/?t=sponsor&c=link&link=/i/downloads/Gift_Card_Case_Study.pdf&refer=homepage" target="_blank">case study</A>
+                     <A href="http://<%=ApplicationServer.TC_SERVER%>/?t=sponsor&c=link&link=/i/downloads/Gift_Card_Case_Study.pdf&refer=customer_index" target="_blank">case study</A>
                      </td>
                 </tr>
             </table>
