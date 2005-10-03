@@ -13,9 +13,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ArrayList;
 
-//import com.topcoder.netCommon.contest.*;
-//import com.topcoder.server.common.*;
-
 public class ReliabilityRating {
 
     public static final String DRIVER_KEY = "DriverClass";
@@ -608,28 +605,6 @@ public class ReliabilityRating {
         return ret;
 
     }
-
-
-/*
-    private class rating {
-        public long user_id;
-        public int successful;
-        public int num_components;
-
-        public rating(long user_id, int successful, int num_components) {
-            this.user_id = user_id;
-            this.successful = successful;
-            this.num_components = num_components;
-        }
-
-        public double reliability() {
-            if (num_components == 0)
-                return -1;
-            else
-                return (double) successful / (double) num_components;
-        }
-    }
-*/
 
     private static Date getDate(int year, int month, int day, int hour, int minute) {
         Calendar cal = Calendar.getInstance();
