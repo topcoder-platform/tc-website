@@ -408,9 +408,6 @@ public class ReliabilityRating {
                     double oldReliability = 0.0d;
                     double newReliability = 0.0d;
                     while (rs.next()) {
-                        if (userId==310233) {
-                            System.out.println("project is " + rs.getLong("project_id"));
-                        }
                         projectCount++;
                         reliableCount += rs.getInt("reliable_submission_ind");
                         oldReliability = newReliability;
