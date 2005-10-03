@@ -355,7 +355,7 @@ public class ReliabilityRating {
 
         public String toString() {
             StringBuffer buf = new StringBuffer(1000);
-            buf.append(projectId):
+            buf.append(projectId);
             buf.append(" ");
             buf.append(userId);
             buf.append(" ");
