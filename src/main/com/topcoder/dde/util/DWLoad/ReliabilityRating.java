@@ -466,6 +466,7 @@ public class ReliabilityRating {
             " and pr.project_id = p.project_id" +
             " and p.cur_version = 1" +
             " and p.project_type_id+111=?" +
+" and pr.user_id = 119676" +
             " union" +
             " select pr.user_id" +
             " from project_result pr" +
@@ -479,6 +480,7 @@ public class ReliabilityRating {
             " and pr.final_score >= ?" +
             " and pr.project_id = p.project_id" +
             " and p.cur_version = 1" +
+" and pr.user_id = 119676" +
             " and p.project_type_id+111=?";
 
     private Set getIncludedUsers(Connection conn, long phaseId) throws SQLException {
