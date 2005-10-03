@@ -19,6 +19,7 @@ import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.database.DbForumFactory;
 import com.jivesoftware.forum.database.DbForumMessage;
 import com.jivesoftware.util.StringUtils;
+import com.topcoder.shared.util.StringUtil;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 
@@ -279,5 +280,13 @@ public class ForumsUtil {
             return false;
         }
         return true;
+    }
+    
+    public static String createTextAreaBody(String body) {
+        String textareaBody = StringUtil.replace(body, "<?", "&lt;?");
+        textareaBody = StringUtil.replace(textareaBody, ">?", "&gt;?");
+        textareaBody = StringUtil.replace(textareaBody, "\"", "&quot;");
+        textareaBody = textareaBody.replaceAll("&","&amp;");
+        return textareaBody;
     }
 }
