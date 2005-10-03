@@ -408,6 +408,9 @@ public class ReliabilityRating {
                     double oldReliability = 0.0d;
                     double newReliability = 0.0d;
                     while (rs.next()) {
+                        if (userId==310233) {
+                            System.out.println("project is " + rs.getLong("project_id"));
+                        }
                         projectCount++;
                         reliableCount += rs.getInt("reliable_submission_ind");
                         oldReliability = newReliability;
@@ -417,9 +420,6 @@ public class ReliabilityRating {
                         if (projectCount > 1) {
                             ps2.setDouble(1, oldReliability);
                         } else {
-                            if (userId==310233) {
-                                System.out.println("first project is " + rs.getLong("project_id"));
-                            }
                             ps2.setNull(1, Types.DOUBLE);
                         }
                         ps2.setDouble(2, newReliability);
