@@ -129,7 +129,7 @@ public class ReliabilityRating {
      * @param users
      * @return
      */
-    public int updateReliability(Connection conn, Set users, int historyLength, long phaseId) {
+    public int updateReliability(Connection conn, Set users, int historyLength, long phaseId) throws SQLException {
         int ret=0;
         PreparedStatement ps = null;
         PreparedStatement ps2 = null;
@@ -190,10 +190,6 @@ public class ReliabilityRating {
                 System.out.println("reliability for " + userId + " set to " + newReliability);
             }
 
-        } catch (SQLException sqe) {
-            sqe.printStackTrace();
-        } catch (Exception sqe) {
-            sqe.printStackTrace();
         } finally {
             close(rs);
             close(ps);
@@ -238,7 +234,7 @@ public class ReliabilityRating {
          " and p.cur_version = 1"+
          " and p.project_type_id+111=?";
 
-    private Set getIncludedUsers(Connection conn, long phaseId) {
+    private Set getIncludedUsers(Connection conn, long phaseId) throws SQLException {
 
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -257,10 +253,6 @@ public class ReliabilityRating {
             while (rs.next()) {
                 ret.add(new Long(rs.getLong("user_id")));
             }
-        } catch (SQLException sqe) {
-            sqe.printStackTrace();
-        } catch (Exception sqe) {
-            sqe.printStackTrace();
         } finally {
             close(rs);
             close(ps);
@@ -300,7 +292,7 @@ public class ReliabilityRating {
      * reliable score, then set to 0.
      * @return the number of records marked
      */
-    private int markNewReliableResults(Connection conn) {
+    private int markNewReliableResults(Connection conn) throws SQLException {
         PreparedStatement ps = null;
         PreparedStatement ps2 = null;
         ResultSet rs = null;
@@ -318,10 +310,7 @@ public class ReliabilityRating {
                 ps2.setLong(3, rs.getLong("project_id"));
                 ret+=ps2.executeUpdate();
             }
-        } catch (SQLException sqe) {
-            sqe.printStackTrace();
-        } catch (Exception sqe) {
-            sqe.printStackTrace();
+
         } finally {
             close(rs);
             close(ps);
@@ -354,7 +343,7 @@ public class ReliabilityRating {
      * @return the number of records marks
      * @param conn
      */
-    private int markOldReliableResults(Connection conn) {
+    private int markOldReliableResults(Connection conn) throws SQLException {
         PreparedStatement ps = null;
         PreparedStatement ps2 = null;
         ResultSet rs = null;
@@ -372,10 +361,6 @@ public class ReliabilityRating {
                 ps2.setLong(3, rs.getLong("project_id"));
                 ret+=ps2.executeUpdate();
             }
-        } catch (SQLException sqe) {
-            sqe.printStackTrace();
-        } catch (Exception sqe) {
-            sqe.printStackTrace();
         } finally {
             close(rs);
             close(ps);
