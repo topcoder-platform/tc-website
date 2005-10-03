@@ -25,7 +25,7 @@ public class ReliabilityRating {
      * the date when the new rules go into effect
      */
     //public static final Date START_DATE = getDate(2005, Calendar.OCTOBER, 5, 9, 0);
-    public static final Date START_DATE = getDate(2004, Calendar.AUGUST, 3, 9, 0);
+    public static final Date START_DATE = getDate(2004, Calendar.JULY, 20, 9, 0);
 
 
     public static void main(String[] args) {
@@ -149,7 +149,6 @@ public class ReliabilityRating {
                         if (instance.isAfterStart()) {
                             ps2.clearParameters();
                             if (instance.isFirst()) {
-                                if (userId == 310233) System.out.println("xxxxxxxxxxxxxxx first for " + userId + " is " + instance.getProjectId());
                                 ps2.setNull(1, Types.DOUBLE);
                             } else {
                                 ps2.setDouble(1, instance.getRecentOldReliability());
