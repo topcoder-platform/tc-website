@@ -92,6 +92,6 @@ if (o!=null) {
 			setTimeout("problemUpdate()", 1000);
         }
         
-        problemUpdate();
+        setTimeout("problemUpdate()", 100);
 <% } %>
     </script>
