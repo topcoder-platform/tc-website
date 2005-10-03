@@ -28,7 +28,7 @@ public class SessionInfo implements Serializable {
     private String requestString = null;
     private Date date = null;
     private boolean isLoggedIn = false;
-    private int memberCount;
+    private int memberCount = -1;
 
     /** group may be:
      * 'G' guest
@@ -70,11 +70,6 @@ public class SessionInfo implements Serializable {
             log.debug("servername: " + getServerName() + " servletpath:" + getServletPath() + " query: " +
                     getQueryString() + " request: " + getRequestString());
         }
-        CachedDataAccess countDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
-        countDai.setExpireTime(15 * 60 * 1000);
-        Request countReq = new Request();
-        countReq.setContentHandle("member_count");
-        memberCount = ((ResultSetContainer) countDai.getData(countReq).get("member_count")).getIntItem(0, "member_count");
 
     }
 
@@ -134,7 +129,24 @@ public class SessionInfo implements Serializable {
     }
 
     public int getMemberCount() {
+        if (memberCount < 0) {
+            try {
+                memberCount = loadMemberCount();
+            }
+            catch (Exception e) {
+                log.error(e);
+            }
+        }
         return memberCount;
+    }
+    
+    private int loadMemberCount() throws Exception {
+        CachedDataAccess countDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
+        countDai.setExpireTime(15 * 60 * 1000);
+        Request countReq = new Request();
+        countReq.setContentHandle("member_count");
+        int result = ((ResultSetContainer) countDai.getData(countReq).get("member_count")).getIntItem(0, "member_count");
+        return result;
     }
 
 
