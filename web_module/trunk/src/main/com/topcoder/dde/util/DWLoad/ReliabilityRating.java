@@ -88,7 +88,7 @@ public class ReliabilityRating {
             int developersUpdated = tmp.updateReliability(c, developers, Integer.parseInt(historyLength), 113);
 
             System.out.println(newMarked + " new records marked");
-            System.out.println(oldMarked + " new records marked");
+            System.out.println(oldMarked + " old records marked");
             System.out.println(oldUpdated + " old project result records updated");
             System.out.println(designersUpdated + " designer records updated");
             System.out.println(developersUpdated + " developer records updated");
