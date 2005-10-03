@@ -18,12 +18,12 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-		<td width="180">
-			<jsp:include page="../includes/global_left.jsp">
-				<jsp:param name="level1" value=""/>
-				<jsp:param name="level2" value=""/>
-			</jsp:include>
-		</td>
+      <td width="180">
+         <jsp:include page="../includes/global_left.jsp">
+            <jsp:param name="level1" value=""/>
+            <jsp:param name="level2" value=""/>
+         </jsp:include>
+      </td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
