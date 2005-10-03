@@ -24,7 +24,7 @@ public class ReliabilityRating {
     /**
      * the date when the new rules go into effect
      */
-    public static final Date START_DATE = getDate(2005, Calendar.OCTOBER, 5, 9, 0);
+    public static final Date START_DATE = getDate(2004, Calendar.OCTOBER, 5, 9, 0);
 
 
     public static void main(String[] args) {
@@ -157,6 +157,8 @@ public class ReliabilityRating {
                             ret+=ps2.executeUpdate();
                         }
                     }
+                    //update or create a user_reliability record for everyone that is included
+                    //that would be whether they are included because of the old way, or the new way
                     if (instance!=null) {
                         update.clearParameters();
                         update.setDouble(1, instance.getRecentNewReliability());
