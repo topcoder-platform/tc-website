@@ -157,7 +157,7 @@ public class ReliabilityRating {
                             ps2.setDouble(2, instance.getRecentNewReliability());
                             ps2.setLong(3, instance.getProjectId());
                             ps2.setLong(4, userId);
-                            ps2.executeUpdate();
+                            ret+=ps2.executeUpdate();
                         }
                     }
                     if (instance!=null) {
