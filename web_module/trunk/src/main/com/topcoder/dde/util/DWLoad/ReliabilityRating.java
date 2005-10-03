@@ -87,8 +87,8 @@ public class ReliabilityRating {
             System.out.println(newMarked + " new records marked");
             System.out.println(oldMarked + " old records marked");
             System.out.println(oldUpdated + " old project result records updated");
-            System.out.println(designersUpdated + " designer records updated");
-            System.out.println(developersUpdated + " developer records updated");
+            System.out.println(designersUpdated + " new project result designer records updated");
+            System.out.println(developersUpdated + " new project result developer records updated");
 
         } catch (Exception e) {
             e.printStackTrace();
