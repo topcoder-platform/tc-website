@@ -47,7 +47,7 @@
             setTimeout("update()", 1000);
         }
 
-        setTimeout("update()", 1000);
+        update();
     </script>
   </body>
 </html>
