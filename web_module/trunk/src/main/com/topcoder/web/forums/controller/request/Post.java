@@ -9,6 +9,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.forums.controller.ForumsUtil;
 
 /**
  * @author mtong
@@ -58,7 +59,7 @@ public class Post extends ForumsProcessor {
             }
             if (postMode.equals("Edit")) {
                 setDefault(ForumConstants.MESSAGE_SUBJECT, message.getSubject());
-                setDefault(ForumConstants.MESSAGE_BODY, message.getUnfilteredBody().replaceAll("&","&amp;"));
+                setDefault(ForumConstants.MESSAGE_BODY, ForumsUtil.createTextAreaBody(message.getUnfilteredBody()));
             }
             getRequest().setAttribute("message", message);
             getRequest().setAttribute("thread", message.getForumThread());
