@@ -195,7 +195,7 @@ public class ReliabilityRating {
             " select pr.reliable_submission_ind" +
             " , ci.create_time" +
             " , pr.project_id" +
-            " , pi.start_date" +
+            " , case when pi.start_date >= ? then 1 else 0 end as after_start_flag" +
             " from project_result pr" +
             " , component_inquiry ci" +
             " , phase_instance pi" +
@@ -220,12 +220,13 @@ public class ReliabilityRating {
 
             try {
                 ps = conn.prepareStatement(reliabilityData);
-                ps.setLong(1, userId);
-                ps.setLong(2, phaseId);
+                ps.setDate(1, START_DATE);
+                ps.setLong(2, userId);
+                ps.setLong(3, phaseId);
                 rs = ps.executeQuery();
                 while (rs.next()) {
                     history.add(new ReliabilityInstance(rs.getLong("project_id"),
-                            userId, rs.getInt("reliable_submission_ind")==1, rs.getDate("start_date")));
+                            userId, rs.getInt("reliable_submission_ind")==1, rs.getInt("after_start_flag")==1));
                 }
 
                 if (!history.isEmpty()) {
@@ -286,11 +287,11 @@ public class ReliabilityRating {
         private boolean first = false;
 
 
-        private ReliabilityInstance(long projectId, long userId, boolean reliable, Date start) {
+        private ReliabilityInstance(long projectId, long userId, boolean reliable, boolean afterStart) {
             this.projectId = projectId;
             this.userId = userId;
             this.reliable = reliable;
-            this.afterStart = !start.before(START_DATE);
+            this.afterStart = afterStart;
         }
 
         public long getProjectId() {
