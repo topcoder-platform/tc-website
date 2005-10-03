@@ -27,12 +27,12 @@ if (o!=null) {
         %>
         var PS_EXAMPLE_SET = <%=Constants.EXAMPLE_ID%>;
         
-        var serverTime = new Date(<%=request.getAttribute(Constants.CURRENT_TIME)%>);
-        var localTime = new Date();
-        var adjustment = serverTime.getTime() - localTime.getTime();
+        var psServerTime = new Date(<%=request.getAttribute(Constants.CURRENT_TIME)%>);
+        var psLocalTime = new Date();
+        var psAdjustment = psServerTime.getTime() - psLocalTime.getTime();
 
         function problemSetUpdate() {
-			localTime = (new Date()).getTime() + adjustment;
+			psLocalTime = (new Date()).getTime() + psAdjustment;
 			
 			for (i = 0; i < psEndTimes.length; i++) {
 				if (psTypes[i] == PS_EXAMPLE_SET) {
@@ -43,7 +43,7 @@ if (o!=null) {
 						timeLeft = psEndTimes[i];
 					}
 					else {
-						timeLeft = psEndTimes[i] - localTime;
+						timeLeft = psEndTimes[i] - psLocalTime;
 					}
 					
 					if (timeLeft > 0) {
