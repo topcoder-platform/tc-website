@@ -283,6 +283,8 @@ public class ForumsUtil {
     }
     
     public static String createTextAreaBody(String body) {
+        body = StringUtils.escapeHTMLTags(body);
+        body = StringUtils.replace(body, "\"", "&quot;");
         //String textareaBody = StringUtil.replace(body, "<?", "&lt;?");
         //textareaBody = StringUtil.replace(textareaBody, ">?", "&gt;?");
         //textareaBody = StringUtil.replace(textareaBody, "\"", "&quot;");
