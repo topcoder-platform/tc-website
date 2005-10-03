@@ -276,7 +276,7 @@ public class ReliabilityRating {
            " and pr.reliable_submission_ind is null";
 
     private static final String updateReliableSubmission =
-            "update project_result set reliable_submission_ind = " +
+            "update project_result set reliable_submission_ind = ?" +
             "where user_id = ? and project_id = ?";
     /**
      * mark all the project result records after the change date
