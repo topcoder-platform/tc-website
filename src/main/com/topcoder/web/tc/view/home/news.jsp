@@ -9,6 +9,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>10.03.05<br>10:55 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm266">SRM 266 - Problem Set & Analysis</A></span><br><br>
+      SRM 266 posed a new challenge to the daring competitors. What appeared to be an easy in Division 1, turned out to actually give more trouble than the medium. The same happened in Division 2,</td>
+      <td class="newsPhoto"><img src="/i/m/supernova_mug.gif" /><br>by <tc-webtag:handle coderId="7371063" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm266">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505774" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>09.30.05<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo">Yahoo! chat session scheduled for SRM 266</A></span><br><br>
       Yahoo! will in the Arena Applet at 11:00 AM just before the start of SRM 266 to discuss working at Yahoo!.
@@ -252,21 +268,6 @@
          <A href="/tc?module=SimpleStats&c=tco05_spon_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=spon_adv_overview">results</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505393">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>09.12.05<br>2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=art_091205">Poland Takes the Lead</A> [Translation]</span><br><br>
-      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/pcwk_logo.gif" width="67" height="34" alt="PCWK" border="0" /></div>
-      "Poland has just left the US behind and taken first place in TopCoder's country ranking. Warsaw University occupies the first place in university ranking (University of Wroclaw is 13th, Jagiellonian University is 14th)." [PCWK]
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=pressroom&d2=art_091205">translation</A>&#160;|&#160;
-         <A href="http://www.pcworld.pl/news/82941.html">original</A>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505392">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
 
 </table>
