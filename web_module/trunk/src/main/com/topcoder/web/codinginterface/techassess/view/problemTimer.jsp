@@ -43,13 +43,12 @@ if (o!=null) {
         var EXAMPLE_SET = <%=Constants.EXAMPLE_ID%>;
         var countDown = <%=request.getParameter("countDown")%>;
         
-        var serverTime = new Date(<%=request.getAttribute(Constants.CURRENT_TIME)%>);
-        var localTime = new Date();
-        var adjustment = serverTime.getTime() - localTime.getTime();
+        var pServerTime = new Date(<%=request.getAttribute(Constants.CURRENT_TIME)%>);
+        var pLocalTime = new Date();
+        var pAdjustment = pServerTime.getTime() - pLocalTime.getTime();
         
         function problemUpdate() {
-			localTime = (new Date()).getTime() + adjustment;
-			currentTime = new Date(localTime);
+			pLocalTime = (new Date()).getTime() + pAdjustment;
 			
 			for (i = 0; i < startTimes.length; i++) {
 				if (countDown && types[i] == EXAMPLE_SET) {
@@ -58,7 +57,7 @@ if (o!=null) {
 				else {
 					time = 0;
 					if (countDown) {
-						time = endTimes[i] - currentTime.getTime();
+						time = endTimes[i] - pLocalTime;
 						if (time < 0) time = 0;
 					}
 					else {
@@ -66,7 +65,7 @@ if (o!=null) {
 							time = submitTimes[i] - startTimes[i];
 						}
 						else {
-							time = currentTime.getTime() - startTimes[i];
+							time = pLocalTime - startTimes[i];
 							if (time > times[i] && types[i] != EXAMPLE_SET) time = times[i];
 						}
 					}
