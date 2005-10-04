@@ -237,46 +237,35 @@ public class ReliabilityRating {
 
                 //calculate/populate reliabilities for the given history length. that means only incuode historyLength records
                 ReliabilityInstance cur = null;
-//                double fullOldRel = 0.0d;
                 double fullNewRel = 0.0d;
                 int fullReliableCount = 0;
                 for (int i = 0; i < history.size(); i++) {
-//                    fullOldRel = fullNewRel;
                     if (((ReliabilityInstance) history.get(i)).isReliable()) {
                         fullReliableCount++;
                     }
                     fullNewRel = (double) fullReliableCount / (double) (i + 1);
 
-//                    double oldRel = 0.0d;
                     double newRel = 0.0d;
                     int reliableCount = 0;
                     int projectCount = 0;
 
-                    System.out.println("i: " + i + " ");
-                    int j = (i-historyLength+1)<0?0:i-historyLength+1;
-                    //basically, if the first project when we start calculating is reliable, then they start with 100%
-/*
-                    if (((ReliabilityInstance) history.get(j)).isReliable()) {
-                        newRel = 1.0d;
-                    }
-*/
-                    for ( ; j<=i; j++) {
+//                    System.out.println("i: " + i + " ");
+                    int j = (i - historyLength + 1) < 0 ? 0 : i - historyLength + 1;
+                    for (; j <= i; j++) {
                         projectCount++;
                         cur = (ReliabilityInstance) history.get(j);
-//                        oldRel = newRel;
                         if (cur.isReliable()) {
                             reliableCount++;
                         }
                         newRel = (double) reliableCount / (double) (projectCount);
-//                        System.out.print("j: " + j + " old " + oldRel + " new " + newRel + " count " + reliableCount + " pcount " + projectCount + "\n");
-                        System.out.print("j: " + j + " new " + newRel + " count " + reliableCount + " pcount " + projectCount + "\n");
+//                        System.out.print("j: " + j + " new " + newRel + " count " + reliableCount + " pcount " + projectCount + "\n");
                     }
 
-                    if (i>0) {
+                    if (i > 0) {
                         ((ReliabilityInstance) history.get(i)).setRecentOldReliability(
-                                ((ReliabilityInstance) history.get(i-1)).getRecentNewReliability());
+                                ((ReliabilityInstance) history.get(i - 1)).getRecentNewReliability());
                         ((ReliabilityInstance) history.get(i)).setOldReliability(
-                                ((ReliabilityInstance) history.get(i-1)).getNewReliability());
+                                ((ReliabilityInstance) history.get(i - 1)).getNewReliability());
                     }
                     ((ReliabilityInstance) history.get(i)).setRecentNewReliability(newRel);
                     ((ReliabilityInstance) history.get(i)).setNewReliability(fullNewRel);
@@ -511,7 +500,7 @@ public class ReliabilityRating {
             " and pr.project_id = p.project_id" +
             " and p.cur_version = 1" +
             " and p.project_type_id+111=?" +
-            " and pr.user_id = 119676" +
+//            " and pr.user_id = 119676" +
             " union" +
             " select pr.user_id" +
             " from project_result pr" +
@@ -525,7 +514,7 @@ public class ReliabilityRating {
             " and pr.final_score >= ?" +
             " and pr.project_id = p.project_id" +
             " and p.cur_version = 1" +
-            " and pr.user_id = 119676" +
+//            " and pr.user_id = 119676" +
             " and p.project_type_id+111=?";
 
     private Set getIncludedUsers(Connection conn, long phaseId) throws SQLException {
