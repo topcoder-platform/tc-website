@@ -4,6 +4,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.web.common.RowNotFoundException;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
@@ -481,8 +482,13 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
         //if their reliability is < 70 %
             //if they have more than two registrations
                 //return false
-        Double reliability = selectDouble("user_reliability", "rating", new String[] {"phase_id", "user_id"},
+        Double reliability = null;
+        try {
+            reliability = selectDouble("user_reliability", "rating", new String[] {"phase_id", "user_id"},
                 new String[]{String.valueOf(phaseId), String.valueOf(userId)}, dataSource);
+        } catch (RowNotFoundException e) {
+            return true;
+        }
         if (reliability.compareTo(new Double(ComponentRegistrationServices.MIN_RELIABLE_PERCENTAGE))<0) {
             PreparedStatement ps = null;
             ResultSet rs = null;
