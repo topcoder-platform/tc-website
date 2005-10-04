@@ -245,17 +245,17 @@ public class ReliabilityRating {
                     }
                     fullNewRel = (double) fullReliableCount / (double) (i + 1);
 
-                    int window = 0;
                     double oldRel = 0.0d;
                     double newRel = 0.0d;
                     int reliableCount = 0;
-                    for (int j = i; j >= 0 && window < historyLength; j--, window++) {
+
+                    for (int j = (i-historyLength)<0?0:i-historyLength; j<i||j==0; j++) {
                         cur = (ReliabilityInstance) history.get(j);
                         oldRel = newRel;
                         if (cur.isReliable()) {
                             reliableCount++;
                         }
-                        newRel = (double) reliableCount / (double) (window + 1);
+                        newRel = (double) reliableCount / (double) (j + 1);
                     }
 
                     ((ReliabilityInstance) history.get(i)).setRecentNewReliability(newRel);
