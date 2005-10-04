@@ -248,6 +248,7 @@ public class ReliabilityRating {
                     double oldRel = 0.0d;
                     double newRel = 0.0d;
                     int reliableCount = 0;
+                    int projectCount = 0;
 
                     System.out.println("i: " + i + " ");
                     int j = (i-historyLength)<0?0:i-historyLength;
@@ -256,12 +257,13 @@ public class ReliabilityRating {
                         newRel = 1.0d;
                     }
                     for ( ; j<i||j==0; j++) {
+                        projectCount++;
                         cur = (ReliabilityInstance) history.get(j);
                         oldRel = newRel;
                         if (cur.isReliable()) {
                             reliableCount++;
                         }
-                        newRel = (double) reliableCount / (double) (j + 1);
+                        newRel = (double) reliableCount / (double) (projectCount);
                         System.out.print("j: " + j + " old " + oldRel + " new " + newRel + " count " + reliableCount + "\n");
                     }
 
