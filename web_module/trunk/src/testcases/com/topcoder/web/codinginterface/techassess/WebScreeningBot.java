@@ -11,10 +11,12 @@
 package com.topcoder.web.codinginterface.techassess;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.informix.jdbc.IfxDriver;
 import com.meterware.httpunit.GetMethodWebRequest;
 import com.meterware.httpunit.WebConversation;
 import com.meterware.httpunit.WebForm;
@@ -25,7 +27,6 @@ import com.topcoder.shared.language.CPPLanguage;
 import com.topcoder.shared.language.CSharpLanguage;
 import com.topcoder.shared.language.JavaLanguage;
 import com.topcoder.shared.language.VBLanguage;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
@@ -360,14 +361,14 @@ public class WebScreeningBot {
     
     
     private static final int COMPONENT_STATE_ID = 1710451;
-    private static final int SUBMISSION_NUMBER_THRESHOLD = 3;
+    private static final int SUBMISSION_NUMBER_THRESHOLD = 900;
     
     // delete submission records to avoid field overflows (submission_number, compile_count, etc)
     private void cleanup() {
         log.info("Performing cleanup...");
         Connection connection;
         try {
-            connection = DBMS.getConnection();
+            connection = createConnection();
         } catch (SQLException e) {
             e.printStackTrace();
             return;
@@ -384,6 +385,14 @@ public class WebScreeningBot {
         try {
             connection.close();
         } catch (SQLException e) {}
+        log.info("Cleanup complete");
+    }
+    
+    private Connection createConnection() throws SQLException{
+        String url = "jdbc:informix-sqli://192.168.14.51:2020/screening_oltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=teacup";
+        IfxDriver.class.getClass();
+        Connection connection = DriverManager.getConnection(url);
+        return connection;
     }
     
     private int getSubmissionNumber(Connection connection) {
