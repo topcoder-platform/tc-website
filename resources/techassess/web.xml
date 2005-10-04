@@ -53,7 +53,16 @@
     <session-config>
         <session-timeout>60</session-timeout>
     </session-config>
-
+    
+	<taglib>
+		<taglib-uri>codinginterface.tld</taglib-uri>
+		<taglib-location>/WEB-INF/codinginterface.tld</taglib-location>
+	</taglib>
+	
+	<taglib>
+		<taglib-uri>tc-webtags.tld</taglib-uri>
+		<taglib-location>/WEB-INF/tc-webtags.tld</taglib-location>
+	</taglib>
 
     <!--
       <taglib>
