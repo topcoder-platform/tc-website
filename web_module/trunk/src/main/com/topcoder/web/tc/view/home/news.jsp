@@ -10,8 +10,8 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>10.04.05<br>3:40 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">Search feature added to the Arena Chat Area</span><br><br>
-      We've added a helpful search tool to the Arena Chat Area.
+      <td class="newsTextCell"><span class="newsTitle">Find feature added to the Arena Chat Area</span><br><br>
+      We've added a helpful "Find" tool to the Arena Chat Area.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
