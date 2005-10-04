@@ -38,7 +38,7 @@
     	<delete dir="${techassess_war_dir}"/>
     	<mkdir dir="${techassess_war_dir}"/>
         <unwar src="${war_dir}/techassess.war" dest="${techassess_war_dir}" overwrite="yes"/>
-        <delete dir="${techassess_war_dir)/META-INF"/>
+        <delete dir="${techassess_war_dir}/META-INF"/>
     </target>
 
 </project>
