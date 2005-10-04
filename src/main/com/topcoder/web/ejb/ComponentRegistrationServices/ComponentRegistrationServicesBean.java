@@ -8,7 +8,6 @@ import com.topcoder.web.ejb.BaseEJB;
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
 
-import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -377,12 +376,12 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
 
     public ResultSetContainer getActiveQuestions() throws EJBException {
         return selectSet("comp_reg_question",
-                new String[]{"comp_reg_question_id", "question_text", "question_style_id"}, 
+                new String[]{"comp_reg_question_id", "question_text", "question_style_id"},
                 new String[]{"is_active"},
                 new String[]{"t"},
                 DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
-    
+
     public ResultSetContainer getActiveAnswers() throws EJBException {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -391,7 +390,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
 
         try {
             conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
-            
+
             StringBuffer query = new StringBuffer(1024);
 
             query.append("select a.comp_reg_answer_id, a.comp_reg_question_id, a.answer_text, a.sort_order ");
@@ -402,7 +401,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
 
             ps = conn.prepareStatement(query.toString());
             rs = ps.executeQuery();
-            return new ResultSetContainer(rs);   
+            return new ResultSetContainer(rs);
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
@@ -415,19 +414,19 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             close(ctx);
         }
     }
-    
+
     public ResultSetContainer getAnswers(long questionId) throws EJBException {
         return selectSet("comp_reg_answer",
-                new String[]{"comp_reg_answer_id", "comp_reg_question_id", "answer_text", "sort_order"}, 
+                new String[]{"comp_reg_answer_id", "comp_reg_question_id", "answer_text", "sort_order"},
                 new String[]{"com_reg_question_id"},
                 new String[]{String.valueOf(questionId)},
                 DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
-    
+
     public void createResponse(long projectId, long userId, long questionId, long answerId) throws EJBException {
         insert("comp_reg_response",
                 new String[]{"comp_reg_question_id", "comp_reg_answer_id", "user_id", "project_id"},
-                new String[]{String.valueOf(questionId), String.valueOf(answerId), 
+                new String[]{String.valueOf(questionId), String.valueOf(answerId),
                     String.valueOf(userId), String.valueOf(projectId)},
                 DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
@@ -435,7 +434,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
     public void createResponse(long projectId, long userId, long questionId, String text) throws EJBException {
         insert("comp_reg_response",
                 new String[]{"comp_reg_question_id", "response_text", "user_id", "project_id"},
-                new String[]{String.valueOf(questionId), text, 
+                new String[]{String.valueOf(questionId), text,
                     String.valueOf(userId), String.valueOf(projectId)},
                 DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
@@ -454,7 +453,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             ps.setLong(3, questionId);
 
             ResultSet rs = ps.executeQuery();
-            return rs.next();   
+            return rs.next();
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
@@ -465,6 +464,50 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             close(conn);
             close(ctx);
         }
+    }
+
+    private static final String reliableEnough =
+            " select count(*)" +
+              " from component_inquiry ci" +
+                 " , phase_instance pi" +
+             " where ci.project_id = pi.project_id" +
+               " and pi.cur_version = 1" +
+               " and pi.phase_id = 1" +
+               " and ci.phase = ?" +
+               " and ci.user_id = ?" +
+               " and pi.end_date < current";
+
+    public boolean isUserReliableEnough(long phaseId, long userId, String dataSource) throws EJBException {
+        //if their reliability is < 70 %
+            //if they have more than two registrations
+                //return false
+        Double reliability = selectDouble("user_reliability", "rating", new String[] {"phase_id", "user_id"},
+                new String[]{String.valueOf(phaseId), String.valueOf(userId)}, dataSource);
+        if (reliability.compareTo(new Double(ComponentRegistrationServices.MIN_RELIABLE_PERCENTAGE))<0) {
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            Connection conn = null;
+            try {
+                conn = DBMS.getConnection(dataSource);
+                ps = conn.prepareStatement(reliableEnough);
+                ps.setLong(1, phaseId);
+                ps.setLong(2, userId);
+                rs = ps.executeQuery();
+                if (rs.getInt(1)>=ComponentRegistrationServices.MAX_PROJECTS_WHEN_UNRELIABLE) {
+                    return false;
+                }
+            } catch (SQLException e) {
+                DBMS.printSqlException(true, e);
+                throw new EJBException(e);
+            } catch (Exception e) {
+                throw new EJBException(e);
+            } finally {
+                close(rs);
+                close(ps);
+            }
+        }
+        return true;
+
     }
 }
 
