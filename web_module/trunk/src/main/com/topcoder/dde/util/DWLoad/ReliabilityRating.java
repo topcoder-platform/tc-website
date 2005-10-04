@@ -29,6 +29,7 @@ public class ReliabilityRating {
 
 
     public static void main(String[] args) {
+        long start = System.currentTimeMillis();
         ReliabilityRating tmp = new ReliabilityRating();
 
         //Load our configuration
@@ -73,7 +74,6 @@ public class ReliabilityRating {
 
         Connection c = null;
         try {
-            long start = System.currentTimeMillis();
             Class.forName(jdbcDriver);
             c = DriverManager.getConnection(connectionURL);
             c.setAutoCommit(true);
@@ -91,7 +91,6 @@ public class ReliabilityRating {
             System.out.println(oldUpdated + " old project result records updated");
             System.out.println(designersUpdated + " new project result designer records updated");
             System.out.println(developersUpdated + " new project result developer records updated");
-            System.out.println("ran in " + (float)(System.currentTimeMillis()-start)/(float)1000 + " seconds");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -101,6 +100,7 @@ public class ReliabilityRating {
                 System.out.println("exception B: " + e1);
             }
         }
+        System.out.println("ran in " + (float)(System.currentTimeMillis()-start)/(float)1000 + " seconds");
     }
 
     private static final String updateProjectResult =
