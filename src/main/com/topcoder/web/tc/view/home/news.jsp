@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.04.05<br>5:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_100505">Sun chat session scheduled for SRM 267</A></span><br><br>
+      One hour prior to SRM 267 on October 5th, Joe Nuxoll from Sun Microsystems&#174; will be in arena to chat about JSF components and Java Studio Creator. The chat starts at 8:00PM EDT.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_100505">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505806" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>10.04.05<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_chat_100105">Yahoo! chat session from SRM 266</A></span><br><br>
       Yahoo! was in the Arena Applet just before the start of SRM 266 to discuss working at Yahoo!.
@@ -255,19 +268,6 @@
          <A href="/tc?module=Static&amp;d1=features&amp;d2=091405">full story</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505397">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.13.05<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun">Sun chat session scheduled for SRM 263</A></span><br><br>
-      Sun will be in the Arena Applet at 8:00 PM just before the start of SRM 263. They will be in arena to chat about JSF components and Java Studio Creator.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun">details</A>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505395">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 </table>
