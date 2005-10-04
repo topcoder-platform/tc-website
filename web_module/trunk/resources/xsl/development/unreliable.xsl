@@ -53,7 +53,7 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%"><img src="/i/clear.gif" width="10" height="10" alt="" border="0" /><br />
                 <tr valign="top">
                     <td class="bodyText" width="100%">
-                        <p>If your reliablity is less than 70%, then you man register for at most 2 projects at a time.</p>
+                        <p>If your reliablity is less than 70%, then you may register for at most 2 projects at a time.</p>
 
                         <p>If you have any questions please contact <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a></p>
 
