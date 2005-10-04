@@ -236,6 +236,15 @@ public abstract class BaseEJB implements SessionBean {
         return ret;
     }
 
+    protected Double selectDouble(String tableName, String colName, String[] colNames, String[] colValues, String dataSource) throws RowNotFoundException {
+        String sRet = selectString(tableName, colName, colNames, colValues, dataSource);
+        Double ret = null;
+        if (!(sRet == null || sRet.trim().equals(""))) {
+            ret = new Double(sRet);
+        }
+        return ret;
+    }
+
     protected Long selectLong(String tableName, String colName, String[] colNames, String[] colValues, String dataSource) throws RowNotFoundException{
         String sRet = selectString(tableName, colName, colNames, colValues, dataSource);
         Long ret = null;
