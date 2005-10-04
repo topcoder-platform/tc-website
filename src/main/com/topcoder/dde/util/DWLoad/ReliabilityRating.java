@@ -266,7 +266,7 @@ public class ReliabilityRating {
                             reliableCount++;
                         }
                         newRel = (double) reliableCount / (double) (projectCount);
-                        System.out.print("j: " + j + " old " + oldRel + " new " + newRel + " count " + reliableCount + "\n");
+                        System.out.print("j: " + j + " old " + oldRel + " new " + newRel + " count " + reliableCount + " pcount " + projectCount + "\n");
                     }
 
                     ((ReliabilityInstance) history.get(i)).setRecentNewReliability(newRel);
