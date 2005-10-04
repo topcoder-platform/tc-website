@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>10.04.05<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_chat_100105">Yahoo! chat session from SRM 266</A></span><br><br>
+      Yahoo! was in the Arena Applet just before the start of SRM 266 to discuss working at Yahoo!.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_chat_100105">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505804" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>10.04.05<br>3:40 PM</td>
       <td class="newsTextCell"><span class="newsTitle">Find feature added to the Arena Chat Area</span><br><br>
       We've added a helpful "Find" tool to the Arena Chat Area.
@@ -255,18 +268,6 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun">details</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505395">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>09.13.05<br>4:40 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">Event calendar updated for <A href="/tc?module=Static&d1=calendar&d2=nov_05">November</A>, <A href="/tc?module=Static&d1=calendar&d2=dec_05">December</A>, and <A href="/tc?module=Static&d1=calendar&d2=jan_06">January</A></span><br><br>
-      We've updated the Calendar for events through the end of the year and into January 2006.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <a href="/tc?module=Static&d1=calendar&d2=thisMonth">view calendar</a>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505394">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 </table>
