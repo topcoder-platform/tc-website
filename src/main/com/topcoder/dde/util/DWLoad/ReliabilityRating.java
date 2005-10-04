@@ -237,17 +237,17 @@ public class ReliabilityRating {
 
                 //calculate/populate reliabilities for the given history length. that means only incuode historyLength records
                 ReliabilityInstance cur = null;
-                double fullOldRel = 0.0d;
+//                double fullOldRel = 0.0d;
                 double fullNewRel = 0.0d;
                 int fullReliableCount = 0;
                 for (int i = 0; i < history.size(); i++) {
-                    fullOldRel = fullNewRel;
+//                    fullOldRel = fullNewRel;
                     if (((ReliabilityInstance) history.get(i)).isReliable()) {
                         fullReliableCount++;
                     }
                     fullNewRel = (double) fullReliableCount / (double) (i + 1);
 
-                    double oldRel = 0.0d;
+//                    double oldRel = 0.0d;
                     double newRel = 0.0d;
                     int reliableCount = 0;
                     int projectCount = 0;
@@ -263,18 +263,23 @@ public class ReliabilityRating {
                     for ( ; j<=i; j++) {
                         projectCount++;
                         cur = (ReliabilityInstance) history.get(j);
-                        oldRel = newRel;
+//                        oldRel = newRel;
                         if (cur.isReliable()) {
                             reliableCount++;
                         }
                         newRel = (double) reliableCount / (double) (projectCount);
-                        System.out.print("j: " + j + " old " + oldRel + " new " + newRel + " count " + reliableCount + " pcount " + projectCount + "\n");
+//                        System.out.print("j: " + j + " old " + oldRel + " new " + newRel + " count " + reliableCount + " pcount " + projectCount + "\n");
+                        System.out.print("j: " + j + " new " + newRel + " count " + reliableCount + " pcount " + projectCount + "\n");
                     }
 
+                    if (i>0) {
+                        ((ReliabilityInstance) history.get(i)).setRecentOldReliability(
+                                ((ReliabilityInstance) history.get(i-1)).getRecentNewReliability());
+                        ((ReliabilityInstance) history.get(i)).setOldReliability(
+                                ((ReliabilityInstance) history.get(i-1)).getNewReliability());
+                    }
                     ((ReliabilityInstance) history.get(i)).setRecentNewReliability(newRel);
-                    ((ReliabilityInstance) history.get(i)).setRecentOldReliability(oldRel);
                     ((ReliabilityInstance) history.get(i)).setNewReliability(fullNewRel);
-                    ((ReliabilityInstance) history.get(i)).setOldReliability(fullOldRel);
 
                     System.out.println(history.get(i).toString());
                 }
