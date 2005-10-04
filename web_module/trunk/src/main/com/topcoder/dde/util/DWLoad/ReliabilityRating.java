@@ -91,7 +91,7 @@ public class ReliabilityRating {
             System.out.println(oldUpdated + " old project result records updated");
             System.out.println(designersUpdated + " new project result designer records updated");
             System.out.println(developersUpdated + " new project result developer records updated");
-            System.out.println("run in " + (float)(System.currentTimeMillis()-start)/(float)1000 + " seconds");
+            System.out.println("ran in " + (float)(System.currentTimeMillis()-start)/(float)1000 + " seconds");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
