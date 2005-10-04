@@ -116,6 +116,7 @@ public class Constants implements WebConstants {
     public static String NOTE_LIST;
     public static String NOTE_EDIT;
     public static String CONTACT_DATE;
+    public static String TCS_SURVEY_RESULTS;
 
     public static String MEMBER_PROFILE;
 
@@ -125,7 +126,6 @@ public class Constants implements WebConstants {
     public static String DESIGN_DETAIL;
     public static String DEVELOPMENT_DETAIL;
     public static String REVIEWER_TERMS;
-    public static String TCS_SURVEY_RESULTS;
 
     /* misc constants */
     public static int SRM_SURVEY_QUESTION;
