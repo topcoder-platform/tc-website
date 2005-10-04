@@ -1,6 +1,6 @@
-<project name="topcoder" default="main" basedir=".">
+<project name="topcoder" basedir=".">
 
-    <property name="jboss_home" value="../jboss-4.0.1"/>
+    <property name="jboss_home" value="../jboss-4.0.2"/>
     <property name="tempDeployDir" value="deploy"/>
 
     <target name="deploy-techassess" depends="">

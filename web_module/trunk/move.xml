@@ -3,6 +3,9 @@
     moving of code to a production environment
  -->
 <project name="topcoder" default="" basedir=".">
+	
+	<property name="tempMoveDir" value="move"/>
+	<property name="jboss_home" value="../jboss-4.0.2"/>
 
     <target name="package-topcoder" depends="">
 <!--
@@ -55,6 +58,7 @@
     </target>
 
     <target name="package-techassess" depends="">
+<!--
         <delete dir="src"/>
         <delete dir="resources"/>
         <delete dir="build"/>
@@ -68,21 +72,23 @@
         <exec dir="../shared" executable="cvs">
             <arg line="update -dP src"/>
         </exec>
-
+-->
+    	<mkdir dir="${tempMoveDir}"/>
+    	
         <ant antfile="build.xml" target="war-techassess"/>
         <ant dir="../app" antfile="build.xml" target="screening-ejb-jars"/>
 
-        <copy todir="." file="build/wars/techassess.war"/>
-        <copy todir="." file="lib/bin/shared.jar"/>
-        <copy todir="." file="../jboss-4.0.1/server/default/deploy/reconnect.jar"/>
-        <copy todir="." file="../jboss-4.0.1/server/default/deploy/ProblemServices.jar"/>
-        <copy todir="." file="../jboss-4.0.1/server/default/deploy/ScreeningServices.jar"/>
-        <copy todir="." file="../jboss-4.0.1/server/default/deploy/ScreeningTesterCompilerServices.jar"/>
-        <copy todir="." file="../jboss-4.0.1/server/default/deploy/ScreeningAdminServices.jar"/>
-        <copy todir="." file="../jboss-4.0.1/server/default/lib/Screening.jar"/>
+        <copy todir="${tempMoveDir}" file="build/wars/techassess.war"/>
+        <copy todir="${tempMoveDir}" file="lib/bin/shared.jar"/>
+        <copy todir="${tempMoveDir}" file="${jboss_home}/server/default/deploy/reconnect.jar"/>
+        <copy todir="${tempMoveDir}" file="${jboss_home}/server/default/deploy/ProblemServices.jar"/>
+        <copy todir="${tempMoveDir}" file="${jboss_home}/server/default/deploy/ScreeningServices.jar"/>
+        <copy todir="${tempMoveDir}" file="${jboss_home}/server/default/deploy/ScreeningTesterCompilerServices.jar"/>
+        <copy todir="${tempMoveDir}" file="${jboss_home}/server/default/deploy/ScreeningAdminServices.jar"/>
+        <copy todir="${tempMoveDir}" file="${jboss_home}/server/default/lib/Screening.jar"/>
 
         <jar destfile="techassess.jar" update="true">
-            <fileset dir=".">
+            <fileset dir="${tempMoveDir}">
                 <include name="techassess.war"/>
                 <include name="shared.jar"/>
                 <include name="reconnect.jar"/>
@@ -93,6 +99,8 @@
                 <include name="ScreeningAdminServices.jar"/>
             </fileset>
         </jar>
+    	
+    	<delete dir="${tempMoveDir}"/>
     </target>
 
     <target name="package-software" depends="">
