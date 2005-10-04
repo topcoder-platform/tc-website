@@ -38,7 +38,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tr class="bodyText"><td nowrap="nowrap">10.04.05 3:40 PM&#160;-&#160</td><td width="100%">Search feature added to the Arena Chat Area</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.04.05 3:40 PM&#160;-&#160</td><td width="100%">Find feature added to the Arena Chat Area</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.31.05 10:20 AM&#160;-&#160</td><td width="100%"><A href="/?RoundId=8007&t=schedule&c=srm">$5,000 prize purse for SRM 265, new time</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.30.05 5:25 PM&#160;-&#160</td><td width="100%"><A href="/?RoundId=7996&t=schedule&c=srm">SRM 262 date changed</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.01.05 1:00 PM&#160;-&#160</td><td width="100%"><A href="/?RoundId=8012&t=schedule&c=srm">SRM added on 08.22</A></td></tr>
