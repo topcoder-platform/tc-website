@@ -1,4 +1,4 @@
-package com.topcoder.web.tc.controller.request.development;
+package com.topcoder.web.tc.controller.request.report;
 
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -10,6 +10,7 @@ import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.Base;
 
 import java.util.Map;
 
@@ -20,7 +21,7 @@ import java.util.Map;
 public class TCSSurveyResults extends Base {
 
 
-    protected void developmentProcessing() throws TCWebException {
+    protected void businessProcessing() throws TCWebException {
 
         if (((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
 
