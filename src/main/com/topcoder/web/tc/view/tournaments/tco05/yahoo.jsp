@@ -26,6 +26,7 @@
 <p align="center"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_confirm">Apply now</A>
 &#160;&#160;|&#160;&#160;<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=504998&sortField=9&sortOrder=0">Yahoo! Employment Forum</A>
 &#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_chat">SRM 249 Chat Transcript</A>
+&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_chat_100105">SRM 266 Chat Transcript</A>
 </p>
 Yahoo! is excited to sponsor the TopCoder Open and support the drive, intensity and innovative spirit of TopCoder members. We know a lot about you and we’re impressed (to say the least). We hope you’ll get to know a bit about us too.
 <br><br>               
