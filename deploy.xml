@@ -37,7 +37,7 @@
     	<delete file="${jboss_home}/server/default/deploy/techassess.war"/>
     	<delete dir="${techassess_war_dir}"/>
     	<mkdir dir="${techassess_war_dir}"/>
-        <unwar src="${war.dir}/techassess.war" dest="${techassess_war_dir}" overwrite="yes"/>
+        <unwar src="${war_dir}/techassess.war" dest="${techassess_war_dir}" overwrite="yes"/>
         <delete dir="${techassess_war_dir)/META-INF"/>
     </target>
 
