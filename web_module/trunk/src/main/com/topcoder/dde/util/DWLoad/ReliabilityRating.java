@@ -472,7 +472,7 @@ public class ReliabilityRating {
                 }
             }
         } finally {
-            close(rs);
+            close(rs3);
             close(ps);
             close(ps2);
             close(ps3);
@@ -484,7 +484,7 @@ public class ReliabilityRating {
 
     /**
      * this first query is for projects before our reliability rule change.
-     * in this case, anyone that has make a submission that passed screening
+     * in this case, anyone that has made a submission where reliabilty was in effect
      * will have a reliability rating.  the second query is for the new way.
      * in this case, anyone that has scored over the minimum review
      * score will be included.
@@ -503,7 +503,6 @@ public class ReliabilityRating {
             " and pi.phase_id = 1" +
             " and pi.cur_version = 1" +
             " and pi.start_date < ?" +
-            " and pr.valid_submission_ind = 1" +
             " and pr.reliability_ind = 1" +
             " and pr.project_id = p.project_id" +
             " and p.cur_version = 1" +
