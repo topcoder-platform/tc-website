@@ -2,6 +2,7 @@
                  com.topcoder.web.common.model.CoderSessionInfo,
                  com.topcoder.web.common.BaseServlet"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <% ResultSetContainer coderInfo= (ResultSetContainer)request.getAttribute("member_info");%>
 
