@@ -271,7 +271,7 @@ public class ReliabilityRating {
                     ((ReliabilityInstance) history.get(i)).setRecentNewReliability(newRel);
                     ((ReliabilityInstance) history.get(i)).setNewReliability(fullNewRel);
 
-                    System.out.println(history.get(i).toString());
+                    //System.out.println(history.get(i).toString());
                 }
 
             } finally {
