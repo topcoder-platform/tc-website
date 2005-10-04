@@ -12,7 +12,7 @@
 <% if (coderInfo!=null && !coderInfo.isEmpty()) { %>
 <table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
     <tr>
-        <td class="statTextBig" bgcolor="#333333">&#160;Coder: <a href="/tc?module=MemberProfile&cr=<rsc:item set="<%=coderInfo%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=coderInfo.getIntItem(0, "rating")%>'/>"><rsc:item set="<%=coderInfo%>" name="handle"/></a></td>
+        <td class="statTextBig" bgcolor="#333333">&#160;Coder: <tc-webtag:handle coderId='<%=coderInfo.getLongItem(0, "coder_id")%>'/></td>
     </tr>
 
     <tr>
