@@ -476,7 +476,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
                " and pi.phase_id = 1" +
                " and ci.phase = ?" +
                " and ci.user_id = ?" +
-               " and pi.end_date < current";
+               " and pi.end_date > current";
 
     public boolean isUserReliableEnough(long phaseId, long userId, String dataSource) throws EJBException {
         //if their reliability is < 70 %
