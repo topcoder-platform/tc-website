@@ -146,6 +146,7 @@ public class ReliabilityRating {
                     ReliabilityInstance instance = null;
                     for (Iterator records = rh.getHistory(); records.hasNext();) {
                         instance = (ReliabilityInstance) records.next();
+                        System.out.println(" xxx " + instance.toString());
                         if (instance.isAfterStart()) {
                             ps2.clearParameters();
                             if (instance.isFirst()) {
@@ -158,6 +159,7 @@ public class ReliabilityRating {
                             ps2.setLong(4, userId);
                             ret += ps2.executeUpdate();
                         }
+
                     }
                     //update or create a user_reliability record for everyone that is included
                     //that would be whether they are included because of the old way, or the new way
