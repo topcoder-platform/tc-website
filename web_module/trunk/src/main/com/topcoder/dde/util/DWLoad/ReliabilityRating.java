@@ -250,7 +250,12 @@ public class ReliabilityRating {
                     int reliableCount = 0;
 
                     System.out.println("i: " + i + " ");
-                    for (int j = (i-historyLength)<0?0:i-historyLength; j<i||j==0; j++) {
+                    int j = (i-historyLength)<0?0:i-historyLength;
+                    //basically, if the first project when we start calculating is reliable, then they start with 100%
+                    if (((ReliabilityInstance) history.get(j)).isReliable()) {
+                        newRel = 1.0d;
+                    }
+                    for ( ; j<i||j==0; j++) {
                         cur = (ReliabilityInstance) history.get(j);
                         oldRel = newRel;
                         if (cur.isReliable()) {
