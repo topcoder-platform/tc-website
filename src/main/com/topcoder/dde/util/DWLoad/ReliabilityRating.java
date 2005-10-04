@@ -260,7 +260,7 @@ public class ReliabilityRating {
                         newRel = 1.0d;
                     }
 */
-                    for ( ; j<i||j==0; j++) {
+                    for ( ; j<=i; j++) {
                         projectCount++;
                         cur = (ReliabilityInstance) history.get(j);
                         oldRel = newRel;
