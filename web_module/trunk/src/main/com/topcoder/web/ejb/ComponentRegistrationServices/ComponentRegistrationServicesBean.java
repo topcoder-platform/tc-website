@@ -510,6 +510,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             } finally {
                 close(rs);
                 close(ps);
+                close(conn);
             }
         }
         return true;
