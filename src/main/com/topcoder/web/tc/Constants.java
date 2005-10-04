@@ -125,6 +125,7 @@ public class Constants implements WebConstants {
     public static String DESIGN_DETAIL;
     public static String DEVELOPMENT_DETAIL;
     public static String REVIEWER_TERMS;
+    public static String TCS_SURVEY_RESULTS;
 
     /* misc constants */
     public static int SRM_SURVEY_QUESTION;
