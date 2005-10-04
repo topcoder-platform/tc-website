@@ -122,7 +122,7 @@ public class ReliabilityRating {
      * @return
      */
     public int updateReliability(Connection conn, Set users, int historyLength, long phaseId) throws SQLException {
-        System.out.println("updateReliability(conn, users, " + historyLength + ", " + phaseId + ") called");
+        //System.out.println("updateReliability(conn, users, " + historyLength + ", " + phaseId + ") called");
         int ret = 0;
         PreparedStatement ps = null;
         PreparedStatement ps2 = null;
@@ -146,7 +146,7 @@ public class ReliabilityRating {
                     ReliabilityInstance instance = null;
                     for (Iterator records = rh.getHistory(); records.hasNext();) {
                         instance = (ReliabilityInstance) records.next();
-                        System.out.println(" xxx " + instance.toString());
+                        //System.out.println(" xxx " + instance.toString());
                         if (instance.isAfterStart()) {
                             ps2.clearParameters();
                             if (instance.isFirst()) {
