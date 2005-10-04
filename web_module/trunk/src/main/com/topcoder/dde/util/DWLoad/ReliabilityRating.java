@@ -412,9 +412,16 @@ public class ReliabilityRating {
             " and pi.cur_version = 1" +
             " and pi.start_date < ?" +
             " and pi.project_id = pr.project_id" +
+            " and pr.reliable_submission_ind is not null" +
             " and pr.reliability_ind = 1";
 
-
+    /**
+     * this can be sped up if there is a speed issue.  we'll need to trim what is gettig updated
+     * there is no reason to update all this old data repeatedly.
+     * @param conn
+     * @return
+     * @throws SQLException
+     */
     public int updateOldProjectResult(Connection conn) throws SQLException {
         int ret = 0;
         PreparedStatement ps = null;
@@ -500,7 +507,6 @@ public class ReliabilityRating {
             " and pr.project_id = p.project_id" +
             " and p.cur_version = 1" +
             " and p.project_type_id+111=?" +
-//            " and pr.user_id = 119676" +
             " union" +
             " select pr.user_id" +
             " from project_result pr" +
@@ -514,7 +520,6 @@ public class ReliabilityRating {
             " and pr.final_score >= ?" +
             " and pr.project_id = p.project_id" +
             " and p.cur_version = 1" +
-//            " and pr.user_id = 119676" +
             " and p.project_type_id+111=?";
 
     private Set getIncludedUsers(Connection conn, long phaseId) throws SQLException {
