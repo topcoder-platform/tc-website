@@ -499,6 +499,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
                 ps.setLong(1, phaseId);
                 ps.setLong(2, userId);
                 rs = ps.executeQuery();
+                rs.next();
                 if (rs.getInt(1)>=ComponentRegistrationServices.MAX_PROJECTS_WHEN_UNRELIABLE) {
                     return false;
                 }
