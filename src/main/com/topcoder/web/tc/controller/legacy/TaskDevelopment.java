@@ -304,7 +304,7 @@ public final class TaskDevelopment {
                                 if (!cregBean.isUserRegistered(projectId, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
                                     if (!cregBean.hasUserReviewedProject(projectId, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
                                         if (!cregBean.isUserWinningDesigner(projectId, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
-                                            if (!cregBean.isUserReliableEnough(phase, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
+                                            if (cregBean.isUserReliableEnough(phase, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
 
                                                 //check max rated / unrated
                                                 log.debug("RYAN RATING IS:" + rating);
