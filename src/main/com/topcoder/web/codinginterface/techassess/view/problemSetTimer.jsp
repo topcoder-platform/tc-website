@@ -61,6 +61,6 @@ if (o!=null) {
 			setTimeout("problemSetUpdate()", 1000);
         }
 
-        setTimeout("problemSetUpdate()", 100);
+        setTimeout("problemSetUpdate()", 200);
 <% } %>
     </script>

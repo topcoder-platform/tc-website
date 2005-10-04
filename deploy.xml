@@ -14,7 +14,7 @@
         <mkdir dir="${backupDirectory}"/>
 
         <copy todir="${backupDirectory}" file="build/wars/techassess.war"/>
-        <copy todir="${backupDirectory}" file="lib/bin/shared.jar"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/lib/shared.jar"/>
         <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/reconnect.jar"/>
         <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/ProblemServices.jar"/>
         <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/ScreeningServices.jar"/>
