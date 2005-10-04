@@ -38,6 +38,16 @@
            <jsp:param name="title" value="TopCoder Web Site Change Log"/>
         </jsp:include>
 
+        <p> 4.0.3 - 2005.10.04
+            <ul>
+                <li>Changes relating to the new component reliability formula.
+                    <ul>
+                        <li>Split reliability rating in member profile</li>
+                        <li>If your reliability is < 70% you can't register for more than 2 projects</li>
+                    </ul>
+                </li>
+            </ul>
+        </p>
         <p> 4.0.2 - 2005.09.27
             <ul>
                 <li>Changed links in the registration activation email to the schedule</li>
