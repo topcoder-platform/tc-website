@@ -202,10 +202,13 @@ public class ReliabilityRating {
             " from project_result pr" +
             " , component_inquiry ci" +
             " , phase_instance pi" +
+            " , project p" +
             " where ci.project_id = pr.project_id" +
             " and pr.user_id = ci.user_id" +
+            " and pr.project_id = p.project_id" +
+            " and p.cur_version = 1" +
             " and pr.user_id = ?" +
-            " and ci.phase = ?" +
+            " and p.project_type_id+111 = ?" +
             " and pr.project_id = pi.project_id" +
             " and pi.cur_version = 1" +
             " and pi.phase_id = 1" +
