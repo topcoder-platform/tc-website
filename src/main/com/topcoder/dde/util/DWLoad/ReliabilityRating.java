@@ -249,6 +249,7 @@ public class ReliabilityRating {
                     double newRel = 0.0d;
                     int reliableCount = 0;
 
+                    System.out.println("i: " + i + " ");
                     for (int j = (i-historyLength)<0?0:i-historyLength; j<i||j==0; j++) {
                         cur = (ReliabilityInstance) history.get(j);
                         oldRel = newRel;
@@ -256,6 +257,7 @@ public class ReliabilityRating {
                             reliableCount++;
                         }
                         newRel = (double) reliableCount / (double) (j + 1);
+                        System.out.print("j: " + j + " old " + oldRel + " new " + newRel + " count " + reliableCount + "\n");
                     }
 
                     ((ReliabilityInstance) history.get(i)).setRecentNewReliability(newRel);
