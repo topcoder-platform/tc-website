@@ -29,18 +29,22 @@ public class TCSSurveyResults extends Base {
 
             try {
                 Request r = new Request();
-                r.setContentHandle("survey_results");
                 String projectID = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID));
-                r.setProperty(Constants.PROJECT_ID, projectID);
-                
-                Map resultMap = getDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME, false).getData(r);
+
                 ResultSetContainer results = null;
                 ResultSetContainer resultsFreeform = null;
                 
                 if (projectID.equals("")) {
+                    r.setContentHandle("survey_results_all");
+                    Map resultMap = getDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME, false).getData(r);
+                    
                     results = (ResultSetContainer)resultMap.get("survey_results_all");
                     resultsFreeform = (ResultSetContainer)resultMap.get("survey_results_all_freeform");
                 } else {
+                    r.setContentHandle("survey_results");
+                    r.setProperty(Constants.PROJECT_ID, projectID);
+                    Map resultMap = getDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME, false).getData(r);
+                    
                     results = (ResultSetContainer)resultMap.get("survey_results");
                     resultsFreeform = (ResultSetContainer)resultMap.get("survey_results_freeform");               
                     getRequest().setAttribute("componentName", results.getStringItem(1, "component_name"));
