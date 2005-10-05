@@ -145,16 +145,16 @@ margin:0px auto;
       <table border="0" cellpadding="0" cellspacing="0">
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">September Events:</A></td>
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">October Events:</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-            <b>9/07</b> - TCO05 Alg Round 4 - 930PM<br><br>
-            <b>9/09</b> - SRM 262 - 11AM<br><br>
-            <b>9/14</b> - SRM 263 - 9PM - Sun Microsystems<br><br>
-            <b>9/20</b> - SRM 264 - 9PM - NSA<br><br>
-            <b>9/27</b> - SRM 265 - 9AM - VeriSign<br><br>
+            <b>10/01</b> - SRM 266 - 12PM - Yahoo!<br><br>
+            <b>10/05</b> - SRM 267 - 9PM - Sun<br><br>
+            <b>10/12-14</b> - TCO05 Onsite Finals<br><br>
+            <b>10/18</b> - SRM 268 - 11AM - Sun<br><br>
+            <b>10/26</b> - SRM 269 - 9PM - NSA<br><br>
             </td>
          </tr>
          <tr>

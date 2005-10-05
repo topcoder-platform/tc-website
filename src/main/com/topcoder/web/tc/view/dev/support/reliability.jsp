@@ -45,8 +45,7 @@ member presents a timely submission that scores at least a 70 in review.</p>
 
 <p>Separate reliability ratings will be kept for design and development projects.</p>
 
-<p>When figuring out the reliability bonus for a project, the reliability rating at the time the participant signed up for the project is 
-used.  A participant with no previous projects is considered to have no reliability rating, and therefore gets no bonus.</p>
+<p>When figuring out the reliability bonus for a project, the reliability rating used will take into account those projects that were signed up for prior to the current project.  A participant with no previous projects is considered to have no reliability rating, and therefore gets no bonus.</p>
 
 <p>TopCoder will not reset reliability statuses for projects posted prior to October 5th, 2005.  Projects prior to this date 
 will be marked reliable, if the user submitted a solution that passed screening.</p>
