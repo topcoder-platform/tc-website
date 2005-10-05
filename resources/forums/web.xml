@@ -25,13 +25,13 @@
             <param-value>Login</param-value>
             <description>the processor to execute when we need to direct the user to login</description>
         </init-param>
-       
+
         <init-param>
             <param-name>login_servlet</param-name>
             <param-value>/tc</param-value>
             <description>the servlet path to use when we need to direct the user to login</description>
         </init-param>
-        
+
         <init-param>
             <param-name>processor_path</param-name>
             <param-value>com.topcoder.web.forums.controller.request.</param-value>
@@ -55,5 +55,11 @@
         <taglib-uri>tc-webtags.tld</taglib-uri>
         <taglib-location>/WEB-INF/tc-webtags.tld</taglib-location>
     </taglib>
+
+    <error-page>
+         <error-code>404</error-code>
+         <location>/errorPage.jsp</location>
+    </error-page>
+
 
 </web-app>

@@ -1585,5 +1585,9 @@
       <taglib-location>/WEB-INF/tc-taglib.tld</taglib-location>
    </taglib>
 
+   <error-page>
+        <error-code>404</error-code>
+        <location>/errorPage.jsp</location>
+   </error-page>
 
 </web-app>
