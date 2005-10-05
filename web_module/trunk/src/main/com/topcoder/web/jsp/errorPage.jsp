@@ -12,6 +12,7 @@ isErrorPage="true"
 <head>
 <title>TopCoder - Error</title>
 <link type="text/css" rel="stylesheet" href="/css/home.css"/>
+<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <STYLE TYPE="text/css">
 body
 {
