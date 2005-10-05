@@ -138,7 +138,7 @@ public class ProfileSearch extends Base {
             query.append("  , (select '<a href=/tc?module=DownloadResume&uid=' || res2.coder_id || '>Resume</a>' from resume res2 where res2.coder_id = c.coder_id)\n");
             query.append("  , (select max(n.modify_date) from user_note_xref unx, note n where unx.user_id = c.coder_id and unx.note_id = n.note_id)\n");
             query.append("  , (select unique '<a href=/tc?module=PlacementInfoDetail&uid=' || upi.user_id || '>Placement Info</a>' from user_preference upi where upi.user_id = c.coder_id AND upi.preference_id in (2,7))\n");
-            query.append("  , (select '<a href=/tc?module=ViewNotes&uid=' || c.coder_id || '>Notes</a>' from user_note_xref unx, note n where unx.user_id = c.coder_id and unx.note_id = n.note_id)\n");
+            query.append("  , (select distinct '<a href=/tc?module=ViewNotes&uid=' || c.coder_id || '>Notes</a>' from user_note_xref unx, note n where unx.user_id = c.coder_id and unx.note_id = n.note_id)\n");
             query.append("  , '<a href=/tc?module=LegacyReport&t=profile&ha=' || u.handle || '>General Info</a>'\n");
             query.append("  , '<a href=/tc?module=MemberProfile&cr=' || c.coder_id || '>Public Profile</a>'\n");
             headers.addAll(Arrays.asList(new String[]{ "Algorithm Rating", "Design Rating", "Development Rating","","Notes","","","",""}));
