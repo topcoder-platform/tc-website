@@ -23,6 +23,9 @@ public class TCSSurveyResults extends Base {
 
     protected void businessProcessing() throws TCWebException {
 
+        SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+        log.debug("#########handle: "+info.getHandle());
+        log.debug("#########userID: "+info.getUserId());
         if (((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
 
             try {
