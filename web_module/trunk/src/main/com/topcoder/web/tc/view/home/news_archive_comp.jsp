@@ -35,6 +35,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">10.05.05 9:25 AM - </td><td width="100%">Reliability Rating changes</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.26.05 3:00 PM - </td><td width="100%">Software Royalties updated in Member Profiles</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.17.05 8:00 PM - </td><td width="100%">New Statistics: Component Contest Details</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.12.05 3:50 PM - </td><td width="100%"><A href="http://software.topcoder.com/index.jsp">software.topcoder.com</A> will be down for maintenance on 7/18</td></tr>
