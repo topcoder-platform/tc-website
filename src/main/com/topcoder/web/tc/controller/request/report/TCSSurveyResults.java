@@ -24,10 +24,7 @@ public class TCSSurveyResults extends Base {
     protected void businessProcessing() throws TCWebException {
 
         SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-        log.debug("#########handle: "+info.getHandle());
-        log.debug("#########userID: "+info.getUserId());
-        log.debug("#########isAdmin: "+info.isAdmin());
-        //if (((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
+        if (((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
 
             try {
                 Request r = new Request();
@@ -63,8 +60,8 @@ public class TCSSurveyResults extends Base {
                 throw new TCWebException(e);
             }
 
-        //} else {
-            //throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        //}
+        } else {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }
     }
 }
