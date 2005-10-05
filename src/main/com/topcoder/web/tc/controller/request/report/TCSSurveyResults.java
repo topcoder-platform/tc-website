@@ -26,7 +26,8 @@ public class TCSSurveyResults extends Base {
         SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
         log.debug("#########handle: "+info.getHandle());
         log.debug("#########userID: "+info.getUserId());
-        if (((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
+        log.debug("#########isAdmin: "+info.isAdmin());
+        //if (((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
 
             try {
                 Request r = new Request();
@@ -62,8 +63,8 @@ public class TCSSurveyResults extends Base {
                 throw new TCWebException(e);
             }
 
-        } else {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        }
+        //} else {
+            //throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        //}
     }
 }
