@@ -5,6 +5,7 @@
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow,
                  com.topcoder.web.tc.Constants,
                  com.topcoder.shared.util.ApplicationServer,
+                 com.topcoder.web.common.StringUtils,
                  java.util.Iterator"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -54,9 +55,9 @@
                     <td class="projectTitles" nowrap="nowrap">
                         Survey Results - 
                         <%  if (componentName != null) { %>
-                            All
-                        <%  } else { %>
                             <%=componentName%>
+                        <%  } else { %>
+                            All
                         <% } %>
                     </td>
                 </tr>
@@ -64,12 +65,6 @@
                     <td class="projectHeaders" align="left">Overview</td>
                 </tr>
             </table>
-
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-
-            <table border="0" cellspacing="0" cellpadding="0" align="center" width="530">
-                <tr valign="top">
-                    <td class="bodyText">
 
 <%-- Overview --%>
                         <p>
@@ -79,13 +74,15 @@
                                 <%  if (!currQ.equals(row.getStringItem("question_text"))) {
                                         if (qNum != 0) { %></table><% } %>
                                     <%  currQ = row.getStringItem("question_text"); qNum++; %>
-                                        <table><tr><td colspan=2><%=currQ%></td></tr>
-                                <%  } else { %>
-                                    <tr>
-                                        <td><%=row.getStringItem("answer_text")%></td>
-                                        <td><%=row.getIntItem("cnt")%></td>
-                                    </tr>
+                                        <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="530">
+                                            <tr>
+                                                <td class="bodyText" colspan=2><%=currQ%></td>
+                                            </tr>
                                 <%  } %>
+                                <tr>
+                                    <td class="bodyText"><%=row.getStringItem("answer_text")%></td>
+                                    <td class="bodyText"><%=row.getIntItem("cnt")%></td>
+                                </tr>
                         <%  } %>
                         <%  if (results.getRowCount() > 0) { %></table><% } %>
                         </p>
@@ -96,21 +93,33 @@
                     <td class="projectHeaders" align="left">Freeform Responses</td>
                 </tr>
             </table>
-<%  currQ = ""; 
-    qNum = 0; %>
-<p class="noSpListTitle">
-<%  Iterator itResultsFreeform = resultsFreeform.iterator();
-    while (itResultsFreeform.hasNext()) {
-        ResultSetRow row = (ResultSetRow)itResultsFreeform.next(); %>
-        <%  if (!currQ.equals(row.getStringItem("question_text"))) {
-                if (qNum != 0) { %></ul><% } %>
-            <%  currQ = row.getStringItem("question_text"); qNum++; %>
-                <%=currQ%><ul class="noSpList">     
-        <%  } %>
-        <li><%=row.getStringItem("response_text")%></li>
-<%  } %>
-<%  if (resultsFreeform.getRowCount() > 0) { %></ul><% } %>
-</p>
+            
+            <p>
+            <table border="0" cellspacing="0" cellpadding="0" align="center" width="530">
+                <tr valign="top">
+                    <td class="bodyText">
+						<%  currQ = ""; 
+						    qNum = 0; %>
+						<p class="noSpListTitle">
+						<%  Iterator itResultsFreeform = resultsFreeform.iterator();
+						    while (itResultsFreeform.hasNext()) {
+						        ResultSetRow row = (ResultSetRow)itResultsFreeform.next(); %>
+						        <%  if (!currQ.equals(row.getStringItem("question_text"))) {
+						                if (qNum != 0) { %></ul><% } %>
+						            <%  currQ = row.getStringItem("question_text"); qNum++; %>
+						                <%=currQ%><ul class="noSpList">     
+						        <%  } %>
+						        <%  String responseText = StringUtils.checkNull(row.getStringItem("response_text"));
+						            if (!responseText.equals("")) { %>
+						                <li><%=responseText%></li>
+						        <%  } %>
+						<%  } %>
+						<%  if (resultsFreeform.getRowCount() > 0) { %></ul><% } %>
+						</p>
+                    </td>
+                </tr>
+            </table>
+            </p>
 
             <p><br/></p>
         </td>
