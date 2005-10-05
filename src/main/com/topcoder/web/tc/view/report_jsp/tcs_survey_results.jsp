@@ -109,7 +109,7 @@
         <%  } %>
         <li><%=row.getStringItem("response_text")%></li>
 <%  } %>
-<%  if (resultsFreeForm.getRowCount() > 0) { %></ul><% } %>
+<%  if (resultsFreeform.getRowCount() > 0) { %></ul><% } %>
 </p>
 
             <p><br/></p>
