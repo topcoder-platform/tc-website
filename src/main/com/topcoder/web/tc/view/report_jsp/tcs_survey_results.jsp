@@ -6,6 +6,7 @@
                  com.topcoder.web.tc.Constants,
                  com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.common.StringUtils,
+                 com.topcoder.web.tc.Constants,
                  java.util.Iterator"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -119,6 +120,17 @@
                     </td>
                 </tr>
             </table>
+            </p>
+            
+            <p>
+            Choose a project:<br/>
+            <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+                <select size="1" name="<%=Constants.PROJECT_ID%>" id="<%=Constants.PROJECT_ID%>">
+                        <option value="" selected>All Projects</option>
+                </select>
+                <input type="hidden" name="module" value="TCSSurveyResults">
+                <input name="Search" value="Search" type="submit" alt="Search" onclick="">
+            </form>
             </p>
 
             <p><br/></p>
