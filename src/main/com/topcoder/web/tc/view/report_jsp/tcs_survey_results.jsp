@@ -57,7 +57,7 @@
                         <%  if (componentName != null) { %>
                             <%=componentName%>
                         <%  } else { %>
-                            All
+                            All Projects
                         <% } %>
                     </td>
                 </tr>
