@@ -10,68 +10,73 @@ isErrorPage="true"
  %>
 <html>
 <head>
-   <TITLE>TopCoder</TITLE>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-   <jsp:include page="script.jsp" />
+<title>TopCoder - Error</title>
+<link type="text/css" rel="stylesheet" href="/css/home.css"/>
+<STYLE TYPE="text/css">
+body
+{
+text-align: center;
+}
+.centerer
+{
+width: 400px;
+background-image: url(/i/interface/errorBox.gif);
+background-repeat: no-repeat;
+background-position: top center;
+text-align: left;
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 20px;
+padding: 0px;
+}
+</STYLE>
 </HEAD>
 
 <body>
 
-<table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">
-    <tr>
-        <td width="100%" class="login" nowrap="0">&nbsp;</td>
-    </tr>
-</table>
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
-    <tr><td width="100%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td></tr>
-</table>
-
-<!-- Logo Bar Include Begins -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
-    <tr valign="middle">
-        <td width="15"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
-        <td width="206"><a href="/" target="_parent"><img src="/i/logo.gif" width="206" height="49" border="0" vspace="5"/></a></td>
-        <td width="99%"><img src="/i/clear.gif" width="1" height="75" border="0" hspace="15"/></td>
-    </tr>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+   <tr>
+       <td class="homeTopBar" align=left>
+       </td>
+      <td class="homeTopBar" align=right><A href="/tc?module=Static&d1=about&d2=index" class="loginLinks">About TopCoder</A></td>
+   </tr>
 </table>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr><td height="4" class="headStripe"><img src="/images/clear.gif" alt="" height="4" border="0" /></td></tr>
+   <tr>
+      <td width="50%" class="homeLogo" align="left"><A href="/"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></A></td>
+      <td width="50%" class="homeLogo" align="right">&#160;</td>
+   </tr>
 </table>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#CC0000">
-    <tr valign="middle">
-        <td class="topNav" width="100%">&#160;</td>
-    </tr>
+<div class="centerer">
+   <div style="padding:20px"><b>
+   <span style="font-size: 18px; color: #990000;">Error</span>
+   <br><br>
+   <span class="homeText">
+      <%=message==null?"Sorry, there was an error in your request.":message%>
+      <br><br>
+      Please <a href="<%=url==null?"javascript:history.back();":url%>">go back</a> to the last page you were viewing.
+      <br><br>
+      If you have a question or comment, please email <a HREF="mailto:service@topcoder.com" CLASS="bodyText">service@topcoder.com</a>.
+   <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   </span></b>
+   </div>
+</div>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+   <tr><td class="homeFooter"colspan="5">
+            <A href="/" class="footerLinks">Home</A>&#160;&#160;|&#160;&#160;
+            <A href="/tc?module=Static&d1=about&d2=index" class="footerLinks">About TopCoder</A>&#160;&#160;|&#160;&#160;
+            <A href="/tc?module=Static&d1=pressroom&d2=index" class="footerLinks">Press Room</A>&#160;&#160;|&#160;&#160;
+            <A href="/?t=contacts&c=index" class="footerLinks">Contact Us</A>&#160;&#160;|&#160;&#160;
+            <A href="/tc?module=Static&d1=about&d2=privacy" class="footerLinks">Privacy</A>&#160;&#160;|&#160;&#160;
+            <A href="/tc?module=Static&d1=about&d2=terms" class="footerLinks">Terms</A>
+         <br>
+            <A href="/tc" class="footerLinks">Developer Center</A>&#160;&#160;|&#160;&#160;
+            <A href="/corp/?module=Static&d1=corp&d2=index" class="footerLinks">Corporate Services</A>
+    <tr><td class="copyright"colspan="5">Copyright &#169; 2001-2004, TopCoder, Inc. All rights reserved.</td></tr>
 </table>
-
-<table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr><td width="100%" height="2" class="nonBreadcrumb"><img src="/images/clear.gif" alt="" width="10" height="2" border="0" /></td></tr>
-</table>
-
-<table cellspacing="0" cellpadding="0" border="0" width="100%" height="60%">
-    <tr valign="top">
-        <td width="180"><img src="/i/clear.gif" alt="" border="0" height="1" width="170"></td>
-        <td width="10"><img border="0" height="1" width="10" src="/i/clear.gif"></td>
-        <td width="100%" class="bodytext">
-            <img border="0" vspace="5" height="1" width="400" src="/i/clear.gif"><br>
-            <div class="bodyText"><%=message==null?"Sorry, there was an error in your request.":message%></div>
-            <br/>
-            <br/>
-            <div class="bodyText">Please <a href="<%=url==null?"javascript:history.back();":url%>">go back</a> to the last page you were viewing.</div>
-            <br/>
-            <br/>
-            If you have a question or comment please email <a HREF="mailto:service@topcoder.com" CLASS="bodyText">service@topcoder.com</a>.
-        </td>
-        <td width="10"><img border="0" height="1" width="10" src="/i/clear.gif"></td>
-        <td width="170"><img border="0" height="1" width="170" src="/i/clear.gif"></td>
-        <td width="10"><img height="1" width="10" src="/i/clear.gif"></td>
- </tr>
- </table>
-
-<jsp:include page="foot.jsp" />
-
 </body>
 </html>
