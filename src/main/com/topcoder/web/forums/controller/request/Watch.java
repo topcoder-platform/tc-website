@@ -4,6 +4,7 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveConstants;
+import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.WatchManager;
 import com.topcoder.shared.security.ClassResource;
@@ -34,7 +35,7 @@ public class Watch extends ForumsProcessor {
         if (type == JiveConstants.THREAD) {
             ForumThread thread = forumFactory.getForumThread(id);
         	if (cmd.equals("add")) {
-                if (watchManager.getTotalWatchCount(user, JiveConstants.THREAD) < ForumConstants.MAX_THREAD_WATCHES) {
+                if (watchManager.getTotalWatchCount(user, JiveConstants.THREAD) < ForumConstants.maxThreadWatchesPerPage) {
                     watchManager.createWatch(user, thread);
                 } else {
                 	errors = ForumConstants.WATCH_THREAD;

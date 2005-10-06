@@ -3,6 +3,8 @@
  */
 package com.topcoder.web.forums;
 
+import com.jivesoftware.base.JiveGlobals;
+
 /**
  * @author mtong
  */
@@ -99,7 +101,7 @@ public interface ForumConstants {
     public final static int MAX_THREADS_PER_PAGE = 100;
     public final static int MAX_MESSAGES_PER_PAGE = 100;
     public final static int MAX_SEARCH_RESULTS_PER_PAGE = 100;
-    public final static int MAX_THREAD_WATCHES = 200;
+    public final static int MAX_THREAD_WATCHES = 2000;
     public final static int MAX_DISPLAYED_FORUMS_PER_CATEGORY = 15;
     
     // Error messages
@@ -135,4 +137,16 @@ public interface ForumConstants {
     
     // Occur when attempting to change the query string while posting a message
     public final static String ERR_POST_MODE_UNRECOGNIZED = "Post mode unrecognized.";
+    
+    // Constants based on Jive properties
+    public static int maxThreadWatchesPerPage =
+        JiveGlobals.getJiveIntProperty("skin.tc.maxThreadWatches", ForumConstants.MAX_THREAD_WATCHES);
+    public static int maxForumsPerPage = 
+        JiveGlobals.getJiveIntProperty("skin.default.maxForumsPerPage", ForumConstants.MAX_FORUMS_PER_PAGE);
+    public static int maxThreadsPerPage =
+        JiveGlobals.getJiveIntProperty("skin.default.maxThreadsPerPage", ForumConstants.MAX_THREADS_PER_PAGE);
+    public static int maxMessagesPerPage =
+        JiveGlobals.getJiveIntProperty("skin.default.maxMessagesPerPage", ForumConstants.MAX_MESSAGES_PER_PAGE);
+    public static int maxSearchResultsPerPage =
+        JiveGlobals.getJiveIntProperty("skin.default.maxSearchResultsPerPage", ForumConstants.MAX_SEARCH_RESULTS_PER_PAGE);
 }
