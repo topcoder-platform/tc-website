@@ -140,6 +140,7 @@ public final class MainServlet extends BaseServlet {
             trail.append(requestCommand);
             trail.append(" ****]");
             log.info(trail.toString());
+            log.debug(request.getHeader("Referer"));
             User user = nav.getUser();
             if (user == null) {
                 //user must have been transient and we got a navigation object that had been serialized at some point
