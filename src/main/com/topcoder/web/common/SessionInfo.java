@@ -69,6 +69,7 @@ public class SessionInfo implements Serializable {
         if (log.isDebugEnabled()) {
             log.debug("servername: " + getServerName() + " servletpath:" + getServletPath() + " query: " +
                     getQueryString() + " request: " + getRequestString());
+            Thread.dumpStack();
         }
 
     }
@@ -139,7 +140,7 @@ public class SessionInfo implements Serializable {
         }
         return memberCount;
     }
-    
+
     private int loadMemberCount() throws Exception {
         CachedDataAccess countDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
         countDai.setExpireTime(15 * 60 * 1000);
