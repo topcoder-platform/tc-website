@@ -29,13 +29,12 @@
     ResultFilter resultFilter = (ResultFilter)request.getAttribute("resultFilter"); 
     ReadTracker readTracker = forumFactory.getReadTracker(); 
     WatchManager watchManager = forumFactory.getWatchManager();
-    String trackerClass = ""; 
+    String trackerClass = "";
+    String sortField = (String)request.getAttribute("sortField");
+    String sortOrder = (String)request.getAttribute("sortOrder");
     
     StringBuffer linkBuffer = new StringBuffer("?module=Category");
     linkBuffer.append("&").append(ForumConstants.CATEGORY_ID).append("=").append(forumCategory.getID());
-    
-    String sortField = (String)request.getAttribute("sortField");
-    String sortOrder = (String)request.getAttribute("sortOrder");
 
     StringBuffer forumLinkBuffer = new StringBuffer(linkBuffer.toString());
     StringBuffer dateLinkBuffer = new StringBuffer(linkBuffer.toString());
