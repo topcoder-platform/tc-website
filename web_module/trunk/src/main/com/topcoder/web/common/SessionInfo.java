@@ -42,6 +42,9 @@ public class SessionInfo implements Serializable {
 
     public SessionInfo(TCRequest request, WebAuthentication authentication, Set groups) throws Exception {
         this();
+        if (log.isDebugEnabled()) {
+            log.debug("creating sessionInfo object");
+        }
         userid = authentication.getActiveUser().getId();
         handle = authentication.getActiveUser().getUserName();
 
@@ -69,8 +72,8 @@ public class SessionInfo implements Serializable {
         if (log.isDebugEnabled()) {
             log.debug("servername: " + getServerName() + " servletpath:" + getServletPath() + " query: " +
                     getQueryString() + " request: " + getRequestString());
-            Thread.dumpStack();
         }
+        Thread.dumpStack();
 
     }
 
