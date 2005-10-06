@@ -58,12 +58,22 @@
                         <%  } else { %>
                             <option value="">All Projects</option>
                         <%  } %>
-                        <rsc:iterator list="<%=projects%>" id="project">
-                            <%  if (componentName.equals(project.getStringItem("component_name"))) { %>
-                                <option value="<rsc:item row="<%=project%>" name="project_id"/>" selected>
+                        <%  Iterator itProjects = projects.iterator();
+                            while (itProjects.hasNext()) {
+                                ResultSetRow row = (ResultSetRow)itResults.next();
+                                if (componentName.equals(row.getStringItem("component_name"))) { %>
+                                    <option value="<%=row.getIntItem("project_id")%>" selected>
                             <%  } else { %>
-                                <option value="<rsc:item row="<%=project%>" name="project_id"/>">
+                                    <option value="<%=row.getIntItem("project_id")%>">
                             <%  } %>
+                            <%=row.getStringItem("component_name")%> (<%=row.getStringItem("version_text")%>, <%=row.getStringItem("description")%>)
+                        <%  } %>
+                        <rsc:iterator list="<%=projects%>" id="project">
+                            <%--<%  if (componentName.equals(project.getStringItem("component_name"))) { %>
+                                <option value="<rsc:item row="<%=project%>" name="project_id"/>" selected>
+                            <%  } else { %>--%>
+                                <option value="<rsc:item row="<%=project%>" name="project_id"/>">
+                            <%--  } --%>
                                 <rsc:item row="<%=project%>" name="component_name"/> (<rsc:item row="<%=project%>" name="version_text"/>, <rsc:item row="<%=project%>" name="description"/>)
                             </option>
                         </rsc:iterator>
