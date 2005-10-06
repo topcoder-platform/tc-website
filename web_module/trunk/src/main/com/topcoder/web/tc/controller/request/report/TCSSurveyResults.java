@@ -49,7 +49,7 @@ public class TCSSurveyResults extends Base {
                     
                     results = (ResultSetContainer)resultMap.get("survey_results");
                     resultsFreeform = (ResultSetContainer)resultMap.get("survey_results_freeform");               
-                    getRequest().setAttribute("componentName", results.getStringItem(1, "component_name"));
+                    getRequest().setAttribute("componentName", results.getStringItem(0, "component_name"));
                 }
                 getRequest().setAttribute("results", results);
                 getRequest().setAttribute("resultsFreeform", resultsFreeform);

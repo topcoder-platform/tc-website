@@ -53,9 +53,19 @@
             Choose a project:<br/>
             <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
                 <select size="1" name="<%=Constants.PROJECT_ID%>" id="<%=Constants.PROJECT_ID%>">
-                        <option value="" selected>All Projects</option>
+                        <%  if (componentName == null) { %>
+                            <option value="" selected>All Projects</option>
+                        <%  } else { %>
+                            <option value="">All Projects</option>
+                        <%  } %>
                         <rsc:iterator list="<%=projects%>" id="project">
-                            <option value="<rsc:item row="<%=project%>" name="project_id"/>"><rsc:item row="<%=project%>" name="component_name"/></option>
+                            <%  if (componentName.equals(project.getStringItem("component_name"))) { %>
+                                <option value="<rsc:item row="<%=project%>" name="project_id"/>" selected>
+                            <%  } else { %>
+                                <option value="<rsc:item row="<%=project%>" name="project_id"/>">
+                            <%  } %>
+                                <rsc:item row="<%=project%>" name="component_name"/> (<rsc:item row="<%=project%>" name="version_text"/>, <rsc:item row="<%=project%>" name="description"/>)
+                            </option>
                         </rsc:iterator>
                 </select>
                 <input type="hidden" name="module" value="TCSSurveyResults">
