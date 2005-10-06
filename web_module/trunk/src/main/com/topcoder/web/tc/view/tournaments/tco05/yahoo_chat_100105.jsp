@@ -114,27 +114,27 @@
 
 <tr><td class="light"><b>shakti_sd</b></td><td class="light">yahoo_waqar: in India / US ?</td></tr>
 <tr><td class="dark"><b>soft.freak</b></td><td class="dark">Yahoo_Waqar: do you have anyone who welcome some new IDEAS as I have somthings to discuss</td></tr>
-<tr><td class="light"><b>Yahoo_Waqar</b></td><td class="light">Yahoo as a large broad company recruits in almost all areas of computer science.</td></tr>
+<tr><td class="light"><span class="bigRed">Yahoo_Waqar</span></td><td class="light"><span class="bigRed">Yahoo as a large broad company recruits in almost all areas of computer science.</span></td></tr>
 <tr><td class="dark"><span class="bigRed">Yahoo_Bob</span></td><td class="dark"><span class="bigRed">There is no single profile that every team is looking for</span></td></tr>
-<tr><td class="light"><b>Yahoo_Waqar</b></td><td class="light">Unix, systems programming, C++</td></tr>
-<tr><td class="dark"><b>Yahoo_Waqar</b></td><td class="dark">Data skills</td></tr>
+<tr><td class="light"><span class="bigRed">Yahoo_Waqar</span></td><td class="light"><span class="bigRed">Unix, systems programming, C++</span></td></tr>
+<tr><td class="dark"><span class="bigRed">Yahoo_Waqar</span></td><td class="dark"><span class="bigRed">Data skills</span></td></tr>
 
 <tr><td class="light"><b>kanishkkunal</b></td><td class="light">no java?</td></tr>
 <tr><td class="dark"><b>shakti_sd</b></td><td class="dark">Yahoo_Waqar: no java ?</td></tr>
 <tr><td class="light"><b>codelion</b></td><td class="light">are u going to hire ppl from topcoder ?</td></tr>
-<tr><td class="dark"><b>Yahoo_Waqar</b></td><td class="dark">Java as well</td></tr>
+<tr><td class="dark"><span class="bigRed">Yahoo_Waqar</span></td><td class="dark"><span class="bigRed">Java as well</span></td></tr>
 <tr><td class="light"><b>nishantkumar</b></td><td class="light">Yahoo_Waqar: Do u develop s/w for mobile phones? Like on Symbian, WinCE. Any division in India?</td></tr>
 <tr><td class="dark"><b>shakti_sd</b></td><td class="dark">Yahoo_Bob: Java ?</td></tr>
 
 <tr><td class="light"><b>lordhiru</b></td><td class="light">Yahoo_Waqar: whats the chance for a sri lankan to get an internship at yahoo, india or anywhere</td></tr>
 <tr><td class="dark"><b>supernova</b></td><td class="dark">Yahoo_Bob: I only had a visitor visa as I attented the TopCoder Colegiate Challenge.</td></tr>
-<tr><td class="light"><b>Yahoo_Waqar</b></td><td class="light">A Sri Lankan or any nationality can apply</td></tr>
+<tr><td class="light"><span class="bigRed">Yahoo_Waqar</span></td><td class="light"><span class="bigRed">A Sri Lankan or any nationality can apply</span></td></tr>
 <tr><td class="dark"><b>codelion</b></td><td class="dark">why dont u ppl give more stress on algorithms like others</td></tr>
 <tr><td class="light"><b>supernova</b></td><td class="light">Yahoo_Bob: There I received an invitation from Mr. Ming Sui (I am from Romania) and a few months later when I asked again he sent me an email that there were some sort of visa problems.</td></tr>
 <tr><td class="dark"><b>supernova</b></td><td class="dark">Yahoo_Bob: I just wondered if there were similar caused or if you know whether it has something specific tot do with some countries</td></tr>
 
 <tr><td class="light"><b>hano</b></td><td class="light">when is the next recruiting process?</td></tr>
-<tr><td class="dark"><b>Yahoo_Waqar</b></td><td class="dark">We do care about algorithmic skills</td></tr>
+<tr><td class="dark"><span class="bigRed">Yahoo_Waqar</span></td><td class="dark"><span class="bigRed">We do care about algorithmic skills</span></td></tr>
 <tr><td class="light"><b>codelion</b></td><td class="light">supernova: there are probs for some countrys in us visa :(</td></tr>
 <tr><td class="dark"><b>lordhiru</b></td><td class="dark">Yahoo_Waqar: so whats the working experience at yahoo. I hope its not a 16 hours / a day job like i happened do sometime ago</td></tr>
 <tr><td class="light"><b>revtekniques</b></td><td class="light">Yahoo_Waqar: what do you do at Yahoo!?</td></tr>
@@ -143,12 +143,12 @@
 <tr><td class="light"><b>loveislife</b></td><td class="light">Yahoo_Waqar: Excuse me if this is asked before, but is this global recruitment drive ?</td></tr>
 <tr><td class="dark"><b>codelion</b></td><td class="dark">Yahoo_Waqar: but as u just said the skills u desire are on unix systems and all thats the same think put on the flyer at our college for yahoo placements, how can u expect a bacholers student to be good at that kind of stuff</td></tr>
 <tr><td class="light"><b>mike</b></td><td class="light">supernova: I doubt the Yahoo folks in here now can help with a specific situation such as yours</td></tr>
-<tr><td class="dark"><b>Yahoo_Waqar</b></td><td class="dark">I work in Strageic Data Solutions which is the side of Yahoo focussed on understanding what users do on our website so that the experience can be made better as well as increase monetization.</td></tr>
+<tr><td class="dark"><span class="bigRed">Yahoo_Waqar</span></td><td class="dark"><span class="bigRed">I work in Strageic Data Solutions which is the side of Yahoo focussed on understanding what users do on our website so that the experience can be made better as well as increase monetization.</span></td></tr>
 <tr><td class="light"><b>revtekniques</b></td><td class="light">supernova: you can send me an email about your situation and I can try to find you answeres to them...</td></tr>
 <tr><td class="dark"><b>supernova</b></td><td class="dark">mike: I just thought it might be a more generalized problem.</td></tr>
 
 <tr><td class="light"><b>sandy_patel4u</b></td><td class="light">hello</td></tr>
-<tr><td class="dark"><b>Yahoo_Waqar</b></td><td class="dark">We develop ways of analyzing data as an example of an algorithmic area.</td></tr>
+<tr><td class="dark"><span class="bigRed">Yahoo_Waqar</span></td><td class="dark"><span class="bigRed">We develop ways of analyzing data as an example of an algorithmic area.</span></td></tr>
 <tr><td class="light"><b>revtekniques</b></td><td class="light">supernova: jquach@topcoder.com</td></tr>
 <tr><td class="dark"><b>sandy_patel4u</b></td><td class="dark">hello</td></tr>
 <tr><td class="light"><b>L</b></td><td class="light">Yahoo_Bob: why isn't there a "Yahoo! Code Jam"?</td></tr>
@@ -165,7 +165,7 @@
 <tr><td class="dark"><span class="bigRed">Yahoo_Bob</span></td><td class="dark"><span class="bigRed">Yahoo doesn't have a company-wide 20% policy</span></td></tr>
 <tr><td class="light"><b>sandy_patel4u</b></td><td class="light">for what purpose we can use it?</td></tr>
 <tr><td class="dark"><b>codelion</b></td><td class="dark">hmm so i join yahoo and die working for it :(</td></tr>
-<tr><td class="light"><b>Yahoo_Waqar</b></td><td class="light">Yahoo is looking for talent in many countries.</td></tr>
+<tr><td class="light"><span class="bigRed">Yahoo_Waqar</span></td><td class="light"><span class="bigRed">Yahoo is looking for talent in many countries.</span></td></tr>
 <tr><td class="dark"><b>codelion</b></td><td class="dark">lol</td></tr>
 
 <tr><td class="light"><span class="bigRed">Yahoo_Bob</span></td><td class="light"><span class="bigRed">but in my team, we schedule projects li ke that the same way we schedule vacation</span></td></tr>
@@ -177,7 +177,7 @@
 
 <tr><td class="light"><b>sandy_patel4u</b></td><td class="light">yahoo hires 2005 passouts?</td></tr>
 <tr><td class="dark"><b>JNugget</b></td><td class="dark">Yahoo_Bob: For someone, like myself, who is interested in algorithms, data structures and optimization problems... is search the best group to be in?</td></tr>
-<tr><td class="light"><b>Yahoo_Waqar</b></td><td class="light">We collect more than 10 Terrabytes of data every day -- yes, thats every day</td></tr>
+<tr><td class="light"><span class="bigRed">Yahoo_Waqar</span></td><td class="light"><span class="bigRed">We collect more than 10 Terrabytes of data every day -- yes, thats every day</span></td></tr>
 <tr><td class="dark"><span class="bigRed">Yahoo_Bob</span></td><td class="dark"><span class="bigRed">which means you're doing something you want to do 100% of the time!</span></td></tr>
 <tr><td class="light"><b>hano</b></td><td class="light">Yahoo_Bob: does Yahoo have any postgraduate program?</td></tr>
 <tr><td class="dark"><b>kranjit</b></td><td class="dark">Yahoo_Bob: What about opportunities in India?</td></tr>
@@ -192,7 +192,7 @@
 <tr><td class="light"><span class="bigRed">Yahoo_Bob</span></td><td class="light"><span class="bigRed">we are hiring there</span></td></tr>
 <tr><td class="dark"><b>codelion</b></td><td class="dark">Yahoo_Bob: and wat about the recent row with google how big is ur db really?</td></tr>
 <tr><td class="light"><b>sandy_patel4u</b></td><td class="light">how can we apply?revtek?</td></tr>
-<tr><td class="dark"><b>Yahoo_Waqar</b></td><td class="dark">Yahoo operates the worlds largest collections of data and analysis of that data is a huge challenge --- algorithms that scale are a big challenge</td></tr>
+<tr><td class="dark"><span class="bigRed">Yahoo_Waqar</span></td><td class="dark"><span class="bigRed">Yahoo operates the worlds largest collections of data and analysis of that data is a huge challenge --- algorithms that scale are a big challenge</span></td></tr>
 <tr><td class="light"><b>kranjit</b></td><td class="light">codelion: they are not supposed to disclose such things.</td></tr>
 <tr><td class="dark"><b>codelion</b></td><td class="dark">Yahoo_Bob: are u looking for interns in banglore</td></tr>
 
@@ -203,11 +203,11 @@
 <tr><td class="light"><b>revtekniques</b></td><td class="light">sandy_patel4u: if you are in india</td></tr>
 <tr><td class="dark"><span class="bigRed">Yahoo_Bob</span></td><td class="dark"><span class="bigRed">1.5B of those are images, the rest are web pages</span></td></tr>
 
-<tr><td class="light"><b>Yahoo_Waqar</b></td><td class="light">We use compression as well as many other techniques</td></tr>
+<tr><td class="light"><span class="bigRed">Yahoo_Waqar</span></td><td class="light"><span class="bigRed">We use compression as well as many other techniques</span></td></tr>
 <tr><td class="dark"><b>codelion</b></td><td class="dark">kranjit: they annoced it silly</td></tr>
-<tr><td class="light"><b>Yahoo_Waqar</b></td><td class="light">Sampling for instance is an important area for handling scale</td></tr>
+<tr><td class="light"><span class="bigRed">Yahoo_Waqar</span></td><td class="light"><span class="bigRed">Sampling for instance is an important area for handling scale</span></td></tr>
 <tr><td class="dark"><b>gokulnath</b></td><td class="dark">is there opportunities for higher studies while working in yahoo?</td></tr>
-<tr><td class="light"><b>Yahoo_Waqar</b></td><td class="light">So it approximate computation</td></tr>
+<tr><td class="light"><span class="bigRed">Yahoo_Waqar</span></td><td class="light"><span class="bigRed">So it approximate computation</span></td></tr>
 <tr><td class="dark"><span class="bigRed">Yahoo_Bob</span></td><td class="dark"><span class="bigRed">you gotta figure it'll grow from there, but we haven't announced annything</span></td></tr>
 
 <tr><td class="light"><span class="bigRed">Yahoo_Bob</span></td><td class="light"><span class="bigRed">and google has thrown in the towel, having removed their size number from the home page</span></td></tr>
@@ -215,13 +215,13 @@
 <tr><td class="light"><b>kranjit</b></td><td class="light">Yahoo_Waqar: what kind of opportunities does one have at bangalore?</td></tr>
 <tr><td class="dark"><b>codelion</b></td><td class="dark">but wats the algo that sorts them in pages</td></tr>
 <tr><td class="light"><span class="bigRed">Yahoo_Bob</span></td><td class="light"><span class="bigRed">so both companies now agree that the size alone doesn't matter, it's relevance, which is what yahoo has been saying all along</span></td></tr>
-<tr><td class="dark"><b>Yahoo_Waqar</b></td><td class="dark">Yahoo banagalore is growing very fast and has aopportunities across the board.</td></tr>
+<tr><td class="dark"><span class="bigRed">Yahoo_Waqar</span></td><td class="dark"><span class="bigRed">Yahoo banagalore is growing very fast and has aopportunities across the board.</span></td></tr>
 
 <tr><td class="light"><b>sandy_patel4u</b></td><td class="light">ya i m in india</td></tr>
 <tr><td class="dark"><b>nishantkumar</b></td><td class="dark">Yahoo_Waqar: Are u currently working in India?</td></tr>
 <tr><td class="light"><b>abi_k</b></td><td class="light">Yahoo_Waqar: I am interested in cryptographic algorithms, does yahoo! have need for any?</td></tr>
 <tr><td class="dark"><b>kranjit</b></td><td class="dark">Yahoo_Waqar: like what sort of research goes in and what sort of persons are they looking to hire?</td></tr>
-<tr><td class="light"><b>Yahoo_Waqar</b></td><td class="light">Speaking for the data side, we have groups in bangalore that are working on algorithms for analysis as well as in the area of data management.</td></tr>
+<tr><td class="light"><span class="bigRed">Yahoo_Waqar</span></td><td class="light"><span class="bigRed">Speaking for the data side, we have groups in bangalore that are working on algorithms for analysis as well as in the area of data management.</span></td></tr>
 <tr><td class="dark"><span class="bigRed">Yahoo_Bob</span></td><td class="dark"><span class="bigRed">In bangalore, there are operations-oriented positions as well as development</span></td></tr>
 
 <tr><td class="light"><b>hano</b></td><td class="light">Yahoo_Bob: how many huma classifiers Yahoo has?</td></tr>
@@ -232,13 +232,13 @@
 <tr><td class="dark"><b>Ryan</b></td><td class="dark">They considered sponsoring the TCO</td></tr>
 
 <tr><td class="light"><span class="bigRed">Yahoo_Bob</span></td><td class="light"><span class="bigRed">Well, I will confess that iI use Excel</span></td></tr>
-<tr><td class="dark"><b>Yahoo_Waqar</b></td><td class="dark">Crypto is relevant for Yahoo --- areas like privacy and security are important.</td></tr>
+<tr><td class="dark"><span class="bigRed">Yahoo_Waqar</span></td><td class="dark"><span class="bigRed">Crypto is relevant for Yahoo --- areas like privacy and security are important.</span></td></tr>
 <tr><td class="light"><b>kanishkkunal</b></td><td class="light">i think it does conducts such contests.</td></tr>
 <tr><td class="dark"><b>kanishkkunal</b></td><td class="dark">i mean sponser</td></tr>
 <tr><td class="light"><b>chaotica</b></td><td class="light">ya know, i'm starting to yahoo should have gotten more than two people to come and chat :)</td></tr>
 <tr><td class="dark"><b>chaotica</b></td><td class="dark">starting to think too</td></tr>
 
-<tr><td class="light"><b>Yahoo_Waqar</b></td><td class="light">If your are research oriented, then we have Yahoo Research Labs where the focus is on advanced research and prototype systems</td></tr>
+<tr><td class="light"><span class="bigRed">Yahoo_Waqar</span></td><td class="light"><span class="bigRed">If your are research oriented, then we have Yahoo Research Labs where the focus is on advanced research and prototype systems</span></td></tr>
 <tr><td class="dark"><b>codelion</b></td><td class="dark">Yahoo_Waqar: from been a search engine company where is yahoo aheading now</td></tr>
 <tr><td class="light"><b>Minilek</b></td><td class="light">Does Yahoo! have a research group ?</td></tr>
 <tr><td class="dark"><b>Minilek</b></td><td class="dark">Oh..question answered. : )</td></tr>
@@ -253,7 +253,7 @@
 <tr><td class="dark"><b>revtekniques</b></td><td class="dark">lordhiru: that is correct</td></tr>
 
 <tr><td class="light"><b>cseiitkgp</b></td><td class="light">i am a senior undergrad at comp sc and engg at iit</td></tr>
-<tr><td class="dark"><b>Yahoo_Waqar</b></td><td class="dark">Research labs recruit a lot of PhDs -- there are some opportunities for masters and bachelors</td></tr>
+<tr><td class="dark"><span class="bigRed">Yahoo_Waqar</span></td><td class="dark"><span class="bigRed">Research labs recruit a lot of PhDs -- there are some opportunities for masters and bachelors</span></td></tr>
 <tr><td class="light"><b>cseiitkgp</b></td><td class="light">will be completing my post grad next year</td></tr>
 <tr><td class="dark"><b>gokulnath</b></td><td class="dark">I have not doubts about development...can they enter into research labs?</td></tr>
 <tr><td class="light"><b>cseiitkgp</b></td><td class="light">an i apply for intern at yahoo india this year?</td></tr>
@@ -274,7 +274,7 @@
 <tr><td class="dark"><b>codelion</b></td><td class="dark">Yahoo_Bob: and tons of users do u weigh them lol</td></tr>
 
 <tr><td class="light"><span class="bigRed">Yahoo_Bob</span></td><td class="light"><span class="bigRed">And many interesting projects</span></td></tr>
-<tr><td class="dark"><b>Yahoo_Waqar</b></td><td class="dark">Recruiting at Yahoo is not degree-oriented but skills-oriented. If you are finishing your MSC the question to really ask is whether you have been doing some research already -- for example published somepapers.</td></tr>
+<tr><td class="dark"><span class="bigRed">Yahoo_Waqar</span></td><td class="dark"><span class="bigRed">Recruiting at Yahoo is not degree-oriented but skills-oriented. If you are finishing your MSC the question to really ask is whether you have been doing some research already -- for example published somepapers.</span></td></tr>
 <tr><td class="light"><b>patrickriva</b></td><td class="light">Yahoo_Waqar:  What do you think of Language Oriented Programming? (or MDA)?</td></tr>
 <tr><td class="dark"><b>kanishkkunal</b></td><td class="dark">do you consider looking at devlopers from Topcoder</td></tr>
 <tr><td class="light"><b>rnigam_6</b></td><td class="light">Yahoo_Waqar: Hi waqar ... i am a BE (comp science) with 1.5+ yrs of exp ... do i stand a chance for yahoo r&d opening in bangalore</td></tr>
@@ -291,7 +291,7 @@
 <tr><td class="dark"><b>theflex99</b></td><td class="dark">I love food</td></tr>
 <tr><td class="light"><b>theflex99</b></td><td class="light">:-)</td></tr>
 <tr><td class="dark"><b>codelion</b></td><td class="dark">Ryan: : )</td></tr>
-<tr><td class="light"><b>Yahoo_Waqar</b></td><td class="light">Keep in mind that development groups are very cutting edge and inventive at Yahoo. The differnec from research labs is the time frame and the focus. Development groups deliver in less than 1 year typically, often in 3 month cycles</td></tr>
+<tr><td class="light"><span class="bigRed">Yahoo_Waqar</span></td><td class="light"><span class="bigRed">Keep in mind that development groups are very cutting edge and inventive at Yahoo. The differnec from research labs is the time frame and the focus. Development groups deliver in less than 1 year typically, often in 3 month cycles</span></td></tr>
 
 <tr><td class="dark"><span class="bigRed">Yahoo_Bob</span></td><td class="dark"><span class="bigRed">I'm not going to speak for Google</span></td></tr>
 <tr><td class="light"><b>cseiitkgp</b></td><td class="light">i have published two papaers till now and will be publishing two this year but they are in field of bioinfo and vlsi</td></tr>
@@ -302,7 +302,7 @@
 <tr><td class="light"><b>jianshi</b></td><td class="light">i interviewed for them</td></tr>
 <tr><td class="dark"><b>jianshi</b></td><td class="dark">aced their interview</td></tr>
 <tr><td class="light"><b>cseiitkgp</b></td><td class="light">but will yahoo give me weightage for taht</td></tr>
-<tr><td class="dark"><b>Yahoo_Waqar</b></td><td class="dark">Yes, we take people in R&D after bachelors</td></tr>
+<tr><td class="dark"><span class="bigRed">Yahoo_Waqar</span></td><td class="dark"><span class="bigRed">Yes, we take people in R&D after bachelors</span></td></tr>
 <tr><td class="light"><b>jianshi</b></td><td class="light">and then they said that i'm rejected</td></tr>
 
 <tr><td class="dark"><b>codelion</b></td><td class="dark">jianshi: relax</td></tr>
@@ -313,7 +313,7 @@
 <tr><td class="light"><b>nilux</b></td><td class="light">hey cseiitkgp ... whats ur name</td></tr>
 
 <tr><td class="dark"><b>cseiitkgp</b></td><td class="dark">Yahoo_Waqar:i have published two papaers till now and will be publishing two this year but they are in field of bioinfo and vlsi....will yahoo give weightage to that in my interview</td></tr>
-<tr><td class="light"><b>Yahoo_Waqar</b></td><td class="light">Yahoo R&D is open to bachelors</td></tr>
+<tr><td class="light"><span class="bigRed">Yahoo_Waqar</span></td><td class="light"><span class="bigRed">Yahoo R&D is open to bachelors</span></td></tr>
 <tr><td class="dark"><b>codelion</b></td><td class="dark">jianshi: the recurtment of google is veyr differnt from all companies</td></tr>
 <tr><td class="light"><span class="bigRed">Yahoo_Bob</span></td><td class="light"><span class="bigRed">and in spite of the size, we aren't bogged down</span></td></tr>
 <tr><td class="dark"><b>kranjit</b></td><td class="dark">abi_k: why?</td></tr>
@@ -334,7 +334,7 @@
 
 <tr><td class="light"><b>theflex99</b></td><td class="light">lordhiru: you can't have one in octomber</td></tr>
 <tr><td class="dark"><span class="bigRed">Yahoo_Bob</span></td><td class="dark"><span class="bigRed">Internships are generally in summer, but that's because of school calendars more than anything</span></td></tr>
-<tr><td class="light"><b>Yahoo_Waqar</b></td><td class="light">cseiitkgp -- you should apply to Yahoo -- obviously getting hired is competitive.</td></tr>
+<tr><td class="light"><span class="bigRed">Yahoo_Waqar</span></td><td class="light"><span class="bigRed">cseiitkgp -- you should apply to Yahoo -- obviously getting hired is competitive.</span></td></tr>
 <tr><td class="dark"><b>lordhiru</b></td><td class="dark">Yahoo_Bob: but at Sri anka we dont have holidays in summer</td></tr>
 <tr><td class="light"><b>lantimilan</b></td><td class="light">yahoo! mail is probably the primary email for most people, but what new features are in vision to compete the emerging gmail?</td></tr>
 <tr><td class="dark"><b>Ryan</b></td><td class="dark">Why do you sponsor events such as the TCO?</td></tr>
@@ -351,7 +351,7 @@
 <tr><td class="light"><b>L</b></td><td class="light">Yahoo_Bob: how much importance does Yahoo! give to applicant's algorithm rating?</td></tr>
 <tr><td class="dark"><b>cseiitkgp</b></td><td class="dark">Yahoo_Waqar: what is the pay package at yahoo for R&D and for general?</td></tr>
 
-<tr><td class="light"><b>Yahoo_Waqar</b></td><td class="light">The point is not the count of papers but your skills -- thats what the Yahoo interview process will test</td></tr>
+<tr><td class="light"><span class="bigRed">Yahoo_Waqar</span></td><td class="light"><span class="bigRed">The point is not the count of papers but your skills -- thats what the Yahoo interview process will test</span></td></tr>
 <tr><td class="dark"><b>beguile</b></td><td class="dark">wat all skills do u test??</td></tr>
 <tr><td class="light"><span class="bigRed">Yahoo_Bob</span></td><td class="light"><span class="bigRed">admins: We don't reduce applicants down to a number</span></td></tr>
 <tr><td class="dark"><b>codelion</b></td><td class="dark">mike: how do they select in general i mean do they go for the ratings and all</td></tr>
@@ -372,7 +372,7 @@
 <tr><td class="light"><b>kanishkkunal</b></td><td class="light">Yahoo_Bob: Do you look only at Algorithm Ratings?</td></tr>
 <tr><td class="dark"><b>subodhl82</b></td><td class="dark">Yahoo_Waqar: Could you give me contact info of some university recruiter in US? I will be completing my MS in CS in May 2006 and I am interested in a Full time position Yahoo! Is there a central repository for SDE jobs?</td></tr>
 
-<tr><td class="light"><b>Yahoo_Waqar</b></td><td class="light">Yahoo compensates competitively. The interview process is customized by the group you iterview with and "phases" can be a single phase or 2 or 3.</td></tr>
+<tr><td class="light"><span class="bigRed">Yahoo_Waqar</span></td><td class="light"><span class="bigRed">Yahoo compensates competitively. The interview process is customized by the group you iterview with and "phases" can be a single phase or 2 or 3.</span></td></tr>
 <tr><td class="dark"><b>mike</b></td><td class="dark">codelion: from what I understand - Yahoo finds TopCoder particiaption in general to be appealing in a candidate</td></tr>
 <tr><td class="light"><b>soft.freak</b></td><td class="light">Yahoo_Bob: and if someone is poor in academic rating then?</td></tr>
 <tr><td class="dark"><b>yaojieno1</b></td><td class="dark">Unfortunately, I do not like Yahoo! because Yahoo! china only report stodgy dirty storys</td></tr>
@@ -384,7 +384,7 @@
 <tr><td class="light"><span class="bigRed">Yahoo_Bob</span></td><td class="light"><span class="bigRed">Strong academic rating is an indicator, but that's all</span></td></tr>
 <tr><td class="dark"><b>roguexz</b></td><td class="dark">codelion: I guess, that is the case in most of the places ;-)</td></tr>
 <tr><td class="light"><span class="bigRed">Yahoo_Bob</span></td><td class="light"><span class="bigRed">in our interview process, we test what people actually know</span></td></tr>
-<tr><td class="dark"><b>Yahoo_Waqar</b></td><td class="dark">subodhl82: http://careers.yahoo.com/ will let you look at positions at Yahoo</td></tr>
+<tr><td class="dark"><span class="bigRed">Yahoo_Waqar</span></td><td class="dark"><span class="bigRed">subodhl82: http://careers.yahoo.com/ will let you look at positions at Yahoo</span></td></tr>
 
 <tr><td class="light"><b>cseiitkgp</b></td><td class="light">Yahoo_Waqar: how is work culture at yahoo...do u give freedom to ur workers for blogging,surfing,caual wear and flexible time hours</td></tr>
 <tr><td class="dark"><b>Vishwesh86</b></td><td class="dark">in india academic rating is not evn close to being an indicator :(</td></tr>
@@ -394,11 +394,11 @@
 <tr><td class="dark"><b>codelion</b></td><td class="dark">kranjit: which year r u from</td></tr>
 
 <tr><td class="light"><b>roguexz</b></td><td class="light">Yahoo! Could you tell us what are the demographic locations that you are looking at recruiting to?</td></tr>
-<tr><td class="dark"><b>Yahoo_Waqar</b></td><td class="dark">subodhl82: I have found Yahoo to have one of the most open cultures -- worked at other companies for 20 years and have found Yahoo to be very open, flexible, merit-based</td></tr>
+<tr><td class="dark"><span class="bigRed">Yahoo_Waqar</span></td><td class="dark"><span class="bigRed">subodhl82: I have found Yahoo to have one of the most open cultures -- worked at other companies for 20 years and have found Yahoo to be very open, flexible, merit-based</span></td></tr>
 <tr><td class="light"><b>TheIcebreaker</b></td><td class="light">loveislife: i am here</td></tr>
 <tr><td class="dark"><b>lordhiru</b></td><td class="dark">Yahoo_Bob: And another question, what kind of support yahoo can give students for their final year projects.</td></tr>
 <tr><td class="light"><b>cseiitkgp</b></td><td class="light">Yahoo_Waqar: cud u give some examples!!</td></tr>
-<tr><td class="dark"><b>Yahoo_Waqar</b></td><td class="dark">subodhl82: Casual wear, flextime, blogging all ok</td></tr>
+<tr><td class="dark"><span class="bigRed">Yahoo_Waqar</span></td><td class="dark"><span class="bigRed">subodhl82: Casual wear, flextime, blogging all ok</span></td></tr>
 
 <tr><td class="light"><b>cseiitkgp</b></td><td class="light">Yahoo_Waqar: about work culture</td></tr>
 <tr><td class="dark"><b>cseiitkgp</b></td><td class="dark">Yahoo_Waqar: ok</td></tr>
@@ -408,7 +408,7 @@
 <tr><td class="dark"><b>abi_k</b></td><td class="dark">Yahoo_Bob: does yahoo sponsor graduate studies of employees?</td></tr>
 
 <tr><td class="light"><b>L</b></td><td class="light">Yahoo_Bob: are interview test problems similar to SRM problems?</td></tr>
-<tr><td class="dark"><b>Yahoo_Waqar</b></td><td class="dark">subodhl82: Yes, there is a technical ladder at Yahoo as well as a management ladder.</td></tr>
+<tr><td class="dark"><span class="bigRed">Yahoo_Waqar</span></td><td class="dark"><span class="bigRed">subodhl82: Yes, there is a technical ladder at Yahoo as well as a management ladder.</span></td></tr>
 <tr><td class="light"><b>loveislife</b></td><td class="light">TheIcebreaker: oh i forgot to reply you</td></tr>
 <tr><td class="dark"><b>loveislife</b></td><td class="dark">TheIcebreaker: hope you found a comp ?</td></tr>
 <tr><td class="light"><b>TheIcebreaker</b></td><td class="light">loveislife: ok</td></tr>
@@ -429,11 +429,11 @@
 <tr><td class="dark"><b>scarlet</b></td><td class="dark">Yahoo_Bob: and whom shud we contact for the regardings</td></tr>
 
 <tr><td class="light"><b>shiningtiger</b></td><td class="light">Yahoo_Bob: If we join yahoo India than what are the chances of onsite exposure.</td></tr>
-<tr><td class="dark"><b>Yahoo_Waqar</b></td><td class="dark">subodhl82: We test for general competence (algorithms, data structures) as well as specific skills (C++, systems programming, perl, java) that are needed for the job.</td></tr>
+<tr><td class="dark"><span class="bigRed">Yahoo_Waqar</span></td><td class="dark"><span class="bigRed">subodhl82: We test for general competence (algorithms, data structures) as well as specific skills (C++, systems programming, perl, java) that are needed for the job.</span></td></tr>
 <tr><td class="light"><b>funix</b></td><td class="light">hamid heili khari</td></tr>
 <tr><td class="dark"><b>cseiitkgp</b></td><td class="dark">Yahoo_Waqar: ok</td></tr>
 <tr><td class="light"><b>cseiitkgp</b></td><td class="light">Yahoo_Waqar: that's good</td></tr>
-<tr><td class="dark"><b>Yahoo_Waqar</b></td><td class="dark">subodhl82: We assume that you can pick up  new skills if you have the basics</td></tr>
+<tr><td class="dark"><span class="bigRed">Yahoo_Waqar</span></td><td class="dark"><span class="bigRed">subodhl82: We assume that you can pick up  new skills if you have the basics</span></td></tr>
 
 <tr><td class="light"><span class="bigRed">Yahoo_Bob</span></td><td class="light"><span class="bigRed">If you're in the midst of grad studies, then the best way to get into Yahoo is find a job opening that you'd be intereseted in after you finish</span></td></tr>
 <tr><td class="dark"><b>cseiitkgp</b></td><td class="dark">Yahoo_Waqar: yaa</td></tr>
@@ -446,7 +446,7 @@
 <tr><td class="dark"><b>cseiitkgp</b></td><td class="dark">Yahoo_Waqar: do yahoo like to have vb as well other than c c++ java and perl</td></tr>
 <tr><td class="light"><b>roguexz</b></td><td class="light">cseiitkgp: Which year are you in?</td></tr>
 <tr><td class="dark"><span class="bigRed">Yahoo_Bob</span></td><td class="dark"><span class="bigRed">Skills: depends on the job of course</span></td></tr>
-<tr><td class="light"><b>Yahoo_Waqar</b></td><td class="light">subodhl82: Depth is better than breadth -- if you have both, all the better</td></tr>
+<tr><td class="light"><span class="bigRed">Yahoo_Waqar</span></td><td class="light"><span class="bigRed">subodhl82: Depth is better than breadth -- if you have both, all the better</span></td></tr>
 <tr><td class="dark"><b>cseiitkgp</b></td><td class="dark">roguexz: 4th</td></tr>
 
 <tr><td class="light"><b>cseiitkgp</b></td><td class="light">roguexz: but i am dual so will do my mtech along with btech next year...passing out next year</td></tr>
@@ -457,13 +457,13 @@
 <tr><td class="dark"><b>cseiitkgp</b></td><td class="dark">roguexz: hey u have same quote as mine</td></tr>
 
 <tr><td class="light"><b>mracer</b></td><td class="light">Yahoo_Bob:  do you guys hire Computer Engineers?</td></tr>
-<tr><td class="dark"><b>Yahoo_Waqar</b></td><td class="dark">subodhl82: Education and experience are indicators of skills and knowledge but not a necessary or sufficnet condition</td></tr>
+<tr><td class="dark"><span class="bigRed">Yahoo_Waqar</span></td><td class="dark"><span class="bigRed">subodhl82: Education and experience are indicators of skills and knowledge but not a necessary or sufficnet condition</span></td></tr>
 <tr><td class="light"><b>Minilek</b></td><td class="light">I noticed that, at my school at least, Yahoo! seems to be taking on a much more aggressive hiring campaign.  Is Yahoo! planning on growing a lot in the next couple years?</td></tr>
 <tr><td class="dark"><b>chaotica</b></td><td class="dark">heh.  yahoo doesn't have to defeat google.  i'd be a bit annoyed if it did :)</td></tr>
 <tr><td class="light"><b>kranjit</b></td><td class="light">cseiitkgp: split personality :)</td></tr>
 <tr><td class="dark"><b>CPP_junkie</b></td><td class="dark">Yahoo_Bob: Does Yahoo India allow working from home?</td></tr>
 
-<tr><td class="light"><b>Yahoo_Waqar</b></td><td class="light">subodhl82: We care about your skills and knowledge</td></tr>
+<tr><td class="light"><span class="bigRed">Yahoo_Waqar</span></td><td class="light"><span class="bigRed">subodhl82: We care about your skills and knowledge</span></td></tr>
 <tr><td class="dark"><b>lordhiru</b></td><td class="dark">Yahoo_Bob: theres a saying in some recruiters that "We dont need programmers who always searching yahoo or google" whats ur opinion about that</td></tr>
 <tr><td class="light"><span class="bigRed">Yahoo_Bob</span></td><td class="light"><span class="bigRed">Working from home is not a company-wide policy, but it is very common</span></td></tr>
 <tr><td class="dark"><b>codelion</b></td><td class="dark">ludovic: :)</td></tr>
@@ -472,10 +472,10 @@
 
 <tr><td class="light"><b>subodhl82</b></td><td class="light">Yahoo_Waqar: I have had a lot of experience in working on large data sets</td></tr>
 <tr><td class="dark"><b>abi_k</b></td><td class="dark">Yahoo_Bob: Are you very particular regarding the discipline (computer science) of the student?</td></tr>
-<tr><td class="light"><b>Yahoo_Waqar</b></td><td class="light">subodhl82: Look for openings at http://careers.yahoo.com/</td></tr>
+<tr><td class="light"><span class="bigRed">Yahoo_Waqar</span></td><td class="light"><span class="bigRed">subodhl82: Look for openings at http://careers.yahoo.com/</span></td></tr>
 <tr><td class="dark"><b>abi_k</b></td><td class="dark">Yahoo_Bob: Are you very particular regarding the discipline (computer science) of the students you wish to interview</td></tr>
 <tr><td class="light"><span class="bigRed">Yahoo_Bob</span></td><td class="light"><span class="bigRed">if you are producitive from home, ythen it i is encouraged</span></td></tr>
-<tr><td class="dark"><b>Yahoo_Waqar</b></td><td class="dark">subodhl82: the SDS openings are there as well</td></tr>
+<tr><td class="dark"><span class="bigRed">Yahoo_Waqar</span></td><td class="dark"><span class="bigRed">subodhl82: the SDS openings are there as well</span></td></tr>
 
 <tr><td class="light"><b>theflex99</b></td><td class="light">The benefit of google is that they are much more "Get it right the first time"...</td></tr>
 <tr><td class="dark"><b>codelion</b></td><td class="dark">abi_k: nopes they can take them all</td></tr>
@@ -484,7 +484,7 @@
 <tr><td class="light"><b>subodhl82</b></td><td class="light">Yahoo_Waqar: for modelling and simulation</td></tr>
 <tr><td class="dark"><b>theflex99</b></td><td class="dark">I mean over at Yahoo! they still don't have a great Yahoo! Mail that does exactly what I want</td></tr>
 
-<tr><td class="light"><b>Yahoo_Waqar</b></td><td class="light">subodhl82: All centers ... Yahoo is growing in every region</td></tr>
+<tr><td class="light"><span class="bigRed">Yahoo_Waqar</span></td><td class="light"><span class="bigRed">subodhl82: All centers ... Yahoo is growing in every region</span></td></tr>
 <tr><td class="dark"><b>theflex99</b></td><td class="dark">google is perfecting their mail before even fully launching it</td></tr>
 <tr><td class="light"><b>codelion</b></td><td class="light">theflex99: :)</td></tr>
 <tr><td class="dark"><b>subodhl82</b></td><td class="dark">Yahoo_Waqar: i also had one project for filtering google news results using incremental rocchio and logistic regression</td></tr>
