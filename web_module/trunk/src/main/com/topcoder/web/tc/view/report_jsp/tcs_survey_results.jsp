@@ -13,6 +13,7 @@
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer results = (ResultSetContainer)request.getAttribute("results"); %>
 <% ResultSetContainer resultsFreeform = (ResultSetContainer)request.getAttribute("resultsFreeform"); %>
+<% ResultSetContainer projects = (ResultSetContainer)request.getAttribute("projects"); %>
 <% String componentName = (String)request.getAttribute("componentName"); %>
 <% String currQ = ""; %>
 <% int qNum = 0; %>
@@ -53,6 +54,9 @@
             <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
                 <select size="1" name="<%=Constants.PROJECT_ID%>" id="<%=Constants.PROJECT_ID%>">
                         <option value="" selected>All Projects</option>
+                        <rsc:iterator list="<%=projects%>" id="project">
+                            <option value="<rsc:item row="<%=project%>" name="project_id"/>"><rsc:item row="<%=project%>" name="component_name"/></option>
+                        </rsc:iterator>
                 </select>
                 <input type="hidden" name="module" value="TCSSurveyResults">
                 <input name="Results" value="Results" type="submit" alt="Results" onclick="">
