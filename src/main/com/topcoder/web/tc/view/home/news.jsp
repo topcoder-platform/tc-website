@@ -9,6 +9,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>10.06.05<br>11:05 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm267">SRM 267 - Problem Set & Analysis</A></span><br><br>
+      This was the last SRM before the Open tournament finals next week, and a number of the finalists were competing in this match to practice. The Division 1 problems were all quite approachable, with 42 coders finishing the hard problem and 11 coders finishing all three correctly.</td>
+      <td class="newsPhoto"><img src="/i/m/John_Dethridge_mug.gif" /><br>by <tc-webtag:handle coderId="270505" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm267">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505775" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>10.06.05<br>10:40 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -252,22 +268,6 @@
          <A href="/pdfs/press_room/dndj_082005.pdf" target="_blank">full story</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505765">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>09.15.05<br>2:40 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm263">SRM 263 - Problem Set & Analysis</A></span><br><br>
-      For Division 1 coders, Wednesday's SRM proved to be quite challenging.<tc-webtag:handle coderId="9906197" context="algorithm"/> took home the gold on a problem set with a 500-pointer solved by only 44 coders, and a 1050-pointer solved by no one.</td>
-      <td class="newsPhoto"><img src="/i/m/LunaticFringe_mug.gif" /><br>by <tc-webtag:handle coderId="288584" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm263">full story</A>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505762">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 </table>
