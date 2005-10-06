@@ -4,7 +4,6 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveConstants;
-import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.WatchManager;
 import com.topcoder.shared.security.ClassResource;
