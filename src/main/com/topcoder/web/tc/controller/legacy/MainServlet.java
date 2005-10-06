@@ -28,6 +28,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.StringTokenizer;
+import java.util.Enumeration;
 import java.util.zip.GZIPOutputStream;
 
 
@@ -140,7 +141,11 @@ public final class MainServlet extends BaseServlet {
             trail.append(requestCommand);
             trail.append(" ****]");
             log.info(trail.toString());
-            log.debug(request.getHeader("Referer"));
+            if (log.isDebugEnabled()) {
+                for (Enumeration e = request.getHeaderNames(); e.hasMoreElements();) {
+                    log.debug(request.getHeaders(e.nextElement().toString()));
+                }
+            }
             User user = nav.getUser();
             if (user == null) {
                 //user must have been transient and we got a navigation object that had been serialized at some point
