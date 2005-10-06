@@ -142,7 +142,8 @@ public class Contest {
         List ret = null;
 
         try {
-            conn = DBMS.getConnection(dataSourceName);
+            //TODO: This should take in the connection name, but it works for now
+            conn = DBMS.getDirectConnection();
             StringBuffer query = new StringBuffer(500);
 
             query.append(" SELECT cc.coder_id ");
