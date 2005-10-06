@@ -143,7 +143,7 @@ public final class MainServlet extends BaseServlet {
             log.info(trail.toString());
             if (log.isDebugEnabled()) {
                 for (Enumeration e = request.getHeaderNames(); e.hasMoreElements();) {
-                    log.debug(request.getHeaders(e.nextElement().toString()));
+                    log.debug(request.getHeader(e.nextElement().toString()));
                 }
             }
             User user = nav.getUser();
