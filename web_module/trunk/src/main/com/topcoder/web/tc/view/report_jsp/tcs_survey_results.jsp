@@ -49,8 +49,18 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="20" border="0"/><br/>
 
+            Choose a project:<br/>
+            <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+                <select size="1" name="<%=Constants.PROJECT_ID%>" id="<%=Constants.PROJECT_ID%>">
+                        <option value="" selected>All Projects</option>
+                </select>
+                <input type="hidden" name="module" value="TCSSurveyResults">
+                <input name="Results" value="Results" type="submit" alt="Results" onclick="">
+            </form>
+
 <%-- Title --%>
 
+            <p>
             <table cellspacing="0" class="formFrame" align="center" width="530">
                 <tr>
                     <td class="projectTitles" nowrap="nowrap">
@@ -66,6 +76,7 @@
                     <td class="projectHeaders" align="left">Overview</td>
                 </tr>
             </table>
+            </p>
 
 <%-- Overview --%>
                         <p>
@@ -120,17 +131,6 @@
                     </td>
                 </tr>
             </table>
-            </p>
-            
-            <p>
-            Choose a project:<br/>
-            <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
-                <select size="1" name="<%=Constants.PROJECT_ID%>" id="<%=Constants.PROJECT_ID%>">
-                        <option value="" selected>All Projects</option>
-                </select>
-                <input type="hidden" name="module" value="TCSSurveyResults">
-                <input name="Search" value="Search" type="submit" alt="Search" onclick="">
-            </form>
             </p>
 
             <p><br/></p>

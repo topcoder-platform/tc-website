@@ -33,17 +33,19 @@ public class TCSSurveyResults extends Base {
 
                 ResultSetContainer results = null;
                 ResultSetContainer resultsFreeform = null;
+                ResultSetContainer projects = null;
+                Map resultMap = null;
                 
                 if (projectID.equals("")) {
                     r.setContentHandle("survey_results_all");
-                    Map resultMap = getDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME, false).getData(r);
+                    resultMap = getDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME, false).getData(r);
                     
                     results = (ResultSetContainer)resultMap.get("survey_results_all");
                     resultsFreeform = (ResultSetContainer)resultMap.get("survey_results_all_freeform");
                 } else {
                     r.setContentHandle("survey_results");
                     r.setProperty(Constants.PROJECT_ID, projectID);
-                    Map resultMap = getDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME, false).getData(r);
+                    resultMap = getDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME, false).getData(r);
                     
                     results = (ResultSetContainer)resultMap.get("survey_results");
                     resultsFreeform = (ResultSetContainer)resultMap.get("survey_results_freeform");               
@@ -51,6 +53,12 @@ public class TCSSurveyResults extends Base {
                 }
                 getRequest().setAttribute("results", results);
                 getRequest().setAttribute("resultsFreeform", resultsFreeform);
+                
+                r = new Request();
+                r.setContentHandle("survey_projects");
+                resultMap = getDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME, false).getData(r);
+                projects = (ResultSetContainer)resultMap.get("survey_projects");
+                getRequest().setAttribute("projects", projects);
                 
                 if (results.isEmpty()) {
                     throw new NavigationException("No survey information available for this project.");
