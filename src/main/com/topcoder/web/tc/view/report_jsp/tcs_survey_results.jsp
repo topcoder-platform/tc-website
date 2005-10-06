@@ -52,7 +52,7 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="20" border="0"/><br/>
 
-            Choose a project:<br/>
+            <div class="bodyText"><strong>Choose a project:</strong></div><br/>
             <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
                 <select size="1" name="<%=Constants.PROJECT_ID%>" id="<%=Constants.PROJECT_ID%>">
                         <%  if (componentName == null) { %>
@@ -110,12 +110,12 @@
                                     <%  currQ = row.getStringItem("question_text"); qNum++; %>
                                         <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="530">
                                             <tr>
-                                                <td class="bodyText" colspan=2><%=currQ%></td>
+                                                <td class="bodyText" colspan=2><strong><%=currQ%></strong></td>
                                             </tr>
                                 <%  } %>
                                 <tr>
                                     <td class="bodyText"><%=row.getStringItem("answer_text")%></td>
-                                    <td class="bodyText"><%=row.getIntItem("cnt")%></td>
+                                    <td class="bodyText" align="right"><%=row.getIntItem("cnt")%></td>
                                 </tr>
                         <%  } %>
                         <%  if (results.getRowCount() > 0) { %></table><% } %>
@@ -141,7 +141,7 @@
 						        <%  if (!currQ.equals(row.getStringItem("question_text"))) {
 						                if (qNum != 0) { %></ul><% } %>
 						            <%  currQ = row.getStringItem("question_text"); qNum++; %>
-						                <%=currQ%><ul class="noSpList">     
+						                <strong><%=currQ%></strong><ul class="noSpList">     
 						        <%  } %>
 						        <%  String responseText = StringUtils.checkNull(row.getStringItem("response_text"));
 						            if (!responseText.equals("")) { %>
