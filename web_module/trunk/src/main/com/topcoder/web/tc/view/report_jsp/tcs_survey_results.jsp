@@ -11,12 +11,14 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
-<% ResultSetContainer results = (ResultSetContainer)request.getAttribute("results"); %>
-<% ResultSetContainer resultsFreeform = (ResultSetContainer)request.getAttribute("resultsFreeform"); %>
-<% ResultSetContainer projects = (ResultSetContainer)request.getAttribute("projects"); %>
-<% String componentName = (String)request.getAttribute("componentName"); %>
-<% String currQ = ""; %>
-<% int qNum = 0; %>
+<%  ResultSetContainer results = (ResultSetContainer)request.getAttribute("results"); %>
+<%  ResultSetContainer resultsFreeform = (ResultSetContainer)request.getAttribute("resultsFreeform"); %>
+<%  ResultSetContainer projects = (ResultSetContainer)request.getAttribute("projects"); %>
+<%  String componentName = (String)request.getAttribute("componentName"); %>
+<%  String currQ = ""; 
+    String projVersion = ""; 
+    String projPhase = ""; %>
+<%  int qNum = 0; %>
 <head>
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
 
@@ -60,23 +62,19 @@
                         <%  } %>
                         <%  Iterator itProjects = projects.iterator();
                             while (itProjects.hasNext()) {
-                                ResultSetRow row = (ResultSetRow)itResults.next();
-                                if (componentName.equals(row.getStringItem("component_name"))) { %>
-                                    <option value="<%=row.getIntItem("project_id")%>" selected>
+                                ResultSetRow row = (ResultSetRow)itProjects.next();
+                                if (row.getStringItem("component_name").equals(componentName)) { 
+                                    projVersion = row.getStringItem("version_text").trim(); 
+                                    projPhase = row.getStringItem("description").trim(); %>
+                                    <option value="<%=row.getStringItem("project_id")%>" selected>
                             <%  } else { %>
-                                    <option value="<%=row.getIntItem("project_id")%>">
+                                    <option value="<%=row.getStringItem("project_id")%>">
                             <%  } %>
-                            <%=row.getStringItem("component_name")%> (<%=row.getStringItem("version_text")%>, <%=row.getStringItem("description")%>)
+                                <%  String desc = row.getStringItem("component_name")+" ("+
+                                        row.getStringItem("version_text").trim()+", "+row.getStringItem("description")+")"; %>
+                                <%=desc%></option>
                         <%  } %>
-                        <rsc:iterator list="<%=projects%>" id="project">
-                            <%--<%  if (componentName.equals(project.getStringItem("component_name"))) { %>
-                                <option value="<rsc:item row="<%=project%>" name="project_id"/>" selected>
-                            <%  } else { %>--%>
-                                <option value="<rsc:item row="<%=project%>" name="project_id"/>">
-                            <%--  } --%>
-                                <rsc:item row="<%=project%>" name="component_name"/> (<rsc:item row="<%=project%>" name="version_text"/>, <rsc:item row="<%=project%>" name="description"/>)
-                            </option>
-                        </rsc:iterator>
+
                 </select>
                 <input type="hidden" name="module" value="TCSSurveyResults">
                 <input name="Results" value="Results" type="submit" alt="Results" onclick="">
@@ -90,7 +88,7 @@
                     <td class="projectTitles" nowrap="nowrap">
                         Survey Results - 
                         <%  if (componentName != null) { %>
-                            <%=componentName%>
+                            <%=componentName%> (Version <%=projVersion%>, <%=projPhase%>)
                         <%  } else { %>
                             All Projects
                         <% } %>
