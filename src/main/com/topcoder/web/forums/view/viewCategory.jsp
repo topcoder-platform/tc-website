@@ -33,6 +33,46 @@
     
     StringBuffer linkBuffer = new StringBuffer("?module=Category");
     linkBuffer.append("&").append(ForumConstants.CATEGORY_ID).append("=").append(forumCategory.getID());
+    
+    String sortField = (String)request.getAttribute("sortField");
+    String sortOrder = (String)request.getAttribute("sortOrder");
+
+    StringBuffer forumLinkBuffer = new StringBuffer(linkBuffer.toString());
+    StringBuffer dateLinkBuffer = new StringBuffer(linkBuffer.toString());
+    forumLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.FORUM_NAME);
+    dateLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.MODIFICATION_DATE);
+    if (sortField.equals(String.valueOf(JiveConstants.FORUM_NAME))) {
+        if (sortOrder.equals(String.valueOf(ResultFilter.ASCENDING))) {
+            forumLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
+        } else if (sortOrder.equals(String.valueOf(ResultFilter.DESCENDING))) {
+            forumLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+        } else {  // default
+            forumLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+        }
+    } else {  // default
+        forumLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+    }
+    if (sortField.equals(String.valueOf(JiveConstants.MODIFICATION_DATE))) {
+        if (sortOrder.equals(String.valueOf(ResultFilter.ASCENDING))) {
+            dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
+        } else if (sortOrder.equals(String.valueOf(ResultFilter.DESCENDING))) {
+            dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+        } else {  // default
+            dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
+        }
+    } else {  // default
+        dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
+    }
+    String forumLink = forumLinkBuffer.toString();
+    String dateLink = dateLinkBuffer.toString();
+
+    if (!sortField.equals("")) {
+        linkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(sortField);
+    }
+    if (!sortOrder.equals("")) {
+        linkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(sortOrder);
+    }
+    
     linkBuffer.append("&").append(ForumConstants.START_IDX).append("=");
     String link = linkBuffer.toString();
     String prevLink = linkBuffer.toString()+String.valueOf(paginator.getPreviousPageStart());
@@ -125,9 +165,9 @@
             <%  if (forumCategory.getForumCount() > 0) { %>
             <table cellpadding="0" cellspacing="0" class="rtTable">
                 <tr>
-                    <td class="rtHeader" width="80%">Forum</td>
+                    <td class="rtHeader" width="80%"><a href="<%=forumLink%>" class="rtbcLink">Forum</a></td>
                     <td class="rtHeader" width="20%">T./M.</td>
-                    <td class="rtHeader" align="center" colspan="2">Last Post</td>
+                    <td class="rtHeader" align="center" colspan="2"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></td>
                 </tr>
                 <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
                     <%  trackerClass = (user == null || forum.getLatestMessage() == null || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ

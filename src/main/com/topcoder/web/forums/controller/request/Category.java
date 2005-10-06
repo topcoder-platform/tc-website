@@ -43,12 +43,21 @@ public class Category extends ForumsProcessor {
             } catch (Exception ignored) {}
         }
         
+        String sortField = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SORT_FIELD));
+        String sortOrder = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SORT_ORDER));
+        if (sortField.equals("")) {
+            sortField = String.valueOf(JiveConstants.MODIFICATION_DATE);
+        }
+        if (sortOrder.equals("")) {
+            sortOrder = String.valueOf(ResultFilter.DESCENDING);
+        }
+        
         ResultFilter resultFilter = new ResultFilter();
         if ("fixed".equals(forumCategory.getProperty(ForumConstants.PROPERTY_SORT))) {
             resultFilter = ResultFilter.createDefaultForumFilter();
         } else {
-            resultFilter.setSortField(JiveConstants.MODIFICATION_DATE);
-            resultFilter.setSortOrder(ResultFilter.DESCENDING);
+            resultFilter.setSortField(Integer.parseInt(sortField));
+            resultFilter.setSortOrder(Integer.parseInt(sortOrder));
         }
         
         Iterator itCategories = forumCategory.getCategories();
@@ -121,6 +130,8 @@ public class Category extends ForumsProcessor {
         getRequest().setAttribute("categories", itCategories);
         getRequest().setAttribute("resultFilter", resultFilter);
         getRequest().setAttribute("paginator", paginator);
+        getRequest().setAttribute("sortField", sortField);
+        getRequest().setAttribute("sortOrder", sortOrder);
 
 		setNextPage("/viewCategory.jsp");
 		setIsNextPageInContext(true);
