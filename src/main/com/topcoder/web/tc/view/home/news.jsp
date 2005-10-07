@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.07.05<br>4:50 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_100505">Sun chat session from SRM 267</A></span><br><br>
+      Joe Nuxoll from Sun Microsystems&#174; was recently in the Arena to chat about JSF components and Java Studio Creator.  Here's the transcript.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_100505">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505806" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>10.06.05<br>11:05 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -254,20 +267,6 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=nsa">details</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505766">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>09.15.05<br>3:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/dndj_082005.pdf" target="_blank">Engineering + Reuse = Savings</A> [PDF]</span><br><br>
-      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/dndj_logo.gif" width="67" height="20" alt="DNDJ" border="0" /></div>
-      "Why are contract outsourcing and offshore development failing to deliver the expected benefit of lower costs and increased end-user satisfaction to enterprise software development users?" [DNDJ]
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/pdfs/press_room/dndj_082005.pdf" target="_blank">full story</A>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505765">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
 
 </table>
