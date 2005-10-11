@@ -145,7 +145,7 @@ margin:0px auto;
 <%-- Right Column --%>
       <td class="homeRightCol">
       <table border="0" cellpadding="0" cellspacing="0">
-         <tr><td class="homeBigPromo"><A href="/?t=sponsor&c=link&link=/pdfs/tournaments/tco05_program.pdf&refer=homepage"><img src="/i/home/tco05_program.gif" alt="TCO05 Program" border="0" /></A></td></tr>
+         <tr><td class="homeBigPromo"><A href="/movies/press/cnn_072405.mp4"><img src="/i/home/mov_cnn_072405.jpg" alt="TopCoder Movies" border="0" /></A></td></tr>
       </table>
       <table border="0" cellpadding="0" cellspacing="0">
          <tr>
