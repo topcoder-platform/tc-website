@@ -9,7 +9,7 @@ public interface CodingInterfaceConstants {
 
     public static final String HANDLE = "ha";
     public static final String PASSWORD = "ps";
-    public static final String COMPONENT_ID = "cid";
+    public static final String COMPONENT_ID = "compid";
     public static final String PROBLEM_TYPE_ID = "ptid"; //this may belong in the tech assess constants, not here
     public static final String LANGUAGE_ID = "lid";
     public static final String CODE = "code";
