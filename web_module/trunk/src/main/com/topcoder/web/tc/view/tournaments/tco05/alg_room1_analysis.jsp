@@ -25,163 +25,221 @@
       <td valign=top align=center>
       <div class="bodySpacer">
             
-<span class="bigTitle">TITLE</span>
-<br><br>
 <div class="leadPhoto">
-<span class="bodyText" align="center"><p align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">See more photos!</a></p></span>
-<img src="/i/tournament/tccc05/onsite_photos/shot_room1.jpg" alt="" class="photoFrameBig" /><br/>
-<span class="leadPhotoCaption">CAPTION<br/><br/></span>
+<p align="center"><span class="bodyText" align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">See more photos!</a></span></p>
+<img src="/i/tournament/tco05/onsite_photos/shot_room1.jpg" alt="" class="photoFrameBig" /><br>
+<span class="leadPhotoCaption">CAPTION<br><br></span>
 </div>
 
-<img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/>
-by <tc-webtag:handle coderId="269554" context="algorithm"/>, <br/>
-<em>TopCoder Member</em><br />
-Thursday, October 13, 2005<br/>
+<p>
+<span class="bigTitle">TITLE</span>
+<br><br>
+<img src="/i/m/FogleBird_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/>
+<tc-webtag:forumLink forumID="505776" message="Discuss this match" /><br>
+Thursday, October 13, 2005<br>
 Introduction by <tc-webtag:handle coderId="160049" context="algorithm"/>
-<br/><br/>
-<tc-webtag:forumLink forumID="505776" message="Discuss this match" />
+<br><br><br>
+INTRODUCTION
+</p>
+
+<h1>WordGrid</h1>
+by <tc-webtag:handle coderId="310430" context="algorithm"/>
+<br><br>
+Since we have only up to 3 unknown letters, one may be tempted to
+try all 26<sup>3</sup> combinations, and brute force each of them,
+until a solution is found. But brute forcing the word search problem
+may be slow in a 50 x 50 grid with up to 50 words, so we have to do
+do the actual word search before trying the letter combinations.
 
 <p>
-ferocious foge's words
+For each word in the given word list we try to locate this in the
+given grid (without using any periods '.') - this can be done
+simply by brute force checking all possible starting positions
+and directions. If it is found, we can remove this word from the
+list, since it does not affect the result (whatever letters we place
+at the positions of the periods, we can always find this word in the
+grid). If a word is not found, we repeat the word search procedure
+(checking all possible starting positions and directions), but now
+regarding the periods as wildcards. We make a list of all possible
+period-letter combinations found that allow the word to be found in
+the grid. For this, it is convenient to enumerate the periods in
+the grid, and to store a three-letter string for every placement
+we found (e.g. in the form <code>"X.Y"</code>, which would mean that if we
+replace the first period with 'X' and the third with 'Y', we
+can find the word in the grid independent of how we replace the
+second period). It is convenient to create in such a way a <code>Set</code>
+of strings for each word in the given word list, so that we avoid
+duplicates.
+</p>
+<p>
+After this preprocessing we have several options for solving the problem.
+Let's say we have an array <code>Set[] letters</code> with
+
+<code>letters[i]</code> containing three-letter combinations as described
+above (including '.' for wildcards), that allow the word <code>words[i]</code>
+from the given word list to be found in the grid.
+</p>
+<p>
+A simple solution is to iterate over all 26<sup>3</sup> three-letter
+combinations and check for each of them if all <code>letters[i]</code>
+contains at least one string that is consistent with the current
+three-letter-string we are checking. In Java (with some pseudo-code)
+this would look like:
+</p>
+<pre>
+
+Iterate String test from "AAA" to "ZZZ" {
+    boolean solution = true;
+    for (int i = 0; i < letters.length; i++) {
+        boolean found = false;
+        for (int j = 0; j < letters[i].size(); j++) {
+            if (test.matches(letters[i].get(j)) {
+                found = true;
+                break;
+            }
+        }
+        if (found == false) {
+            solution = false;
+            break;
+        }
+    }
+    if (solution == true) {
+        // test represents the solution
+        Replace first period in grid with test.charAt(0);
+        Replace second period in grid with test.charAt(1);
+        Replace third period in grid with test.charAt(2);
+        return grid;
+    }
+}
+</pre>
+<p>
+Alternatively we can use backtracking, starting with iterating over
+the strings of <code>letters[0]</code>. For each such string, try
+to find strings in <code>letters[1]</code> that are consistent with
+the current string, iterate over them extending the string accordingly,
+and continue similarly with <code>letters[2]</code> etc. until a solution
+is found or for some <code>letters[i]</code> there is no consistent
+string included, in which case we backtrack to the next string of the previous
+step:
+
+</p>
+<pre>
+String backtrack(String test, int position) {
+    if (position == letters.length) {
+        return test;
+    }
+    for (int i = 0; i < letters[i].size(); i++) {
+        if (consistent(test, letters[i])) {
+            backtrack(combine(test, letters[i]), position + 1);
+        }
+    }
+}
+</pre>
+<p>
+In the above, <code>consistent(s1, s2)</code> checks if two strings
+with periods used as wildcards are consistent - i.e., at each position
+the two strings either have the same letter or at least one of the strings
+has a wildcard ('.'). <code>combine(s1, s2)</code> returns a string
+that is a combination of the two given strings - i.e., the return value
+is the string s1, with all wildcards ('.') replaced by the character at
+the corresponding position of s2.
+</p>
+<p>
+Of course, if we have less than 3 periods in the original grid, we can
+also use smaller strings in the above procedures.
+</p>
+
+<p>
+After we have found the period-letter mappings (e.g. the return
+value in the above backtracking implementation - after an initial
+call <code>backtrack("...", 0)</code>), we simply have to replace
+the periods in the grid with the letters in the corresponding positions
+of the returned string, and return the updated grid.
+</p>
+
+<h1>BinaryBoard</h1>
+by <tc-webtag:handle coderId="310430" context="algorithm"/>
 <br><br>
-<H1>Surprising Strings</H1>
-<P>This is a typical dictionary problem, where you have a large set of ordered 
-strings and you are asked to pick out one of the strings based on its index. 
-Usually in such problems the total number of strings is too large for a brute 
-force algorithm to work fast enough.</P>
-<P>Not so in this problem. While it's not easy to guess the total number of 
-strings based on the constraint, an important hint was given in the notes: at 
-most 1 million. This pretty much tells us that a brute force algorithm will do. 
-That is, if we can generate the strings one by one in the appropriate sorting 
-order, it will be enough. That's good news since there doesn't seem to exist any 
-fast way to generate Surprising Strings.</P>
-<P>The problem is most easily solved with recursion; each recursive call adds a 
-new letter to the current string. In each call, we consider what the next letter 
-will be. To make sure we only generate unique (non-equivalent) strings, only 
-letters that have already been used, or the next new letter should be 
-considered. For instance, if the letters 'A' and 'B' have been used so far, 
-letters 'A', 'B' and 'C' should be considered at the next step (assuming the 
-size of the alphabet is at least 3 of course). </P>
-<P>We must also keep track of all used distances between pairs of letters. This 
-can be done in a three dimensional array of bool, which we update accordingly. 
-If the array is called <B>a</B> and <B>a</B>[<I>x</I>][<I>y</I>][<I>z</I>] is 
-set, if would mean that the letters <I>x</I> and <I>y</I> are <I>z</I> positions 
-apart in the current string. This speeds up the generation, which is necessary 
-because an extra inner loop can cause the solution to time out on the larger 
-inputs. One can optimize this a bit more in various ways, but nothing fancy is 
-needed to the get solution to run under 2 seconds. </P>
-<P>Some interesting facts and proofs about Surprising Strings can be read <A 
-href="http://aleph0.clarku.edu/~djoyce/mpst/surprising/">here</A>. </P>
+It is clear that we can not brute force this problem trying
+all possible 2<sup>36</sup> boards. We have to use backtracking,
+by filling the positions in the board in some clever order.
+<p>
+Let's start by filling in only the first row and first column.
+With this we have at least the first bit of all 12 numbers.
+We can now check this bit, if it is consistent with the given
+ordering (for this we must have
+firstBit(order[0]) <= firstBit(order[1]) <= firstBit(order[2])
+<= ... <= firstBit(order[11])). This allows for up to
+13 combinations for the first row and first column in the
+worst case (instead of 2<sup>11</sup>). For each combination
+that is consistent with the given ordering, we go on with the
+second bit of all rows/columns, and check that
+firstTwoBits(order[0]) <= firstTwoBits(order[1]) <= ...
+<= firstTwoBits(order[11]). In the worst case, 5 of the
+first bits in rows/columns H2-H6, V2-V6 are 0 and the other
+5 are 1, which allow for the second bits up to 6 * 6 = 36
+combinations (instead of 2<sup>9</sup>). We continue with
+the rest of the bits using the same procedure, until we
+reach the last bit, where we finally check if the board
+we have built up is a solution to the problem. If yes,
+we return this (since the constraints guarantee that there
+is only one solution), otherwise we continue with the
+backtracking.
 
-<H1>Running Trail</H1>
-<P>If it had not been for the restriction that we can't run along a path and 
-then turn around and run back the same path, the solution would have been 
-standard DP: Maintain a two dimension boolean table 
-<B>dp</B>[<I>length</I>][<I>node</I>] where true indicates that the junction 
-<I>node</I> can be reached after running <I>length</I> units. The table can be 
-built by doing a nested loop over length and node, and for each true element 
-update future elements based on the edges in the graph.</P>
-<P>In order to adapt the above algorithm, we must somehow keep track of which 
-node we came from. To extend the array with yet another dimension is out of 
-question; it will be too slow to loop over all three dimensions. One idea is to 
-have the path index rather than the node index in the dp table (<b>&lt;DP&gt;</b>[<I>length</I>][<I>path</I>] + we also must keep track the direction used). 
-This works, but only with some added heuristics - otherwise the solution might 
-very well time out on graphs containing 50 paths between node 1 and 2 (you would 
-end up with three nested loops ~100000*50*50 which is too much). </P>
-<P>A more elegant (in my view) solution is to stick with the original idea, but 
-instead of only storing true and false in the table, we store the last path 
-index used. So, <B>dp</B>[100][20] = 17 would mean that one can be at node 20 
-after running 100 units, where the last path used was 17. If a node can be 
-reached by two or more different paths at the same running length, we assign 
-that a special number (-1 for instance). The key observation here is that if a 
-node can be reached by two or more different paths, we can use <I>all</I> 
-neighboring paths when running from that node. </P>
-<P>And that's basically it; we keep iterating over length until we reach the 
-start node and the total length is greater than the desired length (all future 
-visits to the start node will then be worse than the best solution found so 
-far). To avoid memory problems, the length can be stored in modulo 5001 since 
-the maximum path length is 5000. </P>
-<P>One pitfall is to make an erroneous assumption regarding the longest trail. 
-It is not 5000*50 = 250000 (a large circle) which one might think at first, but 
-5000*100 (a loop, 1-2-3-...-49 and then two paths to node 50). If one uses fixed 
-sized arrays, this could cause a run time error. </P>
+</p>
+<p>
+In pseudocode:
+</p>
+<pre>
+backtracking(int bitnumber) {
+    if (bitnumber == 7) {
+        // we have set all bits 1-6 of all numbers, check that they conform to the ordering
+        if (number(order[0]) < number(order[1]) < number(order[2]) < ... < number(order[11])) {
+            Return the solution found, abort the backtracking.
+        }
+        return; // no solution found yet, jump to the previous backtracking step
+    }
+    Iterate over all values for the bitnumber-th bit of the 12 numbers H1-H6, V1-V6 {
+        // (ignore in the iteration bits that have already been assigned a value,
+        //  e.g. when we set the first bit of V2 when calling backtracking(1), this
+        //  is also the second bit of H1, so we don't need to reset it during the
+        //  call to backtracking(2)).
 
-<H1>Bridges</H1>
-<P>Bridges is another logic puzzle game from the Japanese publisher Nikoli 
-(their most well known game is without a doubt Sudoku). The original name of 
-Bridges is Hashiwokakero. More about it can be read at <A 
-href="http://en.wikipedia.org/wiki/Hashiwokakero">Wikipedia</A>. </P>
-<P>There is no elegant matching algorithm or anything that solves Bridges 
-puzzles nicely (the island connection criteria spoils that fun), so we're pretty 
-much stuck with brute force algorithms (almost, see below). That brute force is 
-enough can be guessed at by looking at the constraints: the grid size is at most 
-10x10 and, more importantly, we can assume that there is a unique solution (in 
-puzzle books this is always the case). This makes a lot of otherwise potential 
-evil test cases invalid, and it turns out that a fairly standard backtracking 
-algorithm with some pruning will solve the problem nicely. </P>
-<P>An elegant (design-wise) backtracking solution would first explicitly build 
-up the underlying graph, where each island is a vertex, and each pair of islands 
-lying in sight along the horizontal or vertical axis would correspond to an 
-edge. All edges that intersect would have to be stored somewhere as well, so not 
-both are used. This is all nice and well, but do we really want to waste time 
-writing elegant code when time is flying and the score is dropping? To get a 
-good score, one should probably instead let the input string array (or a 
-corresponding char[][]) be the graph, and then do the backtracking in this 
-format immediately. </P>
-<P>Define deg(<I>x</I>) as the number of bridges that must yet be built from an 
-island for it to satisfy the input. When deg(<I>x</I>) is 0, no more bridges 
-should be built from the island. Define max(<I>x</I>) as the sum of, for each 
-direction where <I>x</I> has a neighboring island <I>y</I>, MIN(deg(<I>y</I>), 
-2) assuming that there is no crossing bridge between <I>x</I> and <I>y</I>. </P>
-<P>First, if we find an island <I>x</I> where deg(<I>x</I>)&gt;max(<I>x</I>), we 
-have done something wrong and should backtrack. Otherwise we select an island 
-where max(<I>x</I>)-deg(<I>x</I>) is minimized. If we have an island where 
-max(<I>x</I>)=deg(<I>x</I>), then all possible remaining bridges that can be 
-built from the island should be built; if the difference is just 1, almost all 
-bridges should be built etc. Selecting such an island will greatly speed up the 
-recursion, because here the number of combinations of which bridges should be 
-built is much less than if we would have picked any island at random. </P>
-<P>After selecting an island in the recursion step, we pick a direction that has 
-the least number of possibilities regarding the quantity of bridges (0, 1 or 2). 
-We loop over the possible values, and to a recursive call. This edge should then 
-never be considered in nested recursive calls; once we have decided if there 
-should be 0, 1 or 2 bridges between a pair of island, we stick with that until 
-it's time to backtrack. </P>
-<P>What about connectivity? There are several ways to check this. One could 
-either check this once all bridges have been placed and deg(<I>x</I>)=0 for all 
-islands. This might be a bit risky because we could have test cases with very 
-many solutions had connectivity not been required. It's safer to check this at 
-each recursive call. The check can be done with a regular DFS search. Here we 
-now assume that there is a bridge between all neighboring islands x and y, 
-assuming there is no crossing bridge between x and y and that deg(<I>x</I>)&gt;0 
-and deg(<I>y</I>)&gt;0 (or a bridge between <I>x</I> and <I>y</I> has already 
-been built). </P>
-<P>And that's it. While the solution algorithm outlined above isn't exactly 
-rocket science, it requires some serious coding to get the problem successfully 
-solved. </P>
-<P>Now, for those of you who thought this wasn't so hard, here's a much harder 
-challenge, requiring a more sophisticated solution: write a program which 
-calculates the total number of solutions for the input below in less than two 
-seconds. For verification purposes, the answer is greater than one million, and 
-in modulo 1024 it's 544. </P>
-<PRE> "3.4.5.3.4.4.4.3"
- "..............."
- "4.3.3.2.4.4.5.3"
- "..............."
- "4.4.2.2.2.2.3.."
- ".....2.2.3....4"
- "4.4.2.2.2.3.4.."
- ".....2...2....."
- "4.3.1.1.2.2.4.2"
- ".....2.1.2.1..."
- "1.3.4.2.3.2.4.2"
- "..............."
- "1.2.4.5.4.2.3.2"
- "..............."
- "1.2.4.4.1.1.2.1"
-</PRE>
+        if (first-bitnumber-bits(order[0]) <= first-bitnumber-bits(order[1]) <= ... <= first-bitnumber-bits(order[11])) {
+            backtracking(bitnumber + 1);
+        }
+    }
+}
+</pre>
+<p>
+Here, <code>first-bitnumber-bits(order[i])</code> is the number represented
+by the first <code>bitnumber</code> bits of the row/column
+specified by <code>order[i]</code>,
 
-      </p>
+<code>number(order[i])</code> is the number represented by all bits of the
+row/column specified by <code>order[i]</code>.
+</p>
+
+<h1>SackJourney</h1>
+by <tc-webtag:handle coderId="251317" context="algorithm"/>
+<br><br>
+The infinite sack described in this problem is really an infinite stack.  Translated into the
+language of automata theory, this problem asks which states are reachable in a PDA (pushdown
+automaton).  To solve the problem, we incrementally build a reachability graph.  A directed edge
+from p to q in this graph indicates the ability to travel from p to q without changing the stack
+configuration.  Edges of the form "__" can immediately be added to this graph, since they do not
+involve the stack.  Furthermore, if you can get from location x to location s while adding A to your
+sack, and you can get from location t to location y by removing A from your sack, then a
+reachability edge from s to t implies a reachability edge from x to y.  Lastly, the reachability
+graph should be transitive.  In other words, an edge from p to q and an edge from q to r yields an
+edge from p to r.  Repeating these steps until no more changes can be made, we can determine which
+locations are reachable from 0 without changing the stack.  <br>
+<br>
+To check if a specific location k is
+reachable, add a new location k' to the graph.  In addition, add an edge of the form "__" from k to
+k'.  Lastly, add loops to k' permitting the removal of all types of elements from the sack.  The
+previously described algorithm will determine whether there is a path from 0 to k' resulting in an empty sack.
+This is equivalent to being able to reach k.
 
         </div>
       </td>
