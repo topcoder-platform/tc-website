@@ -58,12 +58,12 @@
             <% } else { %>
                <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=onsite_schedule"><img src="/i/tournament/tco05/tabs/L2_joinusOff.gif" alt="" border=0 /></A></td>
             <% } %>
-<%--
             <% if (tabLev2.equals("onsite_events")) {%>
                <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos"><img src="/i/tournament/tco05/tabs/L2_onsiteeventsOn.gif" alt="" border=0 /></A></td>
             <% } else { %>
                <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos"><img src="/i/tournament/tco05/tabs/L2_onsiteeventsOff.gif" alt="" border=0 /></A></td>
             <% } %>
+<%--
 --%>
             <% if (tabLev2.equals("sponsors")) {%>
                <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun"><img src="/i/tournament/tco05/tabs/L2_sponsorsOn.gif" alt="" border=0 /></A></td>
@@ -147,7 +147,9 @@
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=hotels"><% if (tabLev3.equals("hotels")) {%><img src="/i/tournament/tco05/tabs/L3_hotelsOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_hotelsOff.gif" border=0 /><% } %></a></td>
                <% } else if (tabLev2.equals("onsite_events")) {%>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos"><% if (tabLev3.equals("photos")) {%><img src="/i/tournament/tco05/tabs/L3_photosOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_photosOff.gif" border=0 /><% } %></a></td>
+<%--
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=movies"><% if (tabLev3.equals("movies")) {%><img src="/i/tournament/tco05/tabs/L3_moviesOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_moviesOff.gif" border=0 /><% } %></a></td>
+--%>
                <% } else if (tabLev2.equals("sponsors")) {%>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun"><% if (tabLev3.equals("sun")) {%><img src="/i/tournament/tco05/tabs/L3_sunOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_sunOff.gif" border=0 /><% } %></a></td>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo"><% if (tabLev3.equals("yahoo")) {%><img src="/i/tournament/tco05/tabs/L3_yahooOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_yahooOff.gif" border=0 /><% } %></a></td>
