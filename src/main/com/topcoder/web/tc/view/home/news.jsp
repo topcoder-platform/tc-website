@@ -9,10 +9,10 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.13.05<br>9:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.13.05<br>7:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room2_analysis">Eryx wins Room 2</A></span><br><br>
-      INTRODUCTION
+      Eryx, the number one seed for the room, was the first to submit the 250-point problem for a score of 214.13 points.  This gave him a considerable lead as the next two to submit were nearly 40 points behind.
       <br><br>
       <i>introduction by </i><tc-webtag:handle coderId="160049" context="algorithm"/><br>
       <i>analysis by </i><tc-webtag:handle coderId="159052" context="algorithm"/> and <tc-webtag:handle coderId="310430" context="algorithm"/>
