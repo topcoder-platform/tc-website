@@ -11,7 +11,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.12.05<br>9:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><tc-webtag:handle coderId="284007" /> wins the TCO05 Poker Tournament</span><br><br>
-      <tc-webtag:handle coderId="284007" /> takes the pot, and wins big.
+      <tc-webtag:handle coderId="284007" /> takes the pot, and wins big.  <tc-webtag:handle coderId="308453" /> and <tc-webtag:handle coderId="275071" /> take 2nd and 3rd.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
