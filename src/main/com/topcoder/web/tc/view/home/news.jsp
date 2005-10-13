@@ -9,6 +9,36 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.13.05<br>9:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room2_analysis">Eryx wins Room 2</A></span><br><br>
+      INTRODUCTION
+      <br><br>
+      <i>introduction by </i><tc-webtag:handle coderId="160049" context="algorithm"/><br>
+      <i>analysis by </i><tc-webtag:handle coderId="159052" context="algorithm"/> and <tc-webtag:handle coderId="310430" context="algorithm"/>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room2_analysis">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505777" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.13.05<br>4:10 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">TCO05 Room 1 Semifinals will be held at 7:00PM PDT</span><br><br>
+      Due to a power failure during the Room 1 Semifinals, we will rerun the round at 7:00PM PDT.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <tc-webtag:forumLink forumID="505776" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.12.05<br>9:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><tc-webtag:handle coderId="284007" /> wins the TCO05 Poker Tournament</span><br><br>
       <tc-webtag:handle coderId="284007" /> takes the pot, and wins big.  <tc-webtag:handle coderId="308453" /> and <tc-webtag:handle coderId="275071" /> take 2nd and 3rd.
@@ -239,35 +269,6 @@
          <A href="http://www.irishdev.com/NewsArticle.aspx?id=1046" target="_blank">full story</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505769">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.19.05<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_bracket">TCO05 Algorithm Semifinalists Bracket</A></span><br><br>
-      Check out the semifinalists bracket for the Algorithm Competition.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_bracket">details</A>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505768">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>09.22.05<br>9:45 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm264">SRM 264 - Problem Set & Analysis</A></span><br><br>
-      In Division 1, only <tc-webtag:handle coderId="10574855" context="algorithm"/> (1st) and <tc-webtag:handle coderId="11829284" context="algorithm"/> (2nd) managed to solve all three problems. <tc-webtag:handle coderId="10498974" context="algorithm"/> was the third of the three to solve the 1000 pointer; his 500 was taken down in the challenge phase, though this did not cost him 3rd place.</td>
-      <td class="newsPhoto"><%--<img src="/i/m/LunaticFringe_mug.gif" /><br>--%>by <tc-webtag:handle coderId="10083726" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm264">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505767" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 </table>

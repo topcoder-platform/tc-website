@@ -35,6 +35,8 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">10.13.05 4:10 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room2_analysis">Eryx wins Room 2</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.13.05 4:10 PM&#160;-&#160</td><td width="100%">Room 1 Semifinals will be held at 7:00PM PDT</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.12.05 9:00 PM&#160;-&#160</td><td width="100%">Ryan wins the TCO05 Poker Tournament</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.07.05 4:50 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_100505">Sun chat session from SRM 267</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.04.05 5:15 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_100505">Sun chat session scheduled for SRM 267</A></td></tr>
