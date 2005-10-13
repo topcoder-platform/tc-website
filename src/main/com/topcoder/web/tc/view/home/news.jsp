@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.12.05<br>9:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><tc-webtag:handle coderId="284007" /> wins the TCO05 Poker Tournament</span><br><br>
+      <tc-webtag:handle coderId="284007" /> takes the pot, and wins big.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505808" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.07.05<br>4:50 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_100505">Sun chat session from SRM 267</A></span><br><br>
       Joe Nuxoll from Sun Microsystems&#174; was recently in the Arena to chat about JSF components and Java Studio Creator.  Here's the transcript.
@@ -255,18 +268,6 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm264">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505767" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.19.05<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=nsa">NSA chat session scheduled for SRM 264</A></span><br><br>
-      NSA will be in the Arena Applet at 8:00 PM just before the start of SRM 264 to discuss working for NSA.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=nsa">details</A>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505766">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 </table>
