@@ -28,18 +28,17 @@
 <div class="leadPhoto">
 <p align="center"><span class="bodyText" align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">See more photos!</a></span></p>
 <img src="/i/tournament/tco05/onsite_photos/shot_room1.jpg" alt="" class="photoFrameBig" /><br>
-<span class="leadPhotoCaption">CAPTION<br><br></span>
 </div>
 
 <p>
-<span class="bigTitle">TITLE</span>
+<span class="bigTitle">ploh wins Room 1</span>
 <br><br>
 <img src="/i/m/FogleBird_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/>
 <tc-webtag:forumLink forumID="505776" message="Discuss this match" /><br>
 Thursday, October 13, 2005<br>
 Introduction by <tc-webtag:handle coderId="160049" context="algorithm"/>
 <br><br><br>
-INTRODUCTION
+The Room 1 results are finally in at 9PM PST here at the 2005 TopCoder Open finals.  The backup problem set used proved to be rather difficult, as only five of the twelve 250-point submissions ended up passing system tests.  The coders struggled with timeout issues and the fastest submission scored a relatively low 171.24.  Fortunately for some, the 500-point problem proved slightly easier, as seven of the finalists submitted solutions that eventually passed the system tests.  Petr was the only competitor to submit a solution to the 1000-point problem, just before the coding phase ended.  The challenge phase included a good amount of action and four submissions were brought down.  In the end, ploh and Petr came out on top with scores of 400.43 and 390.96, respectively.  Congratulations to them for making it to the final championship round!  HilbertRaum, marek.cygan, lars, and HiltonLange will get a second chance in tomorrow's wildcard round at 8AM PST.
 </p>
 
 <h1>WordGrid</h1>

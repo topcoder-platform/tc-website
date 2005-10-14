@@ -9,6 +9,24 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.14.05<br>12:15 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room1_analysis">ploh wins Room 1</A></span><br><br>
+      The backup problem set used proved to be rather difficult, as only five of the twelve 250-point submissions ended up passing system tests.
+      <br><br>
+      <i>introduction by </i><tc-webtag:handle coderId="160049" context="algorithm"/><br>
+      <i>analysis by </i><tc-webtag:handle coderId="310430" context="algorithm"/> and <tc-webtag:handle coderId="251317" context="algorithm"/>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room1_analysis">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505776" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.13.05<br>9:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room3_analysis">misof wins Room 3</A></span><br><br>
@@ -260,19 +278,6 @@
          <A href="/tc?module=Static&d1=pressroom&d2=pr_092805" target="_blank">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505772" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>09.26.05<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign">VeriSign chat session scheduled for SRM 265</A></span><br><br>
-      VeriSign will in the Arena Applet at 8:00 AM just before the start of SRM 265 to discuss working at VeriSign.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505771" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
 </table>
