@@ -16,7 +16,7 @@
 <jsp:include page="links.jsp" >
 <jsp:param name="tabLev1" value="algorithm"/>
 <jsp:param name="tabLev2" value="summary"/>
-<jsp:param name="tabLev3" value="wildcard"/>
+<jsp:param name="tabLev3" value="finals"/>
 </jsp:include>
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
@@ -27,7 +27,7 @@
             
 <div class="leadPhoto">
 <p align="center"><span class="bodyText" align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">See more photos!</a></span></p>
-<img src="/i/tournament/tco05/onsite_photos/shot_wildcard.jpg" alt="" class="photoFrameBig" /><br>
+<img src="/i/tournament/tco05/onsite_photos/shot_finals.jpg" alt="" class="photoFrameBig" /><br>
 <span class="leadPhotoCaption">CAPTION<br><br></span>
 </div>
 
@@ -35,7 +35,7 @@
 <span class="bigTitle">TITLE</span>
 <br><br>
 <img src="/i/m/FogleBird_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/>
-<tc-webtag:forumLink forumID="505779" message="Discuss this match" /><br>
+<tc-webtag:forumLink forumID="505780" message="Discuss this match" /><br>
 Friday, October 14, 2005<br>
 Introduction by <tc-webtag:handle coderId="160049" context="algorithm"/>
 <br><br><br>
