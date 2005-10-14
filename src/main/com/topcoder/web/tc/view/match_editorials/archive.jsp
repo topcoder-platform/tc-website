@@ -41,7 +41,8 @@
    
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>October</strong></td></tr>
-   <tr><td class="bodyText">10.13.05</td><td class="bodyText" nowrap="0">TCO05 - Semifinals Room 1 - <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room1_analysis">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">10.13.05</td><td class="bodyText" nowrap="0">TCO05 - Semifinals Room 3 - <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room3_analysis">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">10.13.05</td><td class="bodyText" nowrap="0">TCO05 - Semifinals Room 2 - <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room2_analysis">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">10.06.05</td><td class="bodyText" nowrap="0" width="100%">SRM 267 - <a href="/tc?module=Static&d1=match_editorials&d2=srm267">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">10.01.05</td><td class="bodyText" nowrap="0" width="100%">SRM 266 - <a href="/tc?module=Static&d1=match_editorials&d2=srm266">Problem Set & Analysis</a></td></tr>
 
