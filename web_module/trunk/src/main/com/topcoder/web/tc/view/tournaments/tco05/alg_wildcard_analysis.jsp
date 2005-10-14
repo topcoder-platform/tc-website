@@ -28,18 +28,17 @@
 <div class="leadPhoto">
 <p align="center"><span class="bodyText" align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">See more photos!</a></span></p>
 <img src="/i/tournament/tco05/onsite_photos/shot_wildcard.jpg" alt="" class="photoFrameBig" /><br>
-<span class="leadPhotoCaption">CAPTION<br><br></span>
 </div>
 
 <p>
-<span class="bigTitle">TITLE</span>
+<span class="bigTitle">John Dethridge wins the WildCard</span>
 <br><br>
 <img src="/i/m/FogleBird_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/>
 <tc-webtag:forumLink forumID="505779" message="Discuss this match" /><br>
 Friday, October 14, 2005<br>
 Introduction by <tc-webtag:handle coderId="160049" context="algorithm"/>
 <br><br><br>
-INTRODUCTION
+The wildcard round for the 2005 TopCoder Open started bright and early this morning at 8 AM.  This round served as a second chance for twelve of the finalists to try for a spot in today's final championship round.  A high number of submissions made this round especially exciting, as the rankings changed several times.  Five coders were able to submit all three problems.  gawry had the highest submission score on the 250, with 206.01 points.  John Dethridge had the fastest submissions on both the 500 and 1000-point problems, for 361.55 points and an amazing 903.24 points, respectively.  There was a lot of action during the challenge phase but only two challenges proved successful.  Many submissions were brought down during the system test phase, but the top two held their ground and will move on to the final round.  Congratulations to John Dethridge and gawry for passing all three problem submissions and getting their chance to win the championship!
 </p>
 
 <h1>CaterpillarTree</h1>

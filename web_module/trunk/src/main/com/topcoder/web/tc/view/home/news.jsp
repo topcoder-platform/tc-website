@@ -9,6 +9,24 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.14.05<br>1:25 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_wildcard_analysis">John Dethridge wins the WildCard Room</A></span><br><br>
+      This round served as a second chance for twelve of the finalists to try for a spot in today's final championship round.  A high number of submissions made this round especially exciting, as the rankings changed several times.
+      <br><br>
+      <i>introduction by </i><tc-webtag:handle coderId="160049" context="algorithm"/><br>
+      <i>analysis by </i><tc-webtag:handle coderId="269554" context="algorithm"/> and <tc-webtag:handle coderId="159052" context="algorithm"/>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_wildcard_analysis">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505779" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.14.05<br>12:15 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room1_analysis">ploh wins Room 1</A></span><br><br>
@@ -265,19 +283,6 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm265">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505770" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>09.28.05<br>11:10 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_092805">TCO05 Finalists Press Release</A></span><br><br>
-      The 61 TopCoder onsite finalists represent 19 countries including China, Poland, the Russian Federation, South Africa, Japan, Australia and Argentina as well as the US.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=pressroom&d2=pr_092805" target="_blank">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505772" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
 
 </table>
