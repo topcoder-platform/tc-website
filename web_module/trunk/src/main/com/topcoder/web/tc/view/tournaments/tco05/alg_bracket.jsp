@@ -71,7 +71,10 @@
       <td valign="middle">&#160;</td>
       <td rowspan="9" style="padding: 15px" valign="middle" align="center">
       <%-- FINALS --%>
-      &#160;
+      <tc-webtag:handle coderId="8355516" context="algorithm"/><br>
+      <tc-webtag:handle coderId="156216" context="algorithm"/><br>
+      <tc-webtag:handle coderId="8357090" context="algorithm"/><br>
+      <tc-webtag:handle coderId="293874" context="algorithm"/><br>
       </td>
    </tr>
    <tr>
@@ -112,7 +115,14 @@
       <td valign="middle"><img src="/i/tournament/tco05/bracket_bar.gif" alt="" border="0" /></td>
       <td style="padding: 15px" valign="middle" align="center">
       <%-- WILDCARD ROOM --%>
-      &#160;
+      <tc-webtag:handle coderId="270505" context="algorithm"/><br>
+      <tc-webtag:handle coderId="277659" context="algorithm"/><br>
+      <tc-webtag:handle coderId="7390224" context="algorithm"/><br>
+      <tc-webtag:handle coderId="297823" context="algorithm"/><br>
+      <tc-webtag:handle coderId="7479769" context="algorithm"/><br>
+      <tc-webtag:handle coderId="10481120" context="algorithm"/><br>
+      <tc-webtag:handle coderId="275071" context="algorithm"/><br>
+      <tc-webtag:handle coderId="346607" context="algorithm"/><br>
       </td>
       <td rowspan="2" style="background-color: #000000;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td valign="middle"><img src="/i/tournament/tco05/bracket_bar.gif" alt="" border="0" /></td>

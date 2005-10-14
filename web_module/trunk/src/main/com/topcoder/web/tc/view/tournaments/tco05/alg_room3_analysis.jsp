@@ -28,18 +28,17 @@
 <div class="leadPhoto">
 <p align="center"><span class="bodyText" align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">See more photos!</a></span></p>
 <img src="/i/tournament/tco05/onsite_photos/shot_room3.jpg" alt="" class="photoFrameBig" /><br>
-<span class="leadPhotoCaption">CAPTION<br><br></span>
 </div>
 
 <p>
-<span class="bigTitle">TITLE</span>
+<span class="bigTitle">misof wins Room 3</span>
 <br><br>
 <img src="/i/m/FogleBird_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/>
 <tc-webtag:forumLink forumID="505778" message="Discuss this match" /><br>
 Thursday, October 13, 2005<br>
 Introduction by <tc-webtag:handle coderId="160049" context="algorithm"/>
 <br><br><br>
-INTRODUCTION
+Everyone can go home feeling content after the Room 3 portion of the on-site finals here at the 2005 TopCoder Open.  Each of the sixteen competitors submitted a correct 250-point solution, leaving each of them with a positive final score.  The relatively easy 250 left plenty of time for thirteen of the coders to submit the 500-point problem.  However, only three of them ended up passing - four were brought down during the challenge phase and the rest during system tests.  Finally, misof was the only one to submit the difficult 1000-point problem.  He seemed rather excited as his solution passed system tests, keeping him in 1st place for the room.  He and nicka81 will advance to the finals tomorrow.  ivan_metelsky, antimatter, marian, and kalmakka will move on to the wildcard round for a second chance to make it into the final championship round.  Good luck!
 </p>
 
 
