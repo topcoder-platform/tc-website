@@ -42,79 +42,195 @@ Introduction by <tc-webtag:handle coderId="160049" context="algorithm"/>
 INTRODUCTION
 </p>
 
-<h1>CaterpillarTree</h1>
+<h1>SuperKing</h1>
+by <tc-webtag:handle coderId="310430" context="algorithm"/>
+<br><br>
+Let's split the problem into three different sub-problems,
+depending on the value of <b>type1</b>.
+<p>
+The case <b>type1</b>=0, where we only perform Type-2 moves,
+is the easiest one. Here, the answer is the number of
+possible landing squares after performing <b>type2</b>
+steps of a normal random walk on a two-dimensional
+lattice, the lattice points being the board squares
+at a distance (2x, 2y) relative to the starting square.
+It is easy to see (see figure below for <b>type2</b>=3,
+the dot in the middle marks the starting square),
+that the possible landing squares are arranged in a square
+structure of (<b>type2</b>+1)<sup>2</sup> squares (the red ones).
+</p>
+<div align="center"><img src="/i/srm/tco05_fin_1.png" alt="" border="0" /></div>
+<p>
+For <b>type1</b>=1 we have to perform one additional
+Type-1 step beginning from the landing squares of the
+previous case. This leads initially to a value
+8 * (<b>type2</b>+1)<sup>2</sup> (because there are 8
+possible Type-1 moves), but we have to be careful
+since we have counted some squares twice.
+The figure below shows how we can count the squares
+that were counted twice, in order to correct the
+return value. For the figure, <b>type2</b> has been
+chosen to be 3 again.
+The landing squares after the Type-2 moves are shown
+in red. After the final Type-1 move, the possible
+landing squares are shown in green. The dark green
+ones are the ones we counted twice. To each
+&quot;internal&quot; red square correspond 4 dark
+green squares (there are a total of
+(<b>type2</b>-1)<sup>2</sup> such red squares).
+To each red square on a corner of the
+(<b>type2</b>+1) x (<b>type2</b>+1) square (4 corners in total)
+correspond 2 dark green squares, and to each red square
+on an edge of the (<b>type2</b>+1) x (<b>type2</b>+1)
+square correspond 3 dark green squares (there are
+4 * (<b>type2</b>-1) such red squares). And since we
+count each dark green square twice, we have to divide
+again by two, for a total of:
+
+</p>
+<pre>
+(4 * (<b>type2</b>-1)<sup>2</sup> + 2 * 4 + 3 * 4 * (<b>type2</b>-1)) / 2
+</pre>
+<p>
+dark green squares in total. If we subtract this
+value from 8 * (<b>type2</b>+1)<sup>2</sup> and simplify
+the term, we get the total number of green squares
+(now also the dark green squares correctly counted
+only once):
+
+</p>
+<pre>
+6 * <b>type2</b><sup>2</sup> + 14 * <b>type2</b> + 8
+</pre>
+</p>
+<div align="center"><img src="/i/srm/tco05_fin_2.png" alt="" border="0" /></div>
+<p>
+Now let's come to the difficult case, <b>type1</b>&gt;1.
+It is easiest to explain the final formula using an
+example <b>type1</b>=2, <b>type2</b>=3 (see figure below).
+Notice, that it is not important in which order we
+perform the moves, so we will perform the Type-1 moves
+first here. After <b>type1</b>(&gt;1) Type-1 moves we can land in
+any of the green squares shown in the figure below (the
+starting square is again the square with a dot at the center of this area).
+These are all squares having a distance of maximum <b>type1</b>
+
+to the x- or y-direction from the starting square, which
+leads to the green square with dimensions
+(2*<b>type1</b>+1) times (2*<b>type1</b>+1). From this, if we do
+the remaining <b>type2</b> Type-2 moves only up or down, we
+can cover (additionally to the green area) the squares in
+the red area. If one of the Type-2 moves is to the left
+or right, we can additionally reach the blue area, if two
+of the Type-2 moves are to the left or right, we can
+additionally reach the yellow area and so on.
+The central (green and red) area has width (2*<b>type1</b>+1)
+and height (2*<b>type1</b>+1+4*<b>type2</b>), the next areas
+(blue, yellow etc.) have each width 4 (2 to the left and
+2 to the right of the green/red area) and height decreasing
+by 4 each time up to a minimum of (2*<b>type1</b>+1). If we
+define A:=(2*<b>type1</b>+1) we have a total of:
+
+</p>
+<pre>
+result = 4 * (A + (A + 4) + (A + 8) + ... + (A + 4 * <b>type2</b> - 4))
+         + A * (A + 4 * <b>type2</b>)
+
+       = 4 * A * <b>type2</b> + 4 * 4 * (0 + 1 + 2 + ... + (<b>type2</b> - 1))
+         + A * (A + 4 * <b>type2</b>)
+
+       = 4 * A * <b>type2</b> + 8 * (<b>type2</b> - 1) * <b>type2</b> + A * (A + 4 * <b>type2</b>)
+
+</pre>
+<p>
+reachable squares. If we insert the value for A from above (A=2*<b>type1</b>+1)
+and simplify the term, we finally get:
+</p>
+<pre>
+result = 4 * <b>type1</b><sup>2</sup> + 8 * <b>type2</b><sup>2</sup> + 16 * <b>type1</b> * <b>type2</b> + 4 * <b>type1</b> + 1
+
+</pre>
+<div align="center"><img src="/i/srm/tco05_fin_3.png" alt="" border="0" /></div>
+<p>
+In total we have the following solution:
+</p>
+<pre>
+if (type1 == 0) {
+    return (type2 + 1) * (type2 + 1);
+} else if (type1 == 1) {
+    return 6 * type2 * type2 + 14 * type2 + 8;
+} else {
+    return 4 * type1 * type1 + 8 * type2 * type2 + 16 * type1 * type2 + 4 * type1 + 1;
+}
+</pre>
+
+<p>
+Instead of doing the analysis to come up with the above formulas,
+one can easily see after trying out some examples, that the result
+must be a quadratic formula in <b>type1</b> and <b>type2</b> for
+the case <b>type1</b>&gt;1 (or just some quadratic formula in <b>type2</b>
+
+for <b>type1</b>=1 and <b>type1</b>=0), and try to deduce the constant
+factors (a - f) of:
+</p>
+<pre>
+result = a * <b>type1</b> * <b>type1</b> + b * <b>type1</b> * <b>type2</b> + c * <b>type2</b> * <b>type2</b>
+
+         + d * <b>type1</b> + e * <b>type2</b> + f
+</pre>
+<p>
+The last example was a great help for this, immediately showing that a + b + c = 28,
+d + e = 4 and f = 1, so that with just some trying around with small examples, all
+factors could be deduced.
+</p>
+
+
+<h1>NearBirthdays</h1>
 by <tc-webtag:handle coderId="269554" context="algorithm"/>
 <br><br>
-Caterpillar trees have some theoretical importance in graph theory. For one thing, a caterpillar tree will always have a graceful labeling (a way to label the nodes in tree with distinct integers from 0 to m such that the edge-differences are all integers 1 to m).
+Probability and combinatorics are often related. While this problem is formulated as a probability problem, it's easiest to solve it thinking in combinatoric terms: There are <b>daysInAYear<sup>noPeople</sup></b> possible birthday combinations. How many of them satisfy the constraint that no two persons are born within the given amount of days?
 <br><br>
-Since each node in the tree requires two characters input (except the start node), the maximum size of the input tree is 1251 nodes. So a O(N2) algorithm should be enough, and that's what I'll describe here. It's not very hard to turn this into an O(N) solution, but I'll leave that as an exercise to the reader.
+Without loss of generality, we can assume that one person is born on the first day of the year. The number of days left to consider is then <b>daysInAYear - 1 - 2*withinDays</b> (call this <b>M</b>). If this is ? 0, obviously the likelihood that two persons are born within <b>withinDays</b> is 1.0.
 <br><br>
-The problem asked for the fewest number of nodes to remove to end up with a caterpillar tree. This is really the same thing as finding the largest subtree in the given tree so that the subtree is a caterpillar tree. The easiest way to find the largest such subtree is to consider all possible stalks in the subtree. This can be done by testing all nodes as potential start nodes in the stalk. Since it makes no sense for the stalk to begin on something other than a leaf node this can be optimized a bit, even though it's not really necessary. For each start node we do a depth first search, exploring all possible paths in the tree. When doing this traversal, we make sure to keep track on the number of nodes that we touch but never visit in the current path; the touched nodes are part of the caterpillar tree. Whenever the traversal should backtrack, we have a potential stalk. Since we during the recursion kept track of the number of touched nodes, we know the size of the caterpillar tree if the current stalk is used. 
+Now we should find the number of ways to assign birthdays to the remaining <b>noPeople-1</b> persons in the <b>M</b> days available so the constraints are satisfied. This can be done by defining a recursive function. Define f(x,y) as a function which returns the number of ways to assign birthdays to x people in a y day consecutive time span (note that we don't have to worry about circularity because we have fixed one person on day 1).
 <br><br>
-If one tries to simplify the problem by assuming that the optimal solution would always be reached by selecting the longest path in the original tree as the stalk to use, one would fail. A counterexample is a graph that has one node with 100 neighbors, but where this node is not on the longest path. 
+f(1,y) is of course easy to evaluate - there are y ways to place someone in a y day time span. To evaluate f(x,y), we decide (by looping over all values) which day in the y day time span that should be the next birthday for someone among the x people left (call this day i, 0 &#8804; i &lt; y). For each i, we calculate how many ways to assign birthdays to the remaining x-1 people in a y-i-<b>withinDay</b> time span. This value needs to be multiplied by y since anyone of the y people left could have been assigned birthday i.
+<br><br>
+Once the math has been figured out, the function evaluation should be implemented using either memoization or dynamic programming. Finally, since we want probability, we should divide the result with <b>daysInAYear<sup>noPeople-1</sup></b> (since we fixed the birthday for one person).
+<br><br>
+It's safe to use double in this problem even though the numbers can get very large (if all the division is done at the end) since all calculations are stable.
 
-<h1>TriangleRooks</h1>
-by <tc-webtag:handle coderId="251317" context="algorithm"/>
+<h1>ShortTaps</h1>
+by <tc-webtag:handle coderId="269554" context="algorithm"/>
 <br><br>
-Each step in the given sequence provides some information about the columns and rows of the board.
-If the sequence ever increases by more than 1 or decreases by more than 1 we know something is
-fishy.  In addition, we know that moving horizontally can only add rooks, while moving vertically
-can only subtract rooks.  If the input doesn't agree with either of these two observations, we can
-return an empty array.  Assuming neither of these oddities occurs, we can process the sequence as
-follows.  Each column we pass potentially gives us a rook to place.  
-These rooks are added to a stack, so the rooks on top occur in later columns.  When we pass a
-row that requires a rook, we pop a column off the stack and place the rook.  Clearly placing the
-last possible rook will guarantee our ordering is desirable (early rows should get earlier rooks).
-The only potential qualm would be that placing a rook in the wrong column could ruin the board, thus
-making the placement of future rooks impossible.  Fortunately, this is not an issue.  If there is a
-feasible board setup that places the rook in the currently observed row earlier, and thus
-uses the column at the top of the stack in a higher row, then we could swap these two rooks yielding another
-feasible (and better) assignment.
+The first thing one should realize is that all messages longer than <b>interceptTime</b> can always be sent at time 0. These messages can then be ignored for the rest of the solution. We only have to make sure that the returned answer is never less than the longest message.
+<br><br>
+The maybe easiest way to figure out the solution is to consider how one would solve the problem had the constraint been that at most one message was allowed to be intercepted. If there are two messages to be sent (as stated above, from now on we assume that all messages are at most <b>interceptTime</b> long), we can always send them in <b>interceptTime+1</b> minutes: one message is sent at time 0, the other message is sent so that it has finished receiving at time <b>interceptTime+1</b>.
+<br><br>
+Assume now that we have k messages to send. The length of each message is t[k] and <b>interceptTime</b> is y. For now, we decide to send the messages in order. That is, message 1 is first sent, then message 2 is sent as soon as possible, then message 3 etc. How long time would it then take to send all messages? Let start[i] and stop[i] be the start and stop time when each message is being sent. Obviously we have that start[i]+t[i]=stop[i]. From the reasoning in the previous paragraph we also have that stop[i+1]=start[i]+y+1. So: 
+<pre>
+start[i] = stop[i] - t[i]
+stop[i+1] = start[i] + (y+1)
 
-<h1>XORing</h1>
-by <tc-webtag:handle coderId="159052" context="algorithm"/>
+stop[i+1] = stop[i] + (y+1) - t[i]
+
+stop[k] = stop[k-1] + (y+1) - t[k-1] =
+        = stop[k-2] + (y+1) - t[k-1] + (y+1) - t[k-2] =
+        = ... =
+        = stop[1] + (k-1)*(y+1) - sum(x=1..k-1, t[x]) =
+        = t[1] + (k-1)*(y+1) - sum(x=1..k-1, t[x]) =
+        = (k-1)*(y+1) - sum(x=2..k-1, t[x])
+</pre>
+And - surprise, surprise - the total transmission time only depends on the second to the second last message sent, and not at all in which order they are sent. As can be seen, the total transmission time becomes the shortest if the longest messages are put among message 2 to k-1. So we always want the two shortest messages to be sent first and last. 
 <br><br>
-It may not be obvious, but this problem is strongly related to linear algebra, though with slightly different operations then you are used to in linear algebra problems. Instead of addition, we have the XOR operation. However, it turns out that XOR has many of the same properties as addition. Both are commutative, associative, and distributive. There is also an identity value and an inverse function for each of them.
+Now back to the original problem. We now need to find a way to partition the messages into three partitions. Each partition can then be sent independently of each other, and the time it takes to send them is given by the formula above. The total time will be the maximum of these three times. Since there will be a total of six messages that won't affect the overall time at all, we can take out the six shortest messages. 
 <br><br>
-Now, lets look at a simple example, that should make it clear how these similarities come into play. Lets say we have the input M = [11,10], t = [01]. We can represent this as two equations: 
-<pre>
-a<sub>0</sub>*1 ^ a<sub>1</sub>*1 = 0
-a<sub>0</sub>*1 ^ a<sub>1</sub>*0 = 1
-</pre>
-Now, lets think about what happens if we XOR the two equations together. Because of the properties of XOR, we end up with a new equation: 
-<pre>
-a<sub>0</sub>*1 ^ a<sub>1</sub>*1 ^ a<sub>0</sub>*1 ^ a<sub>1</sub>*0 = 0^1
-= (a<sub>0</sub>^a<sub>0</sub>)*1 ^ a<sub>1</sub>*1 = a<sub>1</sub> = 1
-</pre>
-Furthermore, we no longer need both of the original equations. If we have just one of them and the new equation that we derived above, we can derive the discarded equation with the same process. Now, if you are familiar with solving systems of linear equations, this should all look very familiar. We can put all of the equations and the answers in one big matrix, as you would when solving any linear algebra problem. For instance, the above example would go in a matrix like this (note how we combined m and t) 
-<pre>
-110
-101
-</pre>
-The algorithm for this problem is analogous to row reducing a matrix. First, sort the rows in descending order by the first column. Break ties by the second column, and so on. Now, find the leftmost 1 in the first row. For every other row that has a 1 in the same position, XOR that row with the first row, in place. This will eliminate 1's from the leftmost column in every row but the first. Next, resort the rows, and find the leftmost 1 in the second row and repeat, removing all the 1's in that position except for one of them. Repeat this process until you get to the last row. Now, if any of the rows have just a single 1 in the rightmost position (the answer column) then there are 0 valid functions, as you can't get a 1 by XORing a bunch of 0's. Otherwise, we want to count the free variables. A variable is free if whenever there is 1 in the column that represents that variable, there is another 1 in the same row that is further left (this is trivially true when there is no column containing a 1 for that variable). Finally, the answer is simply 2<sup>number of free variables</sup>. This is because we can assign the free variables however we want, and once we've assigned them, each of the bound (not free) variables must be assigned in a certain way to make the equations all true. For instance, lets say that you start out with the following matrix: 
-<pre>
-010101
-010010
-001011
-000111
-</pre>
-Its already sorted properly, so first we remove the 1's from the second column by XORing the first row into the second: 
-<pre>
-010101        010101
-000111  SORT  001011
-001011  --->  000111
-000111        000111
-</pre>
-Now, we don't have to remove any 1's from the third column, as there is already only one row with a 1 there, so we move on to the third row. Now, we XOR that row into the first and fourth rows and get: 
-<pre>
-010010
-001011
-000111
-000000
-</pre>
-Here, we are done. There are no rows that have just a 1 in the rightmost position, so there is at least one solution. The variables corresponding to the first and fifth columns are free, so we can make both of them either 0 or 1, and thus there are 4 valid solutions. You can verify that for each of the 4 choices for the first and fifth variables, there is only one possibility for the bound variables.
+The remainder of the problem is a classic dynamic programming problem: We have x objects (in this case at most 44 since 6 have been removed) that we want to split into three partitions so that the maximum sum in each partition is as small as possible. The weight of each object is not t[i] but y+1-t[i], as can be seen from the formula above. To solve the DP problem, let f(k,a,b) be true if it's possible to partition the first k objects into three partitions so that one partition has size a, another one size b and the third one sum(x=1..k,t[x]-a-b). f(k,a,b) is true if either f(k-1,a-t[k],b), f(k-1,a,b-t[k]) or f(k-1,a,b) is true (corresponding to placing object k in any of the three partitions). This function is most easily calculated using dynamic programming and not memoziation, because we won't easily be able to keep a cache of all values in memory at the same time due to the input constraints of message sizes. When using dynamic programming, old values can be overwritten that won't be used again (f(k,a,b) never refers to f(k-2,x,y) so the outer dimension can be stored in modulo 2). 
 <br><br>
-An implementation detail is that if you use a 64 bit integer for each row, all of the coding becomes pretty simple.
+The final answer is found by looping over all partitions sizes (only two loops; the size of the third partition is calculated from the other two) and check the corresponding element in the recursive function. 
+<br><br>
+There are also some special cases to consider. If, after removing messages longer than <b>interceptTime</b>, we have at most 3 or at most 6 messages left, special case handling might be necessary to avoid wrong answer or run time errors. 
+
         </div>
       </td>
         
