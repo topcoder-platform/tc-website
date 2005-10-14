@@ -9,6 +9,24 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.13.05<br>9:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room3_analysis">misof wins Room 3</A></span><br><br>
+      Everyone can go home feeling content after the Room 3 portion of the on-site finals here at the 2005 TopCoder Open.  Each of the sixteen competitors submitted a correct 250-point solution.
+      <br><br>
+      <i>introduction by </i><tc-webtag:handle coderId="160049" context="algorithm"/><br>
+      <i>analysis by </i><tc-webtag:handle coderId="251317" context="algorithm"/>, <tc-webtag:handle coderId="159052" context="algorithm"/>, and <tc-webtag:handle coderId="310430" context="algorithm"/>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room3_analysis">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505778" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.13.05<br>7:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room2_analysis">Eryx wins Room 2</A></span><br><br>
@@ -255,20 +273,6 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign">details</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505771" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>09.26.05<br>2:40 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.irishdev.com/NewsArticle.aspx?id=1046" target="_blank">Google announces Winner of 2005 Code Jam</A></span><br><br>
-      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/irishdev_logo.gif" width="67" height="48" alt="Irish Developer's Network" border="0" /></div>
-      "Google Inc. have announced Marek Cygan, a student at Warsaw University, as the grand prize winner of the 2005 Google Code Jam, Google's annual computer programming competition."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://www.irishdev.com/NewsArticle.aspx?id=1046" target="_blank">full story</A>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505769">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
 
 </table>
