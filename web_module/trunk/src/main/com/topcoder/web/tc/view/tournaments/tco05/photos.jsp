@@ -112,7 +112,7 @@ function changeImage(place, imageIndex) {
                     <td class="terciary">
                         <input type="hidden" name="module" value="Static"/>
                         <input type="hidden" name="d1" value="tournaments"/>
-                        <input type="hidden" name="d2" value="tccc05"/>
+                        <input type="hidden" name="d2" value="tco05"/>
                         <input type="hidden" name="d3" value="photos"/>
                         <input type="text" value="1" name="<%=CURR_IMAGE_KEY%>" size="3"/> of 
                         <script language="JavaScript"><!--
