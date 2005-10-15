@@ -7,6 +7,58 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
 
+<%--------------------------ALGORITHM------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.14.05<br>8:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_wildcard_analysis">Eryx is the new Algorithm Champion</A></span><br><br>
+      The tournament has come to an exciting end here at the TCO 2005 Finals. The top two from the first three rounds and the top two from the wildcard round joined together in a close battle for the title of championship winner.
+      <br><br>
+      <i>introduction by </i><tc-webtag:handle coderId="160049" context="algorithm"/><br>
+      <i>analysis by </i><tc-webtag:handle coderId="310430" /> and <tc-webtag:handle coderId="269554" context="algorithm"/>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_wildcard_analysis">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505811" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------DESIGN------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.14.05<br>8:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_summary">nicka81 is the new Design Champion</A></span><br><br>
+      Congratulations to <tc-webtag:handle coderId="293874" context="design"/> for winning the 2005 TopCoder Open Component Design Competition!
+      <br><br>
+      <i>summary by </i><tc-webtag:handle coderId="156859" /><br>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_summary">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505810" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------DEVELOPMENT------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.14.05<br>8:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_summary">visualage is the new Development Champion</A></span><br><br>
+      Congratulations to <tc-webtag:handle coderId="299979" context="development"/> for winning the 2005 TopCoder Open Component Development Competition!
+      <br><br>
+      <i>summary by </i><tc-webtag:handle coderId="160049" /><br>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_summary">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505809" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.14.05<br>1:25 PM</td>
@@ -242,48 +294,6 @@
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.29.05<br>11:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/?t=sponsor&c=link&link=/pdfs/tournaments/tco05_program.pdf&refer=slashtc">TCO05 Program</A> [PDF - 10 MB]</span><br><br>
-      Featuring superlatives, admin trivia, and tons of facts and statistics on all the onsite competitors.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/?t=sponsor&c=link&link=/pdfs/tournaments/tco05_program.pdf&refer=slashtc">view</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505801" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>09.28.05<br>2:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.carynews.com/enterprise/story/2805639p-9249369c.html" target="_blank">Ready, again, for TopCoder battle</A></span><br><br>
-      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/carynews_logo.gif" width="67" height="20" alt="Irish Developer's Network" border="0" /></div>
-      "Now working with computers with a financial industry consulting firm, Roberts relocated to Cary two and half years ago. He has been a regular on the TopCoder site since its start at the beginning of the decade - for the fun, and for the money."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://www.carynews.com/enterprise/story/2805639p-9249369c.html" target="_blank">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505773" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>09.29.05<br>11:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm265">SRM 265 - Problem Set & Analysis</A></span><br><br>
-      As a few of the Google Code Jam finalists were still making their way back to their respective homes, SRM 265 started early tuesday morning. In fact the top four placers were also finalists.</td>
-      <td class="newsPhoto"><img src="/i/m/Ryan_mug.gif" /><br>by <tc-webtag:handle coderId="284007" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm265">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505770" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
 
 </table>
 <br><br>

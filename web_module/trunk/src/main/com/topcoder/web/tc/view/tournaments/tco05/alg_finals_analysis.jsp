@@ -31,14 +31,14 @@
 </div>
 
 <p>
-<span class="bigTitle">TITLE</span>
+<span class="bigTitle">Eryx is the new Algorithm Champion</span>
 <br><br>
 <img src="/i/m/FogleBird_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/>
 <tc-webtag:forumLink forumID="505780" message="Discuss this match" /><br>
 Friday, October 14, 2005<br>
 Introduction by <tc-webtag:handle coderId="160049" context="algorithm"/>
 <br><br><br>
-INTRODUCTION
+The tournament has come to an exciting end here at the TCO 2005 Finals.  The top two from the first three rounds and the top two from the wildcard round joined together in a close battle for the title of championship winner.  Eryx took an early lead with a very quick submission on the 300-point problem for a score of 285.41 points.  Eventually, all but one finalist was able to complete the "easy" problem.  The coders often seemed unsure which problem to work on, as many jumped from problem to problem.  Nearly every finalist who completed the 300 moved on to submit the 500 as well, putting the scores all very close together.  With only minutes to go, however, Eryx submitted the 1000-point problem for a huge lead.  The challenge phase was rather active and two submissions were brought down.  The coders did well in the challenge phase, as all incorrect submissions were found: the system tests left the results unchanged.  Congratulations to Eryx for a fantastic performance and receiving the first place prize of $20,000!
 </p>
 
 <h1>SuperKing</h1>

@@ -35,6 +35,9 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">10.14.05 8:30 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_wildcard_analysis">Eryx is the new Algorithm Champion</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.14.05 8:30 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_summary">nicka81 is the new Design Champion</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.14.05 8:30 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_summary">visualage is the new Development Champion</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.14.05 1:25 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room1_analysis">John Dethridge wins the WildCard Room</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.14.05 12:15 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room1_analysis">ploh wins Room 1</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.13.05 9:30 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room3_analysis">misof wins Room 3</A></td></tr>

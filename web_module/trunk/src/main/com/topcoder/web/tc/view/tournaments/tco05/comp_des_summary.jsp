@@ -36,8 +36,21 @@
 <em>TopCoder Staff</em><br />
 Friday, October 14, 2005<br/>
 <br/><br/>
-SUMMARY
-
+The 2005 TopCoder Open started with the component competition finals on Wednesday morning.  While the algorithm competitors were enjoying a long game of poker in the Game Room, the component competitors were hard at work on the stage.  Unlike the short algorithm competitions that start and finish within a couple hours, the component competition kept the finalists hard at work for seven grueling hours, with a short 30-minute lunch break.
+<br><br>
+The component competition was split into two categories: design and development.  The design competition this year was based around the Distributed Protocol Factory component and the development competition was based around the File Statistics component.  Both of these categories required the finalists to tweak their existing deliverables to support one of three proposed enhancements that extend the functionality of each component.
+<br><br>
+The Distributed Protocol Factory component used in the design portion of the competition allows an application to send messages with guaranteed delivery over a distributed network. The three enhancement options for this component were the following:
+<ul>
+<li>Support for pluggable compression strategies to compress the data going over the network.</li>
+<li>Support for bridging separate node groups into a more complex network.</li>
+<li>Support for authentication to allow the nodes to verify that messages come from an approved peer.</li>
+</ul>
+After the finalists completed their work, the members on the review board were responsible for examining and evaluating the submissions.
+<br><br>
+Once the review scorecards were completed, the finalists were given an opportunity to review and appeal the decisions of the review board.  Only after those appeals were answered did the scores become final.
+<br><br>
+Congratulations to <tc-webtag:handle coderId="293874" context="design"/> for winning the 2005 TopCoder Open Component Design Competition!
         </div>
       </td>
         
