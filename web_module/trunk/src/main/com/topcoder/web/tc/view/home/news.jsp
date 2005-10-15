@@ -11,7 +11,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.14.05<br>8:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_wildcard_analysis">Eryx is the new Algorithm Champion</A></span><br><br>
+      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_finals_analysis">Eryx is the new Algorithm Champion</A></span><br><br>
       The tournament has come to an exciting end here at the TCO 2005 Finals. The top two from the first three rounds and the top two from the wildcard round joined together in a close battle for the title of championship winner.
       <br><br>
       <i>introduction by </i><tc-webtag:handle coderId="160049" context="algorithm"/><br>
@@ -19,7 +19,7 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_wildcard_analysis">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_finals_analysis">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505811" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
@@ -46,7 +46,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.14.05<br>8:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_summary">visualage is the new Development Champion</A></span><br><br>
+      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_summary">visualage is the new Development Champion</A></span><br><br>
       Congratulations to <tc-webtag:handle coderId="299979" context="development"/> for winning the 2005 TopCoder Open Component Development Competition!
       <br><br>
       <i>summary by </i><tc-webtag:handle coderId="160049" /><br>

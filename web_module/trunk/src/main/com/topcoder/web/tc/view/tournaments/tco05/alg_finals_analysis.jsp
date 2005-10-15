@@ -27,7 +27,7 @@
             
 <div class="leadPhoto">
 <p align="center"><span class="bodyText" align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">See more photos!</a></span></p>
-<img src="/i/tournament/tco05/onsite_photos/shot_finals.jpg" alt="" class="photoFrameBig" /><br>
+<img src="/i/tournament/tco05/onsite_photos/shot_algorithm.jpg" alt="" class="photoFrameBig" /><br>
 </div>
 
 <p>
