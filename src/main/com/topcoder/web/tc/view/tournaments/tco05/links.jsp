@@ -94,9 +94,9 @@
                <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_bracket"><img src="/i/tournament/tco05/tabs/L2_advancersOff.gif" alt="" border=0 /></A></td>
             <% } %>
             <% if (tabLev2.equals("summary")) {%>
-               <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_wildcard_analysis"><img src="/i/tournament/tco05/tabs/L2_summaryOn.gif" alt="" border=0 /></A></td>
+               <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_finals_analysis"><img src="/i/tournament/tco05/tabs/L2_summaryOn.gif" alt="" border=0 /></A></td>
             <% } else { %>
-               <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_wildcard_analysis"><img src="/i/tournament/tco05/tabs/L2_summaryOff.gif" alt="" border=0 /></A></td>
+               <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_finals_analysis"><img src="/i/tournament/tco05/tabs/L2_summaryOff.gif" alt="" border=0 /></A></td>
             <% } %>
 <%--
 --%>
