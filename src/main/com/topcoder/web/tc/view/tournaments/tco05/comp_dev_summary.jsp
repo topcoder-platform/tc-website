@@ -29,7 +29,7 @@
 <br><br>
 <div class="leadPhoto">
 <span class="bodyText" align="center"><p align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">See more photos!</a></p></span>
-<img src="/i/tournament/tco05/onsite_photos/shot_design.jpg" alt="" class="photoFrameBig" /><br/>
+<img src="/i/tournament/tco05/onsite_photos/shot_development.jpg" alt="" class="photoFrameBig" /><br/>
 </div>
 <img src="/i/m/FogleBird_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/>
 <p>by <tc-webtag:handle coderId="160049" context="algorithm"/><br/>
