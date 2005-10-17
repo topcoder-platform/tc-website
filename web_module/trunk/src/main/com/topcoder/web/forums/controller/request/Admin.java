@@ -155,20 +155,25 @@ public class Admin extends ForumsProcessor {
         } 
     }
     
+    // Sets thread modification dates to their correct values.
     private void repair() {
         try {
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(2005,7,17);
             Forum f = forumFactory.getForum(7167);
             com.jivesoftware.forum.ForumThreadIterator itThreads = f.getThreads();
             while (itThreads.hasNext()) {
                 com.jivesoftware.forum.ForumThread t = (com.jivesoftware.forum.ForumThread)itThreads.next();
-                Iterator itMessages = t.getMessages();
-                Date d = ((ForumMessage)itMessages.next()).getModificationDate();
-                while (itMessages.hasNext()) {
-                    ForumMessage m = (ForumMessage)itMessages.next();
-                    if (m.getModificationDate().after(d))
-                        d = m.getModificationDate();
+                if (t.getCreationDate().before(calendar.getTime())) {
+                    Iterator itMessages = t.getMessages();
+                    Date d = ((ForumMessage)itMessages.next()).getCreationDate();
+                    while (itMessages.hasNext()) {
+                        ForumMessage m = (ForumMessage)itMessages.next();
+                        if (m.getCreationDate().after(d))
+                            d = m.getCreationDate();
+                    }
+                    t.setModificationDate(d);
                 }
-                t.setModificationDate(d);
             }
         } catch (Exception e) {}
     }
