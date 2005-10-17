@@ -80,12 +80,11 @@ public class Admin extends ForumsProcessor {
             int matchID = Integer.parseInt(match);
             forums.createMatchForum(matchID);
         }
-        /*
-        if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
-        //    log.info(user.getUsername() + " running command: " + command);
-        //    escapeHTML();
-        } else if (command.equals(ForumConstants.ADMIN_COMMAND_ADD_CONTEST)) {
-        } else if (command.equals("Add test forums")) {
+        else if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
+            log.info(user.getUsername() + " running command: " + command);
+            escapeHTML(); 
+        } /* 
+        else if (command.equals("Add test forums")) {
             for (int i=0; i<50; i++) {
                 com.jivesoftware.forum.ForumCategory fc = forumFactory.getForumCategory(8);
                 forumFactory.createForum("Test Forum "+fc.getForumCount(), 
@@ -129,9 +128,10 @@ public class Admin extends ForumsProcessor {
         Calendar calendar = Calendar.getInstance();
         calendar.set(2005,6,17);
         try {
-            Iterator itForums = forumFactory.getForums();
-            while (itForums.hasNext()) {
-                Forum f = (Forum)itForums.next();
+            //Iterator itForums = forumFactory.getForums();
+            //while (itForums.hasNext()) {
+                //Forum f = (Forum)itForums.next();
+                Forum f = forumFactory.getForum(505002);
                 if ("true".equals(f.getProperty("Escape HTML"))) {
                     log.info(user.getUsername() + " running escapeHTML() on forum: " + f.getName());
                     ForumMessageIterator itMessages = f.getMessages();
@@ -143,7 +143,7 @@ public class Admin extends ForumsProcessor {
                     }
                     f.deleteProperty("Escape HTML");
                 }
-            }
+            //}
         } catch (Exception e) {
             log.debug("escapeHTML() failed");
             return;
