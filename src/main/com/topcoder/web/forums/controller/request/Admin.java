@@ -122,13 +122,13 @@ public class Admin extends ForumsProcessor {
         return roundList;
     }
     
-    // In <pre></pre> blocks in posts before the launch of Jive 4.2.1 (7/17/05), replaces certain 
-    // characters with their HTML escape codes.  
+    // In <pre></pre> blocks in Round Table posts before the launch of Jive 4.2.1 (7/17/05), 
+    // replaces certain characters with their HTML escape codes.  
     private void escapeHTML() {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(2005,6,17);
+        calendar.set(2005,7,17);
         try {
-            Iterator itForums = forumFactory.getForums();
+            Iterator itForums = forumFactory.getForumCategory(13).getForums();
             while (itForums.hasNext()) {
                 Forum f = (Forum)itForums.next();
                 if ("true".equals(f.getProperty("Escape HTML"))) {
