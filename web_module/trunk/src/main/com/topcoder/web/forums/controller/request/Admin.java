@@ -128,22 +128,21 @@ public class Admin extends ForumsProcessor {
         Calendar calendar = Calendar.getInstance();
         calendar.set(2005,6,17);
         try {
-            //Iterator itForums = forumFactory.getForums();
-            //while (itForums.hasNext()) {
-                //Forum f = (Forum)itForums.next();
-                Forum f = forumFactory.getForum(505002);
+            Iterator itForums = forumFactory.getForums();
+            while (itForums.hasNext()) {
+                Forum f = (Forum)itForums.next();
                 if ("true".equals(f.getProperty("Escape HTML"))) {
                     log.info(user.getUsername() + " running escapeHTML() on forum: " + f.getName());
                     ForumMessageIterator itMessages = f.getMessages();
                     while (itMessages.hasNext()) {
                         ForumMessage m = (ForumMessage)itMessages.next();
-                        if (m.getCreationDate().before(calendar.getTime())) {
+                        if (m.getCreationDate().before(calendar.getTime())) {     
                             m.setBody(parse(m.getUnfilteredBody()));
                         }
                     }
                     f.deleteProperty("Escape HTML");
                 }
-            //}
+            }
         } catch (Exception e) {
             log.debug("escapeHTML() failed");
             return;
