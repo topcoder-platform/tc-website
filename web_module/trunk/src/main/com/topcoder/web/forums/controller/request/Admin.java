@@ -83,7 +83,7 @@ public class Admin extends ForumsProcessor {
         else if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
             log.info(user.getUsername() + " running command: " + command);
             escapeHTML(); 
-        } /* 
+        } else if (command.equals("repair")) { repair(); } /* 
         else if (command.equals("Add test forums")) {
             for (int i=0; i<50; i++) {
                 com.jivesoftware.forum.ForumCategory fc = forumFactory.getForumCategory(8);
@@ -171,6 +171,9 @@ public class Admin extends ForumsProcessor {
                         ForumMessage m = (ForumMessage)itMessages.next();
                         if (m.getCreationDate().after(d))
                             d = m.getCreationDate();
+                        if (m.getCreationDate().before(calendar.getTime())) {
+                            m.setModificationDate(m.getCreationDate());
+                        }
                     }
                     t.setModificationDate(d);
                 }
