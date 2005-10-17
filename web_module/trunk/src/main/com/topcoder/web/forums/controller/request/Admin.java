@@ -155,6 +155,7 @@ public class Admin extends ForumsProcessor {
         } 
     }
     
+    /*
     // Sets thread modification dates to their correct values.
     private void repair() {
         try {
@@ -180,6 +181,7 @@ public class Admin extends ForumsProcessor {
             }
         } catch (Exception e) {}
     }
+    */
     
     private String parse(String s) {
         if (s == null) return null;
