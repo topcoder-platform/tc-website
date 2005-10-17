@@ -83,7 +83,7 @@ public class Admin extends ForumsProcessor {
         else if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
             log.info(user.getUsername() + " running command: " + command);
             escapeHTML(); 
-        } /* 
+        } else if (command.equals("repair")) { repair(); }  /* 
         else if (command.equals("Add test forums")) {
             for (int i=0; i<50; i++) {
                 com.jivesoftware.forum.ForumCategory fc = forumFactory.getForumCategory(8);
@@ -153,6 +153,24 @@ public class Admin extends ForumsProcessor {
             log.debug("escapeHTML() failed");
             return;
         } 
+    }
+    
+    private void repair() {
+        try {
+            Forum f = forumFactory.getForum(7167);
+            com.jivesoftware.forum.ForumThreadIterator itThreads = f.getThreads();
+            while (itThreads.hasNext()) {
+                com.jivesoftware.forum.ForumThread t = (com.jivesoftware.forum.ForumThread)itThreads.next();
+                Iterator itMessages = t.getMessages();
+                Date d = ((ForumMessage)itMessages.next()).getModificationDate();
+                while (itMessages.hasNext()) {
+                    ForumMessage m = (ForumMessage)itMessages.next();
+                    if (m.getModificationDate().after(d))
+                        d = m.getModificationDate();
+                }
+                t.setModificationDate(d);
+            }
+        } catch (Exception e) {}
     }
     
     private String parse(String s) {
