@@ -87,16 +87,11 @@ TopCoder is looking to hire a full-time software developer to design and impleme
 
 <p>Check out what <b><font color="#FF9900">veredox</font></b>, newly hired TC member, has to say about <a href="/?t=tces&c=topcoder_veredox">working at TopCoder</a>.</p>
 
-<br><br>
-<b>Contact Information:</b><br>
-Company: TopCoder<br>
-Contact: George Tsipolitis<br>
-Email: <A href="mailto:gtsipol@topcoder.com">gtsipol@topcoder.com</A><br>
-Address: 703 Hebron Ave<br>
-Glastonbury, CT 06033<br>
-Phone: 860.633.5540<br>
-
+                        <p>
+                        <a href="/tc?module=JobHit&jid=320&jt=4">Apply for this job.<a/>
+                        </p>
                         <p><br /></p>
+
                     </td>
                 </tr>
             </table>

@@ -101,7 +101,10 @@
 
 </ul>
 
-
+                                                    <p>
+                        <a href="/tc?module=JobHit&jid=321&jt=4">Apply for this job.<a/>
+                        </p>
+                        <p><br /></p>
                     </td>
                 </tr>
             </table>
