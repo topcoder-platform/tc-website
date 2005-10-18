@@ -62,8 +62,8 @@ public class ViewProblem extends Base{
                 }
                 ResultSetContainer.ResultSetRow rr = null;
                 rr = rsc.getRow(0);
-                String className = rr.getStringItem("class_name");
                 String problemText = rr.getStringItem("component_text");
+                log.debug(problemText);
                 StringReader reader = new StringReader(problemText);
                 ProblemComponent pc [] = new ProblemComponent[1];
                 pc[0] = new ProblemComponentFactory().buildFromXML(reader, true);
