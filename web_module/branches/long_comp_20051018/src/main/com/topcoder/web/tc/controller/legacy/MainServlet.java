@@ -141,6 +141,7 @@ public final class MainServlet extends BaseServlet {
             trail.append(requestCommand);
             trail.append(" ****]");
             log.info(trail.toString());
+/*
             if (log.isDebugEnabled()) {
                 String h = null;
                 for (Enumeration e = request.getHeaderNames(); e.hasMoreElements();) {
@@ -148,6 +149,7 @@ public final class MainServlet extends BaseServlet {
                     log.debug(h + ": " + request.getHeader(h));
                 }
             }
+*/
             User user = nav.getUser();
             if (user == null) {
                 //user must have been transient and we got a navigation object that had been serialized at some point

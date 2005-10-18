@@ -24,6 +24,7 @@ import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.common.security.LightAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.security.BasicAuthentication;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -82,8 +83,6 @@ public class MainServlet extends BaseServlet {
         return true;
     }
 
-    private static final String KEY_PREFIX = "user_subject:";
-
     protected RequestProcessor callProcess(String processorName, TCRequest request, TCResponse response,
                                            WebAuthentication authentication) throws Exception {
         Base rp = null;
@@ -98,6 +97,7 @@ public class MainServlet extends BaseServlet {
         log.debug("done process");
         return rp;
     }
+
     protected void handleLogin(HttpServletRequest request, HttpServletResponse response, SessionInfo info) throws Exception {
         /* forward to the login page, with a message and a way back */
         request.setAttribute(MESSAGE_KEY, "In order to continue, you must provide your user name " +
@@ -107,6 +107,13 @@ public class MainServlet extends BaseServlet {
 
         request.setAttribute(MODULE, LOGIN_PROCESSOR);
         getServletContext().getContext(LOGIN_SERVLET).getRequestDispatcher(response.encodeURL(LOGIN_SERVLET)).forward(request, response);
+    }
+
+
+    protected WebAuthentication createAuthentication(TCRequest request,
+                                                     TCResponse response) throws Exception {
+        return new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response,
+                BasicAuthentication.LONG_CONTEST_SITE);
     }
 
 }

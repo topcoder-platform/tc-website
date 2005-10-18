@@ -5,19 +5,11 @@ import com.topcoder.shared.common.ServicesConstants;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.language.BaseLanguage;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.messaging.messages.LongCompileRequest;
 import com.topcoder.shared.messaging.messages.LongCompileResponse;
-import com.topcoder.shared.netCommon.messages.Message;
-import com.topcoder.shared.netCommon.screening.request.ScreeningLogoutRequest;
-import com.topcoder.shared.netCommon.screening.request.ScreeningBaseRequest;
-import com.topcoder.shared.netCommon.screening.response.ScreeningBaseResponse;
-import com.topcoder.shared.netCommon.screening.response.ScreeningTimeExpiredResponse;
-import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
@@ -27,11 +19,7 @@ import com.topcoder.web.codinginterface.techassess.model.ImageInfo;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.common.*;
 
-import javax.servlet.http.HttpSessionBindingEvent;
-import javax.servlet.http.HttpSessionBindingListener;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -252,7 +240,7 @@ public abstract class Base extends BaseProcessor {
         return dAccess;
     }
     protected User getUser() {
-        return getAuthentication().getActiveUser();
+        return getAuthentication().getUser();
     }
 
 }
