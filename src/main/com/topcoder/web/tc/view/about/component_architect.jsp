@@ -93,6 +93,7 @@
 <li>Unit Testing frameworks (NUnit, JUnit, Cactus, HTTP Unit, etc)</li>
 </ul>
 </li>
+</ul>
 <b>Professional Skills:</b>
 <ul>
 <li>Excellent communication skills.</li>

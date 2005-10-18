@@ -89,13 +89,10 @@
                             <li>College Degree - Four year degree preferred.</li>
                         </ul>
 
-                        <strong>Contact Information:</strong>
-                        <p> Company: TopCoder Software<br/>
-                        Contact: Dave Tanacea<br/>
-                        Email: <a class="bodyText" href="mailto:dtanacea@topcoder.com?subject=TopCoder Software Sales Director">dtanacea@topcoder.com</a><br/>
-                        Address: 703 Hebron Ave<br/>
-	               Glastonbury, CT  06033<br/>
-                        Phone: 860.633.5540</p>
+
+                        <p>
+                        <a href="/tc?module=JobHit&jid=317&jt=4">Apply for this job.<a/>
+                        </p>
                         <p><br /></p>
                     </td>
                 </tr>

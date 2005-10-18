@@ -83,13 +83,9 @@
 						</ul>
 
 
-                        <strong>Contact Information:</strong>
                         <p>
-                        Contact: George Tsipolitis<br/>
-                        Email: <a class="bodyText" href="mailto:gtsipolitis@topcoder.com?subject=TopCoder Placement Agent">gtsipolitis@topcoder.com</a><br/>
-                        Address: 703 Hebron Ave<br/>
-	               		Glastonbury, CT  06033<br/>
-                        Phone: 860.633.5540</p>
+                        <a href="/tc?module=JobHit&jid=315&jt=4">Apply for this job.<a/>
+                        </p>
                         <p><br /></p>
                     </td>
                 </tr>

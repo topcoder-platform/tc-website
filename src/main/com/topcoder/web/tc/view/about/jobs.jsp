@@ -65,6 +65,7 @@
                             <li><a href="/tc?module=Static&d1=about&d2=int_developer">Internal Developer</A></li>
                             <li><a href="/tc?module=Static&d1=about&d2=employment_account_exec">Employment Services Account Executive</A></li>
                             <li><a href="/tc?module=Static&d1=about&d2=tcs_salesdirector">TopCoder Software Salesperson</a></li>
+                            <li><a href="/tc?module=Static&d1=about&d2=component_architect">Component Architect</a></li>
                         </ul>
                     </td>
                 </tr>
