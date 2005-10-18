@@ -104,13 +104,9 @@
 						</ul>
 
 
-                        <strong>Contact Information:</strong>
-                        <p> Company: TopCoder Software<br/>
-                        Contact: Mike Morris<br/>
-                        Email: <a class="bodyText" href="mailto:mmorris@topcoder.com?subject=TopCoder Software Project Manager">mmorris@topcoder.com</a><br/>
-                        Address: 703 Hebron Ave<br/>
-	               		Glastonbury, CT  06033<br/>
-                        Phone: 860.633.5540</p>
+                        <p>
+                        <a href="/tc?module=JobHit&jid=318&jt=4">Apply for this job.<a/>
+                        </p>
                         <p><br /></p>
                     </td>
                 </tr>
