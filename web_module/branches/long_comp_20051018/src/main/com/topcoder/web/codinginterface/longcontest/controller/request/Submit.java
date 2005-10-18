@@ -1,36 +1,17 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import java.io.IOException;
 import java.util.*;
-
-import javax.naming.Context;
-import javax.naming.NamingException;
-import javax.servlet.ServletException;
 
 import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.shared.problem.Problem;
-import com.topcoder.shared.problem.ProblemComponent;
 import com.topcoder.shared.common.ApplicationServer;
-import com.topcoder.shared.common.ServicesConstants;
-import com.topcoder.shared.common.TCContext;
-import com.topcoder.shared.screening.common.ScreeningApplicationServer;
-import com.topcoder.shared.screening.common.ScreeningContext;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.codinginterface.messaging.WebQueueResponseManager;
-import com.topcoder.web.codinginterface.messaging.WebResponsePool;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.messaging.messages.LongCompileRequest;
 import com.topcoder.shared.messaging.messages.LongCompileResponse;
-import com.topcoder.shared.netCommon.messages.Message;
-import com.topcoder.shared.netCommon.screening.response.ScreeningBaseResponse;
-import com.topcoder.shared.netCommon.screening.response.ScreeningTimeExpiredResponse;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -122,7 +103,6 @@ public class Submit extends Base {
             synchronized(waiting){
                 waiting.remove(new Long(uid));
             }
-            e.printStackTrace();
             throw new TCWebException("An error occurred while compiling your code");
         }
         synchronized(waiting){
