@@ -99,15 +99,9 @@
    <li>Team player.</li>
    </ul>
 
-<br><br>
-<b>Contact Information:</b><br>
-Company: TopCoder<br>
-Contact: George Tsipolitis<br>
-Email: <A href="mailto:gtsipol@topcoder.com">gtsipol@topcoder.com</A><br>
-Address: 703 Hebron Ave<br>
-Glastonbury, CT 06033<br>
-Phone: 860.633.5540<br>
-
+                        <p>
+                        <a href="/tc?module=JobHit&jid=319&jt=4">Apply for this job.<a/>
+                        </p>
                         <p><br /></p>
                     </td>
                 </tr>
