@@ -30,6 +30,11 @@ function toggleMenu(objectID){
    else object.style.display = 'block';
    return;
 }
+
+function arena() {
+  w=window.open("http://www.topcoder.com/tc?module=Static&d1=applet&d2=launch","Launch","top=2,left=2,width=300,height=225,resizable=yes,status=1");
+  return;
+}
 // -->
 </script>
 
@@ -37,35 +42,44 @@ function toggleMenu(objectID){
 <ul>
 <li><a href="javascript:toggleMenu('m_competitors')" class="exp">Competitions</a>
    <ul id="m_competitors" <% if (L1.equals("competitors")) { %>class="OPEN"<% } %>>
-   <li><a href="">Home</a></li>
+   <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">Home</a></li>
    <li><a href="javascript:toggleMenu('m_my_tc')" class="exp">My TopCoder</a>
       <ul id="m_my_tc" <% if (L2.equals("my_tc")) { %>class="OPEN"<% } %>>
-      <li><a href="">Update My Profile</a></li>
-      <li><a href="">Members I've Referred</a></li>
-      <li><a href="">Affidavits</a></li>
-      <li><a href="">Card/Badges</a></li>
+      <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/Registration">Update My Profile</a></li>
+      <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReferrals">Members I've Referred</a></li>
+      <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/PactsMemberServlet?t=affidavit&c=affidavit_history">Affidavits</a></li>
+      <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=card&d2=description">Card/Badges</a></li>
       </ul>
    </li>
    <li><a href="javascript:toggleMenu('m_alg_comp')" class="exp">Algorithm Competitions</a>
       <ul id="m_alg_comp" <% if (L2.equals("alg_comp")) { %>class="OPEN"<% } %>>
-      <li><a href="">Launch Arena Applet</a></li>
-      <li><a href="">Calendar</a></li>
+      <li><a href="Javascript:arena()">Launch Arena Applet</a></li>
+      <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=schedule&c=index">Calendar</a></li>
       <li><a href="javascript:toggleMenu('m_alg_stats')" class="exp">Statistics</a>
          <ul id="m_alg_stats" <% if (L3.equals("alg_stats")) { %>class="OPEN"<% } %>>
-         <li><a href="">Match Results</a></li>
-         <li><a href="">Match Editorials</a></li>
-         <li><a href="">Problem Archive</a></li>
+<%--
+         todo this needs to be completed with the full compliment of stat links
+--%>
+         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/stat?&c=last_match">Match Results</a></li>
+         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=match_editorials&d2=archive">Match Editorials</a></li>
+         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ProblemArchive">Problem Archive</a></li>
+<%--
+         todo what is this?
+--%>
          <li><a href="">Achievements</a></li>
          </ul>
       </li>
       <li><a href="javascript:toggleMenu('m_alg_support')" class="exp">Support/FAQs</a>
          <ul id="m_alg_support" <% if (L3.equals("alg_support")) { %>class="OPEN"<% } %>>
-         <li><a href="">Competition Guide</a></li>
+         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=help&d2=index">Competition Guide</a></li>
+<%--
+         todo fill this out
+--%>
          <li><a href="">FAQs</a></li>
          <li><a href="">Sample Problem Statements</a></li>
-         <li><a href="">Rating System</a></li>
+         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=support&c=ratings">Rating System</a></li>
          <li><a href="">Forms W-9 & W-8BEN</a></li>
-         <li><a href="">Charity Donations</a></li>
+         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=support&c=charities">Charity Donations</a></li>
          </ul>
       </li>
       </ul>
@@ -141,30 +155,30 @@ function toggleMenu(objectID){
    </li>
    <li><a href="javascript:toggleMenu('m_emp_services')" class="exp">Employment Services</a>
       <ul id="m_emp_services" <% if (L2.equals("emp_services")) { %>class="OPEN"<% } %>>
-      <li><a href="">Event Sponsorship</a></li>
+      <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Event Sponsorship</a></li>
       <li><a href="javascript:toggleMenu('m_sourcing')" class="exp">Sourcing</a>
          <ul id="m_sourcing" <% if (L3.equals("sourcing")) { %>class="OPEN"<% } %>>
-         <li><a href="">Overview</a></li>
-         <li><a href="">Reports</a></li>
+         <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=private_label&d3=index">Overview</a></li>
+         <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/tces">Reports</a></li>
          </ul>
       </li>
       <li><a href="javascript:toggleMenu('m_skills_ass')" class="exp">Skills Assessment</a>
          <ul id="m_skills_ass" <% if (L3.equals("skills_ass")) { %>class="OPEN"<% } %>>
-         <li><a href="">Process</a></li>
-         <li><a href="">Attributes</a></li>
-         <li><a href="">Demo</a></li>
-         <li><a href="">Launch Technical Assessment</a></li>
+         <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=testing&d3=testing_attributes">Process</a></li>
+         <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=testing&d3=management_tool">Attributes</a></li>
+         <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=testing&d3=demo">Demo</a></li>
+         <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/testing">Launch Technical Assessment</a></li>
          </ul>
       </li>
-      <li><a href="">Placement</a></li>
+      <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=placement&d3=index">Placement</a></li>
       </ul>
    </li>
    <li><a href="javascript:toggleMenu('m_mark_services')" class="exp">Marketing Services</a>
       <ul id="m_mark_services" <% if (L2.equals("mark_services")) { %>class="OPEN"<% } %>>
       <li><a href="javascript:toggleMenu('m_tournaments')" class="exp">Tournaments</a>
          <ul id="m_tournaments" <% if (L3.equals("sourcing")) { %>class="OPEN"<% } %>>
-         <li><a href="">Overview</a></li>
-         <li><a href="">Reports</a></li>
+         <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=market_tourny">Overview</a></li>
+         <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/tces">Reports</a></li>
          </ul>
       </li>
       </ul>
@@ -173,22 +187,22 @@ function toggleMenu(objectID){
 </li>
 <li><a href="javascript:toggleMenu('m_forums')" class="exp">Forums</a>
    <ul id="m_forums" <% if (L1.equals("forums")) { %>class="OPEN"<% } %>>
-   <li><a href="">Round Tables</a></li>
-   <li><a href="">Algorithm Matches</a></li>
-   <li><a href="">News Discussions</a></li>
-   <li><a href="">Sponsor Discussions</a></li>
+   <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=13">Round Tables</a></li>
+   <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=14">Algorithm Matches</a></li>
+   <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=8">News Discussions</a></li>
+   <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=6">Sponsor Discussions</a></li>
    </ul>
 </li>
 <li><a href="">Press Room</a></li>
 <li><a href="">Contact Us</a></li>
 <li><a href="javascript:toggleMenu('m_about_tc')" class="exp">About TopCoder</a>
    <ul id="m_about_tc" <% if (L1.equals("about_tc")) { %>class="OPEN"<% } %>>
-   <li><a href="">Overview</a></li>
-   <li><a href="">Why Join TopCoder?</a></li>
-   <li><a href="">Working at TopCoder</a></li>
-   <li><a href="">Terms</a></li>
-   <li><a href="">Privacy Policy</a></li>
-   <li><a href="">Management Team</a></li>
+   <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=index">Overview</a></li>
+   <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=whyjoin">Why Join TopCoder?</a></li>
+   <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=jobs">Working at TopCoder</a></li>
+   <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=terms">Terms</a></li>
+   <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=privacy">Privacy Policy</a></li>
+   <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=management">Management Team</a></li>
    </ul>
 </li>
 </ul>
