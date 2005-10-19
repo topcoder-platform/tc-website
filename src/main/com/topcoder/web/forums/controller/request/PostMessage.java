@@ -12,7 +12,6 @@ import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.ForumPermissions;
 import com.jivesoftware.forum.WatchManager;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.StringUtil;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
