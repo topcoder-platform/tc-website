@@ -61,12 +61,14 @@
                 <% } %>
                         Viewing Candidate <%=request.getAttribute(DataAccessConstants.START_RANK)%> to <%=request.getAttribute(DataAccessConstants.END_RANK)%> of <%= request.getAttribute(DataAccessConstants.NUMBER_RECORDS)%><br/>
                         <%if(results.croppedDataBefore()) { %>
-                            <a href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=<%=request.getParameter(DataAccessConstants.SORT_COLUMN)%>&<%=DataAccessConstants.SORT_DIRECTION%>=<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)%>&<%=DataAccessConstants.START_RANK%>=<%=Integer.parseInt((String)request.getAttribute(DataAccessConstants.START_RANK))-Constants.SEARCH_SCROLL_SIZE%>&<%=DataAccessConstants.END_RANK%>=<%=Integer.parseInt((String)request.getAttribute(DataAccessConstants.END_RANK))%>" >&lt;&lt; prev</a>
+                            <a href="?<%=Constants.MODULE_KEY%>=BuildCandidateList<% if (request.getParameter(DataAccessConstants.SORT_COLUMN) != null) { %>&<%=DataAccessConstants.SORT_COLUMN%>=<%=request.getParameter(DataAccessConstants.SORT_COLUMN)%><% } %><% if (request.getParameter(DataAccessConstants.SORT_DIRECTION) != null) { %>&<%=DataAccessConstants.SORT_DIRECTION%>=<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)%><% } %>&<%=DataAccessConstants.START_RANK%>=<%=Integer.parseInt((String)request.getAttribute(DataAccessConstants.START_RANK))-Constants.SEARCH_SCROLL_SIZE%>&<%=DataAccessConstants.END_RANK%>=<%=Integer.parseInt((String)request.getAttribute(DataAccessConstants.END_RANK))%>" >&lt;&lt; prev</a>
+
                         <% } else { %>
                             &lt;&lt; prev
                         <% } %>
                       | <%if(results.croppedDataAfter()) { %>
-                           <a href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=<%=request.getParameter(DataAccessConstants.SORT_COLUMN)%>&<%=DataAccessConstants.SORT_DIRECTION%>=<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)%>&<%=DataAccessConstants.START_RANK%>=<%=Integer.parseInt((String)request.getAttribute(DataAccessConstants.START_RANK))+Constants.SEARCH_SCROLL_SIZE%>&<%=DataAccessConstants.END_RANK%>=<%=Integer.parseInt((String)request.getAttribute(DataAccessConstants.END_RANK))+Constants.SEARCH_SCROLL_SIZE%>" >next &gt;&gt;</a>
+                           <a href="?<%=Constants.MODULE_KEY%>=BuildCandidateList<% if (request.getParameter(DataAccessConstants.SORT_COLUMN) != null) { %>&<%=DataAccessConstants.SORT_COLUMN%>=<%=request.getParameter(DataAccessConstants.SORT_COLUMN)%><% } %><% if (request.getParameter(DataAccessConstants.SORT_DIRECTION) != null) { %>&<%=DataAccessConstants.SORT_DIRECTION%>=<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)%><% } %>&<%=DataAccessConstants.START_RANK%>=<%=Integer.parseInt((String)request.getAttribute(DataAccessConstants.START_RANK))+Constants.SEARCH_SCROLL_SIZE%>&<%=DataAccessConstants.END_RANK%>=<%=Integer.parseInt((String)request.getAttribute(DataAccessConstants.END_RANK))+Constants.SEARCH_SCROLL_SIZE%>" >next &gt;&gt;</a>
+
                         <% } else { %>
                             next &gt;&gt;
                         <% } %>
