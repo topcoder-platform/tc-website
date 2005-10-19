@@ -38,7 +38,11 @@
       <img src="/i/contracting/citigroup_logo.gif" border=0/>
 		</div>
 
-<p>
+        <p>
+These job openings are no longer available.  Please <A href="/tc?module=Static&d1=contracting&d2=index">click here</A> to see what Employment Opportunities are currently posted.
+<br/><br/>
+</p>
+<%--<p>
 <span class="bodySubtitle">Join Our Team</span>
 <br><br>
 Citigroup's Equity Derivative division is looking to hire top talent to solve some of the most computationally and mathematically challenging problems around.
@@ -46,7 +50,7 @@ Citigroup's Equity Derivative division is looking to hire top talent to solve so
 <li>Automated proprietary trading algorithms require real time statistical analysis of 500,000 securities with 100,000 updates of input data per second.  To excel in this high frequency environment, one needs to implement cutting edge grid computing, artificial intelligence, and advanced numerical optimization techniques.</li>
 <li>Risk management systems require sophisticated distributed computing to price complex exotic derivative securities in real-time.</li>
 <li>Trading System design requires minimal latency, high throughput, and mind boggling uptime.</li>
-</ul> 
+</ul>
 
 Our proprietary trading and risk analysis software is the lifeblood of our business.  Knowledge of finance is not important - a sharp mind and a love of complex problems is what matters. Nestled inside the world's largest financial company - we are a tight knit and dedicated group.  We want to find like minded candidates at all levels of experience to join our team.
 <br><br>
@@ -57,7 +61,7 @@ Citigroup recently chatted with the members about Employment Opportunities befor
 <br/><br/>
       <a href="/tc?module=JobHit&jid=297&jt=4">Apply now to be contacted by Citigroup!</a>
 		<br/><br/>
-        <p><br></p>
+        <p><br></p>--%>
         </td>
 <!-- Center Column Ends -->
 
