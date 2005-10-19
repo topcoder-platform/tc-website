@@ -81,32 +81,31 @@ public class TCHandleTag implements Filter {
                 da.setExpireTime(24 * 60 * 60 * 1000);
 
                 long coderId = this.getCoderId(code, da);
-                if (coderId == -1) break;
-                
-                Request r = new Request();
-                r.setContentHandle("coder_all_ratings");
-                //r.setProperty("cr", String.valueOf(coderId));
-                r.setProperty("cr", String.valueOf(coderId));
-
-                Map m = da.getData(r);
-
-                ResultSetContainer rsc = (ResultSetContainer) m.get("coder_all_ratings");
-                output.append("<a href=\"");
-                output.append(DEFAULT_LINK + coderId);
-                output.append("\" class=\"");
-                
-                // special case for admins
-                int rating = 0;
-                if (rsc.getIntItem(0, "algorithm_rating") < 0)
-                    rating = rsc.getIntItem(0, "algorithm_rating");
-                else rating = max(rsc.getIntItem(0, "algorithm_rating"),
-                        rsc.getIntItem(0, "design_rating"),
-                        rsc.getIntItem(0, "development_rating"));
-                output.append(getRatingCSS(rating));
-                
-                output.append("\">");
-                output.append(rsc.getStringItem(0, "handle"));
-                output.append("</a>");
+                if (coderId != -1) {
+                    Request r = new Request();
+                    r.setContentHandle("coder_all_ratings");
+                    r.setProperty("cr", String.valueOf(coderId));
+    
+                    Map m = da.getData(r);
+    
+                    ResultSetContainer rsc = (ResultSetContainer) m.get("coder_all_ratings");
+                    output.append("<a href=\"");
+                    output.append(DEFAULT_LINK + coderId);
+                    output.append("\" class=\"");
+                    
+                    // special case for admins
+                    int rating = 0;
+                    if (rsc.getIntItem(0, "algorithm_rating") < 0)
+                        rating = rsc.getIntItem(0, "algorithm_rating");
+                    else rating = max(rsc.getIntItem(0, "algorithm_rating"),
+                            rsc.getIntItem(0, "design_rating"),
+                            rsc.getIntItem(0, "development_rating"));
+                    output.append(getRatingCSS(rating));
+                    
+                    output.append("\">");
+                    output.append(rsc.getStringItem(0, "handle"));
+                    output.append("</a>");
+                }
                 
             } catch (Exception e) {
                 // invalid handle - return no output
