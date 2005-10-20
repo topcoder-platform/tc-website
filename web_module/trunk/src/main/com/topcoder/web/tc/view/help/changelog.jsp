@@ -38,6 +38,12 @@
            <jsp:param name="title" value="TopCoder Web Site Change Log"/>
         </jsp:include>
 
+        <p> 4.0.4 - 2005.10.XX
+            <ul>
+                <li>Added forum links to round stats, round overview, problem details, match editorial
+                and room stats.</li>
+            </ul>
+        </p>
         <p> 4.0.3 - 2005.10.04
             <ul>
                 <li>Changes relating to the new component reliability formula.
