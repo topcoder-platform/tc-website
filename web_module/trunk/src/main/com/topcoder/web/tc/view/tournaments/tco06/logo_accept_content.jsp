@@ -28,7 +28,7 @@
 <body>
 
     <%
-        URL termsURL = new URL(sessionInfo.getAbsoluteServletPath()+"?module=Terms&"+ Constants.TERMS_OF_USE_ID+"=16842");
+        URL termsURL = new URL(sessionInfo.getAbsoluteServletPath()+"?module=Terms&"+ Constants.TERMS_OF_USE_ID+"="+Constants.TCO06_LOGO_TERMS_ID);
         InputStream is = termsURL.openStream();
         int count = is.available();
         for (int i=0; i<count; i++) {
