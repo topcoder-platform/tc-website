@@ -85,10 +85,10 @@ The logo must adhere to the following strict guidelines*.  Any deviation from th
    </ul>
 </li>
 <li><b>File format:</b> Your submission <span class="bigRed">MUST</span> be a .GIF, .JPG, .PNG, or .BMP</li>
-<li><b>Image size:</b> Your submissions should be 300 pixels wide by Y pixels high. If one of your submissions is not 300 pixels wide and Y pixels high, we will shrink/expand it to the correct width.</li>
+<li><b>Image size:</b> Your submissions should be 300 pixels wide by Y pixels high. If one of your submissions is not 300 pixels wide and Y pixels high, we will shrink/expand it to the correct size.</li>
 <li><b>Colors:</b>
    <ul>
-   <li>The main colors for the TCO06 will be [] and [].  White, black and grays can be used as compliments.  Other colors can be used, but may detract from the "focus" of the two required colors.</li>
+   <li>The main colors for the TCO06 will be [] and [], and your submission <span class="bigRed">MUST</span> use these colors.  White, black and grays can be used as compliments.  Other colors can be used, but may detract from the "focus" of the two required colors.</li>
    <li>While gradients (gradual color changes) may look appealing in your logo, they can often be a problem in print (t-shirts, tournament programs) and might keep your submission from being considered as a finalist.</li>
    </ul>
 </li>
