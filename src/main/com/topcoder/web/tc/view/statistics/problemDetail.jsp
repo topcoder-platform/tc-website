@@ -4,6 +4,7 @@
           java.util.Map,
           com.topcoder.web.tc.Constants,
           com.topcoder.web.common.StringUtils,
+          com.topcoder.shared.util.ApplicationServer,
           java.text.SimpleDateFormat,
           java.util.Date"
 %>
@@ -20,6 +21,7 @@
 <% ResultSetContainer div2Overall = (ResultSetContainer) ((Map)request.getAttribute("div2Results")).get("problem_detail_overall"); %>
 <% SimpleDateFormat sdfTime = new SimpleDateFormat("H:mm:ss.S");
    sdfTime.setTimeZone(java.util.TimeZone.getTimeZone("GMT"));%>
+<% String forumID = generalInfo.getItem(0, "forum_id").toString(); %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 
 <html>
@@ -93,7 +95,11 @@
              <td class="statTextBig" valign="top">
                <A HREF="Javascript:void openProblemRating(<rsc:item set="<%=generalInfo%>" name="problem_id"/>)" class="statText"><img src="/i/rate_it_blue.gif" width="60" height="18" border="0" hspace="10" align=left/></A>
              </td>
-             <td></td>
+             <td>
+                <%  if (!forumID.equals("")) { %>
+                <A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumID%>" CLASS="statText">Discuss</A>
+                <%  } %>
+             </td>
            </tr>
 
            <tr><td class="bodyText"><br/></td><tr/>

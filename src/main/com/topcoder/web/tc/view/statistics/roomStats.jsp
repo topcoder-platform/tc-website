@@ -1,6 +1,7 @@
 <%@ page
   language="java"
-  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
+  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
+          com.topcoder.shared.util.ApplicationServer"
 
 %>
 
@@ -55,6 +56,11 @@ if (resultRow_0 != null) {
 pageContext.setAttribute("rd", currRound);
 pageContext.setAttribute("rm", currRoom);
 
+String forumIDStr = resultRow_0.getItem("forum_id").toString();
+int forumID = -1; 
+if (!forumIDStr.equals("")) {
+    forumID = Integer.parseInt(forumIDStr); 
+}
 %>
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
      <TR>
@@ -83,7 +89,7 @@ pageContext.setAttribute("rm", currRoom);
              <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
            </TR>
          </TABLE>
-         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
+         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
            <TR>
              <TD VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"><BR/>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
@@ -91,12 +97,11 @@ pageContext.setAttribute("rm", currRoom);
                    <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                  </TR>
 
-
                     <FORM name="">
                 <TR>
                   <TD COLSPAN="4" CLASS="statText">
                     <SPAN CLASS="statTextBig"><B>Please select a round:</B><BR/></SPAN>
-                    <SELECT NAME="Contest" onchange="goTo(this)"><OPTION value="#">Select a Round:</OPTION>
+                    <SELECT CLASS="dropdown" NAME="Contest" onchange="goTo(this)"><OPTION value="#">Select a Round:</OPTION>
                       <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
                         <% if (resultRow.getItem(0).toString().equals(pageContext.getAttribute("rd"))) { %>
                           <OPTION value="/stat?c=room_stats&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>&rm=<bean:write name="resultRow" property='<%= "item[" + 5 /* first room */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round */ + "]" %>'/></OPTION>
@@ -105,12 +110,15 @@ pageContext.setAttribute("rm", currRoom);
                         <% } %>
                       </logic:iterate>
                     </SELECT>
+                    <%  if (forumID != -1) { %>
+                       &#160;&#160;<A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumID%>" CLASS="statText">Discuss</A>
+                    <%  } %>
                   </TD>
                 </TR>
                 <TR>
                   <TD COLSPAN="4" CLASS="statText">
                      <SPAN CLASS="statTextBig"><B>Please select a room:</B><BR/></SPAN>
-                     <SELECT NAME="Round" onchange="goTo(this)"><OPTION value="#">Select a Room:</OPTION>
+                     <SELECT CLASS="dropdown" NAME="Round" onchange="goTo(this)"><OPTION value="#">Select a Room:</OPTION>
                        <logic:iterate name="resultSetRooms" id="resultRowRoom" type="ResultSetContainer.ResultSetRow">
                          <% if (resultRowRoom.getItem(0).toString().equals(pageContext.getAttribute("rm"))) { %>
                            <OPTION value="/stat?c=room_stats&rd=<%= pageContext.getAttribute("rd") %>&rm=<bean:write name="resultRowRoom" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRowRoom" property='<%= "item[" + 1 /* name */ + "]" %>'/> - <bean:write name="resultRowRoom" property='<%= "item[" + 2 /* division */ + "]" %>'/></OPTION>
