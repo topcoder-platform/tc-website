@@ -1,4 +1,6 @@
 <%@  page language="java"  %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -35,11 +37,14 @@
                         <jsp:param name="image" value="press_room"/>
                         <jsp:param name="title" value="Press Release"/>
                     </jsp:include>
-                        <div align="center">
-                        <p><span class="bodyTitle">Champions Announced In 2005 TopCoder&#174; Open Sponsored by Sun Microsystems</span><br />
-                        <span class="bodySubTitle"><em>Champions from Poland, Russian Federation and China Share $150,000 Prize Purse</em></span></p>
-                        </p>
-                        </div>
+
+<div align="right"><tc-webtag:forumLink forumID="505813" message="Discuss this press release" /></div>
+
+<div align="center">
+<p><span class="bodyTitle">Champions Announced In 2005 TopCoder&#174; Open Sponsored by Sun Microsystems</span><br />
+<span class="bodySubTitle"><em>Champions from Poland, Russian Federation and China Share $150,000 Prize Purse</em></span></p>
+</p>
+</div>
                         
 <p><strong>GLASTONBURY, CT, October 17, 2005 &#151;</strong>TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced that Eryk Kopczy&#241;ski of Poland, Nikolay Archak of the Russian Federation, and Qi Liu of China have won the Algorithm, Design and Development Component tournaments of the 2005 TopCoder Open sponsored by Sun, held at the Santa Clara Marriott in Santa Clara, CA on October 14th.  Kopczy&#241;ski, known to the member base by his handle 'Eryx', beat 48 of the world's top computer programmers during the onsite semifinal and Championship rounds for the $20,000 grand prize in the Algorithm tournament. 
 <br><br>

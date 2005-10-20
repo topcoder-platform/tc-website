@@ -7,6 +7,33 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
 
+<%--------------------------------------------------------%>
+   <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.20.05<br>9:35 AM</td>
+       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_101705">TCO05 Champions Press Release</A></span><br><br>
+       Eryk Kopczy&#241;ski of Poland, Nikolay Archak of the Russian Federation, and Qi Liu of China have won the Algorithm, Design and Development Component tournaments of the 2005 TopCoder Open sponsored by Sun, held at the Santa Clara Marriott in Santa Clara, CA on October 14th.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_101705">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505813" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.20.05<br>9:35 AM</td>
+       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=69982" target="_blank">Sorrowful state of software</A></span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/mass_high_tech.gif" width="67" height="30" alt="Mass High Tech" border="0" /></div>
+       "'Often design is very high-level, and then people jump right into coding,' [Pustaver] said. 'There should be several design levels, and each of those should be reviewed... Once you have a good, detailed design, the coding should be mostly automatic.'"
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=69982" target="_blank">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505812" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
 <%--------------------------ALGORITHM------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.14.05<br>8:30 PM</td>
@@ -266,32 +293,6 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm266">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505774" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>09.30.05<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo">Yahoo! chat session scheduled for SRM 266</A></span><br><br>
-      Yahoo! will in the Arena Applet at 11:00 AM just before the start of SRM 266 to discuss working at Yahoo!.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505804" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>09.29.05<br>6:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_prize_winners">TCO05 Online Component Contest Prize Winners</A></span><br><br>
-      Check out who took home the titles for biggest rating increase, first unrated member to win, and most passing submissions.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_prize_winners">view</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505802" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 

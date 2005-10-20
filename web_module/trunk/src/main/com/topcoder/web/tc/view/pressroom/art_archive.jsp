@@ -45,6 +45,7 @@
 <!-- 2005  -->
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
 
+<tr><td class="newsText"><A href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=69982" target="_blank">Sorrowful state of software</A> [October 17 - MHT]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.carynews.com/enterprise/story/2805639p-9249369c.html" target="_blank">Ready, again, for TopCoder battle</A> [September 28 - CN]<br/></td></tr>
 <tr><td class="newsText"><A href="/pdfs/press_room/dndj_082005.pdf" target="_blank">Engineering + Reuse = Savings</A> [August - DNDJ]<br/></td></tr>
 <tr><td class="newsText"><A href="/tc?module=Static&d1=pressroom&d2=art_091205">Poland Takes the Lead</A> [September 12 - PCWK - <A href="http://www.pcworld.pl/news/82941.html">original article</A>]<br/></td></tr>
