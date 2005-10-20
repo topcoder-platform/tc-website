@@ -5,8 +5,6 @@
 <title>2006 TopCoder Open - Logo Design Contest</title>
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
-<%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <style type="text/css">
 .pageSpacer
@@ -47,17 +45,18 @@
 <!-- Center Column Begins -->
          <td class="bodyText" width="100%" align="center">
 
-
          <div class="pageSpacer">
 
             <div class="logoBox"><img src="/i/tournament/tco06/logo_logo.gif" alt="TCO06 Logo Contest" border="0"/></div>
             <div align="center">
             <jsp:include page="logo_links.jsp" >
-            <jsp:param name="selectedTab" value="finalists"/>
+            <jsp:param name="selectedTab" value="submissions"/>
             </jsp:include>
             </div>
 
-<br><br>
+            <br><br>
+<%--
+--%>
          </div>
 
          <p><br/></p>
