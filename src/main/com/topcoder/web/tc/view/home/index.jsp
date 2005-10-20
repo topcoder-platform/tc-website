@@ -170,6 +170,11 @@ margin:0px auto;
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
 
+            Champions Announced In 2005 TopCoder&#174; Open Sponsored by Sun Microsystems <A href="/tc?module=Static&d1=pressroom&d2=pr_101705">...more</A><br>[October 17]<br><br>
+
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/mass_high_tech.gif" width="67" height="30" alt="MHT" border="0" /></div>
+            Sorrowful state of software <A href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=69982" target="_blank">...more</A><br>[October 17]<br><br>
+
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/carynews_logo.gif" width="67" height="20" alt="CN" border="0" /></div>
             Ready, again, for TopCoder battle <A href="http://www.carynews.com/enterprise/story/2805639p-9249369c.html" target="_blank">...more</A><br>[September 28]<br><br>
 
@@ -180,12 +185,6 @@ margin:0px auto;
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/dndj_logo.gif" width="67" height="20" alt="DNDJ" border="0" /></div>
             Engineering + Reuse = Savings [PDF] <A href="/pdfs/press_room/dndj_082005.pdf">...more</A><br>[August]<br><br>
-
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/pcwk_logo.gif" width="67" height="34" alt="PCWK" border="0" /></div>
-            Poland Takes the Lead <A href="/tc?module=Static&d1=pressroom&d2=art_091205">...more</A><br>[September 12]<br><br>
-
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/adt_logo.gif" width="67" height="23" alt="ADT" border="0" /></div>
-            Components for SOAs and Other App Dev Projects <A href="http://www.adtmag.com/article.asp?id=11752" target="_blank">...more</A><br>[September 6 - ADT]<br><br>
 
             </td>
          </tr>
