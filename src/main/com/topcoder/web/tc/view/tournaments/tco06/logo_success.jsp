@@ -56,7 +56,7 @@
 
             <br><br>
             <span class="bodySubtitle">Logo submission</span><br>
-            Your logo design has been successfully sent to TopCoder for review.  Thank you, and feel free to send us more submissions.
+            Your logo design has been successfully sent to TopCoder, thank you.
 
          </div>
 
