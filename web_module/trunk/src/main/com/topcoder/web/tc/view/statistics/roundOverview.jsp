@@ -1,9 +1,11 @@
 <%@ page
   language="java"
-  import="com.topcoder.web.tc.controller.legacy.stat.common.JSPUtils,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
+  import="com.topcoder.web.tc.controller.legacy.stat.common.JSPUtils,
+          com.topcoder.shared.dataAccess.*,
+          com.topcoder.shared.dataAccess.resultSet.*,
+          com.topcoder.shared.util.ApplicationServer,
           java.text.DecimalFormat,
           java.util.ArrayList"
-
 %>
 
 <%@ taglib uri="struts-bean.tld" prefix="bean" %>
@@ -78,6 +80,11 @@
     currentRow = leaders.getRow(0);
     String contestName = currentRow.getItem("contest_name").toString();
     int roundID = Integer.parseInt(currentRow.getItem("round_id").toString());
+    String forumIDStr = currentRow.getItem("forum_id").toString();
+    int forumID = -1;
+    if (forumIDStr != "") {
+        forumID = Integer.parseInt(forumIDStr);
+    }
     //get divisionIDs
     ArrayList divisionNames = new ArrayList(5);
     ArrayList divisionIDs = new ArrayList(5);
@@ -167,6 +174,9 @@ function goTo(selection){
                                     </logic:iterate>
 
                                     </SELECT>
+                                    <%  if (forumID != -1) { %>
+                                    &#160;<A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumID%>" CLASS="statText">Discuss</A>
+                                    <%  } %>
                                 </TD>
                             </TR>
 

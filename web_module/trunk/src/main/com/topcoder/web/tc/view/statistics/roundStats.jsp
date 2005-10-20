@@ -1,7 +1,7 @@
 <%@ page
   language="java"
   import="java.net.URLEncoder,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
-          com.topcoder.common.web.data.Navigation"
+          com.topcoder.common.web.data.Navigation,com.topcoder.shared.util.ApplicationServer"
 
 %>
 
@@ -139,6 +139,12 @@ String currRound = resultRow_0==null?srb.getProperty("rd"):resultRow_0.getItem("
 if (((Navigation)session.getAttribute("navigation")).isIdentified()){
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Rounds_By_Date");
 pageContext.setAttribute("resultSetDates", rsc);
+
+String forumIDStr = resultRow_0.getItem("forum_id").toString();
+int forumID = -1; 
+if (!forumIDStr.equals("")) {
+    forumID = Integer.parseInt(forumIDStr); 
+}
 %>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
@@ -158,8 +164,12 @@ pageContext.setAttribute("resultSetDates", rsc);
 <OPTION value="/stat?c=round_stats&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
 <% } %>
 </logic:iterate>
-</SELECT>
+</SELECT>                   
+                   <%  if (forumID != -1) { %>
+                       &#160;&#160;<A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumID%>" CLASS="statText">Discuss</A>
+                   <%  } %>
                    </FORM>
+ 
                    </TD>
                  </TR>
                  <TR>
