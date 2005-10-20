@@ -72,7 +72,7 @@ Employees of TopCoder, Inc., their affiliated companies, advertising and promoti
 <span class="bodySubtitle">TO ENTER</span><br>
 If not already a member, register for TopCoder electronically <a href="/Registration">here</a>.   Once registered at TopCoder, submit designs using the submission functionality <A href="/tc?module=TCO06LogoTerms">here</A>.  Logos must be submitted by 5:00pm EDT on Friday, November 18, 2005.  Submissions received after that time or by any other method will not be considered.
 <br><br>
-<span class="bigRed">TopCoder will accept the first three (3) designs submitted by each registrant.</span>    
+<span class="bigRed">TopCoder will only accept the first three (3) designs submitted by each registrant.</span>    
 <br><br>
 The logo must adhere to the following strict guidelines*.  Any deviation from these guidelines will result in disqualification of a design.  That design WILL count as one of your three submissions.
 <ul>
@@ -95,7 +95,7 @@ The logo must adhere to the following strict guidelines*.  Any deviation from th
 <li><b>Font:</b>  All fonts are acceptable with the exception of Bank Gothic or anything in the Bank Gothic family.</li>
 <li><b>Theme:</b>  There is no formally stated theme for the TCO06 Logo Design Contest.  This time, we wanted to give designers the freedom to be as creative as they want.</li>
 </ul>
-*Please allow 24 hours to receive feedback as to whether your design is disqualified for not adhering to the guidelines.  If you submit all three (3) designs at once and any are disqualified for not adhering to the guidelines, you will not be allowed to submit additional designs.  
+*If you have not yet submitted 3 designs and one of your submissions is disqualified, you may use one of your remaining submission spots to send a valid version of that disqualified submission.  If you have already submitted 3 designs, you will not be allowed to submit a replacement for any submission that was disqualified.
 <br><br>
 <span class="bodySubtitle">SELECTION OF WINNER</span><br>
 Up to ten (10) designs will be chosen by TopCoder, and put in front of the TopCoder community for a vote.  The voting will begin at 10:00am EDT on Wednesday, November 23 and will end at 5:00pm EDT on Wednesday, November 30, 2005.  TopCoder will use the Schulze Method to determine the winner based on the voting by the TopCoder community.  For an explanation of the Schulze method, see <A href="http://en.wikipedia.org/wiki/Schulze_method">here</A>. In the event of a tie when voting is complete, TopCoder will choose between the tied submissions.
