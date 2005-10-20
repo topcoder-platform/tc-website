@@ -59,7 +59,7 @@
             Please read through the following terms and then click "Accept" when you're done.
             <br><br>
             <div align="center"><form name="terms">
-            <textarea name="terms" rows="20" cols="60" readonly><%=request.getAttribute("terms")%></textarea>
+            <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_accept_content"></iframe>
             <br><br>
             <A href="/tc?module=TCO06LogoTermsAgree"><img src="/i/accept.gif" alt="Accept" border="0" /></A>
             </form></div>
