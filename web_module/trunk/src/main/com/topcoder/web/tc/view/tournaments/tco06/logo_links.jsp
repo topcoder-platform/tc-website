@@ -24,14 +24,16 @@
             <% } %>
 <!-- View Submissions tab -->
             <% if (selectedTab.equals("submissions")) {%>
-                 View submissions&#160;|&#160;
+                 View submissions
             <% } else { %>
-                  <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=logo_submissions">View submissions</a>&#160;|&#160;
+                  <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=logo_submissions">View submissions</a>
             <% } %>
-
+<%--
+&#160;|&#160;
 <!-- Finalists tab -->
             <% if (selectedTab.equals("finalists")) {%>
                  Finalists
             <% } else { %>
                   <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=logo_finalists">Finalists</a>
             <% } %>
+--%>
