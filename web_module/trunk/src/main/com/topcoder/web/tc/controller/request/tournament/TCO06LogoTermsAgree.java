@@ -4,6 +4,7 @@ import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.web.ejb.coder.CoderImage;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.ApplicationServer;
@@ -36,8 +37,12 @@ public class TCO06LogoTermsAgree extends Base {
                     tm.rollback();
                 throw e;
             }
+            CoderImage coderImage = (CoderImage)createEJB(getInitialContext(), CoderImage.class);
+            getRequest().setAttribute("submissionCount",
+                    new Integer(coderImage.getImages(getUser().getId(), TCO06LogoSubmit.IMAGE_TYPE, DBMS.OLTP_DATASOURCE_NAME).size()));
+            
             setNextPage("/tournaments/tco06/logo_submit.jsp");
-            setIsNextPageInContext(true);
+            setIsNextPageInContext(false);
         }
     }
 
