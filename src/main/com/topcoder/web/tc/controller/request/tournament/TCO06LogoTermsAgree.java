@@ -40,9 +40,9 @@ public class TCO06LogoTermsAgree extends Base {
             CoderImage coderImage = (CoderImage)createEJB(getInitialContext(), CoderImage.class);
             getRequest().setAttribute("submissionCount",
                     new Integer(coderImage.getImages(getUser().getId(), TCO06LogoSubmit.IMAGE_TYPE, DBMS.OLTP_DATASOURCE_NAME).size()));
-            
+
             setNextPage("/tournaments/tco06/logo_submit.jsp");
-            setIsNextPageInContext(false);
+            setIsNextPageInContext(true);
         }
     }
 
