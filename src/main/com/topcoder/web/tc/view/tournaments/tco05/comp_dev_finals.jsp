@@ -37,7 +37,7 @@
                   <td class="advCell" align="right">&#160;</td>
                   <td class="advCell" align="right" colspan="2" style="border-left: 1px solid #999999;">&#160;</td>
                   <td class="advCell" align="right" style="border-left: 1px solid #999999;">&#160;</td>
-                  <td class="advCell" align="center" colspan="3"><b>Final Scores by Reviewer</b></td>
+                  <td class="advCell" align="center" colspan="3" nowrap="nowrap"><b>Final Scores by Reviewer</b></td>
                   <td class="advCell" align="right">&#160;</td>
                   <td class="advCell" align="right" style="border-left: 1px solid #999999;">&#160;</td>
                </tr>
@@ -46,107 +46,94 @@
                   <td class="advCell" align="center" nowrap="nowrap" style="border-left: 1px solid #999999;"><b>Init. Score</b></td>
                   <td class="advCell" align="center" nowrap="nowrap"><b>Final Score</b></td>
                   <td class="advCell" align="center" nowrap="nowrap" style="border-left: 1px solid #999999;"><b>Init. Score</b></td>
-                  <td class="advCell" align="right"><tc-webtag:handle coderId="278342" context="design"/></td>
-                  <td class="advCell" align="right"><tc-webtag:handle coderId="277356" context="design"/></td>
-                  <td class="advCell" align="right"><tc-webtag:handle coderId="286907" context="design"/></td>
+                  <td class="advCell" align="right"><tc-webtag:handle coderId="297731" context="development"/></td>
+                  <td class="advCell" align="right"><tc-webtag:handle coderId="289824" context="development"/></td>
+                  <td class="advCell" align="right"><tc-webtag:handle coderId="7545675" context="development"/></td>
                   <td class="advCell" align="center" nowrap="nowrap"><b>Final Score</b></td>
                   <td class="advCell" align="center" style="border-left: 1px solid #999999;"><b>Submissions</b></td>
                </tr>
-
                 <tr>
-                  <td class="advCell" align="left">&#160;<tc-webtag:handle coderId="293874" context="design"/></td>
-                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">78.23</td>
-                  <td class="advCell" align="right">79.01</td>
-                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">87.75</td>
-                  <td class="advCell" align="right">86.50</td>
-                  <td class="advCell" align="right">95.88</td>
-                  <td class="advCell" align="right">94.97</td>
-                  <td class="advCell" align="right">92.45</td>
-                  <td class="advCell" align="center" style="border-left: 1px solid #999999;"><A class="topLink" href="/i/tournament/tco05/comp_submissions/nicka81.zip"><img src="/i/download.gif" border="0"/></A></td>
+                  <td class="advCell" align="left">&#160;<tc-webtag:handle coderId="299979" context="development"/></td>
+                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">89.15</td>
+                  <td class="advCell" align="right">92.34</td>
+                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">87.07</td>
+                  <td class="advCell" align="right">88.00</td>
+                  <td class="advCell" align="right">92.31</td>
+                  <td class="advCell" align="right">88.56</td>
+                  <td class="advCell" align="right">89.62</td>
+                  <td class="advCell" align="center" style="border-left: 1px solid #999999;"><A class="topLink" href="/i/tournament/tco05/comp_submissions/visualage.zip"><img src="/i/download.gif" border="0"/></A></td>
                 </tr>
 
                 <tr>
-                  <td class="advCell" align="left">&#160;<tc-webtag:handle coderId="119676" context="design"/></td>
-                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">57.41</td>
-                  <td class="advCell" align="right">58.45</td>
-                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">84.83</td>
-                  <td class="advCell" align="right">82.12</td>
-                  <td class="advCell" align="right">85.44</td>
-                  <td class="advCell" align="right">96.12</td>
-                  <td class="advCell" align="right">87.90</td>
-                  <td class="advCell" align="center" style="border-left: 1px solid #999999;"><A class="topLink" href="/i/tournament/tco05/comp_submissions/Pops.zip"><img src="/i/download.gif" border="0"/></A></td>
+                  <td class="advCell" align="left">&#160;<tc-webtag:handle coderId="7548200" context="development"/></td>
+                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">87.71</td>
+                  <td class="advCell" align="right">93.17</td>
+                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">84.71</td>
+                  <td class="advCell" align="right">93.44</td>
+                  <td class="advCell" align="right">88.64</td>
+                  <td class="advCell" align="right">81.10</td>
+                  <td class="advCell" align="right">87.73</td>
+                  <td class="advCell" align="center" style="border-left: 1px solid #999999;"><A class="topLink" href="/i/tournament/tco05/comp_submissions/sindu.zip"><img src="/i/download.gif" border="0"/></A></td>
                 </tr>
 
                 <tr>
-                  <td class="advCell" align="left">&#160;<tc-webtag:handle coderId="152342" context="design"/></td>
-                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">64.30</td>
-                  <td class="advCell" align="right">70.38</td>
-                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">82.50</td>
-                  <td class="advCell" align="right">85.88</td>
-                  <td class="advCell" align="right">88.28</td>
-                  <td class="advCell" align="right">84.16</td>
-                  <td class="advCell" align="right">86.10</td>
-                  <td class="advCell" align="center" style="border-left: 1px solid #999999;"><A class="topLink" href="/i/tournament/tco05/comp_submissions/kyky.zip"><img src="/i/download.gif" border="0"/></A></td>
+                  <td class="advCell" align="left">&#160;<tc-webtag:handle coderId="302053" context="development"/></td>
+                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">85.64</td>
+                  <td class="advCell" align="right">88.62</td>
+                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">82.42</td>
+                  <td class="advCell" align="right">91.00</td>
+                  <td class="advCell" align="right">83.66</td>
+                  <td class="advCell" align="right">82.77</td>
+                  <td class="advCell" align="right">85.81</td>
+                  <td class="advCell" align="center" style="border-left: 1px solid #999999;"><A class="topLink" href="/i/tournament/tco05/comp_submissions/oldbig.zip"><img src="/i/download.gif" border="0"/></A></td>
                 </tr>
 
                 <tr>
-                  <td class="advCell" align="left">&#160;<tc-webtag:handle coderId="13377493" context="design"/></td>
-                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">82.76</td>
-                  <td class="advCell" align="right">87.74</td>
-                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">80.85</td>
-                  <td class="advCell" align="right">80.09</td>
-                  <td class="advCell" align="right">85.69</td>
-                  <td class="advCell" align="right">88.44</td>
-                  <td class="advCell" align="right">84.74</td>
-                  <td class="advCell" align="center" style="border-left: 1px solid #999999;"><A class="topLink" href="/i/tournament/tco05/comp_submissions/victor_lxd.zip"><img src="/i/download.gif" border="0"/></A></td>
+                  <td class="advCell" align="left">&#160;<tc-webtag:handle coderId="7210680" context="development"/></td>
+                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">82.61</td>
+                  <td class="advCell" align="right">87.78</td>
+                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">83.10</td>
+                  <td class="advCell" align="right">85.75</td>
+                  <td class="advCell" align="right">85.77</td>
+                  <td class="advCell" align="right">83.27</td>
+                  <td class="advCell" align="right">84.93</td>
+                  <td class="advCell" align="center" style="border-left: 1px solid #999999;"><A class="topLink" href="/i/tournament/tco05/comp_submissions/cnettel.zip"><img src="/i/download.gif" border="0"/></A></td>
                 </tr>
 
                 <tr>
-                  <td class="advCell" align="left">&#160;<tc-webtag:handle coderId="11797255" context="design"/></td>
-                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">25.00</td>
-                  <td class="advCell" align="right">25.00</td>
-                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">80.92</td>
-                  <td class="advCell" align="right">80.62</td>
-                  <td class="advCell" align="right">85.72</td>
-                  <td class="advCell" align="right">81.78</td>
-                  <td class="advCell" align="right">82.71</td>
-                  <td class="advCell" align="center" style="border-left: 1px solid #999999;"><A class="topLink" href="/i/tournament/tco05/comp_submissions/aubergineanode.zip"><img src="/i/download.gif" border="0"/></A></td>
+                  <td class="advCell" align="left">&#160;<tc-webtag:handle coderId="7251152" context="development"/></td>
+                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">86.75</td>
+                  <td class="advCell" align="right">87.63</td>
+                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">80.18</td>
+                  <td class="advCell" align="right">85.22</td>
+                  <td class="advCell" align="right">83.62</td>
+                  <td class="advCell" align="right">76.67</td>
+                  <td class="advCell" align="right">81.84</td>
+                  <td class="advCell" align="center" style="border-left: 1px solid #999999;"><A class="topLink" href="/i/tournament/tco05/comp_submissions/matmis.zip"><img src="/i/download.gif" border="0"/></A></td>
                 </tr>
 
                 <tr>
-                  <td class="advCell" align="left">&#160;<tc-webtag:handle coderId="150498" context="design"/></td>
-                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">65.93</td>
-                  <td class="advCell" align="right">70.28</td>
-                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">78.71</td>
-                  <td class="advCell" align="right">77.66</td>
-                  <td class="advCell" align="right">81.47</td>
-                  <td class="advCell" align="right">82.84</td>
-                  <td class="advCell" align="right">80.66</td>
-                  <td class="advCell" align="center" style="border-left: 1px solid #999999;"><A class="topLink" href="/i/tournament/tco05/comp_submissions/ThinMan.zip"><img src="/i/download.gif" border="0"/></A></td>
+                  <td class="advCell" align="left">&#160;<tc-webtag:handle coderId="10098406" context="development"/></td>
+                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">87.61</td>
+                  <td class="advCell" align="right">89.84</td>
+                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">75.69</td>
+                  <td class="advCell" align="right">83.75</td>
+                  <td class="advCell" align="right">72.94</td>
+                  <td class="advCell" align="right">72.17</td>
+                  <td class="advCell" align="right">76.28</td>
+                  <td class="advCell" align="center" style="border-left: 1px solid #999999;"><A class="topLink" href="/i/tournament/tco05/comp_submissions/colau.zip"><img src="/i/download.gif" border="0"/></A></td>
                 </tr>
 
                 <tr>
-                  <td class="advCell" align="left">&#160;<tc-webtag:handle coderId="7463987" context="design"/></td>
-                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">58.09</td>
-                  <td class="advCell" align="right">58.09</td>
-                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">76.72</td>
-                  <td class="advCell" align="right">78.44</td>
-                  <td class="advCell" align="right">75.03</td>
-                  <td class="advCell" align="right">80.19</td>
-                  <td class="advCell" align="right">77.89</td>
-                  <td class="advCell" align="center" style="border-left: 1px solid #999999;"><A class="topLink" href="/i/tournament/tco05/comp_submissions/ShindouHikaru.zip"><img src="/i/download.gif" border="0"/></A></td>
-                </tr>
-
-                <tr>
-                  <td class="advCell" align="left">&#160;<tc-webtag:handle coderId="7360309" context="design"/></td>
-                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">60.43</td>
-                  <td class="advCell" align="right">60.43</td>
-                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">75.65</td>
-                  <td class="advCell" align="right">80.22</td>
-                  <td class="advCell" align="right">75.34</td>
-                  <td class="advCell" align="right">77.78</td>
-                  <td class="advCell" align="right">77.78</td>
-                  <td class="advCell" align="center" style="border-left: 1px solid #999999;"><A class="topLink" href="/i/tournament/tco05/comp_submissions/dmks.zip"><img src="/i/download.gif" border="0"/></A></td>
+                  <td class="advCell" align="left">&#160;<tc-webtag:handle coderId="7489235" context="development"/></td>
+                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">79.16</td>
+                  <td class="advCell" align="right">84.32</td>
+                  <td class="advCell" align="right" style="border-left: 1px solid #999999;">72.45</td>
+                  <td class="advCell" align="right">73.09</td>
+                  <td class="advCell" align="right">73.55</td>
+                  <td class="advCell" align="right">73.77</td>
+                  <td class="advCell" align="right">73.47</td>
+                  <td class="advCell" align="center" style="border-left: 1px solid #999999;"><A class="topLink" href="/i/tournament/tco05/comp_submissions/arylio.zip"><img src="/i/download.gif" border="0"/></A></td>
                 </tr>
 
                 <tr>
@@ -156,10 +143,6 @@
                   <td class="advCell" style="border-left: 1px solid #999999;">&#160;</td>
                </tr>
             </table>
-
-
-
-
 
         </div>
       </td>
