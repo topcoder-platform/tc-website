@@ -1696,7 +1696,9 @@
                   <include name="com/topcoder/web/codinginterface/messaging/**"/>
                   <include name="com/topcoder/web/codinginterface/techassess/model/**"/>
                   <include name="com/topcoder/security/**/*.class"/>
+<!--
                   <include name="com/topcoder/shared/**/*.class"/>
+-->
                   <include name="com/topcoder/web/common/**"/>
                   <include name="com/topcoder/common/web/render/**"/>
                	  <include name="com/topcoder/web/tc/controller/request/authentication/Activate.class"/>
