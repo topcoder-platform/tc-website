@@ -14,7 +14,7 @@
 <!-- Tab barlinks-->
 <jsp:include page="links.jsp" >
 <jsp:param name="tabLev1" value="component"/>
-<jsp:param name="tabLev2" value="design"/>
+<jsp:param name="tabLev2" value="development"/>
 <jsp:param name="tabLev3" value="finals"/>
 </jsp:include>
 
@@ -23,10 +23,10 @@
    <tr valign=top>
       <td valign=top align=center>
       <div class="bodySpacer">
-<span class="bigTitle">Component Design Competition Finals</span>
+<span class="bigTitle">Component Development Competition Finals</span>
 <br><br>
             <table border="0" cellspacing="0" cellpadding="3" width="100%" align="center" class="formFrame">
-               <tr><td class="advHeader" colspan="9" valign="middle">Component Requirements:<br><A class="topLink" href="/i/tournament/tco05/comp_submissions/common_des.zip"><img src="/i/download.gif" border="0"/></A></td></tr>
+               <tr><td class="advHeader" colspan="9" valign="middle">Component Requirements:<br><A class="topLink" href="/i/tournament/tco05/comp_submissions/common_dev.zip"><img src="/i/download.gif" border="0"/></A></td></tr>
                <tr>
                   <td class="advCell" align="right"></td>
                   <td class="advCell" align="center" colspan="2" style="border-left: 1px solid #999999;"><b>Online Portion</b></td>
