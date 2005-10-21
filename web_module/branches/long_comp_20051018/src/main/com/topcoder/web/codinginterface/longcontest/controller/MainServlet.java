@@ -69,8 +69,6 @@ public class MainServlet extends BaseServlet {
                 new WebResponsePool());
         log.info("created queue response manager");
 
-        //LOGIN_SERVLET = "/longcontest/longcontest?module=Login";
-        //LOGIN_SERVLET = "/longcontest/longcontest";
 /*
         Constants.initialize();
 
@@ -111,8 +109,7 @@ public class MainServlet extends BaseServlet {
         System.out.println("Trying to forward to: " + LOGIN_SERVLET);
         System.out.println("LOGIN_PROCESSOR: " + LOGIN_PROCESSOR);
         System.out.println("Commited: " + response.isCommitted());
-        //getServletContext().getRequestDispatcher(response.encodeURL(LOGIN_SERVLET)).forward(request, response);
-        fetchRegularPage(request, response, "http://yahoo.com", false);
+        getServletContext().getRequestDispatcher(response.encodeURL(LOGIN_SERVLET)).forward(request, response);
     }
 
 

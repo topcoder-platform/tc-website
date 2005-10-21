@@ -19,7 +19,7 @@ public class Login extends Base{
     private static final Logger log = Logger.getLogger(Login.class);
 
     public void businessProcessing() throws Exception {
-
+    	System.out.println("Performing login business");
         String handle = getRequest().getParameter(Constants.KEY_USER_HANDLE);
         String passw = getRequest().getParameter(Constants.KEY_USER_PASS);
         if (handle == null || handle.trim().length() == 0) {
