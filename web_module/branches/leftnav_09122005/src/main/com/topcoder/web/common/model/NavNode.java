@@ -1,0 +1,88 @@
+package com.topcoder.web.common.model;
+
+import java.util.List;
+import java.util.ArrayList;
+
+/**
+ * @author dok
+ * @version $Revision$ $Date$
+ *          Create Date: Oct 20, 2005
+ */
+public class NavNode {
+
+    private List children = null;
+    private boolean leaf = true;
+    private String contents = null;
+    private String key = null;
+/*
+    private NavNode parent = null;
+*/
+
+    private NavNode() {
+        this.children = null;
+        this.leaf = true;
+    }
+
+    public NavNode(String contents, String key) {
+        this();
+        this.contents = contents;
+        this.key = key;
+    }
+
+    public NavNode[] getChildren() {
+        return (NavNode[])children.toArray(new NavNode[0]);
+    }
+
+    public void setChildren(NavNode[] children) {
+        this.children = new ArrayList(children.length);
+        for (int i=0; i<children.length; i++) {
+/*
+            children[i].parent=(this);
+*/
+            this.children.add(children[i]);
+        }
+    }
+
+    public NavNode getChildAt(int index) {
+        return (NavNode)children.get(index);
+    }
+
+    public int getChildCount() {
+        if (children != null) {
+            return children.size();
+        } else {
+            return 0;
+        }
+    }
+
+    public void addChild(NavNode child) {
+/*
+        child.parent = this;
+*/
+        if (children == null) {
+            children = new ArrayList(5);
+            children.add(child);
+            this.leaf = false;
+        } else {
+            children.add(child);
+        }
+    }
+
+    public boolean isLeaf() {
+        return leaf;
+    }
+
+    public String getContents() {
+        return contents;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+/*
+    public NavNode getParent() {
+        return parent;
+    }
+*/
+}
