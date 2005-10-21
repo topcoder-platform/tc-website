@@ -73,7 +73,7 @@ public class ScorecardDetails extends Base {
             if ((projectInfo.getIntItem(0, "status_id") != 4) &&
                 (projectInfo.getIntItem(0, "status_id") != 5) &&
                 (projectInfo.getIntItem(0, "status_id") != 6)) {
-                 throw new TCWebException("The project is not finished");
+                 throw new NavigationException("The project is not finished");
 
             }
 
