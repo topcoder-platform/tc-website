@@ -64,9 +64,12 @@
     <%
         URL termsURL = new URL(sessionInfo.getAbsoluteServletPath()+"?module=Terms&"+ Constants.TERMS_OF_USE_ID+"="+Constants.TCO06_LOGO_TERMS_ID);
         InputStream is = termsURL.openStream();
-        char ch = 0;
-        while ((ch = (char)is.read()) >= 0) {
-            out.write(ch);
+        int count = is.available();
+        while (count > 0) {
+            for (int i=0; i<count; i++) {
+                out.write(is.read());
+            }
+            count = is.available();
         }
         is.close();
     %>
