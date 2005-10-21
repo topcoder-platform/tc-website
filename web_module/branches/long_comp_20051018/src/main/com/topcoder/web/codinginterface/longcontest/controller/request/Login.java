@@ -26,6 +26,7 @@ public class Login extends Base {
     public static final String STATUS_START = "start";
 
     protected void businessProcessing() throws TCWebException {
+    	System.out.println("Login Processor Called!");
 
         /* may be null */
         String username = getRequest().getParameter(Constants.KEY_USER_HANDLE);
