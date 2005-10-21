@@ -46,7 +46,7 @@
 </p>
 </div>
                         
-<p><strong>GLASTONBURY, CT, October 17, 2005 &#151;</strong>TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced that Eryk Kopczy&#241;ski of Poland, Nikolay Archak of the Russian Federation, and Qi Liu of China have won the Algorithm, Design and Development Component tournaments of the 2005 TopCoder Open sponsored by Sun, held at the Santa Clara Marriott in Santa Clara, CA on October 14th.  Kopczy&#241;ski, known to the member base by his handle 'Eryx', beat 48 of the world's top computer programmers during the onsite semifinal and Championship rounds for the $20,000 grand prize in the Algorithm tournament. 
+<p><strong>GLASTONBURY, CT, October 17, 2005 &#151;</strong>TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced that Eryk Kopczy&#241;ski of Poland, Nikolay Archak of the Russian Federation, and Qi Liu of China have won the Algorithm, Design and Development Component tournaments of the 2005 TopCoder Open sponsored by Sun, held at the Santa Clara Marriott in Santa Clara, CA on October 14th.  Kopczy&#241;ski, known to the member base by his handle 'Eryx', beat 47 of the world's top computer programmers during the onsite semifinal and Championship rounds for the $20,000 grand prize in the Algorithm tournament. 
 <br><br>
 Archak, or 'nicka81' as he is known to the member base, and Liu, known as 'visualage', took home $20,000 and $12,500 respectively as the Design and Development winners in the Component tournament. 
 <br><br>
