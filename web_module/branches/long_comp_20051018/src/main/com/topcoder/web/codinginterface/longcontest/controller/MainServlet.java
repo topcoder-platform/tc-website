@@ -69,7 +69,8 @@ public class MainServlet extends BaseServlet {
                 new WebResponsePool());
         log.info("created queue response manager");
 
-        LOGIN_SERVLET = "/longcontest/longcontest?module=Login";
+        //LOGIN_SERVLET = "/longcontest/longcontest?module=Login";
+        LOGIN_SERVLET = "/longcontest/longcontest";
 /*
         Constants.initialize();
 
