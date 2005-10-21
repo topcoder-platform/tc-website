@@ -110,7 +110,9 @@ public class MainServlet extends BaseServlet {
         //getServletContext().getContext(LOGIN_SERVLET).getRequestDispatcher(response.encodeURL(LOGIN_SERVLET)).forward(request, response);
         System.out.println("Trying to forward to: " + LOGIN_SERVLET);
         System.out.println("LOGIN_PROCESSOR: " + LOGIN_PROCESSOR);
-        getServletContext().getRequestDispatcher(response.encodeURL(LOGIN_SERVLET)).forward(request, response);
+        System.out.println("Commited: " + response.isCommitted());
+        //getServletContext().getRequestDispatcher(response.encodeURL(LOGIN_SERVLET)).forward(request, response);
+        fetchRegularPage(request, response, "http://yahoo.com", false);
     }
 
 
