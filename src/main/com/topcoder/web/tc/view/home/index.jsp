@@ -174,7 +174,7 @@ margin:0px auto;
 
             Champions Announced In 2005 TopCoder Open Sponsored by Sun Microsystems <A href="/tc?module=Static&d1=pressroom&d2=pr_101705">...more</A><br>[October 17]<br><br>
 
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/mass_high_tech.gif" width="67" height="30" alt="MHT" border="0" /></div>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/mass_high_tech.gif" width="67" height="21" alt="MHT" border="0" /></div>
             Sorrowful state of software <A href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=69982" target="_blank">...more</A><br>[October 17]<br><br>
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/carynews_logo.gif" width="67" height="20" alt="CN" border="0" /></div>

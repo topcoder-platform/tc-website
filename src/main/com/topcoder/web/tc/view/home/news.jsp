@@ -38,7 +38,7 @@
    <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.20.05<br>9:35 AM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=69982" target="_blank">Sorrowful state of software</A></span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/mass_high_tech.gif" width="67" height="30" alt="Mass High Tech" border="0" /></div>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/mass_high_tech.gif" width="67" height="21" alt="Mass High Tech" border="0" /></div>
        "'Often design is very high-level, and then people jump right into coding,' [Pustaver] said. 'There should be several design levels, and each of those should be reviewed... Once you have a good, detailed design, the coding should be mostly automatic.'"
       </td>
    </tr>
