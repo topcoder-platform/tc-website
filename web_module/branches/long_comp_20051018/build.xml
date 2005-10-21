@@ -1364,7 +1364,8 @@
                  <include name="com/topcoder/web/common/**/*.class"/>
                  <include name="com/topcoder/web/tc/**/*.class"/>
                  <include name="com/fx4m/**/*.class"/>
-             	 <include name="com/topcoder/web/tc/controller/request/authentication/*.class"/>
+            	 <include name="com/topcoder/web/tc/controller/request/authentication/Activate.class"/>
+            	 <include name="com/topcoder/web/tc/controller/request/authentication/EmailActivate.class"/>
              </classes>
 <!--
              <classes dir="${resources}">
