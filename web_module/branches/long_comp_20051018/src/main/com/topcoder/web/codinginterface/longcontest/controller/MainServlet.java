@@ -97,22 +97,6 @@ public class MainServlet extends BaseServlet {
         return rp;
     }
 
-    protected void handleLogin(HttpServletRequest request, HttpServletResponse response, SessionInfo info) throws Exception {
-        /* forward to the login page, with a message and a way back */
-        request.setAttribute(MESSAGE_KEY, "In order to continue, you must provide your user name " +
-                "and password.");
-        log.debug("going to " + info.getRequestString() + " on success login");
-        request.setAttribute(NEXT_PAGE_KEY, info.getRequestString());
-
-        request.setAttribute(MODULE, LOGIN_PROCESSOR);
-        //getServletContext().getContext(LOGIN_SERVLET).getRequestDispatcher(response.encodeURL(LOGIN_SERVLET)).forward(request, response);
-        System.out.println("Trying to forward to: " + LOGIN_SERVLET);
-        System.out.println("LOGIN_PROCESSOR: " + LOGIN_PROCESSOR);
-        System.out.println("Commited: " + response.isCommitted());
-        getServletContext().getRequestDispatcher(response.encodeURL(LOGIN_SERVLET)).forward(request, response);
-    }
-
-
     protected WebAuthentication createAuthentication(TCRequest request,
                                                      TCResponse response) throws Exception {
         return new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response,
