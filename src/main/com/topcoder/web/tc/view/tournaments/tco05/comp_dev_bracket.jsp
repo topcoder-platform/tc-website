@@ -20,9 +20,9 @@
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
-	<tr valign=top>
-		<td valign=top align=center>
-		<div class="bodySpacer">
+   <tr valign=top>
+      <td valign=top align=center>
+      <div class="bodySpacer">
 <span class="bigTitle">Development Finalists Bracket</span>
 <br><br>
 The finalists are sorted alphabetically.
@@ -55,7 +55,7 @@ The finalists are sorted alphabetically.
 
 
         </div>
-		</td>
+      </td>
 
 
 <!-- Right Column-->
@@ -65,7 +65,7 @@ The finalists are sorted alphabetically.
             </jsp:include>
          </td>
 
-	</tr>
+   </tr>
 
 </table>
 
