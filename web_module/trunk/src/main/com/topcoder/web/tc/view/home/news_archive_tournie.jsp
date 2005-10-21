@@ -35,6 +35,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">10.21.05 2:00 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_finals">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_finals">Development</A> results for the TCO05 Finals</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.14.05 8:30 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_finals_analysis">Eryx is the new Algorithm Champion</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.14.05 8:30 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_summary">nicka81 is the new Design Champion</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.14.05 8:30 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_summary">visualage is the new Development Champion</A></td></tr>

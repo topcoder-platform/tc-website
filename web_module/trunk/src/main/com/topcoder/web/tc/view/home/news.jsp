@@ -9,6 +9,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.21.05<br>2:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_finals">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_finals">Development</A> results from the TCO05 Finals</span><br><br>
+      The results for TCO05 CDDC, including scores and submissions.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_finals_analysis">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505816" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>10.21.05<br>11:20 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=movies">Interviews with the TCO05 Champions</A></span><br><br>
       Take a look at what the TCO05 Champions have to say.  Shots of giant checks included!
@@ -292,18 +306,6 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_chat_100105">details</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505804" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>10.04.05<br>3:40 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">Find feature added to the Arena Chat Area</span><br><br>
-      We've added a helpful "Find" tool to the Arena Chat Area.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <tc-webtag:forumLink forumID="505805" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
 
