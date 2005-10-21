@@ -109,7 +109,7 @@ public class MainServlet extends BaseServlet {
         request.setAttribute(MODULE, LOGIN_PROCESSOR);
         //getServletContext().getContext(LOGIN_SERVLET).getRequestDispatcher(response.encodeURL(LOGIN_SERVLET)).forward(request, response);
         System.out.println("Trying to forward to: " + LOGIN_SERVLET);
-        Systme.out.println("LOGIN_PROCESSOR: " + LOGIN_PROCESSOR);
+        System.out.println("LOGIN_PROCESSOR: " + LOGIN_PROCESSOR);
         getServletContext().getRequestDispatcher(response.encodeURL(LOGIN_SERVLET)).forward(request, response);
     }
 
