@@ -31,7 +31,7 @@ public class Login extends Base {
         String username = getRequest().getParameter(Constants.KEY_USER_HANDLE);
         String password = getRequest().getParameter(Constants.KEY_USER_PASS);
         String loginStatus = StringUtils.checkNull(getRequest().getParameter(STATUS));
-        SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+        //SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
 
         // if not null, we got here via a form submit;
         // otherwise, skip this and just draw the login form
@@ -105,11 +105,8 @@ public class Login extends Base {
         if (loginStatus.equals(STATUS_START)) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
         }
-        int nextPageIdx = info.getRequestString().indexOf("nextpage=");
-        if (nextPageIdx != -1) {
-            String nextPage = info.getRequestString().substring(nextPageIdx + "nextpage=".length());
-            getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, nextPage);
-        }
+        getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY,
+                StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)));
         setNextPage(Constants.LOGIN_JSP);
         setIsNextPageInContext(true);
     }
