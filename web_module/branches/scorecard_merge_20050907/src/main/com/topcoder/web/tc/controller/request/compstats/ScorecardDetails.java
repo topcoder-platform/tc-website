@@ -18,6 +18,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
 import java.util.Iterator;
@@ -55,6 +56,9 @@ public class ScorecardDetails extends Base {
                 rscScorecard = (ResultSetContainer) getDataAccess(true).getData(r).get("get_review_scorecard");
             }
 
+            if (rscScorecard.isEmpty()) {
+                throw new NavigationException("Sorry, the invalid information specified in request.");
+            }
             String scorecardId = rscScorecard.getStringItem(0, "scorecard_id");
             String scorecardTemplateId = rscScorecard.getStringItem(0, "scorecard_template_id");
 
