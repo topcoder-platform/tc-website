@@ -47,6 +47,20 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
+<!--  TCO06 Winners -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_102105"><img src="/i/pressroom/lasvegas_logo.gif" alt="Las Vegas" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_102105">TopCoder Selects Aladdin Resort in Las Vegas for TopCoder Open 2006</A></strong></font><br />
+                        TopCoder today announced that the world famous Aladdin Resort and Casino in Las Vegas, Nevada will host its 2006 flagship event, the TopCoder Open, May 3rd through 5th, 2006.<span class="prHead"> [October 21]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!--  TCO05 Winners -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
