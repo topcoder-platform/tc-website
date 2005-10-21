@@ -170,7 +170,9 @@ margin:0px auto;
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
 
-            Champions Announced In 2005 TopCoder&#174; Open Sponsored by Sun Microsystems <A href="/tc?module=Static&d1=pressroom&d2=pr_101705">...more</A><br>[October 17]<br><br>
+            TopCoder Selects Aladdin Resort in Las Vegas for TopCoder Open 2006 <A href="/tc?module=Static&d1=pressroom&d2=pr_102105">...more</A><br>[October 21]<br><br>
+
+            Champions Announced In 2005 TopCoder Open Sponsored by Sun Microsystems <A href="/tc?module=Static&d1=pressroom&d2=pr_101705">...more</A><br>[October 17]<br><br>
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/mass_high_tech.gif" width="67" height="30" alt="MHT" border="0" /></div>
             Sorrowful state of software <A href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=69982" target="_blank">...more</A><br>[October 17]<br><br>
@@ -182,9 +184,6 @@ margin:0px auto;
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/irishdev_logo.gif" width="67" height="48" alt="IDN" border="0" /></div>
             Google announces Winner of 2005 Code Jam <A href="http://www.irishdev.com/NewsArticle.aspx?id=1046">...more</A><br>[September 26]<br><br>
-
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/dndj_logo.gif" width="67" height="20" alt="DNDJ" border="0" /></div>
-            Engineering + Reuse = Savings [PDF] <A href="/pdfs/press_room/dndj_082005.pdf">...more</A><br>[August]<br><br>
 
             </td>
          </tr>
