@@ -1,5 +1,7 @@
 package com.topcoder.web.codinginterface.longcontest.controller;
 
+import java.io.IOException;
+
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.messaging.QueueMessageSender;
@@ -42,6 +44,11 @@ public class MainServlet extends BaseServlet {
     private static QueueMessageSender sender = null;
     private static WebQueueResponseManager receiver = null;
 
+    protected void process(HttpServletRequest request, HttpServletResponse response)
+    throws IOException {
+    	System.out.println("Main Servlet Called!");
+    	super.process(request, response);
+    }
 
     public void init(ServletConfig config) throws ServletException {
         log.debug("loading up the longcontest servlet");
