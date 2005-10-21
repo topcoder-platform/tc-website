@@ -45,8 +45,6 @@ public class ScorecardDetails extends Base {
 
             if (reviewerId == null) {
                 // screening
-
-                r.setProperty("rw", "-1");
                 rscScorecard = (ResultSetContainer) getDataAccess(true).getData(r).get("get_screening_scorecard");
                 reviewerId = rscScorecard.getStringItem(0, "reviewer_id");
 
