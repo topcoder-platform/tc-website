@@ -24,7 +24,11 @@ public class Login extends Base {
     public static final String STATUS = "status";
 
     public static final String STATUS_START = "start";
-
+    public static final char[] ACTIVE_STATI = {'1', 'A'};
+    public static final int ACTIVE_STATUS = 1;
+    public static final char[] INACTIVE_STATI = {'I', '0', '9', '6', '5', '4'};
+    public static final char[] UNACTIVE_STATI = {'U', '2'};
+    
     protected void businessProcessing() throws TCWebException {
     	System.out.println("Login Processor Called!");
 
@@ -57,9 +61,9 @@ public class Login extends Base {
                         }
                         char status = getStatus(sub.getUserId());
                         log.debug("status: " + status);
-                        if (Arrays.binarySearch(Activate.ACTIVE_STATI, status) > 0) {
+                        if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
                             //check if they have an active email address
-                            if (getEmailStatus(sub.getUserId()) != EmailActivate.ACTIVE_STATUS) {
+                            if (getEmailStatus(sub.getUserId()) != ACTIVE_STATUS) {
                                 getAuthentication().logout();
                                 log.debug("inactive email");
                                 setNextPage(com.topcoder.web.tc.Constants.EMAIL_ACTIVATE);
@@ -75,11 +79,11 @@ public class Login extends Base {
                             }
                         } else {
                             getAuthentication().logout();
-                            if (Arrays.binarySearch(Activate.INACTIVE_STATI, status) > 0) {
+                            if (Arrays.binarySearch(INACTIVE_STATI, status) > 0) {
                                 log.debug("user inactive");
                                 throw new LoginException("Sorry, your account is not active.  " +
                                         "If you believe this is an error, please contact TopCoder.");
-                            } else if (Arrays.binarySearch(Activate.UNACTIVE_STATI, status) > 0) {
+                            } else if (Arrays.binarySearch(UNACTIVE_STATI, status) > 0) {
                                 log.debug("user unactive");
                                 getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "Your account is not active.  " +
                                         "Please review the activation email that was sent to you after registration.");
