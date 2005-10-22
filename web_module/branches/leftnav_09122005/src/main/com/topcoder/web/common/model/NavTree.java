@@ -28,4 +28,26 @@ public class NavTree {
     public Iterator getRoots() {
         return this.roots.iterator();
     }
+
+    public NavNode search(String key) {
+        NavNode node;
+        NavNode ret=null;
+        for (Iterator it = roots.iterator(); it.hasNext()&&ret==null;) {
+            node = (NavNode)it.next();
+            ret = search(node, key);
+        }
+        return ret;
+    }
+
+    private NavNode search(NavNode node, String key) {
+        NavNode ret = null;
+        if (node.getKey().equals(key)) {
+            ret = node;
+        } else {
+            for (int i=0; i<node.getChildCount()&&ret==null; i++) {
+                ret = search(node.getChildAt(i), key);
+            }
+        }
+        return ret;
+    }
 }
