@@ -1,25 +1,34 @@
 
 <%@  page
   language="java"
-  errorPage="../errorPage.jsp"
-  import="com.topcoder.common.web.data.Navigation,
-          java.text.SimpleDateFormat,
-          java.util.HashMap,
-          java.util.Iterator,
-          com.topcoder.shared.util.ApplicationServer,
-          com.topcoder.web.common.model.CoderSessionInfo,
-          com.topcoder.web.common.BaseServlet"
+  import="com.topcoder.shared.util.ApplicationServer"
 %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="com.topcoder.web.common.model.NavTree"%>
+<%@ page import="com.topcoder.web.common.model.NavNode"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ taglib uri="nav.tld" prefix="nav" %>
 <%
     String L1 = request.getParameter("level1")==null?"":request.getParameter("level1");
     String L2 = request.getParameter("level2")==null?"":request.getParameter("level2");
     String L3 = request.getParameter("level3")==null?"":request.getParameter("level3");
     String L4 = request.getParameter("level4")==null?"":request.getParameter("level4");
+/*
     CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
     //bleh, gott do this for registration cuz it does a redirect to a jsp
     if (info==null) info = new Navigation(request, response).getSessionInfo();
+*/
+
+
+    NavNode competitions = new NavNode("<a href=\"javascript:toggleMenu('m_competitors')\" class=\"exp\">Competitions</a>", "competitors");
+    competitions.addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc\">Home</a>", "home"));
+    ArrayList roots = new ArrayList(6);
+    roots.add(competitions);
+    NavTree nav = new NavTree(roots);
+    request.setAttribute("tree", nav);
+
 %>
+
 
 <script language="javascript" type="text/javascript">
 <!--
@@ -38,7 +47,15 @@ function arena() {
 // -->
 </script>
 
+
+
+
 <div id="navbar">
+
+
+<nav:navBuilder navTree="tree"/>
+
+
 <ul>
 <li><a href="javascript:toggleMenu('m_competitors')" class="exp">Competitions</a>
    <ul id="m_competitors" <% if (L1.equals("competitors")) { %>class="OPEN"<% } %>>

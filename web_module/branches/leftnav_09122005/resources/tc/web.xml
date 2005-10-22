@@ -339,6 +339,10 @@
        <taglib-uri>struts-logic.tld</taglib-uri>
        <taglib-location>/WEB-INF/struts-logic.tld</taglib-location>
     </taglib>
+    <taglib>
+       <taglib-uri>nav.tld</taglib-uri>
+       <taglib-location>/WEB-INF/nav.tld</taglib-location>
+    </taglib>
 
 
 
