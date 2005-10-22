@@ -80,6 +80,32 @@ public class NavNode {
         return key;
     }
 
+    public NavNode search(String key) {
+        NavNode ret = null;
+        if (getKey().equals(key)) {
+            ret = this;
+        } else {
+            for (int i=0; i<getChildCount()&&ret==null; i++) {
+                ret = search(getChildAt(i), key);
+            }
+        }
+        return ret;
+    }
+
+    private NavNode search(NavNode node, String key) {
+        NavNode ret = null;
+        if (node.getKey().equals(key)) {
+            ret = node;
+        } else {
+            for (int i=0; i<node.getChildCount()&&ret==null; i++) {
+                ret = search(node.getChildAt(i), key);
+            }
+        }
+        return ret;
+    }
+
+
+
 /*
     public NavNode getParent() {
         return parent;

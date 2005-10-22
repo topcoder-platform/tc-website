@@ -33,7 +33,7 @@ public class NavBuilder extends TagSupport {
             pageContext.getOut().print("<ul>");
             for(Iterator it = nav.getRoots(); it.hasNext();) {
                 root = (NavNode)it.next();
-                selectedNode = search(root);
+                selectedNode = root.search(this.selectedNode);
                 printOutput(root, selectedNode!=null);
             }
             pageContext.getOut().print("</ul>");
@@ -61,18 +61,6 @@ public class NavBuilder extends TagSupport {
         }
         out.print("</li>");
 
-    }
-
-    private NavNode search(NavNode node) {
-        NavNode ret = null;
-        if (node.getKey().equals(this.selectedNode)) {
-            ret = node;
-        } else {
-            for (int i=0; i<node.getChildCount()&&ret==null; i++) {
-                ret = search(node.getChildAt(i));
-            }
-        }
-        return ret;
     }
 
     /**
