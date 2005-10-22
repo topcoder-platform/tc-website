@@ -50,7 +50,9 @@ public class NavBuilder extends TagSupport {
         out.print("<li>");
         out.print(node.getContents());
         if (descend && !node.isLeaf() && !node.getKey().equals(selectedNode)) {
-            out.print("<ul>");
+            out.print("<ul id=\"");
+            out.print(node.getKey());
+            out.print("\">");
             for (int i=0; i<node.getChildCount(); i++) {
                 //don't descend if the node we're working with is the selected one.  just show it's siblings
                 printOutput(node.getChildAt(i), !node.getChildAt(i).getKey().equals(selectedNode));
