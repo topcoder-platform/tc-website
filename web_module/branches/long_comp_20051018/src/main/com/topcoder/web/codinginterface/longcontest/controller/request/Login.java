@@ -31,7 +31,7 @@ public class Login extends Base {
     
     protected void businessProcessing() throws TCWebException {
     	System.out.println("Login Processor Called!");
-
+    	System.out.println("Nextpage: " + getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY));
         /* may be null */
         String username = getRequest().getParameter(Constants.KEY_USER_HANDLE);
         String password = getRequest().getParameter(Constants.KEY_USER_PASS);
