@@ -36,7 +36,7 @@ public class NavBuilder extends TagSupport {
                 selectedNode = root.search(this.selectedNode);
                 printOutput(root, selectedNode!=null);
             }
-            pageContext.getOut().print("</ul>");
+            pageContext.getOut().print("</ul>\n");
 
         } catch (Exception e) {
             throw new JspException(e.getMessage());
@@ -57,9 +57,9 @@ public class NavBuilder extends TagSupport {
                 //don't descend if the node we're working with is the selected one.  just show it's siblings
                 printOutput(node.getChildAt(i), !node.getChildAt(i).getKey().equals(selectedNode));
             }
-            out.print("</ul>");
+            out.print("</ul>\n");
         }
-        out.print("</li>");
+        out.print("</li>\n");
 
     }
 

@@ -71,7 +71,7 @@ function arena() {
 <div id="navbar">
 
 
-<nav:navBuilder navTree="tree" key="home"/>
+<nav:navBuilder navTree="tree" selectedNode="home"/>
 
 
 <ul>
