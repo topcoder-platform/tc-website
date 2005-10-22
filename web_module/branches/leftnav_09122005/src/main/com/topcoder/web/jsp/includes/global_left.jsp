@@ -7,6 +7,7 @@
 <%@ page import="com.topcoder.web.common.model.NavTree"%>
 <%@ page import="com.topcoder.web.common.model.NavNode"%>
 <%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.Arrays"%>
 <%@ taglib uri="nav.tld" prefix="nav" %>
 <%
     String L1 = request.getParameter("level1")==null?"":request.getParameter("level1");
@@ -20,11 +21,28 @@
 */
 
 
-    NavNode competitions = new NavNode("<a href=\"javascript:toggleMenu('m_competitors')\" class=\"exp\">Competitions</a>", "competitors");
+/*
+    NavNode competitions = new NavNode("<a href=\"javascript:toggleMenu('m_competitors')\" class=\"exp\">Competitions</a>", "m_competitors");
     competitions.addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc\">Home</a>", "home"));
-    ArrayList roots = new ArrayList(6);
-    roots.add(competitions);
-    NavTree nav = new NavTree(roots);
+    NavNode corp = new NavNode("<a href=\"javascript:toggleMenu('m_corp_services')\" class=\"exp\">Corporate Services</a>", "m_corp_services");
+    NavNode forums = new NavNode("<a href=\"javascript:toggleMenu('m_forums')\" class=\"exp\">Forums</a>", "m_forums");
+    NavNode press = new NavNode("<a href=\"\">Press Room</a>", "m_press");
+    NavNode contactUs = new NavNode("<a href=\"\">Contact Us</a>", "m_contact");
+    NavNode aboutUs = new NavNode("<a href=\"javascript:toggleMenu('m_about_tc')\" class=\"exp\">About TopCoder</a>", "m_about_tc");
+    NavTree nav = new NavTree(Arrays.asList(new NavNode[] {competitions, corp, forums, press, contactUs, aboutUs}));
+*/
+    NavTree nav = new NavTree();
+    nav.addRoot(new NavNode("<a href=\"javascript:toggleMenu('m_competitors')\" class=\"exp\">Competitions</a>", "m_competitors"));
+    nav.search("m_competitors").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc\">Home</a>", "home"));
+    nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_my_tc')\" class=\"exp\">My TopCoder</a>", "m_my_tc"));
+    nav.search("m_my_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/Registration\">Update My Profile</a>", "update_profile"));
+    nav.addRoot(new NavNode("<a href=\"javascript:toggleMenu('m_corp_services')\" class=\"exp\">Corporate Services</a>", "m_corp_services"));
+    nav.addRoot(new NavNode("<a href=\"javascript:toggleMenu('m_forums')\" class=\"exp\">Forums</a>", "m_forums"));
+    nav.addRoot(new NavNode("<a href=\"\">Press Room</a>", "m_press"));
+    nav.addRoot(new NavNode("<a href=\"\">Contact Us</a>", "m_contact"));
+    nav.addRoot(new NavNode("<a href=\"javascript:toggleMenu('m_about_tc')\" class=\"exp\">About TopCoder</a>", "m_about_tc"));
+
+
     request.setAttribute("tree", nav);
 
 %>
@@ -53,7 +71,7 @@ function arena() {
 <div id="navbar">
 
 
-<nav:navBuilder navTree="tree"/>
+<nav:navBuilder navTree="tree" key="home"/>
 
 
 <ul>
