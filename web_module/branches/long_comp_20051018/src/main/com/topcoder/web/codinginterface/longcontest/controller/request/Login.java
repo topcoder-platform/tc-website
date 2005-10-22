@@ -31,7 +31,7 @@ public class Login extends Base {
     
     protected void businessProcessing() throws TCWebException {
     	System.out.println("Login Processor Called!");
-    	System.out.println("Nextpage: " + getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY));
+    	//System.out.println("Nextpage: " + getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY));
         /* may be null */
         String username = getRequest().getParameter(Constants.KEY_USER_HANDLE);
         String password = getRequest().getParameter(Constants.KEY_USER_PASS);
@@ -110,8 +110,8 @@ public class Login extends Base {
         if (loginStatus.equals(STATUS_START)) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
         }
-        getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY,
-                StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)));
+//        getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY,
+//                StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)));
         setNextPage(Constants.LOGIN_JSP);
         setIsNextPageInContext(true);
     }
