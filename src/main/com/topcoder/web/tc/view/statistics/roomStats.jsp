@@ -259,9 +259,9 @@ else {
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 13 /* challenge pts */ + "].resultData" %>'/></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right">&#160;&#160;</TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 15 /* pre-rating */ + "]" %>'/></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right"><rsc:item name="old_rating" row="<%=resultRow%>"/></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="5%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 17 /* end-rating */ + "]" %>'/></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right"><rsc:item name="new_rating" row="<%=resultRow%>"/></TD>
                    <TD CLASS="statText" ALIGN="center" VALIGN="middle">
 <% if (resultRow.getIntItem("rating_change")<0) { %>
 <IMG src="/i/arrow_red_down.gif" width="10" height="10" border="0"/>
@@ -290,9 +290,9 @@ else {
                    <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                    <TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 13 /* challenge pts */ + "].resultData" %>'/></TD>
                    <TD CLASS="statText" ALIGN="right">&#160;&#160;</TD>
-                   <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 15 /* pre-rating */ + "]" %>'/></TD>
+                   <TD CLASS="statText" ALIGN="right"><rsc:item name="old_rating" row="<%=resultRow%>"/></TD>
                    <TD CLASS="statText" WIDTH="5%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 17 /* end-rating */ + "]" %>'/></TD>
+                   <TD CLASS="statText" ALIGN="right"><rsc:item name="new_rating" row="<%=resultRow%>"/></TD>
                    <TD CLASS="statText" ALIGN="center" VALIGN="middle">
 <% if (resultRow.getIntItem("rating_change")<0) { %>
 <IMG src="/i/arrow_red_down.gif" width="10" height="10" border="0"/>
