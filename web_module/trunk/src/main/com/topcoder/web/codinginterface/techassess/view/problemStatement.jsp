@@ -13,11 +13,6 @@
 <tc-webtag:useBean id="prob" name="<%=Constants.PROBLEM%>" type="com.topcoder.shared.problem.Problem" toScope="page" property="problem"/>
 <tc-webtag:useBean id="lang" name="<%=Constants.PROBLEM%>" type="com.topcoder.shared.language.Language" toScope="page" property="language"/>
 
-<%--
-jomcat doesn't seem to like this, not gonna spend anymore time trying to figure it out
-but this would be the right way IMO
-<tc-webtag:problemStatement problem="prob" language="lang"/>
---%>
 <tc-webtag:problemStatement problem="prob" language="<%=lang%>"/>
 
 </body>
