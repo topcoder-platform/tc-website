@@ -4,6 +4,7 @@
                  com.jivesoftware.forum.stats.ViewCountManager,
                  com.jivesoftware.forum.action.util.Page,
                  com.jivesoftware.base.JiveConstants,
+                 com.jivesoftware.base.Group,
                  com.jivesoftware.forum.ResultFilter,
                  java.util.*,
                  com.topcoder.shared.util.DBMS"
@@ -160,6 +161,15 @@
     </tr>
    </tc-webtag:iterator>
 </table>
+
+<%  Group adminGroup = forumFactory.getGroupManager().getGroup("TopCoder Admins");
+    if (adminGroup != null && adminGroup.isMember(historyUser)) { %>
+<table cellpadding="0" cellspacing="0" class="rtbcTable">
+    <tr>
+        <td>Posts from internal and restricted forums are not displayed in post history.</td>
+    </tr>
+</table>
+<%  } %>
 
         </td>
 <!-- Center Column Ends -->
