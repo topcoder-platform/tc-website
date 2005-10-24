@@ -144,7 +144,7 @@ function hideAll(){
 <rsc:item set="<%=projectInfo%>" name="phase_desc"/>
 <%--</a>--%>
  > Contest:
-<rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/>
+<a href='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" set="<%=projectInfo%>"/>'><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></a>
  > Scorecard</span>
 <br><br>
 <b>Component:</b> <A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/></A>
@@ -181,17 +181,17 @@ function hideAll(){
          <b>(<rsc:item name="question_weight" row="<%=resultRow%>" ifNull="" />)</b>
        </td>
        <td class="statDk" width="100%" style="border-top: 1px solid #999999;">
-         
+
          <div class="showText" id="shortQ_<%=questionNumber%>">
             <b><a href="javascript:toggleDisplay('shortQ_<%=questionNumber%>');toggleDisplay('longQ_<%=questionNumber%>');" class="statLink">[+]</a> <rsc:item name="question_desc" row="<%=resultRow%>" ifNull="" /></b>
             <rsc:item name="question_header" row="<%=resultRow%>" escapeHtml="true" ifNull="" />
          </div>
-         
+
          <div class="hideText" id="longQ_<%=questionNumber%>">
             <b><a href="javascript:toggleDisplay('shortQ_<%=questionNumber%>');toggleDisplay('longQ_<%=questionNumber%>');" class="statLink">[-]</a> <rsc:item name="question_desc" row="<%=resultRow%>" ifNull="" /></b>
             <rsc:item name="question_text" row="<%=resultRow%>" escapeHtml="true" ifNull="" />
          </div>
-         
+
        </td>
        <td class="statDk" nowrap="nowrap" valign="top" style="border-top: 1px solid #999999;">
          <b>
