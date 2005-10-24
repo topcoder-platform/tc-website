@@ -162,8 +162,10 @@
    </tc-webtag:iterator>
 </table>
 
-<%  Group adminGroup = forumFactory.getGroupManager().getGroup("TopCoder Admins");
-    if (adminGroup != null && adminGroup.isMember(historyUser)) { %>
+<%  Group admins = forumFactory.getGroupManager().getGroup("TopCoder Admins");
+    Group architects = forumFactory.getGroupManager().getGroup("TopCoder Architects");
+    if ((admins != null && admins.isMember(historyUser)) || 
+        (architects != null && architects.isMember(historyUser))) { %>
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
         <td>Posts from internal and restricted forums are not displayed in post history.</td>
