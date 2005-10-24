@@ -43,6 +43,33 @@
     nav.search("m_alg_comp").addChild(new NavNode("<a href=\"Javascript:arena()\">Launch Arena Applet</a>", "launch_arena"));
     nav.search("m_alg_comp").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/?&t=schedule&c=index\">Calendar</a>", "calendar"));
     nav.search("m_alg_comp").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_alg_stats')\" class=\"exp\">Statistics</a>", "m_alg_stats"));
+    //todo this needs to be completed with the full compliment of stat links
+    nav.search("m_alg_stats").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/stat?&c=last_match\">Match Results</a>", "last_match"));
+    nav.search("m_alg_stats").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=match_editorials&d2=archive\">Match Editorials</a>", "match_editorials"));
+    nav.search("m_alg_stats").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=ProblemArchive\">Problem Archive</a>", "last_match"));
+    //todo what is this?
+    nav.search("m_alg_stats").addChild(new NavNode("<a href=\"\">Achievements</a>", "achievements"));
+    nav.search("m_alg_comp").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_alg_support')\" class=\"exp\">Support/FAQs</a>", "m_alg_support"));
+    nav.search("m_alg_support").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=help&d2=index\">Competition Guide</a>", "alg_comp_guide"));
+    nav.search("m_alg_support").addChild(new NavNode("<a href=\"\">FAQs</a>", "alg_faq"));
+    nav.search("m_alg_support").addChild(new NavNode("<a href=\"\">Sample Problem Statements</a>", "alg_prob_state"));
+    nav.search("m_alg_support").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/?&t=support&c=ratings\">Rating System</a>", "alg_rating_sys"));
+    nav.search("m_alg_support").addChild(new NavNode("<a href=\"\">Forms W-9 & W-8BEN</a>", "alg_tax_form"));
+    nav.search("m_alg_support").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/?&t=support&c=charities\">Charity Donations</a>", "alg_charity"));
+    nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_comp_comp')\" class=\"exp\">Component Competitions</a>", "m_comp_comp"));
+    nav.search("m_comp_comp").addChild(new NavNode("<a href=\"\">Design/Develop Components</a>", "des_dev_comp"));
+    nav.search("m_comp_comp").addChild(new NavNode("<a href=\"\">Review Competitors' Submissions</a>", "review_sub"));
+    nav.search("m_comp_comp").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_comp_stats')\" class=\"exp\">Statistics</a>", "m_comp_stats"));
+    nav.search("m_comp_stats").addChild(new NavNode("<a href=\"\">Contest List</a>", "comp_list"));
+    nav.search("m_comp_stats").addChild(new NavNode("<a href=\"\">Achievements</a>", "comp_achievements"));
+    nav.search("m_comp_comp").addChild(new NavNode("<a href=\"\">Meet the Review Boards</a>", "review_boards"));
+    nav.search("m_comp_comp").addChild(new NavNode("<a href=\"\">Development Methodology</a>", "dev_meth"));
+    nav.search("m_comp_comp").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_comp_support')\" class=\"exp\">Support/FAQs</a>", "m_comp_support"));
+    nav.search("m_comp_support").addChild(new NavNode("<a href=\"\">Getting Started</a>", "comp_get_started"));
+    nav.search("m_comp_support").addChild(new NavNode("<a href=\"\">Component Help Docs</a>", "comp_help"));
+    nav.search("m_comp_support").addChild(new NavNode("<a href=\"\">Rating System</a>", "comp_rating"));
+    nav.search("m_comp_support").addChild(new NavNode("<a href=\"\">Reliability Rating System</a>", "comp_rel_rating"));
+    nav.search("m_comp_support").addChild(new NavNode("<a href=\"\">How to Get Paid</a>", "comp_paid"));
     nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_emp_opps')\" class=\"exp\">Employment Opportunities</a>", "m_emp_opps"));
     nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_education')\" class=\"exp\">Educational Content</a>", "m_education"));
     nav.search("m_competitors").addChild(new NavNode("<a href=\"\">Coder of the Month</a>", "m_com"));
@@ -86,74 +113,10 @@ function arena() {
 <nav:navBuilder navTree="tree" selectedNode="home"/>
 
 
+<!--
 <ul>
 <li><a href="javascript:toggleMenu('m_competitors')" class="exp">Competitions</a>
    <ul id="m_competitors" <% if (L1.equals("competitors")) { %>class="OPEN"<% } %>>
-   <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc">Home</a></li>
-   <li><a href="javascript:toggleMenu('m_my_tc')" class="exp">My TopCoder</a>
-      <ul id="m_my_tc" <% if (L2.equals("my_tc")) { %>class="OPEN"<% } %>>
-      <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/Registration">Update My Profile</a></li>
-      <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReferrals">Members I've Referred</a></li>
-      <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/PactsMemberServlet?t=affidavit&c=affidavit_history">Affidavits</a></li>
-      <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=card&d2=description">Card/Badges</a></li>
-      </ul>
-   </li>
-   <li><a href="javascript:toggleMenu('m_alg_comp')" class="exp">Algorithm Competitions</a>
-      <ul id="m_alg_comp" <% if (L2.equals("alg_comp")) { %>class="OPEN"<% } %>>
-      <li><a href="Javascript:arena()">Launch Arena Applet</a></li>
-      <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=schedule&c=index">Calendar</a></li>
-      <li><a href="javascript:toggleMenu('m_alg_stats')" class="exp">Statistics</a>
-         <ul id="m_alg_stats" <% if (L3.equals("alg_stats")) { %>class="OPEN"<% } %>>
-<%--
-         todo this needs to be completed with the full compliment of stat links
---%>
-         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/stat?&c=last_match">Match Results</a></li>
-         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=match_editorials&d2=archive">Match Editorials</a></li>
-         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ProblemArchive">Problem Archive</a></li>
-<%--
-         todo what is this?
---%>
-         <li><a href="">Achievements</a></li>
-         </ul>
-      </li>
-      <li><a href="javascript:toggleMenu('m_alg_support')" class="exp">Support/FAQs</a>
-         <ul id="m_alg_support" <% if (L3.equals("alg_support")) { %>class="OPEN"<% } %>>
-         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=help&d2=index">Competition Guide</a></li>
-<%--
-         todo fill this out
---%>
-         <li><a href="">FAQs</a></li>
-         <li><a href="">Sample Problem Statements</a></li>
-         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=support&c=ratings">Rating System</a></li>
-         <li><a href="">Forms W-9 & W-8BEN</a></li>
-         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=support&c=charities">Charity Donations</a></li>
-         </ul>
-      </li>
-      </ul>
-   </li>
-   <li><a href="javascript:toggleMenu('m_comp_comp')" class="exp">Component Competitions</a>
-      <ul id="m_comp_comp" <% if (L2.equals("comp_comp")) { %>class="OPEN"<% } %>>
-      <li><a href="">Design/Develop Components</a></li>
-      <li><a href="">Review Competitors' Submissions</a></li>
-      <li><a href="javascript:toggleMenu('m_comp_stats')" class="exp">Statistics</a>
-         <ul id="m_comp_stats" <% if (L3.equals("comp_stats")) { %>class="OPEN"<% } %>>
-         <li><a href="">Contest List</a></li>
-         <li><a href="">Achievements</a></li>
-         </ul>
-      </li>
-      <li><a href="">Meet the Review Boards</a></li>
-      <li><a href="">Development Methodology</a></li>
-      <li><a href="javascript:toggleMenu('m_comp_support')" class="exp">Support/FAQs</a>
-         <ul id="m_comp_support" <% if (L3.equals("comp_support")) { %>class="OPEN"<% } %>>
-         <li><a href="">Getting Started</a></li>
-         <li><a href="">Component Help Docs</a></li>
-         <li><a href="">Rating System</a></li>
-         <li><a href="">Reliability Rating System</a></li>
-         <li><a href="">How to Get Paid</a></li>
-         </ul>
-      </li>
-      </ul>
-   </li>
    <li><a href="javascript:toggleMenu('m_emp_opps')" class="exp">Employment Opportunities</a>
       <ul id="m_emp_opps" <% if (L2.equals("emp_opps")) { %>class="OPEN"<% } %>>
       <li><a href="">Job Openings</a></li>
@@ -253,6 +216,7 @@ function arena() {
    </ul>
 </li>
 </ul>
+-->
 </div>
 <div style="padding: 15px; 0px; 15px; 20px;">
 <jsp:include page="../includes/modules/leftNavSearch.jsp"/>
