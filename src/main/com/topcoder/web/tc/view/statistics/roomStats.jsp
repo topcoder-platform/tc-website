@@ -8,6 +8,7 @@
 <%@ taglib uri="struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <HTML>
  <HEAD>
@@ -57,9 +58,9 @@ pageContext.setAttribute("rd", currRound);
 pageContext.setAttribute("rm", currRoom);
 
 String forumIDStr = resultRow_0.getItem("forum_id").toString();
-int forumID = -1; 
+int forumID = -1;
 if (!forumIDStr.equals("")) {
-    forumID = Integer.parseInt(forumIDStr); 
+    forumID = Integer.parseInt(forumIDStr);
 }
 %>
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
@@ -242,7 +243,7 @@ else {
            pageContext.setAttribute("coderHandle", resultRow.getItem(0).toString()); %>
                    <TD WIDTH="10" ><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="4" BORDER="0"></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="left" HEIGHT="13">
-                     <SPAN CLASS="coderBrackets">[&#160;</SPAN><A HREF="/tc?module=MemberProfile&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></A><SPAN CLASS="coderBrackets">&#160;]</SPAN>
+                     <SPAN CLASS="coderBrackets">[&#160;</SPAN><tc-webtag:handle coderId='<%=coderrank%>' context="algorithm"/><SPAN CLASS="coderBrackets">&#160;]</SPAN>
                    </TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 6 /* submits */ + "]" %>'/></TD>
@@ -273,7 +274,7 @@ else {
          <% } else { %>
                     <TD WIDTH="10"><A HREF="/stat?c=coder_room_stats&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="statText"><IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="4" BORDER="0"></A></TD>
                    <TD CLASS="coderBrackets" ALIGN="left" HEIGHT="13">
-                     <A HREF="/tc?module=MemberProfile&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></A></A>
+                     <tc-webtag:handle coderId='<%=coderrank%>' context="algorithm"/>
                    </TD>
                    <TD CLASS="statText" ><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                    <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 6 /* submits */ + "]" %>'/></TD>
