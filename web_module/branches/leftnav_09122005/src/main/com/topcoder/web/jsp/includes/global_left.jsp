@@ -36,6 +36,18 @@
     nav.search("m_competitors").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc\">Home</a>", "home"));
     nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_my_tc')\" class=\"exp\">My TopCoder</a>", "m_my_tc"));
     nav.search("m_my_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/Registration\">Update My Profile</a>", "update_profile"));
+    nav.search("m_my_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReferrals\">Members I've Referred</a>", "referrals"));
+    nav.search("m_my_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/PactsMemberServlet?t=affidavit&c=affidavit_history\">Affidavits</a>", "affidavits"));
+    nav.search("m_my_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=card&d2=description\">Card/Badges</a>", "cards"));
+    nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_alg_comp')\" class=\"exp\">Algorithm Competitions</a>", "m_alg_comp"));
+    nav.search("m_alg_comp").addChild(new NavNode("<a href=\"Javascript:arena()\">Launch Arena Applet</a>", "launch_arena"));
+    nav.search("m_alg_comp").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/?&t=schedule&c=index\">Calendar</a>", "calendar"));
+    nav.search("m_alg_comp").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_alg_stats')\" class=\"exp\">Statistics</a>", "m_alg_stats"));
+    nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_emp_opps')\" class=\"exp\">Employment Opportunities</a>", "m_emp_opps"));
+    nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_education')\" class=\"exp\">Educational Content</a>", "m_education"));
+    nav.search("m_competitors").addChild(new NavNode("<a href=\"\">Coder of the Month</a>", "m_com"));
+    nav.search("m_competitors").addChild(new NavNode("<a href=\"\">Member Surveys</a>", "m_mem_survey"));
+    nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_events')\" class=\"exp\">Events</a>", "m_events"));
     nav.addRoot(new NavNode("<a href=\"javascript:toggleMenu('m_corp_services')\" class=\"exp\">Corporate Services</a>", "m_corp_services"));
     nav.addRoot(new NavNode("<a href=\"javascript:toggleMenu('m_forums')\" class=\"exp\">Forums</a>", "m_forums"));
     nav.addRoot(new NavNode("<a href=\"\">Press Room</a>", "m_press"));
