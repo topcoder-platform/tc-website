@@ -54,6 +54,14 @@
     padding-left: 5px;
     padding-right: 5px;
 }
+.testShow, .testHide
+{
+width: 100%;
+}
+.testShow{ display: block }
+.testHide{ display: none }
+.linkShow{ display: inline }
+.linkHide{ display: none }
 
 </style>
 <script>
@@ -62,7 +70,36 @@ function expand(complete)
     alert(complete);
 }
 </script>
-
+<script language="javascript" type="text/javascript">
+<!--
+function toggleDisplay(objectID){
+   var object = document.getElementById(objectID);
+   if(object.className == 'testShow') object.className = 'testHide';
+   else object.className = 'testShow';
+   return;
+}
+function showAll(){
+   var x = document.getElementsByTagName('div');
+   for (var i=0;i<x.length;i++){
+      if (x[i].id.substring (0,5) == 'longQ'){
+         x[i].className = 'testShow';
+      }else if(x[i].id.substring (0,6) == 'shortQ'){
+         x[i].className = 'testHide';
+      }
+   }
+}
+function hideAll(){
+   var x = document.getElementsByTagName('div');
+   for (var i=0;i<x.length;i++){
+      if (x[i].id.substring (0,5) == 'longQ'){
+         x[i].className = 'testHide';
+      }else if(x[i].id.substring (0,6) == 'shortQ'){
+         x[i].className = 'testShow';
+      }
+   }
+}
+// -->
+</script>
 
 </head>
 
@@ -125,6 +162,115 @@ function expand(complete)
 Coder: <tc-webtag:handle coderId='<%= uid %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/>
 <br>
 Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/>
+<br><br>
+<A href="javascript:showAll();">Expand all questions</A>&#160;|&#160;<A href="javascript:hideAll();">Contract all questions</A>
+<br><br>
+<%-------------------------TEST----------------------------%>
+<table class="formFrame" border="1" cellspacing="0" width="100%">
+   <tbody>
+   <tr>
+      <td class="projectTitles" colspan="3">(250) Component Design </td>
+   </tr>
+<%---- QUESTION ID: 01234 ------%>
+   <tr>
+      <td class="projectCells">
+         <div class="testShow" id="shortQ_01234">
+            (70)1.1.1 <a href="javascript:toggleDisplay('shortQ_01234');toggleDisplay('longQ_01234');">[+]</a>
+            The design addresses all the requirements as specified in the requirements documents and the forum.
+         </div>
+         <div class="testHide" id="longQ_01234">
+            (70)1.1.1 <a href="javascript:toggleDisplay('shortQ_01234');toggleDisplay('longQ_01234');">[-]</a>
+            The design addresses all the requirements as specified in the requirements documents and the forum. The reviewer should be able to take each point in the requirements document and find the associated implementation in the design. The reviewer should ignore the quality aspects of the implementation at this point, and only verify whether a requirement is addressed or not. Other questions of the scorecard give you an opportunity to express your concerns about the quality of the design. The reviewer should read the component forum prior to doing this to ensure that any modifications or additions to the requirements are taken into account.
+            <br><br>         
+            ‘Core’ requirements will be defined as those requirements that are essential to component’s intent (i.e. the component either cannot fulfill its goal or cannot provide value added service to the customer without those requirements).
+            <br><br>         
+            Rating 1 – The design is missing any of the ‘core’ requirements. The missing requirement(s) prevent the design from fulfilling the goal of the requirements.
+            <br><br>         
+            Rating 2 – The design has all of the ‘core’ requirements but does not address any of the ‘non-core’ requirements. The design addresses all requirements to solve the problem for which the component was requested, but is missing major usability features from the requirements document.
+            <br><br>         
+            Rating 3 – The design addresses all of the ‘core’ requirements and a majority of the ‘non-core’ requirements and, potentially, includes minor additional functionality. The design solves the problem for which the component was requested, provides all the usability features, but either does not provide enhancements on top of the requirements, or the added functionality does not alter the customer’s experience with the component.
+            <br><br>         
+            Rating 4 – The design addresses all requirements and provides new and substantially useful to the customer functionality. 
+         </div>
+      </td>
+      <td class="projectCells" nowrap="nowrap" valign="top">4 - Strongly Agree</td>
+   </tr>
+   <tr>
+      <td class="subjectiveResponseCells">
+      Yes.
+      </td>
+      <td class="subjectiveResponseCells">
+      Comment
+      </td>
+   </tr>
+<%---- QUESTION ID: 43210 ------%>
+   <tr>
+      <td class="projectCells">
+         <div class="testShow" id="shortQ_43210">
+            (70)1.1.1 <a href="javascript:toggleDisplay('shortQ_43210');toggleDisplay('longQ_43210');">[+]</a>
+            The design addresses all the requirements as specified in the requirements documents and the forum.
+         </div>
+         <div class="testHide" id="longQ_43210">
+            (70)1.1.1 <a href="javascript:toggleDisplay('shortQ_43210');toggleDisplay('longQ_43210');">[-]</a>
+            The design addresses all the requirements as specified in the requirements documents and the forum. The reviewer should be able to take each point in the requirements document and find the associated implementation in the design. The reviewer should ignore the quality aspects of the implementation at this point, and only verify whether a requirement is addressed or not. Other questions of the scorecard give you an opportunity to express your concerns about the quality of the design. The reviewer should read the component forum prior to doing this to ensure that any modifications or additions to the requirements are taken into account.
+            <br><br>         
+            ‘Core’ requirements will be defined as those requirements that are essential to component’s intent (i.e. the component either cannot fulfill its goal or cannot provide value added service to the customer without those requirements).
+            <br><br>         
+            Rating 1 – The design is missing any of the ‘core’ requirements. The missing requirement(s) prevent the design from fulfilling the goal of the requirements.
+            <br><br>         
+            Rating 2 – The design has all of the ‘core’ requirements but does not address any of the ‘non-core’ requirements. The design addresses all requirements to solve the problem for which the component was requested, but is missing major usability features from the requirements document.
+            <br><br>         
+            Rating 3 – The design addresses all of the ‘core’ requirements and a majority of the ‘non-core’ requirements and, potentially, includes minor additional functionality. The design solves the problem for which the component was requested, provides all the usability features, but either does not provide enhancements on top of the requirements, or the added functionality does not alter the customer’s experience with the component.
+            <br><br>         
+            Rating 4 – The design addresses all requirements and provides new and substantially useful to the customer functionality. 
+         </div>
+      </td>
+      <td class="projectCells" nowrap="nowrap" valign="top">4 - Strongly Agree</td>
+   </tr>
+   <tr>
+      <td class="subjectiveResponseCells">
+      Yes.
+      </td>
+      <td class="subjectiveResponseCells">
+      Comment
+      </td>
+   </tr>
+<%---- QUESTION ID: 98765 ------%>
+   <tr>
+      <td class="projectCells">
+         <div class="testShow" id="shortQ_98765">
+            (70)1.1.1 <a href="javascript:toggleDisplay('shortQ_98765');toggleDisplay('longQ_98765');">[+]</a>
+            The design addresses all the requirements as specified in the requirements documents and the forum.
+         </div>
+         <div class="testHide" id="longQ_98765">
+            (70)1.1.1 <a href="javascript:toggleDisplay('shortQ_98765');toggleDisplay('longQ_98765');">[-]</a>
+            The design addresses all the requirements as specified in the requirements documents and the forum. The reviewer should be able to take each point in the requirements document and find the associated implementation in the design. The reviewer should ignore the quality aspects of the implementation at this point, and only verify whether a requirement is addressed or not. Other questions of the scorecard give you an opportunity to express your concerns about the quality of the design. The reviewer should read the component forum prior to doing this to ensure that any modifications or additions to the requirements are taken into account.
+            <br><br>         
+            ‘Core’ requirements will be defined as those requirements that are essential to component’s intent (i.e. the component either cannot fulfill its goal or cannot provide value added service to the customer without those requirements).
+            <br><br>         
+            Rating 1 – The design is missing any of the ‘core’ requirements. The missing requirement(s) prevent the design from fulfilling the goal of the requirements.
+            <br><br>         
+            Rating 2 – The design has all of the ‘core’ requirements but does not address any of the ‘non-core’ requirements. The design addresses all requirements to solve the problem for which the component was requested, but is missing major usability features from the requirements document.
+            <br><br>         
+            Rating 3 – The design addresses all of the ‘core’ requirements and a majority of the ‘non-core’ requirements and, potentially, includes minor additional functionality. The design solves the problem for which the component was requested, provides all the usability features, but either does not provide enhancements on top of the requirements, or the added functionality does not alter the customer’s experience with the component.
+            <br><br>         
+            Rating 4 – The design addresses all requirements and provides new and substantially useful to the customer functionality. 
+         </div>
+      </td>
+      <td class="projectCells" nowrap="nowrap" valign="top">4 - Strongly Agree</td>
+   </tr>
+   <tr>
+      <td class="subjectiveResponseCells">
+      Yes.
+      </td>
+      <td class="subjectiveResponseCells">
+      Comment
+      </td>
+   </tr>
+</table>
+<br><br>
+<%-------------------------END TEST----------------------------%>
+
 
 <table border="1" cellspacing="0" width="100%" class="formFrame">
 
