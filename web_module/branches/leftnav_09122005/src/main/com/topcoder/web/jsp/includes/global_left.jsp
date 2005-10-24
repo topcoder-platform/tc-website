@@ -1,36 +1,18 @@
-
-<%@  page
-  language="java"
-  import="com.topcoder.shared.util.ApplicationServer"
-%>
+<%@ page language="java"%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page import="com.topcoder.web.common.model.NavTree"%>
 <%@ page import="com.topcoder.web.common.model.NavNode"%>
-<%@ page import="java.util.ArrayList"%>
-<%@ page import="java.util.Arrays"%>
 <%@ taglib uri="nav.tld" prefix="nav" %>
 <%
-    String L1 = request.getParameter("level1")==null?"":request.getParameter("level1");
-    String L2 = request.getParameter("level2")==null?"":request.getParameter("level2");
-    String L3 = request.getParameter("level3")==null?"":request.getParameter("level3");
-    String L4 = request.getParameter("level4")==null?"":request.getParameter("level4");
-/*
-    CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
-    //bleh, gott do this for registration cuz it does a redirect to a jsp
-    if (info==null) info = new Navigation(request, response).getSessionInfo();
-*/
+
+    /*
+        CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
+        //bleh, gott do this for registration cuz it does a redirect to a jsp
+        if (info==null) info = new Navigation(request, response).getSessionInfo();
+    */
 
 
-/*
-    NavNode competitions = new NavNode("<a href=\"javascript:toggleMenu('m_competitors')\" class=\"exp\">Competitions</a>", "m_competitors");
-    competitions.addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc\">Home</a>", "home"));
-    NavNode corp = new NavNode("<a href=\"javascript:toggleMenu('m_corp_services')\" class=\"exp\">Corporate Services</a>", "m_corp_services");
-    NavNode forums = new NavNode("<a href=\"javascript:toggleMenu('m_forums')\" class=\"exp\">Forums</a>", "m_forums");
-    NavNode press = new NavNode("<a href=\"\">Press Room</a>", "m_press");
-    NavNode contactUs = new NavNode("<a href=\"\">Contact Us</a>", "m_contact");
-    NavNode aboutUs = new NavNode("<a href=\"javascript:toggleMenu('m_about_tc')\" class=\"exp\">About TopCoder</a>", "m_about_tc");
-    NavTree nav = new NavTree(Arrays.asList(new NavNode[] {competitions, corp, forums, press, contactUs, aboutUs}));
-*/
     NavTree nav = new NavTree();
     nav.addRoot(new NavNode("<a href=\"javascript:toggleMenu('m_competitors')\" class=\"exp\">Competitions</a>", "m_competitors"));
         nav.search("m_competitors").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc\">Home</a>", "home"));

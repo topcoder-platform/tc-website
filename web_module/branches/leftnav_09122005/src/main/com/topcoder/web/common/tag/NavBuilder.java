@@ -30,7 +30,7 @@ public class NavBuilder extends TagSupport {
         try {
             NavNode root;
             NavNode selectedNode;
-            pageContext.getOut().print("<ul>");
+            pageContext.getOut().print("\n<ul>");
             for(Iterator it = nav.getRoots(); it.hasNext();) {
                 root = (NavNode)it.next();
                 selectedNode = root.search(this.selectedNode);
