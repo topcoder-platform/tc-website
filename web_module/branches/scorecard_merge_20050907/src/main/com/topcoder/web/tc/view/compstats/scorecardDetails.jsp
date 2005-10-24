@@ -44,29 +44,29 @@ padding-bottom: 5px;
 padding-left: 5px;
 padding-right: 5px;
 }
-.testShow, .testHide
+.showText, .hideText
 {
 width: 100%;
 }
-.testShow{ display: block }
-.testHide{ display: none }
+.showText{ display: block }
+.hideText{ display: none }
 </style>
 
 <script language="javascript" type="text/javascript">
 <!--
 function toggleDisplay(objectID){
    var object = document.getElementById(objectID);
-   if(object.className == 'testShow') object.className = 'testHide';
-   else object.className = 'testShow';
+   if(object.className == 'showText') object.className = 'hideText';
+   else object.className = 'showText';
    return;
 }
 function showAll(){
    var x = document.getElementsByTagName('div');
    for (var i=0;i<x.length;i++){
       if (x[i].id.substring (0,5) == 'longQ'){
-         x[i].className = 'testShow';
+         x[i].className = 'showText';
       }else if(x[i].id.substring (0,6) == 'shortQ'){
-         x[i].className = 'testHide';
+         x[i].className = 'hideText';
       }
    }
 }
@@ -74,9 +74,9 @@ function hideAll(){
    var x = document.getElementsByTagName('div');
    for (var i=0;i<x.length;i++){
       if (x[i].id.substring (0,5) == 'longQ'){
-         x[i].className = 'testHide';
+         x[i].className = 'hideText';
       }else if(x[i].id.substring (0,6) == 'shortQ'){
-         x[i].className = 'testShow';
+         x[i].className = 'showText';
       }
    }
 }
@@ -108,7 +108,7 @@ function hideAll(){
 
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="statistics_w"/>
-<jsp:param name="title" value="Scorecard Detail"/>
+<jsp:param name="title" value="Scorecard"/>
 </jsp:include>
 
 <%
@@ -143,10 +143,11 @@ function hideAll(){
 <%--<a href='/tc?module=CompList&pi=<rsc:item set="<%=projectInfo%>" name="phase_id"/>' class="statLink">--%>
 <rsc:item set="<%=projectInfo%>" name="phase_desc"/>
 <%--</a>--%>
- > Contest Details:
-<rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></span>
+ > Contest:
+<rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/>
+ > Scorecard</span>
 <br><br>
-<b>Component:</b> <A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A>
+<b>Component:</b> <A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/></A>
 <br>
 <b>Coder:</b> <tc-webtag:handle coderId='<%= uid %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/>
 <br>
@@ -181,12 +182,12 @@ function hideAll(){
        </td>
        <td class="statDk" width="100%" style="border-top: 1px solid #999999;">
          
-         <div class="testShow" id="shortQ_<%=questionNumber%>">
+         <div class="showText" id="shortQ_<%=questionNumber%>">
             <b><a href="javascript:toggleDisplay('shortQ_<%=questionNumber%>');toggleDisplay('longQ_<%=questionNumber%>');" class="statLink">[+]</a> <rsc:item name="question_desc" row="<%=resultRow%>" ifNull="" /></b>
             <rsc:item name="question_header" row="<%=resultRow%>" escapeHtml="true" ifNull="" />
          </div>
          
-         <div class="testHide" id="longQ_<%=questionNumber%>">
+         <div class="hideText" id="longQ_<%=questionNumber%>">
             <b><a href="javascript:toggleDisplay('shortQ_<%=questionNumber%>');toggleDisplay('longQ_<%=questionNumber%>');" class="statLink">[-]</a> <rsc:item name="question_desc" row="<%=resultRow%>" ifNull="" /></b>
             <rsc:item name="question_text" row="<%=resultRow%>" escapeHtml="true" ifNull="" />
          </div>
