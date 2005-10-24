@@ -33,63 +33,98 @@
 */
     NavTree nav = new NavTree();
     nav.addRoot(new NavNode("<a href=\"javascript:toggleMenu('m_competitors')\" class=\"exp\">Competitions</a>", "m_competitors"));
-    nav.search("m_competitors").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc\">Home</a>", "home"));
-    nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_my_tc')\" class=\"exp\">My TopCoder</a>", "m_my_tc"));
-        nav.search("m_my_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/Registration\">Update My Profile</a>", "update_profile"));
-        nav.search("m_my_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReferrals\">Members I've Referred</a>", "referrals"));
-        nav.search("m_my_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/PactsMemberServlet?t=affidavit&c=affidavit_history\">Affidavits</a>", "affidavits"));
-        nav.search("m_my_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=card&d2=description\">Card/Badges</a>", "cards"));
-    nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_alg_comp')\" class=\"exp\">Algorithm Competitions</a>", "m_alg_comp"));
-        nav.search("m_alg_comp").addChild(new NavNode("<a href=\"Javascript:arena()\">Launch Arena Applet</a>", "launch_arena"));
-        nav.search("m_alg_comp").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/?&t=schedule&c=index\">Calendar</a>", "calendar"));
-        nav.search("m_alg_comp").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_alg_stats')\" class=\"exp\">Statistics</a>", "m_alg_stats"));
-    //todo this needs to be completed with the full compliment of stat links
-            nav.search("m_alg_stats").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/stat?&c=last_match\">Match Results</a>", "last_match"));
-            nav.search("m_alg_stats").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=match_editorials&d2=archive\">Match Editorials</a>", "match_editorials"));
-            nav.search("m_alg_stats").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=ProblemArchive\">Problem Archive</a>", "last_match"));
-            //todo what is this?
-            nav.search("m_alg_stats").addChild(new NavNode("<a href=\"\">Achievements</a>", "achievements"));
-        nav.search("m_alg_comp").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_alg_support')\" class=\"exp\">Support/FAQs</a>", "m_alg_support"));
-            nav.search("m_alg_support").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=help&d2=index\">Competition Guide</a>", "alg_comp_guide"));
-            nav.search("m_alg_support").addChild(new NavNode("<a href=\"\">FAQs</a>", "alg_faq"));
-            nav.search("m_alg_support").addChild(new NavNode("<a href=\"\">Sample Problem Statements</a>", "alg_prob_state"));
-            nav.search("m_alg_support").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/?&t=support&c=ratings\">Rating System</a>", "alg_rating_sys"));
-            nav.search("m_alg_support").addChild(new NavNode("<a href=\"\">Forms W-9 & W-8BEN</a>", "alg_tax_form"));
-            nav.search("m_alg_support").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/?&t=support&c=charities\">Charity Donations</a>", "alg_charity"));
-    nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_comp_comp')\" class=\"exp\">Component Competitions</a>", "m_comp_comp"));
-        nav.search("m_comp_comp").addChild(new NavNode("<a href=\"\">Design/Develop Components</a>", "des_dev_comp"));
-        nav.search("m_comp_comp").addChild(new NavNode("<a href=\"\">Review Competitors' Submissions</a>", "review_sub"));
-        nav.search("m_comp_comp").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_comp_stats')\" class=\"exp\">Statistics</a>", "m_comp_stats"));
-            nav.search("m_comp_stats").addChild(new NavNode("<a href=\"\">Contest List</a>", "comp_list"));
-            nav.search("m_comp_stats").addChild(new NavNode("<a href=\"\">Achievements</a>", "comp_achievements"));
-        nav.search("m_comp_comp").addChild(new NavNode("<a href=\"\">Meet the Review Boards</a>", "review_boards"));
-        nav.search("m_comp_comp").addChild(new NavNode("<a href=\"\">Development Methodology</a>", "dev_meth"));
-        nav.search("m_comp_comp").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_comp_support')\" class=\"exp\">Support/FAQs</a>", "m_comp_support"));
-            nav.search("m_comp_support").addChild(new NavNode("<a href=\"\">Getting Started</a>", "comp_get_started"));
-            nav.search("m_comp_support").addChild(new NavNode("<a href=\"\">Component Help Docs</a>", "comp_help"));
-            nav.search("m_comp_support").addChild(new NavNode("<a href=\"\">Rating System</a>", "comp_rating"));
-            nav.search("m_comp_support").addChild(new NavNode("<a href=\"\">Reliability Rating System</a>", "comp_rel_rating"));
-            nav.search("m_comp_support").addChild(new NavNode("<a href=\"\">How to Get Paid</a>", "comp_paid"));
-    nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_emp_opps')\" class=\"exp\">Employment Opportunities</a>", "m_emp_opps"));
-        nav.search("m_emp_opps").addChild(new NavNode("<a href=\"\">Job Openings</a>", "job_openings"));
-        nav.search("m_emp_opps").addChild(new NavNode("<a href=\"\">Registration</a>", "emp_reg"));
-    nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_education')\" class=\"exp\">Educational Content</a>", "m_education"));
-        nav.search("m_education").addChild(new NavNode("<a href=\"\">Algorithm Tutorials</a>", "alg_tut"));
-        nav.search("m_education").addChild(new NavNode("<a href=\"\">Component Tutorials</a>", "comp_tut"));
-        nav.search("m_education").addChild(new NavNode("<a href=\"\">Features</a>", "features"));
-        nav.search("m_education").addChild(new NavNode("<a href=\"\">Tutor Transcripts</a>", "tut_transcripts"));
-    nav.search("m_competitors").addChild(new NavNode("<a href=\"\">Coder of the Month</a>", "m_com"));
-    nav.search("m_competitors").addChild(new NavNode("<a href=\"\">Member Surveys</a>", "m_mem_survey"));
-    nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_events')\" class=\"exp\">Events</a>", "m_events"));
-        nav.search("m_events").addChild(new NavNode("<a href=\"\">TopCoder Events</a>", "tc_events"));
-        nav.search("m_events").addChild(new NavNode("<a href=\"\">Private Label</a>", "pl_events"));
-        nav.search("m_events").addChild(new NavNode("<a href=\"\">Charity</a>", "charity_events"));
+        nav.search("m_competitors").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc\">Home</a>", "home"));
+        nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_my_tc')\" class=\"exp\">My TopCoder</a>", "m_my_tc"));
+            nav.search("m_my_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/Registration\">Update My Profile</a>", "update_profile"));
+            nav.search("m_my_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReferrals\">Members I've Referred</a>", "referrals"));
+            nav.search("m_my_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/PactsMemberServlet?t=affidavit&c=affidavit_history\">Affidavits</a>", "affidavits"));
+            nav.search("m_my_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=card&d2=description\">Card/Badges</a>", "cards"));
+        nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_alg_comp')\" class=\"exp\">Algorithm Competitions</a>", "m_alg_comp"));
+            nav.search("m_alg_comp").addChild(new NavNode("<a href=\"Javascript:arena()\">Launch Arena Applet</a>", "launch_arena"));
+            nav.search("m_alg_comp").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/?&t=schedule&c=index\">Calendar</a>", "calendar"));
+            nav.search("m_alg_comp").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_alg_stats')\" class=\"exp\">Statistics</a>", "m_alg_stats"));
+                //todo this needs to be completed with the full compliment of stat links
+                nav.search("m_alg_stats").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/stat?&c=last_match\">Match Results</a>", "last_match"));
+                nav.search("m_alg_stats").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=match_editorials&d2=archive\">Match Editorials</a>", "match_editorials"));
+                nav.search("m_alg_stats").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=ProblemArchive\">Problem Archive</a>", "last_match"));
+                //todo what is this?
+                nav.search("m_alg_stats").addChild(new NavNode("<a href=\"\">Achievements</a>", "achievements"));
+            nav.search("m_alg_comp").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_alg_support')\" class=\"exp\">Support/FAQs</a>", "m_alg_support"));
+                nav.search("m_alg_support").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=help&d2=index\">Competition Guide</a>", "alg_comp_guide"));
+                nav.search("m_alg_support").addChild(new NavNode("<a href=\"\">FAQs</a>", "alg_faq"));
+                nav.search("m_alg_support").addChild(new NavNode("<a href=\"\">Sample Problem Statements</a>", "alg_prob_state"));
+                nav.search("m_alg_support").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/?&t=support&c=ratings\">Rating System</a>", "alg_rating_sys"));
+                nav.search("m_alg_support").addChild(new NavNode("<a href=\"\">Forms W-9 & W-8BEN</a>", "alg_tax_form"));
+                nav.search("m_alg_support").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/?&t=support&c=charities\">Charity Donations</a>", "alg_charity"));
+        nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_comp_comp')\" class=\"exp\">Component Competitions</a>", "m_comp_comp"));
+            nav.search("m_comp_comp").addChild(new NavNode("<a href=\"\">Design/Develop Components</a>", "des_dev_comp"));
+            nav.search("m_comp_comp").addChild(new NavNode("<a href=\"\">Review Competitors' Submissions</a>", "review_sub"));
+            nav.search("m_comp_comp").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_comp_stats')\" class=\"exp\">Statistics</a>", "m_comp_stats"));
+                nav.search("m_comp_stats").addChild(new NavNode("<a href=\"\">Contest List</a>", "comp_list"));
+                nav.search("m_comp_stats").addChild(new NavNode("<a href=\"\">Achievements</a>", "comp_achievements"));
+            nav.search("m_comp_comp").addChild(new NavNode("<a href=\"\">Meet the Review Boards</a>", "review_boards"));
+            nav.search("m_comp_comp").addChild(new NavNode("<a href=\"\">Development Methodology</a>", "dev_meth"));
+            nav.search("m_comp_comp").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_comp_support')\" class=\"exp\">Support/FAQs</a>", "m_comp_support"));
+                nav.search("m_comp_support").addChild(new NavNode("<a href=\"\">Getting Started</a>", "comp_get_started"));
+                nav.search("m_comp_support").addChild(new NavNode("<a href=\"\">Component Help Docs</a>", "comp_help"));
+                nav.search("m_comp_support").addChild(new NavNode("<a href=\"\">Rating System</a>", "comp_rating"));
+                nav.search("m_comp_support").addChild(new NavNode("<a href=\"\">Reliability Rating System</a>", "comp_rel_rating"));
+                nav.search("m_comp_support").addChild(new NavNode("<a href=\"\">How to Get Paid</a>", "comp_paid"));
+        nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_emp_opps')\" class=\"exp\">Employment Opportunities</a>", "m_emp_opps"));
+            nav.search("m_emp_opps").addChild(new NavNode("<a href=\"\">Job Openings</a>", "job_openings"));
+            nav.search("m_emp_opps").addChild(new NavNode("<a href=\"\">Registration</a>", "emp_reg"));
+        nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_education')\" class=\"exp\">Educational Content</a>", "m_education"));
+            nav.search("m_education").addChild(new NavNode("<a href=\"\">Algorithm Tutorials</a>", "alg_tut"));
+            nav.search("m_education").addChild(new NavNode("<a href=\"\">Component Tutorials</a>", "comp_tut"));
+            nav.search("m_education").addChild(new NavNode("<a href=\"\">Features</a>", "features"));
+            nav.search("m_education").addChild(new NavNode("<a href=\"\">Tutor Transcripts</a>", "tut_transcripts"));
+        nav.search("m_competitors").addChild(new NavNode("<a href=\"\">Coder of the Month</a>", "m_com"));
+        nav.search("m_competitors").addChild(new NavNode("<a href=\"\">Member Surveys</a>", "m_mem_survey"));
+        nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_events')\" class=\"exp\">Events</a>", "m_events"));
+            nav.search("m_events").addChild(new NavNode("<a href=\"\">TopCoder Events</a>", "tc_events"));
+            nav.search("m_events").addChild(new NavNode("<a href=\"\">Private Label</a>", "pl_events"));
+            nav.search("m_events").addChild(new NavNode("<a href=\"\">Charity</a>", "charity_events"));
     nav.addRoot(new NavNode("<a href=\"javascript:toggleMenu('m_corp_services')\" class=\"exp\">Corporate Services</a>", "m_corp_services"));
+        nav.search("m_corp_services").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_software')\" class=\"exp\">Software</a>", "m_software"));
+            nav.search("m_software").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_components')\" class=\"exp\">Components</a>", "m_components"));
+                nav.search("m_components").addChild(new NavNode("<a href=\"\">What Are Software Components?</a>", "software_comp"));
+                nav.search("m_components").addChild(new NavNode("<a href=\"\">Methodology</a>", "comp_method"));
+                nav.search("m_components").addChild(new NavNode("<a href=\"\">Find Components</a>", "file_comp"));
+                nav.search("m_components").addChild(new NavNode("<a href=\"\">Purchase Components</a>", "purchase_comp"));
+                nav.search("m_components").addChild(new NavNode("<a href=\"\">Suggest a Component</a>", "suggest_comp"));
+            nav.search("m_software").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_software')\" class=\"exp\">Software</a>", "m_applications"));
+                nav.search("m_applications").addChild(new NavNode("<a href=\"\">Overview</a>", "app_overview"));
+                nav.search("m_applications").addChild(new NavNode("<a href=\"\">Methodology</a>", "app_method"));
+            nav.search("m_software").addChild(new NavNode("<a href=\"\">Current Customers</a>", "software_customers"));
+        nav.search("m_corp_services").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_emp_services')\" class=\"exp\">Employment Services</a>", "m_emp_services"));
+            nav.search("m_emp_services").addChild(new NavNode("<a href=\"http://"+ApplicationServer.CORP_SERVER_NAME+"/?module=Static&d1=corp&d2=spon_prog&d3=tourny_index\">Event Sponsorship</a>", "event_spon"));
+            nav.search("m_emp_services").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_sourcing')\" class=\"exp\">Sourcing</a>", "m_sourcing"));
+                nav.search("m_sourcing").addChild(new NavNode("<a href=\"http://"+ApplicationServer.CORP_SERVER_NAME+"/?module=Static&d1=corp&d2=private_label&d3=index\">Overview</a>", "sourcing_overview"));
+                nav.search("m_sourcing").addChild(new NavNode("<a href=\"http://"+ApplicationServer.CORP_SERVER_NAME+"/tces\">Reports</a>", "sourcing_reports"));
+            nav.search("m_emp_services").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_skills_ass')\" class=\"exp\">Skills Assessment</a>", "m_skills_ass"));
+                nav.search("m_skills_ass").addChild(new NavNode("<a href=\"http://"+ApplicationServer.CORP_SERVER_NAME+"/?module=Static&d1=corp&d2=testing&d3=testing_attributes\">Process</a>", "skills_process"));
+                nav.search("m_skills_ass").addChild(new NavNode("<a href=\"http://"+ApplicationServer.CORP_SERVER_NAME+"/?module=Static&d1=corp&d2=testing&d3=management_tool\">Attributes</a>", "skills_atts"));
+                nav.search("m_skills_ass").addChild(new NavNode("<a href=\"http://"+ApplicationServer.CORP_SERVER_NAME+"/?module=Static&d1=corp&d2=testing&d3=demo\">Demo</a>", "skills_demo"));
+                nav.search("m_skills_ass").addChild(new NavNode("<a href=\"http://"+ApplicationServer.CORP_SERVER_NAME+"/testing\">Launch Technical Assessment</a>", "launch_techass"));
+            nav.search("m_emp_services").addChild(new NavNode("<a href=\"http://"+ApplicationServer.CORP_SERVER_NAME+"/?module=Static&d1=corp&d2=placement&d3=index\">Placement</a>", "placement"));
+        nav.search("m_corp_services").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_mark_services')\" class=\"exp\">Marketing Services</a>", "m_mark_services"));
+            nav.search("m_mark_services").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_tournaments')\" class=\"exp\">Tournaments</a>", "m_tournaments"));
+                nav.search("m_tournaments").addChild(new NavNode("<a href=\"http://"+ApplicationServer.CORP_SERVER_NAME+"/?module=Static&d1=corp&d2=spon_prog&d3=market_tourny\">Overview</a>", "tourny_overview"));
+                nav.search("m_tournaments").addChild(new NavNode("<a href=\"http://"+ApplicationServer.CORP_SERVER_NAME+"/tces\">Reports</a>", "tourny_reports"));
     nav.addRoot(new NavNode("<a href=\"javascript:toggleMenu('m_forums')\" class=\"exp\">Forums</a>", "m_forums"));
+        nav.search("m_forums").addChild(new NavNode("<a href=\"http://"+ApplicationServer.FORUMS_SERVER_NAME+"/?module=Category&categoryID=13\">Round Tables</a>", "round_tables"));
+        nav.search("m_forums").addChild(new NavNode("<a href=\"http://"+ApplicationServer.FORUMS_SERVER_NAME+"/?module=Category&categoryID=14\">Round Tables</a>", "alg_matches"));
+        nav.search("m_forums").addChild(new NavNode("<a href=\"http://"+ApplicationServer.FORUMS_SERVER_NAME+"/?module=Category&categoryID=8\">Round Tables</a>", "news_disc"));
+        nav.search("m_forums").addChild(new NavNode("<a href=\"http://"+ApplicationServer.FORUMS_SERVER_NAME+"/?module=Category&categoryID=6\">Round Tables</a>", "spons_disc"));
     nav.addRoot(new NavNode("<a href=\"\">Press Room</a>", "m_press"));
     nav.addRoot(new NavNode("<a href=\"\">Contact Us</a>", "m_contact"));
     nav.addRoot(new NavNode("<a href=\"javascript:toggleMenu('m_about_tc')\" class=\"exp\">About TopCoder</a>", "m_about_tc"));
-
+        nav.search("m_about_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=about&d2=index\">Overview</a>", "tc_overview"));
+        nav.search("m_about_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=about&d2=whyjoin\">Why Join TopCoder?</a>", "tc_why_join"));
+        nav.search("m_about_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=about&d2=jobs\">Working at TopCoder</a>", "tc_working"));
+        nav.search("m_about_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=about&d2=terms\">Terms</a>", "tc_terms"));
+        nav.search("m_about_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=about&d2=privacy\">Privacy</a>", "tc_privacy"));
+        nav.search("m_about_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=about&d2=management\">Overview</a>", "tc_management"));
 
     request.setAttribute("tree", nav);
 
@@ -121,111 +156,6 @@ function arena() {
 
 <nav:navBuilder navTree="tree" selectedNode="home"/>
 
-
-<!--
-<ul>
-<li><a href="javascript:toggleMenu('m_competitors')" class="exp">Competitions</a>
-   <ul id="m_competitors" <% if (L1.equals("competitors")) { %>class="OPEN"<% } %>>
-   <li><a href="javascript:toggleMenu('m_emp_opps')" class="exp">Employment Opportunities</a>
-      <ul id="m_emp_opps" <% if (L2.equals("emp_opps")) { %>class="OPEN"<% } %>>
-      <li><a href="">Job Openings</a></li>
-      <li><a href="">Registration</a></li>
-      </ul>
-   </li>
-   <li><a href="javascript:toggleMenu('m_education')" class="exp">Educational Content</a>
-      <ul id="m_education" <% if (L2.equals("education")) { %>class="OPEN"<% } %>>
-      <li><a href="">Algorithm Tutorials</a></li>
-      <li><a href="">Component Tutorials</a></li>
-      <li><a href="">Features</a></li>
-      <li><a href="">Tutor Transcripts</a></li>
-      </ul>
-   </li>
-   <li><a href="">Coder of the Month</a></li>
-   <li><a href="">Member Surveys</a></li>
-   <li><a href="javascript:toggleMenu('m_events')" class="exp">Events</a>
-      <ul id="m_events" <% if (L2.equals("events")) { %>class="OPEN"<% } %>>
-      <li><a href="">TopCoder Events</a></li>
-      <li><a href="">Private Label</a></li>
-      <li><a href="">Charity</a></li>
-      </ul>
-   </ul>
-</li>
-<li><a href="javascript:toggleMenu('m_corp_services')" class="exp">Corporate Services</a>
-   <ul id="m_corp_services" <% if (L1.equals("corp_services")) { %>class="OPEN"<% } %>>
-   <li><a href="javascript:toggleMenu('m_software')" class="exp">Software</a>
-      <ul id="m_software" <% if (L2.equals("software")) { %>class="OPEN"<% } %>>
-      <li><a href="javascript:toggleMenu('m_components')" class="exp">Components</a>
-         <ul id="m_components" <% if (L3.equals("components")) { %>class="OPEN"<% } %>>
-         <li><a href="">What Are Software Components?</a></li>
-         <li><a href="">Methodology</a></li>
-         <li><a href="">Find Components</a></li>
-         <li><a href="">Purchase Components</a></li>
-         <li><a href="">Suggest a Component</a></li>
-         </ul>
-      </li>
-      <li><a href="javascript:toggleMenu('m_applications')" class="exp">Applications</a>
-         <ul id="m_applications" <% if (L3.equals("applications")) { %>class="OPEN"<% } %>>
-         <li><a href="">Overview</a></li>
-         <li><a href="">Methodology</a></li>
-         </ul>
-      </li>
-      <li><a href="">Current Customers</a></li>
-      </ul>
-   </li>
-   <li><a href="javascript:toggleMenu('m_emp_services')" class="exp">Employment Services</a>
-      <ul id="m_emp_services" <% if (L2.equals("emp_services")) { %>class="OPEN"<% } %>>
-      <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Event Sponsorship</a></li>
-      <li><a href="javascript:toggleMenu('m_sourcing')" class="exp">Sourcing</a>
-         <ul id="m_sourcing" <% if (L3.equals("sourcing")) { %>class="OPEN"<% } %>>
-         <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=private_label&d3=index">Overview</a></li>
-         <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/tces">Reports</a></li>
-         </ul>
-      </li>
-      <li><a href="javascript:toggleMenu('m_skills_ass')" class="exp">Skills Assessment</a>
-         <ul id="m_skills_ass" <% if (L3.equals("skills_ass")) { %>class="OPEN"<% } %>>
-         <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=testing&d3=testing_attributes">Process</a></li>
-         <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=testing&d3=management_tool">Attributes</a></li>
-         <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=testing&d3=demo">Demo</a></li>
-         <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/testing">Launch Technical Assessment</a></li>
-         </ul>
-      </li>
-      <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=placement&d3=index">Placement</a></li>
-      </ul>
-   </li>
-   <li><a href="javascript:toggleMenu('m_mark_services')" class="exp">Marketing Services</a>
-      <ul id="m_mark_services" <% if (L2.equals("mark_services")) { %>class="OPEN"<% } %>>
-      <li><a href="javascript:toggleMenu('m_tournaments')" class="exp">Tournaments</a>
-         <ul id="m_tournaments" <% if (L3.equals("sourcing")) { %>class="OPEN"<% } %>>
-         <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=market_tourny">Overview</a></li>
-         <li><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/tces">Reports</a></li>
-         </ul>
-      </li>
-      </ul>
-   </li>
-   </ul>
-</li>
-<li><a href="javascript:toggleMenu('m_forums')" class="exp">Forums</a>
-   <ul id="m_forums" <% if (L1.equals("forums")) { %>class="OPEN"<% } %>>
-   <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=13">Round Tables</a></li>
-   <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=14">Algorithm Matches</a></li>
-   <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=8">News Discussions</a></li>
-   <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=6">Sponsor Discussions</a></li>
-   </ul>
-</li>
-<li><a href="">Press Room</a></li>
-<li><a href="">Contact Us</a></li>
-<li><a href="javascript:toggleMenu('m_about_tc')" class="exp">About TopCoder</a>
-   <ul id="m_about_tc" <% if (L1.equals("about_tc")) { %>class="OPEN"<% } %>>
-   <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=index">Overview</a></li>
-   <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=whyjoin">Why Join TopCoder?</a></li>
-   <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=jobs">Working at TopCoder</a></li>
-   <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=terms">Terms</a></li>
-   <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=privacy">Privacy Policy</a></li>
-   <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=management">Management Team</a></li>
-   </ul>
-</li>
-</ul>
--->
 </div>
 <div style="padding: 15px; 0px; 15px; 20px;">
 <jsp:include page="../includes/modules/leftNavSearch.jsp"/>
@@ -235,40 +165,6 @@ function arena() {
 
 
 <%--
-<%@  page
-  language="java"
-  errorPage="../errorPage.jsp"
-  import="com.topcoder.common.web.data.Navigation,
-          java.text.SimpleDateFormat,
-          java.util.HashMap,
-          java.util.Iterator,
-          com.topcoder.shared.util.ApplicationServer,
-          com.topcoder.web.common.model.CoderSessionInfo,
-          com.topcoder.web.common.BaseServlet"
-%>
-
-<script type="text/javascript">
-function arena() {
-  w=window.open("http://www.topcoder.com/tc?module=Static&d1=applet&d2=launch","Launch","top=2,left=2,width=300,height=225,resizable=yes,status=1");
-  return;
-}
-</script>
-
-
-
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
-<%
-    String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
-    String level2 = request.getParameter("level2")==null?"":request.getParameter("level2");
-    String level3 = request.getParameter("level3")==null?"":request.getParameter("level3");
-    String unreadCategories = request.getParameter("unreadCategories")==null?"":request.getParameter("unreadCategories");
-    CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
-    //bleh, gott do this for registration cuz it does a redirect to a jsp
-    if (info==null) info = new Navigation(request, response).getSessionInfo();
-%>
-
-            <img alt="" width="180" height="5" src="/i/spacer.gif" border="0"><br>
-            <img alt="" width="170" height="11" src="/i/left_nav_top.gif" border="0"><br>
 
 <% if ((level1.equals("about")) || (level1.equals("review_board")) || (level1.equals("press_room")) || (level1.equals("management"))) { %>
 
