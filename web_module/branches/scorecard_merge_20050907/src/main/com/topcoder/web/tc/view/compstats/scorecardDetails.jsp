@@ -20,27 +20,29 @@
 <style type="text/css">
 .appealTitle
 {
-    background-color: #DDDDEE;
-    color: #333333;
-    font-size: 14px;
-    font-weight: bold;
-    text-decoration: none;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
+vertical-align: top;
+background-color: #DDDDEE;
+color: #333333;
+font-size: 11px;
+font-weight: normal;
+text-decoration: none;
+padding-top: 5px;
+padding-bottom: 5px;
+padding-left: 5px;
+padding-right: 5px;
 }
 .appealCells
 {
-    background-color: #EEEEFF;
-    color: #333333;
-    font-size: 11px;
-    font-weight: normal;
-    text-decoration: none;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
+vertical-align: top;
+background-color: #EEEEFF;
+color: #333333;
+font-size: 11px;
+font-weight: normal;
+text-decoration: none;
+padding-top: 5px;
+padding-bottom: 5px;
+padding-left: 5px;
+padding-right: 5px;
 }
 .testShow, .testHide
 {
@@ -137,11 +139,18 @@ function hideAll(){
     int questionNumber = 0;
 %>
 
-<A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A></span><br>
-
-Coder: <tc-webtag:handle coderId='<%= uid %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/>
+<span class="bodySubtitle">Component Statistics >
+<%--<a href='/tc?module=CompList&pi=<rsc:item set="<%=projectInfo%>" name="phase_id"/>' class="statLink">--%>
+<rsc:item set="<%=projectInfo%>" name="phase_desc"/>
+<%--</a>--%>
+ > Contest Details:
+<rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></span>
+<br><br>
+<b>Component:</b> <A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A>
 <br>
-Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/>
+<b>Coder:</b> <tc-webtag:handle coderId='<%= uid %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/>
+<br>
+<b>Reviewer:</b> <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/>
 <br><br>
 <A href="javascript:showAll();">Expand all questions</A>&#160;|&#160;<A href="javascript:hideAll();">Contract all questions</A>
 <br><br>
@@ -209,6 +218,8 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
 <%     if (Boolean.TRUE.equals((Boolean) lastIt.next()) &&
         ((resultRow.getStringItem("appeal_text") != null) || (resultRow.getStringItem("testcase_appeal_text") != null) )) { %>
         <tr>
+
+            <td class="appealCells">&#160;</td>
             <td class="appealCells">
             <b>Previous Score:</b>
             <% if ((resultRow.getStringItem("raw_num_passed") != null) && (resultRow.getStringItem("raw_num_tests") != null)) { %>
@@ -220,12 +231,14 @@ Reviewer: <tc-webtag:handle coderId='<%= rid %>' context='<%= projectInfo.getStr
            <td rowspan="3" class="appealTitle">Appeal</td>
         </tr>
         <tr>
-            <td class="appealCells"><b>Appeal Text:</b><rsc:item name="appeal_text" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
+            <td class="appealCells">&#160;</td>
+            <td class="appealCells"><b>Appeal Text:</b> <rsc:item name="appeal_text" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
                                     <rsc:item name="testcase_appeal_text" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
             </td>
         </tr>
         <tr>
-            <td class="appealCells"><b>Appeal Response:</b><rsc:item name="appeal_response" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
+            <td class="appealCells">&#160;</td>
+            <td class="appealCells"><b>Appeal Response:</b> <rsc:item name="appeal_response" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
                                     <rsc:item name="testcase_appeal_response" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
             </td>
         </tr>
