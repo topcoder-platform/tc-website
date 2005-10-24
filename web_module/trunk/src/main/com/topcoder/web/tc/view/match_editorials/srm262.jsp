@@ -5,7 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Statisics</title>
+<title>TopCoder Statistics</title>
 
 <jsp:include page="../script.jsp" />
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
