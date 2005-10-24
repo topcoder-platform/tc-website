@@ -243,7 +243,7 @@ else {
            pageContext.setAttribute("coderHandle", resultRow.getItem(0).toString()); %>
                    <TD WIDTH="10" ><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="4" BORDER="0"></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="left" HEIGHT="13">
-                     <SPAN CLASS="coderBrackets">[&#160;</SPAN><tc-webtag:handle coderId='<%=coderrank%>' context="algorithm"/><SPAN CLASS="coderBrackets">&#160;]</SPAN>
+                     <SPAN CLASS="coderBrackets">[&#160;</SPAN><tc-webtag:handle coderId='<%=Long.parseLong(coderrank.toString())%>' context="algorithm"/><SPAN CLASS="coderBrackets">&#160;]</SPAN>
                    </TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 6 /* submits */ + "]" %>'/></TD>
@@ -274,7 +274,7 @@ else {
          <% } else { %>
                     <TD WIDTH="10"><A HREF="/stat?c=coder_room_stats&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="statText"><IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="4" BORDER="0"></A></TD>
                    <TD CLASS="coderBrackets" ALIGN="left" HEIGHT="13">
-                     <tc-webtag:handle coderId='<%=coderrank%>' context="algorithm"/>
+                     <tc-webtag:handle coderId='<%=Long.parseLong(coderrank.toString())%>' context="algorithm"/>
                    </TD>
                    <TD CLASS="statText" ><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                    <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 6 /* submits */ + "]" %>'/></TD>
