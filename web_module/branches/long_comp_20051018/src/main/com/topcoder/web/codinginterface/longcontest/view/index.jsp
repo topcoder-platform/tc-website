@@ -15,6 +15,19 @@
     ResultSetContainer problems = (ResultSetContainer)m.get("long_problems");
 %>
 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>TopCoder</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+</head>
+<body>
+
+<jsp:include page="top.jsp" >
+    <jsp:param name="level1" value=""/>
+</jsp:include>
 
 <table>
 <tr><td>Contest</td><td>Problem Name</td>
@@ -43,4 +56,5 @@ Standings</a>
 </rsc:iterator>
 </table>
 
-
+</body>
+</html>
