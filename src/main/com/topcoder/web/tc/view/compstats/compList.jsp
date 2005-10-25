@@ -74,7 +74,12 @@ function submitEnter(e) {
 <jsp:param name="title" value="Component Project List"/>
 </jsp:include>
 
-<span class="bodySubtitle">Component Statistics > Contest List</span><br>
+<span class="bodySubtitle">Component Statistics > 
+<% if ("112".equals(phaseId)) { %>
+    <a href="/tc?module=CompList&pi=112" class="bcLink">Design</a> Contests</span><br>
+<% } else { %>
+    <a href="/tc?module=CompList&pi=113" class="bcLink">Development</a> Contests</span><br>
+<% } %>
 
 
 <%
