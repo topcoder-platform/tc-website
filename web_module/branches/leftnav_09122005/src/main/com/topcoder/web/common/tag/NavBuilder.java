@@ -2,6 +2,7 @@ package com.topcoder.web.common.tag;
 
 import com.topcoder.web.common.model.NavTree;
 import com.topcoder.web.common.model.NavNode;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.jsp.tagext.TagSupport;
 import javax.servlet.jsp.JspException;
@@ -15,6 +16,7 @@ import java.io.IOException;
  *          Create Date: Oct 20, 2005
  */
 public class NavBuilder extends TagSupport {
+    private static final Logger log = Logger.getLogger(NavBuilder.class);
     private NavTree nav = null;
     private String selectedNode = null;
 
@@ -33,6 +35,7 @@ public class NavBuilder extends TagSupport {
             pageContext.getOut().print("\n<ul>");
             for(Iterator it = nav.getRoots(); it.hasNext();) {
                 root = (NavNode)it.next();
+                log.debug("working on root: " + root.getKey() + " " + root.getContents());
                 selectedNode = root.search(this.selectedNode);
                 printOutput(root, selectedNode!=null);
             }
