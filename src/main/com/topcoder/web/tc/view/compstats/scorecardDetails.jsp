@@ -1,8 +1,7 @@
 <%@  page language="java"
-    import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
+    import="com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
           java.util.*"%>
 
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -160,9 +159,9 @@ function hideAll(){
    <tr>
       <td>
          <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-         
+
             <rsc:iterator list="<%=scorecard%>" id="resultRow">
-            
+
             <% if (!lastSection.equals(resultRow.getStringItem("section_desc"))) {
             lastSection = resultRow.getStringItem("section_desc");
             %>
@@ -171,8 +170,8 @@ function hideAll(){
                <td class="tableHeader" colspan="2" style="border-top: 1px solid #999999;"><rsc:item name="section_desc" row="<%=resultRow%>"/></td>
             </tr>
             <% } %>
-            
-            
+
+
             <% if (!lastQuestion.equals(resultRow.getStringItem("question_desc"))) {
             lastQuestion = resultRow.getStringItem("question_desc");
             %>
@@ -181,17 +180,17 @@ function hideAll(){
                <b>(<rsc:item name="question_weight" row="<%=resultRow%>" ifNull="" />)</b>
                </td>
                <td class="statDk" width="100%" style="border-top: 1px solid #999999;">
-               
+
                <div class="showText" id="shortQ_<%=questionNumber%>">
                <b><a href="javascript:toggleDisplay('shortQ_<%=questionNumber%>');toggleDisplay('longQ_<%=questionNumber%>');" class="statLink">[+]</a> <rsc:item name="question_desc" row="<%=resultRow%>" ifNull="" /></b>
                <rsc:item name="question_header" row="<%=resultRow%>" escapeHtml="true" ifNull="" />
                </div>
-               
+
                <div class="hideText" id="longQ_<%=questionNumber%>">
                <b><a href="javascript:toggleDisplay('shortQ_<%=questionNumber%>');toggleDisplay('longQ_<%=questionNumber%>');" class="statLink">[-]</a> <rsc:item name="question_desc" row="<%=resultRow%>" ifNull="" /></b>
                <rsc:item name="question_text" row="<%=resultRow%>" escapeHtml="true" ifNull="" />
                </div>
-               
+
                </td>
                <td class="statDk" nowrap="nowrap" valign="top" style="border-top: 1px solid #999999;">
                <b>
@@ -219,7 +218,7 @@ function hideAll(){
             <%     if (Boolean.TRUE.equals((Boolean) lastIt.next()) &&
             ((resultRow.getStringItem("appeal_text") != null) || (resultRow.getStringItem("testcase_appeal_text") != null) )) { %>
             <tr>
-            
+
                <td class="appealCells">&#160;</td>
                <td class="appealCells">
                <b>Previous Score:</b>
@@ -244,9 +243,9 @@ function hideAll(){
                </td>
             </tr>
             <%  } %>
-            
+
             </rsc:iterator>
-            
+
          </table>
       </td>
    </tr>
