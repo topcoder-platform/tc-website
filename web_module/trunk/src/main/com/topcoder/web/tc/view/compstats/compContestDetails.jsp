@@ -122,31 +122,31 @@
              </tr>
              <tr>
                 <td class="cat" nowrap="nowrap">Registrants:</TD>
-                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_inquiries" ifNull="unknown *" /></TD>
+                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_inquiries" ifNull="unknown*" /></TD>
              </tr>
              <tr>
                 <td class="cat" nowrap="nowrap">Submissions:</TD>
-                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_submissions" ifNull="unknown *" /></TD>
+                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_submissions" ifNull="unknown*" /></TD>
              </tr>
              <tr>
                 <td class="cat" nowrap="nowrap">Submission Percentage:</TD>
-                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="submission_percent" format="0.00'%'" ifNull="unknown *" /></TD>
+                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="submission_percent" format="0.00'%'" ifNull="unknown*" /></TD>
              </tr>
              <tr>
                 <td class="cat" nowrap="nowrap">Passed Screening:</TD>
-                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="passed" ifNull="unknown *" /></TD>
+                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="passed" ifNull="unknown*" /></TD>
              </tr>
              <tr>
                 <td class="cat" nowrap="nowrap">Passed Percentage:</TD>
-                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="passed_percent" format="0.00'%'" ifNull="unknown *" /></TD>
+                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="passed_percent" format="0.00'%'" ifNull="unknown*" /></TD>
              </tr>
              <tr>
                 <td class="cat" nowrap="nowrap">Avg Initial Score:</TD>
-                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="avg_raw_score" format="0.00" ifNull="unknown *" /></TD>
+                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="avg_raw_score" format="0.00" ifNull="unknown*" /></TD>
              </tr>
              <tr>
                 <td class="cat" nowrap="nowrap">Avg Final Score:</TD>
-                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="avg_final_score" format="0.00" ifNull="unknown *" /></TD>
+                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="avg_final_score" format="0.00" ifNull="unknown*" /></TD>
              </tr>
           </table>
       </td>
@@ -187,8 +187,8 @@
          <tr>
             <TD class="statDk"><tc-webtag:handle coderId='<%= resultRow.getLongItem("user_id") %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
 
-            <TD class="statDk" align="center"><rsc:item name="inquire_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="unknown *" /></TD>
-            <TD class="statDk" align="center"><rsc:item name="submit_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="unknown *" /></TD>
+            <TD class="statDk" align="center"><rsc:item name="inquire_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="unknown*" /></TD>
+            <TD class="statDk" align="center"><rsc:item name="submit_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="unknown*" /></TD>
 
             <TD class="statDk" align="right">
                 <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>' class="bcLink">
@@ -206,8 +206,8 @@
 
 
 <% if (resultRow.getIntItem("passed_screening") == 1) { %>
-            <TD class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="initial_score" format="0.00" ifNull="unknown *" /></TD>
-            <TD class="statDk" align="center"><b><rsc:item row="<%=resultRow%>" name="final_score" format="0.00" ifNull="unknown *" /></b></TD>
+            <TD class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="initial_score" format="0.00" ifNull="unknown*" /></TD>
+            <TD class="statDk" align="center"><b><rsc:item row="<%=resultRow%>" name="final_score" format="0.00" ifNull="unknown*" /></b></TD>
             <TD class="statDk" align="center">
                     <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>&rid=<%=reviewers.getLongItem(0, "reviewer_id")%>' class="bcLink">
                                                    <rsc:item row="<%=resultRow%>" name="score1" format="0.00"  />
