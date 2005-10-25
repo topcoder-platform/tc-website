@@ -74,6 +74,12 @@ function submitEnter(e) {
 <jsp:param name="title" value="Component Project List"/>
 </jsp:include>
 
+<%
+    ResultSetContainer list = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("comp_list");
+    String phaseId = (String) request.getAttribute("phaseId");
+
+%>
+
 <span class="bodySubtitle">Component Statistics > 
 <% if ("112".equals(phaseId)) { %>
     <a href="/tc?module=CompList&pi=112" class="bcLink">Design</a> Contests</span><br>
@@ -82,11 +88,6 @@ function submitEnter(e) {
 <% } %>
 
 
-<%
-    ResultSetContainer list = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("comp_list");
-    String phaseId = (String) request.getAttribute("phaseId");
-
-%>
 <form name="compListForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
 
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CompList"/>
