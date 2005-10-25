@@ -1,7 +1,7 @@
 package com.topcoder.web.common.tag;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-
+import com.topcoder.web.common.StringUtils;
 import javax.servlet.jsp.JspException;
 
 public class ResultSetItemTag extends FormatTag {
@@ -10,6 +10,7 @@ public class ResultSetItemTag extends FormatTag {
     private ResultSetContainer set;
     private String name;
     private int rowIndex = 0;   //default to the first row
+    private boolean escapeHTML;
 
     protected String getTimeZone() {
         ResultSetContainer.ResultSetRow row = this.row == null ? set.getRow(rowIndex) : this.row;
@@ -33,11 +34,24 @@ public class ResultSetItemTag extends FormatTag {
         this.rowIndex = rowIndex;
     }
 
+    public void setEscapeHtml(boolean escapeHTML) {
+        this.escapeHTML = escapeHTML;
+    }
+
     public int doStartTag() throws JspException {
         if (row == null) {
-            setObject(set.getItem(rowIndex, name).getResultData());
+            if (escapeHTML) {
+                setObject(StringUtils.htmlEncode((String) set.getItem(rowIndex, name).getResultData()));
+            } else {
+                setObject(set.getItem(rowIndex, name).getResultData());
+
+            }
         } else {
-            setObject(row.getItem(name).getResultData());
+            if (escapeHTML) {
+                setObject(StringUtils.htmlEncode((String) row.getItem(name).getResultData()));
+            } else {
+                setObject(row.getItem(name).getResultData());
+            }
         }
         return super.doStartTag();
     }
