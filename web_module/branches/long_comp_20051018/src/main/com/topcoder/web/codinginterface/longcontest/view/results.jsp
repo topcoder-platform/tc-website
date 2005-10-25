@@ -7,9 +7,9 @@
           com.topcoder.shared.dataAccess.resultSet.*"
 
 %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%!
     String buildHref(Map params, String key, String val){
         StringBuffer buf = new StringBuffer(100);
