@@ -82,9 +82,9 @@ function submitEnter(e) {
 
 <span class="bodySubtitle">Component Statistics > 
 <% if ("112".equals(phaseId)) { %>
-    <a href="/tc?module=CompList&pi=112" class="bcLink">Design</a> Contests</span><br>
+    Design Contests</span><br>
 <% } else { %>
-    <a href="/tc?module=CompList&pi=113" class="bcLink">Development</a> Contests</span><br>
+    Development Contests</span><br>
 <% } %>
 
 
