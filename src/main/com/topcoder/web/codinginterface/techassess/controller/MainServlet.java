@@ -50,7 +50,7 @@ public class MainServlet extends BaseServlet {
         }
 
         log.debug("create queue message sender");
-        sender = new QueueMessageSender(ScreeningApplicationServer.JMS_FACTORY,
+        sender = new QueueMessageSender(DBMS.JMS_FACTORY,
                 DBMS.REQUEST_QUEUE, context);
         sender.setPersistent(true);
         sender.setDBPersistent(false);
@@ -58,7 +58,7 @@ public class MainServlet extends BaseServlet {
         log.info("created queue message sender");
 
         log.debug("create queue response manager");
-        receiver = new WebQueueResponseManager(ScreeningApplicationServer.JMS_FACTORY,
+        receiver = new WebQueueResponseManager(DBMS.JMS_FACTORY,
                 DBMS.RESPONSE_QUEUE, context,
                 "serverID = " + ScreeningApplicationServer.WEB_SERVER_ID,
                 new WebResponsePool());
