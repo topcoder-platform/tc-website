@@ -55,13 +55,19 @@ function submitEnter(e) {
 </jsp:include>
 
 
+<%
+    ResultSetContainer list = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("comp_list");
+    String phaseId = (String) request.getAttribute("phaseId");
+
+%>
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="statistics"/>
-                <jsp:param name="level2" value=""/>
+                <jsp:param name="level2" value='<% if ("112".equals(phaseId)) { %>des_contests<% } else { %>dev_contests<% } %>'/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -74,11 +80,6 @@ function submitEnter(e) {
 <jsp:param name="title" value="Component Project List"/>
 </jsp:include>
 
-<%
-    ResultSetContainer list = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("comp_list");
-    String phaseId = (String) request.getAttribute("phaseId");
-
-%>
 
 <span class="bodySubtitle">Component Statistics > 
 <% if ("112".equals(phaseId)) { %>
