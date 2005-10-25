@@ -666,8 +666,13 @@
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
+        <attribute>
+            <name>excludeParams</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
     </tag>
-    
+
     <tag>
         <name>forumLink</name>
         <tagclass>com.topcoder.web.common.tag.ForumLinkTag</tagclass>
