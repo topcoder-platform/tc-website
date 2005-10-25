@@ -143,9 +143,9 @@ function hideAll(){
 <rsc:item set="<%=projectInfo%>" name="phase_desc"/>
 <%--</a>--%>
  > <a href='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" set="<%=projectInfo%>"/>'>Contest Details</a>
- > Scorecard</span>
+ > Scorecard Details</span>
 <br><br>
-<b>Contest:</b> <a href='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" set="<%=projectInfo%>"/>'><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></a>
+<b>Contest:</b> <a href='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" set="<%=projectInfo%>"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></a>
 <br>
 <b>Component:</b> <A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/></A>
 <br>
