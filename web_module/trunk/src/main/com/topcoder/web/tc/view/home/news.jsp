@@ -9,6 +9,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>10.25.05<br>9:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm268">SRM 268 - Problem Set & Analysis</A></span><br><br>
+      A difficult medium and sneaky hard gave Div 1 coders many challenge opportunities.  The tricky hard, which featured an interesting mix of parsing and searching, had only 6 correct submissions.</td>
+      <td class="newsPhoto"><img src="/i/m/brett1479_mug.gif" /><br>by <tc-webtag:handle coderId="251317" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm268">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="251317" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.24.05<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=logo_overview">TCO06 Logo Design Contest</A></span><br><br>
@@ -294,19 +310,6 @@
          <A href="/tc?module=Static&d1=dev&d2=support&d3=reliability">details</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505807" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.04.05<br>5:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_100505">Sun chat session scheduled for SRM 267</A></span><br><br>
-      One hour prior to SRM 267 on October 5th, Joe Nuxoll from Sun Microsystems&#174; will be in arena to chat about JSF components and Java Studio Creator. The chat starts at 8:00PM EDT.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_100505">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505806" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 
