@@ -55,8 +55,15 @@
             </div>
 
             <br><br>
-<%--
---%>
+<table cellpadding="10" cellspacing="0" align="center" border="0">
+<tr><td>0007<br><img src="/i/tournament/tco06/logo_submissions/0007.jpg" alt="" border="0" /></td></tr>   <%--19797817--%>
+<tr><td>0006<br><img src="/i/tournament/tco06/logo_submissions/0006.jpg" alt="" border="0" /></td></tr>   <%--19797315--%>
+<tr><td>0005<br><img src="/i/tournament/tco06/logo_submissions/0005.gif" alt="" border="0" /></td></tr>   <%--19746045--%>
+<tr><td>0004<br><img src="/i/tournament/tco06/logo_submissions/0004.jpg" alt="" border="0" /></td></tr>   <%--15795717--%>
+<tr><td>0003<br><img src="/i/tournament/tco06/logo_submissions/0003.gif" alt="" border="0" /></td></tr>   <%--13334614--%>
+<tr><td>0002<br><img src="/i/tournament/tco06/logo_submissions/0002.png" alt="" border="0" /></td></tr>   <%--10487679--%>
+<tr><td>0001<br><img src="/i/tournament/tco06/logo_submissions/0001.jpg" alt="" border="0" /></td></tr>   <%--8396227--%>
+</table>
          </div>
 
          <p><br/></p>
