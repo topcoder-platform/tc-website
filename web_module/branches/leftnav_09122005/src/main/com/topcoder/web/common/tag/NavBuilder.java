@@ -29,6 +29,7 @@ public class NavBuilder extends TagSupport {
     }
 
     public int doStartTag() throws JspException {
+        log.debug("doStartTag() called...");
         try {
             NavNode root;
             NavNode selectedNode;
