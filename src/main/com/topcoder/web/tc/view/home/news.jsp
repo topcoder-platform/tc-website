@@ -19,7 +19,7 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=match_editorials&d2=srm268">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="251317" message="discuss this" />&#160;|&#160;
+         <tc-webtag:forumLink forumID="505781" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
