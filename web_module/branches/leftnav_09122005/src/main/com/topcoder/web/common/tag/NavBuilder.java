@@ -32,13 +32,16 @@ public class NavBuilder extends TagSupport {
         log.debug("doStartTag() called...");
         try {
             NavNode root;
-            NavNode selectedNode;
+            //NavNode selectedNode;
             pageContext.getOut().print("\n<ul>");
             for(Iterator it = nav.getRoots(); it.hasNext();) {
                 root = (NavNode)it.next();
                 log.debug("working on root: " + root.getKey() + " " + root.getContents());
+                printOutput(root, true);
+/*
                 selectedNode = root.search(this.selectedNode);
                 printOutput(root, selectedNode!=null);
+*/
             }
             pageContext.getOut().print("</ul>\n");
 
@@ -49,21 +52,22 @@ public class NavBuilder extends TagSupport {
     }
 
     private void printOutput(NavNode node, boolean descend) throws IOException {
+        log.debug("print output for " + node.getKey() + " descend: " + descend);
 
         JspWriter out = pageContext.getOut();
-        out.print("<li>");
+        out.print("\n<li>");
         out.print(node.getContents());
         if (descend && !node.isLeaf() && !node.getKey().equals(selectedNode)) {
-            out.print("<ul id=\"");
+            out.print("\n<ul id=\"");
             out.print(node.getKey());
             out.print("\">");
             for (int i=0; i<node.getChildCount(); i++) {
                 //don't descend if the node we're working with is the selected one.  just show it's siblings
                 printOutput(node.getChildAt(i), !node.getChildAt(i).getKey().equals(selectedNode));
             }
-            out.print("</ul>\n");
+            out.print("</ul>");
         }
-        out.print("</li>\n");
+        out.print("</li>");
 
     }
 
