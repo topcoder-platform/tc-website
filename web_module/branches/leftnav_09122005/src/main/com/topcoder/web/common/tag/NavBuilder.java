@@ -36,23 +36,17 @@ public class NavBuilder extends TagSupport {
     }
 
     public int doStartTag() throws JspException {
-        log.debug("doStartTag() called...");
         try {
             NavNode root;
             NavNode selectedNode;
             pageContext.getOut().print("\n<ul>");
             for(Iterator it = nav.getRoots(); it.hasNext();) {
                 root = (NavNode)it.next();
-                log.debug("working on root: " + root.getKey() + " " + root.getContents());
                 selectedNode = root.search(this.selectedNode);
 
                 HashSet path = new HashSet(5);
                 if (selectedNode!=null) {
                     for (NavNode node = selectedNode.getParent(); node!=null; node = node.getParent()) {
-                        log.debug("stuff: " + node.getKey());
-                        if (node == null) {
-                            log.debug("node is null");
-                        }
                         path.add(node.getKey());
                     }
                 }
@@ -68,20 +62,19 @@ public class NavBuilder extends TagSupport {
     }
 
     private void printOutput(NavNode node, Set parents) throws IOException {
-        log.debug("print output for " + node.getKey() + " parents: " + parents.toString());
-
         JspWriter out = pageContext.getOut();
         out.print("\n<li>");
         out.print(node.getContents());
         if (!node.isLeaf() && !node.getKey().equals(selectedNode)) {
             out.print("\n<ul id=\"");
             out.print(node.getKey());
+            out.print("\"");
             if (parents.contains(node.getKey())) {
                 out.print(" class=\"");
                 out.print(openClass);
                 out.print("\"");
             }
-            out.print("\">");
+            out.print(">");
             for (int i=0; i<node.getChildCount(); i++) {
                 printOutput(node.getChildAt(i), parents);
             }
