@@ -78,7 +78,7 @@ public class NavBuilder extends TagSupport {
             for (int i=0; i<node.getChildCount(); i++) {
                 printOutput(node.getChildAt(i), parents);
             }
-            out.print("</ul>");
+            out.print("\n</ul>");
         }
         out.print("</li>");
 
