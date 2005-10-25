@@ -46,20 +46,18 @@ public class NavBuilder extends TagSupport {
                 log.debug("working on root: " + root.getKey() + " " + root.getContents());
                 selectedNode = root.search(this.selectedNode);
 
-                HashSet parents = new HashSet(5);
+                HashSet path = new HashSet(5);
                 if (selectedNode!=null) {
-                    log.debug("adding " + selectedNode.getKey());
-                    parents.add(selectedNode.getKey());
                     for (NavNode node = selectedNode.getParent(); node!=null; node = node.getParent()) {
                         log.debug("stuff: " + node.getKey());
                         if (node == null) {
                             log.debug("node is null");
                         }
-                        parents.add(node.getParent().getKey());
+                        path.add(node.getKey());
                     }
                 }
 
-                printOutput(root, parents);
+                printOutput(root, path);
             }
             pageContext.getOut().print("</ul>\n");
 
