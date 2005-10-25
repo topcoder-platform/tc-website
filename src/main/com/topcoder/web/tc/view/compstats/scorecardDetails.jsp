@@ -210,10 +210,10 @@ function hideAll(){
                <td class="statLt" style="border-top: 1px solid #999999;">&#160;</td>
                <td class="statLt" style="border-top: 1px solid #999999;">
                <rsc:item name="response_text" row="<%=resultRow%>" escapeHtml="true" />
-               </td>
+               &#160;</td>
                <td class="statLt" style="border-top: 1px solid #999999;">
                <rsc:item name="response_type_desc" row="<%=resultRow%>"/>
-               </td>
+               &#160;</td>
             </tr>
             <%     if (Boolean.TRUE.equals((Boolean) lastIt.next()) &&
             ((resultRow.getStringItem("appeal_text") != null) || (resultRow.getStringItem("testcase_appeal_text") != null) )) { %>
