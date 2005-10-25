@@ -14,9 +14,7 @@ public class NavNode {
     private boolean leaf = true;
     private String contents = null;
     private String key = null;
-/*
     private NavNode parent = null;
-*/
 
     private NavNode() {
         this.children = null;
@@ -36,9 +34,7 @@ public class NavNode {
     public void setChildren(NavNode[] children) {
         this.children = new ArrayList(children.length);
         for (int i=0; i<children.length; i++) {
-/*
             children[i].parent=(this);
-*/
             this.children.add(children[i]);
         }
     }
@@ -56,9 +52,7 @@ public class NavNode {
     }
 
     public void addChild(NavNode child) {
-/*
         child.parent = this;
-*/
         if (children == null) {
             children = new ArrayList(5);
             children.add(child);
@@ -106,9 +100,7 @@ public class NavNode {
 
 
 
-/*
     public NavNode getParent() {
         return parent;
     }
-*/
 }

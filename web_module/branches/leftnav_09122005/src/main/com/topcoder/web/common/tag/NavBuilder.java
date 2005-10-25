@@ -8,6 +8,8 @@ import javax.servlet.jsp.tagext.TagSupport;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import java.util.Iterator;
+import java.util.Set;
+import java.util.HashSet;
 import java.io.IOException;
 
 /**
@@ -19,6 +21,7 @@ public class NavBuilder extends TagSupport {
     private static final Logger log = Logger.getLogger(NavBuilder.class);
     private NavTree nav = null;
     private String selectedNode = null;
+    private String openClass = null;
 
     public void setNavTree(String navTree) {
         this.nav = (NavTree)pageContext.findAttribute(navTree);
@@ -28,20 +31,29 @@ public class NavBuilder extends TagSupport {
         this.selectedNode = selectedNode;
     }
 
+    public void setOpenClass(String openClass) {
+        this.openClass = openClass;
+    }
+
     public int doStartTag() throws JspException {
         log.debug("doStartTag() called...");
         try {
             NavNode root;
-            //NavNode selectedNode;
+            NavNode selectedNode;
             pageContext.getOut().print("\n<ul>");
             for(Iterator it = nav.getRoots(); it.hasNext();) {
                 root = (NavNode)it.next();
                 log.debug("working on root: " + root.getKey() + " " + root.getContents());
-                printOutput(root, true);
-/*
                 selectedNode = root.search(this.selectedNode);
-                printOutput(root, selectedNode!=null);
-*/
+
+                HashSet parents = new HashSet(5);
+                if (selectedNode!=null) {
+                    for (NavNode node = selectedNode.getParent(); node!=null; node = node.getParent()) {
+                        parents.add(node.getParent().getKey());
+                    }
+                }
+
+                printOutput(root, parents);
             }
             pageContext.getOut().print("</ul>\n");
 
@@ -51,19 +63,23 @@ public class NavBuilder extends TagSupport {
         return SKIP_BODY;
     }
 
-    private void printOutput(NavNode node, boolean descend) throws IOException {
-        log.debug("print output for " + node.getKey() + " descend: " + descend);
+    private void printOutput(NavNode node, Set parents) throws IOException {
+        log.debug("print output for " + node.getKey() + " parents: " + parents.toString());
 
         JspWriter out = pageContext.getOut();
         out.print("\n<li>");
         out.print(node.getContents());
-        if (descend && !node.isLeaf() && !node.getKey().equals(selectedNode)) {
+        if (!node.isLeaf() && !node.getKey().equals(selectedNode)) {
             out.print("\n<ul id=\"");
             out.print(node.getKey());
+            if (parents.contains(node.getKey())) {
+                out.print(" class=\"");
+                out.print(openClass);
+                out.print("\"");
+            }
             out.print("\">");
             for (int i=0; i<node.getChildCount(); i++) {
-                //don't descend if the node we're working with is the selected one.  just show it's siblings
-                printOutput(node.getChildAt(i), !node.getChildAt(i).getKey().equals(selectedNode));
+                printOutput(node.getChildAt(i), parents);
             }
             out.print("</ul>");
         }
