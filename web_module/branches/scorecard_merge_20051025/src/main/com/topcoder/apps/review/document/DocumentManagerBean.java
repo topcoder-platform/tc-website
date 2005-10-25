@@ -4293,11 +4293,18 @@ public class DocumentManagerBean implements SessionBean {
             ", s.author_id" +
             ", sub.submitter_id" +
             ", rur.r_user_role_id " +
+", a.raw_evaluation_id " +
+", e.evaluation_name " +
+", e.value " +
+", a.raw_total_tests " +
+", a.raw_total_pass " +
+
             "FROM appeal a " +
             ", scorecard_question sq " +
             ", scorecard s " +
             ", submission sub " +
             ", r_user_role rur " +
+", OUTER evaluation e "+
             "WHERE a.cur_version = 1 " +
             "AND sq.cur_version = 1 " +
             "AND s.cur_version = 1 " +
@@ -4308,7 +4315,8 @@ public class DocumentManagerBean implements SessionBean {
             "AND rur.r_role_id = 1 " +
             "AND rur.login_id = sub.submitter_id " +
             "AND rur.cur_version = 1 " +
-            "AND rur.project_id = s.project_id ";
+            "AND rur.project_id = s.project_id " +
+"AND e.evaluation_id = a.raw_evaluation_id ";
     private final static String SQLGetAppealsAll = SQLGetAppeals +
             "AND s.project_id = ? ";
     private final static String SQLGetAppealsQA = SQLGetAppeals +
@@ -4380,6 +4388,12 @@ public class DocumentManagerBean implements SessionBean {
                 long submissionId = rs.getLong(10);
                 long appealerSubmissionId = rs.getLong(10);
 
+                Evaluation evaluation =  rs.getObject(11) == null? null :
+                    new Evaluation(rs.getLong(11), rs.getString(12), rs.getDouble(13));
+
+                int totalTests = rs.getObject(14) == null? - 1 : rs.getInt(14);
+                int totalPass = rs.getObject(15) == null? - 1 : rs.getInt(15);
+
 
                 if (!(Common.isAdmin(requestor) ||
                         Common.isRole(project, requestor.getUserId(), Role.ID_PRODUCT_MANAGER))) {
@@ -4397,7 +4411,7 @@ public class DocumentManagerBean implements SessionBean {
 
                 Appeal appeal = new Appeal(appealId, appealText, appealResponse,
                         isResolved, question, appealer, submitter, reviewer, submissionId,
-                        appealerSubmissionId, appealVersionId);
+                        appealerSubmissionId, appealVersionId, evaluation, totalTests, totalPass);
 
                 appealList.add(appeal);
             }
@@ -4410,19 +4424,26 @@ public class DocumentManagerBean implements SessionBean {
 
                 Common.close(ps);
                 ps = conn.prepareStatement(
-                        "SELECT s.author_id, sub.submitter_id," +
-                        "sub.submission_id, sub2.submission_id " +
-                        "FROM scorecard_question sq, " +
-                        "scorecard s, submission sub, " +
-                        "submission sub2 " +
-                        "WHERE sq.cur_version = 1 AND " +
-                        "s.cur_version = 1 AND " +
-                        "sub.cur_version = 1 AND " +
-                        "sub2.cur_version = 1 AND " +
-                        "sq.scorecard_id = s.scorecard_id AND " +
-                        "s.submission_id = sub.submission_id AND " +
-                        "sub2.submitter_id = ? AND " +
-                        "sq.question_id = ?");
+                       "SELECT s.author_id, " +
+                            "sub.submitter_id, " +
+                            "sub.submission_id, " +
+                            "sq.evaluation_id, " +
+                            "e.evaluation_name, " +
+                            "e.value, " +
+                            "tq.total_tests, " +
+                            "tq.total_pass " +
+                       "FROM scorecard_question sq,  scorecard s, submission sub, OUTER testcase_question tq, OUTER evaluation e " +
+                       "WHERE sq.cur_version = 1 AND  " +
+                            "s.cur_version = 1 AND  " +
+                            "sub.cur_version = 1 AND  " +
+                            "tq.cur_version=1 AND " +
+                            "sq.scorecard_id = s.scorecard_id AND  " +
+                            "s.submission_id = sub.submission_id AND  " +
+                            "tq.question_id = sq.question_id AND " +
+                            "e.evaluation_id = sq.evaluation_id AND " +
+                            "sub.submitter_id = ? AND  " +
+                            "sq.question_id = ?");
+
                 ps.setLong(1, requestor.getUserId());
                 ps.setLong(2, qid);
 
@@ -4432,17 +4453,19 @@ public class DocumentManagerBean implements SessionBean {
                     long reviewerId = rs.getLong(1);
                     long submitterId = rs.getLong(2);
                     long submissionId = rs.getLong(3);
-                    long appealerSubmissionId = rs.getLong(4);
+                    Evaluation evaluation =  rs.getObject(4) == null? null :
+                        new Evaluation(rs.getLong(4), rs.getString(5), rs.getDouble(6));
+
+                    int totalTests = rs.getObject(7) == null? - 1 : rs.getInt(7);
+                    int totalPass = rs.getObject(8) == null? - 1 : rs.getInt(8);
 
                     ScorecardQuestion question = getScorecardQuestion(qid);
                     User appealer = Common.getUser(dataSource, requestor.getUserId());
                     User submitter = Common.getUser(dataSource, submitterId);
                     User reviewer = Common.getUser(dataSource, reviewerId);
-
                     Appeal appeal = new Appeal(-1, null, null,
                             false, question, appealer, submitter, reviewer,
-                            submissionId, appealerSubmissionId,
-                            -1);
+                            submissionId, submissionId,  -1, evaluation, totalTests, totalPass);
                     appealList.add(appeal);
                 }
             }
@@ -4603,10 +4626,11 @@ public class DocumentManagerBean implements SessionBean {
                             "(appeal_v_id, appeal_id, " +
                             "appealer_id, question_id, " +
                             "is_resolved, appeal_text, " +
-                            "appeal_response, modify_user, " +
+                            "appeal_response, modify_user, raw_evaluation_id,  " +
+                            "raw_total_tests, raw_total_pass, " +
                             "cur_version) " +
                             "VALUES " +
-                            "(0, ?, ?, ?, ?, ?, ?, ?, 1)");
+                            "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
 
                     if (Common.tooBig(appeal.getAppealText()) ||
                             Common.tooBig(appeal.getAppealResponse())) {
@@ -4627,6 +4651,24 @@ public class DocumentManagerBean implements SessionBean {
                         ps.setString(6, appeal.getAppealResponse());
                     }
                     ps.setLong(7, requestor.getUserId());
+
+                    if (appeal.getRawEvaluation() == null) {
+                        ps.setNull(8, Types.DECIMAL);
+                    } else {
+                        ps.setLong(8, appeal.getRawEvaluation().getId());
+                    }
+
+                    if (appeal.getRawTotalTests() < 0) {
+                        ps.setNull(9, Types.DECIMAL);
+                    } else {
+                        ps.setInt(9, appeal.getRawTotalTests());
+                    }
+
+                    if (appeal.getRawTotalPass() < 0) {
+                        ps.setNull(10, Types.DECIMAL);
+                    } else {
+                        ps.setInt(10, appeal.getRawTotalPass());
+                    }
 
                     int nr = ps.executeUpdate();
 

@@ -84,7 +84,7 @@ public final class StringUtils {
      */
     public static boolean hasNotMoreWords(String string, int maxWords) {
         int wordCnt = 1;
-        String chkString = string.trim();
+        //String chkString = string.trim();
         int n = string.length();
         boolean skippingWs = false;
         for (int i = 0; i < n; ++i) {
@@ -124,7 +124,7 @@ public final class StringUtils {
     /**
      * Takes the given string and converts it so that it will maintain it's
      * format on an html page.
-     * @return
+     * @return String
      */
     public static String htmlEncode(String s) {
         StringBuffer sb = new StringBuffer();
@@ -137,7 +137,7 @@ public final class StringUtils {
                 sb.append("&#160;&#160;&#160;&#160;");
             } else if (ch == '<') {
                 sb.append("&lt;");
-            } else if (ch == 13 && s.charAt(i + 1) == 10) {
+            } else if (ch == 13 && s.length()>(i+1) && s.charAt(i + 1) == 10) {
                 sb.append("<br />");
                 i++;
             } else if (ch == 10 || ch == 13) {
@@ -228,7 +228,7 @@ public final class StringUtils {
      * @param original
      * @param changeFrom
      * @param changeTo
-     * @return
+     * @return String
      */
     public static String replace(String original, String changeFrom, String changeTo) {
         return StringUtil.replace(original, changeFrom, changeTo);
