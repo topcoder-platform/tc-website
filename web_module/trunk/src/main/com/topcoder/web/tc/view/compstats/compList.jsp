@@ -67,7 +67,7 @@ function submitEnter(e) {
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="statistics"/>
-                <jsp:param name="level2" value='<%="112".equals("phaseId)?"des_contests":"dev_contests"%>'/>
+                <jsp:param name="level2" value='<%="112".equals(phaseId)?"des_contests":"dev_contests"%>'/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -81,7 +81,7 @@ function submitEnter(e) {
 </jsp:include>
 
 
-<span class="bodySubtitle">Component Statistics > 
+<span class="bodySubtitle">Component Statistics >
 <% if ("112".equals(phaseId)) { %>
     Design Contests</span><br>
 <% } else { %>

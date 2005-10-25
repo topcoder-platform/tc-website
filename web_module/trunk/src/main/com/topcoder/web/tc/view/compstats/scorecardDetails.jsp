@@ -225,7 +225,7 @@ function hideAll(){
                <% if ((resultRow.getStringItem("raw_num_passed") != null) && (resultRow.getStringItem("raw_num_tests") != null)) { %>
                <rsc:item name="raw_num_passed" row="<%=resultRow%>" />/<rsc:item name="raw_num_tests" row="<%=resultRow%>" />
                <% } else { %>
-               <rsc:item name="raw_evaluation" row="<%=resultRow%>"  ifNull="N/A"/>
+               <rsc:item name="raw_evaluation" row="<%=resultRow%>"  ifNull="unknown *"/>
                <% } %>
                </td>
                <td rowspan="3" class="appealTitle">Appeal</td>
@@ -250,6 +250,7 @@ function hideAll(){
       </td>
    </tr>
 </table>
+<p>* Some information may be unknown due to missing data from old projects</p>
 
 
       </td>
