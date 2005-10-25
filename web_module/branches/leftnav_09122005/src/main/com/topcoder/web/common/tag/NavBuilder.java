@@ -58,7 +58,7 @@ public class NavBuilder extends TagSupport {
             pageContext.getOut().print("</ul>\n");
 
         } catch (Exception e) {
-            throw new JspException(e.getMessage());
+            throw new JspException(e);
         }
         return SKIP_BODY;
     }
