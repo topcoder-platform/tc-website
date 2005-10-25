@@ -142,7 +142,7 @@ function hideAll(){
 <%--<a href='/tc?module=CompList&pi=<rsc:item set="<%=projectInfo%>" name="phase_id"/>' class="statLink">--%>
 <rsc:item set="<%=projectInfo%>" name="phase_desc"/>
 <%--</a>--%>
- > <a href='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" set="<%=projectInfo%>"/>'>Contest Details</a>
+ > <a href='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" set="<%=projectInfo%>"/>' class="bcLink">Contest Details</a>
  > Scorecard Details</span>
 <br><br>
 <b>Contest:</b> <a href='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" set="<%=projectInfo%>"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></a>
