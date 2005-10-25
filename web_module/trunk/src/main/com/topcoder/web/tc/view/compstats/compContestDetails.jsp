@@ -72,9 +72,8 @@
 
 
 <span class="bodySubtitle">Component Statistics >
-<%--<a href='/tc?module=CompList&pi=<rsc:item set="<%=projectInfo%>" name="phase_id"/>' class="statLink">--%>
-<rsc:item set="<%=projectInfo%>" name="phase_desc"/> Contests
-<%--</a>--%>
+<a href='/tc?module=CompList&pi=<rsc:item set="<%=projectInfo%>" name="phase_id"/>' class="statLink">
+<rsc:item set="<%=projectInfo%>" name="phase_desc"/> Contests</a>
  > Contest Details
 </span><br>
 <span class="bc">
