@@ -104,53 +104,51 @@
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
       <td class="divider" >
-      <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-         <tr><td class="tableTitle" colspan="2">
-         Development Contest Details
-         </td></tr>
-         <tr>
-            <td class="cat" nowrap="nowrap">Contest:</TD>
-            <TD class="stat" align="right" nowrap="nowrap"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></TD>
-         </tr>
-         <tr>
-            <td class="cat" nowrap="nowrap">Component:</TD>
-            <TD class="stat" align="right" nowrap="nowrap"><A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/></A></TD>
-         </tr>
-         <tr>
-            <td class="cat" nowrap="nowrap" valign="top" style="padding-top: 3px">Catalog:</TD>
-            <TD class="stat" align="right" valign="top" style="padding-top: 3px"><img src='<%=imgName%>' alt='<rsc:item set="<%=projectInfo%>" name="category_desc"/>' border="0" /></TD>
-         </tr>
-         <tr>
-            <td class="cat" nowrap="nowrap">Registrants:</TD>
-            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_inquiries" ifNull="unknown *" /></TD>
-         </tr>
-         <tr>
-            <td class="cat" nowrap="nowrap">Submissions:</TD>
-            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_submissions" ifNull="unknown *" /></TD>
-         </tr>
-         <tr>
-            <td class="cat" nowrap="nowrap">Submission Percentage:</TD>
-            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="submission_percent" format="0.00'%'" ifNull="unknown *" /></TD>
-         </tr>
-         <tr>
-            <td class="cat" nowrap="nowrap">Passed Screening:</TD>
-            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="passed" ifNull="unknown *" /></TD>
-         </tr>
-         <tr>
-            <td class="cat" nowrap="nowrap">Passed Percentage:</TD>
-            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="passed_percent" format="0.00'%'" ifNull="unknown *" /></TD>
-         </tr>
-         <tr>
-            <td class="cat" nowrap="nowrap">Avg Initial Score:</TD>
-            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="avg_raw_score" format="0.00" ifNull="unknown *" /></TD>
-         </tr>
-         <tr>
-            <td class="cat" nowrap="nowrap">Avg Final Score:</TD>
-            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="avg_final_score" format="0.00" ifNull="unknown *" /></TD>
-         </tr>
-      </TABLE>
-
-      </TD>
+          <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
+             <tr><td class="tableTitle" colspan="2">
+             Development Contest Details
+             </td></tr>
+             <tr>
+                <td class="cat" nowrap="nowrap">Contest:</TD>
+                <TD class="stat" align="right" nowrap="nowrap"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></TD>
+             </tr>
+             <tr>
+                <td class="cat" nowrap="nowrap">Component:</TD>
+                <TD class="stat" align="right" nowrap="nowrap"><A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/></A></TD>
+             </tr>
+             <tr>
+                <td class="cat" nowrap="nowrap" valign="top" style="padding-top: 3px">Catalog:</TD>
+                <TD class="stat" align="right" valign="top" style="padding-top: 3px"><img src='<%=imgName%>' alt='<rsc:item set="<%=projectInfo%>" name="category_desc"/>' border="0" /></TD>
+             </tr>
+             <tr>
+                <td class="cat" nowrap="nowrap">Registrants:</TD>
+                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_inquiries" ifNull="unknown *" /></TD>
+             </tr>
+             <tr>
+                <td class="cat" nowrap="nowrap">Submissions:</TD>
+                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_submissions" ifNull="unknown *" /></TD>
+             </tr>
+             <tr>
+                <td class="cat" nowrap="nowrap">Submission Percentage:</TD>
+                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="submission_percent" format="0.00'%'" ifNull="unknown *" /></TD>
+             </tr>
+             <tr>
+                <td class="cat" nowrap="nowrap">Passed Screening:</TD>
+                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="passed" ifNull="unknown *" /></TD>
+             </tr>
+             <tr>
+                <td class="cat" nowrap="nowrap">Passed Percentage:</TD>
+                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="passed_percent" format="0.00'%'" ifNull="unknown *" /></TD>
+             </tr>
+             <tr>
+                <td class="cat" nowrap="nowrap">Avg Initial Score:</TD>
+                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="avg_raw_score" format="0.00" ifNull="unknown *" /></TD>
+             </tr>
+             <tr>
+                <td class="cat" nowrap="nowrap">Avg Final Score:</TD>
+                <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="avg_final_score" format="0.00" ifNull="unknown *" /></TD>
+             </tr>
+          </table>
       </td>
       <td width="75%" valign="top">
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
@@ -223,8 +221,8 @@
             <TD class="statDk" align="center">
                     <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>&rid=<%=reviewers.getLongItem(2, "reviewer_id")%>' class="bcLink">
                         <rsc:item row="<%=resultRow%>" name="score3" format="0.00" />
-                                              </TD>
                     </A>
+            </TD>
                 <% } else { %>
                     <TD class="statDk" align="center">&nbsp;</TD>
                     <TD class="statDk" align="center">&nbsp;</TD>
@@ -238,8 +236,8 @@
 </rsc:iterator>
       </table>
       </td>
-   </TR>
-</TABLE>
+   </tr>
+</table>
 
   * Some information may be unknown due to missing data from old projects
 
