@@ -159,98 +159,98 @@ function hideAll(){
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
       <td>
-<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-
-<rsc:iterator list="<%=scorecard%>" id="resultRow">
-
-<% if (!lastSection.equals(resultRow.getStringItem("section_desc"))) {
-        lastSection = resultRow.getStringItem("section_desc");
-%>
-   <tr>
-      <td class="tableHeader" style="border-top: 1px solid #999999;">(<rsc:item name="section_weight" row="<%=resultRow%>"/>)</td>
-      <td class="tableHeader" colspan="2" style="border-top: 1px solid #999999;"><rsc:item name="section_desc" row="<%=resultRow%>"/></td>
-   </tr>
-<% } %>
-
-
-<% if (!lastQuestion.equals(resultRow.getStringItem("question_desc"))) {
-        lastQuestion = resultRow.getStringItem("question_desc");
-%>
-    <tr>
-       <td class="statDk" style="border-top: 1px solid #999999;">
-         <b>(<rsc:item name="question_weight" row="<%=resultRow%>" ifNull="" />)</b>
-       </td>
-       <td class="statDk" width="100%" style="border-top: 1px solid #999999;">
-
-         <div class="showText" id="shortQ_<%=questionNumber%>">
-            <b><a href="javascript:toggleDisplay('shortQ_<%=questionNumber%>');toggleDisplay('longQ_<%=questionNumber%>');" class="statLink">[+]</a> <rsc:item name="question_desc" row="<%=resultRow%>" ifNull="" /></b>
-            <rsc:item name="question_header" row="<%=resultRow%>" escapeHtml="true" ifNull="" />
-         </div>
-
-         <div class="hideText" id="longQ_<%=questionNumber%>">
-            <b><a href="javascript:toggleDisplay('shortQ_<%=questionNumber%>');toggleDisplay('longQ_<%=questionNumber%>');" class="statLink">[-]</a> <rsc:item name="question_desc" row="<%=resultRow%>" ifNull="" /></b>
-            <rsc:item name="question_text" row="<%=resultRow%>" escapeHtml="true" ifNull="" />
-         </div>
-
-       </td>
-       <td class="statDk" nowrap="nowrap" valign="top" style="border-top: 1px solid #999999;">
-         <b>
-           <% if (resultRow.getStringItem("num_tests") == null) { %>
+         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
+         
+            <rsc:iterator list="<%=scorecard%>" id="resultRow">
+            
+            <% if (!lastSection.equals(resultRow.getStringItem("section_desc"))) {
+            lastSection = resultRow.getStringItem("section_desc");
+            %>
+            <tr>
+               <td class="tableHeader" style="border-top: 1px solid #999999;">(<rsc:item name="section_weight" row="<%=resultRow%>"/>)</td>
+               <td class="tableHeader" colspan="2" style="border-top: 1px solid #999999;"><rsc:item name="section_desc" row="<%=resultRow%>"/></td>
+            </tr>
+            <% } %>
+            
+            
+            <% if (!lastQuestion.equals(resultRow.getStringItem("question_desc"))) {
+            lastQuestion = resultRow.getStringItem("question_desc");
+            %>
+            <tr>
+               <td class="statDk" style="border-top: 1px solid #999999;">
+               <b>(<rsc:item name="question_weight" row="<%=resultRow%>" ifNull="" />)</b>
+               </td>
+               <td class="statDk" width="100%" style="border-top: 1px solid #999999;">
+               
+               <div class="showText" id="shortQ_<%=questionNumber%>">
+               <b><a href="javascript:toggleDisplay('shortQ_<%=questionNumber%>');toggleDisplay('longQ_<%=questionNumber%>');" class="statLink">[+]</a> <rsc:item name="question_desc" row="<%=resultRow%>" ifNull="" /></b>
+               <rsc:item name="question_header" row="<%=resultRow%>" escapeHtml="true" ifNull="" />
+               </div>
+               
+               <div class="hideText" id="longQ_<%=questionNumber%>">
+               <b><a href="javascript:toggleDisplay('shortQ_<%=questionNumber%>');toggleDisplay('longQ_<%=questionNumber%>');" class="statLink">[-]</a> <rsc:item name="question_desc" row="<%=resultRow%>" ifNull="" /></b>
+               <rsc:item name="question_text" row="<%=resultRow%>" escapeHtml="true" ifNull="" />
+               </div>
+               
+               </td>
+               <td class="statDk" nowrap="nowrap" valign="top" style="border-top: 1px solid #999999;">
+               <b>
+               <% if (resultRow.getStringItem("num_tests") == null) { %>
                <rsc:item name="evaluation" row="<%=resultRow%>"/>
-           <% } else { %>
+               <% } else { %>
                Passed: <rsc:item name="num_passed" row="<%=resultRow%>"/><br>
                Total: <rsc:item name="num_tests" row="<%=resultRow%>"/>
-           <% } %>
-         </b>
-       </td>
-    </tr>
-<%
-        questionNumber++;
-    } %>
-    <tr>
-        <td class="statLt" style="border-top: 1px solid #999999;">&#160;</td>
-        <td class="statLt" style="border-top: 1px solid #999999;">
-                <rsc:item name="response_text" row="<%=resultRow%>" escapeHtml="true" />
-        </td>
-        <td class="statLt" style="border-top: 1px solid #999999;">
-            <rsc:item name="response_type_desc" row="<%=resultRow%>"/>
-        </td>
-    </tr>
-<%     if (Boolean.TRUE.equals((Boolean) lastIt.next()) &&
-        ((resultRow.getStringItem("appeal_text") != null) || (resultRow.getStringItem("testcase_appeal_text") != null) )) { %>
-        <tr>
-
-            <td class="appealCells">&#160;</td>
-            <td class="appealCells">
-            <b>Previous Score:</b>
-            <% if ((resultRow.getStringItem("raw_num_passed") != null) && (resultRow.getStringItem("raw_num_tests") != null)) { %>
-                <rsc:item name="raw_num_passed" row="<%=resultRow%>" />/<rsc:item name="raw_num_tests" row="<%=resultRow%>" />
-            <% } else { %>
-                <rsc:item name="raw_evaluation" row="<%=resultRow%>"  ifNull="N/A"/>
-            <% } %>
-            </td>
-           <td rowspan="3" class="appealTitle">Appeal</td>
-        </tr>
-        <tr>
-            <td class="appealCells">&#160;</td>
-            <td class="appealCells"><b>Appeal Text:</b> <rsc:item name="appeal_text" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
-                                    <rsc:item name="testcase_appeal_text" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
-            </td>
-        </tr>
-        <tr>
-            <td class="appealCells">&#160;</td>
-            <td class="appealCells"><b>Appeal Response:</b> <rsc:item name="appeal_response" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
-                                    <rsc:item name="testcase_appeal_response" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
-            </td>
-        </tr>
-<%  } %>
-
-</rsc:iterator>
-
-      </table>
-      </TD>
-   </TR>
-</TABLE>
+               <% } %>
+               </b>
+               </td>
+            </tr>
+            <%
+            questionNumber++;
+            } %>
+            <tr>
+               <td class="statLt" style="border-top: 1px solid #999999;">&#160;</td>
+               <td class="statLt" style="border-top: 1px solid #999999;">
+               <rsc:item name="response_text" row="<%=resultRow%>" escapeHtml="true" />
+               </td>
+               <td class="statLt" style="border-top: 1px solid #999999;">
+               <rsc:item name="response_type_desc" row="<%=resultRow%>"/>
+               </td>
+            </tr>
+            <%     if (Boolean.TRUE.equals((Boolean) lastIt.next()) &&
+            ((resultRow.getStringItem("appeal_text") != null) || (resultRow.getStringItem("testcase_appeal_text") != null) )) { %>
+            <tr>
+            
+               <td class="appealCells">&#160;</td>
+               <td class="appealCells">
+               <b>Previous Score:</b>
+               <% if ((resultRow.getStringItem("raw_num_passed") != null) && (resultRow.getStringItem("raw_num_tests") != null)) { %>
+               <rsc:item name="raw_num_passed" row="<%=resultRow%>" />/<rsc:item name="raw_num_tests" row="<%=resultRow%>" />
+               <% } else { %>
+               <rsc:item name="raw_evaluation" row="<%=resultRow%>"  ifNull="N/A"/>
+               <% } %>
+               </td>
+               <td rowspan="3" class="appealTitle">Appeal</td>
+            </tr>
+            <tr>
+               <td class="appealCells">&#160;</td>
+               <td class="appealCells"><b>Appeal Text:</b> <rsc:item name="appeal_text" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
+                                 <rsc:item name="testcase_appeal_text" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
+               </td>
+            </tr>
+            <tr>
+               <td class="appealCells">&#160;</td>
+               <td class="appealCells"><b>Appeal Response:</b> <rsc:item name="appeal_response" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
+                                 <rsc:item name="testcase_appeal_response" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
+               </td>
+            </tr>
+            <%  } %>
+            
+            </rsc:iterator>
+            
+         </table>
+      </td>
+   </tr>
+</table>
 
 
       </td>
