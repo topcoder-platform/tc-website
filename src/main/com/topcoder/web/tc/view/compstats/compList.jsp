@@ -123,6 +123,7 @@ function submitEnter(e) {
             <tr>
                <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />" class="statLink">Component</a></td>
                <TD CLASS="tableHeader" align="center"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr" />" class="statLink">Category</a></td>
+               <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true" excludeParams="sr" />" class="statLink">Complete Date</a></td>
                <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true" excludeParams="sr" />" class="statLink">Registrants</a></td>
                <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true" excludeParams="sr" />" class="statLink">Submissions</a></td>
                <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />" class="statLink">Passed<br>Screening</a></td>
@@ -134,6 +135,7 @@ function submitEnter(e) {
             <TR>
             <td class="<%=even?"statLt":"statDk"%>" align="left"><rsc:item name="component_name" row="<%=resultRow%>" /> <rsc:item name="version_text" row="<%=resultRow%>" /></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="category_desc" row="<%=resultRow%>" /></TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="complate_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="num_registrations" row="<%=resultRow%>" ifNull="unknown *" /></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="num_submissions" row="<%=resultRow%>" ifNull="unknown *"/></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="num_valid_submissions" row="<%=resultRow%>" ifNull="unknown *" /></TD>
