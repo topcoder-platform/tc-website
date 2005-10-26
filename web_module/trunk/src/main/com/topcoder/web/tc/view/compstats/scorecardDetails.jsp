@@ -90,27 +90,6 @@ function hideAll(){
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-   <tr valign="top">
-<!-- Left Column Begins-->
-        <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="development"/>
-                <jsp:param name="level2" value="components"/>
-                <jsp:param name="level3" value=''/>
-            </jsp:include>
-        </td>
-<!-- Left Column Ends -->
-
-<!-- Center Column Begins -->
-<TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
-
-<jsp:include page="../page_title.jsp" >
-<jsp:param name="image" value="statistics_w"/>
-<jsp:param name="title" value="Scorecard"/>
-</jsp:include>
-
 <%
     ResultSetContainer scorecard = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("scorecard_details");
     ResultSetContainer projectInfo = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_info");
@@ -138,6 +117,49 @@ function hideAll(){
 
     int questionNumber = 0;
 %>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+   <tr valign="top">
+<!-- Left Column Begins-->
+        <td width="180">
+            <jsp:include page="../includes/global_left.jsp">
+                <jsp:param name="level1" value="development"/>
+                <jsp:param name="level2" value="components"/>
+                <jsp:param name="level3" value='<%="112".equals(projectInfo.getStringItem("phase_id"))?"des_contests":"dev_contests"%>'/>
+
+            </jsp:include>
+        </td>
+<!-- Left Column Ends -->
+
+<!-- Center Column Begins -->
+<TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+
+<jsp:include page="../page_title.jsp" >
+<jsp:param name="image" value="statistics_w"/>
+<jsp:param name="title" value="Scorecard"/>
+</jsp:include>
+
+
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+   <tr valign="top">
+<!-- Left Column Begins-->
+        <td width="180">
+            <jsp:include page="../includes/global_left.jsp">
+                <jsp:param name="level1" value="statistics"/>
+                <jsp:param name="level2" value="<%="112".equals(projectInfo.getStringItem("phase_id"))?"des_contests":"dev_contests"%>"/>
+            </jsp:include>
+        </td>
+<!-- Left Column Ends -->
+
+<!-- Center Column Begins -->
+<TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+
+<jsp:include page="../page_title.jsp" >
+<jsp:param name="image" value="statistics_w"/>
+<jsp:param name="title" value="Scorecard"/>
+</jsp:include>
+
 
 <span class="bodySubtitle">Component Statistics >
 <a href='/tc?module=CompList&pi=<rsc:item set="<%=projectInfo%>" name="phase_id"/>' class="statLink">
