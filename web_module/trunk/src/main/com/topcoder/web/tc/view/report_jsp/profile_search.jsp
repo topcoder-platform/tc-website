@@ -1,5 +1,4 @@
 <%@  page
-<%@  page
   language="java"
   import="java.util.*,
           com.topcoder.common.web.data.report.*,
