@@ -59,7 +59,8 @@ public class Constants implements CodingInterfaceConstants {
     public static String KEY_USER_HANDLE;
     public static String KEY_USER_PASS;
     public static String LOGIN_JSP;
-
+    public static String RP_ACTIVE_CONTESTS;
+    
     static {
         initialize();
     }
