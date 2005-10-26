@@ -112,6 +112,8 @@ function arena() {
                     <tr><td id="<%=level3.equals("open")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=comp_projects">Projects</A></td></tr>
                     <tr><td id="<%=level3.equals("reviews")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewProjects">Review Opportunities</A></td></tr>
                     <tr><td id="<%=level3.equals("winners")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=components">Recent Project Winners</A></td></tr>
+                   <tr><td id="<%=level3.equals("des_contests")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompList&pi=112">Design Contests</a></td></tr>
+                   <tr><td id="<%=level3.equals("dev_contests")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompList&pi=113">Development Contests</a></td></tr>
                     <tr><td id="<%=level3.equals("submit")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Project Submit & Review</A></td></tr>
                     <tr><td id="<%=level3.equals("status")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=comp_archive">Project Status</A></td></tr>
                     <tr><td id="<%=level3.equals("method")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=comp_meth">Development Methodology</A></td></tr>
@@ -174,8 +176,6 @@ function arena() {
                     <tr><td id="<%=level2.equals("earnings_history")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=earnings_history&cr=<%=info.getUserId()%>">Earnings History</a></td></tr>
                 <% } %>
                 <tr><td id="<%=level2.equals("problem_archive")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ProblemArchive">Problem Archive</a></td></tr>
-                <tr><td id="<%=level2.equals("des_contests")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompList&pi=112">Design Contests</a></td></tr>
-                <tr><td id="<%=level2.equals("dev_contests")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompList&pi=113">Development Contests</a></td></tr>
                 <tr><td id="<%=level2.equals("coder_ratings")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&module=AlgoRank">Coder Rankings</a></td></tr>
                 <tr><td id="<%=level2.equals("match_editorials")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=match_editorials&d2=archive">Match Editorials</a></td></tr>
                 <tr><td id="<%=level2.equals("quick_stats")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?t=statistics&c=quick_stats">Quick Stats</a></td></tr>
