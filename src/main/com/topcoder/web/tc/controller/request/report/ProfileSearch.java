@@ -160,6 +160,8 @@ public class ProfileSearch extends Base {
         query.append("    coder c,\n");
         query.append("    user u,\n");
         query.append("    rating r,\n");
+        query.append(" outer tcs_catalog:user_rating desr,\n");
+        query.append(" outer tcs_catalog:user_rating devr,\n");
         query.append("    email e,\n");
 
 
@@ -180,6 +182,10 @@ public class ProfileSearch extends Base {
         query.append("    country cry,\n");
         query.append("    state st\n");
         query.append("  WHERE 1 = 1\n");
+        query.append("    AND desr.user_id = c.coder_id\n");
+        query.append("    AND desr.phase_id = 112\n");
+        query.append("    AND devr.user_id = c.coder_id\n");
+        query.append("    AND devr.phase_id = 113\n");
         query.append("    AND r.coder_id = c.coder_id\n");
         query.append("    AND u.user_id = c.coder_id\n");
         query.append("    AND u.status = 'A'\n");
@@ -392,8 +398,8 @@ public class ProfileSearch extends Base {
         if(first){
             query.delete(query.length()-"    AND c.language_id IN ()\n".length(),query.length());
         }
-        String[] bounds = {"maxdayssincerating","mindays","maxdays","minevents","minrating","maxrating"};
-        String[] value = {"current-r.last_rated_event <= \'","current-c.member_since >= \'","current-c.member_since <= \'","r.num_ratings >= ","r.rating >= ","r.rating <= "};
+        String[] bounds = {"maxdayssincerating","mindays","maxdays","minevents","minrating","maxrating","mindesrating","maxdesrating","mindevrating","maxdevrating"};
+        String[] value = {"current-r.last_rated_event <= \'","current-c.member_since >= \'","current-c.member_since <= \'","r.num_ratings >= ","r.rating >= ","r.rating <= ","desr.rating >= ","desr.rating <= ", "devr.rating >= ", "devr.rating <= "};
         for(int i = 0; i<bounds.length; i++){
             String b = request.getParameter(bounds[i]);
             if(b==null||b.length() == 0)continue;
@@ -457,7 +463,7 @@ public class ProfileSearch extends Base {
         Map skillMap = new HashMap();
         Map skillSetMap = new HashMap();
         Map demo = new HashMap();
-        String[] textFields = {"handle","email","firstname","lastname","zipcode","city","company","school","maxdayssincerating","minevents","mindays","maxdays","minrating","maxrating"};
+        String[] textFields = {"handle","email","firstname","lastname","zipcode","city","company","school","maxdayssincerating","minevents","mindays","maxdays","minrating","maxrating","mindesrating","maxdesrating","mindevrating","maxdevrating"};
         String[] checkBoxes = {"count","pro","stud","resume","travel","auth","casesensitive"};
         boolean[] def = {false,true,true,false,false,false,false};
         boolean revise = "on".equals(request.getParameter("revise"));
