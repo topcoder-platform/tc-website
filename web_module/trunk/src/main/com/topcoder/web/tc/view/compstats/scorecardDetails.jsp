@@ -220,8 +220,8 @@ function hideAll(){
             ((resultRow.getStringItem("appeal_text") != null) || (resultRow.getStringItem("testcase_appeal_text") != null) )) { %>
             <tr>
 
-               <td class="appealCells">&#160;</td>
-               <td class="appealCells">
+               <td class="appealCells" style="border-top: 1px solid #999999;">&#160;</td>
+               <td class="appealCells" style="border-top: 1px solid #999999;">
                <b>Previous Score:</b>
                <% if ((resultRow.getStringItem("raw_num_passed") != null) && (resultRow.getStringItem("raw_num_tests") != null)) { %>
                <rsc:item name="raw_num_passed" row="<%=resultRow%>" />/<rsc:item name="raw_num_tests" row="<%=resultRow%>" />
@@ -229,7 +229,7 @@ function hideAll(){
                <rsc:item name="raw_evaluation" row="<%=resultRow%>"  ifNull="unknown *"/>
                <% } %>
                </td>
-               <td rowspan="3" class="appealTitle">Appeal</td>
+               <td rowspan="3" class="appealTitle" style="border-top: 1px solid #999999;">Appeal</td>
             </tr>
             <tr>
                <td class="appealCells">&#160;</td>
