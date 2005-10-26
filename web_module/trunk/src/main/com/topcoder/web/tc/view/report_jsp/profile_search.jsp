@@ -1,4 +1,5 @@
 <%@  page
+<%@  page
   language="java"
   import="java.util.*,
           com.topcoder.common.web.data.report.*,
@@ -162,6 +163,8 @@
       <tr><td class="left">Min events:</td><td class="right"> <tc-webtag:textInput onKeyPress="submitEnter(event)" name="minevents" size="5"/></td></tr>
       <tr><td class="left">Days since registration:</td><td class="right"> <tc-webtag:textInput onKeyPress="submitEnter(event)" name="mindays" size="5"/> to <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxdays" size="5"/></td></tr>
       <tr><td class="left">Algorithm Rating range:</td><td class="right"> <tc-webtag:textInput onKeyPress="submitEnter(event)" name="minrating" size="5"/> to <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxrating" size="5"/></td></tr>
+      <tr><td class="left">Design Rating range:</td><td class="right"> <tc-webtag:textInput onKeyPress="submitEnter(event)" name="mindesrating" size="5"/> to <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxdesrating" size="5"/></td></tr>
+      <tr><td class="left">Dev. Rating range:</td><td class="right"> <tc-webtag:textInput onKeyPress="submitEnter(event)" name="mindevrating" size="5"/> to <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxdevrating" size="5"/></td></tr>
       <tr><td class="left">Placement Indicator: </td><td class="right"><select name="placement">
       <option value="none"<%= "none".equals(request.getParameter("placement")) ? " selected" : "" %>>No preference</option>
       <option value="either"<%= "either".equals(request.getParameter("placement")) ? " selected" : "" %>>Either</option>
