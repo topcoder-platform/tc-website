@@ -163,11 +163,11 @@ public class ProfileSearch extends Base {
         query.append("    user u,\n");
         query.append("    rating r,\n");
         if (containsDesRating) {
-            query.append(" outer tcs_catalog:user_rating desr,\n");
+            query.append(" tcs_catalog:user_rating desr,\n");
 
         }
         if (containsDevRating) {
-            query.append(" outer tcs_catalog:user_rating devr,\n");
+            query.append(" tcs_catalog:user_rating devr,\n");
         }
         query.append("    email e,\n");
 
