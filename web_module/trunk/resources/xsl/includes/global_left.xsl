@@ -807,6 +807,32 @@
                                 </td>
                             </tr>
 
+            <!-- Design Contests -->
+                            <tr>
+                                <td id="leftSubnav">
+                                    <xsl:attribute name="id">
+                                    <xsl:choose>
+                                        <xsl:when test="$level3='des_contests'">leftSubnavOn</xsl:when>
+                                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                                    </xsl:choose>
+                                    </xsl:attribute>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=CompList&amp;pi=112</xsl:attribute>Design Contests</A>
+                                </td>
+                            </tr>
+
+            <!-- Development Contests -->
+                            <tr>
+                                <td id="leftSubnav">
+                                    <xsl:attribute name="id">
+                                    <xsl:choose>
+                                        <xsl:when test="$level3='dev_contests'">leftSubnavOn</xsl:when>
+                                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                                    </xsl:choose>
+                                    </xsl:attribute>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=CompList&amp;pi=113</xsl:attribute>Development Contests</A>
+                                </td>
+                            </tr>
+
             <!-- Project Submit and Review -->
                             <tr>
                                 <td id="leftSubnav">
