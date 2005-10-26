@@ -40,38 +40,38 @@ pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
 %>
 
 <% if(srb.getProperty("pi").equals("113")){ %>
-<jsp:include page="../page_title.jsp" >
-<jsp:param name="image" value="statistics_w"/>
-<jsp:param name="title" value="Component Development Rating History"/>
-</jsp:include>
+    <jsp:include page="../page_title.jsp" >
+    <jsp:param name="image" value="statistics_w"/>
+    <jsp:param name="title" value="Component Development Rating History"/>
+    </jsp:include>
 <% } else { %>
-<jsp:include page="../page_title.jsp" >
-<jsp:param name="image" value="statistics_w"/>
-<jsp:param name="title" value="Component Design Rating History"/>
-</jsp:include>
+    <jsp:include page="../page_title.jsp" >
+    <jsp:param name="image" value="statistics_w"/>
+    <jsp:param name="title" value="Component Design Rating History"/>
+    </jsp:include>
 <% } %>
 
 <% if(srb.getProperty("pi").equals("113")){ %>
 
-<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=pageContext.getAttribute("coder_id").toString() %>' context="development"/></span>
-<br>
-<span class="bodySubtitle">Development Statistics&#160;>&#160;</span><br>
-<span class="bc">
-<A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Member Profile</A>
-&#160;|&#160;Rating History
-&#160;|&#160;<A HREF="/stat?pi=113&c=component_history&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Earnings History</A>
-</span>
+    <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=pageContext.getAttribute("coder_id").toString() %>' context="development"/></span>
+    <br>
+    <span class="bodySubtitle">Development Statistics&#160;>&#160;</span><br>
+    <span class="bc">
+    <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Member Profile</A>
+    &#160;|&#160;Rating History
+    &#160;|&#160;<A HREF="/stat?pi=113&c=component_history&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Earnings History</A>
+    </span>
 
 <% } else { %>
 
-<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=pageContext.getAttribute("coder_id").toString() %>' context="design"/></span>
-<br>
-<span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
-<span class="bc">
-<A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Member Profile</A>
-&#160;|&#160;Rating History
-&#160;|&#160;<A HREF="/stat?pi=112&c=component_history&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Earnings History</A>
-</span>
+    <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=pageContext.getAttribute("coder_id").toString() %>' context="design"/></span>
+    <br>
+    <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
+    <span class="bc">
+    <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Member Profile</A>
+    &#160;|&#160;Rating History
+    &#160;|&#160;<A HREF="/stat?pi=112&c=component_history&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Earnings History</A>
+    </span>
 
 <% } %>
 
@@ -81,11 +81,19 @@ pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Basic_Coder_Information");
 boolean bEmpty = (rsc == null || rsc.size()!=1);
 if (!bEmpty) {
+<<<<<<< tcsRatingHistory.jsp
+    ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
+    pageContext.setAttribute("resultRow", rsr);
+    %>
+        <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>
+<% }
+=======
 ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
 pageContext.setAttribute("resultRow", rsr);
 %>
     <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>
 <% }
+>>>>>>> 1.25
 ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("TCS_Ratings_History");
 pageContext.setAttribute("resultSet", rsc2);
 
