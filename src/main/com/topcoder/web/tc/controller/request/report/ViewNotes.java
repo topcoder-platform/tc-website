@@ -7,6 +7,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 
@@ -36,7 +37,9 @@ public class ViewNotes extends Base {
                 User user = (User) createEJB(getInitialContext(), User.class);
                 getRequest().setAttribute(Constants.HANDLE, user.getHandle(Long.parseLong(userId), DBMS.OLTP_DATASOURCE_NAME));
                 getRequest().setAttribute(Constants.USER_ID, userId);
-
+                Email email = (Email) createEJB(getInitialContext(), Email.class);
+                getRequest().setAttribute(Constants.EMAIL, email.getAddress(email.getPrimaryEmailId(Long.parseLong(userId),
+                        DBMS.OLTP_DATASOURCE_NAME), DBMS.OLTP_DATASOURCE_NAME));
 
                 Request noteRequest = new Request();
                 noteRequest.setContentHandle("registered_for_placement");
