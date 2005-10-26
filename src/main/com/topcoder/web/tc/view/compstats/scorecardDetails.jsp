@@ -205,13 +205,12 @@ function hideAll(){
                <td class="statDk" width="100%" style="border-top: 1px solid #999999;">
 
                <div class="showText" id="shortQ_<%=questionNumber%>">
-               <b><a href="javascript:toggleDisplay('shortQ_<%=questionNumber%>');toggleDisplay('longQ_<%=questionNumber%>');" class="statLink">[+]</a> <rsc:item name="question_desc" row="<%=resultRow%>" ifNull="" /></b>
+               <b><a href="javascript:toggleDisplay('shortQ_<%=questionNumber%>');toggleDisplay('longQ_<%=questionNumber%>');" class="statLink"><img src="/i/interface/open.gif" alt="open" border="0" /></a> <rsc:item name="question_desc" row="<%=resultRow%>" ifNull="" /></b>
                <rsc:item name="question_header" row="<%=resultRow%>" escapeHtml="true" ifNull="" />
                </div>
 
                <div class="hideText" id="longQ_<%=questionNumber%>">
-               <b><a href="javascript:toggleDisplay('shortQ_<%=questionNumber%>');toggleDisplay('longQ_<%=questionNumber%>');" class="statLink">[-]</a> <rsc:item name="question_desc" row="<%=resultRow%>" ifNull="" /></b>
-               <rsc:item name="question_text" row="<%=resultRow%>" escapeHtml="true" ifNull="" />
+               <b><a href="javascript:toggleDisplay('shortQ_<%=questionNumber%>');toggleDisplay('longQ_<%=questionNumber%>');" class="statLink"><img src="/i/interface/close.gif" alt="close" border="0" /></a> <rsc:item name="question_desc" row="<%=resultRow%>" ifNull="" /></b>               <rsc:item name="question_text" row="<%=resultRow%>" escapeHtml="true" ifNull="" />
                </div>
 
                </td>
