@@ -114,7 +114,7 @@ function submitEnter(e) {
    <tr>
       <td class="divider" >
          <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-            <tr><td class="tableTitle" colspan="7">
+            <tr><td class="tableTitle" colspan="8">
             <% if ("112".equals(phaseId)) { %>Design
             <% } else { %>Development
             <% } %>
