@@ -28,8 +28,10 @@ public class Logout extends Base {
 			throw new TCWebException(e);
 		}
 		getRequest().getSession().invalidate();
-		request.setAttribute("module", Constants.RP_ACTIVE_CONTESTS);		
+		request.setAttribute("module", Constants.RP_ACTIVE_CONTESTS);
+		System.out.println("RP_ACTIVE_CONTESTS="+Constants.RP_ACTIVE_CONTESTS);
 		setNextPage(Constants.JSP_ADDR);
+		System.out.println("JSP_ADDR="+Constants.JSP_ADDR);
 		setIsNextPageInContext(true);		
 	}
 
