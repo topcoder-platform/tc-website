@@ -1,18 +1,20 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.security.SimpleUser;
-import com.topcoder.shared.security.LoginException;
-import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.common.*;
-import com.topcoder.web.tc.controller.request.authentication.Activate;
-import com.topcoder.web.tc.controller.request.authentication.EmailActivate;
-import com.topcoder.web.ejb.email.Email;
-import com.topcoder.web.ejb.user.User;
+import java.util.Arrays;
+
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.login.LoginRemote;
-
-import java.util.Arrays;
+import com.topcoder.shared.security.LoginException;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.codinginterface.CodingInterfaceConstants;
+import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.user.User;
 
 /**
  * @author lbackstrom
@@ -71,8 +73,15 @@ public class Login extends Base {
                                 return;
                             } else {
                                 log.debug("user active");
-                                setNextPage(StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)));
-                                setIsNextPageInContext(false);
+                                String nextPage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
+                                if(nextPage != null && !nextPage.equals("")) {
+                                	setNextPage(nextPage);
+                                	setIsNextPageInContext(false);
+                                } else { // go to active contest page
+                                	getRequest().setAttribute(CodingInterfaceConstants.MODULE, Constants.RP_ACTIVE_CONTESTS);                                	
+                            		setNextPage(Constants.MAIN_SERVLET);                            		
+                            		setIsNextPageInContext(true);		
+                                }
                                 log.debug("on successful login, going to " + getNextPage());
                                 getAuthentication().login(new SimpleUser(0, username, password), false);
                                 return;

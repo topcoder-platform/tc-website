@@ -16,7 +16,8 @@ public class ViewActiveContests extends Base{
     protected static final Logger log = Logger.getLogger(ViewActiveContests.class);
 
     protected void businessProcessing() throws TCWebException {
-//        try{
+//        try {
+//            TCRequest request = getRequest();
 //            
 //        }catch(TCWebException e){
 //            throw e;
@@ -24,5 +25,7 @@ public class ViewActiveContests extends Base{
 //            e.printStackTrace();
 //            throw new TCWebException("Error retrieving page.");
 //        }
+    	setNextPage(Constants.PAGE_ACTIVE_CONTESTS);
+    	setIsNextPageInContext(true);
     }
 }
