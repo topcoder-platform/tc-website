@@ -326,8 +326,6 @@ public interface DocumentManagerLocal extends EJBLocalObject {
     public void saveScorecardTemplate(ScorecardTemplate template,
                                       boolean saveNew, boolean saveQuestions);
 
-    public ComponentScores getComponentScores(long projectId);
-
     /**
      * @param project
      */
