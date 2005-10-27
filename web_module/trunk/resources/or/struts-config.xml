@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 
 <!DOCTYPE struts-config PUBLIC
-        "-//Apache Software Foundation//DTD Struts Configuration 1.0//EN"
-        "http://jakarta.apache.org/struts/dtds/struts-config_1_0.dtd">
+          "-//Apache Software Foundation//DTD Struts Configuration 1.0//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_0.dtd">
 
 <!--
      This is the Struts configuration file for the review application,
@@ -12,108 +12,108 @@
 
 <struts-config>
 
-    <!-- ========== Form Bean Definitions =================================== -->
-    <form-beans>
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
 
-        <!-- Login form bean -->
-        <form-bean name="loginForm"
-                   type="com.topcoder.apps.review.LoginForm"/>
+    <!-- Login form bean -->
+    <form-bean      name="loginForm"
+                    type="com.topcoder.apps.review.LoginForm"/>
+                    
+    <!-- Contact PM form bean -->
+    <form-bean      name="contactPMForm"
+                    type="com.topcoder.apps.review.ContactPMForm"/>
 
-        <!-- Contact PM form bean -->
-        <form-bean name="contactPMForm"
-                   type="com.topcoder.apps.review.ContactPMForm"/>
+    <!-- ReviewScorecard form bean -->
+    <form-bean      name="reviewScorecardForm"
+                    type="com.topcoder.apps.review.ReviewScorecardForm"/>
 
-        <!-- ReviewScorecard form bean -->
-        <form-bean name="reviewScorecardForm"
-                   type="com.topcoder.apps.review.ReviewScorecardForm"/>
+    <!-- ScreeningScorecard form bean -->
+    <form-bean      name="screeningScorecardForm"
+                    type="com.topcoder.apps.review.ScreeningScorecardForm"/>
+                    
+    <!-- TestCaseReview form bean -->
+    <form-bean      name="testCaseReviewForm"
+                    type="com.topcoder.apps.review.TestCaseReviewForm"/>       
 
-        <!-- ScreeningScorecard form bean -->
-        <form-bean name="screeningScorecardForm"
-                   type="com.topcoder.apps.review.ScreeningScorecardForm"/>
+    <!-- AggregationWorksheet form bean -->
+    <form-bean      name="aggregationWorksheetForm"
+                    type="com.topcoder.apps.review.AggregationWorksheetForm"/> 
+    
+    <!-- AggregationReview form bean -->
+    <form-bean      name="aggregationReviewForm"
+                    type="com.topcoder.apps.review.AggregationReviewForm"/>
 
-        <!-- TestCaseReview form bean -->
-        <form-bean name="testCaseReviewForm"
-                   type="com.topcoder.apps.review.TestCaseReviewForm"/>
+    <!-- FinalReview form bean -->
+    <form-bean      name="finalReviewForm"
+                    type="com.topcoder.apps.review.FinalReviewForm"/>
+    
+    <!-- Project form bean -->
+    <form-bean      name="projectForm"
+                    type="com.topcoder.apps.review.ProjectForm"/>
 
-        <!-- AggregationWorksheet form bean -->
-        <form-bean name="aggregationWorksheetForm"
-                   type="com.topcoder.apps.review.AggregationWorksheetForm"/>
+    <!-- Submission form bean -->
+    <form-bean      name="submissionForm"
+                    type="com.topcoder.apps.review.SubmissionForm"/>
 
-        <!-- AggregationReview form bean -->
-        <form-bean name="aggregationReviewForm"
-                   type="com.topcoder.apps.review.AggregationReviewForm"/>
-
-        <!-- FinalReview form bean -->
-        <form-bean name="finalReviewForm"
-                   type="com.topcoder.apps.review.FinalReviewForm"/>
-
-        <!-- Project form bean -->
-        <form-bean name="projectForm"
-                   type="com.topcoder.apps.review.ProjectForm"/>
-
-        <!-- Submission form bean -->
-        <form-bean name="submissionForm"
-                   type="com.topcoder.apps.review.SubmissionForm"/>
-
-        <!-- Appeal form bean -->
-        <form-bean name="appealForm"
-                   type="com.topcoder.apps.review.AppealForm"/>
-
-    </form-beans>
+    <!-- Appeal form bean -->
+    <form-bean      name="appealForm"
+                    type="com.topcoder.apps.review.AppealForm"/>
+                    
+  </form-beans>
 
 
     <!-- ========== Global Forward Definitions ============================== -->
     <global-forwards>
-        <forward name="login" path="/login.jsp"/>
-        <forward name="logoff" path="/login.jsp"/>
-        <forward name="cancel" path="/viewOpenProjects.do"/>
-        <forward name="failure" path="/error.jsp"/>
-        <forward name="success" path="/confirmation.jsp"/>
+        <forward   name="login"                path="/login.jsp"/>
+        <forward   name="logoff"               path="/login.jsp"/>
+        <forward   name="cancel"               path="/viewOpenProjects.do"/>
+        <forward   name="failure"              path="/error.jsp"/>
+        <forward   name="success"              path="/confirmation.jsp"/>
     </global-forwards>
 
 
     <!-- ========== Action Mapping Definitions ============================== -->
     <action-mappings>
         <!-- Process a user login -->
-        <action
+        <action 
                 path="/login"
                 type="com.topcoder.apps.review.LoginAction"
                 name="loginForm"
                 scope="request"
                 input="/login.jsp">
-            <forward name="success" path="/viewOpenProjects.do"/>
+            <forward name="success" path="/viewOpenProjects.do"/>        
         </action>
-
+        
         <!-- Process user logoff -->
-        <action
+        <action 
                 path="/logoff"
                 type="com.topcoder.apps.review.LogoffAction">
         </action>
-
+    
         <!-- View open projects -->
-        <action
+        <action 
                 path="/viewOpenProjects"
                 type="com.topcoder.apps.review.ViewOpenProjectsAction">
-            <forward name="success" path="/viewOpenProjects.jsp"/>
+            <forward name="success" path="/viewOpenProjects.jsp"/>            
         </action>
-
+        
         <!-- View project detail -->
-        <action
+        <action 
                 path="/projectDetail"
                 type="com.topcoder.apps.review.ProjectDetailAction">
             <forward name="success" path="/projectDetail.jsp"/>
             <forward name="admin" path="/adminProjectDetail.jsp"/>
         </action>
-
+        
         <!-- View review scorecard list -->
-        <action
+        <action 
                 path="/reviewScorecardList"
                 type="com.topcoder.apps.review.ReviewScorecardListAction">
-            <forward name="success" path="/reviewScorecardList.jsp"/>
+            <forward name="success" path="/reviewScorecardList.jsp"/>            
         </action>
-
+        
         <!-- View/Edit review scorecard -->
-        <action
+        <action 
                 path="/reviewScorecard"
                 type="com.topcoder.apps.review.ReviewScorecardAction"
                 name="reviewScorecardForm"
@@ -123,9 +123,9 @@
             <forward name="view" path="/reviewScorecard.jsp"/>
             <forward name="popup" path="/reviewScorecardPopup.jsp"/>
         </action>
-
+        
         <!-- Save review scorecard -->
-        <action
+        <action 
                 path="/saveReviewScorecard"
                 type="com.topcoder.apps.review.SaveReviewScorecardAction"
                 name="reviewScorecardForm"
@@ -138,30 +138,30 @@
         <action
                 path="/appealScorecardList"
                 type="com.topcoder.apps.review.AppealScorecardListAction"
-                scope="session">
+                scope="session" >
             <forward name="success" path="/appealScorecardList.jsp"/>
             <forward name="view" path="/appealScorecardList.jsp"/>
         </action>
         <!-- View screening scorecard list -->
-        <action
+        <action 
                 path="/screeningScorecardList"
                 type="com.topcoder.apps.review.ScreeningScorecardListAction">
-            <forward name="success" path="/screeningScorecardList.jsp"/>
+            <forward name="success" path="/screeningScorecardList.jsp"/>            
         </action>
-
+        
         <!-- View/Edit screening scorecard -->
-        <action
+        <action 
                 path="/screeningScorecard"
                 type="com.topcoder.apps.review.ScreeningScorecardAction"
                 name="screeningScorecardForm"
                 validate="false"
                 scope="session">
             <forward name="edit" path="/editScreeningScorecard.jsp"/>
-            <forward name="view" path="/screeningScorecard.jsp"/>
+            <forward name="view" path="/screeningScorecard.jsp"/>            
         </action>
-
+        
         <!-- Save screening scorecard -->
-        <action
+        <action 
                 path="/saveScreeningScorecard"
                 type="com.topcoder.apps.review.SaveScreeningScorecardAction"
                 name="screeningScorecardForm"
@@ -170,31 +170,31 @@
                 scope="session">
             <forward name="edit" path="/editScreeningScorecard.jsp"/>
         </action>
-
+        
         <!-- View/Edit aggregation worksheet -->
-        <action
+        <action 
                 path="/aggregation"
                 type="com.topcoder.apps.review.AggregationAction"
                 name="aggregationWorksheetForm"
                 validate="false"
                 scope="session">
             <forward name="edit" path="/editAggregation.jsp"/>
-            <forward name="view" path="/aggregation.jsp"/>
+            <forward name="view" path="/aggregation.jsp"/>            
         </action>
 
         <!-- Public View aggregation worksheet -->
-        <action
+        <action 
                 path="/publicaggregation"
                 type="com.topcoder.apps.review.AggregationAction"
                 name="aggregationWorksheetForm"
                 validate="false"
                 scope="session"
                 parameter="public">
-            <forward name="view" path="/publicaggregation.jsp"/>
+            <forward name="view" path="/publicaggregation.jsp"/>            
         </action>
-
+        
         <!-- Save aggregation worksheet -->
-        <action
+        <action 
                 path="/saveAggregation"
                 type="com.topcoder.apps.review.SaveAggregationAction"
                 name="aggregationWorksheetForm"
@@ -203,20 +203,20 @@
                 scope="session">
             <forward name="edit" path="/editAggregation.jsp"/>
         </action>
-
+        
         <!-- View/Edit aggregation review -->
-        <action
+        <action 
                 path="/aggregationReview"
                 type="com.topcoder.apps.review.AggregationReviewAction"
                 name="aggregationReviewForm"
                 validate="false"
                 scope="session">
             <forward name="edit" path="/editAggregationReview.jsp"/>
-            <forward name="view" path="/aggregationReview.jsp"/>
+            <forward name="view" path="/aggregationReview.jsp"/>            
         </action>
-
+        
         <!-- Save aggregation review -->
-        <action
+        <action 
                 path="/saveAggregationReview"
                 type="com.topcoder.apps.review.SaveAggregationReviewAction"
                 name="aggregationReviewForm"
@@ -225,20 +225,20 @@
                 scope="session">
             <forward name="edit" path="/editAggregationReview.jsp"/>
         </action>
-
+        
         <!-- View/Edit final review -->
-        <action
+        <action 
                 path="/finalReview"
                 type="com.topcoder.apps.review.FinalReviewAction"
                 name="finalReviewForm"
                 validate="false"
                 scope="session">
             <forward name="edit" path="/editFinalReview.jsp"/>
-            <forward name="view" path="/finalReview.jsp"/>
+            <forward name="view" path="/finalReview.jsp"/>            
         </action>
-
+        
         <!-- Save final review -->
-        <action
+        <action 
                 path="/saveFinalReview"
                 type="com.topcoder.apps.review.SaveFinalReviewAction"
                 name="finalReviewForm"
@@ -247,9 +247,9 @@
                 scope="session">
             <forward name="edit" path="/editFinalReview.jsp"/>
         </action>
-
+        
         <!-- Edit test case review -->
-        <action
+        <action 
                 path="/testCaseReview"
                 type="com.topcoder.apps.review.TestCaseReviewAction"
                 name="testCaseReviewForm"
@@ -257,9 +257,9 @@
                 scope="session">
             <forward name="edit" path="/editTestCaseReview.jsp"/>
         </action>
-
+        
         <!-- Save test case review -->
-        <action
+        <action 
                 path="/saveTestCaseReview"
                 type="com.topcoder.apps.review.SaveTestCaseReviewAction"
                 name="testCaseReviewForm"
@@ -267,50 +267,61 @@
                 input="/editTestCaseReview.jsp"
                 scope="session">
         </action>
-
+        
         <!-- Contact Project Manager -->
-        <action
+        <action 
                 path="/contactPM"
                 name="contactPMForm"
                 scope="session"
                 validate="false"
                 type="com.topcoder.apps.review.ContactPMAction">
-            <forward name="success" path="/contactProductManager.jsp"/>
+            <forward name="success" path="/contactProductManager.jsp"/>                     
         </action>
-
+        
         <!-- Send to Project Manager -->
-        <action
+        <action 
                 path="/sendContactPM"
                 name="contactPMForm"
                 scope="session"
                 input="/contactProductManager.jsp"
                 validate="true"
                 type="com.topcoder.apps.review.SendContactPMAction">
-            <forward name="cancel" path="/projectDetail.do"/>
+			<forward name="cancel" path="/projectDetail.do"/>
         </action>
-
+        
         <!-- Submit Solution -->
-        <action
+        <action 
                 path="/submitSolution"
                 type="com.topcoder.apps.review.SubmitSolutionAction">
             <forward name="success" path="/submitSolution.jsp"/>
         </action>
-
+        
         <!-- Save Solution -->
-        <action
+        <action 
                 path="/saveSolution"
                 type="com.topcoder.apps.review.SaveSolutionAction">
         </action>
-
-        <!-- Remove Submission -->
+        
+        <!-- Show Screening -->
         <action
+                path="/showScreening"
+                type="com.topcoder.apps.review.ShowScreeningAction">
+            <forward name="view" path="/showScreening.jsp"/>
+            <forward name="refresh" path="/refreshScreening.jsp"/>
+            <forward name="success" path="/screeningSuccess.jsp"/>
+            <forward name="warning" path="/screeningWarning.jsp"/>
+            <forward name="error" path="/screeningError.jsp"/>
+        </action>
+        
+        <!-- Remove Submission -->
+        <action 
                 path="/removeSubmission"
                 type="com.topcoder.apps.review.RemoveSubmissionAction">
             <forward name="edit" path="/removeSubmission.jsp"/>
         </action>
-
+        
         <!-- PM Review -->
-        <action
+        <action 
                 path="/projectManagerReview"
                 name="submissionForm"
                 validate="false"
@@ -318,9 +329,9 @@
                 type="com.topcoder.apps.review.ProjectManagerReviewAction">
             <forward name="edit" path="/projectManagerReview.jsp"/>
         </action>
-
+        
         <!-- Save PM Review -->
-        <action
+        <action 
                 path="/savePMReview"
                 name="submissionForm"
                 input="/projectManagerReview.jsp"
@@ -329,9 +340,9 @@
                 type="com.topcoder.apps.review.SavePMReviewAction">
             <forward name="cancel" path="/projectDetail.do"/>
         </action>
-
+        
         <!-- Edit Project -->
-        <action
+        <action 
                 path="/editProject"
                 type="com.topcoder.apps.review.EditProjectAction"
                 name="projectForm"
@@ -342,10 +353,10 @@
         </action>
 
         <!-- Edit Timeline-->
-        <action
+        <action 
                 path="/editTimeline"
                 type="com.topcoder.apps.review.EditTimelineAction"
-                name="projectForm"
+                name="projectForm"                
                 validate="true"
                 input="/editTimeline.jsp"
                 scope="session">
@@ -355,9 +366,9 @@
             <forward name="cancel" path="/editProject.do?action=cancel"/>
         </action>
 
-
+        
         <!-- Save Project -->
-        <action
+        <action 
                 path="/saveProject"
                 type="com.topcoder.apps.review.SaveProjectAction"
                 name="projectForm"
@@ -368,7 +379,7 @@
         </action>
 
         <!-- Terminate Project -->
-        <action
+        <action 
                 path="/terminateProject"
                 type="com.topcoder.apps.review.SaveProjectAction"
                 name="projectForm"
@@ -377,23 +388,23 @@
                 scope="session">
             <forward name="edit" path="/terminateProject.jsp"/>
         </action>
-
+        
         <!-- Review Scorecard Overview -->
-        <action
+        <action 
                 path="/reviewScorecardOverview"
                 type="com.topcoder.apps.review.ReviewScorecardOverviewAction">
             <forward name="success" path="/reviewScorecardOverview.jsp"/>
         </action>
-
+        
         <!-- Download the submission -->
-        <action
+        <action 
                 path="/submissionDownload"
                 type="com.topcoder.apps.review.SubmissionDownloadAction">
-            <forward name="success" path="/confirmation.jsp" redirect="false"/>
+            <forward name="success" path="/confirmation.jsp" redirect="false" />
         </action>
-
+    
         <!-- Appeal -->
-        <action
+        <action 
                 path="/appeal"
                 name="appealForm"
                 validate="false"
@@ -404,7 +415,7 @@
         </action>
 
         <!-- Save Appeal -->
-        <action
+        <action 
                 path="/saveAppeal"
                 name="appealForm"
                 input="/editAppeal.jsp"
@@ -416,26 +427,25 @@
         </action>
 
         <!-- View testcases list -->
-        <action
+        <action 
                 path="/testCaseList"
                 type="com.topcoder.apps.review.TestCaseListAction">
-            <forward name="success" path="/testcaseList.jsp"/>
+            <forward name="success" path="/testcaseList.jsp"/>            
         </action>
 
         <!-- Download the testcases -->
-        <action
+        <action 
                 path="/testCaseDownload"
                 type="com.topcoder.apps.review.TestCasesDownloadAction">
-            <forward name="success" path="/confirmation.jsp" redirect="false"/>
+            <forward name="success" path="/confirmation.jsp" redirect="false" />
         </action>
 
         <!-- Save TestCases -->
-        <action
+        <action 
                 path="/saveTestCases"
                 type="com.topcoder.apps.review.SaveTestCasesAction">
         </action>
 
-
-    </action-mappings>
+  </action-mappings>
 
 </struts-config>
