@@ -145,7 +145,7 @@ function submitEnter(e) {
                <tc-webtag:handle coderId='<%= resultRow.getLongItem("winner_id") %>' context='<%=resultRow.getStringItem("phase_desc")%>'/>
                <% }  %>
                </TD>
-            <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="winner_score" row="<%=resultRow%>" ifNull=""/></TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="winner_score" row="<%=resultRow%>" ifNull="" format="0.00"/></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><A HREF='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>' class="bcLink">Contest Details</a></TD>
             </TR>
       <%even=!even;%>
