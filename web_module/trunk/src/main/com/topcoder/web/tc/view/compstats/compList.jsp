@@ -97,14 +97,6 @@ function submitEnter(e) {
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
-<span class="bc">
-<% if ("112".equals(phaseId)) { %>
-    Design  &#160;|&#160; <a href="/tc?module=CompList&pi=113" class="bcLink">Development</a>
-<% } else { %>
-    <a href="/tc?module=CompList&pi=112" class="bcLink">Design</a>  &#160;|&#160; Development
-<% } %>
-</span>
-
 <div class="pagingBox">
 <%=(list.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
 | <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
@@ -123,12 +115,12 @@ function submitEnter(e) {
             <tr>
                <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />" class="statLink">Component</a></td>
                <TD CLASS="tableHeader" align="center"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr" />" class="statLink">Category</a></td>
-               <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true" excludeParams="sr" />" class="statLink">Complete Date</a></td>
-               <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true" excludeParams="sr" />" class="statLink">Registrants</a></td>
-               <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true" excludeParams="sr" />" class="statLink">Submissions</a></td>
-               <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />" class="statLink">Passed<br>Screening</a></td>
+               <TD CLASS="tableHeader" align="center"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true" excludeParams="sr" />" class="statLink">Complete Date</a></td>
+               <TD CLASS="tableHeader" align="right"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true" excludeParams="sr" />" class="statLink">Registrants</a></td>
+               <TD CLASS="tableHeader" align="right"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true" excludeParams="sr" />" class="statLink">Submissions</a></td>
+               <TD CLASS="tableHeader" align="center"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />" class="statLink">Passed<br>Screening</a></td>
                <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true" excludeParams="sr" />" class="statLink">Winner</a></td>
-               <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="11" includeParams="true" excludeParams="sr" />" class="statLink">Score</a></td>
+               <TD CLASS="tableHeader" align="right"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="11" includeParams="true" excludeParams="sr" />" class="statLink">Score</a></td>
                <TD CLASS="tableHeader">&#160;</td>
             </tr>
       <%boolean even = true;%>
@@ -137,15 +129,15 @@ function submitEnter(e) {
             <td class="<%=even?"statLt":"statDk"%>" align="left"><rsc:item name="component_name" row="<%=resultRow%>" /> <rsc:item name="version_text" row="<%=resultRow%>" /></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="category_desc" row="<%=resultRow%>" /></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="complete_date" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="unknown *"/></TD>
-            <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="num_registrations" row="<%=resultRow%>" ifNull="unknown *" /></TD>
-            <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="num_submissions" row="<%=resultRow%>" ifNull="unknown *"/></TD>
-            <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="num_valid_submissions" row="<%=resultRow%>" ifNull="unknown *" /></TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 30px;"><rsc:item name="num_registrations" row="<%=resultRow%>" ifNull="unknown *" /></TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 35px;"><rsc:item name="num_submissions" row="<%=resultRow%>" ifNull="unknown *"/></TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 30px;"><rsc:item name="num_valid_submissions" row="<%=resultRow%>" ifNull="unknown *" /></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="left">
                <% if (resultRow.getStringItem("winner_id") != null) { %>
                <tc-webtag:handle coderId='<%= resultRow.getLongItem("winner_id") %>' context='<%=resultRow.getStringItem("phase_desc")%>'/>
                <% }  %>
                </TD>
-            <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="winner_score" row="<%=resultRow%>" ifNull="" format="0.00"/></TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item name="winner_score" row="<%=resultRow%>" ifNull="" format="0.00"/></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><A HREF='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>' class="bcLink">Contest Details</a></TD>
             </TR>
       <%even=!even;%>
