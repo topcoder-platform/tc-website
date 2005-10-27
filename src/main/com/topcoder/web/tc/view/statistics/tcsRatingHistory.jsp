@@ -81,19 +81,11 @@ pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Basic_Coder_Information");
 boolean bEmpty = (rsc == null || rsc.size()!=1);
 if (!bEmpty) {
-<<<<<<< tcsRatingHistory.jsp
-    ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
-    pageContext.setAttribute("resultRow", rsr);
-    %>
-        <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>
-<% }
-=======
 ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
 pageContext.setAttribute("resultRow", rsr);
 %>
     <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>
 <% }
->>>>>>> 1.25
 ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("TCS_Ratings_History");
 pageContext.setAttribute("resultSet", rsc2);
 
