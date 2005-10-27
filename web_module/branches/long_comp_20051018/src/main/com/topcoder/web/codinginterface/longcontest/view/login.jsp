@@ -56,7 +56,7 @@ function submitEnter(e) {
 
 <jsp:include page="page_title.jsp" >
 <jsp:param name="image" value="long_competitions"/>
-<jsp:param name="title" value="Active Contests"/>
+<jsp:param name="title" value="Login"/>
 </jsp:include>
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
