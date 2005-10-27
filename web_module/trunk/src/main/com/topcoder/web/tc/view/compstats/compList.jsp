@@ -114,7 +114,7 @@ function submitEnter(e) {
    <tr>
       <td class="divider" >
          <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-            <tr><td class="tableTitle" colspan="8">
+            <tr><td class="tableTitle" colspan="9">
             <% if ("112".equals(phaseId)) { %>Design
             <% } else { %>Development
             <% } %>
@@ -128,6 +128,7 @@ function submitEnter(e) {
                <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true" excludeParams="sr" />" class="statLink">Submissions</a></td>
                <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />" class="statLink">Passed<br>Screening</a></td>
                <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true" excludeParams="sr" />" class="statLink">Winner</a></td>
+               <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="11" includeParams="true" excludeParams="sr" />" class="statLink">Score</a></td>
                <TD CLASS="tableHeader">&#160;</td>
             </tr>
       <%boolean even = true;%>
@@ -144,6 +145,7 @@ function submitEnter(e) {
                <tc-webtag:handle coderId='<%= resultRow.getLongItem("winner_id") %>' context='<%=resultRow.getStringItem("phase_desc")%>'/>
                <% }  %>
                </TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="winner_score" row="<%=resultRow%>" ifNull=""/></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><A HREF='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>' class="bcLink">Contest Details</a></TD>
             </TR>
       <%even=!even;%>
