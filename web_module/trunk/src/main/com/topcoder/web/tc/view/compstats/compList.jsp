@@ -104,7 +104,7 @@ function submitEnter(e) {
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
-      <td class="divider" >
+      <td>
          <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
             <tr><td class="tableTitle" colspan="9">
             <% if ("112".equals(phaseId)) { %>Design
@@ -128,10 +128,10 @@ function submitEnter(e) {
             <TR>
             <td class="<%=even?"statLt":"statDk"%>" align="left"><rsc:item name="component_name" row="<%=resultRow%>" /> <rsc:item name="version_text" row="<%=resultRow%>" /></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="category_desc" row="<%=resultRow%>" /></TD>
-            <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="complete_date" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="unknown *"/></TD>
-            <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 30px;"><rsc:item name="num_registrations" row="<%=resultRow%>" ifNull="unknown *" /></TD>
-            <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 35px;"><rsc:item name="num_submissions" row="<%=resultRow%>" ifNull="unknown *"/></TD>
-            <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 30px;"><rsc:item name="num_valid_submissions" row="<%=resultRow%>" ifNull="unknown *" /></TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="complete_date" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="unknown*"/></TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 30px;"><rsc:item name="num_registrations" row="<%=resultRow%>" ifNull="*" /></TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 35px;"><rsc:item name="num_submissions" row="<%=resultRow%>" ifNull="*"/></TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 30px;"><rsc:item name="num_valid_submissions" row="<%=resultRow%>" ifNull="*" /></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="left">
                <% if (resultRow.getStringItem("winner_id") != null) { %>
                <tc-webtag:handle coderId='<%= resultRow.getLongItem("winner_id") %>' context='<%=resultRow.getStringItem("phase_desc")%>'/>
