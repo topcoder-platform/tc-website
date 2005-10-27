@@ -52,7 +52,7 @@ padding: 0px;
 </table>
 
 <div class="centerer">
-   <div style="padding:20px"><b>
+   <div style="padding:25px"><b>
    <span style="font-size: 18px; color: #990000;">Error</span>
    <br><br>
    <span class="homeText">
