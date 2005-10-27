@@ -9,6 +9,36 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>10.27.05<br>11:05 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=CompList&pi=112">Design</A> and <A href="/tc?module=CompList&pi=113">Development</A> Contest Lists, Scorecard Details</span><br><br>
+      You can now browse through sortable lists of TopCoder component competitions.  Clicking a score on the "Contest Details" page now brings up that scorecard.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=CompList&pi=112">design contests</A>&#160;|&#160;
+         <A href="/tc?module=CompList&pi=113">development contests</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505819" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>10.27.05<br>11:05 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm269">SRM 269 - Problem Set & Analysis</A></span><br><br>
+      In Division 1, <tc-webtag:handle coderId="7462740" context="algorithm"/> took the first prize followed by the close triplet <tc-webtag:handle coderId="8379457" context="algorithm"/>, <tc-webtag:handle coderId="14970299" context="algorithm"/> and <tc-webtag:handle coderId="277659" context="algorithm"/>. <tc-webtag:handle coderId="304031" context="algorithm"/>, who was a leader for a long time, had to resubmit the 1000th problem because of a silly mistake and lost more than 500 points.</td>
+      <td class="newsPhoto"><img src="/i/m/Andrew_Lazarev_mug.gif" /><br>by <tc-webtag:handle coderId="7485898" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm269">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505782" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>10.25.05<br>9:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -281,35 +311,6 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm267">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505775" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>10.06.05<br>10:40 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=decoratorPattern">The Decorator Pattern</A></span><br><br>
-      The two key concepts of the decorator pattern are adding functionality dynamically and doing it in a seamless manner. This pattern is similar in concept to inheritance but without many of its downsides.</td>
-      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <tc-webtag:handle coderId="119676" context="design"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=decoratorPattern">full story</A>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=507568">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>10.05.05<br>9:25 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=dev&d2=support&d3=reliability">Reliability Rating changes</A></span><br><br>
-      Your Reliability Rating is now broken down into Design and Development and only accounts for your last 15 projects.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=dev&d2=support&d3=reliability">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505807" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 
 
