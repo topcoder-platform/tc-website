@@ -45,6 +45,8 @@ function arena() {
                 <tr><td id="<%=level3.equals("comp_projects")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=comp_projects" class="leftOn">Projects</a></td></tr>
                 <tr><td id="<%=level3.equals("reviews")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/tc?module=ViewReviewProjects" class="leftOn">Review Opportunities</a></td></tr>
                 <tr><td id="<%=level3.equals("components")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=components" class="leftOn">Recent Project Winners</a></td></tr>
+                <tr><td id="<%=level3.equals("des_contests")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://www.topcoder.com/tc?module=CompList&pi=112">Design Contests</a></td></tr>
+                <tr><td id="<%=level3.equals("dev_contests")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://www.topcoder.com/tc?module=CompList&pi=113">Development Contests</a></td></tr>
                 <tr><td id="<%=level3.equals("project_review")?"leftSubnavOn":"leftSubnav"%>"><a href="/review" class="leftOn">Project Submit & Review</a></td></tr>
                 <tr><td id="<%=level3.equals("comp_archive")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=comp_archive" class="leftOn">Project Status</a></td></tr>
                 <tr><td id="<%=level3.equals("comp_meth")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=comp_meth" class="leftOn">Development Methodology</a></td></tr>
