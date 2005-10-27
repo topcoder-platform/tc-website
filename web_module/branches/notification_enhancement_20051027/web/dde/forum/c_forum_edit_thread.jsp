@@ -361,7 +361,9 @@
 		prop.setProperty(notification.THREAD_NAME, thread.getSubject());
 		prop.setProperty(notification.WRITER_NAME, tcUser.getRegInfo().getUsername());
 		prop.setProperty(notification.LINK, "/forum/c_forum.jsp?f=" + forumId);
-		notification.notifyEvent("com.topcoder.dde.forum.ForumPostEvent " + forumId, prop);
+		notification.notifyEvent("com.topcoder.dde.forum.ForumPostEvent " + forumId, prop,
+                        "Notification: new forum post for " + forumComponent.getName() + " by "
+                        + tcUser.getRegInfo().getUsername());
 
                 response.sendRedirect("/forum/c_forum.jsp?f="+forumId);
                 return;

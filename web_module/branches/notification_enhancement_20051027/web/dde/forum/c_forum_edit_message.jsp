@@ -352,11 +352,13 @@
 
 		Properties prop = new Properties();
 		prop.setProperty(notification.IS_NEW_THREAD, "0" );
-		prop.setProperty(notification.COMPONENT_NAME,forumComponent.getName());
+		prop.setProperty(notification.COMPONENT_NAME, forumComponent.getName());
 		prop.setProperty(notification.THREAD_NAME, thread.getSubject());
 		prop.setProperty(notification.WRITER_NAME, tcUser.getRegInfo().getUsername());
 		prop.setProperty(notification.LINK, "/forum/c_forum_message.jsp?f=" + forumId + "&r=" + threadId);
-		notification.notifyEvent("com.topcoder.dde.forum.ForumPostEvent " + forumId, prop);
+		notification.notifyEvent("com.topcoder.dde.forum.ForumPostEvent " + forumId, prop,
+                        "Notification: new forum post for " + forumComponent.getName() + " by "
+                        + tcUser.getRegInfo().getUsername());
 
                 response.sendRedirect("/forum/c_forum_message.jsp?f="+forumId+"&r="+threadId);
                 return;

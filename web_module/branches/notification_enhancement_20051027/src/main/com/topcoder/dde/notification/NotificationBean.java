@@ -212,13 +212,25 @@ public class NotificationBean implements SessionBean {
     }
 
     /**
-     * <p>Sends mail for notifying that an event has happened. The properties are used to store additional data
-     * for the mail template.</p>
+     * <p>Sends mail for notifying that an event has happened, using the default subject for the event. The properties
+     * are used to store additional data for the mail template.</p>
      *
      * @param event the event name.
      * @param prop the additional name-values to be used for the mail template.
      */
     public void notifyEvent(String event, Properties prop) {
+        notifyEvent(event, prop, null);
+    }
+    
+    /**
+     * <p>Sends mail for notifying that an event has happened, with the specified subject. The properties are used to
+     * store additional data for the mail template.</p>
+     *
+     * @param event the event name.
+     * @param prop the additional name-values to be used for the mail template.
+     * @param subject the subject to use for the email.  If this parameter is null, the default subject is used.
+     */
+    public void notifyEvent(String event, Properties prop, String subject) {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -254,8 +266,6 @@ public class NotificationBean implements SessionBean {
             boolean first = true;
             String bodyText = null;
             String from = null;
-            String subject = null;
-
 
             while (rs.next()) {
                 // the first time, the email body is built.  Then, the same body is used for all the destinations.
@@ -269,8 +279,10 @@ public class NotificationBean implements SessionBean {
                     debug("body text: " + bodyText);
 
                     from = rs.getString(4);
-                    subject = rs.getString(3);;
-
+                    
+                    if (subject == null) {
+                        subject = rs.getString(3);
+                    }
                 }
                 String to = "\"" + rs.getString(5) + " " + rs.getString(6) + "\" <" + rs.getString(1) +">";
 

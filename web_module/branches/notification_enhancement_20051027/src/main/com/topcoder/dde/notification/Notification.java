@@ -63,8 +63,8 @@ public interface Notification extends EJBObject {
     public void createNotification(String event, long userId, long typeId, String description) throws RemoteException;
 
     /**
-     * <p>Sends mail for notifying that an event has happened. The properties are used to store additional data
-     * for the mail template.</p>
+     * <p>Sends mail for notifying that an event has happened, using the default subject for the event. The properties
+     * are used to store additional data for the mail template.</p>
      *
      * @param event the event name.
      * @param prop the additional name-values to be used for the mail template.
@@ -72,6 +72,17 @@ public interface Notification extends EJBObject {
      */
     public void notifyEvent(String event, Properties prop) throws RemoteException;
 
+    /**
+     * <p>Sends mail for notifying that an event has happened, with the specified subject. The properties are used to
+     * store additional data for the mail template.</p>
+     *
+     * @param event the event name.
+     * @param prop the additional name-values to be used for the mail template.
+     * @param subject the subject to use for the email.
+     * @throws RemoteException
+     */
+    public void notifyEvent(String event, Properties prop, String subject) throws RemoteException;
+    
     /**
      * <p>Gets the notification events which are assigned to requested user.</p>
      *
