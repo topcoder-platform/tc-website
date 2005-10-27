@@ -34,7 +34,7 @@
 <%-- Left Column Begins--%>
         <td width="180">
             <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="level1" value="statistics"/>
+                <jsp:param name="level1" value="home"/>
                 <jsp:param name="level2" value=""/>
             </jsp:include>
         </td>
@@ -58,9 +58,9 @@
 </tr>
 <tr>
    <td class="tableHeader">Contest</td>
-   <td class="tableHeader" colspan="3">Problem Name</td>
-   <td class="tableHeader" align="center">Start time</td>
-   <td class="tableHeader" align="center">End time</td>
+   <td class="tableHeader" colspan="3" nowrap="nowrap">Problem Name</td>
+   <td class="tableHeader" align="center" nowrap="nowrap">Start time</td>
+   <td class="tableHeader" align="center" nowrap="nowrap">End time</td>
 </tr>
 
 <%boolean even = true;%>
@@ -78,8 +78,8 @@ Submit</a>
 <td class="<%=even?"statLt":"statDk"%>"><A href="longcontest?module=ComponentScores&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>" class="statLink">
 Standings</a>
 </td>
-<td class="<%=even?"statLt":"statDk"%>"><rsc:item name="start_time" row="<%=resultRow%>"/></td>
-<td class="<%=even?"statLt":"statDk"%>"><%if(!resultRow.getBooleanItem("practice")){%><rsc:item name="end_time" row="<%=resultRow%>"/><%}%></td>
+<td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><rsc:item name="start_time" row="<%=resultRow%>"/></td>
+<td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><%if(!resultRow.getBooleanItem("practice")){%><rsc:item name="end_time" row="<%=resultRow%>"/><%}%></td>
 </tr>
 <%even=!even;%>
 </rsc:iterator>
