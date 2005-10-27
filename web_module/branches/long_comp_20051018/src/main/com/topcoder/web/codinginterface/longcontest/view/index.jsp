@@ -33,6 +33,10 @@
    <tr valign="top">
 <%-- Left Column Begins--%>
         <td width="180">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="level1" value="statistics"/>
+                <jsp:param name="level2" value=""/>
+            </jsp:include>
         </td>
 <%-- Left Column Ends --%>
 
@@ -44,32 +48,46 @@
 <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 
-<table>
-<tr><td>Contest</td><td>Problem Name</td>
-<td></td><td></td><td>Start time</td><td>End time</td></tr>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
+   <tr>
+      <td>               
+      <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
+
+<tr>
+   <td class="tableTitle" colspan="6">Active Long Competitions</td>
+</tr>
+<tr>
+   <td class="tableHeader">Contest</td>
+   <td class="tableHeader" colspan="3">Problem Name</td>
+   <td class="tableHeader" align="center">Start time</td>
+   <td class="tableHeader" align="center">End time</td>
+</tr>
+
+<%boolean even = true;%>
 <rsc:iterator list="<%=problems%>" id="resultRow">
-<tr><td>
-<rsc:item name="name" row="<%=resultRow%>"/></A>
-</td><td>
-<A href="longcontest?module=ViewProblem&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>">
+<tr>
+<td class="<%=even?"statLt":"statDk"%>"><b><rsc:item name="name" row="<%=resultRow%>"/></b></td>
+<td class="<%=even?"statLt":"statDk"%>"><A href="longcontest?module=ViewProblem&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>" class="statLink">
 <rsc:item name="class_name" row="<%=resultRow%>"/></A>
-</td><td>
-<%if(!resultRow.getBooleanItem("over") || resultRow.getBooleanItem("practice")){%>
-<A href="longcontest?module=Submit&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
+</td>
+<td class="<%=even?"statLt":"statDk"%>"><%if(!resultRow.getBooleanItem("over") || resultRow.getBooleanItem("practice")){%>
+<A href="longcontest?module=Submit&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" class="statLink">
 Submit</a>
 <%}%>
-</td><td>
-<A href="longcontest?module=ComponentScores&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>">
+</td>
+<td class="<%=even?"statLt":"statDk"%>"><A href="longcontest?module=ComponentScores&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>" class="statLink">
 Standings</a>
-</td><td>
-<rsc:item name="start_time" row="<%=resultRow%>"/>
-</td><td>
-<%if(!resultRow.getBooleanItem("practice")){%>
-<rsc:item name="end_time" row="<%=resultRow%>"/>
-<%}%>
-</td></tr>
+</td>
+<td class="<%=even?"statLt":"statDk"%>"><rsc:item name="start_time" row="<%=resultRow%>"/></td>
+<td class="<%=even?"statLt":"statDk"%>"><%if(!resultRow.getBooleanItem("practice")){%><rsc:item name="end_time" row="<%=resultRow%>"/><%}%></td>
+</tr>
+<%even=!even;%>
 </rsc:iterator>
-</table>
+
+      </TABLE>
+      </TD>
+   </tr>
+</TABLE>
 
         </td>
 
