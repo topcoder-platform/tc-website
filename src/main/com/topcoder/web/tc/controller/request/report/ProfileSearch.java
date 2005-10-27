@@ -75,8 +75,10 @@ public class ProfileSearch extends Base {
         (constraints = demo[1]).addAll(skills[1]);
         String comp = request.getParameter("company");
         String sch = request.getParameter("school");
-        boolean containsDevRating = request.getParameter("mindevrating")!=null||request.getParameter("maxdevrating")!=null;
-        boolean containsDesRating = request.getParameter("mindesrating")!=null||request.getParameter("maxdesrating")!=null;
+        boolean containsDevRating = !"".equals(StringUtils.checkNull(request.getParameter("mindevrating")))
+                ||!"".equals(StringUtils.checkNull(request.getParameter("maxdevrating")));
+        boolean containsDesRating = !"".equals(StringUtils.checkNull(request.getParameter("mindesrating")))
+                ||!"".equals(StringUtils.checkNull(request.getParameter("maxdesrating")));
 
         StringBuffer query = new StringBuffer(5000);
         if ("on".equals(request.getParameter("count"))) {

@@ -435,12 +435,6 @@
                 type="com.topcoder.apps.review.SaveTestCasesAction">
         </action>
 
-        <!-- View Component Scores -->
-        <action
-                path="/ComponentScores"
-                type="com.topcoder.apps.review.ComponentScoresAction">
-            <forward name="success" path="/componentScores.jsp"/>
-        </action>
 
     </action-mappings>
 
