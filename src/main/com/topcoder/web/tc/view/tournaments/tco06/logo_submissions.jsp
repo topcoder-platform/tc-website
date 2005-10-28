@@ -56,6 +56,11 @@
 
             <br><br>
 <table cellpadding="10" cellspacing="0" align="center" border="0">
+<tr><td>0029<br><img src="/i/tournament/tco06/logo_submissions/0029.gif" alt="" border="0" /></td></tr>   <%--13399710--%>
+<tr><td>0028<br><img src="/i/tournament/tco06/logo_submissions/0028.gif" alt="" border="0" /></td></tr>   <%--15599214--%>
+<tr><td>0027<br><img src="/i/tournament/tco06/logo_submissions/0027.jpg" alt="" border="0" /></td></tr>   <%--10380361--%>
+<tr><td>0026<br><img src="/i/tournament/tco06/logo_submissions/0026.jpg" alt="" border="0" /></td></tr>   <%--15669252--%>
+<tr><td>0025<br><img src="/i/tournament/tco06/logo_submissions/0025.jpg" alt="" border="0" /></td></tr>   <%--15773812--%>
 <tr><td>0024<br><img src="/i/tournament/tco06/logo_submissions/0024.gif" alt="" border="0" /></td></tr>   <%--10482608--%>
 <tr><td>0023<br><img src="/i/tournament/tco06/logo_submissions/0023.gif" alt="" border="0" /></td></tr>   <%--10482608--%>
 <tr><td>0022<br><img src="/i/tournament/tco06/logo_submissions/0022.gif" alt="" border="0" /></td></tr>   <%--13399710--%>
