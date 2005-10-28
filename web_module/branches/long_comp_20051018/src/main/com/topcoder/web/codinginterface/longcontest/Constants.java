@@ -62,6 +62,11 @@ public class Constants implements CodingInterfaceConstants {
     public static String RP_ACTIVE_CONTESTS;
     public static String MAIN_SERVLET;
     public static String PAGE_ACTIVE_CONTESTS;
+    public static String RP_VIEW_REGISTRANTS;
+    public static String PAGE_VIEW_REGISTRANTS;
+    public static String RP_PROBLEM_STATEMENT;
+    public static String PAGE_PROBLEM_STATEMENT;
+    public static String PAGE_PROBLEM_STATEMENT_CONTENT;
     
     static {
         initialize();
