@@ -139,8 +139,8 @@ class PatternOptimizer {
 // Powered by FileEdit
       </textarea>
       </div>
-      <div style="float:right; padding: 5px 0px 0px 5px;"><img src="/i/interface/btn_submit.gif" alt="Submit" border="0" /></div>
-      <div style="float:right; padding: 5px 0px 0px 5px;"><img src="/i/interface/btn_save.gif" alt="Save" border="0" /></div>
+      <div style="float:right; padding: 5px 0px 0px 5px;"><A href="save"><img src="/i/interface/btn_submit.gif" alt="Submit" border="0" /></A></div>
+      <div style="float:right; padding: 5px 0px 0px 5px;"><A href="submit"><img src="/i/interface/btn_save.gif" alt="Save" border="0" /></A></div>
       </form>
    </div>
 </div>
