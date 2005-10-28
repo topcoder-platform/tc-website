@@ -54,8 +54,17 @@ public class PlacementInfoDetail extends Base {
                     String text = rscPref.getStringItem(j, "preference_desc");
                     int type = rscPref.getIntItem(j, "preference_type_id");
                     int id = rscPref.getIntItem(j, "preference_id");
+                    
+                    if (type == Constants.PREFERENCE_TEXT_ANSWER && info.getPreference(String.valueOf(id)) != null) {
+                    	String answer = info.getPreference(String.valueOf(id));
+                    	
+                    	ContractingResponse rsp = new ContractingResponse();
+                        rsp.setName(text);
+                        rsp.setVal(answer);
 
-                    if (type != Constants.PREFERENCE_SINGLE_ANSWER && info.getPreference(String.valueOf(id)) != null) {
+                        g.addResponse(rsp);
+                    }
+                    else if (type != Constants.PREFERENCE_SINGLE_ANSWER && info.getPreference(String.valueOf(id)) != null) {
                         //look up answer
                         String answer = "";
 
