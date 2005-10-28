@@ -1,20 +1,3 @@
-<%@  page
-  language="java"
-  import="java.util.*,
-          com.topcoder.web.codinginterface.longcontest.*,
-          com.topcoder.shared.dataAccess.resultSet.*"
-
-%>
-<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="struts-logic.tld" prefix="logic" %>
-<%
-    Map m = null;
-    ResultSetContainer.ResultSetRow p;
-    m = (Map)request.getAttribute(Constants.LONG_CONTEST_INDEX_KEY);
-    ResultSetContainer problems = (ResultSetContainer)m.get("long_problems");
-%>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -48,14 +31,13 @@
 <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 
-            <br><br>
             <span class="bodySubtitle">Registration</span><br>
             Please read through the following terms and then click "Accept" when you're done.
             <br><br>
             <div align="center"><form name="terms">
-            <iframe width="590" height="300" marginWidth="5" src="/"></iframe>
+            <iframe width="590" height="300" marginWidth="5" src="/i/tournament/tco03/download_photos/0211.jpg"></iframe>
             <br><br>
-            <A href="/tc?module=TCO06LogoTermsAgree"><img src="/i/accept.gif" alt="Accept" border="0" /></A>
+            <A href="/"><img src="/i/accept.gif" alt="Accept" border="0" /></A>
             </form>
             </div>
 
