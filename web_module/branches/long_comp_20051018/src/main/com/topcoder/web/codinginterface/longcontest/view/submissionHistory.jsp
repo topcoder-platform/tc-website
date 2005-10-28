@@ -28,11 +28,13 @@
 
 <jsp:include page="page_title.jsp" >
 <jsp:param name="image" value="long_competitions"/>
-<jsp:param name="title" value="Standings"/>
+<jsp:param name="title" value="Submission History"/>
 </jsp:include>
 
 <span class="bigHandle">Contest: Round 1</span><br>
-<span class="bodySubtitle">Registrants: 1</span><br>
+<span class="bodySubtitle">Problem: ProblemName</span><br>
+<span class="bodySubtitle">Coder: handle</span><br>
+<span class="bodySubtitle">Submissions: 1</span><br>
 
 <div class="pagingBox">
       &lt;&lt; previous
@@ -46,21 +48,21 @@
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
 <tr>
-   <td class="tableTitle" colspan="6">Standings</td>
+   <td class="tableTitle" colspan="6">Submission History</td>
 </tr>
 <tr>
-   <td class="tableHeader" width="25%"><A href="sort">Handle</A></td>
-   <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href="sort">Score</A></td>
-   <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href="sort">Rank</A></td>
-   <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href="sort">Submissions</A></td>
+   <td class="tableHeader" width="25%"><A href="sort">Submission</A></td>
+   <td class="tableHeader" width="25%" align="center"><A href="sort">Time</A></td>
+   <td class="tableHeader" width="25%" align="right"><A href="sort">Score</A></td>
+   <td class="tableHeader" width="25%" align="right">&#160;</td>
 </tr>
 <%-- ITERATOR --%>
 <%boolean even = true;%>
 <tr>
-   <td class="<%=even?"statLt":"statDk"%>">handle</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;">99.99</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 15px;">1</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;"><A href="submission history page" class="statLink">3</A></td>
+   <td class="<%=even?"statLt":"statDk"%>">1</td>
+   <td class="<%=even?"statLt":"statDk"%>" align="center">2005-06-23 21:00:00.0</td>
+   <td class="<%=even?"statLt":"statDk"%>" align="right">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;"><A href="solution" class="statLink">solution</A></td>
 </tr>
 <%even=!even;%>
 <%-- END ITERATOR --%>

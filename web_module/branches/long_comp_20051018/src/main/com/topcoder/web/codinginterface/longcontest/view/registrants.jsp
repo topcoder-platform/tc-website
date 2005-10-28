@@ -28,7 +28,7 @@
 
 <jsp:include page="page_title.jsp" >
 <jsp:param name="image" value="long_competitions"/>
-<jsp:param name="title" value="Standings"/>
+<jsp:param name="title" value="Registrants"/>
 </jsp:include>
 
 <span class="bigHandle">Contest: Round 1</span><br>
@@ -39,28 +39,30 @@
       &nbsp;|&nbsp;
       <a href="/stat?c=ratings_history&amp;cr=272072&amp;sr=51&amp;er=100&amp;nr=50" class="bcLink">next &gt;&gt;</a>
 </div>
-
+   
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
       <td>               
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
 <tr>
-   <td class="tableTitle" colspan="6">Standings</td>
+   <td class="tableTitle" colspan="6">Registrants</td>
 </tr>
 <tr>
-   <td class="tableHeader" width="25%"><A href="sort">Handle</A></td>
-   <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href="sort">Score</A></td>
-   <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href="sort">Rank</A></td>
-   <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href="sort">Submissions</A></td>
+   <td class="tableHeader" width="20%"><A href="sort">Handle</A></td>
+   <td class="tableHeader" width="20%"><A href="sort">Country</A></td>
+   <td class="tableHeader" width="10%"><A href="sort">State</A></td>
+   <td class="tableHeader" width="30%"><A href="sort">School</A></td>
+   <td class="tableHeader" width="20%"><A href="sort">Default Language</A></td>
 </tr>
 <%-- ITERATOR --%>
 <%boolean even = true;%>
 <tr>
    <td class="<%=even?"statLt":"statDk"%>">handle</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;">99.99</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 15px;">1</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;"><A href="submission history page" class="statLink">3</A></td>
+   <td class="<%=even?"statLt":"statDk"%>">United States</td>
+   <td class="<%=even?"statLt":"statDk"%>">CT</td>
+   <td class="<%=even?"statLt":"statDk"%>">University of Connecticut</td>
+   <td class="<%=even?"statLt":"statDk"%>">ACTIONSCRIPT!</td>
 </tr>
 <%even=!even;%>
 <%-- END ITERATOR --%>
