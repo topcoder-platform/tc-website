@@ -44,10 +44,11 @@ public class ViewActiveContests extends Base{
 	    		System.out.println();
 	    	}
 	    	
+	    	r = new Request();
 	    	r.setContentHandle("long_contest_num_registered");
 	    	r.setProperty("rd","3501");	    	
 	    	m = dai.getData(r);
-	    	System.out.println(rsc.getStringItem(0,0));
+	    	System.out.println("# reg: " + rsc.getStringItem(0,0));
 	    	
     	} catch(Exception e) {
     		e.printStackTrace();
