@@ -44,6 +44,11 @@ public class ViewActiveContests extends Base{
 	    		System.out.println();
 	    	}
 	    	
+	    	r.setContentHandle("long_contest_num_registered");
+	    	r.setProperty("rd","3501");	    	
+	    	m = dai.getData(r);
+	    	System.out.println(rsc.getStringItem(0,0));
+	    	
     	} catch(Exception e) {
     		e.printStackTrace();
     		throw new TCWebException("Error retrieving page.");
