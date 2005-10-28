@@ -28,7 +28,7 @@
 
 <jsp:include page="page_title.jsp" >
 <jsp:param name="image" value="long_competitions"/>
-<jsp:param name="title" value="Standings"/>
+<jsp:param name="title" value="System Test"/>
 </jsp:include>
 
 <span class="bigHandle">Contest: Round 1</span><br>

@@ -72,11 +72,11 @@
 </td>
 <td class="<%=even?"statLt":"statDk"%>"><%if(!resultRow.getBooleanItem("over") || resultRow.getBooleanItem("practice")){%>
 <A href="longcontest?module=Submit&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" class="statLink">
-Submit</a>
+submit</a>
 <%}%>
 </td>
 <td class="<%=even?"statLt":"statDk"%>"><A href="longcontest?module=ComponentScores&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>" class="statLink">
-Standings</a>
+standings</a>
 </td>
 <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><rsc:item name="start_time" row="<%=resultRow%>"/></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><%if(!resultRow.getBooleanItem("practice")){%><rsc:item name="end_time" row="<%=resultRow%>"/><%}%></td>

@@ -28,17 +28,8 @@
 
 <jsp:include page="page_title.jsp" >
 <jsp:param name="image" value="long_competitions"/>
-<jsp:param name="title" value="System Test Results"/>
+<jsp:param name="title" value="Practice Contests"/>
 </jsp:include>
-
-<span class="bigHandle">Contest: Round 1</span><br>
-<span class="bodySubtitle">Registrants: 1</span><br>
-
-<div class="pagingBox">
-      &lt;&lt; previous
-      &nbsp;|&nbsp;
-      <a href="/stat?c=ratings_history&amp;cr=272072&amp;sr=51&amp;er=100&amp;nr=50" class="bcLink">next &gt;&gt;</a>
-</div>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
@@ -46,34 +37,29 @@
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
 <tr>
-   <td class="tableTitle" colspan="6">Standings</td>
+   <td class="tableTitle" colspan="6">Practice Contests</td>
 </tr>
 <tr>
-   <td class="tableHeader" width="25%"><A href="sort">Handle</A></td>
-   <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href="sort">Score</A></td>
-   <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href="sort">Rank</A></td>
-   <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href="sort">Submissions</A></td>
+   <td class="tableHeader" width="25%">Contest</td>
+   <td class="tableHeader" width="25%" align="right">Competitors</td>
+   <td class="tableHeader" width="25%">&#160;</td>
+   <td class="tableHeader" width="25%">&#160;</td>
 </tr>
-<%-- ITERATOR --%>
+
 <%boolean even = true;%>
 <tr>
-   <td class="<%=even?"statLt":"statDk"%>">handle</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;">99.99</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 15px;">1</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;"><A href="submission history page" class="statLink">3</A></td>
+<td class="<%=even?"statLt":"statDk"%>"><b>Blablabla</b></td>
+<td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 35px;">20</td>
+<td class="<%=even?"statLt":"statDk"%>" align="center"><A href="submit">submit</A></td>
+<td class="<%=even?"statLt":"statDk"%>" align="center"><A href="standings">standings</A></td>
 </tr>
 <%even=!even;%>
-<%-- END ITERATOR --%>
+
       </TABLE>
       </TD>
    </tr>
 </TABLE>
 
-<div class="pagingBox">
-      &lt;&lt; previous
-      &nbsp;|&nbsp;
-      <a href="/stat?c=ratings_history&amp;cr=272072&amp;sr=51&amp;er=100&amp;nr=50" class="bcLink">next &gt;&gt;</a>
-</div>
 
         </td>
 
