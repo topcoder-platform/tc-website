@@ -67,7 +67,7 @@
 <rsc:iterator list="<%=problems%>" id="resultRow">
 <tr>
 <td class="<%=even?"statLt":"statDk"%>"><b><rsc:item name="name" row="<%=resultRow%>"/></b></td>
-<td class="<%=even?"statLt":"statDk"%>"><A href="longcontest?module=ViewProblem&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>" class="statLink">
+<td class="<%=even?"statLt":"statDk"%>"><A href="longcontest?module=ViewProblemStatement&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>" class="statLink">
 <rsc:item name="class_name" row="<%=resultRow%>"/></A>
 </td>
 <td class="<%=even?"statLt":"statDk"%>"><%if(!resultRow.getBooleanItem("over") || resultRow.getBooleanItem("practice")){%>
