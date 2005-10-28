@@ -58,7 +58,7 @@
       <div style="float: left; padding-bottom: 5px; width: 100%:">
          <div style="float: left; text-align:left;">
          <span class="bodyTitle">Coding Area</span><br>
-         <A href="" class="statLink">Problem Statement</A> (<A href="" class="statLink">new window</A>)
+         <A href="goes to problem_statement.jsp" class="statLink">Problem Statement</A> (<A href="goes to problem_statement_popup.jsp" class="statLink">new window</A>)
          </div>
          <form action="/longcontest/longcontest?module=Submit" method="POST">
          <input type="hidden" name="<%=Constants.ROUND_ID%>" value="<%=request.getParameter(Constants.ROUND_ID)%>">
