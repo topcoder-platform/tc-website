@@ -46,21 +46,161 @@
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
 <tr>
-   <td class="tableTitle" colspan="6">Standings</td>
+   <td class="tableTitle" colspan="11">System Test Results</td>
 </tr>
 <tr>
-   <td class="tableHeader" width="25%"><A href="sort">Handle</A></td>
-   <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href="sort">Score</A></td>
-   <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href="sort">Rank</A></td>
-   <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href="sort">Submissions</A></td>
+   <td class="tableHeader"></td>
+   <td class="tableHeader" align="right" nowrap="nowrap"><A href="sort">Test Case 1</A><br>(<A href="details">details</A>)</td>
+   <td class="tableHeader" align="right" nowrap="nowrap"><A href="sort">Test Case 1</A><br>(<A href="details">details</A>)</td>
+   <td class="tableHeader" align="right" nowrap="nowrap"><A href="sort">Test Case 1</A><br>(<A href="details">details</A>)</td>
+   <td class="tableHeader" align="right" nowrap="nowrap"><A href="sort">Test Case 1</A><br>(<A href="details">details</A>)</td>
+   <td class="tableHeader" align="right" nowrap="nowrap"><A href="sort">Test Case 1</A><br>(<A href="details">details</A>)</td>
+   <td class="tableHeader" align="right" nowrap="nowrap"><A href="sort">Test Case 1</A><br>(<A href="details">details</A>)</td>
+   <td class="tableHeader" align="right" nowrap="nowrap"><A href="sort">Test Case 1</A><br>(<A href="details">details</A>)</td>
+   <td class="tableHeader" align="right" nowrap="nowrap"><A href="sort">Test Case 1</A><br>(<A href="details">details</A>)</td>
+   <td class="tableHeader" align="right" nowrap="nowrap"><A href="sort">Test Case 1</A><br>(<A href="details">details</A>)</td>
+   <td class="tableHeader" align="right" nowrap="nowrap"><A href="sort">Test Case 1</A><br>(<A href="details">details</A>)</td>
 </tr>
-<%-- ITERATOR --%>
 <%boolean even = true;%>
-<tr>
-   <td class="<%=even?"statLt":"statDk"%>">handle</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;">99.99</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 15px;">1</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;"><A href="submission history page" class="statLink">3</A></td>
+<%-- ITERATOR --%>
+<tr align="right">
+   <td class="tableheader" align="left" nowrap="nowrap"><A href="sort">[+]</A> handle</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+</tr>
+<%even=!even;%>
+<tr align="right">
+   <td class="tableheader" align="left" nowrap="nowrap"><A href="sort">[+]</A> handle</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+</tr>
+<%even=!even;%>
+<tr align="right">
+   <td class="tableheader" align="left" nowrap="nowrap"><A href="sort">[+]</A> handle</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+</tr>
+<%even=!even;%>
+<tr align="right">
+   <td class="tableheader" align="left" nowrap="nowrap"><A href="sort">[+]</A> handle</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+</tr>
+<%even=!even;%>
+<tr align="right">
+   <td class="tableheader" align="left" nowrap="nowrap"><A href="sort">[+]</A> handle</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+</tr>
+<%even=!even;%>
+<tr align="right">
+   <td class="tableheader" align="left" nowrap="nowrap"><A href="sort">[+]</A> handle</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+</tr>
+<%even=!even;%>
+<tr align="right">
+   <td class="tableheader" align="left" nowrap="nowrap"><A href="sort">[+]</A> handle</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+</tr>
+<%even=!even;%>
+<tr align="right">
+   <td class="tableheader" align="left" nowrap="nowrap"><A href="sort">[+]</A> handle</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+</tr>
+<%even=!even;%>
+<tr align="right">
+   <td class="tableheader" align="left" nowrap="nowrap"><A href="sort">[+]</A> handle</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+</tr>
+<%even=!even;%>
+<tr align="right">
+   <td class="tableheader" align="left" nowrap="nowrap"><A href="sort">[+]</A> handle</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
 </tr>
 <%even=!even;%>
 <%-- END ITERATOR --%>
@@ -68,12 +208,6 @@
       </TD>
    </tr>
 </TABLE>
-
-<div class="pagingBox">
-      &lt;&lt; previous
-      &nbsp;|&nbsp;
-      <a href="/stat?c=ratings_history&amp;cr=272072&amp;sr=51&amp;er=100&amp;nr=50" class="bcLink">next &gt;&gt;</a>
-</div>
 
         </td>
 
