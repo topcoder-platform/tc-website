@@ -156,16 +156,25 @@ abstract public class ContractingBase extends BaseProcessor {
             
             // user must select different priorities
             int[] priority = new int[] {21,22,23};
+            int options = 8;
             for (int i = 0; i < priority.length; i++) {
-            	String p1 = info.getPreference(Integer.toString(priority[i]));
             	for (int j = i+1; j < priority.length; j++) {
+            		String p1 = info.getPreference(Integer.toString(priority[i]));
             		String p2 = info.getPreference(Integer.toString(priority[j]));
             		if (p1 == null || p2 == null) continue; // missing -- will get 'required' error
-            		if (p1.equals(p2)) {
+            		int n1 = -1;
+            		int n2 = -1;
+            		try {
+						n1 = Integer.parseInt(p1);
+						n2 = Integer.parseInt(p2);
+					}
+					catch (NumberFormatException e) {
+						continue;
+					}
+            		if (Math.abs(n1-n2) % options == 0) {
             			addError(Constants.PREFERENCE_PREFIX + priority[j], "You may not select the same priority twice.");
             		}
             	}
-            	addError(Constants.PREFERENCE_PREFIX + priority[i], p1);
             }
             
             // user must enter a valid date for starting - id=14
@@ -186,7 +195,7 @@ abstract public class ContractingBase extends BaseProcessor {
 								if (value < 1 || value > 31) valid = false;
 							}
 							else if (field == 2) {
-								if (value < 2000 || value > 2020) valid = false;
+								if (value < 1900 || value > 2100) valid = false;
 							}
 						}
 						catch (NumberFormatException e) {
