@@ -156,6 +156,7 @@ abstract public class ContractingBase extends BaseProcessor {
             
             // user must select different priorities
             int[] priority = new int[] {21,22,23};
+            boolean[] error = new boolean[priority.length];
             int options = 8;
             for (int i = 0; i < priority.length; i++) {
             	for (int j = i+1; j < priority.length; j++) {
@@ -171,8 +172,9 @@ abstract public class ContractingBase extends BaseProcessor {
 					catch (NumberFormatException e) {
 						continue;
 					}
-            		if (Math.abs(n1-n2) % options == 0) {
+            		if (Math.abs(n1-n2) % options == 0 && !error[j]) {
             			addError(Constants.PREFERENCE_PREFIX + priority[j], "You may not select the same priority twice.");
+            			error[j] = true;
             		}
             	}
             }
