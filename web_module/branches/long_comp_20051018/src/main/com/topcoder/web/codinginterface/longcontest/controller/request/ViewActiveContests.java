@@ -12,6 +12,8 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.shared.security.User;
+import com.topcoder.web.codinginterface.longcontest.model.LongContestModel;
+import java.util.Vector;
 
 public class ViewActiveContests extends Base{
 	
@@ -29,6 +31,7 @@ public class ViewActiveContests extends Base{
 //        }
     	
     	User usr = getUser();
+    	Vector contests = new Vector();
     	
     	System.out.println("User ID: " + usr.getId());
     	
@@ -42,14 +45,26 @@ public class ViewActiveContests extends Base{
 	    	ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_active_contests");
 	    	
 	    	for(int i = 0; i < rsc.getRowCount(); i++) {
+	    		
+	    		LongContestModel longContest = new LongContestModel();
+	    		
 	    		String contestName = rsc.getStringItem(i, "contest_name");
+	    		long contestID = rsc.getLongItem(i, "contest_id");
 	    		String roundName = rsc.getStringItem(i, "round_name");
-	    		String roundID = rsc.getStringItem(i, "round_id");
+	    		long roundID = rsc.getLongItem(i, "round_id");
 	    		String startTime = rsc.getStringItem(i, "start_time");
 	    		String endTime = rsc.getStringItem(i, "end_time");
 	    		
 	    		int numRegs = getNumRegistrants(dai, roundID);
 	    		boolean usrRoundRegistered = isCoderRoundRegistered(dai, roundID, usr.getId());
+	    		
+	    		longContest.setContestName(contestName);
+	    		longContest.setRoundID(roundID);
+	    		longContest.setRoundName(roundName);
+	    		longContest.setStartTime(startTime);
+	    		longContest.setEndTime(endTime);
+	    		longContest.setCoderRegistered(usrRoundRegistered);
+	    		longContest.setContestID(contestID);
 	    		
 	    		System.out.println("Contest Name: " + contestName);
 	    		System.out.println("Round Name: " + roundName);
@@ -59,23 +74,39 @@ public class ViewActiveContests extends Base{
 	    		System.out.println("Num. Reg: " + numRegs);
 	    		System.out.println("Usr Reg: " + usrRoundRegistered);
 	    		
+	    		RoundProblem prob = getRoundProblem(dai, roundID);
+	    		
+	    		System.out.println("Problem ID: " + prob.getProblemID());
+	    		System.out.println("Component ID: " + prob.getComponentID());	    		
+	    		System.out.println("Problem name: " + prob.getName());
+	    			    	
+	    		longContest.setComponentID(prob.getComponentID());
+	    		longContest.setProblemID(prob.getProblemID());
+	    		longContest.setProblemName(prob.getName());
+	    		
+	    		longContest.setPassed(false);
+	    		
+	    		contests.add(longContest);
+	    		
 	    	}
+	    	
     	} catch(Exception e) {
     		e.printStackTrace();
     		throw new TCWebException("Error retrieving page.");
     	}
     	
+    	getRequest().setAttribute(Constants.CONTEST_LIST_KEY, contests);
     	
     	setNextPage(Constants.PAGE_ACTIVE_CONTESTS);
     	setIsNextPageInContext(true);
     }
     
-    private int getNumRegistrants(DataAccessInt dai, String roundID) throws Exception {
+    private int getNumRegistrants(DataAccessInt dai, long roundID) throws Exception {
     	Request r = new Request();
     	ResultSetContainer rsc;
     	try {    	
 	    	r.setContentHandle("long_contest_num_registered");
-	    	r.setProperty("rd", roundID);	    	
+	    	r.setProperty("rd", "" + roundID);	    	
 	    	Map m = dai.getData(r);    	
 	    	rsc = (ResultSetContainer)m.get("long_contest_num_registered");
     	} catch(Exception e) {
@@ -85,12 +116,12 @@ public class ViewActiveContests extends Base{
     	return rsc.getIntItem(0,0);
     }
     
-    private boolean isCoderRoundRegistered(DataAccessInt dai, String roundID, long coderID) throws Exception {
+    private boolean isCoderRoundRegistered(DataAccessInt dai, long roundID, long coderID) throws Exception {
     	Request r = new Request();
     	ResultSetContainer rsc;
     	try {    	
 	    	r.setContentHandle("long_contest_coder_registered");
-	    	r.setProperty("rd", roundID);
+	    	r.setProperty("rd", "" + roundID);
 	    	r.setProperty("cr", "" + coderID);
 	    	Map m = dai.getData(r);    	
 	    	rsc = (ResultSetContainer)m.get("long_contest_coder_registered");
@@ -99,5 +130,54 @@ public class ViewActiveContests extends Base{
     		throw e;
     	}
     	return rsc.getIntItem(0,0) > 0;
+    }
+    
+    private RoundProblem getRoundProblem(DataAccessInt dai, long roundID) throws Exception {
+    	Request r = new Request();
+    	ResultSetContainer rsc;
+    	RoundProblem ret = null;
+    	try {    	
+	    	r.setContentHandle("long_contest_round_problems");
+	    	r.setProperty("rd", "" + roundID);	    	
+	    	Map m = dai.getData(r);    	
+	    	rsc = (ResultSetContainer)m.get("long_contest_round_problems");
+	    	if(rsc.size() > 0) {
+	    		ret = new RoundProblem();
+	    		ret.setComponentID(rsc.getLongItem(0, "component_id"));
+	    		ret.setProblemID(rsc.getLongItem(0, "problem_id"));
+	    		ret.setName(rsc.getStringItem(0, "name"));
+	    	}
+    	} catch(Exception e) {
+    		log.error("Error occured executing DB command: long_contest_coder_registered", e);
+    		throw e;
+    	}
+    	return ret;
+    }
+
+    private static class RoundProblem {
+    	
+    	private long componentID;
+    	private long problemID;
+    	private String name;
+    	
+		public long getComponentID() {
+			return componentID;
+		}
+		public void setComponentID(long componentID) {
+			this.componentID = componentID;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public long getProblemID() {
+			return problemID;
+		}
+		public void setProblemID(long problemID) {
+			this.problemID = problemID;
+		}
+		
     }
 }
