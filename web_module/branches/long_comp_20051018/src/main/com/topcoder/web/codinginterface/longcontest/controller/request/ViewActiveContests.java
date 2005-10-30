@@ -20,15 +20,22 @@ public class ViewActiveContests extends Base{
     protected static final Logger log = Logger.getLogger(ViewActiveContests.class);
 
     protected void businessProcessing() throws TCWebException {
-//        try {
-//            TCRequest request = getRequest();
-//            
-//        }catch(TCWebException e){
-//            throw e;
-//        }catch(Exception e){
-//            e.printStackTrace();
-//            throw new TCWebException("Error retrieving page.");
-//        }
+    	try {
+	    	DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+	    	
+	    	Request r = new Request();
+	    	r.setContentHandle("long_contest_round_problems");
+	    	r.setProperty("rd", "7300");
+	    	
+	    	Map m = dai.getData(r);
+	    	ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_round_problems");
+	    	System.out.println("# Round problems: " + rsc.getRowCount());
+    
+    	} catch(Exception e) {
+    		e.printStackTrace();
+    		throw new TCWebException("Error retrieving page.");
+    	}
+/*
     	
     	User usr = getUser();
     	Vector contests = new Vector();
@@ -154,8 +161,9 @@ public class ViewActiveContests extends Base{
     		throw new TCWebException("Error retrieving page.");
     	}
     	
-    	getRequest().setAttribute(Constants.CONTEST_LIST_KEY, contests);
     	
+    	getRequest().setAttribute(Constants.CONTEST_LIST_KEY, contests);
+    	*/
     	setNextPage(Constants.PAGE_ACTIVE_CONTESTS);
     	setIsNextPageInContext(true);
     }
