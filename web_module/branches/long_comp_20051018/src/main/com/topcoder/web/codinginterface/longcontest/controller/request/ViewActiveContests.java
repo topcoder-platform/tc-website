@@ -2,18 +2,14 @@ package com.topcoder.web.codinginterface.longcontest.controller.request;
 
 import java.util.Map;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultColumn;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.shared.security.User;
-import com.topcoder.web.codinginterface.longcontest.model.LongContestModel;
-import java.util.Vector;
 
 public class ViewActiveContests extends Base{
 	
@@ -21,7 +17,7 @@ public class ViewActiveContests extends Base{
 
     protected void businessProcessing() throws TCWebException {
     	try {
-	    	DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+	    	DataAccessInt dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
 	    	
 	    	Request r = new Request();
 	    	r.setContentHandle("long_contest_round_problems");
