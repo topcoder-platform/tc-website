@@ -1,14 +1,17 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
 import java.util.Map;
+import java.util.Vector;
 
-import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.codinginterface.longcontest.model.LongContestModel;
 import com.topcoder.web.common.TCWebException;
 
 public class ViewActiveContests extends Base{
@@ -16,23 +19,23 @@ public class ViewActiveContests extends Base{
     protected static final Logger log = Logger.getLogger(ViewActiveContests.class);
 
     protected void businessProcessing() throws TCWebException {
-    	try {
-	    	DataAccessInt dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
-	    	
-	    	Request r = new Request();
-	    	r.setContentHandle("long_contest_round_problems");
-	    	r.setProperty("rd", "7300");
-	    	
-	    	Map m = dai.getData(r);
-	    	ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_round_problems");
-	    	System.out.println("# Round problems: " + rsc.getRowCount());
-	    	System.out.println("Some value: " + rsc.getStringItem(0,0));
-    
-    	} catch(Exception e) {
-    		e.printStackTrace();
-    		throw new TCWebException("Error retrieving page.");
-    	}
-/*
+//    	try {
+//	    	DataAccessInt dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+//	    	
+//	    	Request r = new Request();
+//	    	r.setContentHandle("long_contest_round_problems");
+//	    	r.setProperty("rd", "7210");
+//	    	
+//	    	Map m = dai.getData(r);
+//	    	ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_round_problems");
+//	    	System.out.println("### Round problems: " + rsc.getRowCount());
+//	    	System.out.println("Some value: " + rsc.getStringItem(0,0));
+//    
+//    	} catch(Exception e) {
+//    		e.printStackTrace();
+//    		throw new TCWebException("Error retrieving page.");
+//    	}
+
     	
     	User usr = getUser();
     	Vector contests = new Vector();
@@ -160,7 +163,7 @@ public class ViewActiveContests extends Base{
     	
     	
     	getRequest().setAttribute(Constants.CONTEST_LIST_KEY, contests);
-    	*/
+    	
     	setNextPage(Constants.PAGE_ACTIVE_CONTESTS);
     	setIsNextPageInContext(true);
     }
