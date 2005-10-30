@@ -76,19 +76,78 @@ public class ViewActiveContests extends Base{
 	    		
 	    		RoundProblem prob = getRoundProblem(dai, roundID);
 	    		
-	    		System.out.println("Problem ID: " + prob.getProblemID());
-	    		System.out.println("Component ID: " + prob.getComponentID());	    		
-	    		System.out.println("Problem name: " + prob.getName());
-	    			    	
-	    		longContest.setComponentID(prob.getComponentID());
-	    		longContest.setProblemID(prob.getProblemID());
-	    		longContest.setProblemName(prob.getName());
+	    		if(prob != null) {
+		    		System.out.println("Problem ID: " + prob.getProblemID());
+		    		System.out.println("Component ID: " + prob.getComponentID());	    		
+		    		System.out.println("Problem name: " + prob.getName());
+		    			    	
+		    		longContest.setComponentID(prob.getComponentID());
+		    		longContest.setProblemID(prob.getProblemID());
+		    		longContest.setProblemName(prob.getName());
+	    		}
 	    		
 	    		longContest.setPassed(false);
 	    		
 	    		contests.add(longContest);
 	    		
 	    	}
+	    	
+	    	if(rsc.getRowCount() < 5) { // list some pass contests
+	    		Request reqPassContests = new Request();
+	    		reqPassContests.setContentHandle("long_contest_pass_contests");
+		    	Map mapPassContests = dai.getData(reqPassContests);
+		    	ResultSetContainer rscPassContests = (ResultSetContainer)mapPassContests.get("long_contest_pass_contests");
+		    	for(int i = 0; i < rscPassContests.getRowCount(); i++) {
+		    		if(rsc.getRowCount() + i + 1 >= 5) {
+		    			break;
+		    		}
+		    		LongContestModel longContest = new LongContestModel();
+		    		
+		    		String contestName = rscPassContests.getStringItem(i, "contest_name");
+		    		long contestID = rscPassContests.getLongItem(i, "contest_id");
+		    		String roundName = rscPassContests.getStringItem(i, "round_name");
+		    		long roundID = rscPassContests.getLongItem(i, "round_id");
+		    		String startTime = rscPassContests.getStringItem(i, "start_time");
+		    		String endTime = rscPassContests.getStringItem(i, "end_time");
+		    		
+		    		int numRegs = getNumRegistrants(dai, roundID);
+		    		boolean usrRoundRegistered = isCoderRoundRegistered(dai, roundID, usr.getId());
+		    		
+		    		longContest.setContestName(contestName);
+		    		longContest.setRoundID(roundID);
+		    		longContest.setRoundName(roundName);
+		    		longContest.setStartTime(startTime);
+		    		longContest.setEndTime(endTime);
+		    		longContest.setCoderRegistered(usrRoundRegistered);
+		    		longContest.setContestID(contestID);
+		    		
+		    		System.out.println("Contest Name: " + contestName);
+		    		System.out.println("Round Name: " + roundName);
+		    		System.out.println("Round ID: " + roundID);
+		    		System.out.println("Start Time: " + startTime);
+		    		System.out.println("End Time:" + endTime);
+		    		System.out.println("Num. Reg: " + numRegs);
+		    		System.out.println("Usr Reg: " + usrRoundRegistered);
+		    		
+		    		RoundProblem prob = getRoundProblem(dai, roundID);
+		    		
+		    		if(prob != null) {
+			    		System.out.println("Problem ID: " + prob.getProblemID());
+			    		System.out.println("Component ID: " + prob.getComponentID());	    		
+			    		System.out.println("Problem name: " + prob.getName());
+			    			    	
+			    		longContest.setComponentID(prob.getComponentID());
+			    		longContest.setProblemID(prob.getProblemID());
+			    		longContest.setProblemName(prob.getName());
+		    		}
+		    		
+		    		longContest.setPassed(true);
+		    		
+		    		contests.add(longContest);
+		    		
+		    	}
+	    	}
+	    	
 	    	
     	} catch(Exception e) {
     		e.printStackTrace();
