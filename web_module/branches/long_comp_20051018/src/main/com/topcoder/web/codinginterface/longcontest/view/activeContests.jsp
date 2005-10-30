@@ -8,7 +8,6 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
-<%@ taglib uri="struts-bean.tld" prefix="bean" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -61,20 +60,20 @@
 <%boolean even = true;%>
 <logic:iterate name="<%=Constants.CONTEST_LIST_KEY%>" id="contest">
 <tr>
-<td class="<%=even?"statLt":"statDk"%>"><b><bean:write name="contest" property="roundName"/></b></td>
-<td class="<%=even?"statLt":"statDk"%>"><A href="longcontest?module=ViewProblem&<%=Constants.COMPONENT_ID%>=<bean:write name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<bean:write name="contest" property="roundID"/>" class="statLink">
-<bean:write name="contest" property="problemName"/></A>
+<td class="<%=even?"statLt":"statDk"%>"><b><tc-webtag:beanWrite name="contest" property="roundName"/></b></td>
+<td class="<%=even?"statLt":"statDk"%>"><A href="longcontest?module=ViewProblem&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">
+<tc-webtag:beanWrite name="contest" property="problemName"/></A>
 </td>
 <td class="<%=even?"statLt":"statDk"%>"><logic:equal name="contest" property="passed" value="false">
-<A href="longcontest?module=Submit&<%=Constants.COMPONENT_ID%>=<bean:write name="contest" property="componentID"/>"/>&<%=Constants.ROUND_ID%>=<bean:write name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<bean:write name="contest" property="contestID"/>"/>" class="statLink">
+<A href="longcontest?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>" class="statLink">
 submit</a>
 </logic:equal>
 </td>
-<td class="<%=even?"statLt":"statDk"%>"><A href="longcontest?module=ViewStandings&<%=Constants.COMPONENT_ID%>=<bean:write name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<bean:write name="contest" property="roundID"/>" class="statLink">
+<td class="<%=even?"statLt":"statDk"%>"><A href="longcontest?module=ViewStandings&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">
 standings</a>
 </td>
-<td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><bean:write name="contest" property="startTime"/></td>
-<td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><bean:write name="contest" property="endTime"/></td>
+<td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><tc-webtag:beanWrite name="contest" property="startTime"/></td>
+<td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><tc-webtag:beanWrite name="contest" property="endTime"/></td>
 </tr>
 <%even=!even;%>
 </logic:iterate>
