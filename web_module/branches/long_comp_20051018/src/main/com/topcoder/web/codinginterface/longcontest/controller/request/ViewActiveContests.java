@@ -25,7 +25,7 @@ public class ViewActiveContests extends Base{
 	    	
 	    	Request r = new Request();
 	    	r.setContentHandle("long_contest_round_problems");
-	    	r.setProperty("rd", "7300");
+	    	//r.setProperty("rd", "7300");
 	    	
 	    	Map m = dai.getData(r);
 	    	ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_round_problems");
