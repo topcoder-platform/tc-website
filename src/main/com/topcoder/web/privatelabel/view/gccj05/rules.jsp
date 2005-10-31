@@ -3,7 +3,7 @@
 <head>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gccj05.css"/>
-<title>Google India Code Jam 2005, Powered by TopCoder</title>
+<title>Google China Code Jam 2005, Powered by TopCoder</title>
 </head>
 <body>
 
@@ -15,7 +15,7 @@
          <table border="0" width=100% cellpadding=0 cellspacing=0>
             <tr>
                <td width="49%"></td>
-               <td valign="bottom" align="center"><img border="0" src="/i/events/gccj05/gccj05_logo.gif" alt="Google India Code Jam logo"></td>
+               <td valign="bottom" align="center"><img border="0" src="/i/events/gccj05/gccj05_logo.gif" alt="Google China Code Jam logo"></td>
                <td width="49%"></td>
             </tr>
          </table>
@@ -45,12 +45,12 @@
          <span class="bigRed">No purchase necessary to enter or win.  The tournament is void where prohibited.</span>
          <br><br>
          <span class="greenSubtitle">Summary of the Tournament</span><br>
-         The Google&#153; India Code Jam 2005 (gccj05) is being offered by Google Online India Private Limited ("Google") and TopCoder, Inc. ("TopCoder").  Google is using the results of the gccj05 to identify possible employees for Google's Research & Development Center in Bangalore, India.  The gccj05 will take place between Tuesday, February 8 and Saturday, March 26, 2005.  It begins with an 18-day online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament.  The tournament consists of one (1) qualification round, one (1) online elimination round and one (1) onsite final round.  In addition, Google will award Rs. 16,00,000 in cash prizes to the 50 finalists in the tournament.
+         The Google&#153; China Code Jam 2005 (gccj05) is being offered by Google Online China Private Limited ("Google") and TopCoder, Inc. ("TopCoder").  Google is using the results of the gccj05 to identify possible employees for Google's Research & Development Center in Bangalore, China.  The gccj05 will take place between Tuesday, February 8 and Saturday, March 26, 2005.  It begins with an 18-day online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament.  The tournament consists of one (1) qualification round, one (1) online elimination round and one (1) onsite final round.  In addition, Google will award Rs. 16,00,000 in cash prizes to the 50 finalists in the tournament.
          <br><br>
          <strong>Eligibility</strong><br>
-         All individuals who are residents of India, Indonesia, Malaysia, Maldives, Myanmar, Nepal, Singapore and Thailand may register and compete in the Google India Code Jam 2005.  
+         All individuals who are residents of China, Indonesia, Malaysia, Maldives, Myanmar, Nepal, Singapore and Thailand may register and compete in the Google China Code Jam 2005.  
          <br><br>
-         Registrants who are 18 years of age or older are eligible to win cash prizes, unless otherwise prohibited. The Google India Code Jam 2005 is void where prohibited by applicable law.
+         Registrants who are 18 years of age or older are eligible to win cash prizes, unless otherwise prohibited. The Google China Code Jam 2005 is void where prohibited by applicable law.
          <br><br>
          Employees of Google and TopCoder and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, contractors, parent companies, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
          <br><br>
@@ -77,7 +77,7 @@
          The top 500 positive (i.e., greater than zero) scorers from the problem sets presented during the Qualification Round will be eligible to compete in Round 1 of the gccj05. 
          <br><br>
          <strong>The Competition Field</strong><br>
-         Up to 500 individuals will qualify to compete in Round 1.  The top 50 scorers from Round 1 will advance to the Championship Round, which will be held onsite at or near Google's office in Bangalore, India.
+         Up to 500 individuals will qualify to compete in Round 1.  The top 50 scorers from Round 1 will advance to the Championship Round, which will be held onsite at or near Google's office in Bangalore, China.
          <br><br>
          The Rounds will be held on the following dates:
 
@@ -85,7 +85,7 @@
          <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
          <tr valign="top">
          <td class="sidebarTitle">Round</strong></td>
-         <td class="sidebarTitle">Date and Time * (all India Standard Time)</strong></td>
+         <td class="sidebarTitle">Date and Time * (all China Standard Time)</strong></td>
          </tr>
          <tr valign="top">
          <td class="sidebarText" nowrap=nowrap>Round 1</td>
@@ -108,7 +108,7 @@
          The use of external TopCoder Arena plugins or any modifications to the TopCoder Arena functionality is strictly prohibited.
          <br><br>
          <strong>Online Elimination Round</strong><br>
-         Everyone who competes in Round 1 must log in to the TopCoder Competition Arena no later than ten minutes prior to the start of the online round.  All start times will be communicated as India Standard Time, so contestants in other time zones must adjust accordingly.  If a coder does not participate, for any reason, in the online round, it will be treated as an automatic loss in that round of competition. 
+         Everyone who competes in Round 1 must log in to the TopCoder Competition Arena no later than ten minutes prior to the start of the online round.  All start times will be communicated as China Standard Time, so contestants in other time zones must adjust accordingly.  If a coder does not participate, for any reason, in the online round, it will be treated as an automatic loss in that round of competition. 
          <br><br>
          All competitors who have been invited to compete will be randomly assigned to specific rooms, with up to 10 people in each room.  TopCoder will determine all room assignments prior to the start of each online round. 
          <br><br>
@@ -122,7 +122,7 @@
          <strong>NOTE:</strong>  In the event of a tie for any advancing position, all tied coders will advance to the Championship Round.
          <br><br>
          <strong>Onsite Championship Round</strong><br>
-         The 50 advancers from Round 1 will travel to Bangalore, India on Friday, March 25 to compete in the Championship Round of the tournament being held on Saturday, March 26, 2005.  Each finalist must confirm his/her attendance in the Championship Round by March 11, 2005.  If a contestant does not confirm his/her attendance in the Championship Round by said date, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest scorer from Round 1.
+         The 50 advancers from Round 1 will travel to Bangalore, China on Friday, March 25 to compete in the Championship Round of the tournament being held on Saturday, March 26, 2005.  Each finalist must confirm his/her attendance in the Championship Round by March 11, 2005.  If a contestant does not confirm his/her attendance in the Championship Round by said date, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest scorer from Round 1.
          <br><br>
          Google will provide all travel accommodations for each finalist to attend the Championship Round.  In addition, Google will provide overnight accommodations and all travel arrangements to and from the airport if required, as well as transportation to the contest venue and all meals for the participants.  All other expenses are the responsibility of the contestant.   
          <br><br>
@@ -137,7 +137,7 @@
 
          <a name="prizes"></a>
          <span class="greenSubtitle">About the Prizes</span><br>
-         The 50 finalists in the Championship Round will receive cash prizes totaling Rs. 16,00,000.  As required by Indian law, Google India will deduct income-tax at source from all prize money, at the rate of 30% + surcharge + educational cess.  Prizes will be distributed as follows:
+         The 50 finalists in the Championship Round will receive cash prizes totaling Rs. 16,00,000.  As required by Indian law, Google China will deduct income-tax at source from all prize money, at the rate of 30% + surcharge + educational cess.  Prizes will be distributed as follows:
          <br><br>
          
          <table  width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
@@ -225,7 +225,7 @@
          <br><br>
          As a condition of participation in the tournament, all information provided by you upon registration must be comprehensive, accurate and up-to-date. Google and/or TopCoder may require you to complete an additional registration form to register for the tournament. In order to be eligible to participate in the tournament, you must have completed any and all registration forms required by Google and TopCoder.
          <br><br>
-         As a condition of winning and redeeming a cash prize, winners will be required to complete and provide to Google a completed Affidavit of Eligibility and Liability and Publicity Release (the "Affidavit").  In completing the Affidavit, a winner (a) confirms his/her eligibility, (b) represents and warrants that he/she has not cheated; that the idea for the code and/or challenge submitted is his/hers alone, (c) verifies the accuracy of the information submitted in the Google India Code Jam 2005 registration process, (d) authorizes TopCoder and Google to publicize the tournament's results, (e) agrees to sign any applicable forms required by tax authorities, (f) licenses to TopCoder and Google rights to all information submitted during the tournament (including rights to source code and other executables), and (g) releases TopCoder and Google from liability arising out of any prize won. 
+         As a condition of winning and redeeming a cash prize, winners will be required to complete and provide to Google a completed Affidavit of Eligibility and Liability and Publicity Release (the "Affidavit").  In completing the Affidavit, a winner (a) confirms his/her eligibility, (b) represents and warrants that he/she has not cheated; that the idea for the code and/or challenge submitted is his/hers alone, (c) verifies the accuracy of the information submitted in the Google China Code Jam 2005 registration process, (d) authorizes TopCoder and Google to publicize the tournament's results, (e) agrees to sign any applicable forms required by tax authorities, (f) licenses to TopCoder and Google rights to all information submitted during the tournament (including rights to source code and other executables), and (g) releases TopCoder and Google from liability arising out of any prize won. 
          <br><br>
          If prize notification is returned as undeliverable, or if the winner fails to submit the Affidavit, the winner will be disqualified and the prize money won by the disqualified winner will be forfeited. Providing false information in the registration process or in the required forms described in this paragraph will disqualify a winner.
          <br><br>
@@ -238,7 +238,7 @@
          <span class="greenSubtitle">Other</span><br>
          The tournament is void in whole or in part where prohibited by law.
          <br/><br/>
-         This tournament is brought to you by Google Online India Private Limited (<A href="http://www.google.com/bangalore">http://www.google.com/bangalore</A>) Prestige Sigma, No. 3, 1st Floor, Vittal Mallya Road (Grant Road), Corporation Division No. 61, Bangalore 560 001, India and TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue, Glastonbury, CT 06033.
+         This tournament is brought to you by Google Online China Private Limited (<A href="http://www.google.com/bangalore">http://www.google.com/bangalore</A>) Prestige Sigma, No. 3, 1st Floor, Vittal Mallya Road (Grant Road), Corporation Division No. 61, Bangalore 560 001, China and TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue, Glastonbury, CT 06033.
          <br><br>
          </div>
       </td>
