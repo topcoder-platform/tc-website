@@ -1,3 +1,7 @@
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="struts-logic.tld" prefix="logic" %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -55,14 +59,16 @@
    <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href="sort">Submissions</A></td>
 </tr>
 <%-- ITERATOR --%>
+<logic:iterate name="<%=Constants.ROUND_STANDINGS_LIST_KEY%>" id="standing">
 <%boolean even = true;%>
 <tr>
-   <td class="<%=even?"statLt":"statDk"%>">handle</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;">99.99</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 15px;">1</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;"><A href="submission history page" class="statLink">3</A></td>
+   <td class="<%=even?"statLt":"statDk"%>"><tc-webtag:beanWrite name="standing" property="handle"/></td>
+   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;"><tc-webtag:beanWrite name="standing" property="points"/></td>
+   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 15px;"><tc-webtag:beanWrite name="standing" property="rank"/></td>
+   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;"><A href="submission history page" class="statLink"><tc-webtag:beanWrite name="standing" property="submissionNumber"/></A></td>
 </tr>
 <%even=!even;%>
+</logic:iterate>
 <%-- END ITERATOR --%>
       </TABLE>
       </TD>
