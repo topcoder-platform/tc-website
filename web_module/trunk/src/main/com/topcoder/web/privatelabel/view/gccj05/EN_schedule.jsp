@@ -63,7 +63,7 @@
          </table>
 
          <br><br>
-         <span class="greenSubtitle">Online Elimination Roundsd</span><br>
+         <span class="greenSubtitle">Online Elimination Rounds</span><br>
          Everyone who advances to an online round must log in to the TopCoder Competition Arena no later than ten minutes prior to the start of the round. All start times will be communicated as GMT +8. If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition.
          <br><br>
 
