@@ -81,18 +81,5 @@ public class Confirm extends FullRegConfirm {
         }
     }
 
-    protected Map getFileTypes(String db) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("file_types");
-        Map qMap = getDataAccess(db, true).getData(r);
-        ResultSetContainer questions = (ResultSetContainer) qMap.get("file_types");
-        ResultSetContainer.ResultSetRow row = null;
-
-        Map ret = new HashMap();
-        for (Iterator it = questions.iterator(); it.hasNext();) {
-            row = (ResultSetContainer.ResultSetRow) it.next();
-            ret.put(row.getStringItem("mime_type"), new Long(row.getLongItem("file_type_id")));
-        }
-        return ret;
-    }
+    
 }
