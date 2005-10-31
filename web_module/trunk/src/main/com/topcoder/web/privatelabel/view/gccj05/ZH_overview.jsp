@@ -33,50 +33,50 @@
          </jsp:include>
          </div>
 
-         <br/><br/>
+         <br><br>
 
          <span class="bigTitle">Tough problems. Intense competition. No pressure.</span>
          <span valign=top>
          <jsp:include page="right.jsp" />
          </span>
 
-         <br/><br/>
+         <br><br>
          Do you have exceptional programming skills? Can you make computers perform like silicon puppets with cleverly crafted code? Are you at ease when faced with a hard deadline and a group of peers scrutinizing your work? Here's your opportunity to demonstrate the art of Computer Science in a reward-rich environment.
-         <br/><br/>
+         <br><br>
          Google is looking for engineers with the programming skill to rewrite the world's information infrastructure. The Google China Code Jam 2005 is one way we hope to find them. While we don't impose arbitrary deadlines on our engineers, we do put a premium on well-implemented code. And we appreciate the thought process required to create it. In fact, we appreciate clear thinking in all its forms, from puzzle solving to chess mastery (one of our engineers is an International Grand Master).
-         <br/><br/>
+         <br><br>
          <span class="greenSubtitle">Say it your way</span>
-         <br/><br/>
+         <br><br>
          Use Java or C++. Pick either of these programming languages to code your solutions. Both are acceptable and neither is given an advantage.
-         <br/><br/>
+         <br><br>
          A wizard with C but rusty with C++?  Don't worry!  We've got it covered.  Check out the <A href="/pl/?module=Static&d1=gccj05&d2=ch_cpp">C++ for C Programmers page</A> that shows you the basics of learning C++ for the competition.  Also, be sure to spend time in the Practice Rooms by clicking on the Competition Arena link above.
-         <br/><br/>
+         <br><br>
          <span class="greenSubtitle">How it works</span>
-         <br/><br/>
+         <br><br>
          Be sure to read the Google China Code Jam 2005 <a href="/pl/?module=Static&d1=gccj05&d2=ch_instructions">competition instructions</a>.
-         <br/><br/>
+         <br><br>
          The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints. Here's the line-by-line documentation:
-         <br/><br/>
+         <br><br>
          <div class=indented>
-            <b>Download the Arena</b><br/>
+            <b>Download the Arena</b><br>
             The TopCoder&#174; Competition Arena (a Java Applet) is where you begin. Download the app, read the problem statements, then code solutions, compile and test those solutions and submit the code for points. You can download the arena ahead of time to practice on sample problems prior to the competition.
-            <br/><br/>
-            <b>Coding Phase</b><br/>
+            <br><br>
+            <b>Coding Phase</b><br>
             At the designated date and time, competitors enter the Arena and are placed in groups of ten into virtual rooms. All participants are presented with the same set of three problems of escalating difficulty. In a race to see who can create an accurate solution in the shortest amount of time, competitors try to out-think and out-code their opponents. The Leader Board tallies the points during each step of the competition.
-            <br/><br/>
-            <b>Challenge Phase</b><br/>
+            <br><br>
+            <b>Challenge Phase</b><br>
             During the Challenge Phase, competitors view each other's code and try to "break" that code by passing test cases through the submitted code, with the hope that the results are not satisfied by the software written. Breaking another developer's code is the most direct form of competition for a programmer. In this phase, points are awarded for successful challenges and deducted for unsuccessful challenges.
-            <br/><br/>
-            <b>System Tests</b><br/>
+            <br><br>
+            <b>System Tests</b><br>
             Within minutes of the end of the Challenge Phase, the automated, objective system tests determine the accuracy of all submissions and award final points to all competitors. The assessment of your performance and presentation of stats is nearly instantaneous, as is the gratification of knowing how you did against a competitive field.
          </div>
-         <br/>
+         <br>
          <span class="greenSubtitle">Are You Ready?</span>
-         <br/><br/>
+         <br><br>
          Registration for the Google China Code Jam 2005 opens on February 8th and ends on February 25, 2005. Registration is unlimited, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the China Code Jam 2005 on March 5th.  Click on the Registration link at the top of the page to enter.
-         <br/><br/>
+         <br><br>
          The 50 advancers from Round 1 will travel to Bangalore, China on Friday, March 25 to compete in the Championship Round of the tournament being held on Saturday, March 26, 2005.
-         <br/><br/>
+         <br><br>
 
                         <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
                            <tr>
@@ -126,9 +126,9 @@
                            </tr>
                         </table>
 
-         <br/>
+         <br>
          <span class="greenSubtitle">Prizes</span>
-         <br/><br/>
+         <br><br>
          The 50 finalists in the Championship Round will receive cash prizes totaling Rs. 1,600,000.  As required by Indian law, Google China will deduct income-tax at source from all prize money, at the rate of 30% + surcharge + educational cess.  Prizes will be distributed as follows:
          <br><br>
          <table  width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
@@ -202,7 +202,7 @@
          </tr>
          </table>
 
-         <br/><br/>
+         <br><br>
          To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=ch_rules">Terms and Conditions</a>.
          </div>
       </td>

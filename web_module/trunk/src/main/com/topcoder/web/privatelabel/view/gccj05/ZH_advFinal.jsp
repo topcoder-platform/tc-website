@@ -33,14 +33,14 @@
          </jsp:include>
          </div>
 
-         <br/><br/>
+         <br><br>
 
          <span class="bigTitle">Tough problems. Intense competition. No pressure.</span>
          <span valign=top>
          <jsp:include page="right.jsp" />
          </span>
 
-         <br/><br/>
+         <br><br>
          <table class=tableFrame cellpadding=5 cellspacing=2 border="0" width="400">
          <tr>
          <td class=advancersTitle colspan=2>Onsite Finals</td>
@@ -104,7 +104,7 @@
 
          </table>
 
-         <br/><br/>
+         <br><br>
          To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gccj05&d2=rules">Terms and Conditions</a>.
          </div>
       </td>

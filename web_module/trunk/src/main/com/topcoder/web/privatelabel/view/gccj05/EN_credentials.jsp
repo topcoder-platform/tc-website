@@ -37,16 +37,16 @@
          </jsp:include>
          </div>
 
-         <br/><br/>
+         <br><br>
 
          <span class="bigTitle">Forgot your password?</span>
          <span valign=top>
          <jsp:include page="EN_right_reg.jsp" />
          </span>
 
-         <br/><br/>
+         <br><br>
          Please enter your email address below.  You should receive an email shortly with your username and password.
-         <br/><br/><br/><br/>
+         <br><br><br><br>
 
          <table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
          <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="GET" name="regForm">
@@ -54,7 +54,7 @@
             <tc-webtag:hiddenInput name="<%=Constants.COMPANY_ID%>"/>
             <tr>
                 <td colspan="2" class="errorText" align="center">
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br/></tc-webtag:errorIterator>
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br></tc-webtag:errorIterator>
                 </td>
             </tr>
             <tr>
@@ -75,8 +75,8 @@
             </form>
       </table>
 
-         <br/><br/>
-         <br/><br/>
+         <br><br>
+         <br><br>
          To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=EN_rules">Terms and Conditions</a>.
          </div>
       </td>
