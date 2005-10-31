@@ -28,7 +28,7 @@
 
          <!-- Tab bar links-->
          <div align="center">
-         <jsp:include page="links.jsp" >
+         <jsp:include page="EN_links.jsp" >
          <jsp:param name="selectedTab" value="overview"/>
          </jsp:include>
          </div>
@@ -37,7 +37,7 @@
 
          <span class="bigTitle">Tough problems. Intense competition. No pressure.</span>
          <span valign=top>
-         <jsp:include page="right.jsp" />
+         <jsp:include page="EN_right.jsp" />
          </span>
 
          <br/><br/>
@@ -49,11 +49,11 @@
          <br/><br/>
          Use Java or C++. Pick either of these programming languages to code your solutions. Both are acceptable and neither is given an advantage.
          <br/><br/>
-         A wizard with C but rusty with C++?  Don't worry!  We've got it covered.  Check out the <A href="/pl/?module=Static&d1=gccj05&d2=ch_cpp">C++ for C Programmers page</A> that shows you the basics of learning C++ for the competition.  Also, be sure to spend time in the Practice Rooms by clicking on the Competition Arena link above.
+         A wizard with C but rusty with C++?  Don't worry!  We've got it covered.  Check out the <A href="/pl/?module=Static&d1=gccj05&d2=EN_cpp">C++ for C Programmers page</A> that shows you the basics of learning C++ for the competition.  Also, be sure to spend time in the Practice Rooms by clicking on the Competition Arena link above.
          <br/><br/>
          <span class="greenSubtitle">How it works</span>
          <br/><br/>
-         Be sure to read the Google China Code Jam 2005 <a href="/pl/?module=Static&d1=gccj05&d2=ch_instructions">competition instructions</a>.
+         Be sure to read the Google China Code Jam 2005 <a href="/pl/?module=Static&d1=gccj05&d2=EN_instructions">competition instructions</a>.
          <br/><br/>
          The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints. Here's the line-by-line documentation:
          <br/><br/>
@@ -203,12 +203,12 @@
          </table>
 
          <br/><br/>
-         To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=ch_rules">Terms and Conditions</a>.
+         To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=EN_rules">Terms and Conditions</a>.
          </div>
       </td>
       <td width="49%">&#160;</td>
    <tr>
 </table>
-<jsp:include page="foot.jsp" />
+<jsp:include page="EN_foot.jsp" />
 </body>
 </html>

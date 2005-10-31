@@ -32,7 +32,7 @@
       <br/><br/>
       6th to 50th Place<br/>will share Rs. 8,50,000
       <br><br>
-      <A href="/pl/?module=Static&d1=gccj05&d2=rules#prizes">Learn more</A>
+      <A href="/pl/?module=Static&d1=gccj05&d2=EN_rules#prizes">Learn more</A>
       </td>
    </tr>
 </table>
