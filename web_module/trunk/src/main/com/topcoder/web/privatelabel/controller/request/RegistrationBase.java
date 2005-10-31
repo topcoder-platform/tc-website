@@ -10,12 +10,15 @@ import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import java.util.Iterator;
 import java.util.Map;
+import java.util.HashMap;
+import java.util.Locale;
 
 /**
  * Provides some functionality that is basic to all registration
@@ -60,7 +63,7 @@ public abstract class RegistrationBase extends BaseProcessor {
     /**
      * makeRegInfo() will be called before registrationProcessing()
      * is called in child classes.
-     * @return
+     * @return SimpleRegInfo
      */
     protected abstract SimpleRegInfo makeRegInfo() throws Exception;
 
@@ -187,6 +190,31 @@ public abstract class RegistrationBase extends BaseProcessor {
         Persistor p = new SessionPersistor(getRequest().getSession(true));
         info = (SimpleRegInfo) p.getObject(Constants.REGISTRATION_INFO);
         return info;
+    }
+
+
+   protected Map getFileTypes(String db) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("file_types");
+        Map qMap = getDataAccess(db, true).getData(r);
+        ResultSetContainer questions = (ResultSetContainer) qMap.get("file_types");
+        ResultSetContainer.ResultSetRow row = null;
+
+        Map ret = new HashMap();
+        for (Iterator it = questions.iterator(); it.hasNext();) {
+            row = (ResultSetContainer.ResultSetRow) it.next();
+            ret.put(row.getStringItem("mime_type"), new Long(row.getLongItem("file_type_id")));
+        }
+        return ret;
+    }
+
+    protected Locale getLocale() {
+        String locale = StringUtils.checkNull(getRequest().getParameter(Constants.LOCALE));
+        if (locale.equals("")) {
+            return Locale.US;
+        } else {
+            return new Locale(locale);
+        }
     }
 
 }

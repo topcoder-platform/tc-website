@@ -1,36 +1,25 @@
-package com.topcoder.web.privatelabel.controller.request.brooks;
+package com.topcoder.web.privatelabel.controller.request;
 
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.ResumeRegInfo;
+import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.common.MultipartRequest;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.MultipartRequest;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.controller.request.FullRegConfirm;
-import com.topcoder.web.privatelabel.model.*;
 
+import java.util.Map;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 
 /**
  * @author dok
- * Date: Jan 22, 2004
+ * @version $Revision$ $Date$
+ *          Create Date: Oct 31, 2005
  */
-public class Confirm extends FullRegConfirm {
-    protected static Logger log = Logger.getLogger(Confirm.class);
-
-    protected void setNextPage() {
-
-        if (hasErrors()) {
-            setNextPage(Constants.BROOKS_REG_DEMOG_PAGE);
-        } else {
-            setNextPage(Constants.BROOKS_REG_CONFIRM_PAGE);
-        }
-        setIsNextPageInContext(true);
-    }
-
+public abstract class ResumeRegConfirm extends FullRegConfirm {
     protected SimpleRegInfo makeRegInfo() throws Exception {
         FullRegInfo info;
         info = (FullRegInfo) super.makeRegInfo();
@@ -73,37 +62,26 @@ public class Confirm extends FullRegConfirm {
                 }
             }
 
-            DemographicResponse r = null;
-            DemographicQuestion q = null;
-            int count = 0;
-            for (Iterator it = ((FullRegInfo) info).getResponses().iterator(); it.hasNext();) {
-                r = (DemographicResponse) it.next();
-                if (r.getQuestionId() == Long.parseLong(Constants.BROOKS_REFERRAL_QUESTION_ID)) {
-                    count++;
-                }
-            }
-
-            if (count != 0 && count > 3) {
-                addError(Constants.DEMOG_PREFIX + Constants.BROOKS_REFERRAL_QUESTION_ID, "Please choose a maximum of three answers.");
-            }
-
-            try {
-                if (hasErrors()) {
-                    //lookup if email is an existing one
-                    if (emailExists(info.getEmail())) {
-                        getRequest().setAttribute("extraquestion", "true");
-                    } else {
-                        getRequest().setAttribute("extraquestion", "false");
-                        removeError("demog_61");
-                    }
-                }
-            } catch (Exception e) {
-                throw new TCWebException(e);
-            }
 
         } catch (Exception e) {
             throw new TCWebException(e);
         }
     }
+
+    protected Map getFileTypes(String db) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("file_types");
+        Map qMap = getDataAccess(db, true).getData(r);
+        ResultSetContainer questions = (ResultSetContainer) qMap.get("file_types");
+        ResultSetContainer.ResultSetRow row = null;
+
+        Map ret = new HashMap();
+        for (Iterator it = questions.iterator(); it.hasNext();) {
+            row = (ResultSetContainer.ResultSetRow) it.next();
+            ret.put(row.getStringItem("mime_type"), new Long(row.getLongItem("file_type_id")));
+        }
+        return ret;
+    }
+
 
 }
