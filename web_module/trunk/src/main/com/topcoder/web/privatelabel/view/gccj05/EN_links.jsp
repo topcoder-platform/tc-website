@@ -40,6 +40,14 @@
             <% } else { %>
                   <a href="/pl/?module=Static&d1=gccj05&d2=EN_instructions">Instructions</a> &nbsp;|&nbsp;
             <% } %>
+
+<!-- FAQ tab -->
+            <% if (selectedTab.equals("faq")) {%>
+                 <font color="006633">FAQ</font> &nbsp;|&nbsp;
+            <% } else { %>
+                  <a href="/pl/?module=Static&d1=gccj05&d2=EN_faq">FAQ</a> &nbsp;|&nbsp;
+            <% } %>
+
 <%--
 <!-- Advancers tab -->
             <% if (selectedTab.equals("advancers")) {%>
