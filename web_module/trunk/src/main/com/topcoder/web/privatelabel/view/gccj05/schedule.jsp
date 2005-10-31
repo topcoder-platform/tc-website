@@ -3,7 +3,7 @@
 <head>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gccj05.css"/>
-<title>Google India Code Jam 2005, Powered by TopCoder</title>
+<title>Google China Code Jam 2005, Powered by TopCoder</title>
 </head>
 <body>
 
@@ -15,7 +15,7 @@
          <table border="0" width=100% cellpadding=0 cellspacing=0>
             <tr>
                <td width="49%"></td>
-               <td valign="bottom" align="center"><img border="0" src="/i/events/gccj05/gccj05_logo.gif" alt="Google India Code Jam logo"></td>
+               <td valign="bottom" align="center"><img border="0" src="/i/events/gccj05/gccj05_logo.gif" alt="Google China Code Jam logo"></td>
                <td width="49%"></td>
             </tr>
          </table>
@@ -43,8 +43,8 @@
          <br/><br/>
 
          <!-- Qualification Rounds begins -->
-         <span class=greenSubtitle>Qualification Rounds</span><br/>
-         The top 500 scorers from the Qualification Round will be eligible to compete in Round 1 of the India Code Jam 2005.</p>
+         <span class="greenSubtitle">Qualification Rounds</span><br/>
+         The top 500 scorers from the Qualification Round will be eligible to compete in Round 1 of the China Code Jam 2005.</p>
          <br/><br/>
 
          <a name="sched"></a>
@@ -62,15 +62,15 @@
                <td class="sidebarText" align="center">500</td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText" colspan="4">*NOTE: All times are India Standard Time</td>
+               <td class="sidebarText" colspan="4">*NOTE: All times are China Standard Time</td>
             </tr>
          </table>
          <!-- Qualification Rounds ends -->
          <br/><br/>
 
          <!-- Online Elimination Round begins -->
-         <span class=greenSubtitle>Online Elimination Round</span><br/>
-         Everyone who competes in Round 1 must log in to the TopCoder Competition Arena no later than ten minutes prior to the start of the online round.  The start time will be communicated as India Standard Time.  If a coder does not participate, for any reason, in the online round, it will be treated as an automatic loss in that round of competition.
+         <span class="greenSubtitle">Online Elimination Round</span><br/>
+         Everyone who competes in Round 1 must log in to the TopCoder Competition Arena no later than ten minutes prior to the start of the online round.  The start time will be communicated as China Standard Time.  If a coder does not participate, for any reason, in the online round, it will be treated as an automatic loss in that round of competition.
          <br/><br/>
 
          <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
@@ -87,7 +87,7 @@
                <td class="sidebarText" align="center">50</td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText" colspan="4">NOTE: All times are India Standard Time. In the event that the online round must be cancelled for any reason, the "raindate" will be the following day at the same time.</td>
+               <td class="sidebarText" colspan="4">NOTE: All times are China Standard Time. In the event that the online round must be cancelled for any reason, the "raindate" will be the following day at the same time.</td>
             </tr>
          </table>
          <br/><br/>
@@ -95,8 +95,8 @@
          <!-- Online Elimination Rounds ends -->
 
          <!-- Onsite Championship Round begins -->
-         <span class=greenSubtitle>Onsite Championship Round</span><br/>
-         Up to 50 coders will compete in the Championship Round being held onsite in Bangalore, India.  Each finalist is responsible for arriving in Bangalore to compete.
+         <span class="greenSubtitle">Onsite Championship Round</span><br/>
+         Up to 50 coders will compete in the Championship Round being held onsite in Bangalore, China.  Each finalist is responsible for arriving in Bangalore to compete.
          <br/><br/>
 
          <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
@@ -113,12 +113,12 @@
                <td class="sidebarText" align="center">n/a</td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText" colspan="4">*NOTE: All times are India Standard Time. The time of the onsite round is subject to change.</td>
+               <td class="sidebarText" colspan="4">*NOTE: All times are China Standard Time. The time of the onsite round is subject to change.</td>
             </tr>
          </table>
 
          <br/><br/>
-         To find out more detailed information about the Google India Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=rules">Terms and Conditions</a>.
+         To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=rules">Terms and Conditions</a>.
          </div>
       </td>
       <td width="49%">&#160;</td>
