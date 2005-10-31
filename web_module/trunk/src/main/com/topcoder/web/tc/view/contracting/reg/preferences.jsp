@@ -113,6 +113,32 @@ return false;
         <% if (request.getAttribute(Constants.MESSAGE)!=null) { %>
             <p><span class="errorText"><%=request.getAttribute(Constants.MESSAGE)%></span></p>
         <% } %>
+        <br/>
+
+		<table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
+			<tr>
+				<span class=bodySubtitle>Resume</span>
+				<td class=bodyText>Attach your <b>resume</b> here and we'll include it in your profile.  Note that your resume
+				will only be viewed by TopCoder staff.  In the event that we would like to share your resume with a potential employer,
+				we will first notify you and ask for your permission.</td>
+			</tr>
+			<tc-webtag:errorIterator id="err" name="Resume">
+				<tr>
+					<td class=bodyText>
+						<span class="bigRed"><%=err%></span>
+					</td>
+				</tr>
+			</tc-webtag:errorIterator>
+			<%if(request.getAttribute("hasResume") != null && request.getAttribute("hasResume").equals("true")) {%>
+				<tr>
+					<td class=bodyText><a href="/Resume?&t=DownloadTask">Download your existing resume</a></td>
+				</tr>
+			<%}%>
+			<tr>
+				<td width=100%><input type=file name="Resume"></td>
+			</tr>
+		</table>
+		<br/><br/>
 
 
       <tc:preferenceGroupIterator id="prefGroup" list="<%=prefList%>">
@@ -152,26 +178,7 @@ return false;
       </tc:preferenceGroupIterator>
       <p align=center class=bodyText><b>Please check to make sure that your contact information is up-to-date in your profile.</b></p>
 
-        <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
-         <tr>
-            <td class=bodyText>Attach your <b>resume</b> here and we'll include it in your profile</td>
-         </tr>
-         <tc-webtag:errorIterator id="err" name="Resume">
-                            <tr>
-                                <td class=bodyText>
-                                    <span class="bigRed"><%=err%></span>
-                                </td>
-                            </tr>
-                        </tc-webtag:errorIterator>
-         <%if(request.getAttribute("hasResume") != null && request.getAttribute("hasResume").equals("true")) {%>
-         <tr>
-            <td class=bodyText><a href="/Resume?&t=DownloadTask">Download your existing resume</a></td>
-         </tr>
-         <%}%>
-         <tr>
-            <td width=100%><input type=file name="Resume"></td>
-         </tr>
-      </table>
+
 
       <div width="100%" align=center><br/><br/><a href="javascript:goToPage('ContractingLanguages');"><img src="/i/submit.jpg" border=0/></a>
       <%if(isEdit) {%><a href="javascript:goToPage('ContractingConfirm');"><img src="/i/jumpToEnd.jpg" border=0/></a><%}%></div>
