@@ -40,14 +40,14 @@
             <% } else { %>
                   <a href="/pl/?module=Static&d1=gccj05&d2=EN_instructions">Instructions</a> &nbsp;|&nbsp;
             <% } %>
-
+<%--
 <!-- Advancers tab -->
             <% if (selectedTab.equals("advancers")) {%>
                  <font color="006633">Advancers</font> &nbsp;|&nbsp;
             <% } else { %>
                   <a href="/pl/?module=Static&d1=gccj05&d2=EN_advancers">Advancers</a> &nbsp;|&nbsp;
             <% } %>
-
+--%>
 <!-- Practice Arena  tab -->
             <% if (selectedTab.equals("arena")) {%>
                  <font color="006633">Competition Arena</font>
