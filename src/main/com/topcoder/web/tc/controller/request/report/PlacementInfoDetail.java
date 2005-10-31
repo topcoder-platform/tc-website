@@ -60,7 +60,7 @@ public class PlacementInfoDetail extends Base {
                     	
                     	ContractingResponse rsp = new ContractingResponse();
                         rsp.setName(text);
-                        rsp.setVal(answer);
+                        rsp.setVal(answer + "-A");
 
                         g.addResponse(rsp);
                     }
@@ -84,7 +84,7 @@ public class PlacementInfoDetail extends Base {
 
                         ContractingResponse rsp = new ContractingResponse();
                         rsp.setName(text);
-                        rsp.setVal(answer);
+                        rsp.setVal(answer + "-B");
 
                         g.addResponse(rsp);
                     }
