@@ -35,17 +35,17 @@
          </div>
 
 
-         <br/><br/>
+         <br><br>
          <span class="bigTitle">Schedule</span>
          <span valign=top>
          <jsp:include page="EN_right.jsp" />
          </span>
-         <br/><br/>
+         <br><br>
 
          <!-- Qualification Rounds begins -->
-         <span class="greenSubtitle">Qualification Rounds</span><br/>
+         <span class="greenSubtitle">Qualification Rounds</span><br>
          The top 500 scorers from the Qualification Round will be eligible to compete in Round 1 of the China Code Jam 2005.</p>
-         <br/><br/>
+         <br><br>
 
          <a name="sched"></a>
          <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
@@ -66,12 +66,12 @@
             </tr>
          </table>
          <!-- Qualification Rounds ends -->
-         <br/><br/>
+         <br><br>
 
          <!-- Online Elimination Round begins -->
-         <span class="greenSubtitle">Online Elimination Round</span><br/>
+         <span class="greenSubtitle">Online Elimination Round</span><br>
          Everyone who competes in Round 1 must log in to the TopCoder Competition Arena no later than ten minutes prior to the start of the online round.  The start time will be communicated as China Standard Time.  If a coder does not participate, for any reason, in the online round, it will be treated as an automatic loss in that round of competition.
-         <br/><br/>
+         <br><br>
 
          <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
             <tr>
@@ -90,14 +90,14 @@
                <td class="sidebarText" colspan="4">NOTE: All times are China Standard Time. In the event that the online round must be cancelled for any reason, the "raindate" will be the following day at the same time.</td>
             </tr>
          </table>
-         <br/><br/>
+         <br><br>
 
          <!-- Online Elimination Rounds ends -->
 
          <!-- Onsite Championship Round begins -->
-         <span class="greenSubtitle">Onsite Championship Round</span><br/>
+         <span class="greenSubtitle">Onsite Championship Round</span><br>
          Up to 50 coders will compete in the Championship Round being held onsite in Bangalore, China.  Each finalist is responsible for arriving in Bangalore to compete.
-         <br/><br/>
+         <br><br>
 
          <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
             <tr>
@@ -117,7 +117,7 @@
             </tr>
          </table>
 
-         <br/><br/>
+         <br><br>
          To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=EN_rules">Terms and Conditions</a>.
          </div>
       </td>

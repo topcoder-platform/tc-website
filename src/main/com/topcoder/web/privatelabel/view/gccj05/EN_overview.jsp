@@ -33,176 +33,60 @@
          </jsp:include>
          </div>
 
-         <br/><br/>
+         <br><br>
 
-         <span class="bigTitle">Tough problems. Intense competition. No pressure.</span>
+         <span class="bigTitle">The Google&#173; China Code Jam 2005</span>
          <span valign=top>
          <jsp:include page="EN_right.jsp" />
          </span>
 
-         <br/><br/>
-         Do you have exceptional programming skills? Can you make computers perform like silicon puppets with cleverly crafted code? Are you at ease when faced with a hard deadline and a group of peers scrutinizing your work? Here's your opportunity to demonstrate the art of Computer Science in a reward-rich environment.
-         <br/><br/>
-         Google is looking for engineers with the programming skill to rewrite the world's information infrastructure. The Google China Code Jam 2005 is one way we hope to find them. While we don't impose arbitrary deadlines on our engineers, we do put a premium on well-implemented code. And we appreciate the thought process required to create it. In fact, we appreciate clear thinking in all its forms, from puzzle solving to chess mastery (one of our engineers is an International Grand Master).
-         <br/><br/>
-         <span class="greenSubtitle">Say it your way</span>
-         <br/><br/>
-         Use Java or C++. Pick either of these programming languages to code your solutions. Both are acceptable and neither is given an advantage.
-         <br/><br/>
-         A wizard with C but rusty with C++?  Don't worry!  We've got it covered.  Check out the <A href="/pl/?module=Static&d1=gccj05&d2=EN_cpp">C++ for C Programmers page</A> that shows you the basics of learning C++ for the competition.  Also, be sure to spend time in the Practice Rooms by clicking on the Competition Arena link above.
-         <br/><br/>
-         <span class="greenSubtitle">How it works</span>
-         <br/><br/>
-         Be sure to read the Google China Code Jam 2005 <a href="/pl/?module=Static&d1=gccj05&d2=EN_instructions">competition instructions</a>.
-         <br/><br/>
-         The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints. Here's the line-by-line documentation:
-         <br/><br/>
-         <div class=indented>
-            <b>Download the Arena</b><br/>
-            The TopCoder&#174; Competition Arena (a Java Applet) is where you begin. Download the app, read the problem statements, then code solutions, compile and test those solutions and submit the code for points. You can download the arena ahead of time to practice on sample problems prior to the competition.
-            <br/><br/>
-            <b>Coding Phase</b><br/>
-            At the designated date and time, competitors enter the Arena and are placed in groups of ten into virtual rooms. All participants are presented with the same set of three problems of escalating difficulty. In a race to see who can create an accurate solution in the shortest amount of time, competitors try to out-think and out-code their opponents. The Leader Board tallies the points during each step of the competition.
-            <br/><br/>
-            <b>Challenge Phase</b><br/>
-            During the Challenge Phase, competitors view each other's code and try to "break" that code by passing test cases through the submitted code, with the hope that the results are not satisfied by the software written. Breaking another developer's code is the most direct form of competition for a programmer. In this phase, points are awarded for successful challenges and deducted for unsuccessful challenges.
-            <br/><br/>
-            <b>System Tests</b><br/>
-            Within minutes of the end of the Challenge Phase, the automated, objective system tests determine the accuracy of all submissions and award final points to all competitors. The assessment of your performance and presentation of stats is nearly instantaneous, as is the gratification of knowing how you did against a competitive field.
-         </div>
-         <br/>
-         <span class="greenSubtitle">Are You Ready?</span>
-         <br/><br/>
-         Registration for the Google China Code Jam 2005 opens on February 8th and ends on February 25, 2005. Registration is unlimited, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the China Code Jam 2005 on March 5th.  Click on the Registration link at the top of the page to enter.
-         <br/><br/>
-         The 50 advancers from Round 1 will travel to Bangalore, China on Friday, March 25 to compete in the Championship Round of the tournament being held on Saturday, March 26, 2005.
-         <br/><br/>
-
-                        <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
-                           <tr>
-                              <td class="sidebarTitle" width="30%">Date</td>
-                              <td class="sidebarTitle" width="20%">Time*</td>
-
-                              <td class="sidebarTitle" width="50%">Status</td>
-                           </tr>
-                           <tr valign="top">
-                              <td class="sidebarText">Tuesday, February 8</td>
-                              <td class="sidebarText">9:00 AM</td>
-                              <td class="sidebarText">Registration Opens</td>
-                           </tr>
-
-                           <tr valign="top">
-                              <td class="sidebarText" nowrap>Friday, February 25</td>
-                              <td class="sidebarText">6:00 PM</td>
-                              <td class="sidebarText">Registration Closes</td>
-                           </tr>
-
-                           <tr valign="top">
-                              <td class="sidebarText">Sunday, February 27</td>
-                              <td class="sidebarText">9:00 AM</td>
-                              <td class="sidebarText">Qualification Round begins</td>
-                           </tr>
-
-                           <tr valign="top">
-                              <td class="sidebarText">Sunday, February 27</td>
-                              <td class="sidebarText">9:00 PM</td>
-                              <td class="sidebarText">Qualification Round ends</td>
-                           </tr>
-
-                           <tr valign="top">
-                              <td class="sidebarText">Saturday, March 5</td>
-                              <td class="sidebarText">12:00 PM</td>
-                              <td class="sidebarText">Round 1 - 500 participants<br>DURATION: Approx. 2 hours</td>
-                           </tr>
-
-                           <tr valign="top">
-                              <td class="sidebarText">Saturday, March 26</td>
-                              <td class="sidebarText">9:00 AM</td>
-                              <td class="sidebarText">Championship Round - 50 participants<br>DURATION: Approx. 2.5 hours</td>
-                           </tr>
-
-                           <tr valign="top">
-                              <td class="sidebarText" colspan="3">*All times are China Standard Time</td>
-                           </tr>
-                        </table>
-
-         <br/>
-         <span class="greenSubtitle">Prizes</span>
-         <br/><br/>
-         The 50 finalists in the Championship Round will receive cash prizes totaling Rs. 1,600,000.  As required by Indian law, Google China will deduct income-tax at source from all prize money, at the rate of 30% + surcharge + educational cess.  Prizes will be distributed as follows:
          <br><br>
-         <table  width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
-         <tr valign="top">
-         <td class="sidebarTitle">Competitor(s)</td>
-         <td class="sidebarTitle" align=right>Prize</td>
-         </tr>
-         <tr valign="top">
-         <td class="sidebarText"><b>1st place finisher* - Tournament Champion</b></td>
-         <td class="sidebarText" align=right><b>Rs. 3,00,000</b>
-         </td>
-         </tr>
-         <tr valign="top">
-         <td class="sidebarText" nowrap>2nd place finisher* in the Championship Round</td>
-         <td class="sidebarText" nowrap align=right>Rs. 2,00,000
-         </td>
-         </tr>
-         <tr valign="top">
-         <td class="sidebarText" nowrap>3rd place
-         finisher* in the Championship Round</td>
-         <td class="sidebarText" nowrap align=right>Rs. 1,25,000
-         </td>
-         </tr>
-         <tr valign="top">
-         <td class="sidebarText" nowrap>4th place
-         finisher* in the Championship Round</td>
-         <td class="sidebarText" nowrap align=right>Rs. 75,000
-         </td>
-         </tr>
-         <tr valign="top">
-         <td class="sidebarText" nowrap>5th place
-         finisher* in the Championship Round</td>
-         <td class="sidebarText" nowrap align=right>Rs. 50,000
-         </td>
-         </tr>
-         <tr valign="top">
-         <td class="sidebarText" nowrap>6th - 10th place
-         finishers* in the Championship Round</td>
-         <td class="sidebarText" nowrap align=right>Rs. 35,000 each
-         </td>
-         </tr>
-         <tr valign="top">
-         <td class="sidebarText" nowrap>11th - 20th place
-         finishers* in the Championship Round</td>
-         <td class="sidebarText" nowrap align=right>Rs. 25,000 each
-         </td>
-         </tr>
-         <tr valign="top">
-         <td class="sidebarText" nowrap>21st - 30th place
-         finishers* in the Championship Round</td>
-         <td class="sidebarText" nowrap align=right>Rs. 20,000 each
-         </td>
-         </tr>
-         <tr valign="top">
-         <td class="sidebarText" nowrap>31st - 40th place
-         finishers* in the Championship Round</td>
-         <td class="sidebarText" nowrap align=right>Rs. 15,000 each
-         </td>
-         </tr>
-         <tr valign="top">
-         <td class="sidebarText" nowrap>41st - 50th place
-         finishers* in the Championship Round</td>
-         <td class="sidebarText" nowrap align=right>Rs. 7,500 each
-         </td>
-         </tr>
-         <tr valign="top">
-         <td class="sidebarText" colspan="2">* Winner must be present at the onsite round to receive prize.</td>
-         </tr>
-         <tr valign="top">
-         <td class="sidebarText" colspan="2">* Winner must correctly answer at least 1 question and do so in less than 1 hour to receive prize.</td>
-         </tr>
-         </table>
+         The Google China Code Jam is coming to China!  This is your chance to compete against your countrymen and women in the search for China's finest.
+<br><br>
+We've got tough problems, prize money and bragging rights up for grabs.  Think you have what it takes?
+This is how it works:
+The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints.
+The competition is available in four programming languages - Java, C++, C#, and VB.
+Here's the line-by-line documentation: 
+Download the Arena
+The TopCoder® Competition Arena (a Java Applet) is where you begin. Download the app, read the problem statements, then code solutions, compile and test those solutions and submit the code for points. You can download the arena ahead of time to practice on sample problems prior to the competition. 
 
-         <br/><br/>
+Coding Phase
+At the designated date and time, competitors enter the Arena and are placed in groups of ten into virtual rooms. All participants are presented with the same set of three problems of escalating difficulty. In a race to see who can create an accurate solution in the shortest amount of time, competitors try to out-think and out-code their opponents. The Leader Board tallies the points during each step of the competition. 
+
+Challenge Phase
+During the Challenge Phase, competitors view each other's code and try to "break'" that code by passing test cases through the submitted code, with the hope that the results are not satisfied by the software written. Breaking another developer's code is the most direct form of competition for a programmer. In this phase, points are awarded for successful challenges and deducted for unsuccessful challenges. 
+
+System Tests
+Within minutes of the end of the Challenge Phase, the automated, objective system tests determine the accuracy of all submissions and award final points to all competitors. The assessment of your performance and presentation of stats is nearly instantaneous, as is the gratification of knowing how you did against a competitive field. 
+
+Here's what you'll need to know:
+Registration for the Google™ China Code Jam 2005 is open from Friday, November 18 2005 9AM GMT +8 to December 6, 2005 9AM GMT +8.  Registration is unlimited, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the Code Jam on December 12.
+Date   Time*   Status
+Friday, November 18   9:00 AM   Registration Opens
+Tuesday, December 6   9:00AM   Registration Closes
+Tuesday, December 6   12:00 PM (noon)   Qualification Round begins
+Wednesday, December 7   12:00 PM (noon)   Qualification Round ends
+Monday, December 12   9:00 PM   Round 1 - 500 participants
+Thursday, December 15   9:00 PM   Round 2 - 250 participants
+Saturday, January 14   TBD   Championship Round - 50 participants
+* All times listed as GMT +8
+The competitors with the top 250 scores from Round 1 will advance to Round 2 on December 15th. The top 50 performers in Round 2 will be invited to compete for $155,000 in cash prizes in the Championship Round onsite in Beijing, China.
+
+Prizes
+The 500 participants in Round 1 will receive a "Google™ China Code Jam 2006" t-shirt. All 50 finalists that compete in the Championship Round will receive a cash prize as follows:
+1st place finisher* - Tournament Champion       X
+2nd - 10th place            X
+11th - 25th place            X
+26th - 50th place            X
+51st - 100th place            X
+
+
+
+To find out more detailed information about the Google™ China Code Jam 2006, including a list of the prizes, please read the Terms and Conditions.
+
+
+         <br><br>
          To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=EN_rules">Terms and Conditions</a>.
          </div>
       </td>

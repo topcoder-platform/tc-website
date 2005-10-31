@@ -41,14 +41,14 @@
          </jsp:include>
          </div>
 
-         <br/><br/>
+         <br><br>
 
          <span class="bigTitle">Registration</span>
          <span valign=top>
          <jsp:include page="EN_right_reg.jsp" />
          </span>
 
-         <br/><br/>
+         <br><br>
          <table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
          <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm" enctype="multipart/form-data">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_INDIA_05_REG_CONFIRM%>"/>
@@ -57,7 +57,7 @@
             <pl:questionIterator id="question" list="<%=questionList%>">
                 <tr>
                     <td colspan="2" class="errorText" align="center">
-                        <tc-webtag:errorIterator id="err" name="<%=Constants.DEMOG_PREFIX+question.getId()%>"><%=err%><br/></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.DEMOG_PREFIX+question.getId()%>"><%=err%><br></tc-webtag:errorIterator>
                     </td>
                 </tr>
                 <tr>
@@ -72,7 +72,7 @@
             </pl:questionIterator>
            <tr>
                 <td colspan="2" class="errorText" align="center">
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.FILE%>"><%=err%><br/></tc-webtag:errorIterator>
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.FILE%>"><%=err%><br></tc-webtag:errorIterator>
                 </td>
             </tr>
            <tr>
@@ -96,8 +96,8 @@
          </form>
          </table>
 
-         <br/><br/>
-         <br/><br/>
+         <br><br>
+         <br><br>
          To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=EN_rules">Terms and Conditions</a>.
          </div>
       </td>

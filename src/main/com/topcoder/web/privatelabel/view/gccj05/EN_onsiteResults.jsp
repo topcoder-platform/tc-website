@@ -28,7 +28,7 @@
          
          <span class="bigTitle">Google China Code Jam 2005 Final Results</span>
 
-         <br/><br/>
+         <br><br>
 
 <table class=tableFrame cellpadding=5 cellspacing=2 border="0" width="600" align="center">
 <tr>

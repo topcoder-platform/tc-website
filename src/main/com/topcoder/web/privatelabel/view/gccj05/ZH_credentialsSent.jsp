@@ -34,18 +34,18 @@
          </jsp:include>
          </div>
 
-         <br/><br/>
+         <br><br>
 
          <span class="bigTitle">Registration</span>
          <span valign=top>
          <jsp:include page="right_reg.jsp" />
          </span>
 
-         <br/><br/>
+         <br><br>
             Your login credentials have been sent to the provided email address.
-         <br/><br/>
-         <br/><br/>
-         <br/><br/>
+         <br><br>
+         <br><br>
+         <br><br>
          To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=rules">Terms and Conditions</a>.
          </div>
       </td>

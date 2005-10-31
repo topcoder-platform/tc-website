@@ -43,14 +43,14 @@
          </jsp:include>
          </div>
 
-         <br/><br/>
+         <br><br>
 
          <span class="bigTitle">Registration</span>
          <span valign=top>
          <jsp:include page="EN_right_reg.jsp" />
          </span>
 
-         <br/><br/>
+         <br><br>
             <table width="100%" cellpadding="0" cellspacing="5" class="bodyText" align="center" >
            <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_INDIA_05_REG_SUBMIT%>"/>
@@ -217,8 +217,8 @@
          </form>
          </table>
 
-         <br/><br/>
-         <br/><br/>
+         <br><br>
+         <br><br>
          To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=EN_rules">Terms and Conditions</a>.
          </div>
       </td>

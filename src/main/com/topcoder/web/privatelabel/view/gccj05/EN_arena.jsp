@@ -41,32 +41,32 @@ function openWin(url, name, w, h) {
          </jsp:include>
          </div>
 
-         <br/><br/>
+         <br><br>
 
          <span class="bigTitle">Competition Arena</span>
          <span valign=top>
          <jsp:include page="EN_right.jsp" />
          </span>
 
-         <br/><br/>
+         <br><br>
          <A href="/pl/?module=GoogleIndia05Credentials&cid=8039">Forgot your password?</A>
-         <br/><br/>
+         <br><br>
          You need at least <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version 1.4</A> to run the Arena.  Click <A href="http://java.sun.com/getjava/index.jsp " target="_blank">here</A> if you do not have Java Runtime 1.4 installed.
-         <br/><br/>
+         <br><br>
          Using a proxy server? Click <A href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">here</A> to read how to <A href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">configure Java</A>.
-         <br/><br/>
+         <br><br>
          Click <A href="/pl/?module=Static&d1=gccj05&d2=EN_instructions">here</A> to read to the <A href="/pl/?module=Static&d1=gccj05&d2=EN_instructions">competition instructions</A>.
-         <br/><br/>
+         <br><br>
          Click <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">here</a> to run the Competition Arena as a <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">Java Applet</A>.
-         <br/><br/>
+         <br><br>
          Click <a href="/contest/arena/ContestAppletGoogleIndia.jnlp" target="_blank">here</a> to run the Competition Arena as a <a href="/contest/arena/ContestAppletGoogleIndia.jnlp" target="_blank">Java Web Start Application</A>.
-         <br/><br/>
+         <br><br>
          Note:  If you wish to install Java Web Start click <a href="http://java.sun.com/products/javawebstart/index.html" target="_blank">here</a>.
-         <br/><br/>
+         <br><br>
          If you experience problems loading or running the Competition Arena please contact  <A href="mailto:gccj05@topcoder.com?subject=Question regarding Google China Code Jam">gccj05@topcoder.com</A>.
-         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-         <br/><br/>
+         <br><br>
          To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=EN_rules">Terms and Conditions</a>.
          </div>
       </td>
