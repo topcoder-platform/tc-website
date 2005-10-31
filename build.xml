@@ -780,7 +780,7 @@
                  <include name="ApplicationServer.properties"/>
                  <include name="DBMS.properties"/>
                  <include name="DataAccess.properties"/>
-                 <include name="PrivateLabel.properties"/>
+                 <include name="PrivateLabel*.properties"/>
                  <!--<include name="jive.properties"/>-->
                  <include name="problem.xsd"/>
                  <include name="ProblemParser.properties"/>
