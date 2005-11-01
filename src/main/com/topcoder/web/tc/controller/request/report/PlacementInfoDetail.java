@@ -60,7 +60,7 @@ public class PlacementInfoDetail extends Base {
                     	
                     	ContractingResponse rsp = new ContractingResponse();
                         rsp.setName(text);
-                        rsp.setVal(answer + "-A");
+                        rsp.setVal(answer);
 
                         g.addResponse(rsp);
                     }
@@ -84,7 +84,7 @@ public class PlacementInfoDetail extends Base {
 
                         ContractingResponse rsp = new ContractingResponse();
                         rsp.setName(text);
-                        rsp.setVal(answer + "-B");
+                        rsp.setVal(answer);
 
                         g.addResponse(rsp);
                     }
@@ -272,16 +272,31 @@ public class PlacementInfoDetail extends Base {
         //load pref group list, then preferences in group
         Request r = new Request();
         r.setContentHandle("preference_groups");
-
+        
         ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("preference_groups");
         for (int i = 0; i < rsc.size(); i++) {
             ResultSetContainer rscPrefs = prefbean.getPreferencesByGroup(userId, rsc.getIntItem(i, "preference_group_id"), DBMS.COMMON_OLTP_DATASOURCE_NAME);
             for (int j = 0; j < rscPrefs.size(); j++) {
                 info.setEdit(true);
-                info.setPreference(rscPrefs.getStringItem(j, "preference_id"), rscPrefs.getStringItem(j, "preference_value_id"));
-                log.debug("SET PREFERENCE " + rscPrefs.getStringItem(j, "preference_id") + " TO " + rscPrefs.getStringItem(j, "preference_value_id"));
+                if (rscPrefs.getIntItem(j, "preference_type_id") == Constants.PREFERENCE_TEXT_ANSWER) {
+                    info.setPreference(rscPrefs.getStringItem(j, "preference_id"), rscPrefs.getStringItem(j, "value"));
+                    log.debug("SET PREFERENCE " + rscPrefs.getStringItem(j, "preference_id") + " TO " + rscPrefs.getStringItem(j, "value"));
+                } else {
+                    info.setPreference(rscPrefs.getStringItem(j, "preference_id"), rscPrefs.getStringItem(j, "preference_value_id"));
+                    log.debug("SET PREFERENCE " + rscPrefs.getStringItem(j, "preference_id") + " TO " + rscPrefs.getStringItem(j, "preference_value_id"));
+                }
             }
         }
+
+//        ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("preference_groups");
+//        for (int i = 0; i < rsc.size(); i++) {
+//            ResultSetContainer rscPrefs = prefbean.getPreferencesByGroup(userId, rsc.getIntItem(i, "preference_group_id"), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+//            for (int j = 0; j < rscPrefs.size(); j++) {
+//                info.setEdit(true);
+//                info.setPreference(rscPrefs.getStringItem(j, "preference_id"), rscPrefs.getStringItem(j, "preference_value_id"));
+//                log.debug("SET PREFERENCE " + rscPrefs.getStringItem(j, "preference_id") + " TO " + rscPrefs.getStringItem(j, "preference_value_id"));
+//            }
+//        }
 
         /*if(!info.isEdit())
             return info;*/
