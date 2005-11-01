@@ -79,8 +79,8 @@
    <td class="tableHeader" width="25%" align="right">&#160;</td>
    <% } %>
 </tr>
-<rsc:iterator list="<%=submissions%>" id="resultRow">
 <%boolean even = true;%>
+<rsc:iterator list="<%=submissions%>" id="resultRow">
 <tr>
    <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="submission_number" row="<%=resultRow%>"/></td>
    <td class="<%=even?"statLt":"statDk"%>" align="center"><%=sdf.format(new Date(resultRow.getLongItem("submit_time")))%></td>
