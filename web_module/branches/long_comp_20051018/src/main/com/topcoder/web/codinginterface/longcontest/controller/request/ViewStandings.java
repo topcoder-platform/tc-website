@@ -40,6 +40,8 @@ public class ViewStandings extends Base {
 		if(sortOrd == null) sortOrd = "asc";
 		if(startRow == null) startRow = "0";
 		
+		int startRowIdx = Integer.parseInt(startRow);
+		
 		try {
 			if (roundID == null) {
 
@@ -108,9 +110,9 @@ public class ViewStandings extends Base {
 				
 				// Return a subset of the results
 				Vector temp = new Vector();
-				int startIdx = Integer.parseInt(startRow);
-				for(int i = startIdx; i < temp.size(); i++) {
-					if(i == startIdx + maxResults) break;
+				
+				for(int i = startRowIdx; i < standings.size(); i++) {
+					if(i == startRowIdx + maxResults) break;
 					temp.add(standings.elementAt(i));
 				}
 				standings = temp;
@@ -121,10 +123,17 @@ public class ViewStandings extends Base {
 			throw new TCWebException("Error retrieving page.");
 		}
 
+		// Compute the next and prev start rows
+		String prevStartRow, nextStartRow;
+		
+		if(startRowIdx == 0) prevStartRow = "-1";
+		else prevStartRow = "" + (startRowIdx - maxResults >= 0 ? startRowIdx - maxResults : -1);
+		
+		if(startRowIdx + maxResults >= numRegistrants) nextStartRow = "-1";
+		else nextStartRow = "" + (startRowIdx + maxResults);
+		
 		request.setAttribute(Constants.ROUND_STANDINGS_LIST_KEY, standings);
-		request
-				.setAttribute(Constants.NUM_REGISTRANTS_KEY, ""
-						+ numRegistrants);
+		request.setAttribute(Constants.NUM_REGISTRANTS_KEY, "" + numRegistrants);
 		request.setAttribute(Constants.CONTEST_NAME_KEY, contestName);
 		request.setAttribute(Constants.PREV_IDX_KEY, "0");
 		request.setAttribute(Constants.NEXT_IDX_KEY, "5");
