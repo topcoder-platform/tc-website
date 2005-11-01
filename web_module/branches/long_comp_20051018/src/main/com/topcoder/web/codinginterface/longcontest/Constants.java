@@ -63,6 +63,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String MAIN_SERVLET;
     public static String PAGE_ACTIVE_CONTESTS;
     public static String RP_VIEW_REGISTRANTS;
+    public static String RP_VIEW_STANDINGS;
     public static String PAGE_VIEW_REGISTRANTS;
     public static String RP_PROBLEM_STATEMENT;
     public static String PAGE_PROBLEM_STATEMENT;
@@ -73,7 +74,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String NUM_REGISTRANTS_KEY;
     public static String CONTEST_NAME_KEY;
     public static String PREV_IDX_KEY;
-    public static String NEXT_IDX_KEY;
+    public static String NEXT_IDX_KEY;    
     
     static {
         initialize();
