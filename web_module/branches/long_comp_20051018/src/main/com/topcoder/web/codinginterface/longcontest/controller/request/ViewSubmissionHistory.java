@@ -25,7 +25,7 @@ public class ViewSubmissionHistory extends Base{
             DataAccessInt dataAccess = getDataAccess(false);
             Map m = dataAccess.getData(r);
             request.setAttribute(Constants.LONG_CONTEST_CODER_SUBMISSIONS_KEY, m);
-            setNextPage(Constants.CODER_SUBMISSIONS_JSP);
+            setNextPage(Constants.PAGE_SUBMISSION_HISTORY);
             setIsNextPageInContext(true);
         }catch(Exception e){
             e.printStackTrace();
