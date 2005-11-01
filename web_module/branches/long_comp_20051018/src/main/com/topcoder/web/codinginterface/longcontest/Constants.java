@@ -71,6 +71,9 @@ public class Constants implements CodingInterfaceConstants {
     public static String CONTEST_LIST_KEY;
     public static String ROUND_STANDINGS_LIST_KEY;
     public static String NUM_REGISTRANTS_KEY;
+    public static String CONTEST_NAME_KEY;
+    public static String PREV_IDX_KEY;
+    public static String NEXT_IDX_KEY;
     
     static {
         initialize();

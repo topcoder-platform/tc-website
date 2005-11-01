@@ -1,6 +1,13 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
+<%@  page
+  language="java"
+  import="java.util.*,
+          com.topcoder.web.codinginterface.longcontest.*,
+          com.topcoder.shared.dataAccess.resultSet.*"
+
+%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -35,8 +42,8 @@
 <jsp:param name="title" value="Standings"/>
 </jsp:include>
 
-<span class="bigHandle">Contest: Round 1</span><br>
-<span class="bodySubtitle">Registrants: 1</span><br>
+<span class="bigHandle">Contest: <%=Constants.CONTEST_NAME_KEY%></span><br>
+<span class="bodySubtitle">Registrants: <%=Constants.NUM_REGISTRANTS_KEY%></span><br>
 
 <div class="pagingBox">
       &lt;&lt; previous
@@ -76,9 +83,21 @@
 </TABLE>
 
 <div class="pagingBox">
+	<logic:equal name=<%=Constants.PREV_IDX_KEY%> value="-1">
       &lt;&lt; previous
+    </logic:equal>
+	<logic:notEqual name=<%=Constants.PREV_IDX_KEY%> value="-1">      
+		<a href="/longcontest?module=ViewStandings&roundID=7300&st=<%=request.getAttribute(Constants.PREV_IDX_KEY)%>" class="bcLink">&lt;&lt; previous</a>
+    </logic:notEqual>
+    
       &nbsp;|&nbsp;
-      <a href="/stat?c=ratings_history&amp;cr=272072&amp;sr=51&amp;er=100&amp;nr=50" class="bcLink">next &gt;&gt;</a>
+
+	<logic:equal name=<%=Constants.NEXT_IDX_KEY%> value="-1">
+		next &gt;&gt;
+    </logic:equal>
+	<logic:notEqual name=<%=Constants.NEXT_IDX_KEY%> value="-1">
+		<a href="/longcontest?module=ViewStandings&roundID=7300&st=<%=request.getAttribute(Constants.NEXT_IDX_KEY)%>" class="bcLink">next &gt;&gt;</a>
+    </logic:notEqual>
 </div>
 
         </td>
