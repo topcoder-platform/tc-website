@@ -25,7 +25,7 @@
    <tr>
       <td width="49%">&#160;</td>
       <td>
-         <div class=greenBigBox>
+         <div class="greenBigBox">
 
          <!-- Tab bar links-->
          <div align="center">
@@ -104,7 +104,7 @@
             </tr>
             <tr valign="top">
                <td class="sidebarText">Championship Round</td>
-               <td class="sidebarText">September 23, 2005<br>START: TBD<br></td>
+               <td class="sidebarText">January 14, 2006<br>START: TBD<br></td>
                <td class="sidebarText" align="center">50</td>
             </tr>
             <tr valign="top">

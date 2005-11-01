@@ -69,7 +69,7 @@ Within minutes of the end of the Challenge Phase, the automated, objective syste
 <br>
 <span class="greenSubtitle">Here's what you'll need to know</span>
 <br><br>
-Registration for the Google&#153; China Code Jam 2005 is open from Friday, November 18 2005 9AM GMT +8 to December 6, 2005 9AM GMT +8.  Registration is unlimited, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the Code Jam on December 12.
+Registration for the Google&#153; China Code Jam 2005 is open from Friday, November 18, 2005 9AM GMT +8 to December 6, 2005 9AM GMT +8.  Registration is unlimited, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the Code Jam on December 12.
 <br><br>
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
    <tr>
@@ -129,7 +129,7 @@ The competitors with the top 250 scores from Round 1 will advance to Round 2 on 
 <br><br>
 <span class="greenSubtitle">Prizes</span>
 <br><br>
-The 500 participants in Round 1 will receive a "Google&#153; China Code Jam 2006" t-shirt. All 50 finalists that compete in the Championship Round will receive a cash prize as follows:
+The 500 participants in Round 1 will receive a "Google&#153; China Code Jam 2005" t-shirt. All 50 finalists that compete in the Championship Round will receive a cash prize as follows:
 <br><br>
 <div class="indented">
    <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
