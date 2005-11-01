@@ -1,4 +1,25 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@  page
+  language="java"
+  import="java.util.*,
+          java.text.SimpleDateFormat,
+          com.topcoder.web.codinginterface.longcontest.*,
+          com.topcoder.shared.dataAccess.resultSet.*"
+
+%>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="struts-logic.tld" prefix="logic" %>
+<%
+    Map m = null;
+    ResultSetContainer.ResultSetRow p;
+    m = (Map)request.getAttribute(Constants.LONG_CONTEST_CODER_SUBMISSIONS_KEY);
+    ResultSetContainer submissions = (ResultSetContainer)m.get("long_coder_submissions");
+    ResultSetContainer tmp = (ResultSetContainer)m.get("long_contest_over");
+    boolean over = tmp.getBooleanItem(0,0);
+    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+%>
+
 <html>
 <head>
 <title>TopCoder</title>
@@ -54,18 +75,22 @@
    <td class="tableHeader" width="25%"><A href="sort">Submission</A></td>
    <td class="tableHeader" width="25%" align="center"><A href="sort">Time</A></td>
    <td class="tableHeader" width="25%" align="right"><A href="sort">Score</A></td>
+   <% if(over){ %>
    <td class="tableHeader" width="25%" align="right">&#160;</td>
+   <% } %>
 </tr>
-<%-- ITERATOR --%>
+<rsc:iterator list="<%=submissions%>" id="resultRow">
 <%boolean even = true;%>
 <tr>
-   <td class="<%=even?"statLt":"statDk"%>">1</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="center">2005-06-23 21:00:00.0</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right">99.99</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;"><A href="solution" class="statLink">solution</A></td>
+   <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="submission_number" row="<%=resultRow%>"/></td>
+   <td class="<%=even?"statLt":"statDk"%>" align="center"><%=sdf.format(new Date(resultRow.getLongItem("submit_time")))%></td>
+   <td class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item name="submission_points" row="<%=resultRow%>"/></td>
+   <% if(over){ %>
+   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;"><A href="/longcontest/longcontest?module=ViewCode&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>">solution</A></td>
+   <% } %>
 </tr>
 <%even=!even;%>
-<%-- END ITERATOR --%>
+</rsc:iterator>
       </TABLE>
       </TD>
    </tr>
