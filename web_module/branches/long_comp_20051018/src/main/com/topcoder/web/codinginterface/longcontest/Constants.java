@@ -75,6 +75,8 @@ public class Constants implements CodingInterfaceConstants {
     public static String CONTEST_NAME_KEY;
     public static String PREV_IDX_KEY;
     public static String NEXT_IDX_KEY;    
+    public static String RP_SUBMISSION_HISTORY;
+    public static String PAGE_SUBMISSION_HISTORY;
     
     static {
         initialize();
