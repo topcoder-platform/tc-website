@@ -105,7 +105,7 @@
             <tr valign="top">
                <td class="sidebarText">Championship Round</td>
                <td class="sidebarText">September 23, 2005<br>START: TBD<br></td>
-               <td class="sidebarText" align="center">100</td>
+               <td class="sidebarText" align="center">50</td>
             </tr>
             <tr valign="top">
                <td class="sidebarText" colspan="3">*NOTE: All times listed in GMT +8. The time of the onsite round is subject to change.</td>

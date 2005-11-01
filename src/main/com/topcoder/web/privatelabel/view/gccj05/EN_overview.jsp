@@ -133,7 +133,7 @@ The 500 participants in Round 1 will receive a "Google&#153; China Code Jam 2006
 <br><br>
 <div class="indented">
    <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
-   <tr><td><b>1st place finisher - Tournament Champion</td><td align="right">&#160;&#160;&#160;$10,000</b></td></tr>
+   <tr><td><b>1st place finisher - Tournament Champion</td><td align="right">&#160;&#160;&#160;X</b></td></tr>
    <tr><td>2nd to 10th place</td><td align="right">X</td></tr>
    <tr><td>11th to 25th place</td><td align="right">X</td></tr>
    <tr><td>26th to 50th place</td><td align="right">X</td></tr>
