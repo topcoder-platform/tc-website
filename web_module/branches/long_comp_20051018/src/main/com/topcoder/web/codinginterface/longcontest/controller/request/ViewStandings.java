@@ -135,8 +135,8 @@ public class ViewStandings extends Base {
 		request.setAttribute(Constants.ROUND_STANDINGS_LIST_KEY, standings);
 		request.setAttribute(Constants.NUM_REGISTRANTS_KEY, "" + numRegistrants);
 		request.setAttribute(Constants.CONTEST_NAME_KEY, contestName);
-		request.setAttribute(Constants.PREV_IDX_KEY, "0");
-		request.setAttribute(Constants.NEXT_IDX_KEY, "5");
+		request.setAttribute(Constants.PREV_IDX_KEY, prevStartRow);
+		request.setAttribute(Constants.NEXT_IDX_KEY, nextStartRow);
 		request.setAttribute(Constants.ROUND_ID, roundID);
 		request.setAttribute(Constants.PRIMARY_COLUMN, primaryCol);
 		request.setAttribute(Constants.SORT_ORDER, sortOrd);
