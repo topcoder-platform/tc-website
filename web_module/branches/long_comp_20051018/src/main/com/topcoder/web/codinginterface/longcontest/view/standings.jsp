@@ -42,13 +42,25 @@
 <jsp:param name="title" value="Standings"/>
 </jsp:include>
 
-<span class="bigHandle">Contest: <%=Constants.CONTEST_NAME_KEY%></span><br>
-<span class="bodySubtitle">Registrants: <%=Constants.NUM_REGISTRANTS_KEY%></span><br>
+<span class="bigHandle">Contest: <%=request.getAttribute(Constants.CONTEST_NAME_KEY)%></span><br>
+<span class="bodySubtitle">Registrants: <%=request.getAttribute(Constants.NUM_REGISTRANTS_KEY)%></span><br>
 
 <div class="pagingBox">
+	<logic:equal name="<%=Constants.PREV_IDX_KEY%>" value="-1">
       &lt;&lt; previous
+    </logic:equal>
+	<logic:notEqual name="<%=Constants.PREV_IDX_KEY%>" value="-1">      
+		<a href=".<%=Constants.MAIN_SERVLET%>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.PREV_IDX_KEY)%>" class="bcLink">&lt;&lt; previous</a>
+    </logic:notEqual>
+    
       &nbsp;|&nbsp;
-      <a href="/stat?c=ratings_history&amp;cr=272072&amp;sr=51&amp;er=100&amp;nr=50" class="bcLink">next &gt;&gt;</a>
+
+	<logic:equal name="<%=Constants.NEXT_IDX_KEY%>" value="-1">
+		next &gt;&gt;
+    </logic:equal>
+	<logic:notEqual name="<%=Constants.NEXT_IDX_KEY%>" value="-1">
+		<a href=".<%=Constants.MAIN_SERVLET%>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.NEXT_IDX_KEY)%>" class="bcLink">next &gt;&gt;</a>
+    </logic:notEqual>
 </div>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
@@ -61,7 +73,7 @@
 </tr>
 <tr>
    <td class="tableHeader" width="25%"><A href="sort">Handle</A></td>
-   <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href="sort">Score</A></td>
+   <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href=".<%=Constants.MAIN_SERVLET%>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.START_ROW)%>&<%=Constants.PRIMARY_COLUMN%>=<%=Constants.SCORE_COL%><%=(request.getAttribute(Constants.PRIMARY_COLUMN).equals(Constants.SCORE_COL) ? ("&" + Constants.SORT_ORDER + "=" + (request.getAttribute(Constants.SORT_ORDER).equals("asc")?"desc":"asc")) : "")%>">Score</A></td>
    <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href="sort">Rank</A></td>
    <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href="sort">Submissions</A></td>
 </tr>
@@ -83,20 +95,20 @@
 </TABLE>
 
 <div class="pagingBox">
-	<logic:equal name=<%=Constants.PREV_IDX_KEY%> value="-1">
+	<logic:equal name="<%=Constants.PREV_IDX_KEY%>" value="-1">
       &lt;&lt; previous
     </logic:equal>
-	<logic:notEqual name=<%=Constants.PREV_IDX_KEY%> value="-1">      
-		<a href="/longcontest?module=ViewStandings&roundID=7300&st=<%=request.getAttribute(Constants.PREV_IDX_KEY)%>" class="bcLink">&lt;&lt; previous</a>
+	<logic:notEqual name="<%=Constants.PREV_IDX_KEY%>" value="-1">      
+		<a href=".<%=Constants.MAIN_SERVLET%>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.PREV_IDX_KEY)%>" class="bcLink">&lt;&lt; previous</a>
     </logic:notEqual>
     
       &nbsp;|&nbsp;
 
-	<logic:equal name=<%=Constants.NEXT_IDX_KEY%> value="-1">
+	<logic:equal name="<%=Constants.NEXT_IDX_KEY%>" value="-1">
 		next &gt;&gt;
     </logic:equal>
-	<logic:notEqual name=<%=Constants.NEXT_IDX_KEY%> value="-1">
-		<a href="/longcontest?module=ViewStandings&roundID=7300&st=<%=request.getAttribute(Constants.NEXT_IDX_KEY)%>" class="bcLink">next &gt;&gt;</a>
+	<logic:notEqual name="<%=Constants.NEXT_IDX_KEY%>" value="-1">
+		<a href=".<%=Constants.MAIN_SERVLET%>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.NEXT_IDX_KEY)%>" class="bcLink">next &gt;&gt;</a>
     </logic:notEqual>
 </div>
 
