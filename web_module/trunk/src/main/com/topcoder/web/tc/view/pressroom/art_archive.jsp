@@ -45,6 +45,8 @@
 <!-- 2005  -->
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
 
+<tr><td class="newsText"><A href="http://www.ftponline.com/weblogger/forum.aspx?ID=13&DATE=11/01/2005&blog=#449" target="_blank">Spirited Reusable Component Development</A> [November 1 - FTP Online]<br/></td></tr>
+<tr><td class="newsText"><A href="http://www.informationweek.com/showArticle.jhtml?articleID=172901456" target="_blank">Winning Design Ways</A> [October 31 - Information Week]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=69982" target="_blank">Sorrowful state of software</A> [October 17 - MHT]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.carynews.com/enterprise/story/2805639p-9249369c.html" target="_blank">Ready, again, for TopCoder battle</A> [September 28 - CN]<br/></td></tr>
 <tr><td class="newsText"><A href="/pdfs/press_room/dndj_082005.pdf" target="_blank">Engineering + Reuse = Savings</A> [August - DNDJ]<br/></td></tr>
