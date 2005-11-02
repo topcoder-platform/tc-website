@@ -9,6 +9,36 @@
 
 <%--------------------------------------------------------%>
    <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.21.05<br>9:35 AM</td>
+       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.ftponline.com/weblogger/forum.aspx?ID=13&DATE=11/01/2005&blog=#449" target="_blank">Spirited Reusable Component Development</A></span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/ftponline_logo.gif" width="67" height="18" alt="FTP Online" border="0" /></div>
+"The key to TopCoder's approach is the building of reusable components that can be adopted by customers to not only help these organizations save money on software development, but to employ a rigorous engineering methodology that lays out the metrics for the application project deliverables."
+      <br><br>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://www.ftponline.com/weblogger/forum.aspx?ID=13&DATE=11/01/2005&blog=#449" target="_blank">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505821" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.02.05<br>5:30 PM</td>
+       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.informationweek.com/showArticle.jhtml?articleID=172901456" target="_blank">Winning Design Ways</A></span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/info_week_logo.gif" width="67" height="10" alt="Information Week" border="0" /></div>
+"Tim 'Pops' Roberts is an independent IT consultant who makes a pretty good living doing contract project-management work. But it's his side job that gets his creative juices flowing: competing in software-design contests,"
+      <br><br>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://www.informationweek.com/showArticle.jhtml?articleID=172901456" target="_blank">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505820" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>10.27.05<br>11:05 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=CompList&pi=112">Design</A> and <A href="/tc?module=CompList&pi=113">Development</A> Contest Lists, Scorecard Details</span><br><br>
       You can now browse through sortable lists of TopCoder component competitions.  Clicking a score on the "Contest Details" page now brings up that scorecard.
@@ -295,22 +325,6 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_100505">details</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505806" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>10.06.05<br>11:05 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm267">SRM 267 - Problem Set & Analysis</A></span><br><br>
-      This was the last SRM before the Open tournament finals next week, and a number of the finalists were competing in this match to practice. The Division 1 problems were all quite approachable, with 42 coders finishing the hard problem and 11 coders finishing all three correctly.</td>
-      <td class="newsPhoto"><img src="/i/m/John_Dethridge_mug.gif" /><br>by <tc-webtag:handle coderId="270505" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm267">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505775" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 

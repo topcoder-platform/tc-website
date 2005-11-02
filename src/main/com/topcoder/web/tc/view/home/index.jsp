@@ -173,6 +173,12 @@ margin:0px auto;
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
 
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/ftponline_logo.gif" width="67" height="18" alt="FTPONLINE" border="0" /></div>
+            Spirited Reusable Component Development <A href="http://www.ftponline.com/weblogger/forum.aspx?ID=13&DATE=11/01/2005&blog=#449" target="_blank">...more</A><br>[November 1]<br><br>
+
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/info_week_logo.gif" width="67" height="10" alt="Information Week" border="0" /></div>
+            Winning Design Ways <A href="http://www.informationweek.com/showArticle.jhtml?articleID=172901456" target="_blank">...more</A><br>[October 31]<br><br>
+
             TopCoder Selects Aladdin Resort in Las Vegas for TopCoder Open 2006 <A href="/tc?module=Static&d1=pressroom&d2=pr_102105">...more</A><br>[October 21]<br><br>
 
             Champions Announced In 2005 TopCoder Open Sponsored by Sun Microsystems <A href="/tc?module=Static&d1=pressroom&d2=pr_101705">...more</A><br>[October 17]<br><br>
@@ -182,11 +188,6 @@ margin:0px auto;
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/carynews_logo.gif" width="67" height="20" alt="CN" border="0" /></div>
             Ready, again, for TopCoder battle <A href="http://www.carynews.com/enterprise/story/2805639p-9249369c.html" target="_blank">...more</A><br>[September 28]<br><br>
-
-            Onsite Finalists Announced In 2005 TopCoder Open Sponsored by Sun Microsystems <A href="/tc?module=Static&d1=pressroom&d2=pr_092805">...more</A><br>[September 2]<br><br>
-
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/irishdev_logo.gif" width="67" height="48" alt="IDN" border="0" /></div>
-            Google announces Winner of 2005 Code Jam <A href="http://www.irishdev.com/NewsArticle.aspx?id=1046">...more</A><br>[September 26]<br><br>
 
             </td>
          </tr>
