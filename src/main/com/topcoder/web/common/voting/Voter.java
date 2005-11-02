@@ -1,11 +1,13 @@
 package com.topcoder.web.common.voting;
 
+import java.io.Serializable;
+
 /**
- * @author  dok
- * @version  $Revision$ $Date$
- * Create Date: Sep 2, 2005
+ * @author dok
+ * @version $Revision$ $Date$
+ *          Create Date: Sep 2, 2005
  */
-public class Voter {
+public class Voter implements Serializable {
     private static final long ANONYMOUS_ID = -1;
     public static final Voter ANONYMOUS_VOTER = new Voter("Anonymous", ANONYMOUS_ID);
     private String name = null;
@@ -13,6 +15,7 @@ public class Voter {
 
     /**
      * create a voter with the give name and id
+     *
      * @param name
      * @param id
      */
@@ -23,6 +26,7 @@ public class Voter {
 
     /**
      * create a voter with the given name
+     *
      * @param name
      */
     public Voter(String name) {
@@ -32,7 +36,8 @@ public class Voter {
 
     /**
      * return the voters name
-     * @return
+     *
+     * @return String
      */
     public String getName() {
         return name;
@@ -40,7 +45,8 @@ public class Voter {
 
     /**
      * return the voters id
-     * @return
+     *
+     * @return long
      */
     public long getId() {
         return id;
@@ -48,7 +54,8 @@ public class Voter {
 
     /**
      * return true if the voter is anonymous, false otherwise
-     * @return
+     *
+     * @return boolean
      */
     public boolean isAnonymous() {
         return this.id == ANONYMOUS_ID;
@@ -56,10 +63,11 @@ public class Voter {
 
     /**
      * provide a nice view of the data encapsulated here
-     * @return
+     *
+     * @return String
      */
     public String toString() {
-        if (id>0) {
+        if (id > 0) {
             return this.name + ":" + this.id;
         } else {
             return this.name;
