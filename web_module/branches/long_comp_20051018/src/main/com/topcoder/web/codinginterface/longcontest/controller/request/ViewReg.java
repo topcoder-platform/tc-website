@@ -19,6 +19,28 @@ public class ViewReg extends Base{
     protected static final Logger log = Logger.getLogger(ViewReg.class);
 
     protected void businessProcessing() throws TCWebException {
+    	
+    	String roundID = getRequest().getParameter(Constants.ROUND_ID);
+    	
+    	try {
+	    	DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+	    	Request r = new Request();
+	    	r.setContentHandle("long_contest_round_terms");
+	    	
+	    	Map m = dai.getData(r);
+	    	ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_round_terms");
+	    	
+	    	if(rsc.isEmpty()) {
+	    		log.error("Could not find round terms for: " + roundID);
+	    		throw new TCWebException("Error retrieving page.");
+	    	} else {
+	    		getRequest().setAttribute(Constants.ROUND_TERMS_KEY, rsc.getStringItem(0, "terms_content "));
+	    	}
+
+    	} catch(Exception e) {
+    		e.printStackTrace();
+    		throw new TCWebException("Error retrieving page.");
+    	}
     	setNextPage(Constants.PAGE_VIEW_REG);
     	setIsNextPageInContext(true);
     }
