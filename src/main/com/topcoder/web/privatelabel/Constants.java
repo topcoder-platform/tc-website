@@ -70,8 +70,6 @@ public class Constants {
     public static String GOOGLE_INDIA_05_CREDENTIALS_SENT_PAGE;
 
     public static String DEFAULT_PAGE;
-    public static String RESUME_PAGE;
-    public static String RESUME_THANK_YOU_PAGE;
 
     public static String DC_REG_PAGE;
     public static String DC_REG_DEMOG_PAGE;

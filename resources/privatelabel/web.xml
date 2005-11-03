@@ -48,6 +48,7 @@
 
     </servlet>
 
+<!--
 
     <servlet>
         <servlet-name>resume</servlet-name>
@@ -55,7 +56,6 @@
         <description>The resume servlet</description>
         <servlet-class>com.topcoder.web.privatelabel.controller.ResumeServlet</servlet-class>
 
-        <!-- begin parameters required by BaseServlet -->
         <init-param>
             <param-name>module_key</param-name>
             <param-value>module</param-value>
@@ -66,20 +66,6 @@
             <param-value>Static</param-value>
             <description>the processor to execute if non is specified in the request</description>
         </init-param>
-        <!--
-                <init-param>
-                    <param-name>login_processor</param-name>
-                    <param-value>Login</param-value>
-                    <description>the processor to execute when we need to direct the user to login</description>
-                </init-param>
-        -->
-        <!--
-                <init-param>
-                    <param-name>login_servlet</param-name>
-                    <param-value>/</param-value>
-                    <description>the servlet path to use when we need to direct the user to login</description>
-                </init-param>
-        -->
         <init-param>
             <param-name>processor_path</param-name>
             <param-value>com.topcoder.web.privatelabel.controller.request.resume.</param-value>
@@ -90,10 +76,9 @@
             <param-value>/errorPage.jsp</param-value>
             <description>where to forward for errors</description>
         </init-param>
-        <!-- end  parameters required by BaseServlet -->
-
 
     </servlet>
+-->
 
 
     <servlet-mapping>
@@ -101,10 +86,11 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>resume</servlet-name>
-        <url-pattern>/resume</url-pattern>
-    </servlet-mapping>
+<!--
+<servlet-mapping>
+    <servlet-name>resume</servlet-name>
+    <url-pattern>/resume</url-pattern>
+</servlet-mapping>-->
 
 
 

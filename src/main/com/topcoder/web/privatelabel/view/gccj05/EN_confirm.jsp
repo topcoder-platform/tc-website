@@ -69,7 +69,7 @@
                     Handle
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="Handle"/>
+                    <jsp:getProperty name="regInfo" property="handle"/>
                 </td>
             </tr>
 
@@ -78,7 +78,7 @@
                     First Name
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="FirstName"/>
+                    <jsp:getProperty name="regInfo" property="firstName"/>
                 </td>
             </tr>
 
@@ -87,7 +87,7 @@
                     Last Name
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="LastName"/>
+                    <jsp:getProperty name="regInfo" property="lastName"/>
                 </td>
             </tr>
 
@@ -96,7 +96,7 @@
                     Email Address
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="Email"/>
+                    <jsp:getProperty name="regInfo" property="email"/>
                 </td>
             </tr>
 
@@ -105,7 +105,7 @@
                     Confirm Email Address
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="EmailConfirm"/>
+                    <jsp:getProperty name="regInfo" property="emailConfirm"/>
                 </td>
             </tr>
 
@@ -114,7 +114,7 @@
                     Address 1
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="Address1"/>
+                    <jsp:getProperty name="regInfo" property="address1"/>
                 </td>
             </tr>
 
@@ -123,7 +123,7 @@
                     Address 2
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="Address2"/>
+                    <jsp:getProperty name="regInfo" property="address2"/>
                 </td>
             </tr>
 
@@ -132,7 +132,7 @@
                     Address 3
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="Address3"/>
+                    <jsp:getProperty name="regInfo" property="address3"/>
                 </td>
             </tr>
 
@@ -141,7 +141,7 @@
                     City
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="City"/>
+                    <jsp:getProperty name="regInfo" property="city"/>
                 </td>
             </tr>
 
@@ -150,7 +150,7 @@
                     Province
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="Province"/>
+                    <jsp:getProperty name="regInfo" property="province"/>
                 </td>
             </tr>
 
@@ -159,7 +159,7 @@
                     PIN/Zip Code
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="Zip"/>
+                    <jsp:getProperty name="regInfo" property="zip"/>
                 </td>
             </tr>
 
@@ -168,7 +168,7 @@
                     Country
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="CountryName"/>
+                    <jsp:getProperty name="regInfo" property="countryName"/>
                 </td>
             </tr>
             <tr>
@@ -207,7 +207,7 @@
 
             <tr>
                             <td align="right" nowrap>Resume</td>
-                            <td align="left"><jsp:getProperty name="regInfo" property="UploadStatus"/></td>
+                            <td align="left"><jsp:getProperty name="regInfo" property="uploadStatus"/></td>
                         </tr>
             <tr>
                <td colspan="2" align="center">
