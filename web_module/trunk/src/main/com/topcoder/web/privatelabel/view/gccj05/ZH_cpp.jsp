@@ -30,7 +30,7 @@
 
          <!-- Tab bar links-->
          <div align="center">
-         <jsp:include page="EN_links.jsp" >
+         <jsp:include page="ZH_links.jsp" >
          <jsp:param name="selectedTab" value=""/>
          </jsp:include>
          </div>
@@ -39,7 +39,7 @@
 
          <span class="bigTitle">TopCoder C++ for C Programmers</span>
          <span valign=top>
-         <jsp:include page="EN_right.jsp" />
+         <jsp:include page="ZH_right.jsp" />
          </span>
 
 <br><br>
@@ -194,12 +194,12 @@ STL:<br>
 <a href="http://www.topcoder.com/index?t=features&c=feat_082803">A Crash Course in the C++ Standard Template Library</a>
 
          <br><br>
-         To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=EN_rules">Terms and Conditions</a>.
+         To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">Terms and Conditions</a>.
          </div>
       </td>
       <td width="49%">&#160;</td>
    <tr>
 </table>
-<jsp:include page="EN_foot.jsp" />
+<jsp:include page="ZH_foot.jsp" />
 </body>
 </html>

@@ -36,113 +36,111 @@
 
          <br><br>
 
-<span class="bigTitle">2005 Google&#153; 中国编程精英网罗赛</span>
+<span class="bigTitle">Google&#153; 中国编程精英网罗赛</span>
 <span valign=top>
 <jsp:include page="EN_right.jsp" />
 </span>
 
 <br><br>
-The Google China Code Jam is coming to China!  This is your chance to compete against your countrymen and women in the search for China's finest.
+Google 中国编程精英赛即将登陆中国！竞赛的题目具有相当的挑战性，竞赛奖金也非常丰厚。 有志之士可借此机会一展才能，与国内精英才干同场竞技，一决高下，成为脱颖而出的中国最佳。
 <br><br>
-We've got tough problems, prize money and bragging rights up for grabs.  Think you have what it takes?
+<span class="greenSubtitle">赛事运作细则</span>
 <br><br>
-<span class="greenSubtitle">This is how it works</span>
+此次锦标赛以计时赛的形式举行，所有的参赛者都将在限定的时间内在线完成相同的竞赛题目。
 <br><br>
-The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints.
+参赛者在竞赛过程当中，可以选用以下4种编程语言的一种-Java，C++，C#和VB。
 <br><br>
-The competition is available in four programming languages - Java, C++, C#, and VB.
-<br><br>
-Here's the line-by-line documentation: 
+以下是竞赛相关过程说明：
 <br><br>
 <div class="indented">
-<b>Download the Arena</b><br>
-The TopCoder&#174; Competition Arena (a Java Applet) is where you begin. Download the app, read the problem statements, then code solutions, compile and test those solutions and submit the code for points. You can download the arena ahead of time to practice on sample problems prior to the competition. 
+<b>下载竞赛平台</b><br>
+参赛者将从TopCoder&#174;公司的竞赛平台(即Java程序)开始踏入竞赛的第一步。下载平台程序，仔细阅读竞赛题目，然后将解决方案编写成代码形式，编译并测试方案，最后提交方案代码，得到相应的分数。参赛者可以在正式竞赛前下载竞赛平台，通过提供的样例来体验和熟悉平台的操作环境。
 <br><br>
-<b>Coding Phase</b><br>
-At the designated date and time, competitors enter the Arena and are placed in groups of ten into virtual rooms. All participants are presented with the same set of three problems of escalating difficulty. In a race to see who can create an accurate solution in the shortest amount of time, competitors try to out-think and out-code their opponents. The Leader Board tallies the points during each step of the competition. 
+<b>编码阶段</b><br>
+在指定的日期和时间，参赛者进入竞赛平台，以每10人一组被安排进入相应的虚拟房间。所有参赛者都将获得相同的3道竞赛题，3题的难度递增。此阶段竞赛中，竞赛者须在最短时间内完成题目，提供正确的方案代码，代码提交的越早，竞赛着得到的分数越高。在竞赛的整个过程中，排名榜会显示竞赛者的累计分数。 
 <br><br>
-<b>Challenge Phase</b><br>
-During the Challenge Phase, competitors view each other's code and try to "break'" that code by passing test cases through the submitted code, with the hope that the results are not satisfied by the software written. Breaking another developer's code is the most direct form of competition for a programmer. In this phase, points are awarded for successful challenges and deducted for unsuccessful challenges. 
+<b>挑战阶段</b><br>
+在挑战阶段，参赛者不但可以看到其他参赛者提交的方案代码，还可以给出测试数据，使其他参赛者提交的程序得到错误的运算结果，从而推翻其他参赛者所提交的方案。这种方式，对于编程人员来说是最直接的竞赛形式。在这个阶段，参赛者的方案若能成功接受他人的测试挑战，则可得分；反之，将被扣分。
 <br><br>
-<b>System Tests</b><br>
-Within minutes of the end of the Challenge Phase, the automated, objective system tests determine the accuracy of all submissions and award final points to all competitors. The assessment of your performance and presentation of stats is nearly instantaneous, as is the gratification of knowing how you did against a competitive field. 
+<b>系统测试</b><br>
+在系统测试阶段，系统会自动对每个提交方案代码进行测试，确定其正确程度和可行性，并以此给出参赛者相应的分数。整个评测过程耗时很短，参赛者当场可以知道自己的比赛结果。
 </div>
 <br>
-<span class="greenSubtitle">Here's what you'll need to know</span>
+<span class="greenSubtitle">参赛须知</span>
 <br><br>
-Registration for the Google&#153; China Code Jam 2005 is open from Friday, November 18, 2005 9AM GMT +8 to December 6, 2005 9AM GMT +8.  Registration is unlimited, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the Code Jam on December 12.
+注册参加此次Google™ China Code Jam 比赛的日期从北京时间2005年11月18日上午9时开始，至北京时间2005年12月6日上午9时结束。
 <br><br>
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
    <tr>
-      <td class="sidebarTitle" width="30%">Date</td>
-      <td class="sidebarTitle" width="20%">Time*</td>
+      <td class="sidebarTitle" width="30%">日期</td>
+      <td class="sidebarTitle" width="20%">时间*</td>
 
-      <td class="sidebarTitle" width="50%">Status</td>
+      <td class="sidebarTitle" width="50%">状态</td>
    </tr>
    <tr valign="top">
-      <td class="sidebarText">Friday, November 18</td>
+      <td class="sidebarText">11月18日星期五</td>
       <td class="sidebarText">9:00 AM</td>
-      <td class="sidebarText">Registration Opens</td>
+      <td class="sidebarText">注册开始</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText" nowrap>Tuesday, December 6</td>
+      <td class="sidebarText" nowrap>12月6日星期二</td>
       <td class="sidebarText">9:00 AM</td>
-      <td class="sidebarText">Registration Closes</td>
+      <td class="sidebarText">注册结束</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText">Tuesday, December 6</td>
-      <td class="sidebarText">12:00 PM (noon)</td>
-      <td class="sidebarText">Qualification Round begins</td>
+      <td class="sidebarText">12月6日星期二</td>
+      <td class="sidebarText">12:00 PM (中午)</td>
+      <td class="sidebarText">资格赛开始</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText">Wednesday, December 7</td>
-      <td class="sidebarText">12:00 PM (noon)</td>
-      <td class="sidebarText">Qualification Round ends</td>
+      <td class="sidebarText">12月7日星期三</td>
+      <td class="sidebarText">12:00 PM (中午)</td>
+      <td class="sidebarText">资格赛结束</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText">Monday, December 12</td>
+      <td class="sidebarText">12月12日星期一</td>
       <td class="sidebarText">9:00 PM</td>
-      <td class="sidebarText">Round 1 - 500 participants</td>
+      <td class="sidebarText">第一轮-500名参赛者</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText">Thursday, December 15</td>
+      <td class="sidebarText">12月15日星期四</td>
       <td class="sidebarText">9:00 PM</td>
-      <td class="sidebarText">Round 2 - 250 participants</td>
+      <td class="sidebarText">第二轮-250名参赛者</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText">Saturday, January 14</td>
-      <td class="sidebarText">TBD</td>
-      <td class="sidebarText">Championship Round - 50 participants</td>
+      <td class="sidebarText">1月14日星期六</td>
+      <td class="sidebarText">待定</td>
+      <td class="sidebarText">冠军赛-50名参赛者</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText" colspan="3">* All times listed as GMT +8</td>
+      <td class="sidebarText" colspan="3">* 上述时间皆为北京时间</td>
    </tr>
 </table>
 <br><br>
-The competitors with the top 250 scores from Round 1 will advance to Round 2 on December 15th. The top 50 performers in Round 2 will be invited to compete for $155,000 in cash prizes in the Championship Round onsite in Beijing, China.
+首轮名次前250名将于12月15日晋级第二轮，第二轮的前50名则将参加在中国北京举行的冠军赛，争夺总数达155000美元的高额奖金。
 <br><br>
-<span class="greenSubtitle">Prizes</span>
+<span class="greenSubtitle">奖项</span>
 <br><br>
-The 500 participants in Round 1 will receive a "Google&#153; China Code Jam 2005" t-shirt. All 50 finalists that compete in the Championship Round will receive a cash prize as follows:
+晋级第一轮的500名参赛者将获赠"2005 Google™ 中国编程精英网罗赛"T恤一件。晋级冠军赛的50名参赛着将获得如下的奖项:
 <br><br>
 <div class="indented">
    <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
-   <tr><td><b>1st place finisher - Tournament Champion</td><td align="right">&#160;&#160;&#160;X</b></td></tr>
-   <tr><td>2nd to 10th place</td><td align="right">X</td></tr>
-   <tr><td>11th to 25th place</td><td align="right">X</td></tr>
-   <tr><td>26th to 50th place</td><td align="right">X</td></tr>
-   <tr><td>51st to 100th place</td><td align="right">X</td></tr>
+   <tr><td><b>第1名 - 冠军</td><td align="right">&#160;&#160;&#160;<b>X</b></b></td></tr>
+   <tr><td>第2至第10名</td><td align="right">X</td></tr>
+   <tr><td>第11至25名</td><td align="right">X</td></tr>
+   <tr><td>第26至50名</td><td align="right">X</td></tr>
+   <tr><td>第51至100名</td><td align="right">X</td></tr>
    </table>
 </div>
          <br><br>
-         To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=EN_rules">Terms and Conditions</a>.
+         想要了解更多的 2005 Google 中国编程精英网罗赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=EN_rules">请点击 竞赛规则</a>.
          </div>
       </td>
       <td width="49%">&#160;</td>

@@ -29,7 +29,7 @@
 
          <!-- Tab bar links-->
          <div align="center">
-         <jsp:include page="EN_links.jsp" >
+         <jsp:include page="ZH_links.jsp" >
          <jsp:param name="selectedTab" value="faq"/>
          </jsp:include>
          </div>
@@ -38,7 +38,7 @@
 
 <span class="bigTitle">FAQ</span>
 <span valign=top>
-<jsp:include page="EN_right.jsp" />
+<jsp:include page="ZH_right.jsp" />
 </span>
 
 <br><br>
@@ -59,7 +59,7 @@ The Challenge phase only takes place during Rounds 1 and 2.  It does not take pl
 <br><br>
 During the Challenge Phase, you have the opportunity to view the source code submissions of the other competitors in your room.  If you believe that any of the submissions are flawed, you may challenge the submission with a specific test case that you feel will result in that submission returning the wrong result.  If your challenge is successful, and the submission returns the wrong result, you will be awarded 50 points and the competitor will lose the points for the challenged submission.  However, if your challenge is unsuccessful, and the submission returns the correct result for the test case, you will lose 25 points from your score.  
 <br><br>
-Be sure to read the <A href="/pl/?module=Static&d1=gccj05&d2=EN_instructions">Instructions</A> page for a complete explanation.
+Be sure to read the <A href="/pl/?module=Static&d1=gccj05&d2=ZH_instructions">Instructions</A> page for a complete explanation.
 <br><br>
 <b>How will I know if I have advanced the next round of the Google Code Jam?</b><br>
 As soon as the Testing Phase has been completed, the advancers to the next round will be posted at www.topcoder.com/gccj05.  In addition, an email will be sent to all participants indicating whether or not each has advanced.
@@ -68,12 +68,12 @@ Questions not addressed here should be directed to <A href="mailto:gccj05@topcod
 <br><br>
 Good luck!
          <br><br>
-         To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=EN_rules">Terms and Conditions</a>.
+         To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">Terms and Conditions</a>.
          </div>
       </td>
       <td width="49%">&#160;</td>
    <tr>
 </table>
-<jsp:include page="EN_foot.jsp" />
+<jsp:include page="ZH_foot.jsp" />
 </body>
 </html>
