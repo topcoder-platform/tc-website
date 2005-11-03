@@ -61,7 +61,7 @@ function submitEnter(e) {
          </div>
          <br><br>
                         Registration will close on Friday, August 19 at 5:00PM EDT.<br/><br/>
-                        If you are <A href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_CHINA_05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=1865&<%=Constants.EVENT_ID%>=3" class="bigRed">not currently a TopCoder member</A> or do not want to use an existing account, please click <a href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_CHINA_05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=1865&<%=Constants.EVENT_ID%>=3" class="bigRed">here</a>.
+                        If you are <A href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_CHINA_05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=15857&<%=Constants.EVENT_ID%>=4" class="bigRed">not currently a TopCoder member</A> or do not want to use an existing account, please click <a href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_CHINA_05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=15857&<%=Constants.EVENT_ID%>=4" class="bigRed">here</a>.
                         <br><br>
                         If you are currently a TopCoder member, you may enter your handle and password below to convert your account for use in this year's Google Code Jam.<br/><br/>
 
