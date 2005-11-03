@@ -1,4 +1,5 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page contentType="text/html;charset=utf8" %>
 <html>
 <head>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
@@ -35,7 +36,7 @@
 
          <br><br>
 
-<span class="bigTitle">The Google&#153; China Code Jam 2005</span>
+<span class="bigTitle">2005 Google&#153; 中国编程精英网罗赛</span>
 <span valign=top>
 <jsp:include page="EN_right.jsp" />
 </span>
