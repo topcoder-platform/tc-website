@@ -124,3 +124,38 @@ public class Submit extends ResumeRegSubmit {
     }
 }
 
+/*
+You're invited to take part in the Google Code Jam China, a programming competition that will be worthy of your time, your skills and your interest.
+
+GOOGLE CODE JAM China ACTIVATION INFORMATION
+
+Your Google activation code is JJ8SXATPSU
+
+To activate your account, navigate to the following WWW URL:
+
+<Insert URL>
+
+If you cannot click on the web address above, please copy the address into your web browser to continue.  If the address spans two lines, please make sure you copy and paste both sections without any spaces between them.
+
+Your handle and password will provide you with access to the Competition Arena, where you can practice and chat, and where you'll compete in the Google Code Jam China.
+
+PRACTICING FOR THE EVENT
+There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in the Google Code Jam China.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 9:00AM GMT +8 on November 18, 2005 through 5:00PM GMT +8 on January 14, 2006.
+
+You can access the practice rooms by navigating to http://www.topcoder.com/gccj05 and clicking on the Competition Arena tab.
+
+COMPETING IN THE QUALIFICATION ROUND
+You may participate in the Qualification Round at any time between Tuesday, December 6 at Noon GMNT +8 and Wednesday, December 7 at Noon GMT +8.  You will have up to one hour to solve two problems.  It is recommended that you utilize the practice area prior to participating in the qualification.
+
+LAUNCHING THE ARENA
+You can launch and login to the competition arena at the appropriate time by navigating to http://www.topcoder.com/gccj05 and clicking on the Competition Arena tab.
+
+You will need to have the Java 1.4.x runtime installed in order to launch the arena.
+
+We also suggest that you read up on the competition process by navigating to http://www.topcoder.com/gccj05 and clicking the Instructions link at the top.
+
+If you have any questions about how to participate, please email them to gccj05@topcoder.com
+
+Thank you for registering for the Google Code Jam China.  We look forward to seeing you in the Arena!
+
+*/
