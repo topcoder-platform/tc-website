@@ -28,7 +28,7 @@
          
          <!-- Tab bar links-->
          <div align="center">
-         <jsp:include page="links.jsp" >
+         <jsp:include page="EN_links.jsp" >
          <jsp:param name="selectedTab" value="advancers"/>
          </jsp:include>
          </div>
@@ -37,7 +37,7 @@
 
          <span class="bigTitle">Tough problems. Intense competition. No pressure.</span>
          <span valign=top>
-         <jsp:include page="right.jsp" />
+         <jsp:include page="EN_right.jsp" />
          </span>
 
          <br><br>
@@ -111,6 +111,6 @@
       <td width="49%">&#160;</td>
    <tr>
 </table>
-<jsp:include page="foot.jsp" />
+<jsp:include page="EN_foot.jsp" />
 </body>
 </html>
