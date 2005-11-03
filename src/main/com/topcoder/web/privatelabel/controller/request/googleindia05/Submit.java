@@ -28,7 +28,7 @@ import java.util.Map;
 public class Submit extends FullRegSubmit {
 
     //protected UserPrincipal commit(SimpleRegInfo regInfo) throws TCWebException {
-    protected long store(SimpleRegInfo regInfo) throws Exception {
+    /*protected long store(SimpleRegInfo regInfo) throws Exception {
         long userId = super.store(regInfo);
 
         try {
@@ -65,7 +65,7 @@ public class Submit extends FullRegSubmit {
 
         return userId;
     }
-
+*/
 
     protected void setNextPage() {
         SessionInfo sInfo = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);

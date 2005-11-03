@@ -43,27 +43,22 @@ public abstract class ResumeRegSubmit extends FullRegSubmit {
         try {
 
             ResumeRegInfo info = (ResumeRegInfo) regInfo;
-            if (info.getUploadedFile() != null) {
-                byte[] fileBytes = null;
-                String fileName = "";
+            if (info.hasResume()) {
                 int fileType = -1;
 
-                fileBytes = new byte[(int) info.getUploadedFile().getSize()];
-                info.getUploadedFile().getInputStream().read(fileBytes);
-                if (fileBytes == null || fileBytes.length == 0)
+                if (info.getResume().length == 0)
                     addError(Constants.FILE, "Sorry, the file you attempted to upload was empty.");
                 else {
                     //fileType = Integer.parseInt(file.getParameter("fileType"));
                     Map types = getFileTypes(transDb);
-                    if (types.containsKey(info.getUploadedFile().getContentType())) {
+                    if (types.containsKey(info.getResumeContentType())) {
                         log.debug("FOUND TYPE");
-                        fileType = ((Long) types.get(info.getUploadedFile().getContentType())).intValue();
+                        fileType = ((Long) types.get(info.getResumeContentType())).intValue();
                     } else {
-                        log.debug("DID NOT FIND TYPE " + info.getUploadedFile().getContentType());
+                        log.debug("DID NOT FIND TYPE " + info.getResumeContentType());
                     }
-                    fileName = info.getUploadedFile().getRemoteFileName();
                     ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
-                    resumeServices.putResume(userId, fileType, fileName, fileBytes, transDb);
+                    resumeServices.putResume(userId, fileType, info.getResumeFileName(), info.getResume(), transDb);
                 }
             }
 

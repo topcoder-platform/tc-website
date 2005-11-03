@@ -32,6 +32,7 @@ public class Submit extends FullRegSubmit {
 
     //todo wack this crap when we have fixed the regular site to not use the transactional db for contact info
     //don't need to reimplement commit here at that point
+/*
     protected long commit(SimpleRegInfo regInfo) throws TCWebException {
 
         long userId = super.commit(regInfo);
@@ -116,6 +117,7 @@ public class Submit extends FullRegSubmit {
 
         return userId;
     }
+*/
 
 
     protected void setNextPage() {

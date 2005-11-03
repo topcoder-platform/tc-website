@@ -33,6 +33,7 @@ public class Confirm extends FullRegConfirm {
 
     }
 
+/*
     protected SimpleRegInfo makeRegInfo() throws Exception {
         FullRegInfo info;
         info = (FullRegInfo) super.makeRegInfo();
@@ -81,5 +82,6 @@ public class Confirm extends FullRegConfirm {
         }
     }
 
-    
+*/
+
 }

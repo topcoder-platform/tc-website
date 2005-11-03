@@ -33,7 +33,13 @@ public abstract class ResumeRegConfirm extends FullRegConfirm {
 
         if (file != null && file.getContentType() != null) {
             log.debug("FOUND RESUME");
-            ((ResumeRegInfo) info).setUploadedFile(file);
+            byte[] fileBytes = new byte[(int) file.getSize()];
+            file.getInputStream().read(fileBytes);
+
+            ((ResumeRegInfo) info).setResume(fileBytes);
+            ((ResumeRegInfo) info).setResumeContentType(file.getContentType());
+            ((ResumeRegInfo) info).setResumeFileName(file.getRemoteFileName());
+
         }
 
         return info;
@@ -45,19 +51,15 @@ public abstract class ResumeRegConfirm extends FullRegConfirm {
         try {
             //validate uploaded file, if applicable
             ResumeRegInfo rinfo = (ResumeRegInfo) info;
-            if (rinfo.getUploadedFile() != null) {
-                byte[] fileBytes = null;
+            if (rinfo.hasResume()) {
 
-                fileBytes = new byte[(int) rinfo.getUploadedFile().getSize()];
-                rinfo.getUploadedFile().getInputStream().read(fileBytes);
-                if (fileBytes == null || fileBytes.length == 0)
+                if (rinfo.getResume().length == 0)
                     addError(Constants.FILE, "Sorry, the file you attempted to upload was empty.");
                 else {
-                    //fileType = Integer.parseInt(file.getParameter("fileType"));
                     Map types = getFileTypes(transDb);
-                    if (!types.containsKey(rinfo.getUploadedFile().getContentType())) {
-                        log.debug("DID NOT FIND TYPE " + rinfo.getUploadedFile().getContentType());
-                        addError(Constants.FILE, "Unsupported file type (" + rinfo.getUploadedFile().getContentType() + ")");
+                    if (!types.containsKey(rinfo.getResumeContentType())) {
+                        log.debug("DID NOT FIND TYPE " + rinfo.getResumeContentType());
+                        addError(Constants.FILE, "Unsupported file type (" + rinfo.getResumeContentType() + ")");
                     }
                 }
             }
