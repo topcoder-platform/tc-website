@@ -27,7 +27,7 @@
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.02.05<br>5:30 PM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="http://www.informationweek.com/showArticle.jhtml?articleID=172901456" target="_blank">Winning Design Ways</A></span><br><br>
        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/info_week_logo.gif" width="67" height="10" alt="Information Week" border="0" /></div>
-"Tim 'Pops' Roberts is an independent IT consultant who makes a pretty good living doing contract project-management work. But it's his side job that gets his creative juices flowing: competing in software-design contests,"
+"Roberts, a seasoned professional, values the feedback, but calls the reviews 'an incredible opportunity' for younger software professionals and students. Says Roberts, 'This is 100% learning, and can really help jump-start a career.'"
       <br><br>
       </td>
    </tr>

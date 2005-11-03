@@ -27,14 +27,14 @@
       <td>
          <div class="greenBigBox">
 
-         <%-- Tab bar links--%>
-         <div align="center">
-         <jsp:include page="ZH_links.jsp" >
-         <jsp:param name="selectedTab" value="overview"/>
-         </jsp:include>
-         </div>
+<%-- Tab bar links--%>
+<div align="center">
+<jsp:include page="ZH_links.jsp" >
+<jsp:param name="selectedTab" value="overview"/>
+</jsp:include>
+</div>
 
-         <br><br>
+<br><br>
 
 <span class="bigTitle">Google&#153; 中国编程精英网罗赛</span>
 <span valign=top>
