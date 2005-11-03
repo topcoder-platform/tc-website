@@ -4,7 +4,7 @@
 <head>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gccj05.css"/>
-<title>Google China Code Jam 2005, Powered by TopCoder</title>
+<title>Google&#153; ?????????, ????? Topcoder????</title>
 <script>
 function openWin(url, name, w, h) {
  win = window.open(url, 'biowin', "scrollbars=yes,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);

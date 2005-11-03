@@ -4,7 +4,7 @@
 <head>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gccj05.css"/>
-<title>Google China Code Jam 2005, Powered by TopCoder</title>
+<title>Google&#153; 中国编程精英网罗赛, 竞赛软件由 Topcoder公司提供</title>
 </head>
 <body>
 
