@@ -28,7 +28,7 @@
 
          <!-- Tab bar links-->
          <div align="center">
-         <jsp:include page="links.jsp" >
+         <jsp:include page="EN_links.jsp" >
          <jsp:param name="selectedTab" value="advancers"/>
          </jsp:include>
          </div>
@@ -37,7 +37,7 @@
 
          <span class="bigTitle">Tough problems. Intense competition. No pressure.</span>
          <span valign=top>
-         <jsp:include page="right.jsp" />
+         <jsp:include page="EN_right.jsp" />
          </span>
 
          <br><br>
@@ -48,28 +48,28 @@
          <td class="advancersTitle" align="right" width="100%">Advancers</td>
          </tr>
          <tr valign="top">
-         <td class="advancersRound"><a href="/pl/?&module=Static&d1=gccj05&d2=advQual" class="topLink">Qualification Round</a></td>
-         <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=gccj05&d2=advQual">534</a></td>
+         <td class="advancersRound"><a href="/pl/?module=Static&d1=gccj05&d2=EN_advQual" class="topLink">Qualification Round</a></td>
+         <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gccj05&d2=EN_advQual">534</a></td>
          </tr>
          <tr valign="top">
-         <td class="advancersRound"><a href="/pl/?&module=Static&d1=gccj05&d2=advRound1" class="topLink">Round 1</a></td>
-         <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=gccj05&d2=advRound1">50</a></td>
+         <td class="advancersRound"><a href="/pl/?module=Static&d1=gccj05&d2=EN_advRound1" class="topLink">Round 1</a></td>
+         <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gccj05&d2=EN_advRound1">50</a></td>
          </tr>
          <tr valign="top">
-         <td class="advancersRound"><a href="/pl/?&module=Static&d1=gccj05&d2=advFinal" class="topLink">Onsite Finals</a></td>
-         <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=gccj05&d2=advFinal">Winners</a></td>
+         <td class="advancersRound"><a href="/pl/?module=Static&d1=gccj05&d2=EN_advFinal" class="topLink">Onsite Finals</a></td>
+         <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gccj05&d2=EN_advFinal">Winners</a></td>
          </tr>
          </table>
 
 
 
          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-         To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=rules">Terms and Conditions</a>.
+         To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=EN_rules">Terms and Conditions</a>.
          </div>
       </td>
       <td width="49%">&#160;</td>
    <tr>
 </table>
-<jsp:include page="foot.jsp" />
+<jsp:include page="EN_foot.jsp" />
 </body>
 </html>
