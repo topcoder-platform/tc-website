@@ -84,6 +84,8 @@ public class Constants implements CodingInterfaceConstants {
     public static String RANK_COL;
     public static String SUBMISSION_COL;
     public static String PAGE_VIEW_REG;
+    public static String ROUND_TERMS_KEY;
+    
     static {
         initialize();
     }
