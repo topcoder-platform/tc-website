@@ -1,3 +1,4 @@
+﻿<%@ page contentType="text/html;charset=utf8" %>
 <div class=footerHolder>
 <font face="Arial">
 &copy;2005 Google -
