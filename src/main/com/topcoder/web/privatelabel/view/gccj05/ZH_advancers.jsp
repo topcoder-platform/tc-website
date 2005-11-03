@@ -1,11 +1,11 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page contentType="text/html;charset=utf-8" %>
 <html>
 <head>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gccj05.css"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-<title>Google&#153; ?????????, ????? Topcoder????</title>
+<title>Google&#153; 中国编程精英网罗赛, 竞赛软件由 Topcoder公司提供</title>
 </head>
 <body>
 
