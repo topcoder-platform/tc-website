@@ -33,7 +33,7 @@
       <td>
          <div class=greenBigBox>
 
-         <!-- Tab bar links-->
+         <%-- Tab bar links--%>
          <div align="center">
          <jsp:include page="ZH_links.jsp" >
          <jsp:param name="selectedTab" value="registration"/>
