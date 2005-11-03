@@ -1,8 +1,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gccj05.css"/>
+    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
+    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gccj05.css"/>
+        <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <title>Google China Code Jam 2005, Powered by TopCoder</title>
 </head>
 <body>
@@ -25,7 +26,7 @@
       <td width="49%">&#160;</td>
       <td>
          <div class=greenBigBox>
-         
+
          <span class="bigTitle">Google China Code Jam 2005 Final Results</span>
 
          <br><br>

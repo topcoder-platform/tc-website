@@ -3,6 +3,7 @@
 <head>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gccj05.css"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <title>Google China Code Jam 2005, Powered by TopCoder</title>
 </head>
 <body>
@@ -229,7 +230,7 @@ Double click on any of the point values (shown in green) to view the source code
 You may only submit a challenge if you have at least zero points at the time of the challenge. A given submission may only be successfully challenged once. If any competitor has already successfully challenged a submission, it may not be further challenged.
 <br><br>
 <span class="greenSubtitle">System Testing Phase</span><br>
-After the Challenge Phase, all submissions will be run through a series of test cases.  In the case of the qualification round, the system tests will be run following the entire length of the qualification period.  These test cases will compare an expected result against a received result to determine if the code submission works for each test case. 
+After the Challenge Phase, all submissions will be run through a series of test cases.  In the case of the qualification round, the system tests will be run following the entire length of the qualification period.  These test cases will compare an expected result against a received result to determine if the code submission works for each test case.
 <br><br>
 <i>Any submission that fails any test case will be deemed incorrect, and will result in a loss of all points for that submission. In addition, any submission that runs longer than two (2) seconds for any test case will be deemed incorrect, and will result in a loss of all points</i>.
 <br><br>
