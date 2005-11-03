@@ -8,6 +8,7 @@ import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.controller.request.FullRegConfirm;
+import com.topcoder.web.privatelabel.controller.request.ResumeRegConfirm;
 import com.topcoder.web.privatelabel.model.*;
 
 import java.util.HashMap;
@@ -31,6 +32,7 @@ public class Confirm extends FullRegConfirm {
         setIsNextPageInContext(true);
     }
 
+/*
     protected SimpleRegInfo makeRegInfo() throws Exception {
         FullRegInfo info;
         info = (FullRegInfo) super.makeRegInfo();
@@ -105,5 +107,6 @@ public class Confirm extends FullRegConfirm {
             throw new TCWebException(e);
         }
     }
+*/
 
 }

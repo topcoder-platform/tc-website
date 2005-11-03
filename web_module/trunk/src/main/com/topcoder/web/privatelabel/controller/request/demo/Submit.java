@@ -25,6 +25,7 @@ import com.topcoder.web.ejb.session.SessionSegmentHome;
 import com.topcoder.web.ejb.sessionprofile.*;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.controller.request.FullRegSubmit;
+import com.topcoder.web.privatelabel.controller.request.ResumeRegSubmit;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.ResumeRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
@@ -40,7 +41,7 @@ import java.util.*;
  * @author dok
  * Date: Jan 22, 2004
  */
-public class Submit extends FullRegSubmit {
+public class Submit extends ResumeRegSubmit {
 
 
     protected void setNextPage() {
@@ -67,6 +68,7 @@ public class Submit extends FullRegSubmit {
         }
     }
 
+/*
     protected long commit(SimpleRegInfo regInfo) throws TCWebException {
 
         long ret = 0;
@@ -107,9 +109,14 @@ public class Submit extends FullRegSubmit {
         }
         return ret;
     }
+*/
 
 
+/*
     protected long store(SimpleRegInfo regInfo) throws Exception {
+*/
+
+
 /*
     protected long commit(SimpleRegInfo regInfo) throws TCWebException {
         TransactionManager tm = null;
@@ -155,6 +162,7 @@ public class Submit extends FullRegSubmit {
 
     protected long store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
 */
+/*
         long ret = super.storeWithoutCoder(regInfo);
 
         //need to add coder record to avoid breaking a bunch of foreign keys
@@ -195,6 +203,7 @@ public class Submit extends FullRegSubmit {
 
         return ret;
     }
+*/
 
 
     protected void handleActivation(SimpleRegInfo info, long userId) throws TCWebException {

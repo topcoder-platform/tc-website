@@ -32,6 +32,7 @@ public class Confirm extends FullRegConfirm {
 
     }
 
+/*
     protected SimpleRegInfo makeRegInfo() throws Exception {
         FullRegInfo info;
         info = (FullRegInfo) super.makeRegInfo();
@@ -50,7 +51,9 @@ public class Confirm extends FullRegConfirm {
 
         return info;
     }
+*/
 
+/*
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
         super.checkRegInfo(info);
 
@@ -79,5 +82,6 @@ public class Confirm extends FullRegConfirm {
             throw new TCWebException(e);
         }
     }
+*/
 
 }

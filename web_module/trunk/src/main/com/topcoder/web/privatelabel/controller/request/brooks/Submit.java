@@ -65,6 +65,7 @@ public class Submit extends FullRegSubmit {
             throw new RuntimeException("impossible, isEligible returned false, fix the code");
         }
     }
+/*
 
     protected long commit(SimpleRegInfo regInfo) throws TCWebException {
 
@@ -435,6 +436,7 @@ public class Submit extends FullRegSubmit {
 
         return ret;
     }
+*/
 
     private static int[] months =
             new int[]{-1, Calendar.JANUARY, Calendar.FEBRUARY, Calendar.MARCH,
