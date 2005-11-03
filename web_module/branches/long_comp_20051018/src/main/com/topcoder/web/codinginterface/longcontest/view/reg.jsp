@@ -35,7 +35,9 @@
             Please read through the following terms and then click "Accept" when you're done.
             <br><br>
             <div align="center"><form name="terms">
-            <iframe width="590" height="300" marginWidth="5" src="/i/tournament/tco03/download_photos/0211.jpg"></iframe>
+            <iframe width="590" height="300" marginWidth="5" src="/i/tournament/tco03/download_photos/0211.jpg">
+            <%=request.getAttribute(Constants.ROUND_TERMS_KEY)%>
+            </iframe>
             <br><br>
             <A href="/"><img src="/i/accept.gif" alt="Accept" border="0" /></A>
             </form>
