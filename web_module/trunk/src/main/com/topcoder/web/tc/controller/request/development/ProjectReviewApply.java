@@ -19,6 +19,7 @@ import java.rmi.RemoteException;
 import java.sql.Timestamp;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.HashMap;
 import javax.transaction.Status;
 import javax.transaction.TransactionManager;
 
@@ -38,9 +39,20 @@ public class ProjectReviewApply extends Base {
         try {
             projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID));
             phaseId = Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID));
+            int reviewTypeId = Integer.parseInt(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
+
+            //build a map of valid review resp ids
+            HashMap reviewRespMap = new HashMap();
+            Request rr = new Request();
+            rr.setContentHandle("review_resp_info");
+            ResultSetContainer rrRsc = (ResultSetContainer)getDataAccess().getData(rr).get("review_resp_info");
+            ResultSetContainer.ResultSetRow rsr = null;
+            for (Iterator it = rrRsc.iterator(); it.hasNext();) {
+                rsr = (ResultSetContainer.ResultSetRow)it.next();
+                reviewRespMap.put(new Integer(rsr.getIntItem("review_resp_id")), new Integer(rsr.getIntItem("phase_id")));
+            }
 
             if (userIdentified()) {
-                long userId = getUser().getId();
 
                 RBoardUser rbu = (RBoardUser) createEJB(getInitialContext(), RBoardUser.class);
                 RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class);
@@ -69,16 +81,20 @@ public class ProjectReviewApply extends Base {
                 if (status != Constants.ACTIVE_REVIEWER) {
                     throw new NavigationException("Sorry, you are not authorized to perform reviews at this time.");
                 }
-                
+
+                if (!reviewRespMap.get(new Integer(reviewTypeId)).equals(new Integer(phaseId))) {
+                    throw new NavigationException("Invalid request, incorrect review position specified.");
+                }
+
                 TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
-                
+
                 try {
                     tm.begin();
-                    
+
                     if (rba.exists(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId, phaseId)) {
                         throw new NavigationException("You have already applied to review this project.");
                     }
-                    
+
                     Timestamp opensOn = (Timestamp) ((TCTimestampResult) detail.getItem(0, "opens_on")).getResultData();
                     if (opensOn.getTime() > System.currentTimeMillis()) {
                         throw new NavigationException("Sorry, this project is not open for review yet.  "
@@ -111,7 +127,6 @@ public class ProjectReviewApply extends Base {
                     }
 
                     if (phaseId == SoftwareComponent.DEV_PHASE) {
-                        int reviewTypeId = Integer.parseInt(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
                         for (Iterator it = reviewers.iterator(); it.hasNext();) {
                             ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();
                             if (row.getIntItem("review_resp_id") == reviewTypeId) {
@@ -123,7 +138,19 @@ public class ProjectReviewApply extends Base {
                             throw new NavigationException("Sorry, there was an error in the application"
                                     + " (primary reviewers must be failure reviewers, and vice versa).");
                         }
-                    } else { // Design.
+                    } else {
+                        // Design.
+                        for (Iterator it = reviewers.iterator(); it.hasNext();) {
+                            ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();
+                            if (row.getIntItem("review_resp_id") == reviewTypeId) {
+                                throw new NavigationException("Sorry, this review position is already taken.");
+                            }
+                        }
+                        // If somebody came in by constructing the URL, make sure this is consistent too.
+                        if (primary != (reviewTypeId == 4)) {
+                            throw new NavigationException("Sorry, there was an error in the application");
+                        }
+
                         // If somebody came in by constructing the URL, make sure that there is at least one
                         // primary before we run out of spots.
                         if (!primary && reviewers.size() == 2) {
