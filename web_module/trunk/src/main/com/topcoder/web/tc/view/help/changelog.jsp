@@ -37,7 +37,21 @@
            <jsp:param name="image1" value="white"/>
            <jsp:param name="title" value="TopCoder Web Site Change Log"/>
         </jsp:include>
+        <p>
+            4.0.6 - 2005.11.xx
+            <ul>
+                <li>increased size limit on user_placement.value and changed the code to enforce it</li>
+                <li>improved the validation on review board applications.  1.  so that one can't apply for a
+                design position that is taken.  2. so that one can't apply with an invalid review resp</li>
+            </ul>
+        </p>
 
+        <p>
+            4.0.5 - 2005.11.01
+            <ul>
+                <li>Added additional questions to placement registration</li>
+            </ul>
+        </p>
         <p> 4.0.4 - 2005.10.24
             <ul>
                 <li>Added forum links to round stats, round overview, problem details, match editorial
