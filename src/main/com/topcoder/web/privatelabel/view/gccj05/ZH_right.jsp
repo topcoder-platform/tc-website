@@ -1,3 +1,4 @@
+﻿<%@ page contentType="text/html;charset=utf8" %>
 <table class="smallBoxTable" align="right" cellspacing="0" cellpadding="0">
    <tr>
       <td align="center" class="smallBlackBox">
@@ -7,30 +8,30 @@
    <tr><td>&#160;</td></tr>
    <tr>
       <td align="center" nowrap=nowrap class="smallBlueBox">
-      <span class="bodyTextBlue">Important Dates</span>
+      <span class="bodyTextBlue">重要日程</span>
       <br><br>
-      <b>Registration Starts</b><br>
-      Friday, November 18
+      <b>注册开始</b><br>
+      11月18日星期五
       <br><br>
-      <b>Qualification Round</b><br>
-      Tuesday, December 6
+      <b>资格赛开始</b><br>
+      12月6日星期二
       <br><br>
-      <b>Championship Round</b><br>
-      Saturday, January 14
+      <b>冠军赛</b><br>
+      1月14日星期六
       </td>
    </tr>
    <tr><td>&#160;</td></tr>
    <tr>
       <td align="center" nowrap=nowrap class="smallGreenBox">
-      <span class="bodyTextGreen">X in<br>Cash Prizes!</span>
+      <span class="bodyTextGreen">竞赛奖金</span>
       <br><br>
-      <b>1st Place - X</b><br>
-      2nd Place - X<br>
-      3rd Place - X<br>
-      4th Place - X<br>
-      5th Place - X
+      <b>第1名 - X</b><br>
+      第2名 - X<br>
+      第3名 - X<br>
+      第4名 - X<br>
+      第5名 - X
       <br><br>
-      6th to 50th Place<br>will share X
+      第6名-第50名将分享
       </td>
    </tr>
 </table>

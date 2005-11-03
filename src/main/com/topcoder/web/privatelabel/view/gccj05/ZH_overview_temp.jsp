@@ -29,7 +29,7 @@
 
          <!-- Tab bar links-->
          <div align="center">
-         <jsp:include page="EN_links.jsp" >
+         <jsp:include page="ZH_links.jsp" >
          <jsp:param name="selectedTab" value="overview"/>
          </jsp:include>
          </div>
@@ -38,7 +38,7 @@
 
 <span class="bigTitle">Google&#153; 中国编程精英网罗赛</span>
 <span valign=top>
-<jsp:include page="EN_right.jsp" />
+<jsp:include page="ZH_right.jsp" />
 </span>
 
 <br><br>
@@ -73,7 +73,7 @@ Google 中国编程精英赛即将登陆中国！竞赛的题目具有相当的�
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
    <tr>
       <td class="sidebarTitle" width="30%">日期</td>
-      <td class="sidebarTitle" width="20%">时间*</td>
+      <td class="sidebarTitle" width="20%">时间 *</td>
 
       <td class="sidebarTitle" width="50%">状态</td>
    </tr>
@@ -140,12 +140,12 @@ Google 中国编程精英赛即将登陆中国！竞赛的题目具有相当的�
    </table>
 </div>
          <br><br>
-         想要了解更多的 2005 Google 中国编程精英网罗赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=EN_rules">请点击 竞赛规则</a>.
+         想要了解更多的 2005 Google 中国编程精英网罗赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
          </div>
       </td>
       <td width="49%">&#160;</td>
    <tr>
 </table>
-<jsp:include page="EN_foot.jsp" />
+<jsp:include page="ZH_foot.jsp" />
 </body>
 </html>
