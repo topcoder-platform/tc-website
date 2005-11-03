@@ -82,7 +82,8 @@ public class ProjectReviewApply extends Base {
                     throw new NavigationException("Sorry, you are not authorized to perform reviews at this time.");
                 }
 
-                if (!reviewRespMap.get(new Integer(reviewTypeId)).equals(new Integer(phaseId))) {
+                if (!reviewRespMap.containsKey(new Integer(reviewTypeId)) ||
+                        !reviewRespMap.get(new Integer(reviewTypeId)).equals(new Integer(phaseId))) {
                     throw new NavigationException("Invalid request, incorrect review position specified.");
                 }
 
