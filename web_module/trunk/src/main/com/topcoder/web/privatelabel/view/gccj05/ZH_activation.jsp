@@ -8,6 +8,7 @@
 <head>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gccj05.css"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <title>Google China Code Jam 2005, Powered by TopCoder</title>
 </head>
 <body>
