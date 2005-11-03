@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=utf-8" %>
 <table class="smallBoxTable" align="right" cellspacing="0" cellpadding="0">
    <tr>
       <td align="center" class="smallBlackBox">

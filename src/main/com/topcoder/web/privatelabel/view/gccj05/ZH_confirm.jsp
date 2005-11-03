@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=utf8" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  java.util.List,
