@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>11.03.05<br>3:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://forums.topcoder.com/?module=Thread&threadID=507824">Arena applet under Java 1.3 no longer supported</A></span><br><br>
+      Effective November 21st, we will no longer be supporting running the Arena applet under Java 1.3. Please make sure you have Java 1.4 or Java 5 installed before the 21st (SRM 273).
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="http://forums.topcoder.com/?module=Thread&threadID=507824">discuss this</A>&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.21.05<br>9:35 AM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="http://www.ftponline.com/weblogger/forum.aspx?ID=13&DATE=11/01/2005&blog=#449" target="_blank">Spirited Reusable Component Development</A></span><br><br>
        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/ftponline_logo.gif" width="67" height="18" alt="FTP Online" border="0" /></div>
@@ -311,19 +323,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505808" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.07.05<br>4:50 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_100505">Sun chat session from SRM 267</A></span><br><br>
-      Joe Nuxoll from Sun Microsystems&#174; was recently in the Arena to chat about JSF components and Java Studio Creator.  Here's the transcript.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_100505">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505806" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
