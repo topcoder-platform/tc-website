@@ -9,6 +9,17 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>11.04.05<br>2:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">"Achievements" added to Member Profiles</span><br><br>
+      We've added an "Achievements" link to Member Profiles, which lists accomplishments such as being named "Coder of the Month" and tournament advancement.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <tc-webtag:forumLink forumID="505822" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>11.04.05<br>10:20 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -315,18 +326,6 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room2_analysis">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505777" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.13.05<br>4:10 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">TCO05 Room 1 Semifinals will be held at 7:00PM PDT</span><br><br>
-      Due to a power failure during the Room 1 Semifinals, we will rerun the round at 7:00PM PDT.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <tc-webtag:forumLink forumID="505776" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
