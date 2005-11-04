@@ -16,7 +16,7 @@
          <table border="0" width=100% cellpadding=0 cellspacing=0>
             <tr>
                <td width="49%"></td>
-               <td valign="bottom" align="center"><img border="0" src="/i/events/gccj05/gccj05_logo.gif" alt="Google China Code Jam logo"></td>
+               <td valign="bottom" align="center"><img border="0" src="/i/events/gccj05/gccj05_logo.gif" alt="Google Coder Jam China logo"></td>
                <td width="49%"></td>
             </tr>
          </table>
@@ -230,7 +230,7 @@ Double click on any of the point values (shown in green) to view the source code
 You may only submit a challenge if you have at least zero points at the time of the challenge. A given submission may only be successfully challenged once. If any competitor has already successfully challenged a submission, it may not be further challenged.
 <br><br>
 <span class="greenSubtitle">System Testing Phase</span><br>
-After the Challenge Phase, all submissions will be run through a series of test cases.  In the case of the qualification round, the system tests will be run following the entire length of the qualification period.  These test cases will compare an expected result against a received result to determine if the code submission works for each test case. 
+After the Challenge Phase, all submissions will be run through a series of test cases.  In the case of the qualification round, the system tests will be run following the entire length of the qualification period.  These test cases will compare an expected result against a received result to determine if the code submission works for each test case.
 <br><br>
 <i>Any submission that fails any test case will be deemed incorrect, and will result in a loss of all points for that submission. In addition, any submission that runs longer than two (2) seconds for any test case will be deemed incorrect, and will result in a loss of all points</i>.
 <br><br>
@@ -246,7 +246,7 @@ An administrator will respond to your question in the chat area.
 If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to <A href="gccj05@topcoder.com?subject=Question regarding Google China Code Jam 05">gccj05@topcoder.com</A> . Please include a detailed description of the problem that you are having.
 
          <br><br>
-         To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">Terms and Conditions</a>.
+         To find out more detailed information about the Google Code Jam China, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">Terms and Conditions</a>.
          </div>
       </td>
       <td width="49%">&#160;</td>

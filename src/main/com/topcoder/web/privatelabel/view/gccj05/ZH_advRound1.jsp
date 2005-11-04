@@ -15,7 +15,7 @@
          <table border="0" width=100% cellpadding=0 cellspacing=0>
             <tr>
                <td width="49%"></td>
-               <td valign="bottom" align="center"><img border="0" src="/i/events/gccj05/gccj05_logo.gif" alt="Google China Code Jam logo"></td>
+               <td valign="bottom" align="center"><img border="0" src="/i/events/gccj05/gccj05_logo.gif" alt="Google Coder Jam China logo"></td>
                <td width="49%"></td>
             </tr>
          </table>
@@ -26,7 +26,7 @@
       <td width="49%">&#160;</td>
       <td>
          <div class=greenBigBox>
-         
+
          <%-- Tab bar links--%>
          <div align="center">
          <jsp:include page="ZH_links.jsp" >
@@ -508,7 +508,7 @@
          </table>
 
          <br><br>
-         To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gccj05&d2=rules">Terms and Conditions</a>.
+         To find out more detailed information about the Google Code Jam China, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gccj05&d2=rules">Terms and Conditions</a>.
          </div>
       </td>
       <td width="49%">&#160;</td>
