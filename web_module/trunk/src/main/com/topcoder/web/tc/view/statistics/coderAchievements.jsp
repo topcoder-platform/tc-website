@@ -41,6 +41,11 @@
 <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=results.getLongItem(0, "coder_id")%>' /></span>
 <br>
 <span class="bodySubtitle">Statistics&#160;>&#160;</span><br>
+<span class="bc">
+<A HREF="/tc?module=MemberProfile&cr=<%=results.getLongItem(0, "coder_id")%>" class="bcLink">Member Profile</A>
+&#160;|&#160;<A HREF='/stat?c=ratings_history&cr=<%=results.getLongItem(0, "coder_id")%>' class="bcLink">Rating History</A>
+&#160;|&#160;<A HREF="/stat?c=earnings_history&cr=<%=results.getLongItem(0, "coder_id")%>" class="bcLink">Earnings History</A>
+</span>
 
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
