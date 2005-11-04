@@ -1,4 +1,4 @@
-<%@ page import="com.topcoder.web.privatelabel.Constants,
+﻿<%@ page import="com.topcoder.web.privatelabel.Constants,
                  java.util.List,
                  java.util.Map"%><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
