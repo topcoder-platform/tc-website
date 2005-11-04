@@ -1,7 +1,6 @@
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%@  page
@@ -67,7 +66,7 @@
   		<% int i=1; %>
   		<% boolean resultsViewable = false;%>
   		<% List questionInfo = (List)request.getAttribute("questionInfo");%>
-  		<tc:questionIterator list="<%=questionInfo%>" id="question">
+  		<tc-webtag:questionIterator list="<%=questionInfo%>" id="question">
 			<table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
         		<tr>
            			<td colspan="2" class="bodySubtitle" valign="top" width="100%" align="center">
@@ -86,7 +85,7 @@
               		</td>
            		</tr>
            		<% boolean even = false; %>
-        		<tc:answerInput id="answerInput" question="<%=question%>">
+        		<tc-webtag:answerInput id="answerInput" question="<%=question%>">
            			<tr class="<%=even?"formTextOdd":"formTextEven"%>">
               			<td width="100%">
                  			<%=answerText%>
@@ -96,11 +95,11 @@
               			</td>
            			</tr>
            			<% even = !even; %>
-        		</tc:answerInput>
+        		</tc-webtag:answerInput>
      		</table>
      		<p><br/></p>
      		<% i++;%>
-  		</tc:questionIterator>
+  		</tc-webtag:questionIterator>
 	</form>
 
 </td>
