@@ -68,7 +68,7 @@ Google 中国编程精英赛即将登陆中国！竞赛的题目具有相当的�
 <br>
 <span class="greenSubtitle">参赛须知</span>
 <br><br>
-注册参加此次Google™ China Code Jam 比赛的日期从北京时间2005年11月18日上午9时开始，至北京时间2005年12月6日上午9时结束。
+注册参加此次Google™ Code Jam China 比赛的日期从北京时间2005年11月18日上午9时开始，至北京时间2005年12月6日上午9时结束。
 <br><br>
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
    <tr>
