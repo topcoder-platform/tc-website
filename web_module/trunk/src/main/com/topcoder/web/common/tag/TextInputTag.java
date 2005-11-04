@@ -46,6 +46,7 @@ public class TextInputTag extends BaseTag {
                 ret.append(value);
             }
         }
+        log.debug("outputing: " + ret.toString());
         try {
             pageContext.getOut().print(ret.toString());
         } catch (java.io.IOException ioe) {
