@@ -9,6 +9,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>11.04.05<br>10:20 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm270">SRM 270 - Problem Set & Analysis</A></span><br><br>
+      In the 270th SRM the coders in both divisions had to face a problem set with non-standard point values: 250-600-900 in Division 2 and 300-600-900 in Division 1. In both divisions  their medium problem had the highest failure rate and it offered a lot of great challenge opportunities.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/misof_mug.gif" /><br>by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm270">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505783" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>11.03.05<br>3:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://forums.topcoder.com/?module=Thread&threadID=507824">Arena applet under Java 1.3 no longer supported</A></span><br><br>
       Effective November 21st, we will no longer be supporting running the Arena applet under Java 1.3. Please make sure you have Java 1.4 or Java 5 installed before the 21st (SRM 273).
@@ -310,19 +327,6 @@
    </tr>
    <tr><td class="newsLinksCell">
          <tc-webtag:forumLink forumID="505776" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.12.05<br>9:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><tc-webtag:handle coderId="284007" /> wins the TCO05 Poker Tournament</span><br><br>
-      <tc-webtag:handle coderId="284007" /> takes the pot, and wins big.  <tc-webtag:handle coderId="308453" /> and <tc-webtag:handle coderId="275071" /> take 2nd and 3rd.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505808" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
