@@ -29,8 +29,7 @@
       2nd Place - X<br>
       3rd Place - X<br>
       4th Place - X<br>
-      5th Place - X
-      <br><br>
+      5th Place - X<br><br>
       6th to 50th Place<br>will share X
       </td>
    </tr>

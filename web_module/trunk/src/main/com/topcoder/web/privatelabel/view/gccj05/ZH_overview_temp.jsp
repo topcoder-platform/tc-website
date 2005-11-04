@@ -128,7 +128,7 @@ Google 中国编程精英赛即将登陆中国！竞赛的题目具有相当的�
 <br><br>
 <span class="greenSubtitle">奖项</span>
 <br><br>
-晋级第一轮的500名参赛者将获赠"2005 Google™ 中国编程精英网罗赛"T恤一件。晋级冠军赛的50名参赛着将获得如下的奖项:
+晋级第一轮的500名参赛者将获赠"Google™ 中国编程精英网罗赛"T恤一件。晋级冠军赛的50名参赛着将获得如下的奖项:
 <br><br>
 <div class="indented">
    <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
@@ -140,7 +140,7 @@ Google 中国编程精英赛即将登陆中国！竞赛的题目具有相当的�
    </table>
 </div>
          <br><br>
-         想要了解更多的 2005 Google 中国编程精英网罗赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
+         想要了解更多的 Google 中国编程精英网罗赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
          </div>
       </td>
       <td width="49%">&#160;</td>
