@@ -92,12 +92,14 @@
              </td>
            </tr>
            <tr>
-             <td class="statTextBig" valign="top">
-               <A HREF="Javascript:void openProblemRating(<rsc:item set="<%=generalInfo%>" name="problem_id"/>)" class="statText"><img src="/i/rate_it_blue.gif" width="60" height="18" border="0" hspace="10" align=left/></A>
-             </td>
-             <td>
+             <td class="statTextBig" valign="top" colspan="2">
+               <div style="float:left; padding-right: 5px;">
+               <A HREF="Javascript:void openProblemRating(<rsc:item set="<%=generalInfo%>" name="problem_id"/>)" class="statText"><img border="0" src="/i/rate_it.gif" /></A>
+               </div>
                 <%  if (!forumID.equals("")) { %>
-                <A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumID%>" CLASS="statText">Discuss</A>
+               <div style="float:left; padding-right: 5px;">
+                <A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumID%>" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
+               </div>
                 <%  } %>
              </td>
            </tr>
