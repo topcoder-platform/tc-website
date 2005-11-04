@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html; charset=ISO-8859-1" %>
+﻿<%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />

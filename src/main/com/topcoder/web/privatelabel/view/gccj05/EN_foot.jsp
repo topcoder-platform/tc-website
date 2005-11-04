@@ -1,4 +1,5 @@
-﻿<div class=footerHolder>
+﻿<%@ page contentType="text/html;charset=utf-8" %>
+<div class=footerHolder>
 <font face="Arial">
 &copy;2005 Google -
 <a href="http://www.google.com/">Home</a> -
