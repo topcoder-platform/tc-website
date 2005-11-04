@@ -36,7 +36,7 @@
 <jsp:param name="title" value="Coder Achievements"/>
 </jsp:include>
 
-<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=pageContext.getAttribute("coder_id").toString() %>' /></span>
+<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=pageContext.getAttribute("cr").toString() %>' /></span>
 <br>
 <span class="bodySubtitle">Statistics&#160;>&#160;</span><br>
 
