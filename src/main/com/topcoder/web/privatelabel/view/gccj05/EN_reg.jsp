@@ -97,7 +97,7 @@
                 <td align="left">
                     <tc-webtag:textInput name="<%=Constants.LAST_NAME%>"  size="15" maxlength="50"/>
 <%=new String(((HashMap) pageContext.getRequest().getAttribute("processor_defaults")).get("ln").toString().getBytes(), "UTF-8")%>
-<%out.print(((HashMap) pageContext.getRequest().getAttribute("processor_defaults")).get("ln").toString());%>
+<%out.print(((HashMap) pageContext.getRequest().getAttribute("processor_defaults")).get("ln"));%>
 <%out.print("网站信息");%>
 <%System.out.println(((HashMap) pageContext.getRequest().getAttribute("processor_defaults")).get("ln").toString());%>
 
