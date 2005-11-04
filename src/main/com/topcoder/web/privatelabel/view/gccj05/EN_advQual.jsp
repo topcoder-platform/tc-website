@@ -4,7 +4,7 @@
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gccj05.css"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-<title>Google China Code Jam 2005, Powered by TopCoder</title>
+<title>Google Code Jam China, Powered by TopCoder</title>
 </head>
 <body>
 
@@ -15,7 +15,7 @@
          <table border="0" width=100% cellpadding=0 cellspacing=0>
             <tr>
                <td width="49%"></td>
-               <td valign="bottom" align="center"><img border="0" src="/i/events/gccj05/gccj05_logo.gif" alt="Google China Code Jam logo"></td>
+               <td valign="bottom" align="center"><img border="0" src="/i/events/gccj05/gccj05_logo.gif" alt="Google Coder Jam China logo"></td>
                <td width="49%"></td>
             </tr>
          </table>
@@ -592,7 +592,7 @@
          </table>
 
          <br><br>
-         To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gccj05&d2=rules">Terms and Conditions</a>.
+         To find out more detailed information about the Google Code Jam China, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gccj05&d2=rules">Terms and Conditions</a>.
          </div>
       </td>
       <td width="49%">&#160;</td>
