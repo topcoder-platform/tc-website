@@ -43,6 +43,7 @@
                 <li>increased size limit on user_placement.value and changed the code to enforce it</li>
                 <li>improved the validation on review board applications.  1.  so that one can't apply for a
                 design position that is taken.  2. so that one can't apply with an invalid review resp</li>
+                <li>Added coder achievements page</li>
             </ul>
         </p>
 
