@@ -47,6 +47,7 @@
 &#160;|&#160;<A HREF="/stat?c=earnings_history&cr=<%=results.getLongItem(0, "coder_id")%>" class="bcLink">Earnings History</A>
 </span>
 
+    <p><br /></p>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
