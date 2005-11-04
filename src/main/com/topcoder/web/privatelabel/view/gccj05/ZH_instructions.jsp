@@ -77,8 +77,8 @@ From within the competition room, you will access the problem statements that yo
 The Coding Phase is the period during which each contestant attempts to create solutions to three problem statements. The amount of time you will be given will vary depending on the round of competition:
 <ul>
 <li>In the Qualification Round, the Coding Phase will last 60 minutes from the time that the first problem is opened and the contestants will be given two problems to solve.</li>
-<li>In the Online Rounds of the Google China Code Jam, the Coding Phase will last 75 minutes and the contestants will be given three problems to solve.</li>
-<li>In the Onsite Final Round of the Google China Code Jam, the coding phase will last 75 minutes and the contestants will be given three problems to solve.</li>
+<li>In the Online Rounds of the Google Code Jam China, the Coding Phase will last 75 minutes and the contestants will be given three problems to solve.</li>
+<li>In the Onsite Final Round of the Google Code Jam China, the coding phase will last 75 minutes and the contestants will be given three problems to solve.</li>
 </ul>
 
 When the competition begins, you may view the problem statements as follows:
@@ -105,7 +105,7 @@ The coding window is the most important part of the Competition Arena. It is in 
 The top pane of the coding window contains the problem statement in its entirety. The problem statement explains exactly what it is that you are attempting to accomplish. It includes an explanation of the task, the class and method definitions that your solution must adhere to, all of the constraints for any input parameters, and examples to help clarify the statement.
 <br><br>
 <strong>Choosing a Language</strong><br>
-The Google China Code Jam allows coders to utilize Java, C++, C# or Visual Basic as a competition programming language. You have the option to choose a programming language on a problem-by-problem basis. It is legal for you to use any programming languages to solve each of the problems in a single competition. For this reason, you have the option of choosing the programming language from within the coding window. You can find the language selection area in the upper right area of the coding window - under "Choose your language". Remember to select the appropriate language before you attempt to compile your code. Strange compilation results can be a symptom of having the wrong language selected.
+The Google Code Jam China allows coders to utilize Java, C++, C# or Visual Basic as a competition programming language. You have the option to choose a programming language on a problem-by-problem basis. It is legal for you to use any programming languages to solve each of the problems in a single competition. For this reason, you have the option of choosing the programming language from within the coding window. You can find the language selection area in the upper right area of the coding window - under "Choose your language". Remember to select the appropriate language before you attempt to compile your code. Strange compilation results can be a symptom of having the wrong language selected.
 <br><br>
 <strong>Creating a Solution</strong><br>
 The solution class you create and all of its members must be defined as public in order for the TopCoder servers to have access to your class members and invoke the appropriate methods. Below you will find code templates for Java, C++, C#, and Visual Basic:
@@ -243,7 +243,7 @@ If you have a question during the competition about the problem statement or abo
 <br><br>
 An administrator will respond to your question in the chat area.
 <br><br>
-If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to <A href="gccj05@topcoder.com?subject=Question regarding Google China Code Jam 05">gccj05@topcoder.com</A> . Please include a detailed description of the problem that you are having.
+If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to <A href="gccj05@topcoder.com?subject=Question regarding Google Code Jam China">gccj05@topcoder.com</A> . Please include a detailed description of the problem that you are having.
 
          <br><br>
          To find out more detailed information about the Google Code Jam China, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">Terms and Conditions</a>.

@@ -27,7 +27,7 @@
       <td>
          <div class=greenBigBox>
 
-         <span class="bigTitle">Google China Code Jam 2005 Final Results</span>
+         <span class="bigTitle">Google Code Jam China Final Results</span>
 
          <br><br>
 

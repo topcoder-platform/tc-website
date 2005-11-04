@@ -43,7 +43,7 @@
          </span>
 
          <br><br>
-         Registration for the Google China Code Jam 2005 is officially closed.
+         Registration for the Google Code Jam China is officially closed.
          <br><br>
          <br><br>
          <br><br>
