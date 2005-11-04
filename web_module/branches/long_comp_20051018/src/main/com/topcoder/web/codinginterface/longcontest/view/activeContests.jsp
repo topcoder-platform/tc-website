@@ -60,7 +60,9 @@
 <%boolean even = true;%>
 <logic:iterate name="<%=Constants.CONTEST_LIST_KEY%>" id="contest">
 <tr>
-<td class="<%=even?"statLt":"statDk"%>"><b><tc-webtag:beanWrite name="contest" property="roundName"/></b></td>
+<td class="<%=even?"statLt":"statDk"%>"><b><tc-webtag:beanWrite name="contest" property="roundName"/></b>
+<div style="float: left;"><img src="/i/logo_r.gif" alt="" border="0" /></div>
+</td>
 <td class="<%=even?"statLt":"statDk"%>"><A href="longcontest?module=ViewProblem&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">
 <tc-webtag:beanWrite name="contest" property="problemName"/></A>
 </td>
