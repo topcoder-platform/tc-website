@@ -229,7 +229,7 @@
             </tr>
             <tr>
                 <td align="right" nowrap>
-                    <span class="errorText">*</span> PIN/Zip Code
+                    <span class="errorText">*</span> Postal Code
                 </td>
                 <td align="left">
                     <tc-webtag:textInput name="<%=Constants.ZIP%>"  size="10" maxlength="15"/>
