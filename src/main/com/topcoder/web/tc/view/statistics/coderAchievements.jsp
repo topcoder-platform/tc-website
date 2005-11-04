@@ -36,7 +36,9 @@
 <jsp:param name="title" value="Coder Achievements"/>
 </jsp:include>
 
-<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=pageContext.getAttribute("cr").toString() %>' /></span>
+
+    <% if (!results.isEmpty()) { %>
+<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=results.getLongItem(0, "coder_id")%>' /></span>
 <br>
 <span class="bodySubtitle">Statistics&#160;>&#160;</span><br>
 
@@ -59,10 +61,11 @@
       <%even=!even;%>
       </rsc:iterator>
 
-      </TABLE>
-      </TD>
+      </table>
+      </td>
    </tr>
-</TABLE>
+</table>
+    <% } %>
 
 <p><br></p>
 <!-- END BODY -->
