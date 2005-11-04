@@ -1,5 +1,6 @@
 ﻿<%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
+<%@ page import="java.util.HashMap"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -95,6 +96,11 @@
                 </td>
                 <td align="left">
                     <tc-webtag:textInput name="<%=Constants.LAST_NAME%>"  size="15" maxlength="50"/>
+<%=new String(((HashMap) pageContext.getRequest().getAttribute("processor_defaults")).get("ln").toString().getBytes(), "UTF-8")%>
+<%out.print(((HashMap) pageContext.getRequest().getAttribute("processor_defaults")).get("ln").toString());%>
+<%out.print("网站信息");%>
+<%System.out.println(((HashMap) pageContext.getRequest().getAttribute("processor_defaults")).get("ln").toString());%>
+
                 </td>
             </tr>
 
