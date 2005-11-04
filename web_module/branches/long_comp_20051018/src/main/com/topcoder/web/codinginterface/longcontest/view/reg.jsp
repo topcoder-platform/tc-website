@@ -1,12 +1,16 @@
+<%@  page language="java"  %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%@  page
   language="java"
   import="java.util.*,
           com.topcoder.web.codinginterface.longcontest.*,
-          com.topcoder.shared.dataAccess.resultSet.*"
-
+          com.topcoder.shared.dataAccess.resultSet.*,
+          com.topcoder.web.tc.view.tag.AnswerInput,
+          com.topcoder.web.tc.model.Question"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -41,17 +45,63 @@
 <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 
+
             <span class="bodySubtitle">Registration</span><br>
             Please read through the following terms and then click "Accept" when you're done.
             <br><br>
-            <div align="center"><form name="terms">
-            <iframe width="590" height="300" marginWidth="5" src="/i/tournament/tco03/download_photos/0211.jpg">
-            <%=request.getAttribute(Constants.ROUND_TERMS_KEY)%>
-            </iframe>
+            <div align="center">
+            <form name="terms">
+			<textarea style="width:590; height:300; marginWidth:5; a"  name="textarea">
+<%=request.getAttribute(Constants.ROUND_TERMS_KEY)%>
+			</textarea>
             <br><br>
             <A href="/"><img src="/i/accept.gif" alt="Accept" border="0" /></A>
             </form>
             </div>
+
+
+
+	<form action="somewhere" method="POST" name="surveyForm">
+  		<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitReg"/>
+  		<input type="hidden" name="<%=Constants.ROUND_ID%>" value="<%=request.getAttribute(Constants.ROUND_ID)%>"/>
+  		<% int i=1; %>
+  		<% boolean resultsViewable = false;%>
+  		<% List questionInfo = (List)request.getAttribute("questionInfo");%>
+  		<tc:questionIterator list="<%=questionInfo%>" id="question">
+			<table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
+        		<tr>
+           			<td colspan="2" class="bodySubtitle" valign="top" width="100%" align="center">                           
+           			</td>
+        		</tr>
+        		<tr>
+           			<td colspan="2" class="bodySubtitle" valign="top" width="100%">
+              			<%=questionInfo.size()>1?i+". ":""%><jsp:getProperty name="question" property="text"/><br/><br/>
+              			<hr width="100%" size="1" noshade/>
+           			</td>
+
+           		</tr>
+           		<tr>
+              		<td colspan="2" class="errorText">
+                 		<tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br/></tc-webtag:errorIterator>
+              		</td>
+           		</tr>
+           		<% boolean even = false; %>
+        		<tc:answerInput id="answerInput" question="<%=question%>">
+           			<tr class="<%=even?"formTextOdd":"formTextEven"%>">
+              			<td width="100%">
+                 			<%=answerText%>
+              			</td>
+              			<td align="right">
+                 			<%=answerInput%>
+              			</td>
+           			</tr>
+           			<% even = !even; %>
+        		</tc:answerInput>
+     		</table>
+     		<p><br/></p>
+     		<% i++;%>
+  		</tc:questionIterator>
+	</form>
 
 </td>
 
