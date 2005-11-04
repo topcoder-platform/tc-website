@@ -5,10 +5,10 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.*;
+import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.ejb.survey.Response;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.model.Answer;
-import com.topcoder.web.tc.model.Question;
+import com.topcoder.web.common.model.Question;
 
 import java.util.ArrayList;
 import java.util.Iterator;

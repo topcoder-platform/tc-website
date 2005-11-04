@@ -4,38 +4,35 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Vector;
 
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
-import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.codinginterface.longcontest.model.LongContestModel;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.tc.model.Answer;
-import com.topcoder.web.tc.model.Question;
+import com.topcoder.web.common.model.Answer;
+import com.topcoder.web.common.model.Question;
 
 public class ViewReg extends Base{
 
     protected static final Logger log = Logger.getLogger(ViewReg.class);
 
     protected void businessProcessing() throws TCWebException {
-    	
+
     	String roundID = getRequest().getParameter(Constants.ROUND_ID);
-    	
+
     	try {
 	    	DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
 	    	Request r = new Request();
 	    	r.setContentHandle("long_contest_round_terms");
-	    	
+
 	    	Map m = dai.getData(r);
 	    	ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_round_terms");
-	    	
+
 	    	if(rsc.isEmpty()) {
 	    		log.error("Could not find round terms for: " + roundID);
 	    		throw new TCWebException("Error retrieving page.");
@@ -51,11 +48,11 @@ public class ViewReg extends Base{
     	setNextPage(Constants.PAGE_VIEW_REG);
     	setIsNextPageInContext(true);
     }
-    
-    protected List getQuestionInfo(DataAccessInt dai, String roundID) throws Exception {        
+
+    protected List getQuestionInfo(DataAccessInt dai, String roundID) throws Exception {
         Request r = new Request();
         r.setContentHandle("long_contest_round_questions");
-        r.setProperty("rd", roundID);        
+        r.setProperty("rd", roundID);
         Map qMap = dai.getData(r);
         ResultSetContainer questions = (ResultSetContainer) qMap.get("long_contest_round_questions");
 
@@ -69,20 +66,20 @@ public class ViewReg extends Base{
         }
         return questionList;
     }
-    
+
     private Question makeQuestion(DataAccessInt dai, ResultSetRow row) throws Exception {
         Question q = new Question();
         q.setId(row.getLongItem("question_id"));
         q.setStyleId(row.getIntItem("question_style_id"));
         q.setTypeId(row.getIntItem("question_type_id"));
         q.setText(row.getStringItem("question_text"));
-        q.setRequired(true);        
+        q.setRequired(true);
         q.setAnswerInfo(makeAnswerInfo(dai, q.getId()));
         return q;
     }
-    
-    private List makeAnswerInfo(DataAccessInt dai, long questionId) throws Exception {        
-        Request req = new Request();        
+
+    private List makeAnswerInfo(DataAccessInt dai, long questionId) throws Exception {
+        Request req = new Request();
         req.setContentHandle("long_contest_round_questions_answers");
         req.setProperty("qid", String.valueOf(questionId));
         ResultSetContainer rsc = (ResultSetContainer) dai.getData(req).get("long_contest_round_questions_answers");

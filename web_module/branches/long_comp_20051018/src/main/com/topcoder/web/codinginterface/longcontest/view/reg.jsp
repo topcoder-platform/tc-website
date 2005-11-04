@@ -9,8 +9,8 @@
   import="java.util.*,
           com.topcoder.web.codinginterface.longcontest.*,
           com.topcoder.shared.dataAccess.resultSet.*,
-          com.topcoder.web.tc.view.tag.AnswerInput,
-          com.topcoder.web.tc.model.Question"
+          com.topcoder.web.common.tag.AnswerInput,
+          com.topcoder.web.common.model.Question"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -70,7 +70,7 @@
   		<tc:questionIterator list="<%=questionInfo%>" id="question">
 			<table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
         		<tr>
-           			<td colspan="2" class="bodySubtitle" valign="top" width="100%" align="center">                           
+           			<td colspan="2" class="bodySubtitle" valign="top" width="100%" align="center">
            			</td>
         		</tr>
         		<tr>
