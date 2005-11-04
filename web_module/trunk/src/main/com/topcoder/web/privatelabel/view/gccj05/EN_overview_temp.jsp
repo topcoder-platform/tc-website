@@ -41,7 +41,7 @@
 </span>
 
 <br><br>
-The Google China Code Jam is coming to China!  This is your chance to compete against your countrymen and women in the search for China's finest.
+The Google Code Jam China is coming to China!  This is your chance to compete against your countrymen and women in the search for China's finest.
 <br><br>
 We've got tough problems, prize money and bragging rights up for grabs.  Think you have what it takes?
 <br><br>

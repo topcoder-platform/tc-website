@@ -48,7 +48,7 @@
 
          <br><br>
 
-In order to be eligible to compete in the Google China Code Jam 2005,
+In order to be eligible to compete in the Google Code Jam China,
 you must activate your account by following the directions sent to the email
 address provided during registration. You <u>will not</u> be able to compete if you
 do not activate your account.
@@ -57,7 +57,7 @@ do not activate your account.
 
 Spend time in the Practice Rooms prior to the Qualification Round by clicking the Competition Arena tab above.<br><br>
 
-If you encounter any problems, please contact us at <A href="mailto:gccj05@topcoder.com?subject=Question regarding Google China Code Jam">gccj05@topcoder.com</A>.<br><br>
+If you encounter any problems, please contact us at <A href="mailto:gccj05@topcoder.com?subject=Question regarding Google Code Jam China">gccj05@topcoder.com</A>.<br><br>
 
 Good luck to you in the Arena!
 
