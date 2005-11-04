@@ -48,8 +48,8 @@
 </span>
 
     <p><br /></p>
-
-<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
+<div align="center">
+<table cellpadding="0" cellspacing="0" border="0" width="500" class="statTableHolder">
    <tr>
       <td>
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
@@ -61,8 +61,8 @@
       <%boolean even = true;%>
       <rsc:iterator list="<%=results%>" id="resultRow">
          <tr>
-            <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="achievement_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></TD>
-            <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="description" row="<%=resultRow%>"/></TD>
+            <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap"><rsc:item name="achievement_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></TD>
+            <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap"><rsc:item name="description" row="<%=resultRow%>"/></TD>
          </tr>
       <%even=!even;%>
       </rsc:iterator>
@@ -71,6 +71,7 @@
       </td>
    </tr>
 </table>
+</div>
     <% } %>
 
 <p><br></p>
