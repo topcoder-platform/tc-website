@@ -37,84 +37,84 @@
 
 
          <br><br>
-         <span class="bigTitle">Schedule</span>
+         <span class="bigTitle">竞赛日程</span>
          <span valign=top>
          <jsp:include page="ZH_right.jsp" />
          </span>
          <br><br>
 
-         <span class="greenSubtitle">Qualification Round</span><br>
+         <span class="greenSubtitle">资格赛</span><br>
          <a name="sched"></a>
          <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
             <tr>
-               <td class="sidebarTitle" width="25%">Round</td>
-               <td class="sidebarTitle" width="35%">Date and Time*</td>
-               <td class="sidebarTitle" width="21%" align="center"># of Competitors</td>
-               <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
+               <td class="sidebarTitle" width="25%">赛事安排</td>
+               <td class="sidebarTitle" width="35%">日期和时间 *</td>
+               <td class="sidebarTitle" width="21%" align="center">参赛人数</td>
+               <td class="sidebarTitle" width="19%" align="center">晋级人数</td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText">Qualification Round</td>
-               <td class="sidebarText" nowrap=nowrap>Noon, December 6, 2005 <br/><br>through<br><br>Noon, December 7, 2005<br></td>
-               <td class="sidebarText" align="center">All eligible members</td>
+               <td class="sidebarText">资格赛</td>
+               <td class="sidebarText" nowrap=nowrap>2005年12月6日中午至2005年12月7日中午<br></td>
+               <td class="sidebarText" align="center">所有合格注册者</td>
                <td class="sidebarText" align="center">500</td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText" colspan="4">*NOTE: All times listed GMT +8 (Beijing Time)</td>
+               <td class="sidebarText" colspan="4">* 注意：以上时间皆为北京时间</td>
             </tr>
          </table>
 
          <br><br>
-         <span class="greenSubtitle">Online Elimination Rounds</span><br>
-         Everyone who advances to an online round must log in to the TopCoder Competition Arena no later than ten minutes prior to the start of the round. All start times will be communicated as GMT +8. If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition.
+         <span class="greenSubtitle">在线淘汰赛</span><br>
+         凡晋级至在线淘汰赛的参赛者都须在淘汰赛开赛前10分钟登陆TopCoder竞技平台。各地区开赛时间以北京时间为准。未能准时参加此次在线赛事的参赛者，不论任何理由，他/她都将被作自动弃权处理。
          <br><br>
 
          <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
             <tr>
-               <td class="sidebarTitle" width="25%">Round</td>
-               <td class="sidebarTitle" width="35%">Date and Time*</td>
-               <td class="sidebarTitle" width="21%" align="center"># of Competitors</td>
-               <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
+               <td class="sidebarTitle" width="25%">赛事安排</td>
+               <td class="sidebarTitle" width="35%">日期和时间 *</td>
+               <td class="sidebarTitle" width="21%" align="center">参赛人数</td>
+               <td class="sidebarTitle" width="19%" align="center">晋级人数</td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText">Online Round 1</td>
-               <td class="sidebarText">December 12, 2005<br>Register: 6:00 PM<br>START: 9:00 PM<br></td>
+               <td class="sidebarText">在线第一轮</td>
+               <td class="sidebarText">2005年12月12日<br>注册时间：6:00 PM<br>开始时间：9:00 PM<br></td>
                <td class="sidebarText" align="center">500</td>
                <td class="sidebarText" align="center">250</td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText">Online Round 2</td>
-               <td class="sidebarText">December 15, 2005<br>START: 9:00 PM<br></td>
+               <td class="sidebarText">在线第二轮</td>
+               <td class="sidebarText">2005年12月15日<br>开始时间：9:00 PM<br></td>
                <td class="sidebarText" align="center">250</td>
                <td class="sidebarText" align="center">50</td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText" colspan="4">*NOTE: All times listed GMT +8. In the event that an online round must be cancelled for any reason, the "rain date" will be the next possible business day at the same time.</td>
+               <td class="sidebarText" colspan="4">* 注意：以上时间皆为北京时间。如果当日在线赛事因故取消，赛事将在下一工作日的同一时间举行。</td>
             </tr>
          </table>
 
          <br><br>
-         <span class="greenSubtitle">Onsite Championship Round</span><br>
-         Up to 50 coders will compete in the Championship Round being held in Beijing at a site TBD.  Each finalist must be present onsite to compete in the onsite finals.
+         <span class="greenSubtitle">冠军赛</span><br>
+         最终50名精英参赛者将在北京举行的冠军赛一决高下，具体地点待定。每位决赛选手须到现场参赛。
          <br><br>
 
          <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
             <tr>
-               <td class="sidebarTitle" width="25%">Round</td>
-               <td class="sidebarTitle" width="50%">Date and Time*</td>
-               <td class="sidebarTitle" width="25%" align="center"># of Participants</td>
+               <td class="sidebarTitle" width="25%">赛事轮次</td>
+               <td class="sidebarTitle" width="50%">日期和时间*</td>
+               <td class="sidebarTitle" width="25%" align="center">参赛人数</td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText">Championship Round</td>
-               <td class="sidebarText">January 14, 2006<br>START: TBD<br></td>
+               <td class="sidebarText">冠军赛</td>
+               <td class="sidebarText">2006年1月14日<br>开始时间：待定<br></td>
                <td class="sidebarText" align="center">50</td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText" colspan="3">*NOTE: All times listed in GMT +8. The time of the onsite round is subject to change.</td>
+               <td class="sidebarText" colspan="3">* 注意：以上时间皆为北京时间。现场赛的时间视具体情况而定。</td>
             </tr>
          </table>
 
          <br><br>
-         To find out more detailed information about the Google Code Jam China, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">Terms and Conditions</a>.
+         想要了解更多的 Google 中国编程精英网罗赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
          </div>
       </td>
       <td width="49%">&#160;</td>
