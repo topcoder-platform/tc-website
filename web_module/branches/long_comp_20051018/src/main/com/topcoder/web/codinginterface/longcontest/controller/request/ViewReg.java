@@ -37,7 +37,7 @@ public class ViewReg extends Base{
 	    		log.error("Could not find round terms for: " + roundID);
 	    		throw new TCWebException("Error retrieving page.");
 	    	} else {
-	    		getRequest().setAttribute(Constants.ROUND_TERMS_KEY, rsc.getStringItem(0, "terms_content "));
+	    		getRequest().setAttribute(Constants.ROUND_TERMS_KEY, rsc.getStringItem(0, "terms_content"));
 	    	}
 	    	List questionInfo = getQuestionInfo(dai, roundID);
 	    	getRequest().setAttribute("questionInfo", questionInfo);

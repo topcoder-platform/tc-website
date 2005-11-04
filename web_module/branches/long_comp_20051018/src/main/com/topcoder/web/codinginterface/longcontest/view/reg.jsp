@@ -61,7 +61,7 @@
 
 
 	<form action="somewhere" method="POST" name="surveyForm">
-  		<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitReg"/>
+  		<input type="hidden" name="<%=Constants.MODULE%>" value="SubmitReg"/>
   		<input type="hidden" name="<%=Constants.ROUND_ID%>" value="<%=request.getAttribute(Constants.ROUND_ID)%>"/>
   		<% int i=1; %>
   		<% boolean resultsViewable = false;%>
