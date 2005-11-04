@@ -15,7 +15,7 @@
          <table border="0" width=100% cellpadding=0 cellspacing=0>
             <tr>
                <td width="49%"></td>
-               <td valign="bottom" align="center"><img border="0" src="/i/events/gccj05/gccj05_logo.gif" alt="Google China Code Jam logo"></td>
+               <td valign="bottom" align="center"><img border="0" src="/i/events/gccj05/gccj05_logo.gif" alt="Google Coder Jam China logo"></td>
                <td width="49%"></td>
             </tr>
          </table>
@@ -46,7 +46,7 @@
 You may use your handle and password to login to the competition arena.  Within the arena there is a practice area that mimics the functionality of the real competition.  Nothing that you do in the practice room will count against you in the competition.
 <br><br>
 <b>What resources can I use to help me during the competition?</b><br>
-You may utilize any reference materials, including those found on the Internet.  You may not collaborate with any other person.  
+You may utilize any reference materials, including those found on the Internet.  You may not collaborate with any other person.
 <br><br>
 <b>Can I use code that has already been written as a part of my solution?</b><br>
 Only code that has been authored by you may be used in a code submission.  No third-party source code may be used as a part of any code submission.
@@ -57,7 +57,7 @@ Yes.  However, if you've already submitted a problem and you choose to submit ag
 <b>What is the Challenge Phase?</b><br>
 The Challenge phase only takes place during Rounds 1 and 2.  It does not take place during the Qualification Round.
 <br><br>
-During the Challenge Phase, you have the opportunity to view the source code submissions of the other competitors in your room.  If you believe that any of the submissions are flawed, you may challenge the submission with a specific test case that you feel will result in that submission returning the wrong result.  If your challenge is successful, and the submission returns the wrong result, you will be awarded 50 points and the competitor will lose the points for the challenged submission.  However, if your challenge is unsuccessful, and the submission returns the correct result for the test case, you will lose 25 points from your score.  
+During the Challenge Phase, you have the opportunity to view the source code submissions of the other competitors in your room.  If you believe that any of the submissions are flawed, you may challenge the submission with a specific test case that you feel will result in that submission returning the wrong result.  If your challenge is successful, and the submission returns the wrong result, you will be awarded 50 points and the competitor will lose the points for the challenged submission.  However, if your challenge is unsuccessful, and the submission returns the correct result for the test case, you will lose 25 points from your score.
 <br><br>
 Be sure to read the <A href="/pl/?module=Static&d1=gccj05&d2=ZH_instructions">Instructions</A> page for a complete explanation.
 <br><br>
@@ -68,7 +68,7 @@ Questions not addressed here should be directed to <A href="mailto:gccj05@topcod
 <br><br>
 Good luck!
          <br><br>
-         To find out more detailed information about the Google China Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">Terms and Conditions</a>.
+         To find out more detailed information about the Google Code Jam China, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">Terms and Conditions</a>.
          </div>
       </td>
       <td width="49%">&#160;</td>
