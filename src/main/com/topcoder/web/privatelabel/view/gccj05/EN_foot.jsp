@@ -1,4 +1,4 @@
-<div class=footerHolder>
+﻿<div class=footerHolder>
 <font face="Arial">
 &copy;2005 Google -
 <a href="http://www.google.com/">Home</a> -
