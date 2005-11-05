@@ -44,23 +44,7 @@
 <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 
-
-            <span class="bodySubtitle">Registration</span><br>
-            Please read through the following terms and then click "Accept" when you're done.
-            <br><br>
-            <div align="center">
-            <form name="terms">
-			<textarea style="width:590; height:300; marginWidth:5; a"  name="textarea">
-<%=request.getAttribute(Constants.ROUND_TERMS_KEY)%>
-			</textarea>
-            <br><br>
-            <A href="/"><img src="/i/accept.gif" alt="Accept" border="0" /></A>
-            </form>
-            </div>
-
-
-
-	<form action="somewhere" method="POST" name="surveyForm">
+	<form action=".<%=Constants.MAIN_SERVLET%>" method="POST" name="surveyForm">
   		<input type="hidden" name="<%=Constants.MODULE%>" value="SubmitReg"/>
   		<input type="hidden" name="<%=Constants.ROUND_ID%>" value="<%=request.getAttribute(Constants.ROUND_ID)%>"/>
   		<% int i=1; %>
@@ -101,6 +85,24 @@
      		<% i++;%>
   		</tc-webtag:questionIterator>
 	</form>
+
+
+            <span class="bodySubtitle">Registration</span><br>
+            Please read through the following terms and then click "Accept" when you're done.
+            <br><br>
+            <div align="center">
+            <form name="terms">
+			<textarea style="width:590; height:300; marginWidth:5; a"  name="textarea">
+<%=request.getAttribute(Constants.ROUND_TERMS_KEY)%>
+			</textarea>
+            <br><br>
+            <A href="/"><img src="/i/accept.gif" alt="Accept" border="0" /></A>
+            </form>
+            </div>
+
+
+
+
 
 </td>
 

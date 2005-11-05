@@ -39,8 +39,7 @@ public class ViewReg extends Base {
 	    	if(rsc.isEmpty()) {
 	    		log.error("Could not find round terms for: " + roundID);
 	    		throw new TCWebException("Error retrieving page.");
-	    	} else {
-	    		log.debug("Got this from the db: " + rsc.getStringItem(0, "terms_content"));
+	    	} else {	    		
 	    		getRequest().setAttribute(Constants.ROUND_TERMS_KEY, rsc.getStringItem(0, "terms_content"));
 	    	}
 	    	questionInfo = getQuestionInfo(dai, roundID);
@@ -49,6 +48,7 @@ public class ViewReg extends Base {
     		e.printStackTrace();
     		throw new TCWebException("Error retrieving page.");
     	}
+    	getRequest().setAttribute(Constants.ROUND_ID, roundID);
     	setNextPage(Constants.PAGE_VIEW_REG);
     	setIsNextPageInContext(true);
     }
