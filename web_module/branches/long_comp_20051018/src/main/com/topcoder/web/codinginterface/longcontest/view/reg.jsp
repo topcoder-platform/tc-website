@@ -43,7 +43,6 @@
 <jsp:param name="image" value="long_competitions"/>
 <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
-
 	<form action=".<%=Constants.MAIN_SERVLET%>" method="POST" name="surveyForm">
   		<input type="hidden" name="<%=Constants.MODULE%>" value="SubmitReg"/>
   		<input type="hidden" name="<%=Constants.ROUND_ID%>" value="<%=request.getAttribute(Constants.ROUND_ID)%>"/>
@@ -96,7 +95,7 @@
 <%=request.getAttribute(Constants.ROUND_TERMS_KEY)%>
 			</textarea>
             <br><br>
-            <A href="/"><img src="/i/accept.gif" alt="Accept" border="0" /></A>
+            <A href="javascript: document.surveyForm.submit();"><img src="/i/accept.gif" alt="Accept" border="0" /></A>
             </form>
             </div>
 

@@ -38,6 +38,7 @@ public class SubmitReg extends ViewReg {
 	protected static final Logger log = Logger.getLogger(SubmitReg.class);
 
 	protected void businessProcessing() throws TCWebException {
+		log.debug("SubmitReg called");
 		String roundID = getRequest().getParameter(Constants.ROUND_ID);
 		try {
 			DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
@@ -88,7 +89,7 @@ public class SubmitReg extends ViewReg {
 				setDefaults(responses);
 				setNextPage(Constants.PAGE_VIEW_REG);
 				setIsNextPageInContext(true);
-			} else if (hasAllFreeForm && !responses.isEmpty()) {
+			}
             	getRequest().setAttribute(CodingInterfaceConstants.MODULE, Constants.RP_ACTIVE_CONTESTS);                                	
         		setNextPage(Constants.MAIN_SERVLET);                            		
         		setIsNextPageInContext(true);
