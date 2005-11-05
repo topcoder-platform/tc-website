@@ -89,7 +89,7 @@ public class SubmitReg extends ViewReg {
 				setDefaults(responses);
 				setNextPage(Constants.PAGE_VIEW_REG);
 				setIsNextPageInContext(true);
-			}
+			} else {
             	getRequest().setAttribute(CodingInterfaceConstants.MODULE, Constants.RP_ACTIVE_CONTESTS);                                	
         		setNextPage(Constants.MAIN_SERVLET);                            		
         		setIsNextPageInContext(true);
