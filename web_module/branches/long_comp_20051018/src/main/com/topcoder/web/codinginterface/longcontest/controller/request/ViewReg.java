@@ -17,10 +17,12 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 
-public class ViewReg extends Base{
+public class ViewReg extends Base {
 
     protected static final Logger log = Logger.getLogger(ViewReg.class);
 
+    protected List questionInfo = null;
+    
     protected void businessProcessing() throws TCWebException {
 
     	String roundID = getRequest().getParameter(Constants.ROUND_ID);
@@ -29,7 +31,8 @@ public class ViewReg extends Base{
 	    	DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
 	    	Request r = new Request();
 	    	r.setContentHandle("long_contest_round_terms");
-
+	    	r.setProperty("rd", roundID);
+	    	
 	    	Map m = dai.getData(r);
 	    	ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_round_terms");
 
@@ -40,7 +43,7 @@ public class ViewReg extends Base{
 	    		log.debug("Got this from the db: " + rsc.getStringItem(0, "terms_content"));
 	    		getRequest().setAttribute(Constants.ROUND_TERMS_KEY, rsc.getStringItem(0, "terms_content"));
 	    	}
-	    	List questionInfo = getQuestionInfo(dai, roundID);
+	    	questionInfo = getQuestionInfo(dai, roundID);
 	    	getRequest().setAttribute("questionInfo", questionInfo);
     	} catch(Exception e) {
     		e.printStackTrace();
