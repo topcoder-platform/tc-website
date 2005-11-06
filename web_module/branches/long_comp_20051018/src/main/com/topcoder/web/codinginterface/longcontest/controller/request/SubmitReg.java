@@ -31,6 +31,7 @@ import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.SurveyResponse;
 import com.topcoder.web.common.tag.AnswerInput;
+import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 import com.topcoder.web.ejb.survey.Response;
 
 public class SubmitReg extends ViewReg {
@@ -40,6 +41,7 @@ public class SubmitReg extends ViewReg {
 	protected void businessProcessing() throws TCWebException {
 		log.debug("SubmitReg called");
 		String roundID = getRequest().getParameter(Constants.ROUND_ID);
+		long userID = getUser().getId();
 		try {
 			DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
 			String paramName = null;
@@ -90,6 +92,8 @@ public class SubmitReg extends ViewReg {
 				setNextPage(Constants.PAGE_VIEW_REG);
 				setIsNextPageInContext(true);
 			} else {
+				// register user for round
+				registerUser(userID, Long.parseLong(roundID));
             	getRequest().setAttribute(CodingInterfaceConstants.MODULE, Constants.RP_ACTIVE_CONTESTS);                                	
         		setNextPage(Constants.MAIN_SERVLET);                            		
         		setIsNextPageInContext(true);
@@ -102,6 +106,19 @@ public class SubmitReg extends ViewReg {
 		}
 	}
 
+	private void registerUser(long userID, long roundID) throws Exception {
+		TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+        try {
+            tm.begin();            
+            RoundRegistration reg = (RoundRegistration) createEJB(getInitialContext(), RoundRegistration.class);
+            reg.createRoundRegistration(userID, roundID);
+            tm.commit();
+        } catch (Exception e) {
+            log.error("Error registerating user: " + userID + " for round: " + roundID, e);
+            throw e;
+        }
+	}
+	
     /**
      * Go through the request and pull out the users answers
      *
