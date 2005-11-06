@@ -737,6 +737,14 @@
  		 </jar>
  	</target>
 
+    <target name="package-EJB-RoundRegistrationBean" depends="compile">
+        <jar jarfile="${ejb_jars}/RoundRegistration.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/roundregistration/*.class"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/roundregistration" includes="*.xml"/>
+        </jar>
+    </target>
+ 	
  	<!-- ==============
  		 End JBoss EJBs
  		 ============== -->
@@ -1679,6 +1687,12 @@
       </target>
 
       <target name="war-longcontest" depends="jar_shared, compile_longcontest">
+      	  <antcall target="package-EJB-RoundRegistrationBean"/>
+		  <copy todir="${jboss_deploy}">
+            <fileset dir="${ejb_jars}">
+                <include name="RoundRegistration.jar"/>                 
+            </fileset>
+          </copy>
           <jar jarfile="${long.jar}">
               <fileset dir="${classes}">
                   <include name="com/topcoder/common/web/data/*.class"/>
