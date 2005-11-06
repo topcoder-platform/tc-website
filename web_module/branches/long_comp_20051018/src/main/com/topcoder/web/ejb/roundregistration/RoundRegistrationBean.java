@@ -47,4 +47,33 @@ public class RoundRegistrationBean extends BaseEJB {
             close(ctx);
         }
     }
+    
+    public boolean exists(long userId, long roundId) throws RemoteException, EJBException {
+        log.debug("exists called... user_id=" + userId + " roundId=" + roundId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+
+        try {
+            conn = DBMS.getConnection(DBMS.JTS_OLTP_DATASOURCE_NAME);
+
+            ps = conn.prepareStatement("SELECT * FROM round_registration WHERE coder_id = ? AND round_id = ?");
+            ps.setLong(1, userId);
+            ps.setLong(2, roundId);
+
+            ResultSet rs = ps.executeQuery();
+            return rs.next();
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException exists user_id=" + userId + " roundId=" + roundId);
+        } catch (Exception e) {
+            throw new EJBException("Exception exists user_id=" + userId + " roundId=" + roundId + ":\n" + e.getMessage());
+        } finally {
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+    
+    }
 }
