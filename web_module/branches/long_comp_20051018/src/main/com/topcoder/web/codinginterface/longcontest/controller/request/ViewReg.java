@@ -5,19 +5,24 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.transaction.TransactionManager;
+
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.codinginterface.CodingInterfaceConstants;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
+import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 
 public class ViewReg extends Base {
 
@@ -31,19 +36,26 @@ public class ViewReg extends Base {
 			throw new PermissionException(getUser(), new ClassResource(this.getClass()));                		
     	}
     	
-    	String roundID = getRequest().getParameter(Constants.ROUND_ID);
+    	String roundID = getRequest().getParameter(Constants.ROUND_ID);    	
 
     	try {
-	    	DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-	    	loadRoundTerms(dai, roundID);
-	    	loadQuestionInfo(dai, roundID);
+    		if(isUserRegistered(getUser().getId(), Long.parseLong(roundID))) {    			
+    			getRequest().setAttribute(CodingInterfaceConstants.MODULE, Constants.RP_ACTIVE_CONTESTS);                                	
+        		setNextPage(Constants.MAIN_SERVLET);
+        		setIsNextPageInContext(true);		    	        		
+        	} else {
+		    	DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+		    	loadRoundTerms(dai, roundID);
+		    	loadQuestionInfo(dai, roundID);
+		    	getRequest().setAttribute(Constants.ROUND_ID, roundID);
+		    	setNextPage(Constants.PAGE_VIEW_REG);
+		    	setIsNextPageInContext(true);
+        	}
     	} catch(Exception e) {
     		e.printStackTrace();
     		throw new TCWebException("Error retrieving page.");
     	}
-    	getRequest().setAttribute(Constants.ROUND_ID, roundID);
-    	setNextPage(Constants.PAGE_VIEW_REG);
-    	setIsNextPageInContext(true);
+    	
     }
 
     protected void loadRoundTerms(DataAccessInt dai, String roundID) throws Exception {
@@ -122,4 +134,17 @@ public class ViewReg extends Base {
 
         return ret;
     }
+    
+	protected boolean isUserRegistered(long userID, long roundID) throws Exception {
+		boolean ret = false;
+        try {
+            RoundRegistration reg = (RoundRegistration) createEJB(getInitialContext(), RoundRegistration.class);
+            ret = reg.exists(userID, roundID);
+        } catch (Exception e) {
+            log.error("Error isUserRegistered user: " + userID + " for round: " + roundID, e);
+            throw e;
+        }
+        return ret;
+	}
+
 }
