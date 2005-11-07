@@ -37,7 +37,7 @@
 
          <br><br>
 
-         <span class="bigTitle">Registration</span>
+         <span class="bigTitle">注册</span>
          <span valign=top>
          <jsp:include page="ZH_right_reg.jsp" />
          </span>
@@ -47,7 +47,7 @@
          <br><br>
          <br><br>
          <br><br>
-         To find out more detailed information about the Google Code Jam China, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">Terms and Conditions</a>.
+         想要了解更多的 Google 中国编程精英网罗赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
          </div>
       </td>
       <td width="49%">&#160;</td>
