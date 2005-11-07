@@ -40,13 +40,13 @@
 
          <br><br>
 
-         <span class="bigTitle">Forgot your password?</span>
+         <span class="bigTitle">忘记你的密码？</span>
          <span valign=top>
          <jsp:include page="ZH_right_reg.jsp" />
          </span>
 
          <br><br>
-         Please enter your email address below.  You should receive an email shortly with your username and password.
+         请在下面输入您的邮箱地址。您的用户名和密码将马上发至您的信箱。
          <br><br><br><br>
 
          <table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
@@ -60,7 +60,7 @@
             </tr>
             <tr>
                 <td align="right" nowrap>
-                    Email Address
+                    邮箱地址
                 </td>
                 <td align="left">
                     <tc-webtag:textInput name="<%=Constants.EMAIL%>"  size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
@@ -68,7 +68,7 @@
             </tr>
             <tr>
                <td colspan="2" align="center">
-                  <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p>
+                  <p align="center"><a href="javascript: document.regForm.submit();">提交</a></p>
                </td>
             </tr>
 
