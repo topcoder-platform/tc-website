@@ -37,80 +37,80 @@
 
          <br><br>
 
-         <span class="bigTitle">Instructions</span>
+         <span class="bigTitle">竞赛指南</span>
          <span valign=top>
          <jsp:include page="ZH_right.jsp" />
          </span>
 
          <br><br>
-<span class="greenSubtitle">Loading the Competition Arena</span><br>
-Load the application by clicking the Competition Arena link at the top.  You need at least <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version 1.4</A> to run the Arena.  Click <A href="http://java.sun.com/getjava/index.jsp " target="_blank">here</A> if you do not have Java Runtime 1.4 installed.
+<span class="greenSubtitle">装载竞技平台</span><br>
+点击顶部的竞技平台来装载程序。参赛者需要至少 <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version 1.4</A> 来运行平台。来运行平台。如果参赛者还没有安装Java Runtime 1.4，请点击<A href="http://java.sun.com/getjava/index.jsp " target="_blank">这里</A>。
 <br><br>
-<span class="greenSubtitle">Logging in to the Competition Arena</span><br>
-Once the Competition Arena launches, you will be presented with a login screen.
+<span class="greenSubtitle">登陆到竞技平台</span><br>
+运行竞技平台程序，参赛者就会看到登陆画面。
 
 <br><br>
 <div align="center"><img src="/i/events/gccj05/arena1.gif" alt="" border="0" /></div>
 <br><br>
 
-From here, you need simply type in your handle and the password that you chose during the registration process. Once you log in, you will initially be placed in the main chat lobby.
+这里参赛者只需要键入用户名和密码。登陆后，就会进入聊天主大厅。
 
 <br><br>
 <div align="center"><img src="/i/events/gccj05/arena2.gif" alt="" border="0" /></div>
 <br><br>
 
-Move to your assigned competition room as follows:
+进入参赛者被指定的竞赛房间，如下所示：
 <ul>
-<li>Click on the "Active Contests" menu item</li>
-<li>Select the Contest.</li>
-<li>Select "Enter"</li>
+<li>点击"Active Contests"菜单项</li>
+<li>选择竞赛</li>
+<li>选择"Enter"</li>
 </ul>
 
-<span class="greenSubtitle">The Competition Room</span><br>
-From within the competition room, you will access the problem statements that you will attempt to solve during the Coding Phase.
+<span class="greenSubtitle">竞赛房间</span><br>
+从进入竞赛房间开始，参赛者就会看到编码阶段需要完成的竞赛题。
 
 <br><br>
 <div align="center"><img src="/i/events/gccj05/arena3.gif" alt="" border="0" /></div>
 <br><br>
 
-<span class="greenSubtitle">Coding Phase</span><br>
-The Coding Phase is the period during which each contestant attempts to create solutions to three problem statements. The amount of time you will be given will vary depending on the round of competition:
+<span class="greenSubtitle">编码阶段</span><br>
+在编码阶段，每位参赛者要独立解答3道竞赛题，竞赛时间的长短随竞赛轮次的不同而不同：
 <ul>
-<li>In the Qualification Round, the Coding Phase will last 60 minutes from the time that the first problem is opened and the contestants will be given two problems to solve.</li>
-<li>In the Online Rounds of the Google Code Jam China, the Coding Phase will last 75 minutes and the contestants will be given three problems to solve.</li>
-<li>In the Onsite Final Round of the Google Code Jam China, the coding phase will last 75 minutes and the contestants will be given three problems to solve.</li>
+<li>资格赛阶段，编码阶段共计60分钟，从参赛者进入第1题开始计时，共需完成2题。</li>
+<li>进入在线淘汰赛后，编码阶段共计75分钟，参赛者需完成3题。</li>
+<li>现场决赛时，编码阶段共计75分钟，参赛者需完成3题。</li>
 </ul>
 
-When the competition begins, you may view the problem statements as follows:
+比赛开始后，要看到竞赛题目，参赛者可以执行以下操作：
 <ul>
-<li>Click on the drop-down box labeled "Select one"</li>
-<li>Select the point value of the problem that you wish to solve</li>
+<li>点击下拉菜单"Select one"</li>
+<li>选择要答题的分值</li>
 </ul>
 
-The higher the point value assigned, the more difficult the problem will be. You may open the problems in any order. You may have all problems open at the same time - but keep in mind that the timers for each problem will be counting down independent of other problems that may be open. The points that you receive when you submit a problem are calculated based on elapsed coding time. The faster that you can submit a solution for a problem, the more points you will receive.
+题目的分数越高，难度越大。参赛者可以以任何顺序打开题目，也可以同时打开所有的题目-但是注意每道题打开后就会开始自动倒计时。参赛者得到每道题的分数是根据完成这道题所耗费的时间而定，参赛者越快提交完成方案，得到的分数就越高。
 <br><br>
-The Coding Phase will allow you to submit a problem more than once. If you've already submitted a problem and you choose to submit again, your score for that submission will be adjusted to account for the additional lapsed time, as well as an additional penalty of 10% of the maximum point value for the problem.
+编码阶段允许参赛者提交多次竞赛题目方案。如果参赛者对一道题目已经交了一份方案后，还愿意再交一份的话，那么这份方案会从参赛者上一次提交所剩的时间开始计时，同时这一题的满分会被扣除10%作为额外的处罚。
 <br><br>
-During the Coding Phase, the timer in the competition room window and the coding window will represent the amount of time left in the Coding Phase.
+在编码阶段，竞赛房间和编码窗口的计时器显示的是竞赛剩余的时间。
 <br><br>
-<span class="greenSubtitle">The Coding Window</span><br>
-The coding window is the most important part of the Competition Arena. It is in the coding window that the problem statement is shown, and the solutions are coded, compiled, tested, and submitted.
+<span class="greenSubtitle">编码窗口</span><br>
+编码窗口是竞技平台里最重要的一部分，竞赛题目的显示，方案代码的编写、编译、测试以及提交都在这个窗口内进行。
 
 <br><br>
 <div align="center"><img src="/i/events/gccj05/arena4.gif" alt="" border="0" /></div>
 <br><br>
 
 <blockquote>
-<strong>The Problem Statement</strong><br>
-The top pane of the coding window contains the problem statement in its entirety. The problem statement explains exactly what it is that you are attempting to accomplish. It includes an explanation of the task, the class and method definitions that your solution must adhere to, all of the constraints for any input parameters, and examples to help clarify the statement.
+<strong>竞赛题目</strong><br>
+编码窗口的顶部窗格显示了竞赛题目的全部内容。竞赛题目阐述了参赛者需要完成的内容，包括对题目的解释，参赛者解决方案所需用到的类和函数的定义，输入参数的限制，以及有助于说明的样例。
 <br><br>
-<strong>Choosing a Language</strong><br>
-The Google Code Jam China allows coders to utilize Java, C++, C# or Visual Basic as a competition programming language. You have the option to choose a programming language on a problem-by-problem basis. It is legal for you to use any programming languages to solve each of the problems in a single competition. For this reason, you have the option of choosing the programming language from within the coding window. You can find the language selection area in the upper right area of the coding window - under "Choose your language". Remember to select the appropriate language before you attempt to compile your code. Strange compilation results can be a symptom of having the wrong language selected.
+<strong>选择编程语言</strong><br>
+此次赛事允许参赛者采用Java，C++，C#，或者Visual Basic作为编程语言。参赛者可以逐题选择编程语言，在单场竞赛中也可以用任一编程语言来给出所有解决方案，因此参赛者可以在编程窗口中选择编程语言。编程语言选择区域位于编程窗口右上部，标题为"Choose your language"。在编译代码前，参赛者需选择适当的编程语言，选择不当则可能导致错误的编译结果。
 <br><br>
-<strong>Creating a Solution</strong><br>
-The solution class you create and all of its members must be defined as public in order for the TopCoder servers to have access to your class members and invoke the appropriate methods. Below you will find code templates for Java, C++, C#, and Visual Basic:
+<strong>创建解决方案</strong><br>
+参赛者在编写解决方案时所建立的类以及所有类的成员都必须定义为"public"，使TopCoder服务器能够访问类成员，并调用适当的函数。下面可以看到Java,C++,C#,Visual Basic的代码模板：
 <br><br>
-<b>Java Code Template</b><br>
+<b>Java代码模板</b><br>
 <pre>import &lt;necessary classes&gt;
 
 public class &lt;class-name&gt; {
@@ -121,7 +121,7 @@ public class &lt;class-name&gt; {
 }
 </pre>
 
-<b>C++ Code Template</b><br>
+<b>C++代码模板</b><br>
 <pre>#include &lt;necessary classes&gt;
 
 using namespace std; //Required for TopCoder gcc compiler
@@ -137,7 +137,7 @@ class &lt;class-name&gt;
 };
 </pre>
 
-<b>C# Code Template</b><br>
+<b>C#代码模板</b><br>
 <pre>using &lt;necessary classes&gt;;
 
 public class &lt;class-name&gt; {
@@ -149,7 +149,7 @@ public class &lt;class-name&gt; {
 </pre>
 
 
-<b>Visual Basic Code Template</b><br>
+<b>Visual Basic代码模板</b><br>
 <pre>
 Imports &lt;necessary classes&gt;;
 
@@ -164,89 +164,85 @@ End Class
 
 <br>
 
-<strong>Compiling</strong><br>
-Code compilations from within the coding window will take place on TopCoder servers. The language that is chosen in the coding window at the time of the compilation will dictate to which language compiler the compilation request is sent. A compilation request will send the code that is currently in the coding window to the TopCoder compiler. If a compilation is successful, you will be notified of such. If the compilation is not successful, the errors that are returned by the compiler will be displayed to you in the compilation results window. Once a successful compilation is accomplished, the resultant compiled object will be stored on TopCoder's server. Any user test or code submission will always utilize the most recent successfully compiled code.  The following is an example of an unsuccessful Java compilation attempt:
+<strong>编译</strong><br>
+编码窗口中的代码编译在TopCoder服务器上进行。编译时编码窗口内选择的编程语言将会对相应编译器发出编译请求，同时将编码窗口内的代码发送至TopCoder编译器。如果编译成功，参赛者将被提示成功；如果编译失败，失败的错误信息将返回，并在参赛者的编译结果窗口中显示。编译成功所生成的目标文件会被存储在TopCoder的服务器上。任何参赛者进行代码的测试或者提交都会采用最近编译成功的代码。下面是一个Java编译失败的例子：
 
 <br><br>
 <div align="center"><img src="/i/events/gccj05/arena5.gif" alt="" border="0" /></div>
 <br><br>
 
-<strong>User Testing</strong><br>
-Once your code has been successfully compiled, you have the option of executing one or more user tests against the compiled code. The user test will simply show you what your submission will produce for a given set of input parameters that you provide. A user test will not provide information as to whether or not your submission is producing the correct result. You will need to make your own determination as to the correctness of the return result. Performing a user test based on the examples in the problem statement will provide a fairly good measure of the correctness of your solution since the examples will specify what the return value for a given set of input parameters should be. However, the examples do not represent an exhaustive test suite for a given problem - just because your code produces the proper results for all examples does not necessarily mean that it will produce the proper result for other input parameters. Think about potential border cases that may cause variations in the behavior of your solution and test these cases thoroughly.
+<strong>用户测试</strong><br>
+代码编译成功后，参赛者可以自行测试程序。参赛者可以给出程序输入参数，测试只会显示程序运行的结果，并不会显示此结果正确性。参赛者需凭自己的判断来确定返回结果的正确性。使用试题叙述中的样例进行用户测试对判断参赛者解决方案的正确性提供了很好的参考价值，因为样例会指明对于给定的输入参数所应返回的正确结果。但是，样例并不能代表全面的测试，因为参赛者的代码即使对于所有样例参数输入都有正确的返回结果，也不能代表对其他输入参数同样会有正确的返回结果。参赛者需要考虑更多的边界和临界参数值，并进行测试。如果参赛者的代码对于提供的参数值能够成功运行(没有错误)，相应的运行结果将被返回。如果在执行期间有错误产生，则运行的错误信息将被返回。
 <br><br>
-If your compiled code executes successfully (without errors) for the input parameters that you've provided, you will be presented with the return value(s) that your code produced. In the event that an error occurs during the execution of your code, you will be presented with the error message(s) that the execution of your code produced.
+<i>重要提示：所有提交的代码对任何数据的测试都必须在2秒内完成，否则代码将被标记为错误，参赛者将得不到分数。</i>
 <br><br>
-<i>Important note: All code submissions must run in under two (2) seconds for ALL test cases, otherwise the code submission will be marked as incorrect, and you will not receive any points.</i>
+<strong>注意：</strong>参赛者运行类或函数的任何标准输出(i.e., System.out.println)会和测试结果一同返回。这有助于参赛者调试代码。参赛者也可以在提交代码前去掉这些系统输出，以提高提交的效率。
 <br><br>
-<strong>NOTE:</strong> any standard output (i.e., System.out.println) from the execution of your class/method will be returned to you along with the results of your test. This may be useful for debugging your code.  You may want to remove these system outputs prior to submitting to increase the efficiency of your submission.
-<br><br>
-<strong>The Problem Arguments Window</strong><br>
-When you click on the "Test" button from within the coding window, the "Problem Arguments Window" will appear.
+<strong>赛题变量窗口</strong><br>
+参赛者点击编码窗口中的"Test"按钮后，"Problem Arguments"窗口会弹出。
 
 <br><br>
 <div align="center"><img src="/i/events/gccj05/arena6.gif" alt="" border="0" /></div>
 <br><br>
 
-The problem arguments window is where you will create the test case with which you wish to use to test your code. You may either select one of the problem examples, which will populate the test data for you, or you may construct your own test case.  When constructing your own test case, each argument to the problem statement will be represented by either an input area (simple data type), or by a "Create" button if the argument is an array (complex data type).
+参赛者可以通过赛题变量窗口创建测试样例，测试代码。参赛者可以对题目提供的样例进行测试，也可以自行创建测试数据。创建测试数据时，参赛者将在文本输入框中输入数据(对于简单数据类型)。如果变量是一个数组类型(复杂数据类型)， 参赛者可以按"Create"按钮创建数据。
 <br><br>
-<strong>Simple Data Types</strong><br>
-For all non-array data types - such as int, long, char and String - the test box input dialog will present you with a field to input the data. The data should be input without any quotes or other extra characters. So, if you want to test with the String "abc" you should just type abc into the input field, not "abc".
+<strong>简单数据类型</strong><br>
+对于所有非数组类型-如整型，长整型，字符型和字符串型-测试输入对话框会让参赛者在指定区域输入数据。数据输入要避免引号或者其他字符。所以，如果要测试字符串"abc"，参赛者应该直接键入abc到输入区域，而不是"abc"。
 <br><br>
-<strong>Complex Data Types</strong><br>
-When one of the inputs is an array such as int[] (vector <int> in C++), the test case dialog will present you with a button to create the array. Clicking this will bring up a new dialog box where you can enter the data elements. There are a couple of ways to enter data here. The most obvious is to enter the elements of the array one at a time and click the '+' button (or press enter) after each one. You can move the elements up or down using the '^' and 'v' buttons, respectively. You can also remove items either one at a time, with the '-' button, or all at once with the 'C' button. If you want to modify an element that is already entered, you can double click on the element in the panel above the entry field and modify it.
+<strong>复杂数据类型</strong><br>
+如果输入项是数组，如int[](C++中的矢量)，测试对话框提供了一个按钮让参赛者创建数组。点击按钮会弹出新的对话框，参赛者可以输入数组元素。这里有2种方式输入数据。最直接的一种是每次输入一个数组元素后点击"+"键(或者敲击enter)，然后输入下一个。按'^'和'v'键可以分别向上和向下移动数组元素。要移除一项可以按'-'键，删除全部项则按'C'键。要调整已经存在的数据项，可以双击条目上的面板数据项，然后进行修改。 每次添加单个数据项速度很慢，因此有2个功能键能进行批量添加元素。其中较简单的是"++"键。要用这个键，必须先输入所有数据元素，以逗号作为分隔符，然后按"++"键。例如，键入1，3，6，4，然后按"++"就会添加数组{1，3，6，4}。这个键适用于所有类型的数组。另一个批量添加按钮是"{}"。要用这个功能键，须键入数据，写法与源代码中一样。因此，要输入{1，3，6，4}就要先键入{1，3，6，4}，然后点击"{}"。与"++"键相比，这个键似乎没什么优势，其实它的优点在于能够用双引号分割字符串数组，这样就可以直接从赛题声明中复制和粘贴测试样例。例如，要输入字符串数组，{"a"，"b"，"c"}，只要直接键入{"a"，"b"，"c"}，然后按"{}"。如果要在字符串中用字符"或者\，则需要在它们前面插入\。因此，\"代表一个双引号，而\\代表一个反斜杠。例如{"\"\\\""}代表只含一个元素的字符串："\"。"{}"键的优点就在于可以直接从赛题声明中复制任何数组样例，然后通过按键"{}"来创建这样的数组。对于输入数据前后的大括号，它们是可选的，即没有它们，输入功能键{}也同样有效，而没有被双引号括起来的whitespace将被忽略。 此外，这个对话框对其他数组一样有效。因此，按下"{}"键后，如果数据类型是整型，{1，2，3}会生成一个整型数组{1，2，3}；如果是字符串型，则生成字符串数组{"1"，"2"，"3"}。
 <br><br>
-Adding elements one at a time can be slow, so there are also two buttons that allow batch adding of elements. The simpler of the two is the "++" button. To use this button, you should enter all of the data elements as a comma delimited list, and then press the "++" button. For example, typing 1,3,6,4 and pressing "++" will create the array {1,3,6,4}. This button works exactly the same with all types of arrays. The other batch add button is the "{}" button. To use this, you should enter the data exactly as you would in your source code. So, to input {1,3,6,4} you would enter {1,3,6,4} and click "{}". While this may seem extraneous, given the "++" button, it has the advantage that it will parse String arrays that use double quotes, so that you can copy and paste the example test cases directly from the problem statement. For example, to enter the String[], {"a","b","c"}, you would simply have to enter {"a","b","c"} and press "{}". If you want to use the characters "or \ in a String[], you have to escape them with a \. Thus, \" represents a double quote, and \\ represents a single backslash. For example {"\"\\\""} represents a String[] with the single element: "\". The advantage to the "{}" button is that any array sample input can be copied directly from the problem statement, and created by pasting and clicking "{}". A couple of notes about the "{}" button are that the curly brackets at the front and end are optional, and the button will work without them. Also, whitespace that is not enclosed by double quotes is ignored. Furthermore, the dialog works exactly the same with all types of arrays. Thus, with the "{}" button {1,2,3} will create an int[],{1,2,3}, if the data type is an int[], and will create a String[], {"1","2","3"}, if the data type is a String[].
+<strong>提交方案</strong><br>
+参赛者在编译成功后，可以提交方案代码，值得注意的是不论方案正确与否，只要通过编译都可以被提交。越早提交正确的解决方案，得到的分数会越高。方案提交后，不论正确与否，都将给与相应的分数，但在经过系统测试后证明方案有错误，则分数会被扣除。提交的方案不一定是编码窗口内的源代码，但是提交前一定要成功通过编译。
 <br><br>
-<strong>Submitting</strong><br>
-At any point after a successful compilation, you have the option to submit your code. It is important to realize that submission can be made regardless of whether or not your submission is correct. The faster you can submit a correct solution to the problem, the more points you will receive. Points will be assigned regardless of whether the submission is correct or not. Any points for a submission that turns out to be wrong will be removed when the submission is subjected to the system tests. Submit will not necessarily use the code that appears in the coding window. You must compile first before you submit.
-<br><br>
-You do have the option of submitting a problem multiple times. If you've already submitted a problem and you choose to submit again, your score for that submission will be adjusted to account for the additional lapsed time, as well as an additional penalty of 10% of the maximum point value for the problem.
+参赛者可以对一道题提交多次方案。如果已经交了一份方案后，还是愿意再交一份的话，参赛者的这份方案会从上一次提交所剩的时间开始计时，同时这一题的满分会被扣除10%作为额外的处罚。
 <br><br>
 </blockquote>
-<span class="greenSubtitle">Saving</span><br>
-At any time while coding, you may save your code. Clicking the "Save" button will place the current version of your code on the TopCoder server. It is good to save every-so-often to ensure that a recent version of your code will be available in the event that something happens to your session (i.e., you lose your Internet connection). Compiling your code also has the effect of saving it.
+<span class="greenSubtitle">保存</span><br>
+参赛者可以在编码的任何时候保存代码。点击"Save"按钮，当前代码就会被保存在TopCoder服务器上。经常保存可以确保参赛者较新的代码能够备份在服务器上，以防止意外事件的发生(诸如网络断线等情况)。编译代码的同时，代码会自动保存在服务器上。
 <br><br>
-<span class="greenSubtitle">Clearing the Code</span><br>
-Using the "Clear" button, you can quickly clear out the coding window. Use this option only if you wish to start over on a particular problem. Warning: Once you clear your code, there is no way to retrieve it!
+<span class="greenSubtitle">清除代码</span><br>
+点击"Clear"按钮可以快速的清除编码窗口中的代码。只有希望开始另一个新的题目时，才建议选用此功能。警告：一旦清除代码，将无法恢复！
 <br><br>
-<span class="greenSubtitle">The Timer</span><br>
-The timer in the coding window will be counting down to the end of the current competition phase. In the case of the qualification round, it will indicate how much time you have left in your hour-long qualification session (assuming you have opened a problem).  Remember that there is variable latency between your computer and our servers. For that reason, it is ALWAYS best to perform any submissions with at least 30 seconds left on the timer.
+<span class="greenSubtitle">计时器</span><br>
+编码窗口的计时器会为当前竞赛倒计时，直至竞赛时间结束。例如在资格赛阶段，计时器会提醒参赛者在1小时的比赛时间内还剩多少时间(从参赛者打开题目时开始计时)。注意在用户机与服务器之间始终存在着延迟，因此，最好在计时器还剩至少30秒的时间内提交解决方案。
 <br><br>
-<span class="greenSubtitle">The Challenge Phase</span><br>
-(Note: The qualification round does NOT include a challenge phase)
+<span class="greenSubtitle">挑战阶段</span><br>
+(注意：资格赛不包含挑战阶段)
 <br><br>
-The Challenge Phase will begin five minutes after the end of the Coding Phase (the period in between is an intermission), and will last for 15 minutes.
+挑战阶段会在编码阶段结束5分钟后开始(中间的五分钟是休息时间)。 挑战阶段会持续15分钟。
 <br><br>
-During the Challenge Phase, you have the opportunity to view the source code submissions of the other competitors in your room. If you believe that any of the submissions are flawed, you may challenge the submission with a specific test case that you feel will result in that submission returning the wrong result. If your challenge is successful, and the submission returns the wrong result, you will be awarded 50 points and the competitor will lose the points for the challenged submission. However, if your challenge is unsuccessful, and the submission returns the correct result for the test case, you will lose 25 points from your score.
+在挑战阶段，参赛者可以看到同一房间内其他选手提交的方案源代码。如果认为任一方案存在缺陷，可以针对缺陷给出测试数据，使其返回错误结果。如确实返回错误结果，则挑战成功，挑战者可以获得50分，而对方要扣去分数；相反，返回结果正确的话，则挑战失败，挑战者会被扣除25分。
 <br><br>
-To challenge a competitor's submission, open the summary window in the competition room by using the "Summary" button.
+要挑战其他选手的方案，请在比赛房间内点击"Summary"按钮，打开summary窗口。
 
 <br><br>
 <div align="center"><img src="/i/events/gccj05/arena7.gif" alt="" border="0" /></div>
 <br><br>
 
-Double click on any of the point values (shown in green) to view the source code for that submission. When viewing the source code, you will notice a "Challenge" button at the bottom of the window. The Challenge button will bring up the arguments window, allowing you to enter the test case with which to challenge the submission.
+双击任一分数值(绿色显示)来查看提交的方案源码。看到源码后，注意到窗口底部有"Challenge"按钮。Challenge按钮会打开arguments窗口，让参赛者输入测试数据，挑战方案。
 <br><br>
-You may only submit a challenge if you have at least zero points at the time of the challenge. A given submission may only be successfully challenged once. If any competitor has already successfully challenged a submission, it may not be further challenged.
+参赛者必须确保自己没有负分才可以进行挑战。每个方案只能被成功挑战一次，如果方案已经被挑战成功，那它不能再被挑战。
 <br><br>
-<span class="greenSubtitle">System Testing Phase</span><br>
-After the Challenge Phase, all submissions will be run through a series of test cases.  In the case of the qualification round, the system tests will be run following the entire length of the qualification period.  These test cases will compare an expected result against a received result to determine if the code submission works for each test case.
+<span class="greenSubtitle">系统测试阶段</span><br>
+挑战阶段后，所有的提交方案都要经过一系列数据测试。例如资格赛时，系统测试会在整个资格赛完成后进行。数据测试会对期望值和返回值进行比较，来决定方案是否通过测试。
 <br><br>
-<i>Any submission that fails any test case will be deemed incorrect, and will result in a loss of all points for that submission. In addition, any submission that runs longer than two (2) seconds for any test case will be deemed incorrect, and will result in a loss of all points</i>.
+<i>提交的方案只要有一项测试不通过，就会被视为错误方案，扣除所有该方案的分数。此外，方案对任一项测试运行时间超过2秒的，也会被判为错误方案，扣除所有分数。</i>.
 <br><br>
-If your submission passes all of the test cases, you will keep the points that were assigned to you when you submitted the problem. Your final score for each round will cumulate the points remaining from the System Testing Phase and any points gained or lost during the Challenge Phase.
+如果方案通过所有测试，提交方案时所得的分数将被保留。参赛者每轮最终的分数由2部分累计而成，即系统测试后得到分数和挑战阶段得到或扣除的分数的总和。
 <br><br>
-<span class="greenSubtitle">If You Have Any Questions</span><br>
-If you have a question during the competition about the problem statement or about the functionality of the Arena, please utilize the chat interface in the Arena to present your question to the competition administrators. To do so, simply type the following in the white chat line at the bottom of the applet:
+<span class="greenSubtitle">如果还有什么问题</span><br>
+如果参赛者在比赛中对题目或者平台功能仍存在疑问，请进入聊天界面，向竞赛管理人员提出问题，只要在平台程序底部的白色聊天行内输入如下信息即可：
 <br><br>
-<strong><i>admins: [YOUR QUESTION]</i></strong>
+<strong><i>admins:[你的问题]</i></strong>
 <br><br>
-An administrator will respond to your question in the chat area.
+竞赛管理人员会相应作出解答。
 <br><br>
-If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to <A href="gccj05@topcoder.com?subject=Question regarding Google Code Jam China">gccj05@topcoder.com</A> . Please include a detailed description of the problem that you are having.
+如果参赛者登陆竞技平台存在问题，或者不能进入聊天界面，可以发email至<A href="gccj05@topcoder.com?subject=Question regarding Google Code Jam China">gccj05@topcoder.com</A>。 请在信内详细描述碰到的问题。
 
          <br><br>
-         To find out more detailed information about the Google Code Jam China, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">Terms and Conditions</a>.
+         想要了解更多的 Google 中国编程精英网罗赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
          </div>
       </td>
       <td width="49%">&#160;</td>
