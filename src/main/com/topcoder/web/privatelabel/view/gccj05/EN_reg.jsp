@@ -96,20 +96,6 @@
                 </td>
                 <td align="left">
                     <tc-webtag:textInput name="<%=Constants.LAST_NAME%>"  size="15" maxlength="50"/>
-<%="proc default with conversion: " + new String(((HashMap) pageContext.getRequest().getAttribute("processor_defaults")).get("ln").toString().getBytes(), "UTF-8")%>
-                    <br />
-<%out.print("prod default: " + ((HashMap) pageContext.getRequest().getAttribute("processor_defaults")).get("ln"));%>
-                    <br />
-<%out.print("raw string : " + "网站信息");%>
-<%System.out.println("proc default: " + ((HashMap) pageContext.getRequest().getAttribute("processor_defaults")).get("ln").toString());%>
-                    <br />
-
-                    <%
-                        HashMap h = new HashMap();
-                        h.put("kill", "网站信息");
-                        pageContext.getRequest().setAttribute("kill", h);
-                    out.print("my stuff: " + ((HashMap)pageContext.getRequest().getAttribute("kill")).get("kill"));%>
-
                 </td>
             </tr>
 
