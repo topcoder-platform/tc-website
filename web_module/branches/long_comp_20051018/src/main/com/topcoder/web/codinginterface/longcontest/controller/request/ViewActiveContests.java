@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Vector;
 
 import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -26,7 +27,7 @@ public class ViewActiveContests extends Base{
     	System.out.println("User ID: " + usr.getId());
     	
     	try {
-	    	DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+	    	DataAccessInt dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
 	    	
 	    	Request r = new Request();
 	    	r.setContentHandle("long_contest_active_contests");

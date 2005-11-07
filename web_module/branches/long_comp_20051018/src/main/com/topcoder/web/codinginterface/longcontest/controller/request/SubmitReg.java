@@ -112,7 +112,7 @@ public class SubmitReg extends ViewReg {
 		}
 	}
 
-	private void registerUser(long userID, long roundID) throws Exception {
+	protected void registerUser(long userID, long roundID) throws Exception {
 		TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
         try {
             tm.begin();            
@@ -123,7 +123,7 @@ public class SubmitReg extends ViewReg {
             log.error("Error registerating user: " + userID + " for round: " + roundID, e);
             throw e;
         }
-	}
+	}	
 	
     /**
      * Go through the request and pull out the users answers

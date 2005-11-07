@@ -49,6 +49,7 @@
     }
     int checked = ((Integer)request.getSession().getAttribute(Constants.SELECTED_LANGUAGE)).intValue();
     ResultSetContainer langs = (ResultSetContainer)request.getSession().getAttribute(Constants.LANGUAGES);
+	out.println(langs.size());
 %>
 
 <%=status%>
@@ -60,7 +61,7 @@
          <span class="bodyTitle">Coding Area</span><br>
          <A href="goes to problem_statement.jsp" class="statLink">Problem Statement</A> (<A href="goes to problem_statement_popup.jsp" class="statLink">new window</A>)
          </div>
-         <form action="/longcontest/longcontest?module=Submit" method="POST">
+         <form action="/longcontest/longcontest?module=Submit" method="POST" name="codingForm">
          <input type="hidden" name="<%=Constants.ROUND_ID%>" value="<%=request.getParameter(Constants.ROUND_ID)%>">
          <input type="hidden" name="<%=Constants.CONTEST_ID%>" value="<%=request.getParameter(Constants.CONTEST_ID)%>">
          <input type="hidden" name="<%=Constants.COMPONENT_ID%>" value="<%=request.getParameter(Constants.COMPONENT_ID)%>">
@@ -139,7 +140,7 @@ class PatternOptimizer {
 // Powered by FileEdit
       </textarea>
       </div>
-      <div style="float:right; padding: 5px 0px 0px 5px;"><A href="save"><img src="/i/interface/btn_submit.gif" alt="Submit" border="0" /></A></div>
+      <div style="float:right; padding: 5px 0px 0px 5px;"><A href="javascript: document.codingForm.submit();"><img src="/i/interface/btn_submit.gif" alt="Submit" border="0" /></A></div>
       <div style="float:right; padding: 5px 0px 0px 5px;"><A href="submit"><img src="/i/interface/btn_save.gif" alt="Save" border="0" /></A></div>
       </form>
    </div>
