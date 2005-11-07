@@ -4,7 +4,6 @@
                  java.util.Map"%><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="privatelabel.tld" prefix="pl" %>
-<%@ page contentType="text/html;charset=utf-8" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.ResumeRegInfo" scope="session" />
 <% List responseList = (List)request.getAttribute("responseList");%>
