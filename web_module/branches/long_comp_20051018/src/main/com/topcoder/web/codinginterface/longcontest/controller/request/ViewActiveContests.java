@@ -170,10 +170,11 @@ public class ViewActiveContests extends Base{
     private boolean isCoderRoundRegistered(DataAccessInt dai, long roundID, long coderID) throws Exception {
     	Request r = new Request();
     	ResultSetContainer rsc;
-    	try {    	
+    	log.debug("isCoderRoundRegistered called w/ roundID=" + roundID + " coderID=" + coderID);
+    	try {
 	    	r.setContentHandle("long_contest_coder_registered");
 	    	r.setProperty("rd", "" + roundID);
-	    	r.setProperty("cr", "" + coderID);
+	    	r.setProperty("cr", "" + coderID);	    	
 	    	Map m = dai.getData(r);    	
 	    	rsc = (ResultSetContainer)m.get("long_contest_coder_registered");
     	} catch(Exception e) {

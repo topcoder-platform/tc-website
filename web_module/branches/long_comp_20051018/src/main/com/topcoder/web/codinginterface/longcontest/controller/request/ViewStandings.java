@@ -8,6 +8,7 @@ import java.util.TreeSet;
 import java.util.Vector;
 
 import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -46,7 +47,7 @@ public class ViewStandings extends Base {
 			if (roundID == null) {
 
 			} else {
-				DataAccessInt dai = new CachedDataAccess(
+				DataAccessInt dai = new DataAccess(
 						DBMS.OLTP_DATASOURCE_NAME);
 
 				Request r = new Request();
