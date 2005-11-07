@@ -4,15 +4,17 @@
                  java.util.List"%><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="privatelabel.tld" prefix="pl" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
 <% List questionList = (List)request.getAttribute("questionList");%>
 <html>
 <head>
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gccj05.css"/>
+    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
+    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gccj05.css"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-<title>Google Code Jam China, Powered by TopCoder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Google Code Jam China, Powered by TopCoder</title>
 </head>
 <body>
 
