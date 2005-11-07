@@ -44,31 +44,31 @@ function openWin(url, name, w, h) {
 
          <br><br>
 
-         <span class="bigTitle">Competition Arena</span>
+         <span class="bigTitle">竞技平台</span>
          <span valign=top>
          <jsp:include page="ZH_right.jsp" />
          </span>
 
          <br><br>
-         <A href="/pl/?module=GoogleIndia05Credentials&cid=8039">Forgot your password?</A>
+         <A href="/pl/?module=GoogleIndia05Credentials&cid=8039">忘了密码？</A>
          <br><br>
-         You need at least <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version 1.4</A> to run the Arena.  Click <A href="http://java.sun.com/getjava/index.jsp " target="_blank">here</A> if you do not have Java Runtime 1.4 installed.
+		你需要至少<A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version 1.4</A>来运行平台。点击<A href="http://java.sun.com/getjava/index.jsp " target="_blank">这里</A>如果你还没有安装Java Runtime 1.4。
          <br><br>
-         Using a proxy server? Click <A href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">here</A> to read how to <A href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">configure Java</A>.
+		使用代理服务器？点击<A href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">这里</A>阅读如何<A href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">配置Java</A>。
          <br><br>
-         Click <A href="/pl/?module=Static&d1=gccj05&d2=ZH_instructions">here</A> to read to the <A href="/pl/?module=Static&d1=gccj05&d2=ZH_instructions">competition instructions</A>.
+		点击<A href="/pl/?module=Static&d1=gccj05&d2=ZH_instructions">这里</A>阅读<A href="/pl/?module=Static&d1=gccj05&d2=ZH_instructions">竞赛规则</A>。
          <br><br>
-         Click <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">here</a> to run the Competition Arena as a <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">Java Applet</A>.
+		点击<a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">这里</A>运行竞技平台，以<a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">Java Applet</A>的方式启动竞技平台。
          <br><br>
-         Click <a href="/contest/arena/ContestAppletGoogleIndia.jnlp" target="_blank">here</a> to run the Competition Arena as a <a href="/contest/arena/ContestAppletGoogleIndia.jnlp" target="_blank">Java Web Start Application</A>.
+		点击<a href="/contest/arena/ContestAppletGoogleIndia.jnlp" target="_blank">这里</A>运行竞技平台，以<a href="/contest/arena/ContestAppletGoogleIndia.jnlp" target="_blank">Java Web Start Application</A>的方式启动竞技平台。
          <br><br>
-         Note:  If you wish to install Java Web Start click <a href="http://java.sun.com/products/javawebstart/index.html" target="_blank">here</a>.
+		注意：如果你想安装Java Web Start，点击<a href="http://java.sun.com/products/javawebstart/index.html" target="_blank">这里</A>。
          <br><br>
-         If you experience problems loading or running the Competition Arena please contact  <A href="mailto:gccj05@topcoder.com?subject=Question regarding Google Code Jam China">gccj05@topcoder.com</A>.
+		如果你在运行竞技平台时遇到任何问题，请及时电邮联系 <A href="mailto:gccj05@topcoder.com?subject=Question regarding Google Code Jam China">gccj05@topcoder.com</A>.
          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
          <br><br>
-         To find out more detailed information about the Google Code Jam China, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">Terms and Conditions</a>.
+         想要了解更多的 Google 中国编程精英网罗赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
          </div>
       </td>
       <td width="49%">&#160;</td>
