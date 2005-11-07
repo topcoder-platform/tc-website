@@ -1,4 +1,20 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@  page
+  language="java"
+  import="java.util.*,
+          java.text.SimpleDateFormat,
+          com.topcoder.web.codinginterface.longcontest.*,
+          com.topcoder.shared.dataAccess.resultSet.*"
+
+%>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="struts-logic.tld" prefix="logic" %>
+<%
+    Map m = (Map)request.getAttribute("results");
+    ResultSetContainer registrants = (ResultSetContainer)m.get("long_round_registrants");
+%>
+
 <html>
 <head>
 <title>TopCoder</title>
@@ -57,14 +73,16 @@
 </tr>
 <%-- ITERATOR --%>
 <%boolean even = true;%>
+<rsc:iterator list="<%=registrants%>" id="resultRow">
 <tr>
-   <td class="<%=even?"statLt":"statDk"%>">handle</td>
-   <td class="<%=even?"statLt":"statDk"%>">United States</td>
-   <td class="<%=even?"statLt":"statDk"%>">CT</td>
-   <td class="<%=even?"statLt":"statDk"%>">University of Connecticut</td>
-   <td class="<%=even?"statLt":"statDk"%>">ACTIONSCRIPT!</td>
+   <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="handle" row="<%=resultRow%>"/></td>
+   <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="country_name" row="<%=resultRow%>"/></td>
+   <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="state_code" row="<%=resultRow%>"/></td>
+   <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="school_name" row="<%=resultRow%>"/></td>
+   <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="language_name" row="<%=resultRow%>"/></td>
 </tr>
 <%even=!even;%>
+</rsc:iterator>
 <%-- END ITERATOR --%>
       </TABLE>
       </TD>
