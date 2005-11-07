@@ -29,21 +29,8 @@ public class ViewReg extends Base {
 
     	try {
 	    	DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-	    	Request r = new Request();
-	    	r.setContentHandle("long_contest_round_terms");
-	    	r.setProperty("rd", roundID);
-	    	
-	    	Map m = dai.getData(r);
-	    	ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_round_terms");
-
-	    	if(rsc.isEmpty()) {
-	    		log.error("Could not find round terms for: " + roundID);
-	    		throw new TCWebException("Error retrieving page.");
-	    	} else {	    		
-	    		getRequest().setAttribute(Constants.ROUND_TERMS_KEY, rsc.getStringItem(0, "terms_content"));
-	    	}
-	    	questionInfo = getQuestionInfo(dai, roundID);
-	    	getRequest().setAttribute("questionInfo", questionInfo);
+	    	loadRoundTerms(dai, roundID);
+	    	loadQuestionInfo(dai, roundID);
     	} catch(Exception e) {
     		e.printStackTrace();
     		throw new TCWebException("Error retrieving page.");
@@ -53,6 +40,27 @@ public class ViewReg extends Base {
     	setIsNextPageInContext(true);
     }
 
+    protected void loadRoundTerms(DataAccessInt dai, String roundID) throws Exception {
+    	Request r = new Request();
+    	r.setContentHandle("long_contest_round_terms");
+    	r.setProperty("rd", roundID);
+    	
+    	Map m = dai.getData(r);
+    	ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_round_terms");
+
+    	if(rsc.isEmpty()) {
+    		log.error("Could not find round terms for: " + roundID);
+    		throw new TCWebException("Error retrieving page.");
+    	} else {	    		
+    		getRequest().setAttribute(Constants.ROUND_TERMS_KEY, rsc.getStringItem(0, "terms_content"));
+    	}
+    }
+    
+    protected void loadQuestionInfo(DataAccessInt dai, String roundID) throws Exception {
+    	questionInfo = getQuestionInfo(dai, roundID);
+    	getRequest().setAttribute("questionInfo", questionInfo);
+    }
+    
     protected List getQuestionInfo(DataAccessInt dai, String roundID) throws Exception {
         Request r = new Request();
         r.setContentHandle("long_contest_round_questions");

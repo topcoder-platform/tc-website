@@ -39,6 +39,7 @@ public class SubmitReg extends ViewReg {
 	protected static final Logger log = Logger.getLogger(SubmitReg.class);
 
 	protected void businessProcessing() throws TCWebException {
+		
 		log.debug("SubmitReg called");
 		String roundID = getRequest().getParameter(Constants.ROUND_ID);
 		long userID = getUser().getId();
@@ -46,7 +47,8 @@ public class SubmitReg extends ViewReg {
 			DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
 			String paramName = null;
 			List responses = new ArrayList(10);
-			questionInfo = getQuestionInfo(dai, roundID);
+			loadRoundTerms(dai, roundID);
+	    	loadQuestionInfo(dai, roundID);
 			for (Enumeration params = getRequest().getParameterNames(); params
 					.hasMoreElements();) {
 				paramName = (String) params.nextElement();
@@ -88,7 +90,7 @@ public class SubmitReg extends ViewReg {
 				}
 			}
 			if (hasErrors()) {
-				setDefaults(responses);
+				setDefaults(responses);				
 				setNextPage(Constants.PAGE_VIEW_REG);
 				setIsNextPageInContext(true);
 			} else {
