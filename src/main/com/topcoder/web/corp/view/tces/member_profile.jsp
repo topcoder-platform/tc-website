@@ -108,7 +108,8 @@
             <% } %>
             <br /><br />
 
-            <% if (MemberStats.getStringItem(0, "num_design_ratings")!=null) { %>
+
+            <% if (MemberProfileTask.getIsRanked()&&MemberStats.getStringItem(0, "num_design_ratings")!=null) { %>
                 <b>Component Design Statistics</b><br />
                 Current Rating: <rsc:item name="design_rating" format="#" set="<%=MemberStats%>" ifNull="Not Rated"/> <br />
                 Current Ranking: <rsc:item name="design_rank" format="#" set="<%=MemberStats%>" ifNull="Not Ranked"/><br />
@@ -120,7 +121,7 @@
                 <br />
             <% } %>
 
-            <% if (MemberStats.getStringItem(0, "num_dev_ratings")!=null) { %>
+            <% if (MemberProfileTask.getIsRanked()&&MemberStats.getStringItem(0, "num_dev_ratings")!=null) { %>
                 <b>Component Development Statistics</b><br />
                 Current Rating: <rsc:item name="dev_rating" format="#" set="<%=MemberStats%>" ifNull="Not Rated"/> <br />
                 Current Ranking: <rsc:item name="dev_rank" format="#" set="<%=MemberStats%>" ifNull="Not Ranked"/><br />
