@@ -10,9 +10,11 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
@@ -25,6 +27,10 @@ public class ViewReg extends Base {
     
     protected void businessProcessing() throws TCWebException {
 
+    	if(getUser().isAnonymous()) {            
+			throw new PermissionException(getUser(), new ClassResource(this.getClass()));                		
+    	}
+    	
     	String roundID = getRequest().getParameter(Constants.ROUND_ID);
 
     	try {

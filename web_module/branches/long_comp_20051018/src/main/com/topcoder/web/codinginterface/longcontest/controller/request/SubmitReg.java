@@ -41,6 +41,9 @@ public class SubmitReg extends ViewReg {
 	protected void businessProcessing() throws TCWebException {
 		
 		log.debug("SubmitReg called");
+    	if(getUser().isAnonymous()) {            
+			throw new PermissionException(getUser(), new ClassResource(this.getClass()));                		
+    	}
 		String roundID = getRequest().getParameter(Constants.ROUND_ID);
 		long userID = getUser().getId();
 		try {
@@ -49,6 +52,7 @@ public class SubmitReg extends ViewReg {
 			List responses = new ArrayList(10);
 			loadRoundTerms(dai, roundID);
 	    	loadQuestionInfo(dai, roundID);
+	    	getRequest().setAttribute(Constants.ROUND_ID, roundID);
 			for (Enumeration params = getRequest().getParameterNames(); params
 					.hasMoreElements();) {
 				paramName = (String) params.nextElement();
