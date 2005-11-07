@@ -43,7 +43,7 @@
          </span>
 
          <br><br>
-            Your login credentials have been sent to the provided email address.
+         你的账号登录信息已经发送到了你注册时提供的电子信箱。
          <br><br>
          <br><br>
          <br><br>
