@@ -72,12 +72,17 @@
 		<A href="longcontest?module=ViewReg&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">Register</a>
 	</logic:equal>
 	<logic:notEqual name="contest" property="coderRegistered" value="false">
-		<A href="longcontest?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>" class="statLink">submit</a>
+		<A href="longcontest?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>" class="statLink">Submit</a>
 	</logic:notEqual>
 </logic:equal>
 </td>
-<td class="<%=even?"statLt":"statDk"%>"><A href="longcontest?module=ViewStandings&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">
-standings</a>
+<td class="<%=even?"statLt":"statDk"%>">
+	<logic:equal name="contest" property="passed" value="false">
+		<A href="longcontest?module=ViewStandings&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">Standings</a>
+	</logic:equal>
+	<logic:notEqual name="contest" property="passed" value="false">
+		<A href="longcontest?module=ViewOverview&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">Results</a>
+	</logic:notEqual>
 </td>
 <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><tc-webtag:beanWrite name="contest" property="startTime"/></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><tc-webtag:beanWrite name="contest" property="endTime"/></td>
