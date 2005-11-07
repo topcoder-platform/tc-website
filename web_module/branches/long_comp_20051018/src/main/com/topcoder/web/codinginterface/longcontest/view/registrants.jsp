@@ -12,7 +12,7 @@
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%
     Map m = (Map)request.getAttribute("results");
-    ResultSetContainer registrants = (ResultSetContainer)m.get("long_round_registrants");
+    ResultSetContainer registrants = (ResultSetContainer)m.get("long_contest_round_registrants");
 %>
 
 <html>
