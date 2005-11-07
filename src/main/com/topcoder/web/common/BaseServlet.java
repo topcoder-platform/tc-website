@@ -120,6 +120,7 @@ public abstract class BaseServlet extends HttpServlet {
         try {
             try {
 
+            request.setCharacterEncoding("utf-8");
             TCRequest tcRequest = HttpObjectFactory.createRequest(request);
             TCResponse tcResponse = HttpObjectFactory.createResponse(response);
             //set up security objects and session info
