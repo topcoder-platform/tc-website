@@ -1,5 +1,7 @@
 package com.topcoder.web.common;
 
+import com.topcoder.shared.util.logging.Logger;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -9,8 +11,10 @@ import java.io.IOException;
  * an http request.
  */
 public class HttpObjectFactory {
+    private static Logger log = Logger.getLogger(HttpObjectFactory.class);
     public static TCRequest createRequest(HttpServletRequest r) {
         String contentType = r.getContentType();
+        log.debug("content type: " + contentType);
         TCRequest ret = null;
         //we'll cheat so that we don't have to instantiate an object to examine
         //the request only to find out that it is not a multipart request
