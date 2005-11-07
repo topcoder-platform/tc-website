@@ -153,16 +153,17 @@ margin:0px auto;
       <table border="0" cellpadding="0" cellspacing="0">
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">October Events:</A></td>
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">November Events:</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-            <b>10/01</b> - SRM 266 - 12PM - Yahoo!<br><br>
-            <b>10/05</b> - SRM 267 - 9PM - Sun<br><br>
-            <b>10/12-14</b> - TCO05 Onsite Finals<br><br>
-            <b>10/18</b> - SRM 268 - 11AM - Sun<br><br>
-            <b>10/26</b> - SRM 269 - 9PM - NSA<br><br>
+            <b>11/03</b> - SRM 270 - 11AM<br><br>
+            <b>11/08</b> - SRM 271 - 9PM - TopCoder Software<br><br>
+            <b>11/19</b> - SRM 272 - 12PM<br><br>
+            <b>11/21</b> - SRM 273 - 9PM<br><br>
+            <b>11/23</b> - SRM 274 - 7AM<br><br>
+            <b>11/30</b> - SRM 275 - 9PM<br><br>
             </td>
          </tr>
          <tr>

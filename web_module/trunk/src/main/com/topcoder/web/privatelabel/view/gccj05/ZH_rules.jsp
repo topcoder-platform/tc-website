@@ -146,65 +146,65 @@ Google China公司为每位决赛选手提供所有的旅行膳宿，并妥善�
 <br><br>
 <table  width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
 <tr valign="top">
-<td class="sidebarTitle">Competitor(s)</td>
-<td class="sidebarTitle" align=right>Prize</td>
+<td class="sidebarTitle">参赛者</td>
+<td class="sidebarTitle" align=right>奖金</td>
 </tr>
 <tr valign="top">
-<td class="sidebarText"><b>1st place finisher* - Tournament Champion</b></td>
+<td class="sidebarText"><b>第1名*-锦标赛冠军</b></td>
 <td class="sidebarText" align=right><b>X</b>
 </td>
 </tr>
 <tr valign="top">
-<td class="sidebarText" nowrap>2nd to 10th place</td>
+<td class="sidebarText" nowrap>第2名至第10名</td>
 <td class="sidebarText" nowrap align=right>X
 </td>
 </tr>
 <tr valign="top">
-<td class="sidebarText" nowrap>11th to 25th place</td>
+<td class="sidebarText" nowrap>第11名至第25名</td>
 <td class="sidebarText" nowrap align=right>X
 </td>
 </tr>
 <tr valign="top">
-<td class="sidebarText" nowrap>26th to 50th place</td>
+<td class="sidebarText" nowrap>第26名至第50名</td>
 <td class="sidebarText" nowrap align=right>X
 </td>
 </tr>
 <tr valign="top">
-<td class="sidebarText" colspan="2">* Winner must be present at the onsite round to receive prize.</td>
+<td class="sidebarText" colspan="2">*胜者必须在现场领取奖金</td>
 </tr>
 </table>
 <br><br>
 
-<span class="greenSubtitle">Conditions of Participation</span><br>
-By participating in the tournament, you agree to be bound by these rules and to all decisions of Google and TopCoder, which are final, binding and conclusive in all matters. Also, by participating in this tournament, you consent to providing certain information to Google for recruiting purposes. Such information shall include your registration information and your competition statistics.
+<span class="greenSubtitle">参加条件</span><br>
+要参加此次锦标赛，参赛者必须同意和遵守Google公司和TopCoder公司的所有相关条款和决定。同时，须同意提供准确的信息，包括个人的注册信息和竞赛统计信息，以备Google公司招募新人。
 <br><br>
-<span class="bigRed">Contestants must not cheat. All ideas for any code and/or challenge submitted must be the contestant's alone.</span>
+<span class="bigRed">参赛者不能有任何作弊或欺诈行为，所有提交的方案代码都必须个人独立完成。</span>
 <br><br>
-Winners in each round of competition will be those competitors who win the most points in their respective rooms. All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.
+每轮比赛在各自房间内赢得最高分的选手将成为该轮的胜出者。对于提交方案的可行性的判断，排名及所有锦标赛的其他相关事宜，TopCoder公司或其指定方都具有最终的独立的决定权，敬请服从。
 <br><br>
-Prizewinners will be announced upon completion of the Championship Round. Any prizewinner claiming a cash prize must complete the following documents onsite before claiming the prize (Google will provide the prizewinners with these documents prior to the start of the Championship Round):
+完成冠军赛内容前，获奖者会被告知相关事宜。 要领取奖金需在领奖前现场递交以下文档(Google公司会在冠军赛前提供给获奖者这些文档)：
 <ul>
-<li>Affidavit of Eligibility and Liability and Publicity Release</li>
-<li>Applicable tax form </li>
+<li>免责申明公证书(Affidavit of Eligibility and Liability and Publicity Release )</li>
+<li>相关的税表</li>
 </ul>
-Prizes will be announced onsite upon receipt of the documents identified above. All t-shirts will be sent after the conclusion of the Championship Round to competitors using the address given during registration, and may take 4-6 weeks to arrive. Unclaimed or undeliverable prizes will not be awarded.
+在收到上面提到的文档后，奖项将当场宣布。所有的T恤会在冠军赛结果产生后，根据参赛者注册时所填写的住址予以发放，参赛者可能在4至6周内收到奖品。地址不明或无法递送的将不予发送。
 <br><br>
-As a condition of participation in the tournament, all information provided by you upon registration must be comprehensive, accurate and up-to-date. Google China and/or TopCoder may require you to complete an additional registration form to register for the tournament. In order to be eligible to participate in the tournament, you must have completed any and all registration forms required by Google China and TopCoder.
+作为参加锦标赛的条件，参赛者必须提供全面，正确，最新的注册信息。Google China公司和/或TopCoder公司可能要求参赛者填写额外的注册信息表来注册参加锦标赛，为了能够合法的参加此次比赛，请参赛者务必填写每一张Google China公司和TopCoder公司要求的注册表。
 <br><br>
-As a condition of winning and redeeming a cash prize, winners will be required to complete and provide to Google China a completed (i) Affidavit of Eligibility and Liability and Publicity Release (the "Affidavit"), and (ii) an applicable tax form, as appropriate. In completing the Affidavit, a winner (a) confirms his/her eligibility, (b) represents and warrants that he/she has not cheated; that the idea for the code and/or challenge submitted is his/hers alone, (c) verifies the accuracy of the information submitted in the Google Code Jam China registration process, (d) authorizes TopCoder and Google to publicize the tournament's results, (e) agrees to sign any applicable forms required by tax authorities, (f) licenses to TopCoder and Google China rights to all information submitted during the tournament (including rights to source code and other executables), and (g) releases TopCoder and Google China from liability arising out of any prize won. Google China requires contestants to complete necessary tax forms, as applicable, for tax reporting purposes.
+作为赢取和兑换现金奖的条件，获胜者须完成和提供给Google China公司完整的(i)免责申明公证书(Affidavit of Eligibility and Liability and Publicity Release)和(ii)相关的税表。在完成公证书时，获胜者须(a)确定他/她的合法性，(b)保证获奖过程中没有作弊或进行欺诈；编写和提交的方案代码由他/她独立完成，(c)确认在Google China Code Jam 注册过程中所填信息属实，(d)授权TopCoder和Google公司可以公布锦标赛的结果，(e)同意签署税务当局的相关税务表，(f)允许TopCoder和Google China公司有权使用在锦标赛期间提交的所有信息(包括源代码和其他可执行程序的使用权)，和(g)免除TopCoder和Google China公司赢取的奖金以外的责任。Google China公司要求参赛者填写必要的税表，以作申报税务用。
 <br><br>
-If prize notification is returned as undeliverable, or if the winner fails to return the Affidavit or the applicable tax form, the winner will be disqualified and the prize money won by the disqualified winner will be forfeited. Providing false information in the registration process or in the required forms described in this paragraph will disqualify a winner.
+如果获奖通知无法送达而被退回，或者获胜者不能返还公证书或相关税表，获奖者将被取消获奖资格，奖金将被取消；在注册过程中或者在本段上面列出的所需填写的表格中填写虚假错误信息的获奖者，也将被取消获奖资格。
 <br><br>
-By participating in a tournament and redeeming a prize, a winner releases and agrees to hold harmless Google China and TopCoder, their affiliates, subsidiaries, advertising and promotion agencies, sponsors, and prize suppliers, and all of their respective directors, officers, employees, representatives and agents, from and against any and all liability for any loss, property damage or damage to person, including without limitation, death and injury, due in whole or in part, directly or indirectly, from or arising out of participation in this tournament, or participation in any tournament-related activity, or the receipt, use or misuse of a prize. Google China and TopCoder specifically disclaim all liability associated with, and make no warranties with regard to, any prize given.
+通过参加锦标赛，兑换奖项，优胜者应免除Google China公司，TopCoder公司，其隶属公司，子公司，广告和推广代理商，赞助商，奖项提供商和所有其各自主管，高级职员，雇员，代表和代理的所有责任，对其个人及财产遭受的损害，包括全部或部分地，直接或间接地，由于参加此次锦标赛或任何锦标赛相关活动而遭受的损伤，收到、使用或滥用奖金而导致的不限程度的损伤，死亡均不负责任。Google China公司和TopCoder公司特此申明免责，对关于任何给与的奖项不负任何责任。
 <br><br>
-In addition, all prizewinners agree to cooperate with Google China's and TopCoder's publicity efforts, without further compensation. This includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, for this or similar future tournaments, and to use the statements made by, or attributed to, the winners relating to Google China and TopCoder and any and all rights to said use, without further compensation.
+此外，所有获奖者在不发生进一步费用的情况下愿意协助Google China公司和TopCoder公司的进行宣传推广工作。这包括同意使用他们的姓名，用户名，地址(省和城市)，合法地为这次或以后类似的锦标赛做宣传活动，以及他们关于对Google China和TopCoder公司的申明及其他申明权的使用。以上行为都不再发生进一步的费用。
 <br><br>
-Google China and TopCoder reserve the right, in their sole discretion, to revoke any and all privileges associated with competing in this tournament, and to take any other action it deems appropriate, for no reason or any reason whatsoever, including if TopCoder suspects competitors of cheating, tampering with the entry process, the operation of the Web site, or the tournament process, or otherwise being in violation of the rules. Google China and TopCoder reserve the right to cancel, terminate or modify the tournament if it is not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.
+Google China公司和TopCoder公司保留其最终的决定权，可以无需任何理由地取消任一或全部与此次赛事相关的权利，或者采取任何其他更恰当的措施，包括如果TopCoder公司质疑参赛者有作弊行为，可以采取干预干涉其登陆过程，对网站的访问操作，其竞赛过程，或其他违反规则的行为。如果赛事因故不能取得预期效果，包括感染电脑病毒，漏洞，程序篡改，他人入侵或技术故障等情况,Google China公司和TopCoder公司有权可以取消、中断或调整整个赛事。
 <br><br>
-<span class="greenSubtitle">Other</span><br>
-The tournament is void in whole or in part where prohibited by law.
+<span class="greenSubtitle">其他</span><br>
+此次锦标赛在法律禁止的地区部分或全部无效。
 <br><br>
-This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue, Glastonbury, CT 06033 and Google China Inc. (http://www.google.com) 1600 Amphitheatre Parkway, Mountain View, CA 94043.
+此次赛事由TopCoder公司(http://www.topcoder.com/)703 Hebron Avenue, Glastonbury, CT 06033和Google China公司(http://www.google.com) 1600 Amphitheatre Parkway, Mountain View, CA 94043. 主办。
          <br><br>
          </div>
       </td>
