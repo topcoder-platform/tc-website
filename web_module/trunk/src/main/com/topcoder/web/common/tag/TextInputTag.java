@@ -48,7 +48,9 @@ public class TextInputTag extends BaseTag {
         }
         log.debug("outputing: " + ret.toString());
         try {
-            pageContext.getOut().print(new String(ret.toString().getBytes(), "UTF-8"));
+            //pageContext.getOut().print(new String(ret.toString().getBytes(), "UTF-8"));
+            pageContext.getOut().print(ret.toString());
+            //<%@ page pageEncoding="ISO-8859-1" %>
         } catch (java.io.IOException ioe) {
         }
         return SKIP_BODY;
