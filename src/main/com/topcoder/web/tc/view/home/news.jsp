@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>11.07.05<br>5:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">TopCoder Software chat session scheduled for SRM 271</span><br><br>
+      TCS representatives Dave Messinger, Architect, Tony Jefts, Project Manager and others will be in the TCS chat room starting at 8PM EST, to discuss and give feedback on the TopCoder Software Component Competitions.  This is a great opportunity to speak to TopCoder Software Team Members on how to get started in Component Competitions.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <tc-webtag:forumLink forumID="505823" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>11.04.05<br>2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">"Achievements" added to Member Profiles</span><br><br>
       We've added an "Achievements" link to Member Profiles, which lists accomplishments such as being named "Coder of the Month" and tournament advancement.
@@ -308,24 +320,6 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room3_analysis">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505778" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.13.05<br>7:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room2_analysis">Eryx wins Room 2</A></span><br><br>
-      Eryx, the number one seed for the room, was the first to submit the 250-point problem for a score of 214.13 points.  This gave him a considerable lead as the next two to submit were nearly 40 points behind.
-      <br><br>
-      <i>introduction by </i><tc-webtag:handle coderId="160049" context="algorithm"/><br>
-      <i>analysis by </i><tc-webtag:handle coderId="159052" context="algorithm"/> and <tc-webtag:handle coderId="310430" context="algorithm"/>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room2_analysis">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505777" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
