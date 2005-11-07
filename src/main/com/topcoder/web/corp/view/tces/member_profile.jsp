@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@  page
   language="java"
   import="java.util.*,
@@ -15,7 +16,7 @@
   <HEAD>
     <TITLE>TopCoder | Recruiting Reports</TITLE>
     <jsp:include page="script.jsp" />
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   </HEAD>
   <body>
 <jsp:include page="top.jsp" >

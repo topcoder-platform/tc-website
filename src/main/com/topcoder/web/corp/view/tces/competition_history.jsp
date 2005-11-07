@@ -1,8 +1,7 @@
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@  page
   language="java"
-  import="java.util.*,
-          com.topcoder.web.corp.common.*,
-          com.topcoder.web.corp.controller.request.tces.*,
+  import="com.topcoder.web.corp.controller.request.tces.*,
           com.topcoder.web.corp.common.TCESConstants" %>
 
 <%@ taglib uri="tces-taglib.tld" prefix="tces"%>
@@ -14,6 +13,7 @@
 
 <head>
     <title>TopCoder | Recruiting Reports</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <jsp:include page="script.jsp" />
 </head>
 

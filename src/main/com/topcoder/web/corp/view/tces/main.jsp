@@ -1,8 +1,7 @@
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@  page
   language="java"
-  import="java.util.*,
-          com.topcoder.web.corp.common.*,
-          com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+  import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
           com.topcoder.web.corp.controller.request.tces.*,
           com.topcoder.web.corp.common.TCESConstants" %>
 
@@ -13,7 +12,7 @@
 <head>
 
 <title>TopCoder | Recruiting Reports</title>
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link type="text/css" rel="stylesheet" href="/css/corpStyle.css"/>
 
 <jsp:include page="script.jsp" />

@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.common.BaseServlet"%>
 <%@ page language="java"
 session="true"
@@ -12,7 +13,8 @@ isErrorPage="true"
    <TITLE>TopCoder</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-   <jsp:include page="script.jsp" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <jsp:include page="script.jsp" />
 </HEAD>
 
 <body>
