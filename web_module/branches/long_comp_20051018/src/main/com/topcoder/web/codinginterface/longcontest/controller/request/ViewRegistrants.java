@@ -10,6 +10,7 @@ package com.topcoder.web.codinginterface.longcontest.controller.request;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -62,8 +63,8 @@ public class ViewRegistrants extends Base {
 
             result.put("long_round_registrants", rsc);
 
-            SortInfo s = new SortInfo();
-            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+//            SortInfo s = new SortInfo();
+//            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
             setDefault(Constants.ROW_COUNT, numRecords);
             setDefault(Constants.START_ROW, startRank);
