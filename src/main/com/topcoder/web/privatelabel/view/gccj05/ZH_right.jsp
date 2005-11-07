@@ -2,7 +2,7 @@
 <table class="smallBoxTable" align="right" cellspacing="0" cellpadding="0">
    <tr>
       <td align="center" class="smallBlackBox">
-      <A href="/"><img src="/i/events/gccj05/pbtc_logo.gif" border="0"/></A>
+      <A href="/"><img src="/i/events/gccj05/ZH_pbtc_logo.gif" border="0"/></A>
       </td>
    </tr>
    <tr><td>&#160;</td></tr>

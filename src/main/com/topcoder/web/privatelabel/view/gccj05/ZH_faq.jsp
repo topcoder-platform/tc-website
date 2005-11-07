@@ -36,39 +36,39 @@
 
          <br><br>
 
-<span class="bigTitle">FAQ</span>
+<span class="bigTitle">常见问题解答</span>
 <span valign=top>
 <jsp:include page="ZH_right.jsp" />
 </span>
 
 <br><br>
-<b>Is there a way to practice before the elimination rounds?</b><br>
-You may use your handle and password to login to the competition arena.  Within the arena there is a practice area that mimics the functionality of the real competition.  Nothing that you do in the practice room will count against you in the competition.
+<b>在淘汰赛前，有没有办法可以练习一下？</b><br>
+你可以用你的账号和密码登陆竞技平台，在竞技平台里有练习区，可以模仿实际竞赛的环境。在练习区内的所有操作都对实际竞赛没有任何影响。
 <br><br>
-<b>What resources can I use to help me during the competition?</b><br>
-You may utilize any reference materials, including those found on the Internet.  You may not collaborate with any other person.
+<b>在竞赛中我可以用些什么辅助资料？</b><br>
+你可以用任何参考资料，包括能在英特网上搜索到的，但是不能和他人合作进行比赛。
 <br><br>
-<b>Can I use code that has already been written as a part of my solution?</b><br>
-Only code that has been authored by you may be used in a code submission.  No third-party source code may be used as a part of any code submission.
+<b>我可以用已经写过的程序代码作为我的方案代码吗？</b><br>
+只有你自己写的代码可以作为提交的代码。第三方编写的代码不能作为参赛的提交代码。
 <br><br>
-<b>I've submitted a solution for a problem, but the time has not run out.  Can I submit again?</b><br>
+<b>我已经提交了一份竞赛题的方案，但是时间还有剩余，我可以再交一份吗？</b><br>
 Yes.  However, if you've already submitted a problem and you choose to submit again, your score for that submission will be adjusted to account for the additional lapsed time since your last submission, as well as an additional penalty of 10% of the maximum point value for the problem.
 <br><br>
-<b>What is the Challenge Phase?</b><br>
-The Challenge phase only takes place during Rounds 1 and 2.  It does not take place during the Qualification Round.
+<b>什么是挑战阶段？</b><br>
+只有第一轮和第二轮竞赛有挑战阶段，资格赛中不包括挑战阶段。
 <br><br>
-During the Challenge Phase, you have the opportunity to view the source code submissions of the other competitors in your room.  If you believe that any of the submissions are flawed, you may challenge the submission with a specific test case that you feel will result in that submission returning the wrong result.  If your challenge is successful, and the submission returns the wrong result, you will be awarded 50 points and the competitor will lose the points for the challenged submission.  However, if your challenge is unsuccessful, and the submission returns the correct result for the test case, you will lose 25 points from your score.
+在挑战阶段，你有机会看到同一竞赛虚拟房间其他参赛者提交的方案代码。如果你认为其中任何一个方案有缺陷，你可以提交你认为会使这个方案运行结果出错的测试数据来挑战它。如果你挑战成功，你可以赢取50分，对方则扣除一定的分数；但是，如果你挑战失败，被挑战者的程序得到了正确的结果，你则会被扣除25分。
 <br><br>
 Be sure to read the <A href="/pl/?module=Static&d1=gccj05&d2=ZH_instructions">Instructions</A> page for a complete explanation.
 <br><br>
-<b>How will I know if I have advanced the next round of the Google Code Jam?</b><br>
-As soon as the Testing Phase has been completed, the advancers to the next round will be posted at www.topcoder.com/gccj05.  In addition, an email will be sent to all participants indicating whether or not each has advanced.
+<b>我如何知道我是否已经晋级Google编程精英网络赛的下一轮？</b><br>
+系统测试阶段一完成，晋级下一轮的参赛者名单就会张贴在www.topcoder.com/gccj05上。此外，参赛者会收到电邮通知，告知其是否已经晋级下一轮。
 <br><br>
-Questions not addressed here should be directed to <A href="mailto:gccj05@topcoder.com">gccj05@topcoder.com</A>
+还有其他问题请直接联系 <A href="mailto:gccj05@topcoder.com">gccj05@topcoder.com</A>
 <br><br>
-Good luck!
+祝您好运！
          <br><br>
-         To find out more detailed information about the Google Code Jam China, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">Terms and Conditions</a>.
+         想要了解更多的 Google 中国编程精英网罗赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
          </div>
       </td>
       <td width="49%">&#160;</td>
