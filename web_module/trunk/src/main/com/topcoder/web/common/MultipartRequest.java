@@ -28,7 +28,12 @@ public class MultipartRequest extends SimpleRequest {
 
     public String getParameter(String name) {
         try {
-            return new String(file.getParameter(name).getBytes(), request.getCharacterEncoding());
+            if (file.getParameter(name)!=null) {
+                return new String(file.getParameter(name).getBytes(), request.getCharacterEncoding());
+            } else {
+                return null;
+            }
+
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             return file.getParameter(name);
