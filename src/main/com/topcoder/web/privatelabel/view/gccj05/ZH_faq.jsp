@@ -52,14 +52,14 @@
 只有你自己写的代码可以作为提交的代码。第三方编写的代码不能作为参赛的提交代码。
 <br><br>
 <b>我已经提交了一份竞赛题的方案，但是时间还有剩余，我可以再交一份吗？</b><br>
-Yes.  However, if you've already submitted a problem and you choose to submit again, your score for that submission will be adjusted to account for the additional lapsed time since your last submission, as well as an additional penalty of 10% of the maximum point value for the problem.
+可以。但是如果你交了一份方案后，还是愿意再交一份的话，你的这份方案会从你的上一次提交后剩余的时间开始计时，同时这一题的满分会被扣除10%作为额外的处罚。
 <br><br>
 <b>什么是挑战阶段？</b><br>
 只有第一轮和第二轮竞赛有挑战阶段，资格赛中不包括挑战阶段。
 <br><br>
 在挑战阶段，你有机会看到同一竞赛虚拟房间其他参赛者提交的方案代码。如果你认为其中任何一个方案有缺陷，你可以提交你认为会使这个方案运行结果出错的测试数据来挑战它。如果你挑战成功，你可以赢取50分，对方则扣除一定的分数；但是，如果你挑战失败，被挑战者的程序得到了正确的结果，你则会被扣除25分。
 <br><br>
-Be sure to read the <A href="/pl/?module=Static&d1=gccj05&d2=ZH_instructions">Instructions</A> page for a complete explanation.
+想要有更全面的了解，请仔细阅读<A href="/pl/?module=Static&d1=gccj05&d2=ZH_instructions">竞赛细则</A>。
 <br><br>
 <b>我如何知道我是否已经晋级Google编程精英网络赛的下一轮？</b><br>
 系统测试阶段一完成，晋级下一轮的参赛者名单就会张贴在www.topcoder.com/gccj05上。此外，参赛者会收到电邮通知，告知其是否已经晋级下一轮。
