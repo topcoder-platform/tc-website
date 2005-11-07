@@ -49,19 +49,19 @@ public class ViewRegistrants extends Base {
 
             int endRank = Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1;
             
-            r.setContentHandle("long_round_registrants");
+            r.setContentHandle("long_contest_round_registrants");
             if(request.getParameter(Constants.ROUND_ID) == null){
                 // TODO: Get the round ID of the most recent active round
             }else{
                 r.setProperty(Constants.ROUND_ID,request.getParameter(Constants.ROUND_ID));
             }
             Map result = getDataAccess(true).getData(r);
-            ResultSetContainer rsc = (ResultSetContainer) result.get("long_round_registrants");
+            ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_round_registrants");
             rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
 
             rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank),endRank);
 
-            result.put("long_round_registrants", rsc);
+            result.put("long_contest_round_registrants", rsc);
 
 //            SortInfo s = new SortInfo();
 //            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
