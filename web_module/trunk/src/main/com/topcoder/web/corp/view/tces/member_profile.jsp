@@ -59,7 +59,7 @@
             <%= MemberInfo.getItem(0, "country_name").toString()%>
             <br />
             <strong>Email:</strong> <A HREF="mailto:<%=MemberInfo.getStringItem(0, "email")%>" class="bodyText"><%= MemberInfo.getStringItem(0, "email")%></A><br />
-            <strong>Phone:</strong> <%= MemberInfo.getStringItem(0, "home_phone")%>
+            <% if (MemberInfo.getStringItem(0, "home_phone")!=null) { %><strong>Phone:</strong> <%= MemberInfo.getStringItem(0, "home_phone")%><% } %>
             <br /><br />
             <B>Member Type:</B> <%=MemberInfo.getItem(0, "coder_type_desc").toString()%> <br />
             <B>TopCoder Member Since:</B> <%=MemberInfo.getItem(0, "member_since_date").toString()%><br />
