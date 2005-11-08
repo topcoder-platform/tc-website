@@ -42,6 +42,7 @@ public abstract class Base extends BaseProcessor {
     private WebQueueResponseManager receiver = null;
     private List languages = null;
     private ImageInfo sponsorImage = null;
+    private static final Set locks = new HashSet();
 
     protected abstract void businessProcessing() throws Exception;
 
@@ -54,6 +55,9 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected void send(LongCompileRequest sub) throws TCWebException, ServerBusyException {
+    	// This is a synchronous message
+    	lock();
+
         HashMap hm = new HashMap();
         hm.put("pendingAction", new Integer(ServicesConstants.LONG_COMPILE_ACTION));
         hm.put("appletServerId", new Integer(ApplicationServer.WEB_SERVER_ID));
@@ -63,6 +67,25 @@ public abstract class Base extends BaseProcessor {
         sender.sendMessage(hm,sub);
     }
 
+    protected void lock() throws TCWebException, ServerBusyException {
+        synchronized (locks) {
+            if (isBusy())
+                throw new ServerBusyException();
+            else
+                locks.add(Constants.SERVER_BUSY + getSessionId());
+        }
+    }
+    
+    protected boolean isBusy() throws TCWebException {
+        synchronized (locks) {
+            return locks.contains(Constants.SERVER_BUSY + getSessionId());
+        }
+    }
+    
+    protected String getSessionId() {
+    	return getRequest().getSession().getId();
+    }
+    
     public void setLanguages(List languages) {
         this.languages = languages;
         getRequest().getSession().setAttribute(Constants.LANGUAGES, languages);
@@ -210,11 +233,23 @@ public abstract class Base extends BaseProcessor {
         getResponse().flushBuffer();
     }
 
-    protected LongCompileResponse receive(int waitTime, long coderID, long componentID) throws TCWebException, TimeOutException {
-        LongCompileResponse ls = (LongCompileResponse) receiver.receive(waitTime, coderID+":"+componentID, getResponse());
-        return ls;
+    protected LongCompileResponse receive(int waitTime, long coderID, long componentID) throws TimeOutException {
+        try {
+        	LongCompileResponse ls = (LongCompileResponse) receiver.receive(waitTime, coderID+":"+componentID, getResponse());
+        	return ls;
+        } catch (TimeOutException e) {
+        	throw e;        
+        } finally {
+        	unlock();
+        }
     }
 
+    protected void unlock() {
+        synchronized (locks) {
+            locks.remove(Constants.SERVER_BUSY + getSessionId());
+        }
+    }
+    
     protected static List getLanguages(ArrayList languageIds) {
         List ret = new ArrayList(languageIds.size());
         for (Iterator it = languageIds.iterator(); it.hasNext();) {
