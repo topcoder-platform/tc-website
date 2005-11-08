@@ -1,4 +1,4 @@
-package com.topcoder.web.privatelabel.model;
+package com.topcoder.web.common.model;
 
 import com.topcoder.shared.util.logging.Logger;
 

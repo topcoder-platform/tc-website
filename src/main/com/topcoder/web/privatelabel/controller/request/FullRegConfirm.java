@@ -5,9 +5,9 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
+import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.model.DemographicQuestion;
-import com.topcoder.web.privatelabel.model.DemographicResponse;
+import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 

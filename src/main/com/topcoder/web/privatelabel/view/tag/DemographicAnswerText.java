@@ -1,8 +1,8 @@
 package com.topcoder.web.privatelabel.view.tag;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.privatelabel.model.DemographicQuestion;
-import com.topcoder.web.privatelabel.model.DemographicResponse;
+import com.topcoder.web.common.model.DemographicQuestion;
+import com.topcoder.web.common.model.DemographicResponse;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;

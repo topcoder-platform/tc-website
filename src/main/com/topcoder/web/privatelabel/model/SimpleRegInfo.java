@@ -1,5 +1,7 @@
 package com.topcoder.web.privatelabel.model;
 
+import com.topcoder.web.common.model.Base;
+
 /**
  *
  * @author gpaul 06.26.2003

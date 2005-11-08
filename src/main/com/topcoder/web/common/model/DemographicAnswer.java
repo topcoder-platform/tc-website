@@ -1,19 +1,28 @@
-package com.topcoder.web.privatelabel.model;
+package com.topcoder.web.common.model;
 
-public class DemographicResponse extends Base implements Comparable {
+import com.topcoder.web.common.model.Base;
+
+public class DemographicAnswer extends Base implements Comparable {
     private long questionId;
     private long answerId;
     private String text;
     private int sort;
 
-    public DemographicResponse() {
+    public static final DemographicAnswer DELINE = new DemographicAnswer(-1, "Decline to Answer");
+
+    public DemographicAnswer() {
+    }
+
+    private DemographicAnswer(long id, String text) {
+        setAnswerId(id);
+        setText(text);
     }
 
     public Object clone() throws OutOfMemoryError {
-        DemographicResponse ret = new DemographicResponse();
+        DemographicAnswer ret = new DemographicAnswer();
+        ret.setAnswerId(answerId);
         ret.setQuestionId(questionId);
         ret.setText(text);
-        ret.setAnswerId(answerId);
         ret.setSort(sort);
         return ret;
     }
@@ -51,7 +60,9 @@ public class DemographicResponse extends Base implements Comparable {
     }
 
     public int compareTo(Object o) {
-        DemographicResponse other = (DemographicResponse) o;
+        DemographicAnswer other = (DemographicAnswer) o;
         return new Integer(getSort()).compareTo(new Integer(other.getSort()));
     }
+
+
 }
