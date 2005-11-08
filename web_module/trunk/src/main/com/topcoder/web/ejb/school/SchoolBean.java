@@ -50,6 +50,8 @@ public class SchoolBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
+        } catch (NamingException e) {
+            throw new EJBException(e);
         } finally {
             close(ps);
             close(conn);
