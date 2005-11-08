@@ -7,6 +7,7 @@ import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +21,15 @@ public class UserBean extends BaseEJB {
     private final static Logger log = Logger.getLogger(UserBean.class);
 
     public long createNewUser(String handle, char status, String dataSource) throws EJBException {
-        long ret = IdGeneratorClient.getSeqId("main_sequence");
+        long ret = 0;
+        try {
+            ret = IdGeneratorClient.getSeqId("main_sequence");
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e);
+        } catch (NamingException e) {
+            throw new EJBException(e);
+        }
         createUser(ret, handle, status, dataSource);
         return ret;
     }
