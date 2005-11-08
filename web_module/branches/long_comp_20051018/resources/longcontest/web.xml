@@ -16,7 +16,7 @@
         </init-param>
         <init-param>
             <param-name>default_processor</param-name>
-            <param-value>Index</param-value>
+            <param-value>ViewActiveContests</param-value>
             <description>the processor to execute if none is specified in the request</description>
         </init-param>
         <init-param>
