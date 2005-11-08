@@ -52,7 +52,17 @@
          <br><br>
          You need at least <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version 1.4</A> to run the Arena.  Click <A href="http://java.sun.com/getjava/index.jsp " target="_blank">here</A> if you do not have Java Runtime 1.4 installed.
          <br><br>
-         <table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
+
+         <div style="float: left;">
+            <b>Step 1 of 5</b>
+            <div class="regBreadOn">General</div>
+            <div class="regBreadOff">Demographics</div>
+            <div class="regBreadOff">Confirm</div>
+            <div class="regBreadOff">Success</div>
+            <div class="regBreadOff">Activation</div>
+         </div>
+
+         <table cellpadding="0" cellspacing="5" class="bodyText" align="center" border="0" style="padding-right: 40px;">
          <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_CHINA_05_REG_DEMOG%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="companyId"/>"/>
