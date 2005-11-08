@@ -123,6 +123,7 @@ public abstract class FullLogin extends FullReg {
             info = getCommonInfo(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
             if (hasTCAccount) {
+                info.setUserId(userId);
 
                 info.setCoderType(coder.getCoderTypeId(userId, DBMS.OLTP_DATASOURCE_NAME));
                 log.error(info.getCoderType() + "");
