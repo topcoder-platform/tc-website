@@ -50,8 +50,6 @@
          </span>
 
          <br><br>
-         You need at least <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version 1.4</A> to run the Arena.  Click <A href="http://java.sun.com/getjava/index.jsp " target="_blank">here</A> if you do not have Java Runtime 1.4 installed.
-         <br><br>
 
          <div style="float: left;">
             <b>Step 1 of 5</b>
@@ -61,8 +59,9 @@
             <div class="regBreadOff">Success</div>
             <div class="regBreadOff">Activation</div>
          </div>
+         <br><br><br>
 
-         <table cellpadding="0" cellspacing="5" class="bodyText" align="center" border="0" style="padding-right: 40px;">
+         <table cellpadding="0" cellspacing="5" class="bodyText" align="center" border="0">
          <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_CHINA_05_REG_DEMOG%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="companyId"/>"/>
@@ -73,212 +72,212 @@
                 </td>
             </tr>
             <tr>
-                <td align="right" width="50%" nowrap>
+                <td align="right" style="width: 160px;">
                     <span class="errorText">*</span> Login
                 </td>
-                <td align="left" width="50%">
+                <td align="left" nowrap="nowrap">
                     <tc-webtag:textInput name="<%=Constants.HANDLE%>"  size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="<%=regInfo.isNew()%>"/>
                 </td>
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText" align="center">
+                <td colspan="2" class="errorText" align="center" nowrap="nowrap">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><%=err%><br></tc-webtag:errorIterator>
                 </td>
             </tr>
             <tr>
-                <td align="right" nowrap>
+                <td align="right"  nowrap="nowrap">
                     <span class="errorText">*</span> First Name
                 </td>
-                <td align="left">
+                <td align="left" nowrap="nowrap">
                     <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>"  size="15" maxlength="50"/>
                 </td>
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText" align="center">
+                <td colspan="2" class="errorText" align="center" nowrap="nowrap">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.LAST_NAME%>"><%=err%><br></tc-webtag:errorIterator>
                 </td>
             </tr>
             <tr>
-                <td align="right" nowrap>
+                <td align="right" nowrap="nowrap">
                     <span class="errorText">*</span> Last Name
                 </td>
-                <td align="left">
+                <td align="left" nowrap="nowrap">
                     <tc-webtag:textInput name="<%=Constants.LAST_NAME%>"  size="15" maxlength="50"/>
                 </td>
             </tr>
 
             <%if(regInfo.isNew()) { %>
             <tr>
-                <td colspan="2" class="errorText" align="center">
+                <td colspan="2" class="errorText" align="center" nowrap="nowrap">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD%>"><%=err%><br></tc-webtag:errorIterator>
                 </td>
             </tr>
             <tr>
-                <td align="right" nowrap>
+                <td align="right" nowrap="nowrap">
                     <span class="errorText">*</span> Password
                 </td>
-                <td align="left">
+                <td align="left" nowrap="nowrap">
                     <tc-webtag:textInput name="<%=Constants.PASSWORD%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>"/> (<%=Constants.MIN_PASSWORD_LENGTH%> to <%=Constants.MAX_PASSWORD_LENGTH%> characters)
                 </td>
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText" align="center">
+                <td colspan="2" class="errorText" align="center" nowrap="nowrap">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD_CONFIRM%>"><%=err%><br></tc-webtag:errorIterator>
                 </td>
             </tr>
             <tr>
-                <td align="right" nowrap>
+                <td align="right" nowrap="nowrap">
                     <span class="errorText">*</span> Confirm Password
                 </td>
-                <td align="left">
+                <td align="left" nowrap="nowrap">
                     <tc-webtag:textInput name="<%=Constants.PASSWORD_CONFIRM%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>"/>
                 </td>
             </tr>
             <% } %>
             <tr>
-                <td colspan="2" class="errorText" align="center">
+                <td colspan="2" class="errorText" align="center" nowrap="nowrap">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br></tc-webtag:errorIterator>
                 </td>
             </tr>
             <tr>
-                <td align="right" nowrap>
+                <td align="right" nowrap="nowrap">
                     <span class="errorText">*</span> Email Address
                 </td>
-                <td align="left">
+                <td align="left" nowrap="nowrap">
                     <tc-webtag:textInput name="<%=Constants.EMAIL%>"  size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
                 </td>
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText" align="center">
+                <td colspan="2" class="errorText" align="center" nowrap="nowrap">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL_CONFIRM%>"><%=err%><br></tc-webtag:errorIterator>
                 </td>
             </tr>
             <tr>
-                <td align="right" nowrap>
+                <td align="right" nowrap="nowrap">
                     <span class="errorText">*</span> Confirm Email Address
                 </td>
-                <td align="left">
+                <td align="left" nowrap="nowrap">
                     <tc-webtag:textInput name="<%=Constants.EMAIL_CONFIRM%>"  size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
                 </td>
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText" align="center">
+                <td colspan="2" class="errorText" align="center" nowrap="nowrap">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS1%>"><%=err%><br></tc-webtag:errorIterator>
                 </td>
             </tr>
             <tr>
-                <td align="right" nowrap>
+                <td align="right" nowrap="nowrap">
                     <span class="errorText">*</span> Address1
                 </td>
-                <td align="left">
+                <td align="left" nowrap="nowrap">
                     <tc-webtag:textInput name="<%=Constants.ADDRESS1%>"  size="30" maxlength="100"/>
                 </td>
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText" align="center">
+                <td colspan="2" class="errorText" align="center" nowrap="nowrap">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS2%>"><%=err%><br></tc-webtag:errorIterator>
                 </td>
             </tr>
             <tr>
-                <td align="right" nowrap>
+                <td align="right" nowrap="nowrap">
                     Address2
                 </td>
-                <td align="left">
+                <td align="left" nowrap="nowrap">
                     <tc-webtag:textInput name="<%=Constants.ADDRESS2%>"  size="30" maxlength="100"/>
                 </td>
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText" align="center">
+                <td colspan="2" class="errorText" align="center" nowrap="nowrap">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS3%>"><%=err%><br></tc-webtag:errorIterator>
                 </td>
             </tr>
             <tr>
-                <td align="right" nowrap>
+                <td align="right" nowrap="nowrap">
                     Address3
                 </td>
-                <td align="left">
+                <td align="left" nowrap="nowrap">
                     <tc-webtag:textInput name="<%=Constants.ADDRESS3%>"  size="30" maxlength="100"/>
                 </td>
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText" align="center">
+                <td colspan="2" class="errorText" align="center" nowrap="nowrap">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.CITY%>"><%=err%><br></tc-webtag:errorIterator>
                 </td>
             </tr>
             <tr>
-                <td align="right" nowrap>
+                <td align="right" nowrap="nowrap">
                     <span class="errorText">*</span> City
                 </td>
-                <td align="left">
+                <td align="left" nowrap="nowrap">
                     <tc-webtag:textInput name="<%=Constants.CITY%>"  size="15" maxlength="100"/>
                 </td>
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText" align="center">
+                <td colspan="2" class="errorText" align="center" nowrap="nowrap">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.PROVINCE%>"><%=err%><br></tc-webtag:errorIterator>
                 </td>
             </tr>
             <tr>
-                <td align="right" nowrap>Province</td>
-                <td align="left">
+                <td align="right" nowrap="nowrap">Province</td>
+                <td align="left" nowrap="nowrap">
                     <tc-webtag:textInput name="<%=Constants.PROVINCE%>"  size="15" maxlength="50"/>
                 </td>
             </tr>
             <tr>
-                <td colspan="2" class="errorText" align="center">
+                <td colspan="2" class="errorText" align="center" nowrap="nowrap">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.ZIP%>"><%=err%><br></tc-webtag:errorIterator>
                 </td>
             </tr>
             <tr>
-                <td align="right" nowrap>
+                <td align="right" nowrap="nowrap">
                     <span class="errorText">*</span> Postal Code
                 </td>
-                <td align="left">
+                <td align="left" nowrap="nowrap">
                     <tc-webtag:textInput name="<%=Constants.ZIP%>"  size="10" maxlength="15"/>
                 </td>
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText" align="center">
+                <td colspan="2" class="errorText" align="center" nowrap="nowrap">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.COUNTRY_CODE%>"><%=err%><br></tc-webtag:errorIterator>
                 </td>
             </tr>
             <tr>
-                <td align="right" nowrap>
+                <td align="right" nowrap="nowrap">
                     <span class="errorText">*</span> Country
                 </td>
-                <td align="left">
+                <td align="left" nowrap="nowrap">
                     <% ResultSetContainer countryRsc = (ResultSetContainer)request.getAttribute("countryList"); %>
                     <tc-webtag:rscSelect name="<%=Constants.COUNTRY_CODE%>" list="<%=countryRsc%>" fieldText="country_name" fieldValue="country_code"/>
                 </td>
             </tr>
             <tr>
-                <td colspan="2" class="errorText" align="center">
+                <td colspan="2" class="errorText" align="center" nowrap="nowrap">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.CODER_TYPE%>"><%=err%><br></tc-webtag:errorIterator>
                 </td>
             </tr>
             <tr>
-                <td align="center" valign="bottom" colspan="2">
+                <td align="center" valign="bottom" colspan="2" nowrap="nowrap">
                     Student: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.STUDENT%>" <%=regInfo.isStudent()?"checked":""%>>
                     Professional: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.PROFESSIONAL%>" <%=regInfo.isProfessional()?"checked":""%>>
                 </td>
             </tr>
             <tr>
-                <td align="center" valign="bottom" colspan="2">
+                <td align="center" valign="bottom" colspan="2" nowrap="nowrap">
                     <span class="errorText">* Required</span>
                 </td>
             </tr>
             <tr>
-               <td colspan="2" align="center">
+               <td colspan="2" align="center" nowrap="nowrap">
                   <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p>
                </td>
             </tr>
