@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.email.servlet.*" %>
 <%@ page errorPage="../error.jsp" %>
 <jsp:useBean id="ScheduledJob" scope="session" class="com.topcoder.web.email.bean.ScheduledJobForm" />
@@ -5,6 +6,7 @@
 <html>
 <head>
 	<title>Create job</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
 
