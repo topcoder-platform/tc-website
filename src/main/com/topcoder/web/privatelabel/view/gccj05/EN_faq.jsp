@@ -65,7 +65,7 @@ Be sure to read the <A href="/pl/?module=Static&d1=gccj05&d2=EN_instructions">In
 <b>How will I know if I have advanced the next round of the Google Code Jam?</b><br>
 As soon as the Testing Phase has been completed, the advancers to the next round will be posted at www.topcoder.com/gccj05.  In addition, an email will be sent to all participants indicating whether or not each has advanced.
 <br><br>
-Questions not addressed here should be directed to <A href="mailto:gccj05@topcoder.com">gccj05@topcoder.com</A>
+Questions not addressed here should be directed to <A href="mailto:gcjc@topcoder.com">gcjc@topcoder.com</A>
 <br><br>
 Good luck!
          <br><br>

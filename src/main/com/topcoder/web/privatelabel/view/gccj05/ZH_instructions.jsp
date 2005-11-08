@@ -239,7 +239,7 @@ End Class
 <br><br>
 竞赛管理人员会相应作出解答。
 <br><br>
-如果参赛者登陆竞技平台存在问题，或者不能进入聊天界面，可以发email至<A href="gccj05@topcoder.com?subject=Question regarding Google Code Jam China">gccj05@topcoder.com</A>。 请在信内详细描述碰到的问题。
+如果参赛者登陆竞技平台存在问题，或者不能进入聊天界面，可以发email至<A href="gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>。 请在信内详细描述碰到的问题。
 
          <br><br>
          想要了解更多的 Google 中国编程精英网罗赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
