@@ -3,13 +3,13 @@ package com.topcoder.web.privatelabel.controller.request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.demographic.Response;
 import com.topcoder.web.ejb.user.UserAddress;
 import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.model.DemographicQuestion;
-import com.topcoder.web.privatelabel.model.DemographicResponse;
+import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.privatelabel.model.VerizonRegInfo;
 

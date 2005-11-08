@@ -1,6 +1,8 @@
-package com.topcoder.web.privatelabel.model;
+package com.topcoder.web.common.model;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.model.Base;
+import com.topcoder.web.common.model.DemographicAnswer;
 
 import java.util.*;
 

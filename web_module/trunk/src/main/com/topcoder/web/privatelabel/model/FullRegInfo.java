@@ -1,6 +1,7 @@
 package com.topcoder.web.privatelabel.model;
 
 import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.common.model.DemographicResponse;
 
 import java.util.ArrayList;
 import java.util.Collections;
