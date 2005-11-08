@@ -45,20 +45,22 @@ public abstract class FullLogin extends FullReg {
         String password = getRequestParameter(Constants.PASSWORD);
 
         boolean ret = false;
-        long userId = getUserId(handle);
+        //long userId = getUserId(handle);
+        try {
+            getAuthentication().login(new SimpleUser(0, handle, password));
+        } catch (LoginException l) {
+            if (!hasError(Constants.HANDLE))
+                addError(Constants.HANDLE, l.getMessage());
+        }
+        long userId = getAuthentication().getActiveUser().getId();
         if (userId > 0) {
             char status = getStatus(userId);
             if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
-                try {
-                    getAuthentication().login(new SimpleUser(0, handle, password));
                     Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
                     if (coder.exists(getAuthentication().getActiveUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) {
+                        log.debug(handle + " exists in the tc db");
                         ret = true;
                     }
-                } catch (LoginException l) {
-                    if (!hasError(Constants.HANDLE))
-                        addError(Constants.HANDLE, l.getMessage());
-                }
             } else {
                 addError(Constants.HANDLE, "Account status not active.");
             }
@@ -80,6 +82,7 @@ public abstract class FullLogin extends FullReg {
 
     }
 
+/*
     private long getUserId(String handle) throws Exception {
         Request r = new Request();
         r.setContentHandle("user_id_using_handle");
@@ -90,6 +93,7 @@ public abstract class FullLogin extends FullReg {
         else
             return rsc.getLongItem(0, "user_id");
     }
+*/
 
     protected boolean hasEventAccount() throws Exception {
         String handle = getRequestParameter(Constants.HANDLE);
