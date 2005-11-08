@@ -112,7 +112,7 @@ if (!forumIDStr.equals("")) {
                       </logic:iterate>
                     </SELECT>
                     <%  if (forumID != -1) { %>
-                       &#160;&#160;<A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumID%>" CLASS="statText">Discuss</A>
+                       <br><br><A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumID%>" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br><br>
                     <%  } %>
                   </TD>
                 </TR>

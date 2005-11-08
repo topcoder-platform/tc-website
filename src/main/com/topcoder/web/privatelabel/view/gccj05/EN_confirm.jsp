@@ -53,6 +53,7 @@
          </span>
 
          <br><br>
+
          <div style="float: left;">
             <b>Step 3 of 5</b>
             <div class="regBreadOff">General</div>
@@ -61,8 +62,9 @@
             <div class="regBreadOff">Success</div>
             <div class="regBreadOff">Activation</div>
          </div>
+         <br><br><br>
 
-         <table cellpadding="0" cellspacing="5" class="bodyText" align="center" border="0" style="padding-right: 40px;">
+         <table cellpadding="0" cellspacing="5" class="bodyText" align="center" border="0">
            <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_CHINA_05_REG_SUBMIT%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="companyId"/>"/>
