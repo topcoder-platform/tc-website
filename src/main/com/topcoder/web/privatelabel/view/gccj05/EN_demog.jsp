@@ -52,7 +52,17 @@
          </span>
 
          <br><br>
-         <table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
+         <div style="float: left;">
+            <b>Step 2 of 5</b>
+            <div class="regBreadOff">General</div>
+            <div class="regBreadOn">Demographics</div>
+            <div class="regBreadOff">Confirm</div>
+            <div class="regBreadOff">Success</div>
+            <div class="regBreadOff">Activation</div>
+         </div>
+         <br><br><br>
+
+         <table cellpadding="0" cellspacing="5" class="bodyText" align="center" border="0">
          <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm" enctype="multipart/form-data; charset=utf-8">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_CHINA_05_REG_CONFIRM%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="companyId"/>"/>
@@ -64,7 +74,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td align="right" nowrap>
+                    <td align="right" style="width: 160px;">
                     <%if(question.isRequired()) {%><span class="errorText">*</span><%}%>
                         <%=question.getText()%>
                     </td>
