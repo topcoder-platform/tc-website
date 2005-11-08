@@ -53,19 +53,16 @@ public abstract class FullLogin extends FullReg {
                 addError(Constants.HANDLE, l.getMessage());
         }
         long userId = getAuthentication().getActiveUser().getId();
-        if (userId > 0) {
+        Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
+        if (coder.exists(userId, DBMS.OLTP_DATASOURCE_NAME)) {
+            log.debug(handle + " exists in the tc db");
             char status = getStatus(userId);
             if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
-                    Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
-                    if (coder.exists(getAuthentication().getActiveUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) {
-                        log.debug(handle + " exists in the tc db");
-                        ret = true;
-                    }
+                ret = true;
             } else {
                 addError(Constants.HANDLE, "Account status not active.");
             }
         }
-
         return ret;
     }
 
