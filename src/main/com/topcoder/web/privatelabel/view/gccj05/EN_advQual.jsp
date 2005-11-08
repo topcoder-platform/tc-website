@@ -2,56 +2,59 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gccj05.css"/>
+    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
+    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gccj05.css"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-<title>Google Code Jam China, Powered by TopCoder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Google Code Jam China, Powered by TopCoder</title>
 </head>
+
 <body>
 
 <table border="0" width=100% cellpadding=0 cellspacing=0>
-   <tr>
-      <td width="49%">&#160;</td>
-      <td align="center">
-         <table border="0" width=100% cellpadding=0 cellspacing=0>
+<tr>
+    <td width="49%">&#160;</td>
+    <td align="center">
+        <table border="0" width=100% cellpadding=0 cellspacing=0>
             <tr>
-               <td width="49%"></td>
-               <td valign="bottom" align="center"><img border="0" src="/i/events/gccj05/gccj05_logo.gif" alt="Google Coder Jam China logo"></td>
-               <td width="49%"></td>
+                <td width="49%"></td>
+                <td valign="bottom" align="center"><img border="0" src="/i/events/gccj05/gccj05_logo.gif"
+                                                        alt="Google Coder Jam China logo"></td>
+                <td width="49%"></td>
             </tr>
-         </table>
-      </td>
-      <td width="49%"></td>
-   </tr>
-   <tr>
-      <td width="49%">&#160;</td>
-      <td>
-         <div class=greenBigBox>
+        </table>
+    </td>
+    <td width="49%"></td>
+</tr>
+<tr>
+<td width="49%">&#160;</td>
+<td>
+<div class=greenBigBox>
 
-         <!-- Tab bar links-->
-         <div align="center">
-         <jsp:include page="EN_links.jsp" >
-         <jsp:param name="selectedTab" value="advancers"/>
-         </jsp:include>
-         </div>
+<!-- Tab bar links-->
+<div align="center">
+    <jsp:include page="EN_links.jsp">
+        <jsp:param name="selectedTab" value="advancers"/>
+    </jsp:include>
+</div>
 
-         <br><br>
+<br><br>
 
-         <span class="bigTitle">Tough problems. Intense competition. No pressure.</span>
-         <span valign=top>
-         <jsp:include page="EN_right.jsp" />
+<span class="bigTitle">Tough problems. Intense competition. No pressure.</span>
+<span valign=top>
+         <jsp:include page="EN_right.jsp"/>
          </span>
 
-         <br><br>
-         <table class=tableFrame cellpadding=5 cellspacing=2 border="0" width="400">
-         <tr>
-         <td class=advancersTitle colspan=3>Qualification Round</td>
-         </tr>
-         <tr>
-         <td class=advancersRound width="30%">Handle</td>
-         <td class=advancersRound width="40%">Problem Set</td>
-         <td class=advancersRound width="30%" align="right">Score</td>
-         </tr>
+<br><br>
+<table class=tableFrame cellpadding=5 cellspacing=2 border="0" width="400">
+<tr>
+    <td class=advancersTitle colspan=3>Qualification Round</td>
+</tr>
+<tr>
+    <td class=advancersRound width="30%">Handle</td>
+    <td class=advancersRound width="40%">Problem Set</td>
+    <td class=advancersRound width="30%" align="right">Score</td>
+</tr>
 
 
 <tr class=sidebarText><td>23-27</td><td>Qualification Set 5/8</td><td align="right">607.63</td></tr>
@@ -590,15 +593,16 @@
 <tr class=sidebarText><td>ZZZZZ</td><td>Qualification Set 1/9</td><td align="right">192.58</td></tr>
 
 
-         </table>
-
-         <br><br>
-         To find out more detailed information about the Google Code Jam China, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gccj05&d2=rules">Terms and Conditions</a>.
-         </div>
-      </td>
-      <td width="49%">&#160;</td>
-   <tr>
 </table>
-<jsp:include page="EN_foot.jsp" />
+
+<br><br>
+To find out more detailed information about the Google Code Jam China, including a list of the prizes, please read the
+<a href="/pl/?&module=Static&d1=gccj05&d2=rules">Terms and Conditions</a>.
+</div>
+</td>
+<td width="49%">&#160;</td>
+<tr>
+</table>
+<jsp:include page="EN_foot.jsp"/>
 </body>
 </html>
