@@ -70,7 +70,7 @@ do not activate your account.</span>
 <br><br>
 Spend time in the Practice Rooms prior to the Qualification Round by clicking the Competition Arena tab above.
 <br><br>
-If you encounter any problems, please contact us at <A href="mailto:gccj05@topcoder.com?subject=Question regarding Google Code Jam China">gccj05@topcoder.com</A>.
+If you encounter any problems, please contact us at <A href="mailto:gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>.
 <br><br>
 Good luck to you in the Arena!
 </td>

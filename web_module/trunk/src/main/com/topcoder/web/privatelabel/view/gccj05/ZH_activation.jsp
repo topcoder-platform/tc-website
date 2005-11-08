@@ -49,7 +49,7 @@
 
          You may practice for the contest by clicking the Competition Arena link above.
          <br><br>
-         If you encounter any problems, please contact us at <A href="mailto:gccj05@topcoder.com?subject=Question regarding Google Code Jam China">gccj05@topcoder.com</A>.
+         If you encounter any problems, please contact us at <A href="mailto:gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>.
 
          <br><br>
          To find out more detailed information about the Google Code Jam China, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">Terms and Conditions</a>.
