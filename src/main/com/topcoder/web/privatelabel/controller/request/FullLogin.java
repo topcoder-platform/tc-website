@@ -116,17 +116,10 @@ public abstract class FullLogin extends FullReg {
             addError(Constants.HANDLE, "You have already created an account for this event.");
             return null;
         } else {
-            boolean hasTCAccount = hasTopCoderAccount();
-            if (hasErrors()) {
-                return null;
-            }
-
-            //this must be done after the account checks, cuz that's where they get logged in...confusing?  yes
-            long userId = getAuthentication().getActiveUser().getId();
-
-            info = getCommonInfo(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-
-            if (hasTCAccount) {
+            if (!hasErrors()&&hasTopCoderAccount()) {
+                //this must be done after the account checks, cuz that's where they get logged in...confusing?  yes
+                long userId = getAuthentication().getActiveUser().getId();
+                info = getCommonInfo(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 info.setUserId(userId);
 
                 info.setCoderType(coder.getCoderTypeId(userId, DBMS.OLTP_DATASOURCE_NAME));
