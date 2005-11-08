@@ -11,6 +11,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 
 import javax.ejb.EJBException;
 import javax.jms.JMSException;
+import javax.naming.NamingException;
 import java.sql.*;
 import java.text.DecimalFormat;
 import java.text.ParsePosition;
@@ -4451,6 +4452,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 throw(new EJBException("Wrong number of rows updated in 'useaffidavit_tempater'. " +
                         "Updated " + rc + ", should have updated 1."));
             }
+        } catch (NamingException e) {
+            throw new EJBException(e);
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
             throw(new EJBException(e.getMessage()));

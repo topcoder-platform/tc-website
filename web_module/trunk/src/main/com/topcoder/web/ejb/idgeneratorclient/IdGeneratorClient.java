@@ -35,15 +35,14 @@ public class IdGeneratorClient {
      * or other error retrieving the sequence id.
      */
 
-    public static long getSeqId(String seqName) {
+    public static long getSeqId(String seqName) throws SQLException, NamingException {
         log.debug("getSeqId(String) called");
         return getSeqId(seqName, DBMS.COMMON_OLTP_DATASOURCE_NAME);
     }
 
-    public static long getSeqId(String seqName, String dataSourceName) {
+    public static long getSeqId(String seqName, String dataSourceName) throws NamingException, SQLException {
         log.debug("getSeqId(String, String) called");
         long retVal = -1;
-        try {
             ctx = new InitialContext();
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(new SimpleDB(),
@@ -57,12 +56,6 @@ public class IdGeneratorClient {
             }
             retVal = IdGenerator.nextId(seqName);
             //System.out.println("retVal = " + retVal);
-        } catch (NamingException e) {
-            log.debug("NamingException occured within getSeqId" + e.toString());
-        } catch (SQLException e) {
-            log.debug("SQLException occured within getSeqId" + e.toString());
-            DBMS.printSqlException(true, e);
-        }
         return retVal;
     }
 
