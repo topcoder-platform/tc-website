@@ -8,6 +8,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
+
 <html>
 <head>
 <title>Submit - <%=request.getSession().getAttribute(Constants.CLASS_NAME)%></title>
@@ -17,6 +18,16 @@
 
 </head>
 <body>
+<script language="javascript">
+	function submit() {
+		document.codingForm.action.value="submit";
+		document.codingForm.submit();
+	}
+	function save() {
+		document.codingForm.action.value="save";
+		document.codingForm.submit();	
+	}
+</script>
 <jsp:include page="top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
@@ -65,7 +76,7 @@
          <input type="hidden" name="<%=Constants.ROUND_ID%>" value="<%=request.getParameter(Constants.ROUND_ID)%>">
          <input type="hidden" name="<%=Constants.CONTEST_ID%>" value="<%=request.getParameter(Constants.CONTEST_ID)%>">
          <input type="hidden" name="<%=Constants.COMPONENT_ID%>" value="<%=request.getParameter(Constants.COMPONENT_ID)%>">
-   
+   		 <input type="hidden" name="<%=Constants.ACTION_KEY%>" value="">
          <div style="float:right; text-align:left;">Choose your language: 
          <rsc:iterator list="<%=langs%>" id="resultRow">
          <input type="radio" <%=resultRow.getIntItem("language_id") == checked ? "checked ":""%>
@@ -87,61 +98,10 @@
       <div align="right">
       <textarea cols="70" rows="20" name="code">
       <%=request.getSession().getAttribute(Constants.CODE)%>
-#include <string>
-#include <vector>
-#include <cmath>
-#include <cctype>
-#include <queue>
-#include <map>
-#include <set>
-#include <algorithm>
-#include <iostream>
-#include <sstream>
-#include <utility>
-#include <numeric>
-#include <complex>
- 
-using namespace std;
- 
-class PatternOptimizer {
-  public:
-  string optimize(string pattern) {
- 
-    string ans, tmp;
-    pattern += '0';
-    for (int i = 0; i < pattern.length(); i++)
-      {
-        if (pattern[i] == '?' || pattern[i] == '*')
-    tmp += pattern[i];
-        else
-    {
-      if (tmp != "")
-        {
-          for (int j = 0; j < tmp.length(); j++)
-      if (tmp[j] == '*')
-        {
-          ans += '*';
-          break;
-        }
-          for (int j = 0; j < tmp.length(); j++)
-      if (tmp[j] == '?')
-        ans += '?';
-        }
-      tmp = "";
-      ans += pattern[i];
-    }
-      }
-    return ans.substr(0, ans.length() - 1);
-    
-  }
-};
- 
- 
-// Powered by FileEdit
       </textarea>
       </div>
-      <div style="float:right; padding: 5px 0px 0px 5px;"><A href="javascript: document.codingForm.submit();"><img src="/i/interface/btn_submit.gif" alt="Submit" border="0" /></A></div>
-      <div style="float:right; padding: 5px 0px 0px 5px;"><A href="submit"><img src="/i/interface/btn_save.gif" alt="Save" border="0" /></A></div>
+      <div style="float:right; padding: 5px 0px 0px 5px;"><A href="javascript: submit();"><img src="/i/interface/btn_submit.gif" alt="Submit" border="0" /></A></div>
+      <div style="float:right; padding: 5px 0px 0px 5px;"><A href="javascript: save();"><img src="/i/interface/btn_save.gif" alt="Save" border="0" /></A></div>
       </form>
    </div>
 </div>
