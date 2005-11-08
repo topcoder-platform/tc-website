@@ -62,6 +62,9 @@ public abstract class FullLogin extends FullReg {
             } else {
                 addError(Constants.HANDLE, "Account status not active.");
             }
+        } else {
+            log.debug(handle + " does not have a tc account");
+            addError(Constants.HANDLE, "TopCoder account does not exist");
         }
         return ret;
     }
