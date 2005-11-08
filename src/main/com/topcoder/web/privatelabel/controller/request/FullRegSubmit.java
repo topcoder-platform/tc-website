@@ -145,7 +145,7 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
 
     /**
      * default is true, subclasses can implement something more interesting
-     * @return
+     * @return whether or not the info provided is eligible
      */
     protected static boolean isEligible(FullRegInfo info) {
         return true;

@@ -2,30 +2,11 @@ package com.topcoder.web.privatelabel.controller.request;
 
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.privatelabel.model.ResumeRegInfo;
-import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.ejb.resume.ResumeServices;
-import com.topcoder.web.ejb.coder.Coder;
-import com.topcoder.web.ejb.user.User;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.TCSEmailMessage;
-import com.topcoder.shared.util.EmailEngine;
-import com.topcoder.ejb.UserServices.UserServicesHome;
-import com.topcoder.ejb.UserServices.UserServices;
-import com.topcoder.common.web.data.CoderRegistration;
-import com.topcoder.common.web.data.State;
-import com.topcoder.common.web.data.Country;
 
-import javax.transaction.TransactionManager;
-import javax.transaction.Status;
-import javax.rmi.PortableRemoteObject;
 import java.util.Map;
-import java.util.Calendar;
-import java.util.Date;
 
 /**
  * @author dok
@@ -62,12 +43,15 @@ public abstract class ResumeRegSubmit extends FullRegSubmit {
                 }
             }
 
+
+/*
+            no need to update the topcoder information, this data is store completely separately
             if (((Coder) createEJB(getInitialContext(), Coder.class)).exists(userId, DBMS.OLTP_DATASOURCE_NAME)) {
                 TransactionManager tm = null;
                 try {
                     UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(getInitialContext().lookup(
-                                    UserServicesHome.class.getName()),
-                                    UserServicesHome.class);
+                            UserServicesHome.class.getName()),
+                            UserServicesHome.class);
 
                     UserServices userEJB = userHome.findByPrimaryKey(new Long(userId));
                     com.topcoder.common.web.data.User u = userEJB.getUser();
@@ -109,7 +93,7 @@ public abstract class ResumeRegSubmit extends FullRegSubmit {
                     throw new TCWebException(e);
                 }
             }
-
+*/
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
