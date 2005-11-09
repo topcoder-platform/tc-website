@@ -36,18 +36,15 @@ public class ViewRegistrants extends Base {
             String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             String sortColStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
             
-            int numRecords;
-            if ("".equals(numRecordsStr)) {
-                numRecords = Constants.DEFAULT_ROW_COUNT;
-            } else {
+            int numRecords = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
+            int startRank = 1, sortCol = 1;
+            if (!"".equals(numRecordsStr)) {
                 numRecords = Integer.parseInt(numRecordsStr);
             }
-            if (startRankStr.equals("") || (startRank = Integer.parseInt(startRankStr)) <= 0) {
-                startRank = 1;
+            if (!startRankStr.equals("")){
+                startRank = Integer.parseInt(startRankStr);
             }
-            if (sortColStr.equals("")) {
-                sortCol = 1;
-            }else{
+            if (!sortColStr.equals("")) {
                 sortCol = Integer.parseInt(sortCol);
             }
 
@@ -70,8 +67,8 @@ public class ViewRegistrants extends Base {
 //            SortInfo s = new SortInfo();
 //            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
-//            setDefault(DataAccessConstants.NUMBER_RECORDS, ""+numRecords);
-//            setDefault(DataAccessConstants.START_RANK, ""+startRank);
+            setDefault(DataAccessConstants.NUMBER_RECORDS, ""+numRecords);
+            setDefault(DataAccessConstants.START_RANK, ""+startRank);
 
             request.setAttribute("results", result);
             setNextPage(Constants.PAGE_VIEW_REGISTRANTS);
