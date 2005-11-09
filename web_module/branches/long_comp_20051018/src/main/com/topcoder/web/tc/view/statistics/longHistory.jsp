@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="java.util.Map" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <% ResultSetContainer results = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("long_comp_history"); %>
 
 <HTML>
@@ -35,7 +36,7 @@
                 <jsp:param name="title" value="Long Contest Competition History"/>
             </jsp:include>
 
-            <span class="bigHandle">Coder:&#160;HANDLE</span>
+            <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=results.getLongItem(0, "coder_id")%>'/></span>
             <br>
             <span class="bodySubtitle">Long Contest Statistics&#160;>&#160;</span><br>
             <span class="bc">
@@ -43,11 +44,13 @@
 &#160;|&#160;Competition History
 </span>
 
+<%--
             <div class="pagingBox">
                 <a href="/" class="bcLink">&lt;&lt; previous</a>
                 &nbsp;|&nbsp;
                 <a href="/" class="bcLink">next &gt;&gt;</a>
             </div>
+--%>
 
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
                 <tr>
@@ -55,9 +58,9 @@
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                             <tr><td class="tableTitle" colspan="4">Long Contest Competition History</td></tr>
                             <tr>
-                                <TD CLASS="tableHeader" width="25%"><a href="/">Competition</a></TD>
-                                <TD CLASS="tableHeader" width="25%" align="right"><a href="/">Rank</a></TD>
-                                <TD CLASS="tableHeader" width="25%" align="right"><a href="/">Score</a></TD>
+                                <TD CLASS="tableHeader" width="25%">Competition</TD>
+                                <TD CLASS="tableHeader" width="25%" align="right">Rank</TD>
+                                <TD CLASS="tableHeader" width="25%" align="right">Score</TD>
                                 <TD CLASS="tableHeader" width="25%" align="right">&#160;</TD>
                             </tr>
                             <%boolean even = true;%>
@@ -85,11 +88,13 @@
                 </TR>
             </TABLE>
 
+<%--
             <div class="pagingBox">
                 <a href="/" class="bcLink">&lt;&lt; previous</a>
                 &nbsp;|&nbsp;
                 <a href="/" class="bcLink">next &gt;&gt;</a>
             </div>
+--%>
 
             <p><br></p>
             <!-- END BODY -->
