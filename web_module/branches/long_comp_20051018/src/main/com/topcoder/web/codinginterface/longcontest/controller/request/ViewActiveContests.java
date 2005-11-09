@@ -186,7 +186,7 @@ public class ViewActiveContests extends Base{
     	return rsc.getIntItem(0,0) > 0;
     }
     
-    private RoundProblem getRoundProblem(DataAccessInt dai, long roundID) throws Exception {
+    protected RoundProblem getRoundProblem(DataAccessInt dai, long roundID) throws Exception {
     	Request r = new Request();
     	ResultSetContainer rsc;
     	RoundProblem ret = null;
