@@ -25,6 +25,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String CONTEST_ID;
     public static String CODER_ID;
     public static String TEST_CASE_ID;
+    public static String PROBLEM_ID;
     public static String LONG_CONTEST_INDEX_KEY;
     public static String LONG_CODE_KEY;
     public static String LONG_TEST_KEY;
