@@ -61,7 +61,7 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0"/><br/>
 
-<!-- Upcoming Tournaments begins
+<!-- Upcoming Tournaments begins -->
 
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">Upcoming Tournaments</font></td></tr>
@@ -71,19 +71,18 @@
 
          <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274" rowspan="2" valign="top"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=about"><img src="/i/tournament/tco05Logo.gif" alt="2005 TCO" border="0" /></A></td>
+                    <td width="274" rowspan="2" valign="top"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=logo_overview"><img src="/i/tournament/tco06Logo_logo.gif" alt="2006 TCO Logo Contest" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText" colspan="2" valign="top"><font size="3"><strong>2005 TopCoder Open(TM)</strong></font><br />
-                     October 12-14<br />
-                     Santa Clara Marriott<br />
-                     Santa Clara, CA, USA<br />
-                     <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=about">Details</A></td>
+                    <td width="99%" class="bodyText" colspan="2" valign="top"><font size="3"><strong>2006 TCO Logo Design Contest</strong></font>
+                     <br /><br />
+                     Ends November 18<br />
+                     <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=logo_overview">Details</A></td>
                 </tr>
             </table>
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
-Upcoming Tournaments ends -->
+<!-- Upcoming Tournaments ends -->
 
 <!-- Past Tournaments begins -->
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
