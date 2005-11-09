@@ -59,6 +59,10 @@
 
 
          <!-- TCS Components -->
+        <pathelement location="${jars.dir}/TestServices.jar"/>
+        <pathelement location="${jars.dir}/DBServices.jar"/>
+        <pathelement location="${jars.dir}/tc.jar"/>
+     	
 <!--
          <pathelement location="${jars.dir}/configmanager2.jar"/>
 -->
