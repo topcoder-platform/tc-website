@@ -24,7 +24,7 @@
     SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
     
     int pageSize = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
-    if("".equals(StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_RECORDS))))
+    if(!"".equals(StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_RECORDS))))
         pageSize = Integer.parseInt(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
     
     String selfLink = "longcontest?module=ViewSubmissionHistory"
