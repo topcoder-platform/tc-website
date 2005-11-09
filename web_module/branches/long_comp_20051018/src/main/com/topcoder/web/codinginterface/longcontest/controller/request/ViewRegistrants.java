@@ -70,7 +70,7 @@ public class ViewRegistrants extends Base {
             setDefault(DataAccessConstants.NUMBER_RECORDS, ""+numRecords);
             setDefault(DataAccessConstants.START_RANK, ""+startRank);
 
-            request.setAttribute("results", result);
+            request.setAttribute("resultMap", result);
             setNextPage(Constants.PAGE_VIEW_REGISTRANTS);
             setIsNextPageInContext(true);
         }catch(TCWebException e){
