@@ -14,6 +14,8 @@
     Map m = (Map)request.getAttribute("results");
     ResultSetContainer registrants = (ResultSetContainer)m.get("long_contest_overview_coders");
     ResultSetContainer rounds = (ResultSetContainer)m.get("long_contest_round_list");
+    ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_overview_info");
+    ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
 %>
 
 <html>
@@ -61,10 +63,10 @@ function goTo(selection){
 Please select a contest:<br>
 <tc-webtag:rscSelect name="<%=Constants.ROUND_ID%>" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=request.getParameter(Constants.ROUND_ID)%>" onChange="goTo(this)" />
 <br><br>
-<span class="bigHandle">Contest: Round 1</span><br>
+<span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
 <span class="bodySubtitle">Categories: <br>
-Competitors: <br>
-Avg. Submissions: </span><br>
+Competitors: <rsc:item name="num_competitors" row="<%=infoRow%>"/><br>
+Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>"/></span><br>
 <A href="practice">Practice</A><br>
 <A href="practice">Problem Statement</A>
 
