@@ -3,6 +3,7 @@
   language="java"
   import="java.util.*,
           java.text.SimpleDateFormat,
+          com.topcoder.web.common.StringUtils,
           com.topcoder.web.codinginterface.longcontest.*,
           com.topcoder.shared.dataAccess.resultSet.*,
           com.topcoder.shared.dataAccess.DataAccessConstants"
@@ -22,6 +23,10 @@
         infoRow = (ResultSetContainer.ResultSetRow)tmp.get(0);
     SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
     
+    int pageSize = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
+    if("".equals(StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_RECORDS))))
+        pageSize = Integer.parseInt(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
+    
     String selfLink = "longcontest?module=ViewSubmissionHistory"
             + "&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID)
             + "&" + Constants.COMPONENT_ID + "=" + request.getParameter(Constants.COMPONENT_ID)
@@ -33,9 +38,6 @@
             + "&" + DataAccessConstants.SORT_DIRECTION + "=" + request.getParameter(DataAccessConstants.SORT_DIRECTION);
     
     String prevPage, nextPage;
-    int pageSize = Constants.DEFAULT_ROW_COUNT;
-    if(request.getParameter(DataAccessConstants.NUMBER_RECORDS) != null)
-        pageSize = Integer.parseInt(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
     if(submissions.croppedDataBefore()){
         prevPage = "<a href=\"" + pagingLink
                 + "&" + DataAccessConstants.START_RANK + "=" + Math.max(1,submissions.getStartRow() - pageSize)
