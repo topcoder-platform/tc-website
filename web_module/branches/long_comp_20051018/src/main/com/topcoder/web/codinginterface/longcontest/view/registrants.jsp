@@ -3,8 +3,10 @@
   language="java"
   import="java.util.*,
           java.text.SimpleDateFormat,
+          com.topcoder.web.common.StringUtils,
           com.topcoder.web.codinginterface.longcontest.*,
-          com.topcoder.shared.dataAccess.resultSet.*"
+          com.topcoder.shared.dataAccess.resultSet.*,
+          com.topcoder.shared.dataAccess.DataAccessConstants"
 
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -18,7 +20,33 @@
     if(rsc != null)
         infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
     
-    String selfLink = "longcontest?module=ViewRegistrants&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID);
+    int pageSize = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
+    if(!"".equals(StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_RECORDS))))
+        pageSize = Integer.parseInt(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
+    
+    String selfLink = "longcontest?module=ViewRegistrants"
+            + "&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID)
+            + "&" + DataAccessConstants.NUMBER_RECORDS + "=" + pageSize;
+    
+    String pagingLink = selfLink
+            + "&" + DataAccessConstants.SORT_COLUMN + "=" + request.getParameter(DataAccessConstants.SORT_COLUMN)
+            + "&" + DataAccessConstants.SORT_DIRECTION + "=" + request.getParameter(DataAccessConstants.SORT_DIRECTION);
+    
+    String prevPage, nextPage;
+    if(submissions.croppedDataBefore()){
+        prevPage = "<a href=\"" + pagingLink
+                + "&" + DataAccessConstants.START_RANK + "=" + Math.max(1,submissions.getStartRow() - pageSize)
+                + "\" class=\"bcLink\">&lt;&lt; previous</a>";
+    }else{
+        prevPage = "&lt;&lt; previous";
+    }
+    if(submissions.croppedDataAfter()){
+        nextPage = "<a href=\"" + pagingLink
+                + "&" + DataAccessConstants.START_RANK + "=" + submissions.getStartRow() + pageSize
+                + "\" class=\"bcLink\">next &gt;&gt;</a>";
+    }else{
+        nextPage = "next &gt;&gt;";
+    }
 %>
 
 <html>
@@ -57,9 +85,7 @@
 <span class="bodySubtitle">Registrants: <rsc:item name="num_competitors" row="<%=infoRow%>"/></span><br>
 
 <div class="pagingBox">
-      &lt;&lt; previous
-      &nbsp;|&nbsp;
-      <a href="/stat?c=ratings_history&amp;cr=272072&amp;sr=51&amp;er=100&amp;nr=50" class="bcLink">next &gt;&gt;</a>
+      <%=prevPage%> &nbsp;|&nbsp; <%=nextPage%>
 </div>
    
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
@@ -96,9 +122,7 @@
 </TABLE>
 
 <div class="pagingBox">
-      &lt;&lt; previous
-      &nbsp;|&nbsp;
-      <a href="/stat?c=ratings_history&amp;cr=272072&amp;sr=51&amp;er=100&amp;nr=50" class="bcLink">next &gt;&gt;</a>
+      <%=prevPage%> &nbsp;|&nbsp; <%=nextPage%>
 </div>
 
         </td>
