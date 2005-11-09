@@ -104,8 +104,8 @@
 </textarea>
 <%} else {%>
 <textarea cols="70" rows="20" name="code">
-<%out.print(request.getSession().getAttribute(Constants.CODE));%>
-</textarea>
+<%=request.getSession().getAttribute(Constants.CODE)%></textarea>
+
 <%}%>
       </div>
       <div style="float:right; padding: 5px 0px 0px 5px;"><A href="javascript: submit();"><img src="/i/interface/btn_submit.gif" alt="Submit" border="0" /></A></div>
