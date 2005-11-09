@@ -86,6 +86,8 @@ public class Constants implements CodingInterfaceConstants {
     public static String PAGE_VIEW_REG;
     public static String ROUND_TERMS_KEY;
     public static String ACTION_KEY;
+    public static String RP_VIEW_OVERVIEW;
+    public static String PAGE_VIEW_OVERVIEW;
     
     static {
         initialize();
