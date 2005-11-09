@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jboss>
-  <enterprise-beans>
-    <session>
-      <ejb-name>Response</ejb-name>
-      <jndi-name>com.topcoder.web.ejb.survey.ResponseHome</jndi-name>
-
-    </session>
-  </enterprise-beans>
+    <enterprise-beans>
+        <session>
+            <ejb-name>Response</ejb-name>
+            <jndi-name>com.topcoder.web.ejb.survey.ResponseHome</jndi-name>
+            <local-jndi-name>com.topcoder.web.ejb.survey.ResponseLocalHome</local-jndi-name>
+        </session>
+        <session>
+            <ejb-name>Answer</ejb-name>
+            <jndi-name>com.topcoder.web.ejb.survey.AnswerHome</jndi-name>
+            <local-jndi-name>com.topcoder.web.ejb.survey.AnswerLocalHome</local-jndi-name>
+        </session>
+        <session>
+            <ejb-name>Question</ejb-name>
+            <jndi-name>com.topcoder.web.ejb.survey.QuestionHome</jndi-name>
+            <local-jndi-name>com.topcoder.web.ejb.survey.QuestionLocalHome</local-jndi-name>
+        </session>
+        <session>
+            <ejb-name>SurveyQuestion</ejb-name>
+            <jndi-name>com.topcoder.web.ejb.survey.SurveyQuestionHome</jndi-name>
+            <local-jndi-name>com.topcoder.web.ejb.survey.SurveyQuestionLocalHome</local-jndi-name>
+        </session>
+        <session>
+            <ejb-name>Survey</ejb-name>
+            <jndi-name>com.topcoder.web.ejb.survey.SurveyHome</jndi-name>
+            <local-jndi-name>com.topcoder.web.ejb.survey.SurveyLocalHome</local-jndi-name>
+        </session>
+    </enterprise-beans>
 </jboss>

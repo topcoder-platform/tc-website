@@ -1,15 +1,15 @@
 package com.topcoder.web.ejb.survey;
 
-import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
-import javax.naming.Context;
 import javax.ejb.EJBException;
-import java.sql.PreparedStatement;
+import javax.naming.Context;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
@@ -28,7 +28,7 @@ public class AnswerBean extends BaseEJB {
         PreparedStatement ps = null;
         Connection conn = null;
 
-        long answerId=0;
+        long answerId = 0;
         try {
             conn = DBMS.getConnection(dataSource);
             answerId = IdGeneratorClient.getSeqId("SURVEY_SEQ");
@@ -58,29 +58,29 @@ public class AnswerBean extends BaseEJB {
     }
 
     public void setText(long answerId, String text, String dataSource) {
-        update("answer", new String[]{"answer_text"}, new String[] {text},
-                new String[] {"answer_id"}, new String[]{String.valueOf(answerId)}, dataSource);
+        update("answer", new String[]{"answer_text"}, new String[]{text},
+                new String[]{"answer_id"}, new String[]{String.valueOf(answerId)}, dataSource);
 
     }
 
     public void setSort(long answerId, int sort, String dataSource) {
-        update("answer", new String[]{"sort_order"}, new String[] {String.valueOf(sort)},
-                new String[] {"answer_id"}, new String[]{String.valueOf(answerId)}, dataSource);
+        update("answer", new String[]{"sort_order"}, new String[]{String.valueOf(sort)},
+                new String[]{"answer_id"}, new String[]{String.valueOf(answerId)}, dataSource);
 
     }
 
     public String getText(long answerId, String dataSource) {
-        return selectString("answer", "answer_text", new String[] {"answer_id"},
-                new String[] {String.valueOf(answerId)}, dataSource);
+        return selectString("answer", "answer_text", new String[]{"answer_id"},
+                new String[]{String.valueOf(answerId)}, dataSource);
     }
 
     public int getSort(long answerId, String dataSource) {
-        return selectInt("answer", "sort_order", new String[] {"answer_id"},
-                new String[] {String.valueOf(answerId)}, dataSource).intValue();
+        return selectInt("answer", "sort_order", new String[]{"answer_id"},
+                new String[]{String.valueOf(answerId)}, dataSource).intValue();
     }
 
     public ResultSetContainer getAnswers(long questionId, String dataSource) {
-        return selectSet("answer", new String[] {"answer_id", "question_id", "answer_text", "sort_order"},
-                new String[] {"questionId_id"}, new String[] {String.valueOf(questionId)}, dataSource);
+        return selectSet("answer", new String[]{"answer_id", "question_id", "answer_text", "sort_order"},
+                new String[]{"questionId_id"}, new String[]{String.valueOf(questionId)}, dataSource);
     }
 }
