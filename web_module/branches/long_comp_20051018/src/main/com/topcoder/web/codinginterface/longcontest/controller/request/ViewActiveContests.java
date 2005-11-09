@@ -114,6 +114,7 @@ public class ViewActiveContests extends Base{
 		    		longContest.setEndTime(endTime);
 		    		longContest.setCoderRegistered(usrRoundRegistered);
 		    		longContest.setContestID(contestID);
+		    		longContest.setNumCompetitors(numRegs);
 		    		
 		    		System.out.println("Contest Name: " + contestName);
 		    		System.out.println("Round Name: " + roundName);
