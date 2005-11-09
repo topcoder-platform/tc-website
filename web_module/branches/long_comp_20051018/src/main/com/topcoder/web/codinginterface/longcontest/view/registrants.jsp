@@ -33,16 +33,16 @@
             + "&" + DataAccessConstants.SORT_DIRECTION + "=" + request.getParameter(DataAccessConstants.SORT_DIRECTION);
     
     String prevPage, nextPage;
-    if(submissions.croppedDataBefore()){
+    if(registrants.croppedDataBefore()){
         prevPage = "<a href=\"" + pagingLink
-                + "&" + DataAccessConstants.START_RANK + "=" + Math.max(1,submissions.getStartRow() - pageSize)
+                + "&" + DataAccessConstants.START_RANK + "=" + Math.max(1,registrants.getStartRow() - pageSize)
                 + "\" class=\"bcLink\">&lt;&lt; previous</a>";
     }else{
         prevPage = "&lt;&lt; previous";
     }
-    if(submissions.croppedDataAfter()){
+    if(registrants.croppedDataAfter()){
         nextPage = "<a href=\"" + pagingLink
-                + "&" + DataAccessConstants.START_RANK + "=" + submissions.getStartRow() + pageSize
+                + "&" + DataAccessConstants.START_RANK + "=" + registrants.getStartRow() + pageSize
                 + "\" class=\"bcLink\">next &gt;&gt;</a>";
     }else{
         nextPage = "next &gt;&gt;";
