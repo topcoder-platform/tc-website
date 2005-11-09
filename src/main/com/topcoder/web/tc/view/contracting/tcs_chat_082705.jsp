@@ -63,7 +63,7 @@
 <br><br>
 Take a look at <A href="/tc?module=Static&d1=about&d2=jobs">job openings</A> at TopCoder and TopCoder Software.
 <br><br>
-<table class="bodyText" cellpadding="0" cellspacing="0" width="100%">
+<table class="bodyText" cellpadding="0" cellspacing="0" width="500">
 <tr><td class="header">Handle</td><td class="header" width="100%">Comment</td></tr>
 <tr><td class="light"><b>kclune</b></td><td class="light">Hello</td></tr>
 <tr><td class="dark"><span class="bigRed">AdamSelene</span></td><td class="dark"><span class="bigRed">Hello!</span></td></tr>

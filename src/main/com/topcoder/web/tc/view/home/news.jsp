@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>11.09.05<br>11:25 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=tcs_chat_110805">TopCoder Software chat session from SRM 271</A></span><br><br>
+      TCS representatives were recently in the arena to discuss Component Competitions.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=contracting&d2=tcs_chat_110805">view</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505824" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>11.09.05<br>11:15 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -301,24 +314,6 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_wildcard_analysis">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505779" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.14.05<br>12:15 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room1_analysis">ploh wins Room 1</A></span><br><br>
-      The backup problem set used proved to be rather difficult, as only five of the twelve 250-point submissions ended up passing system tests.
-      <br><br>
-      <i>introduction by </i><tc-webtag:handle coderId="160049" context="algorithm"/><br>
-      <i>analysis by </i><tc-webtag:handle coderId="310430" context="algorithm"/> and <tc-webtag:handle coderId="251317" context="algorithm"/>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room1_analysis">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505776" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
