@@ -34,6 +34,7 @@ public class ViewStandings extends Base {
 		String primaryCol = request.getParameter(Constants.PRIMARY_COLUMN);
 		String sortOrd = request.getParameter(Constants.SORT_ORDER);
 		String startRow = request.getParameter(Constants.START_ROW);
+		
 		Vector standings = new Vector();
 		int numRegistrants = 0;
 		String contestName = "";

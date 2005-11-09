@@ -61,9 +61,9 @@
     int checked = ((Integer)request.getSession().getAttribute(Constants.SELECTED_LANGUAGE)).intValue();
     ResultSetContainer langs = (ResultSetContainer)request.getSession().getAttribute(Constants.LANGUAGES);
 
-	String savedMsg = (request.getAttribute("saved")!=null?"Your code has been saved.":"");
+	String msg = (request.getAttribute(Constants.MESSAGE)!=null?""+request.getAttribute(Constants.MESSAGE):"");
 %>
-<%=savedMsg%>
+<%=msg%>
 <%=status%>
 <%=error%>
 <div align="center">
@@ -98,9 +98,15 @@
       </div>
 
       <div align="right">
+
+<%if(request.getSession().getAttribute(Constants.CODE) == null || request.getSession().getAttribute(Constants.CODE).toString().equals("")) {%>
+<textarea cols="70" rows="20" name="code">
+</textarea>
+<%} else {%>
 <textarea cols="70" rows="20" name="code">
 <%=request.getSession().getAttribute(Constants.CODE)%>
 </textarea>
+<%}%>
       </div>
       <div style="float:right; padding: 5px 0px 0px 5px;"><A href="javascript: submit();"><img src="/i/interface/btn_submit.gif" alt="Submit" border="0" /></A></div>
       <div style="float:right; padding: 5px 0px 0px 5px;"><A href="javascript: save();"><img src="/i/interface/btn_save.gif" alt="Save" border="0" /></A></div>

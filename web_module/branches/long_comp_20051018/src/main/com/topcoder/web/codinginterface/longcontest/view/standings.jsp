@@ -87,7 +87,7 @@
    <td class="<%=even?"statLt":"statDk"%>"><tc-webtag:beanWrite name="standing" property="handle"/></td>
    <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;"><tc-webtag:beanWrite name="standing" property="points"/></td>
    <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 15px;"><tc-webtag:beanWrite name="standing" property="rank"/></td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;"><A href="submission history page" class="statLink"><tc-webtag:beanWrite name="standing" property="submissionNumber"/></A></td>
+   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;"><A href=".<%=Constants.MAIN_SERVLET%>?<%=Constants.MODULE%>=<%=Constants.RP_SUBMISSION_HISTORY%>&<%=Constants.CODER_ID%>=<tc-webtag:beanWrite name="standing" property="coderID"/>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="standing" property="componentID"/>" class="statLink"><tc-webtag:beanWrite name="standing" property="submissionNumber"/></A></td>
 </tr>
 <%even=!even;%>
 </logic:iterate>

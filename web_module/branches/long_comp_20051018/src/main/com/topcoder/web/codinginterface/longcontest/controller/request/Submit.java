@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
@@ -24,6 +25,7 @@ import com.topcoder.server.ejb.TestServices.TestServicesHome;
 import com.topcoder.shared.common.ApplicationServer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -36,8 +38,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 
-public class Submit extends Base {
-	private static final Set waiting = new HashSet();
+public class Submit extends Base {	
 
 	private static final String PROGRESS_COMPILING_HTML = "<html>"
 			+ "<title>TopCoder</title>"
@@ -63,10 +64,12 @@ public class Submit extends Base {
 					.getClass()));
 		}
 
+		// Get the user's id
 		long uid = getUser().getId();
 		
 		try {
-			
+		
+			// Get the query parameters
 			int cid = Integer.parseInt(request.getParameter(Constants.COMPONENT_ID));
 			int rid = Integer.parseInt(request.getParameter(Constants.ROUND_ID));
 			int cd = Integer.parseInt(request.getParameter(Constants.CONTEST_ID));			
@@ -74,29 +77,35 @@ public class Submit extends Base {
 			String action = request.getParameter(Constants.ACTION_KEY);
 			String code = request.getParameter(Constants.CODE);
 			
+			// If the user is not registered s/he cannot submit code.
 			if (!isUserRegistered(uid, rid)) {
-				throw new TCWebException("User not registered for contest.");
+				throw new NavigationException("User not registered for contest.");
 			}
 
+			// Build the request to get submission related data
 			Request r = new Request();
 			r.setContentHandle("long_submission");
 			r.setProperty(Constants.CODER_ID, String.valueOf(uid));
 			r.setProperty(Constants.COMPONENT_ID, String.valueOf(cid));
 			r.setProperty(Constants.ROUND_ID, String.valueOf(rid));
+			
 			DataAccessInt dataAccess = getDataAccess(false);
 			Map m = dataAccess.getData(r);
 			
-			// Check to make sure the contest has begun and is not over
-			ResultSetContainer lang = (ResultSetContainer) m.get("long_languages");
+			// Check to make sure the contest has begun and is not over			
 			boolean started = ((ResultSetContainer) m.get("long_contest_started")).getBooleanItem(0, 0);
 			boolean over = ((ResultSetContainer) m.get("long_contest_over")).getBooleanItem(0, 0);
 			if (!started) {
-				throw new TCWebException("The contest has not started yet.");
+				throw new NavigationException("The contest has not started yet.");
 			}
 			if (over) {
-				throw new TCWebException("The contest is over.");
+				throw new NavigationException("The contest is over.");
 			}
 			
+			// These are the available programming languages
+			ResultSetContainer lang = (ResultSetContainer) m.get("long_languages");
+			
+			// The class name for this problem
 			String className = ((ResultSetContainer) m.get("long_class_name")).getStringItem(0, 0);
 			
 			// Put these objects into session
@@ -113,6 +122,7 @@ public class Submit extends Base {
 					// default values
 					code = "";
 					language = -1;
+					// Any code in the DB?
 					if (rsc.size() > 0) {
 						code = rsc.getStringItem(0, "compilation_text");
 						if(!isNull(rsc, 0, "language_id")) {
@@ -121,7 +131,7 @@ public class Submit extends Base {
 							language = -1;
 						}
 					}
-					// put the updates values back into session
+					// put the updated values back into session
 					request.getSession().setAttribute(Constants.CODE, code);
 					request.getSession().setAttribute(Constants.SELECTED_LANGUAGE, new Integer(language));
 				}
@@ -136,7 +146,7 @@ public class Submit extends Base {
 					// Send the request!
 					send(lcr);
 				} catch(ServerBusyException sbe) {
-					throw new TCWebException("A submit request is already being processed.");
+					throw new NavigationException("A submit request is already being processed.");
 				}
 
 				// Tell the user that the code is compiling...
@@ -146,7 +156,7 @@ public class Submit extends Base {
 					// Get the compilation response
 					LongCompileResponse res = receive(30 * 1000, uid, cid);
 					
-//					Records errors and other info
+					// Records errors and other info
 					if(res.getCompileStatus() == true) { // everything went ok! :)
 						cleanSession();
 						// Go to standings!
@@ -156,22 +166,25 @@ public class Submit extends Base {
 					} else { // Compilation errors!						
 						request.getSession().setAttribute(Constants.COMPILE_STATUS, new Boolean(res.getCompileStatus()));
 						request.getSession().setAttribute(Constants.COMPILE_MESSAGE, htmlEncode(res.getCompileError()));
-//						 Go back to coding.
+						// Go back to coding.
 						closeProcessingPage(buildProcessorRequestString("Submit",
 								new String[]{Constants.ROUND_ID,Constants.CONTEST_ID,Constants.COMPONENT_ID,Constants.LANGUAGE_ID},
 								new String[]{String.valueOf(rid),String.valueOf(cd),String.valueOf(cid),String.valueOf(language)}));
 					}
 				} catch (TimeOutException e) {
-					throw new TCWebException("Your code compilation timed out.");
+					throw new NavigationException("Your code compilation timed out.");
 				}
-				
 			} else if(action.equals("save")) { // user is saving code
-				saveCode(code, language, (int)uid, cd, rid, cid);		
+				boolean res = saveCode(code, language, (int)uid, cd, rid, cid);		
 				// save complete
 				// go back to coding!
-				request.setAttribute("saved", "true");
-				setNextPage(Constants.SUBMISSION_JSP);
-				setIsNextPageInContext(true);
+				if(res) {
+					request.setAttribute(Constants.MESSAGE, "Your code has been saved.");				
+					setNextPage(Constants.SUBMISSION_JSP);
+					setIsNextPageInContext(true);
+				} else {
+					throw new NavigationException("Your code cannot be saved at this time.");
+				}
 			}		
 		} catch (TCWebException e) {
 			log.error("Unexpected error in code submit module.", e);
@@ -182,10 +195,12 @@ public class Submit extends Base {
 		}		
 	}
 	
+	// Checks whether the specified field is null.
 	private boolean isNull(ResultSetContainer r, int row, String colName) {
 		return r.getItem(row, colName).getResultData() == null;
 	}
 	
+	// Puts <BR> at the end of every line
 	protected String htmlEncode(String s) throws Exception {
 		StringBuffer sb = new StringBuffer();
 		BufferedReader br = new BufferedReader(new StringReader(s));
@@ -198,7 +213,8 @@ public class Submit extends Base {
 		return sb.toString();		
 	}
 	
-	private void cleanSession() { // remove junk session variables that this class put into session
+	// Removes junk session variables that this class put into session
+	private void cleanSession() { 
 		getRequest().getSession().removeAttribute(Constants.LANGUAGES);
 		getRequest().getSession().removeAttribute(Constants.CLASS_NAME);
 		getRequest().getSession().removeAttribute(Constants.CODE);
@@ -207,28 +223,59 @@ public class Submit extends Base {
 		getRequest().getSession().removeAttribute(Constants.COMPILE_MESSAGE);		
 	}
 
-	private void saveCode(String code, int lang, int uid, int cd, int rid, int cid) throws Exception {
-		log.debug("saveCode called... lang=" + lang + " uid=" + uid + " cd=" + cd + " rid="
-				+ rid + " cid=" + cid);
+	// Save the user's code into the database
+	private boolean saveCode(String code, int lang, int uid, int cd, int rid, int cid) throws Exception {
+		log.debug("saveCode called... lang=" + lang + " uid=" + uid + " cd=" + cd + " rid=" + rid + " cid=" + cid);
 		
+		// Find the DB_Services bean so we could set the problem state to open before saving the code.
 		InitialContext ctx = getInitialContext();
 		DBServicesHome dbsHome = (DBServicesHome)ctx.lookup(ApplicationServer.DB_SERVICES);
 		DBServices dbs = dbsHome.create();
-		if(!dbs.isComponentOpened(uid, rid, cid)) { // Is there a record of the user opening the question?
+		
+		if(!dbs.isComponentOpened(uid, rid, cid)) { // Is there a record of the user opening the problem?
 			dbs.coderOpenComponent(uid, cd, rid, 0, cid);
 		}
 		
+		// Find the TestServices bean so we could save the code.
 		TestServicesHome t = (TestServicesHome)ctx.lookup(ApplicationServer.TEST_SERVICES);
 		TestServices ts = t.create();
+
+		// Save the code!
 		Results r = ts.saveComponent(cd, rid, cid, uid, code);
+		
+		if(!r.isSuccess()) { // Could not save!
+			return false;
+		} else { // Save the language along w/ the code...
+			if(lang != -1) {
+				Connection conn = null;
+		        PreparedStatement ps = null;
+		        StringBuffer sqlStr = new StringBuffer(200);
+		        ResultSet rs = null;
+				try {
+					conn = DBMS.getConnection();
+					long csid = getComponentStateID(uid, rid, cid, conn);
+					sqlStr.append("UPDATE compilation SET language_id = ? WHERE component_state_id = ?");
+		            ps = conn.prepareStatement(sqlStr.toString());		            
+		            ps.setInt(1, lang);
+		            ps.setLong(2, csid);
+		            ps.executeUpdate();		            
+				} catch(Exception e) {
+					log.error("Unexpected exception in saveCode.", e);
+					throw e;
+				} finally {
+					DBMS.close(conn, ps, rs);
+				}
+			}
+		}
+		
+		return true;
 	}
 
-	protected boolean isUserRegistered(long userID, long roundID)
-			throws Exception {
+	// Checks to see if the user is registered for this round contest.
+	protected boolean isUserRegistered(long userID, long roundID) throws Exception {
 		boolean ret = false;
 		try {
-			RoundRegistration reg = (RoundRegistration) createEJB(
-					getInitialContext(), RoundRegistration.class);
+			RoundRegistration reg = (RoundRegistration) createEJB(getInitialContext(), RoundRegistration.class);
 			ret = reg.exists(userID, roundID);
 		} catch (Exception e) {
 			log.error("Error isUserRegistered user: " + userID + " for round: "
@@ -237,4 +284,28 @@ public class Submit extends Base {
 		}
 		return ret;
 	}
+	
+    /**
+     * Helper function which gets the problemstateid for a given coder's problem
+     */
+    private long getComponentStateID(long coderId, long roundId, long componentId, Connection conn) throws SQLException {
+
+        PreparedStatement ps = null;
+        StringBuffer sqlStr = new StringBuffer(200);
+        ResultSet rs = null;
+
+        try {
+            sqlStr.append("SELECT component_state_id FROM component_state ");
+            sqlStr.append("WHERE round_id = ? AND component_id = ? AND coder_id = ?");
+            ps = conn.prepareStatement(sqlStr.toString());
+            ps.setLong(1, roundId);
+            ps.setLong(2, componentId);
+            ps.setLong(3, coderId);
+            rs = ps.executeQuery();
+            if(!rs.next())return -1;
+            return rs.getLong(1);
+        } finally {
+            DBMS.close(null, ps, rs);
+        }
+    }
 }

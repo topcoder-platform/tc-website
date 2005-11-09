@@ -79,7 +79,7 @@
 <td class="<%=even?"statLt":"statDk"%>">
 	<logic:equal name="contest" property="passed" value="false">
 		<logic:equal name="contest" property="started" value="true">
-			<A href="longcontest?module=ViewStandings&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">Standings</a>
+			<A href="longcontest?module=ViewStandings&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">Standings</a>
 		</logic:equal>
 	</logic:equal>
 	<logic:notEqual name="contest" property="passed" value="false">
