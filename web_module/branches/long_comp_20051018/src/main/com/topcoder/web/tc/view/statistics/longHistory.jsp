@@ -70,7 +70,7 @@
                                     <TD class="<%=even?"statLt":"statDk"%>"><A href="contest details page">Long Contest</A>
                                     </TD>
                                     <TD class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item row="<%=resultRow%>" name="placed"/></TD>
-                                    <TD class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item row="<%=resultRow%>" name="score"/></TD>
+                                    <TD class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item row="<%=resultRow%>" name="point_total" format="0.00"/></TD>
                                     <TD class="<%=even?"statLt":"statDk"%>" align="right">
                                         <a href="/longcontest/longcontest?module=ViewSystemTestResults&pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>">Results</a>
                                     </TD>
