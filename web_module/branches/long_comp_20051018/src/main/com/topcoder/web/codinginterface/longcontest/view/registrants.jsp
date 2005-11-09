@@ -11,7 +11,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%
-    Map m = (Map)request.getAttribute("results");
+    Map m = (Map)request.getAttribute("resultMap");
     ResultSetContainer registrants = (ResultSetContainer)m.get("long_contest_round_registrants");
     ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_round_registrants_info");
     ResultSetContainer.ResultSetRow infoRow = null;
