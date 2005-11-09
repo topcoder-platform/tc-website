@@ -104,7 +104,7 @@
 </textarea>
 <%} else {%>
 <textarea cols="70" rows="20" name="code">
-<%out.print(request.getSession().getAttribute(Constants.CODE))%>
+<%out.print(request.getSession().getAttribute(Constants.CODE));%>
 </textarea>
 <%}%>
       </div>
