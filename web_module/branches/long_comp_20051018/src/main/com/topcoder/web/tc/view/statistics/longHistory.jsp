@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="java.util.Map" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<% ResultSetContainer results = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("long_history"); %>
+<% ResultSetContainer results = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("long_comp_history"); %>
 
 <HTML>
 <HEAD>
