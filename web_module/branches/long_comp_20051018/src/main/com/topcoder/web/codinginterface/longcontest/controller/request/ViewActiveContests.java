@@ -45,6 +45,7 @@ public class ViewActiveContests extends Base{
 	    		long roundID = rsc.getLongItem(i, "round_id");
 	    		String startTime = rsc.getStringItem(i, "start_time");
 	    		String endTime = rsc.getStringItem(i, "end_time");
+	    		boolean hasStarted = rsc.getBooleanItem(i, "started");
 	    		
 	    		int numRegs = getNumRegistrants(dai, roundID);
 	    		boolean usrRoundRegistered = isCoderRoundRegistered(dai, roundID, usr.getId());
@@ -56,6 +57,7 @@ public class ViewActiveContests extends Base{
 	    		longContest.setEndTime(endTime);
 	    		longContest.setCoderRegistered(usrRoundRegistered);
 	    		longContest.setContestID(contestID);
+	    		longContest.setStarted(hasStarted);
 	    		
 	    		System.out.println("Contest Name: " + contestName);
 	    		System.out.println("Round Name: " + roundName);

@@ -115,7 +115,11 @@ public class Submit extends Base {
 					language = -1;
 					if (rsc.size() > 0) {
 						code = rsc.getStringItem(0, "compilation_text");
-						language = rsc.getIntItem(0, "language_id");						
+						if(!isNull(rsc, 0, "language_id")) {
+							language = rsc.getIntItem(0, "language_id");
+						} else {
+							language = -1;
+						}
 					}
 					// put the updates values back into session
 					request.getSession().setAttribute(Constants.CODE, code);
@@ -176,6 +180,10 @@ public class Submit extends Base {
 			log.error("Unexpected error in code submit module.", e);
 			throw new TCWebException("An error occurred while compiling your code", e);
 		}		
+	}
+	
+	private boolean isNull(ResultSetContainer r, int row, String colName) {
+		return r.getItem(row, colName).getResultData() == null;
 	}
 	
 	protected String htmlEncode(String s) throws Exception {

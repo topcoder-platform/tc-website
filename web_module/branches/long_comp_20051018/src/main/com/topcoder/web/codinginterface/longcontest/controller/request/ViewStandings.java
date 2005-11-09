@@ -17,6 +17,9 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.longcontest.model.StandingModel;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 
@@ -25,6 +28,7 @@ public class ViewStandings extends Base {
 	protected static final Logger log = Logger.getLogger(ViewStandings.class);
 
 	protected void businessProcessing() throws TCWebException {
+		
 		TCRequest request = getRequest();
 		String roundID = request.getParameter(Constants.ROUND_ID);
 		String primaryCol = request.getParameter(Constants.PRIMARY_COLUMN);
@@ -34,7 +38,7 @@ public class ViewStandings extends Base {
 		int numRegistrants = 0;
 		String contestName = "";
 
-		int maxResults = 10;
+		int maxResults = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
 		
 		// Give variables default values
 		if(primaryCol == null) primaryCol = Constants.SCORE_COL;
@@ -44,81 +48,111 @@ public class ViewStandings extends Base {
 		int startRowIdx = Integer.parseInt(startRow);
 		
 		try {
+			
+			DataAccessInt dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+			
 			if (roundID == null) {
-
-			} else {
-				DataAccessInt dai = new DataAccess(
-						DBMS.OLTP_DATASOURCE_NAME);
-
+				// Find most recent round
 				Request r = new Request();
-				r.setContentHandle("long_contest_round_information");
-				r.setProperty("rd", "" + roundID);
+				r.setContentHandle("long_contest_active_contests");
 				Map m = dai.getData(r);
-				ResultSetContainer rsc = (ResultSetContainer) m
-						.get("long_contest_round_information");
-				contestName = rsc.getStringItem(0, "contest_name");
+				ResultSetContainer rsc = (ResultSetContainer) m.get("long_contest_active_contests");
+				if(rsc.size() == 0) { // No active contests
+					getRequest().setAttribute(Constants.MESSAGE, "There are currently no active rounds.");
+				} else { // Show the most recent active round
+					roundID = rsc.getStringItem(0, "round_id");
+				}
+			} 
 
-				r = new Request();
+			// Go ahead and try to load the round's standings
+			if(roundID != null) {
+	
+				Request r = new Request();
 				r.setContentHandle("long_contest_round_standings");
-				r.setProperty("rd", "" + roundID);
-
-				m = dai.getData(r);
-				rsc = (ResultSetContainer) m
-						.get("long_contest_round_standings");
-
-				TreeSet points = new TreeSet();
-
-				for (int i = 0; i < rsc.getRowCount(); i++) {
-					StandingModel sm = new StandingModel();
-
-					sm.setHandle(rsc.getStringItem(i, "handle"));
-					sm.setRoundID(rsc.getLongItem(i, "round_id"));
-					sm.setCoderID(rsc.getLongItem(i, "coder_id"));
-					if (!isNull(rsc, i, "component_state_id")) {
-						sm.setComponentStateID(rsc.getLongItem(i,
-								"component_state_id"));
-					}
-					if (!isNull(rsc, i, "component_id")) {
-						sm.setComponentID(rsc.getLongItem(i, "component_id"));
-					}
-					if (!isNull(rsc, i, "points")) {
-						sm.setPoints(rsc.getDoubleItem(i, "points"));
-					}
-					if (!isNull(rsc, i, "submission_number")) {
-						sm.setSubmissionNumber(rsc.getIntItem(i,
-								"submission_number"));
-					}
-
-					standings.add(sm);
-
-					points.add(new Double(sm.getPoints()));
+				r.setProperty("rd", roundID);
+	
+				Map m = dai.getData(r);
+				
+				// Does this round exist?
+				if( ((ResultSetContainer)m.get("long_contest_started")).size() == 0) {
+					throw new NavigationException("Invalid round specified.");
 				}
-
-				numRegistrants = rsc.getRowCount();
-
-				Double rankings[] = (Double[]) points.toArray(new Double[0]);
-
-				for (int i = 0; i < standings.size(); i++) {
-					StandingModel sm = (StandingModel) standings.elementAt(i);
-					sm.setRank(Arrays.binarySearch(rankings, new Double(sm
-							.getPoints())));
+				
+				// Round started yet?
+				boolean started = ((ResultSetContainer) m.get("long_contest_started")).getBooleanItem(0, 0);
+				boolean over = ((ResultSetContainer) m.get("long_contest_over")).getBooleanItem(0, 0);
+				if (!started) {
+					throw new NavigationException("Invalid round specified.");
+				} else if (over){ // go to overview page
+					String url = buildProcessorRequestString("ViewOverview", new String[] {Constants.ROUND_ID }, new String[] { roundID});
+					log.debug("Going to overview page: " + url);
+					setNextPage(url);
+					setIsNextPageInContext(false);
+					return;
+				} else {
+					
+					// Get contest's name										
+					contestName = ((ResultSetContainer) m.get("long_contest_round_information")).getStringItem(0, "contest_name");
+					
+					ResultSetContainer rsc = (ResultSetContainer) m.get("long_contest_round_standings");
+					
+					TreeSet points = new TreeSet();
+	
+					// Iterate through the coder's standing
+					for (int i = 0; i < rsc.getRowCount(); i++) {
+						StandingModel sm = new StandingModel();
+	
+						// Fill in the standing's data
+						sm.setHandle(rsc.getStringItem(i, "handle"));
+						sm.setRoundID(rsc.getLongItem(i, "round_id"));
+						sm.setCoderID(rsc.getLongItem(i, "coder_id"));
+						if (!isNull(rsc, i, "component_state_id")) {
+							sm.setComponentStateID(rsc.getLongItem(i, "component_state_id"));
+						}
+						if (!isNull(rsc, i, "component_id")) {
+							sm.setComponentID(rsc.getLongItem(i, "component_id"));
+						}
+						if (!isNull(rsc, i, "points")) {
+							sm.setPoints(rsc.getDoubleItem(i, "points"));
+						}
+						if (!isNull(rsc, i, "submission_number")) {
+							sm.setSubmissionNumber(rsc.getIntItem(i,
+									"submission_number"));
+						}
+	
+						// add the model to the collection of standings...
+						standings.add(sm);
+	
+						// we remember the possible point scores to determine rank later on...
+						points.add(new Double(sm.getPoints()));
+					}
+	
+					// Here we're giving each coder a rank
+					numRegistrants = rsc.getRowCount();
+	
+					Double rankings[] = (Double[]) points.toArray(new Double[0]);
+	
+					for (int i = 0; i < standings.size(); i++) {
+						StandingModel sm = (StandingModel) standings.elementAt(i);
+						sm.setRank(Arrays.binarySearch(rankings, new Double(sm
+								.getPoints())));
+					}
+	
+					// Sort results
+					Comparator comp = new StandingModelComparator(primaryCol, sortOrd.equals("asc"));
+					
+					Collections.sort(standings, comp);
+					
+					// Return a subset of the results
+					Vector temp = new Vector();
+					
+					for(int i = startRowIdx; i < standings.size(); i++) {
+						if(i == startRowIdx + maxResults) break;
+						temp.add(standings.elementAt(i));
+					}
+					standings = temp;
 				}
-
-				// Sort results
-				Comparator comp = new StandingModelComparator(primaryCol, sortOrd.equals("asc"));
-				
-				Collections.sort(standings, comp);
-				
-				// Return a subset of the results
-				Vector temp = new Vector();
-				
-				for(int i = startRowIdx; i < standings.size(); i++) {
-					if(i == startRowIdx + maxResults) break;
-					temp.add(standings.elementAt(i));
-				}
-				standings = temp;
-				
-			}
+			}		
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new TCWebException("Error retrieving page.");
@@ -135,7 +169,7 @@ public class ViewStandings extends Base {
 		
 		request.setAttribute(Constants.ROUND_STANDINGS_LIST_KEY, standings);
 		request.setAttribute(Constants.NUM_REGISTRANTS_KEY, "" + numRegistrants);
-		request.setAttribute(Constants.CONTEST_NAME_KEY, contestName);
+		request.setAttribute(Constants.CONTEST_NAME_KEY, StringUtils.checkNull(contestName));
 		request.setAttribute(Constants.PREV_IDX_KEY, prevStartRow);
 		request.setAttribute(Constants.NEXT_IDX_KEY, nextStartRow);
 		request.setAttribute(Constants.ROUND_ID, roundID);

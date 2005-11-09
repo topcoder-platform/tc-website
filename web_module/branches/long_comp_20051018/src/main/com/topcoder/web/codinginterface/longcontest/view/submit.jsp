@@ -71,7 +71,8 @@
       <div style="float: left; padding-bottom: 5px; width: 100%:">
          <div style="float: left; text-align:left;">
          <span class="bodyTitle">Coding Area</span><br>
-         <A href="goes to problem_statement.jsp" class="statLink">Problem Statement</A> (<A href="goes to problem_statement_popup.jsp" class="statLink">new window</A>)
+         <A href="./longcontest?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=false<%=(checked!=-1?"&lid="+checked:"")%>" class="statLink">Problem Statement</A> 
+         (<A href="./longcontest?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=true<%=(checked!=-1?"&lid="+checked:"")%>"  class="statLink">new window</A>)
          </div>
          <form action="/longcontest/longcontest?module=Submit" method="POST" name="codingForm">
          <input type="hidden" name="<%=Constants.ROUND_ID%>" value="<%=request.getParameter(Constants.ROUND_ID)%>">
@@ -97,9 +98,9 @@
       </div>
 
       <div align="right">
-      <textarea cols="70" rows="20" name="code">
+<textarea cols="70" rows="20" name="code">
 <%=request.getSession().getAttribute(Constants.CODE)%>
-      </textarea>
+</textarea>
       </div>
       <div style="float:right; padding: 5px 0px 0px 5px;"><A href="javascript: submit();"><img src="/i/interface/btn_submit.gif" alt="Submit" border="0" /></A></div>
       <div style="float:right; padding: 5px 0px 0px 5px;"><A href="javascript: save();"><img src="/i/interface/btn_save.gif" alt="Save" border="0" /></A></div>

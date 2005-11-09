@@ -13,6 +13,7 @@ public class LongContestModel {
 	private boolean passed;
 	private boolean coderRegistered;
 	private long problemID;
+	private boolean started;
 	
 	public boolean isCoderRegistered() {
 		return coderRegistered;
@@ -79,6 +80,12 @@ public class LongContestModel {
 	}
 	public void setProblemID(long problemID) {
 		this.problemID = problemID;
+	}
+	public boolean isStarted() {
+		return started;
+	}
+	public void setStarted(boolean started) {
+		this.started = started;
 	}	
 	
 }
