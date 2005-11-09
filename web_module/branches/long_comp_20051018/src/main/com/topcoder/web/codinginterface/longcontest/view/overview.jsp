@@ -13,6 +13,7 @@
 <%
     Map m = (Map)request.getAttribute("results");
     ResultSetContainer registrants = (ResultSetContainer)m.get("long_contest_overview_coders");
+    ResultSetContainer rounds = (ResultSetContainer)m.get("long_contest_round_list");
 %>
 
 <html>
@@ -48,11 +49,7 @@
 </jsp:include>
 
 Please select a contest:<br>
-<select>
-  <option selected>Select a contest:</option>
-  <option>Round 1</option>
-  <option>Round 2</option>
-</select>
+<tc-webtag:rscSelect name="<%=Constants.ROUND_ID%>" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=request.getParameter(Constants.ROUND_ID)%>" onChange="window.location='longcontest?module=ViewOverview&<%=Constants.ROUND_ID%>='+this.options[this.selectedIndex].value" />
 <br><br>
 <span class="bigHandle">Contest: Round 1</span><br>
 <span class="bodySubtitle">Categories: <br>
