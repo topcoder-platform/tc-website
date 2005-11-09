@@ -31,7 +31,7 @@
             + "&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID)
             + "&" + Constants.COMPONENT_ID + "=" + request.getParameter(Constants.COMPONENT_ID)
             + "&" + Constants.CODER_ID + "=" + request.getParameter(Constants.CODER_ID)
-            + "&" + DataAccessConstants.NUMBER_RECORDS + "=" + request.getParameter(DataAccessConstants.NUMBER_RECORDS);
+            + "&" + DataAccessConstants.NUMBER_RECORDS + "=" + pageSize;
     
     String pagingLink = selfLink
             + "&" + DataAccessConstants.SORT_COLUMN + "=" + request.getParameter(DataAccessConstants.SORT_COLUMN)
