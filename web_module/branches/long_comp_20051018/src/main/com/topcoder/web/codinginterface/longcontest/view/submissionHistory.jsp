@@ -11,13 +11,17 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%
-    Map m = null;
-    ResultSetContainer.ResultSetRow p;
-    m = (Map)request.getAttribute(Constants.LONG_CONTEST_CODER_SUBMISSIONS_KEY);
+    Map m = (Map)request.getAttribute("resultMap");
     ResultSetContainer submissions = (ResultSetContainer)m.get("long_coder_submissions");
     ResultSetContainer tmp = (ResultSetContainer)m.get("long_contest_over");
     boolean over = tmp.getBooleanItem(0,0);
+    tmp = (ResultSetContainer)m.get("long_contest_coder_submissions_info");
+    ResultSetContainer.ResultSetRow infoRow = null;
+    if(tmp != null)
+        infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
     SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+    
+    String selfLink = "longcontest?module=ViewSubmissionHistory&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID) + "&" + Constants.COMPONENT_ID + "=" + request.getParameter(Constants.COMPONENT_ID) + "&" + Constants.CODER_ID + "=" + request.getParameter(Constants.CODER_ID);
 %>
 
 <html>
@@ -72,9 +76,9 @@
    <td class="tableTitle" colspan="6">Submission History</td>
 </tr>
 <tr>
-   <td class="tableHeader" width="25%"><A href="sort">Submission</A></td>
-   <td class="tableHeader" width="25%" align="center"><A href="sort">Time</A></td>
-   <td class="tableHeader" width="25%" align="right"><A href="sort">Score</A></td>
+   <td class="tableHeader" width="25%"><A href="<%=selfLink%><tc-webtag:sort column="3"/>">Submission</A></td>
+   <td class="tableHeader" width="25%" align="center"><A href="<%=selfLink%><tc-webtag:sort column="4"/>">Time</A></td>
+   <td class="tableHeader" width="25%" align="right"><A href="<%=selfLink%><tc-webtag:sort column="5"/>">Score</A></td>
    <% if(over){ %>
    <td class="tableHeader" width="25%" align="right">&#160;</td>
    <% } %>
