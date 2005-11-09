@@ -45,7 +45,7 @@ public class ViewRegistrants extends Base {
                 startRank = Integer.parseInt(startRankStr);
             }
             if (!sortColStr.equals("")) {
-                sortCol = Integer.parseInt(sortCol);
+                sortCol = Integer.parseInt(sortColStr);
             }
 
             int endRank = startRank + numRecords - 1;
