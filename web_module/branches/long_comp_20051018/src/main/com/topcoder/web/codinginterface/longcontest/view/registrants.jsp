@@ -13,7 +13,9 @@
 <%
     Map m = (Map)request.getAttribute("results");
     ResultSetContainer registrants = (ResultSetContainer)m.get("long_contest_round_registrants");
-    ResultSetContainer infoRow = (ResultSetContainer)m.get("long_contest_round_registrants_info");
+    ResultSetContainer.ResultSetRow infoRow = null;
+    if(rsc != null)
+        infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
 %>
 
 <html>
