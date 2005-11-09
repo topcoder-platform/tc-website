@@ -73,7 +73,7 @@
 </rsc:iterator>
 </tr>
 <%boolean even = true;%>
-<rsc:iterator list="<%=cases%>" id="resultRow">
+<rsc:iterator list="<%=coders%>" id="resultRow">
 <tr align="right">
    <td class="tableheader" align="left" nowrap="nowrap"><A href="sort">[+]</A> <rsc:item name="handle" row="<%=resultRow%>"/></td>
    <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="final_points" row="<%=resultRow%>"/></td>
