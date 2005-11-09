@@ -17,6 +17,8 @@
     ResultSetContainer.ResultSetRow infoRow = null;
     if(rsc != null)
         infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
+    
+    String selfLink = "longcontest?module=ViewRegistrants&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID);
 %>
 
 <html>
@@ -69,11 +71,11 @@
    <td class="tableTitle" colspan="6">Registrants</td>
 </tr>
 <tr>
-   <td class="tableHeader" width="20%"><A href="longcontest?<tc-webtag:sort column="1" includeParams="true"/>">Handle</A></td>
-   <td class="tableHeader" width="20%"><A href="longcontest?<tc-webtag:sort column="2" includeParams="true"/>">Country</A></td>
-   <td class="tableHeader" width="10%"><A href="longcontest?<tc-webtag:sort column="3" includeParams="true"/>">State</A></td>
-   <td class="tableHeader" width="30%"><A href="longcontest?<tc-webtag:sort column="4" includeParams="true"/>">School</A></td>
-   <td class="tableHeader" width="20%"><A href="longcontest?<tc-webtag:sort column="5" includeParams="true"/>">Default Language</A></td>
+   <td class="tableHeader" width="20%"><A href="<%=selfLink%><tc-webtag:sort column="1"/>">Handle</A></td>
+   <td class="tableHeader" width="20%"><A href="<%=selfLink%><tc-webtag:sort column="4"/>">Country</A></td>
+   <td class="tableHeader" width="10%"><A href="<%=selfLink%><tc-webtag:sort column="2"/>">State</A></td>
+   <td class="tableHeader" width="30%"><A href="<%=selfLink%><tc-webtag:sort column="5"/>">School</A></td>
+   <td class="tableHeader" width="20%"><A href="<%=selfLink%><tc-webtag:sort column="3"/>">Default Language</A></td>
 </tr>
 <%-- ITERATOR --%>
 <%boolean even = true;%>
