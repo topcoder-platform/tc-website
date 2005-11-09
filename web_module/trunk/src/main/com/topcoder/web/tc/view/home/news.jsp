@@ -9,6 +9,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>11.09.05<br>11:15 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm271">SRM 271 - Problem Set & Analysis</A></span><br><br>
+      Division 1 saw a quite traditional match, with almost no challenge opportunities and a quite hard 1000 point problem only a few coders could get right.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/misof_mug.gif" /><br>by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm271">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505785" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>11.07.05<br>5:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">TopCoder Software chat session scheduled for SRM 271</span><br><br>
       TCS representatives Dave Messinger, Architect, Tony Jefts, Project Manager and others will be in the TCS chat room starting at 8PM EST, to discuss and give feedback on the TopCoder Software Component Competitions.  This is a great opportunity to speak to TopCoder Software Team Members on how to get started in Component Competitions.
@@ -302,24 +319,6 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room1_analysis">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505776" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.13.05<br>9:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room3_analysis">misof wins Room 3</A></span><br><br>
-      Everyone can go home feeling content after the Room 3 portion of the on-site finals here at the 2005 TopCoder Open.  Each of the sixteen competitors submitted a correct 250-point solution.
-      <br><br>
-      <i>introduction by </i><tc-webtag:handle coderId="160049" context="algorithm"/><br>
-      <i>analysis by </i><tc-webtag:handle coderId="251317" context="algorithm"/>, <tc-webtag:handle coderId="159052" context="algorithm"/>, and <tc-webtag:handle coderId="310430" context="algorithm"/>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room3_analysis">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505778" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 

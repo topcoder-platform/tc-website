@@ -57,7 +57,7 @@
         </jsp:include>
 
       <div align="center">
-      <A href="/tc?module=Static&d1=contracting&d2=citigroup"><img src="/i/contracting/tcs_logo.gif" border=0/></A>
+      <A href="http://software.topcoder.com/"><img src="/i/contracting/tcs_logo.gif" border=0/></A>
       </div>
 
 <br><br>
