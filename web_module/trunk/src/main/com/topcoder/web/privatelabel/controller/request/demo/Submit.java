@@ -1,7 +1,5 @@
 package com.topcoder.web.privatelabel.controller.request.demo;
 
-import com.topcoder.security.UserPrincipal;
-import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -17,22 +15,17 @@ import com.topcoder.web.corp.ejb.coder.Coder;
 import com.topcoder.web.corp.ejb.coder.CoderHome;
 import com.topcoder.web.corp.ejb.coder.CompanyCandidate;
 import com.topcoder.web.corp.ejb.coder.CompanyCandidateHome;
-import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.session.Session;
 import com.topcoder.web.ejb.session.SessionHome;
 import com.topcoder.web.ejb.session.SessionSegment;
 import com.topcoder.web.ejb.session.SessionSegmentHome;
 import com.topcoder.web.ejb.sessionprofile.*;
 import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.controller.request.FullRegSubmit;
 import com.topcoder.web.privatelabel.controller.request.ResumeRegSubmit;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
-import com.topcoder.web.privatelabel.model.ResumeRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import javax.rmi.PortableRemoteObject;
-import javax.transaction.TransactionManager;
-import javax.transaction.Status;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -68,22 +61,22 @@ public class Submit extends ResumeRegSubmit {
         }
     }
 
-    protected long store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
-        long ret = super.storeWithoutCoder(regInfo);
+   protected long store(SimpleRegInfo regInfo) throws Exception {
+       long ret = super.storeWithoutCoder(regInfo);
 
-        //need to add coder record to avoid breaking a bunch of foreign keys
-        CoderHome cHome = (CoderHome)
-                PortableRemoteObject.narrow(
-                        getInitialContext().lookup(CoderHome.class.getName()), CoderHome.class);
-        Coder coder = cHome.create();
-        coder.createCoder(newUser.getId(), 1);
+       //need to add coder record to avoid breaking a bunch of foreign keys
+       CoderHome cHome = (CoderHome)
+               PortableRemoteObject.narrow(
+                       getInitialContext().lookup(CoderHome.class.getName()), CoderHome.class);
+       Coder coder = cHome.create();
+       coder.createCoder(ret, 1);
 
-        super.setCoderType(ret, ((FullRegInfo) regInfo).getCoderType());
-        super.storeQuestions(regInfo, ret);
+       super.setCoderType(ret, ((FullRegInfo) regInfo).getCoderType());
+       super.storeQuestions(regInfo, ret);
 
-        return ret;
+       return ret;
+
     }
-
 
 
 
