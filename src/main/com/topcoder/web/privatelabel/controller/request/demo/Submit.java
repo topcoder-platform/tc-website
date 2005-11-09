@@ -68,6 +68,25 @@ public class Submit extends ResumeRegSubmit {
         }
     }
 
+    protected long store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
+        long ret = super.storeWithoutCoder(regInfo);
+
+        //need to add coder record to avoid breaking a bunch of foreign keys
+        CoderHome cHome = (CoderHome)
+                PortableRemoteObject.narrow(
+                        getInitialContext().lookup(CoderHome.class.getName()), CoderHome.class);
+        Coder coder = cHome.create();
+        coder.createCoder(newUser.getId(), 1);
+
+        super.setCoderType(ret, ((FullRegInfo) regInfo).getCoderType());
+        super.storeQuestions(regInfo, ret);
+
+        return ret;
+    }
+
+
+
+
 /*
     protected long commit(SimpleRegInfo regInfo) throws TCWebException {
 
