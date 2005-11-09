@@ -18,7 +18,7 @@
     tmp = (ResultSetContainer)m.get("long_contest_coder_submissions_info");
     ResultSetContainer.ResultSetRow infoRow = null;
     if(tmp != null)
-        infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
+        infoRow = (ResultSetContainer.ResultSetRow)tmp.get(0);
     SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
     
     String selfLink = "longcontest?module=ViewSubmissionHistory&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID) + "&" + Constants.COMPONENT_ID + "=" + request.getParameter(Constants.COMPONENT_ID) + "&" + Constants.CODER_ID + "=" + request.getParameter(Constants.CODER_ID);
