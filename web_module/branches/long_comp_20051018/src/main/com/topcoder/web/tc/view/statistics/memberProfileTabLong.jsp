@@ -1,5 +1,8 @@
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
+<%@ page import="java.util.Map"%>
 <%@ page language="java"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Long_Data"); %>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
     <tr>
         <td>
