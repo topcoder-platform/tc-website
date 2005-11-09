@@ -56,10 +56,10 @@
 <jsp:param name="title" value="Submission History"/>
 </jsp:include>
 
-<span class="bigHandle">Contest: Round 1</span><br>
-<span class="bodySubtitle">Problem: ProblemName</span><br>
-<span class="bodySubtitle">Coder: handle</span><br>
-<span class="bodySubtitle">Submissions: 1</span><br>
+<span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
+<span class="bodySubtitle">Problem: <rsc:item name="problem_name" row="<%=infoRow%>"/></span><br>
+<span class="bodySubtitle">Coder: <rsc:item name="handle" row="<%=infoRow%>"/></span><br>
+<span class="bodySubtitle">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></span><br>
 
 <div class="pagingBox">
       &lt;&lt; previous
