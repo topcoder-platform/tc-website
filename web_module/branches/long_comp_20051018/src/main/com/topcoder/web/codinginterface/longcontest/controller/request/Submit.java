@@ -77,10 +77,7 @@ public class Submit extends Base {
 			String action = request.getParameter(Constants.ACTION_KEY);
 			String code = request.getParameter(Constants.CODE);
 			
-			// If the user is not registered s/he cannot submit code.
-			if (!isUserRegistered(uid, rid)) {
-				throw new NavigationException("User not registered for contest.");
-			}
+
 
 			// Build the request to get submission related data
 			Request r = new Request();
@@ -91,6 +88,14 @@ public class Submit extends Base {
 			
 			DataAccessInt dataAccess = getDataAccess(false);
 			Map m = dataAccess.getData(r);
+			
+			int roundTypeID = ((ResultSetContainer) m.get("long_contest_round_information")).getIntItem(0, "round_type_id");
+			boolean practiceRound = (roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID); 
+			
+			// If the user is not registered s/he cannot submit code.
+			if (!practiceRound && !isUserRegistered(uid, rid)) {
+				throw new NavigationException("User not registered for contest.");
+			}
 			
 			// Check to make sure the contest has begun and is not over			
 			boolean started = ((ResultSetContainer) m.get("long_contest_started")).getBooleanItem(0, 0);
