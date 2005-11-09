@@ -75,13 +75,21 @@ public class ViewStandings extends Base {
 				Map m = dai.getData(r);
 				
 				// Does this round exist?
-				if( ((ResultSetContainer)m.get("long_contest_started")).size() == 0) {
+				if( ((ResultSetContainer)m.get("long_contest_round_information")).size() == 0) {
 					throw new NavigationException("Invalid round specified.");
 				}
 				
 				// Round started yet?
 				boolean started = ((ResultSetContainer) m.get("long_contest_started")).getBooleanItem(0, 0);
 				boolean over = ((ResultSetContainer) m.get("long_contest_over")).getBooleanItem(0, 0);
+				
+				// If this is a practice contest than let it pass
+				int roundTypeID = ((ResultSetContainer) m.get("long_contest_round_information")).getIntItem(0, "round_type_id");
+				if(roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
+					started = true;
+					over = false;
+				}
+				
 				if (!started) {
 					throw new NavigationException("Invalid round specified.");
 				} else if (over){ // go to overview page
