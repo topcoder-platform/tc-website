@@ -1,3 +1,13 @@
+<%@  page
+  language="java"
+  import="java.util.*,
+          com.topcoder.web.codinginterface.longcontest.*,
+          com.topcoder.shared.dataAccess.resultSet.*"
+
+%>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -47,14 +57,16 @@
 </tr>
 
 <%boolean even = true;%>
+
+<logic:iterate name="<%=Constants.CONTEST_LIST_KEY%>" id="contest">
 <tr>
-<td class="<%=even?"statLt":"statDk"%>"><b>Blablabla</b></td>
-<td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 35px;">20</td>
-<td class="<%=even?"statLt":"statDk"%>" align="center"><A href="submit">submit</A></td>
-<td class="<%=even?"statLt":"statDk"%>" align="center"><A href="standings">standings</A></td>
+<td class="<%=even?"statLt":"statDk"%>"><b><tc-webtag:beanWrite name="contest" property="contestName"/></b></td>
+<td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 35px;"><tc-webtag:beanWrite name="contest" property="numCompetitors"/></td>
+<td class="<%=even?"statLt":"statDk"%>" align="center"><A href="longcontest?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>">submit</A></td>
+<td class="<%=even?"statLt":"statDk"%>" align="center"><A href="longcontest?module=ViewStandings&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>">standings</A></td>
 </tr>
 <%even=!even;%>
-
+</logic:iterate>
       </TABLE>
       </TD>
    </tr>

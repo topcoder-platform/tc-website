@@ -51,7 +51,7 @@ public class ViewPractice extends ViewActiveContests {
 	    		String endTime = rsc.getStringItem(i, "end_time");	    		
 	    		boolean hasStarted = true;
 	    		
-	    		int numRegs = getNumParticipants(dai, roundID);
+	    		int numParticipants = getNumParticipants(dai, roundID);
 	    		boolean usrRoundRegistered = true;
 	    		
 	    		longContest.setContestName(contestName);
@@ -62,13 +62,14 @@ public class ViewPractice extends ViewActiveContests {
 	    		longContest.setCoderRegistered(usrRoundRegistered);
 	    		longContest.setContestID(contestID);
 	    		longContest.setStarted(hasStarted);
+	    		longContest.setNumCompetitors(numParticipants);
 	    		
 	    		System.out.println("Contest Name: " + contestName);
 	    		System.out.println("Round Name: " + roundName);
 	    		System.out.println("Round ID: " + roundID);
 	    		System.out.println("Start Time: " + startTime);
 	    		System.out.println("End Time:" + endTime);
-	    		System.out.println("Num. Reg: " + numRegs);
+	    		System.out.println("Num. Reg: " + numParticipants);
 	    		System.out.println("Usr Reg: " + usrRoundRegistered);
 	    		
 	    		RoundProblem prob = getRoundProblem(dai, roundID);
