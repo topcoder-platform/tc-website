@@ -3,11 +3,15 @@ package com.topcoder.web.codinginterface.longcontest.controller.request;
 import java.util.Map;
 
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.shared.util.logging.Logger;
 
 
