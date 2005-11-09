@@ -1,6 +1,6 @@
 <%--
-<IMG SRC="/i/home/promos/comp_projects.gif" BORDER="0" ALT="TCO05" /><br>
-<map name="tco05_map">
+<IMG SRC="/i/home/promos/comp_projects.gif" BORDER="0" ALT="comp_projects" /><br>
+<map name="comp_projects">
 <area shape="rect" alt="" coords="1,1, 290,149" href="/?t=development&c=comp_projects" />
 <area shape="rect" alt="" coords="320,2, 372,109" href="/i/tournament/tco05/onsite_movies/ErykKopczynski.mov" />
 <area shape="rect" alt="" coords="373,2, 425,109" href="/i/tournament/tco05/onsite_movies/NikolayArchak.mov" />
