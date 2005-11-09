@@ -4,7 +4,8 @@
   import="java.util.*,
           java.text.SimpleDateFormat,
           com.topcoder.web.codinginterface.longcontest.*,
-          com.topcoder.shared.dataAccess.resultSet.*"
+          com.topcoder.shared.dataAccess.resultSet.*,
+          com.topcoder.shared.dataAccess.DataAccessConstants"
 
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
