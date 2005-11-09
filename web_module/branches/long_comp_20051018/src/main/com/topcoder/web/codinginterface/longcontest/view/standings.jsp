@@ -41,9 +41,7 @@
 <jsp:param name="image" value="long_competitions"/>
 <jsp:param name="title" value="Standings"/>
 </jsp:include>
-                                <td class="errorText" colspan="3">
-                                    <p><%= message %></p>
-                                </td>
+
 <%if(request.getAttribute(Constants.MESSAGE) != null) {%>
 <span class="errorText"><%=request.getAttribute(Constants.MESSAGE)%></span><br>
 <%}%>
