@@ -71,6 +71,7 @@ public class MemberProfile extends Base {
                     devRating = rsc.getIntItem(0, "development_rating");
                 }
 
+                log.debug("has long comp is " + rsc.getStringItem(0, "has_long_comp"));
                 hasLong=rsc.getStringItem(0, "has_long_comp").equals("1");
 
                 //get the selected tab
