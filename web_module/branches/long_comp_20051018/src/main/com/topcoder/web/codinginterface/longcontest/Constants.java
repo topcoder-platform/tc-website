@@ -96,6 +96,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String RP_VIEW_PRACTICE;
     public static String PAGE_VIEW_PRACTICE;
     public static int LONG_PRACTICE_ROUND_TYPE_ID;
+    public static String RP_SUBMIT;
     
     static {
         initialize();
