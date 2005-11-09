@@ -48,8 +48,18 @@
 <jsp:param name="title" value="Contest Overview"/>
 </jsp:include>
 
+<script language="JavaScript">
+<!--
+function goTo(selection){
+  sel = selection.options[selection.selectedIndex].value;
+  if (sel && sel != '#'){
+    window.location='longcontest?module=ViewOverview&<%=Constants.ROUND_ID%>='+sel;
+  }
+}
+// -->
+</script>
 Please select a contest:<br>
-<tc-webtag:rscSelect name="<%=Constants.ROUND_ID%>" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=request.getParameter(Constants.ROUND_ID)%>" onChange="window.location='longcontest?module=ViewOverview&<%=Constants.ROUND_ID%>='+this.options[this.selectedIndex].value" />
+<tc-webtag:rscSelect name="<%=Constants.ROUND_ID%>" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=request.getParameter(Constants.ROUND_ID)%>" onChange="goTo(this)" />
 <br><br>
 <span class="bigHandle">Contest: Round 1</span><br>
 <span class="bodySubtitle">Categories: <br>
