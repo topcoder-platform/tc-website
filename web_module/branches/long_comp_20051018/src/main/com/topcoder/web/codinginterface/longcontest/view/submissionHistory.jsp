@@ -21,7 +21,32 @@
         infoRow = (ResultSetContainer.ResultSetRow)tmp.get(0);
     SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
     
-    String selfLink = "longcontest?module=ViewSubmissionHistory&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID) + "&" + Constants.COMPONENT_ID + "=" + request.getParameter(Constants.COMPONENT_ID) + "&" + Constants.CODER_ID + "=" + request.getParameter(Constants.CODER_ID);
+    String selfLink = "longcontest?module=ViewSubmissionHistory"
+            + "&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID)
+            + "&" + Constants.COMPONENT_ID + "=" + request.getParameter(Constants.COMPONENT_ID)
+            + "&" + Constants.CODER_ID + "=" + request.getParameter(Constants.CODER_ID)
+            + "&" + DataAccessConstants.NUMBER_RECORDS + "=" + request.getParameter(DataAccessConstants.NUMBER_RECORDS);
+    
+    String pagingLink = selfLink
+            + "&" + DataAccessConstants.SORT_COLUMN + "=" + request.getParameter(DataAccessConstants.SORT_COLUMN)
+            + "&" + DataAccessConstants.SORT_DIRECTION + "=" + request.getParameter(DataAccessConstants.SORT_DIRECTION);
+    
+    String prevPage, nextPage;
+    int pageSize = Integer.parseInt(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
+    if(submissions.croppedDataBefore()){
+        prevPage = "<a href=\"" + pagingLink
+                + "&" + DataAccessConstants.START_RANK + "=" + Math.max(1,submissions.getStartRow() - pageSize)
+                + "\" class=\"bcLink\">&lt;&lt; previous</a>";
+    }else{
+        prevPage = "&lt;&lt; previous";
+    }
+    if(submissions.croppedDataAfter()){
+        nextPage = "<a href=\"" + pagingLink
+                + "&" + DataAccessConstants.START_RANK + "=" + submissions.getStartRow() + pageSize
+                + "\" class=\"bcLink\">next &gt;&gt;</a>";
+    }else{
+        nextPage = "next &gt;&gt;";
+    }
 %>
 
 <html>
@@ -62,9 +87,7 @@
 <span class="bodySubtitle">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></span><br>
 
 <div class="pagingBox">
-      &lt;&lt; previous
-      &nbsp;|&nbsp;
-      <a href="/stat?c=ratings_history&amp;cr=272072&amp;sr=51&amp;er=100&amp;nr=50" class="bcLink">next &gt;&gt;</a>
+      <%=prevPage%> &nbsp;|&nbsp; <%=nextPage%>
 </div>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
@@ -101,9 +124,7 @@
 </TABLE>
 
 <div class="pagingBox">
-      &lt;&lt; previous
-      &nbsp;|&nbsp;
-      <a href="/stat?c=ratings_history&amp;cr=272072&amp;sr=51&amp;er=100&amp;nr=50" class="bcLink">next &gt;&gt;</a>
+      <%=prevPage%> &nbsp;|&nbsp; <%=nextPage%>
 </div>
 
         </td>
