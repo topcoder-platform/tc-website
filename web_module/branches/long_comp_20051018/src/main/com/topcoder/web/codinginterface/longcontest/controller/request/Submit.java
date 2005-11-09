@@ -103,7 +103,7 @@ public class Submit extends Base {
 			if (!started) {
 				throw new NavigationException("The contest has not started yet.");
 			}
-			if (over) {
+			if (!practiceRound && over) {
 				throw new NavigationException("The contest is over.");
 			}
 			
