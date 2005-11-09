@@ -24,7 +24,7 @@ public class ViewProblemSolution extends Base{
             r.setProperty(Constants.PROBLEM_ID,request.getParameter(Constants.PROBLEM_ID));
             r.setProperty(Constants.ROUND_ID,request.getParameter(Constants.ROUND_ID));
             r.setProperty(Constants.SUBMISSION_NUMBER,request.getParameter(Constants.SUBMISSION_NUMBER));
-            DataAccessInt dataAccess = getDataAccess(DBMS.DW_DATASOURCE_NAME, true);
+            DataAccessInt dataAccess = getDataAccess(DBMS.DW_DATASOURCE_NAME, false);
             Map m = dataAccess.getData(r);
  //           ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_over");
  //           boolean over = rsc.getBooleanItem(0,0);
