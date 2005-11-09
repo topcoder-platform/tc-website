@@ -13,7 +13,7 @@
                 </tr>
                 <tr><td class="catNW">Competitions:</td><td class="statRNW"><rsc:item set="<%=rsc%>" name="num_competitions"/></td></tr>
                 <tr><td class="catNW">Avg. Rank:</td><td class="statRNW"><rsc:item set="<%=rsc%>" name="avg_rank"/></td></tr>
-                <tr><td class="catNW">Avg. Num. Submissions:</td><td class="statRNW"><rsc:item set="<%=rsc%>" name="avg_num_submissions"/></td></tr>
+                <tr><td class="catNW">Avg. Num. Submissions:</td><td class="statRNW"><rsc:item set="<%=rsc%>" name="avg_submissions"/></td></tr>
             </table>
         </td>
     </tr>
