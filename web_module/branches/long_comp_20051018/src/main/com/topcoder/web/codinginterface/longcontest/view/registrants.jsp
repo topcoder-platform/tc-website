@@ -13,6 +13,7 @@
 <%
     Map m = (Map)request.getAttribute("results");
     ResultSetContainer registrants = (ResultSetContainer)m.get("long_contest_round_registrants");
+    ResultSetContainer infoRow = (ResultSetContainer)m.get("long_contest_round_registrants_info");
 %>
 
 <html>
@@ -47,8 +48,8 @@
 <jsp:param name="title" value="Registrants"/>
 </jsp:include>
 
-<span class="bigHandle">Contest: Round 1</span><br>
-<span class="bodySubtitle">Registrants: 1</span><br>
+<span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
+<span class="bodySubtitle">Registrants: <rsc:item name="num_competitors" row="<%=infoRow%>"/></span><br>
 
 <div class="pagingBox">
       &lt;&lt; previous
