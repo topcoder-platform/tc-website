@@ -45,12 +45,6 @@
 <span class="bigTitle">Match summary</span>
 
 <p>
-NOTE: The author of this match was Vedensky.
-The solution ideas presented below are mine (misof's), for each of the tasks
-you can find my solution in the practice room.
-</p>
-
-<p>
 Division 1 saw a quite traditional match, with almost no challenge opportunities
 and a quite hard 1000 point problem
 only a few coders could get right. Apparrently, after the rules for the next TCO
