@@ -144,6 +144,14 @@ public class Submit extends Base {
 				setIsNextPageInContext(true);
 				return;
 			} else if(action.equals("submit")) { // user is submiting code
+				// Language specified?
+				if(language == -1) {
+					request.setAttribute(Constants.MESSAGE, "Please select a language.");
+					setNextPage(Constants.SUBMISSION_JSP);
+					setIsNextPageInContext(true);
+					return;
+				}
+				
 				// The request info for the compiler
 				LongCompileRequest lcr = new LongCompileRequest((int) uid, cid, rid, cd, language, ApplicationServer.WEB_SERVER_ID, code);
 
