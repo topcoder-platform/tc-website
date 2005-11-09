@@ -36,6 +36,7 @@
                 <jsp:param name="title" value="Long Contest Competition History"/>
             </jsp:include>
 
+            <% if (results!=null && !results.isEmpty()) { %>
             <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=results.getLongItem(0, "coder_id")%>'/></span>
             <br>
             <span class="bodySubtitle">Long Contest Statistics&#160;>&#160;</span><br>
@@ -95,7 +96,9 @@
                 <a href="/" class="bcLink">next &gt;&gt;</a>
             </div>
 --%>
-
+            <% } else { %>
+            <p>This member has no history.</p>
+            <% } %>
             <p><br></p>
             <!-- END BODY -->
 
