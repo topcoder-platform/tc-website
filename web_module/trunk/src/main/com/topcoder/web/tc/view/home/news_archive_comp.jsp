@@ -35,6 +35,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">11.08.05 11:25 AM - </td><td width="100%"><A href="/tc?module=Static&d1=contracting&d2=tcs_chat_110805">TopCoder Software chat session from SRM 271</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.07.05 5:30 PM - </td><td width="100%">TopCoder Software chat session scheduled for SRM 271</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.27.05 11:05 AM - </td><td width="100%"><A href="/tc?module=CompList&pi=112">Design</A> and <A href="/tc?module=CompList&pi=113">Development</A> Contest Lists, Scorecard Details</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.05.05 9:25 AM - </td><td width="100%">Reliability Rating changes</td></tr>
