@@ -1,6 +1,8 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.StringReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -8,11 +10,17 @@ import java.util.*;
 
 import javax.ejb.EJBException;
 import javax.naming.Context;
+import javax.naming.InitialContext;
 
 import com.topcoder.web.codinginterface.CodingInterfaceConstants;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.server.common.Results;
+import com.topcoder.server.ejb.DBServices.DBServices;
+import com.topcoder.server.ejb.DBServices.DBServicesHome;
+import com.topcoder.server.ejb.TestServices.TestServices;
+import com.topcoder.server.ejb.TestServices.TestServicesHome;
 import com.topcoder.shared.common.ApplicationServer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
@@ -61,12 +69,12 @@ public class Submit extends Base {
 			
 			int cid = Integer.parseInt(request.getParameter(Constants.COMPONENT_ID));
 			int rid = Integer.parseInt(request.getParameter(Constants.ROUND_ID));
-			int cd = Integer.parseInt(request.getParameter(Constants.CONTEST_ID));
-			int language = Integer.parseInt(request.getParameter(Constants.LANGUAGE_ID));			 
+			int cd = Integer.parseInt(request.getParameter(Constants.CONTEST_ID));			
+			int language = Integer.parseInt((request.getParameter(Constants.LANGUAGE_ID) == null ? "-1" : request.getParameter(Constants.LANGUAGE_ID)));			 
 			String action = request.getParameter(Constants.ACTION_KEY);
-			String code = null;
+			String code = request.getParameter(Constants.CODE);
 			
-			if (isUserRegistered(uid, rid)) {
+			if (!isUserRegistered(uid, rid)) {
 				throw new TCWebException("User not registered for contest.");
 			}
 
@@ -106,7 +114,7 @@ public class Submit extends Base {
 					code = "";
 					language = -1;
 					if (rsc.size() > 0) {
-						code = rsc.getStringItem(0, "submission_text");
+						code = rsc.getStringItem(0, "compilation_text");
 						language = rsc.getIntItem(0, "language_id");						
 					}
 					// put the updates values back into session
@@ -143,7 +151,7 @@ public class Submit extends Base {
 										.valueOf(rid) }));
 					} else { // Compilation errors!						
 						request.getSession().setAttribute(Constants.COMPILE_STATUS, new Boolean(res.getCompileStatus()));
-						request.getSession().setAttribute(Constants.COMPILE_MESSAGE, res.getCompileError());
+						request.getSession().setAttribute(Constants.COMPILE_MESSAGE, htmlEncode(res.getCompileError()));
 //						 Go back to coding.
 						closeProcessingPage(buildProcessorRequestString("Submit",
 								new String[]{Constants.ROUND_ID,Constants.CONTEST_ID,Constants.COMPONENT_ID,Constants.LANGUAGE_ID},
@@ -154,19 +162,32 @@ public class Submit extends Base {
 				}
 				
 			} else if(action.equals("save")) { // user is saving code
-				saveCode(code, language, (int)uid, rid, cid);		
+				saveCode(code, language, (int)uid, cd, rid, cid);		
 				// save complete
 				// go back to coding!
-				setNextPage(buildProcessorRequestString("Submit",
-								new String[]{Constants.ROUND_ID,Constants.CONTEST_ID,Constants.COMPONENT_ID,Constants.LANGUAGE_ID},
-								new String[]{String.valueOf(rid),String.valueOf(cd),String.valueOf(cid),String.valueOf(language)}));
+				request.setAttribute("saved", "true");
+				setNextPage(Constants.SUBMISSION_JSP);
 				setIsNextPageInContext(true);
 			}		
 		} catch (TCWebException e) {
+			log.error("Unexpected error in code submit module.", e);
 			throw e;
 		} catch (Exception e) {
+			log.error("Unexpected error in code submit module.", e);
 			throw new TCWebException("An error occurred while compiling your code", e);
 		}		
+	}
+	
+	protected String htmlEncode(String s) throws Exception {
+		StringBuffer sb = new StringBuffer();
+		BufferedReader br = new BufferedReader(new StringReader(s));
+		while(true) {
+			String l = br.readLine();
+			if(l==null) break;
+			sb.append(l);
+			sb.append("<br>");			
+		}
+		return sb.toString();		
 	}
 	
 	private void cleanSession() { // remove junk session variables that this class put into session
@@ -178,50 +199,20 @@ public class Submit extends Base {
 		getRequest().getSession().removeAttribute(Constants.COMPILE_MESSAGE);		
 	}
 
-	private void saveCode(String code, int lang, int uid, int rid, int cid) throws Exception {
-		log.debug("saveCode called... lang=" + lang + " uid=" + uid + " rid="
-				+ rid + " cid" + cid);
-
-		PreparedStatement ps = null;
-		Connection conn = null;
-
-		try {
-			conn = DBMS.getConnection(DBMS.JTS_OLTP_DATASOURCE_NAME);
-			conn.setAutoCommit(false);
-			
-			// insert into component state
-			ps = conn.prepareStatement("insert into component_state(component_state_id, round_id, coder_id, component_id, status_id, language_id, submission_number) values (?, ?, ?, ?, ?, ?, ?)");
-			int csid = DBMS.getSeqId(conn, DBMS.COMPONENT_STATE_SEQ); // get the next pk																		
-			ps.setInt(1, csid);
-			ps.setInt(2, rid);
-			ps.setInt(3, uid);
-			ps.setInt(4, cid);
-			ps.setInt(5, 120);
-			ps.setInt(6, lang);
-			ps.setInt(7, 0);
-			ps.executeUpdate();
-			
-			ps = conn.prepareStatement("INSERT INTO compilation(component_state_id, open_time, compilation_text, language_id) values (?, ?, ?, ?)");
-			ps.setInt(1, csid);
-			ps.setLong(2, System.currentTimeMillis());
-			ps.setString(3, code);
-			ps.setInt(4, lang);
-			ps.executeUpdate();
-			
-			conn.commit();			
-		} catch (SQLException sqe) {
-			conn.rollback();
-			DBMS.printSqlException(true, sqe);
-			throw sqe;
-		} catch (Exception e) {
-			conn.rollback();
-			log.error("Unexpected error while saving user code...", e);
-			throw e;
-		} finally {
-			conn.setAutoCommit(true);
-			DBMS.close(ps);
-			DBMS.close(conn);			
+	private void saveCode(String code, int lang, int uid, int cd, int rid, int cid) throws Exception {
+		log.debug("saveCode called... lang=" + lang + " uid=" + uid + " cd=" + cd + " rid="
+				+ rid + " cid=" + cid);
+		
+		InitialContext ctx = getInitialContext();
+		DBServicesHome dbsHome = (DBServicesHome)ctx.lookup(ApplicationServer.DB_SERVICES);
+		DBServices dbs = dbsHome.create();
+		if(!dbs.isComponentOpened(uid, rid, cid)) { // Is there a record of the user opening the question?
+			dbs.coderOpenComponent(uid, cd, rid, 0, cid);
 		}
+		
+		TestServicesHome t = (TestServicesHome)ctx.lookup(ApplicationServer.TEST_SERVICES);
+		TestServices ts = t.create();
+		Results r = ts.saveComponent(cd, rid, cid, uid, code);
 	}
 
 	protected boolean isUserRegistered(long userID, long roundID)

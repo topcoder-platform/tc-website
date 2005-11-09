@@ -20,11 +20,11 @@
 <body>
 <script language="javascript">
 	function submit() {
-		document.codingForm.action.value="submit";
+		document.codingForm.<%=Constants.ACTION_KEY%>.value="submit";
 		document.codingForm.submit();
 	}
 	function save() {
-		document.codingForm.action.value="save";
+		document.codingForm.<%=Constants.ACTION_KEY%>.value="save";
 		document.codingForm.submit();	
 	}
 </script>
@@ -60,9 +60,10 @@
     }
     int checked = ((Integer)request.getSession().getAttribute(Constants.SELECTED_LANGUAGE)).intValue();
     ResultSetContainer langs = (ResultSetContainer)request.getSession().getAttribute(Constants.LANGUAGES);
-	out.println(langs.size());
-%>
 
+	String savedMsg = (request.getAttribute("saved")!=null?"Your code has been saved.":"");
+%>
+<%=savedMsg%>
 <%=status%>
 <%=error%>
 <div align="center">
@@ -97,7 +98,7 @@
 
       <div align="right">
       <textarea cols="70" rows="20" name="code">
-      <%=request.getSession().getAttribute(Constants.CODE)%>
+<%=request.getSession().getAttribute(Constants.CODE)%>
       </textarea>
       </div>
       <div style="float:right; padding: 5px 0px 0px 5px;"><A href="javascript: submit();"><img src="/i/interface/btn_submit.gif" alt="Submit" border="0" /></A></div>
