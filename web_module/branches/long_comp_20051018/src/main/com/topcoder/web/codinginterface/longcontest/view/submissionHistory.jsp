@@ -33,7 +33,9 @@
             + "&" + DataAccessConstants.SORT_DIRECTION + "=" + request.getParameter(DataAccessConstants.SORT_DIRECTION);
     
     String prevPage, nextPage;
-    int pageSize = Integer.parseInt(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
+    int pageSize = Constants.DEFAULT_ROW_COUNT;
+    if(request.getParameter(DataAccessConstants.NUMBER_RECORDS) != null)
+        pageSize = Integer.parseInt(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
     if(submissions.croppedDataBefore()){
         prevPage = "<a href=\"" + pagingLink
                 + "&" + DataAccessConstants.START_RANK + "=" + Math.max(1,submissions.getStartRow() - pageSize)
