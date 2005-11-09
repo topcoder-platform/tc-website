@@ -15,7 +15,9 @@
     ResultSetContainer registrants = (ResultSetContainer)m.get("long_contest_overview_coders");
     ResultSetContainer rounds = (ResultSetContainer)m.get("long_contest_round_list");
     ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_overview_info");
-    ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
+    ResultSetContainer.ResultSetRow infoRow = null;
+    if(rsc != null)
+        infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
 %>
 
 <html>
