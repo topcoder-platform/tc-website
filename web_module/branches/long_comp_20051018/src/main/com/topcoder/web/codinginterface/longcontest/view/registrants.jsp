@@ -69,11 +69,11 @@
    <td class="tableTitle" colspan="6">Registrants</td>
 </tr>
 <tr>
-   <td class="tableHeader" width="20%"><A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr"/>">Handle</A></td>
-   <td class="tableHeader" width="20%"><A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true" excludeParams="sr"/>">Country</A></td>
-   <td class="tableHeader" width="10%"><A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr"/>">State</A></td>
-   <td class="tableHeader" width="30%"><A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true" excludeParams="sr"/>">School</A></td>
-   <td class="tableHeader" width="20%"><A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true" excludeParams="sr"/>">Default Language</A></td>
+   <td class="tableHeader" width="20%"><A href="longcontest?<tc-webtag:sort column="1" includeParams="true"/>">Handle</A></td>
+   <td class="tableHeader" width="20%"><A href="longcontest?<tc-webtag:sort column="2" includeParams="true"/>">Country</A></td>
+   <td class="tableHeader" width="10%"><A href="longcontest?<tc-webtag:sort column="3" includeParams="true"/>">State</A></td>
+   <td class="tableHeader" width="30%"><A href="longcontest?<tc-webtag:sort column="4" includeParams="true"/>">School</A></td>
+   <td class="tableHeader" width="20%"><A href="longcontest?<tc-webtag:sort column="5" includeParams="true"/>">Default Language</A></td>
 </tr>
 <%-- ITERATOR --%>
 <%boolean even = true;%>
