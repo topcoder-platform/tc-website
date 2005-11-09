@@ -210,7 +210,7 @@ public class ViewActiveContests extends Base{
     	return ret;
     }
 
-    private static class RoundProblem {
+    protected static class RoundProblem {
     	
     	private long componentID;
     	private long problemID;
