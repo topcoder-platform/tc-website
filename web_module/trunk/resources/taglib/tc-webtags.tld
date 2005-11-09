@@ -492,6 +492,11 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
+            <name>listKey</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
             <name>type</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
