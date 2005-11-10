@@ -38,6 +38,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">11.10.05 5:15 PM&#160;-&#160</td><td width="100%">Arena downtime: 11/11 noon</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.03.05 3:15 PM&#160;-&#160</td><td width="100%"><A href="http://forums.topcoder.com/?module=Thread&threadID=507824">Arena applet under Java 1.3 no longer supported</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.04.05 3:40 PM&#160;-&#160</td><td width="100%">Find feature added to the Arena Chat Area</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.31.05 10:20 AM&#160;-&#160</td><td width="100%"><A href="/?RoundId=8007&t=schedule&c=srm">$5,000 prize purse for SRM 265, new time</A></td></tr>

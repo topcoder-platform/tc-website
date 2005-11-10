@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>11.03.05<br>3:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">Arena downtime: 11/11 noon</span><br><br>
+      At noon EST on Friday 11/11, the TopCoder Arena Applet will go down for about 30 mins due to scheduled maintenance.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <tc-webtag:forumLink forumID="505825" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>11.09.05<br>11:25 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=tcs_chat_110805">TopCoder Software chat session from SRM 271</A></span><br><br>
       TCS representatives were recently in the arena to discuss Component Competitions.
@@ -296,24 +308,6 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_summary">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505809" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.14.05<br>1:25 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_wildcard_analysis">John Dethridge wins the WildCard Room</A></span><br><br>
-      This round served as a second chance for twelve of the finalists to try for a spot in today's final championship round.  A high number of submissions made this round especially exciting, as the rankings changed several times.
-      <br><br>
-      <i>introduction by </i><tc-webtag:handle coderId="160049" context="algorithm"/><br>
-      <i>analysis by </i><tc-webtag:handle coderId="269554" context="algorithm"/> and <tc-webtag:handle coderId="159052" context="algorithm"/>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_wildcard_analysis">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505779" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
