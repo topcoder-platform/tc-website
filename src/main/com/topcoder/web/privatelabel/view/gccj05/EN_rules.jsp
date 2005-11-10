@@ -229,6 +229,9 @@ iPod Nano 4G: $250 USD
 <tr valign="top"><td>21st – 50th ($250 USD)</td><td>
 iPod Nano 4G: $250 USD
 </td></tr>
+<tr valign="top">
+<td colspan="2">* Winner must be present at the onsite round to receive prize.</td>
+</tr>
 </table>
 <br><br>
 <span class="greenSubtitle">Conditions of Participation</span><br>

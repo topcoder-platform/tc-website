@@ -28,14 +28,7 @@
     <tr><td>&#160;</td></tr>
     <tr>
         <td align="center" nowrap=nowrap class="smallGreenBox">
-            <span class="bodyTextGreen">X in<br>Cash Prizes!</span>
-            <br><br>
-            <b>1st Place - X</b><br>
-            2nd Place - X<br>
-            3rd Place - X<br>
-            4th Place - X<br>
-            5th Place - X<br><br>
-            6th to 50th Place<br>will share X
+            <span class="bodyTextGreen">$30,000USD worth<br>of hi-tech prizes</span>
         </td>
     </tr>
 </table>
