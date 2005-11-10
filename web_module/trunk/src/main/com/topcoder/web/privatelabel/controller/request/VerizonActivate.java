@@ -67,7 +67,8 @@ public class VerizonActivate extends BaseActivate {
 
         Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
 
-        Map questions = VerizonReg.getQuestions(transDb, coder.getCoderTypeId(userId, transDb), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)));
+        Map questions = VerizonReg.getQuestions(transDb, coder.getCoderTypeId(userId, transDb),
+                Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)), getLocale());
         for (Iterator it = responses.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
             question = VerizonReg.findQuestion(row.getLongItem("demographic_question_id"), questions);
