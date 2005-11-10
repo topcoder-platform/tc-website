@@ -11,6 +11,7 @@ import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -31,24 +32,24 @@ public class ViewOverview extends Base {
             TCRequest request = getRequest();
             Request r = new Request();
             
-            String startRank = StringUtils.checkNull(getRequest().getParameter(Constants.START_ROW));
-            String numRecords = StringUtils.checkNull(getRequest().getParameter(Constants.ROW_COUNT));
-            String sortDir = StringUtils.checkNull(getRequest().getParameter(Constants.SORT_ORDER));
-            String sortCol = StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_COLUMN));
+            String startRankStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
+            String numRecordsStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
+            String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+            String sortColStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
             
-            if ("".equals(numRecords)) {
-                numRecords = "50";
-            } else if (Integer.parseInt(numRecords)>200) {
-                numRecords="200";
+            int numRecords = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
+            int startRank = 1, sortCol = 1;
+            if (!"".equals(numRecordsStr)) {
+                numRecords = Integer.parseInt(numRecordsStr);
             }
-            if (startRank.equals("") || Integer.parseInt(startRank) <= 0) {
-                startRank = "1";
+            if (!startRankStr.equals("")){
+                startRank = Integer.parseInt(startRankStr);
             }
-            if (sortCol.equals("")) {
-                sortCol = "1";
+            if (!sortColStr.equals("")) {
+                sortCol = Integer.parseInt(sortColStr);
             }
 
-            int endRank = Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1;
+            int endRank = startRank + numRecords - 1;
             
             r.setContentHandle("long_contest_overview");
             if(request.getParameter(Constants.ROUND_ID) == null){
@@ -57,19 +58,20 @@ public class ViewOverview extends Base {
                 r.setProperty(Constants.ROUND_ID,request.getParameter(Constants.ROUND_ID));
             }
             Map result = getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r);
-  
-//            ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_round_registrants");
-//            rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
-//            rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank),endRank);
-//            result.put("long_contest_round_registrants", rsc);
+            ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_overview_coders");
+            rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
+
+            rsc = new ResultSetContainer(rsc, startRank, endRank);
+
+            result.put("long_contest_overview_coders", rsc);
 
 //            SortInfo s = new SortInfo();
 //            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
-            setDefault(Constants.ROW_COUNT, numRecords);
-            setDefault(Constants.START_ROW, startRank);
+            setDefault(DataAccessConstants.NUMBER_RECORDS, ""+numRecords);
+            setDefault(DataAccessConstants.START_RANK, ""+startRank);
 
-            request.setAttribute("results", result);
+            request.setAttribute("resultMap", result);
             setNextPage(Constants.PAGE_VIEW_OVERVIEW);
             setIsNextPageInContext(true);
         }catch(TCWebException e){

@@ -3,21 +3,50 @@
   language="java"
   import="java.util.*,
           java.text.SimpleDateFormat,
+          com.topcoder.web.common.StringUtils,
           com.topcoder.web.codinginterface.longcontest.*,
-          com.topcoder.shared.dataAccess.resultSet.*"
-
+          com.topcoder.shared.dataAccess.resultSet.*,
+          com.topcoder.shared.dataAccess.DataAccessConstants"
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%
-    Map m = (Map)request.getAttribute("results");
+    Map m = (Map)request.getAttribute("resultMap");
     ResultSetContainer registrants = (ResultSetContainer)m.get("long_contest_overview_coders");
     ResultSetContainer rounds = (ResultSetContainer)m.get("long_contest_round_list");
     ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_overview_info");
     ResultSetContainer.ResultSetRow infoRow = null;
-    if(rsc != null)
+    if(rsc != null && !rsc.isEmpty())
         infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
+    
+    int pageSize = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
+    if(!"".equals(StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_RECORDS))))
+        pageSize = Integer.parseInt(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
+    
+    String selfLink = "longcontest?module=ViewOverview"
+            + "&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID)
+            + "&" + DataAccessConstants.NUMBER_RECORDS + "=" + pageSize;
+    
+    String pagingLink = selfLink
+            + "&" + DataAccessConstants.SORT_COLUMN + "=" + StringUtils.checkNull(request.getParameter(DataAccessConstants.SORT_COLUMN))
+            + "&" + DataAccessConstants.SORT_DIRECTION + "=" + StringUtils.checkNull(request.getParameter(DataAccessConstants.SORT_DIRECTION));
+    
+    String prevPage, nextPage;
+    if(registrants.croppedDataBefore()){
+        prevPage = "<a href=\"" + pagingLink
+                + "&" + DataAccessConstants.START_RANK + "=" + Math.max(1,registrants.getStartRow() - pageSize)
+                + "\" class=\"bcLink\">&lt;&lt; previous</a>";
+    }else{
+        prevPage = "&lt;&lt; previous";
+    }
+    if(registrants.croppedDataAfter()){
+        nextPage = "<a href=\"" + pagingLink
+                + "&" + DataAccessConstants.START_RANK + "=" + registrants.getStartRow() + pageSize
+                + "\" class=\"bcLink\">next &gt;&gt;</a>";
+    }else{
+        nextPage = "next &gt;&gt;";
+    }
 %>
 
 <html>
@@ -69,13 +98,11 @@ Please select a contest:<br>
 <span class="bodySubtitle">Categories: <br>
 Competitors: <rsc:item name="num_competitors" row="<%=infoRow%>"/><br>
 Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>"/></span><br>
-<A href="practice">Practice</A><br>
-<A href="practice">Problem Statement</A>
+<A href="longcontest?module=ViewPractice">Practice</A><br>
+<A href="longcontest?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>">Problem Statement</A>
 
 <div class="pagingBox">
-      &lt;&lt; previous
-      &nbsp;|&nbsp;
-      <a href="/stat?c=ratings_history&amp;cr=272072&amp;sr=51&amp;er=100&amp;nr=50" class="bcLink">next &gt;&gt;</a>
+      <%=prevPage%> &nbsp;|&nbsp; <%=nextPage%>
 </div>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
@@ -87,10 +114,10 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>"/></span><b
    <td class="tableTitle" colspan="6">Contest Overview</td>
 </tr>
 <tr>
-   <td class="tableHeader" width="25%"><A href="sort">Handle</A></td>
-   <td class="tableHeader" width="15%" align="right"><A href="sort">Score</A></td>
-   <td class="tableHeader" width="15%" align="right"><A href="sort">Rank</A></td>
-   <td class="tableHeader" width="15%" align="center"><A href="sort">Language</A></td>
+   <td class="tableHeader" width="25%"><A href="<%=selfLink%><tc-webtag:sort column="2"/>">Handle</A></td>
+   <td class="tableHeader" width="15%" align="right"><A href="<%=selfLink%><tc-webtag:sort column="3"/>">Score</A></td>
+   <td class="tableHeader" width="15%" align="right"><A href="<%=selfLink%><tc-webtag:sort column="4"/>">Rank</A></td>
+   <td class="tableHeader" width="15%" align="center"><A href="<%=selfLink%><tc-webtag:sort column="5"/>">Language</A></td>
    <td class="tableHeader" width="15%">&#160;</td>
    <td class="tableHeader" width="15%">&#160;</td>
 </tr>
@@ -102,8 +129,8 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>"/></span><b
    <td class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item name="point_total" row="<%=resultRow%>"/></td>
    <td class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item name="placed" row="<%=resultRow%>"/></td>
    <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="language_name" row="<%=resultRow%>"/></td>
-   <td class="<%=even?"statLt":"statDk"%>" align="center"><A href="sys test results">results</A></td>
-   <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><A href="submission history">submission history</A></td>
+   <td class="<%=even?"statLt":"statDk"%>" align="center"><A href="longcontest?module=ViewSystemTestResults&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>">results</A></td>
+   <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><A href="longcontest?module=ViewSubmissionHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>">submission history</A></td>
 </tr>
 <%even=!even;%>
 </rsc:iterator>
@@ -114,9 +141,7 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>"/></span><b
 </TABLE>
 
 <div class="pagingBox">
-      &lt;&lt; previous
-      &nbsp;|&nbsp;
-      <a href="/stat?c=ratings_history&amp;cr=272072&amp;sr=51&amp;er=100&amp;nr=50" class="bcLink">next &gt;&gt;</a>
+      <%=prevPage%> &nbsp;|&nbsp; <%=nextPage%>
 </div>
 
         </td>
