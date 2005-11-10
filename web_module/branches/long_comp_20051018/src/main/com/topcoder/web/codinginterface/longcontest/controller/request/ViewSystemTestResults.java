@@ -70,15 +70,15 @@ public class ViewSystemTestResults extends Base {
 
             Map result = getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r);
   
-            ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_system_test_coders");
+            ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_test_results_coders");
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
             rsc = new ResultSetContainer(rsc, startRow, endRow);
-            result.put("long_contest_overview_coders", rsc);
+            result.put("long_contest_test_results_coders", rsc);
 
-            rsc = (ResultSetContainer) result.get("long_contest_system_test_cases");
+            rsc = (ResultSetContainer) result.get("long_contest_test_results_cases");
 //            rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
             rsc = new ResultSetContainer(rsc, startCol, endCol);
-            result.put("long_contest_overview_cases", rsc);
+            result.put("long_contest_test_results_cases", rsc);
 
             request.setAttribute("resultMap", result);
             setNextPage(Constants.PAGE_VIEW_SYSTEM_TEST_RESULTS);
