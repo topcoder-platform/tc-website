@@ -1,6 +1,5 @@
 ﻿<%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  java.util.List" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -13,8 +12,8 @@
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gccj05.css"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <title>Google&#153; 中国编程精英网罗赛, 竞赛软件由 Topcoder&#174;公司提供</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Google&#153; 中国编程精英网罗赛, 竞赛软件由 Topcoder&#174;公司提供</title>
 </head>
 
 <body>
@@ -40,9 +39,9 @@
         <td>
             <div class=greenBigBox>
 
-                <%-- Tab bar links--%>
+                <!-- Tab bar links-->
                 <div align="center">
-                    <jsp:include page="ZH_links.jsp">
+                    <jsp:include page="EN_links.jsp">
                         <jsp:param name="selectedTab" value="registration"/>
                     </jsp:include>
                 </div>
@@ -51,11 +50,27 @@
 
                 <span class="bigTitle">Registration</span>
                 <span valign=top>
-         <jsp:include page="ZH_right_reg.jsp"/>
+         <jsp:include page="EN_right_reg.jsp"/>
          </span>
 
                 <br><br>
-                <table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
+
+                <div style="float: left;">
+                    <b>Step 2 of 5</b>
+
+                    <div class="regBreadOff">General</div>
+
+                    <div class="regBreadOn">Demographics</div>
+
+                    <div class="regBreadOff">Confirm</div>
+
+                    <div class="regBreadOff">Success</div>
+
+                    <div class="regBreadOff">Activation</div>
+                </div>
+                <br><br><br>
+
+                <table cellpadding="0" cellspacing="5" class="bodyText" align="center" border="0">
                     <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST"
                           name="regForm" enctype="multipart/form-data">
                         <input type="hidden" name="<%=Constants.MODULE_KEY%>"
@@ -73,7 +88,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right" nowrap>
+                                <td align="right" style="width: 160px;">
                                     <%if (question.isRequired()) {%><span class="errorText">*</span><%}%>
                                     <%=question.getText()%>
                                 </td>
@@ -112,12 +127,12 @@
                 <br><br>
                 <br><br>
                 To find out more detailed information about the Google Code Jam China, including a list of the prizes,
-                please read the <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">Terms and Conditions</a>.
+                please read the <a href="/pl/?module=Static&d1=gccj05&d2=EN_rules">Terms and Conditions</a>.
             </div>
         </td>
         <td width="49%">&#160;</td>
     <tr>
 </table>
-<jsp:include page="ZH_foot.jsp"/>
+<jsp:include page="EN_foot.jsp"/>
 </body>
 </html>
