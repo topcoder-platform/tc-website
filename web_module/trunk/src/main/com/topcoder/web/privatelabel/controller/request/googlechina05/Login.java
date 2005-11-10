@@ -14,7 +14,7 @@ import java.util.*;
 public class Login extends FullLogin {
 
     protected void setNextPage() {
-        TCResourceBundle bundle = new TCResourceBundle("PrivateLabel", getLocale());
+        TCResourceBundle bundle = new TCResourceBundle("PrivateLabel", regInfo.getLocale());
         Calendar end = Calendar.getInstance();
         end.set(2005, Calendar.DECEMBER, 5, 20, 0);
         Calendar beginning = Calendar.getInstance();
