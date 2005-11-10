@@ -363,7 +363,7 @@ If you have a problem logging into the Arena or cannot access the chat interface
 a detailed description of the problem that you are having.
 
 <br><br>
-To find out more detailed information about the Google Code Jam China, including a list of the prizes, please read the
+To find out more detailed information about the Google&#153; Code Jam China, including a list of the prizes, please read the
 <a href="/pl/?module=Static&d1=gccj05&d2=EN_rules">Terms and Conditions</a>.
 </div>
 </td>
