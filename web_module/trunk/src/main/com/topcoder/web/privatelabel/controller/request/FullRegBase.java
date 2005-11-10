@@ -135,7 +135,7 @@ public abstract class FullRegBase extends SimpleRegBase {
         if (locale.equals(Locale.US)) {
             r.setContentHandle("demographic_question_list");
         } else {
-            r.setContentHandle(locale.getCountry()+"_demographic_question_list");
+            r.setContentHandle(locale.getLanguage()+"_demographic_question_list");
         }
         r.setProperty("ct", String.valueOf(coderTypeId));
         r.setProperty("cm", String.valueOf(companyId));
@@ -180,7 +180,7 @@ public abstract class FullRegBase extends SimpleRegBase {
         if (locale.equals(Locale.US)) {
             r.setContentHandle("demographic_answer_list");
         } else {
-            r.setContentHandle(locale.getCountry()+"_demographic_answer_list");
+            r.setContentHandle(locale.getLanguage()+"_demographic_answer_list");
         }
         r.setProperty("dq", String.valueOf(ret.getId()));
         r.setProperty("db", String.valueOf(db));
