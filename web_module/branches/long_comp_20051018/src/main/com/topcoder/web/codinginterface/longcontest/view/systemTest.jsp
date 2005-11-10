@@ -1,4 +1,21 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@  page
+  language="java"
+  import="java.util.*,
+          com.topcoder.web.codinginterface.longcontest.*,
+          com.topcoder.shared.dataAccess.resultSet.*"
+
+%>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="struts-logic.tld" prefix="logic" %>
+<%
+    Map m = (Map)request.getAttribute("resultMap");
+    ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_system_test_detail");
+    ResultSetContainer.ResultSetRow testRow = null;
+    if(rsc != null && !rsc.isEmpty())
+        testRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
+%>
 <html>
 <head>
 <title>TopCoder</title>
@@ -31,49 +48,10 @@
 <jsp:param name="title" value="System Test"/>
 </jsp:include>
 
-<span class="bigHandle">Contest: Round 1</span><br>
-<span class="bodySubtitle">Registrants: 1</span><br>
 
-<div class="pagingBox">
-      &lt;&lt; previous
-      &nbsp;|&nbsp;
-      <a href="/stat?c=ratings_history&amp;cr=272072&amp;sr=51&amp;er=100&amp;nr=50" class="bcLink">next &gt;&gt;</a>
-</div>
+<rsc:item name="args" row="<%=testRow%>"/>
+<rsc:item name="expected_result" row="<%=testRow%>"/>
 
-<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
-   <tr>
-      <td>               
-      <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-
-<tr>
-   <td class="tableTitle" colspan="6">Standings</td>
-</tr>
-<tr>
-   <td class="tableHeader" width="25%"><A href="sort">Handle</A></td>
-   <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href="sort">Score</A></td>
-   <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href="sort">Rank</A></td>
-   <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href="sort">Submissions</A></td>
-</tr>
-<%-- ITERATOR --%>
-<%boolean even = true;%>
-<tr>
-   <td class="<%=even?"statLt":"statDk"%>">handle</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;">99.99</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 15px;">1</td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;"><A href="submission history page" class="statLink">3</A></td>
-</tr>
-<%even=!even;%>
-<%-- END ITERATOR --%>
-      </TABLE>
-      </TD>
-   </tr>
-</TABLE>
-
-<div class="pagingBox">
-      &lt;&lt; previous
-      &nbsp;|&nbsp;
-      <a href="/stat?c=ratings_history&amp;cr=272072&amp;sr=51&amp;er=100&amp;nr=50" class="bcLink">next &gt;&gt;</a>
-</div>
 
         </td>
 
