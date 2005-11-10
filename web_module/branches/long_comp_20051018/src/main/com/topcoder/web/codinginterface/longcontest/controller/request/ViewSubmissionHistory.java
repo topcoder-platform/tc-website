@@ -47,9 +47,9 @@ public class ViewSubmissionHistory extends Base{
             
             String component = StringUtils.checkNull(request.getParameter(Constants.COMPONENT_ID));
             if("".equals(component)){
-                Request r = new Request();
-                r.setContentHandle("long_contest_problem_component");
-                r.setProperty(Constants.PROBLEM_ID,request.getParameter(Constants.PROBLEM_ID));
+                Request rTemp = new Request();
+                rTemp.setContentHandle("long_contest_problem_component");
+                rTemp.setProperty(Constants.PROBLEM_ID,request.getParameter(Constants.PROBLEM_ID));
                 component = ((ResultSetContainer)
                         getDataAccess(false).getData(r).get("long_contest_problem_component"))
                         .getStringItem(0,"component_id");

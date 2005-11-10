@@ -24,6 +24,10 @@ import java.io.StringReader;
 public class ViewProblemStatement extends Base{
     protected static final Logger log = Logger.getLogger(ViewProblemStatement.class);
 
+    /**
+     * 
+     * @throws com.topcoder.web.common.TCWebException 
+     */
     protected void businessProcessing() throws TCWebException {
 	if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
@@ -94,7 +98,7 @@ public class ViewProblemStatement extends Base{
             request.setAttribute(Constants.PROBLEM_STATEMENT_KEY,html);
             
             String popup = request.getParameter("popup");
-            if("true".equalsNoCase(popup)){
+            if("true".equalsIgnoreCase(popup)){
                 setNextPage(Constants.PAGE_PROBLEM_STATEMENT_CONTENT);
             }else{
                 setNextPage(Constants.PAGE_PROBLEM_STATEMENT);
