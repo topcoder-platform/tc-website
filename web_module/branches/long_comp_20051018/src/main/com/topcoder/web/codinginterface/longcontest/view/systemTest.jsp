@@ -49,8 +49,12 @@
 </jsp:include>
 
 
-<rsc:item name="args" row="<%=testRow%>"/>
-<rsc:item name="expected_result" row="<%=testRow%>"/>
+<span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=testRow%>"/></span><br>
+<span class="bodySubtitle">Problem: <rsc:item name="problem_name" row="<%=testRow%>"/></span><p>
+
+Arguments: <rsc:item name="args" row="<%=testRow%>"/><p>
+
+Expected Result: <rsc:item name="expected_result" row="<%=testRow%>"/>
 
 
         </td>
