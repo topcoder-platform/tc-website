@@ -208,13 +208,4 @@ public abstract class RegistrationBase extends BaseProcessor {
         return ret;
     }
 
-    protected Locale getLocale() {
-        String locale = StringUtils.checkNull(getRequest().getParameter(Constants.LOCALE));
-        if (locale.equals("")) {
-            return Locale.US;
-        } else {
-            return new Locale(locale);
-        }
-    }
-
 }
