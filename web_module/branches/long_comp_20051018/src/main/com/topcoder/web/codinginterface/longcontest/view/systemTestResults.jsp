@@ -12,6 +12,7 @@
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%
     Map m = (Map)request.getAttribute("resultMap");
+    Map scoreHash = (Map)request.getAttribute("scoreHash");
     ResultSetContainer coders = (ResultSetContainer)m.get("long_contest_test_results_coders");
     ResultSetContainer cases = (ResultSetContainer)m.get("long_contest_test_results_cases");
     ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_overview_info");
@@ -134,20 +135,13 @@
 </rsc:iterator>
 </tr>
 <%boolean even = true;%>
-<rsc:iterator list="<%=coders%>" id="resultRow">
+<rsc:iterator list="<%=coders%>" id="coderRow">
 <tr align="right">
-   <td class="tableheader" align="left" nowrap="nowrap"><A href="sort">[+]</A> <rsc:item name="handle" row="<%=resultRow%>"/></td>
-   <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="final_points" row="<%=resultRow%>"/></td>
-   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
-   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
-   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
-   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
-   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
-   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
-   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
-   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
-   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
-   <td class="<%=even?"statLt":"statDk"%>">99.99</td>
+   <td class="tableheader" align="left" nowrap="nowrap"><A href="sort">[+]</A> <rsc:item name="handle" row="<%=coderRow%>"/></td>
+   <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="final_points" row="<%=coderRow%>"/></td>
+<rsc:iterator list="<%=cases%>" id="caseRow">
+   <td class="<%=even?"statLt":"statDk"%>"><%=scoreHash.get(coderRow.getIntItem("coder_id") + "_" + caseRow.getIntItem("test_case_id"))%></td>
+</rsc:iterator>
 </tr>
 <%even=!even;%>
 </rsc:iterator>

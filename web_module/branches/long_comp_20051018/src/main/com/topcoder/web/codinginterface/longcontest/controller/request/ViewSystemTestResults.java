@@ -18,7 +18,8 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 
-import java.util.Map;
+import java.util.HashMap;
+import java.util.ListIterator;
 
 /**
  *
@@ -67,6 +68,8 @@ public class ViewSystemTestResults extends Base {
             r.setContentHandle("long_contest_system_test_results");
             r.setProperty(Constants.ROUND_ID,request.getParameter(Constants.ROUND_ID));
             r.setProperty(Constants.PROBLEM_ID,request.getParameter(Constants.PROBLEM_ID));
+            if(!StringUtils.checkNull(request.getParameter(Constants.TEST_CASE_ID)).isEmpty())
+                r.setProperty(Constants.TEST_CASE_ID,request.getParameter(Constants.TEST_CASE_ID));
 
             Map result = getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r);
   
@@ -80,7 +83,15 @@ public class ViewSystemTestResults extends Base {
             rsc = new ResultSetContainer(rsc, startCol, endCol);
             result.put("long_contest_test_results_cases", rsc);
 
+            rsc = (ResultSetContainer) result.get("long_contest_system_test_results");
+            HashMap hash = new HashMap();
+            for(ListIterator iter = rsc.listIterator(); iter.hasNext(); ){
+                ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow)iter.next();
+                hash.put(row.getIntItem("coder_id") + "_" + row.getIntItem("test_case_id"), row.getStringItem("score"));
+            }
+
             request.setAttribute("resultMap", result);
+            request.setAttribute("scoreHash", hash);
             setNextPage(Constants.PAGE_VIEW_SYSTEM_TEST_RESULTS);
             setIsNextPageInContext(true);
         }catch(TCWebException e){
