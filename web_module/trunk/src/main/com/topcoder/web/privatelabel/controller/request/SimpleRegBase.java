@@ -9,6 +9,7 @@ import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import java.util.StringTokenizer;
+import java.util.Locale;
 
 /**
  * Provides some basic functionality for the different processors
@@ -90,7 +91,11 @@ public abstract class SimpleRegBase extends RegistrationBase {
             info.setEventId(Long.parseLong(StringUtils.checkNull(getRequestParameter(Constants.EVENT_ID))));
         if (hasRequestParameter(Constants.PHONE_NUMBER))
             info.setPhoneNumber(StringUtils.checkNull(getRequestParameter(Constants.PHONE_NUMBER)));
-
+        if (hasRequestParameter(Constants.LOCALE)) {
+            info.setLocale(new Locale(StringUtils.checkNull(getRequestParameter(Constants.PHONE_NUMBER))));
+        } else {
+            info.setLocale(Locale.US);
+        }
         return info;
     }
 
