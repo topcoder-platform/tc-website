@@ -25,7 +25,7 @@ public class ViewSystemTest extends Base{
             TCRequest request = getRequest();
             Request r = new Request();
             r.setContentHandle("long_contest_system_test_detail");
-            r.setProperty(Constants.PROBLEM_ID,request.getParameter(Constants.PROBLEM));
+            r.setProperty(Constants.PROBLEM_ID,request.getParameter(Constants.PROBLEM_ID));
             r.setProperty(Constants.ROUND_ID,request.getParameter(Constants.ROUND_ID));
             r.setProperty(Constants.TEST_CASE_ID,request.getParameter(Constants.TEST_CASE_ID));
             DataAccessInt dataAccess = getDataAccess(DBMS.DW_DATASOURCE_NAME, false);
