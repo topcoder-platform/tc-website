@@ -34,7 +34,7 @@ public abstract class FullRegConfirm extends FullRegBase {
 
         try {
             if (hasErrors()) {
-                List l = getQuestionList(((FullRegInfo) regInfo).getCoderType());
+                List l = getQuestionList(((FullRegInfo) regInfo).getCoderType(), regInfo.getLocale());
                 Collections.sort(l);
                 getRequest().setAttribute("questionList", l);
                 setDefaults(regInfo);
@@ -126,7 +126,7 @@ public abstract class FullRegConfirm extends FullRegBase {
             String[] values = null;
             DemographicResponse r = null;
             String key = null;
-            List questionList = getQuestionList(info.getCoderType());
+            List questionList = getQuestionList(info.getCoderType(), info.getLocale());
             //loop through all the questions
             info.clearResponses();
             for (Iterator it = questionList.iterator(); it.hasNext();) {

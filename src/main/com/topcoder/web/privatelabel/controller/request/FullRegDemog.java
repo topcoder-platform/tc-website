@@ -23,7 +23,7 @@ public abstract class FullRegDemog extends FullRegBase {
             getRequest().setAttribute("stateList", getStateList());
         } else {
             try {
-                List l = getQuestionList(((FullRegInfo) regInfo).getCoderType());
+                List l = getQuestionList(((FullRegInfo) regInfo).getCoderType(), regInfo.getLocale());
                 Collections.sort(l);
                 getRequest().setAttribute("questionList", l);
             } catch (Exception e) {
