@@ -147,7 +147,7 @@ public abstract class FullRegBase extends SimpleRegBase {
         DemographicQuestion q = null;
         for (Iterator it = questions.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
-            q = makeQuestion(row, db);
+            q = makeQuestion(row, db, locale);
             ret.put(new Long(q.getId()), q);
         }
         return ret;
@@ -166,7 +166,7 @@ public abstract class FullRegBase extends SimpleRegBase {
     }
 
 
-    private static DemographicQuestion makeQuestion(ResultSetContainer.ResultSetRow row, String db) throws Exception {
+    private static DemographicQuestion makeQuestion(ResultSetContainer.ResultSetRow row, String db, Locale locale) throws Exception {
         DemographicQuestion ret = new DemographicQuestion();
         ret.setId(row.getLongItem("demographic_question_id"));
         ret.setDesc(row.getStringItem("demographic_question_desc"));
@@ -177,7 +177,11 @@ public abstract class FullRegBase extends SimpleRegBase {
 
         DataAccessInt dataAccess = getDataAccess(db, true);
         Request r = new Request();
-        r.setContentHandle("demographic_answer_list");
+        if (locale.equals(Locale.US)) {
+            r.setContentHandle("demographic_answer_list");
+        } else {
+            r.setContentHandle(locale.getCountry()+"_demographic_answer_list");
+        }
         r.setProperty("dq", String.valueOf(ret.getId()));
         r.setProperty("db", String.valueOf(db));
         Map aMap = dataAccess.getData(r);
