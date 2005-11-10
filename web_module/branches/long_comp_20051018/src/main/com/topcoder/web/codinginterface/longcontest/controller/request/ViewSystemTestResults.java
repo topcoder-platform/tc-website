@@ -32,24 +32,37 @@ public class ViewSystemTestResults extends Base {
             TCRequest request = getRequest();
             Request r = new Request();
             
-            String startRank = StringUtils.checkNull(getRequest().getParameter(Constants.START_ROW));
-            String numRecords = StringUtils.checkNull(getRequest().getParameter(Constants.ROW_COUNT));
+            String startRowStr = StringUtils.checkNull(getRequest().getParameter(Constants.START_ROW));
+            String startColStr = StringUtils.checkNull(getRequest().getParameter(Constants.START_COL));
+            String rowCountStr = StringUtils.checkNull(getRequest().getParameter(Constants.ROW_COUNT));
+            String colCountStr = StringUtils.checkNull(getRequest().getParameter(Constants.COL_COUNT));
             String sortDir = StringUtils.checkNull(getRequest().getParameter(Constants.SORT_ORDER));
-            String sortCol = StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_COLUMN));
+            String sortColStr = StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_COLUMN));
             
-            if ("".equals(numRecords)) {
-                numRecords = "10";
-            } else if (Integer.parseInt(numRecords)>200) {
-                numRecords="200";
+            int rowCount = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
+            int colCount = Integer.parseInt(Constants.DEFAULT_COL_COUNT);
+            int startRow = 1, startCol = 1, sortCol = 2;
+            if (!"".equals(rowCountStr)) {
+                rowCount = Integer.parseInt(rowCountStr);
             }
-            if (startRank.equals("") || Integer.parseInt(startRank) <= 0) {
-                startRank = "1";
+            if (!"".equals(colCountStr)) {
+                colCount = Integer.parseInt(colCountStr);
             }
-            if (sortCol.equals("")) {
-                sortCol = "1";
+            if (!startRowStr.equals("")){
+                startRow = Integer.parseInt(startRowStr);
+            }
+            if (!startColStr.equals("")){
+                startCol = Integer.parseInt(startColStr);
+            }
+            if (!sortColStr.equals("")) {
+                sortCol = Integer.parseInt(sortColStr);
+            }
+            if (sortDir.equals("")) {
+                sortDir = (sortCol == 1)?"asc":"desc";
             }
 
-            int endRank = Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1;
+            int endRow = startRow + rowCount - 1;
+            int endCol = startCol + colCount - 1;
             
             r.setContentHandle("long_contest_system_test_results");
             r.setProperty(Constants.ROUND_ID,request.getParameter(Constants.ROUND_ID));
@@ -57,16 +70,15 @@ public class ViewSystemTestResults extends Base {
 
             Map result = getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r);
   
-//            ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_round_registrants");
-//            rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
-//            rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank),endRank);
-//            result.put("long_contest_round_registrants", rsc);
+            ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_system_test_coders");
+            rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
+            rsc = new ResultSetContainer(rsc, startRow, endRow);
+            result.put("long_contest_overview_coders", rsc);
 
-//            SortInfo s = new SortInfo();
-//            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
-
-            setDefault(Constants.ROW_COUNT, numRecords);
-            setDefault(Constants.START_ROW, startRank);
+            rsc = (ResultSetContainer) result.get("long_contest_system_test_cases");
+//            rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
+            rsc = new ResultSetContainer(rsc, startCol, endCol);
+            result.put("long_contest_overview_cases", rsc);
 
             request.setAttribute("resultMap", result);
             setNextPage(Constants.PAGE_VIEW_SYSTEM_TEST_RESULTS);

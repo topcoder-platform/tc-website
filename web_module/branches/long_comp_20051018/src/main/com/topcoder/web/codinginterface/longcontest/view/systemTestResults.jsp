@@ -2,8 +2,8 @@
 <%@  page
   language="java"
   import="java.util.*,
-          java.text.SimpleDateFormat,
-          com.topcoder.web.codinginterface.longcontest.*,
+          com.topcoder.web.codinginterface.longcontest.Constants,
+          com.topcoder.web.common.StringUtils,
           com.topcoder.shared.dataAccess.resultSet.*"
 
 %>
@@ -14,6 +14,67 @@
     Map m = (Map)request.getAttribute("resultMap");
     ResultSetContainer coders = (ResultSetContainer)m.get("long_contest_test_results_coders");
     ResultSetContainer cases = (ResultSetContainer)m.get("long_contest_test_results_cases");
+    ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_overview_info");
+    ResultSetContainer.ResultSetRow infoRow = null;
+    if(rsc != null && !rsc.isEmpty())
+        infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
+    
+    /* Complex paging & sorting links are all pre-formed here to avoid messy code below */
+    int pageRSize = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
+    if(!"".equals(StringUtils.checkNull(request.getParameter(Constants.ROW_COUNT))))
+        pageRSize = Integer.parseInt(request.getParameter(Constants.ROW_COUNT));
+    
+    int pageCSize = Integer.parseInt(Constants.DEFAULT_COL_COUNT);
+    if(!"".equals(StringUtils.checkNull(request.getParameter(Constants.COL_COUNT))))
+        pageCSize = Integer.parseInt(request.getParameter(Constants.COL_COUNT));
+    
+    String selfLink = "longcontest?module=ViewOverview"
+            + "&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID)
+            + "&" + Constants.PROBLEM_ID + "=" + request.getParameter(Constants.PROBLEM_ID)
+            + "&" + Constants.CODER_ID + "=" + StringUtils.checkNull(request.getParameter(Constants.CODER_ID))
+            + "&" + Constants.TEST_CASE_ID + "=" + StringUtils.checkNull(request.getParameter(Constants.TEST_CASE_ID))
+            + "&" + Constants.ROW_COUNT + "=" + pageRSize
+            + "&" + Constants.COL_COUNT + "=" + pageCSize;
+    
+    String sortParams = "&" + Constants.PRIMARY_COLUMN + "=" + StringUtils.checkNull(request.getParameter(Constants.PRIMARY_COLUMN))
+            + "&" + Constants.SORT_ORDER + "=" + StringUtils.checkNull(request.getParameter(Constants.SORT_ORDER));
+    
+    String pagingRParam = "&" + Constants.START_ROW + "=" + StringUtils.checkNull(request.getParameter(Constants.START_ROW));
+    String pagingCParam = "&" + Constants.START_COL + "=" + StringUtils.checkNull(request.getParameter(Constants.START_COL));
+    
+    String prevRPage, nextRPage, prevCPage,nextCPage;
+    if(coders.croppedDataBefore()){
+        prevRPage = "<a href=\"" + selfLink + sortParams
+                + "&" + Constants.START_ROW + "=" + Math.max(1,coders.getStartRow() - pageRSize)
+                + pagingCParam
+                + "\" class=\"bcLink\">&lt;&lt; previous</a>";
+    }else{
+        prevRPage = "&lt;&lt; previous";
+    }
+    if(coders.croppedDataAfter()){
+        nextRPage = "<a href=\"" + selfLink + sortParams
+                + "&" + Constants.START_ROW + "=" + (coders.getStartRow() + pageRSize)
+                + pagingCParam
+                + "\" class=\"bcLink\">next &gt;&gt;</a>";
+    }else{
+        nextRPage = "next &gt;&gt;";
+    }
+    if(cases.croppedDataBefore()){
+        prevRPage = "<a href=\"" + selfLink + sortParams
+                + pagingRParam
+                + "&" + Constants.START_COL + "=" + Math.max(1,cases.getStartRow() - pageCSize)
+                + "\" class=\"bcLink\">&lt;&lt; previous</a>";
+    }else{
+        prevRPage = "&lt;&lt; previous";
+    }
+    if(cases.croppedDataAfter()){
+        nextRPage = "<a href=\"" + selfLink + sortParams
+                + pagingRParam
+                + "&" + Constants.START_COL + "=" + (cases.getStartRow() + pageCSize)
+                + "\" class=\"bcLink\">next &gt;&gt;</a>";
+    }else{
+        nextRPage = "next &gt;&gt;";
+    }
 %>
 
 <html>
@@ -48,13 +109,12 @@
 <jsp:param name="title" value="System Test Results"/>
 </jsp:include>
 
-<span class="bigHandle">Contest: Round 1</span><br>
-<span class="bodySubtitle">Registrants: 1</span><br>
+<span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
+<span class="bodySubtitle">Competitors: <rsc:item name="num_competitors" row="<%=infoRow%>"/></span><br>
 
 <div class="pagingBox">
-      &lt;&lt; previous
-      &nbsp;|&nbsp;
-      <a href="/stat?c=ratings_history&amp;cr=272072&amp;sr=51&amp;er=100&amp;nr=50" class="bcLink">next &gt;&gt;</a>
+      <%=prevRPage%> &nbsp;[competitors]&nbsp; <%=nextRPage%><br>
+      <%=prevCPage%> &nbsp;[test&nbsp;cases]&nbsp; <%=nextCPage%>
 </div>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
@@ -63,13 +123,14 @@
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
 <tr>
-   <td class="tableTitle" colspan="11">System Test Results</td>
+   <td class="tableTitle" colspan="<%=cases.getRowCount()+2%>">System Test Results</td>
 </tr>
 <tr>
    <td class="tableHeader"></td>
    <td class="tableHeader"></td>
 <rsc:iterator list="<%=cases%>" id="resultRow">
-   <td class="tableHeader" align="right" nowrap="nowrap"><A href="sort">Test Case <rsc:item name="rank" row="<%=resultRow%>"/></A><br>(<A href="details">details</A>)</td>
+   <td class="tableHeader" align="right" nowrap="nowrap"><A href="sort">Test Case <rsc:item name="rank" row="<%=resultRow%>"/></A><br>
+   (<A href="longcontest?module=ViewSystemTest&<%=Constants.TEST_CASE_ID%>=<rsc:item name="test_case_id" row="<%=resultRow%>&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<%=request.getParameter(Constants.PROBLEM_ID)%>">details</A>)</td>
 </rsc:iterator>
 </tr>
 <%boolean even = true;%>
