@@ -197,7 +197,7 @@
         <b>Demographics</b>
     </td>
     <td align="left">
-        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_CHINA_05_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="companyId"/>">edit</a>
+        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_CHINA_05_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="companyId"/>&<%=Constants.LOCALE%>=<%=regInfo.getLocale().getLanguage()%>">edit</a>
     </td>
 </tr>
 <tr>
