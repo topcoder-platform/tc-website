@@ -190,7 +190,12 @@ public class Submit extends Base {
 								new String[]{String.valueOf(rid),String.valueOf(cd),String.valueOf(cid),String.valueOf(language)}));
 					}
 				} catch (TimeOutException e) {
-					throw new NavigationException("Your code compilation timed out.");
+					// The compilation timed out 
+					request.setAttribute(Constants.MESSAGE, "Your code compilation request timed out.");
+					// Go back to coding.
+					closeProcessingPage(buildProcessorRequestString("Submit",
+							new String[]{Constants.ROUND_ID,Constants.CONTEST_ID,Constants.COMPONENT_ID,Constants.LANGUAGE_ID},
+							new String[]{String.valueOf(rid),String.valueOf(cd),String.valueOf(cid),String.valueOf(language)}));
 				}
 			} else if(action.equals("save")) { // user is saving code
 				boolean res = saveCode(code, language, (int)uid, cd, rid, cid);		
