@@ -13,6 +13,9 @@
 <%
     Map m = (Map)request.getAttribute("resultMap");
     ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_submission");
+    ResultSetContainer.ResultSetRow infoRow = null;
+    if(rsc != null && !rsc.isEmpty())
+        infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
     String code = rsc.getStringItem(0,0);
 %>
 
@@ -48,12 +51,14 @@
 <jsp:param name="title" value="Problem Solution"/>
 </jsp:include>
 
-<span class="bigHandle">Contest: Round 1</span><br>
-<span class="bodySubtitle">Problem: ProblemName</span><br>
-<span class="bodySubtitle">Coder: handle</span><br>
-<span class="bodySubtitle">Submission: 1</span><br>
+<span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
+<span class="bodySubtitle">Problem: <rsc:item name="problem_name" row="<%=infoRow%>"/></span><br>
+<span class="bodySubtitle">Coder: <rsc:item name="handle" row="<%=infoRow%>"/></span><br>
+<span class="bodySubtitle">Submission: <rsc:item name="submission_number" row="<%=infoRow%>"/></span><br>
 
-<%=code%>
+<pre>
+<rsc:item name="submission_text" row="<%=infoRow%>"/>
+</pre>
 
 
         </td>
