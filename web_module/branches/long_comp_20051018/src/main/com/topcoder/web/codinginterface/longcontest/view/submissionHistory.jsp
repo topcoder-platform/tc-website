@@ -29,7 +29,7 @@
     
     String selfLink = "longcontest?module=ViewSubmissionHistory"
             + "&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID)
-            + "&" + Constants.COMPONENT_ID + "=" + request.getParameter(Constants.COMPONENT_ID)
+            + "&" + Constants.COMPONENT_ID + "=" + request.getAttribute(Constants.COMPONENT_ID)
             + "&" + Constants.CODER_ID + "=" + request.getParameter(Constants.CODER_ID)
             + "&" + DataAccessConstants.NUMBER_RECORDS + "=" + pageSize;
     

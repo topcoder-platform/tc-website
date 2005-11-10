@@ -45,9 +45,14 @@ public class ViewSubmissionHistory extends Base{
 
             int endRank = startRank + numRecords - 1;
             
-            String component = request.getParameter(Constants.COMPONENT_ID);
-            if(component == null){
-                // TODO: translate problem id into component id
+            String component = StringUtils.checkNull(request.getParameter(Constants.COMPONENT_ID));
+            if("".equals(component)){
+                Request r = new Request();
+                r.setContentHandle("long_contest_problem_component");
+                r.setProperty(Constants.PROBLEM_ID,request.getParameter(Constants.PROBLEM_ID));
+                component = ((ResultSetContainer)
+                        getDataAccess(false).getData(r).get("long_contest_problem_component"))
+                        .getStringItem(0,"component_id");
             }
             
             r.setContentHandle("long_contest_submission_history");
@@ -69,6 +74,7 @@ public class ViewSubmissionHistory extends Base{
             setDefault(DataAccessConstants.START_RANK, ""+startRank);
 
             request.setAttribute("resultMap", result);
+            request.setAttribute(Constants.COMPONENT_ID, component);
             setNextPage(Constants.PAGE_SUBMISSION_HISTORY);
             setIsNextPageInContext(true);
         }catch(Exception e){
