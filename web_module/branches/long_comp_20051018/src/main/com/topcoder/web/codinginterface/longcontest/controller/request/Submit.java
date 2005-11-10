@@ -177,11 +177,11 @@ public class Submit extends Base {
 					}
 				} catch (TimeOutException e) {
 					// The compilation timed out
-					String msg = URLEncoder.encode("Your code compilation request timed out.", "UTF-8");
+					request.getSession().setAttribute(Constants.COMPILE_MESSAGE, "Your code compilation request timed out.<br>");					
 					// Go back to coding.
 					closeProcessingPage(buildProcessorRequestString("Submit",
-							new String[]{Constants.ROUND_ID,Constants.CONTEST_ID,Constants.COMPONENT_ID,Constants.LANGUAGE_ID, Constants.MESSAGE},
-							new String[]{String.valueOf(rid),String.valueOf(cd),String.valueOf(cid),String.valueOf(language), msg}));
+							new String[]{Constants.ROUND_ID,Constants.CONTEST_ID,Constants.COMPONENT_ID,Constants.LANGUAGE_ID},
+							new String[]{String.valueOf(rid),String.valueOf(cd),String.valueOf(cid),String.valueOf(language)}));
 				}
 			} else if(action.equals("save")) { // user is saving code
 				boolean res = saveCode(code, language, (int)uid, cd, rid, cid);		
