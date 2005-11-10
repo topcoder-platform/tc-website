@@ -58,8 +58,9 @@
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">Qualification Round</td>
-                    <td class="sidebarText" nowrap=nowrap>Noon, December 6, 2005 <br/><br>through<br><br>Noon, December
-                        7, 2005<br></td>
+                    <td class="sidebarText" nowrap=nowrap>
+					Noon, December 12, 2005<br>to<br>Noon, December 13, 2005
+                    </td>
                     <td class="sidebarText" align="center">All eligible members</td>
                     <td class="sidebarText" align="center">500</td>
                 </tr>
@@ -85,13 +86,13 @@
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">Online Round 1</td>
-                    <td class="sidebarText">December 12, 2005<br>Register: 6:00 PM<br>START: 9:00 PM<br></td>
+                    <td class="sidebarText">December 19, 9:00 PM</td>
                     <td class="sidebarText" align="center">500</td>
                     <td class="sidebarText" align="center">250</td>
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">Online Round 2</td>
-                    <td class="sidebarText">December 15, 2005<br>START: 9:00 PM<br></td>
+                    <td class="sidebarText">December 22, 2005, 9:00 PM</td>
                     <td class="sidebarText" align="center">250</td>
                     <td class="sidebarText" align="center">50</td>
                 </tr>
@@ -104,8 +105,7 @@
 
             <br><br>
             <span class="greenSubtitle">Onsite Championship Round</span><br>
-            Up to 50 coders will compete in the Championship Round being held in Beijing at a site TBD. Each finalist
-            must be present onsite to compete in the onsite finals.
+            Up to 50 coders will compete in the Championship Round being held in China at a site TBD.  Each finalist must be present onsite to compete in the onsite finals.
             <br><br>
 
             <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
@@ -116,7 +116,7 @@
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">Championship Round</td>
-                    <td class="sidebarText">January 14, 2006<br>START: TBD<br></td>
+                    <td class="sidebarText">January 20, time TBD</td>
                     <td class="sidebarText" align="center">50</td>
                 </tr>
                 <tr valign="top">
