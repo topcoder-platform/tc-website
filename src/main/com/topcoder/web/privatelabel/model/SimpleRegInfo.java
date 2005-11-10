@@ -2,6 +2,8 @@ package com.topcoder.web.privatelabel.model;
 
 import com.topcoder.web.common.model.Base;
 
+import java.util.Locale;
+
 /**
  *
  * @author gpaul 06.26.2003
@@ -28,6 +30,7 @@ public class SimpleRegInfo extends Base {
     private String city;
     private String zip;
     private String phonenumber;
+    private Locale locale;
 
     private long companyId;
     private long eventId;
@@ -55,6 +58,7 @@ public class SimpleRegInfo extends Base {
         companyId = 0;
         eventId = 0;
         phonenumber = "";
+        locale = Locale.US;
     }
 
     public SimpleRegInfo(SimpleRegInfo info) {
@@ -80,6 +84,7 @@ public class SimpleRegInfo extends Base {
         setCompanyId(info.getCompanyId());
         setEventId(info.getEventId());
         setPhoneNumber(info.getPhoneNumber());
+        setLocale(info.getLocale());
 
         setNew(info.isNew());
     }
@@ -258,6 +263,14 @@ public class SimpleRegInfo extends Base {
 
     public void setEventId(long eventId) {
         this.eventId = eventId;
+    }
+
+    public Locale getLocale() {
+        return locale;
+    }
+
+    public void setLocale(Locale locale) {
+        this.locale = locale;
     }
 
 }
