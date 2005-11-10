@@ -12,12 +12,12 @@ import com.topcoder.shared.util.TCResourceBundle;
 public class CredentialReminder extends BaseCredentialReminder {
 
     protected String getStartPage() {
-        TCResourceBundle bundle = new TCResourceBundle("PrivateLabel", getLocale());
+        TCResourceBundle bundle = new TCResourceBundle("PrivateLabel", regInfo.getLocale());
         return bundle.getProperty("google_china_05_credentials_page");
     }
 
     protected String getSuccessPage() {
-        TCResourceBundle bundle = new TCResourceBundle("PrivateLabel", getLocale());
+        TCResourceBundle bundle = new TCResourceBundle("PrivateLabel", regInfo.getLocale());
         return bundle.getProperty("google_china_05_credentials_sent_page");
     }
 }
