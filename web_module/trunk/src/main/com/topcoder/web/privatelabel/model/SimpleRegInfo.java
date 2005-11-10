@@ -266,12 +266,12 @@ public class SimpleRegInfo extends Base {
     }
 
     public Locale getLocale() {
-        log.debug("getting locale " + locale.getCountry());
+        log.debug("getting locale " + locale.toString());
         return locale;
     }
 
     public void setLocale(Locale locale) {
-        log.debug("setting locale to " + locale.getCountry());
+        log.debug("setting locale to " + locale.toString());
         this.locale = locale;
     }
 
