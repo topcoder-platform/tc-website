@@ -18,6 +18,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 
+import java.util.Map;
 import java.util.HashMap;
 import java.util.ListIterator;
 
@@ -68,7 +69,7 @@ public class ViewSystemTestResults extends Base {
             r.setContentHandle("long_contest_system_test_results");
             r.setProperty(Constants.ROUND_ID,request.getParameter(Constants.ROUND_ID));
             r.setProperty(Constants.PROBLEM_ID,request.getParameter(Constants.PROBLEM_ID));
-            if(!StringUtils.checkNull(request.getParameter(Constants.TEST_CASE_ID)).isEmpty())
+            if(!"".equals(StringUtils.checkNull(request.getParameter(Constants.TEST_CASE_ID))))
                 r.setProperty(Constants.TEST_CASE_ID,request.getParameter(Constants.TEST_CASE_ID));
 
             Map result = getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r);
