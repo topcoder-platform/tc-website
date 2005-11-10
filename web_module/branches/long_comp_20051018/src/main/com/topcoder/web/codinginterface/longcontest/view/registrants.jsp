@@ -12,10 +12,11 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="resultMap" class="java.util.Map" scope="request" />
 <%
-    Map m = (Map)request.getAttribute("resultMap");
-    ResultSetContainer registrants = (ResultSetContainer)m.get("long_contest_round_registrants");
-    ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_round_registrants_info");
+    ResultSetContainer registrants = (ResultSetContainer)resultMap.get("long_contest_round_registrants");
+    ResultSetContainer rsc = (ResultSetContainer)resultMap.get("long_contest_round_registrants_info");
     ResultSetContainer.ResultSetRow infoRow = null;
     if(rsc != null)
         infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
@@ -24,7 +25,7 @@
     if(!"".equals(StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_RECORDS))))
         pageSize = Integer.parseInt(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
     
-    String selfLink = "longcontest?module=ViewRegistrants"
+    String selfLink = sessionInfo.getServletPath() + "?" + Constants.MODULE + "=ViewRegistrants"
             + "&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID)
             + "&" + DataAccessConstants.NUMBER_RECORDS + "=" + pageSize;
     
@@ -107,7 +108,7 @@
 <%boolean even = true;%>
 <rsc:iterator list="<%=registrants%>" id="resultRow">
 <tr>
-   <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="handle" row="<%=resultRow%>"/></td>
+   <td class="<%=even?"statLt":"statDk"%>"><tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>'/>"/></td>
    <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="country_name" row="<%=resultRow%>"/></td>
    <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="state_code" row="<%=resultRow%>"/></td>
    <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="school_name" row="<%=resultRow%>"/></td>

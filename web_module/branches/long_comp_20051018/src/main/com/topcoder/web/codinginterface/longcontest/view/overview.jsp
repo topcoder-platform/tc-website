@@ -11,12 +11,13 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="resultMap" class="java.util.Map" scope="request" />
 <%
-    Map m = (Map)request.getAttribute("resultMap");
-    ResultSetContainer registrants = (ResultSetContainer)m.get("long_contest_overview_coders");
-    ResultSetContainer rounds = (ResultSetContainer)m.get("long_contest_round_list");
-    ResultSetContainer categories = (ResultSetContainer)m.get("long_contest_round_categories");
-    ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_overview_info");
+    ResultSetContainer registrants = (ResultSetContainer)resultMap.get("long_contest_overview_coders");
+    ResultSetContainer rounds = (ResultSetContainer)resultMap.get("long_contest_round_list");
+    ResultSetContainer categories = (ResultSetContainer)resultMap.get("long_contest_round_categories");
+    ResultSetContainer rsc = (ResultSetContainer)resultMap.get("long_contest_overview_info");
     ResultSetContainer.ResultSetRow infoRow = null;
     if(rsc != null && !rsc.isEmpty())
         infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
@@ -25,7 +26,7 @@
     if(!"".equals(StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_RECORDS))))
         pageSize = Integer.parseInt(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
     
-    String selfLink = "longcontest?module=ViewOverview"
+    String selfLink = sessionInfo.getServletPath() + "?" + Constants.MODULE + "=ViewOverview"
             + "&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID)
             + "&" + DataAccessConstants.NUMBER_RECORDS + "=" + pageSize;
     
@@ -87,7 +88,7 @@
 function goTo(selection){
   sel = selection.options[selection.selectedIndex].value;
   if (sel && sel != '#'){
-    window.location='longcontest?module=ViewOverview&<%=Constants.ROUND_ID%>='+sel;
+    window.location='<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewOverview&<%=Constants.ROUND_ID%>='+sel;
   }
 }
 // -->
@@ -105,9 +106,9 @@ Please select a contest:<br>
 </rsc:iterator>
 <br>
 Competitors: <rsc:item name="num_competitors" row="<%=infoRow%>"/><br>
-Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>"/></span><br>
-<A href="longcontest?module=ViewPractice">Practice</A><br>
-<A href="longcontest?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>">Problem Statement</A>
+Avg. Submissions: <tc-webtag:format object="<%=infoRow.getItem("avg_submissions").getResultData%>"/><rsc:item name="avg_submissions" row="<%=infoRow%>"/></span><br>
+<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewPractice">Practice</A><br>
+<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>">Problem Statement</A>
 
 <div class="pagingBox">
       <%=prevPage%> &nbsp;|&nbsp; <%=nextPage%>
@@ -133,12 +134,12 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>"/></span><b
 <%boolean even = true;%>
 <rsc:iterator list="<%=registrants%>" id="resultRow">
 <tr>
-   <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="handle" row="<%=resultRow%>"/></td>
+   <td class="<%=even?"statLt":"statDk"%>"><tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>'/></td>
    <td class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item name="point_total" row="<%=resultRow%>"/></td>
    <td class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item name="placed" row="<%=resultRow%>"/></td>
    <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="language_name" row="<%=resultRow%>"/></td>
-   <td class="<%=even?"statLt":"statDk"%>" align="center"><A href="longcontest?module=ViewSystemTestResults&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>">results</A></td>
-   <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><A href="longcontest?module=ViewSubmissionHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>">submission history</A></td>
+   <td class="<%=even?"statLt":"statDk"%>" align="center"><A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewSystemTestResults&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>">results</A></td>
+   <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewSubmissionHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>">submission history</A></td>
 </tr>
 <%even=!even;%>
 </rsc:iterator>

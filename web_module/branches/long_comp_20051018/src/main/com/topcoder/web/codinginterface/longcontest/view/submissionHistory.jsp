@@ -12,12 +12,13 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="resultMap" class="java.util.Map" scope="request" />
 <%
-    Map m = (Map)request.getAttribute("resultMap");
-    ResultSetContainer submissions = (ResultSetContainer)m.get("long_coder_submissions");
-    ResultSetContainer tmp = (ResultSetContainer)m.get("long_contest_over");
+    ResultSetContainer submissions = (ResultSetContainer)resultMap.get("long_coder_submissions");
+    ResultSetContainer tmp = (ResultSetContainer)resultMap.get("long_contest_over");
     boolean over = tmp.getBooleanItem(0,0);
-    tmp = (ResultSetContainer)m.get("long_contest_coder_submissions_info");
+    tmp = (ResultSetContainer)resultMap.get("long_contest_coder_submissions_info");
     ResultSetContainer.ResultSetRow infoRow = null;
     if(tmp != null)
         infoRow = (ResultSetContainer.ResultSetRow)tmp.get(0);
@@ -27,7 +28,7 @@
     if(!"".equals(StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_RECORDS))))
         pageSize = Integer.parseInt(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
     
-    String selfLink = "longcontest?module=ViewSubmissionHistory"
+    String selfLink = sessionInfo.getServletPath() + "?" + Constants.MODULE + "=ViewSubmissionHistory"
             + "&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID)
             + "&" + Constants.COMPONENT_ID + "=" + request.getAttribute(Constants.COMPONENT_ID)
             + "&" + Constants.CODER_ID + "=" + request.getParameter(Constants.CODER_ID)
@@ -88,7 +89,7 @@
 
 <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
 <span class="bodySubtitle">Problem: <rsc:item name="problem_name" row="<%=infoRow%>"/></span><br>
-<span class="bodySubtitle">Coder: <rsc:item name="handle" row="<%=infoRow%>"/></span><br>
+<span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=infoRow.getLongItem("coder_id")%>'/></span><br>
 <span class="bodySubtitle">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></span><br>
 
 <div class="pagingBox">
@@ -118,7 +119,7 @@
    <td class="<%=even?"statLt":"statDk"%>" align="center"><%=sdf.format(new Date(resultRow.getLongItem("submit_time")))%></td>
    <td class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item name="submission_points" row="<%=resultRow%>"/></td>
    <% if(over){ %>
-   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;"><A href="/longcontest/longcontest?module=ViewProblemSolution&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>">solution</A></td>
+   <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;"><A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemSolution&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>">solution</A></td>
    <% } %>
 </tr>
 <%even=!even;%>

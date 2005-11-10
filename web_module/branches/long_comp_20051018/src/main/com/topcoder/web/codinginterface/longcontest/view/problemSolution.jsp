@@ -10,9 +10,10 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="resultMap" class="java.util.Map" scope="request" />
 <%
-    Map m = (Map)request.getAttribute("resultMap");
-    ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_submission");
+    ResultSetContainer rsc = (ResultSetContainer)resultMap.get("long_contest_submission");
     ResultSetContainer.ResultSetRow infoRow = null;
     if(rsc != null && !rsc.isEmpty())
         infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
@@ -53,7 +54,7 @@
 
 <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
 <span class="bodySubtitle">Problem: <rsc:item name="problem_name" row="<%=infoRow%>"/></span><br>
-<span class="bodySubtitle">Coder: <rsc:item name="handle" row="<%=infoRow%>"/></span><br>
+<span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>'/>"/></span><br>
 <span class="bodySubtitle">Submission: <rsc:item name="submission_number" row="<%=infoRow%>"/></span><br>
 
 <pre>

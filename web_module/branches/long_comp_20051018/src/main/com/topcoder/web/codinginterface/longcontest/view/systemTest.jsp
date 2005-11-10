@@ -9,9 +9,10 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="resultMap" class="java.util.Map" scope="request" />
 <%
-    Map m = (Map)request.getAttribute("resultMap");
-    ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_system_test_detail");
+    ResultSetContainer rsc = (ResultSetContainer)resultMap.get("long_contest_system_test_detail");
     ResultSetContainer.ResultSetRow testRow = null;
     if(rsc != null && !rsc.isEmpty())
         testRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
