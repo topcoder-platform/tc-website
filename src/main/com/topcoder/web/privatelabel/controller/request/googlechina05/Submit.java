@@ -82,19 +82,19 @@ public class Submit extends ResumeRegSubmit {
             buf.append("Your handle and password will provide you with access to the Competition Arena, where you can practice and chat, and where you'll compete in the Google Code Jam China.\n\n");
             buf.append("PRACTICING FOR THE EVENT\n");
             buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in the Google Code Jam China.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 9:00AM GMT +8 on November 18, 2005 through 5:00PM GMT +8 on January 14, 2006.\n\n");
-            buf.append("You can access the practice rooms by navigating to http://www.topcoder.com/gccj05 and clicking on the Competition Arena tab.\n\n");
+            buf.append("You can access the practice rooms by navigating to http://www.topcoder.com/gcjc05 and clicking on the Competition Arena tab.\n\n");
             buf.append("COMPETING IN THE QUALIFICATION ROUND\n");
             buf.append("You may participate in the Qualification Round at any time between Tuesday, December 6 at Noon GMT +8 and Wednesday, December 7 at Noon GMT +8.  You will have up to one hour to solve two problems.  It is recommended that you utilize the practice area prior to participating in the qualification.\n\n");
             buf.append("LAUNCHING THE ARENA\n");
-            buf.append("You can launch and login to the competition arena at the appropriate time by navigating to http://www.topcoder.com/gccj05 and clicking on the Competition Arena tab.\n\n");
+            buf.append("You can launch and login to the competition arena at the appropriate time by navigating to http://www.topcoder.com/gcjc05 and clicking on the Competition Arena tab.\n\n");
             buf.append("You will need to have the Java 1.4.x runtime installed in order to launch the arena.\n\n");
-            buf.append("We also suggest that you read up on the competition process by navigating to http://www.topcoder.com/gccj05 and clicking the Instructions link at the top.\n\n");
-            buf.append("If you have any questions about how to participate, please email them to gccj05@topcoder.com\n\n");
+            buf.append("We also suggest that you read up on the competition process by navigating to http://www.topcoder.com/gcjc05 and clicking the Instructions link at the top.\n\n");
+            buf.append("If you have any questions about how to participate, please email them to gcjc@topcoder.com\n\n");
             buf.append("Thank you for registering for the Google Code Jam China.  We look forward to seeing you in the Arena!\n\n");
 
             mail.setBody(buf.toString());
             mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
-            mail.setFromAddress("gccj05@topcoder.com", "Google Code Jam Team");
+            mail.setFromAddress("gcjc@topcoder.com", "Google Code Jam Team");
             log.info("sent registration email to " + info.getEmail());
             EmailEngine.send(mail);
         } catch (Exception e) {
