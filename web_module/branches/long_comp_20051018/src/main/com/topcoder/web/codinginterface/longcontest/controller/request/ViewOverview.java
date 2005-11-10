@@ -38,7 +38,7 @@ public class ViewOverview extends Base {
             String sortColStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
             
             int numRecords = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
-            int startRank = 1, sortCol = 1;
+            int startRank = 1, sortCol = 4;
             if (!"".equals(numRecordsStr)) {
                 numRecords = Integer.parseInt(numRecordsStr);
             }
