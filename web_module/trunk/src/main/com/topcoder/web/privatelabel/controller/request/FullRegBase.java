@@ -63,7 +63,7 @@ public abstract class FullRegBase extends SimpleRegBase {
             if (questions == null) {
                 log.debug("GETTING QUESTIONS");
                 try {
-                    questions = getQuestions(transDb, ((FullRegInfo) info).getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)), getLocale());
+                    questions = getQuestions(transDb, ((FullRegInfo) info).getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)), info.getLocale());
                 } catch (Exception e) {
                     log.error("COULD NOT GET QUESTIONS", e);
                 }
@@ -156,8 +156,8 @@ public abstract class FullRegBase extends SimpleRegBase {
     protected Map getQuestions() {
         try {
             if (questions == null)
-                questions = getQuestions(transDb,
-                        ((FullRegInfo) regInfo).getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)), getLocale());
+                questions = getQuestions(transDb,((FullRegInfo) regInfo).getCoderType(),
+                        Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)), regInfo.getLocale());
         } catch (Exception e) {
 
             throw new RuntimeException("failed to get the questions \n" + e.getMessage());
@@ -206,11 +206,12 @@ public abstract class FullRegBase extends SimpleRegBase {
         return ret;
     }
 
-    protected final List getQuestionList(int coderTypeId) throws Exception {
+    protected final List getQuestionList(int coderTypeId, Locale locale) throws Exception {
         //in case we need the list before we've populated it.  this is most
         //likely to happen in makeRegInfo()
         if (questions == null)
-            questions = getQuestions(transDb, coderTypeId, Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)), getLocale());
+            questions = getQuestions(transDb, coderTypeId, Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)),
+                    locale);
         List ret = new ArrayList(questions.size());
         DemographicQuestion q = null;
         for (Iterator it = questions.values().iterator(); it.hasNext();) {
