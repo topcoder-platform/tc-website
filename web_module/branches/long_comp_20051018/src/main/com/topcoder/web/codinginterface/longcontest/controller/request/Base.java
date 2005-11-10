@@ -133,87 +133,27 @@ public abstract class Base extends BaseProcessor {
         return ret.toString();
     }
 
-    private static final String FULL_CONTENT =
-            "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\">" +
-            "<html>" +
-            "<head>" +
-            "<title>Technical Assessment</title>" +
-            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" >" +
-            "<link type=\"text/css\" rel=\"stylesheet\" href=\"/css/screening.css\" >" +
-            "</head>" +
-            "<body>" +
-            "<table class=bodyCenter cellspacing=0 cellpadding=0>" +
-            "<tr>" +
-            " <td align=center>" +
-            " <table cellspacing=0 cellpadding=0 class=tabTable>" +
-            " <tr>" +
-            " <td class=logoBox rowspan=2>";
-    private static final String END_FULL_CONTENT = "</td>" +
-            " <td class=titleBar><img src=\"/i/corp/screening/pbtcLogo.gif\" alt=\"\"/></td>" +
-            " <td class=tabBarEnd align=right rowspan=2><img src=\"/i/corp/screening/tabBarEnd.gif\" alt=\"\"/></td>" +
-            " </tr>" +
-            " <tr>" +
-            " <td class=tabBar></td>" +
-            " </tr>" +
-            " </table>" +
-            " <table cellspacing=0 cellpadding=0 class=timeTable>" +
-            " <tr>" +
-            " <td class=timeCellLeft><img src=\"/i/corp/screening/techAssTitle.gif\" alt=\"\" /></td>" +
-            " <td class=timeCellRight>&#160;<br />&#160;</td>" +
-            " </tr>" +
-            " </table>" +
-            " <table cellspacing=0 cellpadding=0 class=bodyTable>" +
-            " <tr>" +
-            " <td><img src=\"/i/corp/screening/bodyTL.gif\" alt=\"\"/></td>" +
-            " <td class=bodyT ><img src=\"/i/corp/screening/clear.gif\" alt=\"\"/></td>" +
-            " <td><img src=\"/i/corp/screening/bodyTR.gif\" alt=\"\"/></td>" +
-            " </tr>" +
-            " <tr>" +
-            " <td class=bodyL>&#160;</td>" +
-            " <td class=bodyContent>" +
-            " <br /><br />" +
-            " <table cellspacing=0 cellpadding=5 border=0 class=processingTable>" +
-            " <tr>" +
-            " <td><p class=pC><span class=bodySmallTitle>Processing...</span></p></td>" +
-            " <td><img src=\"/i/corp/screening/processing.gif\" alt=\"\"/></td>" +
-            " </tr>" +
-            " </table>" +
-            " <br /><br />" +
-            " </td>" +
-            " <td class=bodyR>&#160;</td>" +
-            " </tr>" +
-            " <tr>" +
-            " <td><img src=\"/i/corp/screening/bodyBL.gif\" alt=\"\"/></td>" +
-            " <td class=bodyB>&#160;</td>" +
-            " <td><img src=\"/i/corp/screening/bodyBR.gif\" alt=\"\"/></td>" +
-            " </tr>" +
-            " </table>" +
-            " </td>" +
-            " </tr>" +
-            "</table>" +
-            "</body>" +
-            "</html>";
+	// Compilation in progress message
+	private static final String PROGRESS_COMPILING_HTML = "<html>"
+			+ "<title>TopCoder</title>"
+			+ "<head>"
+			+ "<STYLE TYPE=\"text/css\">"
+			+ ".html, body"
+			+ "{font-family: Arial, Helvetica, Verdana, sans-serif;font-size: 12px;color: #333;}"
+			+ "</STYLE>"
+			+ "</head>"
+			+ "<body>"
+			+ "<div align=\"center\">"
+			+ "<br><br>"
+			+ "Please wait while your solution is submitted."
+			+ "<br><br>"
+			+ "<img src=\"http://www.topcoder.com/i/interface/processing.gif\" alt=\"Processing\" border=\"0\" />"
+			+ "</div>" + "</body>" + "</html>";
+    
+
 
     protected void showProcessingPage() throws IOException {
-
-        StringBuffer buffer = new StringBuffer(2000);
-        buffer.append(FULL_CONTENT);
-        buffer.append("<img src=\"");
-        buffer.append(sponsorImage.getSrc() == null ? "" : sponsorImage.getSrc());
-        buffer.append("\"");
-        if (sponsorImage.getHeight() >= 0) {
-            buffer.append(" height=\"").append(sponsorImage.getHeight()).append("\"");
-        }
-        if (sponsorImage.getWidth() >= 0) {
-            buffer.append(" width=\"" + sponsorImage.getWidth() + "\"");
-        }
-        buffer.append(" border=\"0\"");
-        buffer.append(" alt=\"\"");
-        buffer.append(" />");
-        buffer.append(END_FULL_CONTENT);
-
-
-        showProcessingPage(buffer.toString());
+        showProcessingPage(PROGRESS_COMPILING_HTML);
     }
 
     protected void showProcessingPage(String code) throws IOException {

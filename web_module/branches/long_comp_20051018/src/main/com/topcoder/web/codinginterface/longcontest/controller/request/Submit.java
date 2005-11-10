@@ -42,22 +42,7 @@ import com.topcoder.web.ejb.roundregistration.RoundRegistration;
  */ 
 public class Submit extends Base {	
 
-	// Compilation in progress message
-	private static final String PROGRESS_COMPILING_HTML = "<html>"
-			+ "<title>TopCoder</title>"
-			+ "<head>"
-			+ "<STYLE TYPE=\"text/css\">"
-			+ ".html, body"
-			+ "{font-family: Arial, Helvetica, Verdana, sans-serif;font-size: 12px;color: #333;}"
-			+ "</STYLE>"
-			+ "</head>"
-			+ "<body>"
-			+ "<div align=\"center\">"
-			+ "<br><br>"
-			+ "Please wait while your solution is submitted."
-			+ "<br><br>"
-			+ "<img src=\"http://www.topcoder.com/i/interface/processing.gif\" alt=\"Processing\" border=\"0\" />"
-			+ "</div>" + "</body>" + "</html>";
+
 
 	protected void businessProcessing() throws TCWebException {
 		TCRequest request = getRequest();
@@ -169,7 +154,7 @@ public class Submit extends Base {
 				}
 
 				// Tell the user that the code is compiling...
-				showProcessingPage(PROGRESS_COMPILING_HTML);
+				showProcessingPage();
 
 				try {
 					// Get the compilation response
