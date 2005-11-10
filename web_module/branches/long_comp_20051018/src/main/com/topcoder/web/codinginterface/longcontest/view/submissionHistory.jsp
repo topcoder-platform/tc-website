@@ -47,7 +47,7 @@
     }
     if(submissions.croppedDataAfter()){
         nextPage = "<a href=\"" + pagingLink
-                + "&" + DataAccessConstants.START_RANK + "=" + submissions.getStartRow() + pageSize
+                + "&" + DataAccessConstants.START_RANK + "=" + (submissions.getStartRow() + pageSize)
                 + "\" class=\"bcLink\">next &gt;&gt;</a>";
     }else{
         nextPage = "next &gt;&gt;";
