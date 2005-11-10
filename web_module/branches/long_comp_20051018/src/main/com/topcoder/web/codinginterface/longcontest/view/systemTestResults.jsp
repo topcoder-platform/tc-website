@@ -140,7 +140,7 @@
    <td class="tableheader" align="left" nowrap="nowrap"><A href="sort">[+]</A> <rsc:item name="handle" row="<%=coderRow%>"/></td>
    <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="final_points" row="<%=coderRow%>"/></td>
 <rsc:iterator list="<%=cases%>" id="caseRow">
-   <td class="<%=even?"statLt":"statDk"%>"><%=scoreHash.get(coderRow.getIntItem("coder_id") + "_" + caseRow.getIntItem("test_case_id"))%></td>
+   <td class="<%=even?"statLt":"statDk"%>"><%=scoreHash.get(coderRow.getItem("coder_id") + "_" + caseRow.getItem("test_case_id"))%></td>
 </rsc:iterator>
 </tr>
 <%even=!even;%>
