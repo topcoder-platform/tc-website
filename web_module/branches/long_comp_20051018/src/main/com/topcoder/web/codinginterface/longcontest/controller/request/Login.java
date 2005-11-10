@@ -17,8 +17,8 @@ import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.user.User;
 
 /**
- * @author lbackstrom
- * @version $Revision$ $Date$
+ * Logs the user into the long contest system
+ * @author farsight 
  */
 public class Login extends Base {
 
@@ -33,12 +33,11 @@ public class Login extends Base {
     
     protected void businessProcessing() throws TCWebException {
     	System.out.println("Login Processor Called!");
-    	//System.out.println("Nextpage: " + getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY));
+
         /* may be null */
         String username = getRequest().getParameter(Constants.KEY_USER_HANDLE);
         String password = getRequest().getParameter(Constants.KEY_USER_PASS);
         String loginStatus = StringUtils.checkNull(getRequest().getParameter(STATUS));
-        //SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
 
         // if not null, we got here via a form submit;
         // otherwise, skip this and just draw the login form
@@ -130,7 +129,7 @@ public class Login extends Base {
 
 
     /**
-     * shouldn't use ejb slooooooooow
+     * Gets the status for the user
      *
      * @param userId
      * @return
@@ -143,7 +142,14 @@ public class Login extends Base {
         return result;
 
     }
-
+    
+    /**
+     * Gets the e-mail status for the user
+     *
+     * @param userId
+     * @return
+     * @throws Exception if user doesn't exist or some other ejb problem
+     */
     private int getEmailStatus(long userId) throws Exception {
         int result;
         Email email = (Email) createEJB(getInitialContext(), Email.class);
@@ -153,10 +159,3 @@ public class Login extends Base {
     }
 
 }
-
-
-
-
-
-
-

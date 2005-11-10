@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import javax.transaction.Status;
@@ -12,19 +11,13 @@ import javax.transaction.TransactionManager;
 
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.CodingInterfaceConstants;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Answer;
@@ -34,55 +27,76 @@ import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 import com.topcoder.web.ejb.survey.Response;
 
+/**
+ * Registers a coder for a round.
+ *
+ * @author farsight
+ * @version 1.0
+ */ 
 public class SubmitReg extends ViewReg {
 
+	// The logger
 	protected static final Logger log = Logger.getLogger(SubmitReg.class);
 
 	protected void businessProcessing() throws TCWebException {
 		
 		log.debug("SubmitReg called");
+		
+		// The user must be logged in to register for a round
     	if(getUser().isAnonymous()) {            
 			throw new PermissionException(getUser(), new ClassResource(this.getClass()));                		
     	}
+    	
+    	// Gets the round id the user wants to register for
 		String roundID = getRequest().getParameter(Constants.ROUND_ID);
+		
+		// Put variables back into the http request
+		getRequest().setAttribute(Constants.ROUND_ID, roundID);
+		
+		// Gets the user's id
 		long userID = getUser().getId();
+		
 		try {
+			// Gets a handle to the data source
 			DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-			String paramName = null;
-			List responses = new ArrayList(10);
+			
+			// Load round survey related data
 			loadRoundTerms(dai, roundID);
 	    	loadQuestionInfo(dai, roundID);
-	    	getRequest().setAttribute(Constants.ROUND_ID, roundID);
-			for (Enumeration params = getRequest().getParameterNames(); params
-					.hasMoreElements();) {
-				paramName = (String) params.nextElement();
+	    	
+			String paramName = null;
+			List responses = new ArrayList(10); // User's survey responses
+			
+	    	// Go through the params and look for survey questions
+			for (Enumeration params = getRequest().getParameterNames(); params.hasMoreElements();) {
+				paramName = (String) params.nextElement(); // A possible survey question?
 				log.debug("param: " + paramName);
-				if (paramName.startsWith(AnswerInput.PREFIX)) {
-					List l = validateAnswer(paramName);
+				if (paramName.startsWith(AnswerInput.PREFIX)) { // It is if it starts with....
+					List l = validateAnswer(paramName); // Get the user's answers for the question 
 					if (l != null)
 						responses.addAll(l);
 				}
 			}
+			
+			// Checks to make sure the user responed to all required questions
 			checkRequiredQuestions(responses);
+			
 			boolean hasAllFreeForm = true;
-			if (!hasErrors()) {
+			if (!hasErrors()) { // If the user responded to all the questions, let's go...
 
-				TransactionManager tm = (TransactionManager) getInitialContext()
-						.lookup(ApplicationServer.TRANS_MANAGER);
+				TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
 				try {
 					tm.begin();
 					SurveyResponse resp = null;
-					Response response = (Response) createEJB(
-							getInitialContext(), Response.class);
+					Response response = (Response) createEJB(getInitialContext(), Response.class);
+					// Go through each of the user survey responses and put them into the DB
 					for (Iterator it = responses.iterator(); it.hasNext();) {
 						resp = (SurveyResponse) it.next();
 						hasAllFreeForm &= resp.isFreeForm();
 						if (resp.isFreeForm()) {
-							response.createResponse(resp.getUserId(), resp
-									.getQuestionId(), resp.getText());
+							response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getText());
 						} else {
-							response.createResponse(resp.getUserId(), resp
-									.getQuestionId(), resp.getAnswerId());
+							response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getAnswerId());
 						}
 					}
 					tm.commit();
@@ -93,12 +107,12 @@ public class SubmitReg extends ViewReg {
 					throw e;
 				}
 			}
-			if (hasErrors()) {
+			
+			if (hasErrors()) { // The user did not fill in all the survey questions...
 				setDefaults(responses);				
 				setNextPage(Constants.PAGE_VIEW_REG);
 				setIsNextPageInContext(true);
-			} else {
-				// register user for round
+			} else { // register user for round	and then go to active contest page			
 				registerUser(userID, Long.parseLong(roundID));
             	getRequest().setAttribute(CodingInterfaceConstants.MODULE, Constants.RP_ACTIVE_CONTESTS);                                	
         		setNextPage(Constants.MAIN_SERVLET);                            		
@@ -112,6 +126,12 @@ public class SubmitReg extends ViewReg {
 		}
 	}
 
+	/**
+	 * Registers user for round
+	 * @param userID		The coder's ID
+	 * @param roundID		The round's ID
+	 * @throws Exception
+	 */
 	protected void registerUser(long userID, long roundID) throws Exception {
 		TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
         try {
@@ -215,6 +235,7 @@ public class SubmitReg extends ViewReg {
         return ret;
     }
 
+    // Checks to make sure the user responed to all required questions
     private void checkRequiredQuestions(List responses) {
         Question q = null;
         for (Iterator it = questionInfo.iterator(); it.hasNext();) {
@@ -226,6 +247,7 @@ public class SubmitReg extends ViewReg {
         }
     }
 
+    // Checks the list of response to see if it contains the given question
     private boolean containsQuestion(List responses, Question question) {
         SurveyResponse r = null;
         boolean found = false;
@@ -237,6 +259,7 @@ public class SubmitReg extends ViewReg {
     }
 
 
+    // Returns the Question with the given questionID
     private Question findQuestion(long questionId) {
         Question q = null;
         boolean found = false;
@@ -247,6 +270,7 @@ public class SubmitReg extends ViewReg {
         return found ? q : null;
     }
 
+    // Returns the Answer with the given answerID
     private Answer findAnswer(long answerId, Question question) {
         Answer a = null;
         boolean found = false;
@@ -257,6 +281,7 @@ public class SubmitReg extends ViewReg {
         return found ? a : null;
     }
 
+    // Set default response answers
     private void setDefaults(List responses) {
         SurveyResponse r = null;
         for (Iterator it = responses.iterator(); it.hasNext();) {

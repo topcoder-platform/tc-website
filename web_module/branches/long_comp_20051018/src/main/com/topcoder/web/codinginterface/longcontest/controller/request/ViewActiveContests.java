@@ -3,7 +3,6 @@ package com.topcoder.web.codinginterface.longcontest.controller.request;
 import java.util.Map;
 import java.util.Vector;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -15,6 +14,12 @@ import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.longcontest.model.LongContestModel;
 import com.topcoder.web.common.TCWebException;
 
+/**
+ * Displays active and a couple of pass contests
+ *
+ * @author farsight
+ * @version 1.0
+ */ 
 public class ViewActiveContests extends Base{
 	
     protected static final Logger log = Logger.getLogger(ViewActiveContests.class);
@@ -22,34 +27,39 @@ public class ViewActiveContests extends Base{
     protected void businessProcessing() throws TCWebException {
     	
     	User usr = getUser();
+    	
+    	// The collection of contests to display
     	Vector contests = new Vector();
     	
-    	System.out.println("User ID: " + usr.getId());
-    	
     	try {
+    		// Data source
 	    	DataAccessInt dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
 	    	
+	    	// Prepare a request to get active contest information
 	    	Request r = new Request();
 	    	r.setContentHandle("long_contest_active_contests");
 	    	
+	    	// Fetch Data
 	    	Map m = dai.getData(r);
 	    	ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_active_contests");
 	    	
+	    	// Go through the list of active contests
 	    	for(int i = 0; i < rsc.getRowCount(); i++) {
 	    		
 	    		LongContestModel longContest = new LongContestModel();
 	    		
+	    		// Get various contest properties
 	    		String contestName = rsc.getStringItem(i, "contest_name");
 	    		long contestID = rsc.getLongItem(i, "contest_id");
 	    		String roundName = rsc.getStringItem(i, "round_name");
 	    		long roundID = rsc.getLongItem(i, "round_id");
 	    		String startTime = rsc.getStringItem(i, "start_time");
 	    		String endTime = rsc.getStringItem(i, "end_time");
-	    		boolean hasStarted = rsc.getBooleanItem(i, "started");
-	    		
+	    		boolean hasStarted = rsc.getBooleanItem(i, "started");	    		
 	    		int numRegs = getNumRegistrants(dai, roundID);
 	    		boolean usrRoundRegistered = isCoderRoundRegistered(dai, roundID, usr.getId());
 	    		
+	    		// Store the values into a model
 	    		longContest.setContestName(contestName);
 	    		longContest.setRoundID(roundID);
 	    		longContest.setRoundName(roundName);
@@ -60,26 +70,16 @@ public class ViewActiveContests extends Base{
 	    		longContest.setStarted(hasStarted);
 	    		longContest.setNumCompetitors(numRegs);
 	    		
-	    		System.out.println("Contest Name: " + contestName);
-	    		System.out.println("Round Name: " + roundName);
-	    		System.out.println("Round ID: " + roundID);
-	    		System.out.println("Start Time: " + startTime);
-	    		System.out.println("End Time:" + endTime);
-	    		System.out.println("Num. Reg: " + numRegs);
-	    		System.out.println("Usr Reg: " + usrRoundRegistered);
-	    		
+	    		// Get the problem assigned to the round
 	    		RoundProblem prob = getRoundProblem(dai, roundID);
 	    		
 	    		if(prob != null) {
-		    		System.out.println("Problem ID: " + prob.getProblemID());
-		    		System.out.println("Component ID: " + prob.getComponentID());	    		
-		    		System.out.println("Problem name: " + prob.getName());
-		    			    	
 		    		longContest.setComponentID(prob.getComponentID());
 		    		longContest.setProblemID(prob.getProblemID());
 		    		longContest.setProblemName(prob.getName());
 	    		}
 	    		
+	    		// Marks the contest as not passed
 	    		longContest.setPassed(false);
 	    		
 	    		contests.add(longContest);
@@ -97,16 +97,17 @@ public class ViewActiveContests extends Base{
 		    		}
 		    		LongContestModel longContest = new LongContestModel();
 		    		
+		    		// Get various contest properties
 		    		String contestName = rscPassContests.getStringItem(i, "contest_name");
 		    		long contestID = rscPassContests.getLongItem(i, "contest_id");
 		    		String roundName = rscPassContests.getStringItem(i, "round_name");
 		    		long roundID = rscPassContests.getLongItem(i, "round_id");
 		    		String startTime = rscPassContests.getStringItem(i, "start_time");
-		    		String endTime = rscPassContests.getStringItem(i, "end_time");
-		    		
+		    		String endTime = rscPassContests.getStringItem(i, "end_time");		    		
 		    		int numRegs = getNumRegistrants(dai, roundID);
 		    		boolean usrRoundRegistered = isCoderRoundRegistered(dai, roundID, usr.getId());
 		    		
+		    		// Store the values into a model
 		    		longContest.setContestName(contestName);
 		    		longContest.setRoundID(roundID);
 		    		longContest.setRoundName(roundName);
@@ -116,26 +117,16 @@ public class ViewActiveContests extends Base{
 		    		longContest.setContestID(contestID);
 		    		longContest.setNumCompetitors(numRegs);
 		    		
-		    		System.out.println("Contest Name: " + contestName);
-		    		System.out.println("Round Name: " + roundName);
-		    		System.out.println("Round ID: " + roundID);
-		    		System.out.println("Start Time: " + startTime);
-		    		System.out.println("End Time:" + endTime);
-		    		System.out.println("Num. Reg: " + numRegs);
-		    		System.out.println("Usr Reg: " + usrRoundRegistered);
-		    		
+		    		// Gets the problem for the round
 		    		RoundProblem prob = getRoundProblem(dai, roundID);
 		    		
 		    		if(prob != null) {
-			    		System.out.println("Problem ID: " + prob.getProblemID());
-			    		System.out.println("Component ID: " + prob.getComponentID());	    		
-			    		System.out.println("Problem name: " + prob.getName());
-			    			    	
 			    		longContest.setComponentID(prob.getComponentID());
 			    		longContest.setProblemID(prob.getProblemID());
 			    		longContest.setProblemName(prob.getName());
 		    		}
 		    		
+		    		// Marks this contest as a passed contest
 		    		longContest.setPassed(true);
 		    		
 		    		contests.add(longContest);
@@ -149,13 +140,20 @@ public class ViewActiveContests extends Base{
     		throw new TCWebException("Error retrieving page.");
     	}
     	
-    	
+    	// Store the contests in the http request
     	getRequest().setAttribute(Constants.CONTEST_LIST_KEY, contests);
     	
     	setNextPage(Constants.PAGE_ACTIVE_CONTESTS);
     	setIsNextPageInContext(true);
     }
     
+    /**
+     * Gets the number of registrants for a specified round.
+     * @param dai			Data source
+     * @param roundID		The round's ID
+     * @return				The number of registrants for a given round 
+     * @throws Exception
+     */
     private int getNumRegistrants(DataAccessInt dai, long roundID) throws Exception {
     	Request r = new Request();
     	ResultSetContainer rsc;
@@ -171,6 +169,14 @@ public class ViewActiveContests extends Base{
     	return rsc.getIntItem(0,0);
     }
     
+    /**
+     * Determines whether the coder is registered for the specified round.
+     * @param dai			Data source
+     * @param roundID		The round's ID
+     * @param coderID		The coder's ID
+     * @return				True if the coder is registered for the specified round, false otherwise.
+     * @throws Exception	Propagates unexpected exceptions
+     */
     private boolean isCoderRoundRegistered(DataAccessInt dai, long roundID, long coderID) throws Exception {
     	Request r = new Request();
     	ResultSetContainer rsc;
@@ -188,6 +194,13 @@ public class ViewActiveContests extends Base{
     	return rsc.getIntItem(0,0) > 0;
     }
     
+    /**
+     * Gets the problem for the specified round
+     * @param dai			Data source
+     * @param roundID		The round ID
+     * @return				The problem for the round
+     * @throws Exception	Propagates unexpected exceptions
+     */
     protected RoundProblem getRoundProblem(DataAccessInt dai, long roundID) throws Exception {
     	Request r = new Request();
     	ResultSetContainer rsc;
@@ -212,6 +225,10 @@ public class ViewActiveContests extends Base{
     	return ret;
     }
 
+    /**
+     * Wraps the round problem data
+     * @author farsight     
+     */
     protected static class RoundProblem {
     	
     	private long componentID;

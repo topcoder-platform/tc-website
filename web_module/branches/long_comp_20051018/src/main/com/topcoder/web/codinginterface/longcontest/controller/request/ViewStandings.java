@@ -7,22 +7,25 @@ import java.util.Map;
 import java.util.TreeSet;
 import java.util.Vector;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.longcontest.model.StandingModel;
-import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 
+/**
+ * Displays standings for a given round.
+ *
+ * @author farsight
+ * @version 1.0
+ */ 
 public class ViewStandings extends Base {
 
 	protected static final Logger log = Logger.getLogger(ViewStandings.class);
@@ -194,6 +197,7 @@ public class ViewStandings extends Base {
 		return r.getItem(row, colName).getResultData() == null;
 	}
 
+	// Comparator used to sort standing models
 	static class StandingModelComparator implements Comparator {
 		
 		int cf = 1;

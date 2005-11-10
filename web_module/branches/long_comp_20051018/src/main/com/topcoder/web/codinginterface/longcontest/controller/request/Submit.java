@@ -1,7 +1,6 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.StringReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,11 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
-import javax.ejb.EJBException;
-import javax.naming.Context;
 import javax.naming.InitialContext;
 
-import com.topcoder.web.codinginterface.CodingInterfaceConstants;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
 import com.topcoder.web.codinginterface.longcontest.Constants;
@@ -27,7 +23,6 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.messaging.messages.LongCompileRequest;
@@ -38,8 +33,15 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 
+/**
+ * Allows a coder to submit code for a round.
+ *
+ * @author farsight
+ * @version 1.0
+ */ 
 public class Submit extends Base {	
 
+	// Compilation in progress message
 	private static final String PROGRESS_COMPILING_HTML = "<html>"
 			+ "<title>TopCoder</title>"
 			+ "<head>"
@@ -59,9 +61,9 @@ public class Submit extends Base {
 	protected void businessProcessing() throws TCWebException {
 		TCRequest request = getRequest();
 
+		// The user must be signed in to submit code
 		if (getUser().isAnonymous()) {
-			throw new PermissionException(getUser(), new ClassResource(this
-					.getClass()));
+			throw new PermissionException(getUser(), new ClassResource(this.getClass()));
 		}
 
 		// Get the user's id
@@ -86,18 +88,21 @@ public class Submit extends Base {
 			r.setProperty(Constants.COMPONENT_ID, String.valueOf(cid));
 			r.setProperty(Constants.ROUND_ID, String.valueOf(rid));
 			
+			// Data source
 			DataAccessInt dataAccess = getDataAccess(false);
+			
+			// Fetch request
 			Map m = dataAccess.getData(r);
 			
 			int roundTypeID = ((ResultSetContainer) m.get("long_contest_round_information")).getIntItem(0, "round_type_id");
 			boolean practiceRound = (roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID); 
 			
-			// If the user is not registered s/he cannot submit code.
+			// If the user is not registered s/he cannot submit code, unless this is a practice round.
 			if (!practiceRound && !isUserRegistered(uid, rid)) {
 				throw new NavigationException("User not registered for contest.");
 			}
 			
-			// Check to make sure the contest has begun and is not over			
+			// Check to make sure the contest has begun and is not over, unless this is a practice round.
 			boolean started = ((ResultSetContainer) m.get("long_contest_started")).getBooleanItem(0, 0);
 			boolean over = ((ResultSetContainer) m.get("long_contest_over")).getBooleanItem(0, 0);
 			if (!started) {
@@ -189,9 +194,10 @@ public class Submit extends Base {
 				}
 			} else if(action.equals("save")) { // user is saving code
 				boolean res = saveCode(code, language, (int)uid, cd, rid, cid);		
-				// save complete
-				// go back to coding!
+				
 				if(res) {
+					// save complete
+					// go back to coding!
 					request.setAttribute(Constants.MESSAGE, "Your code has been saved.");				
 					setNextPage(Constants.SUBMISSION_JSP);
 					setIsNextPageInContext(true);

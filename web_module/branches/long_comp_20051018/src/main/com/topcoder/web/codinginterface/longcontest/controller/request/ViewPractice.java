@@ -3,12 +3,10 @@ package com.topcoder.web.codinginterface.longcontest.controller.request;
 import java.util.Map;
 import java.util.Vector;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
@@ -19,14 +17,12 @@ public class ViewPractice extends ViewActiveContests {
 	
     protected static final Logger log = Logger.getLogger(ViewPractice.class);
 
-    protected void businessProcessing() throws TCWebException {
+    protected void businessProcessing() throws TCWebException {    	
     	
-    	User usr = getUser();
     	Vector contests = new Vector();
     	
-    	System.out.println("User ID: " + usr.getId());
-    	
     	try {
+    		// Data source
 	    	DataAccessInt dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
 	    	
 	    	// Prepare data request
@@ -43,17 +39,18 @@ public class ViewPractice extends ViewActiveContests {
 	    		
 	    		LongContestModel longContest = new LongContestModel();
 	    		
+	    		// Get contest properties
 	    		String contestName = rsc.getStringItem(i, "contest_name");
 	    		long contestID = rsc.getLongItem(i, "contest_id");
 	    		String roundName = rsc.getStringItem(i, "round_name");
 	    		long roundID = rsc.getLongItem(i, "round_id");
 	    		String startTime = rsc.getStringItem(i, "start_time");
 	    		String endTime = rsc.getStringItem(i, "end_time");	    		
-	    		boolean hasStarted = true;
-	    		
+	    		boolean hasStarted = true; // Practices don't have time contraints	    		
 	    		int numParticipants = getNumParticipants(dai, roundID);
 	    		boolean usrRoundRegistered = true;
 	    		
+	    		// Save contest properties to be displayed later on
 	    		longContest.setContestName(contestName);
 	    		longContest.setRoundID(roundID);
 	    		longContest.setRoundName(roundName);
@@ -63,22 +60,11 @@ public class ViewPractice extends ViewActiveContests {
 	    		longContest.setContestID(contestID);
 	    		longContest.setStarted(hasStarted);
 	    		longContest.setNumCompetitors(numParticipants);
-	    		
-	    		System.out.println("Contest Name: " + contestName);
-	    		System.out.println("Round Name: " + roundName);
-	    		System.out.println("Round ID: " + roundID);
-	    		System.out.println("Start Time: " + startTime);
-	    		System.out.println("End Time:" + endTime);
-	    		System.out.println("Num. Reg: " + numParticipants);
-	    		System.out.println("Usr Reg: " + usrRoundRegistered);
-	    		
+
+	    		// Get the problem for the round
 	    		RoundProblem prob = getRoundProblem(dai, roundID);
 	    		
-	    		if(prob != null) {
-		    		System.out.println("Problem ID: " + prob.getProblemID());
-		    		System.out.println("Component ID: " + prob.getComponentID());	    		
-		    		System.out.println("Problem name: " + prob.getName());
-		    			    	
+	    		if(prob != null) {		    				    			    	
 		    		longContest.setComponentID(prob.getComponentID());
 		    		longContest.setProblemID(prob.getProblemID());
 		    		longContest.setProblemName(prob.getName());
@@ -94,12 +80,20 @@ public class ViewPractice extends ViewActiveContests {
     		throw new TCWebException("Error retrieving page.");
     	}
     	
+    	// Store the list of practice contests in the http request
     	getRequest().setAttribute(Constants.CONTEST_LIST_KEY, contests);
     	
     	setNextPage(Constants.PAGE_VIEW_PRACTICE);
     	setIsNextPageInContext(true);
     }
     
+    /**
+     * Gets the number of participants in a round
+     * @param dai			Data source
+     * @param roundID		The round ID
+     * @return				The number of participants in the specified round.
+     * @throws Exception	Propagates unexpected exceptions
+     */
     private int getNumParticipants(DataAccessInt dai, long roundID) throws Exception {
     	Request r = new Request();
     	ResultSetContainer rsc;

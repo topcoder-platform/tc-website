@@ -1,19 +1,18 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import java.util.Map;
-
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.security.TCSubject;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.shared.util.logging.Logger;
 
+/**
+ * Logs the user out of the long contest system
+ * @author farsight 
+ */
 public class Logout extends Base {
 
 	protected static final Logger log = Logger.getLogger(Logout.class);
@@ -21,17 +20,21 @@ public class Logout extends Base {
 	protected void businessProcessing() throws TCWebException {
 
 		TCRequest request = getRequest();
+		
+		// Logs the user out
 		getAuthentication().logout();
 		try {
 			doLegacyWork(getRequest());
 		} catch(Exception e) {
 			throw new TCWebException(e);
 		}
+		
+		// Invalidates the session
 		getRequest().getSession().invalidate();
-		request.setAttribute("module", Constants.RP_ACTIVE_CONTESTS);
-		System.out.println("RP_ACTIVE_CONTESTS="+Constants.RP_ACTIVE_CONTESTS);
-		setNextPage(Constants.JSP_ADDR);
-		System.out.println("JSP_ADDR="+Constants.JSP_ADDR);
+		
+		// Go to active contests page
+		request.setAttribute("module", Constants.RP_ACTIVE_CONTESTS);		
+		setNextPage(Constants.MAIN_SERVLET);		
 		setIsNextPageInContext(true);		
 	}
 
