@@ -77,7 +77,7 @@
 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_CHINA_05_REG_SUBMIT%>"/>
 <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="companyId"/>"/>
 <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="eventId"/>"/>
-
+<tc-webtag:hiddenInput name="<%=Constants.LOCALE%>"/>
 <tr>
     <td align="right" width="50%"><b>Personal</b>
     </td>
