@@ -14,8 +14,8 @@
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gccj05.css"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <title>Google&#153; 中国编程精英网罗赛, 竞赛软件由 Topcoder&#174;公司提供</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Google&#153; 中国编程精英网罗赛, 竞赛软件由 Topcoder&#174;公司提供</title>
 </head>
 
 <body>
@@ -41,7 +41,7 @@
 <td>
 <div class=greenBigBox>
 
-<%-- Tab bar links--%>
+<!-- Tab bar links-->
 <div align="center">
     <jsp:include page="EN_links.jsp">
         <jsp:param name="selectedTab" value="registration"/>
@@ -56,7 +56,23 @@
          </span>
 
 <br><br>
-<table width="100%" cellpadding="0" cellspacing="5" class="bodyText" align="center">
+
+<div style="float: left;">
+    <b>Step 3 of 5</b>
+
+    <div class="regBreadOff">General</div>
+
+    <div class="regBreadOff">Demographics</div>
+
+    <div class="regBreadOn">Confirm</div>
+
+    <div class="regBreadOff">Success</div>
+
+    <div class="regBreadOff">Activation</div>
+</div>
+<br><br><br>
+
+<table cellpadding="0" cellspacing="5" class="bodyText" align="center" border="0">
 <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_CHINA_05_REG_SUBMIT%>"/>
 <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="companyId"/>"/>
@@ -66,7 +82,7 @@
     <td align="right" width="50%"><b>Personal</b>
     </td>
     <td align="left" width="50%">
-        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_CHINA_05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="companyId"/>">edit</a>
+        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_CHINA_05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="companyId"/>">edit<a/>
     </td>
 </tr>
 <tr>
@@ -74,7 +90,7 @@
         Handle
     </td>
     <td align="left">
-        <jsp:getProperty name="regInfo" property="Handle"/>
+        <jsp:getProperty name="regInfo" property="handle"/>
     </td>
 </tr>
 
@@ -83,7 +99,7 @@
         First Name
     </td>
     <td align="left">
-        <jsp:getProperty name="regInfo" property="FirstName"/>
+        <jsp:getProperty name="regInfo" property="firstName"/>
     </td>
 </tr>
 
@@ -92,7 +108,7 @@
         Last Name
     </td>
     <td align="left">
-        <jsp:getProperty name="regInfo" property="LastName"/>
+        <jsp:getProperty name="regInfo" property="lastName"/>
     </td>
 </tr>
 
@@ -101,7 +117,7 @@
         Email Address
     </td>
     <td align="left">
-        <jsp:getProperty name="regInfo" property="Email"/>
+        <jsp:getProperty name="regInfo" property="email"/>
     </td>
 </tr>
 
@@ -110,7 +126,7 @@
         Confirm Email Address
     </td>
     <td align="left">
-        <jsp:getProperty name="regInfo" property="EmailConfirm"/>
+        <jsp:getProperty name="regInfo" property="emailConfirm"/>
     </td>
 </tr>
 
@@ -119,7 +135,7 @@
         Address 1
     </td>
     <td align="left">
-        <jsp:getProperty name="regInfo" property="Address1"/>
+        <jsp:getProperty name="regInfo" property="address1"/>
     </td>
 </tr>
 
@@ -128,7 +144,7 @@
         Address 2
     </td>
     <td align="left">
-        <jsp:getProperty name="regInfo" property="Address2"/>
+        <jsp:getProperty name="regInfo" property="address2"/>
     </td>
 </tr>
 
@@ -137,7 +153,7 @@
         Address 3
     </td>
     <td align="left">
-        <jsp:getProperty name="regInfo" property="Address3"/>
+        <jsp:getProperty name="regInfo" property="address3"/>
     </td>
 </tr>
 
@@ -146,7 +162,7 @@
         City
     </td>
     <td align="left">
-        <jsp:getProperty name="regInfo" property="City"/>
+        <jsp:getProperty name="regInfo" property="city"/>
     </td>
 </tr>
 
@@ -155,7 +171,7 @@
         Province
     </td>
     <td align="left">
-        <jsp:getProperty name="regInfo" property="Province"/>
+        <jsp:getProperty name="regInfo" property="province"/>
     </td>
 </tr>
 
@@ -164,7 +180,7 @@
         PIN/Zip Code
     </td>
     <td align="left">
-        <jsp:getProperty name="regInfo" property="Zip"/>
+        <jsp:getProperty name="regInfo" property="zip"/>
     </td>
 </tr>
 
@@ -173,11 +189,12 @@
         Country
     </td>
     <td align="left">
-        <jsp:getProperty name="regInfo" property="CountryName"/>
+        <jsp:getProperty name="regInfo" property="countryName"/>
     </td>
 </tr>
 <tr>
-    <td align="right"><b>Demographics</b>
+    <td align="right">
+        <b>Demographics</b>
     </td>
     <td align="left">
         <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_CHINA_05_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="companyId"/>">edit</a>
@@ -212,7 +229,7 @@
 <tr>
     <td align="right" nowrap>Resume</td>
     <td align="left">
-        <jsp:getProperty name="regInfo" property="UploadStatus"/>
+        <jsp:getProperty name="regInfo" property="uploadStatus"/>
     </td>
 </tr>
 <tr>
