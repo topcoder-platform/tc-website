@@ -108,7 +108,7 @@
 <%boolean even = true;%>
 <rsc:iterator list="<%=registrants%>" id="resultRow">
 <tr>
-   <td class="<%=even?"statLt":"statDk"%>"><tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>'/>"/></td>
+   <td class="<%=even?"statLt":"statDk"%>"><tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>'/></td>
    <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="country_name" row="<%=resultRow%>"/></td>
    <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="state_code" row="<%=resultRow%>"/></td>
    <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="school_name" row="<%=resultRow%>"/></td>

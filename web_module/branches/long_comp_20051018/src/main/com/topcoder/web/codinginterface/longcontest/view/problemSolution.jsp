@@ -54,7 +54,7 @@
 
 <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
 <span class="bodySubtitle">Problem: <rsc:item name="problem_name" row="<%=infoRow%>"/></span><br>
-<span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>'/>"/></span><br>
+<span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>'/></span><br>
 <span class="bodySubtitle">Submission: <rsc:item name="submission_number" row="<%=infoRow%>"/></span><br>
 
 <pre>
