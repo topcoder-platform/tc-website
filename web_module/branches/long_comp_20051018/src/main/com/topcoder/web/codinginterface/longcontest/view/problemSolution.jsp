@@ -11,7 +11,7 @@
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:useBean id="resultMap" class="java.util.Map" scope="request" />
+<jsp:useBean id="resultMap" type="java.util.Map" scope="request" />
 <%
     ResultSetContainer rsc = (ResultSetContainer)resultMap.get("long_contest_submission");
     ResultSetContainer.ResultSetRow infoRow = null;

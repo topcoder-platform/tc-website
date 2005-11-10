@@ -12,8 +12,8 @@
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:useBean id="resultMap" class="java.util.Map" scope="request" />
-<jsp:useBean id="scoreHash" class="java.util.Map" scope="request" />
+<jsp:useBean id="resultMap" type="java.util.Map" scope="request" />
+<jsp:useBean id="scoreHash" type="java.util.Map" scope="request" />
 <%
     ResultSetContainer coders = (ResultSetContainer)resultMap.get("long_contest_test_results_coders");
     ResultSetContainer cases = (ResultSetContainer)resultMap.get("long_contest_test_results_cases");

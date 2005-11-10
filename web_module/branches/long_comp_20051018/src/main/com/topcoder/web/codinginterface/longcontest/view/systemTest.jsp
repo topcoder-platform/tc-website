@@ -10,7 +10,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:useBean id="resultMap" class="java.util.Map" scope="request" />
+<jsp:useBean id="resultMap" type="java.util.Map" scope="request" />
 <%
     ResultSetContainer rsc = (ResultSetContainer)resultMap.get("long_contest_system_test_detail");
     ResultSetContainer.ResultSetRow testRow = null;

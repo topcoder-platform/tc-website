@@ -12,7 +12,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:useBean id="resultMap" class="java.util.Map" scope="request" />
+<jsp:useBean id="resultMap" type="java.util.Map" scope="request" />
 <%
     ResultSetContainer registrants = (ResultSetContainer)resultMap.get("long_contest_overview_coders");
     ResultSetContainer rounds = (ResultSetContainer)resultMap.get("long_contest_round_list");

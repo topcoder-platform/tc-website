@@ -13,7 +13,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:useBean id="resultMap" class="java.util.Map" scope="request" />
+<jsp:useBean id="resultMap" type="java.util.Map" scope="request" />
 <%
     ResultSetContainer submissions = (ResultSetContainer)resultMap.get("long_coder_submissions");
     ResultSetContainer tmp = (ResultSetContainer)resultMap.get("long_contest_over");
