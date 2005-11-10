@@ -28,7 +28,7 @@
     if(!"".equals(StringUtils.checkNull(request.getParameter(Constants.COL_COUNT))))
         pageCSize = Integer.parseInt(request.getParameter(Constants.COL_COUNT));
     
-    String selfLink = "longcontest?module=ViewOverview"
+    String selfLink = "longcontest?module=ViewSystemTestResults"
             + "&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID)
             + "&" + Constants.PROBLEM_ID + "=" + request.getParameter(Constants.PROBLEM_ID)
             + "&" + Constants.CODER_ID + "=" + StringUtils.checkNull(request.getParameter(Constants.CODER_ID))
