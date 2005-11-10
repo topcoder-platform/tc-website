@@ -120,6 +120,10 @@ public class Submit extends ResumeRegSubmit {
         buf.append(Constants.COMPANY_ID);
         buf.append("=");
         buf.append(regInfo.getCompanyId());
+        buf.append("&");
+        buf.append(Constants.LOCALE);
+        buf.append("=");
+        buf.append(regInfo.getLocale().getLanguage());
         return buf.toString();
     }
 }
