@@ -60,20 +60,20 @@
         nextRPage = "next &gt;&gt;";
     }
     if(cases.croppedDataBefore()){
-        prevRPage = "<a href=\"" + selfLink + sortParams
+        prevCPage = "<a href=\"" + selfLink + sortParams
                 + pagingRParam
                 + "&" + Constants.START_COL + "=" + Math.max(1,cases.getStartRow() - pageCSize)
                 + "\" class=\"bcLink\">&lt;&lt; previous</a>";
     }else{
-        prevRPage = "&lt;&lt; previous";
+        prevCPage = "&lt;&lt; previous";
     }
     if(cases.croppedDataAfter()){
-        nextRPage = "<a href=\"" + selfLink + sortParams
+        nextCPage = "<a href=\"" + selfLink + sortParams
                 + pagingRParam
                 + "&" + Constants.START_COL + "=" + (cases.getStartRow() + pageCSize)
                 + "\" class=\"bcLink\">next &gt;&gt;</a>";
     }else{
-        nextRPage = "next &gt;&gt;";
+        nextCPage = "next &gt;&gt;";
     }
 %>
 
