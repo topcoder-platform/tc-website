@@ -79,6 +79,7 @@
                                value="<jsp:getProperty name="regInfo" property="companyId"/>"/>
                         <input type="hidden" name="<%=Constants.EVENT_ID%>"
                                value="<jsp:getProperty name="regInfo" property="eventId"/>"/>
+                        <tc-webtag:hiddenInput name="<%=Constants.LOCALE%>"/>
                         <pl:questionIterator id="question" list="<%=questionList%>">
                             <tr>
                                 <td colspan="2" class="errorText" align="center">
