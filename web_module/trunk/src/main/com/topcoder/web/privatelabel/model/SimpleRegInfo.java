@@ -270,6 +270,7 @@ public class SimpleRegInfo extends Base {
     }
 
     public void setLocale(Locale locale) {
+        log.debug("setting locale to " + locale.getCountry());
         this.locale = locale;
     }
 
