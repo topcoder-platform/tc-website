@@ -24,7 +24,6 @@ public class ViewSubmissionHistory extends Base{
 	}
         try{
             TCRequest request = getRequest();
-            Request r = new Request();
             
             String startRankStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
             String numRecordsStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
@@ -47,13 +46,14 @@ public class ViewSubmissionHistory extends Base{
             
             String component = StringUtils.checkNull(request.getParameter(Constants.COMPONENT_ID));
             if("".equals(component)){
-                Request rTemp = new Request();
-                rTemp.setContentHandle("long_contest_problem_component");
-                rTemp.setProperty(Constants.PROBLEM_ID,request.getParameter(Constants.PROBLEM_ID));
+                Request r = new Request();
+                r.setContentHandle("long_contest_problem_component");
+                r.setProperty(Constants.PROBLEM_ID,request.getParameter(Constants.PROBLEM_ID));
                 component = ((ResultSetContainer)
                         getDataAccess(false).getData(r).get("long_contest_problem_component"))
                         .getStringItem(0,"component_id");
             }
+            Request r = new Request();
             
             r.setContentHandle("long_contest_submission_history");
             r.setProperty(Constants.CODER_ID,request.getParameter(Constants.CODER_ID));
