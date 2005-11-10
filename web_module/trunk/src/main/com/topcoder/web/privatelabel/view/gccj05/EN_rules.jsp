@@ -52,38 +52,23 @@
                 <span class="greenSubtitle">Summary of the Tournament</span><br>
                 The Google&#153; Code Jam China is being offered by Google China Inc. ("Google China ") and TopCoder,
                 Inc. ("TopCoder"). Google China is using the results of the Code Jam to identify possible employees for
-                their China office. The China Code Jam 2005 will take place between November 18, 2005 and Saturday,
-                January 14, 2006. It begins with an online registration, after which all registered individuals will
-                participate in a Qualification Round to determine who will compete in the programming tournament. The
-                tournament consists of one (1) qualification round, two (2) online elimination rounds and one (1) onsite
-                final round. All participants who compete in Round 1 (the first online elimination round) will receive a
-                Google Code Jam China t-shirt. In addition, Google China will award $155,000 in cash prizes to the 50
-                finalists in the tournament.
+                their China office. The Code Jam China will take place between November 21, 2005 and Saturday, January 20, 2006. It begins with an online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament. The tournament consists of one (1) qualification round, two (2) online elimination rounds and one (1) onsite final round. All participants who compete in Round 2 (the second online elimination round) will receive a Google Code Jam China t-shirt. In addition, Google China will award $30,000 USD in prizes to the 50 finalists in the tournament. 
                 <br><br>
                 <b>Eligibility</b><br>
-                All China residents and individuals who are at least 18 years old by December 6, 2005 may register and
-                compete in the Google Code Jam China.
+                All China residents and individuals who are at least 18 years old by December 12, 2005 may register and compete in the Google Code Jam China. 
                 <br><br>
                 Registrants who are 18 years of age or older are eligible to win cash prizes, unless otherwise
                 prohibited. The Google Code Jam China is void in the Quebec province of Canada, and elsewhere where
                 prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya,
                 North Korea, Sudan, or Syria.
                 <br><br>
-                Full and part-time employees of Google and TopCoder as well as those who are performing internships from
-                November 18, 2005 - January 14, 2006 and those involved in the production (including prize suppliers),
-                implementation and distribution of this tournament and their advertising or promotion agencies, parent
-                companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or
-                entities directly associated with the tournament and members of the immediate families and/or persons
-                living in the same household as such persons, are ineligible to enter the tournament.
+                Full and part-time employees of Google  and TopCoder as well as those who are performing internships from November 21, 2005 – January 20, 2006 and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament. 
                 <br><br>
                 <b>Registration</b><br>
-                Registration will open on Friday, November 18, 2005 at 9AM GMT +8 and will close on Tuesday, December 6,
-                2005 at 9AM GMT +8. There is no limit to the number of registrants for the competition, however each
-                individual may only register once.
+                Registration will open on Monday, November 21, 2005 at 9AM GMT +8 and will close on Tuesday, December12, 2005 at 9AM GMT +8. There is no limit to the number of registrants for the competition, however each individual may only register once. 
                 <br><br>
                 <b>Qualification Round</b><br>
-                The Qualification Round will be open for 24 hours from Noon GMT +8 Tuesday, December 6, 2005 through
-                Noon GMT +8, Wednesday, December 7, 2005.
+                The Qualification Round will be open for 24 hours from Noon GMT +8 Monday, December 12, 2005 through Noon GMT +8, Tuesday, December 13, 2005.
                 <br><br>
                 The Qualification Round will consist of two phases: the Coding Phase and System Testing Phase.
                 <ul>
@@ -110,9 +95,7 @@
                 compete in Round 1 of the Code Jam.
                 <br><br>
                 <b>The Competition Field</b><br>
-                Up to 500 individuals will qualify to compete in Round 1. The top 250 scorers from Round 1 will advance
-                to Round 2. The top 50 scorers from Round 2 will advance to the Championship Round, which will be held
-                onsite in Beijing, China.
+                Up to 500 individuals will qualify to compete in Round 1. The top 250 scorers from Round 1 will advance to Round 2. The top 50 scorers from Round 2 will advance to the Championship Round, which will be held onsite in China. 
                 <br><br>
                 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
                     <tr valign="top">
@@ -121,17 +104,15 @@
 </tr>
 <tr valign="top">
     <td class="sidebarText" nowrap=nowrap>Round 1</td>
-    <td class="sidebarText">Monday, December 12, 2005<br>Sign in: 6:00 PM - 8:55 PM<br>START: 9:00 PM
-    </td>
+    <td class="sidebarText">Monday, December 19, 2005<br>Sign in: 6:00 PM - 8:55 PM<br>START: 9:00 PM</td>
 </tr>
 <tr valign="top">
     <td class="sidebarText" nowrap=nowrap>Round 2</td>
-    <td class="sidebarText">Thursday, December 15, 2005<br>START: 9:00 PM
-    </td>
+    <td class="sidebarText">Thursday, December 22, 2005<br>START: 9:00 PM</td>
 </tr>
 <tr valign="top">
     <td class="sidebarText" nowrap=nowrap>Championship Round</td>
-    <td class="sidebarText">Saturday, January 14, 2006<br>START: TBD
+    <td class="sidebarText">Friday, January 20, 2006<br>START: TBD
     </td>
 </tr>
 <tr valign="top">
@@ -204,12 +185,7 @@ of the Qualification Round.)
 </ul>
 
 <b>Onsite Championship Round</b><br>
-The 50 advancers from Round 2 will travel to Beijing, China to compete in the Championship Round of the tournament being
-held on Saturday, January 14, 2006. Each finalist must confirm his/her attendance in the Championship Round by December
-22, 2005, 5PM GMT +8. That is, contestants must have acquired any necessary travel visas and know for certain that they
-can travel by that date and time. If a contestant does not confirm his/her attendance in the Championship Round by said
-date, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next
-highest scorer from Round 2.
+The 50 advancers from Round 2 will travel to China to compete in the Championship Round of the tournament being held on Friday,  January 20, 2006. Each finalist must confirm his/her attendance in the Championship Round by Januray 3, 2006, 12PM (noon) GMT +8. That is, contestants must have acquired any necessary travel visas and know for certain that they can travel by that date and time. If a contestant does not confirm his/her attendance in the Championship Round by said date, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest scorer from Round 2.
 <br><br>
 Google China will provide all travel accommodations for each finalist to attend the Championship Round. In addition,
 Google China will provide overnight accommodations and all travel arrangements to and from the airport, as well as to
@@ -230,37 +206,31 @@ All participants who compete in Round 1 will receive a "Google Code Jam China" t
 the Championship Round will receive cash prizes. Any and all applicable taxes on prizes are the sole responsibility of
 the prizewinner. Prizes will be distributed as follows:
 <br><br>
-<table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
-    <tr valign="top">
-        <td class="sidebarTitle">Competitor(s)</td>
-        <td class="sidebarTitle" align=right>Prize</td>
-    </tr>
-    <tr valign="top">
-        <td class="sidebarText"><b>1st place finisher* - Tournament Champion</b></td>
-        <td class="sidebarText" align=right><b>X</b>
-        </td>
-    </tr>
-    <tr valign="top">
-        <td class="sidebarText" nowrap>2nd to 10th place</td>
-        <td class="sidebarText" nowrap align=right>X
-        </td>
-    </tr>
-    <tr valign="top">
-        <td class="sidebarText" nowrap>11th to 25th place</td>
-        <td class="sidebarText" nowrap align=right>X
-        </td>
-    </tr>
-    <tr valign="top">
-        <td class="sidebarText" nowrap>26th to 50th place</td>
-        <td class="sidebarText" nowrap align=right>X
-        </td>
-    </tr>
-    <tr valign="top">
-        <td class="sidebarText" colspan="2">* Winner must be present at the onsite round to receive prize.</td>
-    </tr>
+<table cellpadding="0" cellspacing="5" border="0" class="bodyText">
+<tr valign="top"><td><b>First Prize ($5000 USD)</b></td><td><b>
+High-end PC with Intel Dual Core CPU and 20-inch LCD display: $2750 USD<br>
+Apple PowerBook 15-inch laptop or IBM T43 laptop: $2000 USD<br>
+iPod Nano 4G: $250 USD
+</b></td></tr>
+<tr valign="top"><td>2nd - 4th Place ($2500 USD)</td><td>
+Apple PowerBook 15-inch laptop or IBM T43 laptop: $2000 USD<br>
+Palm Treo600 PDA Phone: $250 USD<br>
+iPod Nano 4G: $250 USD
+</td></tr>
+<tr valign="top"><td>5th – 10th ($1000 USD)</td><td>
+Canon PowerShot SD20 / IXUS i5 Digital Camera with memory: $500 USD<br>
+Palm Treo600 PDA Phone: $250 USD<br>
+iPod Nano 4G: $250 USD
+</td></tr>
+<tr valign="top"><td>11th – 20th ($500 USD)</td><td>
+Palm Treo600 PDA Phone: $250 USD<br>
+iPod Nano 4G: $250 USD
+</td></tr>
+<tr valign="top"><td>21st – 50th ($250 USD)</td><td>
+iPod Nano 4G: $250 USD
+</td></tr>
 </table>
 <br><br>
-
 <span class="greenSubtitle">Conditions of Participation</span><br>
 By participating in the tournament, you agree to be bound by these rules and to all decisions of Google and TopCoder,
 which are final, binding and conclusive in all matters. Also, by participating in this tournament, you consent to
