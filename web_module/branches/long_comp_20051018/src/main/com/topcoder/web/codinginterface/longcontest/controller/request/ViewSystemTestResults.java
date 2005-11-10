@@ -9,8 +9,10 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -30,6 +32,9 @@ public class ViewSystemTestResults extends Base {
     protected static final Logger log = Logger.getLogger(ViewSystemTestResults.class);
     
     protected void businessProcessing() throws TCWebException {
+	if (getUser().isAnonymous()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+	}
         try{
             TCRequest request = getRequest();
             Request r = new Request();
