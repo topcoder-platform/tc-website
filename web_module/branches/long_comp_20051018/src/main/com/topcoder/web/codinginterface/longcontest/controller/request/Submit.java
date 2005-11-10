@@ -2,6 +2,7 @@ package com.topcoder.web.codinginterface.longcontest.controller.request;
 
 import java.io.BufferedReader;
 import java.io.StringReader;
+import java.net.URLEncoder;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -190,12 +191,12 @@ public class Submit extends Base {
 								new String[]{String.valueOf(rid),String.valueOf(cd),String.valueOf(cid),String.valueOf(language)}));
 					}
 				} catch (TimeOutException e) {
-					// The compilation timed out 
-					request.setAttribute(Constants.MESSAGE, "Your code compilation request timed out.");
+					// The compilation timed out
+					String msg = URLEncoder.encode("Your code compilation request timed out.", "UTF-8");
 					// Go back to coding.
 					closeProcessingPage(buildProcessorRequestString("Submit",
-							new String[]{Constants.ROUND_ID,Constants.CONTEST_ID,Constants.COMPONENT_ID,Constants.LANGUAGE_ID},
-							new String[]{String.valueOf(rid),String.valueOf(cd),String.valueOf(cid),String.valueOf(language)}));
+							new String[]{Constants.ROUND_ID,Constants.CONTEST_ID,Constants.COMPONENT_ID,Constants.LANGUAGE_ID, Constants.MESSAGE},
+							new String[]{String.valueOf(rid),String.valueOf(cd),String.valueOf(cid),String.valueOf(language), msg}));
 				}
 			} else if(action.equals("save")) { // user is saving code
 				boolean res = saveCode(code, language, (int)uid, cd, rid, cid);		

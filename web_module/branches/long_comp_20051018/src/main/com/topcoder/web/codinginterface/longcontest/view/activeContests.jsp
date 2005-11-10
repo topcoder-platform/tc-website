@@ -8,6 +8,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -63,27 +64,27 @@
 <td class="<%=even?"statLt":"statDk"%>"><b><tc-webtag:beanWrite name="contest" property="contestName"/></b>
 <div style="float: left;"><img src="/i/logo_r.gif" alt="" border="0" /></div>
 </td>
-<td class="<%=even?"statLt":"statDk"%>"><A href="longcontest?module=ViewProblem&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">
+<td class="<%=even?"statLt":"statDk"%>"><A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblem&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">
 <tc-webtag:beanWrite name="contest" property="problemName"/></A>
 </td>
 <td class="<%=even?"statLt":"statDk"%>">
 <logic:equal name="contest" property="passed" value="false">
 	<logic:equal name="contest" property="coderRegistered" value="false">
-		<A href="longcontest?module=ViewReg&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">Register</a>
+		<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewReg&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">Register</a>
 	</logic:equal>
 	<logic:notEqual name="contest" property="coderRegistered" value="false">
-		<A href="longcontest?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>" class="statLink">Submit</a>
+		<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>" class="statLink">Submit</a>
 	</logic:notEqual>
 </logic:equal>
 </td>
 <td class="<%=even?"statLt":"statDk"%>">
 	<logic:equal name="contest" property="passed" value="false">
 		<logic:equal name="contest" property="started" value="true">
-			<A href="longcontest?module=ViewStandings&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">Standings</a>
+			<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewStandings&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">Standings</a>
 		</logic:equal>
 	</logic:equal>
 	<logic:notEqual name="contest" property="passed" value="false">
-		<A href="longcontest?module=ViewOverview&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">Results</a>
+		<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewOverview&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">Results</a>
 	</logic:notEqual>
 </td>
 <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><tc-webtag:beanWrite name="contest" property="startTime"/></td>

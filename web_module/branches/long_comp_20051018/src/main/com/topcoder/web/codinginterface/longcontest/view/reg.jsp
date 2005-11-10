@@ -11,6 +11,7 @@
           com.topcoder.web.common.tag.AnswerInput,
           com.topcoder.web.common.model.Question"
 %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -43,7 +44,7 @@
 <jsp:param name="image" value="long_competitions"/>
 <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
-	<form action=".<%=Constants.MAIN_SERVLET%>" method="POST" name="surveyForm">
+	<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="surveyForm">
   		<input type="hidden" name="<%=Constants.MODULE%>" value="SubmitReg"/>
   		<input type="hidden" name="<%=Constants.ROUND_ID%>" value="<%=request.getAttribute(Constants.ROUND_ID)%>"/>
   		<% int i=1; %>

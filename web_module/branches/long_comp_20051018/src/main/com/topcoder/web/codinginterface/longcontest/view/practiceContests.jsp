@@ -8,6 +8,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -62,8 +63,8 @@
 <tr>
 <td class="<%=even?"statLt":"statDk"%>"><b><tc-webtag:beanWrite name="contest" property="contestName"/></b></td>
 <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 35px;"><tc-webtag:beanWrite name="contest" property="numCompetitors"/></td>
-<td class="<%=even?"statLt":"statDk"%>" align="center"><A href="longcontest?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>">submit</A></td>
-<td class="<%=even?"statLt":"statDk"%>" align="center"><A href="longcontest?module=ViewStandings&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>">standings</A></td>
+<td class="<%=even?"statLt":"statDk"%>" align="center"><A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>">submit</A></td>
+<td class="<%=even?"statLt":"statDk"%>" align="center"><A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewStandings&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>">standings</A></td>
 </tr>
 <%even=!even;%>
 </logic:iterate>
