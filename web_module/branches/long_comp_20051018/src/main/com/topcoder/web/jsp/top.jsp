@@ -5,6 +5,7 @@
           com.topcoder.common.web.data.Navigation" %>
 <%@ page import="com.topcoder.web.common.SessionInfo"%>
 <%@ page import="com.topcoder.web.common.BaseServlet"%>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%
     SessionInfo sessionInfo = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
     if (sessionInfo==null) {
