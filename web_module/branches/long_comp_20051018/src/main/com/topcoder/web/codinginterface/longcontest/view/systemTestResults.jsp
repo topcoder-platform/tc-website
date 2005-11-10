@@ -10,12 +10,14 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
+
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="resultMap" class="java.util.Map" scope="request" />
+<jsp:useBean id="scoreHash" class="java.util.Map" scope="request" />
 <%
-    Map m = (Map)request.getAttribute("resultMap");
-    Map scoreHash = (Map)request.getAttribute("scoreHash");
-    ResultSetContainer coders = (ResultSetContainer)m.get("long_contest_test_results_coders");
-    ResultSetContainer cases = (ResultSetContainer)m.get("long_contest_test_results_cases");
-    ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_overview_info");
+    ResultSetContainer coders = (ResultSetContainer)resultMap.get("long_contest_test_results_coders");
+    ResultSetContainer cases = (ResultSetContainer)resultMap.get("long_contest_test_results_cases");
+    ResultSetContainer rsc = (ResultSetContainer)resultMap.get("long_contest_overview_info");
     ResultSetContainer.ResultSetRow infoRow = null;
     if(rsc != null && !rsc.isEmpty())
         infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
@@ -29,7 +31,7 @@
     if(!"".equals(StringUtils.checkNull(request.getParameter(Constants.COL_COUNT))))
         pageCSize = Integer.parseInt(request.getParameter(Constants.COL_COUNT));
     
-    String selfLink = "longcontest?module=ViewSystemTestResults"
+    String selfLink = sessionInfo.getServletPath() + "?" + Constants.MODULE + "=ViewSystemTestResults"
             + "&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID)
             + "&" + Constants.PROBLEM_ID + "=" + request.getParameter(Constants.PROBLEM_ID)
             + "&" + Constants.CODER_ID + "=" + StringUtils.checkNull(request.getParameter(Constants.CODER_ID))
@@ -127,17 +129,17 @@
    <td class="tableTitle" colspan="<%=cases.getRowCount()+2%>">System Test Results</td>
 </tr>
 <tr>
-   <td class="tableHeader"></td>
-   <td class="tableHeader"></td>
+   <td class="tableHeader" width="10%"><A href="sort">Handle</A></td>
+   <td class="tableHeader" width="9%"><A href="sort">Score</A></td>
 <rsc:iterator list="<%=cases%>" id="resultRow">
    <td class="tableHeader" align="right" nowrap="nowrap"><A href="sort">Test Case <rsc:item name="rank" row="<%=resultRow%>"/></A><br>
-   (<A href="longcontest?module=ViewSystemTest&<%=Constants.TEST_CASE_ID%>=<rsc:item name="test_case_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<%=request.getParameter(Constants.PROBLEM_ID)%>">details</A>)</td>
+   (<A href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=ViewSystemTest&<%=Constants.TEST_CASE_ID%>=<rsc:item name="test_case_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<%=request.getParameter(Constants.PROBLEM_ID)%>">details</A>)</td>
 </rsc:iterator>
 </tr>
 <%boolean even = true;%>
 <rsc:iterator list="<%=coders%>" id="coderRow">
 <tr align="right">
-   <td class="tableheader" align="left" nowrap="nowrap"><A href="sort">[+]</A> <rsc:item name="handle" row="<%=coderRow%>"/></td>
+   <td class="<%=even?"statLt":"statDk"%>" align="left" nowrap="nowrap"><tc-webtag:handle coderId='<%=coderRow.getLongItem("coder_id")%>'/></td>
    <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="final_points" row="<%=coderRow%>"/></td>
 <rsc:iterator list="<%=cases%>" id="caseRow">
    <td class="<%=even?"statLt":"statDk"%>"><%=scoreHash.get(coderRow.getItem("coder_id") + "_" + caseRow.getItem("test_case_id"))%></td>
