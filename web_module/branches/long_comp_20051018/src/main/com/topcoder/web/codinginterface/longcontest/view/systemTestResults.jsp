@@ -130,7 +130,7 @@
    <td class="tableHeader"></td>
 <rsc:iterator list="<%=cases%>" id="resultRow">
    <td class="tableHeader" align="right" nowrap="nowrap"><A href="sort">Test Case <rsc:item name="rank" row="<%=resultRow%>"/></A><br>
-   (<A href="longcontest?module=ViewSystemTest&<%=Constants.TEST_CASE_ID%>=<rsc:item name="test_case_id" row="<%=resultRow%>&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<%=request.getParameter(Constants.PROBLEM_ID)%>">details</A>)</td>
+   (<A href="longcontest?module=ViewSystemTest&<%=Constants.TEST_CASE_ID%>=<rsc:item name="test_case_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<%=request.getParameter(Constants.PROBLEM_ID)%>">details</A>)</td>
 </rsc:iterator>
 </tr>
 <%boolean even = true;%>
