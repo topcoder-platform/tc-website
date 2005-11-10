@@ -132,7 +132,7 @@ public abstract class FullRegBase extends SimpleRegBase {
      */
     protected static Map getQuestions(String db, int coderTypeId, int companyId, Locale locale) throws Exception {
         Request r = new Request();
-        if (locale.equals(Locale.US)) {
+        if (locale.getLanguage().equals(Locale.US.getLanguage())) {
             r.setContentHandle("demographic_question_list");
         } else {
             r.setContentHandle(locale.getLanguage()+"_demographic_question_list");
@@ -177,7 +177,7 @@ public abstract class FullRegBase extends SimpleRegBase {
 
         DataAccessInt dataAccess = getDataAccess(db, true);
         Request r = new Request();
-        if (locale.equals(Locale.US)) {
+        if (locale.getLanguage().equals(Locale.US.getLanguage())) {
             r.setContentHandle("demographic_answer_list");
         } else {
             r.setContentHandle(locale.getLanguage()+"_demographic_answer_list");
