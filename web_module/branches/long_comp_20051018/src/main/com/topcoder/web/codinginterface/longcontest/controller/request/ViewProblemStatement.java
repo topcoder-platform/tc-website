@@ -6,8 +6,10 @@ import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.distCache.CacheClient;
@@ -23,11 +25,24 @@ public class ViewProblemStatement extends Base{
     protected static final Logger log = Logger.getLogger(ViewProblemStatement.class);
 
     protected void businessProcessing() throws TCWebException {
+	if (getUser().isAnonymous()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+	}
         try{
             TCRequest request = getRequest();
             CacheClient cc = null;
             String html = null;
-            int cid = Integer.parseInt(request.getParameter(Constants.COMPONENT_ID));
+            int cid;
+            if(request.getParameter(Constants.COMPONENT_ID) == null){
+                Request r = new Request();
+                r.setContentHandle("long_contest_problem_component");
+                r.setProperty(Constants.PROBLEM_ID,request.getParameter(Constants.PROBLEM_ID));
+                cid = ((ResultSetContainer)
+                        getDataAccess(false).getData(r).get("long_contest_problem_component"))
+                        .getIntItem(0,"component_id");
+            }else{
+                cid = Integer.parseInt(request.getParameter(Constants.COMPONENT_ID));
+            }
             int rd = Integer.parseInt(request.getParameter(Constants.ROUND_ID));
             boolean hasCacheConnection = true;
             boolean isAdmin = false;//getUser().isAdmin();  TODO fix this
@@ -77,7 +92,13 @@ public class ViewProblemStatement extends Base{
                 }
             }
             request.setAttribute(Constants.PROBLEM_STATEMENT_KEY,html);
-            setNextPage(Constants.PAGE_PROBLEM_STATEMENT);
+            
+            String popup = request.getParameter("popup");
+            if("true".equalsNoCase(popup)){
+                setNextPage(Constants.PAGE_PROBLEM_STATEMENT_CONTENT);
+            }else{
+                setNextPage(Constants.PAGE_PROBLEM_STATEMENT);
+            }
             setIsNextPageInContext(true);
         }catch(TCWebException e){
             throw e;
