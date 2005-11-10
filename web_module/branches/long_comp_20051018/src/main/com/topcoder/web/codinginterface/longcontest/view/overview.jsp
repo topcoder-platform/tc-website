@@ -15,6 +15,7 @@
     Map m = (Map)request.getAttribute("resultMap");
     ResultSetContainer registrants = (ResultSetContainer)m.get("long_contest_overview_coders");
     ResultSetContainer rounds = (ResultSetContainer)m.get("long_contest_round_list");
+    ResultSetContainer categories = (ResultSetContainer)m.get("long_contest_round_categories");
     ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_overview_info");
     ResultSetContainer.ResultSetRow infoRow = null;
     if(rsc != null && !rsc.isEmpty())
@@ -95,7 +96,14 @@ Please select a contest:<br>
 <tc-webtag:rscSelect name="<%=Constants.ROUND_ID%>" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=request.getParameter(Constants.ROUND_ID)%>" onChange="goTo(this)" />
 <br><br>
 <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
-<span class="bodySubtitle">Categories: <br>
+<span class="bodySubtitle">Categories:
+<% if(categories.isEmpty()){ %> None <% } %>
+<%boolean first = true;%>
+<rsc:iterator list="<%=categories%>" id="resultRow">
+    <% if(!first){ %>, <% } %><rsc:item name="problem_category_desc" row="<%=resultRow%>"/>
+    <% first = false; %>
+</rsc:iterator>
+<br>
 Competitors: <rsc:item name="num_competitors" row="<%=infoRow%>"/><br>
 Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>"/></span><br>
 <A href="longcontest?module=ViewPractice">Practice</A><br>
