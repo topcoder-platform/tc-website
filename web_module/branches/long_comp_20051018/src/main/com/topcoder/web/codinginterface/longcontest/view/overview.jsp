@@ -106,7 +106,7 @@ Please select a contest:<br>
 </rsc:iterator>
 <br>
 Competitors: <rsc:item name="num_competitors" row="<%=infoRow%>"/><br>
-Avg. Submissions: <tc-webtag:format object="<%=infoRow.getItem("avg_submissions").getResultData()%>"/><rsc:item name="avg_submissions" row="<%=infoRow%>"/></span><br>
+Avg. Submissions: <tc-webtag:format object="<%=new Double(infoRow.getDoubleItem("avg_submissions"))%>"/><rsc:item name="avg_submissions" row="<%=infoRow%>"/></span><br>
 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewPractice">Practice</A><br>
 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>">Problem Statement</A>
 
