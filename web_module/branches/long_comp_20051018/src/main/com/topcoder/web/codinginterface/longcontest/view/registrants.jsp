@@ -29,8 +29,8 @@
             + "&" + DataAccessConstants.NUMBER_RECORDS + "=" + pageSize;
     
     String pagingLink = selfLink
-            + "&" + DataAccessConstants.SORT_COLUMN + "=" + request.getParameter(DataAccessConstants.SORT_COLUMN)
-            + "&" + DataAccessConstants.SORT_DIRECTION + "=" + request.getParameter(DataAccessConstants.SORT_DIRECTION);
+            + "&" + DataAccessConstants.SORT_COLUMN + "=" + StringUtils.checkNull(request.getParameter(DataAccessConstants.SORT_COLUMN))
+            + "&" + DataAccessConstants.SORT_DIRECTION + "=" + StringUtils.checkNull(request.getParameter(DataAccessConstants.SORT_DIRECTION));
     
     String prevPage, nextPage;
     if(registrants.croppedDataBefore()){
