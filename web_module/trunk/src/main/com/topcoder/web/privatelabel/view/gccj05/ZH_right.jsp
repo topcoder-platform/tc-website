@@ -28,14 +28,7 @@
     <tr><td>&#160;</td></tr>
     <tr>
         <td align="center" nowrap=nowrap class="smallGreenBox">
-            <span class="bodyTextGreen">竞赛奖金</span>
-            <br><br>
-            <b>第1名 - X</b><br>
-            第2名 - X<br>
-            第3名 - X<br>
-            第4名 - X<br>
-            第5名 - X<br><br>
-            第6名-第50名将分享
+            <span class="bodyTextGreen">价值三万美元的高科技奖品</span>
         </td>
     </tr>
 </table>
