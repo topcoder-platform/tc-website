@@ -144,7 +144,20 @@ public class Submit extends View {
                         log.debug("not multiple choice, but there are multiple answers");
                         addError(errorKey, "Invalid answer.");
                     }
-                    if (question.getStyleId() == Question.SINGLE_CHOICE) {
+                    if (question.getTypeId()== Question.SCHULZE_ELECTION_TYPE) {
+                        if (!"".equals(values[i])) {
+                            try {
+                                answerId = Long.parseLong(values[i]);
+                            } catch (NumberFormatException e) {
+                                log.debug("numberformat trying to get answer for single choice");
+                                addError(errorKey, "Invalid answer.");
+                            }
+                            if (findAnswer(answerId, question) == null) {
+                                log.debug("can't find single choice answer");
+                                addError(errorKey, "Invalid answer.");
+                            }
+                        }
+                    } else  if (question.getStyleId() == Question.SINGLE_CHOICE) {
                         try {
                             answerId = Long.parseLong(values[i]);
                         } catch (NumberFormatException e) {
@@ -167,7 +180,9 @@ public class Submit extends View {
                         response.setFreeForm(true);
                         ret.add(response);
                     }
-                } else {
+                } else if (answerId>0) {
+                    //answerId would be -1 in the case of a schulze election where
+                    //the respondant does not rate the candidate
                     response.setAnswerId(answerId);
                     response.setFreeForm(false);
                     ret.add(response);
