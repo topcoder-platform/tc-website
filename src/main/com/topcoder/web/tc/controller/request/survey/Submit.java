@@ -25,6 +25,10 @@ public class Submit extends View {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             if (alreadyResponded()) {
                 throw new NavigationException("Sorry, you may only respond to a survey once.");
+            } else if (isSRMSurvey() && !hasSurveyClosed()) {
+                throw new NavigationException("Sorry, you can not answer this survey at this time.");
+            } else if (survey.getEndDate().before(new Date())||survey.getStartDate().after(new Date())) {
+                throw new NavigationException("Sorry, you can not answer this survey at this time.");
             } else {
                 String paramName = null;
                 List responses = new ArrayList(10);
