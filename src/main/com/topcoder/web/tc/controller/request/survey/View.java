@@ -67,10 +67,6 @@ public class View extends SurveyData {
         return ret;
     }
 
-    protected boolean isSurveyOpen() {
-
-    }
-
     protected final boolean isSRMSurvey() {
         Question q = null;
         boolean found = false;
