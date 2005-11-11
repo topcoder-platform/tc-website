@@ -23,7 +23,7 @@ public class View extends SurveyData {
                 SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
                 setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=SurveyResults&" + Constants.SURVEY_ID + "=" + survey.getId());
                 setIsNextPageInContext(false);
-            } else if (isSRMSurvey() && !hasSurveyClosed()) {
+            } else if (isSRMSurvey() && !isSurveyActive()) {
                 throw new NavigationException("Sorry, you can not answer this survey at this time.");
             } else {
                 setNextPage(Constants.SURVEY_VIEW);
@@ -74,13 +74,12 @@ public class View extends SurveyData {
         return found;
     }
 
-    protected final boolean hasSurveyClosed() throws TCWebException {
+    protected final boolean isSurveyActive() throws TCWebException {
         boolean found = false;
 
         try {
             Request r = new Request();
-            //we're assuming that the survey_list command only includes surveys that have closed
-            //as far as round registration is concerned.
+            //we're assuming that the survey_list command only includes surveys are active
             r.setContentHandle("survey_list");
             r.setProperty("cr", String.valueOf(getUser().getId()));
             ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("survey_list");
