@@ -28,7 +28,7 @@
     <tr><td>&#160;</td></tr>
     <tr>
         <td align="center" nowrap=nowrap class="smallGreenBox">
-            <span class="bodyTextGreen">价值三万美元的高科技奖品</span>
+            <span class="bodyTextGreen">价值三万美元的<br>高科技奖品</span>
         </td>
     </tr>
 </table>
