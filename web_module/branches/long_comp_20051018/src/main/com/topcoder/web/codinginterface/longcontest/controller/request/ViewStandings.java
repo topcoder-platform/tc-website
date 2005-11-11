@@ -236,7 +236,7 @@ public class ViewStandings extends Base {
 				ret = sm1.getSubmissionNumber() - sm2.getSubmissionNumber();
 			}
 			
-			if(ret == 0) ret = sm1.getHandle().toLowerCase().compareTo(sm2.getHandle().toLowerCase()); // The tie breaker
+			if(ret == 0) return sm1.getHandle().toLowerCase().compareTo(sm2.getHandle().toLowerCase()); // The tie breaker
 			
 			return ret * asc;
 		}
