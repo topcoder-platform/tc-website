@@ -37,12 +37,12 @@
             + "&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID)
             + "&" + Constants.PROBLEM_ID + "=" + request.getParameter(Constants.PROBLEM_ID)
             + "&" + Constants.CODER_ID + "=" + StringUtils.checkNull(request.getParameter(Constants.CODER_ID))
-            + "&" + Constants.TEST_CASE_ID + "=" + StringUtils.checkNull(request.getParameter(Constants.TEST_CASE_ID))
             + "&" + Constants.ROW_COUNT + "=" + pageRSize
             + "&" + Constants.COL_COUNT + "=" + pageCSize;
 
     String sortParams = "&" + Constants.PRIMARY_COLUMN + "=" + StringUtils.checkNull(request.getParameter(Constants.PRIMARY_COLUMN))
-            + "&" + Constants.SORT_ORDER + "=" + StringUtils.checkNull(request.getParameter(Constants.SORT_ORDER));
+            + "&" + Constants.SORT_ORDER + "=" + StringUtils.checkNull(request.getParameter(Constants.SORT_ORDER))
+            + "&" + Constants.TEST_CASE_ID + "=" + StringUtils.checkNull(request.getParameter(Constants.TEST_CASE_ID));
 
     String pagingRParam = "&" + Constants.START_ROW + "=" + StringUtils.checkNull(request.getParameter(Constants.START_ROW));
     String pagingCParam = "&" + Constants.START_COL + "=" + StringUtils.checkNull(request.getParameter(Constants.START_COL));
@@ -155,6 +155,7 @@
    <td class="<%=even?"statLt":"statDk"%>" align="left" nowrap="nowrap"><tc-webtag:handle coderId='<%=coderRow.getLongItem("coder_id")%>'/></td>
    <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="final_points" row="<%=coderRow%>"/></td>
 <rsc:iterator list="<%=cases%>" id="caseRow">
+   <!-- <%= coderRow.getItem("coder_id") + "_" + caseRow.getItem("test_case_id") %> -->
    <td class="<%=even?"statLt":"statDk"%>"><%=scoreHash.get(coderRow.getItem("coder_id") + "_" + caseRow.getItem("test_case_id"))%></td>
 </rsc:iterator>
 </tr>
