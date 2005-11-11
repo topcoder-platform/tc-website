@@ -187,6 +187,7 @@ public class AnswerInput extends BaseTag {
         }
         s.append(">\n");
         Answer a = null;
+        s.append("<option value=\"\"></option>");
         for (Iterator it = question.getAnswerInfo().iterator(); it.hasNext();) {
             a = (Answer) it.next();
             s.append("<option value=\"");
