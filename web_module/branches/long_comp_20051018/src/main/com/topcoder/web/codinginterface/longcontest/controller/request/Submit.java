@@ -58,14 +58,12 @@ public class Submit extends Base {
 		try {
 		
 			// Get the query parameters
-			int cid = Integer.parseInt(request.getParameter(Constants.COMPONENT_ID));
-			int rid = Integer.parseInt(request.getParameter(Constants.ROUND_ID));
-			int cd = Integer.parseInt(request.getParameter(Constants.CONTEST_ID));			
-			int language = Integer.parseInt((request.getParameter(Constants.LANGUAGE_ID) == null ? "-1" : request.getParameter(Constants.LANGUAGE_ID)));			 
-			String action = request.getParameter(Constants.ACTION_KEY);
-			String code = request.getParameter(Constants.CODE);
-			
-
+			int cid = Integer.parseInt(getParameter(request, Constants.COMPONENT_ID));
+			int rid = Integer.parseInt(getParameter(request, Constants.ROUND_ID));
+			int cd = Integer.parseInt(getParameter(request, Constants.CONTEST_ID));			
+			int language = Integer.parseInt((getParameter(request, Constants.LANGUAGE_ID) == null ? "-1" : getParameter(request, Constants.LANGUAGE_ID)));			 
+			String action = getParameter(request, Constants.ACTION_KEY);
+			String code = getParameter(request, Constants.CODE);
 
 			// Build the request to get submission related data
 			Request r = new Request();
@@ -106,10 +104,10 @@ public class Submit extends Base {
 			
 			// Put these objects into session
 			request.getSession().setAttribute(Constants.LANGUAGES, lang);
-			request.getSession().setAttribute(Constants.CLASS_NAME, className);
-			request.getSession().setAttribute(Constants.CODE, code);
+			request.getSession().setAttribute(Constants.CLASS_NAME, className);			
+			request.getSession().setAttribute(Constants.CODE, code);			
 			request.getSession().setAttribute(Constants.SELECTED_LANGUAGE, new Integer(language));
-			
+						
 			if(action == null) { // no action specified
 				// any code in session?
 				code = (String) request.getSession().getAttribute(Constants.CODE);
@@ -172,10 +170,11 @@ public class Submit extends Base {
 						request.getSession().setAttribute(Constants.COMPILE_MESSAGE, htmlEncode(res.getCompileError()));
 						// Go back to coding.
 						closeProcessingPage(buildProcessorRequestString("Submit",
-								new String[]{Constants.ROUND_ID,Constants.CONTEST_ID,Constants.COMPONENT_ID,Constants.LANGUAGE_ID},
+								new String[]{Constants.ROUND_ID,Constants.CONTEST_ID,Constants.COMPONENT_ID,Constants.SELECTED_LANGUAGE},
 								new String[]{String.valueOf(rid),String.valueOf(cd),String.valueOf(cid),String.valueOf(language)}));
 					}
 				} catch (TimeOutException e) {
+					log.debug("compilation timed out...");
 					// The compilation timed out
 					request.getSession().setAttribute(Constants.COMPILE_MESSAGE, "Your code compilation request timed out.<br>");					
 					// Go back to coding.
@@ -225,6 +224,7 @@ public class Submit extends Base {
 	
 	// Removes junk session variables that this class put into session
 	private void cleanSession() { 
+		log.debug("Clearing submit session variables...");
 		getRequest().getSession().removeAttribute(Constants.LANGUAGES);
 		getRequest().getSession().removeAttribute(Constants.CLASS_NAME);
 		getRequest().getSession().removeAttribute(Constants.CODE);
@@ -233,6 +233,18 @@ public class Submit extends Base {
 		getRequest().getSession().removeAttribute(Constants.COMPILE_MESSAGE);		
 	}
 
+	/**
+	 * Looks for the attribute in the request first, and then the session.
+	 * @param request	The request object
+	 * @param key		The parameter key
+	 * @return			The value for the specified parameter
+	 */
+	public String getParameter(TCRequest request, String key) {
+		String val = request.getParameter(key);
+		if(val == null) val = (String)request.getSession().getAttribute(key);
+		return val;
+	}
+	
 	// Save the user's code into the database
 	private boolean saveCode(String code, int lang, int uid, int cd, int rid, int cid) throws Exception {
 		log.debug("saveCode called... lang=" + lang + " uid=" + uid + " cd=" + cd + " rid=" + rid + " cid=" + cid);
