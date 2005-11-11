@@ -133,7 +133,7 @@
 </tr>
 <tr>
    <td class="tableHeader" width="10%" valign="bottom"><A href="<%=selfLink%><%=pagingRParam%><%=pagingCParam%>&<%=Constants.PRIMARY_COLUMN%>=1&<%=Constants.SORT_ORDER%>=<%=("1".equals(request.getParameter(Constants.PRIMARY_COLUMN))&&!"desc".equals(request.getParameter(Constants.SORT_ORDER)))?"desc":"asc"%>">Handle</A></td>
-   <td class="tableHeader" width="9%" valign="bottom"><A href="<%=selfLink%><%=pagingRParam%><%=pagingCParam%>&<%=Constants.PRIMARY_COLUMN%>=2&<%=Constants.SORT_ORDER%>=<%=("1".equals(request.getParameter(Constants.PRIMARY_COLUMN))&&!"asc".equals(request.getParameter(Constants.SORT_ORDER)))?"asc":"desc"%>">Score</A></td>
+   <td class="tableHeader" width="9%" valign="bottom"><A href="<%=selfLink%><%=pagingRParam%><%=pagingCParam%>&<%=Constants.PRIMARY_COLUMN%>=2&<%=Constants.SORT_ORDER%>=<%=("2".equals(request.getParameter(Constants.PRIMARY_COLUMN))&&!"asc".equals(request.getParameter(Constants.SORT_ORDER)))?"asc":"desc"%>">Score</A></td>
 <rsc:iterator list="<%=cases%>" id="resultRow">
    <%
         String sortDir;
