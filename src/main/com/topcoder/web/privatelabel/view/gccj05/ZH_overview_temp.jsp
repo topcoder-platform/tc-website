@@ -5,7 +5,7 @@
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gccj05.css"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <title>Google&#153; 中国编程精英网罗赛, 竞赛软件由 Topcoder&#174;公司提供</title>
+    <title>Google&#153; Code Jam - 中国编程挑战赛, 竞赛软件由 Topcoder&#174;公司提供</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 
@@ -40,7 +40,7 @@
 
 <br><br>
 
-<span class="bigTitle">Google&#153; 中国编程精英网罗赛</span>
+<span class="bigTitle">Google&#153; Code Jam - 中国编程挑战赛</span>
 <span valign=top>
 <jsp:include page="ZH_right.jsp"/>
 </span>
@@ -165,7 +165,7 @@ Palm Treo600 PDA 电话：价值250美元<br>
 </table>
 </div>
 <br><br>
-想要了解更多的 Google 中国编程精英网罗赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
+想要了解更多的 Google&#153; Code Jam - 中国编程挑战赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
 </div>
 </td>
 <td width="49%">&#160;</td>
