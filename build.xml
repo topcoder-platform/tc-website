@@ -926,6 +926,29 @@
 
      </target>
 
+     <target name="war-chinaemail" depends="compile">
+         <war warfile="${war.dir}/chinaemail.war" webxml="${resources}/email/web.xml">
+             <fileset dir="${java}/com/topcoder/web/email/servlet/jsp">
+                 <include name="**/*.jsp"/>
+             </fileset>
+             <classes dir="${classes}">
+                 <include name="com/topcoder/web/email/**"/>
+             </classes>
+             <webinf dir="${resources}/email">
+                 <include name="email-taglib.tld"/>
+             </webinf>
+             <zipfileset dir="${java}/com/topcoder/web/email/servlet/jsp">
+                 <include name="**/*.jpg"/>
+             </zipfileset>
+             <webinf dir="${resources}/email">
+                 <include name="jboss-web.xml"/>
+             </webinf>
+         </war>
+         <unwar src="${war.dir}/chinaemail.war" dest="${jboss_deploy}/chinaemail.war/" overwrite="yes"/>
+         <delete dir="${jboss_deploy}/chinaemail.war/META-INF"/>
+     </target>
+
+
 
      <target name="war-email" depends="compile">
          <war warfile="${war.dir}/email.war" webxml="${resources}/email/web.xml">
