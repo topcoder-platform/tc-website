@@ -10,10 +10,8 @@ import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.tc.model.Question;
 import com.topcoder.web.tc.model.Survey;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.sql.Timestamp;
 
 public abstract class SurveyData extends Base {
 
@@ -85,6 +83,8 @@ public abstract class SurveyData extends Base {
             ret.setName(rsc.getRow(0).getStringItem("name"));
             ret.setStatusId(rsc.getRow(0).getIntItem("status_id"));
             ret.setText(rsc.getRow(0).getStringItem("text"));
+            ret.setStartDate(new Date(((Timestamp)rsc.getItem(0, "start_date").getResultData()).getTime()));
+            ret.setEndDate(new Date(((Timestamp)rsc.getItem(0, "end_date").getResultData()).getTime()));
         }
         return ret;
     }
