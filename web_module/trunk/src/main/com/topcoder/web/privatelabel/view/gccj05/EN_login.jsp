@@ -35,7 +35,7 @@
             <table border=0 width=100% cellpadding=0 cellspacing=0>
                 <tr>
                     <td width="49%"></td>
-                    <td valign=bottom align=center><img border=0 src="/i/events/google2005/codejamLogo.gif"
+                    <td valign=bottom align=center><img border=0 src="/i/events/gccj05/gcjc_logo.gif"
                                                         alt="Google Code Jam logo"></td>
                     <td width="49%"></td>
                 </tr>
