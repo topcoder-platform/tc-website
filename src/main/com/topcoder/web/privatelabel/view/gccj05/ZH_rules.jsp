@@ -49,21 +49,20 @@
                 <span class="bigRed">参加竞赛毋须交纳任何费用。</span>
                 <br><br>
                 <span class="greenSubtitle">锦标赛概要</span><br>
-                此次Google&#153; China Code Jam 由Google China公司("Google China")和TopCoder公司("TopCoder")共同主办。Google China公司通过举办此次赛事，旨在为在中国的分公司招纳人才。赛事将在2005年11月21日开始举行，至2006年1月20日星期五结束。所有希望参赛的选手可以在线注册。整个赛事包括1次资格赛，2次在线淘汰赛和1次现场决赛。所有能够参加第二轮赛事(即第2轮在线淘汰赛)的选手可以获赠此次赛事的冠名T恤一件。此外，Google China公司将为最终参加决赛的50名选手提供高达30000美元的总奖金。
+                此次Google&#153; Code Jam - 中国编程挑战赛 由Google China公司("Google China")和TopCoder公司("TopCoder")共同主办。Google China公司通过举办此次赛事，旨在为在中国的分公司招纳人才。赛事将在2005年11月21日开始举行，至2006年1月20日星期五结束。所有希望参赛的选手可以在线注册。整个赛事包括1次资格赛，2次在线淘汰赛和1次现场决赛。所有能够参加第二轮赛事(即第2轮在线淘汰赛)的选手可以获赠此次赛事的冠名T恤一件。此外，Google China公司将为最终参加决赛的50名选手提供高达30000美元的总奖金。
                 <br><br>
                 <b>参赛资格</b><br>
                 所有在2005年12月12日满18周岁的中国居民和个人都可以注册和参加此次Google&#153; Code Jam - 中国编程挑战赛的赛事。
                 <br><br>
                 年满18周岁或年龄超过18岁的注册参赛者才有资格获得奖金，特殊情况除外。此次赛事对加拿大的魁北克及其他相关法律禁止的地方无效。古巴，伊朗，伊拉克，利比亚，北朝鲜，苏丹，叙利亚的居民将不能获得奖金。
                 <br><br>
-                以下人员同样不得参加此次赛事：Google
-                China公司和TopCoder公司的全职和兼职工作人员，以及于2005年11月18日至2006年1月14日参加公司实习的人员，此次赛事的赞助商(包括奖品提供商)，组委及其广告商、宣传中介、其母公司、服务商、代理商、工作人员、子公司以及与此次赛事有直接合作关系的任何个人或团体，或与赛事成员有直接亲属关系或共同生活的个人。
+                以下人员同样不得参加此次赛事：Google China公司和TopCoder公司的全职和兼职工作人员，以及于2005年11月21日至2006年1月20日参加公司实习的人员，此次赛事的赞助商(包括奖品提供商)，组委及其广告商、宣传中介、其母公司、服务商、代理商、工作人员、子公司以及与此次赛事有直接合作关系的任何个人或团体，或与赛事成员有直接亲属关系或共同生活的个人。
                 <br><br>
                 <b>注册</b><br>
-                注册从北京时间2005年11月18日星期五上午9点开始，至北京时间2005年12月6日星期二上午9点结束。此次注册没有总人数限制，但每人只能注册一次。
+                注册从北京时间2005年11月21日星期一上午9点开始，至北京时间2005年12月12日星期一上午9点结束。此次注册没有总人数限制，但每人只能注册一次。
                 <br><br>
                 <b>资格赛</b><br>
-                资格赛会在北京时间2005年12月6日星期二中午至北京时间2005年12月7日星期三中午全程24小时开放。
+                资格赛会在北京时间2005年12月12日星期一中午至北京时间2005年12月13日星期二中午全程24小时开放。
                 <br><br>
                 资格赛包括2个阶段的比赛：编码阶段和系统测试阶段。
                 <ul>
@@ -75,7 +74,7 @@
                 资格赛共开设10个虚拟房间，准备5套题目。在资格赛中，每套题目分数的前100名选手可以晋级至中国编程精英网罗赛的第一轮赛事。
                 <br><br>
                 <b>竞赛场地</b><br>
-                第一轮共有500名选手可以同场竞技，胜出的前250名选手可以晋级第二轮，第二轮胜出的50名选手则晋级冠军赛，冠军赛会在中国北京现场举行。
+                第一轮共有500名选手可以同场竞技，胜出的前250名选手可以晋级第二轮，第二轮胜出的50名选手则晋级冠军赛，冠军赛会在中国现场举行。
                 <br><br>
                 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
                     <tr valign="top">
@@ -84,17 +83,24 @@
 </tr>
 <tr valign="top">
     <td class="sidebarText" nowrap=nowrap>第一轮比赛</td>
-    <td class="sidebarText">2005年12月12日星期一<br>登陆时间：6:00 PM - 8:55 PM<br>开始时间：9:00 PM
+    <td class="sidebarText">
+2005年12月19日星期一<br>
+登陆时间：6:00 PM - 8:55 PM<br>
+开始时间：9:00 PM
     </td>
 </tr>
 <tr valign="top">
     <td class="sidebarText" nowrap=nowrap>第二轮比赛</td>
-    <td class="sidebarText">2005年12月15日星期四<br>开始时间：9:00 PM
+    <td class="sidebarText">
+2005年12月22日星期四<br>
+开始时间：9:00 PM
     </td>
 </tr>
 <tr valign="top">
     <td class="sidebarText" nowrap=nowrap>冠军赛</td>
-    <td class="sidebarText">2006年1月14日星期六<br>开始时间：待定
+    <td class="sidebarText">
+2006年1月20日星期五<br>
+开始时间：待定
     </td>
 </tr>
 <tr valign="top">
@@ -139,7 +145,7 @@
 </ul>
 
 <b>现场冠军赛</b><br>
-50名从第二轮脱颖而出的参赛者将于2006年1月14日星期六在中国北京参加最后的冠军赛。每位选手必须在北京时间2005年12月22日确认他/她的出席。也就是说，参赛者必须拥有必要的旅游签证，并且确认能在比赛当天准时抵达。如果不能在上述日期前确定参赛者在比赛当天的出席情况，他/她将自动丧失比赛权利和奖项，同时他的参赛机会将顺延给下一位第二轮比赛的最高分者。
+50名从第二轮脱颖而出的参赛者将于2006年1月20日星期五在中国参加最后的冠军赛。每位选手必须在北京时间2006年1月3日中午12时确认他/她的出席。也就是说，参赛者必须拥有必要的旅游签证，并且确认能在比赛当天准时抵达。如果不能在上述日期前确定参赛者在比赛当天的出席情况，他/她将自动丧失比赛权利和奖项，同时他的参赛机会将顺延给下一位第二轮比赛的最高分者。
 <br><br>
 Google China公司为每位决赛选手提供所有的旅行膳宿，并妥善安排往返机场及比赛现场的接送。其他费用由参赛者自行承担。
 <br><br>
@@ -155,31 +161,30 @@ Google China公司为每位决赛选手提供所有的旅行膳宿，并妥善�
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
     <tr valign="top">
         <td class="sidebarTitle">参赛者</td>
-        <td class="sidebarTitle" align=right>奖金</td>
+        <td class="sidebarTitle">奖金</td>
     </tr>
-    <tr valign="top">
-        <td class="sidebarText"><b>第1名*-锦标赛冠军</b></td>
-        <td class="sidebarText" align=right><b>X</b>
-        </td>
-    </tr>
-    <tr valign="top">
-        <td class="sidebarText" nowrap>第2名至第10名</td>
-        <td class="sidebarText" nowrap align=right>X
-        </td>
-    </tr>
-    <tr valign="top">
-        <td class="sidebarText" nowrap>第11名至第25名</td>
-        <td class="sidebarText" nowrap align=right>X
-        </td>
-    </tr>
-    <tr valign="top">
-        <td class="sidebarText" nowrap>第26名至第50名</td>
-        <td class="sidebarText" nowrap align=right>X
-        </td>
-    </tr>
-    <tr valign="top">
-        <td class="sidebarText" colspan="2">*胜者必须在现场领取奖金</td>
-    </tr>
+<tr valign="top"><td class="sidebarText"><b></b>第1名 (共价值5000美元)</b></td>
+<td class="sidebarText">
+<b></b>Intel Dual Core<br>
+CPU和20英寸LCD显示器的高端个人电脑：价值2750美元<br>
+Apple PowerBook 15英寸便携式电脑或者IBM T43<br>
+便携式电脑：价值2000美元<br>
+4G iPod Nano：价值250美元</b>
+</td></tr>
+<tr valign="top"><td class="sidebarText">第2至第4名 (共价值2500美元)</td><td class="sidebarText">
+Apple PowerBook 15英寸便携式电脑或者IBM T43 <br>
+便携式电脑：价值2000美元<br>
+Palm Treo600 PDA 电话：价值250美元<br>
+4G iPod Nano：价值250美元</td></tr>
+<tr valign="top"><td class="sidebarText">第5至10名 (共价值1000美元)</td><td class="sidebarText">
+Canon PowerShot SD20 / IXUS i5<br>
+数码相机，带记忆体：价值500美元<br>
+Palm Treo600 PDA 电话：价值250美元<br>
+4G iPod Nano：价值250美元</td></tr>
+<tr valign="top"><td class="sidebarText">第11至20名 (共价值500美元)</td><td class="sidebarText">
+Palm Treo600 PDA 电话：价值250美元<br>
+4G iPod Nano：价值250美元</td></tr>
+<tr valign="top"><td class="sidebarText">第21至50名 (共价值250美元)</td><td class="sidebarText">4G iPod Nano：价值250美元</td></tr>
 </table>
 <br><br>
 
