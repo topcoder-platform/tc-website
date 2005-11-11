@@ -58,7 +58,7 @@
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">资格赛</td>
-                    <td class="sidebarText" nowrap=nowrap>2005年12月6日中午至2005年12月7日中午<br></td>
+                    <td class="sidebarText" nowrap=nowrap>2005年12月12日中午至2005年12月13日中午<br></td>
                     <td class="sidebarText" align="center">所有合格注册者</td>
                     <td class="sidebarText" align="center">500</td>
                 </tr>
@@ -81,13 +81,13 @@
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">在线第一轮</td>
-                    <td class="sidebarText">2005年12月12日<br>注册时间：6:00 PM<br>开始时间：9:00 PM<br></td>
+                    <td class="sidebarText">12月19日，9:00 PM开始</td>
                     <td class="sidebarText" align="center">500</td>
                     <td class="sidebarText" align="center">250</td>
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">在线第二轮</td>
-                    <td class="sidebarText">2005年12月15日<br>开始时间：9:00 PM<br></td>
+                    <td class="sidebarText">2005年12月22日，9:00 PM开始</td>
                     <td class="sidebarText" align="center">250</td>
                     <td class="sidebarText" align="center">50</td>
                 </tr>
@@ -98,7 +98,7 @@
 
             <br><br>
             <span class="greenSubtitle">冠军赛</span><br>
-            最终50名精英参赛者将在北京举行的冠军赛一决高下，具体地点待定。每位决赛选手须到现场参赛。
+            最终50名精英参赛者将在中国举行的冠军赛一决高下，具体地点待定。每位决赛选手须到现场参赛。
             <br><br>
 
             <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
@@ -109,7 +109,7 @@
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">冠军赛</td>
-                    <td class="sidebarText">2006年1月14日<br>开始时间：待定<br></td>
+                    <td class="sidebarText">2006年1月20日，时间待定<br></td>
                     <td class="sidebarText" align="center">50</td>
                 </tr>
                 <tr valign="top">
