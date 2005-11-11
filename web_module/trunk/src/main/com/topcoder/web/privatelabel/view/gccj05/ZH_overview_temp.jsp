@@ -48,6 +48,8 @@
 <br><br>
 Google 中国编程精英赛即将登陆中国！竞赛的题目具有相当的挑战性，竞赛奖金也非常丰厚。 有志之士可借此机会一展才能，与国内精英才干同场竞技，一决高下，成为脱颖而出的中国最佳。
 <br><br>
+这里有极富挑战性的题目，高科技的奖品，以及令人赞叹的荣耀，你还在等什么？
+<br><br>
 <span class="greenSubtitle">赛事运作细则</span>
 <br><br>
 此次锦标赛以计时赛的形式举行，所有的参赛者都将在限定的时间内在线完成相同的竞赛题目。
@@ -73,7 +75,7 @@ Google 中国编程精英赛即将登陆中国！竞赛的题目具有相当的�
 <br>
 <span class="greenSubtitle">参赛须知</span>
 <br><br>
-注册参加此次Google™ Code Jam China 比赛的日期从北京时间2005年11月18日上午9时开始，至北京时间2005年12月6日上午9时结束。
+注册参加此次Google Code Jam - 中国编程挑战赛比赛的日期从北京时间2005年11月21日星期一上午9时开始，至北京时间2005年12月12日上午9时结束。注册没有人数限制，但是只有通过资格赛的前500名可以晋级此次正式比赛的第一轮，第一轮比赛将在12月19日举行。
 <br><br>
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
     <tr>
@@ -83,43 +85,43 @@ Google 中国编程精英赛即将登陆中国！竞赛的题目具有相当的�
         <td class="sidebarTitle" width="50%">状态</td>
     </tr>
     <tr valign="top">
-        <td class="sidebarText">11月18日星期五</td>
+        <td class="sidebarText">11月21日星期一</td>
         <td class="sidebarText">9:00 AM</td>
         <td class="sidebarText">注册开始</td>
     </tr>
 
     <tr valign="top">
-        <td class="sidebarText" nowrap>12月6日星期二</td>
+        <td class="sidebarText" nowrap>12月12日星期一</td>
         <td class="sidebarText">9:00 AM</td>
         <td class="sidebarText">注册结束</td>
     </tr>
 
     <tr valign="top">
-        <td class="sidebarText">12月6日星期二</td>
+        <td class="sidebarText">12月12日星期一</td>
         <td class="sidebarText">12:00 PM (中午)</td>
         <td class="sidebarText">资格赛开始</td>
     </tr>
 
     <tr valign="top">
-        <td class="sidebarText">12月7日星期三</td>
+        <td class="sidebarText">12月13日星期二</td>
         <td class="sidebarText">12:00 PM (中午)</td>
         <td class="sidebarText">资格赛结束</td>
     </tr>
 
     <tr valign="top">
-        <td class="sidebarText">12月12日星期一</td>
+        <td class="sidebarText">12月19日星期一</td>
         <td class="sidebarText">9:00 PM</td>
         <td class="sidebarText">第一轮-500名参赛者</td>
     </tr>
 
     <tr valign="top">
-        <td class="sidebarText">12月15日星期四</td>
+        <td class="sidebarText">12月22日星期四</td>
         <td class="sidebarText">9:00 PM</td>
         <td class="sidebarText">第二轮-250名参赛者</td>
     </tr>
 
     <tr valign="top">
-        <td class="sidebarText">1月14日星期六</td>
+        <td class="sidebarText">1月20日星期五</td>
         <td class="sidebarText">待定</td>
         <td class="sidebarText">冠军赛-50名参赛者</td>
     </tr>
@@ -129,20 +131,37 @@ Google 中国编程精英赛即将登陆中国！竞赛的题目具有相当的�
     </tr>
 </table>
 <br><br>
-首轮名次前250名将于12月15日晋级第二轮，第二轮的前50名则将参加在中国北京举行的冠军赛，争夺总数达155000美元的高额奖金。
+首轮名次前250名将于12月15日晋级第二轮，第二轮的前50名则将参加在中国举行的冠军赛，争夺总数达30000美元的高额奖金。
 <br><br>
 <span class="greenSubtitle">奖项</span>
 <br><br>
-晋级第一轮的500名参赛者将获赠"Google™ 中国编程精英网罗赛"T恤一件。晋级冠军赛的50名参赛着将获得如下的奖项:
+晋级第一轮的500名参赛者将获赠"Google Code Jam - 中国编程挑战赛"T恤一件。晋级冠军赛的50名参赛着将获得如下的奖项:
 <br><br>
 
 <div class="indented">
-    <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
-        <tr><td><b>第1名 - 冠军</td><td align="right">&#160;&#160;&#160;<b>X</b></b></td></tr>
-<tr><td>第2至第10名</td><td align="right">X</td></tr>
-<tr><td>第11至25名</td><td align="right">X</td></tr>
-<tr><td>第26至50名</td><td align="right">X</td></tr>
-<tr><td>第51至100名</td><td align="right">X</td></tr>
+<table cellpadding="0" cellspacing="5" border="0" class="bodyText">
+<tr valign="top"><td><b></b>第1名 (共价值5000美元)</b></td>
+<td>
+<b></b>Intel Dual Core<br>
+CPU和20英寸LCD显示器的高端个人电脑：价值2750美元<br>
+Apple PowerBook 15英寸便携式电脑或者IBM T43<br>
+便携式电脑：价值2000美元<br>
+4G iPod Nano：价值250美元</b>
+</td></tr>
+<tr valign="top"><td>第2至第4名 (共价值2500美元)</td><td>
+Apple PowerBook 15英寸便携式电脑或者IBM T43 <br>
+便携式电脑：价值2000美元<br>
+Palm Treo600 PDA 电话：价值250美元<br>
+4G iPod Nano：价值250美元</td></tr>
+<tr valign="top"><td>第5至10名 (共价值1000美元)</td><td>
+Canon PowerShot SD20 / IXUS i5<br>
+数码相机，带记忆体：价值500美元<br>
+Palm Treo600 PDA 电话：价值250美元<br>
+4G iPod Nano：价值250美元</td></tr>
+<tr valign="top"><td>第11至20名 (共价值500美元)</td><td>
+Palm Treo600 PDA 电话：价值250美元<br>
+4G iPod Nano：价值250美元</td></tr>
+<tr valign="top"><td>第21至50名 (共价值250美元)</td><td>4G iPod Nano：价值250美元</td></tr>
 </table>
 </div>
 <br><br>
