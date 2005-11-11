@@ -59,7 +59,7 @@ public class AnswerInput extends BaseTag {
                 processed = true;
                 return EVAL_BODY_AGAIN;
             }
-        } else if (question.getStyleId() == Question.SINGLE_CHOICE && question.getAnswerInfo().size() > 4) {
+        } else if (question.getStyleId() == Question.SINGLE_CHOICE && question.getAnswerInfo().size() > 5) {
             //if there are a bunch of potential answers and it's a single choice, we'll give them a drop down
             //instead of radio buttons
             inputText = buildDropDown();
