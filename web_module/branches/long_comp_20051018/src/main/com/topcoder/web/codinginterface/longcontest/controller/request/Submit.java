@@ -106,7 +106,7 @@ public class Submit extends Base {
 			request.getSession().setAttribute(Constants.LANGUAGES, lang);
 			request.getSession().setAttribute(Constants.CLASS_NAME, className);			
 			request.getSession().setAttribute(Constants.CODE, code);			
-			request.getSession().setAttribute(Constants.SELECTED_LANGUAGE, new Integer(language));
+			request.getSession().setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
 						
 			if(action == null) { // no action specified
 				// any code in session?
@@ -127,7 +127,7 @@ public class Submit extends Base {
 					}
 					// put the updated values back into session
 					request.getSession().setAttribute(Constants.CODE, code);
-					request.getSession().setAttribute(Constants.SELECTED_LANGUAGE, new Integer(language));
+					request.getSession().setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
 				}
 				setNextPage(Constants.SUBMISSION_JSP);
 				setIsNextPageInContext(true);
@@ -241,7 +241,7 @@ public class Submit extends Base {
 	 */
 	public String getParameter(TCRequest request, String key) {
 		String val = request.getParameter(key);
-		if(val == null) val = String.valueOf(request.getSession().getAttribute(key));
+		if(val == null) val = (String)request.getSession().getAttribute(key);
 		return val;
 	}
 	

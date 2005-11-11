@@ -59,7 +59,7 @@
         status = stat.booleanValue()?"Your code compile successfully.":"Your code did not compile successfully.";
     }
     
-    int checked = ((Integer)request.getSession().getAttribute(Constants.SELECTED_LANGUAGE)).intValue();
+    int checked = (request.getSession().getAttribute(Constants.SELECTED_LANGUAGE) == null ? -1 : Integer.parseInt((String)request.getSession().getAttribute(Constants.SELECTED_LANGUAGE)));
     ResultSetContainer langs = (ResultSetContainer)request.getSession().getAttribute(Constants.LANGUAGES);
 
 	String msg = (request.getAttribute(Constants.MESSAGE)!=null?""+request.getAttribute(Constants.MESSAGE):"");
