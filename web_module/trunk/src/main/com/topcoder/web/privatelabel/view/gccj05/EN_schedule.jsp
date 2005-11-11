@@ -115,7 +115,7 @@
                     <td class="sidebarTitle" width="25%" align="center"># of Participants</td>
                 </tr>
                 <tr valign="top">
-                    <td class="sidebarText">Championship Round</td>
+                    <td class="sidebarText" nowrap="nowrap">Championship Round</td>
                     <td class="sidebarText">January 20, time TBD</td>
                     <td class="sidebarText" align="center">50</td>
                 </tr>
