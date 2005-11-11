@@ -234,12 +234,15 @@ public class BasicAuthentication implements WebAuthentication {
      * public so com.topcoder.web.hs.controller.requests.Base can reach it, a bit of a kludge
      */
     public void setCookie(long uid, boolean rememberUser) throws Exception {
-        String hash = hashForUser(uid);
-        Cookie c = new Cookie(defaultCookiePath.getName()+"_"+USER_COOKIE_NAME, "" + uid + "|" + hash);
-        //c.setPath(defaultCookiePath.getName());
-        c.setMaxAge(rememberUser ? Integer.MAX_VALUE : -1);  // this should fit comfortably, since the expiration date is a string on the wire
-        log.debug("setcookie: " + c.getName() + " " + c.getValue());
-        response.addCookie(c);
+        if (rememberUser) {
+            String hash = hashForUser(uid);
+            Cookie c = new Cookie(defaultCookiePath.getName()+"_"+USER_COOKIE_NAME, "" + uid + "|" + hash);
+            //c.setPath(defaultCookiePath.getName());
+            //c.setMaxAge(rememberUser ? Integer.MAX_VALUE : -1);  // this should fit comfortably, since the expiration date is a string on the wire
+            c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
+            log.debug("setcookie: " + c.getName() + " " + c.getValue());
+            response.addCookie(c);
+        }
     }
 
     /** Remove any cookie previously set on the client by the method above. */
