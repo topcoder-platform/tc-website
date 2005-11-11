@@ -61,7 +61,7 @@ public class Submit extends Base {
 			int cid = Integer.parseInt(getParameter(request, Constants.COMPONENT_ID));
 			int rid = Integer.parseInt(getParameter(request, Constants.ROUND_ID));
 			int cd = Integer.parseInt(getParameter(request, Constants.CONTEST_ID));			
-			int language = Integer.parseInt((getParameter(request, Constants.LANGUAGE_ID) == null ? "-1" : getParameter(request, Constants.LANGUAGE_ID)));			 
+			int language = Integer.parseInt((getParameter(request, Constants.SELECTED_LANGUAGE) == null ? "-1" : getParameter(request, Constants.SELECTED_LANGUAGE)));			 
 			String action = getParameter(request, Constants.ACTION_KEY);
 			String code = getParameter(request, Constants.CODE);
 
@@ -167,8 +167,7 @@ public class Submit extends Base {
 										.valueOf(rid) }));
 					} else { // Compilation errors!						
 						request.getSession().setAttribute(Constants.COMPILE_STATUS, new Boolean(res.getCompileStatus()));
-						request.getSession().setAttribute(Constants.COMPILE_MESSAGE, htmlEncode(res.getCompileError()));
-						request.getSession().setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
+						request.getSession().setAttribute(Constants.COMPILE_MESSAGE, htmlEncode(res.getCompileError()));						
 						// Go back to coding.
 						closeProcessingPage(buildProcessorRequestString("Submit",
 								new String[]{Constants.ROUND_ID,Constants.CONTEST_ID,Constants.COMPONENT_ID},
