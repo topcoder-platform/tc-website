@@ -138,16 +138,16 @@ public class BasicAuthentication implements WebAuthentication {
                 u = checkCookie();
                 if (u == null) {
                     u = guest;
-                    //log.debug("*** made up a guest ***");
+                    log.debug("*** made up a guest ***");
                 } else {
-                    //log.debug("*** they were in cookie ***");
+                    log.debug("*** they were in cookie ***");
                 }
                 persistor.setObject(request.getSession().getId() + USER_COOKIE_NAME, u);
             } else {
-                //log.debug("*** they were stale ***");
+                log.debug("*** they were stale ***");
             }
         } else {
-            //log.debug("*** they were live***");
+            log.debug("*** they were live***");
         }
         return u;
     }
