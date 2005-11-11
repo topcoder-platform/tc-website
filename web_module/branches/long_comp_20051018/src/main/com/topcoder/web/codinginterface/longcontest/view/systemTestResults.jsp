@@ -21,8 +21,10 @@
     ResultSetContainer.ResultSetRow infoRow = null;
     if(rsc != null && !rsc.isEmpty())
         infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
-
-    /* Complex paging & sorting links are all pre-formed here to avoid messy code below */
+    
+    /* 
+     * Complex paging & sorting links are pre-formed here to avoid messy code below
+     */
     int pageRSize = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
     if(!"".equals(StringUtils.checkNull(request.getParameter(Constants.ROW_COUNT))))
         pageRSize = Integer.parseInt(request.getParameter(Constants.ROW_COUNT));
@@ -130,10 +132,20 @@
    <td class="tableTitle" colspan="<%=cases.getRowCount()+2%>">System Test Results</td>
 </tr>
 <tr>
-   <td class="tableHeader" width="10%"><A href="sort">Handle</A></td>
-   <td class="tableHeader" width="9%"><A href="sort">Score</A></td>
+   <td class="tableHeader" width="10%" valign="bottom"><A href="<%=selfLink%><%=pagingRParam%><%=pagingCParam%>&<%=Constants.PRIMARY_COLUMN%>=1&<%=Constants.SORT_ORDER%>=<%=("1".equals(request.getParameter(Constants.PRIMARY_COLUMN))&&!"desc".equals(request.getParameter(Constants.SORT_ORDER)))?"desc":"asc"%>">Handle</A></td>
+   <td class="tableHeader" width="9%" valign="bottom"><A href="<%=selfLink%><%=pagingRParam%><%=pagingCParam%>&<%=Constants.PRIMARY_COLUMN%>=2&<%=Constants.SORT_ORDER%>=<%=("1".equals(request.getParameter(Constants.PRIMARY_COLUMN))&&!"asc".equals(request.getParameter(Constants.SORT_ORDER)))?"asc":"desc"%>">Score</A></td>
 <rsc:iterator list="<%=cases%>" id="resultRow">
-   <td class="tableHeader" align="right" nowrap="nowrap"><A href="sort">Test Case <rsc:item name="rank" row="<%=resultRow%>"/></A><br>
+   <%
+        String sortDir;
+        if(StringUtils.checkNull(request.getParameter(Constants.TEST_CASE_ID)).equals(""+resultRow.getItem("test_case_id")) &&
+                "3".equals(request.getParameter(Constants.PRIMARY_COLUMN)))
+        {
+            sortDir = !"asc".equals(request.getParameter(Constants.SORT_ORDER))?"asc":"desc";
+        }else{
+            sortDir = "desc";
+        }
+   %>
+   <td class="tableHeader" align="right" nowrap="nowrap"><A href="<%=selfLink%><%=pagingRParam%><%=pagingCParam%>&<%=Constants.PRIMARY_COLUMN%>=3&<%=Constants.SORT_ORDER%>=<%=sortDir%>&<%=Constants.TEST_CASE_ID%>=<rsc:item name="test_case_id" row="<%=resultRow%>"/>">Test Case <rsc:item name="rank" row="<%=resultRow%>"/></A><br>
    (<A href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=ViewSystemTest&<%=Constants.TEST_CASE_ID%>=<rsc:item name="test_case_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<%=request.getParameter(Constants.PROBLEM_ID)%>">details</A>)</td>
 </rsc:iterator>
 </tr>
@@ -152,6 +164,11 @@
       </TD>
    </tr>
 </TABLE>
+
+<div class="pagingBox">
+      <%=prevRPage%> &nbsp;[competitors]&nbsp; <%=nextRPage%><br>
+      <%=prevCPage%> &nbsp;[test&nbsp;cases]&nbsp; <%=nextCPage%>
+</div>
 
         </td>
 
