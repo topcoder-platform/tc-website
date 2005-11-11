@@ -2,7 +2,8 @@
   language="java"
   import="java.util.*,
           com.topcoder.web.codinginterface.longcontest.*,
-          com.topcoder.shared.dataAccess.resultSet.*"
+          com.topcoder.shared.dataAccess.resultSet.*,
+          com.topcoder.web.common.StringUtils"
 
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -52,13 +53,12 @@
 </jsp:include>
 <%
     Boolean stat = ((Boolean)request.getSession().getAttribute(Constants.COMPILE_STATUS));
-    String error = ((String)request.getSession().getAttribute(Constants.COMPILE_MESSAGE));
+    String error = StringUtils.checkNull((String)request.getSession().getAttribute(Constants.COMPILE_MESSAGE));
     String status = "";
     if(stat != null){
         status = stat.booleanValue()?"Your code compile successfully.":"Your code did not compile successfully.";
-    }else{
-        error = "";
     }
+    
     int checked = ((Integer)request.getSession().getAttribute(Constants.SELECTED_LANGUAGE)).intValue();
     ResultSetContainer langs = (ResultSetContainer)request.getSession().getAttribute(Constants.LANGUAGES);
 
