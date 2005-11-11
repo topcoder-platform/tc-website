@@ -50,7 +50,7 @@
 
                 <!-- Tab bar links-->
                 <div align=center>
-                    <jsp:include page="links.jsp">
+                    <jsp:include page="EN_links.jsp">
                         <jsp:param name="selectedTab" value="registration"/>
                     </jsp:include>
                 </div>
