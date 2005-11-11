@@ -155,8 +155,8 @@
    <td class="<%=even?"statLt":"statDk"%>" align="left" nowrap="nowrap"><tc-webtag:handle coderId='<%=coderRow.getLongItem("coder_id")%>'/></td>
    <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="final_points" row="<%=coderRow%>"/></td>
 <rsc:iterator list="<%=cases%>" id="caseRow">
-   <!-- <%= coderRow.getItem("coder_id") + "_" + caseRow.getItem("test_case_id") %> -->
-   <td class="<%=even?"statLt":"statDk"%>"><%=scoreHash.get(coderRow.getItem("coder_id") + "_" + caseRow.getItem("test_case_id"))%></td>
+   <% Object cell = scoreHash.get(coderRow.getItem("coder_id") + "_" + caseRow.getItem("test_case_id")); %>
+   <td class="<%=even?"statLt":"statDk"%>"><%=(cell==null)?"--":cell.toString()%></td>
 </rsc:iterator>
 </tr>
 <%even=!even;%>
