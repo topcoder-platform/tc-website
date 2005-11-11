@@ -139,29 +139,33 @@ Google 中国编程精英赛即将登陆中国！竞赛的题目具有相当的�
 <br><br>
 
 <div class="indented">
-<table cellpadding="0" cellspacing="5" border="0" class="bodyText">
-<tr valign="top"><td><b></b>第1名 (共价值5000美元)</b></td>
-<td>
+<table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
+    <tr valign="top">
+        <td class="sidebarTitle">参赛者</td>
+        <td class="sidebarTitle">奖金</td>
+    </tr>
+<tr valign="top"><td class="sidebarText"><b></b>第1名 (共价值5000美元)</b></td>
+<td class="sidebarText">
 <b></b>Intel Dual Core<br>
 CPU和20英寸LCD显示器的高端个人电脑：价值2750美元<br>
 Apple PowerBook 15英寸便携式电脑或者IBM T43<br>
 便携式电脑：价值2000美元<br>
 4G iPod Nano：价值250美元</b>
 </td></tr>
-<tr valign="top"><td>第2至第4名 (共价值2500美元)</td><td>
+<tr valign="top"><td class="sidebarText">第2至第4名 (共价值2500美元)</td><td class="sidebarText">
 Apple PowerBook 15英寸便携式电脑或者IBM T43 <br>
 便携式电脑：价值2000美元<br>
 Palm Treo600 PDA 电话：价值250美元<br>
 4G iPod Nano：价值250美元</td></tr>
-<tr valign="top"><td>第5至10名 (共价值1000美元)</td><td>
+<tr valign="top"><td class="sidebarText">第5至10名 (共价值1000美元)</td><td class="sidebarText">
 Canon PowerShot SD20 / IXUS i5<br>
 数码相机，带记忆体：价值500美元<br>
 Palm Treo600 PDA 电话：价值250美元<br>
 4G iPod Nano：价值250美元</td></tr>
-<tr valign="top"><td>第11至20名 (共价值500美元)</td><td>
+<tr valign="top"><td class="sidebarText">第11至20名 (共价值500美元)</td><td class="sidebarText">
 Palm Treo600 PDA 电话：价值250美元<br>
 4G iPod Nano：价值250美元</td></tr>
-<tr valign="top"><td>第21至50名 (共价值250美元)</td><td>4G iPod Nano：价值250美元</td></tr>
+<tr valign="top"><td class="sidebarText">第21至50名 (共价值250美元)</td><td class="sidebarText">4G iPod Nano：价值250美元</td></tr>
 </table>
 </div>
 <br><br>
