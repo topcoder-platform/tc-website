@@ -59,6 +59,22 @@ public class AnswerInput extends BaseTag {
                 processed = true;
                 return EVAL_BODY_AGAIN;
             }
+        } else if (question.getStyleId() == Question.SINGLE_CHOICE && question.getAnswerInfo().size() > 4) {
+            //if there are a bunch of potential answers and it's a single choice, we'll give them a drop down
+            //instead of radio buttons
+            inputText = buildDropDown();
+            /* if we haven't done so already, set the information
+               to make it accessible from the jsp and evaluate, otherwise, skip the body
+             */
+            if (processed) {
+                return wrapItUp();
+            } else {
+                pageContext.setAttribute(ANSWER_TEXT, "", PageContext.PAGE_SCOPE);
+                pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
+                processed = true;
+                return EVAL_BODY_AGAIN;
+            }
+
         } else if (answers != null && answers.hasNext()) {
             answer = (Answer) answers.next();
             if (question.getStyleId() == Question.MULTIPLE_CHOICE) {
@@ -157,6 +173,31 @@ public class AnswerInput extends BaseTag {
         s.append("/>");
         return s.toString();
 
+    }
+
+    private String buildDropDown() {
+        setName(PREFIX + question.getId());
+        StringBuffer s = new StringBuffer(2000);
+        s.append("<select");
+        if (name != null) {
+            s.append(" name=\"" + name + "\"");
+        }
+        if (styleClass != null) {
+            s.append(" class=\"" + styleClass + "\"");
+        }
+        s.append(">\n");
+        Answer a = null;
+        for (Iterator it = question.getAnswerInfo().iterator(); it.hasNext();) {
+            a = (Answer) it.next();
+            s.append("<option value=\"");
+            s.append(a.getId());
+            s.append("\"");
+            s.append(">");
+            s.append(a.getText());
+            s.append("</option>\n");
+        }
+        s.append("</select>\n");
+        return s.toString();
     }
 
     protected void init() {
