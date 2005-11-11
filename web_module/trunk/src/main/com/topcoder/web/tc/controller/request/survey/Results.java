@@ -49,7 +49,9 @@ public class Results extends SurveyData {
         for (Iterator it = questions.iterator(); it.hasNext();) {
             question = (ResultSetContainer.ResultSetRow) it.next();
             int temp = question.getIntItem("question_style_id");
-            if (!Question.isFreeForm(temp) && question.getIntItem("question_type_id") != Question.GENERAL_DO_NOT_SHOW_RESULTS_TYPE) {
+            if (!Question.isFreeForm(temp) &&
+                    question.getIntItem("question_type_id") != Question.GENERAL_DO_NOT_SHOW_RESULTS_TYPE &&
+                    question.getIntItem("question_type_id") != Question.SCHULZE_ELECTION_TYPE) {
                 questionList.add(makeQuestion(question));
             }
         }
