@@ -225,7 +225,7 @@ public class ViewStandings extends Base {
 			int ret = 0;
 			
 			if(cf == 0) {
-				ret = sm1.getHandle().compareTo(sm2.getHandle());
+				ret = sm1.getHandle().toLowerCase().compareTo(sm2.getHandle().toLowerCase());
 			} else if(cf == 1) {
 				if(sm1.getPoints() == sm2.getPoints()) {
 					ret = 0;
@@ -236,7 +236,7 @@ public class ViewStandings extends Base {
 				ret = sm1.getSubmissionNumber() - sm2.getSubmissionNumber();
 			}
 			
-			if(ret == 0) ret = sm1.getHandle().compareTo(sm2.getHandle()); // The tie breaker
+			if(ret == 0) ret = sm1.getHandle().toLowerCase().compareTo(sm2.getHandle().toLowerCase()); // The tie breaker
 			
 			return ret * asc;
 		}
