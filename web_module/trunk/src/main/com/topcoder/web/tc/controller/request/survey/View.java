@@ -13,6 +13,7 @@ import com.topcoder.web.tc.model.Question;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Date;
 
 public class View extends SurveyData {
     protected void surveyProcessing() throws TCWebException {
@@ -23,7 +24,9 @@ public class View extends SurveyData {
                 SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
                 setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=SurveyResults&" + Constants.SURVEY_ID + "=" + survey.getId());
                 setIsNextPageInContext(false);
-            } else if (isSRMSurvey() && !isSurveyActive()) {
+            } else if (isSRMSurvey() && !hasSurveyClosed()) {
+                throw new NavigationException("Sorry, you can not answer this survey at this time.");
+            } else if (survey.getEndDate().before(new Date())||survey.getStartDate().after(new Date())) {
                 throw new NavigationException("Sorry, you can not answer this survey at this time.");
             } else {
                 setNextPage(Constants.SURVEY_VIEW);
@@ -64,6 +67,10 @@ public class View extends SurveyData {
         return ret;
     }
 
+    protected boolean isSurveyOpen() {
+
+    }
+
     protected final boolean isSRMSurvey() {
         Question q = null;
         boolean found = false;
@@ -74,12 +81,20 @@ public class View extends SurveyData {
         return found;
     }
 
-    protected final boolean isSurveyActive() throws TCWebException {
+    /**
+     * this refers to whether or not is has closed as far as
+     * the srm round registration is concerned.  we don't
+     * want people answering the survey on the site and in the applet
+     * @return
+     * @throws TCWebException
+     */
+    protected final boolean hasSurveyClosed() throws TCWebException {
         boolean found = false;
 
         try {
             Request r = new Request();
-            //we're assuming that the survey_list command only includes surveys are active
+            //we're assuming that the survey_list command only includes surveys that have closed
+            //as far as round registration is concerned.
             r.setContentHandle("survey_list");
             r.setProperty("cr", String.valueOf(getUser().getId()));
             ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("survey_list");
