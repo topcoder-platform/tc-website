@@ -64,7 +64,7 @@
                      <a href="?module=SurveyResults&sid=<rsc:item row="<%=survey%>" name="survey_id"/>"><img src="/i/results.gif" width="60" height="18" border="0"></a>
                   </td>
                   <td nowrap valign="top">
-                     <% if (survey.getIntItem("answered_flag")==0) { %>
+                     <% if (survey.getIntItem("answered_flag")==0 && survey.getIntItem("survey_open")==1) { %>
                         <a href="?module=ViewSurvey&sid=<rsc:item row="<%=survey%>" name="survey_id"/>"><img src="/i/answer.gif" width="60" height="18" border="0"></a>
                      <% } %>
                   </td>
