@@ -260,7 +260,7 @@
 请在信内详细描述碰到的问题。
 
 <br><br>
-想要了解更多的 Google 中国编程精英网罗赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
+想要了解更多的 Google&#153; Code Jam - 中国编程挑战赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
 </div>
 </td>
 <td width="49%">&#160;</td>
