@@ -44,6 +44,8 @@
                 <li>improved the validation on review board applications.  1.  so that one can't apply for a
                 design position that is taken.  2. so that one can't apply with an invalid review resp</li>
                 <li>Added coder achievements page</li>
+                <li>added ability to make the results of a survey not viewable</li>
+                <li>enforced the dates on a survey.  only during that time can one respond to it</li>
             </ul>
         </p>
 
