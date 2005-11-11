@@ -156,7 +156,7 @@ Google China公司为每位决赛选手提供所有的旅行膳宿，并妥善�
 </ul>
 
 <span class="greenSubtitle">关于奖金</span><br>
-所有参加第一轮比赛的选手可以获赠"Google China Code Jam 2005"冠名T恤一件。此外，50名冠军赛选手可以获得现金奖励。奖金的税收问题由得奖人自行负责。奖金将分配如下：
+所有参加第一轮比赛的选手可以获赠"Google&#153; Code Jam - 中国编程挑战赛"冠名T恤一件。此外，50名冠军赛选手可以获得现金奖励。奖金的税收问题由得奖人自行负责。奖金将分配如下：
 <br><br>
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
     <tr valign="top">
