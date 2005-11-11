@@ -21,19 +21,19 @@
     ResultSetContainer.ResultSetRow infoRow = null;
     if(rsc != null && !rsc.isEmpty())
         infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
-    
+
     int pageSize = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
     if(!"".equals(StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_RECORDS))))
         pageSize = Integer.parseInt(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
-    
+
     String selfLink = sessionInfo.getServletPath() + "?" + Constants.MODULE + "=ViewOverview"
             + "&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID)
             + "&" + DataAccessConstants.NUMBER_RECORDS + "=" + pageSize;
-    
+
     String pagingLink = selfLink
             + "&" + DataAccessConstants.SORT_COLUMN + "=" + StringUtils.checkNull(request.getParameter(DataAccessConstants.SORT_COLUMN))
             + "&" + DataAccessConstants.SORT_DIRECTION + "=" + StringUtils.checkNull(request.getParameter(DataAccessConstants.SORT_DIRECTION));
-    
+
     String prevPage, nextPage;
     if(registrants.croppedDataBefore()){
         prevPage = "<a href=\"" + pagingLink
@@ -61,7 +61,7 @@
 <body>
 
 <jsp:include page="top.jsp" >
-    <jsp:param name="level1" value=""/>
+    <jsp:param name="level1" value="long"/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -116,7 +116,7 @@ Avg. Submissions: <tc-webtag:format object="<%=new Double(infoRow.getDoubleItem(
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
-      <td>               
+      <td>
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
 <tr>

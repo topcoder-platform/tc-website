@@ -21,16 +21,16 @@
     ResultSetContainer.ResultSetRow infoRow = null;
     if(rsc != null && !rsc.isEmpty())
         infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
-    
+
     /* Complex paging & sorting links are all pre-formed here to avoid messy code below */
     int pageRSize = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
     if(!"".equals(StringUtils.checkNull(request.getParameter(Constants.ROW_COUNT))))
         pageRSize = Integer.parseInt(request.getParameter(Constants.ROW_COUNT));
-    
+
     int pageCSize = Integer.parseInt(Constants.DEFAULT_COL_COUNT);
     if(!"".equals(StringUtils.checkNull(request.getParameter(Constants.COL_COUNT))))
         pageCSize = Integer.parseInt(request.getParameter(Constants.COL_COUNT));
-    
+
     String selfLink = sessionInfo.getServletPath() + "?" + Constants.MODULE + "=ViewSystemTestResults"
             + "&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID)
             + "&" + Constants.PROBLEM_ID + "=" + request.getParameter(Constants.PROBLEM_ID)
@@ -38,13 +38,13 @@
             + "&" + Constants.TEST_CASE_ID + "=" + StringUtils.checkNull(request.getParameter(Constants.TEST_CASE_ID))
             + "&" + Constants.ROW_COUNT + "=" + pageRSize
             + "&" + Constants.COL_COUNT + "=" + pageCSize;
-    
+
     String sortParams = "&" + Constants.PRIMARY_COLUMN + "=" + StringUtils.checkNull(request.getParameter(Constants.PRIMARY_COLUMN))
             + "&" + Constants.SORT_ORDER + "=" + StringUtils.checkNull(request.getParameter(Constants.SORT_ORDER));
-    
+
     String pagingRParam = "&" + Constants.START_ROW + "=" + StringUtils.checkNull(request.getParameter(Constants.START_ROW));
     String pagingCParam = "&" + Constants.START_COL + "=" + StringUtils.checkNull(request.getParameter(Constants.START_COL));
-    
+
     String prevRPage, nextRPage, prevCPage,nextCPage;
     if(coders.croppedDataBefore()){
         prevRPage = "<a href=\"" + selfLink + sortParams
@@ -90,7 +90,7 @@
 <body>
 
 <jsp:include page="top.jsp" >
-    <jsp:param name="level1" value=""/>
+    <jsp:param name="level1" value="long"/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -122,7 +122,7 @@
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
-      <td>               
+      <td>
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
 <tr>

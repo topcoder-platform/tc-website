@@ -11,7 +11,6 @@
   String message = (String)request.getAttribute("message");
   if(message==null) message = "";
 %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>TopCoder</title>
@@ -37,7 +36,7 @@ function submitEnter(e) {
 <head>
 <body>
 <jsp:include page="top.jsp" >
-    <jsp:param name="level1" value=""/>
+    <jsp:param name="level1" value="long"/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">

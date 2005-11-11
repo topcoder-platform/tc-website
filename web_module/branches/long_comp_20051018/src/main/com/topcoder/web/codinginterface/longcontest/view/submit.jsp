@@ -26,11 +26,11 @@
 	}
 	function save() {
 		document.codingForm.<%=Constants.ACTION_KEY%>.value="save";
-		document.codingForm.submit();	
+		document.codingForm.submit();
 	}
 </script>
 <jsp:include page="top.jsp" >
-    <jsp:param name="level1" value=""/>
+    <jsp:param name="level1" value="long"/>
 </jsp:include>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
@@ -72,7 +72,7 @@
       <div style="float: left; padding-bottom: 5px; width: 100%:">
          <div style="float: left; text-align:left;">
          <span class="bodyTitle">Coding Area</span><br>
-         <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=false<%=(checked!=-1?"&lid="+checked:"")%>" class="statLink">Problem Statement</A> 
+         <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=false<%=(checked!=-1?"&lid="+checked:"")%>" class="statLink">Problem Statement</A>
          (<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=true<%=(checked!=-1?"&lid="+checked:"")%>"  class="statLink">new window</A>)
          </div>
          <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="codingForm">
@@ -81,7 +81,7 @@
          <input type="hidden" name="<%=Constants.CONTEST_ID%>" value="<%=request.getParameter(Constants.CONTEST_ID)%>">
          <input type="hidden" name="<%=Constants.COMPONENT_ID%>" value="<%=request.getParameter(Constants.COMPONENT_ID)%>">
    		 <input type="hidden" name="<%=Constants.ACTION_KEY%>" value="">
-         <div style="float:right; text-align:left;">Choose your language: 
+         <div style="float:right; text-align:left;">Choose your language:
          <rsc:iterator list="<%=langs%>" id="resultRow">
          <input type="radio" <%=resultRow.getIntItem("language_id") == checked ? "checked ":""%>
          name="<%=Constants.LANGUAGE_ID%>" value="<%=resultRow.getIntItem("language_id")%>"><%=resultRow.getStringItem("language_name")%>
@@ -94,7 +94,7 @@
       Method Name: Something</b>
       </div>
 
-      <div style="float:right; text-align:left; padding-bottom: 5px;"> 
+      <div style="float:right; text-align:left; padding-bottom: 5px;">
       <b>Return Type: String[]<br>
       Arg Types: String</b>
       </div>

@@ -21,7 +21,7 @@
 <body>
 
 <jsp:include page="top.jsp" >
-    <jsp:param name="level1" value=""/>
+    <jsp:param name="level1" value="long"/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -53,10 +53,10 @@
 	<logic:equal name="<%=Constants.PREV_IDX_KEY%>" value="-1">
       &lt;&lt; previous
     </logic:equal>
-	<logic:notEqual name="<%=Constants.PREV_IDX_KEY%>" value="-1">      
+	<logic:notEqual name="<%=Constants.PREV_IDX_KEY%>" value="-1">
 		<a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.PREV_IDX_KEY)%>" class="bcLink">&lt;&lt; previous</a>
     </logic:notEqual>
-    
+
       &nbsp;|&nbsp;
 
 	<logic:equal name="<%=Constants.NEXT_IDX_KEY%>" value="-1">
@@ -69,7 +69,7 @@
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
-      <td>               
+      <td>
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
 <tr>
@@ -102,10 +102,10 @@
 	<logic:equal name="<%=Constants.PREV_IDX_KEY%>" value="-1">
       &lt;&lt; previous
     </logic:equal>
-	<logic:notEqual name="<%=Constants.PREV_IDX_KEY%>" value="-1">      
+	<logic:notEqual name="<%=Constants.PREV_IDX_KEY%>" value="-1">
 		<a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.PREV_IDX_KEY)%>" class="bcLink">&lt;&lt; previous</a>
     </logic:notEqual>
-    
+
       &nbsp;|&nbsp;
 
 	<logic:equal name="<%=Constants.NEXT_IDX_KEY%>" value="-1">

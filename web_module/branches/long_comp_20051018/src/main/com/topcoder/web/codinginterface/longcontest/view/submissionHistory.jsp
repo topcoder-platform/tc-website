@@ -23,21 +23,21 @@
     if(tmp != null)
         infoRow = (ResultSetContainer.ResultSetRow)tmp.get(0);
     SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-    
+
     int pageSize = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
     if(!"".equals(StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_RECORDS))))
         pageSize = Integer.parseInt(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
-    
+
     String selfLink = sessionInfo.getServletPath() + "?" + Constants.MODULE + "=ViewSubmissionHistory"
             + "&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID)
             + "&" + Constants.COMPONENT_ID + "=" + request.getAttribute(Constants.COMPONENT_ID)
             + "&" + Constants.CODER_ID + "=" + request.getParameter(Constants.CODER_ID)
             + "&" + DataAccessConstants.NUMBER_RECORDS + "=" + pageSize;
-    
+
     String pagingLink = selfLink
             + "&" + DataAccessConstants.SORT_COLUMN + "=" + StringUtils.checkNull(request.getParameter(DataAccessConstants.SORT_COLUMN))
             + "&" + DataAccessConstants.SORT_DIRECTION + "=" + StringUtils.checkNull(request.getParameter(DataAccessConstants.SORT_DIRECTION));
-    
+
     String prevPage, nextPage;
     if(submissions.croppedDataBefore()){
         prevPage = "<a href=\"" + pagingLink
@@ -65,7 +65,7 @@
 <body>
 
 <jsp:include page="top.jsp" >
-    <jsp:param name="level1" value=""/>
+    <jsp:param name="level1" value="long"/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -98,7 +98,7 @@
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
-      <td>               
+      <td>
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
 <tr>
