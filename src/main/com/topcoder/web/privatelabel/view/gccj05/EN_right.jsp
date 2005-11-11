@@ -16,13 +16,13 @@
             <span class="bodyTextBlue">Important Dates</span>
             <br><br>
             <b>Registration Starts</b><br>
-            Friday, November 18
+            Monday, November 21
             <br><br>
             <b>Qualification Round</b><br>
-            Tuesday, December 6
+            Monday, December 12
             <br><br>
             <b>Championship Round</b><br>
-            Saturday, January 14
+            Friday, January 20
         </td>
     </tr>
     <tr><td>&#160;</td></tr>
