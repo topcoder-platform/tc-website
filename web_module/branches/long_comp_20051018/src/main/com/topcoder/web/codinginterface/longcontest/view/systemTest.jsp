@@ -23,6 +23,7 @@
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 </head>
 <body>
 
