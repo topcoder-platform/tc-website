@@ -241,7 +241,7 @@ public class Submit extends Base {
 	 */
 	public String getParameter(TCRequest request, String key) {
 		String val = request.getParameter(key);
-		if(val == null) val = (String)request.getSession().getAttribute(key);
+		if(val == null) val = String.valueOf(request.getSession().getAttribute(key));
 		return val;
 	}
 	
