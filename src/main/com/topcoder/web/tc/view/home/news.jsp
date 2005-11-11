@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>11.11.05<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=507907&mc=1#516943">Upgraded Compiler Machines</A></span><br><br>
+      We've upgraded the compiler machines we use in the algorithm arena to new 3.6Ghz P4 machines. Everyone should now experience signficantly faster compile times.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=507907&mc=1#516943">discuss this</A>&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>11.03.05<br>3:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">Arena downtime: 11/11 noon</span><br><br>
       At noon EST on Friday 11/11, the TopCoder Arena Applet will go down for about 30 mins due to scheduled maintenance.
@@ -291,23 +303,6 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_summary">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505810" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------DEVELOPMENT------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.14.05<br>8:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_summary">visualage is the new Development Champion</A></span><br><br>
-      Congratulations to <tc-webtag:handle coderId="299979" context="development"/> for winning the 2005 TopCoder Open Component Development Competition!
-      <br><br>
-      <i>summary by </i><tc-webtag:handle coderId="160049" /><br>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_summary">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505809" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
