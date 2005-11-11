@@ -84,7 +84,7 @@
          <div style="float:right; text-align:left;">Choose your language:
          <rsc:iterator list="<%=langs%>" id="resultRow">
          <input type="radio" <%=resultRow.getIntItem("language_id") == checked ? "checked ":""%>
-         name="<%=Constants.LANGUAGE_ID%>" value="<%=resultRow.getIntItem("language_id")%>"><%=resultRow.getStringItem("language_name")%>
+         name="<%=Constants.SELECTED_LANGUAGE%>" value="<%=resultRow.getIntItem("language_id")%>"><%=resultRow.getStringItem("language_name")%>
          </rsc:iterator>
          </div>
       </div>
