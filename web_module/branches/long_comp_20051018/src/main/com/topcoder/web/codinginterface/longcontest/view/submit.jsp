@@ -56,7 +56,7 @@
     String error = StringUtils.checkNull((String)request.getSession().getAttribute(Constants.COMPILE_MESSAGE));
     String status = "";
     if(stat != null){
-        status = stat.booleanValue()?"Your code compile successfully.":"Your code did not compile successfully.";
+        status = stat.booleanValue()?"Your code compile successfully.<br>":"Your code did not compile successfully.<br>";
     }
     
     int checked = (request.getSession().getAttribute(Constants.SELECTED_LANGUAGE) == null ? -1 : Integer.parseInt((String)request.getSession().getAttribute(Constants.SELECTED_LANGUAGE)));

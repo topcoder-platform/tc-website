@@ -156,7 +156,7 @@ public class Submit extends Base {
 
 				try {
 					// Get the compilation response
-					LongCompileResponse res = receive(30 * 1000, uid, cid);
+					LongCompileResponse res = receive(30 * 1000, uid, cid);					
 					
 					// Records errors and other info
 					if(res.getCompileStatus() == true) { // everything went ok! :)
