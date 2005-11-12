@@ -13,6 +13,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.longcontest.model.LongContestModel;
 import com.topcoder.web.common.TCWebException;
+import java.util.Date;
 
 /**
  * Displays active and a couple of pass contests
@@ -53,8 +54,8 @@ public class ViewActiveContests extends Base{
 	    		long contestID = rsc.getLongItem(i, "contest_id");
 	    		String roundName = rsc.getStringItem(i, "round_name");
 	    		long roundID = rsc.getLongItem(i, "round_id");
-	    		String startTime = rsc.getStringItem(i, "start_time");
-	    		String endTime = rsc.getStringItem(i, "end_time");
+	    		Date startTime = (Date)rsc.getItem(i, "start_time").getResultData();
+	    		Date endTime = (Date)rsc.getItem(i, "end_time").getResultData();
 	    		boolean hasStarted = rsc.getBooleanItem(i, "started");	    		
 	    		int numRegs = getNumRegistrants(dai, roundID);
 	    		boolean usrRoundRegistered = isCoderRoundRegistered(dai, roundID, usr.getId());
@@ -102,8 +103,8 @@ public class ViewActiveContests extends Base{
 		    		long contestID = rscPassContests.getLongItem(i, "contest_id");
 		    		String roundName = rscPassContests.getStringItem(i, "round_name");
 		    		long roundID = rscPassContests.getLongItem(i, "round_id");
-		    		String startTime = rscPassContests.getStringItem(i, "start_time");
-		    		String endTime = rscPassContests.getStringItem(i, "end_time");		    		
+		    		Date startTime = (Date)rsc.getItem(i, "start_time").getResultData();
+		    		Date endTime = (Date)rsc.getItem(i, "end_time").getResultData();		    		
 		    		int numRegs = getNumRegistrants(dai, roundID);
 		    		boolean usrRoundRegistered = isCoderRoundRegistered(dai, roundID, usr.getId());
 		    		

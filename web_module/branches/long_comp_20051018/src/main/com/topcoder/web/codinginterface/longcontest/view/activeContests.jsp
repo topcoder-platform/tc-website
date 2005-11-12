@@ -88,8 +88,8 @@
 		<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewOverview&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">Results</a>
 	</logic:notEqual>
 </td>
-<td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><tc-webtag:beanWrite name="contest" property="startTime"/></td>
-<td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><tc-webtag:beanWrite name="contest" property="endTime"/></td>
+<td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><tc-webtag:beanWrite name="contest" property="startTime" format="MM.dd.yyyy HH:mm"/></td>
+<td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><tc-webtag:beanWrite name="contest" property="endTime" format="MM.dd.yyyy HH:mm"/></td>
 </tr>
 <%even=!even;%>
 </logic:iterate>

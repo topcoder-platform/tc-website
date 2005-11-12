@@ -1,5 +1,6 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
+import java.util.Date;
 import java.util.Map;
 import java.util.Vector;
 
@@ -44,8 +45,8 @@ public class ViewPractice extends ViewActiveContests {
 	    		long contestID = rsc.getLongItem(i, "contest_id");
 	    		String roundName = rsc.getStringItem(i, "round_name");
 	    		long roundID = rsc.getLongItem(i, "round_id");
-	    		String startTime = rsc.getStringItem(i, "start_time");
-	    		String endTime = rsc.getStringItem(i, "end_time");	    		
+	    		Date startTime = (Date)rsc.getItem(i, "start_time").getResultData();
+	    		Date endTime = (Date)rsc.getItem(i, "end_time").getResultData();	    		
 	    		boolean hasStarted = true; // Practices don't have time contraints	    		
 	    		int numParticipants = getNumParticipants(dai, roundID);
 	    		boolean usrRoundRegistered = true;

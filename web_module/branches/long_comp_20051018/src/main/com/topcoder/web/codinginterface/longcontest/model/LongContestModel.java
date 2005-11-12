@@ -1,4 +1,5 @@
 package com.topcoder.web.codinginterface.longcontest.model;
+import java.util.Date;
 
 public class LongContestModel {
 	
@@ -6,8 +7,8 @@ public class LongContestModel {
 	private long contestID;
 	private String roundName;
 	private long roundID;
-	private String startTime;
-	private String endTime;
+	private Date startTime;
+	private Date endTime;
 	private String problemName;
 	private long componentID;
 	private boolean passed;
@@ -40,10 +41,10 @@ public class LongContestModel {
 	public void setContestName(String contestName) {
 		this.contestName = contestName;
 	}
-	public String getEndTime() {
+	public Date getEndTime() {
 		return endTime;
 	}
-	public void setEndTime(String endTime) {
+	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
 	}
 	public boolean isPassed() {
@@ -70,10 +71,10 @@ public class LongContestModel {
 	public void setRoundName(String roundName) {
 		this.roundName = roundName;
 	}
-	public String getStartTime() {
+	public Date getStartTime() {
 		return startTime;
 	}
-	public void setStartTime(String startTime) {
+	public void setStartTime(Date startTime) {
 		this.startTime = startTime;
 	}
 	public long getProblemID() {
