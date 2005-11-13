@@ -211,8 +211,6 @@ public class ViewActiveContests extends Base{
 	    	r.setProperty("rd", "" + roundID);	    	
 	    	Map m = dai.getData(r);    	
 	    	rsc = (ResultSetContainer)m.get("long_contest_round_problems");
-	    	System.out.println("Getting problem for: " + roundID);
-	    	System.out.println("# of associated questions: " + rsc.size());
 	    	if(rsc.size() > 0) {
 	    		ret = new RoundProblem();
 	    		ret.setComponentID(rsc.getLongItem(0, "component_id"));

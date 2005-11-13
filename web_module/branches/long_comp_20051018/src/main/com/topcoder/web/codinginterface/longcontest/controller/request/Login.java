@@ -32,7 +32,6 @@ public class Login extends Base {
     public static final char[] UNACTIVE_STATI = {'U', '2'};
     
     protected void businessProcessing() throws TCWebException {
-    	System.out.println("Login Processor Called!");
 
         /* may be null */
         String username = getRequest().getParameter(Constants.KEY_USER_HANDLE);
