@@ -113,6 +113,8 @@
     <strong>竞赛题目</strong><br>
     编码窗口的顶部窗格显示了竞赛题目的全部内容。竞赛题目阐述了参赛者需要完成的内容，包括对题目的解释，参赛者解决方案所需用到的类和函数的定义，输入参数的限制，以及有助于说明的样例。
     <br><br>
+	<span class="bigRed">NOTE: All problem statements will be presented in English.</span>
+    <br><br>
     <strong>选择编程语言</strong><br>
     此次赛事允许参赛者采用Java，C++，C#，或者Visual
     Basic作为编程语言。参赛者可以逐题选择编程语言，在单场竞赛中也可以用任一编程语言来给出所有解决方案，因此参赛者可以在编程窗口中选择编程语言。编程语言选择区域位于编程窗口右上部，标题为"Choose your
