@@ -45,7 +45,7 @@
 <jsp:param name="title" value="Registrants"/>
 </jsp:include>
 
-<tc-webtag:useBean id="message" name="<%=Constants.MESSAGE%>" toScope="page" />
+<tc-webtag:useBean id="message" type="java.lang.String" name="<%=Constants.MESSAGE%>" toScope="page" />
 <logic:empty name="message">
 <span class="errorText"><%=message%></span><br>
 </logic:empty>
