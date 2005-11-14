@@ -41,7 +41,7 @@
 
                 <!-- Tab bar links-->
                 <div align="center">
-                    <jsp:include page="EN_links.jsp">
+                    <jsp:include page="ZH_links.jsp">
                         <jsp:param name="selectedTab" value="registration"/>
                     </jsp:include>
                 </div>
@@ -50,7 +50,7 @@
 
                 <span class="bigTitle">Registration</span>
                 <span valign=top>
-         <jsp:include page="EN_right_reg.jsp"/>
+         <jsp:include page="ZH_right_reg.jsp"/>
          </span>
 
                 <br><br>
@@ -128,12 +128,12 @@
                 <br><br>
                 <br><br>
                 To find out more detailed information about the Google Code Jam China, including a list of the prizes,
-                please read the <a href="/pl/?module=Static&d1=gccj05&d2=EN_rules">Terms and Conditions</a>.
+                please read the <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">Terms and Conditions</a>.
             </div>
         </td>
         <td width="49%">&#160;</td>
     <tr>
 </table>
-<jsp:include page="EN_foot.jsp"/>
+<jsp:include page="ZH_foot.jsp"/>
 </body>
 </html>
