@@ -45,11 +45,11 @@
 <jsp:param name="title" value="Registrants"/>
 </jsp:include>
 
+<logic:notEmpty name="<%=Constants.MESSAGE%>">
 <tc-webtag:useBean id="message" type="java.lang.String" name="<%=Constants.MESSAGE%>" toScope="page" />
-<logic:empty name="message">
 <span class="errorText"><%=message%></span><br>
-</logic:empty>
-<logic:notEmpty name="message">
+</logic:notEmpty>
+<logic:empty name="<%=Constants.MESSAGE%>">
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:useBean id="resultMap" type="java.util.Map" scope="request" />
 <%
@@ -132,7 +132,7 @@
       <%=prevPage%> &nbsp;|&nbsp; <%=nextPage%>
 </div>
 
-</logic:notEmpty>
+</logic:empty>
 
         </td>
 
