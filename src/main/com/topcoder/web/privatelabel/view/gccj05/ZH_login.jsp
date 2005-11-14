@@ -73,10 +73,10 @@
                 如果您已经是TopCoder成员，在下面输入帐号名和密码后，您的TopCoder帐号将可以直接在今年的Google编程挑战赛中使用。<br/><br/>
 
                 <form method="post" name="frmLogin" action="<%=sessionInfo.getSecureAbsoluteServletPath()%>">
-                    <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_CHINA_05_LOGIN%>">
-                    <input type="hidden" name="<%=Constants.EVENT_ID%>" value="4">
-                    <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="15857">
-                    <input type="hidden" name="<%=Constants.LOCALE%>" value="<%=Locale.CHINA.getLanguage()%>"
+                    <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_CHINA_05_LOGIN%>"/>
+                    <input type="hidden" name="<%=Constants.EVENT_ID%>" value="4"/>
+                    <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="15857"/>
+                    <input type="hidden" name="<%=Constants.LOCALE%>" value="<%=Locale.CHINA.getLanguage()%>"/>
                     <table border="0" cellpadding="3" cellspacing="0" align="center">
                         <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
 
