@@ -624,7 +624,7 @@ public class UserBean extends BaseEJB {
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT 'X' ");
             query.append("FROM user ");
-            query.append("WHERE handle_lower = lower(?)");
+            query.append("WHERE lower(handle) = lower(?)");
 
             ps = conn.prepareStatement(query.toString());
             ps.setString(1, handle);
