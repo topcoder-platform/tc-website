@@ -12,6 +12,44 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
+<html>
+<head>
+<title>TopCoder</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+</head>
+<body>
+
+<jsp:include page="top.jsp" >
+    <jsp:param name="level1" value="long"/>
+</jsp:include>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+   <tr valign="top">
+<%-- Left Column Begins--%>
+        <td width="180">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="level1" value=""/>
+                <jsp:param name="level2" value=""/>
+            </jsp:include>
+        </td>
+<%-- Left Column Ends --%>
+
+<%-- Center Column Begins --%>
+<TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+
+<jsp:include page="page_title.jsp" >
+<jsp:param name="image" value="long_competitions"/>
+<jsp:param name="title" value="Registrants"/>
+</jsp:include>
+
+<tc-webtag:useBean id="message" name="<%=Constants.MESSAGE%>" toScope="page" />
+<logic:empty name="message">
+<span class="errorText"><%=message%></span><br>
+</logic:empty>
+<logic:notEmpty name="message">
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:useBean id="resultMap" type="java.util.Map" scope="request" />
 <%
@@ -49,39 +87,6 @@
         nextPage = "next &gt;&gt;";
     }
 %>
-
-<html>
-<head>
-<title>TopCoder</title>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-</head>
-<body>
-
-<jsp:include page="top.jsp" >
-    <jsp:param name="level1" value="long"/>
-</jsp:include>
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-   <tr valign="top">
-<%-- Left Column Begins--%>
-        <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="level1" value=""/>
-                <jsp:param name="level2" value=""/>
-            </jsp:include>
-        </td>
-<%-- Left Column Ends --%>
-
-<%-- Center Column Begins --%>
-<TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
-
-<jsp:include page="page_title.jsp" >
-<jsp:param name="image" value="long_competitions"/>
-<jsp:param name="title" value="Registrants"/>
-</jsp:include>
 
 <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
 <span class="bodySubtitle">Registrants: <rsc:item name="num_competitors" row="<%=infoRow%>"/></span><br>
@@ -126,6 +131,8 @@
 <div class="pagingBox">
       <%=prevPage%> &nbsp;|&nbsp; <%=nextPage%>
 </div>
+
+</logic:notEmpty>
 
         </td>
 
