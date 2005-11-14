@@ -8,7 +8,7 @@
     <% if (selectedTab.equals("overview")) {%>
     <font color="006633">竞赛概述</font> &nbsp;|&nbsp;
     <% } else { %>
-    <a href="/pl/?module=Static&d1=gccj05&d2=ZH_overview_temp">竞赛概述</a> &nbsp;|&nbsp;
+    <a href="/pl/?module=Static&d1=gccj05&d2=ZH_overview">竞赛概述</a> &nbsp;|&nbsp;
     <% } %>
 
     <%-- Schedule tab --%>
