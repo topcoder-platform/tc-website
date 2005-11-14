@@ -52,5 +52,6 @@ public interface User extends EJBObject {
             throws EJBException, RemoteException;
 
     boolean userExists(long userId, String dataSource) throws RemoteException, EJBException;
+    public boolean userExists(String handle, String dataSource) throws RemoteException, EJBException;
 }
 
