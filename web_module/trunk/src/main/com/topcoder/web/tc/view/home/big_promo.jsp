@@ -9,4 +9,8 @@
 </map>
 <IMG SRC="/i/home/tcoo5_movies.jpg" border="0" ALT="TCO05" usemap="#tco05_map"/><br>
 --%>
+<%--
 <A href="/?t=development&c=comp_projects"><IMG SRC="/i/home/promos/comp_projects.gif" border="0" ALT="Component Projects"/></A><br>
+--%>
+<A href="/tc?module=Static&d1=contracting&d2=msn"><IMG SRC="/i/home/msn_emp_opps.gif" border="0" ALT="MSN is hiring"/></A>
+
