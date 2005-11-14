@@ -217,7 +217,7 @@
                     <% } else { %>
                     <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>'
                        class="bcLink">
-                        <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="*"/>
+                        <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="uknown *"/>
                     </A>
                     <% } %>
                 </TD>
