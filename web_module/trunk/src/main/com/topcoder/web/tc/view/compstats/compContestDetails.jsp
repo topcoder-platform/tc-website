@@ -167,7 +167,7 @@
          </tr>
          <tr>
          <%
-            if (reviews==null||reviewers.isEmpty()) {
+            if (reviewers==null||reviewers.isEmpty()) {
          %>
              <TD CLASS="tableHeader" align="center">unknown *</TD>
              <TD CLASS="tableHeader" align="center">unknown *</TD>
