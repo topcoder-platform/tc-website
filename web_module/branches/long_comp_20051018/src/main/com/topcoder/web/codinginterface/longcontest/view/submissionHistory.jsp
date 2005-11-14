@@ -116,7 +116,7 @@
 <rsc:iterator list="<%=submissions%>" id="resultRow">
 <tr>
    <td class="<%=even?"statLt":"statDk"%>"><rsc:item name="submission_number" row="<%=resultRow%>"/></td>
-   <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="submit_time" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm:ss"/></td>
+   <td class="<%=even?"statLt":"statDk"%>" align="center"><tc-webtag:format object="<%=new Date(resultRow.getLongItem("submit_time"))%>" format="MM.dd.yyyy HH:mm:ss"/></td>
    <td class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item name="submission_points" row="<%=resultRow%>"/></td>
    <% if(over){ %>
    <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;"><A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemSolution&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>">solution</A></td>
