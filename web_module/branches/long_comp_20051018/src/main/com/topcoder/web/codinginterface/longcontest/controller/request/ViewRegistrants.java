@@ -29,7 +29,6 @@ public class ViewRegistrants extends Base {
     protected void businessProcessing() throws TCWebException {
         try{
             TCRequest request = getRequest();
-            Request r = new Request();
             
             String startRankStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
             String numRecordsStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
@@ -50,12 +49,25 @@ public class ViewRegistrants extends Base {
 
             int endRank = startRank + numRecords - 1;
             
-            r.setContentHandle("long_contest_round_registrants");
-            if(request.getParameter(Constants.ROUND_ID) == null){
-                // TODO: Get the round ID of the most recent active round
-            }else{
-                r.setProperty(Constants.ROUND_ID,request.getParameter(Constants.ROUND_ID));
+            String roundID = request.getParameter(Constants.ROUND_ID);
+            if(roundID == null){
+                // Find most recent round
+                Request r = new Request();
+                r.setContentHandle("long_contest_active_contests");
+                ResultSetContainer rsc =
+                        (ResultSetContainer) getDataAccess(false).getData(r).get("long_contest_active_contests");
+                if(rsc.isEmpty()) { // No active contests
+                    getRequest().setAttribute(Constants.MESSAGE, "There are currently no active rounds.");
+                    setNextPage(Constants.PAGE_VIEW_REGISTRANTS);
+                    setIsNextPageInContext(true);
+                    return;
+                } else { // Show the most recent active round
+                    roundID = rsc.getStringItem(0, "round_id");
+                }
             }
+            Request r = new Request();
+            r.setProperty(Constants.ROUND_ID,roundID);
+            r.setContentHandle("long_contest_round_registrants");
             Map result = getDataAccess(false).getData(r);
             ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_round_registrants");
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
@@ -63,9 +75,6 @@ public class ViewRegistrants extends Base {
             rsc = new ResultSetContainer(rsc, startRank, endRank);
 
             result.put("long_contest_round_registrants", rsc);
-
-//            SortInfo s = new SortInfo();
-//            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, ""+numRecords);
             setDefault(DataAccessConstants.START_RANK, ""+startRank);
