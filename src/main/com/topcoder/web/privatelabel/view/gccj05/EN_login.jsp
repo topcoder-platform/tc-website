@@ -54,17 +54,13 @@
                         <jsp:param name="selectedTab" value="registration"/>
                     </jsp:include>
                 </div>
-
-
                 <br><br>
 
-                <div style="float: left">
-                    <span class="bigTitle">Registration</span>
-                </div>
+                <span class="bigTitle">Registration</span>
+                <span valign=top>
+         <jsp:include page="EN_right_reg.jsp"/>
+         </span>
 
-                <div style="float: right">
-                    <jsp:include page="right_reg.jsp"/>
-                </div>
                 <br><br>
                 Registration will close on Friday, August 19 at 5:00PM EDT.<br/><br/>
                 If you are <A
