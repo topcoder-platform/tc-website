@@ -131,7 +131,7 @@ what it is that you are attempting to accomplish. It includes an explanation of 
 definitions that your solution must adhere to, all of the constraints for any input parameters, and examples to help
 clarify the statement.
 <br><br>
-NOTE: All problem statements will be presented in English.
+<span class="bigRed">NOTE: All problem statements will be presented in English.</span>
 <br><br>
 <strong>Choosing a Language</strong><br>
 The Google Code Jam China allows coders to utilize Java, C++, C# or Visual Basic as a competition programming language.
