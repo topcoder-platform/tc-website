@@ -212,10 +212,14 @@
                                                             format="MM.dd.yyyy" ifNull="unknown*"/></TD>
 
                 <TD class="statDk" align="right">
+                    <% if (reviewers.isEmpty()) { %>
+                        <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="*"/>
+                    <% } else { %>
                     <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>'
                        class="bcLink">
-                        <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="N/A"/>
+                        <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="*"/>
                     </A>
+                    <% } %>
                 </TD>
                 <TD class="statDk" align="left">
                     <% if (resultRow.getIntItem("passed_screening") == 1) { %>
