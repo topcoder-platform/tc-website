@@ -167,20 +167,17 @@
          </tr>
          <tr>
          <%
-            if (reviewers.size() == 3) {
+            if (reviews==null||reviewers.isEmpty()) {
          %>
-            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getLongItem(0, "reviewer_id") %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
-            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getLongItem(1, "reviewer_id") %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
-            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getLongItem(2, "reviewer_id") %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
-         <% } else if (reviewers.size() == 0) { // probably the project hasnt arrived to review phase
+             <TD CLASS="tableHeader" align="center">unknown *</TD>
+             <TD CLASS="tableHeader" align="center">unknown *</TD>
+             <TD CLASS="tableHeader" align="center">unknown *</TD>
+         <% } else if (reviewers.size() == 3) {
          %>
-             <TD CLASS="tableHeader" align="center">-</TD>
-             <TD CLASS="tableHeader" align="center">-</TD>
-             <TD CLASS="tableHeader" align="center">-</TD>
-         <% } else {
-              throw new Exception("0 or 3 reviewers expected.");
-              }
-         %>
+             <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getLongItem(0, "reviewer_id") %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
+             <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getLongItem(1, "reviewer_id") %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
+             <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getLongItem(2, "reviewer_id") %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
+         <% } %>
 
          </tr>
 
