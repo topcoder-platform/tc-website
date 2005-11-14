@@ -235,7 +235,7 @@ else {
                  <TR>
                    <TD COLSPAN="21"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-
+<bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
     <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
        <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 17 /*"coder_score"*/ + "]" %>'/>
                  <TR VALIGN="middle">
