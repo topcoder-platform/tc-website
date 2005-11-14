@@ -55,6 +55,7 @@
 <tr>
    <td class="tableHeader">Contest</td>
    <td class="tableHeader" colspan="3" nowrap="nowrap">Problem Name</td>
+   <td class="tableHeader" align="center" nowrap="nowrap">Competitors</td>
    <td class="tableHeader" align="center" nowrap="nowrap">Start time</td>
    <td class="tableHeader" align="center" nowrap="nowrap">End time</td>
 </tr>
@@ -88,6 +89,7 @@
 		<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewOverview&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">Results</a>
 	</logic:notEqual>
 </td>
+<td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><tc-webtag:beanWrite name="contest" property="numCompetitors"/></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><tc-webtag:beanWrite name="contest" property="startTime" format="MM.dd.yyyy HH:mm"/></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><tc-webtag:beanWrite name="contest" property="endTime" format="MM.dd.yyyy HH:mm"/></td>
 </tr>
