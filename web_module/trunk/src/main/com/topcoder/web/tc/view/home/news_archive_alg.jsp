@@ -38,6 +38,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">11.14.05 3:20 PM&#160;-&#160</td><td width="100%">$5,000 prize purse per match for SRMs <A href="/?RoundId=8069&t=schedule&c=srm">272</A>, <A href="/?RoundId=8074&t=schedule&c=srm">277</A>, <A href="/?RoundId=8081&t=schedule&c=srm">284</A>, sponsored by <A href="/tc?module=Static&d1=contracting&d2=msn">MSN</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.11.05 5:00 PM&#160;-&#160</td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=507907&mc=1#516943">Upgraded Compiler Machines</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.10.05 5:15 PM&#160;-&#160</td><td width="100%">Arena downtime: 11/11 noon</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.03.05 3:15 PM&#160;-&#160</td><td width="100%"><A href="http://forums.topcoder.com/?module=Thread&threadID=507824">Arena applet under Java 1.3 no longer supported</A></td></tr>

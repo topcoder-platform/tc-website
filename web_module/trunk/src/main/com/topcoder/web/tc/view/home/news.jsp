@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>11.14.05<br>3:20 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">$5,000 prize purse per match for SRM <A href="/?RoundId=8069&t=schedule&c=srm">272</A>, <A href="/?RoundId=8074&t=schedule&c=srm">277</A>, <A href="/?RoundId=8081&t=schedule&c=srm">284</A>, sponsored by <A href="/tc?module=Static&d1=contracting&d2=msn">MSN</A></span><br><br>
+      Compete in any of these SRM's sponsored by MSN for a chance to win cash prizes.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <tc-webtag:forumLink forumID="505827" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>11.14.05<br>12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=msn">MSN is hiring TopCoders</A></span><br><br>
       "YOU are the individuals who possess the ability to solve the technical challenges of the future..."
@@ -282,24 +294,6 @@
        <A href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=69982" target="_blank">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505812" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------ALGORITHM------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.14.05<br>8:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_finals_analysis">Eryx is the new Algorithm Champion</A></span><br><br>
-      The tournament has come to an exciting end here at the TCO 2005 Finals. The top two from the first three rounds and the top two from the wildcard round joined together in a close battle for the title of championship winner.
-      <br><br>
-      <i>introduction by </i><tc-webtag:handle coderId="160049" context="algorithm"/><br>
-      <i>analysis by </i><tc-webtag:handle coderId="310430" /> and <tc-webtag:handle coderId="269554" context="algorithm"/>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_finals_analysis">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">photos</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505811" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 
