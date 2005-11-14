@@ -78,9 +78,9 @@
                 account for use in this year's Google Code Jam.<br/><br/>
 
                 <form method="post" name="frmLogin" action="<%=sessionInfo.getSecureAbsoluteServletPath()%>">
-                    <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_CHINA_05_LOGIN%>">
-                    <input type="hidden" name="<%=Constants.EVENT_ID%>" value="4">
-                    <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="15857">
+                    <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_CHINA_05_LOGIN%>"/>
+                    <input type="hidden" name="<%=Constants.EVENT_ID%>" value="4"/>
+                    <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="15857"/>
                     <table border="0" cellpadding="3" cellspacing="0" align="center">
                         <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
 
