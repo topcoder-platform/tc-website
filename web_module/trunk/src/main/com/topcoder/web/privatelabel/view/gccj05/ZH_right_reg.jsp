@@ -2,7 +2,7 @@
 <table class="smallBoxTable" align="right" cellspacing="0" cellpadding="0">
     <tr>
         <td align="center" class="bodyText" style="padding-bottom: 5px;">
-            <A href="/pl/?module=Static&d1=gccj05&d2=EN_overview_temp">English Version</A>
+            <A href="/pl/?module=Static&d1=gccj05&d2=EN_overview">English Version</A>
         </td>
     </tr>
     <tr>

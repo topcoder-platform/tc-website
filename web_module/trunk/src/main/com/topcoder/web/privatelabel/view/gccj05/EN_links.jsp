@@ -8,7 +8,7 @@
     <% if (selectedTab.equals("overview")) {%>
     <font color="006633">Overview</font> &nbsp;|&nbsp;
     <% } else { %>
-    <a href="/pl/?module=Static&d1=gccj05&d2=EN_overview_temp">Overview</a> &nbsp;|&nbsp;
+    <a href="/pl/?module=Static&d1=gccj05&d2=EN_overview">Overview</a> &nbsp;|&nbsp;
     <% } %>
 
     <!-- Schedule tab -->
