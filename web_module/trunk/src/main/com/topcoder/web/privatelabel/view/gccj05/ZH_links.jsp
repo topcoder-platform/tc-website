@@ -30,7 +30,7 @@
     <% if (selectedTab.equals("registration")) {%>
     <font color="006633">竞赛注册</font> &nbsp;|&nbsp;
     <% } else { %>
-    <a href="/pl/?module=Static&d1=gccj05&d2=ZH_reg_closed">竞赛注册</a> &nbsp;|&nbsp;
+    <a href="/pl/?module=Static&d1=gccj05&d2=ZH_login">竞赛注册</a> &nbsp;|&nbsp;
     <% } %>
 
     <%-- Instructions tab --%>

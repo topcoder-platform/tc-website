@@ -1,5 +1,6 @@
 ﻿<%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants" %>
+<%@ page import="java.util.Locale"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session"/>
@@ -75,6 +76,7 @@
                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_CHINA_05_LOGIN%>">
                     <input type="hidden" name="<%=Constants.EVENT_ID%>" value="4">
                     <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="15857">
+                    <input type="hidden" name="<%=Constants.LOCALE%>" value="<%=Locale.CHINA.getLanguage()%>"
                     <table border="0" cellpadding="3" cellspacing="0" align="center">
                         <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
 
