@@ -70,7 +70,7 @@ public class Submit extends ResumeRegSubmit {
             TCSEmailMessage mail = new TCSEmailMessage();
 
             if (info.getLocale().getLanguage().equals(Locale.US.getLanguage())) {
-                mail.setSubject("IMPORTANT - Google Code Jam China Activation Email");
+                mail.setSubject(new String("IMPORTANT - Google Code Jam China Activation Email".getBytes(), "utf-8"));
 
                 buf.append("You're invited to take part in the Google Code Jam China, a programming competition that will be worthy of your time, your skills and your interest.\n\n");
                 buf.append("GOOGLE CODE JAM China ACTIVATION INFORMATION\n\n");
@@ -95,7 +95,7 @@ public class Submit extends ResumeRegSubmit {
                 buf.append("Thank you for registering for the Google Code Jam China.  We look forward to seeing you in the Arena!\n\n");
 
             } else {
-                mail.setSubject("重要信息 - Google中国编程挑战赛参赛激活电子邮件");
+                mail.setSubject(new String("重要信息 - Google中国编程挑战赛参赛激活电子邮件".getBytes(), "utf-8"));
 
                 buf.append("您被邀请参加Google中国编程挑战赛，一项将会对得起您的时间，能力和个人兴趣的计算机编程比赛\n\n");
 
