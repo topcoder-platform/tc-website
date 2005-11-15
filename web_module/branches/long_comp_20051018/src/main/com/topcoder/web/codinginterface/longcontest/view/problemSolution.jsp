@@ -4,7 +4,8 @@
   import="java.util.*,
           com.topcoder.web.codinginterface.longcontest.*,
           com.topcoder.web.common.StringUtils,
-          com.topcoder.shared.dataAccess.resultSet.*"
+          com.topcoder.shared.dataAccess.resultSet.*,
+          com.topcoder.web.tc.controller.legacy.stat.common.JSPUtils"
 
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -18,6 +19,32 @@
     ResultSetContainer.ResultSetRow infoRow = null;
     if(rsc != null && !rsc.isEmpty())
         infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
+%>
+
+<%!
+  private String addSpace(String text) {
+      int i=-1;
+      text = JSPUtils.htmlEncode(text);
+      while((i = text.indexOf("\n\n"))>=0){
+        text = text.substring(0,i+1) + "&#160;" + text.substring(i+1);
+
+      }
+
+    StringTokenizer strtok = new StringTokenizer(text,"\n");
+    StringBuffer stBuffer = new StringBuffer(text.length());
+    String sTemp = "";
+    while (strtok.hasMoreTokens()){
+      sTemp = strtok.nextToken();
+      for (i=0; i<sTemp.length(); i++){
+        if (sTemp.charAt(i)==' ')
+          stBuffer.append("&#160;");
+        else
+          stBuffer.append(sTemp.charAt(i));
+      }
+      stBuffer.append("<BR>");
+    }
+    return stBuffer.toString();
+  }
 %>
 
 <html>
@@ -59,7 +86,7 @@
 <span class="bodySubtitle">Submission: <rsc:item name="submission_number" row="<%=infoRow%>"/></span><br>
 
 <div class="problemText">
-<%=StringUtils.htmlEncode(infoRow.getStringItem("submission_text"))%>
+<%=addSpace(infoRow.getStringItem("submission_text"))%>
 </div>
 
 
