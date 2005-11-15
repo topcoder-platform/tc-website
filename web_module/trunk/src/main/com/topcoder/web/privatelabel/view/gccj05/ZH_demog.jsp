@@ -56,17 +56,17 @@
                 <br><br>
 
                 <div style="float: left;">
-                    <b>Step 2 of 5</b>
+                    <b>第二步（共五步</b>
 
-                    <div class="regBreadOff">General</div>
+                    <div class="regBreadOff">常规信息</div>
 
-                    <div class="regBreadOn">Demographics</div>
+                    <div class="regBreadOn">人口统计信息</div>
 
-                    <div class="regBreadOff">Confirm</div>
+                    <div class="regBreadOff">确认</div>
 
-                    <div class="regBreadOff">Success</div>
+                    <div class="regBreadOff">成功</div>
 
-                    <div class="regBreadOff">Activation</div>
+                    <div class="regBreadOff">激活</div>
                 </div>
                 <br><br><br>
 
@@ -106,7 +106,7 @@
                         </tr>
                         <tr>
                             <td align="right" nowra>
-                                Resume
+                                简历
                             </td>
                             <td align="left">
                                 <input type=file name="Resume">
@@ -114,12 +114,12 @@
                         </tr>
                         <tr>
                             <td align="center" valign="bottom" colspan="2">
-                                <span class="errorText">* Required</span>
+                                <span class="errorText">* 必须填写</span>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2" align="center">
-                                <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p>
+                                <p align="center"><a href="javascript: document.regForm.submit();">提交</a></p>
                             </td>
                         </tr>
                     </form>

@@ -54,17 +54,17 @@
 <br><br>
 
 <div style="float: left;">
-    <b>Step 1 of 5</b>
+    <b>第一步（共五步）</b>
 
-    <div class="regBreadOn">General</div>
+    <div class="regBreadOn">常规信息</div>
 
-    <div class="regBreadOff">Demographics</div>
+    <div class="regBreadOff">人口统计信息</div>
 
-    <div class="regBreadOff">Confirm</div>
+    <div class="regBreadOff">确认</div>
 
-    <div class="regBreadOff">Success</div>
+    <div class="regBreadOff">成功</div>
 
-    <div class="regBreadOff">Activation</div>
+    <div class="regBreadOff">激活</div>
 </div>
 <br><br><br>
 
@@ -81,7 +81,7 @@
 </tr>
 <tr>
     <td align="right" style="width: 160px;">
-        <span class="errorText">*</span> Login
+        <span class="errorText">*</span> 帐号名
     </td>
     <td align="left" nowrap="nowrap">
         <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>"
@@ -96,7 +96,7 @@
 </tr>
 <tr>
     <td align="right" nowrap="nowrap">
-        <span class="errorText">*</span> Given Name
+        <span class="errorText">*</span> 名
     </td>
     <td align="left" nowrap="nowrap">
         <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="15" maxlength="50"/>
@@ -110,7 +110,7 @@
 </tr>
 <tr>
     <td align="right" nowrap="nowrap">
-        <span class="errorText">*</span> Surname
+        <span class="errorText">*</span> 姓
     </td>
     <td align="left" nowrap="nowrap">
         <tc-webtag:textInput name="<%=Constants.LAST_NAME%>" size="15" maxlength="50"/>
@@ -125,12 +125,11 @@
 </tr>
 <tr>
     <td align="right" nowrap="nowrap">
-        <span class="errorText">*</span> Password
+        <span class="errorText">*</span> 密码
     </td>
     <td align="left" nowrap="nowrap">
         <tc-webtag:textInput name="<%=Constants.PASSWORD%>" passw="true" size="15"
-                             maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>"/> (<%=Constants.MIN_PASSWORD_LENGTH%>
-        to <%=Constants.MAX_PASSWORD_LENGTH%> characters)
+                             maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>"/> 7到15个字符
     </td>
 </tr>
 
@@ -141,7 +140,7 @@
 </tr>
 <tr>
     <td align="right" nowrap="nowrap">
-        <span class="errorText">*</span> Confirm Password
+        <span class="errorText">*</span> 确认密码
     </td>
     <td align="left" nowrap="nowrap">
         <tc-webtag:textInput name="<%=Constants.PASSWORD_CONFIRM%>" passw="true" size="15"
@@ -156,7 +155,7 @@
 </tr>
 <tr>
     <td align="right" nowrap="nowrap">
-        <span class="errorText">*</span> Email Address
+        <span class="errorText">*</span> 电子邮箱地址
     </td>
     <td align="left" nowrap="nowrap">
         <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
@@ -170,7 +169,7 @@
 </tr>
 <tr>
     <td align="right" nowrap="nowrap">
-        <span class="errorText">*</span> Confirm Email Address
+        <span class="errorText">*</span> 确认电子邮箱地址
     </td>
     <td align="left" nowrap="nowrap">
         <tc-webtag:textInput name="<%=Constants.EMAIL_CONFIRM%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
@@ -184,7 +183,7 @@
 </tr>
 <tr>
     <td align="right" nowrap="nowrap">
-        <span class="errorText">*</span> Address1
+        <span class="errorText">*</span> 地址1
     </td>
     <td align="left" nowrap="nowrap">
         <tc-webtag:textInput name="<%=Constants.ADDRESS1%>" size="30" maxlength="100"/>
@@ -198,7 +197,7 @@
 </tr>
 <tr>
     <td align="right" nowrap="nowrap">
-        Address2
+        地址2
     </td>
     <td align="left" nowrap="nowrap">
         <tc-webtag:textInput name="<%=Constants.ADDRESS2%>" size="30" maxlength="100"/>
@@ -212,7 +211,7 @@
 </tr>
 <tr>
     <td align="right" nowrap="nowrap">
-        Address3
+        地址3
     </td>
     <td align="left" nowrap="nowrap">
         <tc-webtag:textInput name="<%=Constants.ADDRESS3%>" size="30" maxlength="100"/>
@@ -226,7 +225,7 @@
 </tr>
 <tr>
     <td align="right" nowrap="nowrap">
-        <span class="errorText">*</span> City
+        <span class="errorText">*</span> 城市
     </td>
     <td align="left" nowrap="nowrap">
         <tc-webtag:textInput name="<%=Constants.CITY%>" size="15" maxlength="100"/>
@@ -239,7 +238,7 @@
     </td>
 </tr>
 <tr>
-    <td align="right" nowrap="nowrap">Province</td>
+    <td align="right" nowrap="nowrap">省份</td>
     <td align="left" nowrap="nowrap">
         <tc-webtag:textInput name="<%=Constants.PROVINCE%>" size="15" maxlength="50"/>
     </td>
@@ -251,7 +250,7 @@
 </tr>
 <tr>
     <td align="right" nowrap="nowrap">
-        <span class="errorText">*</span> Postal Code
+        <span class="errorText">*</span> 邮编
     </td>
     <td align="left" nowrap="nowrap">
         <tc-webtag:textInput name="<%=Constants.ZIP%>" size="10" maxlength="15"/>
@@ -265,7 +264,7 @@
 </tr>
 <tr>
     <td align="right" nowrap="nowrap">
-        <span class="errorText">*</span> Country
+        <span class="errorText">*</span> 国家
     </td>
     <td align="left" nowrap="nowrap">
         <% ResultSetContainer countryRsc = (ResultSetContainer) request.getAttribute("countryList"); %>
@@ -280,20 +279,20 @@
 </tr>
 <tr>
     <td align="center" valign="bottom" colspan="2" nowrap="nowrap">
-        <span class="errorText">*</span> Student: <input type="radio" name="<%=Constants.CODER_TYPE%>"
+        <span class="errorText">*</span> 学生: <input type="radio" name="<%=Constants.CODER_TYPE%>"
                                                          value="<%=Constants.STUDENT%>" <%=regInfo.isStudent()?"checked":""%>>
-        Professional: <input type="radio" name="<%=Constants.CODER_TYPE%>"
+        已工作: <input type="radio" name="<%=Constants.CODER_TYPE%>"
                              value="<%=Constants.PROFESSIONAL%>" <%=regInfo.isProfessional()?"checked":""%>>
     </td>
 </tr>
 <tr>
     <td align="center" valign="bottom" colspan="2" nowrap="nowrap">
-        <span class="errorText">* Required</span>
+        <span class="errorText">* 必须填写</span>
     </td>
 </tr>
 <tr>
     <td colspan="2" align="center" nowrap="nowrap">
-        <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p>
+        <p align="center"><a href="javascript: document.regForm.submit();">提交</a></p>
     </td>
 </tr>
 </form>

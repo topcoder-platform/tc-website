@@ -58,17 +58,17 @@
 <br><br>
 
 <div style="float: left;">
-    <b>Step 3 of 5</b>
+    <b>第三步（共五步）</b>
 
-    <div class="regBreadOff">General</div>
+    <div class="regBreadOff">常规信息</div>
 
-    <div class="regBreadOff">Demographics</div>
+    <div class="regBreadOff">人口统计信息</div>
 
-    <div class="regBreadOn">Confirm</div>
+    <div class="regBreadOn">确认</div>
 
-    <div class="regBreadOff">Success</div>
+    <div class="regBreadOff">成功</div>
 
-    <div class="regBreadOff">Activation</div>
+    <div class="regBreadOff">激活</div>
 </div>
 <br><br><br>
 
@@ -80,15 +80,15 @@
 <tc-webtag:hiddenInput name="<%=Constants.LOCALE%>"/>
 
 <tr>
-    <td align="right" width="50%"><b>Personal</b>
+    <td align="right" width="50%"><b>个人信息</b>
     </td>
     <td align="left" width="50%">
-        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_CHINA_05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="companyId"/>&<%=Constants.LOCALE%>=<%=regInfo.getLocale().getLanguage()%>">edit<a/>
+        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_CHINA_05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="companyId"/>&<%=Constants.LOCALE%>=<%=regInfo.getLocale().getLanguage()%>">改写</a>
     </td>
 </tr>
 <tr>
     <td align="right" nowrap>
-        Handle
+        帐号名
     </td>
     <td align="left">
         <jsp:getProperty name="regInfo" property="handle"/>
@@ -97,7 +97,7 @@
 
 <tr>
     <td align="right" nowrap>
-        Given Name
+        名
     </td>
     <td align="left">
         <jsp:getProperty name="regInfo" property="firstName"/>
@@ -106,7 +106,7 @@
 
 <tr>
     <td align="right" nowrap>
-        Surname
+        姓
     </td>
     <td align="left">
         <jsp:getProperty name="regInfo" property="lastName"/>
@@ -115,7 +115,7 @@
 
 <tr>
     <td align="right" nowrap>
-        Email Address
+        电子邮箱地址
     </td>
     <td align="left">
         <jsp:getProperty name="regInfo" property="email"/>
@@ -124,7 +124,7 @@
 
 <tr>
     <td align="right" nowrap>
-        Confirm Email Address
+        确认电子邮箱地址
     </td>
     <td align="left">
         <jsp:getProperty name="regInfo" property="emailConfirm"/>
@@ -133,7 +133,7 @@
 
 <tr>
     <td align="right" nowrap>
-        Address 1
+        地址1
     </td>
     <td align="left">
         <jsp:getProperty name="regInfo" property="address1"/>
@@ -142,7 +142,7 @@
 
 <tr>
     <td align="right" nowrap>
-        Address 2
+        地址2
     </td>
     <td align="left">
         <jsp:getProperty name="regInfo" property="address2"/>
@@ -151,7 +151,7 @@
 
 <tr>
     <td align="right" nowrap>
-        Address 3
+        地址3
     </td>
     <td align="left">
         <jsp:getProperty name="regInfo" property="address3"/>
@@ -160,7 +160,7 @@
 
 <tr>
     <td align="right" nowrap>
-        City
+        城市
     </td>
     <td align="left">
         <jsp:getProperty name="regInfo" property="city"/>
@@ -169,7 +169,7 @@
 
 <tr>
     <td align="right" nowrap>
-        Province
+        省份
     </td>
     <td align="left">
         <jsp:getProperty name="regInfo" property="province"/>
@@ -178,7 +178,7 @@
 
 <tr>
     <td align="right" nowrap>
-        PIN/Zip Code
+        邮编
     </td>
     <td align="left">
         <jsp:getProperty name="regInfo" property="zip"/>
@@ -187,7 +187,7 @@
 
 <tr>
     <td align="right" nowrap>
-        Country
+        国家
     </td>
     <td align="left">
         <jsp:getProperty name="regInfo" property="countryName"/>
@@ -195,10 +195,10 @@
 </tr>
 <tr>
     <td align="right">
-        <b>Demographics</b>
+        <b>人口统计信息</b>
     </td>
     <td align="left">
-        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_CHINA_05_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="companyId"/>&<%=Constants.LOCALE%>=<%=regInfo.getLocale().getLanguage()%>">edit</a>
+        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_CHINA_05_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="companyId"/>&<%=Constants.LOCALE%>=<%=regInfo.getLocale().getLanguage()%>">改写</a>
     </td>
 </tr>
 <tr>
@@ -209,7 +209,7 @@
 
 <tr>
     <td align="right" nowrap>
-        Student/Professional
+        学生/已工作
     </td>
     <td align="left">
         <%=regInfo.isStudent() ? "Student" : "Professional"%>
@@ -228,14 +228,14 @@
 </pl:responseIterator>
 
 <tr>
-    <td align="right" nowrap>Resume</td>
+    <td align="right" nowrap>简历</td>
     <td align="left">
         <jsp:getProperty name="regInfo" property="uploadStatus"/>
     </td>
 </tr>
 <tr>
     <td colspan="2" align="center">
-        <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p>
+        <p align="center"><a href="javascript: document.regForm.submit();">提交</a></p>
     </td>
 </tr>
 
