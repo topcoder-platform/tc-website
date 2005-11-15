@@ -213,13 +213,11 @@
 <tr><td>0103<br><img src="/i/tournament/tco06/logo_submissions/0103.jpg" alt="" border="0" /></td></tr>   <%--19838980--%>
 <tr><td>0102<br><img src="/i/tournament/tco06/logo_submissions/0102.jpg" alt="" border="0" /></td></tr>   <%--19937752--%>
 <tr><td>0101<br><img src="/i/tournament/tco06/logo_submissions/0101.jpg" alt="" border="0" /></td></tr>   <%--19937752--%>
-<tr><td>0100<br><img src="/i/tournament/tco06/logo_submissions/0100.png" alt="" border="0" /></td></tr>   <%--19824618--%>
 <tr><td>0099<br><img src="/i/tournament/tco06/logo_submissions/0099.png" alt="" border="0" /></td></tr>   <%--19943283--%>
 <tr><td>0098<br><img src="/i/tournament/tco06/logo_submissions/0098.jpg" alt="" border="0" /></td></tr>   <%--8459166--%>
 <tr><td>0097<br><img src="/i/tournament/tco06/logo_submissions/0097.gif" alt="" border="0" /></td></tr>   <%--8436401--%>
 <tr><td>0096<br><img src="/i/tournament/tco06/logo_submissions/0096.gif" alt="" border="0" /></td></tr>   <%--10283866--%>
 <tr><td>0095<br><img src="/i/tournament/tco06/logo_submissions/0095.gif" alt="" border="0" /></td></tr>   <%--13365879--%>
-<tr><td>0094<br><img src="/i/tournament/tco06/logo_submissions/0094.gif" alt="" border="0" /></td></tr>   <%--15028601--%>
 <tr><td>0093<br><img src="/i/tournament/tco06/logo_submissions/0093.gif" alt="" border="0" /></td></tr>   <%--15713582--%>
 <tr><td>0092<br><img src="/i/tournament/tco06/logo_submissions/0092.gif" alt="" border="0" /></td></tr>   <%--15781032--%>
 <tr><td>0091<br><img src="/i/tournament/tco06/logo_submissions/0091.gif" alt="" border="0" /></td></tr>   <%--19930640--%>
@@ -241,7 +239,6 @@
 <tr><td>0074<br><img src="/i/tournament/tco06/logo_submissions/0074.gif" alt="" border="0" /></td></tr>   <%--19746275--%>
 <tr><td>0073<br><img src="/i/tournament/tco06/logo_submissions/0073.gif" alt="" border="0" /></td></tr>   <%--19838980--%>
 <tr><td>0072<br><img src="/i/tournament/tco06/logo_submissions/0072.gif" alt="" border="0" /></td></tr>   <%--19907956--%>
-<tr><td>0071<br><img src="/i/tournament/tco06/logo_submissions/0071.jpg" alt="" border="0" /></td></tr>   <%--10466047--%>
 <tr><td>0070<br><img src="/i/tournament/tco06/logo_submissions/0070.jpg" alt="" border="0" /></td></tr>   <%--10466047--%>
 <tr><td>0069<br><img src="/i/tournament/tco06/logo_submissions/0069.jpg" alt="" border="0" /></td></tr>   <%--19915132--%>
 <tr><td>0068<br><img src="/i/tournament/tco06/logo_submissions/0068.png" alt="" border="0" /></td></tr>   <%--284038--%>
