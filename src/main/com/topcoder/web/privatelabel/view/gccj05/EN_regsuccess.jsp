@@ -55,15 +55,10 @@
 
                 <div style="float: left;">
                     <b>Step 4 of 5</b>
-
                     <div class="regBreadOff">General</div>
-
                     <div class="regBreadOff">Demographics</div>
-
                     <div class="regBreadOff">Confirm</div>
-
                     <div class="regBreadOn">Success</div>
-
                     <div class="regBreadOff">Activation</div>
                 </div>
 
