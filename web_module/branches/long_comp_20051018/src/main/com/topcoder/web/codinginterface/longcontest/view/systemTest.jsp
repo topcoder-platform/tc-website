@@ -3,6 +3,7 @@
   language="java"
   import="java.util.*,
           com.topcoder.web.codinginterface.longcontest.*,
+          com.topcoder.web.common.StringUtils,
           com.topcoder.shared.dataAccess.resultSet.*"
 
 %>
@@ -52,11 +53,11 @@
 
 
 <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=testRow%>"/></span><br>
-<span class="bodySubtitle">Problem: <rsc:item name="problem_name" row="<%=testRow%>"/></span><p>
+<span class="bodySubtitle">Problem: <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=testRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=testRow%>"/>"><rsc:item name="problem_name" row="<%=testRow%>"/></a></span><p>
 
-Arguments: <rsc:item name="args" row="<%=testRow%>"/><p>
+Arguments: <%=StringUtils.htmlEncode(testRow.getStringItem("args"))%><p>
 
-Expected Result: <rsc:item name="expected_result" row="<%=testRow%>"/>
+Expected Result: <%=StringUtils.htmlEncode(testRow.getStringItem("expected_result"))%>
 
 
         </td>
