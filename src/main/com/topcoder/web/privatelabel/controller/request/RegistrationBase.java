@@ -59,7 +59,7 @@ public abstract class RegistrationBase extends BaseProcessor {
         if (bundle==null) {
             String loc = StringUtils.checkNull(getRequest().getParameter(Constants.LOCALE));
             log.debug("create bundle for language " + loc);
-            if (!"".equals(loc)) {
+            if ("".equals(loc)) {
                 bundle = new TCResourceBundle("PrivateLabel");
             } else {
                 bundle = new TCResourceBundle("PrivateLabel", new Locale(loc));
