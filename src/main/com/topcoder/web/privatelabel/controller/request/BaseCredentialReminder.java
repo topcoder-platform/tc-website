@@ -4,6 +4,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -12,6 +13,7 @@ import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import java.util.Map;
 import java.util.StringTokenizer;
+import java.util.Locale;
 
 /**
  * @author  dok
@@ -31,7 +33,8 @@ public abstract class BaseCredentialReminder extends RegistrationBase {
         } else if (st.countTokens() < 3
                 || !StringUtils.contains(email, '@')
                 || !StringUtils.contains(email, '.')) {
-            addError(Constants.EMAIL, "Please enter a valid email address.");
+            String loc = getRequest().getParameter(Constants.LOCALE);
+            addError(Constants.EMAIL, getBundle().getProperty("error_invalid_email"));
             setDefault(Constants.EMAIL, email);
             setNextPage(getStartPage());
         } else {

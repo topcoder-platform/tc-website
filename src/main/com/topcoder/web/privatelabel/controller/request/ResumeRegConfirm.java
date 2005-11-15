@@ -54,12 +54,12 @@ public abstract class ResumeRegConfirm extends FullRegConfirm {
             if (rinfo.hasResume()) {
 
                 if (rinfo.getResume().length == 0)
-                    addError(Constants.FILE, "Sorry, the file you attempted to upload was empty.");
+                    addError(Constants.FILE, getBundle().getProperty("error_empty_file"));
                 else {
                     Map types = getFileTypes(transDb);
                     if (!types.containsKey(rinfo.getResumeContentType())) {
                         log.debug("DID NOT FIND TYPE " + rinfo.getResumeContentType());
-                        addError(Constants.FILE, "Unsupported file type (" + rinfo.getResumeContentType() + ")");
+                        addError(Constants.FILE, getBundle().getProperty("error_unknown_filetype") + rinfo.getResumeContentType() + ")");
                     }
                 }
             }

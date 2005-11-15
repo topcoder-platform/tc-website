@@ -44,7 +44,7 @@ public class Demog extends FullRegDemog {
         super.checkRegInfo(info);
 
         if (((FullRegInfo) info).getCoderType() == 0) {
-            addError(Constants.CODER_TYPE, "Please select your Student/Professional status.");
+            addError(Constants.CODER_TYPE, getBundle().getProperty("error_enter_stud_pro"));
         }
 
         //make a bunch of fields not required

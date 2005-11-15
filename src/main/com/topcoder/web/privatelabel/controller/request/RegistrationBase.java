@@ -8,6 +8,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
@@ -32,6 +33,7 @@ public abstract class RegistrationBase extends BaseProcessor {
     protected SimpleRegInfo regInfo;
     protected Persistor p;
     protected static final TCSubject CREATE_USER = new TCSubject(100000);
+    private TCResourceBundle bundle;
 
     protected void businessProcessing() throws TCWebException {
         try {
@@ -51,6 +53,18 @@ public abstract class RegistrationBase extends BaseProcessor {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+
+    protected TCResourceBundle getBundle() {
+        if (bundle==null) {
+            String loc = StringUtils.checkNull(getRequest().getParameter(Constants.LOCALE));
+            if (!"".equals(loc)) {
+                bundle = new TCResourceBundle("PrivateLabel");
+            } else {
+                bundle = new TCResourceBundle("PrivateLabel", new Locale(loc));
+            }
+        }
+        return bundle;
     }
 
     protected void clearRegInfo() {

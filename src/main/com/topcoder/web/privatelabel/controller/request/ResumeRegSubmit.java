@@ -28,7 +28,7 @@ public abstract class ResumeRegSubmit extends FullRegSubmit {
                 int fileType = -1;
 
                 if (info.getResume().length == 0)
-                    addError(Constants.FILE, "Sorry, the file you attempted to upload was empty.");
+                    addError(Constants.FILE, getBundle().getProperty("error_empty_file"));
                 else {
                     //fileType = Integer.parseInt(file.getParameter("fileType"));
                     Map types = getFileTypes(transDb);
