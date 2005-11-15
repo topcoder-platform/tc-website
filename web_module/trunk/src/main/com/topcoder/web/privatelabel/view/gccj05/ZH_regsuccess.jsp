@@ -46,29 +46,36 @@
 
                 <br><br>
 
-                <span class="bigTitle">Registration</span>
-                <span valign=top>
-         <jsp:include page="ZH_right_reg.jsp"/>
-         </span>
+                <div style="float: left;">
+                    <b>Step 4 of 5</b>
+                    <div class="regBreadOff">General</div>
+                    <div class="regBreadOff">Demographics</div>
+                    <div class="regBreadOff">Confirm</div>
+                    <div class="regBreadOn">Success</div>
+                    <div class="regBreadOff">Activation</div>
+                </div>
 
-                <br><br>
 
-                In order to be eligible to compete in the Google Code Jam China,
-                you must activate your account by following the directions sent to the email
-                address provided during registration. You <u>will not</u> be able to compete if you
-                do not activate your account.
-
-                <br><br>
-
-                Spend time in the Practice Rooms prior to the Qualification Round by clicking the Competition Arena tab
-                above.<br><br>
-
-                If you encounter any problems, please contact us at <A
-                    href="mailto:gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>.
-                <br><br>
-
-                Good luck to you in the Arena!
-
+                <table cellpadding="0" cellspacing="0" class="bodyText" align="center" border="0"
+                       style="padding-right: 40px;">
+                    <tr>
+                        <td>
+                            In order to be eligible to compete in the Google Code Jam China,
+                            you must activate your account by following the directions sent to the email
+                            address provided during registration.
+                            <br><br>
+                            <span class="bigRed">You will not be able to compete if you do not activate your account.</span>
+                            <br><br>
+                            Spend time in the Practice Rooms prior to the Qualification Round by clicking the
+                            Competition Arena tab above.
+                            <br><br>
+                            If you encounter any problems, please contact us at <A
+                                href="mailto:gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>.
+                            <br><br>
+                            Good luck to you in the Arena!
+                        </td>
+                    </tr>
+                </table>
 
                 <br><br>
                 <br><br>
