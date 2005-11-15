@@ -56,7 +56,7 @@
       &lt;&lt; previous
     </logic:equal>
 	<logic:notEqual name="<%=Constants.PREV_IDX_KEY%>" value="-1">
-		<a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.PREV_IDX_KEY)&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)&<%=Constants.SORT_ORDER%>=<%=request.getAttribute(Constants.SORT_ORDER)%>" class="bcLink">&lt;&lt; previous</a>
+		<a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.PREV_IDX_KEY)%>&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)%>&<%=Constants.SORT_ORDER%>=<%=request.getAttribute(Constants.SORT_ORDER)%>" class="bcLink">&lt;&lt; previous</a>
     </logic:notEqual>
 
       &nbsp;|&nbsp;
@@ -65,7 +65,7 @@
 		next &gt;&gt;
     </logic:equal>
 	<logic:notEqual name="<%=Constants.NEXT_IDX_KEY%>" value="-1">
-		<a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.NEXT_IDX_KEY)&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)&<%=Constants.SORT_ORDER%>=<%=request.getAttribute(Constants.SORT_ORDER)%>" class="bcLink">next &gt;&gt;</a>
+		<a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.NEXT_IDX_KEY)%>&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)%>&<%=Constants.SORT_ORDER%>=<%=request.getAttribute(Constants.SORT_ORDER)%>" class="bcLink">next &gt;&gt;</a>
     </logic:notEqual>
 </div>
 
@@ -105,7 +105,7 @@
       &lt;&lt; previous
     </logic:equal>
 	<logic:notEqual name="<%=Constants.PREV_IDX_KEY%>" value="-1">
-		<a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.PREV_IDX_KEY)&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)&<%=Constants.SORT_ORDER%>=<%=request.getAttribute(Constants.SORT_ORDER)%>" class="bcLink">&lt;&lt; previous</a>
+		<a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.PREV_IDX_KEY)%>&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)%>&<%=Constants.SORT_ORDER%>=<%=request.getAttribute(Constants.SORT_ORDER)%>" class="bcLink">&lt;&lt; previous</a>
     </logic:notEqual>
 
       &nbsp;|&nbsp;
@@ -114,7 +114,7 @@
 		next &gt;&gt;
     </logic:equal>
 	<logic:notEqual name="<%=Constants.NEXT_IDX_KEY%>" value="-1">
-		<a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.NEXT_IDX_KEY)&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)&<%=Constants.SORT_ORDER%>=<%=request.getAttribute(Constants.SORT_ORDER)%>" class="bcLink">next &gt;&gt;</a>
+		<a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.NEXT_IDX_KEY)%>&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)%>&<%=Constants.SORT_ORDER%>=<%=request.getAttribute(Constants.SORT_ORDER)%>" class="bcLink">next &gt;&gt;</a>
     </logic:notEqual>
 </div>
 

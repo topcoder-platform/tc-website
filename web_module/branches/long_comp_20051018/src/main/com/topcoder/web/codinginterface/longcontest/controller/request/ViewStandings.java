@@ -42,7 +42,7 @@ public class ViewStandings extends Base {
 		int numRegistrants = 0;
 		String contestName = "";
 
-		int maxResults = 3;//Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
+		int maxResults = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
 		
 		// Give variables default values
 		if(primaryCol == null) primaryCol = Constants.SCORE_COL;
