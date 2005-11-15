@@ -151,14 +151,17 @@
 </tr>
 <%boolean even = true;%>
 <rsc:iterator list="<%=coders%>" id="coderRow">
+<% String style=even?"statLt":"statDk"; even=!even; %>
+<logic:equal parameter="<%=Constants.CODER_ID%>" value="<%=coderRow.getStringItem("coder_id")%>">
+   <% style="highlightStylePlaceholder"; %>
+</logic:equal>
 <tr align="right">
-   <td class="<%=even?"statLt":"statDk"%>" align="left" nowrap="nowrap"><tc-webtag:handle coderId='<%=coderRow.getLongItem("coder_id")%>'/></td>
-   <td class="<%=even?"statLt":"statDk"%>"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewSubmissionHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<%=request.getParameter(Constants.PROBLEM_ID)%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=coderRow%>"/>" class="statLink"><rsc:item name="final_points" row="<%=coderRow%>"/></a></td>
+   <td class="<%=style%>" align="left" nowrap="nowrap"><tc-webtag:handle coderId='<%=coderRow.getLongItem("coder_id")%>'/></td>
+   <td class="<%=style%>"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewSubmissionHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<%=request.getParameter(Constants.PROBLEM_ID)%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=coderRow%>"/>" class="statLink"><rsc:item name="final_points" row="<%=coderRow%>"/></a></td>
 <rsc:iterator list="<%=cases%>" id="caseRow">
-   <td class="<%=even?"statLt":"statDk"%>"><tc-webtag:format object="<%=scoreHash.get(coderRow.getItem("coder_id") + "_" + caseRow.getItem("test_case_id"))%>" ifNull="--"/></td>
+   <td class="<%=style%>"><tc-webtag:format object="<%=scoreHash.get(coderRow.getItem("coder_id") + "_" + caseRow.getItem("test_case_id"))%>" ifNull="--"/></td>
 </rsc:iterator>
 </tr>
-<%even=!even;%>
 </rsc:iterator>
       </TABLE>
       </TD>
