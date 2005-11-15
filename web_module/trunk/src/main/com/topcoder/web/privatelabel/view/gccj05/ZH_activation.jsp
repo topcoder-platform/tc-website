@@ -34,7 +34,7 @@
         <td>
             <div class=greenBigBox>
 
-                <%-- Tab bar links--%>
+                <!-- Tab bar links-->
                 <div align="center">
                     <jsp:include page="ZH_links.jsp">
                         <jsp:param name="selectedTab" value="registration"/>
@@ -48,11 +48,34 @@
          </span>
                 <br><br>
 
-                You may practice for the contest by clicking the Competition Arena link above.
-                <br><br>
-                If you encounter any problems, please contact us at <A
-                    href="mailto:gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>.
+                <div style="float: left;">
+                    <b>Step 5 of 5</b>
+                    <div class="regBreadOff">General</div>
+                    <div class="regBreadOff">Demographics</div>
+                    <div class="regBreadOff">Confirm</div>
+                    <div class="regBreadOff">Success</div>
+                    <div class="regBreadOn">Activation</div>
+                </div>
 
+
+                <table cellpadding="0" cellspacing="0" class="bodyText" align="center" border="0"
+                       style="padding-right: 40px;">
+                    <tr>
+                        <td>
+                            You may practice for the contest by clicking the Competition Arena link above.
+                            <br><br>
+                            If you encounter any problems, please contact us at <A
+                                href="mailto:gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>.
+
+                            <br><br>
+                            To find out more detailed information about the Google Code Jam China, including a list of
+                            the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">Terms and
+                            Conditions</a>.
+                        </td>
+                    </tr>
+                </table>
+
+                <br><br>
                 <br><br>
 想要了解更多的 Google&#153; Code Jam - 中国编程挑战赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
             </div>
