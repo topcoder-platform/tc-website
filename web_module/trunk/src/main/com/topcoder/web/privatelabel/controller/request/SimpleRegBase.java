@@ -112,7 +112,7 @@ public abstract class SimpleRegBase extends RegistrationBase {
         }
         if (!StringUtils.containsOnly(info.getHandle(), Constants.HANDLE_ALPHABET, false)) {
             addError(Constants.HANDLE,
-                    "Please limit the characters in your handle to letter, numbers and common punctuation symbols.");
+                    "Please limit the characters in your handle to letters, numbers and common punctuation symbols.");
         }
         try {
             if (info.isNew() && userExists(info.getHandle())) {
