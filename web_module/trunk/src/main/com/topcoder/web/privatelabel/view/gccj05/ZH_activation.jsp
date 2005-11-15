@@ -42,19 +42,19 @@
                 </div>
 
                 <br><br>
-                <span class="bigTitle">Activation Successful!</span>
+                <span class="bigTitle">帐号激活成功!</span>
                 <span valign=top>
          <jsp:include page="ZH_right_reg.jsp"/>
          </span>
                 <br><br>
 
                 <div style="float: left;">
-                    <b>Step 5 of 5</b>
-                    <div class="regBreadOff">General</div>
-                    <div class="regBreadOff">Demographics</div>
-                    <div class="regBreadOff">Confirm</div>
-                    <div class="regBreadOff">Success</div>
-                    <div class="regBreadOn">Activation</div>
+                    <b>第五步（共五步）</b>
+                    <div class="regBreadOff">常规信息</div>
+                    <div class="regBreadOff">人口统计信息</div>
+                    <div class="regBreadOff">确认</div>
+                    <div class="regBreadOff">成功</div>
+                    <div class="regBreadOn">激活</div>
                 </div>
 
 
@@ -62,15 +62,13 @@
                        style="padding-right: 40px;">
                     <tr>
                         <td>
-                            You may practice for the contest by clicking the Competition Arena link above.
+                            点击上面的竞技场小标签您可以开始进行比赛训练。
                             <br><br>
-                            If you encounter any problems, please contact us at <A
+                            如果您遇到任何问题，可以通过如下电子邮箱地址联系我们：<A
                                 href="mailto:gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>.
 
                             <br><br>
-                            To find out more detailed information about the Google Code Jam China, including a list of
-                            the prizes, please read the <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">Terms and
-                            Conditions</a>.
+                            <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">关于Google Code Jam - 中国编程挑战赛的更详细信息，包括奖品清单，请阅读竞赛规则</a>。
                         </td>
                     </tr>
                 </table>
