@@ -45,6 +45,11 @@
                 </div>
 
                 <br><br>
+                <span class="bigTitle">注册</span>
+                <span valign=top>
+				 <jsp:include page="ZH_right_reg.jsp"/>
+				 </span>
+                <br><br>
 
                 <div style="float: left;">
                     <b>Step 4 of 5</b>
