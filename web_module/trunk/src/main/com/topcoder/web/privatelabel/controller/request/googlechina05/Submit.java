@@ -130,7 +130,7 @@ public class Submit extends ResumeRegSubmit {
 
             }
 
-            mail.setBody(buf.toString());
+            mail.setBody(new String(buf.toString().getBytes(), "utf-8"));
             mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
             mail.setFromAddress("gcjc@topcoder.com", "Google Code Jam Team");
             log.info("sent registration email to " + info.getEmail());
