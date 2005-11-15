@@ -31,13 +31,12 @@ public abstract class FullRegConfirm extends FullRegBase {
           has already been checked.
         */
         checkRegInfo(regInfo);
-
+        setDefaults(regInfo);
         try {
             if (hasErrors()) {
                 List l = getQuestionList(((FullRegInfo) regInfo).getCoderType(), getLocale());
                 Collections.sort(l);
                 getRequest().setAttribute("questionList", l);
-                setDefaults(regInfo);
             } else {
                 getRequest().setAttribute("responseList", ((FullRegInfo) regInfo).getResponses());
                 getRequest().setAttribute("questionMap", getQuestions());
