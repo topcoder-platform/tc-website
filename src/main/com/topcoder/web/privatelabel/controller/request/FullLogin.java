@@ -22,6 +22,7 @@ import com.topcoder.web.common.StringUtils;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.HashMap;
+import java.util.Locale;
 
 public abstract class FullLogin extends FullReg {
 
@@ -125,6 +126,12 @@ public abstract class FullLogin extends FullReg {
                 long userId = getAuthentication().getActiveUser().getId();
                 info = getCommonInfo(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 info.setUserId(userId);
+
+                if (hasRequestParameter(Constants.LOCALE)) {
+                    info.setLocale(new Locale(StringUtils.checkNull(getRequestParameter(Constants.LOCALE))));
+                } else {
+                    info.setLocale(Locale.US);
+                }
 
                 info.setCoderType(coder.getCoderTypeId(userId, DBMS.OLTP_DATASOURCE_NAME));
                 log.error(info.getCoderType() + "");
