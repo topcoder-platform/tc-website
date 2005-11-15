@@ -21,8 +21,7 @@ import java.util.Iterator;
  */
 public abstract class ResumeRegConfirm extends FullRegConfirm {
     protected SimpleRegInfo makeRegInfo() throws Exception {
-        FullRegInfo info;
-        info = (FullRegInfo) super.makeRegInfo();
+        FullRegInfo info = (FullRegInfo) super.makeRegInfo();
 
         if (!(info instanceof ResumeRegInfo)) {
             info = new ResumeRegInfo(info);
