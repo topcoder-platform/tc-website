@@ -134,7 +134,7 @@ public abstract class SimpleRegBase extends RegistrationBase {
 
         //check email
         if (info.getEmail().length() > Constants.MAX_EMAIL_LENGTH) {
-            addError(Constants.EMAIL, "Your email must be between at most " +
+            addError(Constants.EMAIL, "Your email must be at most " +
                     Constants.MAX_EMAIL_LENGTH + " characters.");
         }
         StringTokenizer st = new StringTokenizer(info.getEmail(), "@.");
