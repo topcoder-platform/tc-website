@@ -48,7 +48,7 @@
 
                 <br><br>
 
-                <span class="bigTitle">Registration</span>
+                <span class="bigTitle">注册</span>
                 <span valign=top>
          <jsp:include page="ZH_right_reg.jsp"/>
          </span>
