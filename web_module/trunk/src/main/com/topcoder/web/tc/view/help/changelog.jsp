@@ -38,7 +38,7 @@
            <jsp:param name="title" value="TopCoder Web Site Change Log"/>
         </jsp:include>
         <p>
-            4.0.6 - 2005.11.xx
+            4.0.6 - 2005.11.15
             <ul>
                 <li>increased size limit on user_placement.value and changed the code to enforce it</li>
                 <li>improved the validation on review board applications.  1.  so that one can't apply for a
@@ -46,6 +46,7 @@
                 <li>Added coder achievements page</li>
                 <li>added ability to make the results of a survey not viewable</li>
                 <li>enforced the dates on a survey.  only during that time can one respond to it</li>
+                <li>Google China 2005 site</li>
             </ul>
         </p>
 
