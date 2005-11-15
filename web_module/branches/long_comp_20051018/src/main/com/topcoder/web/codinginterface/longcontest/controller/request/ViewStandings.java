@@ -42,7 +42,7 @@ public class ViewStandings extends Base {
 		int numRegistrants = 0;
 		String contestName = "";
 
-		int maxResults = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
+		int maxResults = 3;//Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
 		
 		// Give variables default values
 		if(primaryCol == null) primaryCol = Constants.SCORE_COL;
@@ -71,8 +71,16 @@ public class ViewStandings extends Base {
 			// Go ahead and try to load the round's standings
 			if(roundID != null) {
 	
+				int roundTypeID = getRoundType(dai, roundID);
+				
 				Request r = new Request();
-				r.setContentHandle("long_contest_round_standings");
+				
+				if(roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
+					r.setContentHandle("long_contest_round_practice_standings");
+				} else {
+					r.setContentHandle("long_contest_round_standings");
+				}
+				
 				r.setProperty("rd", roundID);
 	
 				Map m = dai.getData(r);
@@ -87,7 +95,7 @@ public class ViewStandings extends Base {
 				boolean over = ((ResultSetContainer) m.get("long_contest_over")).getBooleanItem(0, 0);
 				
 				// If this is a practice contest than let it pass
-				int roundTypeID = ((ResultSetContainer) m.get("long_contest_round_information")).getIntItem(0, "round_type_id");
+				
 				if(roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
 					started = true;
 					over = false;
@@ -106,7 +114,13 @@ public class ViewStandings extends Base {
 					// Get contest's name										
 					contestName = ((ResultSetContainer) m.get("long_contest_round_information")).getStringItem(0, "contest_name");
 					
-					ResultSetContainer rsc = (ResultSetContainer) m.get("long_contest_round_standings");
+					ResultSetContainer rsc;
+					
+					if(roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
+						rsc = (ResultSetContainer) m.get("long_contest_round_practice_standings");
+					} else {
+						rsc = (ResultSetContainer) m.get("long_contest_round_standings");
+					}
 					
 					TreeSet points = new TreeSet();
 	
@@ -191,6 +205,29 @@ public class ViewStandings extends Base {
 		
 		setNextPage(Constants.PAGE_STANDINGS);
 		setIsNextPageInContext(true);
+	}
+	
+	/**
+	 * Get's the round type attribute for the specified round.
+	 * @param dai 			Data access
+	 * @param roundID		The specified round
+	 * @return				The round type of the specified round
+	 * @throws Exception	Propagates exceptions
+	 */
+	private int getRoundType(DataAccessInt dai, String roundID) throws Exception {
+		Request r = new Request();
+		r.setContentHandle("long_contest_round_information");
+		r.setProperty("rd", roundID);
+		
+		Map m = dai.getData(r);
+		
+		ResultSetContainer rsc =(ResultSetContainer) m.get("long_contest_round_information");
+		
+		if(rsc.getRowCount() == 0) {
+			return -1;
+		} else {		
+			return rsc.getIntItem(0, "round_type_id");			
+		}
 	}
 	
 	private boolean isNull(ResultSetContainer r, int row, String colName) {
