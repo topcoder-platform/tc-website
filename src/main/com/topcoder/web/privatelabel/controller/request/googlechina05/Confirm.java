@@ -15,7 +15,6 @@ import java.util.Date;
  */
 public class Confirm extends ResumeRegConfirm {
     protected void setNextPage() {
-        TCResourceBundle bundle = new TCResourceBundle("PrivateLabel", regInfo.getLocale());
         Calendar end = Calendar.getInstance();
         end.set(2005, Calendar.DECEMBER, 5, 20, 0);
         Calendar beginning = Calendar.getInstance();
@@ -26,13 +25,13 @@ public class Confirm extends ResumeRegConfirm {
         now.setTime(new Date());
 
         if (now.before(beginning) || now.after(end)) {
-            setNextPage(bundle.getProperty("google_china_05_reg_closed_page"));
+            setNextPage(getBundle().getProperty("google_china_05_reg_closed_page"));
             setIsNextPageInContext(true);
         } else {
             if (hasErrors()) {
-                setNextPage(bundle.getProperty("google_china_05_reg_demog_page"));
+                setNextPage(getBundle().getProperty("google_china_05_reg_demog_page"));
             } else {
-                setNextPage(bundle.getProperty("google_china_05_reg_confirm_page"));
+                setNextPage(getBundle().getProperty("google_china_05_reg_confirm_page"));
             }
             setIsNextPageInContext(true);
         }

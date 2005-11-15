@@ -33,7 +33,8 @@ public abstract class RegistrationBase extends BaseProcessor {
     protected SimpleRegInfo regInfo;
     protected Persistor p;
     protected static final TCSubject CREATE_USER = new TCSubject(100000);
-    private TCResourceBundle bundle;
+    private TCResourceBundle bundle = null;
+    private Locale locale = null;
 
     protected void businessProcessing() throws TCWebException {
         try {
@@ -57,15 +58,29 @@ public abstract class RegistrationBase extends BaseProcessor {
 
     protected TCResourceBundle getBundle() {
         if (bundle==null) {
+            bundle = new TCResourceBundle("PrivateLabel", getLocale());
             String loc = StringUtils.checkNull(getRequest().getParameter(Constants.LOCALE));
             log.debug("create bundle for language " + loc);
             if ("".equals(loc)) {
                 bundle = new TCResourceBundle("PrivateLabel");
             } else {
-                bundle = new TCResourceBundle("PrivateLabel", new Locale(loc));
+                bundle = new TCResourceBundle("PrivateLabel", getLocale());
             }
         }
         return bundle;
+    }
+
+    protected Locale getLocale() {
+        if (locale==null) {
+            String loc = StringUtils.checkNull(getRequest().getParameter(Constants.LOCALE));
+            log.debug("create locale for language " + loc);
+            if ("".equals(loc)) {
+                locale = Locale.US;
+            } else {
+                locale = new Locale(loc);
+            }
+        }
+        return locale;
     }
 
     protected void clearRegInfo() {

@@ -45,7 +45,7 @@ public class Reg extends FullReg {
 
         //need to load demographic questions here because of 1 page approach
         try {
-            List l = getQuestionList(((FullRegInfo) ret).getCoderType(), ret.getLocale());
+            List l = getQuestionList(((FullRegInfo) ret).getCoderType(), getLocale());
             Collections.sort(l);
             getRequest().setAttribute("questionList", l);
             log.debug("RYAN:" + l.size());
