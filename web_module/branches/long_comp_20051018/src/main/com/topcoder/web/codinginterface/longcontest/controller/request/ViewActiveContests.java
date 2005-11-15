@@ -103,8 +103,8 @@ public class ViewActiveContests extends Base{
 		    		long contestID = rscPassContests.getLongItem(i, "contest_id");
 		    		String roundName = rscPassContests.getStringItem(i, "round_name");
 		    		long roundID = rscPassContests.getLongItem(i, "round_id");
-		    		Date startTime = (Date)rsc.getItem(i, "start_time").getResultData();
-		    		Date endTime = (Date)rsc.getItem(i, "end_time").getResultData();		    		
+		    		Date startTime = (Date)rscPassContests.getItem(i, "start_time").getResultData();
+		    		Date endTime = (Date)rscPassContests.getItem(i, "end_time").getResultData();		    		
 		    		int numRegs = getNumRegistrants(dai, roundID);
 		    		boolean usrRoundRegistered = isCoderRoundRegistered(dai, roundID, usr.getId());
 		    		
