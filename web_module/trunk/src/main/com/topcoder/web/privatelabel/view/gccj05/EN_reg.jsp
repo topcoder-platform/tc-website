@@ -96,7 +96,7 @@
 </tr>
 <tr>
     <td align="right" nowrap="nowrap">
-        <span class="errorText">*</span> First Name
+        <span class="errorText">*</span> Given Name
     </td>
     <td align="left" nowrap="nowrap">
         <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="15" maxlength="50"/>
@@ -110,7 +110,7 @@
 </tr>
 <tr>
     <td align="right" nowrap="nowrap">
-        <span class="errorText">*</span> Last Name
+        <span class="errorText">*</span> Surname
     </td>
     <td align="left" nowrap="nowrap">
         <tc-webtag:textInput name="<%=Constants.LAST_NAME%>" size="15" maxlength="50"/>

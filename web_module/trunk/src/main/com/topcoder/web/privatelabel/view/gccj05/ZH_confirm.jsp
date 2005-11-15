@@ -97,7 +97,7 @@
 
 <tr>
     <td align="right" nowrap>
-        First Name
+        Given Name
     </td>
     <td align="left">
         <jsp:getProperty name="regInfo" property="firstName"/>
@@ -106,7 +106,7 @@
 
 <tr>
     <td align="right" nowrap>
-        Last Name
+        Surname
     </td>
     <td align="left">
         <jsp:getProperty name="regInfo" property="lastName"/>

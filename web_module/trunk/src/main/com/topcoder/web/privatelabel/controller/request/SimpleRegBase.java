@@ -145,7 +145,7 @@ public abstract class SimpleRegBase extends RegistrationBase {
 
         //check first name
         if (info.getFirstName().length() < 1) {
-            addError(Constants.FIRST_NAME, getBundle().getProperty("error_enter_first_name  "));
+            addError(Constants.FIRST_NAME, getBundle().getProperty("error_enter_first_name"));
         }
 
         //nothing for middle name
