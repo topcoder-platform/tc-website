@@ -57,7 +57,7 @@ public class ViewProblemStatement extends Base{
             }
             boolean hasCacheConnection = true;
             boolean isAdmin = false;//getUser().isAdmin();  TODO fix this
-            String key = isAdmin+"_LongProblem_"+rd+"_"+cid;
+            String key = isAdmin+"_LongProblem_"+rd+"_"+cid+"_"+lid;
             try {
                 cc = CacheClientFactory.createCacheClient();
                 html = (String)cc.get(key);
