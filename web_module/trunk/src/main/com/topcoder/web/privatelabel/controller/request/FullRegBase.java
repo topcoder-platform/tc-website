@@ -63,7 +63,7 @@ public abstract class FullRegBase extends SimpleRegBase {
             if (questions == null) {
                 log.debug("GETTING QUESTIONS");
                 try {
-                    questions = getQuestions(transDb, ((FullRegInfo) info).getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)), info.getLocale());
+                    questions = getQuestions(transDb, ((FullRegInfo) info).getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)), getLocale());
                 } catch (Exception e) {
                     log.error("COULD NOT GET QUESTIONS", e);
                 }
@@ -157,7 +157,7 @@ public abstract class FullRegBase extends SimpleRegBase {
         try {
             if (questions == null)
                 questions = getQuestions(transDb,((FullRegInfo) regInfo).getCoderType(),
-                        Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)), regInfo.getLocale());
+                        Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)), getLocale());
         } catch (Exception e) {
 
             throw new RuntimeException("failed to get the questions \n" + e.getMessage());

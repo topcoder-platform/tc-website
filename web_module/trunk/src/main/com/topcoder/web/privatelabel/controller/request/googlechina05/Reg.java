@@ -14,7 +14,6 @@ import java.util.Date;
  */
 public class Reg extends FullReg {
     protected void setNextPage() {
-        TCResourceBundle bundle = new TCResourceBundle("PrivateLabel", regInfo.getLocale());
         Calendar end = Calendar.getInstance();
         end.set(2005, Calendar.DECEMBER, 5, 20, 0);
         Calendar beginning = Calendar.getInstance();
@@ -25,10 +24,10 @@ public class Reg extends FullReg {
         now.setTime(new Date());
 
         if (now.before(beginning) || now.after(end)) {
-            setNextPage(bundle.getProperty("google_china_05_reg_closed_page"));
+            setNextPage(getBundle().getProperty("google_china_05_reg_closed_page"));
             setIsNextPageInContext(true);
         } else {
-            setNextPage(bundle.getProperty("google_china_05_reg_page"));
+            setNextPage(getBundle().getProperty("google_china_05_reg_page"));
             setIsNextPageInContext(true);
         }
     }

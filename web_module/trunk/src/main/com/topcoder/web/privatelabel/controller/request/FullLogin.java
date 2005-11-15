@@ -156,7 +156,7 @@ public abstract class FullLogin extends FullReg {
                     //only add the response if we have a mapping for it
                     if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(tcQuestionId))) {
                         question = findQuestion(((Long) TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(),
-                                getQuestions(transDb, info.getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)),info.getLocale()));
+                                getQuestions(transDb, info.getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)),getLocale()));
                         if (question != null) {
                             DemographicResponse r = new DemographicResponse();
                             r.setQuestionId(question.getId());

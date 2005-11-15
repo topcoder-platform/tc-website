@@ -44,7 +44,7 @@ public abstract class SimpleRegBase extends RegistrationBase {
         setDefault(Constants.CITY, info.getCity());
         setDefault(Constants.ZIP, info.getZip());
         setDefault(Constants.PHONE_NUMBER, info.getPhoneNumber());
-        setDefault(Constants.LOCALE, info.getLocale().getLanguage());
+        setDefault(Constants.LOCALE, getLocale().getLanguage());
     }
 
     protected SimpleRegInfo makeRegInfo() throws Exception {

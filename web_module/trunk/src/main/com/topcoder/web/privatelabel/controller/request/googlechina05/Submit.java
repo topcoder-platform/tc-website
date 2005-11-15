@@ -25,7 +25,6 @@ public class Submit extends ResumeRegSubmit {
 
 
     protected void setNextPage() {
-        TCResourceBundle bundle = new TCResourceBundle("PrivateLabel", regInfo.getLocale());
         Calendar end = Calendar.getInstance();
         end.set(2005, Calendar.DECEMBER, 5, 20, 0);
         Calendar beginning = Calendar.getInstance();
@@ -36,12 +35,12 @@ public class Submit extends ResumeRegSubmit {
         now.setTime(new Date());
 
         if (now.before(beginning) || now.after(end)) {
-            setNextPage(bundle.getProperty("google_china_05_reg_closed_page"));
+            setNextPage(getBundle().getProperty("google_china_05_reg_closed_page"));
             setIsNextPageInContext(true);
         } else {
             if (isEligible((FullRegInfo) regInfo)) {
                 if (hasErrors()) {
-                    setNextPage(bundle.getProperty("google_china_05_reg_page"));
+                    setNextPage(getBundle().getProperty("google_china_05_reg_page"));
                     setIsNextPageInContext(true);
                 } else {
                     SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
@@ -51,7 +50,7 @@ public class Submit extends ResumeRegSubmit {
                     buf.append(Constants.MODULE_KEY);
                     buf.append("=");
                     buf.append(Constants.STATIC);
-                    buf.append(bundle.getProperty("google_china_05_reg_success_page"));
+                    buf.append(getBundle().getProperty("google_china_05_reg_success_page"));
                     setNextPage(buf.toString());
                     setIsNextPageInContext(false);
                 }
