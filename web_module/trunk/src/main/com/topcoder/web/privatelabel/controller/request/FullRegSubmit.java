@@ -38,7 +38,7 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
 
         try {
             if (regInfo.isNew() && userExists(regInfo.getHandle())) {
-                addError(Constants.HANDLE, "Please choose another handle.");
+                addError(Constants.HANDLE, getBundle().getProperty("error_dup_handle"));
                 getRequest().setAttribute("countryList", getCountryList());
                 getRequest().setAttribute("stateList", getStateList());
                 setDefaults(regInfo);

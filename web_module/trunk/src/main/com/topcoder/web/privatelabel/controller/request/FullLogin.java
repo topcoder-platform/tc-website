@@ -5,6 +5,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
@@ -50,7 +51,7 @@ public abstract class FullLogin extends FullReg {
             getAuthentication().login(new SimpleUser(0, handle, password));
         } catch (LoginException l) {
             if (!hasError(Constants.HANDLE))
-                addError(Constants.HANDLE, l.getMessage());
+                addError(Constants.HANDLE, getBundle().getProperty("error_invalid_login"));
         }
         long userId = getAuthentication().getActiveUser().getId();
         Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
@@ -60,12 +61,13 @@ public abstract class FullLogin extends FullReg {
             if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
                 ret = true;
             } else {
-                addError(Constants.HANDLE, "Account status not active.");
+                addError(Constants.HANDLE, getBundle().getProperty("error_account_not_active"));
+
             }
         } else {
             log.debug(handle + " does not have a tc account");
             if (!hasError(Constants.HANDLE)) {
-                addError(Constants.HANDLE, "TopCoder account does not exist");
+                addError(Constants.HANDLE, getBundle().getProperty("error_no_tc_account"));
             }
         }
         return ret;
@@ -115,7 +117,7 @@ public abstract class FullLogin extends FullReg {
         FullRegInfo info = null;
 
         if (hasEventAccount()) {
-            addError(Constants.HANDLE, "You have already created an account for this event.");
+            addError(Constants.HANDLE, getBundle().getProperty("error_event_account_exists"));
             return null;
         } else {
             if (!hasErrors()&&hasTopCoderAccount()) {
