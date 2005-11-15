@@ -85,7 +85,7 @@
 <span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=infoRow.getLongItem("coder_id")%>'/></span><br>
 <span class="bodySubtitle">Submission: <rsc:item name="submission_number" row="<%=infoRow%>"/></span><br>
 
-<div class="problemText">
+<div class="problemText" style="color:black">
 <%=addSpace(infoRow.getStringItem("submission_text"))%>
 </div>
 
