@@ -94,11 +94,6 @@ public abstract class SimpleRegBase extends RegistrationBase {
             info.setEventId(Long.parseLong(StringUtils.checkNull(getRequestParameter(Constants.EVENT_ID))));
         if (hasRequestParameter(Constants.PHONE_NUMBER))
             info.setPhoneNumber(StringUtils.checkNull(getRequestParameter(Constants.PHONE_NUMBER)));
-        if (hasRequestParameter(Constants.LOCALE)) {
-            info.setLocale(new Locale(StringUtils.checkNull(getRequestParameter(Constants.LOCALE))));
-        } else {
-            info.setLocale(Locale.US);
-        }
         return info;
     }
 
