@@ -3,6 +3,7 @@
   language="java"
   import="java.util.*,
           com.topcoder.web.codinginterface.longcontest.*,
+          com.topcoder.web.common.StringUtils,
           com.topcoder.shared.dataAccess.resultSet.*"
 
 %>
@@ -18,6 +19,32 @@
     if(rsc != null && !rsc.isEmpty())
         infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
     String code = rsc.getStringItem(0,0);
+%>
+
+<%!
+  private String addSpace(String text) {
+      int i=-1;
+      text = StringUtils.htmlEncode(text);
+      while((i = text.indexOf("\n\n"))>=0){
+        text = text.substring(0,i+1) + "&#160;" + text.substring(i+1);
+
+      }
+
+    StringTokenizer strtok = new StringTokenizer(text,"\n");
+    StringBuffer stBuffer = new StringBuffer(text.length());
+    String sTemp = "";
+    while (strtok.hasMoreTokens()){
+      sTemp = strtok.nextToken();
+      for (i=0; i<sTemp.length(); i++){
+        if (sTemp.charAt(i)==' ')
+          stBuffer.append("&#160;");
+        else
+          stBuffer.append(sTemp.charAt(i));
+      }
+      stBuffer.append("<BR>");
+    }
+    return stBuffer.toString();
+  }
 %>
 
 <html>
@@ -54,13 +81,13 @@
 </jsp:include>
 
 <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
-<span class="bodySubtitle">Problem: <rsc:item name="problem_name" row="<%=infoRow%>"/></span><br>
-<span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>'/></span><br>
+<span class="bodySubtitle">Problem: <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>"><rsc:item name="problem_name" row="<%=infoRow%>"/></a></span><p>
+<span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=Integer.parseInt(request.getParameter(Constants.CODER_ID))%>'/></span><br>
 <span class="bodySubtitle">Submission: <rsc:item name="submission_number" row="<%=infoRow%>"/></span><br>
 
-<pre>
-<rsc:item name="submission_text" row="<%=infoRow%>"/>
-</pre>
+<div class="problemText">
+<%=addSpace(infoRow.getStringItem("submission_text"))%>
+</div>
 
 
         </td>
