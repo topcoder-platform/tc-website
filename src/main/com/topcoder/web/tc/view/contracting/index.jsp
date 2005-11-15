@@ -74,6 +74,7 @@ return false;
          </table>
          </span>
 
+
       <p>
       Welcome to TopCoder Employment Opportunities, your source for full time and contract programming work. In today's world, all major artists and professional athletes are represented by agents who find them the best opportunities.  Finally, the time has come for top programmers of the world to reap the same benefits.
       <br/><br/>

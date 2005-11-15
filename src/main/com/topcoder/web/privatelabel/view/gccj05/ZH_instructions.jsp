@@ -113,7 +113,7 @@
     <strong>竞赛题目</strong><br>
     编码窗口的顶部窗格显示了竞赛题目的全部内容。竞赛题目阐述了参赛者需要完成的内容，包括对题目的解释，参赛者解决方案所需用到的类和函数的定义，输入参数的限制，以及有助于说明的样例。
     <br><br>
-	<span class="bigRed">NOTE: All problem statements will be presented in English.</span>
+	<span class="bigRed">注意：所有题目都将用英语陈述。</span>
     <br><br>
     <strong>选择编程语言</strong><br>
     此次赛事允许参赛者采用Java，C++，C#，或者Visual
