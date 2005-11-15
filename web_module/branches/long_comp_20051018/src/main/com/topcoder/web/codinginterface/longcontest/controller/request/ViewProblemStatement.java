@@ -1,5 +1,6 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
+import com.topcoder.web.common.StringUtils;
 import java.util.Map;
 
 import com.topcoder.web.codinginterface.longcontest.Constants;
@@ -7,6 +8,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.PermissionException;
@@ -16,6 +18,7 @@ import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.problem.Problem;
 import com.topcoder.shared.problem.ProblemComponent;
 import com.topcoder.shared.language.JavaLanguage;
+import com.topcoder.shared.language.BaseLanguage;
 import com.topcoder.shared.problemParser.ProblemComponentFactory;
 import com.topcoder.web.common.render.ProblemRenderer;
 import java.io.StringReader;
@@ -48,6 +51,10 @@ public class ViewProblemStatement extends Base{
                 cid = Integer.parseInt(request.getParameter(Constants.COMPONENT_ID));
             }
             int rd = Integer.parseInt(request.getParameter(Constants.ROUND_ID));
+            int lid = JavaLanguage.ID;  // Default to Java
+            if(!"".equals(StringUtils.checkNull(request.getParameter(Constants.LANGUAGE_ID)))){
+                lid = Integer.parseInt(request.getParameter(Constants.LANGUAGE_ID));
+            }
             boolean hasCacheConnection = true;
             boolean isAdmin = false;//getUser().isAdmin();  TODO fix this
             String key = isAdmin+"_LongProblem_"+rd+"_"+cid;
@@ -90,7 +97,7 @@ public class ViewProblemStatement extends Base{
                 problem.setProblemComponents(pc);
                 ProblemRenderer pr = new ProblemRenderer(problem);
                 //pr.setTdclass("statText");
-                html = pr.toHTML(JavaLanguage.JAVA_LANGUAGE);
+                html = pr.toHTML(BaseLanguage.getLanguage(lid));
                 if(hasCacheConnection){
                     cc.set(key,html, 1000*60*Constants.PROBLEM_REFRESH);
                 }
