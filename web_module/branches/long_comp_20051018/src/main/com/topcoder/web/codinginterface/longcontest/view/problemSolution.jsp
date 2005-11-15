@@ -18,7 +18,6 @@
     ResultSetContainer.ResultSetRow infoRow = null;
     if(rsc != null && !rsc.isEmpty())
         infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
-    String code = rsc.getStringItem(0,0);
 %>
 
 <%!
@@ -82,7 +81,7 @@
 
 <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
 <span class="bodySubtitle">Problem: <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>"><rsc:item name="problem_name" row="<%=infoRow%>"/></a></span><p>
-<span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=Integer.parseInt(request.getParameter(Constants.CODER_ID))%>'/></span><br>
+<span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=infoRow.getLongItem("coder_id")%>'/></span><br>
 <span class="bodySubtitle">Submission: <rsc:item name="submission_number" row="<%=infoRow%>"/></span><br>
 
 <div class="problemText">
