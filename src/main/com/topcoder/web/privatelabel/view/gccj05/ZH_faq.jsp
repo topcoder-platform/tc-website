@@ -66,7 +66,7 @@
                 想要有更全面的了解，请仔细阅读<A href="/pl/?module=Static&d1=gccj05&d2=ZH_instructions">竞赛细则</A>。
                 <br><br>
                 <b>我如何知道我是否已经晋级Google编程精英网络赛的下一轮？</b><br>
-                系统测试阶段一完成，晋级下一轮的参赛者名单就会张贴在www.topcoder.com/gccj05上。此外，参赛者会收到电邮通知，告知其是否已经晋级下一轮。
+                系统测试阶段一完成，晋级下一轮的参赛者名单就会张贴在www.topcoder.com/gcjc上。此外，参赛者会收到电邮通知，告知其是否已经晋级下一轮。
                 <br><br>
                 还有其他问题请直接联系 <A href="mailto:gcjc@topcoder.com">gcjc@topcoder.com</A>
                 <br><br>
