@@ -3,7 +3,7 @@
     moving of code to a production environment
  -->
 <project name="topcoder" default="" basedir=".">
-	
+
 	<property name="jboss_home" value="../jboss-4.0.2"/>
 	<property name="tempMoveDir" value="move"/>
     <property name="tempDeployDir" value="deploy"/>
@@ -11,12 +11,14 @@
     <property name="war_dir" value="${build}/wars"/>
 	<property name="techassess_war_dir" value="${jboss_home}/server/default/deploy/techassess.war/"/>
 
-
     <target name="package-topcoder" depends="">
+
+<!--
         <delete dir="src"/>
         <delete dir="resources"/>
+        <delete dir="../shared/src"/
+-->
         <delete dir="build"/>
-        <delete dir="../shared/src"/>
         <delete file="topcoder.jar"/>
 
         <cvs command="update -Pd" package="src"/>
@@ -74,10 +76,10 @@
             <arg line="update -dP src"/>
         </exec>
 -->
-    	
+
         <ant antfile="build.xml" target="war-techassess"/>
         <ant dir="../app" antfile="build.xml" target="screening-ejb-jars"/>
-    	
+
     	<mkdir dir="${tempMoveDir}"/>
 
         <copy todir="${tempMoveDir}" file="build/wars/techassess.war"/>
@@ -101,7 +103,7 @@
                 <include name="ScreeningAdminServices.jar"/>
             </fileset>
         </jar>
-    	
+
     	<delete dir="${tempMoveDir}"/>
     </target>
 
@@ -167,9 +169,9 @@
 
 
     </target>
-	
 
-	
+
+
     <target name="deploy-techassess" depends="">
         <!-- create backup -->
         <tstamp/>
@@ -200,7 +202,7 @@
         <copy overwrite="true" todir="${jboss_home}/server/default/deploy" file="${tempDeployDir}/ScreeningAdminServices.jar"/>
         <copy overwrite="true" todir="${jboss_home}/server/default/lib" file="${tempDeployDir}/Screening.jar"/>
         <delete dir="${tempDeployDir}"/>
-    	
+
     	<delete file="${jboss_home}/server/default/deploy/techassess.war"/>
     	<delete dir="${techassess_war_dir}"/>
     	<mkdir dir="${techassess_war_dir}"/>
