@@ -87,7 +87,7 @@ Here's the line-by-line documentation:
 <br><br>
 Registration for the Google&#153; Code Jam China is open from Monday, November 21 2005, 9AM GMT +8 to December 12, 2005 9AM GMT +8.  Registration is unlimited, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the Code Jam on December 19.
 <br><br>
-The competitors with the top 250 scores from Round 1 will advance to Round 2 on December 22. The top 50 performers in Round 2 will be invited to compete for $30,000USD in prizes in the Championship Round in China.
+The competitors with the top 250 scores from Round 1 will advance to Round 2 on December 15th. The top 50 performers in Round 2 will be invited to compete for $30,000USD in prizes in the Championship Round onsite in China.
 <br><br>
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
     <tr>
@@ -142,9 +142,6 @@ The competitors with the top 250 scores from Round 1 will advance to Round 2 on 
         <td class="sidebarText" colspan="3">* All times listed as GMT +8</td>
     </tr>
 </table>
-<br><br>
-The competitors with the top 250 scores from Round 1 will advance to Round 2 on December 15th. The top 50 performers in
-Round 2 will be invited to compete for $155,000 in cash prizes in the Championship Round onsite in Beijing, China.
 <br><br>
 <span class="greenSubtitle">Prizes</span>
 <br><br>
