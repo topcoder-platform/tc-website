@@ -105,7 +105,7 @@
 
             <br><br>
             <span class="greenSubtitle">Onsite Championship Round</span><br>
-            Up to 50 coders will compete in the Championship Round being held in China at a site TBD.  Each finalist must be present onsite to compete in the onsite finals.
+            Up to 50 coders will compete at an onsite Championship Round.  Each finalist must be present onsite to compete in the onsite finals.
             <br><br>
 
             <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
