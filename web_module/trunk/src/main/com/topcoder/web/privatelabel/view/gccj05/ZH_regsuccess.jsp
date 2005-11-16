@@ -52,12 +52,12 @@
                 <br><br>
 
                 <div style="float: left;">
-                    <b>Step 4 of 5</b>
-                    <div class="regBreadOff">General</div>
-                    <div class="regBreadOff">Demographics</div>
-                    <div class="regBreadOff">Confirm</div>
-                    <div class="regBreadOn">Success</div>
-                    <div class="regBreadOff">Activation</div>
+                    <b>第四步（共五步）</b>
+                    <div class="regBreadOff">常规信息</div>
+                    <div class="regBreadOff">人口统计信息</div>
+                    <div class="regBreadOff">确认</div>
+                    <div class="regBreadOn">成功</div>
+                    <div class="regBreadOff">激活</div>
                 </div>
 
 
@@ -65,19 +65,16 @@
                        style="padding-right: 40px;">
                     <tr>
                         <td>
-                            In order to be eligible to compete in the Google Code Jam China,
-                            you must activate your account by following the directions sent to the email
-                            address provided during registration.
+                            一封电子邮件将会被发送至注册时您提供的电子邮箱中。您必须按照那封电子邮件中的说明激活您的帐号才能参加Google Code Jam - 中国编程挑战赛。
                             <br><br>
-                            <span class="bigRed">You will not be able to compete if you do not activate your account.</span>
+                            <span class="bigRed">您将不能参加比赛如果您的帐号没有被激活。</span>
                             <br><br>
-                            Spend time in the Practice Rooms prior to the Qualification Round by clicking the
-                            Competition Arena tab above.
+                            点击上面的竞技场小标签可以进入竞技场。请在资格赛前花一些时间在训练室内熟悉环境。
                             <br><br>
-                            If you encounter any problems, please contact us at <A
+                            如果您遇到任何问题，请通过如下电子邮箱地址联系我们： <A
                                 href="mailto:gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>.
                             <br><br>
-                            Good luck to you in the Arena!
+                            祝您在竞技场中好运!
                         </td>
                     </tr>
                 </table>
