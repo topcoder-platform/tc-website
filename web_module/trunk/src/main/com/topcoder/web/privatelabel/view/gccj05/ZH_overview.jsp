@@ -46,7 +46,7 @@
 </span>
 
 <br><br>
-Google 中国编程挑战赛即将登陆中国！竞赛的题目具有相当的挑战性，竞赛奖金也非常丰厚。 有志之士可借此机会一展才能，与国内精英才干同场竞技，一决高下，成为脱颖而出的中国最佳。
+Google 中国编程挑战赛即将登陆中国！竞赛的题目具有相当的挑战性，竞赛奖品也非常丰厚。 有志之士可借此机会一展才能，与国内精英才干同场竞技，一决高下，成为脱颖而出的中国最佳。
 <br><br>
 这里有极富挑战性的题目，高科技的奖品，以及令人赞叹的荣耀，你还在等什么？
 <br><br>
@@ -77,7 +77,7 @@ Google 中国编程挑战赛即将登陆中国！竞赛的题目具有相当的�
 <br><br>
 注册参加此次Google&#153; Code Jam - 中国编程挑战赛比赛的日期从北京时间2005年11月21日星期一上午9时开始，至北京时间2005年12月12日上午9时结束。注册没有人数限制，但是只有通过资格赛的前500名可以晋级此次正式比赛的第一轮，第一轮比赛将在12月19日举行。
 <br><br>
-首轮名次前250名将于12月15日晋级第二轮，第二轮的前50名则将参加在中国举行的冠军赛，争夺总数达30000美元的高额奖金。
+首轮名次前250名将于12月15日晋级第二轮，第二轮的前50名则将参加在中国举行的冠军赛，争夺总数达30000美元的高额奖品。
 <br><br>
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
     <tr>
@@ -142,7 +142,7 @@ Google 中国编程挑战赛即将登陆中国！竞赛的题目具有相当的�
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
     <tr valign="top">
         <td class="sidebarTitle">参赛者</td>
-        <td class="sidebarTitle">奖金</td>
+        <td class="sidebarTitle">奖品</td>
     </tr>
 <tr valign="top"><td class="sidebarText"><b></b>第1名 (共价值5000美元)</b></td>
 <td class="sidebarText">
