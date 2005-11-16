@@ -55,12 +55,7 @@
                 their China office. The Code Jam China will take place between November 21, 2005 and Friday, January 20, 2006. It begins with an online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament. The tournament consists of one (1) qualification round, two (2) online elimination rounds and one (1) onsite final round. All participants who compete in Round 2 (the second online elimination round) will receive a Google Code Jam China t-shirt. In addition, Google China will award $30,000 USD in prizes to the 50 finalists in the tournament. 
                 <br><br>
                 <b>Eligibility</b><br>
-                All China residents and individuals who are at least 18 years old by December 12, 2005 may register and compete in the Google Code Jam China. 
-                <br><br>
-                Registrants who are 18 years of age or older are eligible to win prizes, unless otherwise
-                prohibited. The Google Code Jam China is void in the Quebec province of Canada, and elsewhere where
-                prohibited by applicable law. Prizes will not be given to residents of Cuba, Iran, Iraq, Libya,
-                North Korea, Sudan, or Syria.
+                All China residents who are at least 18 years old by December 12, 2005 and reside in mainland China, may register and compete in the Google Code Jam China. 
                 <br><br>
                 Full and part-time employees of Google and TopCoder as well as those who are performing internships from November 21, 2005 – January 20, 2006 and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament. 
                 <br><br>
@@ -95,7 +90,7 @@
                 compete in Round 1 of the Code Jam.
                 <br><br>
                 <b>The Competition Field</b><br>
-                Up to 500 individuals will qualify to compete in Round 1. The top 250 scorers from Round 1 will advance to Round 2. The top 50 scorers from Round 2 will advance to the Championship Round, which will be held onsite in China. 
+                Up to 500 individuals will qualify to compete in Round 1. The top 250 scorers from Round 1 will advance to Round 2. The top 50 scorers from Round 2 will advance to the onsite Championship Round. 
                 <br><br>
                 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
                     <tr valign="top">
@@ -185,7 +180,7 @@ of the Qualification Round.)
 </ul>
 
 <b>Onsite Championship Round</b><br>
-The 50 advancers from Round 2 will travel to China to compete in the Championship Round of the tournament being held on Friday,  January 20, 2006. Each finalist must confirm his/her attendance in the Championship Round by Januray 3, 2006, 12PM (noon) GMT +8. That is, contestants must have acquired any necessary travel visas and know for certain that they can travel by that date and time. If a contestant does not confirm his/her attendance in the Championship Round by said date, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest scorer from Round 2.
+The 50 advancers from Round 2 will compete in the onsite Championship Round of the tournament being held on Friday, January 20, 2006. Each finalist must confirm his/her attendance in the Championship Round by Januray 3, 2006, 12PM (noon) GMT +8. That is, contestants must have acquired any necessary travel visas and know for certain that they can travel by that date and time. If a contestant does not confirm his/her attendance in the Championship Round by said date, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest scorer from Round 2.
 <br><br>
 Google China will provide all travel accommodations for each finalist to attend the Championship Round. In addition,
 Google China will provide overnight accommodations and all travel arrangements to and from the airport, as well as to
