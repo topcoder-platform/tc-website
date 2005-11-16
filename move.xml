@@ -13,14 +13,10 @@
 
 
     <target name="package-topcoder" depends="">
-<!--
         <delete dir="src"/>
         <delete dir="resources"/>
--->
         <delete dir="build"/>
-<!--
         <delete dir="../shared/src"/>
--->
         <delete file="topcoder.jar"/>
 
         <cvs command="update -Pd" package="src"/>
