@@ -203,7 +203,7 @@ tie will be resolved in the following manner (in order):
 
 <span class="greenSubtitle">About the Prizes</span><br>
 All participants who compete in Round 2 will receive a "Google Code Jam China" t-shirt. In addition, the 50 finalists in
-the Championship Round will receive cash prizes. Any and all applicable taxes on prizes are the sole responsibility of
+the Championship Round will receive prizes. Any and all applicable taxes on prizes are the sole responsibility of
 the prizewinner. Prizes will be distributed as follows:
 <br><br>
 <table cellpadding="0" cellspacing="5" border="0" class="bodyText">
@@ -247,7 +247,7 @@ decisions relating to the viability of submissions, the ranking of submissions a
 tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all
 respects.
 <br><br>
-Prizewinners will be announced upon completion of the Championship Round. Any prizewinner claiming a cash prize must
+Prizewinners will be announced upon completion of the Championship Round. Any prizewinner claiming a prize must
 complete the following documents onsite before claiming the prize (Google will provide the prizewinners with these
 documents prior to the start of the Championship Round):
 <ul>
@@ -263,7 +263,7 @@ comprehensive, accurate and up-to-date. Google China and/or TopCoder may require
 registration form to register for the tournament. In order to be eligible to participate in the tournament, you must
 have completed any and all registration forms required by Google China and TopCoder.
 <br><br>
-As a condition of winning and redeeming a cash prize, winners will be required to complete and provide to Google China a
+As a condition of winning and redeeming a prize, winners will be required to complete and provide to Google China a
 completed (i) Affidavit of Eligibility and Liability and Publicity Release (the "Affidavit"), and (ii) an applicable tax
 form, as appropriate. In completing the Affidavit, a winner (a) confirms his/her eligibility, (b) represents and
 warrants that he/she has not cheated; that the idea for the code and/or challenge submitted is his/hers alone, (c)
@@ -274,10 +274,7 @@ authorities, (f) licenses to TopCoder and Google China rights to all information
 arising out of any prize won. Google China requires contestants to complete necessary tax forms, as applicable, for tax
 reporting purposes.
 <br><br>
-If prize notification is returned as undeliverable, or if the winner fails to return the Affidavit or the applicable tax
-form, the winner will be disqualified and the prize money won by the disqualified winner will be forfeited. Providing
-false information in the registration process or in the required forms described in this paragraph will disqualify a
-winner.
+If prize notification is returned as undeliverable, or if the winner fails to return the Affidavit or the applicable tax form, the winner will be disqualified and the prize won by the disqualified winner will be forfeited. Providing false information in the registration process or in the required forms described in this paragraph will disqualify a winner.
 <br><br>
 By participating in a tournament and redeeming a prize, a winner releases and agrees to hold harmless Google China and
 TopCoder, their affiliates, subsidiaries, advertising and promotion agencies, sponsors, and prize suppliers, and all of
