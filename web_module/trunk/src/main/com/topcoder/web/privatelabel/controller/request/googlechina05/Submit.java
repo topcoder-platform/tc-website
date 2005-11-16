@@ -12,7 +12,6 @@ import com.topcoder.web.ejb.user.User;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.EmailEngine;
-import com.topcoder.shared.util.TCResourceBundle;
 
 import java.util.*;
 
@@ -68,7 +67,7 @@ public class Submit extends ResumeRegSubmit {
 
             TCSEmailMessage mail = new TCSEmailMessage();
 
-            if (info.getLocale().getLanguage().equals(Locale.US.getLanguage())) {
+            if (getLocale().getLanguage().equals(Locale.US.getLanguage())) {
                 mail.setSubject(new String("IMPORTANT - Google Code Jam China Activation Email".getBytes(), "utf-8"));
 
                 buf.append("You're invited to take part in the Google Code Jam China, a programming competition that will be worthy of your time, your skills and your interest.\n\n");
@@ -160,7 +159,7 @@ public class Submit extends ResumeRegSubmit {
         buf.append("&");
         buf.append(Constants.LOCALE);
         buf.append("=");
-        buf.append(regInfo.getLocale().getLanguage());
+        buf.append(getLocale().getLanguage());
         return buf.toString();
     }
 }
