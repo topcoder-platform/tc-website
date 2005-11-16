@@ -57,15 +57,15 @@
                 <b>Eligibility</b><br>
                 All China residents and individuals who are at least 18 years old by December 12, 2005 may register and compete in the Google Code Jam China. 
                 <br><br>
-                Registrants who are 18 years of age or older are eligible to win cash prizes, unless otherwise
+                Registrants who are 18 years of age or older are eligible to win prizes, unless otherwise
                 prohibited. The Google Code Jam China is void in the Quebec province of Canada, and elsewhere where
-                prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya,
+                prohibited by applicable law. Prizes will not be given to residents of Cuba, Iran, Iraq, Libya,
                 North Korea, Sudan, or Syria.
                 <br><br>
-                Full and part-time employees of Google  and TopCoder as well as those who are performing internships from November 21, 2005 – January 20, 2006 and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament. 
+                Full and part-time employees of Google and TopCoder as well as those who are performing internships from November 21, 2005 – January 20, 2006 and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament. 
                 <br><br>
                 <b>Registration</b><br>
-                Registration will open on Monday, November 21, 2005 at 9AM GMT +8 and will close on Tuesday, December12, 2005 at 9AM GMT +8. There is no limit to the number of registrants for the competition, however each individual may only register once. 
+                Registration will open on Monday, November 21, 2005 at 9AM GMT +8 and will close on Monday, December 12, 2005 at 9AM GMT +8. There is no limit to the number of registrants for the competition, however each individual may only register once. 
                 <br><br>
                 <b>Qualification Round</b><br>
                 The Qualification Round will be open for 24 hours from Noon GMT +8 Monday, December 12, 2005 through Noon GMT +8, Tuesday, December 13, 2005.
@@ -202,7 +202,7 @@ tie will be resolved in the following manner (in order):
 </ul>
 
 <span class="greenSubtitle">About the Prizes</span><br>
-All participants who compete in Round 1 will receive a "Google Code Jam China" t-shirt. In addition, the 50 finalists in
+All participants who compete in Round 2 will receive a "Google Code Jam China" t-shirt. In addition, the 50 finalists in
 the Championship Round will receive cash prizes. Any and all applicable taxes on prizes are the sole responsibility of
 the prizewinner. Prizes will be distributed as follows:
 <br><br>
