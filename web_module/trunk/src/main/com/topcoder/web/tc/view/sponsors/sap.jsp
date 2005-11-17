@@ -26,9 +26,9 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-        <td class="cardCell" width="100%" align="center">
+        <td class="bodyText" width="100%" align="center">
 
-        <div class="myTCBody">
+        <div style="padding: 15px; text-align: left; width: 540px;">
 
       <div align="center">
       <img src="/i/sponsor/sap_logo.gif" border=0/>
