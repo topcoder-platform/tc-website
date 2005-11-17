@@ -47,12 +47,12 @@
          </span>
 
 <br><br>
-<span class="greenSubtitle">装载竞技平台</span><br>
+<span class="greenSubtitle">装载竞技场</span><br>
 点击顶部的竞技场来装载程序。参赛者需要至少 <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version 1.4</A>
 来运行平台。来运行平台。如果参赛者还没有安装Java Runtime 1.4，请点击<A href="http://java.sun.com/getjava/index.jsp " target="_blank">这里</A>。
 <br><br>
-<span class="greenSubtitle">登陆到竞技平台</span><br>
-运行竞技平台程序，参赛者就会看到登陆画面。
+<span class="greenSubtitle">登陆到竞技场</span><br>
+运行竞技场程序，参赛者就会看到登陆画面。
 
 <br><br>
 
@@ -103,7 +103,7 @@
 在编码阶段，竞赛房间和编码窗口的计时器显示的是竞赛剩余的时间。
 <br><br>
 <span class="greenSubtitle">编码窗口</span><br>
-编码窗口是竞技平台里最重要的一部分，竞赛题目的显示，方案代码的编写、编译、测试以及提交都在这个窗口内进行。
+编码窗口是竞技场里最重要的一部分，竞赛题目的显示，方案代码的编写、编译、测试以及提交都在这个窗口内进行。
 
 <br><br>
 
@@ -263,7 +263,7 @@
 <br><br>
 竞赛管理人员会相应作出解答。
 <br><br>
-如果参赛者登陆竞技平台存在问题，或者不能进入聊天界面，可以发email至<A href="gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>。
+如果参赛者登陆竞技场存在问题，或者不能进入聊天界面，可以发email至<A href="gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>。
 请在信内详细描述碰到的问题。
 
 <br><br>
