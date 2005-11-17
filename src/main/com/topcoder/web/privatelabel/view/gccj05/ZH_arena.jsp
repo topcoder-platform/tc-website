@@ -59,7 +59,7 @@
                 你需要至少<A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version 1.4</A>来运行平台。点击<A
                     href="http://java.sun.com/getjava/index.jsp " target="_blank">这里</A>如果你还没有安装Java Runtime 1.4。
                 <br><br>
-                使用代理服务器？点击<A href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">这里</A>阅读如何<A
+                使用代理伺服器？点击<A href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">这里</A>阅读如何<A
                     href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">配置Java</A>。
                 <br><br>
                 点击<A href="/pl/?module=Static&d1=gccj05&d2=ZH_instructions">这里</A>阅读<A
