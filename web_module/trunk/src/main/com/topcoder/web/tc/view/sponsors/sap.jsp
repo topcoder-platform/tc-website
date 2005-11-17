@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Employment Opportunities</title>
+<title>TopCoder Sponsor</title>
 
 <jsp:include page="../script.jsp" />
 
@@ -45,7 +45,7 @@ A comprehensive integration and application platform, SAP NetWeaver works with y
 <br><br>
 SAP NetWeaver unifies integration technologies into a single platform and is preintegrated with business applications, reducing the need for custom integration. The platform is based on industry standards and can be extended with commonly used development tools such as Java 2 Platform, Enterprise Edition (J2EE); Microsoft .NET; and IBM WebSphere. 
 <br><br>
-To learn more about SDN and SAP NetWeaver at <A href="http://sdn.sap.com" target="_blank">http://sdn.sap.com</A>.
+Learn more about SDN and SAP NetWeaver at <A href="http://sdn.sap.com" target="_blank">http://sdn.sap.com</A>.
         <p><br></p>
         </td>
 <!-- Center Column Ends -->
