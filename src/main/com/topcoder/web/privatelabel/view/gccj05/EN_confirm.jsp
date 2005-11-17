@@ -2,6 +2,7 @@
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  java.util.List,
                  java.util.Map" %>
+<%@ page import="java.util.Locale"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="privatelabel.tld" prefix="pl" %>
@@ -82,7 +83,7 @@
     <td align="right" width="50%"><b>Personal</b>
     </td>
     <td align="left" width="50%">
-        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_CHINA_05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="companyId"/>&<%=Constants.LOCALE%>=<%=regInfo.getLocale().getLanguage()%>">edit</a>
+        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_CHINA_05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="companyId"/>&<%=Constants.LOCALE%>=<%=Locale.US.getLanguage()%>">edit</a>
     </td>
 </tr>
 <tr>
@@ -197,7 +198,7 @@
         <b>Demographics</b>
     </td>
     <td align="left">
-        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_CHINA_05_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="companyId"/>&<%=Constants.LOCALE%>=<%=regInfo.getLocale().getLanguage()%>">edit</a>
+        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_CHINA_05_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="companyId"/>&<%=Constants.LOCALE%>=<%=Locale.US.getLanguage()%>">edit</a>
     </td>
 </tr>
 <tr>
