@@ -1,6 +1,5 @@
 ﻿<%@ page contentType="text/html;charset=utf-8" %>
-<%@ page import="com.topcoder.web.privatelabel.Constants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="com.topcoder.web.privatelabel.Constants" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
@@ -60,6 +59,7 @@
                         <input type="hidden" name="<%=Constants.MODULE_KEY%>"
                                value="<%=Constants.GOOGLE_CHINA_05_CREDENTIALS%>"/>
                         <tc-webtag:hiddenInput name="<%=Constants.COMPANY_ID%>"/>
+                        <tc-webtag:hiddenInput name="<%=Constants.LOCALE%>"/>
                         <tr>
                             <td colspan="2" class="errorText" align="center">
                                 <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br>
