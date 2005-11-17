@@ -13,13 +13,12 @@
     <tr><td>&#160;</td></tr>
     <tr>
         <td align="center" nowrap=nowrap class="smallBlueBox">
-            <span class="bodyTextBlue">重要日程</span>
+            <span class="bodyTextBlue">重要日期</span>
             <br><br>
             <b>注册开始</b><br>
             11月21日星期一
             <br><br>
-            <b>入围赛
-开始</b><br>
+            <b>入围赛</b><br>
             12月12日星期一
             <br><br>
             <b>总决赛</b><br>
