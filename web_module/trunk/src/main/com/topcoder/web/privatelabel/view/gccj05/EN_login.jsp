@@ -62,7 +62,7 @@
          </span>
 
                 <br><br>
-                Registration will close on Friday, August 19 at 5:00PM EDT.<br/><br/>
+                Registration will close on Monday, December 12 9:00AM GMT +8 (Beijing time).<br/><br/>
                 If you are <A
                     href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_CHINA_05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=15857&<%=Constants.EVENT_ID%>=4"
                     class="bigRed">not currently a TopCoder member</A> or do not want to use an existing account, please
