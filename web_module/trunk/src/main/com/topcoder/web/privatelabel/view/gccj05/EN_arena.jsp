@@ -56,7 +56,7 @@
          </span>
 
                 <br><br>
-                <A href="/pl/?module=GoogleChina05Credentials&cid=15857&<%=Constants.LOCALE%>=<%=Locale.CHINA.getLanguage()%>">Forgot your password?</A>
+                <A href="/pl/?module=GoogleChina05Credentials&cid=15857&<%=Constants.LOCALE%>=<%=Locale.US.getLanguage()%>">Forgot your password?</A>
                 <br><br>
                 You need at least <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version
                 1.4</A> to run the Arena. Click <A href="http://java.sun.com/getjava/index.jsp "

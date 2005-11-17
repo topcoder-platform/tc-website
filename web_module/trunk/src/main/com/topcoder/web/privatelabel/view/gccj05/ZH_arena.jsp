@@ -1,4 +1,6 @@
-﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+﻿<%@ page import="java.util.Locale"%>
+<%@ page import="com.topcoder.web.privatelabel.Constants"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page contentType="text/html;charset=utf-8" %>
 <html>
 <head>
@@ -54,7 +56,7 @@
          </span>
 
                 <br><br>
-                <A href="/pl/?module=GoogleIndia05Credentials&cid=8039">忘了密码？</A>
+                <A href="/pl/?module=GoogleChina05Credentials&cid=15857&<%=Constants.LOCALE%>=<%=Locale.CHINA.getLanguage()%>">忘了密码？</A>
                 <br><br>
                 你需要至少<A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version 1.4</A>来运行平台。点击<A
                     href="http://java.sun.com/getjava/index.jsp " target="_blank">这里</A>如果你还没有安装Java Runtime 1.4。
