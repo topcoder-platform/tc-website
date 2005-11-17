@@ -117,22 +117,11 @@ public abstract class FullLogin extends FullReg {
         Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
         FullRegInfo info = new FullRegInfo();
 
-        if (hasRequestParameter(Constants.LOCALE)) {
-            info.setLocale(new Locale(StringUtils.checkNull(getRequestParameter(Constants.LOCALE))));
-        } else {
-            info.setLocale(Locale.US);
-        }
-
-        if (hasEventAccount()) {
+       if (hasEventAccount()) {
             addError(Constants.HANDLE, getBundle().getProperty("error_event_account_exists"));
             return null;
         } else {
             if (!hasErrors()&&hasTopCoderAccount()) {
-                if (hasRequestParameter(Constants.LOCALE)) {
-                    info.setLocale(new Locale(StringUtils.checkNull(getRequestParameter(Constants.LOCALE))));
-                } else {
-                    info.setLocale(Locale.US);
-                }
                 //this must be done after the account checks, cuz that's where they get logged in...confusing?  yes
                 long userId = getAuthentication().getActiveUser().getId();
                 info = getCommonInfo(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);

@@ -68,13 +68,7 @@ abstract public class BaseActivate extends RegistrationBase {
      * @throws Exception
      */
     protected SimpleRegInfo makeRegInfo() throws Exception {
-        SimpleRegInfo ret = new SimpleRegInfo();
-        if (hasRequestParameter(Constants.LOCALE)) {
-            ret.setLocale(new Locale(StringUtils.checkNull(getRequestParameter(Constants.LOCALE))));
-        } else {
-            ret.setLocale(Locale.US);
-        }
-        return ret;
+        return null;
     }
 
 }
