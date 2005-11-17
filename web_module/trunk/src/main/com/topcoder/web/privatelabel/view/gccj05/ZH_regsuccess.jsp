@@ -69,7 +69,8 @@
                             <br><br>
                             <span class="bigRed">您将不能参加比赛如果您的帐号没有被激活。</span>
                             <br><br>
-                            点击上面的竞技场小标签可以进入竞技场。请在资格赛前花一些时间在训练室内熟悉环境。
+                            点击上面的竞技场小标签可以进入竞技场。请在入围赛
+前花一些时间在训练室内熟悉环境。
                             <br><br>
                             如果您遇到任何问题，请通过如下电子邮箱地址联系我们： <A
                                 href="mailto:gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>.
