@@ -151,7 +151,6 @@
 <tr><td>0294<br><img src="/i/tournament/tco06/logo_submissions/0294.jpg" alt="" border="0" /></td></tr>   <%--20023566--%>
 <tr><td>0293<br><img src="/i/tournament/tco06/logo_submissions/0293.jpg" alt="" border="0" /></td></tr>   <%--20023566--%>
 <tr><td>0292<br><img src="/i/tournament/tco06/logo_submissions/0292.jpg" alt="" border="0" /></td></tr>   <%--20023566--%>
-
 <tr><td>0291<br><img src="/i/tournament/tco06/logo_submissions/0291.png" alt="" border="0" /></td></tr>   <%--262056--%>
 <tr><td>0290<br><img src="/i/tournament/tco06/logo_submissions/0290.png" alt="" border="0" /></td></tr>   <%--262056--%>
 <tr><td>0289<br><img src="/i/tournament/tco06/logo_submissions/0289.png" alt="" border="0" /></td></tr>   <%--299766--%>
