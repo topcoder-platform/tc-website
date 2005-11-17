@@ -102,6 +102,7 @@
             <strong>Match 272</strong><br />
             Register: 9:00&#160;AM<br />
             Compete: 12:00&#160;PM<br />
+            Sponsored by: <br><A href="/tc?module=Static&d1=contracting&d2=msn">MSN</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=8069&t=schedule&c=srm">Details</A><br/><br/></td>
     </tr>
@@ -113,6 +114,7 @@
             <strong>Match 273</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
+            Sponsored by: <br><A href="/tc?module=Static&d1=sponsors&d2=sap">SAP</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=8070&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">22</td>
