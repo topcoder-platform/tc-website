@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>11.17.05<br>6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">$5,000 prize purse and iPod raffle per match for SRMs <A href="/?RoundId=8070&t=schedule&c=srm">273</A>, <A href="/?RoundId=8073&t=schedule&c=srm">276</A>, <A href="/?RoundId=8076&t=schedule&c=srm">279</A>, sponsored by <A href="/tc?module=Static&d1=sponsors&d2=sap">SAP</A></span><br><br>
+      Compete in any of these SRM's sponsored by SAP for a chance to win cash prizes.  There's also a raffle for an iPod.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <tc-webtag:forumLink forumID="505828" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>11.14.05<br>3:20 PM</td>
       <td class="newsTextCell"><span class="newsTitle">$5,000 prize purse per match for SRM <A href="/?RoundId=8069&t=schedule&c=srm">272</A>, <A href="/?RoundId=8074&t=schedule&c=srm">277</A>, <A href="/?RoundId=8081&t=schedule&c=srm">284</A>, sponsored by <A href="/tc?module=Static&d1=contracting&d2=msn">MSN</A></span><br><br>
       Compete in any of these SRM's sponsored by MSN for a chance to win cash prizes.
@@ -280,20 +292,6 @@
        <A href="/tc?module=Static&d1=pressroom&d2=pr_101705">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505813" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.20.05<br>9:35 AM</td>
-       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=69982" target="_blank">Sorrowful state of software</A></span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/mass_high_tech.gif" width="67" height="21" alt="Mass High Tech" border="0" /></div>
-       "'Often design is very high-level, and then people jump right into coding,' [Pustaver] said. 'There should be several design levels, and each of those should be reviewed... Once you have a good, detailed design, the coding should be mostly automatic.'"
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=69982" target="_blank">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505812" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
 
