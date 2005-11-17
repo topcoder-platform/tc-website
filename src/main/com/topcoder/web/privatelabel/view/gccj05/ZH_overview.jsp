@@ -75,7 +75,8 @@ Google 中国编程挑战赛即将登陆中国！竞赛的题目具有相当的�
 <br>
 <span class="greenSubtitle">参赛须知</span>
 <br><br>
-注册参加此次Google&#153; Code Jam - 中国编程挑战赛比赛的日期从北京时间2005年11月21日星期一上午9时开始，至北京时间2005年12月12日上午9时结束。注册没有人数限制，但是只有通过资格赛的前500名可以晋级此次正式比赛的第一轮，第一轮比赛将在12月19日举行。
+注册参加此次Google&#153; Code Jam - 中国编程挑战赛比赛的日期从北京时间2005年11月21日星期一上午9时开始，至北京时间2005年12月12日上午9时结束。注册没有人数限制，但是只有通过入围赛
+的前500名可以晋级此次正式比赛的第一轮，第一轮比赛将在12月19日举行。
 <br><br>
 首轮名次前250名将于12月15日晋级第二轮，第二轮的前50名则将参加在中国举行的冠军赛，争夺总数达30000美元的高额奖品。
 <br><br>
@@ -101,13 +102,15 @@ Google 中国编程挑战赛即将登陆中国！竞赛的题目具有相当的�
     <tr valign="top">
         <td class="sidebarText">12月12日星期一</td>
         <td class="sidebarText">12:00 PM (中午)</td>
-        <td class="sidebarText">资格赛开始</td>
+        <td class="sidebarText">入围赛
+开始</td>
     </tr>
 
     <tr valign="top">
         <td class="sidebarText">12月13日星期二</td>
         <td class="sidebarText">12:00 PM (中午)</td>
-        <td class="sidebarText">资格赛结束</td>
+        <td class="sidebarText">入围赛
+结束</td>
     </tr>
 
     <tr valign="top">

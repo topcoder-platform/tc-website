@@ -48,7 +48,7 @@
 
                 <br><br>
 
-                <span class="bigTitle">竞技平台</span>
+                <span class="bigTitle">竞技场</span>
                 <span valign=top>
          <jsp:include page="ZH_right.jsp"/>
          </span>
@@ -65,17 +65,17 @@
                 点击<A href="/pl/?module=Static&d1=gccj05&d2=ZH_instructions">这里</A>阅读<A
                     href="/pl/?module=Static&d1=gccj05&d2=ZH_instructions">竞赛规则</A>。
                 <br><br>
-                点击<a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">这里</A>运行竞技平台，以<a
+                点击<a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">这里</A>运行竞技场，以<a
                     href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">Java
-                Applet</A>的方式启动竞技平台。
+                Applet</A>的方式启动竞技场。
                 <br><br>
-                点击<a href="/contest/arena/ContestAppletGoogleIndia.jnlp" target="_blank">这里</A>运行竞技平台，以<a
-                    href="/contest/arena/ContestAppletGoogleIndia.jnlp" target="_blank">Java Web Start Application</A>的方式启动竞技平台。
+                点击<a href="/contest/arena/ContestAppletGoogleIndia.jnlp" target="_blank">这里</A>运行竞技场，以<a
+                    href="/contest/arena/ContestAppletGoogleIndia.jnlp" target="_blank">Java Web Start Application</A>的方式启动竞技场。
                 <br><br>
                 注意：如果你想安装Java Web Start，点击<a href="http://java.sun.com/products/javawebstart/index.html"
                                              target="_blank">这里</A>。
                 <br><br>
-                如果你在运行竞技平台时遇到任何问题，请及时电邮联系 <A
+                如果你在运行竞技场时遇到任何问题，请及时电邮联系 <A
                     href="mailto:gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>.
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
