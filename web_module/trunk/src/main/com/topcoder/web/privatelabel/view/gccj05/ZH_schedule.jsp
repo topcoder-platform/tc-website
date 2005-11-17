@@ -47,7 +47,8 @@
          </span>
             <br><br>
 
-            <span class="greenSubtitle">资格赛</span><br>
+            <span class="greenSubtitle">入围赛
+</span><br>
             <a name="sched"></a>
             <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
@@ -57,7 +58,8 @@
                     <td class="sidebarTitle" width="19%" align="center">晋级人数</td>
                 </tr>
                 <tr valign="top">
-                    <td class="sidebarText">资格赛</td>
+                    <td class="sidebarText">入围赛
+</td>
                     <td class="sidebarText" nowrap=nowrap>2005年12月12日中午至2005年12月13日中午<br></td>
                     <td class="sidebarText" align="center">所有合格注册者</td>
                     <td class="sidebarText" align="center">500</td>
@@ -69,7 +71,7 @@
 
             <br><br>
             <span class="greenSubtitle">在线淘汰赛</span><br>
-            凡晋级至在线淘汰赛的参赛者都须在淘汰赛开赛前10分钟登陆TopCoder竞技平台。各地区开赛时间以北京时间为准。未能准时参加此次在线赛事的参赛者，不论任何理由，他/她都将被作自动弃权处理。
+            凡晋级至在线淘汰赛的参赛者都须在淘汰赛开赛前10分钟登陆TopCoder竞技场。各地区开赛时间以北京时间为准。未能准时参加此次在线赛事的参赛者，不论任何理由，他/她都将被作自动弃权处理。
             <br><br>
 
             <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
@@ -97,8 +99,8 @@
             </table>
 
             <br><br>
-            <span class="greenSubtitle">冠军赛</span><br>
-            最终50名精英参赛者将在中国举行的冠军赛一决高下，具体地点待定。每位决赛选手须到现场参赛。
+            <span class="greenSubtitle">总决赛</span><br>
+            最终50名精英参赛者将在中国举行的总决赛一决高下，具体地点待定。每位决赛选手须到现场参赛。
             <br><br>
 
             <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
@@ -108,7 +110,7 @@
                     <td class="sidebarTitle" width="25%" align="center">参赛人数</td>
                 </tr>
                 <tr valign="top">
-                    <td class="sidebarText">冠军赛</td>
+                    <td class="sidebarText">总决赛</td>
                     <td class="sidebarText">2006年1月20日，时间待定<br></td>
                     <td class="sidebarText" align="center">50</td>
                 </tr>
