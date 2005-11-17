@@ -1,4 +1,6 @@
-﻿<%@ page contentType="text/html;charset=utf-8" %>
+﻿<%@ page import="com.topcoder.web.privatelabel.Constants"%>
+<%@ page import="java.util.Locale"%>
+<%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -54,7 +56,7 @@
          </span>
 
                 <br><br>
-                <A href="/pl/?module=GoogleIndia05Credentials&cid=8039">Forgot your password?</A>
+                <A href="/pl/?module=GoogleChina05Credentials&cid=15857&<%=Constants.LOCALE%>=<%=Locale.CHINA.getLanguage()%>">Forgot your password?</A>
                 <br><br>
                 You need at least <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version
                 1.4</A> to run the Arena. Click <A href="http://java.sun.com/getjava/index.jsp "
