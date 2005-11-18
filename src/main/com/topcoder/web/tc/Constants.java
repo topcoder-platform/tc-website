@@ -67,6 +67,7 @@ public class Constants implements WebConstants {
 
     /* pages */
     public static String SURVEY_RESULTS;
+    public static String SCHULZE_RESULTS;
     public static String SURVEY_VIEW;
     public static String SURVEY_LIST;
     public static String SURVEY_THANKS;
