@@ -64,23 +64,28 @@ public class Matrix implements Serializable {
         //that info make the assumption those not included are preferred less
         //than those that did
         HashSet voteIndex = new HashSet();
-        for (int i=0; i<votes.length; i++) {
+        for (int i = 0; i < votes.length; i++) {
             voteIndex.add(votes[i].getCandidate());
         }
+        log.debug(voteIndex.toString());
 
         for (int i = 0; i < votes.length; i++) {
-            for (int j = 0; j < candidates.length; j++) {
+            for (int j = 0; j < votes.length; j++) {
                 if (i != j) {
-                    //mark that i beat j either if j wasn't present in the ballot or if i was preferred to j
-                    if (j<=votes.length-1&&votes[i].compareTo(votes[j]) > 0) {
+                    //mark that i beat j if i was preferred to j
+                    if (votes[i].compareTo(votes[j]) > 0) {
                         matrix[getIndex(votes[i].getCandidate())][getIndex(votes[j].getCandidate())] = 1;
-                    } else if (!voteIndex.contains(candidates[j])) {
-                        matrix[getIndex(votes[i].getCandidate())][getIndex(candidates[j])] = 1;
                     }
                 }
             }
+            //mark that i beat j either if j wasn't present in the ballot
+            for (int j = 0; j < candidates.length; j++) {
+                if (!voteIndex.contains(candidates[j])) {
+                    matrix[getIndex(votes[i].getCandidate())][getIndex(candidates[j])] = 1;
+                }
+            }
         }
-        //log.debug(this.toString());
+        log.debug(this.toString());
     }
 
 
@@ -161,14 +166,13 @@ public class Matrix implements Serializable {
      * @param a
      * @param b
      * @return true if the candidate at index <code>a</code> beat
-     * the candidate at indx <code>b</code>, false otherwise
+     *         the candidate at indx <code>b</code>, false otherwise
      */
     public boolean beat(int a, int b) {
         return matrix[a][b] > matrix[b][a];
     }
 
     /**
-     *
      * @param a
      * @param b
      * @return true of <code>a</code> tied <code>b</code>, false otherwise
@@ -178,16 +182,14 @@ public class Matrix implements Serializable {
     }
 
     /**
-     *
      * @param a
      * @param b
      * @return true of the candidate at index <code>a</code>
-     * tied the candidate at index <code>b</code>, false otherwise
+     *         tied the candidate at index <code>b</code>, false otherwise
      */
     public boolean tie(int a, int b) {
         return matrix[a][b] == matrix[b][a];
     }
-
 
 
     /**
@@ -232,7 +234,6 @@ public class Matrix implements Serializable {
     }
 
     /**
-     *
      * @param a
      * @param b
      * @return the number of votes ranking <code>a</code> above <code>b</code>
@@ -242,11 +243,10 @@ public class Matrix implements Serializable {
     }
 
     /**
-     *
      * @param a
      * @param b
      * @return the the number of votes ranking the candidate with index
-     * <code>a</code> above the candidate with index <code>b</code>
+     *         <code>a</code> above the candidate with index <code>b</code>
      */
     public int getValue(int a, int b) {
         return matrix[a][b];
