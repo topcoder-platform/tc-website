@@ -44,7 +44,7 @@
 </span>
 
 <br><br>
-The Google Code Jam China is coming to China! This is your chance to compete against your countrymen and women in the
+The Google Code Jam is coming to China! This is your chance to compete against your countrymen and women in the
 search for China's finest.
 <br><br>
 We've got tough problems, hi-tech prizes and bragging rights up for grabs. Think you have what it takes?
@@ -85,9 +85,9 @@ Here's the line-by-line documentation:
 <br>
 <span class="greenSubtitle">Here's what you'll need to know</span>
 <br><br>
-Registration for the Google&#153; Code Jam China is open from Monday, November 21 2005, 9AM GMT +8 to December 12, 2005 9AM GMT +8.  Registration is unlimited, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the Code Jam on December 19.
+Registration for the Google&#153; Code Jam China is open from Monday, November 21, 2005 at 9:00AM (GMT +8) to December 12, 2005 at 9:00AM (GMT +8). There is no limit to the number of registrants for the competition, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the Code Jam on December 19. 
 <br><br>
-The competitors with the top 250 scores from Round 1 will advance to Round 2 on December 22. The top 50 performers in Round 2 will be invited to compete for $30,000USD in prizes at an onsite Championshiup Round.
+The competitors with the top 250 scores from Round 1 will advance to Round 2 on December 22. The top 50 performers in Round 2 will be invited to compete for $30,000USD in prizes at an onsite Championship Round.
 <br><br>
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
     <tr>
@@ -110,13 +110,13 @@ The competitors with the top 250 scores from Round 1 will advance to Round 2 on 
 
     <tr valign="top">
         <td class="sidebarText">Monday, December 12</td>
-        <td class="sidebarText">12:00 PM (noon)</td>
+        <td class="sidebarText">Noon</td>
         <td class="sidebarText">Qualification Round begins</td>
     </tr>
 
     <tr valign="top">
         <td class="sidebarText">Tuesday, December 13</td>
-        <td class="sidebarText">12:00 PM (noon)</td>
+        <td class="sidebarText">Noon</td>
         <td class="sidebarText">Qualification Round ends</td>
     </tr>
 
