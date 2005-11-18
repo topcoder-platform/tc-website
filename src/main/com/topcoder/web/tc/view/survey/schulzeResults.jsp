@@ -55,7 +55,7 @@
             <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
                 <tc-webtag:listIterator list="<%=results.getResults()%>" id="result" type="com.topcoder.web.common.voting.RankedResult">
                     <tr>
-                        <td><jsp:getProperty name="rank" property="result"/></td>
+                        <td><jsp:getProperty name="result" property="rank"/></td>
                         <tc-webtag:useBean id="candidate" name="result" type="com.topcoder.web.common.voting.Candidate" toScope="page" property="candidate" />
                         <td><jsp:getProperty name="candidate" property="name"/></td>
                     </tr>
