@@ -65,7 +65,7 @@
                     <td class="sidebarText" align="center">500</td>
                 </tr>
                 <tr valign="top">
-                    <td class="sidebarText" colspan="4">*NOTE: All times listed GMT +8 (Beijing Time)</td>
+                    <td class="sidebarText" colspan="4">*NOTE: All times listed as GMT +8 (Beijing Time)</td>
                 </tr>
             </table>
 
@@ -86,18 +86,18 @@
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">Online Round 1</td>
-                    <td class="sidebarText">December 19, 9:00 PM</td>
+                    <td class="sidebarText">December 19, 2005<br>9:00 PM</td>
                     <td class="sidebarText" align="center">500</td>
                     <td class="sidebarText" align="center">250</td>
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">Online Round 2</td>
-                    <td class="sidebarText">December 22, 2005, 9:00 PM</td>
+                    <td class="sidebarText">December 22, 2005<br>9:00 PM</td>
                     <td class="sidebarText" align="center">250</td>
                     <td class="sidebarText" align="center">50</td>
                 </tr>
                 <tr valign="top">
-                    <td class="sidebarText" colspan="4">*NOTE: All times listed GMT +8. In the event that an online
+                    <td class="sidebarText" colspan="4">*NOTE: All times listed as GMT +8. In the event that an online
                         round must be cancelled for any reason, the "rain date" will be the next possible business day
                         at the same time.</td>
                 </tr>
@@ -116,7 +116,7 @@
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText" nowrap="nowrap">Championship Round</td>
-                    <td class="sidebarText">January 20, time TBD</td>
+                    <td class="sidebarText">January 20, 2006<br>Time TBD</td>
                     <td class="sidebarText" align="center">50</td>
                 </tr>
                 <tr valign="top">
