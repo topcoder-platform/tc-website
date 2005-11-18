@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>11.18.05<br>5:10 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=msn">MSN chat session scheduled for SRM 272</A></span><br><br>
+      MSN will be in the Arena Applet at 11:00 AM EST on 11/18 just before SRM 272 to discuss working for MSN.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=contracting&d2=msn">job openings</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505830" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>11.17.05<br>6:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">$5,000 prize purse and iPod raffle per match for SRMs <A href="/?RoundId=8070&t=schedule&c=srm">273</A>, <A href="/?RoundId=8073&t=schedule&c=srm">276</A>, <A href="/?RoundId=8076&t=schedule&c=srm">279</A>, sponsored by <A href="/tc?module=Static&d1=sponsors&d2=sap">SAP</A></span><br><br>
       Compete in any of these SRM's sponsored by SAP for a chance to win cash prizes.  There's also a raffle for an iPod.
@@ -278,19 +291,6 @@
    <tr><td class="newsLinksCell">
        <A href="/tc?module=Static&d1=pressroom&d2=pr_102105">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505814" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.20.05<br>9:35 AM</td>
-       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_101705">TCO05 Champions Press Release</A></span><br><br>
-       Eryk Kopczy&#241;ski of Poland, Nikolay Archak of the Russian Federation, and Qi Liu of China have won the Algorithm, Design and Development Component tournaments of the 2005 TopCoder Open sponsored by Sun, held at the Santa Clara Marriott in Santa Clara, CA on October 14th.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_101705">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505813" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
