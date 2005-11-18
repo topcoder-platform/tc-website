@@ -75,9 +75,9 @@
 <br>
 <span class="greenSubtitle">参赛须知</span>
 <br><br>
-本次Google中国编程挑战赛注册开始时间：北京时间（格林威治＋8时区时间）2005年11月21日星期一上午9点整；注册截止时间：北京时间2005年12月12日星期一上午9点整。注册没有人数限制，但是只有资格赛的前500名可以晋级正式比赛的第一轮。第一轮比赛将在12月19日举行。
+注册参加此次Google™ Code Jam - 中国编程挑战赛比赛的日期从北京时间2005年11月21日星期一上午9时开始，至北京时间2005年12月12日上午9时结束。注册没有人数限制，但是只有通过资格赛的前500名可以晋级此次正式比赛的第一轮，第一轮比赛将在12月19日举行。
 <br><br>
-第一轮比赛前250名选手将晋级第二轮。第二轮比赛在12月22日举行。第二轮的前50名将被邀请参加实地举行的冠军赛，争夺价值三万美元的奖品。
+首轮名次前250名将于12月22日晋级第二轮，第二轮的前50名则将参加在中国举行的冠军赛，争夺总数达30000美元的高额奖品。
 <br><br>
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
     <tr>
@@ -88,44 +88,44 @@
     </tr>
     <tr valign="top">
         <td class="sidebarText">11月21日星期一</td>
-        <td class="sidebarText">上午9点</td>
+        <td class="sidebarText">9:00</td>
         <td class="sidebarText">注册开始</td>
     </tr>
 
     <tr valign="top">
         <td class="sidebarText" nowrap>12月12日星期一</td>
-        <td class="sidebarText">上午9点</td>
+        <td class="sidebarText">9:00</td>
         <td class="sidebarText">注册结束</td>
     </tr>
 
     <tr valign="top">
         <td class="sidebarText">12月12日星期一</td>
-        <td class="sidebarText">中午12点</td>
+        <td class="sidebarText">12:00</td>
         <td class="sidebarText">资格赛开始</td>
     </tr>
 
     <tr valign="top">
         <td class="sidebarText">12月13日星期二</td>
-        <td class="sidebarText">中午12点</td>
+        <td class="sidebarText">12:00</td>
         <td class="sidebarText">资格赛结束</td>
     </tr>
 
     <tr valign="top">
         <td class="sidebarText">12月19日星期一</td>
-        <td class="sidebarText">晚上9点</td>
-        <td class="sidebarText">第一轮 - 500名参赛者</td>
+        <td class="sidebarText">21:00</td>
+        <td class="sidebarText">第一轮-500名参赛者</td>
     </tr>
 
     <tr valign="top">
         <td class="sidebarText">12月22日星期四</td>
-        <td class="sidebarText">晚上9点</td>
-        <td class="sidebarText">第二轮 - 250名参赛者</td>
+        <td class="sidebarText">21:00</td>
+        <td class="sidebarText">第二轮-250名参赛者</td>
     </tr>
 
     <tr valign="top">
         <td class="sidebarText">1月20日星期五</td>
         <td class="sidebarText">待定</td>
-        <td class="sidebarText">冠军赛 - 50名参赛者</td>
+        <td class="sidebarText">冠军赛-50名参赛者</td>
     </tr>
 
     <tr valign="top">
@@ -135,35 +135,41 @@
 <br><br>
 <span class="greenSubtitle">奖品</span>
 <br><br>
-参加第二轮的250名选手将获赠“Google中国编程挑战赛”T恤一件。晋级冠军赛的50名参赛者将获得如下的奖品：
+晋级第二轮的250名参赛者将获赠"Google™ Code Jam - 中国编程挑战赛"T恤一件。晋级冠军赛的50名参赛者将获得如下的奖项:
 <br><br>
-
-<div class="indented">
-<table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
-    <tr valign="top">
-        <td class="sidebarTitle">参赛者</td>
-        <td class="sidebarTitle">奖品</td>
-    </tr>
-<tr valign="top"><td class="sidebarText"><b></b>第1名（总价值5000美元）</b></td>
+<table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
+<tr valign="top">
+<td class="sidebarTitle">参赛者</td>
+<td class="sidebarTitle">奖品</td>
+</tr>
+<tr valign="top"><td class="sidebarText"><b>第1名 (共价值5000美元)</b></td>
 <td class="sidebarText">
-<b></b>Intel Dual Core<br>
-配有英特尔双核心处理器和20英寸液晶显示器的高端个人电脑：价值2750美元<br>
-苹果公司15英寸PowerBook笔记本电脑或者IBM T43笔记本电脑：价值2000美元<br>
-苹果公司4G iPod Nano MP3播放器：价值250美元</td></tr>
-<tr valign="top"><td class="sidebarText">第2至第4名 (总价值2500美元)</td><td class="sidebarText">
-苹果公司15英寸PowerBook笔记本电脑或者IBM T43笔记本电脑：价值2000美元<br>
-Palm Treo600 掌上电脑兼手记: 价值250美元<br>
-苹果公司4G iPod Nano MP3播放器：价值250美元</td></tr>
-<tr valign="top"><td class="sidebarText">第5至10名 (总价值1000美元)</td><td class="sidebarText">
-佳能PowerShot SD20/IXUS i5数码相机，带记忆体：价值500美元<br>
-Palm Treo600 掌上电脑兼手记: 价值250美元<br>
-苹果公司4G iPod Nano MP3播放器：价值250美元</td></tr>
-<tr valign="top"><td class="sidebarText">第11至20名 (总价值500美元)</td><td class="sidebarText">
-Palm Treo600 掌上电脑兼手记: 价值250美元<br>
-苹果公司4G iPod Nano MP3播放器：价值250美元</td></tr>
-<tr valign="top"><td class="sidebarText">第21至50名 (价值250美元)</td><td class="sidebarText">苹果公司4G iPod Nano MP3播放器：价值250美元</td></tr>
+<b>Intel Dual Core<br>
+CPU和20英寸LCD显示器的高端个人电脑：价值2750美元<br>
+Apple PowerBook 15英寸便携式电脑或者IBM T43<br>
+便携式电脑：价值2000美元<br>
+4G iPod Nano：价值250美元</b>
+</td></tr>
+<tr valign="top"><td class="sidebarText">第2至第4名 (共价值2500美元)</td><td class="sidebarText">
+Apple PowerBook 15英寸便携式电脑或者IBM T43<br>
+便携式电脑：价值2000美元<br>
+Palm Treo600 PDA 电话：价值250美元<br>
+4G iPod Nano：价值250美元
+</td></tr>
+<tr valign="top"><td class="sidebarText">第5至10名 (共价值1000美元)</td><td class="sidebarText">
+Canon PowerShot SD20 / IXUS i5<br>
+数码相机，带记忆体：价值500美元<br>
+Palm Treo600 PDA 电话：价值250美元<br>
+4G iPod Nano：价值250美元
+</td></tr>
+<tr valign="top"><td class="sidebarText">第11至20名 (共价值500美元)</td><td class="sidebarText">
+Palm Treo600 PDA 电话：价值250美元<br>
+4G iPod Nano：价值250美元
+</td></tr>
+<tr valign="top"><td class="sidebarText">第21至50名 (共价值250美元)</td><td class="sidebarText">
+4G iPod Nano：价值250美元
+</td></tr>
 </table>
-</div>
 <br><br>
 想要了解更多的 Google&#153; Code Jam - 中国编程挑战赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
 </div>
