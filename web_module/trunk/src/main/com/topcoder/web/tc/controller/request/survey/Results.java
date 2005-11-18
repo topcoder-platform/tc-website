@@ -19,7 +19,7 @@ public class Results extends SurveyData {
         //it originally, and the got pruned because they were all free
         //form questions
         try {
-            if (survey.areResultsViewable() || questionInfo.isEmpty()) {
+            if (!survey.areResultsViewable() || questionInfo.isEmpty()) {
                 setNextPage(Constants.SURVEY_THANKS);
                 setIsNextPageInContext(true);
             } else if (((Question) questionInfo.get(0)).getTypeId() == Question.SCHULZE_ELECTION_TYPE) {
