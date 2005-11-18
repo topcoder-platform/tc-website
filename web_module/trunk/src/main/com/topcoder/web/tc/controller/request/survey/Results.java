@@ -111,8 +111,10 @@ public class Results extends SurveyData {
                     if (ballot != null) {
                         election.addBalot(ballot);
                     }
+                    log.debug("add balot");
                     ballot = new RankBallot(candidates);
                 }
+                log.debug("add vote");
                 ballot.add(new Vote((Candidate) map.get(new Long(curr.getLongItem("question_id"))),
                         Integer.parseInt(curr.getStringItem("answer_text"))));
             }
