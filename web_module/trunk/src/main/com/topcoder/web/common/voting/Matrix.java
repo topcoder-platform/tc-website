@@ -5,6 +5,7 @@ import com.topcoder.shared.util.logging.Logger;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.HashSet;
 import java.io.Serializable;
 
 /**
@@ -57,13 +58,29 @@ public class Matrix implements Serializable {
         }
 
         Vote[] votes = ballot.getVotes();
+
+        //build up an index of all the candidates that where actually
+        //included in the votes contained in this ballot.  we'll need
+        //that info make the assumption those not included are preferred less
+        //than those that did
+        HashSet voteIndex = new HashSet();
+        for (int i=0; i<votes.length; i++) {
+            voteIndex.add(votes[i].getCandidate());
+        }
+
         for (int i = 0; i < votes.length; i++) {
-            for (int j = 0; j < votes.length; j++) {
-                if (i != j && votes[i].compareTo(votes[j]) > 0) {
-                    matrix[getIndex(votes[i].getCandidate())][getIndex(votes[j].getCandidate())] = 1;
+            for (int j = 0; j < candidates.length; j++) {
+                if (i != j) {
+                    //mark that i beat j either if j wasn't present in the ballot or if i was preferred to j
+                    if (j<=votes.length-1&&votes[i].compareTo(votes[j]) > 0) {
+                        matrix[getIndex(votes[i].getCandidate())][getIndex(votes[j].getCandidate())] = 1;
+                    } else if (!voteIndex.contains(candidates[j])) {
+                        matrix[getIndex(votes[i].getCandidate())][getIndex(candidates[j])] = 1;
+                    }
                 }
             }
         }
+        //log.debug(this.toString());
     }
 
 
