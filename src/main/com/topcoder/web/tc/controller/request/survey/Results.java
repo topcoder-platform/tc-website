@@ -110,16 +110,19 @@ public class Results extends SurveyData {
                 curr = (ResultSetContainer.ResultSetRow) it.next();
                 if (lastUserId != curr.getLongItem("user_id")) {
                     if (ballot != null) {
+                        log.debug("add balot");
                         election.addBalot(ballot);
                     }
-                    log.debug("add balot");
+                    log.debug("create balot");
                     ballot = new RankBallot(candidates);
                 }
                 log.debug("add vote");
                 ballot.add(new Vote((Candidate) map.get(new Long(curr.getLongItem("question_id"))),
                         Integer.parseInt(curr.getStringItem("answer_text"))));
+                lastUserId = curr.getLongItem("user_id");
             }
             if (ballot != null) {
+                log.debug("add balot");
                 election.addBalot(ballot);
             }
             log.debug("election: " + election.getSumMatrix().toString());
