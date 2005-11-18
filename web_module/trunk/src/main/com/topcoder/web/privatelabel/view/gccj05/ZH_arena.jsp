@@ -1,4 +1,4 @@
-﻿<%@ page import="java.util.Locale"%>
+<%@ page import="java.util.Locale"%>
 <%@ page import="com.topcoder.web.privatelabel.Constants"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -58,8 +58,8 @@
                 <br><br>
                 <A href="/pl/?module=GoogleChina05Credentials&cid=15857&<%=Constants.LOCALE%>=<%=Locale.CHINA.getLanguage()%>">忘了密码？</A>
                 <br><br>
-                你需要至少<A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version 1.4</A>来运行平台。点击<A
-                    href="http://java.sun.com/getjava/index.jsp " target="_blank">这里</A>如果你还没有安装Java Runtime 1.4。
+                你需要至少<A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version 5.0</A>来运行平台。点击<A
+                    href="http://java.sun.com/getjava/index.jsp " target="_blank">这里</A>如果你还没有安装Java Runtime 5.0。
                 <br><br>
                 使用代理服务器？点击<A href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">这里</A>阅读如何<A
                     href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">配置Java</A>。
@@ -67,15 +67,15 @@
                 点击<A href="/pl/?module=Static&d1=gccj05&d2=ZH_instructions">这里</A>阅读<A
                     href="/pl/?module=Static&d1=gccj05&d2=ZH_instructions">竞赛规则</A>。
                 <br><br>
-                点击<a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">这里</A>运行竞技场，以<a
-                    href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">Java
-                Applet</A>的方式启动竞技场。
-                <br><br>
-                点击<a href="/contest/arena/ContestAppletGoogleIndia.jnlp" target="_blank">这里</A>运行竞技场，以<a
-                    href="/contest/arena/ContestAppletGoogleIndia.jnlp" target="_blank">Java Web Start Application</A>的方式启动竞技场。
+                点击<a href="/contest/arena/ContestAppletGoogleChina.jnlp" target="_blank">这里</A>运行竞技场，以<a
+                    href="/contest/arena/ContestAppletGoogleChina.jnlp" target="_blank">Java Web Start Application</A>的方式启动竞技场。
                 <br><br>
                 注意：如果你想安装Java Web Start，点击<a href="http://java.sun.com/products/javawebstart/index.html"
                                              target="_blank">这里</A>。
+                <br><br>
+		点击<a href="Javascript:openWin('?module=Static&d1=gccj05&d2=ZH_quick_launch','comp',300,275);">这里</A>运行竞技场，以<a
+                    href="Javascript:openWin('?module=Static&d1=gccj05&d2=ZH_quick_launch','comp',300,275);">Java
+                Applet</A>的方式启动竞技场。
                 <br><br>
                 如果你在运行竞技场时遇到任何问题，请及时电邮联系 <A
                     href="mailto:gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>.
