@@ -20,7 +20,7 @@ import java.util.Map;
 public class Confirm extends ResumeRegConfirm {
     protected void setNextPage() {
         Calendar end = Calendar.getInstance();
-        end.set(2005, Calendar.DECEMBER, 5, 20, 0);
+        end.set(2005, Calendar.DECEMBER, 11, 20, 0);
         Calendar beginning = Calendar.getInstance();
         //beginning.set(2005, Calendar.JULY, 25, 9, 0);
         beginning.set(2005, Calendar.OCTOBER, 31, 9, 0);
