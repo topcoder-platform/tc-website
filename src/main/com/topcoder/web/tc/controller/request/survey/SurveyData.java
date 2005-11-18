@@ -85,6 +85,7 @@ public abstract class SurveyData extends Base {
             ret.setText(rsc.getRow(0).getStringItem("text"));
             ret.setStartDate(new Date(((Timestamp)rsc.getItem(0, "start_date").getResultData()).getTime()));
             ret.setEndDate(new Date(((Timestamp)rsc.getItem(0, "end_date").getResultData()).getTime()));
+            ret.setResultsViewable(rsc.getRow(0).getIntItem("results_viewable")==1);
         }
         return ret;
     }
