@@ -130,76 +130,76 @@ public class CondorcetSchulzeTestCase extends TestCase {
 
         CondorcetSchulzeElection cs = new CondorcetSchulzeElection();
         for (int i=0; i<46; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(b, 1));
-            balot.add(new Vote(a, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(b, 1));
+            ballot.add(new Vote(a, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<44; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(c, 1));
-            balot.add(new Vote(a, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(c, 1));
+            ballot.add(new Vote(a, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<50; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(d, 1));
-            balot.add(new Vote(a, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(d, 1));
+            ballot.add(new Vote(a, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<54; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(a, 1));
-            balot.add(new Vote(b, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(a, 1));
+            ballot.add(new Vote(b, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<42; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(c, 1));
-            balot.add(new Vote(b, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(c, 1));
+            ballot.add(new Vote(b, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<48; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(d, 1));
-            balot.add(new Vote(b, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(d, 1));
+            ballot.add(new Vote(b, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<56; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(a, 1));
-            balot.add(new Vote(c, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(a, 1));
+            ballot.add(new Vote(c, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<58; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(b, 1));
-            balot.add(new Vote(c, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(b, 1));
+            ballot.add(new Vote(c, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<40; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(d, 1));
-            balot.add(new Vote(c, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(d, 1));
+            ballot.add(new Vote(c, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<50; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(a, 1));
-            balot.add(new Vote(d, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(a, 1));
+            ballot.add(new Vote(d, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<52; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(b, 1));
-            balot.add(new Vote(d, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(b, 1));
+            ballot.add(new Vote(d, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<60; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(c, 1));
-            balot.add(new Vote(d, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(c, 1));
+            ballot.add(new Vote(d, 2));
+            cs.addBalot(ballot);
         }
         return cs;
     }
@@ -213,124 +213,124 @@ public class CondorcetSchulzeTestCase extends TestCase {
 
         CondorcetSchulzeElection cs = new CondorcetSchulzeElection();
         for (int i=0; i<108; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(a, 1));
-            balot.add(new Vote(b, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(a, 1));
+            ballot.add(new Vote(b, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<106; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(a, 1));
-            balot.add(new Vote(c, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(a, 1));
+            ballot.add(new Vote(c, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<102; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(a, 1));
-            balot.add(new Vote(d, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(a, 1));
+            ballot.add(new Vote(d, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<90; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(a, 1));
-            balot.add(new Vote(e, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(a, 1));
+            ballot.add(new Vote(e, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<92; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(b, 1));
-            balot.add(new Vote(a, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(b, 1));
+            ballot.add(new Vote(a, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<88; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(b, 1));
-            balot.add(new Vote(c, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(b, 1));
+            ballot.add(new Vote(c, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<120; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(b, 1));
-            balot.add(new Vote(d, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(b, 1));
+            ballot.add(new Vote(d, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<114; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(b, 1));
-            balot.add(new Vote(e, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(b, 1));
+            ballot.add(new Vote(e, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<94; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(c, 1));
-            balot.add(new Vote(a, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(c, 1));
+            ballot.add(new Vote(a, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<112; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(c, 1));
-            balot.add(new Vote(b, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(c, 1));
+            ballot.add(new Vote(b, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<84; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(c, 1));
-            balot.add(new Vote(d, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(c, 1));
+            ballot.add(new Vote(d, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<118; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(c, 1));
-            balot.add(new Vote(e, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(c, 1));
+            ballot.add(new Vote(e, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<98; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(d, 1));
-            balot.add(new Vote(a, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(d, 1));
+            ballot.add(new Vote(a, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<80; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(d, 1));
-            balot.add(new Vote(b, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(d, 1));
+            ballot.add(new Vote(b, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<116; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(d, 1));
-            balot.add(new Vote(c, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(d, 1));
+            ballot.add(new Vote(c, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<104; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(d, 1));
-            balot.add(new Vote(e, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(d, 1));
+            ballot.add(new Vote(e, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<110; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(e, 1));
-            balot.add(new Vote(a, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(e, 1));
+            ballot.add(new Vote(a, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<86; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(e, 1));
-            balot.add(new Vote(b, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(e, 1));
+            ballot.add(new Vote(b, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<82; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(e, 1));
-            balot.add(new Vote(c, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(e, 1));
+            ballot.add(new Vote(c, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<96; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(e, 1));
-            balot.add(new Vote(d, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(e, 1));
+            ballot.add(new Vote(d, 2));
+            cs.addBalot(ballot);
         }
         return cs;
 
@@ -345,76 +345,76 @@ public class CondorcetSchulzeTestCase extends TestCase {
 
         CondorcetSchulzeElection cs = new CondorcetSchulzeElection();
         for (int i=0; i<12; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(b, 1));
-            balot.add(new Vote(a, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(b, 1));
+            ballot.add(new Vote(a, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<22; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(c, 1));
-            balot.add(new Vote(a, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(c, 1));
+            ballot.add(new Vote(a, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<17; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(d, 1));
-            balot.add(new Vote(a, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(d, 1));
+            ballot.add(new Vote(a, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<24; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(a, 1));
-            balot.add(new Vote(b, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(a, 1));
+            ballot.add(new Vote(b, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<13; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(c, 1));
-            balot.add(new Vote(b, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(c, 1));
+            ballot.add(new Vote(b, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<16; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(d, 1));
-            balot.add(new Vote(b, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(d, 1));
+            ballot.add(new Vote(b, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<14; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(a, 1));
-            balot.add(new Vote(c, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(a, 1));
+            ballot.add(new Vote(c, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<23; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(b, 1));
-            balot.add(new Vote(c, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(b, 1));
+            ballot.add(new Vote(c, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<15; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(d, 1));
-            balot.add(new Vote(c, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(d, 1));
+            ballot.add(new Vote(c, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<19; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(a, 1));
-            balot.add(new Vote(d, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(a, 1));
+            ballot.add(new Vote(d, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<20; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(b, 1));
-            balot.add(new Vote(d, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(b, 1));
+            ballot.add(new Vote(d, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<21; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(c, 1));
-            balot.add(new Vote(d, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(c, 1));
+            ballot.add(new Vote(d, 2));
+            cs.addBalot(ballot);
         }
         return cs;
     }
@@ -428,36 +428,36 @@ public class CondorcetSchulzeTestCase extends TestCase {
 
         CondorcetSchulzeElection cs = new CondorcetSchulzeElection();
         for (int i=0; i<3; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(a, 1));
-            balot.add(new Vote(b, 2));
-            balot.add(new Vote(c, 3));
-            balot.add(new Vote(d, 4));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(a, 1));
+            ballot.add(new Vote(b, 2));
+            ballot.add(new Vote(c, 3));
+            ballot.add(new Vote(d, 4));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<2; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(d, 1));
-            balot.add(new Vote(a, 2));
-            balot.add(new Vote(b, 3));
-            balot.add(new Vote(c, 4));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(d, 1));
+            ballot.add(new Vote(a, 2));
+            ballot.add(new Vote(b, 3));
+            ballot.add(new Vote(c, 4));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<2; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(d, 1));
-            balot.add(new Vote(b, 2));
-            balot.add(new Vote(c, 3));
-            balot.add(new Vote(a, 4));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(d, 1));
+            ballot.add(new Vote(b, 2));
+            ballot.add(new Vote(c, 3));
+            ballot.add(new Vote(a, 4));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<2; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(c, 1));
-            balot.add(new Vote(b, 2));
-            balot.add(new Vote(d, 3));
-            balot.add(new Vote(a, 4));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(c, 1));
+            ballot.add(new Vote(b, 2));
+            ballot.add(new Vote(d, 3));
+            ballot.add(new Vote(a, 4));
+            cs.addBalot(ballot);
         }
         return cs;
 
@@ -472,76 +472,76 @@ public class CondorcetSchulzeTestCase extends TestCase {
 
         CondorcetSchulzeElection cs = new CondorcetSchulzeElection();
         for (int i=0; i<12000; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(b, 1));
-            balot.add(new Vote(a, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(b, 1));
+            ballot.add(new Vote(a, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<22000; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(c, 1));
-            balot.add(new Vote(a, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(c, 1));
+            ballot.add(new Vote(a, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<17000; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(d, 1));
-            balot.add(new Vote(a, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(d, 1));
+            ballot.add(new Vote(a, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<24000; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(a, 1));
-            balot.add(new Vote(b, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(a, 1));
+            ballot.add(new Vote(b, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<13000; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(c, 1));
-            balot.add(new Vote(b, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(c, 1));
+            ballot.add(new Vote(b, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<16000; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(d, 1));
-            balot.add(new Vote(b, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(d, 1));
+            ballot.add(new Vote(b, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<14000; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(a, 1));
-            balot.add(new Vote(c, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(a, 1));
+            ballot.add(new Vote(c, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<23000; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(b, 1));
-            balot.add(new Vote(c, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(b, 1));
+            ballot.add(new Vote(c, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<15000; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(d, 1));
-            balot.add(new Vote(c, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(d, 1));
+            ballot.add(new Vote(c, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<19000; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(a, 1));
-            balot.add(new Vote(d, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(a, 1));
+            ballot.add(new Vote(d, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<20000; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(b, 1));
-            balot.add(new Vote(d, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(b, 1));
+            ballot.add(new Vote(d, 2));
+            cs.addBalot(ballot);
         }
         for (int i=0; i<21000; i++) {
-            RankBalot balot = new RankBalot(list);
-            balot.add(new Vote(c, 1));
-            balot.add(new Vote(d, 2));
-            cs.addBalot(balot);
+            RankBallot ballot = new RankBallot(list);
+            ballot.add(new Vote(c, 1));
+            ballot.add(new Vote(d, 2));
+            cs.addBalot(ballot);
         }
         return cs;
     }
