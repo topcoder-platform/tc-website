@@ -121,6 +121,7 @@ public class Results extends SurveyData {
             if (ballot != null) {
                 election.addBalot(ballot);
             }
+            log.debug("election: " + election.getSumMatrix().toString());
             results = new CondorcetSchulzeResults(election);
             if (hasCacheConnection) {
                 try {
