@@ -30,18 +30,18 @@ public class CondorcetSchulzeElection implements Serializable {
         return candidates;
     }
 
-    public void addBalot(RankBalot balot) {
+    public void addBalot(RankBallot ballot) {
         if (candidates == null) {
-            candidates = balot.getCandidates();
+            candidates = ballot.getCandidates();
         }
-        balots.add(balot);
+        balots.add(ballot);
     }
 
     public Matrix getSumMatrix() {
         if (sumMatrix == null) {
-            Matrix sum = new Matrix((RankBalot) balots.get(0));
+            Matrix sum = new Matrix((RankBallot) balots.get(0));
             for (int i = 1; i < balots.size(); i++) {
-                sum = Matrix.add(sum, new Matrix((RankBalot) balots.get(i)));
+                sum = Matrix.add(sum, new Matrix((RankBallot) balots.get(i)));
             }
             sumMatrix = sum;
         }
