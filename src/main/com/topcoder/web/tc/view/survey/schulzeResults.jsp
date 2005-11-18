@@ -1,4 +1,3 @@
-<%@ page import="java.util.List" %>
 <%@ page import="com.topcoder.web.common.voting.CondorcetSchulzeResults" %>
 <%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -6,6 +5,7 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <% CondorcetSchulzeResults results = (CondorcetSchulzeResults) request.getAttribute("results");%>
+<jsp:useBean id="surveyInfo" scope="request" class="com.topcoder.web.tc.model.Survey" />
 
 
 <html>
@@ -48,6 +48,10 @@
                         <p align="right" class="bodyText"><a href="/tc?module=SurveyList">Archive</a></p></td>
                 </tr>
             </table>
+             <% if (surveyInfo.getText()!=null) { %>
+            <p><jsp:getProperty name="surveyInfo" property="text"/></p>
+             <% } %>
+
 
             <% if (results.hasSingleWinner()) {%>
             <p>The winner is <%=results.getWinner().getName()%></p>
