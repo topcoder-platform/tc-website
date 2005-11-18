@@ -37,6 +37,13 @@
            <jsp:param name="image1" value="white"/>
            <jsp:param name="title" value="TopCoder Web Site Change Log"/>
         </jsp:include>
+            <p>
+                4.0.7 - 2005.11.18
+                <ul>
+                    <li>finished up the results page for condorcet schulze elections</li>
+                    <li>minor changes in google china site</li>
+                </ul>
+            </p>
         <p>
             4.0.6 - 2005.11.15
             <ul>
