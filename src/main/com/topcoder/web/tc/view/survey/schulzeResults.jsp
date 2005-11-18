@@ -73,7 +73,7 @@
             </table>
             <p>
                 When calculating the winner in this type of election, one can organize the data into a matrix.
-                You can see that matrix here. Each cell (x,y) indicates how many times y was preferred over x.
+                You can see that matrix here. Each cell (row,col) indicates how many times row was preferred over col.
             </p>
             <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
                 <%  int size = results.getSumMatrix().getCandidates().length;
