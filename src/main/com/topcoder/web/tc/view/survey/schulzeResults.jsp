@@ -86,6 +86,9 @@
                 <tr><td><%=results.getSumMatrix().getCandidates()[i].getName()%></td>
                     <%for (int j = 0; j < size; j++) {%>
                     <td>
+                        <%if (results.getSumMatrix().getValue(i,j)>=0) {%>
+                            <%=results.getSumMatrix().getValue(i,j)%>
+                        <%}%>
                     </td>
                     <% } %>
                 </tr>
