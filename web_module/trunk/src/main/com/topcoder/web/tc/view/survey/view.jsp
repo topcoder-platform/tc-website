@@ -51,6 +51,10 @@
                      </tr>
                   </table>
 
+             <% if (surveyInfo.getText()!=null) { %>
+                <p><jsp:getProperty name="surveyInfo" property="text"/></p>
+             <% } %>
+
                <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="surveyForm">
                   <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitSurvey"/>
                   <input type="hidden" name="<%=Constants.SURVEY_ID%>" value="<%=surveyInfo.getId()%>"/>
@@ -107,7 +111,6 @@
                         </tr>
                      </table>
                   </form>
-               </p>
          </td>
 <!-- Center Column Ends -->
 
