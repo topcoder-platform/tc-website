@@ -65,7 +65,7 @@
                 well as an additional penalty of 10% of the maximum point value for the problem.
                 <br><br>
                 <b>What is the Challenge Phase?</b><br>
-                The Challenge phase only takes place during Rounds 1 and 2. It does not take place during the
+                The Challenge phase only takes place during online Rounds 1 and 2 and the Onsite Championship Round. It does not take place during the
                 Qualification Round.
                 <br><br>
                 During the Challenge Phase, you have the opportunity to view the source code submissions of the other
@@ -79,7 +79,7 @@
                 Be sure to read the <A href="/pl/?module=Static&d1=gccj05&d2=EN_instructions">Instructions</A> page for
                 a complete explanation.
                 <br><br>
-                <b>How will I know if I have advanced the next round of the Google Code Jam?</b><br>
+                <b>How will I know if I have advanced the next round of the Google Code Jam China?</b><br>
                 As soon as the Testing Phase has been completed, the advancers to the next round will be posted at
                 www.topcoder.com/gcjc. In addition, an email will be sent to all participants indicating whether or
                 not each has advanced.
