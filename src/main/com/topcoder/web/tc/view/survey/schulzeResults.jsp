@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="com.topcoder.web.common.voting.CondorcetSchulzeResults"%>
+<%@ page import="com.topcoder.web.common.voting.CondorcetSchulzeResults" %>
 <%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -49,7 +49,7 @@
                 </tr>
             </table>
 
-                <% if (results.hasSingleWinner()) {%>
+            <% if (results.hasSingleWinner()) {%>
             <p>The winner is <%=results.getWinner().getName()%></p>
             <% } %>
             <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
@@ -57,14 +57,41 @@
                     <td>Rank</td>
                     <td>Candidate</td>
                 </tr>
-                <tc-webtag:listIterator list="<%=results.getResults()%>" id="result" type="com.topcoder.web.common.voting.RankedResult">
+                <tc-webtag:listIterator list="<%=results.getResults()%>" id="result"
+                                        type="com.topcoder.web.common.voting.RankedResult">
                     <tr>
-                        <td><jsp:getProperty name="result" property="rank"/></td>
-                        <tc-webtag:useBean id="candidate" name="result" type="com.topcoder.web.common.voting.Candidate" toScope="page" property="candidate" />
-                        <td><jsp:getProperty name="candidate" property="name"/></td>
+                        <td>
+                            <jsp:getProperty name="result" property="rank"/>
+                        </td>
+                        <tc-webtag:useBean id="candidate" name="result" type="com.topcoder.web.common.voting.Candidate"
+                                           toScope="page" property="candidate"/>
+                        <td>
+                            <jsp:getProperty name="candidate" property="name"/>
+                        </td>
                     </tr>
                 </tc-webtag:listIterator>
             </table>
+            <p>
+                When calculating the winner in this type of election, one can organize the data into a matrix.
+                You can see that matrix here. Each cell (x,y) indicates how many times y was preferred over x.
+            </p>
+            <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
+                <%  int size = results.getSumMatrix().getCandidates().length;
+                %> <tr><td></td> <%
+                for (int i = 0; i < size; i++) {
+            %><td><%=results.getSumMatrix().getCandidates()[i].getName()%></td><%
+                } %>
+            </tr>
+                <% for (int i = 0; i < size; i++) {%>
+                <tr><td><%=results.getSumMatrix().getCandidates()[i].getName()%></td>
+                    <%for (int j = 0; j < size; j++) {%>
+                    <td>
+                    </td>
+                    <% } %>
+                </tr>
+                <% } %>
+            </table>
+
         </td>
         <!-- Center Column Ends -->
 
