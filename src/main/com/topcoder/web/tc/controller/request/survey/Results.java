@@ -116,6 +116,9 @@ public class Results extends SurveyData {
                 ballot.add(new Vote((Candidate) map.get(new Long(curr.getLongItem("question_id"))),
                         Integer.parseInt(curr.getStringItem("answer_text"))));
             }
+            if (ballot != null) {
+                election.addBalot(ballot);
+            }
             results = new CondorcetSchulzeResults(election);
             if (hasCacheConnection) {
                 try {
