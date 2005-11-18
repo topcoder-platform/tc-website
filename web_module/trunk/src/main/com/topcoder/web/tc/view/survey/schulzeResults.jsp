@@ -53,6 +53,10 @@
             <p>The winner is <%=results.getWinner().getName()%></p>
             <% } %>
             <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
+                <tr>
+                    <td>Rank</td>
+                    <td>Candidate</td>
+                </tr>
                 <tc-webtag:listIterator list="<%=results.getResults()%>" id="result" type="com.topcoder.web.common.voting.RankedResult">
                     <tr>
                         <td><jsp:getProperty name="result" property="rank"/></td>
