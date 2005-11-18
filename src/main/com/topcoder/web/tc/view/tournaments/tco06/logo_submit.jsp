@@ -13,7 +13,7 @@
 .pageSpacer
 {
    width: 510px;
-	padding: 15px 0px 10px 0px;
+   padding: 15px 0px 10px 0px;
    text-align: left;
 }
 .logoBox {
@@ -52,9 +52,9 @@
 
             <div class="logoBox"><img src="/i/tournament/tco06/logo_logo.gif" alt="TCO06 Logo Contest" border="0"/></div>
             <div align="center">
-   			<jsp:include page="logo_links.jsp" >
-   			<jsp:param name="selectedTab" value="submit"/>
-   			</jsp:include>
+            <jsp:include page="logo_links.jsp" >
+            <jsp:param name="selectedTab" value="submit"/>
+            </jsp:include>
             </div>
 
             <br><br>
@@ -69,7 +69,7 @@
             <br /><br />
             <span class="bigRed">The maximum file size per submission is 2.0 MB.</span>
             <br><br>
-			<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="logoSubmission" enctype="multipart/form-data">
+         <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="logoSubmission" enctype="multipart/form-data">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCO06LogoSubmit"/>
             <b>Logo:</b><br><input type="file" name="<%=Constants.LOGO%>">
             </form>

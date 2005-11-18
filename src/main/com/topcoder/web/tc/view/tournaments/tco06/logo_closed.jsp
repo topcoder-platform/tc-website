@@ -50,21 +50,12 @@
             <div class="logoBox"><img src="/i/tournament/tco06/logo_logo.gif" alt="TCO06 Logo Contest" border="0"/></div>
             <div align="center">
             <jsp:include page="logo_links.jsp" >
-            <jsp:param name="selectedTab" value="overview"/>
+            <jsp:param name="selectedTab" value="submit"/>
             </jsp:include>
             </div>
 
             <br><br>
-            <span class="bodySubtitle">Design the face of the TCO06</span><br>
-            The TCO05 Logo Design Contest had such a great turnout (over 500 valid submissions!) that we decided to do it again.  We're giving out <b>$5000 in cash prizes</b> for the top 5 submissions.
-            <br><br>
-            TopCoder would like to give any member the opportunity to put their creativity to the test and come up with the logo design that we'll be using to brand this year's TCO.  That includes our website, t-shirts, the stage at the onsite finals, and anywhere else that the TCO might show up.  So here is your chance to express what TopCoder tournaments mean to you, by designing the face of this year's TopCoder Open.  All TopCoder members are welcome to vote on 10 finalists selected by the TopCoder staff.
-            <br><br>
-            <b>Not a TopCoder member yet?</b><br>
-            <A href="/Registration">Register here</A>
-            <br><br>
-            <b>Make sure you read the contest rules:</b><br>
-            <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=logo_rules">Read the rules</A>
+            The submission period for the TCO06 Logo Design Contest is closed.
          </div>
 
          <p><br/></p>

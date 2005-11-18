@@ -62,7 +62,8 @@
          </span>
 
                 <br><br>
-                Registration will close on Monday, December 12 9:00AM GMT +8 (Beijing time).<br/><br/>
+                Registration will close on Monday, December 12, 2005 at 9:00AM (GMT +8).
+				<br><br>
                 If you are <A
                     href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_CHINA_05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=15857&<%=Constants.EVENT_ID%>=4"
                     class="bigRed">not currently a TopCoder member</A> or do not want to use an existing account, please
@@ -70,8 +71,8 @@
                     href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_CHINA_05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=15857&<%=Constants.EVENT_ID%>=4"
                     class="bigRed">here</a>.
                 <br><br>
-                If you are currently a TopCoder member, you may enter your handle and password below to convert your
-                account for use in this year's Google Code Jam.<br/><br/>
+               If you are currently a TopCoder member, you may enter your handle and password below to convert your account for use in the Google&#153; Code Jam China.
+			   <br><br>
 
                 <form method="post" name="frmLogin" action="<%=sessionInfo.getSecureAbsoluteServletPath()%>">
                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_CHINA_05_LOGIN%>"/>
@@ -82,7 +83,7 @@
 
                         <tr valign="top">
                             <td class="errorText" colspan="3" align="center">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br/>
+                                <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br>
                                 </tc-webtag:errorIterator>
                             </td>
                         </tr>
@@ -102,7 +103,7 @@
                         </tr>
                         <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
                     </table>
-                    <p><br/></p>
+                    <p><br></p>
 
                     <script>
                         document.frmLogin.<%=Constants.HANDLE%>.focus();
@@ -110,7 +111,7 @@
 
                 </form>
 
-                <br/><br/>
+                <br><br>
 To find out more detailed information about the Google&#153; Code Jam China, including a list of the prizes, please read the
 <a href="/pl/?module=Static&d1=gccj05&d2=EN_rules">Terms and Conditions</a>.
             </div>
