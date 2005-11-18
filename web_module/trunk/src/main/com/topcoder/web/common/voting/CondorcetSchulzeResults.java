@@ -17,11 +17,13 @@ public class CondorcetSchulzeResults implements Serializable {
     private Matrix strengthMatrix;
     private Candidate[] candidates;
     private RankedResult[] results;
+    private Matrix sumMatrix;
 
     public CondorcetSchulzeResults(CondorcetSchulzeElection election) {
         this.strengthMatrix = election.getBeatPathStrengthMatrix();
         this.candidates = election.getCandidates();
         this.results = buildResults();
+        this.sumMatrix = election.getSumMatrix();
     }
 
     public boolean hasSingleWinner() {
@@ -36,6 +38,10 @@ public class CondorcetSchulzeResults implements Serializable {
 
     public List getResults() {
         return Arrays.asList(results);
+    }
+
+    public Matrix getSumMatrix() {
+        return sumMatrix;
     }
 
     public Candidate getWinner() {
