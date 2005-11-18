@@ -165,8 +165,8 @@ margin:0px auto;
             <td class="homeText"><br>
             <b>11/03</b> - SRM 270 - 11AM<br><br>
             <b>11/08</b> - SRM 271 - 9PM - TopCoder Software<br><br>
-            <b>11/19</b> - SRM 272 - 12PM<br><br>
-            <b>11/21</b> - SRM 273 - 9PM<br><br>
+            <b>11/19</b> - SRM 272 - 12PM - MSN<br><br>
+            <b>11/21</b> - SRM 273 - 9PM - SAP<br><br>
             <b>11/23</b> - SRM 274 - 7AM<br><br>
             <b>11/30</b> - SRM 275 - 9PM<br><br>
             </td>
