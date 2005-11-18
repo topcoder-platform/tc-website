@@ -1,11 +1,13 @@
 package com.topcoder.web.common.voting;
 
+import java.io.Serializable;
+
 /**
  * @author dok
  * @version $Revision$ $Date$
  *          Create Date: Nov 2, 2005
  */
-public class RankedResult {
+public class RankedResult implements Serializable {
     private Candidate candidate;
     private int rank;
 
