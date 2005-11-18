@@ -106,23 +106,20 @@ public class Results extends SurveyData {
             RankBallot ballot = null;
             //create the ballots/votes and add them to the election
             for (Iterator it = rsc.iterator(); it.hasNext();) {
-                log.debug("vote");
                 curr = (ResultSetContainer.ResultSetRow) it.next();
                 if (lastUserId != curr.getLongItem("user_id")) {
                     if (ballot != null) {
-                        log.debug("add balot");
+                        log.debug("add balot: " + ballot.toString());
                         election.addBalot(ballot);
                     }
-                    log.debug("create balot");
                     ballot = new RankBallot(candidates);
                 }
-                log.debug("add vote");
                 ballot.add(new Vote((Candidate) map.get(new Long(curr.getLongItem("question_id"))),
                         Integer.parseInt(curr.getStringItem("answer_text"))));
                 lastUserId = curr.getLongItem("user_id");
             }
             if (ballot != null) {
-                log.debug("add balot");
+                log.debug("add balot: " + ballot.toString());
                 election.addBalot(ballot);
             }
             log.debug("election: " + election.getSumMatrix().toString());
