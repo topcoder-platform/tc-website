@@ -36,13 +36,13 @@ public class Matrix implements Serializable {
     }
 
     /**
-     * create a matrix using the given <code>balot</code>
+     * create a matrix using the given <code>ballot</code>
      *
-     * @param balot
+     * @param ballot
      */
-    public Matrix(RankBalot balot) {
+    public Matrix(RankBallot ballot) {
         candidateIndex = new HashMap();
-        candidates = balot.getCandidates();
+        candidates = ballot.getCandidates();
         for (int i = 0; i < candidates.length; i++) {
             candidateIndex.put(candidates[i], new Integer(i));
         }
@@ -56,7 +56,7 @@ public class Matrix implements Serializable {
             matrix[i][i] = -1;
         }
 
-        Vote[] votes = balot.getVotes();
+        Vote[] votes = ballot.getVotes();
         for (int i = 0; i < votes.length; i++) {
             for (int j = 0; j < votes.length; j++) {
                 if (i != j && votes[i].compareTo(votes[j]) > 0) {
