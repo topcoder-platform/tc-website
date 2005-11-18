@@ -10,6 +10,7 @@ public class Survey implements Serializable {
     private String text;
     private Date startDate;
     private Date endDate;
+    private boolean resultsViewable;
 
     public Survey() {
     }
@@ -60,5 +61,13 @@ public class Survey implements Serializable {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    public boolean areResultsViewable() {
+        return resultsViewable;
+    }
+
+    public void setResultsViewable(boolean resultsViewable) {
+        this.resultsViewable = resultsViewable;
     }
 }
