@@ -64,7 +64,8 @@
          </span>
 
                 <br><br>
-                注册截止日期：北京时间2005年12月12日上午9时整<br/><br/>
+                注册截止日期： 北京时间2005年12月12日上午9时
+				<br/><br/>
 				如果您<A href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_CHINA_05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=15857&<%=Constants.EVENT_ID%>=4&<%=Constants.LOCALE%>=<%=Locale.CHINA.getLanguage()%>" class="bigRed">还不是TopCoder成员</A>或者不想使用现有帐号，请点击<A href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_CHINA_05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=15857&<%=Constants.EVENT_ID%>=4&<%=Constants.LOCALE%>=<%=Locale.CHINA.getLanguage()%>" class="bigRed">这里</A>。
                 <br><br>
                 如果您已经是TopCoder成员，在下面输入帐号名和密码后，您的TopCoder帐号将可以直接在今年的Google编程挑战赛中使用。<br/><br/>
