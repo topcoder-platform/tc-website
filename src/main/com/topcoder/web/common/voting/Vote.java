@@ -46,7 +46,7 @@ public class Vote implements Comparable, Serializable {
     }
 
     /**
-     * Will a value > 0 if this vote is preferred to the other vote,
+     * Will return a value > 0 if this vote is preferred to the other vote,
      * 0 if they are preferred the same, and a values < 0 otherwise.
      *
      * @param o
