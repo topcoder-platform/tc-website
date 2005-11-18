@@ -59,8 +59,8 @@
                 <A href="/pl/?module=GoogleChina05Credentials&cid=15857&<%=Constants.LOCALE%>=<%=Locale.US.getLanguage()%>">Forgot your password?</A>
                 <br><br>
                 You need at least <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version
-                1.4</A> to run the Arena. Click <A href="http://java.sun.com/getjava/index.jsp "
-                                                   target="_blank">here</A> if you do not have Java Runtime 1.4
+                5.0</A> to run the Arena. Click <A href="http://java.sun.com/getjava/index.jsp "
+                                                   target="_blank">here</A> if you do not have Java Runtime 5.0
                 installed.
                 <br><br>
                 Using a proxy server? Click <A href="http://www.java.com/en/download/help/proxy_setup.xml"
@@ -70,17 +70,17 @@
                 Click <A href="/pl/?module=Static&d1=gccj05&d2=EN_instructions">here</A> to read to the <A
                     href="/pl/?module=Static&d1=gccj05&d2=EN_instructions">competition instructions</A>.
                 <br><br>
-                Click <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">here</a>
-                to run the Competition Arena as a <a
-                    href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">Java
-                Applet</A>.
-                <br><br>
-                Click <a href="/contest/arena/ContestAppletGoogleIndia.jnlp" target="_blank">here</a> to run the
-                Competition Arena as a <a href="/contest/arena/ContestAppletGoogleIndia.jnlp" target="_blank">Java Web
+                Click <a href="/contest/arena/ContestAppletGoogleChina.jnlp" target="_blank">here</a> to run the
+                Competition Arena as a <a href="/contest/arena/ContestAppletGoogleChina.jnlp" target="_blank">Java Web
                 Start Application</A>.
                 <br><br>
                 Note: If you wish to install Java Web Start click <a
                     href="http://java.sun.com/products/javawebstart/index.html" target="_blank">here</a>.
+                <br><br>
+                Click <a href="Javascript:openWin('?module=Static&d1=gccj05&d2=EN_quick_launch','comp',300,275);">here</a>
+                to run the Competition Arena as a <a
+                    href="Javascript:openWin('?module=Static&d1=gccj05&d2=EN_quick_launch','comp',300,275);">Java
+                Applet</A>.
                 <br><br>
                 If you experience problems loading or running the Competition Arena please contact <A
                     href="mailto:gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>.
