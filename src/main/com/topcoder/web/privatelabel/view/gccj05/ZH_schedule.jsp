@@ -60,7 +60,7 @@
                 <tr valign="top">
                     <td class="sidebarText">入围赛
 </td>
-                    <td class="sidebarText" nowrap=nowrap>2005年12月12日中午至2005年12月13日中午<br></td>
+                    <td class="sidebarText" nowrap=nowrap>2005年12月12日中午12点至2005年12月13日中午12点<br></td>
                     <td class="sidebarText" align="center">所有合格注册者</td>
                     <td class="sidebarText" align="center">500</td>
                 </tr>
@@ -115,7 +115,7 @@
                     <td class="sidebarText" align="center">50</td>
                 </tr>
                 <tr valign="top">
-                    <td class="sidebarText" colspan="3">* 注意：以上时间皆为北京时间。现场赛的时间视具体情况而定。</td>
+                    <td class="sidebarText" colspan="3">* 注意：冠军赛日期有可能发生变化，请注意届时通知。</td>
                 </tr>
             </table>
 
