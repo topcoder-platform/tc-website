@@ -100,7 +100,7 @@
 </td>
 </tr>
 <tr valign="top">
-<td class="sidebarText" colspan="2">* 注意：如果当日赛事因故取消，赛事将在下一工作日(每周一至周五期间)的当日同一时间举行。</td>
+<td class="sidebarText" colspan="2">* 注意：如果当日赛事因故取消，赛事将在下一工作日(每周一至周五期间)的当日同一时间举行。冠军赛日期有可能发生变化，请注意届时通知。s</td>
 </tr>
 </table>
 
@@ -184,6 +184,7 @@ Palm Treo600 PDA 电话：价值250美元<br>
 <tr valign="top"><td class="sidebarText">第21至50名 (共价值250美元)</td><td class="sidebarText">
 4G iPod Nano：价值250美元
 </td></tr>
+<tr><td colspan="2" class="sidebarText">*视厂家供货状况，上述奖项有可能发生变化。</td></tr>
 </table>
 <br><br>
 
