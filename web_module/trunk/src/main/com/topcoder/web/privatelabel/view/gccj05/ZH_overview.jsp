@@ -46,13 +46,13 @@
 </span>
 
 <br><br>
-全球编程界知名的“Google编程挑战赛Code Jam”即将登陆中国！竞赛的题目具有相当的挑战性，竞赛奖品也非常丰厚。 有志之士可借此机会一展才能，与国内精英才干同场竞技，一决高下，成为脱颖而出的中国最佳。
+你有用技术改变世界的梦想吗？你有挑战难度的决心吗？你想和国内计算机精英一决高下吗？全球编程界知名的“Google编程挑战赛Code Jam”即将登陆中国！这是Google专门为中国计算机界举办的比赛。竞赛的题目具有相当的挑战性，竞赛奖品也非常丰厚。 有志之士可借此机会一展才能，成为脱颖而出的中国最佳。
 <br><br>
 这里有极富挑战性的题目，高科技的奖品，以及令人赞叹的荣耀，你还在等什么？
 <br><br>
 <span class="greenSubtitle">赛事运作细则</span>
 <br><br>
-<b>此次锦标赛以计时赛的形式举行，所有的参赛者都将在限定的时间内在线完成相同的竞赛题目。</b>
+<b>此次挑战赛以计时赛的形式举行，所有的参赛者都将在限定的时间内在线完成相同的竞赛题目。</b>
 <br><br>
 <b>参赛者在竞赛过程当中，可以选用以下4种编程语言的一种-Java，C++，C#和VB。</b>
 <br><br>
@@ -129,7 +129,7 @@
     </tr>
 
     <tr valign="top">
-        <td class="sidebarText" colspan="3">* 上述时间皆为北京时间（格林威治＋8时区时间）</td>
+        <td class="sidebarText" colspan="3">* 上述时间皆为北京时间。冠军赛日期有可能发生变化，请注意届时通知。</td>
     </tr>
 </table>
 <br><br>
@@ -169,6 +169,7 @@ Palm Treo600 PDA 电话：价值250美元<br>
 <tr valign="top"><td class="sidebarText">第21至50名 (共价值250美元)</td><td class="sidebarText">
 4G iPod Nano：价值250美元
 </td></tr>
+<tr><td colspan="2" class="sidebarText">*视厂家供货状况，上述奖项有可能发生变化。</td></tr>
 </table>
 <br><br>
 想要了解更多的 Google&#153; Code Jam - 中国编程挑战赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
