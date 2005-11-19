@@ -46,7 +46,7 @@ public class ViewSystemTestResults extends Base {
             String sortDir = StringUtils.checkNull(getRequest().getParameter(Constants.SORT_ORDER));
             String sortColStr = StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_COLUMN));
             
-            int rowCount = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
+            int rowCount = Integer.parseInt(Constants.DEFAULT_SYSTEM_TEST_RESULTS_ROW_COUNT);
             int colCount = Integer.parseInt(Constants.DEFAULT_COL_COUNT);
             int startRow = 1, startCol = 1, sortCol = 2;
             if (!"".equals(rowCountStr)) {
