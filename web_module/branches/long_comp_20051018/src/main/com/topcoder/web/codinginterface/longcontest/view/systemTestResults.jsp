@@ -25,7 +25,7 @@
     /* 
      * Complex paging & sorting links are pre-formed here to avoid messy code below
      */
-    int pageRSize = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
+    int pageRSize = Integer.parseInt(Constants.DEFAULT_SYSTEM_TEST_RESULTS_ROW_COUNT);
     if(!"".equals(StringUtils.checkNull(request.getParameter(Constants.ROW_COUNT))))
         pageRSize = Integer.parseInt(request.getParameter(Constants.ROW_COUNT));
 
@@ -157,7 +157,7 @@
 </logic:equal>
 <tr align="right">
    <td class="<%=style%>" align="left" nowrap="nowrap"><tc-webtag:handle coderId='<%=coderRow.getLongItem("coder_id")%>'/></td>
-   <td class="<%=style%>"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewSubmissionHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<%=request.getParameter(Constants.PROBLEM_ID)%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=coderRow%>"/>" class="statLink"><rsc:item name="final_points" row="<%=coderRow%>"/></a></td>
+   <td class="<%=style%>"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewSubmissionHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<%=request.getParameter(Constants.PROBLEM_ID)%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=coderRow%>"/>" class="statLink"><rsc:item name="final_points" row="<%=coderRow%>" format="#.##"/></a></td>
 <rsc:iterator list="<%=cases%>" id="caseRow">
    <td class="<%=style%>"><tc-webtag:format object="<%=scoreHash.get(coderRow.getItem("coder_id") + "_" + caseRow.getItem("test_case_id"))%>" ifNull="--"/></td>
 </rsc:iterator>
