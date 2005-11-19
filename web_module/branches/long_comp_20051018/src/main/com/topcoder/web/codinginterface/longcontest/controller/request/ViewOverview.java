@@ -52,11 +52,7 @@ public class ViewOverview extends Base {
             int endRank = startRank + numRecords - 1;
             
             r.setContentHandle("long_contest_overview");
-            if(request.getParameter(Constants.ROUND_ID) == null){
-                // TODO: Get the round ID of the most recent active round
-            }else{
-                r.setProperty(Constants.ROUND_ID,request.getParameter(Constants.ROUND_ID));
-            }
+            r.setProperty(Constants.ROUND_ID,request.getParameter(Constants.ROUND_ID));
             Map result = getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r);
             ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_overview_coders");
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));

@@ -56,8 +56,7 @@ public class ViewProblemStatement extends Base{
                 lid = Integer.parseInt(request.getParameter(Constants.LANGUAGE_ID));
             }
             boolean hasCacheConnection = true;
-            boolean isAdmin = false;//getUser().isAdmin();  TODO fix this
-            String key = isAdmin+"_LongProblem_"+rd+"_"+cid+"_"+lid;
+            String key = "LongProblem_"+rd+"_"+cid+"_"+lid;
             try {
                 cc = CacheClientFactory.createCacheClient();
                 html = (String)cc.get(key);
@@ -67,11 +66,7 @@ public class ViewProblemStatement extends Base{
             }
             if(html == null){
                 Request r = new Request();
-                if(isAdmin){
-                    r.setContentHandle("long_problem_admin");
-                }else{
-                    r.setContentHandle("long_problem");
-                }
+                r.setContentHandle("long_problem");
                 r.setProperty(Constants.COMPONENT_ID,String.valueOf(cid));
                 r.setProperty(Constants.ROUND_ID,String.valueOf(rd));
                 DataAccessInt dataAccess = getDataAccess(false);
@@ -81,11 +76,7 @@ public class ViewProblemStatement extends Base{
                     throw new TCWebException("The contest has not started yet.");
                 }
                 ResultSetContainer rsc = null;
-                if(isAdmin){
-                    rsc = (ResultSetContainer) m.get("long_problem_xml_admin");
-                }else{
-                    rsc = (ResultSetContainer) m.get("long_problem_xml");
-                }
+                rsc = (ResultSetContainer) m.get("long_problem_xml");
                 ResultSetContainer.ResultSetRow rr = null;
                 rr = rsc.getRow(0);
                 String problemText = rr.getStringItem("component_text");
