@@ -57,8 +57,15 @@
     --%>
     <!-- Practice Arena  tab -->
     <% if (selectedTab.equals("arena")) {%>
-    <font color="006633">Competition Arena</font>
+    <font color="006633">Competition Arena</font> &nbsp;|&nbsp;
     <% } else { %>
-    <a href="/pl/?module=Static&d1=gccj05&d2=EN_arena">Competition Arena</a>
+    <a href="/pl/?module=Static&d1=gccj05&d2=EN_arena">Competition Arena</a> &nbsp;|&nbsp;
     <% } %>
+
+<!-- Google Groups  tab -->
+            <% if (selectedTab.equals("forum")) {%>
+               <font color="006633">Code Jam China Group</font>
+            <% } else { %>
+               <a href="/?t=sponsor&c=link&link=http://groups.google.com/group/China-Code-Jam" target="_blank">Code Jam China Group</a>
+            <% } %>
 </font>
