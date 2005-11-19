@@ -63,53 +63,53 @@
          <jsp:include page="ZH_right_reg.jsp"/>
          </span>
 
-                <br><br>
-                注册截止日期： 北京时间2005年12月12日上午9时
-				<br/><br/>
-				如果您<A href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_CHINA_05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=15857&<%=Constants.EVENT_ID%>=4&<%=Constants.LOCALE%>=<%=Locale.CHINA.getLanguage()%>" class="bigRed">还不是TopCoder成员</A>或者不想使用现有帐号，请点击<A href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_CHINA_05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=15857&<%=Constants.EVENT_ID%>=4&<%=Constants.LOCALE%>=<%=Locale.CHINA.getLanguage()%>" class="bigRed">这里</A>。
-                <br><br>
-                如果您已经是TopCoder成员，在下面输入帐号名和密码后，您的TopCoder帐号将可以直接在今年的Google编程挑战赛中使用。<br/><br/>
+<br><br>
+注册截止日期： 北京时间2005年12月12日上午9时
+<br/><br/>
+如果您<A href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_CHINA_05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=15857&<%=Constants.EVENT_ID%>=4&<%=Constants.LOCALE%>=<%=Locale.CHINA.getLanguage()%>" class="bigRed">还不是TopCoder成员</A>或者不想使用现有帐号，请点击<A href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_CHINA_05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=15857&<%=Constants.EVENT_ID%>=4&<%=Constants.LOCALE%>=<%=Locale.CHINA.getLanguage()%>" class="bigRed">这里</A>。
+<br><br>
+如果您已经是TopCoder成员，在下面输入帐号名和密码后，您的TopCoder帐号将可以直接在今年的Google编程挑战赛中使用。<br/><br/>
 
-                <form method="post" name="frmLogin" action="<%=sessionInfo.getSecureAbsoluteServletPath()%>">
-                    <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_CHINA_05_LOGIN%>"/>
-                    <input type="hidden" name="<%=Constants.EVENT_ID%>" value="4"/>
-                    <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="15857"/>
-                    <input type="hidden" name="<%=Constants.LOCALE%>" value="<%=Locale.CHINA.getLanguage()%>"/>
-                    <table border="0" cellpadding="3" cellspacing="0" align="center">
-                        <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
+<form method="post" name="frmLogin" action="<%=sessionInfo.getSecureAbsoluteServletPath()%>">
+	<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_CHINA_05_LOGIN%>"/>
+	<input type="hidden" name="<%=Constants.EVENT_ID%>" value="4"/>
+	<input type="hidden" name="<%=Constants.COMPANY_ID%>" value="15857"/>
+	<input type="hidden" name="<%=Constants.LOCALE%>" value="<%=Locale.CHINA.getLanguage()%>"/>
+	<table border="0" cellpadding="3" cellspacing="0" align="center">
+		<tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
 
-                        <tr valign="top">
-                            <td class="errorText" colspan="3" align="center">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br/>
-                                </tc-webtag:errorIterator>
-                            </td>
-                        </tr>
-                        <tr valign="middle">
-                            <td nowrap class="bodyText" align="right">帐号：</td>
-                            <td colspan="2" align="left"><input type="text" name="<%=Constants.HANDLE%>" value=""
-                                                                maxlength="15" size="12"
-                                                                onkeypress="submitEnter(event)"></td>
-                        </tr>
+		<tr valign="top">
+			<td class="errorText" colspan="3" align="center">
+				<tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br/>
+				</tc-webtag:errorIterator>
+			</td>
+		</tr>
+		<tr valign="middle">
+			<td nowrap class="bodyText" align="right">帐号：</td>
+			<td colspan="2" align="left"><input type="text" name="<%=Constants.HANDLE%>" value=""
+												maxlength="15" size="12"
+												onkeypress="submitEnter(event)"></td>
+		</tr>
 
-                        <tr valign="middle">
-                            <td nowrap class="bodyText" align="right">密码：</td>
-                            <td align="left"><input type="password" name="<%=Constants.PASSWORD%>" value=""
-                                                    maxlength="15" size="12" onkeypress="submitEnter(event)"></td>
-                            <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmLogin.submit()"
-                                                                       class="bodyText">登录 ></a></td>
-                        </tr>
-                        <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
-                    </table>
-                    <p><br/></p>
+		<tr valign="middle">
+			<td nowrap class="bodyText" align="right">密码：</td>
+			<td align="left"><input type="password" name="<%=Constants.PASSWORD%>" value=""
+									maxlength="15" size="12" onkeypress="submitEnter(event)"></td>
+			<td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmLogin.submit()"
+													   class="bodyText">登录 ></a></td>
+		</tr>
+		<tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
+	</table>
+	<p><br/></p>
 
-                    <script>
-                        document.frmLogin.<%=Constants.HANDLE%>.focus();
-                    </script>
+	<script>
+		document.frmLogin.<%=Constants.HANDLE%>.focus();
+	</script>
 
-                </form>
+</form>
 
-                <br/><br/>
-                想要了解更多的 Google&#153; Code Jam - 中国编程挑战赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
+<br/><br/>
+想要了解更多的 Google&#153; Code Jam - 中国编程挑战赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
             </div>
         </td>
         <td width="49%">&#160;</td>
