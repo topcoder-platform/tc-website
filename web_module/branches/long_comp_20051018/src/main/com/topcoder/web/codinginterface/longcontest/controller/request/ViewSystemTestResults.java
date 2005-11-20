@@ -107,8 +107,9 @@ public class ViewSystemTestResults extends Base {
             buf.append(info.getServletPath());
             buf.append("?").append(Constants.MODULE).append("=ViewSystemTestResults");
             buf.append("&").append(Constants.ROUND_ID).append("=").append(request.getParameter(Constants.ROUND_ID));
-            buf.append("&").append(Constants.COMPONENT_ID).append("=").append(component);
-            buf.append("&").append(Constants.CODER_ID).append("=").append(request.getParameter(Constants.CODER_ID));
+            buf.append("&").append(Constants.PROBLEM_ID).append("=").append(request.getParameter(Constants.PROBLEM_ID));
+            if(request.getParameter(Constants.CODER_ID) != null)
+                buf.append("&").append(Constants.CODER_ID).append("=").append(request.getParameter(Constants.CODER_ID));
             if(request.getParameter(Constants.ROW_COUNT) != null)
                 buf.append("&").append(Constants.ROW_COUNT).append("=").append(request.getParameter(Constants.ROW_COUNT));
             if(request.getParameter(Constants.COL_COUNT) != null)
