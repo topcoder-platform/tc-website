@@ -6,6 +6,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.ejb.resume.ResumeServices;
@@ -16,77 +17,25 @@ import javax.servlet.http.HttpSession;
 public class ViewUploadTask extends ResumeTask {
     private static Logger log = Logger.getLogger(UploadTask.class);
 
-    private int userId;
-    private boolean hasResume;
-    private ResultSetContainer fileTypes;
-
-    public ViewUploadTask() throws ResumeTaskException {
-        super();
-        setUserId(-1);
-        setHasResume(false);
-        setFileTypes(null);
-    }
-
-    public void servletPreAction(TCRequest request, TCResponse response)
-            throws Exception {
-        HttpSession session = request.getSession(true);
-        Navigation navigation = (Navigation) session.getAttribute("navigation");
-        BasicAuthentication auth = new BasicAuthentication(
-                new SessionPersistor(request.getSession()),
-                request,
-                response, BasicAuthentication.MAIN_SITE);
-        if (navigation == null) navigation = new Navigation();
-        if (!navigation.isIdentified() && auth.getActiveUser().isAnonymous()) {
-            log.debug("User not logged in, can't download a file.");
-            throw new Exception("User not logged in, can't download a file.");
-        } else {
-            if (navigation.isIdentified())
-                userId = navigation.getUserId();
-            else
-                userId = (int) auth.getActiveUser().getId();
-        }
-        if (request.getParameter("compid") != null) {
-            companyId = Long.parseLong(request.getParameter("compid"));
-            db = getCompanyDb(companyId);
+    protected void businessProcessing() throws TCWebException {
+        try {
+            if (!userIdentified()) {
+                log.debug("User not logged in, can't download a file.");
+                throw new TCWebException("User not logged in, can't download a file.");
+            }
+            if (getRequest().getParameter("compid") != null) {
+                companyId = Long.parseLong(getRequest().getParameter("compid"));
+                db = getCompanyDb(companyId);
+            }
+            getRequest().setAttribute("hasCompany", String.valueOf(companyId>0));
+            ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
+            getRequest().setAttribute("hasResume", String.valueOf(resumeServices.hasResume(getUser().getId(), db)));
+            setNextPage(Constants.UPLOAD_PAGE);
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new TCWebException(e);
         }
     }
-
-    public void processStep(String step) throws Exception {
-        Resume resume = null;
-        ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-        resume = resumeServices.getResume(userId, db);
-        if (resume != null) {
-            setHasResume(true);
-        } else {
-            setHasResume(false);
-        }
-        fileTypes = resumeServices.getFileTypes(db);
-        super.setNextPage(Constants.UPLOAD_PAGE);
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public boolean isHasResume() {
-        return hasResume;
-    }
-
-    public void setHasResume(boolean hasResume) {
-        this.hasResume = hasResume;
-    }
-
-    public ResultSetContainer getFileTypes() {
-        return fileTypes;
-    }
-
-    public void setFileTypes(ResultSetContainer fileTypes) {
-        this.fileTypes = fileTypes;
-    }
-
 
 }
