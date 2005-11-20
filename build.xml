@@ -344,10 +344,9 @@
 
      <target name="package-EJB-ResumeServicesBean" depends="compile">
          <jar jarfile="${ejb_jars}/ResumeServices.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/resume/bean/Resume.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/resume/bean/Resume.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/tc/model/Resume.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/resume/*.class"/>
              <metainf dir="${java}/com/topcoder/web/ejb/resume" includes="*.xml"/>
          </jar>
