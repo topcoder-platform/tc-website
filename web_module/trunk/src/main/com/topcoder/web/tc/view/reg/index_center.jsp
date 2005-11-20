@@ -157,14 +157,14 @@ function checkInputs(){
 
                     <% if (Registration.hasResume()) { %>
 
-                        <a href="JavaScript:void window.open('/Resume?t=ViewUploadTask','Resume_Upload','top=2,left=2,resizable=yes,width=400,height=200,status=0');" class="statTextBig">Upload</a>
+                        <a href="JavaScript:void window.open('/tc?module=ViewResume','Resume_Upload','top=2,left=2,resizable=yes,width=400,height=200,status=0');" class="statTextBig">Upload</a>
                         a new resume.<br/>
 
-                       <a href="/Resume?t=DownloadTask" class="statTextBig">Download</a> your resume.
+                       <a href="/tc?module=ResumeDownload" class="statTextBig">Download</a> your resume.
 
                     <% } else { %>
 
-                        <a href="JavaScript:void window.open('/Resume?t=ViewUploadTask','Resume_Upload','top=2,left=2,resizable=yes,width=400,height=200,status=0');" class="statTextBig">Upload</a>
+                        <a href="JavaScript:void window.open('/tc?module=ViewResume','Resume_Upload','top=2,left=2,resizable=yes,width=400,height=200,status=0');" class="statTextBig">Upload</a>
                         your resume.
 
                     <% } %>
