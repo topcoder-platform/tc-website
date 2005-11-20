@@ -8,7 +8,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.controller.request.resume.ResumeTaskException;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -32,7 +31,7 @@ public class UploadTask extends Base {
                 byte[] fileBytes = new byte[(int) file.getSize()];
                 file.getInputStream().read(fileBytes);
                 if (file == null) {
-                    throw new ResumeTaskException("Empty file uploaded");
+                    throw new TCWebException("Empty file uploaded");
                 } else {
                     Map types = getFileTypes(DBMS.OLTP_DATASOURCE_NAME);
                     int fileType = -1;
