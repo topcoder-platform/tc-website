@@ -7,12 +7,13 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.tc.controller.request.Base;
 
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class UploadTask extends ResumeTask {
+public class UploadTask extends Base {
     private static Logger log = Logger.getLogger(UploadTask.class);
 
     protected void businessProcessing() throws TCWebException {
@@ -42,7 +43,7 @@ public class UploadTask extends ResumeTask {
                     }
                     String fileName = file.getRemoteFileName();
                     ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-                    resumeServices.putResume(getUser().getId(), fileType, fileName, fileBytes, db);
+                    resumeServices.putResume(getUser().getId(), fileType, fileName, fileBytes, DBMS.OLTP_DATASOURCE_NAME);
                 }
             }
         } catch (TCWebException e) {
