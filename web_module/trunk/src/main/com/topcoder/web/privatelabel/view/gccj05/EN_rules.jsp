@@ -110,7 +110,10 @@ Up to 500 individuals will qualify to compete in Round 1. The top 250 scorers fr
 </tr>
 <tr valign="top">
 <td class="sidebarText" colspan="2">*NOTE: In the event a Round must be cancelled for any reason, the "raindate"
-will be the following day at the same time.</td>
+will be the following day at the same time.
+<br><br>
+The final contest date will be subject to change w/ or w/o prior notice
+</td>
 </tr>
 </table>
 
@@ -227,6 +230,7 @@ iPod Nano 4G: $250 USD
 <td class="sidebarText">
 iPod Nano 4G: $250 USD
 </td></tr>
+<tr><td class="sidebarText" colspan="2">Depending on product availability, the actual prizes may change</td></tr>
 </table>
 <br><br>
 <span class="greenSubtitle">Conditions of Participation</span><br>

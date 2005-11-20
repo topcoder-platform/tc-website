@@ -139,7 +139,10 @@ The competitors with the top 250 scores from Round 1 will advance to Round 2 on 
     </tr>
 
     <tr valign="top">
-        <td class="sidebarText" colspan="3">* All times listed as GMT +8</td>
+        <td class="sidebarText" colspan="3">* All times listed as GMT +8
+		<br><br>
+		The final contest date will be subject to change w/ or w/o prior notice
+		</td>
     </tr>
 </table>
 <br><br>
@@ -178,6 +181,7 @@ iPod Nano 4G: $250 USD
 <td class="sidebarText">
 iPod Nano 4G: $250 USD
 </td></tr>
+<tr><td class="sidebarText" colspan="2">Depending on product availability, the actual prizes may change</td></tr>
 </table>
 <br><br>
 To find out more detailed information about the Google&#153; Code Jam China, including a list of the prizes, please read the
