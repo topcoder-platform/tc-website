@@ -13,42 +13,15 @@
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:useBean id="resultMap" type="java.util.Map" scope="request" />
+<jsp:useBean id="sortLinkBase" class="java.util.String" scope="request" />
+<jsp:useBean id="prevPageLink" class="java.util.String" scope="request" />
+<jsp:useBean id="nextPageLink" class="java.util.String" scope="request" />
 <%
     ResultSetContainer registrants = (ResultSetContainer)resultMap.get("long_contest_overview_coders");
     ResultSetContainer rounds = (ResultSetContainer)resultMap.get("long_contest_round_list");
     ResultSetContainer categories = (ResultSetContainer)resultMap.get("long_contest_round_categories");
     ResultSetContainer rsc = (ResultSetContainer)resultMap.get("long_contest_overview_info");
-    ResultSetContainer.ResultSetRow infoRow = null;
-    if(rsc != null && !rsc.isEmpty())
-        infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
-
-    int pageSize = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
-    if(!"".equals(StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_RECORDS))))
-        pageSize = Integer.parseInt(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
-
-    String selfLink = sessionInfo.getServletPath() + "?" + Constants.MODULE + "=ViewOverview"
-            + "&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID)
-            + "&" + DataAccessConstants.NUMBER_RECORDS + "=" + pageSize;
-
-    String pagingLink = selfLink
-            + "&" + DataAccessConstants.SORT_COLUMN + "=" + StringUtils.checkNull(request.getParameter(DataAccessConstants.SORT_COLUMN))
-            + "&" + DataAccessConstants.SORT_DIRECTION + "=" + StringUtils.checkNull(request.getParameter(DataAccessConstants.SORT_DIRECTION));
-
-    String prevPage, nextPage;
-    if(registrants.croppedDataBefore()){
-        prevPage = "<a href=\"" + pagingLink
-                + "&" + DataAccessConstants.START_RANK + "=" + Math.max(1,registrants.getStartRow() - pageSize)
-                + "\" class=\"bcLink\">&lt;&lt; previous</a>";
-    }else{
-        prevPage = "&lt;&lt; previous";
-    }
-    if(registrants.croppedDataAfter()){
-        nextPage = "<a href=\"" + pagingLink
-                + "&" + DataAccessConstants.START_RANK + "=" + (registrants.getStartRow() + pageSize)
-                + "\" class=\"bcLink\">next &gt;&gt;</a>";
-    }else{
-        nextPage = "next &gt;&gt;";
-    }
+    ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
 %>
 
 <html>
@@ -112,7 +85,9 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>">Problem Statement</A>
 
 <div class="pagingBox">
-      <%=prevPage%> &nbsp;|&nbsp; <%=nextPage%>
+      <logic:notEmpty name="prevPageLink"><a href="<%=prevPageLink%>" class="bcLink"></logic:notEmpty>&lt;&lt; previous<logic:notEmpty name="prevPageLink"></a></logic:notEmpty>
+      &nbsp;|&nbsp;
+      <logic:notEmpty name="nextPageLink"><a href="<%=nextPageLink%>" class="bcLink"></logic:notEmpty>next &gt;&gt;<logic:notEmpty name="nextPageLink"></a></logic:notEmpty>
 </div>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
@@ -124,10 +99,10 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
    <td class="tableTitle" colspan="6">Contest Overview</td>
 </tr>
 <tr>
-   <td class="tableHeader" width="25%"><A href="<%=selfLink%><tc-webtag:sort column="2"/>">Handle</A></td>
-   <td class="tableHeader" width="15%" align="right"><A href="<%=selfLink%><tc-webtag:sort column="3"/>">Score</A></td>
-   <td class="tableHeader" width="15%" align="right"><A href="<%=selfLink%><tc-webtag:sort column="4"/>">Rank</A></td>
-   <td class="tableHeader" width="15%" align="center"><A href="<%=selfLink%><tc-webtag:sort column="5"/>">Language</A></td>
+   <td class="tableHeader" width="25%"><A href="<%=sortLinkBase%><tc-webtag:sort column="2"/>">Handle</A></td>
+   <td class="tableHeader" width="15%" align="right"><A href="<%=sortLinkBase%><tc-webtag:sort column="3"/>">Score</A></td>
+   <td class="tableHeader" width="15%" align="right"><A href="<%=sortLinkBase%><tc-webtag:sort column="4"/>">Rank</A></td>
+   <td class="tableHeader" width="15%" align="center"><A href="<%=sortLinkBase%><tc-webtag:sort column="5"/>">Language</A></td>
    <td class="tableHeader" width="15%">&#160;</td>
    <td class="tableHeader" width="15%">&#160;</td>
 </tr>
@@ -136,7 +111,7 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
 <rsc:iterator list="<%=registrants%>" id="resultRow">
 <tr>
    <td class="<%=even?"statLt":"statDk"%>"><tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>'/></td>
-   <td class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item name="point_total" row="<%=resultRow%>" format="#.##"/></td>
+   <td class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item name="point_total" row="<%=resultRow%>" format="0.00"/></td>
    <td class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item name="placed" row="<%=resultRow%>"/></td>
    <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="language_name" row="<%=resultRow%>"/></td>
    <td class="<%=even?"statLt":"statDk"%>" align="center"><A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewSystemTestResults&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>">results</A></td>
@@ -151,7 +126,9 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
 </TABLE>
 
 <div class="pagingBox">
-      <%=prevPage%> &nbsp;|&nbsp; <%=nextPage%>
+      <logic:notEmpty name="prevPageLink"><a href="<%=prevPageLink%>" class="bcLink"></logic:notEmpty>&lt;&lt; previous<logic:notEmpty name="prevPageLink"></a></logic:notEmpty>
+      &nbsp;|&nbsp;
+      <logic:notEmpty name="nextPageLink"><a href="<%=nextPageLink%>" class="bcLink"></logic:notEmpty>next &gt;&gt;<logic:notEmpty name="nextPageLink"></a></logic:notEmpty>
 </div>
 
         </td>

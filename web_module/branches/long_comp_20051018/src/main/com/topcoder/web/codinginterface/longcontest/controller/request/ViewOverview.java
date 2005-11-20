@@ -39,7 +39,7 @@ public class ViewOverview extends Base {
             
             int numRecords = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
             int startRank = 1, sortCol = 4;
-            if (!"".equals(numRecordsStr)) {
+            if (!numRecordsStr.equals("")) {
                 numRecords = Integer.parseInt(numRecordsStr);
             }
             if (!startRankStr.equals("")){
@@ -68,6 +68,39 @@ public class ViewOverview extends Base {
             setDefault(DataAccessConstants.START_RANK, ""+startRank);
 
             request.setAttribute("resultMap", result);
+
+            SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+            
+            StringBuffer buf = new StringBuffer(100);
+            buf.append(info.getServletPath());
+            buf.append("?").append(Constants.MODULE).append("=ViewOverview");
+            buf.append("&").append(Constants.ROUND_ID).append("=").append(request.getParameter(Constants.ROUND_ID));
+            if(request.getParameter(DataAccessConstants.NUMBER_RECORDS) != null)
+                buf.append("&").append(DataAccessConstants.NUMBER_RECORDS).append("=").append(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
+
+            request.setAttribute("sortLinkBase", buf.toString());
+            String sortLinkBase = buf.toString();
+
+            if(request.getParameter(DataAccessConstants.SORT_COLUMN) != null)
+                buf.append("&").append(DataAccessConstants.SORT_COLUMN).append("=").append(request.getParameter(DataAccessConstants.SORT_COLUMN));
+            if(request.getParameter(DataAccessConstants.SORT_DIRECTION) != null)
+                buf.append("&").append(DataAccessConstants.SORT_DIRECTION).append("=").append(request.getParameter(DataAccessConstants.SORT_DIRECTION));
+
+            if(registrants.croppedDataBefore()){
+                request.setAttribute("prevPageLink",
+                        new StringBuffer().append(buf)
+                        .append("&").append(DataAccessConstants.START_RANK)
+                        .append("=").append(""+Math.max(1,registrants.getStartRow() - pageSize))
+                        .toString());
+            }
+            if(registrants.croppedDataAfter()){
+                request.setAttribute("nextPageLink",
+                        new StringBuffer().append(buf)
+                        .append("&").append(DataAccessConstants.START_RANK)
+                        .append("=").append(""+(registrants.getStartRow() + pageSize))
+                        .toString());
+            }
+            
             setNextPage(Constants.PAGE_VIEW_OVERVIEW);
             setIsNextPageInContext(true);
         }catch(TCWebException e){
