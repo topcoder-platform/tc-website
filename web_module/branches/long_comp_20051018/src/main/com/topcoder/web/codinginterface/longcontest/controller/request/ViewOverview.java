@@ -11,6 +11,7 @@ import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.SessionInfo;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -90,14 +91,14 @@ public class ViewOverview extends Base {
                 request.setAttribute("prevPageLink",
                         new StringBuffer().append(buf)
                         .append("&").append(DataAccessConstants.START_RANK)
-                        .append("=").append(""+Math.max(1,registrants.getStartRow() - pageSize))
+                        .append("=").append(""+Math.max(1,registrants.getStartRow() - numRecords))
                         .toString());
             }
             if(registrants.croppedDataAfter()){
                 request.setAttribute("nextPageLink",
                         new StringBuffer().append(buf)
                         .append("&").append(DataAccessConstants.START_RANK)
-                        .append("=").append(""+(registrants.getStartRow() + pageSize))
+                        .append("=").append(""+(registrants.getStartRow() + numRecords))
                         .toString());
             }
             
