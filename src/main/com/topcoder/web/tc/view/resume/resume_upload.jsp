@@ -9,8 +9,8 @@
     <TABLE WIDTH="100%" HEIGHT="100%" BACKGROUND="/i/steel_darkblue_bg.gif">
       <TR>
         <TD class="statText">
-          <form name="upload_form" enctype="multipart/form-data" method="POST" action="Resume">
-            <input type="hidden" name="module" value="UploadTask">
+          <form name="upload_form" enctype="multipart/form-data" method="POST" action="/tc">
+            <input type="hidden" name="module" value="ResumeUpload">
             <br/>Resume: <input type=file name=file1>
             <br/><input type="submit" value="Upload">
             </form>
