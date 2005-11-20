@@ -15,11 +15,6 @@ public class ViewUploadTask extends ResumeTask {
                 log.debug("User not logged in, can't download a file.");
                 throw new TCWebException("User not logged in, can't download a file.");
             }
-            if (getRequest().getParameter("compid") != null) {
-                companyId = Long.parseLong(getRequest().getParameter("compid"));
-                db = getCompanyDb(companyId);
-            }
-            getRequest().setAttribute("hasCompany", String.valueOf(companyId>0));
             ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
             getRequest().setAttribute("hasResume", String.valueOf(resumeServices.hasResume(getUser().getId(), db)));
             setNextPage(Constants.UPLOAD_PAGE);
