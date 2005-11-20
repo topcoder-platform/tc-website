@@ -155,13 +155,6 @@
     </servlet>
 
     <servlet>
-        <servlet-name>Resume</servlet-name>
-        <display-name>Resume</display-name>
-        <description>The Resume controller servlet</description>
-        <servlet-class>com.topcoder.web.tc.controller.legacy.resume.servlet.Controller</servlet-class>
-    </servlet>
-
-    <servlet>
         <servlet-name>graph</servlet-name>
         <display-name>graph</display-name>
         <description>The graph controller servlet</description>
@@ -277,11 +270,6 @@
     <servlet-mapping>
       <servlet-name>graph</servlet-name>
       <url-pattern>/graph</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-      <servlet-name>Resume</servlet-name>
-      <url-pattern>/Resume</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
