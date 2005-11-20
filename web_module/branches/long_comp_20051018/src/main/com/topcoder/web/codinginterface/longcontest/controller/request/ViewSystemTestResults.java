@@ -91,9 +91,9 @@ public class ViewSystemTestResults extends Base {
             rscCol = new ResultSetContainer(rscCol, startCol, endCol);
             result.put("long_contest_test_results_cases", rscCol);
 
-            rsc = (ResultSetContainer) result.get("long_contest_system_test_results");
+            ResultSetContainer rscScores = (ResultSetContainer) result.get("long_contest_system_test_results");
             HashMap hash = new HashMap();
-            for(ListIterator iter = rsc.listIterator(); iter.hasNext(); ){
+            for(ListIterator iter = rscScores.listIterator(); iter.hasNext(); ){
                 ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow)iter.next();
                 hash.put(row.getItem("coder_id") + "_" + row.getItem("test_case_id"), "" + row.getItem("score"));
             }
