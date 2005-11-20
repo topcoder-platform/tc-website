@@ -29,7 +29,11 @@ public class MultipartRequest extends SimpleRequest {
     public String getParameter(String name) {
         try {
             if (file.getParameter(name)!=null) {
-                return new String(file.getParameter(name).getBytes(), request.getCharacterEncoding());
+                if (request.getCharacterEncoding()!=null) {
+                    return new String(file.getParameter(name).getBytes(), request.getCharacterEncoding());
+                } else {
+                    return file.getParameter(name);
+                }
             } else {
                 return null;
             }
