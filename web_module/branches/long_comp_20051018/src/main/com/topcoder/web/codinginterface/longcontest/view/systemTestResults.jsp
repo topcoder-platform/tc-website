@@ -84,9 +84,9 @@
    <td class="tableHeader" width="9%" valign="bottom"><A href="<%=sortLinkBase%>&<%=Constants.PRIMARY_COLUMN%>=2&<%=Constants.SORT_ORDER%>=<%=("2".equals(request.getParameter(Constants.PRIMARY_COLUMN))&&!"asc".equals(request.getParameter(Constants.SORT_ORDER)))?"asc":"desc"%>">Score</A></td>
 <rsc:iterator list="<%=cases%>" id="resultRow">
    <% String sortDir = "desc"; %>
-   <logic:equal param="<%=Constants.TEST_CASE_ID%>" value="<%=resultRow.getItem("test_case_id")%>">
-      <logic:equal param="<%=Constants.PRIMARY_COLUMN%>" value="3">
-         <logic:notEqual param="<%=Constants.SORT_ORDER%>" value="asc">
+   <logic:equal parameter="<%=Constants.TEST_CASE_ID%>" value="<%=resultRow.getItem("test_case_id")%>">
+      <logic:equal parameter="<%=Constants.PRIMARY_COLUMN%>" value="3">
+         <logic:notEqual parameter="<%=Constants.SORT_ORDER%>" value="asc">
             <% sortDir="asc"; %>
          </logic:notEqual>
       </logic:equal>
