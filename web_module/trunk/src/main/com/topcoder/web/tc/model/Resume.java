@@ -1,4 +1,4 @@
-package com.topcoder.web.tc.controller.request.resume;
+package com.topcoder.web.tc.model;
 
 public class Resume {
     private String fileName = null;
