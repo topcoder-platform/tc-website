@@ -11,20 +11,7 @@ import java.util.Map;
 public abstract class ResumeTask extends Base {
     private static Logger log = Logger.getLogger(ResumeTask.class);
 
-    protected long companyId = -1;
     protected String db = DBMS.OLTP_DATASOURCE_NAME;
-
-    public long getCompanyId() {
-        return companyId;
-    }
-
-    public boolean hasCompany() {
-        return companyId > 0;
-    }
-
-    public void setCompanyId(long companyId) {
-        this.companyId = companyId;
-    }
 
     protected String getCompanyDb(long companyId) throws Exception {
         Request r = new Request();

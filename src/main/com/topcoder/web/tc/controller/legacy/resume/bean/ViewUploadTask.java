@@ -1,18 +1,10 @@
 package com.topcoder.web.tc.controller.legacy.resume.bean;
 
-import com.topcoder.common.web.data.Navigation;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCResponse;
-import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.tc.controller.legacy.resume.common.Constants;
-
-import javax.servlet.http.HttpSession;
 
 public class ViewUploadTask extends ResumeTask {
     private static Logger log = Logger.getLogger(UploadTask.class);

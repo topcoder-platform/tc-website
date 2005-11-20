@@ -1,4 +1,3 @@
-<%@ page import="com.topcoder.web.tc.controller.legacy.resume.common.Constants"%>
 <%@ page language="java"%>
 <%@ page errorPage="/errorPage.jsp"%>
 
