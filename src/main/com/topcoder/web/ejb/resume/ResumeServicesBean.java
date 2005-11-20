@@ -4,7 +4,8 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.web.tc.controller.legacy.resume.bean.Resume;
+import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
+import com.topcoder.web.tc.controller.request.resume.Resume;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
@@ -107,7 +108,7 @@ public class ResumeServicesBean extends BaseEJB {
                 numUpdated = psUpd.executeUpdate();
             } else {
                 psIns = conn.prepareStatement(INSERT_RESUME_QUERY);
-                psIns.setInt(1, DBMS.getSeqId(conn, DBMS.RESUME_SEQ));
+                psIns.setLong(1, IdGeneratorClient.getSeqId("RESUME_SEQ"));
                 psIns.setLong(2, userId);
                 psIns.setString(3, fileName);
                 psIns.setInt(4, fileType);
