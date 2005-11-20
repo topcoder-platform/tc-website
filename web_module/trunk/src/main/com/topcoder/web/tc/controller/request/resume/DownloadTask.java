@@ -25,11 +25,11 @@ public class DownloadTask extends Base {
             } else {
                 userId = (int) getUser().getId();
             }
+            ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
+            resume = resumeServices.getResume(userId, DBMS.OLTP_DATASOURCE_NAME);
             getResponse().addHeader("content-disposition", "inline; filename=" + resume.getFileName());
             getResponse().setContentType(resume.getMimeType());
             ServletOutputStream sos = getResponse().getOutputStream();
-            ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-            resume = resumeServices.getResume(userId, DBMS.OLTP_DATASOURCE_NAME);
             sos.write(resume.getFile());
             getResponse().setStatus(HttpServletResponse.SC_OK);
             /* this is not really what i want to do, but i can't think of another
