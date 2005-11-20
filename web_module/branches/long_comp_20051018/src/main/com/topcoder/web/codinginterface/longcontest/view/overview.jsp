@@ -13,9 +13,9 @@
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:useBean id="resultMap" type="java.util.Map" scope="request" />
-<jsp:useBean id="sortLinkBase" class="java.util.String" scope="request" />
-<jsp:useBean id="prevPageLink" class="java.util.String" scope="request" />
-<jsp:useBean id="nextPageLink" class="java.util.String" scope="request" />
+<jsp:useBean id="sortLinkBase" class="java.lang.String" scope="request" />
+<jsp:useBean id="prevPageLink" class="java.lang.String" scope="request" />
+<jsp:useBean id="nextPageLink" class="java.lang.String" scope="request" />
 <%
     ResultSetContainer registrants = (ResultSetContainer)resultMap.get("long_contest_overview_coders");
     ResultSetContainer rounds = (ResultSetContainer)resultMap.get("long_contest_round_list");
