@@ -40,12 +40,7 @@ public class UploadTask extends ResumeTask {
                     } else {
                         log.debug("DID NOT FIND TYPE " + file.getContentType());
                     }
-
                     String fileName = file.getRemoteFileName();
-                    if (getRequest().getParameter("compid") != null) {
-                        companyId = Long.parseLong(getRequest().getParameter("compid"));
-                        db = getCompanyDb(companyId);
-                    }
                     ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
                     resumeServices.putResume(getUser().getId(), fileType, fileName, fileBytes, db);
                 }
