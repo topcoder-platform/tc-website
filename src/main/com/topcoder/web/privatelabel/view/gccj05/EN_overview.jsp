@@ -148,32 +148,37 @@ The competitors with the top 250 scores from Round 1 will advance to Round 2 on 
 The 250 participants in Round 2 will receive a "Google&#153; Code Jam China" t-shirt. All 50 finalists that compete in the Championship Round will receive prizes as follows:
 <br><br>
 
-<div class="indented">
-<table cellpadding="0" cellspacing="5" border="0" class="bodyText">
-<tr valign="top"><td><b>First Prize ($5000 USD)</b></td><td><b>
+<table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
+<tr valign="top"><td class="sidebarText"><b>First Prize ($5000 USD)</b></td>
+<td class="sidebarText">
+<b>
 High-end PC with Intel Dual Core CPU and 20-inch LCD display: $2750 USD<br>
 Apple PowerBook 15-inch laptop or IBM T43 laptop: $2000 USD<br>
 iPod Nano 4G: $250 USD
-</b></td></tr>
-<tr valign="top"><td>2nd - 4th Place ($2500 USD)</td><td>
+</b>
+</td></tr>
+<tr valign="top"><td class="sidebarText">2nd - 4th Place ($2500 USD)
+</td><td class="sidebarText">
 Apple PowerBook 15-inch laptop or IBM T43 laptop: $2000 USD<br>
 Palm Treo600 PDA Phone: $250 USD<br>
 iPod Nano 4G: $250 USD
 </td></tr>
-<tr valign="top"><td>5th – 10th ($1000 USD)</td><td>
+<tr valign="top"><td class="sidebarText">5th – 10th ($1000 USD)</td>
+<td class="sidebarText">
 Canon PowerShot SD20 / IXUS i5 Digital Camera with memory: $500 USD<br>
 Palm Treo600 PDA Phone: $250 USD<br>
 iPod Nano 4G: $250 USD
 </td></tr>
-<tr valign="top"><td>11th – 20th ($500 USD)</td><td>
+<tr valign="top"><td class="sidebarText">11th – 20th ($500 USD)</td>
+<td class="sidebarText">
 Palm Treo600 PDA Phone: $250 USD<br>
 iPod Nano 4G: $250 USD
 </td></tr>
-<tr valign="top"><td>21st – 50th ($250 USD)</td><td>
+<tr valign="top"><td class="sidebarText">21st – 50th ($250 USD)</td>
+<td class="sidebarText">
 iPod Nano 4G: $250 USD
 </td></tr>
 </table>
-</div>
 <br><br>
 To find out more detailed information about the Google&#153; Code Jam China, including a list of the prizes, please read the
 <a href="/pl/?module=Static&d1=gccj05&d2=EN_rules">Terms and Conditions</a>.
