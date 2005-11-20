@@ -12,6 +12,7 @@ import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -87,18 +88,18 @@ public class ViewOverview extends Base {
             if(request.getParameter(DataAccessConstants.SORT_DIRECTION) != null)
                 buf.append("&").append(DataAccessConstants.SORT_DIRECTION).append("=").append(request.getParameter(DataAccessConstants.SORT_DIRECTION));
 
-            if(registrants.croppedDataBefore()){
+            if(rsc.croppedDataBefore()){
                 request.setAttribute("prevPageLink",
                         new StringBuffer().append(buf)
                         .append("&").append(DataAccessConstants.START_RANK)
-                        .append("=").append(""+Math.max(1,registrants.getStartRow() - numRecords))
+                        .append("=").append(""+Math.max(1,rsc.getStartRow() - numRecords))
                         .toString());
             }
-            if(registrants.croppedDataAfter()){
+            if(rsc.croppedDataAfter()){
                 request.setAttribute("nextPageLink",
                         new StringBuffer().append(buf)
                         .append("&").append(DataAccessConstants.START_RANK)
-                        .append("=").append(""+(registrants.getStartRow() + numRecords))
+                        .append("=").append(""+(rsc.getStartRow() + numRecords))
                         .toString());
             }
             
