@@ -81,7 +81,6 @@ public class ViewOverview extends Base {
                 buf.append("&").append(DataAccessConstants.NUMBER_RECORDS).append("=").append(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
 
             request.setAttribute("sortLinkBase", buf.toString());
-            String sortLinkBase = buf.toString();
 
             if(request.getParameter(DataAccessConstants.SORT_COLUMN) != null)
                 buf.append("&").append(DataAccessConstants.SORT_COLUMN).append("=").append(request.getParameter(DataAccessConstants.SORT_COLUMN));

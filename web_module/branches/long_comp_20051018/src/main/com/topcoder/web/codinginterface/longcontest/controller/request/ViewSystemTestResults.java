@@ -14,6 +14,8 @@ import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -84,10 +86,10 @@ public class ViewSystemTestResults extends Base {
             rsc = new ResultSetContainer(rsc, startRow, endRow);
             result.put("long_contest_test_results_coders", rsc);
 
-            rsc = (ResultSetContainer) result.get("long_contest_test_results_cases");
-//            rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
-            rsc = new ResultSetContainer(rsc, startCol, endCol);
-            result.put("long_contest_test_results_cases", rsc);
+            ResultSetContainer rscCol = (ResultSetContainer) result.get("long_contest_test_results_cases");
+//            rscCol.sortByColumn(sortCol, !"desc".equals(sortDir));
+            rscCol = new ResultSetContainer(rscCol, startCol, endCol);
+            result.put("long_contest_test_results_cases", rscCol);
 
             rsc = (ResultSetContainer) result.get("long_contest_system_test_results");
             HashMap hash = new HashMap();
@@ -98,6 +100,74 @@ public class ViewSystemTestResults extends Base {
 
             request.setAttribute("resultMap", result);
             request.setAttribute("scoreHash", hash);
+
+            SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+            
+            StringBuffer buf = new StringBuffer(100);
+            buf.append(info.getServletPath());
+            buf.append("?").append(Constants.MODULE).append("=ViewSystemTestResults");
+            buf.append("&").append(Constants.ROUND_ID).append("=").append(request.getParameter(Constants.ROUND_ID));
+            buf.append("&").append(Constants.COMPONENT_ID).append("=").append(component);
+            buf.append("&").append(Constants.CODER_ID).append("=").append(request.getParameter(Constants.CODER_ID));
+            if(request.getParameter(Constants.ROW_COUNT) != null)
+                buf.append("&").append(Constants.ROW_COUNT).append("=").append(request.getParameter(Constants.ROW_COUNT));
+            if(request.getParameter(Constants.COL_COUNT) != null)
+                buf.append("&").append(Constants.COL_COUNT).append("=").append(request.getParameter(Constants.COL_COUNT));
+            String linkBase = buf.toString();
+            
+            if(request.getParameter(Constants.PRIMARY_COLUMN) != null)
+                buf.append("&").append(Constants.PRIMARY_COLUMN).append("=").append(request.getParameter(Constants.PRIMARY_COLUMN));
+            if(request.getParameter(Constants.SORT_ORDER) != null)
+                buf.append("&").append(Constants.SORT_ORDER).append("=").append(request.getParameter(Constants.SORT_ORDER));
+            if(request.getParameter(Constants.TEST_CASE_ID) != null)
+                buf.append("&").append(Constants.TEST_CASE_ID).append("=").append(request.getParameter(Constants.TEST_CASE_ID));
+            String pageLinkBase = buf.toString();
+
+            buf = new StringBuffer(20);
+            if(request.getParameter(Constants.START_ROW) != null)
+                buf.append("&").append(Constants.START_ROW).append("=").append(request.getParameter(Constants.START_ROW));
+            String pagingRParam = buf.toString();
+            
+            buf = new StringBuffer(20);
+            if(request.getParameter(Constants.START_COL) != null)
+                buf.append("&").append(Constants.START_COL).append("=").append(request.getParameter(Constants.START_COL));
+            String pagingCParam = buf.toString();
+
+            if(rsc.croppedDataBefore()){
+                request.setAttribute("prevPageLink",
+                        new StringBuffer(pageLinkBase)
+                        .append("&").append(Constants.START_ROW)
+                        .append("=").append(""+Math.max(1,rsc.getStartRow() - rowCount))
+                        .append(pagingCParam)
+                        .toString());
+            }
+            if(rsc.croppedDataAfter()){
+                request.setAttribute("nextPageLink",
+                        new StringBuffer(pageLinkBase)
+                        .append("&").append(Constants.START_ROW)
+                        .append("=").append(""+(rsc.getStartRow() + rowCount))
+                        .append(pagingCParam)
+                        .toString());
+            }
+            if(rscCol.croppedDataBefore()){
+                request.setAttribute("prevPageColLink",
+                        new StringBuffer(pageLinkBase)
+                        .append(pagingRParam)
+                        .append("&").append(Constants.START_COL)
+                        .append("=").append(""+Math.max(1,rscCol.getStartRow() - colCount))
+                        .toString());
+            }
+            if(rscCol.croppedDataAfter()){
+                request.setAttribute("nextPageColLink",
+                        new StringBuffer(pageLinkBase)
+                        .append(pagingRParam)
+                        .append("&").append(Constants.START_COL)
+                        .append("=").append(""+(rscCol.getStartRow() + colCount))
+                        .toString());
+            }
+
+            request.setAttribute("sortLinkBase", linkBase + pagingRParam + pagingCParam);
+
             setNextPage(Constants.PAGE_VIEW_SYSTEM_TEST_RESULTS);
             setIsNextPageInContext(true);
         }catch(TCWebException e){

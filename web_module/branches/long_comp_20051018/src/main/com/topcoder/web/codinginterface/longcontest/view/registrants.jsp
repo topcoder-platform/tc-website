@@ -52,47 +52,22 @@
 <logic:empty name="<%=Constants.MESSAGE%>">
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:useBean id="resultMap" type="java.util.Map" scope="request" />
+<jsp:useBean id="sortLinkBase" class="java.lang.String" scope="request" />
+<jsp:useBean id="prevPageLink" class="java.lang.String" scope="request" />
+<jsp:useBean id="nextPageLink" class="java.lang.String" scope="request" />
 <%
     ResultSetContainer registrants = (ResultSetContainer)resultMap.get("long_contest_round_registrants");
     ResultSetContainer rsc = (ResultSetContainer)resultMap.get("long_contest_round_registrants_info");
-    ResultSetContainer.ResultSetRow infoRow = null;
-    if(rsc != null)
-        infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
-
-    int pageSize = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
-    if(!"".equals(StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_RECORDS))))
-        pageSize = Integer.parseInt(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
-
-    String selfLink = sessionInfo.getServletPath() + "?" + Constants.MODULE + "=ViewRegistrants"
-            + "&" + Constants.ROUND_ID + "=" + request.getParameter(Constants.ROUND_ID)
-            + "&" + DataAccessConstants.NUMBER_RECORDS + "=" + pageSize;
-
-    String pagingLink = selfLink
-            + "&" + DataAccessConstants.SORT_COLUMN + "=" + StringUtils.checkNull(request.getParameter(DataAccessConstants.SORT_COLUMN))
-            + "&" + DataAccessConstants.SORT_DIRECTION + "=" + StringUtils.checkNull(request.getParameter(DataAccessConstants.SORT_DIRECTION));
-
-    String prevPage, nextPage;
-    if(registrants.croppedDataBefore()){
-        prevPage = "<a href=\"" + pagingLink
-                + "&" + DataAccessConstants.START_RANK + "=" + Math.max(1,registrants.getStartRow() - pageSize)
-                + "\" class=\"bcLink\">&lt;&lt; previous</a>";
-    }else{
-        prevPage = "&lt;&lt; previous";
-    }
-    if(registrants.croppedDataAfter()){
-        nextPage = "<a href=\"" + pagingLink
-                + "&" + DataAccessConstants.START_RANK + "=" + (registrants.getStartRow() + pageSize)
-                + "\" class=\"bcLink\">next &gt;&gt;</a>";
-    }else{
-        nextPage = "next &gt;&gt;";
-    }
+    ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
 %>
 
 <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
 <span class="bodySubtitle">Registrants: <rsc:item name="num_competitors" row="<%=infoRow%>"/></span><br>
 
 <div class="pagingBox">
-      <%=prevPage%> &nbsp;|&nbsp; <%=nextPage%>
+      <logic:notEmpty name="prevPageLink"><a href="<%=prevPageLink%>" class="bcLink"></logic:notEmpty>&lt;&lt; previous<logic:notEmpty name="prevPageLink"></a></logic:notEmpty>
+      &nbsp;|&nbsp;
+      <logic:notEmpty name="nextPageLink"><a href="<%=nextPageLink%>" class="bcLink"></logic:notEmpty>next &gt;&gt;<logic:notEmpty name="nextPageLink"></a></logic:notEmpty>
 </div>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
@@ -104,11 +79,11 @@
    <td class="tableTitle" colspan="6">Registrants</td>
 </tr>
 <tr>
-   <td class="tableHeader" width="20%"><A href="<%=selfLink%><tc-webtag:sort column="1"/>">Handle</A></td>
-   <td class="tableHeader" width="20%"><A href="<%=selfLink%><tc-webtag:sort column="4"/>">Country</A></td>
-   <td class="tableHeader" width="10%"><A href="<%=selfLink%><tc-webtag:sort column="2"/>">State</A></td>
-   <td class="tableHeader" width="30%"><A href="<%=selfLink%><tc-webtag:sort column="5"/>">School</A></td>
-   <td class="tableHeader" width="20%"><A href="<%=selfLink%><tc-webtag:sort column="3"/>">Default Language</A></td>
+   <td class="tableHeader" width="20%"><A href="<%=sortLinkBase%><tc-webtag:sort column="1"/>">Handle</A></td>
+   <td class="tableHeader" width="20%"><A href="<%=sortLinkBase%><tc-webtag:sort column="4"/>">Country</A></td>
+   <td class="tableHeader" width="10%"><A href="<%=sortLinkBase%><tc-webtag:sort column="2"/>">State</A></td>
+   <td class="tableHeader" width="30%"><A href="<%=sortLinkBase%><tc-webtag:sort column="5"/>">School</A></td>
+   <td class="tableHeader" width="20%"><A href="<%=sortLinkBase%><tc-webtag:sort column="3"/>">Default Language</A></td>
 </tr>
 <%-- ITERATOR --%>
 <%boolean even = true;%>
@@ -129,7 +104,9 @@
 </TABLE>
 
 <div class="pagingBox">
-      <%=prevPage%> &nbsp;|&nbsp; <%=nextPage%>
+      <logic:notEmpty name="prevPageLink"><a href="<%=prevPageLink%>" class="bcLink"></logic:notEmpty>&lt;&lt; previous<logic:notEmpty name="prevPageLink"></a></logic:notEmpty>
+      &nbsp;|&nbsp;
+      <logic:notEmpty name="nextPageLink"><a href="<%=nextPageLink%>" class="bcLink"></logic:notEmpty>next &gt;&gt;<logic:notEmpty name="nextPageLink"></a></logic:notEmpty>
 </div>
 
 </logic:empty>

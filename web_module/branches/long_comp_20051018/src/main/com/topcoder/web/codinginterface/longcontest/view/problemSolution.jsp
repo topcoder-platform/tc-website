@@ -16,9 +16,7 @@
 <jsp:useBean id="resultMap" type="java.util.Map" scope="request" />
 <%
     ResultSetContainer rsc = (ResultSetContainer)resultMap.get("long_contest_submission");
-    ResultSetContainer.ResultSetRow infoRow = null;
-    if(rsc != null && !rsc.isEmpty())
-        infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
+    ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow)rsc.get(0);
 %>
 
 <%!
