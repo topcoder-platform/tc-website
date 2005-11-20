@@ -197,27 +197,34 @@ All participants who compete in Round 2 will receive a "Google Code Jam China" t
 the Championship Round will receive prizes. Any and all applicable taxes on prizes are the sole responsibility of
 the prizewinner. Prizes will be distributed as follows:
 <br><br>
-<table cellpadding="0" cellspacing="5" border="0" class="bodyText">
-<tr valign="top"><td><b>First Prize ($5000 USD)</b></td><td><b>
+<table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
+<tr valign="top"><td class="sidebarText"><b>First Prize ($5000 USD)</b></td>
+<td class="sidebarText">
+<b>
 High-end PC with Intel Dual Core CPU and 20-inch LCD display: $2750 USD<br>
 Apple PowerBook 15-inch laptop or IBM T43 laptop: $2000 USD<br>
 iPod Nano 4G: $250 USD
-</b></td></tr>
-<tr valign="top"><td>2nd - 4th Place ($2500 USD)</td><td>
+</b>
+</td></tr>
+<tr valign="top"><td class="sidebarText">2nd - 4th Place ($2500 USD)
+</td><td class="sidebarText">
 Apple PowerBook 15-inch laptop or IBM T43 laptop: $2000 USD<br>
 Palm Treo600 PDA Phone: $250 USD<br>
 iPod Nano 4G: $250 USD
 </td></tr>
-<tr valign="top"><td>5th – 10th ($1000 USD)</td><td>
+<tr valign="top"><td class="sidebarText">5th – 10th ($1000 USD)</td>
+<td class="sidebarText">
 Canon PowerShot SD20 / IXUS i5 Digital Camera with memory: $500 USD<br>
 Palm Treo600 PDA Phone: $250 USD<br>
 iPod Nano 4G: $250 USD
 </td></tr>
-<tr valign="top"><td>11th – 20th ($500 USD)</td><td>
+<tr valign="top"><td class="sidebarText">11th – 20th ($500 USD)</td>
+<td class="sidebarText">
 Palm Treo600 PDA Phone: $250 USD<br>
 iPod Nano 4G: $250 USD
 </td></tr>
-<tr valign="top"><td>21st – 50th ($250 USD)</td><td>
+<tr valign="top"><td class="sidebarText">21st – 50th ($250 USD)</td>
+<td class="sidebarText">
 iPod Nano 4G: $250 USD
 </td></tr>
 </table>
