@@ -1,103 +1,76 @@
 package com.topcoder.web.tc.controller.legacy.resume.bean;
 
-import com.topcoder.common.web.data.Navigation;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCResponse;
-import com.topcoder.web.common.MultipartRequest;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.resume.ResumeServices;
-import com.topcoder.web.tc.controller.legacy.resume.common.Constants;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Iterator;
 
 public class UploadTask extends ResumeTask {
-    private byte file[] = null;
-    private int fileType = -1;
-    private String fileName = null;
-    private int userId = -1;
     private static Logger log = Logger.getLogger(UploadTask.class);
 
-    public void process() throws ResumeTaskException {
+    protected void businessProcessing() throws TCWebException {
         try {
-            ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-            resumeServices.putResume(userId, fileType, fileName, file, db);
-        } catch (Exception e) {
-            throw new ResumeTaskException(e);
-        }
-    }
+            if (!userLoggedIn()) {
+                log.debug("User not logged in, can't download a file.");
+                throw new TCWebException("User not logged in, can't download a file.");
+            }
 
-    public void servletPreAction(TCRequest request, TCResponse response)
-            throws Exception {
-        HttpSession session = request.getSession(true);
-        Navigation navigation = (Navigation) session.getAttribute("navigation");
-        BasicAuthentication auth = new BasicAuthentication(
-                new SessionPersistor(request.getSession()),
-                request,
-                response, BasicAuthentication.MAIN_SITE);
-        if (navigation == null) navigation = new Navigation();
-        if (!navigation.isIdentified() && auth.getActiveUser().isAnonymous()) {
-            log.debug("User not logged in, can't upload a file.");
-            throw new Exception("User not logged in, can't upload a file.");
-        } else {
-            if (navigation.isIdentified())
-                userId = navigation.getUserId();
-            else
-                userId = (int) auth.getActiveUser().getId();
-        }
-        if (request.getParameter("compid") != null) {
-            companyId = Long.parseLong(request.getParameter("compid"));
-            db = getCompanyDb(companyId);
-        }
-        UploadedFile uf = null;
-        byte[] fileBytes = null;
-        try {
-            uf = ((MultipartRequest)request).getUploadedFile("file1");
-                if (uf == null) {
+            MultipartRequest req = (MultipartRequest) getRequest();
+            UploadedFile file = req.getUploadedFile("file1");
+
+            if (file != null && file.getContentType() != null) {
+                log.debug("FOUND RESUME");
+                byte[] fileBytes = new byte[(int) file.getSize()];
+                file.getInputStream().read(fileBytes);
+                if (file == null) {
                     throw new ResumeTaskException("Empty file uploaded");
                 } else {
-                    fileBytes = new byte[(int) uf.getSize()];
-                    uf.getInputStream().read(fileBytes);
-                    fileType = Integer.parseInt(request.getParameter("fileType"));
-                    fileName = uf.getRemoteFileName();
-                    file = fileBytes;
+                    Map types = getFileTypes(DBMS.OLTP_DATASOURCE_NAME);
+                    int fileType = -1;
+                    if (types.containsKey(file.getContentType())) {
+                        log.debug("FOUND TYPE");
+                        fileType = ((Long) types.get(file.getContentType())).intValue();
+                    } else {
+                        log.debug("DID NOT FIND TYPE " + file.getContentType());
+                    }
+
+                    String fileName = file.getRemoteFileName();
+                    if (getRequest().getParameter("compid") != null) {
+                        companyId = Long.parseLong(getRequest().getParameter("compid"));
+                        db = getCompanyDb(companyId);
+                    }
+                    ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
+                    resumeServices.putResume(getUser().getId(), fileType, fileName, fileBytes, db);
                 }
-        } catch (ResumeTaskException e) {
+            }
+        } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
-            throw new ResumeTaskException(e);
+            throw new TCWebException(e);
         }
     }
 
-    public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
-        response.setHeader("Cache-Control", "no-store");
-        response.setHeader("Pragma", "no-cache");
-        response.setDateHeader("Expires", 0);
-    }
+    protected Map getFileTypes(String db) throws Exception {
+         Request r = new Request();
+         r.setContentHandle("file_types");
+         Map qMap = getDataAccess(db, true).getData(r);
+         ResultSetContainer questions = (ResultSetContainer) qMap.get("file_types");
+         ResultSetContainer.ResultSetRow row = null;
 
-    public void processStep(String step) throws Exception {
-        try {
-            ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-            resumeServices.putResume(userId, fileType, fileName, file, db);
-            super.setNextPage(Constants.SUCCESS_PAGE);
-        } catch (Exception e) {
-            throw new ResumeTaskException(e);
-        }
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
+         Map ret = new HashMap();
+         for (Iterator it = questions.iterator(); it.hasNext();) {
+             row = (ResultSetContainer.ResultSetRow) it.next();
+             ret.put(row.getStringItem("mime_type"), new Long(row.getLongItem("file_type_id")));
+         }
+         return ret;
+     }
 
 
 }
