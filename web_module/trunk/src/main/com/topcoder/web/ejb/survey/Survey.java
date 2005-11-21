@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 public interface Survey extends EJBObject {
 
     long createSurvey(String name, Timestamp startDate, Timestamp endDate,
-                      int statusId, String dataSource) throws RemoteException;
+                      int statusId, boolean resultsViewable, String dataSource) throws RemoteException;
 
     void setName(long surveyId, String name, String dataSource) throws RemoteException;
 
@@ -24,6 +24,8 @@ public interface Survey extends EJBObject {
 
     void setText(long surveyId, String text, String dataSource) throws RemoteException;
 
+    void setResultsViewable(long surveyId, boolean resultsViewAble, String dataSource) throws RemoteException;
+
     String getName(long surveyId, String dataSource) throws RemoteException;
 
     Timestamp getStartDate(long surveyId, String dataSource) throws RemoteException;
@@ -33,5 +35,7 @@ public interface Survey extends EJBObject {
     int getStatusId(long surveyId, String dataSource) throws RemoteException;
 
     String getText(long surveyId, String dataSource) throws RemoteException;
+
+    boolean areResultsViewable(long surveyId, String dataSource) throws RemoteException;
 
 }
