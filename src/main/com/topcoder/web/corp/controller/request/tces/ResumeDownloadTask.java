@@ -10,7 +10,7 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.corp.common.TCESConstants;
 import com.topcoder.web.ejb.resume.ResumeServices;
-import com.topcoder.web.tc.controller.legacy.resume.bean.Resume;
+import com.topcoder.web.tc.model.Resume;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
