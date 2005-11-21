@@ -68,11 +68,12 @@ height: 60px;
             <span class="bodyTitle"><jsp:getProperty name="surveyInfo" property="text"/></span><br>
              <% } %>
 
+            <br><br>
 
-            <table width="510" border="0" cellpadding="0" cellspacing="0" class="bodyText">
+            <table border="0" cellpadding="0" cellspacing="0" class="bodyText" align="center">
                 <tr>
                     <td style="padding-right: 10px;"><b>Rank</b></td>
-                    <td width="100%"><b>Candidate</b></td>
+                    <td><b>Candidate</b></td>
                 </tr>
                 <tc-webtag:listIterator list="<%=results.getResults()%>" id="result"
                                         type="com.topcoder.web.common.voting.RankedResult">
@@ -88,6 +89,7 @@ height: 60px;
                     </tr>
                 </tc-webtag:listIterator>
             </table>
+            <br><br>
             <p>
                 When calculating the winner in this type of election, one can organize the data into a matrix.
                 You can see that matrix here. Each cell (row,col) indicates how many times row was preferred over col.
