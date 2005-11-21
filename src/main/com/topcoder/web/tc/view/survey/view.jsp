@@ -57,7 +57,7 @@
 
              <% if (questionInfo.size()>0 && ((Question)questionInfo.get(0)).getTypeId()==Question.SCHULZE_ELECTION_TYPE) { %>
                  <p>
-                     In this election we will be using the <a href="http://en.wikipedia.org/wiki/Schulze_method">Schulze Method</a> to
+                     In this election we will be using the <a href="http://en.wikipedia.org/wiki/Schulze_method" target="blank">Schulze Method</a> to
                      determine a winner.  When voting, you are asked to rank the candidates where a lower number more preferred than a higher one.
                      You may choose to rank more than one candidate the same, and you may choose not to rank a candidate.  If you choose
                      not to rank a candidate, it is assumed that you prefer ranked candidates over unranked candidates.
