@@ -51,8 +51,11 @@
                      </tr>
                   </table>
 
+            <div align="center">
+            <div align="left" style="width: 600px;">
+
              <% if (surveyInfo.getText()!=null) { %>
-                <p><jsp:getProperty name="surveyInfo" property="text"/></p>
+                <span class="bodyTitle"><jsp:getProperty name="surveyInfo" property="text"/></span><br>
              <% } %>
 
              <% if (questionInfo.size()>0 && ((Question)questionInfo.get(0)).getTypeId()==Question.SCHULZE_ELECTION_TYPE) { %>
@@ -119,6 +122,9 @@
                         </tr>
                      </table>
                   </form>
+            </div>
+            </div>
+
          </td>
 <!-- Center Column Ends -->
 
