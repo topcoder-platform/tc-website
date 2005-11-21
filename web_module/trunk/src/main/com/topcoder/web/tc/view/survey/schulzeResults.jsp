@@ -69,9 +69,6 @@ height: 60px;
              <% } %>
 
 
-            <% if (results.hasSingleWinner()) {%>
-            <p>The winner is <%=results.getWinner().getName()%></p>
-            <% } %>
             <table width="510" border="0" cellpadding="0" cellspacing="0" class="bodyText">
                 <tr>
                     <td style="padding-right: 10px;"><b>Rank</b></td>
