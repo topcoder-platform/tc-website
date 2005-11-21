@@ -22,7 +22,7 @@ public class SurveyBean extends BaseEJB {
     private static final Logger log = Logger.getLogger(SurveyBean.class);
 
     public long createSurvey(String name, Timestamp startDate, Timestamp endDate,
-                             int statusId, String dataSource) {
+                             int statusId, boolean resultsViewable, String dataSource) {
         log.debug("createSurvey called...  name " + name + " start " +
                 startDate + " end " + endDate + " status " + statusId);
 
@@ -35,12 +35,13 @@ public class SurveyBean extends BaseEJB {
             conn = DBMS.getConnection(dataSource);
             surveyId = IdGeneratorClient.getSeqId("SURVEY_SEQ");
 
-            ps = conn.prepareStatement("INSERT INTO survey(survey_id, name, start_date, end_date, status_id) values (?,?,?,?,?)");
+            ps = conn.prepareStatement("INSERT INTO survey(survey_id, name, start_date, end_date, status_id, results_viewable) values (?,?,?,?,?,?)");
             ps.setLong(1, surveyId);
             ps.setString(2, name);
             ps.setTimestamp(3, startDate);
             ps.setTimestamp(4, endDate);
             ps.setInt(5, statusId);
+            ps.setInt(6, resultsViewable?1:0);
             int rows = ps.executeUpdate();
 
             if (rows != 1)
