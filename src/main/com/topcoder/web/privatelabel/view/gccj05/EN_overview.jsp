@@ -156,27 +156,27 @@ The 250 participants in Round 2 will receive a "Google&#153; Code Jam China" t-s
 <td class="sidebarTitle">Competitor(s)</td>
 <td class="sidebarTitle">Prize(s)</td>
 </tr>
-<tr valign="top"><td class="sidebarText" nowrap="nowrap"><b>First Prize ($5000 USD)</b></td>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap"><b>First Prize (40,000 RMB)</b></td>
 <td class="sidebarText">
 <b>
 A package of high end electronics including a high end PC, 20-inchmonitor, Laptop computer and brand new personal listening device
 </b>
 </td></tr>
-<tr valign="top"><td class="sidebarText" nowrap="nowrap">2nd - 4th Place ($2500 USD) 
+<tr valign="top"><td class="sidebarText" nowrap="nowrap">2nd - 4th Place (20,000 RMB) 
 </td><td class="sidebarText">
 A package including a laptop computer, PDA phone, personal listing device
 </td></tr>
-<tr valign="top"><td class="sidebarText" nowrap="nowrap">5th – 10th ($1000 USD)</td>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap">5th – 10th (8,000 RMB)</td>
 <td class="sidebarText">
 A package including a digital camera, PDA phone and a personallistening device
 </td></tr>
-<tr valign="top"><td class="sidebarText" nowrap="nowrap">11th – 20th ($500 USD)</td>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap">11th – 20th (4,000 RMB)</td>
 <td class="sidebarText">
 A package including a PDA phone and a personal listening device
 </td></tr>
-<tr valign="top"><td class="sidebarText" nowrap="nowrap">21st – 50th ($250 USD)</td>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap">21st – 50th (2,000 RMB)</td>
 <td class="sidebarText">
-a brand new personal listening device
+A brand new personal listening device
 </td></tr>
 </table>
 <br><br>
