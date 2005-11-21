@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 public interface SurveyLocal extends EJBLocalObject {
 
     long createSurvey(String name, Timestamp startDate, Timestamp endDate,
-                      int statusId, String dataSource);
+                      int statusId, boolean resultsViewable, String dataSource);
 
     void setName(long surveyId, String name, String dataSource);
 
