@@ -55,6 +55,14 @@
                 <p><jsp:getProperty name="surveyInfo" property="text"/></p>
              <% } %>
 
+             <% if (questionInfo.size()>0 && ((Question)questionInfo.get(0)).getTypeId()==Question.SCHULZE_ELECTION_TYPE) { %>
+                 <p>
+                     In this election we will be using the <a href="http://en.wikipedia.org/wiki/Schulze_method">Schulze Method</a> to
+                     determine a winner.  When voting, you are asked to rank the candidates where 1 is most preferred and 10 is least preferred.
+                     You may choose to rank more than one candidate the same, and you may choose not to rank a candidate.  If you choose
+                     not to rank a candidate, it is assumed that you prefer ranked candidates over unranked candidates.
+                 </p>
+             <% } %>
                <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="surveyForm">
                   <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitSurvey"/>
                   <input type="hidden" name="<%=Constants.SURVEY_ID%>" value="<%=surveyInfo.getId()%>"/>
@@ -62,7 +70,7 @@
                   <% boolean resultsViewable = false;%>
                   <%--todo move this to the controller, that's where it belongs --%>
                   <tc:questionIterator list="<%=questionInfo%>" id="question">
-                  <% resultsViewable |= (!(question.getStyleId() == Question.LONG_ANSWER || question.getStyleId()== Question.SHORT_ANSWER) && question.getTypeId() != Question.GENERAL_DO_NOT_SHOW_RESULTS_TYPE);%>
+                  <% resultsViewable |= (!(question.getStyleId() == Question.LONG_ANSWER || question.getStyleId()== Question.SHORT_ANSWER) && question.getTypeId() != Question.GENERAL_DO_NOT_SHOW_RESULTS_TYPE && surveyInfo.areResultsViewable());%>
                   <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
                         <tr>
                            <td colspan="2" class="bodySubtitle" valign="top" width="100%" align="center">
