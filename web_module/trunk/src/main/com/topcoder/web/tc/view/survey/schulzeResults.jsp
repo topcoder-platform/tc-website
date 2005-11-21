@@ -15,6 +15,18 @@
     <title>Member Surveys</title>
 
     <jsp:include page="../script.jsp"/>
+<STYLE TYPE="text/css">
+.logoBig
+{
+width: 300px;
+height: 300px;
+}
+.logoSmall
+{
+width: 60px;
+height: 60px;
+}
+</STYLE>
 </head>
 
 <body>
