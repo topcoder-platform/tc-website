@@ -283,6 +283,7 @@
                         <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18 years of age,  and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
                         <li>In the event that any member who is ineligible to receive prizes places in a position in which they would receive a prize, they will be asked to pick a <a href="?&amp;t=support&amp;c=charities">charity</a> to which to donate their prize. In the event that the member does not pick a charity, TopCoder will pick a charity to which the ineligible member's prize will be paid.</li>
                         <li>Employees of SAP and/or persons living in the same household as such employees are ineligible to win prizes in this competition and are ineligible to donate any prize to charity.  If any such employee finishes in a prize-winning position in the competition, the next-best competitor will either receive the prize or be able to donate the applicable prize to a charity.</li>
+                        <li>You must be a member of the SAP Developer Network to be eligible for the iPod raffle.  Go here to register:  <a href="http://www.topcoder.com/?t=sponsor&c=link&link=http://sdn.sap.com">http://sdn.sap.com</a> and use “TopCoder” as a referral.</li>
                       </UL>
                       <BR/><BR/>
 
