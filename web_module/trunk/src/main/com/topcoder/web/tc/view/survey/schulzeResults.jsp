@@ -68,7 +68,7 @@ height: 60px;
             <% if (results.hasSingleWinner()) {%>
             <p>The winner is <%=results.getWinner().getName()%></p>
             <% } %>
-            <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
+            <table width="510" border="0" cellpadding="0" cellspacing="0" class="formFrame" align="center">
                 <tr>
                     <td>Rank</td>
                     <td>Candidate</td>
@@ -91,7 +91,7 @@ height: 60px;
                 When calculating the winner in this type of election, one can organize the data into a matrix.
                 You can see that matrix here. Each cell (row,col) indicates how many times row was preferred over col.
             </p>
-            <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
+            <table width="510" border="0" cellpadding="0" cellspacing="0" class="formFrame" align="center">
                 <%  int size = results.getSumMatrix().getCandidates().length;
                 %> <tr><td></td> <%
                 for (int i = 0; i < size; i++) {
@@ -101,7 +101,7 @@ height: 60px;
                 <% for (int i = 0; i < size; i++) {%>
                 <tr><td><%=results.getSumMatrix().getCandidates()[i].getName()%></td>
                     <%for (int j = 0; j < size; j++) {%>
-                    <td>
+                    <td align="center">
                         <%if (results.getSumMatrix().getValue(i,j)>=0) {%>
                             <%=results.getSumMatrix().getValue(i,j)%>
                         <%}%>
