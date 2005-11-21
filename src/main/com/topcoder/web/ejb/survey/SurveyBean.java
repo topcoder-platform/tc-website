@@ -86,6 +86,11 @@ public class SurveyBean extends BaseEJB {
                 new String[]{"survey_id"}, new String[]{String.valueOf(surveyId)}, dataSource);
     }
 
+    public void setResultsViewable(long surveyId, boolean resultsViewable, String dataSource) {
+        update("survey", new String[]{"results_viewable"}, new String[]{resultsViewable?"1":"0"},
+                new String[]{"survey_id"}, new String[]{String.valueOf(surveyId)}, dataSource);
+    }
+
     public String getName(long surveyId, String dataSource) {
         return selectString("survey", "name", new String[]{"survey_id"},
                 new String[]{String.valueOf(surveyId)}, dataSource);
@@ -109,6 +114,11 @@ public class SurveyBean extends BaseEJB {
     public String getText(long surveyId, String dataSource) {
         return selectString("survey", "text", new String[]{"survey_id"},
                 new String[]{String.valueOf(surveyId)}, dataSource);
+    }
+
+    public boolean areResultsViewable(long surveyId, String dataSource) {
+        return selectInt("survey", "results_viewable", new String[]{"survey_id"},
+                new String[]{String.valueOf(surveyId)}, dataSource).intValue()==1;
     }
 
 
