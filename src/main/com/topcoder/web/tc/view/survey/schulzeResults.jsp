@@ -60,18 +60,22 @@ height: 60px;
                         <p align="right" class="bodyText"><a href="/tc?module=SurveyList">Archive</a></p></td>
                 </tr>
             </table>
+
+            <div align="center">
+            <div align="left" style="width: 600px;">
+
              <% if (surveyInfo.getText()!=null) { %>
-            <p><jsp:getProperty name="surveyInfo" property="text"/></p>
+            <span class="bodyTitle"><jsp:getProperty name="surveyInfo" property="text"/></span><br>
              <% } %>
 
 
             <% if (results.hasSingleWinner()) {%>
             <p>The winner is <%=results.getWinner().getName()%></p>
             <% } %>
-            <table width="510" border="0" cellpadding="0" cellspacing="0" class="formFrame" align="center">
+            <table width="510" border="0" cellpadding="0" cellspacing="0" class="bodyText">
                 <tr>
-                    <td>Rank</td>
-                    <td>Candidate</td>
+                    <td style="padding-right: 10px;"><b>Rank</b></td>
+                    <td width="100%"><b>Candidate</b></td>
                 </tr>
                 <tc-webtag:listIterator list="<%=results.getResults()%>" id="result"
                                         type="com.topcoder.web.common.voting.RankedResult">
@@ -101,7 +105,7 @@ height: 60px;
                 <% for (int i = 0; i < size; i++) {%>
                 <tr><td><%=results.getSumMatrix().getCandidates()[i].getName()%></td>
                     <%for (int j = 0; j < size; j++) {%>
-                    <td align="center">
+                    <td class="bodyText" align="center">
                         <%if (results.getSumMatrix().getValue(i,j)>=0) {%>
                             <%=results.getSumMatrix().getValue(i,j)%>
                         <%}%>
@@ -110,6 +114,9 @@ height: 60px;
                 </tr>
                 <% } %>
             </table>
+            <p><br></p>
+            </div>
+            </div>
 
         </td>
         <!-- Center Column Ends -->
