@@ -41,15 +41,15 @@
     }
 .tco05Title{
     background-color: #FFEA53;
-	color: #000000;
-	font-size: 14px;
-	font-weight: bold;
-	text-decoration: none;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	padding-left: 5px;
-	padding-right: 5px;
-	white-space: nowrap;
+   color: #000000;
+   font-size: 14px;
+   font-weight: bold;
+   text-decoration: none;
+   padding-top: 3px;
+   padding-bottom: 3px;
+   padding-left: 5px;
+   padding-right: 5px;
+   white-space: nowrap;
 }
 </style>
 
@@ -88,8 +88,8 @@
             <xsl:with-param name="title">&#160;Components</xsl:with-param>
             </xsl:call-template>
 
-            <p><h2 align="left">Projects for Design and/or Development currently available!</h2></p>
-
+            <div style="float:right;"><A href="/?t=development&amp;c=getting_started"><img src="/i/development/get_started.gif" alt="Getting Started" border="0" /></A></div>
+            <h2>Available Design &amp; Development Projects</h2>
 
 <!-- Open Component Design Projects begins -->
 
@@ -130,7 +130,7 @@
                         <xsl:variable name="estimated_dev">
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="estimated_dev_date"/></xsl:call-template>
                         </xsl:variable>
-			<xsl:variable name="reg_end">
+         <xsl:variable name="reg_end">
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="reg_end_date"/></xsl:call-template> 9:00 AM ET
                         </xsl:variable>
                         <tr valign="top">
@@ -230,7 +230,7 @@
                         <xsl:variable name="final_submission">
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template>
                         </xsl:variable>
-			<xsl:variable name="reg_end">
+         <xsl:variable name="reg_end">
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="reg_end_date"/></xsl:call-template> 9:00 AM ET
 
                         </xsl:variable>
