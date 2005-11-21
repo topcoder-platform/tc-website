@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>11.18.05<br>5:10 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=msn_chat_111905">MSN chat session from SRM 272</A></span><br><br>
+      MSN recently held a chat session just prior to SRM 272 to discuss working at MSN.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=contracting&d2=msn_chat_111905">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505830" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>11.21.05<br>11:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -284,19 +297,6 @@
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.21.05<br>2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_finals">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_finals">Development</A> results from the TCO05 Finals</span><br><br>
-      The results for TCO05 CDDC, including scores and submissions.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_finals_analysis">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505816" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
 
 </table>
 <br><br>
