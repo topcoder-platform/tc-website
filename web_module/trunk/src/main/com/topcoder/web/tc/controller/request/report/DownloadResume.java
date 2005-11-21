@@ -5,7 +5,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.legacy.resume.bean.Resume;
+import com.topcoder.web.tc.model.Resume;
 import com.topcoder.web.tc.controller.request.Base;
 
 import javax.servlet.ServletOutputStream;
