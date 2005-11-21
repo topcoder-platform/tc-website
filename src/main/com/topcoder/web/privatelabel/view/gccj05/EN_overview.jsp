@@ -152,36 +152,32 @@ The 250 participants in Round 2 will receive a "Google&#153; Code Jam China" t-s
 <br><br>
 
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
-<tr valign="top"><td class="sidebarText"><b>First Prize ($5000 USD)</b></td>
+<tr valign="top">
+<td class="sidebarTitle">Competitor(s)</td>
+<td class="sidebarTitle">Prize(s)</td>
+</tr>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap"><b>First Prize ($5000 USD)</b></td>
 <td class="sidebarText">
 <b>
-High-end PC with Intel Dual Core CPU and 20-inch LCD display: $2750 USD<br>
-Apple PowerBook 15-inch laptop or IBM T43 laptop: $2000 USD<br>
-iPod Nano 4G: $250 USD
+A package of high end electronics including a high end PC, 20-inchmonitor, Laptop computer and brand new personal listening device
 </b>
 </td></tr>
-<tr valign="top"><td class="sidebarText">2nd - 4th Place ($2500 USD)
+<tr valign="top"><td class="sidebarText" nowrap="nowrap">2nd - 4th Place ($2500 USD) 
 </td><td class="sidebarText">
-Apple PowerBook 15-inch laptop or IBM T43 laptop: $2000 USD<br>
-Palm Treo600 PDA Phone: $250 USD<br>
-iPod Nano 4G: $250 USD
+A package including a laptop computer, PDA phone, personal listing device
 </td></tr>
-<tr valign="top"><td class="sidebarText">5th – 10th ($1000 USD)</td>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap">5th – 10th ($1000 USD)</td>
 <td class="sidebarText">
-Canon PowerShot SD20 / IXUS i5 Digital Camera with memory: $500 USD<br>
-Palm Treo600 PDA Phone: $250 USD<br>
-iPod Nano 4G: $250 USD
+A package including a digital camera, PDA phone and a personallistening device
 </td></tr>
-<tr valign="top"><td class="sidebarText">11th – 20th ($500 USD)</td>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap">11th – 20th ($500 USD)</td>
 <td class="sidebarText">
-Palm Treo600 PDA Phone: $250 USD<br>
-iPod Nano 4G: $250 USD
+A package including a PDA phone and a personal listening device
 </td></tr>
-<tr valign="top"><td class="sidebarText">21st – 50th ($250 USD)</td>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap">21st – 50th ($250 USD)</td>
 <td class="sidebarText">
-iPod Nano 4G: $250 USD
+a brand new personal listening device
 </td></tr>
-<tr><td class="sidebarText" colspan="2">Depending on product availability, the actual prizes may change</td></tr>
 </table>
 <br><br>
 To find out more detailed information about the Google&#153; Code Jam China, including a list of the prizes, please read the

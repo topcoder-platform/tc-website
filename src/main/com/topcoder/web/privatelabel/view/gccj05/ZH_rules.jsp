@@ -157,22 +157,26 @@ Google 中国为每位决赛选手提供所有的旅行膳宿，并妥善安排�
 <td class="sidebarTitle">参赛者</td>
 <td class="sidebarTitle">奖品</td>
 </tr>
-<tr valign="top"><td class="sidebarText"><b>第1名 (共价值40,000人民币)</b></td>
-<td class="sidebarText">
-<b>一组高端个人编程工作站</b>
+<tr valign="top">
+<td class="sidebarText"><b>第1名 (共价值40,000人民币)</b></td>
+<td class="sidebarText"><b>一组高端个人编程工作站</b></td>
+</tr>
+<tr valign="top">
+<td class="sidebarText">第2至第4名 (共价值20,000人民币)</td>
+<td class="sidebarText">一台笔记本电脑， PDA手机， 以及一款全新个人随身听
 </td></tr>
-<tr valign="top"><td class="sidebarText">第2至第4名 (共价值20,000人民币)</td><td class="sidebarText">
-一台笔记本电脑， PDA手机， 以及一款全新个人随身听
-</td></tr>
-<tr valign="top"><td class="sidebarText">第5至10名(共价值8,000人民币)</td><td class="sidebarText">
-一台数字相机，PDA手机， 以及一款全新个人随身听
-</td></tr>
-<tr valign="top"><td class="sidebarText">第第11至20名(共价值4,000人民币)</td><td class="sidebarText">
-PDA手机， 以及一款全新个人随身听
-</td></tr>
-<tr valign="top"><td class="sidebarText">第21至50名 (共价值2,000人民币)</td><td class="sidebarText">
-一款全新个人随身听
-</td></tr>
+<tr valign="top">
+<td class="sidebarText">第5至10名(共价值8,000人民币)</td>
+<td class="sidebarText">一台数字相机，PDA手机， 以及一款全新个人随身听</td>
+</tr>
+<tr valign="top">
+<td class="sidebarText">第第11至20名(共价值4,000人民币)</td>
+<td class="sidebarText">PDA手机， 以及一款全新个人随身听</td>
+</tr>
+<tr valign="top">
+<td class="sidebarText">第21至50名 (共价值2,000人民币)</td>
+<td class="sidebarText">一款全新个人随身听</td>
+</tr>
 </table>
 <br><br>
 
