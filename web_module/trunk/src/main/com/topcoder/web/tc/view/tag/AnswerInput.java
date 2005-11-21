@@ -156,6 +156,10 @@ public class AnswerInput extends BaseTag {
     private String buildRadioButton(long answerId) {
         setName(PREFIX + question.getId());
         StringBuffer s = new StringBuffer(200);
+        if(question.getTypeId()==Question.SCHULZE_ELECTION_TYPE) {
+            s.append("Rank this candidate 1-"+question.getAnswerInfo().size()+" (1 = Most Preferred, "
+                    +question.getAnswerInfo().size()+" = Least Preferred ");
+        }
         s.append("<input type=\"radio\" name=\"");
         s.append(name);
         s.append("\"");
@@ -178,6 +182,10 @@ public class AnswerInput extends BaseTag {
     private String buildDropDown() {
         setName(PREFIX + question.getId());
         StringBuffer s = new StringBuffer(2000);
+        if(question.getTypeId()==Question.SCHULZE_ELECTION_TYPE) {
+            s.append("Rank this candidate 1-"+question.getAnswerInfo().size()+" (1 = Most Preferred, "
+                    +question.getAnswerInfo().size()+" = Least Preferred ");
+        }
         s.append("<select");
         if (name != null) {
             s.append(" name=\"" + name + "\"");
