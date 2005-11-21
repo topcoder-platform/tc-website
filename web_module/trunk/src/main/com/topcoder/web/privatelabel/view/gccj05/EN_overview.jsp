@@ -168,7 +168,7 @@ A package including a laptop computer, PDA phone, personal listening device
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">5th – 10th (8,000 RMB)</td>
 <td class="sidebarText">
-A package including a digital camera, PDA phone and a personallistening device
+A package including a digital camera, PDA phone and a personal listening device
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">11th – 20th (4,000 RMB)</td>
 <td class="sidebarText">
