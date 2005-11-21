@@ -139,39 +139,31 @@
 <br><br>
 晋级第二轮的250名参赛者将获赠"Google™ Code Jam - 中国编程挑战赛"T恤一件。晋级冠军赛的50名参赛者将获得如下的奖项:
 <br><br>
-<table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
+<table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
 <tr valign="top">
 <td class="sidebarTitle">参赛者</td>
 <td class="sidebarTitle">奖品</td>
 </tr>
-<tr valign="top"><td class="sidebarText"><b>第1名 (共价值5000美元)</b></td>
-<td class="sidebarText">
-<b>Intel Dual Core<br>
-CPU和20英寸LCD显示器的高端个人电脑：价值2750美元<br>
-Apple PowerBook 15英寸便携式电脑或者IBM T43<br>
-便携式电脑：价值2000美元<br>
-4G iPod Nano：价值250美元</b>
+<tr valign="top">
+<td class="sidebarText"><b>第1名 (共价值40,000人民币)</b></td>
+<td class="sidebarText"><b>一组高端个人编程工作站</b></td>
+</tr>
+<tr valign="top">
+<td class="sidebarText">第2至第4名 (共价值20,000人民币)</td>
+<td class="sidebarText">一台笔记本电脑， PDA手机， 以及一款全新个人随身听
 </td></tr>
-<tr valign="top"><td class="sidebarText">第2至第4名 (共价值2500美元)</td><td class="sidebarText">
-Apple PowerBook 15英寸便携式电脑或者IBM T43<br>
-便携式电脑：价值2000美元<br>
-Palm Treo600 PDA 电话：价值250美元<br>
-4G iPod Nano：价值250美元
-</td></tr>
-<tr valign="top"><td class="sidebarText">第5至10名 (共价值1000美元)</td><td class="sidebarText">
-Canon PowerShot SD20 / IXUS i5<br>
-数码相机，带记忆体：价值500美元<br>
-Palm Treo600 PDA 电话：价值250美元<br>
-4G iPod Nano：价值250美元
-</td></tr>
-<tr valign="top"><td class="sidebarText">第11至20名 (共价值500美元)</td><td class="sidebarText">
-Palm Treo600 PDA 电话：价值250美元<br>
-4G iPod Nano：价值250美元
-</td></tr>
-<tr valign="top"><td class="sidebarText">第21至50名 (共价值250美元)</td><td class="sidebarText">
-4G iPod Nano：价值250美元
-</td></tr>
-<tr><td colspan="2" class="sidebarText">*视厂家供货状况，上述奖项有可能发生变化。</td></tr>
+<tr valign="top">
+<td class="sidebarText">第5至10名(共价值8,000人民币)</td>
+<td class="sidebarText">一台数字相机，PDA手机， 以及一款全新个人随身听</td>
+</tr>
+<tr valign="top">
+<td class="sidebarText">第第11至20名(共价值4,000人民币)</td>
+<td class="sidebarText">PDA手机， 以及一款全新个人随身听</td>
+</tr>
+<tr valign="top">
+<td class="sidebarText">第21至50名 (共价值2,000人民币)</td>
+<td class="sidebarText">一款全新个人随身听</td>
+</tr>
 </table>
 <br><br>
 想要了解更多的 Google&#153; Code Jam - 中国编程挑战赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
