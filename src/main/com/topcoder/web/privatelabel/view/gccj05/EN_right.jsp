@@ -28,7 +28,7 @@
     <tr><td>&#160;</td></tr>
     <tr>
         <td align="center" nowrap=nowrap class="smallGreenBox">
-            <span class="bodyTextGreen">$30,000USD worth<br>of hi-tech prizes</span>
+            <span class="bodyTextGreen">250,000 RMB worth<br>of hi-tech prizes</span>
         </td>
     </tr>
 </table>
