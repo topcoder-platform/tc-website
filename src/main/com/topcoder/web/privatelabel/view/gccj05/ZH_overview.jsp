@@ -137,7 +137,7 @@
 <br><br>
 <span class="greenSubtitle">奖品</span>
 <br><br>
-晋级第二轮的250名参赛者将获赠"Google™ Code Jam - 中国编程挑战赛"T恤一件。晋级冠军赛的50名参赛者将获得如下的奖项:
+晋级第二轮的250名参赛者将获赠"Google™ Code Jam - 中国编程挑战赛"T恤一件和李开复博士撰写并签名的《做最好的自己》一书。晋级冠军赛的50名参赛者将获得如下的奖项:
 <br><br>
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
 <tr valign="top">
@@ -149,19 +149,19 @@
 <td class="sidebarText"><b>一组高端个人编程工作站</b></td>
 </tr>
 <tr valign="top">
-<td class="sidebarText">第2至第4名 (共价值20,000人民币)</td>
+<td class="sidebarText">第2至第4名 (每位奖品价值20,000人民币)</td>
 <td class="sidebarText">一台笔记本电脑， PDA手机， 以及一款全新个人随身听
 </td></tr>
 <tr valign="top">
-<td class="sidebarText">第5至10名(共价值8,000人民币)</td>
+<td class="sidebarText">第5至10名(每位奖品价值8,000人民币)</td>
 <td class="sidebarText">一台数字相机，PDA手机， 以及一款全新个人随身听</td>
 </tr>
 <tr valign="top">
-<td class="sidebarText">第第11至20名(共价值4,000人民币)</td>
+<td class="sidebarText">第11至20名(每位奖品价值4,000人民币)</td>
 <td class="sidebarText">PDA手机， 以及一款全新个人随身听</td>
 </tr>
 <tr valign="top">
-<td class="sidebarText">第21至50名 (共价值2,000人民币)</td>
+<td class="sidebarText">第21至50名 (每位奖品价值2,000人民币)</td>
 <td class="sidebarText">一款全新个人随身听</td>
 </tr>
 </table>
