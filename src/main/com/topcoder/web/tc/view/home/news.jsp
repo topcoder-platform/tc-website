@@ -9,6 +9,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>11.21.05<br>11:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm272">SRM 272 - Problem Set & Analysis</A></span><br><br>
+      With twelve coders in Div1 solving all three problems, this match was easier than some, but not without its difficulties. <tc-webtag:handle coderId="277659" context="algorithm"/> was able to come up with two successful challenges to pass <tc-webtag:handle coderId="8355516" context="algorithm"/> and take 3rd in the match.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/Ryan_mug.gif" /><br>by <tc-webtag:handle coderId="284007" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm272">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505786" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.21.05<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_112105">Component Competition Winnings Surpass $1 Million</A></span><br><br>
       Contributions to TopCoder Software Competitions and Projects Show Attractive Returns for Global Programming Community from Countries Including China, Russian Federation and Romania As Royalty Payments Grow.
@@ -280,20 +297,6 @@
          <tc-webtag:forumLink forumID="505816" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>10.21.05<br>11:20 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=movies">Interviews with the TCO05 Champions</A></span><br><br>
-      Take a look at what the TCO05 Champions have to say.  Shots of giant checks included!
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=movies">watch movies</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505815" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>
