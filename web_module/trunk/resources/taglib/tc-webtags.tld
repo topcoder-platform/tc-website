@@ -204,7 +204,6 @@
     </tag>
     <tag>
         <name>rscSelect</name>
-        <info>Generates an html select box for fiven ResultSetContainer</info>
         <tagclass>com.topcoder.web.common.tag.RSCSelectTag</tagclass>
         <attribute>
             <name>name</name>
