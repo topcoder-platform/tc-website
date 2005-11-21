@@ -10,7 +10,7 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.ejb.resume.ResumeServices;
-import com.topcoder.web.tc.controller.legacy.resume.bean.Resume;
+import com.topcoder.web.tc.model.Resume;
 
 import javax.servlet.ServletOutputStream;
 
