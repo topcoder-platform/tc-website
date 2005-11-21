@@ -45,7 +45,10 @@ margin:0px auto;
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr>
       <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
+      <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=pressroom&d2=pr_112105"><IMG SRC="/i/home/milestone_million.gif" border="0" ALT="$1,000,000 in Component Competition Payouts"/></A></td>
+<%-- MSN
       <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=contracting&d2=msn"><IMG SRC="/i/home/msn_emp_opps.gif" border="0" ALT="MSN is hiring"/></A></td>
+--%>
       <td width="50%" class="homeLogo" align="right">&#160;</td>
    </tr>
 </table>
@@ -179,6 +182,8 @@ margin:0px auto;
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
 
+            TopCoder Payouts to Winners of Design and Development Competitions Surpass $1 Million <A href="/tc?module=Static&d1=pressroom&d2=pr_112105">...more</A><br>[November 21]<br><br>
+
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/ftponline_logo.gif" width="67" height="18" alt="FTPONLINE" border="0" /></div>
             Spirited Reusable Component Development <A href="http://www.ftponline.com/weblogger/forum.aspx?ID=13&DATE=11/01/2005&blog=#449" target="_blank">...more</A><br>[November 1]<br><br>
 
@@ -191,9 +196,6 @@ margin:0px auto;
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/mass_high_tech.gif" width="67" height="21" alt="MHT" border="0" /></div>
             Sorrowful state of software <A href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=69982" target="_blank">...more</A><br>[October 17]<br><br>
-
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/carynews_logo.gif" width="67" height="20" alt="CN" border="0" /></div>
-            Ready, again, for TopCoder battle <A href="http://www.carynews.com/enterprise/story/2805639p-9249369c.html" target="_blank">...more</A><br>[September 28]<br><br>
 
             </td>
          </tr>
