@@ -83,7 +83,7 @@
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">在线第一轮</td>
-                    <td class="sidebarText">12月19日， 21:00开始</td>
+                    <td class="sidebarText">2005 年12月19日， 21:00开始</td>
                     <td class="sidebarText" align="center">500</td>
                     <td class="sidebarText" align="center">250</td>
                 </tr>
