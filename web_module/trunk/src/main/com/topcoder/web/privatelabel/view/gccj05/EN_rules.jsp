@@ -208,12 +208,12 @@ the prizewinner. Prizes will be distributed as follows:
 <tr valign="top"><td class="sidebarText" nowrap="nowrap"><b>First Prize (40,000 RMB)</b></td>
 <td class="sidebarText">
 <b>
-A package of high end electronics including a high end PC, 20-inchmonitor, Laptop computer and brand new personal listening device
+A package of high end electronics including a high end PC, 20-inchmonitor, laptop computer and brand new personal listening device
 </b>
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">2nd - 4th Place (20,000 RMB) 
 </td><td class="sidebarText">
-A package including a laptop computer, PDA phone, personal listing device
+A package including a laptop computer, PDA phone, personal listening device
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">5th – 10th (8,000 RMB)</td>
 <td class="sidebarText">
