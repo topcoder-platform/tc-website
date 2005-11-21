@@ -38,6 +38,12 @@
            <jsp:param name="title" value="TopCoder Web Site Change Log"/>
         </jsp:include>
             <p>
+                4.0.8 - 2005.11.21
+                <ul>
+                    <li>bug fix for uploading resumes</li>
+                </ul>
+            </p>
+        <p>            <p>
                 4.0.7 - 2005.11.18
                 <ul>
                     <li>finished up the results page for condorcet schulze elections</li>
