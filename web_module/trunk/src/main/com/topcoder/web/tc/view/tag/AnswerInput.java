@@ -59,7 +59,8 @@ public class AnswerInput extends BaseTag {
                 processed = true;
                 return EVAL_BODY_AGAIN;
             }
-        } else if (question.getStyleId() == Question.SINGLE_CHOICE && question.getAnswerInfo().size() > 5) {
+        } else if (question.getTypeId()==Question.SCHULZE_ELECTION_TYPE ||
+                (question.getStyleId() == Question.SINGLE_CHOICE && question.getAnswerInfo().size() > 5)) {
             //if there are a bunch of potential answers and it's a single choice, we'll give them a drop down
             //instead of radio buttons
             inputText = buildDropDown();
@@ -69,6 +70,13 @@ public class AnswerInput extends BaseTag {
             if (processed) {
                 return wrapItUp();
             } else {
+                if(question.getTypeId()==Question.SCHULZE_ELECTION_TYPE) {
+                    pageContext.setAttribute(ANSWER_TEXT, "Rank this candidate 1-"+question.getAnswerInfo().size()+" (1 = Most Preferred, "
+                            +question.getAnswerInfo().size()+" = Least Preferred", PageContext.PAGE_SCOPE);
+                } else {
+                    pageContext.setAttribute(ANSWER_TEXT, "", PageContext.PAGE_SCOPE);
+                }
+
                 pageContext.setAttribute(ANSWER_TEXT, "", PageContext.PAGE_SCOPE);
                 pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
                 processed = true;
@@ -182,10 +190,6 @@ public class AnswerInput extends BaseTag {
     private String buildDropDown() {
         setName(PREFIX + question.getId());
         StringBuffer s = new StringBuffer(2000);
-        if(question.getTypeId()==Question.SCHULZE_ELECTION_TYPE) {
-            s.append("Rank this candidate 1-"+question.getAnswerInfo().size()+" (1 = Most Preferred, "
-                    +question.getAnswerInfo().size()+" = Least Preferred ");
-        }
         s.append("<select");
         if (name != null) {
             s.append(" name=\"" + name + "\"");
