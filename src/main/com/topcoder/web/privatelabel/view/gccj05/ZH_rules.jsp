@@ -49,15 +49,15 @@
 <span class="bigRed">参加竞赛不需要交纳任何费用。</span>
 <br><br>
 <span class="greenSubtitle">锦标赛概要</span><br>
-此次Google&#153; Code Jam - 中国编程挑战赛 由Google中国和TopCoder公司共同主办。Google 一直以技术创新使人们受益为宗旨，这次旨在通过举办比赛，鼓励并嘉奖中国顶级编程人才。赛事将在2005年11月21日开始举行，至2006年1月20日星期五结束。所有希望参赛的选手需要在线注册。整个赛事包括1次资格赛，2次在线淘汰赛和1次现场决赛。所有能够进入到第二轮赛事(即第2轮在线淘汰赛)的选手可以获赠此次赛事的冠名T恤一件。此外，Google 中国将为最终参加决赛的50名选手提供高达30000美元的奖品。
+此次Google™ Code Jam - 中国编程挑战赛 由Google中国和TopCoder公司共同主办。Google 一直以技术创新使人们受益为宗旨，这次旨在通过举办比赛，鼓励并嘉奖中国顶级编程人才。赛事将在2005年11月21日开始报名注册，至2006年1月20日星期五结束。所有希望参赛的选手需要在线注册。整个赛事包括1次资格赛，2次在线淘汰赛和1次现场决赛。所有能够进入到第二轮赛事(即第2轮在线淘汰赛)的选手可以获赠此次赛事的冠名T恤一件和李开复博士撰写并签名的《做最好的自己》一书。此外，Google 中国将为最终参加决赛的50名选手提供高达25万元的奖品。
 <br><br>
 <b>参赛资格</b><br>
 所有在2005年12月12日满18周岁的中国居民和个人都可以注册和参加此次Google™ Code Jam - 中国编程挑战赛的赛事。
 <br><br>
 以下人员同样不得参加此次赛事：Google公司和TopCoder公司的全职和兼职工作人员，以及于2005年11月21日至2006年1月20日参加公司实习的人员，此次赛事的赞助商(包括奖品提供商)，组委及其广告商、宣传中介、其母公司、服务商、代理商、工作人员、子公司以及与此次赛事有直接合作关系的任何个人或团体，或与赛事成员有直接亲属关系或共同生活的个人。
 <br><br>
-<b>注册</b><br>
-注册从北京时间2005年11月21日星期一上午9点开始，至北京时间2005年12月12日星期一上午9点结束。此次注册没有总人数限制，但每人只能注册一次。
+<b>报名注册</b><br>
+报名注册从北京时间2005年11月21日星期一上午9点开始，至北京时间2005年12月12日星期一上午9点结束。此次注册没有总人数限制，但每人只能注册一次。
 <br><br>
 <b>资格赛</b><br>
 资格赛会在北京时间2005年12月12日星期一中午至北京时间2005年12月13日星期二中午全程24小时在线开放。 
@@ -139,7 +139,7 @@
 </ul>
 
 <b>现场冠军赛</b><br>
-50名从第二轮脱颖而出的参赛者将于2006年1月20日星期五在中国参加最后的冠军赛。每位选手必须在北京时间2006年1月3日中午12时确认他/她的出席。也就是说，参赛者必须拥有必要的旅游签证 （？？在中国为什么需要签证？），并且确认能在比赛当天准时抵达。如果不能在上述日期前确定参赛者在比赛当天的出席情况，他/她将自动丧失比赛权利和奖项，同时他的参赛机会将顺延给下一位第二轮比赛的最高分者。
+50名从第二轮脱颖而出的参赛者将于2006年1月20日星期五在中国参加最后的冠军赛。每位选手必须在北京时间2006年1月3日中午12时确认他/她的出席，并且确认能在比赛当天准时抵达。如果不能在上述日期前确定参赛者在比赛当天的出席情况，他/她将自动丧失比赛权利和奖项，同时他的参赛机会将顺延给下一位第二轮比赛的最高分者。
 <br><br>
 Google 中国为每位决赛选手提供所有的旅行膳宿，并妥善安排往返机场及比赛现场的接送。其他费用由参赛者自行承担。
 <br><br>
@@ -150,41 +150,29 @@ Google 中国为每位决赛选手提供所有的旅行膳宿，并妥善安排�
 </ul>
 
 <span class="greenSubtitle">关于奖品</span><br>
-所有参加第二轮资格比赛的选手可以获赠"Google™ Code Jam - 中国编程挑战赛"冠名T恤一件。此外，50名冠军赛选手可以获得如下奖品（奖品的税收问题由得奖人自行负责）：
+所有参加第二轮资格比赛的选手可以获赠"Google™ Code Jam - 中国编程挑战赛"冠名T恤一件和李开复博士撰写并签名的《做最好的自己》一书。此外，50名冠军赛选手可以获得如下奖品（奖品的税收问题由得奖人自行负责）：
 <br><br>
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
 <tr valign="top">
 <td class="sidebarTitle">参赛者</td>
 <td class="sidebarTitle">奖品</td>
 </tr>
-<tr valign="top"><td class="sidebarText"><b>第1名 (共价值5000美元)</b></td>
+<tr valign="top"><td class="sidebarText"><b>第1名 (共价值40,000人民币)</b></td>
 <td class="sidebarText">
-<b>Intel Dual Core<br>
-CPU和20英寸LCD显示器的高端个人电脑：价值2750美元<br>
-Apple PowerBook 15英寸便携式电脑或者IBM T43<br>
-便携式电脑：价值2000美元<br>
-4G iPod Nano：价值250美元</b>
+<b>一组高端个人编程工作站</b>
 </td></tr>
-<tr valign="top"><td class="sidebarText">第2至第4名 (共价值2500美元)</td><td class="sidebarText">
-Apple PowerBook 15英寸便携式电脑或者IBM T43<br>
-便携式电脑：价值2000美元<br>
-Palm Treo600 PDA 电话：价值250美元<br>
-4G iPod Nano：价值250美元
+<tr valign="top"><td class="sidebarText">第2至第4名 (共价值20,000人民币)</td><td class="sidebarText">
+一台笔记本电脑， PDA手机， 以及一款全新个人随身听
 </td></tr>
-<tr valign="top"><td class="sidebarText">第5至10名 (共价值1000美元)</td><td class="sidebarText">
-Canon PowerShot SD20 / IXUS i5<br>
-数码相机，带记忆体：价值500美元<br>
-Palm Treo600 PDA 电话：价值250美元<br>
-4G iPod Nano：价值250美元
+<tr valign="top"><td class="sidebarText">第5至10名(共价值8,000人民币)</td><td class="sidebarText">
+一台数字相机，PDA手机， 以及一款全新个人随身听
 </td></tr>
-<tr valign="top"><td class="sidebarText">第11至20名 (共价值500美元)</td><td class="sidebarText">
-Palm Treo600 PDA 电话：价值250美元<br>
-4G iPod Nano：价值250美元
+<tr valign="top"><td class="sidebarText">第第11至20名(共价值4,000人民币)</td><td class="sidebarText">
+PDA手机， 以及一款全新个人随身听
 </td></tr>
-<tr valign="top"><td class="sidebarText">第21至50名 (共价值250美元)</td><td class="sidebarText">
-4G iPod Nano：价值250美元
+<tr valign="top"><td class="sidebarText">第21至50名 (共价值2,000人民币)</td><td class="sidebarText">
+一款全新个人随身听
 </td></tr>
-<tr><td colspan="2" class="sidebarText">*视厂家供货状况，上述奖项有可能发生变化。</td></tr>
 </table>
 <br><br>
 
