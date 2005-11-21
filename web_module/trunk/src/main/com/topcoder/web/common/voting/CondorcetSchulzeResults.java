@@ -113,7 +113,7 @@ public class CondorcetSchulzeResults implements Serializable {
         int rank = 0;
         for (int i=0; i<map.length; i++) {
             if (map[i].getLoseCount()!=lastLoses) {
-                rank++;
+                rank=i+1;
             }
             results[i] = new RankedResult(map[i].getCandidate(), rank);
             lastLoses = map[i].getLoseCount();
