@@ -42,11 +42,25 @@
 <!-- Upcoming Tournaments begins -->
 
 <%--
+--%>
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="header">Upcoming Private Label Events</td></tr>
             </table>
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
---%>
+           <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274" rowspan="2"><A href="/pl/?module=Static&d1=gccj05&d2=ZH_overview" target="_blank"><img src="/i/events/gcjc05.gif" alt="GCJC" border="0" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>Google Code Jam China</strong></font></td>
+                </tr>
+                <tr valign="top">
+                    <td class="bodyText">
+                        January 20, 2006<br />
+                        <A href="/pl/?module=Static&d1=gccj05&d2=ZH_overview" target="_blank">Summary</A>
+                    </td>
+                </tr>
+            </table>
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 <!-- Past Tournaments begins -->
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="header">Past Private Label Events</td></tr>
