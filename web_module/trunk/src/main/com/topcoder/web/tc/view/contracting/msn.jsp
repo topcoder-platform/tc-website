@@ -37,10 +37,12 @@
       <div align="center">
       <img src="/i/contracting/msn_logo.gif" border=0/>
       </div>
+<p align="center">
+<a href="/tc?module=JobHit&jid=324&jt=4">Apply now</A>
+&#160;|&#160;<A href="/tc?module=Static&d1=contracting&d2=msn_chat_111905">SRM 272 Chat Transcript</A>
+</p>
 
 <p>
-<a href="/tc?module=JobHit&jid=324&jt=4">Apply now</A>
-<br><br>
 <b>Did you...</b><br>
 ...know that one of the main reasons why MSN.com is thrilled to be working with TopCoder is because of <b>YOU</b>, the dedicated, creative and brilliant TopCoder members.  
 <br><br>
