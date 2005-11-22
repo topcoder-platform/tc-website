@@ -37,7 +37,7 @@ To be eligible for the drawing, you must be:
 Employees of SAP and TopCoder, Inc., their affiliated companies, advertising and promotion agencies and immediate family members of each are not eligible. All federal, state and local laws and regulations apply. Void where prohibited.
 <br><br>
 <span class="bodySubtitle">TO ENTER</span><br>
-If not already a member, register for SAP Developer Network electronically at http://sdn.sap.com using "TopCoder" as a referral.  You must be a registered member of SAP Developer Network by, latest, one hour prior to the match, to be included in the drawing. Only one entry per person.
+If not already a member, register for SAP Developer Network electronically at <A href="/?t=sponsor&c=link&link=http://sdn.sap.com" target="_blank">http://sdn.sap.com</A> using "TopCoder" as a referral.  You must be a registered member of SAP Developer Network by, latest, one hour prior to the match, to be included in the drawing. Only one entry per person.
 <br><br>
 SAP is not responsible for entries not received due to lost, failed, delayed, or interrupted connection or miscommunications, or other electronic malfunctions. SAP is not responsible for incorrect or inaccurate entry information, whether caused by persons entered at the Web site or by any of the equipment or programming associated with or utilized in the promotion or by any human error which may occur in the processing of the entries in this promotion. All submissions become property of SAP and will not be returned.
 <br><br>
