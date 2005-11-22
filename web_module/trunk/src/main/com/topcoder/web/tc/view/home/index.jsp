@@ -182,6 +182,9 @@ margin:0px auto;
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
 
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/infoworld_logo.gif" width="67" height="12" alt="InfoWorld" border="0" /></div>
+            Google to hold programming competition in China <A href="http://www.infoworld.com/article/05/11/22/HNgooglecompetition_1.html" target="_blank">...more</A><br>[November 22]<br><br>
+
             TopCoder Payouts to Winners of Design and Development Competitions Surpass $1 Million <A href="/tc?module=Static&d1=pressroom&d2=pr_112105">...more</A><br>[November 21]<br><br>
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/ftponline_logo.gif" width="67" height="18" alt="FTPONLINE" border="0" /></div>
@@ -193,9 +196,6 @@ margin:0px auto;
             TopCoder Selects Aladdin Resort in Las Vegas for TopCoder Open 2006 <A href="/tc?module=Static&d1=pressroom&d2=pr_102105">...more</A><br>[October 21]<br><br>
 
             Champions Announced In 2005 TopCoder Open Sponsored by Sun Microsystems <A href="/tc?module=Static&d1=pressroom&d2=pr_101705">...more</A><br>[October 17]<br><br>
-
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/mass_high_tech.gif" width="67" height="21" alt="MHT" border="0" /></div>
-            Sorrowful state of software <A href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=69982" target="_blank">...more</A><br>[October 17]<br><br>
 
             </td>
          </tr>
