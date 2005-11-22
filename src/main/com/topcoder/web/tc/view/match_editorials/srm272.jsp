@@ -101,7 +101,7 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
     </td>
 
     <td class="bodyText" style="background: #eee;">
-      <b>[4m]Oliver</b> for 249.74 points (0 mins 55 secs)
+      <b>lllllll</b> for 249.74 points (0 mins 55 secs)
     </td>
   </tr>
   <tr>
@@ -110,7 +110,7 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
     </td>
 
     <td class="bodyText" style="background: #eee;">
-      215.51 (for 364 correct submissions)
+      214.07 (for 362 correct submissions)
     </td>
   </tr>
 </table></blockquote>
