@@ -122,6 +122,19 @@
                                 <center><strong><A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/ForumsHost"/>/?module=ThreadList&amp;forumID=<xsl:value-of select="/TC/SCHEDULE/Round/Details/forum_id"/></xsl:attribute>Discuss this match</A></strong><br/><br/></center>
                             </xsl:if>
                             <xsl:choose>
+                            <xsl:when test="$roundId='8070' or $roundId='8073' or $roundId='8076'">                                
+                                <br/>
+                                <b>If you're a member of <A href="/tc?module=Static&amp;d1=sponsors&amp;d2=sap">SAP Developer Network</A> AND take part in <xsl:value-of select="/TC/SCHEDULE/Round/Details/contest_name"/>, you'll be eligible for a chance to win one 60GB Apple iPod!</b><br/><br/>
+                                <table width="428" border="0" cellpadding="6" cellspacing="2" >
+                                        <tr valign="top">
+                                        <td align="center" valign="middle">
+                                            <img src="http://www.topcoder.com/i/sponsor/sap_ipod.jpg" />
+                                        </td>
+                                    </tr>
+                                    </table>
+                                <br/><br/>
+                                For Official Contest Rules on how to win a 60GB Applie iPod click <A href="javascript:openWin('/tc?module=Static&amp;d1=sponsors&amp;d2=sap_ipod_rules',rules,545,655)">here</A>.<br/><br/>                            
+                            </xsl:when>
                             <xsl:when test="$roundId=4710">
                                 <b>For information on how to win an Intel&#174; Centrino(TM) mobile technology-based notebook computer click <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_intel">here</a></b><br/><br/>
                            </xsl:when>
