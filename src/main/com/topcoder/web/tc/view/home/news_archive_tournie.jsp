@@ -35,6 +35,9 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<%--
+<tr class="bodyText"><td nowrap="nowrap">11.23.05 10:00 AM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=213">Vote for the TCO06 logo</A></td></tr>
+--%>
 <tr class="bodyText"><td nowrap="nowrap">10.24.05 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=logo_overview">TCO06 Logo Design Contest</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.21.05 2:00 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_finals">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_finals">Development</A> results for the TCO05 Finals</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.14.05 8:30 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_finals_analysis">Eryx is the new Algorithm Champion</A></td></tr>
