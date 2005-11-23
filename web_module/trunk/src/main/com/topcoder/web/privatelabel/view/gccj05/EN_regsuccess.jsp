@@ -71,6 +71,8 @@
                             you must activate your account by following the directions sent to the email
                             address provided during registration.
                             <br><br>
+							Note: Emails sent in English will receive much quicker responses.  Thank you for your cooperation.
+							<br><br>
                             <span class="bigRed">You will not be able to compete if you
 do not activate your account.</span>
                             <br><br>
