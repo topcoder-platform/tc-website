@@ -7,7 +7,7 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
 
-<%------------------------------------------------------
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.23.05<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=213">Vote for the TCO06 logo</A></span><br><br>
@@ -19,7 +19,7 @@
          <tc-webtag:forumLink forumID="505817" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
---%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.22.05<br>5:25 PM</td>
