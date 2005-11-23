@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Official Contest Rules - Intel&#174; Centrino&#153; Mobile Technology-based Tablet PC.</title>
+<title>Official Contest Rules</title>
 
 <jsp:include page="../script.jsp" />
 

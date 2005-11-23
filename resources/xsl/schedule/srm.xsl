@@ -133,7 +133,7 @@
                                     </tr>
                                     </table>
                                 <br/><br/>
-                                For Official Contest Rules on how to win a 60GB Applie iPod click <A href="javascript:openWin('/tc?module=Static&amp;d1=sponsors&amp;d2=sap_ipod_rules','rules',545,655)">here</A>.<br/><br/>                            
+                                For Official Contest Rules on how to win a 60GB Apple iPod click <A href="javascript:openWin('/tc?module=Static&amp;d1=sponsors&amp;d2=sap_ipod_rules','rules',545,655)">here</A>.<br/><br/>                            
                             </xsl:when>
                             <xsl:when test="$roundId=4710">
                                 <b>For information on how to win an Intel&#174; Centrino(TM) mobile technology-based notebook computer click <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_intel">here</a></b><br/><br/>
