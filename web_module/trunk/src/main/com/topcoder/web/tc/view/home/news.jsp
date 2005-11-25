@@ -9,6 +9,40 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>11.25.05<br>2:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm274">SRM 274 - Problem Set & Analysis</A></span><br><br>
+      SRM 274 was won by <tc-webtag:handle coderId="10574855" context="algorithm"/> with 1862.76 points, with the second-fastest time on each of the three problems, and 5 successful and 2 unsuccessful challenges.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/John_Dethridge_mug.gif" /><br>by <tc-webtag:handle coderId="270505" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm274">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505788" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>11.25.05<br>2:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm273">SRM 273 - Problem Set & Analysis</A></span><br><br>
+      In Div1, the top scores were quite impressive. Out of the 14 coders who solved all three problems, <tc-webtag:handle coderId="10574855" context="algorithm"/> was a clear winner with a score of 1483.76.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/supernova_mug.gif" /><br>by <tc-webtag:handle coderId="7371063" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm273">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505787" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.23.05<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=213">Vote for the TCO06 logo</A></span><br><br>
       The 10 finalists are ready for you to rank.  Voting ends at 5:00pm on Wednesday, November 30, 2005.
@@ -262,36 +296,6 @@
        <A href="http://www.informationweek.com/showArticle.jhtml?articleID=172901456" target="_blank">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505820" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>10.27.05<br>11:05 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=CompList&pi=112">Design</A> and <A href="/tc?module=CompList&pi=113">Development</A> Contest Lists, Scorecard Details</span><br><br>
-      You can now browse through sortable lists of TopCoder component competitions.  Clicking a score on the "Contest Details" page now brings up that scorecard.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=CompList&pi=112">design contests</A>&#160;|&#160;
-         <A href="/tc?module=CompList&pi=113">development contests</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505819" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>10.27.05<br>11:05 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm269">SRM 269 - Problem Set & Analysis</A></span><br><br>
-      In Division 1, <tc-webtag:handle coderId="7462740" context="algorithm"/> took the first prize followed by the close triplet <tc-webtag:handle coderId="8379457" context="algorithm"/>, <tc-webtag:handle coderId="14970299" context="algorithm"/> and <tc-webtag:handle coderId="277659" context="algorithm"/>. <tc-webtag:handle coderId="304031" context="algorithm"/>, who was a leader for a long time, had to resubmit the 1000th problem because of a silly mistake and lost more than 500 points.</td>
-      <td class="newsPhoto"><img src="/i/m/Andrew_Lazarev_mug.gif" /><br>by <tc-webtag:handle coderId="7485898" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm269">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505782" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 
