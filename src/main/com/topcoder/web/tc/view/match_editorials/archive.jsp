@@ -41,6 +41,7 @@
    
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>November</strong></td></tr>
+   <tr><td class="bodyText">11.21.05</td><td class="bodyText" nowrap="0" width="100%">SRM 273 - <a href="/tc?module=Static&d1=match_editorials&d2=srm273">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">11.19.05</td><td class="bodyText" nowrap="0" width="100%">SRM 272 - <a href="/tc?module=Static&d1=match_editorials&d2=srm272">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">11.08.05</td><td class="bodyText" nowrap="0" width="100%">SRM 271 - <a href="/tc?module=Static&d1=match_editorials&d2=srm271">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">11.03.05</td><td class="bodyText" nowrap="0" width="100%">SRM 270 - <a href="/tc?module=Static&d1=match_editorials&d2=srm270">Problem Set & Analysis</a></td></tr>
