@@ -72,7 +72,7 @@ public class AnswerInput extends BaseTag {
             } else {
                 if(question.getTypeId()==Question.SCHULZE_ELECTION_TYPE) {
                     pageContext.setAttribute(ANSWER_TEXT, "Rank this candidate 1-"+question.getAnswerInfo().size()+" (1 = Most Preferred, "
-                            +question.getAnswerInfo().size()+" = Least Preferred", PageContext.PAGE_SCOPE);
+                            +question.getAnswerInfo().size()+" = Least Preferred)", PageContext.PAGE_SCOPE);
                 } else {
                     pageContext.setAttribute(ANSWER_TEXT, "", PageContext.PAGE_SCOPE);
                 }
