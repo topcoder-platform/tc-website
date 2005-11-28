@@ -79,6 +79,9 @@ public class UpdateQuestion extends EditQuestion {
             loadQuestionTypeList();
             loadQuestionStyleList();
             loadStatusList();
+            if (StringUtils.isNumber(qId)) {
+                loadAnswers(Long.parseLong(qId));
+            }
             setNextPage("/editQuestion.jsp");
             setIsNextPageInContext(true);
         } else {
