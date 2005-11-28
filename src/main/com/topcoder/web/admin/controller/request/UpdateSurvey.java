@@ -69,6 +69,9 @@ public class UpdateSurvey extends EditSurvey {
             setDefault(Constants.SURVEY_TEXT, surveyText);
             setDefault(Constants.RESULTS_VIEWABLE, surveyResultsViewable);
             loadStatusList();
+            if (StringUtils.isNumber(sId)) {
+                loadQuestions(Long.parseLong(sId));
+            }
             setNextPage("/editSurvey.jsp");
             setIsNextPageInContext(true);
         } else {
