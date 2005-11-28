@@ -98,7 +98,7 @@ public class SurveyBean extends BaseEJB {
     }
 
     public Timestamp getStartDate(long surveyId, String dataSource) {
-        return selectTimestamp("survey", "startDate", new String[]{"survey_id"},
+        return selectTimestamp("survey", "start_date", new String[]{"survey_id"},
                 new String[]{String.valueOf(surveyId)}, dataSource);
     }
 
