@@ -148,14 +148,14 @@ margin:0px auto;
             <A href="/movies/press/cnn_072405.mp4"><img src="/i/home/mov_cnn_072405.jpg" alt="TopCoder Movies" border="0" /></A>
 --%>
 <%-- MSN
---%>
             <A href="/?RoundId=8069&t=schedule&c=srm"><img src="/i/home/msn_srm272.gif" alt="MSN" border="0" /></A>
+--%>
 <%-- SAP
             <A href="/?RoundId=8070&t=schedule&c=srm"><img src="/i/home/sap_srm273.gif" alt="SAP" border="0" /></A>
 --%>
 <%-- GCJC
-            <A href="/gcjc"><img src="/i/home/gcjc.gif" alt="Google Code Jam China" border="0" /></A>
 --%>
+            <A href="/gcjc"><img src="/i/home/gcjc.gif" alt="Google Code Jam China" border="0" /></A>
          </td></tr>
       </table>
       <table border="0" cellpadding="0" cellspacing="0">
