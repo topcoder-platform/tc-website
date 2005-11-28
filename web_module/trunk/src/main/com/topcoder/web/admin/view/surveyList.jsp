@@ -27,7 +27,7 @@
                             <td class="header">Status</td>
                             <td class="header">Text</td>
                             <td class="header"># Questions</td>
-                            <td class="header">Results Available</td>
+                            <td class="header">Results Viewable</td>
                         </tr>
                         <% boolean even = false; %>
                         <rsc:iterator list="<%=surveyList%>" id="survey">
@@ -36,9 +36,9 @@
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="name"/></td>
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="start_date" format="yyyy.MM.dd HH:mm"/></td>
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="end_date" format="yyyy.MM.dd HH:mm"/></td>
-                                <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="status"/></td>
+                                <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="status_desc"/></td>
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="text"/></td>
-                                <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="results_available"/></td>
+                                <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="results_viewable"/></td>
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="question_count"/></td>
                             </tr>
                             <% even = !even;%>
