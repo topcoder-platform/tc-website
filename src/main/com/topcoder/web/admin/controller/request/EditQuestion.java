@@ -24,6 +24,7 @@ public class EditQuestion extends Base {
             Question question = (Question)createEJB(getInitialContext(), Question.class);
             setDefault(Constants.QUESTION_ID, qId);
             getRequest().setAttribute(Constants.QUESTION_ID, qId);
+            loadAnswers(id);
             setDefault(Constants.KEYWORD, question.getKeyword(id, DBMS.OLTP_DATASOURCE_NAME));
             setDefault(Constants.QUESTION_STYLE,String.valueOf(question.getQuestionStyleId(id, DBMS.OLTP_DATASOURCE_NAME)));
             setDefault(Constants.QUESTION_TYPE,String.valueOf(question.getQuestionTypeId(id, DBMS.OLTP_DATASOURCE_NAME)));
@@ -58,6 +59,10 @@ public class EditQuestion extends Base {
         getRequest().setAttribute("status_list", getDataAccess().getData(r).get("status_list"));
     }
 
+    protected void loadAnswers(long questionId) throws Exception {
+        Answer a = (Answer)createEJB(getInitialContext(), Answer.class);
+        getRequest().setAttribute("answers", a.getAnswers(questionId, DBMS.OLTP_DATASOURCE_NAME));
+    }
 
 
 }
