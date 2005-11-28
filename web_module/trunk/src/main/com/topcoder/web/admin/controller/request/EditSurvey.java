@@ -3,6 +3,7 @@ package com.topcoder.web.admin.controller.request;
 import com.topcoder.web.admin.Constants;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.survey.Survey;
+import com.topcoder.web.ejb.survey.SurveyQuestion;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.Request;
 
@@ -20,6 +21,7 @@ public class EditSurvey extends Base {
             long id = Long.parseLong(sId);
             Survey survey = (Survey) createEJB(getInitialContext(), Survey.class);
             getRequest().setAttribute(Constants.SURVEY_ID, sId);
+            loadQuestions(id);
             setDefault(Constants.SURVEY_ID, sId);
             setDefault(Constants.SURVEY_END, survey.getEndDate(id, DBMS.OLTP_DATASOURCE_NAME));
             setDefault(Constants.SURVEY_START, survey.getStartDate(id, DBMS.OLTP_DATASOURCE_NAME));
@@ -37,6 +39,11 @@ public class EditSurvey extends Base {
         Request r = new Request();
         r.setContentHandle("status_list");
         getRequest().setAttribute("status_list", getDataAccess().getData(r).get("status_list"));
+    }
+
+    protected void loadQuestions(long surveyId) throws Exception {
+        SurveyQuestion sq = (SurveyQuestion)createEJB(getInitialContext(), SurveyQuestion.class);
+        getRequest().setAttribute("questions", sq.getQuestions(surveyId, DBMS.OLTP_DATASOURCE_NAME));
     }
 
 
