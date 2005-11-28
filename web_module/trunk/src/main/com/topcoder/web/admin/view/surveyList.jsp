@@ -32,14 +32,14 @@
                         <% boolean even = false; %>
                         <rsc:iterator list="<%=surveyList%>" id="survey">
                             <tr>
-                                <td class="<%=even?"even":"odd"%>"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditSurvey&<%=Constants.SURVEY_ID%>=<rsc:item row="<%=survey%>" name="survey_id"/>">edit</a> <rsc:item row="<%=survey%>" name="survey_id"/></td>
+                                <td class="<%=even?"even":"odd"%>"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditSurvey&<%=Constants.SURVEY_ID%>=<rsc:item row="<%=survey%>" name="survey_id"/>">edit <rsc:item row="<%=survey%>" name="survey_id"/></a></td>
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="name"/></td>
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="start_date" format="yyyy.MM.dd HH:mm"/></td>
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="end_date" format="yyyy.MM.dd HH:mm"/></td>
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="status_desc"/></td>
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="text"/></td>
-                                <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="results_viewable"/></td>
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="question_count"/></td>
+                                <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=survey%>" name="results_viewable"/></td>
                             </tr>
                             <% even = !even;%>
                         </rsc:iterator>
