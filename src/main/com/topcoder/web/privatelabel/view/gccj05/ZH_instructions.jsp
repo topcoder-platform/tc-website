@@ -265,7 +265,8 @@
 <br><br>
 如果参赛者登陆竞技场存在问题，或者不能进入聊天界面，可以发email至<A href="gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>。
 请在信内详细描述碰到的问题。
-
+<br><br>
+<b>注意：</b>如使用英文电邮，将会得到更快的回覆。谢谢合作。
 <br><br>
 想要了解更多的 Google&#153; Code Jam - 中国编程挑战赛的信息， <a href="/pl/?module=Static&d1=gccj05&d2=ZH_rules">请点击 竞赛规则</a>.
 </div>

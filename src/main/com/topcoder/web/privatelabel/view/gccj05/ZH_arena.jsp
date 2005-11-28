@@ -79,6 +79,8 @@
                 <br><br>
                 如果你在运行竞技场时遇到任何问题，请及时电邮联系 <A
                     href="mailto:gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>.
+				<br><br>
+				<b>注意：</b>如使用英文电邮，将会得到更快的回覆。谢谢合作。
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
                 <br><br>

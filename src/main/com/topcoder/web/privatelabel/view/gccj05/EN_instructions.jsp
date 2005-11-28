@@ -363,7 +363,8 @@ An administrator will respond to your question in the chat area.
 If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to <A
         href="gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A> . Please include
 a detailed description of the problem that you are having.
-
+<br><br>
+<b>Note:</b> Emails sent in English will receive much quicker responses.  Thank you for your cooperation.
 <br><br>
 To find out more detailed information about the Google&#153; Code Jam China, including a list of the prizes, please read the
 <a href="/pl/?module=Static&d1=gccj05&d2=EN_rules">Terms and Conditions</a>.
