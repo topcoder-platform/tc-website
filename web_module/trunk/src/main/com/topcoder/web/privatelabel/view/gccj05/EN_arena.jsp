@@ -82,8 +82,10 @@
                     href="Javascript:openWin('?module=Static&d1=gccj05&d2=EN_quick_launch','comp',300,275);">Java
                 Applet</A>.
                 <br><br>
-                If you experience problems loading or running the Competition Arena please contact <A
-                    href="mailto:gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>.
+                If you experience problems loading or running the Competition Arena please contact 
+				<A href="mailto:gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>.
+				<br><br>
+				<b>Note:</b> Emails sent in English will receive much quicker responses.  Thank you for your cooperation.
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
                 <br><br>

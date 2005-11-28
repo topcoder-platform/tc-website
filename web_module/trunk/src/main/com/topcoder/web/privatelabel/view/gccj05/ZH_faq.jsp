@@ -70,6 +70,8 @@
                 系统测试阶段一完成，晋级下一轮的参赛者名单就会张贴在www.topcoder.com/gcjc上。此外，参赛者会收到电邮通知，告知其是否已经晋级下一轮。
                 <br><br>
                 还有其他问题请直接联系 <A href="mailto:gcjc@topcoder.com">gcjc@topcoder.com</A>
+				<br><br>
+				<b>注意：</b>如使用英文电邮，将会得到更快的回覆。谢谢合作。
                 <br><br>
                 祝您好运！
                 <br><br>

@@ -70,8 +70,6 @@
                             In order to be eligible to compete in the Google Code Jam China,
                             you must activate your account by following the directions sent to the email
                             address provided during registration.
-                            <br><br>
-							Note: Emails sent in English will receive much quicker responses.  Thank you for your cooperation.
 							<br><br>
                             <span class="bigRed">You will not be able to compete if you
 do not activate your account.</span>
@@ -81,6 +79,8 @@ do not activate your account.</span>
                             <br><br>
                             If you encounter any problems, please contact us at <A
                                 href="mailto:gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>.
+                            <br><br>
+							Note: Emails sent in English will receive much quicker responses.  Thank you for your cooperation.
                             <br><br>
                             Good luck to you in the Arena!
                         </td>

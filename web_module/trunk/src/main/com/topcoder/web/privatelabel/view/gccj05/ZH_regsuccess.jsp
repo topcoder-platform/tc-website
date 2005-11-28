@@ -67,8 +67,6 @@
                         <td>
                             一封电子邮件将会被发送至注册时您提供的电子邮箱中。您必须按照那封电子邮件中的说明激活您的帐号才能参加Google Code Jam - 中国编程挑战赛。
                             <br><br>
-							注意：如使用英文电邮，将会得到更快的回覆。谢谢合作。
-                            <br><br>
                             <span class="bigRed">您将不能参加比赛如果您的帐号没有被激活。</span>
                             <br><br>
                             点击上面的竞技场小标签可以进入竞技场。请在入围赛
@@ -76,6 +74,8 @@
                             <br><br>
                             如果您遇到任何问题，请通过如下电子邮箱地址联系我们： <A
                                 href="mailto:gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>.
+                            <br><br>
+							<b>注意：</b>如使用英文电邮，将会得到更快的回覆。谢谢合作。
                             <br><br>
                             祝您在竞技场中好运!
                         </td>

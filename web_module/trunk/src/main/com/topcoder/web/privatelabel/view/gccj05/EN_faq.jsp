@@ -87,6 +87,8 @@
                 Questions not addressed here should be directed to <A
                     href="mailto:gcjc@topcoder.com">gcjc@topcoder.com</A>
                 <br><br>
+				<b>Note:</b> Emails sent in English will receive much quicker responses.  Thank you for your cooperation.
+				<br><br>
                 Good luck!
                 <br><br>
 To find out more detailed information about the Google&#153; Code Jam China, including a list of the prizes, please read the
