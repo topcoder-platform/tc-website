@@ -406,7 +406,7 @@ pageContext.setAttribute("resultSet", rscChallenge);
                    <TD  WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD CLASS="statText" ALIGN="left"><%=pageContext.getAttribute("coderHandle").toString() %></TD>
                    <TD CLASS="statText">
-                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("defendant_id")%>' context="algorithm"/>
+                     <A HREF="/tc?module=MemberProfile&cr=<bean:write name="resultRow" property='<%= "item[" + 5 /* defendent id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 3 /* defendent name */ + "]" %>'/></A>
                    </TD>
                    <TD CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 6 /* class name */ + "]" %>'/></TD>
                    <TD CLASS="statText"><%= resultRow.getItem(8).toString().equals("Y")?"Yes":"No"%></TD>
@@ -457,7 +457,7 @@ pageContext.setAttribute("resultSet", rscDefense);
                    <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD CLASS="statText" ALIGN="left"><%=pageContext.getAttribute("coderHandle").toString() %></TD>
                    <TD CLASS="statText">
-                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("challenger_id")%>' context="algorithm"/>
+                     <A HREF="/tc?module=MemberProfile&cr=<bean:write name="resultRow" property='<%= "item[" + 2 /* challenger id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* challenger_name */ + "]" %>'/></A>
                    </TD>
                    <TD CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 6 /* class name */ + "]" %>'/></TD>
                    <TD CLASS="statText"><%= resultRow.getItem(8).toString().equals("Y")?"Yes":"No"%></TD>
