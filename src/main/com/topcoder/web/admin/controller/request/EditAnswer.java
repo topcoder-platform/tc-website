@@ -21,10 +21,12 @@ public class EditAnswer extends Base {
         String aId = getRequest().getParameter(Constants.ANSWER_ID);
         setDefault(Constants.SURVEY_ID, sId);
         setDefault(Constants.QUESTION_ID, qId);
+        setDefault(Constants.ANSWER_ID, aId);
         getRequest().setAttribute(Constants.SURVEY_ID, sId);
         getRequest().setAttribute(Constants.QUESTION_ID, qId);
+        getRequest().setAttribute(Constants.ANSWER_ID, aId);
         if (!StringUtils.checkNull(aId).equals("")) {
-            long id = Long.parseLong(qId);
+            long id = Long.parseLong(aId);
             Answer answer = (Answer)createEJB(getInitialContext(), Answer.class);
             answer.getSort(id, DBMS.OLTP_DATASOURCE_NAME);
             answer.getText(id, DBMS.OLTP_DATASOURCE_NAME);
