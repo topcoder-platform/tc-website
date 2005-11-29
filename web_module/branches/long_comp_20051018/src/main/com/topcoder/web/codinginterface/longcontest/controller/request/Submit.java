@@ -131,7 +131,6 @@ public class Submit extends Base {
 				}
 				setNextPage(Constants.SUBMISSION_JSP);
 				setIsNextPageInContext(true);
-				return;
 			} else if(action.equals("submit")) { // user is submiting code
 				// Language specified?
 				if(language == -1) {
@@ -159,10 +158,10 @@ public class Submit extends Base {
 					LongCompileResponse res = receive(30 * 1000, uid, cid);					
 					
 					// Records errors and other info
-					if(res.getCompileStatus() == true) { // everything went ok! :)
+					if(res.getCompileStatus()) { // everything went ok! :)
 						cleanSession();
 						// Go to standings!
-						closeProcessingPage(buildProcessorRequestString("ViewStandings",
+						closeProcessingPage(buildProcessorRequestString("SubmitSuccess",
 								new String[] { Constants.ROUND_ID }, new String[] { String
 										.valueOf(rid) }));
 					} else { // Compilation errors!						
