@@ -28,8 +28,8 @@ public class EditAnswer extends Base {
         if (!StringUtils.checkNull(aId).equals("")) {
             long id = Long.parseLong(aId);
             Answer answer = (Answer)createEJB(getInitialContext(), Answer.class);
-            answer.getSort(id, DBMS.OLTP_DATASOURCE_NAME);
-            answer.getText(id, DBMS.OLTP_DATASOURCE_NAME);
+            setDefault(Constants.SORT, String.valueOf(answer.getSort(id, DBMS.OLTP_DATASOURCE_NAME)));
+            setDefault(Constants.ANSWER_TEXT,  answer.getText(id, DBMS.OLTP_DATASOURCE_NAME));
         }
         setNextPage("/editAnswer.jsp");
         setIsNextPageInContext(true);
