@@ -45,7 +45,7 @@
 
     <servlet-mapping>
         <servlet-name>main</servlet-name>
-        <url-pattern>/longcontest</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
     <session-config>
@@ -65,16 +65,6 @@
         <taglib-location>/WEB-INF/tc-webtags.tld</taglib-location>
       </taglib>
 
-
-
-    <!--
-        <ejb-ref>
-            <ejb-ref-name>security/Login</ejb-ref-name>
-            <ejb-ref-type>Session</ejb-ref-type>
-            <home>com.topcoder.security.login.LoginRemoteHome</home>
-            <remote>com.topcoder.security.login.LoginRemote</remote>
-        </ejb-ref>
-    -->
 
     <error-page>
          <error-code>404</error-code>
