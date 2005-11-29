@@ -27,9 +27,9 @@
                             <tr><td colspan="2"><tc-webtag:errorIterator id="err" name="<%=Constants.SURVEY_NAME%>"><%=err%></tc-webtag:errorIterator></td></tr>
                             <tr><td>Name</td><td><tc-webtag:textInput name="<%=Constants.SURVEY_NAME%>" size="30" maxlength="50" onKeyPress="submitEnter(event)"/></td></tr>
                             <tr><td colspan="2"><tc-webtag:errorIterator id="err" name="<%=Constants.SURVEY_END%>"><%=err%></tc-webtag:errorIterator></td></tr>
-                            <tr><td>End Date</td><td><tc-webtag:textInput name="<%=Constants.SURVEY_END%>" size="16" maxlength="16" onKeyPress="submitEnter(event)"/></td></tr>
+                            <tr><td>End Date</td><td><tc-webtag:textInput name="<%=Constants.SURVEY_END%>" format="yyyy.MM.dd HH:mm" size="16" maxlength="16" onKeyPress="submitEnter(event)"/></td></tr>
                             <tr><td colspan="2"><tc-webtag:errorIterator id="err" name="<%=Constants.SURVEY_START%>"><%=err%></tc-webtag:errorIterator></td></tr>
-                            <tr><td>Start Date</td><td><tc-webtag:textInput name="<%=Constants.SURVEY_START%>" size="16" maxlength="16" onKeyPress="submitEnter(event)"/></td></tr>
+                            <tr><td>Start Date</td><td><tc-webtag:textInput name="<%=Constants.SURVEY_START%>" format="yyyy.MM.dd HH:mm "size="16" maxlength="16" onKeyPress="submitEnter(event)"/></td></tr>
                             <tr><td colspan="2"><tc-webtag:errorIterator id="err" name="<%=Constants.SURVEY_STATUS%>"><%=err%></tc-webtag:errorIterator></td></tr>
                             <tr><td>Status</td><td><tc-webtag:rscSelect name="<%=Constants.SURVEY_STATUS%>" list='<%=(ResultSetContainer)request.getAttribute("status_list")%>' fieldText="status_desc" fieldValue="status_id"/></td></tr>
                             <tr><td colspan="2"><tc-webtag:errorIterator id="err" name="<%=Constants.SURVEY_TEXT%>"><%=err%></tc-webtag:errorIterator></td></tr>
