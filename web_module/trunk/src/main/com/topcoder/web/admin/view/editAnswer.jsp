@@ -1,5 +1,4 @@
 <%@ page import="com.topcoder.web.admin.Constants"%>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
