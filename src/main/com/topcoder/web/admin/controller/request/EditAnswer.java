@@ -23,7 +23,7 @@ public class EditAnswer extends Base {
         setDefault(Constants.QUESTION_ID, qId);
         getRequest().setAttribute(Constants.SURVEY_ID, sId);
         getRequest().setAttribute(Constants.QUESTION_ID, qId);
-        if (StringUtils.checkNull(aId).equals("")) {
+        if (!StringUtils.checkNull(aId).equals("")) {
             long id = Long.parseLong(qId);
             Answer answer = (Answer)createEJB(getInitialContext(), Answer.class);
             answer.getSort(id, DBMS.OLTP_DATASOURCE_NAME);
