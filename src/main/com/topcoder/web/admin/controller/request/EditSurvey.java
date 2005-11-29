@@ -7,6 +7,7 @@ import com.topcoder.web.ejb.survey.SurveyQuestion;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 /**
  * @author dok
@@ -44,7 +45,9 @@ public class EditSurvey extends Base {
 
     protected void loadQuestions(long surveyId) throws Exception {
         SurveyQuestion sq = (SurveyQuestion)createEJB(getInitialContext(), SurveyQuestion.class);
-        getRequest().setAttribute("questions", sq.getQuestions(surveyId, DBMS.OLTP_DATASOURCE_NAME));
+        ResultSetContainer questions = sq.getQuestions(surveyId, DBMS.OLTP_DATASOURCE_NAME);
+        questions.sortByColumn("question_id", true);
+        getRequest().setAttribute("questions", questions);
     }
 
 
