@@ -1,0 +1,66 @@
+<%@ page
+        language="java"
+        import="com.topcoder.web.codinginterface.longcontest.*,
+                com.topcoder.shared.dataAccess.resultSet.*,
+                com.topcoder.web.common.StringUtils"
+
+        %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
+
+<html>
+<head>
+    <title>Submit Success</title>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+</head>
+
+<body>
+<jsp:include page="top.jsp">
+    <jsp:param name="level1" value="long"/>
+</jsp:include>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+        <%-- Left Column Begins--%>
+        <td width="180">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="level1" value=""/>
+                <jsp:param name="level2" value=""/>
+            </jsp:include>
+        </td>
+        <%-- Left Column Ends --%>
+
+        <%-- Center Column Begins --%>
+        <TD class="statTableSpacer" width="100%" valign="top">
+
+            <jsp:include page="page_title.jsp">
+                <jsp:param name="image" value="long_competitions"/>
+                <jsp:param name="title" value="Coding Area"/>
+            </jsp:include>
+            <% int count = ((Number)request.getAttribute(Constants.QUEUE_LENGTH)).intValue();%>
+
+            Successful Submission.
+            <% if (count>0) { %>
+                There are <%=count%> submissions in the queue that will be processed before yours.
+            <% } else { %>
+                Your submission is next in the queue to be processed.
+            <% } %>
+
+        </TD>
+
+        <%-- Right Column Begins --%>
+        <td width="170">
+            <jsp:include page="public_right.jsp">
+                <jsp:param name="level1" value="privatelabel"/>
+            </jsp:include>
+        </td>
+        <%-- Right Column Ends --%>
+
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+    </tr>
+</table>
+
+<jsp:include page="foot.jsp"/>
+</body>
+</html>
