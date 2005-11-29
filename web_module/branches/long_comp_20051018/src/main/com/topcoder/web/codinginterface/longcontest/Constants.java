@@ -37,6 +37,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String KEY_USER_HANDLE;
     public static String KEY_USER_PASS;
     public static String ACTION_KEY;
+    public static String QUEUE_LENGTH;
 
     public static String LONG_CONTEST_INDEX_KEY;
     public static String PROBLEM_STATEMENT_KEY;
