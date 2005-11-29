@@ -62,9 +62,12 @@ public class EditQuestion extends Base {
     }
 
     protected void loadAnswers(long questionId) throws Exception {
+        log.debug("load answers");
         Answer a = (Answer)createEJB(getInitialContext(), Answer.class);
         ResultSetContainer answers = a.getAnswers(questionId, DBMS.OLTP_DATASOURCE_NAME);
+        log.debug("pre sort " + answers.getIntItem(0, "sort_order"));
         answers.sortByColumn("sort_order", true);
+        log.debug("post sort " + answers.getIntItem(0, "sort_order"));
         getRequest().setAttribute("answers", answers);
     }
 
