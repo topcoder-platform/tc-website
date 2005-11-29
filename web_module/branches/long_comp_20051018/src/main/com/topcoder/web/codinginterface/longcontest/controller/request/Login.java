@@ -13,6 +13,7 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.user.User;
 
@@ -77,7 +78,7 @@ public class Login extends Base {
                                 	setIsNextPageInContext(false);
                                 } else { // go to active contest page
                                 	getRequest().setAttribute(CodingInterfaceConstants.MODULE, Constants.RP_ACTIVE_CONTESTS);                                	
-                            		setNextPage(Constants.MAIN_SERVLET);                            		
+                            		setNextPage(((CoderSessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
                             		setIsNextPageInContext(true);		
                                 }
                                 log.debug("on successful login, going to " + getNextPage());

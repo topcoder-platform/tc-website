@@ -57,7 +57,6 @@ public class Constants implements CodingInterfaceConstants {
     public static String DEFAULT_COL_COUNT;
     public static String DEFAULT_ROW_COUNT;
     public static String DEFAULT_SYSTEM_TEST_RESULTS_ROW_COUNT;
-    public static String MAIN_SERVLET;
     public static int LONG_PRACTICE_ROUND_TYPE_ID;
 
     public static String LOGIN_JSP;

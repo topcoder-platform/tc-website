@@ -6,6 +6,7 @@ import com.topcoder.security.TCSubject;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.shared.util.logging.Logger;
 
@@ -34,7 +35,7 @@ public class Logout extends Base {
 		
 		// Go to active contests page
 		request.setAttribute("module", Constants.RP_ACTIVE_CONTESTS);		
-		setNextPage(Constants.MAIN_SERVLET);		
+		setNextPage(((CoderSessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());		
 		setIsNextPageInContext(true);		
 	}
 

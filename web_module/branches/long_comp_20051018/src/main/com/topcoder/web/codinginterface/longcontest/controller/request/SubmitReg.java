@@ -20,9 +20,11 @@ import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.SurveyResponse;
+import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 import com.topcoder.web.ejb.survey.Response;
@@ -115,7 +117,7 @@ public class SubmitReg extends ViewReg {
 			} else { // register user for round	and then go to active contest page			
 				registerUser(userID, Long.parseLong(roundID));
             	getRequest().setAttribute(CodingInterfaceConstants.MODULE, Constants.RP_ACTIVE_CONTESTS);                                	
-        		setNextPage(Constants.MAIN_SERVLET);                            		
+        		setNextPage(((CoderSessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());                            		
         		setIsNextPageInContext(true);
 			}
 
