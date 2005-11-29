@@ -15,16 +15,16 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
-<!-- Left Column Begins-->
+<%-- Left Column Begins--%>
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="press_room"/>
                 <jsp:param name="level2" value=""/>
             </jsp:include>
         </td>
-<!-- Left Column Ends -->
+<%-- Left Column Ends --%>
 
-<!-- Center Column Begins -->
+<%-- Center Column Begins --%>
          <td width="100%" align="center">
 
 
@@ -40,14 +40,14 @@
                 <tr><td class="bodyText"><div align="right"><strong>Current News</strong>&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=pressroom&d2=pr_archive">Press Releases Archive</A>&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=pressroom&d2=art_archive">Articles Archive</A></div></td></tr>
             </table>
             
-<!-- 2005 -->
+<%-- 2005 --%>
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
             </table>
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
-<!-- Google Code Jam China -->
+<%-- Google Code Jam China --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -62,7 +62,7 @@ Hoping to attract talented Chinese programmers to Google's (Profile, Products, A
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  DES/DEV $1 million -->
+<%--  DES/DEV $1 million --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_112105"><img src="/i/pressroom/milestone_million.gif" alt="Milestone: $1 Million" border="0" /></A></td>
@@ -76,7 +76,7 @@ Hoping to attract talented Chinese programmers to Google's (Profile, Products, A
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- FTP ONLINE -->
+<%-- FTP ONLINE --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -91,7 +91,7 @@ The key to TopCoder's approach is the building of reusable components that can b
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Info Week -->
+<%-- Info Week --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -106,7 +106,7 @@ Tim "Pops" Roberts is an independent IT consultant who makes a pretty good livin
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  TCO06 -->
+<%--  TCO06 --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_102105"><img src="/i/pressroom/lasvegas_logo.gif" alt="Las Vegas" border="0" /></A></td>
@@ -120,7 +120,7 @@ Tim "Pops" Roberts is an independent IT consultant who makes a pretty good livin
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  TCO05 Winners -->
+<%--  TCO05 Winners --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_101705"><img src="/i/pressroom/tco05_logo.gif" alt="TCO05" border="0" /></A></td>
@@ -134,7 +134,7 @@ Tim "Pops" Roberts is an independent IT consultant who makes a pretty good livin
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Mass High Tech -->
+<%-- Mass High Tech --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -149,7 +149,7 @@ Tim "Pops" Roberts is an independent IT consultant who makes a pretty good livin
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Cary News -->
+<%-- Cary News --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -164,7 +164,7 @@ Tim "Pops" Roberts is an independent IT consultant who makes a pretty good livin
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  TCO05 Alg Finalists -->
+<%--  TCO05 Alg Finalists --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_092805"><img src="/i/pressroom/tco05_logo.gif" alt="TCO05" border="0" /></A></td>
@@ -178,7 +178,7 @@ Tim "Pops" Roberts is an independent IT consultant who makes a pretty good livin
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- GCJ 05 winners -->
+<%-- GCJ 05 winners --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -193,7 +193,7 @@ Google Inc. have announced Marek Cygan, a student at Warsaw University, as the g
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- DNDJ -->
+<%-- DNDJ --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -208,7 +208,7 @@ Why are contract outsourcing and offshore development failing to deliver the exp
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- PCWK -->
+<%-- PCWK --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -223,7 +223,7 @@ Poland has just left the US behind and taken first place in TopCoder's country r
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- ADT -->
+<%-- ADT --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -238,7 +238,7 @@ The result of the partnership between LogicLibrary and TopCoder reached earlier 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  TCO05 Component Finalists -->
+<%--  TCO05 Component Finalists --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_090205"><img src="/i/pressroom/tco05_logo.gif" alt="TCO05" border="0" /></A></td>
@@ -252,7 +252,7 @@ The result of the partnership between LogicLibrary and TopCoder reached earlier 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Times of India -->
+<%-- Times of India --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -267,7 +267,7 @@ It’s the grand slam of programming or, as the tourney organiser calls it, 'the X
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  TCO05 Component Finalists -->
+<%--  TCO05 Component Finalists --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_082405"><img src="/i/pressroom/tco05_logo.gif" alt="TCO05" border="0" /></A></td>
@@ -281,7 +281,7 @@ It’s the grand slam of programming or, as the tourney organiser calls it, 'the X
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- GCJ05 -->
+<%-- GCJ05 --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -296,7 +296,7 @@ Google's annual online coding competition consisting of a series of problem-solv
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- CNN -->
+<%-- CNN --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -311,7 +311,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  TCO05 Yahoo -->
+<%--  TCO05 Yahoo --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_071105"><img src="/i/pressroom/yahoo_logo.gif" alt="yahoo" border="0" /></A></td>
@@ -325,7 +325,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  TCO05 Verisign -->
+<%--  TCO05 Verisign --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_070705"><img src="/i/pressroom/verisign_logo.gif" alt="Verisign" border="0" /></A></td>
@@ -339,7 +339,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  TCO05 Sun -->
+<%--  TCO05 Sun --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_062705"><img src="/i/pressroom/tco05_logo.gif" alt="TCO05" border="0" /></A></td>
@@ -353,7 +353,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  SRM Prizes -->
+<%--  SRM Prizes --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_062005"><img src="/i/pressroom/tc_srm_prizes.gif" alt="TC SRM Prizes" border="0" /></A></td>
@@ -367,7 +367,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Queen's University TJ -->
+<%-- Queen's University TJ --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -382,7 +382,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  Caliper -->
+<%--  Caliper --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_060705"><img src="/i/pressroom/caliper_logo.gif" alt="Caliper" border="0" /></A></td>
@@ -396,7 +396,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Roanoke -->
+<%-- Roanoke --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -411,7 +411,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Sourcing Mag -->
+<%-- Sourcing Mag --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -426,7 +426,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Boiler Station -->
+<%-- Boiler Station --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -441,7 +441,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- TWST -->
+<%-- TWST --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -456,7 +456,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  Javaone -->
+<%--  Javaone --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_05_02_05"><img src="/i/pressroom/javaone_event.gif" alt="javaone" width="135" height="40" border="0" /></A></td>
@@ -470,7 +470,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- CHE -->
+<%-- CHE --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -485,7 +485,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- BusinessWeek -->
+<%-- BusinessWeek --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -500,7 +500,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- SDT -->
+<%-- SDT --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -515,7 +515,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- .NET Developer's Journal -->
+<%-- .NET Developer's Journal --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -530,7 +530,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Barrhaven -->
+<%-- Barrhaven --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -545,7 +545,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Computer User Article -->
+<%-- Computer User Article --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -560,7 +560,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- TCCC05 -->
+<%-- TCCC05 --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -575,7 +575,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Logic Library -->
+<%-- Logic Library --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -590,7 +590,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- NW Polska -->
+<%-- NW Polska --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -605,7 +605,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- TCCC05 -->
+<%-- TCCC05 --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -620,7 +620,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- NVIDIA TCCC-->
+<%-- NVIDIA TCCC--%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_02_16_05"><img src="/i/pressroom/nvidia_badge.gif" alt="nvidia" width="135" height="117" border="0" /></A></td>
@@ -634,7 +634,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Devloper Subscriptions -->
+<%-- Devloper Subscriptions --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_02_15_05"><img src="/i/pressroom/tcs_logo.gif" alt="TCS" border="0" /></A></td>
@@ -648,7 +648,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- GICJ05 -->
+<%-- GICJ05 --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_02_09_05"><img src="/i/pressroom/gicj05_logo.gif" alt="" border="0" /></A></td>
@@ -662,7 +662,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- 50,000 -->
+<%-- 50,000 --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_02_07_05"><img src="/i/pressroom/50k_promo.gif" alt="" border="0" /></A></td>
@@ -676,7 +676,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Wired Article -->
+<%-- Wired Article --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -691,7 +691,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- ADT -->
+<%-- ADT --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -706,7 +706,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- CRPF -->
+<%-- CRPF --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_01_25_05"><img src="/i/pressroom/crpf_logo.gif" alt="" border="0" /></A></td>
@@ -720,7 +720,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- TCCC05 MOTOROLA -->
+<%-- TCCC05 MOTOROLA --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -735,7 +735,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- ComputerWorld Article -->
+<%-- ComputerWorld Article --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -750,14 +750,14 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
-<!-- 2004 -->
+<%-- 2004 --%>
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
             </table>
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
-<!-- TCCC05 YAHOO -->
+<%-- TCCC05 YAHOO --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -772,7 +772,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- SCMP -->
+<%-- SCMP --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -787,7 +787,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- TCO 04 Finalists -->
+<%-- TCO 04 Finalists --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -802,7 +802,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- CNN GCJ04 -->
+<%-- CNN GCJ04 --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -817,7 +817,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- TCO 04 Finalists -->
+<%-- TCO 04 Finalists --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -832,7 +832,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Associated Press Article -->
+<%-- Associated Press Article --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -847,7 +847,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- GCJ04 Article -->
+<%-- GCJ04 Article --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -862,7 +862,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Tendances Tomek Article -->
+<%-- Tendances Tomek Article --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -877,7 +877,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- GCJ04 Article -->
+<%-- GCJ04 Article --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -892,7 +892,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Newsforge Article -->
+<%-- Newsforge Article --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -907,7 +907,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- SoftDevMag -->
+<%-- SoftDevMag --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=art_10_03_04"><img src="/i/pressroom/softdevmag_logo.gif" alt="" border="0" /></A></td>
@@ -921,7 +921,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Brainerd Article -->
+<%-- Brainerd Article --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -936,7 +936,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- CRPF -->
+<%-- CRPF --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_09_27_04"><img src="/i/pressroom/crpf_logo.gif" alt="" border="0" /></A></td>
@@ -950,7 +950,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- CIO Article -->
+<%-- CIO Article --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="http://searchcio.techtarget.com/originalContent/0,289142,sid19_gci1006375,00.html" target="_blank"><img src="/i/pressroom/searchcio_logo.gif" alt="CIO" border="0" /></A></td>
@@ -964,7 +964,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Morris -->
+<%-- Morris --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_09_07_04"><img src="/i/pressroom/sdbp_logo.gif" alt="" border="0" /></A></td>
@@ -978,7 +978,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Yahoo! TCO-->
+<%-- Yahoo! TCO--%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_09_02_04"><img src="/i/pressroom/yahoo_logo.gif" alt="yahoo" border="0" /></A></td>
@@ -992,7 +992,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  Intel Sponsor TCO04 -->
+<%--  Intel Sponsor TCO04 --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_08_18_04"><img src="/i/pressroom/intel.gif" alt="" width="135" height="35" border="0" /></A></td>
@@ -1006,7 +1006,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  RedHerring -->
+<%--  RedHerring --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=art_08_10_04"><img src="/i/pressroom/redherring_logo.gif" alt="" width="135" height="21" border="0" /></A></td>
@@ -1020,7 +1020,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- TCS -->
+<%-- TCS --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_08_10_04"><img src="/i/pressroom/tcs_logo.gif" alt="nvidia" width="135" height="30" border="0" /></A></td>
@@ -1034,7 +1034,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- NVIDIA TCO-->
+<%-- NVIDIA TCO--%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_08_04_04"><img src="/i/pressroom/nvidia_badge.gif" alt="nvidia" width="135" height="117" border="0" /></A></td>
@@ -1048,7 +1048,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  TCO04 -->
+<%--  TCO04 --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_07_28_04"><img src="/i/pressroom/tco04_logo.gif" alt="TCO04" width="135" height="85" border="0" /></A></td>
@@ -1062,7 +1062,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- DevX Article -->
+<%-- DevX Article --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="http://www.devx.com/Java/Article/21602" target="_blank"><img src="/i/pressroom/devx_logo.gif" alt="DevX" width="135" height="92" border="0" /></A></td>
@@ -1076,7 +1076,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  Computer World-->
+<%--  Computer World--%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="http://www.computerworld.com/managementtopics/outsourcing/story/0,10801,94452,00.html" target="_blank"><img src="/i/pressroom/compworld_logo.gif" alt="ComputerWorld" width="135" height="25" border="0" /></A></td>
@@ -1090,7 +1090,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  Builder.com Javaone -->
+<%--  Builder.com Javaone --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="http://builder.com.com/5100-6370_14-5260946.html" target="_blank"><img src="/i/pressroom/builder_logo.gif" alt="javaone" width="135" height="40" border="0" /></A></td>
@@ -1104,7 +1104,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  Javaone -->
+<%--  Javaone --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="http://java.sun.com/javaone/top_coder.html" target="_blank"><img src="/i/pressroom/javaone_event.gif" alt="javaone" width="135" height="40" border="0" /></A></td>
@@ -1118,7 +1118,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Mass High Tech article -->
+<%-- Mass High Tech article --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="http://www.masshightech.com/displayarticledetail.asp?art_id=65934" target="_blank"><img src="/i/pressroom/mass_high_tech.gif" alt="cio" width="135" height="60" border="0" /></A></td>
@@ -1132,7 +1132,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Fast Company -->
+<%-- Fast Company --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/i/pressroom/FastCompany0704.pdf" target="_blank"><img src="/i/pressroom/fastcompany_logo.gif" alt="fcLogo" width="135" height="33" border="0" /></A></td>
@@ -1146,7 +1146,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  Javaone -->
+<%--  Javaone --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="http://java.sun.com/developer/technicalArticles/Programming/TopCoder2004/" target="_blank"><img src="/i/pressroom/javaone_event.gif" alt="javaone" width="135" height="40" border="0" /></A></td>
@@ -1160,7 +1160,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  Workforce -->
+<%--  Workforce --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=art_06_01_04"><img src="/i/pressroom/workforce.gif" alt="" width="135" height="45" border="0" /></A></td>
@@ -1174,7 +1174,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- WSJO -->
+<%-- WSJO --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="http://online.wsj.com/article_email/0,,SB108605863196125506-IVjeoNllaV3nJunZXSGcaaBm4,00.html" target="_blank"><img src="/i/pressroom/wsjo.gif" alt="wsjo" width="135" height="50" border="0" /></A></td>
@@ -1188,7 +1188,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- UPI -->
+<%-- UPI --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="http://www.upi.com/view.cfm?StoryID=20040525-104135-2776r" target="_blank"><img src="/i/pressroom/upi_logo.gif" alt="UPI" width="135" height="100" border="0" /></A></td>
@@ -1202,7 +1202,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  USDC -->
+<%--  USDC --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_05_12_04"><img src="/i/pressroom/usdc_logo.gif" alt="USDC" width="135" height="50" border="0" /></A></td>
@@ -1216,7 +1216,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  Javaone -->
+<%--  Javaone --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_05_03_04"><img src="/i/pressroom/javaone_event.gif" alt="javaone" width="135" height="40" border="0" /></A></td>
@@ -1230,7 +1230,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- BWO -->
+<%-- BWO --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href=" /?&t=news_events&c=art_04_29_04"><img src="/i/pressroom/bwo_logo.gif" alt="bwo_logo" width="135" height="25" border="0" /></A></td>
@@ -1244,7 +1244,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Po  -->
+<%-- Po  --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="http://biz.yahoo.com/prnews/040422/dcth080_1.html" target="_blank"><img src="/i/pressroom/po.jpg" alt="Po" width="135" height="136" border="0" /></A></td>
@@ -1258,7 +1258,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
  
-<!-- JavaOne  -->
+<%-- JavaOne  --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="http://www.tmcnet.com/usubmit/2004/Apr/1033792.htm" target="_blank"><img src="/i/pressroom/tmcnet.gif" alt="TMCNET" width="135" height="60" border="0" /></A></td>
@@ -1272,7 +1272,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
  
-<!-- TCO Announcement -->
+<%-- TCO Announcement --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_04_19b_04"><img src="/i/pressroom/tccc04_winners.jpg" alt="TCCC04" width="135" height="100" border="0" /></A></td>
@@ -1286,7 +1286,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!--  Stage Stores Announcement -->
+<%--  Stage Stores Announcement --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_04_19_04"><img src="/i/pressroom/stagestores.gif" alt="stagestores" width="135" height="30" border="0" /></A></td>
@@ -1300,7 +1300,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- BWO Google article -->
+<%-- BWO Google article --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href=" http://www.businessweek.com/technology/content/apr2004/tc20040413_3592_tc146.htm" target="_blank"><img src="/i/pressroom/bwo_logo.gif" alt="bwo_logo" width="135" height="25" border="0" /></A></td>
@@ -1314,7 +1314,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Yahoo TCCC Announcement -->
+<%-- Yahoo TCCC Announcement --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_04_06_04"><img src="/i/pressroom/tccc_yahoo.gif" alt="TCCC - Yahoo" width="135" height="100" border="0" /></A></td>
@@ -1329,7 +1329,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- NVIDIA TCCC-->
+<%-- NVIDIA TCCC--%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_03_08_04"><img src="/i/pressroom/nvidia_badge.gif" alt="nvidia" width="135" height="117" border="0" /></A></td>
@@ -1343,7 +1343,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Fortune  -->
+<%-- Fortune  --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="http://www.fortune.com/fortune/print/0,15935,594536,00.html" target="_blank"><img src="/i/pressroom/fortune.gif" alt="Computer World" width="135" height="35" border="0" /></A></td>
@@ -1359,7 +1359,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
  
-<!-- Mass High Tech article -->
+<%-- Mass High Tech article --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="http://www.masshightech.com/displayarticledetail.asp?art_id=64966&cat_id=3" target="_blank"><img src="/i/pressroom/mass_high_tech.gif" alt="cio" width="135" height="60" border="0" /></A></td>
@@ -1374,7 +1374,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- DoubleClick Announcement -->
+<%-- DoubleClick Announcement --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_03_01_04"><img src="/i/pressroom/dccc.gif" alt="DoubleClick" width="135" height="100" border="0" /></A></td>
@@ -1391,7 +1391,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Yahoo TCCC Announcement -->
+<%-- Yahoo TCCC Announcement --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_02_16_04"><img src="/i/pressroom/tccc_yahoo.gif" alt="TCCC - Yahoo" width="135" height="100" border="0" /></A></td>
@@ -1405,7 +1405,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- DoubleClick Announcement -->
+<%-- DoubleClick Announcement --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&t=news_events&c=pr_02_02_04"><img src="/i/pressroom/dccc.gif" alt="DoubleClick" width="135" height="100" border="0" /></A></td>
@@ -1422,7 +1422,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Computer World  -->
+<%-- Computer World  --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="http://www.computerworld.com/developmenttopics/development/story/0,10801,89274,00.html?SKC=development-89274" target="_blank"><img src="/i/pressroom/computerworld.gif" alt="Computer World" width="135" height="35" border="0" /></A></td>
@@ -1439,7 +1439,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
  
-<!-- Digital Journal.com -->
+<%-- Digital Journal.com --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="http://www.digitaljournal.com/news/?articleID=3913" target="_blank"><img src="/i/pressroom/digital_journal.gif" alt="Digital Journal" width="135" height="70" border="0" /></A></td>
@@ -1455,7 +1455,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 
             <hr width="100%" size="1" noshade="noshade" />
  
- <!-- Mason Gazette -->
+ <%-- Mason Gazette --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="http://gazette.gmu.edu/articles/index.php?id=5180" target="_blank"><img src="/i/pressroom/mason_gazette.gif" alt="The Daily Mason Gazette" width="135" height="70" border="0" /></A></td>
@@ -1474,19 +1474,19 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                 </tr>
             </table>
         </td>
-<!-- Center Column Ends -->
+<%-- Center Column Ends --%>
 
-<!-- Right Column Begins -->
+<%-- Right Column Begins --%>
          <td width="170">
             <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
-<!-- Right Column Ends -->
+<%-- Right Column Ends --%>
 
-<!-- Gutter -->
+<%-- Gutter --%>
          <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-<!-- Gutter Ends -->
+<%-- Gutter Ends --%>
     </tr>
 </table>
 
