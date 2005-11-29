@@ -1691,12 +1691,6 @@
       </target>
 
       <target name="war-longcontest" depends="jar_shared, compile_longcontest">
-      	  <antcall target="package-EJB-RoundRegistrationBean"/>
-		  <copy todir="${jboss_deploy}">
-            <fileset dir="${ejb_jars}">
-                <include name="RoundRegistration.jar"/>                 
-            </fileset>
-          </copy>
           <jar jarfile="${long.jar}">
               <fileset dir="${classes}">
                   <include name="com/topcoder/common/web/data/*.class"/>
@@ -1714,9 +1708,6 @@
                   <include name="com/topcoder/web/codinginterface/messaging/**"/>
                   <include name="com/topcoder/web/codinginterface/techassess/model/**"/>
                   <include name="com/topcoder/security/**/*.class"/>
-<!--
-                  <include name="com/topcoder/shared/**/*.class"/>
--->
                   <include name="com/topcoder/web/common/**"/>
                   <include name="com/topcoder/common/web/render/**"/>
               </classes>
@@ -1725,12 +1716,6 @@
                   <include name="codinginterface.tld"/>
                   <include name="tc-taglib.tld"/>
                   <include name="rsc-taglib.tld"/>
-                  <!--
-                  <include name="screening.tld"/>
-                  <include name="tc.tld"/>
-                  <include name="tces-taglib.tld"/>
-                  <include name="privatelabel.tld"/>
-                  -->
               </webinf>
               <webinf dir="${struts.dir}">
                   <include name="*.tld"/>
@@ -1738,8 +1723,6 @@
               <lib dir="${struts.dir}">
                   <include name="*.jar"/>
               </lib>
-
-
               <fileset dir="${java}/com/topcoder/web/codinginterface/longcontest/view">
                   <include name="**/*.jsp"/>
               </fileset>
@@ -1750,17 +1733,17 @@
 
           </war>
       </target>
+
       <target name="deploy-longcontest" depends="war-longcontest">
-          <copy file="${shared.jar}" todir="${jboss_home}/server/all/lib" overwrite="true"/>
-          <!--<copy file="${long.jar}" todir="${jboss_home}/server/all/lib" overwrite="true"/>-->
-          <copy todir="${jboss_home}/server/all/deploy" overwrite="true">
-              <fileset dir="${war.dir}">
-                  <include name="longcontest.war"/>
-              </fileset>
+          <antcall target="package-EJB-RoundRegistrationBean"/>
+          <copy todir="${jboss_deploy}">
+            <fileset dir="${ejb_jars}">
+                <include name="RoundRegistration.jar"/>
+            </fileset>
           </copy>
+          <antcall target="expand-longcontest"/>
       </target>
-      <target name="deploy-longcontest-expanded" depends="war-longcontest,expand-longcontest">
-      </target>
+
       <target name="expand-longcontest" depends="">
           <copy file="${resources}/LongContest.properties" todir="${jboss_home}/server/all/conf" overwrite="true"/>
           <copy file="${shared.jar}" todir="${jboss_home}/server/all/lib" overwrite="true"/>
