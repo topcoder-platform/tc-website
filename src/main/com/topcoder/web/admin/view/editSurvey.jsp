@@ -38,7 +38,7 @@
                             <tr><td colspan="2"><input type="submit" name="submit" value="Save"/></td></tr>
                         </table>
                     </form>
-                    <% if (question!=null && !questions.isEmpty()) { %>
+                    <% if (questions!=null && !questions.isEmpty()) { %>
                     <p>Questions</p>
                     <% } %>
                     <table>
