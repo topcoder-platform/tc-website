@@ -16,6 +16,7 @@ public class SubmitSuccess extends Base {
             Request r = new Request();
             r.setContentHandle("long_queue_length");
             getRequest().setAttribute(Constants.QUEUE_LENGTH, getDataAccess().getData(r).get("long_queue_length"));
+            getRequest().setAttribute(Constants.ROUND_ID, getRequest().getParameter(Constants.ROUND_ID));
             setNextPage(Constants.PAGE_SUBMIT_SUCCESS);
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
