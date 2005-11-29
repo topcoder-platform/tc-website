@@ -3,6 +3,7 @@ package com.topcoder.web.codinginterface.longcontest.controller.request;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 /**
  * @author dok
@@ -15,7 +16,8 @@ public class SubmitSuccess extends Base {
         try {
             Request r = new Request();
             r.setContentHandle("long_queue_length");
-            getRequest().setAttribute(Constants.QUEUE_LENGTH, getDataAccess().getData(r).get("long_queue_length"));
+            getRequest().setAttribute(Constants.QUEUE_LENGTH,
+                    ((ResultSetContainer)getDataAccess().getData(r).get("long_queue_length")).getItem(0, "length").getResultData());
             getRequest().setAttribute(Constants.ROUND_ID, getRequest().getParameter(Constants.ROUND_ID));
             setNextPage(Constants.PAGE_SUBMIT_SUCCESS);
             setIsNextPageInContext(true);
