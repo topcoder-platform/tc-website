@@ -16,10 +16,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.CodingInterfaceConstants;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.CoderSessionInfo;
@@ -53,7 +50,7 @@ public class ViewReg extends Base {
     		if(isUserRegistered(getUser().getId(), Long.parseLong(roundID))) {
     			// Go to the active contests page if user is already registered.
     			getRequest().setAttribute(CodingInterfaceConstants.MODULE, Constants.RP_ACTIVE_CONTESTS);                                	
-        		setNextPage(((CoderSessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
+        		setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
         		setIsNextPageInContext(true);		    	        		
         	} else {
         		// Get the round terms.
