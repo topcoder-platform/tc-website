@@ -43,7 +43,7 @@
                     <% } %>
                     <table>
                         <rsc:iterator list="<%=questions%>" id="question">
-                            <tr><td><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditQuestion&<%=Constants.SURVEY_ID%>=<%=request.getAttribute(Constants.SURVEY_ID)%>&<%=Constants.QUESTION_ID%>=<rsc:item name="question_id" row="<%=question%>"/>">Edit</a></td><td><rsc:item name="question_text" row="<%=question%>"/></td></tr>
+                            <tr><td><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditQuestion&<%=Constants.SURVEY_ID%>=<%=request.getAttribute(Constants.SURVEY_ID)%>&<%=Constants.QUESTION_ID%>=<rsc:item name="question_id" row="<%=question%>"/>">Edit <rsc:item name="question_id" row="<%=question%>"/></a></td><td><rsc:item name="question_text" row="<%=question%>"/></td></tr>
                         </rsc:iterator>
                     </table>
                 </td>
