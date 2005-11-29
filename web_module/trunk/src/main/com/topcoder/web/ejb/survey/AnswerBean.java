@@ -81,6 +81,6 @@ public class AnswerBean extends BaseEJB {
 
     public ResultSetContainer getAnswers(long questionId, String dataSource) {
         return selectSet("answer", new String[]{"answer_id", "question_id", "answer_text", "sort_order"},
-                new String[]{"questionId_id"}, new String[]{String.valueOf(questionId)}, dataSource);
+                new String[]{"question_id"}, new String[]{String.valueOf(questionId)}, dataSource);
     }
 }
