@@ -22,7 +22,7 @@
                         <tc-webtag:hiddenInput name="<%=Constants.SURVEY_ID%>" />
                         <tc-webtag:hiddenInput name="<%=Constants.QUESTION_ID%>" />
                         <tc-webtag:hiddenInput name="<%=Constants.ANSWER_ID%>" />
-                        <p><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditSurvey&&<%=Constants.SURVEY_ID%>=<%=request.getAttribute(Constants.SURVEY_ID)%>">Edit Survey</a></p>
+                        <p><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditSurvey&<%=Constants.SURVEY_ID%>=<%=request.getAttribute(Constants.SURVEY_ID)%>">Edit Survey</a></p>
                         <p><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditQuestion&<%=Constants.QUESTION_ID%>=<%=request.getAttribute(Constants.QUESTION_ID)%>&<%=Constants.SURVEY_ID%>=<%=request.getAttribute(Constants.SURVEY_ID)%>">Edit Question</a></p>
                         <table>
                             <tr><td colspan="2"><tc-webtag:errorIterator id="err" name="<%=Constants.SORT%>"><%=err%></tc-webtag:errorIterator></td></tr>
