@@ -65,15 +65,15 @@ public class TextInputTag extends BaseTag {
 
     public String format(final Object value) {
         ObjectFormatter formatter = ObjectFormatterFactory.getEmptyFormatter();
-        Object object = null;
+        Object object = value;
         if (format != null) {
-            if (value instanceof Number) {
+            if (object instanceof Number) {
                 formatter.setFormatMethodForClass(Number.class,
                         new NumberFormatMethod(format), true);
-            } else if (value instanceof Date) {
+            } else if (object instanceof Date) {
                 Calendar cal = Calendar.getInstance();
                 if (timeZone!=null) {
-                    object = DateUtils.getConvertedDate((Date)value, timeZone);
+                    object = DateUtils.getConvertedDate((Date)object, timeZone);
                     cal.setTimeZone(TimeZone.getTimeZone(timeZone));
                 } else {
                     cal.setTimeZone(TimeZone.getDefault());
