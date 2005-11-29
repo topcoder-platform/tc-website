@@ -154,6 +154,8 @@
         <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br></tc-webtag:errorIterator>
     </td>
 </tr>
+<tr><td colspan="2" align="center">sina.com has been rejecting the activation email,
+    we recommend you not use a sina.com email account when registering.</td></tr>
 <tr>
     <td align="right" nowrap="nowrap">
         <span class="errorText">*</span> Email Address
