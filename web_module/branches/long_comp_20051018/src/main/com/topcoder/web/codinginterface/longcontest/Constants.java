@@ -60,7 +60,6 @@ public class Constants implements CodingInterfaceConstants {
     public static String MAIN_SERVLET;
     public static int LONG_PRACTICE_ROUND_TYPE_ID;
 
-    public static String INDEX_JSP;
     public static String LOGIN_JSP;
     public static String PAGE_VIEW_REG;
     public static String RP_SUBMIT;
