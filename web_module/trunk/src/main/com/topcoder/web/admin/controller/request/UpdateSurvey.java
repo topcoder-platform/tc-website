@@ -67,7 +67,7 @@ public class UpdateSurvey extends EditSurvey {
             setDefault(Constants.SURVEY_NAME, surveyName);
             setDefault(Constants.SURVEY_STATUS, surveyStatus);
             setDefault(Constants.SURVEY_TEXT, surveyText);
-            setDefault(Constants.RESULTS_VIEWABLE, surveyResultsViewable);
+            setDefault(Constants.RESULTS_VIEWABLE, String.valueOf("on".equals(surveyResultsViewable)));
             loadStatusList();
             if (StringUtils.isNumber(sId)) {
                 loadQuestions(Long.parseLong(sId));
@@ -94,6 +94,7 @@ public class UpdateSurvey extends EditSurvey {
                     survey.setResultsViewable(surveyId, "on".equals(surveyResultsViewable), DBMS.JTS_OLTP_DATASOURCE_NAME);
                     survey.setText(surveyId, surveyText, DBMS.JTS_OLTP_DATASOURCE_NAME);
                 }
+                survey.setStatusId(surveyId, Integer.parseInt(surveyStatus), DBMS.JTS_OLTP_DATASOURCE_NAME);
 
                 tm.commit();
 
