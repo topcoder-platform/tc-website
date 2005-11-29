@@ -4,8 +4,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<tc-webtag:useBean id="questions" name="questions" type="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" toScope="page" fromScope="request"/>
-
+<% ResultSetContainer questions = (ResultSetContainer)request.getAttribute("questions");%>
 <html>
 <head>
 <title>TopCoder Admin</title>
@@ -39,7 +38,7 @@
                             <tr><td colspan="2"><input type="submit" name="submit" value="Save"/></td></tr>
                         </table>
                     </form>
-                    <% if (!questions.isEmpty()) { %>
+                    <% if (question!=null && !questions.isEmpty()) { %>
                     <p>Questions</p>
                     <% } %>
                     <table>
