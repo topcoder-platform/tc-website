@@ -92,7 +92,7 @@
       </logic:equal>
    </logic:equal>
    <td class="tableHeader" align="right" nowrap="nowrap"><A href="<%=sortLinkBase%>&<%=Constants.PRIMARY_COLUMN%>=3&<%=Constants.SORT_ORDER%>=<%=sortDir%>&<%=Constants.TEST_CASE_ID%>=<rsc:item name="test_case_id" row="<%=resultRow%>"/>">Test<br>Case <rsc:item name="rank" row="<%=resultRow%>"/></A><br>
-   (<A href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=ViewSystemTest&<%=Constants.TEST_CASE_ID%>=<rsc:item name="test_case_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<%=request.getParameter(Constants.PROBLEM_ID)%>">details</A>)</td>
+   <span style="font-weight: normal;">(<A href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=ViewSystemTest&<%=Constants.TEST_CASE_ID%>=<rsc:item name="test_case_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<%=request.getParameter(Constants.PROBLEM_ID)%>">details</A>)</span></td>
 </rsc:iterator>
 </tr>
 <%boolean even = true;%>
