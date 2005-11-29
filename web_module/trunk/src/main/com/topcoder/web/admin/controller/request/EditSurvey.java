@@ -18,7 +18,7 @@ public class EditSurvey extends Base {
 
     protected void businessProcessing() throws Exception {
         String sId = getRequest().getParameter(Constants.SURVEY_ID);
-        if (StringUtils.checkNull(sId).equals("")) {
+        if (!StringUtils.checkNull(sId).equals("")) {
             long id = Long.parseLong(sId);
             Survey survey = (Survey) createEJB(getInitialContext(), Survey.class);
             getRequest().setAttribute(Constants.SURVEY_ID, sId);
