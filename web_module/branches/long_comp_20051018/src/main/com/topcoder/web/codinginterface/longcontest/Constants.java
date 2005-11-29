@@ -85,6 +85,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String PAGE_VIEW_SYSTEM_TEST_RESULTS;
     public static String RP_VIEW_PRACTICE;
     public static String PAGE_VIEW_PRACTICE;
+    public static String PAGE_SUBMIT_SUCCESS;
     
     public static String HANDLE_COL;
     public static String SCORE_COL;
