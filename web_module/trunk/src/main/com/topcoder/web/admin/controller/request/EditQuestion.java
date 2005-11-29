@@ -3,6 +3,7 @@ package com.topcoder.web.admin.controller.request;
 import com.topcoder.web.admin.Constants;
 import com.topcoder.web.ejb.survey.Question;
 import com.topcoder.web.ejb.survey.Answer;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.Request;
 
@@ -19,7 +20,7 @@ public class EditQuestion extends Base {
         String qId = getRequest().getParameter(Constants.QUESTION_ID);
         setDefault(Constants.SURVEY_ID, sId);
         getRequest().setAttribute(Constants.SURVEY_ID, sId);
-        if (qId !=null) {
+        if (StringUtils.checkNull(qId).equals("")) {
             long id = Long.parseLong(qId);
             Question question = (Question)createEJB(getInitialContext(), Question.class);
             setDefault(Constants.QUESTION_ID, qId);

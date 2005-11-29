@@ -4,6 +4,7 @@ import com.topcoder.web.admin.Constants;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.survey.Survey;
 import com.topcoder.web.ejb.survey.SurveyQuestion;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.Request;
 
@@ -17,7 +18,7 @@ public class EditSurvey extends Base {
 
     protected void businessProcessing() throws Exception {
         String sId = getRequest().getParameter(Constants.SURVEY_ID);
-        if (sId !=null) {
+        if (StringUtils.checkNull(sId).equals("")) {
             long id = Long.parseLong(sId);
             Survey survey = (Survey) createEJB(getInitialContext(), Survey.class);
             getRequest().setAttribute(Constants.SURVEY_ID, sId);
