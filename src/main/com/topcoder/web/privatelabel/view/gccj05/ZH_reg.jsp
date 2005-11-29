@@ -153,6 +153,8 @@
         <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br></tc-webtag:errorIterator>
     </td>
 </tr>
+<tr><td colspan="2" align="center">我们发现，sina.com的邮箱无法接收账号激活邮件。我们建议参赛者在注册时，使用除新浪以外的邮箱。</td></tr>
+
 <tr>
     <td align="right" nowrap="nowrap">
         <span class="errorText">*</span> 电子邮箱地址
