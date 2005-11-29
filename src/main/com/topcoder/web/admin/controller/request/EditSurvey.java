@@ -28,7 +28,7 @@ public class EditSurvey extends Base {
             setDefault(Constants.SURVEY_NAME, survey.getName(id, DBMS.OLTP_DATASOURCE_NAME));
             setDefault(Constants.SURVEY_STATUS, String.valueOf(survey.getStatusId(id, DBMS.OLTP_DATASOURCE_NAME)));
             setDefault(Constants.SURVEY_TEXT, survey.getText(id, DBMS.OLTP_DATASOURCE_NAME));
-            setDefault(Constants.RESULTS_VIEWABLE, String.valueOf(survey.areResultsViewable(id, DBMS.OLTP_DATASOURCE_NAME));
+            setDefault(Constants.RESULTS_VIEWABLE, String.valueOf(survey.areResultsViewable(id, DBMS.OLTP_DATASOURCE_NAME)));
         }
         loadStatusList();
         setNextPage("/editSurvey.jsp");
