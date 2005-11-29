@@ -74,8 +74,6 @@ public class UpdateQuestion extends EditQuestion {
             setDefault(Constants.QUESTION_STATUS, status);
             setDefault(Constants.QUESTION_TEXT, text);
             setDefault(Constants.REQUIRED, String.valueOf("on".equals(required)));
-            Answer answer = (Answer) createEJB(getInitialContext(), Answer.class);
-            getRequest().setAttribute("answers", answer.getAnswers(Long.parseLong(qId), DBMS.OLTP_DATASOURCE_NAME));
             loadQuestionTypeList();
             loadQuestionStyleList();
             loadStatusList();

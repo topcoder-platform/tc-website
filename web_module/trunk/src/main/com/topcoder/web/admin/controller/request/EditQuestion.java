@@ -33,8 +33,6 @@ public class EditQuestion extends Base {
             setDefault(Constants.QUESTION_STATUS,String.valueOf(question.getStatusId(id, DBMS.OLTP_DATASOURCE_NAME)));
             setDefault(Constants.QUESTION_TEXT,String.valueOf(question.getText(id, DBMS.OLTP_DATASOURCE_NAME)));
             setDefault(Constants.REQUIRED, String.valueOf(question.isRequired(id, DBMS.OLTP_DATASOURCE_NAME)));
-            Answer answer = (Answer)createEJB(getInitialContext(), Answer.class);
-            getRequest().setAttribute("answers", answer.getAnswers(id, DBMS.OLTP_DATASOURCE_NAME));
         }
         loadQuestionTypeList();
         loadQuestionStyleList();
