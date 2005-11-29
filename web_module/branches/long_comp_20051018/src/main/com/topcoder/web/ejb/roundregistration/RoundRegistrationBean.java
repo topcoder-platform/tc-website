@@ -54,7 +54,7 @@ public class RoundRegistrationBean extends BaseEJB {
         Context ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
-
+        ResultSet rs = null;
         try {
             conn = DBMS.getConnection(DBMS.JTS_OLTP_DATASOURCE_NAME);
 
@@ -62,7 +62,7 @@ public class RoundRegistrationBean extends BaseEJB {
             ps.setLong(1, userId);
             ps.setLong(2, roundId);
 
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             return rs.next();
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
@@ -70,6 +70,7 @@ public class RoundRegistrationBean extends BaseEJB {
         } catch (Exception e) {
             throw new EJBException("Exception exists user_id=" + userId + " roundId=" + roundId + ":\n" + e.getMessage());
         } finally {
+            close(rs);
             close(ps);
             close(conn);
             close(ctx);
