@@ -22,7 +22,7 @@
                         <input type="hidden" name="module" value="UpdateQuestion"/>
                         <tc-webtag:hiddenInput name="<%=Constants.SURVEY_ID%>" />
                         <tc-webtag:hiddenInput name="<%=Constants.QUESTION_ID%>" />
-                        <p><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditSurvey&&<%=Constants.SURVEY_ID%>=<%=request.getAttribute(Constants.SURVEY_ID)%>">Edit Survey</a></p>
+                        <p><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditSurvey&<%=Constants.SURVEY_ID%>=<%=request.getAttribute(Constants.SURVEY_ID)%>">Edit Survey</a></p>
                         <% if (request.getAttribute(Constants.QUESTION_ID)!=null) { %>
                             <p><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditAnswer&<%=Constants.QUESTION_ID%>=<%=request.getAttribute(Constants.QUESTION_ID)%>&<%=Constants.SURVEY_ID%>=<%=request.getAttribute(Constants.SURVEY_ID)%>">Add Answer</a></p>
                         <% } %>
