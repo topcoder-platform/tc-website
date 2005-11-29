@@ -6,6 +6,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.ApplicationServer;
 
 import javax.transaction.TransactionManager;
 import javax.transaction.Status;
@@ -47,6 +48,8 @@ public class UpdateAnswer extends Base {
             TransactionManager tm = null;
             try {
                 Answer answer = (Answer) createEJB(getInitialContext(), Answer.class);
+                tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+                tm.begin();
                 long answerId = 0;
                 if (StringUtils.checkNull(aId).equals("")) {
                     answerId = answer.createAnswer(Long.parseLong(qId), text,
