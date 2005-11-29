@@ -48,7 +48,7 @@ public class UpdateAnswer extends Base {
             try {
                 Answer answer = (Answer) createEJB(getInitialContext(), Answer.class);
                 long answerId = 0;
-                if (aId == null) {
+                if (StringUtils.checkNull(aId).equals("")) {
                     answerId = answer.createAnswer(Long.parseLong(qId), text,
                             Integer.parseInt(sort), DBMS.JTS_OLTP_DATASOURCE_NAME);
                 } else {
