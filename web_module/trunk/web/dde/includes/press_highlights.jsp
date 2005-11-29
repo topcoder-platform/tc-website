@@ -5,6 +5,7 @@
     </tr>
 </table>
 <table width="530" border="0" cellspacing="0" cellpadding="4">   
+
    <tr><td class="prHead"><A href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_112105">TopCoder Payouts to Winners of Design and Development Competitions Surpass $1 Million</A> [November 21]</td></tr>
    <tr><td class="prHead">
          <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/ftponline_logo.gif" width="67" height="18" alt="FTPONLINE" border="0" /></div>
@@ -21,4 +22,5 @@
          <A href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=69982" target="_blank">Sorrowful state of software</A> [October 17]
    </td></tr>
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
+
 </table>

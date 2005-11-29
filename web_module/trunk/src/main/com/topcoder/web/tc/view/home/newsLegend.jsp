@@ -54,6 +54,22 @@
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
+OR
+
+   <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.21.05<br>9:35 AM</td>
+       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.ftponline.com/weblogger/forum.aspx?ID=13&DATE=11/01/2005&blog=#449" target="_blank">Spirited Reusable Component Development</A></span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/ftponline_logo.gif" width="67" height="18" alt="FTP Online" border="0" /></div>
+"The key to TopCoder's approach is the building of reusable components that can be adopted by customers to not only help these organizations save money on software development, but to employ a rigorous engineering methodology that lays out the metrics for the application project deliverables."
+      <br><br>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://www.ftponline.com/weblogger/forum.aspx?ID=13&DATE=11/01/2005&blog=#449" target="_blank">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505821" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
 <%------------------EMPLOYMENT OPPS--------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>09.26.05<br>5:00 PM</td>
