@@ -48,7 +48,7 @@
                     <% } %>
                     <table>
                         <rsc:iterator list="<%=answers%>" id="answer">
-                            <tr><td><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditAnswer&<%=Constants.SURVEY_ID%>=<%=request.getAttribute(Constants.SURVEY_ID)%>&<%=Constants.QUESTION_ID%>=<%=request.getAttribute(Constants.QUESTION_ID)%>&<%=Constants.ANSWER_ID%>=<rsc:item name="answer_id" row="<%=answer%>"/>">Edit</a></td><td><rsc:item name="answer_text" row="<%=answer%>"/></td></tr>
+                            <tr><td><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditAnswer&<%=Constants.SURVEY_ID%>=<%=request.getAttribute(Constants.SURVEY_ID)%>&<%=Constants.QUESTION_ID%>=<%=request.getAttribute(Constants.QUESTION_ID)%>&<%=Constants.ANSWER_ID%>=<rsc:item name="answer_id" row="<%=answer%>"/>">Edit</a></td><td><rsc:item name="answer_text" row="<%=answer%>"/></td><td><rsc:item name="sort_order" row="<%=answer%>"/></td></tr>
                         </rsc:iterator>
                     </table>
                 </td>
