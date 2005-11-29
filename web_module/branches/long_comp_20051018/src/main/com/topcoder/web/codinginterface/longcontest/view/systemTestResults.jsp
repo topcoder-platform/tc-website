@@ -80,8 +80,8 @@
    <td class="tableTitle" colspan="<%=cases.getRowCount()+2%>">System Test Results</td>
 </tr>
 <tr>
-   <td class="tableHeader" width="10%" valign="bottom"><A href="<%=sortLinkBase%>&<%=Constants.PRIMARY_COLUMN%>=1&<%=Constants.SORT_ORDER%>=<%=("1".equals(request.getParameter(Constants.PRIMARY_COLUMN))&&!"desc".equals(request.getParameter(Constants.SORT_ORDER)))?"desc":"asc"%>">Handle</A></td>
-   <td class="tableHeader" width="9%" valign="bottom"><A href="<%=sortLinkBase%>&<%=Constants.PRIMARY_COLUMN%>=2&<%=Constants.SORT_ORDER%>=<%=("2".equals(request.getParameter(Constants.PRIMARY_COLUMN))&&!"asc".equals(request.getParameter(Constants.SORT_ORDER)))?"asc":"desc"%>">Score</A></td>
+   <td class="tableHeader"><A href="<%=sortLinkBase%>&<%=Constants.PRIMARY_COLUMN%>=1&<%=Constants.SORT_ORDER%>=<%=("1".equals(request.getParameter(Constants.PRIMARY_COLUMN))&&!"desc".equals(request.getParameter(Constants.SORT_ORDER)))?"desc":"asc"%>">Handle</A></td>
+   <td class="tableHeader" align="right"><A href="<%=sortLinkBase%>&<%=Constants.PRIMARY_COLUMN%>=2&<%=Constants.SORT_ORDER%>=<%=("2".equals(request.getParameter(Constants.PRIMARY_COLUMN))&&!"asc".equals(request.getParameter(Constants.SORT_ORDER)))?"asc":"desc"%>">Score</A></td>
 <rsc:iterator list="<%=cases%>" id="resultRow">
    <% String sortDir = "desc"; %>
    <logic:equal parameter="<%=Constants.TEST_CASE_ID%>" value="<%=resultRow.getStringItem("test_case_id")%>">
@@ -91,7 +91,7 @@
          </logic:notEqual>
       </logic:equal>
    </logic:equal>
-   <td class="tableHeader" align="right" nowrap="nowrap"><A href="<%=sortLinkBase%>&<%=Constants.PRIMARY_COLUMN%>=3&<%=Constants.SORT_ORDER%>=<%=sortDir%>&<%=Constants.TEST_CASE_ID%>=<rsc:item name="test_case_id" row="<%=resultRow%>"/>">Test Case <rsc:item name="rank" row="<%=resultRow%>"/></A><br>
+   <td class="tableHeader" align="right" nowrap="nowrap"><A href="<%=sortLinkBase%>&<%=Constants.PRIMARY_COLUMN%>=3&<%=Constants.SORT_ORDER%>=<%=sortDir%>&<%=Constants.TEST_CASE_ID%>=<rsc:item name="test_case_id" row="<%=resultRow%>"/>">Test<br>Case <rsc:item name="rank" row="<%=resultRow%>"/></A><br>
    (<A href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=ViewSystemTest&<%=Constants.TEST_CASE_ID%>=<rsc:item name="test_case_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<%=request.getParameter(Constants.PROBLEM_ID)%>">details</A>)</td>
 </rsc:iterator>
 </tr>
