@@ -39,7 +39,7 @@
             &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/Registration" class=loginLinks>Update Profile</a>
 <% } else {
     if (level1.equals("long")) {%>
-            <a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?&module=Login" class=loginLinks>Login</a>
+            <a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Login" class=loginLinks>Login</a>
    <% } else { %>
             <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&module=Login" class=loginLinks>Login</a>
    <% } %>
