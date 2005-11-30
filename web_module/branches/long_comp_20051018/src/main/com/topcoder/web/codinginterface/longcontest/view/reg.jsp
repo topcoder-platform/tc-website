@@ -46,7 +46,7 @@
 </jsp:include>
    <div align="center">
       <div style="width: 510px; text-align: left;">
-         <div style="float: right; padding: 0px 0px 5px 10px;"><img src="/i/longcontest/spon_topcoder.gif" alt="Sponsor" border="0" /></div>
+         <div style="float: right;"><img src="/i/longcontest/spon_topcoder.gif" alt="Sponsor" border="0" /></div>
          <span class="bigHandle">Contest: Title</span>
 
          <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="surveyForm">
