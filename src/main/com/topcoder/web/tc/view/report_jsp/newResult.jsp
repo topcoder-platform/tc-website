@@ -25,7 +25,7 @@
     String command = request.getParameter(DataAccessConstants.COMMAND);
     QueryRequest qr = new QueryRequest();
     HashMap h = new HashMap();
-    h.put("queries", "select q.name\n" +
+    h.put("queries", "select q.name, cqx.sort_order, q.query_id\n" +
 "  from command c\n" +
 "     , query q\n" +
 "     , command_query_xref cqx\n" +
