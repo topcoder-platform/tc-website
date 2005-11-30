@@ -53,7 +53,7 @@
 </tr>
 <tr>
    <td class="tableHeader" width="25%">Contest</td>
-   <td class="tableHeader" width="25%" align="right">Competitors</td>
+   <td class="tableHeader" width="25%" align="right">Registrants</td>
    <td class="tableHeader" width="25%">&#160;</td>
    <td class="tableHeader" width="25%">&#160;</td>
 </tr>
@@ -63,7 +63,7 @@
 <logic:iterate name="<%=Constants.CONTEST_LIST_KEY%>" id="contest">
 <tr>
 <td class="<%=even?"statLt":"statDk"%>"><b><tc-webtag:beanWrite name="contest" property="contestName"/></b></td>
-<td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 35px;"><tc-webtag:beanWrite name="contest" property="numCompetitors"/></td>
+<td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 35px;"><A href="registrants page" class="statLink"><tc-webtag:beanWrite name="contest" property="numCompetitors"/></A></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center"><A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>">submit</A></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center"><A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewStandings&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>">standings</A></td>
 </tr>
