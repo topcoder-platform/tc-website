@@ -84,8 +84,8 @@
    <td class="tableHeader" width="25%" align="right" nowrap="nowrap"><A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.START_ROW)%>&<%=Constants.PRIMARY_COLUMN%>=<%=Constants.SUBMISSION_COL%><%=(request.getAttribute(Constants.PRIMARY_COLUMN).equals(Constants.SUBMISSION_COL) ? ("&" + Constants.SORT_ORDER + "=" + (request.getAttribute(Constants.SORT_ORDER).equals("asc")?"desc":"asc")) : "")%>">Submissions</A></td>
 </tr>
 <%-- ITERATOR --%>
-<logic:iterate name="<%=Constants.ROUND_STANDINGS_LIST_KEY%>" id="standing">
 <%boolean even = true;%>
+<logic:iterate name="<%=Constants.ROUND_STANDINGS_LIST_KEY%>" id="standing">
 <tr>
    <td class="<%=even?"statLt":"statDk"%>"><tc-webtag:handle coderId="<%=((StandingModel)standing).getCoderID()%>"/></td>
    <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;"><tc-webtag:beanWrite name="standing" property="points" format="0.00"/></td>
