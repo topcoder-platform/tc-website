@@ -43,7 +43,7 @@
 
             <%-- value of image is 'long_comps_topcoder' or 'long_comps_intel' --%>
             <jsp:include page="page_title.jsp">
-                <jsp:param name="image" value="long_comps_intel"/>
+                <jsp:param name="image" value="long_comps_topcoder"/>
                 <jsp:param name="title" value="Active Contests"/>
             </jsp:include>
 
