@@ -30,12 +30,12 @@
             <% } else { %>
                   <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=logo_submissions">View submissions</a>
             <% } %>
-<%--
 &#160;|&#160;
 <!-- Finalists tab -->
-            <% if (selectedTab.equals("finalists")) {%>
-                 Finalists
+            <% if (selectedTab.equals("winner")) {%>
+                 Winner
             <% } else { %>
-                  <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=logo_finalists">Finalists</a>
+                  <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=logo_winner">Winner</a>
             <% } %>
+<%--
 --%>
