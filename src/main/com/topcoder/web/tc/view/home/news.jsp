@@ -8,6 +8,19 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.30.05<br>5:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=logo_winner">b21 is the TCO06 Logo Contest Winner!</A></span><br><br>
+      Congratulations to <tc-webtag:handle coderId="14947701"/>.  Take a look at the final results.  It was a close one.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=SurveyResults&sid=213">survey results</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505817" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.30.05<br>4:25 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/usatoday_113005.pdf">TopCoder Survey in USA Today [PDF]</A></span><br><br>
       A TopCoder survey on where members would prefer to work (given equal pay) is running as a Snapshot in today's Money section of USA Today (bottom left).
@@ -293,21 +306,6 @@
    <tr><td class="newsLinksCell">
        <A href="http://www.ftponline.com/weblogger/forum.aspx?ID=13&DATE=11/01/2005&blog=#449" target="_blank">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505821" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.02.05<br>5:30 PM</td>
-       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.informationweek.com/showArticle.jhtml?articleID=172901456" target="_blank">Winning Design Ways</A></span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/info_week_logo.gif" width="67" height="10" alt="Information Week" border="0" /></div>
-"Roberts, a seasoned professional, values the feedback, but calls the reviews 'an incredible opportunity' for younger software professionals and students. Says Roberts, 'This is 100% learning, and can really help jump-start a career.'"
-      <br><br>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://www.informationweek.com/showArticle.jhtml?articleID=172901456" target="_blank">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505820" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
