@@ -42,7 +42,7 @@
 
 <jsp:include page="page_title.jsp" >
 <jsp:param name="image" value="long_competitions"/>
-<jsp:param name="title" value="Active Contests"/>
+<jsp:param name="title" value="Registration"/>
 </jsp:include>
    <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="surveyForm">
         <input type="hidden" name="<%=Constants.MODULE%>" value="SubmitReg"/>
@@ -92,7 +92,7 @@
             <br><br>
             <div align="center">
             <form name="terms">
-         <textarea style="width:590; height:300; marginWidth:5; a"  name="textarea">
+         <textarea style="width:510; height:300; marginWidth:5; a"  name="textarea">
 <%=request.getAttribute(Constants.ROUND_TERMS_KEY)%>
          </textarea>
             <br><br>
