@@ -95,7 +95,7 @@ Mike Lydon joined TopCoder in April of 2001 as the Chief Technology Officer.  Ly
 <hr noshade="noshade" size="1" width="100%">
 <strong>George Tsipolitis - Vice President of TopCoder Employment Services</strong>
 <br><br>
-George Tsipolitis manages TopCoder's Employment Services division which uses competition to matches the brightest software engineers in the world with technology companies looking for top talent.    
+George Tsipolitis manages TopCoder's Employment Services division which uses competition to match the brightest software engineers in the world with technology companies looking for top talent.    
 <br><br> 
 Tsipolitis joined TopCoder in September 2001 as Vice President of Development.  As VP of Development, he architected and managed the development of TopCoder's patented algorithm competition software.  He also managed the distributed process of software development projects through the use of the TopCoder member base.  
 <br><br> 
