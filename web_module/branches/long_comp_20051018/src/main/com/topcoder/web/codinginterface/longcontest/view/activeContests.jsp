@@ -30,9 +30,10 @@
     <tr valign="top">
         <%-- Left Column Begins--%>
         <td width="180">
+            <%-- value of level2 is 'topcoder' or 'intel' --%>
             <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="level1" value=""/>
-                <jsp:param name="level2" value=""/>
+                <jsp:param name="level1" value="long_contests"/>
+                <jsp:param name="level2" value="topcoder"/>
             </jsp:include>
         </td>
         <%-- Left Column Ends --%>
@@ -40,8 +41,9 @@
         <%-- Center Column Begins --%>
         <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 
+            <%-- value of image is 'long_comps_topcoder' or 'long_comps_intel' --%>
             <jsp:include page="page_title.jsp">
-                <jsp:param name="image" value="long_competitions"/>
+                <jsp:param name="image" value="long_comps_intel"/>
                 <jsp:param name="title" value="Active Contests"/>
             </jsp:include>
 
