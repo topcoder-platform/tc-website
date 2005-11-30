@@ -39,14 +39,14 @@
 
     Map results = (Map)request.getAttribute(Constants.REPORT_RESULT_KEY);
     ResultSetContainer rs = null;
-    Map.Entry me = null;
     ResultSetContainer.ResultSetRow rsr = null;
     for (Iterator it = queries.iterator(); it.hasNext();) {
-            rs = (ResultSetContainer)results.get(((ResultSetContainer.ResultSetRow)it.next()).getStringItem("name"));
+        rsr = (ResultSetContainer.ResultSetRow)it.next();;
+            rs = (ResultSetContainer)results.get(rsr.getStringItem("name"));
             ResultColumn[] columns = rs.getColumns();
 %>
     <TABLE WIDTH="100%" BORDER="0" CELLPADDING="3" CELLSPACING="0">
-      <TR><TD colspan="<%=columns.length%>" ALIGN="left"><FONT size="4"><b><%=me.getKey().toString()%> Results</b></FONT></TD></TR>
+      <TR><TD colspan="<%=columns.length%>" ALIGN="left"><FONT size="4"><b><%=rsr.getStringItem("name")%> Results</b></FONT></TD></TR>
       <TR>
 <%      for (int i=0; i<columns.length; i++) { %>
           <TD><b><%=columns[i].getName()%></b></TD>
