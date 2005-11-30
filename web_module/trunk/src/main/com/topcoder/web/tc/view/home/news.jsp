@@ -6,6 +6,19 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.30.05<br>4:25 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/usatoday_113005.pdf">TopCoder Survey in USA Today [PDF]</A></span><br><br>
+      A TopCoder survey on where members would prefer to work (given equal pay) is running as a Snapshot in today's Money section of USA Today (bottom left).
+      <br><br>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/pdfs/press_room/usatoday_113005.pdf">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505833" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
 
 <%--------------------------------------------------------%>
    <tr>
