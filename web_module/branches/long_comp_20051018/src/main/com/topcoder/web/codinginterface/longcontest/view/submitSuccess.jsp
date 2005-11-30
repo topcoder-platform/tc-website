@@ -41,10 +41,12 @@
             <% int count = ((Number)request.getAttribute(Constants.QUEUE_LENGTH)).intValue();%>
 
             Successful Submission.
-            <% if (count>0) { %>
-                There are <%=count%> submissions in the queue that will be processed before yours.
+            <% if (count==0) { %>
+                There are no submissions in the queue.
+            <% } else if (count==1) { %>
+                There is 1 submission in the queue.
             <% } else { %>
-                Your submission is next in the queue to be processed.
+                There are <%=count%> submissions in the queue.
             <% } %>
 
         </TD>
