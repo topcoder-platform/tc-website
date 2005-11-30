@@ -6,6 +6,11 @@
           com.topcoder.shared.dataAccess.resultSet.ResultColumn"
 
 %>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants"%>
+<%@ page import="com.topcoder.shared.dataAccess.QueryRequest"%>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccess"%>
+<%@ page import="com.topcoder.shared.util.DBMS"%>
+<%@ page import="com.topcoder.shared.dataAccess.QueryDataAccess"%>
 
 <html>
   <head>
@@ -17,13 +22,27 @@
     <br/>
     <br/>
 <%
-        Map results = (Map)request.getAttribute(Constants.REPORT_RESULT_KEY);
-        ResultSetContainer rs = null;
-        Map.Entry me = null;
-        ResultSetContainer.ResultSetRow rsr = null;
-        for (Iterator it = results.entrySet().iterator(); it.hasNext(); ) {
-            me = (Map.Entry)it.next();
-            rs = (ResultSetContainer)me.getValue();
+    String command = request.getParameter(DataAccessConstants.COMMAND);
+    QueryRequest qr = new QueryRequest();
+    HashMap h = new HashMap();
+    h.put("queries", "select q.name\n" +
+"  from command c\n" +
+"     , query q\n" +
+"     , command_query_xref cqx\n" +
+" where c.command_id = cqx.command_id\n" +
+"   and q.query_id = cqx.query_id\n" +
+"   and c.command_desc = " + command + "\n" +
+" order by cqx.sort_order, q.query_id");
+    qr.setQueries(h);
+    QueryDataAccess da = new QueryDataAccess(request.getParameter("db")==null?DBMS.OLTP_DATASOURCE_NAME:request.getParameter("db"));
+    ResultSetContainer queries = (ResultSetContainer)da.getData(qr).get("queries");
+
+    Map results = (Map)request.getAttribute(Constants.REPORT_RESULT_KEY);
+    ResultSetContainer rs = null;
+    Map.Entry me = null;
+    ResultSetContainer.ResultSetRow rsr = null;
+    for (Iterator it = queries.iterator(); it.hasNext();) {
+            rs = (ResultSetContainer)results.get(((ResultSetContainer.ResultSetRow)it.next()).getStringItem("name"));
             ResultColumn[] columns = rs.getColumns();
 %>
     <TABLE WIDTH="100%" BORDER="0" CELLPADDING="3" CELLSPACING="0">
