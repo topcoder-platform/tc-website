@@ -46,7 +46,22 @@
             </table>
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-            
+ 
+<%-- USA Today --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/pdfs/press_room/usatoday_113005.pdf" target="_blank"><img src="/i/pressroom/usatoday_logo.gif" alt="USA Today" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/pdfs/press_room/usatoday_113005.pdf" target="_blank">TopCoder Survey in USA Today [PDF]</A> </strong></font><br />
+A TopCoder survey on where members would prefer to work (given equal pay) is running as a Snapshot in today's Money section of USA Today (bottom left).<span class="prHead"> [November 30]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+ 
 <%-- Google Code Jam China --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
