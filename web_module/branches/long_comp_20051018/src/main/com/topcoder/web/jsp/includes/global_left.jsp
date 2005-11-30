@@ -204,6 +204,15 @@ function arena() {
             <% } %>
 <%-- Events ends --%>
 
+<%-- Events begins --%>
+                <tr><td id="<%=level1.equals("long_contests")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest" class="<%=level1.equals("long_contests")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("long_contests")?"bottom":"right"%>.gif" border="0"/>Marathon Matches</a></td></tr>
+
+            <% if (level1.equals("long_contests")) { %>
+                <tr><td id="<%=level2.equals("topcoder")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest">TopCoder Matches</A></td></tr>
+                <tr><td id="<%=level2.equals("intel")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest">Intel Multithreading Matches</A></td></tr>
+            <% } %>
+<%-- Events ends --%>
+
    <%-- Forums begins --%>
                 <tr><td id="<%=level1.equals("forums")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Main" class="<%=level1.equals("forums")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("forums")?"bottom":"right"%>.gif" border="0"/>Forums</a></td></tr>
             <% if (level1.equals("forums")) { %>
