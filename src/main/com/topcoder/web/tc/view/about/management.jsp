@@ -93,9 +93,13 @@ Dave O'Brien has over 20 years of sales experience in the computer industry.  Pr
 Mike Lydon joined TopCoder in April of 2001 as the Chief Technology Officer.  Lydon brought to TopCoder his 10 years of experience designing and managing large-scale distributed web-based and data-warehousing systems. Prior to joining TopCoder, Lydon worked as Vice President of Technology Services at Tall·n, Inc. a custom software development and consulting company. Lydon holds a business degree from the University of Connecticut where his focus was on Information Systems. 
 <br><br>
 <hr noshade="noshade" size="1" width="100%">
-<strong>George Tsipolitis - Chief Dude</strong>
+<strong>George Tsipolitis - Vice President of TopCoder Employment Services</strong>
 <br><br>
-George Tsipolitis joined TopCoder in November of 2005 as the Chief Dude.  By bringing Tsipolitis on board, TopCoder gained his 10 years of experience being a major dude. Prior to joining TopCoder, Tsip worked as Project Manager at Tall·n, Inc. a custom software development and consulting company. George holds a Masters degree from Harvard School of Business, where his focus was on the co-eds. 
+George Tsipolitis manages TopCoder’s Employment Services division which uses competition to matches the brightest software engineers in the world with technology companies looking for top talent.    
+<br><br> 
+Tsipolitis joined TopCoder in September 2001 as Vice President of Development.  As VP of Development, he architected and managed the development of TopCoder’s patented algorithm competition software.  He also managed the distributed process of software development projects through the use of the TopCoder member base.  
+<br><br> 
+Prior to joining TopCoder, Tsipolitis was Senior Project Manager with Tall·n, Inc., an Internet professional services firm that creates technically advanced Internet and e-Business solutions for clients.  
             <p><br></p>
 
          </div>
