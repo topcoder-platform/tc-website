@@ -183,7 +183,7 @@ margin:0px auto;
             <td class="homeText"><br>
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/usatoday_logo.gif" width="67" height="36" alt="USA Today" border="0" /></div>
-            TopCoder Survey in USA Today [PDF] <A href="http:/pdfs/press_room/usatoday_113005.pdf" target="_blank">...more</A><br>[November 30]<br><br>
+            TopCoder Survey in USA Today [PDF] <A href="/pdfs/press_room/usatoday_113005.pdf" target="_blank">...more</A><br>[November 30]<br><br>
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/infoworld_logo.gif" width="67" height="12" alt="InfoWorld" border="0" /></div>
             Google to hold programming competition in China <A href="http://www.infoworld.com/article/05/11/22/HNgooglecompetition_1.html" target="_blank">...more</A><br>[November 22]<br><br>
