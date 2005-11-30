@@ -60,7 +60,7 @@
 </jsp:include>
 
 <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
-<span class="bodySubtitle">Competitors: <rsc:item name="num_competitors" row="<%=infoRow%>"/></span><br>
+<span class="bodySubtitle">Registrants: <A href="registrants page" class="bcLink"><rsc:item name="num_competitors" row="<%=infoRow%>"/></A></span><br>
 
 <div class="pagingBox">
       <logic:notEmpty name="prevPageLink"><a href="<%=prevPageLink%>" class="bcLink"></logic:notEmpty>&lt;&lt; previous<logic:notEmpty name="prevPageLink"></a></logic:notEmpty>

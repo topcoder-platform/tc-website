@@ -49,7 +49,7 @@
 <span class="errorText"><%=request.getAttribute(Constants.MESSAGE)%></span><br>
 <%}%>
 <span class="bigHandle">Contest: <%=request.getAttribute(Constants.CONTEST_NAME_KEY)%></span><br>
-<span class="bodySubtitle">Registrants: <A href="registrans page"><%=request.getAttribute(Constants.NUM_REGISTRANTS_KEY)%></A></span><br>
+<span class="bodySubtitle">Registrants: <A href="registrans page" class="bcLink"><%=request.getAttribute(Constants.NUM_REGISTRANTS_KEY)%></A></span><br>
 
 <div class="pagingBox">
 	<logic:equal name="<%=Constants.PREV_IDX_KEY%>" value="-1">
