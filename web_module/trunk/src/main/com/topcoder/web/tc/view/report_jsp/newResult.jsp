@@ -31,7 +31,7 @@
 "     , command_query_xref cqx\n" +
 " where c.command_id = cqx.command_id\n" +
 "   and q.query_id = cqx.query_id\n" +
-"   and c.command_desc = " + command + "\n" +
+"   and c.command_desc = '" + command + "'\n" +
 " order by cqx.sort_order, q.query_id");
     qr.setQueries(h);
     QueryDataAccess da = new QueryDataAccess(request.getParameter("db")==null?DBMS.OLTP_DATASOURCE_NAME:request.getParameter("db"));
