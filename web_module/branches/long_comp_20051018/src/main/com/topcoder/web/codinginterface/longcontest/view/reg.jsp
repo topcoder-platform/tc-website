@@ -87,10 +87,12 @@
    </form>
 
 
-            <span class="bodySubtitle">Registration</span><br>
-            Please read through the following terms and then click "Accept" when you're done.
-            <br><br>
             <div align="center">
+               <div style="width: 510px; text-align: left;">
+               <span class="bodySubtitle">Registration</span><br>
+               Please read through the following terms and then click "Accept" when you're done.
+               <br><br>
+               </div>
             <form name="terms">
          <textarea style="width:510; height:300; marginWidth:5; a"  name="textarea">
 <%=request.getAttribute(Constants.ROUND_TERMS_KEY)%>
@@ -98,6 +100,7 @@
             <br><br>
             <A href="javascript: document.surveyForm.submit();"><img src="/i/accept.gif" alt="Accept" border="0" /></A>
             </form>
+               </div>
             </div>
 
 
