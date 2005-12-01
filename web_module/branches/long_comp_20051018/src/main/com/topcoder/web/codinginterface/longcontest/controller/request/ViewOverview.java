@@ -54,7 +54,24 @@ public class ViewOverview extends Base {
             int endRank = startRank + numRecords - 1;
             
             r.setContentHandle("long_contest_overview");
-            r.setProperty(Constants.ROUND_ID,request.getParameter(Constants.ROUND_ID));
+
+            String roundID = request.getParameter(Constants.ROUND_ID);
+            if(roundID == null){
+                // Find most recent round
+                Request req = new Request();
+                req.setContentHandle("long_contest_active_contests");
+                ResultSetContainer rsc =
+                        (ResultSetContainer) getDataAccess(false).getData(req).get("long_contest_active_contests");
+                if(rsc.isEmpty()) { // No active contests
+                    getRequest().setAttribute(Constants.MESSAGE, "There are currently no active rounds.");
+                    setNextPage(Constants.PAGE_VIEW_REGISTRANTS);
+                    setIsNextPageInContext(true);
+                    return;
+                } else { // Show the most recent active round
+                    roundID = rsc.getStringItem(0, "round_id");
+                }
+            }
+            r.setProperty(Constants.ROUND_ID,roundID);
             Map result = getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r);
             ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_overview_coders");
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
