@@ -110,7 +110,7 @@ The data, as it is processed on each run of the outer loop, might look like this
 { 1,  4,  5,  6,  6,  7,  9, <b>11</b>, 12, 15, 18}
 </pre>
 One of the principal advantages of the insertion sort is that it works very efficiently for lists that are nearly sorted initially.  Furthermore, it can also work on data sets that are constantly being added to.  For instance, if one wanted to maintain a sorted list of the highest scores achieved in a game, an insertion sort would work well, since new elements would be added to the data as the game was played.
-
+<br><br>
 <span class="bodySubtitle">Merge Sort</span><br>
 
 A merge sort works recursively.  First it divides a data set in half, and sorts each half separately.  Next, the first elements from each of the two lists are compared.  The lesser element is then removed from its list and added to the final result list.
@@ -159,7 +159,7 @@ Each recursive call has O(<i>n</i>) runtime, and a total of O(log <i>n</i>) recu
 </pre>
 
 Apart from being fairly efficient, a merge sort has the advantage that it can be used to solve other problems, such as determining how "unsorted" a given list is.  
-
+<br><br>
 
 <span class="bodySubtitle">Heap Sort</span><br>
 
@@ -175,7 +175,7 @@ for (int i = 0; i < data.Length; i++)
 </pre>
 
 The runtime of a heap sort has an upper bound of O(<i>n</i> * log <i>n</i>).  Additionally, its requirement for storage space is only that of storing the heap; this size is linear in proportion to the size of the list.  Heap sort has the disadvantage of not being stable, and is somewhat more complicated to understand beyond just the basic implementation.
-
+<br><br>
 
 <span class="bodySubtitle">Quick Sort</span><br>
 
@@ -210,7 +210,7 @@ The challenge of a quick sort is to determine a reasonable "midpoint" value for 
 {1} {4} {5} {6} {6} {7} {9} {11} {12} {15} {18}
 
 If it is known that the data to be sorted all fit within a given range, or fit a certain distribution model, this knowledge can be used to improve the efficiency of the algorithm by choosing midpoint values that are likely to divide the data in half as close to evenly as possible.  A generic algorithm that is designed to work without respect to data types or value ranges may simply select a value from the unsorted list, or use some random method to determine a midpoint.
-
+<br><br>
 
 <span class="bodySubtitle">Radix Sort</span><br>
 
@@ -244,7 +244,7 @@ Given the relatively small scope of our example, we could use a 4-bit radix and 
 Notice, however, in the last example, that we have several empty buckets.  This illustrates the point that, on a much larger scale, there is an obvious ceiling to how much we can increase the size of our radix before we start to push the limits of available memory.  The processing time to reassemble a large number of buckets back into a single list would also become an important consideration at some point.
 <br><br>
 Because radix sort is qualitatively different than comparison sorting, it is able to perform at greater efficiency in many cases.  The runtime is O(<i>n</i> * <i>k</i>), where <i>k</i> is the size of the key.  (32-bit integers, taken 4 bits at a time, would have <i>k</i> = 8.)  The primary disadvantage is that some types of data may use very long keys (strings, for instance), or may not easily lend itself to a representation that can be processed from least significant to most-significant.  (Negative floating-point values are the most commonly cited example.)
-
+<br><br>
 
 <span class="bodySubtitle">Sorting Libraries</span><br>
 
