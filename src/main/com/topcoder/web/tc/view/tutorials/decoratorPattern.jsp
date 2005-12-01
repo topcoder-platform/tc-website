@@ -47,14 +47,13 @@
          <div class="tutorBodyFull">
 
 <jsp:include page="../page_title.jsp" >
-   <jsp:param name="image" value="alg_tut"/>
+   <jsp:param name="image" value="comp_tut"/>
    <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
 <div style="float: right;"><tc-webtag:forumLink forumID="505846" message="Discuss this article" /></div>
 <span class="bodyTitle">The Decorator Pattern</span>
 
-<div style="float: right;" align="right"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=507568">Discuss this article</A></div>
 <p>
 <img src="/i/m/Pops_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
 By&#160;<tc-webtag:handle coderId="119676" context="design"/><br />
