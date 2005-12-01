@@ -254,9 +254,9 @@ Nowadays, most programming platforms include runtime libraries that provide a nu
 <br><br>
 For standard data types such as scalars, floats, and strings, everything needed to sort an array is already present in the standard libraries.  But what if we have custom data types that require more complicated comparison logic?  Fortunately, object-oriented programming provides the ability for the standard libraries to solve this as well.
 <br><br>
-In both Java and C# (and VB for that matter), there is an interface called Comparable (IComparable in .NET).  By implementing the IComparable interface on a user-defined class, you add a method <font="monospace">int CompareTo (object other)</font>, which returns a negative value if less than, 0 if equal to, or a positive value if greater than the parameter.  The library sort functions will then work on arrays of your new data type.
+In both Java and C# (and VB for that matter), there is an interface called Comparable (IComparable in .NET).  By implementing the IComparable interface on a user-defined class, you add a method <tt>int CompareTo (object other)</tt>, which returns a negative value if less than, 0 if equal to, or a positive value if greater than the parameter.  The library sort functions will then work on arrays of your new data type.
 <br><br>
-Additionally, there is another interface called Comparer (IComparer in .net), which defines a single method <font="monospace">int Compare (object obj1, object obj2)</font>, which returns a value indicating the results of comparing the two parameters.
+Additionally, there is another interface called Comparer (IComparer in .net), which defines a single method <tt>int Compare (object obj1, object obj2)</tt>, which returns a value indicating the results of comparing the two parameters.
 <br><br>
 The greatest joy of using the sorting functions provided by the libraries is that it saves a lot of coding time, and requires a lot less thought and effort.  However, even with the heavy lifting already completed, it is still nice to know how things work under the hood.
 
