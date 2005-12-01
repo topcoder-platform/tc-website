@@ -101,7 +101,7 @@
                             </td>
                             <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
                                 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">
-                                    <tc-webtag:beanWrite name="contest" property="numCompetitors"/></A></td>
+                                    <tc-webtag:beanWrite name="contest" property="numRegistrants"/></A></td>
                             <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
                                 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">
                                     <tc-webtag:beanWrite name="contest" property="numCompetitors"/></A></td>
