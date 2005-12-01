@@ -18,8 +18,6 @@
 
 <% // PAGE SPECIFIC DECLARATIONS%>
 <%@ page import="com.topcoder.forum.*" %>
-<%@ page import="com.topcoder.dde.catalog.*" %>
-<%@ page import="com.topcoder.dde.forum.*" %>
 
 <%@ include file="/includes/forumUtils.jsp" %>
 
@@ -79,6 +77,7 @@
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
 <script language="JavaScript" src="/scripts/javascript.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/scripts/javascriptForum.js"></script>
 </head>
 
 <body class="body" onLoad="frmTopic.txtTopic.focus()">
