@@ -40,6 +40,7 @@
 <jsp:param name="currMonth" value="nov_05"/>
 </jsp:include>
 
+<%-----CALENDAR TABLE------%>
 <table width="100%" cellspacing="1" cellpadding="3" id="calendarFrame">
     <tr> 
         <td id="calendarDays" width="14%">Sun</td>
