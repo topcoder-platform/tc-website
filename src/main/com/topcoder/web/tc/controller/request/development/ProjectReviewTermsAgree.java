@@ -55,15 +55,19 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
     }
 
     private void apply() throws Exception {
+        String primary = StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG));
+        int reviewTypeId = Integer.parseInt(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
+
+        log.info("processing application for " + getUser().getUserName() + " phase " + phaseId +
+                " primary " + primary + " type " + reviewTypeId + " project " + projectId);
+
         long userId = getUser().getId();
         RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class);
 
         rba.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId);
-        String primary = StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG));
         rba.setPrimary(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId,
                 projectId, phaseId, new Boolean(primary).booleanValue());
 
-        int reviewTypeId = Integer.parseInt(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
         rba.setReviewRespId(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId, reviewTypeId);
 
         //send email
