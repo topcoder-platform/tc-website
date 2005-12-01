@@ -184,22 +184,25 @@ public class Submit extends Base {
 				showProcessingPage();
 
 				try {
+					
+					// Save temp variables into session
+					request.getSession().setAttribute(Constants.LANGUAGES, lang);							
+					request.getSession().setAttribute(Constants.CODE, code);			
+					request.getSession().setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
+
 					// Get the compilation response
 					LongCompileResponse res = receive(30 * 1000, uid, cid);					
 					
 					// Records errors and other info
-					if(res.getCompileStatus()) { // everything went ok! :)						
+					if(res.getCompileStatus()) { // everything went ok! :)
+						cleanSession();
 						// Go to standings!
 						closeProcessingPage(buildProcessorRequestString("SubmitSuccess",
 								new String[] { Constants.ROUND_ID }, new String[] { String
 										.valueOf(rid) }));
 					} else { // Compilation errors!
-						// Save temp variables into session
-						request.getSession().setAttribute(Constants.LANGUAGES, lang);							
-						request.getSession().setAttribute(Constants.CODE, code);			
-						request.getSession().setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
 						request.getSession().setAttribute(Constants.COMPILE_STATUS, new Boolean(res.getCompileStatus()));
-						request.getSession().setAttribute(Constants.COMPILE_MESSAGE, htmlEncode(res.getCompileError()));						
+						request.getSession().setAttribute(Constants.COMPILE_MESSAGE, htmlEncode(res.getCompileError()));
 						// Go back to coding.
 						closeProcessingPage(buildProcessorRequestString("Submit",
 								new String[]{Constants.ROUND_ID,Constants.CONTEST_ID,Constants.COMPONENT_ID},
