@@ -201,6 +201,7 @@ Array quickSort(Array data) {
 
 The challenge of a quick sort is to determine a reasonable "midpoint" value for dividing the data into two groups.  The efficiency of the algorithm is entirely dependent upon how successfully an accurate midpoint value is selected.  In a best case, the runtime is O(<i>n</i> * log <i>n</i>).  In the worst case-where one of the two groups always has only a single element-the runtime drops to O(<i>n</i>&sup2;).  The actual sorting of the elements might work out to look something like this:
 
+<pre class="code">
 {18, 6, 9, 1, 4, 15, 12, 5, 6, 7, 11}
 {6, 9, 1, 4, 12, 5, 6, 7, 11} {15} {18}
 {6, 9, 1, 4, 5, 6, 7, 11} {12} {15} {18}
@@ -208,6 +209,7 @@ The challenge of a quick sort is to determine a reasonable "midpoint" value for 
 {1} {4} {5} {6} {6} {9, 7, 11} {12} {15} {18}
 {1} {4} {5} {6} {6} {7} {9, 11} {12} {15} {18}
 {1} {4} {5} {6} {6} {7} {9} {11} {12} {15} {18}
+</pre>
 
 If it is known that the data to be sorted all fit within a given range, or fit a certain distribution model, this knowledge can be used to improve the efficiency of the algorithm by choosing midpoint values that are likely to divide the data in half as close to evenly as possible.  A generic algorithm that is designed to work without respect to data types or value ranges may simply select a value from the unsorted list, or use some random method to determine a midpoint.
 <br><br>
