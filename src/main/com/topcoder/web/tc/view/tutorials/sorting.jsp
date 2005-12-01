@@ -263,7 +263,7 @@ For standard data types such as scalars, floats, and strings, everything needed 
 <br><br>
 In both Java and C# (and VB for that matter), there is an interface called Comparable (IComparable in .NET).  By implementing the IComparable interface on a user-defined class, you add a method <tt>int CompareTo (object other)</tt>, which returns a negative value if less than, 0 if equal to, or a positive value if greater than the parameter.  The library sort functions will then work on arrays of your new data type.
 <br><br>
-Additionally, there is another interface called Comparator (IComparer in .net), which defines a single method <tt>int Compare (object obj1, object obj2)</tt>, which returns a value indicating the results of comparing the two parameters.
+Additionally, there is another interface called Comparator (IComparer in .NET), which defines a single method <tt>int Compare (object obj1, object obj2)</tt>, which returns a value indicating the results of comparing the two parameters.
 <br><br>
 The greatest joy of using the sorting functions provided by the libraries is that it saves a lot of coding time, and requires a lot less thought and effort.  However, even with the heavy lifting already completed, it is still nice to know how things work under the hood.
 
