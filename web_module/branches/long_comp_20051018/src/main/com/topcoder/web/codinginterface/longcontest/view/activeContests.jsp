@@ -53,12 +53,13 @@
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
                             <tr>
-                                <td class="tableTitle" colspan="7">Active Long Competitions</td>
+                                <td class="tableTitle" colspan="8">Active Long Competitions</td>
                             </tr>
                             <tr>
                                 <td class="tableHeader">Contest</td>
                                 <td class="tableHeader" colspan="3" nowrap="nowrap">Problem Name</td>
                                 <td class="tableHeader" align="center" nowrap="nowrap">Registrants</td>
+                                <td class="tableHeader" align="center" nowrap="nowrap">Competitors</td>
                                 <td class="tableHeader" align="center" nowrap="nowrap">Start time</td>
                                 <td class="tableHeader" align="center" nowrap="nowrap">End time</td>
                             </tr>
@@ -100,6 +101,9 @@
                                                class="statLink">Results</a>
                                         </logic:notEqual>
                                     </td>
+                                    <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
+                                       <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">
+                                          <tc-webtag:beanWrite name="contest" property="numCompetitors"/></A></td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
                                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">
                                           <tc-webtag:beanWrite name="contest" property="numCompetitors"/></A></td>
