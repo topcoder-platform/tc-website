@@ -101,7 +101,7 @@
                                         </logic:notEqual>
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
-                                       <A href="registrants page" class="statLink">
+                                       <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">
                                           <tc-webtag:beanWrite name="contest" property="numCompetitors"/></A></td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
                                         <tc-webtag:beanWrite name="contest" property="startTime"

@@ -1,9 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@  page
   language="java"
-  import="java.util.*,
-          com.topcoder.web.codinginterface.longcontest.Constants,
-          com.topcoder.web.common.StringUtils,
+  import="com.topcoder.web.codinginterface.longcontest.Constants,
           com.topcoder.shared.dataAccess.resultSet.*"
 
 %>
@@ -60,7 +58,7 @@
 </jsp:include>
 
 <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
-<span class="bodySubtitle">Registrants: <A href="registrants page" class="bcLink"><rsc:item name="num_competitors" row="<%=infoRow%>"/></A></span><br>
+<span class="bodySubtitle">Registrants: <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>" class="bcLink"><rsc:item name="num_competitors" row="<%=infoRow%>"/></A></span><br>
 
 <div class="pagingBox">
       <logic:notEmpty name="prevPageLink"><a href="<%=prevPageLink%>" class="bcLink"></logic:notEmpty>&lt;&lt; previous<logic:notEmpty name="prevPageLink"></a></logic:notEmpty>

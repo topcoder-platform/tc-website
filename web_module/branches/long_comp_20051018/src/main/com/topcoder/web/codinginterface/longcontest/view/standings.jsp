@@ -3,9 +3,7 @@
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%@  page
   language="java"
-  import="java.util.*,
-          com.topcoder.web.codinginterface.longcontest.*,
-          com.topcoder.shared.dataAccess.resultSet.*,
+  import="com.topcoder.web.codinginterface.longcontest.*,
           com.topcoder.web.codinginterface.longcontest.model.*"
 
 %>
@@ -49,7 +47,7 @@
 <span class="errorText"><%=request.getAttribute(Constants.MESSAGE)%></span><br>
 <%}%>
 <span class="bigHandle">Contest: <%=request.getAttribute(Constants.CONTEST_NAME_KEY)%></span><br>
-<span class="bodySubtitle">Registrants: <A href="registrans page" class="bcLink"><%=request.getAttribute(Constants.NUM_REGISTRANTS_KEY)%></A></span><br>
+<span class="bodySubtitle">Registrants: <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewOverview&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>" class="bcLink"><%=request.getAttribute(Constants.NUM_REGISTRANTS_KEY)%></A></span><br>
 
 <div class="pagingBox">
 	<logic:equal name="<%=Constants.PREV_IDX_KEY%>" value="-1">
