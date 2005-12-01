@@ -1,5 +1,6 @@
 package com.topcoder.web.codinginterface.longcontest;
 
+import com.topcoder.shared.problem.DataType;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.CodingInterfaceConstants;
@@ -45,6 +46,10 @@ public class Constants implements CodingInterfaceConstants {
     public static String COMPILE_STATUS;
     public static String LANGUAGES;
     public static String CLASS_NAME;
+    public static String METHOD_NAME;
+    public static String RETURN_TYPE;
+    public static String ARG_TYPES;	
+    
     public static String CONTEST_LIST_KEY;
     public static String ROUND_STANDINGS_LIST_KEY;
     public static String NUM_REGISTRANTS_KEY;
