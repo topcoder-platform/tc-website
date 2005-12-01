@@ -87,7 +87,7 @@ for (int i = 0; i < data.Length; i++)
          data[j + 1] = tmp;
       }
 </pre>
-The idea is to pass through the data from one end to the other, and swap two adjacent elements whenever the first is greater than the last.  Thus, the smallest elements will "bubble" to the surface.  This is O(n2) runtime, and hence is very slow for large data sets.  The single best advantage of a bubble sort, however, is that it is very simple to understand and code from memory.  Additionally, it is a stable sort that requires no additional memory, since all swaps are made in place.
+The idea is to pass through the data from one end to the other, and swap two adjacent elements whenever the first is greater than the last.  Thus, the smallest elements will "bubble" to the surface.  This is O(<i>n</i>&sup2;) runtime, and hence is very slow for large data sets.  The single best advantage of a bubble sort, however, is that it is very simple to understand and code from memory.  Additionally, it is a stable sort that requires no additional memory, since all swaps are made in place.
 <br><br>
 <span class="bodySubtitle">Insertion Sort</span><br>
 Insertion sort is an algorithm that seeks to sort a list one element at a time.  With each iteration, it takes the next element waiting to be sorted, and adds it, in proper location, to those elements that have already been sorted.
