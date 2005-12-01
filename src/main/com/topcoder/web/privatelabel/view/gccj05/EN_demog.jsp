@@ -70,8 +70,7 @@
                 </div>
                 <br><br><br>
 
-        <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST"
-              name="regForm" enctype="multipart/form-data">
+        <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm" enctype="multipart/form-data">
                 <table cellpadding="0" cellspacing="5" class="bodyText" align="center" border="0">
                         <input type="hidden" name="<%=Constants.MODULE_KEY%>"
                                value="<%=Constants.GOOGLE_CHINA_05_REG_CONFIRM%>"/>
