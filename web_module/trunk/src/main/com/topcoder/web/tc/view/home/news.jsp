@@ -6,6 +6,24 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+
+<%--------------------------------------------------------%>
+   
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>12.01.05<br>11:20 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=sorting">Sorting Tutorial</A></span><br><br>
+        Any number of practical applications in computing require things to be in order. Even before we start computing, the importance of sorting is drilled into us.</td>
+      <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" /><br>by <tc-webtag:handle coderId="10407399" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=sorting">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505834" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.30.05<br>5:30 PM</td>
@@ -293,22 +311,6 @@
       <A href="http://forums.topcoder.com/?module=Thread&threadID=507824">discuss this</A>&#160;|&#160;
       <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>10.21.05<br>9:35 AM</td>
-       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.ftponline.com/weblogger/forum.aspx?ID=13&DATE=11/01/2005&blog=#449" target="_blank">Spirited Reusable Component Development</A></span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/ftponline_logo.gif" width="67" height="18" alt="FTP Online" border="0" /></div>
-"The key to TopCoder's approach is the building of reusable components that can be adopted by customers to not only help these organizations save money on software development, but to employ a rigorous engineering methodology that lays out the metrics for the application project deliverables."
-      <br><br>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://www.ftponline.com/weblogger/forum.aspx?ID=13&DATE=11/01/2005&blog=#449" target="_blank">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505821" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>
