@@ -8,7 +8,23 @@
    </tr>
 
 <%--------------------------------------------------------%>
-   
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>12.01.05<br>4:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm275">SRM 275 - Problem Set & Analysis</A></span><br><br>
+      <tc-webtag:handle coderId="144400" context="algorithm"/> continued his quest to regain top position on the coder rankings list from <tc-webtag:handle coderId="10574855" context="algorithm"/> by easily winning Division 1 by almost 100 points.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/NeverMore_mug.gif" /><br>by <tc-webtag:handle coderId="287130" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm275">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505789" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>12.01.05<br>11:20 AM</td>
       <td class="newsTextCell">
@@ -300,17 +316,6 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>11.03.05<br>3:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://forums.topcoder.com/?module=Thread&threadID=507824">Arena applet under Java 1.3 no longer supported</A></span><br><br>
-      Effective November 21st, we will no longer be supporting running the Arena applet under Java 1.3. Please make sure you have Java 1.4 or Java 5 installed before the 21st (SRM 273).
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="http://forums.topcoder.com/?module=Thread&threadID=507824">discuss this</A>&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
 
 </table>
 <br><br>
