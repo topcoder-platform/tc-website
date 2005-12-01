@@ -1,3 +1,4 @@
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -5,8 +6,6 @@
 <title>2006 TopCoder Open - Logo Design Contest</title>
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
-<%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <style type="text/css">
 .pageSpacer
@@ -47,33 +46,21 @@
 <!-- Center Column Begins -->
          <td class="bodyText" width="100%" align="center">
 
-
          <div class="pageSpacer">
 
             <div class="logoBox"><img src="/i/tournament/tco06/logo_logo.gif" alt="TCO06 Logo Contest" border="0"/></div>
             <div align="center">
             <jsp:include page="logo_links.jsp" >
-            <jsp:param name="selectedTab" value="finalists"/>
+            <jsp:param name="selectedTab" value="winner"/>
             </jsp:include>
             </div>
 
-<br><br>
-<span class="bodySubtitle">Finalists</span>
-<br><br>
-<table cellpadding="10" cellspacing="0" align="center" border="0" class="bodyText">
-<tr><td>0056 - <tc-webtag:handle coderId="14947701"/><br><img src="/i/tournament/tco06/finalists/0056.jpg" alt="" border="0" /><hr></td></tr>
-<tr><td>0246 - <tc-webtag:handle coderId="19831854"/><br><img src="/i/tournament/tco06/finalists/0246.jpg" alt="" border="0" /><hr></td></tr>
-<tr><td>0247 - <tc-webtag:handle coderId="19831854"/><br><img src="/i/tournament/tco06/finalists/0247.jpg" alt="" border="0" /><hr></td></tr>
-<tr><td>0293 - <tc-webtag:handle coderId="20023566"/><br><img src="/i/tournament/tco06/finalists/0293.jpg" alt="" border="0" /><hr></td></tr>
-<tr><td>0308 - <tc-webtag:handle coderId="19960165"/><br><img src="/i/tournament/tco06/finalists/0308.jpg" alt="" border="0" /><hr></td></tr>
-<tr><td>0341 - <tc-webtag:handle coderId="8503625"/><br><img src="/i/tournament/tco06/finalists/0341.jpg" alt="" border="0" /><hr></td></tr>
-<tr><td>0346 - <tc-webtag:handle coderId="20022453"/><br><img src="/i/tournament/tco06/finalists/0346.jpg" alt="" border="0" /><hr></td></tr>
-<tr><td>0529 - <tc-webtag:handle coderId="15023758"/><br><img src="/i/tournament/tco06/finalists/0529.jpg" alt="" border="0" /><hr></td></tr>
-<tr><td>0532 - <tc-webtag:handle coderId="14978261"/><br><img src="/i/tournament/tco06/finalists/0532.jpg" alt="" border="0" /><hr></td></tr>
-<tr><td>0607 - <tc-webtag:handle coderId="20023387"/><br><img src="/i/tournament/tco06/finalists/0607.jpg" alt="" border="0" /><hr></td></tr>
-</table>
-
-
+            <br><br>
+            <div align="center">
+            <div style="padding: 10px;"><img src="/i/tournament/tco06/logo_submissions/0056.jpg" alt="" border="0" /></div>
+            <span class="bodySubtitle">Congratulations to <tc-webtag:handle coderId="14947701"/></span><br>
+            <A href="/tc?module=SurveyResults&sid=213">survey results</A>
+            </div>
          </div>
 
          <p><br/></p>
