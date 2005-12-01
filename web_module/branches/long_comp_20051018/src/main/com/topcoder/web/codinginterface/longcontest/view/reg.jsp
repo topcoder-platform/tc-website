@@ -47,7 +47,7 @@
                 <div style="width: 510px; text-align: left;">
                     <div style="float: right;"><img src="/i/longcontest/spon_topcoder.gif" alt="Sponsor" border="0"/>
                     </div>
-                    <span class="bigHandle">Contest: <%=request.getParameter(Constants.CONTEST_NAME_KEY)%></span>
+                    <span class="bigHandle">Contest: <%=request.getAttribute(Constants.CONTEST_NAME_KEY)%></span>
 
                     <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST"
                           name="surveyForm">
