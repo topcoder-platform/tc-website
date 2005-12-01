@@ -111,10 +111,10 @@ The data, as it is processed on each run of the outer loop, might look like this
 </pre>
 One of the principal advantages of the insertion sort is that it works very efficiently for lists that are nearly sorted initially.  Furthermore, it can also work on data sets that are constantly being added to.  For instance, if one wanted to maintain a sorted list of the highest scores achieved in a game, an insertion sort would work well, since new elements would be added to the data as the game was played.
 
-Merge Sort
+<span class="bodySubtitle">Merge Sort</span><br>
 
 A merge sort works recursively.  First it divides a data set in half, and sorts each half separately.  Next, the first elements from each of the two lists are compared.  The lesser element is then removed from its list and added to the final result list.
-
+<pre class="code">
 int[] mergeSort (int[] data) {
    if (data.Length == 1)
       return data;
@@ -143,9 +143,10 @@ int[] mergeSort (int[] data) {
    }
    return result;
 }
+</pre>
+Each recursive call has O(<i>n</i>) runtime, and a total of O(log <i>n</i>) recursions are required, thus the runtime of this algorithm is O(<i>n</i> * log <i>n</i>).  A merge sort can also be modified for performance on lists that are nearly sorted to begin with.  After sorting each half of the data, if the highest element in one list is less than the lowest element in the other half, then the merge step is unnecessary.  (The Java API implements this particular optimization, for instance.)  The data, as the process is called recursively, might look like this:
 
-Each recursive call has O(n) runtime, and a total of O(log n) recursions are required, thus the runtime of this algorithm is O(n * log n).  A merge sort can also be modified for performance on lists that are nearly sorted to begin with.  After sorting each half of the data, if the highest element in one list is less than the lowest element in the other half, then the merge step is unnecessary.  (The Java API implements this particular optimization, for instance.)  The data, as the process is called recursively, might look like this:
-
+<pre class="code">
 {18, 6, 9, 1, 4, 15, 12, 5, 6, 7, 11}
 {18, 6, 9, 1, 4} {15, 12, 5, 6, 7, 11}
 {18, 6} {9, 1, 4} {15, 12, 5} {6, 7, 11}
@@ -155,28 +156,32 @@ Each recursive call has O(n) runtime, and a total of O(log n) recursions are req
 {6, 18} {1, 4, 9} {5, 12, 15} {6, 7, 11}
 {1, 4, 6, 9, 18} {5, 6, 7, 11, 12, 15}
 {1, 4, 5, 6, 6, 7, 9, 11, 12, 15, 18}
+</pre>
 
 Apart from being fairly efficient, a merge sort has the advantage that it can be used to solve other problems, such as determining how "unsorted" a given list is.  
 
 
-Heap Sort
+<span class="bodySubtitle">Heap Sort</span><br>
 
 In a heap sort, we create a heap data structure.  A heap is a data structure that stores data in a tree such that the smallest (or largest) element is always the root node.  (Heaps, also known as priority queues, were discussed in more detail in <A href="/tc?module=Static&d1=tutorials&d2=dataStructures">Data Structures</A>.)  To perform a heap sort, all data from a list is inserted into a heap, and then the root element is repeatedly removed and stored back into the list.  Since the root element is always the smallest element, the result is a sorted list.  If you already have a Heap implementation available or you utilize the Java PriorityQueue (newly available in version 1.5), performing a heap sort is fairly short to code:
 
+<pre class="code">
 Heap h = new Heap();
 for (int i = 0; i < data.Length; i++)
    h.Add(data[i]);
 int[] result = new int[data.Length];
 for (int i = 0; i < data.Length; i++)
    data[i] = h.RemoveLowest();
+</pre>
 
-The runtime of a heap sort has an upper bound of O(n * log n).  Additionally, its requirement for storage space is only that of storing the heap; this size is linear in proportion to the size of the list.  Heap sort has the disadvantage of not being stable, and is somewhat more complicated to understand beyond just the basic implementation.
+The runtime of a heap sort has an upper bound of O(<i>n</i> * log <i>n</i>).  Additionally, its requirement for storage space is only that of storing the heap; this size is linear in proportion to the size of the list.  Heap sort has the disadvantage of not being stable, and is somewhat more complicated to understand beyond just the basic implementation.
 
 
-Quick Sort
+<span class="bodySubtitle">Quick Sort</span><br>
 
 A quick sort, as the name implies, is intended to be an efficient sorting algorithm.  The theory behind it is to sort a list in a way very similar to how a human might do it.  First, divide the data into two groups of "high" values and "low" values.  Then, recursively process the two halves. Finally, reassemble the now sorted list.
 
+<pre class="code">
 Array quickSort(Array data) {
    if (Array.Length <= 1)
       return;
@@ -192,8 +197,9 @@ Array quickSort(Array data) {
       }
    return concatenate(quickSort(left), middle, quickSort(right));
 }
+</pre>
 
-The challenge of a quick sort is to determine a reasonable "midpoint" value for dividing the data into two groups.  The efficiency of the algorithm is entirely dependent upon how successfully an accurate midpoint value is selected.  In a best case, the runtime is O(n * log n).  In the worst case-where one of the two groups always has only a single element-the runtime drops to O(n2).  The actual sorting of the elements might work out to look something like this:
+The challenge of a quick sort is to determine a reasonable "midpoint" value for dividing the data into two groups.  The efficiency of the algorithm is entirely dependent upon how successfully an accurate midpoint value is selected.  In a best case, the runtime is O(<i>n</i> * log <i>n</i>).  In the worst case-where one of the two groups always has only a single element-the runtime drops to O(<i>n</i>&sup2;).  The actual sorting of the elements might work out to look something like this:
 
 {18, 6, 9, 1, 4, 15, 12, 5, 6, 7, 11}
 {6, 9, 1, 4, 12, 5, 6, 7, 11} {15} {18}
@@ -206,44 +212,50 @@ The challenge of a quick sort is to determine a reasonable "midpoint" value for 
 If it is known that the data to be sorted all fit within a given range, or fit a certain distribution model, this knowledge can be used to improve the efficiency of the algorithm by choosing midpoint values that are likely to divide the data in half as close to evenly as possible.  A generic algorithm that is designed to work without respect to data types or value ranges may simply select a value from the unsorted list, or use some random method to determine a midpoint.
 
 
-Radix Sort
+<span class="bodySubtitle">Radix Sort</span><br>
 
 The radix sort was designed originally to sort data without having to directly compare elements to each other.  A radix sort first takes the least-significant digit (or several digits, or bits), and places the values into buckets.  If we took 4 bits at a time, we would need 16 buckets.  We then put the list back together, and have a resulting list that is sorted by the least significant radix.  We then do the same process, this time using the second-least significant radix.  We lather, rinse, and repeat, until we get to the most significant radix, at which point the final result is a properly sorted list.
-
+<br><br>
 For example, let's look at a list of numbers and do a radix sort using a 1-bit radix.  Notice that it takes us 4 steps to get our final result, and that on each step we setup exactly two buckets:
 
+<pre class="code">
 {6, 9, 1, 4, 15, 12, 5, 6, 7, 11}
 {6, 4, 12, 6} {9, 1, 15, 5, 7, 11}
 {4, 12, 9, 1, 5} {6, 6, 15, 7, 11}
 {9, 1, 11} {4, 12, 5, 6, 6, 15, 7}
 {1, 4, 5, 6, 6, 7} {9, 11, 12, 15}
+</pre>
 
 Let's do the same thing, but now using a 2-bit radix.  Notice that it will only take us two steps to get our result, but each step requires setting up 4 buckets:
 
+<pre class="code">
 {6, 9, 1, 4, 15, 12, 5, 6, 7, 11}
 {4, 12} {9, 1, 5} {6, 6} {15, 7, 11}
 {1} {4, 5, 6, 6, 7} {9, 11} {12, 15}
+</pre>
 
 Given the relatively small scope of our example, we could use a 4-bit radix and sort our list in a single step with 16 buckets:
 
+<pre class="code">
 {6, 9, 1, 4, 15, 12, 5, 6, 7, 11}
 {1} {} {} {4} {5} {6, 6} {7} {} {9} {} {11} {12} {} {} {15}
+</pre>
 
 Notice, however, in the last example, that we have several empty buckets.  This illustrates the point that, on a much larger scale, there is an obvious ceiling to how much we can increase the size of our radix before we start to push the limits of available memory.  The processing time to reassemble a large number of buckets back into a single list would also become an important consideration at some point.
+<br><br>
+Because radix sort is qualitatively different than comparison sorting, it is able to perform at greater efficiency in many cases.  The runtime is O(<i>n</i> * <i>k</i>), where <i>k</i> is the size of the key.  (32-bit integers, taken 4 bits at a time, would have <i>k</i> = 8.)  The primary disadvantage is that some types of data may use very long keys (strings, for instance), or may not easily lend itself to a representation that can be processed from least significant to most-significant.  (Negative floating-point values are the most commonly cited example.)
 
-Because radix sort is qualitatively different than comparison sorting, it is able to perform at greater efficiency in many cases.  The runtime is O(n * k), where k is the size of the key.  (32-bit integers, taken 4 bits at a time, would have k = 8.)  The primary disadvantage is that some types of data may use very long keys (strings, for instance), or may not easily lend itself to a representation that can be processed from least significant to most-significant.  (Negative floating-point values are the most commonly cited example.)
 
-
-Sorting Libraries
+<span class="bodySubtitle">Sorting Libraries</span><br>
 
 Nowadays, most programming platforms include runtime libraries that provide a number of useful and reusable functions for us.  The .NET framework, Java API, and C++ STL all provide some built-in sorting capabilities.  Even better, the basic premise behind how they work is similar from one language to the next.
-
+<br><br>
 For standard data types such as scalars, floats, and strings, everything needed to sort an array is already present in the standard libraries.  But what if we have custom data types that require more complicated comparison logic?  Fortunately, object-oriented programming provides the ability for the standard libraries to solve this as well.
-
-In both Java and C# (and VB for that matter), there is an interface called Comparable (IComparable in .NET).  By implementing the IComparable interface on a user-defined class, you add a method int CompareTo (object other), which returns a negative value if less than, 0 if equal to, or a positive value if greater than the parameter.  The library sort functions will then work on arrays of your new data type.
-
-Additionally, there is another interface called Comparer (IComparer in .net), which defines a single method int Compare (object obj1, object obj2), which returns a value indicating the results of comparing the two parameters.
-
+<br><br>
+In both Java and C# (and VB for that matter), there is an interface called Comparable (IComparable in .NET).  By implementing the IComparable interface on a user-defined class, you add a method <font="monospace">int CompareTo (object other)</font>, which returns a negative value if less than, 0 if equal to, or a positive value if greater than the parameter.  The library sort functions will then work on arrays of your new data type.
+<br><br>
+Additionally, there is another interface called Comparer (IComparer in .net), which defines a single method <font="monospace">int Compare (object obj1, object obj2)</font>, which returns a value indicating the results of comparing the two parameters.
+<br><br>
 The greatest joy of using the sorting functions provided by the libraries is that it saves a lot of coding time, and requires a lot less thought and effort.  However, even with the heavy lifting already completed, it is still nice to know how things work under the hood.
 
 
