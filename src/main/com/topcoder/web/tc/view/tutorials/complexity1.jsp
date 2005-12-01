@@ -1,5 +1,6 @@
 <%@  page language="java"  %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -44,13 +45,19 @@
 
          <div class="tutorBodyFull">
 
-            <h2>Computational Complexity: Section 1</h2>
+<jsp:include page="../page_title.jsp" >
+   <jsp:param name="image" value="alg_tut"/>
+   <jsp:param name="title" value="&#160;"/>
+</jsp:include>
 
-         <p>
-         <img src="/i/m/misof_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-         By&#160;<tc-webtag:handle coderId="8357090" context="algorithm"/><br />
-         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-         </p>
+<div style="float: right;"><tc-webtag:forumLink forumID="505848" message="Discuss this article" /></div>
+<span class="bodyTitle">Computational Complexity: Section 1</span>
+
+<p>
+<img src="/i/m/misof_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+By&#160;<tc-webtag:handle coderId="8357090" context="algorithm"/><br />
+<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+</p>
 
 <P>
 In this article I'll try to introduce you to the area of computation

@@ -1,4 +1,5 @@
 <%@  page language="java"  %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -57,7 +58,13 @@
 
          <div class="tutorBodyFull">
 
-            <h2>Greedy is Good</h2>
+<jsp:include page="../page_title.jsp" >
+   <jsp:param name="image" value="alg_tut"/>
+   <jsp:param name="title" value="&#160;"/>
+</jsp:include>
+
+<div style="float: right;"><tc-webtag:forumLink forumID="505840" message="Discuss this article" /></div>
+<span class="bodyTitle">Greedy is Good</span>
 
 <p>
 <img src="/i/m/supernova_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />

@@ -1,4 +1,5 @@
 <%@  page language="java"  %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -45,7 +46,13 @@
 
          <div class="tutorBodyFull">
 
-            <h2>How to Find a Solution</h2>
+<jsp:include page="../page_title.jsp" >
+   <jsp:param name="image" value="alg_tut"/>
+   <jsp:param name="title" value="&#160;"/>
+</jsp:include>
+
+<div style="float: right;"><tc-webtag:forumLink forumID="505843" message="Discuss this article" /></div>
+<span class="bodyTitle">How To Find a Solution</span>
 
 <p>
 <img src="/i/m/Dumitru_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
