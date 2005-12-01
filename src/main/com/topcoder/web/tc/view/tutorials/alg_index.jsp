@@ -104,6 +104,10 @@
                <tc-webtag:handle coderId="7545675" context="algorithm"/>
                </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=java_1_5"><strong>New Features of Java 1.5</strong></a>
             </td></tr>
+            <tr valign=top><td class="bodyText">
+               <tc-webtag:handle coderId="10407399" context="algorithm"/>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=sorting"><strong>Sorting</strong></a>
+            </td></tr>
          </table>
         </div>
         <p><br></p>

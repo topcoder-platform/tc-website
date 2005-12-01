@@ -10,6 +10,7 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tutorials&d2=probabilities">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505831" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
 
