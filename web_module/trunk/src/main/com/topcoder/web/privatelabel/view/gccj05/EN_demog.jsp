@@ -70,9 +70,9 @@
                 </div>
                 <br><br><br>
 
+        <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST"
+              name="regForm" enctype="multipart/form-data">
                 <table cellpadding="0" cellspacing="5" class="bodyText" align="center" border="0">
-                    <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST"
-                          name="regForm" enctype="multipart/form-data">
                         <input type="hidden" name="<%=Constants.MODULE_KEY%>"
                                value="<%=Constants.GOOGLE_CHINA_05_REG_CONFIRM%>"/>
                         <input type="hidden" name="<%=Constants.COMPANY_ID%>"
@@ -122,8 +122,8 @@
                                 <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p>
                             </td>
                         </tr>
-                    </form>
                 </table>
+        </form>
 
                 <br><br>
                 <br><br>
