@@ -161,17 +161,16 @@ margin:0px auto;
       <table border="0" cellpadding="0" cellspacing="0">
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">November Events:</A></td>
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">December Events:</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-            <b>11/03</b> - SRM 270 - 11AM<br><br>
-            <b>11/08</b> - SRM 271 - 9PM - TopCoder Software<br><br>
-            <b>11/19</b> - SRM 272 - 12PM - MSN<br><br>
-            <b>11/21</b> - SRM 273 - 9PM - SAP<br><br>
-            <b>11/23</b> - SRM 274 - 7AM<br><br>
-            <b>11/30</b> - SRM 275 - 9PM<br><br>
+            <b>12/08</b> - SRM 276 - 11AM - SAP<br><br>
+            <b>12/17</b> - SRM 277 - 12 noon - MSN<br><br>
+            <b>12/19</b> - SRM 278 - 9PM<br><br>
+            <b>12/21</b> - SRM 279 - 7AM - SAP<br><br>
+            <b>12/28</b> - SRM 280 - 9PM<br><br>
             </td>
          </tr>
          <tr>
