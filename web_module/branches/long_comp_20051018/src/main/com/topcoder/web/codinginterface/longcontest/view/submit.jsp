@@ -13,7 +13,7 @@
 
 <html>
 <head>
-<title>Submit - <%=request.getSession().getAttribute(Constants.CLASS_NAME)%></title>
+<title>Submit - <%=request.getAttribute(Constants.CLASS_NAME)%></title>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
@@ -52,15 +52,15 @@
 <jsp:param name="title" value="Coding Area"/>
 </jsp:include>
 <%
-    Boolean stat = ((Boolean)request.getSession().getAttribute(Constants.COMPILE_STATUS));
-    String error = StringUtils.checkNull((String)request.getSession().getAttribute(Constants.COMPILE_MESSAGE));
+    Boolean stat = ((Boolean)request.getAttribute(Constants.COMPILE_STATUS));
+    String error = StringUtils.checkNull((String)request.getAttribute(Constants.COMPILE_MESSAGE));
     String status = "";
     if(stat != null){
         status = stat.booleanValue()?"Your code compile successfully.<br>":"Your code did not compile successfully.<br>";
     }
     
-    int checked = (request.getSession().getAttribute(Constants.SELECTED_LANGUAGE) == null ? -1 : Integer.parseInt((String)request.getSession().getAttribute(Constants.SELECTED_LANGUAGE)));
-    ResultSetContainer langs = (ResultSetContainer)request.getSession().getAttribute(Constants.LANGUAGES);
+    int checked = (request.getAttribute(Constants.SELECTED_LANGUAGE) == null ? -1 : Integer.parseInt((String)request.getAttribute(Constants.SELECTED_LANGUAGE)));
+    ResultSetContainer langs = (ResultSetContainer)request.getAttribute(Constants.LANGUAGES);
 
 	String msg = (request.getAttribute(Constants.MESSAGE)!=null?""+request.getAttribute(Constants.MESSAGE):"");
 %>
@@ -90,7 +90,7 @@
       </div>
 
       <div style="float:left; text-align:left; padding-bottom: 5px;">
-      <b>Problem Name: <%=request.getSession().getAttribute(Constants.CLASS_NAME)%><br>
+      <b>Problem Name: <%=request.getAttribute(Constants.CLASS_NAME)%><br>
       Method Name: Something</b>
       </div>
 
@@ -101,12 +101,12 @@
 
       <div align="right">
 
-<%if(request.getSession().getAttribute(Constants.CODE) == null || request.getSession().getAttribute(Constants.CODE).toString().equals("")) {%>
+<%if(request.getAttribute(Constants.CODE) == null || request.getAttribute(Constants.CODE).toString().equals("")) {%>
 <textarea cols="70" rows="20" name="code">
 </textarea>
 <%} else {%>
 <textarea cols="70" rows="20" name="code">
-<%=request.getSession().getAttribute(Constants.CODE)%></textarea>
+<%=request.getAttribute(Constants.CODE)%></textarea>
 
 <%}%>
       </div>
@@ -133,11 +133,4 @@
 <jsp:include page="foot.jsp" />
 </body>
 </html>
-<%
-    request.getSession().removeAttribute(Constants.COMPILE_STATUS);
-    request.getSession().removeAttribute(Constants.COMPILE_MESSAGE);
-    request.getSession().removeAttribute(Constants.SELECTED_LANGUAGE);
-    request.getSession().removeAttribute(Constants.CODE);
-    request.getSession().removeAttribute(Constants.LANGUAGES);
-    request.getSession().removeAttribute(Constants.CLASS_NAME);
-%>
+
