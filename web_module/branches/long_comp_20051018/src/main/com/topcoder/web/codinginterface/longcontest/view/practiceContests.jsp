@@ -52,10 +52,11 @@
    <td class="tableTitle" colspan="6">Practice Contests</td>
 </tr>
 <tr>
-   <td class="tableHeader" width="25%">Contest</td>
-   <td class="tableHeader" width="25%" align="right">Registrants</td>
-   <td class="tableHeader" width="25%">&#160;</td>
-   <td class="tableHeader" width="25%">&#160;</td>
+   <td class="tableHeader" width="20%">Contest</td>
+   <td class="tableHeader" width="20%" align="right">Registrants</td>
+   <td class="tableHeader" width="20%" align="right">Competitors</td>
+   <td class="tableHeader" width="20%">&#160;</td>
+   <td class="tableHeader" width="20%">&#160;</td>
 </tr>
 
 <%boolean even = true;%>
