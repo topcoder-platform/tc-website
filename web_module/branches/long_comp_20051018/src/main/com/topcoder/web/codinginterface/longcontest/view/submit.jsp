@@ -91,12 +91,12 @@
 
       <div style="float:left; text-align:left; padding-bottom: 5px;">
       <b>Problem Name: <%=request.getAttribute(Constants.CLASS_NAME)%><br>
-      Method Name: Something</b>
+      Method Name: <%=request.getAttribute(Constants.METHOD_NAME)%></b>
       </div>
 
       <div style="float:right; text-align:left; padding-bottom: 5px;">
-      <b>Return Type: String[]<br>
-      Arg Types: String</b>
+      <b>Return Type: <%=request.getAttribute(Constants.RETURN_TYPE)%><br>
+      Arg Types: <%=request.getAttribute(Constants.ARG_TYPES)%></b>
       </div>
 
       <div align="right">

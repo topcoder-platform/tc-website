@@ -20,6 +20,9 @@ import com.topcoder.server.ejb.DBServices.DBServicesHome;
 import com.topcoder.server.ejb.TestServices.TestServices;
 import com.topcoder.server.ejb.TestServices.TestServicesHome;
 import com.topcoder.shared.common.ApplicationServer;
+import com.topcoder.shared.problem.DataType;
+import com.topcoder.shared.problem.ProblemComponent;
+import com.topcoder.shared.problemParser.ProblemComponentFactory;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
@@ -42,8 +45,6 @@ import com.topcoder.web.ejb.roundregistration.RoundRegistration;
  */ 
 public class Submit extends Base {	
 
-
-
 	protected void businessProcessing() throws TCWebException {
 		TCRequest request = getRequest();
 
@@ -64,7 +65,12 @@ public class Submit extends Base {
 			int language = Integer.parseInt((getParameter(request, Constants.SELECTED_LANGUAGE) == null ? "-1" : getParameter(request, Constants.SELECTED_LANGUAGE)));			 
 			String action = getParameter(request, Constants.ACTION_KEY);
 			String code = getParameter(request, Constants.CODE);
+			Boolean compStatus = ((Boolean)request.getSession().getAttribute(Constants.COMPILE_STATUS));
+			String compMsg = getParameter(request, Constants.COMPILE_MESSAGE);
 
+			// Clear session of temp variables
+			cleanSession();
+			
 			// Build the request to get submission related data
 			Request r = new Request();
 			r.setContentHandle("long_submission");
@@ -99,18 +105,41 @@ public class Submit extends Base {
 			// These are the available programming languages
 			ResultSetContainer lang = (ResultSetContainer) m.get("long_languages");
 			
-			// The class name for this problem
-			String className = ((ResultSetContainer) m.get("long_class_name")).getStringItem(0, 0);
+			ResultSetContainer rscCompText = (ResultSetContainer)m.get("long_problem_xml"); 
+			if(rscCompText.size() == 0) {
+				throw new NavigationException("Cannot find problem statement.");
+			}
 			
-			// Put these objects into session
-			request.getSession().setAttribute(Constants.LANGUAGES, lang);
-			request.getSession().setAttribute(Constants.CLASS_NAME, className);			
-			request.getSession().setAttribute(Constants.CODE, code);			
-			request.getSession().setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
+			String problemText = rscCompText.getStringItem(0,"component_text");			
+			StringReader reader = new StringReader(problemText);
+            ProblemComponent pc = new ProblemComponentFactory().buildFromXML(reader, true);            
+			
+			// The class name for this problem
+			String className = pc.getClassName();
+			String methodName = pc.getMethodName();
+			String returnType = pc.getReturnType().getDescription();
+			DataType args[] = pc.getAllParamTypes()[0];
+			
+			StringBuffer argTypes = new StringBuffer();
+			for(int i = 0; i < args.length; i++) {
+				if(argTypes.length() > 0) argTypes.append(", ");
+				argTypes.append(args[i].getDescription());
+			}
+			
+			// Put these objects into request scope
+			request.setAttribute(Constants.LANGUAGES, lang);
+			request.setAttribute(Constants.CLASS_NAME, className);
+			request.setAttribute(Constants.METHOD_NAME, methodName);
+			request.setAttribute(Constants.RETURN_TYPE, returnType);
+			request.setAttribute(Constants.ARG_TYPES, argTypes);
+			
+			request.setAttribute(Constants.CODE, code);			
+			request.setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
+			request.setAttribute(Constants.COMPILE_STATUS, compStatus);
+			request.setAttribute(Constants.COMPILE_MESSAGE, compMsg);			
 						
 			if(action == null) { // no action specified
-				// any code in session?
-				code = (String) request.getSession().getAttribute(Constants.CODE);
+				// any code in session?				
 				if (code == null) { // try and load the most recent code
 					ResultSetContainer rsc = (ResultSetContainer) m.get("long_contest_recent_compilation");
 					// default values
@@ -125,13 +154,14 @@ public class Submit extends Base {
 							language = -1;
 						}
 					}
-					// put the updated values back into session
-					request.getSession().setAttribute(Constants.CODE, code);
-					request.getSession().setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
+					// put the updated values back into request
+					request.setAttribute(Constants.CODE, code);
+					request.setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
 				}
 				setNextPage(Constants.SUBMISSION_JSP);
 				setIsNextPageInContext(true);
 			} else if(action.equals("submit")) { // user is submiting code
+				
 				// Language specified?
 				if(language == -1) {
 					request.setAttribute(Constants.MESSAGE, "Please select a language.");
@@ -158,13 +188,16 @@ public class Submit extends Base {
 					LongCompileResponse res = receive(30 * 1000, uid, cid);					
 					
 					// Records errors and other info
-					if(res.getCompileStatus()) { // everything went ok! :)
-						cleanSession();
+					if(res.getCompileStatus()) { // everything went ok! :)						
 						// Go to standings!
 						closeProcessingPage(buildProcessorRequestString("SubmitSuccess",
 								new String[] { Constants.ROUND_ID }, new String[] { String
 										.valueOf(rid) }));
-					} else { // Compilation errors!						
+					} else { // Compilation errors!
+						// Save temp variables into session
+						request.getSession().setAttribute(Constants.LANGUAGES, lang);							
+						request.getSession().setAttribute(Constants.CODE, code);			
+						request.getSession().setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
 						request.getSession().setAttribute(Constants.COMPILE_STATUS, new Boolean(res.getCompileStatus()));
 						request.getSession().setAttribute(Constants.COMPILE_MESSAGE, htmlEncode(res.getCompileError()));						
 						// Go back to coding.
@@ -181,6 +214,7 @@ public class Submit extends Base {
 							new String[]{Constants.ROUND_ID,Constants.CONTEST_ID,Constants.COMPONENT_ID,Constants.LANGUAGE_ID},
 							new String[]{String.valueOf(rid),String.valueOf(cd),String.valueOf(cid),String.valueOf(language)}));
 				}
+				
 			} else if(action.equals("save")) { // user is saving code
 				boolean res = saveCode(code, language, (int)uid, cd, rid, cid);		
 				
@@ -193,7 +227,7 @@ public class Submit extends Base {
 				} else {
 					throw new NavigationException("Your code cannot be saved at this time.");
 				}
-			}		
+			}
 		} catch (TCWebException e) {
 			log.error("Unexpected error in code submit module.", e);
 			throw e;
