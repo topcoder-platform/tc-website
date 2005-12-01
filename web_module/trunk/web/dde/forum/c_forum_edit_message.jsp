@@ -19,7 +19,6 @@
 
 <% // PAGE SPECIFIC DECLARATIONS%>
 <%@ page import="com.topcoder.forum.*" %>
-<%@ page import="com.topcoder.dde.catalog.*" %>
 <%@ page import="com.topcoder.dde.forum.*" %>
 <%@ page import="java.text.*" %>
 <%@ page import = "com.topcoder.util.config.*" %>
@@ -426,6 +425,7 @@
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
 <script language="JavaScript" src="/scripts/javascript.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/scripts/javascriptForum.js"></script>
 <script>
 function textLimit(field, maxlen) {
   if (field.value.length > maxlen) {

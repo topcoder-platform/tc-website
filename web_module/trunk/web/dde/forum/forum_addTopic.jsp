@@ -62,6 +62,7 @@
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
 <script language="JavaScript" src="/scripts/javascript.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/scripts/javascriptForum.js"></script>
 </head>
 
 <body class="body">

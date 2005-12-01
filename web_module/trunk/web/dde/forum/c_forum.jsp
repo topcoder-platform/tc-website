@@ -16,8 +16,6 @@
     String action = request.getParameter("a");
 %>
 <%@ page import="com.topcoder.forum.*" %>
-<%@ page import="com.topcoder.dde.catalog.*" %>
-<%@ page import="com.topcoder.dde.forum.*" %>
 
 <%@ include file="/includes/forumUtils.jsp" %>
 <%
