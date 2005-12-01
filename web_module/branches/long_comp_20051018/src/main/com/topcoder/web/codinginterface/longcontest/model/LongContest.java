@@ -2,7 +2,7 @@ package com.topcoder.web.codinginterface.longcontest.model;
 
 import java.util.Date;
 
-public class LongContestModel {
+public class LongContest {
 
     private String contestName;
     private long contestID;
@@ -17,6 +17,7 @@ public class LongContestModel {
     private long problemID;
     private boolean started;
     private int numCompetitors;
+    private int numRegistrants;
 
     public boolean isCoderRegistered() {
         return coderRegistered;
@@ -120,6 +121,14 @@ public class LongContestModel {
 
     public void setNumCompetitors(int numCompetitors) {
         this.numCompetitors = numCompetitors;
+    }
+
+    public int getNumRegistrants() {
+        return numRegistrants;
+    }
+
+    public void setNumRegistrants(int numRegistrants) {
+        this.numRegistrants = numRegistrants;
     }
 
 }

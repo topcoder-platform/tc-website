@@ -1,10 +1,8 @@
-<%@  page
-  language="java"
-  import="java.util.*,
-          com.topcoder.web.codinginterface.longcontest.*,
-          com.topcoder.shared.dataAccess.resultSet.*"
+<%@ page
+        language="java"
+        import="com.topcoder.web.codinginterface.longcontest.Constants"
 
-%>
+        %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>

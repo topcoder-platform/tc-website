@@ -1,8 +1,6 @@
 <%@ page
         language="java"
-        import="com.topcoder.web.codinginterface.longcontest.*,
-                com.topcoder.shared.dataAccess.resultSet.*,
-                com.topcoder.web.common.StringUtils"
+        import="com.topcoder.web.codinginterface.longcontest.Constants"
 
         %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
@@ -38,15 +36,15 @@
                 <jsp:param name="image" value="long_competitions"/>
                 <jsp:param name="title" value="Coding Area"/>
             </jsp:include>
-            <% int count = ((Number)request.getAttribute(Constants.QUEUE_LENGTH)).intValue();%>
+            <% int count = ((Number) request.getAttribute(Constants.QUEUE_LENGTH)).intValue();%>
 
             Successful Submission.
-            <% if (count==0) { %>
-                There are no submissions in the queue.
-            <% } else if (count==1) { %>
-                There is 1 submission in the queue.
+            <% if (count == 0) { %>
+            There are no submissions in the queue.
+            <% } else if (count == 1) { %>
+            There is 1 submission in the queue.
             <% } else { %>
-                There are <%=count%> submissions in the queue.
+            There are <%=count%> submissions in the queue.
             <% } %>
 
         </TD>

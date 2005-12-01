@@ -5,9 +5,9 @@
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%@ page
         language="java"
-        import="java.util.*,
-                com.topcoder.web.codinginterface.longcontest.*,
-                com.topcoder.web.common.tag.AnswerInput"
+        import="com.topcoder.web.codinginterface.longcontest.Constants,
+                com.topcoder.web.common.tag.AnswerInput,
+                java.util.List"
         %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <html>

@@ -1,6 +1,5 @@
 package com.topcoder.web.codinginterface.longcontest;
 
-import com.topcoder.shared.problem.DataType;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.CodingInterfaceConstants;
@@ -18,7 +17,7 @@ public class Constants implements CodingInterfaceConstants {
     private static boolean isInitialized = false;
     private static Logger log = Logger.getLogger(Constants.class);
     /**
-     *  variables that shouldn't be initialized
+     * variables that shouldn't be initialized
      */
     private static String[] ignoreList = {"log", "isInitialized", "ignoreList", "bundle", "SHORT_CONTENT"};
 
@@ -48,16 +47,16 @@ public class Constants implements CodingInterfaceConstants {
     public static String CLASS_NAME;
     public static String METHOD_NAME;
     public static String RETURN_TYPE;
-    public static String ARG_TYPES;	
-    
+    public static String ARG_TYPES;
+
     public static String CONTEST_LIST_KEY;
     public static String ROUND_STANDINGS_LIST_KEY;
     public static String NUM_REGISTRANTS_KEY;
     public static String CONTEST_NAME_KEY;
     public static String PREV_IDX_KEY;
-    public static String NEXT_IDX_KEY;    
+    public static String NEXT_IDX_KEY;
     public static String ROUND_TERMS_KEY;
-    
+
     public static int PROBLEM_REFRESH;
     public static String DEFAULT_COL_COUNT;
     public static String DEFAULT_ROW_COUNT;
@@ -90,12 +89,12 @@ public class Constants implements CodingInterfaceConstants {
     public static String RP_VIEW_PRACTICE;
     public static String PAGE_VIEW_PRACTICE;
     public static String PAGE_SUBMIT_SUCCESS;
-    
+
     public static String HANDLE_COL;
     public static String SCORE_COL;
     public static String RANK_COL;
     public static String SUBMISSION_COL;
-    
+
     static {
         initialize();
     }
@@ -120,14 +119,14 @@ public class Constants implements CodingInterfaceConstants {
                         throw new Exception("Unrecognized type: " + f[i].getType().getName());
                     }
                 }
-                if (f[i].get(null) == null){
+                if (f[i].get(null) == null) {
                     if (f[i].getType().getName().equals("java.lang.String")) {
                         log.debug("DID NOT LOAD " + f[i].getName() + " constant.  Setting to default");
                         f[i].set(null, f[i].getName());
-                    }else{
+                    } else {
                         log.error("**DID NOT LOAD** " + f[i].getName() + " constant");
                     }
-                }else
+                } else
                     log.debug(f[i].getName() + " <== " + f[i].get(null));
 
             } catch (Exception e) {

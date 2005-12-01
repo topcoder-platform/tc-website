@@ -3,13 +3,13 @@
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%@ page
         language="java"
-        import="com.topcoder.web.codinginterface.longcontest.*,"
+        import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,"
 
         %>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
+<%@ page import="com.topcoder.web.codinginterface.longcontest.Constants" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
-<% ResultSetContainer roundInfo = (ResultSetContainer)request.getAttribute("roundInfo"); %>
-<% ResultSetContainer standings = (ResultSetContainer)request.getAttribute(Constants.ROUND_STANDINGS_LIST_KEY); %>
+<% ResultSetContainer roundInfo = (ResultSetContainer) request.getAttribute("roundInfo"); %>
+<% ResultSetContainer standings = (ResultSetContainer) request.getAttribute(Constants.ROUND_STANDINGS_LIST_KEY); %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -41,104 +41,105 @@
 <%-- Center Column Begins --%>
 <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 
-    <jsp:include page="page_title.jsp">
-        <jsp:param name="image" value="long_competitions"/>
-        <jsp:param name="title" value="Standings"/>
-    </jsp:include>
+<jsp:include page="page_title.jsp">
+    <jsp:param name="image" value="long_competitions"/>
+    <jsp:param name="title" value="Standings"/>
+</jsp:include>
 
-    <%if (request.getAttribute(Constants.MESSAGE) != null) {%>
-    <span class="errorText"><%=request.getAttribute(Constants.MESSAGE)%></span><br>
-    <%}%>
-    <span class="bigHandle">Contest: <%=request.getAttribute(Constants.CONTEST_NAME_KEY)%></span><br>
-    <span class="bodySubtitle">Registrants: <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>" class="bcLink"><rsc:item name="num_registrants" set="<%=resultRow%>"/></A></span>
-    <br>
-    <span class="bodySubtitle">Competitors: <rsc:item name="num_competitors" set="<%=resultRow%>"/></span>
-    <br>
+<%if (request.getAttribute(Constants.MESSAGE) != null) {%>
+<span class="errorText"><%=request.getAttribute(Constants.MESSAGE)%></span><br>
+<%}%>
+<span class="bigHandle">Contest: <%=request.getAttribute(Constants.CONTEST_NAME_KEY)%></span><br>
+<span class="bodySubtitle">Registrants: <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>" class="bcLink">
+    <rsc:item name="num_registrants" set="<%=resultRow%>"/></A></span>
+<br>
+<span class="bodySubtitle">Competitors: <rsc:item name="num_competitors" set="<%=resultRow%>"/></span>
+<br>
 
-    <div class="pagingBox">
-        <logic:equal name="<%=Constants.PREV_IDX_KEY%>" value="-1">
-            &lt;&lt; previous
-        </logic:equal>
-        <logic:notEqual name="<%=Constants.PREV_IDX_KEY%>" value="-1">
-            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.PREV_IDX_KEY)%>&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)%>&<%=Constants.SORT_ORDER%>=<%=request.getAttribute(Constants.SORT_ORDER)%>" class="bcLink">
-                &lt;&lt; previous</a>
-        </logic:notEqual>
+<div class="pagingBox">
+    <logic:equal name="<%=Constants.PREV_IDX_KEY%>" value="-1">
+        &lt;&lt; previous
+    </logic:equal>
+    <logic:notEqual name="<%=Constants.PREV_IDX_KEY%>" value="-1">
+        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.PREV_IDX_KEY)%>&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)%>&<%=Constants.SORT_ORDER%>=<%=request.getAttribute(Constants.SORT_ORDER)%>" class="bcLink">
+            &lt;&lt; previous</a>
+    </logic:notEqual>
 
-        &nbsp;|&nbsp;
+    &nbsp;|&nbsp;
 
-        <logic:equal name="<%=Constants.NEXT_IDX_KEY%>" value="-1">
-            next &gt;&gt;
-        </logic:equal>
-        <logic:notEqual name="<%=Constants.NEXT_IDX_KEY%>" value="-1">
-            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.NEXT_IDX_KEY)%>&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)%>&<%=Constants.SORT_ORDER%>=<%=request.getAttribute(Constants.SORT_ORDER)%>" class="bcLink">next
-                &gt;&gt;</a>
-        </logic:notEqual>
-    </div>
+    <logic:equal name="<%=Constants.NEXT_IDX_KEY%>" value="-1">
+        next &gt;&gt;
+    </logic:equal>
+    <logic:notEqual name="<%=Constants.NEXT_IDX_KEY%>" value="-1">
+        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.NEXT_IDX_KEY)%>&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)%>&<%=Constants.SORT_ORDER%>=<%=request.getAttribute(Constants.SORT_ORDER)%>" class="bcLink">next
+            &gt;&gt;</a>
+    </logic:notEqual>
+</div>
 
-    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
-        <tr>
-            <td>
-                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
+    <tr>
+        <td>
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
+                <tr>
+                    <td class="tableTitle" colspan="6">Standings</td>
+                </tr>
+                <tr>
+                    <td class="tableHeader" width="25%">
+                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.START_ROW)%>&<%=Constants.PRIMARY_COLUMN%>=<%=Constants.HANDLE_COL%><%=(request.getAttribute(Constants.PRIMARY_COLUMN).equals(Constants.HANDLE_COL) ? ("&" + Constants.SORT_ORDER + "=" + (request.getAttribute(Constants.SORT_ORDER).equals("asc")?"desc":"asc")) : "")%>">Handle</A>
+                    </td>
+                    <td class="tableHeader" width="25%" align="right" nowrap="nowrap">
+                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.START_ROW)%>&<%=Constants.PRIMARY_COLUMN%>=<%=Constants.SCORE_COL%><%=(request.getAttribute(Constants.PRIMARY_COLUMN).equals(Constants.SCORE_COL) ? ("&" + Constants.SORT_ORDER + "=" + (request.getAttribute(Constants.SORT_ORDER).equals("asc")?"desc":"asc")) : "")%>">Score</A>
+                    </td>
+                    <td class="tableHeader" width="25%" align="right" nowrap="nowrap">
+                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.START_ROW)%>&<%=Constants.PRIMARY_COLUMN%>=<%=Constants.RANK_COL%><%=(request.getAttribute(Constants.PRIMARY_COLUMN).equals(Constants.RANK_COL) ? ("&" + Constants.SORT_ORDER + "=" + (request.getAttribute(Constants.SORT_ORDER).equals("asc")?"desc":"asc")) : "")%>">Rank</A>
+                    </td>
+                    <td class="tableHeader" width="25%" align="right" nowrap="nowrap">
+                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.START_ROW)%>&<%=Constants.PRIMARY_COLUMN%>=<%=Constants.SUBMISSION_COL%><%=(request.getAttribute(Constants.PRIMARY_COLUMN).equals(Constants.SUBMISSION_COL) ? ("&" + Constants.SORT_ORDER + "=" + (request.getAttribute(Constants.SORT_ORDER).equals("asc")?"desc":"asc")) : "")%>">Submissions</A>
+                    </td>
+                </tr>
+                <%-- ITERATOR --%>
+                <%boolean even = true;%>
+                <rsc:iterator list="<%=standings%>" id="resultRow">
                     <tr>
-                        <td class="tableTitle" colspan="6">Standings</td>
-                    </tr>
-                    <tr>
-                        <td class="tableHeader" width="25%">
-                            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.START_ROW)%>&<%=Constants.PRIMARY_COLUMN%>=<%=Constants.HANDLE_COL%><%=(request.getAttribute(Constants.PRIMARY_COLUMN).equals(Constants.HANDLE_COL) ? ("&" + Constants.SORT_ORDER + "=" + (request.getAttribute(Constants.SORT_ORDER).equals("asc")?"desc":"asc")) : "")%>">Handle</A>
-                        </td>
-                        <td class="tableHeader" width="25%" align="right" nowrap="nowrap">
-                            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.START_ROW)%>&<%=Constants.PRIMARY_COLUMN%>=<%=Constants.SCORE_COL%><%=(request.getAttribute(Constants.PRIMARY_COLUMN).equals(Constants.SCORE_COL) ? ("&" + Constants.SORT_ORDER + "=" + (request.getAttribute(Constants.SORT_ORDER).equals("asc")?"desc":"asc")) : "")%>">Score</A>
-                        </td>
-                        <td class="tableHeader" width="25%" align="right" nowrap="nowrap">
-                            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.START_ROW)%>&<%=Constants.PRIMARY_COLUMN%>=<%=Constants.RANK_COL%><%=(request.getAttribute(Constants.PRIMARY_COLUMN).equals(Constants.RANK_COL) ? ("&" + Constants.SORT_ORDER + "=" + (request.getAttribute(Constants.SORT_ORDER).equals("asc")?"desc":"asc")) : "")%>">Rank</A>
-                        </td>
-                        <td class="tableHeader" width="25%" align="right" nowrap="nowrap">
-                            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.START_ROW)%>&<%=Constants.PRIMARY_COLUMN%>=<%=Constants.SUBMISSION_COL%><%=(request.getAttribute(Constants.PRIMARY_COLUMN).equals(Constants.SUBMISSION_COL) ? ("&" + Constants.SORT_ORDER + "=" + (request.getAttribute(Constants.SORT_ORDER).equals("asc")?"desc":"asc")) : "")%>">Submissions</A>
-                        </td>
-                    </tr>
-                    <%-- ITERATOR --%>
-                    <%boolean even = true;%>
-                    <rsc:iterator list="<%=standings%>" id="resultRow">
-                        <tr>
-                            <td class="<%=even?"statLt":"statDk"%>">
-                                <tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>"/></td>
-                            <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;">
+                        <td class="<%=even?"statLt":"statDk"%>">
+                            <tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>"/></td>
+                        <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;">
                                 <rsc:item name="points" row="<%=resultRow%>" format="0.00"/>
-                            <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 15px;">
+                        <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 15px;">
                                 <rsc:item name="rank" row="<%=resultRow%>"/>
-                            <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;">
-                                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_SUBMISSION_HISTORY%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>" class="statLink">
-                                    <rsc:item name="submission_number" row="<%=resultRow%>"/>
-                                    </A></td>
-                        </tr>
-                        <%even = !even;%>
-                    </rsc:iterator>
-                    <%-- END ITERATOR --%>
-                </TABLE>
-            </TD>
-        </tr>
-    </TABLE>
+                        <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;">
+                            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_SUBMISSION_HISTORY%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>" class="statLink">
+                                <rsc:item name="submission_number" row="<%=resultRow%>"/>
+                            </A></td>
+                    </tr>
+                    <%even = !even;%>
+                </rsc:iterator>
+                <%-- END ITERATOR --%>
+            </TABLE>
+        </TD>
+    </tr>
+</TABLE>
 
-    <div class="pagingBox">
-        <logic:equal name="<%=Constants.PREV_IDX_KEY%>" value="-1">
-            &lt;&lt; previous
-        </logic:equal>
-        <logic:notEqual name="<%=Constants.PREV_IDX_KEY%>" value="-1">
-            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.PREV_IDX_KEY)%>&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)%>&<%=Constants.SORT_ORDER%>=<%=request.getAttribute(Constants.SORT_ORDER)%>" class="bcLink">
-                &lt;&lt; previous</a>
-        </logic:notEqual>
+<div class="pagingBox">
+    <logic:equal name="<%=Constants.PREV_IDX_KEY%>" value="-1">
+        &lt;&lt; previous
+    </logic:equal>
+    <logic:notEqual name="<%=Constants.PREV_IDX_KEY%>" value="-1">
+        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.PREV_IDX_KEY)%>&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)%>&<%=Constants.SORT_ORDER%>=<%=request.getAttribute(Constants.SORT_ORDER)%>" class="bcLink">
+            &lt;&lt; previous</a>
+    </logic:notEqual>
 
-        &nbsp;|&nbsp;
+    &nbsp;|&nbsp;
 
-        <logic:equal name="<%=Constants.NEXT_IDX_KEY%>" value="-1">
-            next &gt;&gt;
-        </logic:equal>
-        <logic:notEqual name="<%=Constants.NEXT_IDX_KEY%>" value="-1">
-            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.NEXT_IDX_KEY)%>&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)%>&<%=Constants.SORT_ORDER%>=<%=request.getAttribute(Constants.SORT_ORDER)%>" class="bcLink">next
-                &gt;&gt;</a>
-        </logic:notEqual>
-    </div>
+    <logic:equal name="<%=Constants.NEXT_IDX_KEY%>" value="-1">
+        next &gt;&gt;
+    </logic:equal>
+    <logic:notEqual name="<%=Constants.NEXT_IDX_KEY%>" value="-1">
+        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.NEXT_IDX_KEY)%>&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)%>&<%=Constants.SORT_ORDER%>=<%=request.getAttribute(Constants.SORT_ORDER)%>" class="bcLink">next
+            &gt;&gt;</a>
+    </logic:notEqual>
+</div>
 
 </td>
 

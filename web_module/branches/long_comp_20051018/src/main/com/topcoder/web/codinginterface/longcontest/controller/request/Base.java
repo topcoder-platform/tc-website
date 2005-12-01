@@ -13,18 +13,21 @@ import com.topcoder.shared.messaging.messages.LongCompileResponse;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.codinginterface.messaging.WebQueueResponseManager;
-import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.codinginterface.techassess.model.ImageInfo;
 import com.topcoder.web.codinginterface.ServerBusyException;
-import com.topcoder.web.common.*;
+import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.codinginterface.messaging.WebQueueResponseManager;
+import com.topcoder.web.codinginterface.techassess.model.ImageInfo;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.TCWebException;
 
 import java.io.IOException;
 import java.util.*;
 
 /**
- * @author  dok
- * @version  $Revision$ $Date$
+ * @author dok
+ * @version $Revision$ $Date$
  */
 public abstract class Base extends BaseProcessor {
 
@@ -55,8 +58,8 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected void send(LongCompileRequest sub) throws TCWebException, ServerBusyException {
-    	// This is a synchronous message
-    	lock();
+        // This is a synchronous message
+        lock();
 
         HashMap hm = new HashMap();
         hm.put("pendingAction", new Integer(ServicesConstants.LONG_COMPILE_ACTION));
@@ -64,7 +67,7 @@ public abstract class Base extends BaseProcessor {
         hm.put("socketServerId", new Integer(ApplicationServer.WEB_SERVER_ID));
         hm.put("submitTime", new Long(System.currentTimeMillis()));
         hm.put("language", new Integer(sub.getLanguageID()));
-        sender.sendMessage(hm,sub);
+        sender.sendMessage(hm, sub);
     }
 
     protected void lock() throws TCWebException, ServerBusyException {
@@ -75,17 +78,17 @@ public abstract class Base extends BaseProcessor {
                 locks.add(Constants.SERVER_BUSY + getSessionId());
         }
     }
-    
+
     protected boolean isBusy() throws TCWebException {
         synchronized (locks) {
             return locks.contains(Constants.SERVER_BUSY + getSessionId());
         }
     }
-    
+
     protected String getSessionId() {
-    	return getRequest().getSession().getId();
+        return getRequest().getSession().getId();
     }
-    
+
     public void setLanguages(List languages) {
         this.languages = languages;
         getRequest().getSession().setAttribute(Constants.LANGUAGES, languages);
@@ -115,7 +118,6 @@ public abstract class Base extends BaseProcessor {
     }
 
 
-
     protected String buildProcessorRequestString(String processor, String[] keys, String[] values) {
         if (keys != null && values != null && keys.length != values.length)
             throw new IllegalArgumentException("the number of parameter keys must be the same as the number of values");
@@ -133,23 +135,22 @@ public abstract class Base extends BaseProcessor {
         return ret.toString();
     }
 
-	// Compilation in progress message
-	private static final String PROGRESS_COMPILING_HTML = "<html>"
-			+ "<title>TopCoder</title>"
-			+ "<head>"
-			+ "<STYLE TYPE=\"text/css\">"
-			+ ".html, body"
-			+ "{font-family: Arial, Helvetica, Verdana, sans-serif;font-size: 12px;color: #333;}"
-			+ "</STYLE>"
-			+ "</head>"
-			+ "<body>"
-			+ "<div align=\"center\">"
-			+ "<br><br>"
-			+ "Please wait while your solution is submitted."
-			+ "<br><br>"
-			+ "<img src=\"http://www.topcoder.com/i/interface/processing.gif\" alt=\"Processing\" border=\"0\" />"
-			+ "</div>" + "</body>" + "</html>";
-    
+    // Compilation in progress message
+    private static final String PROGRESS_COMPILING_HTML = "<html>"
+            + "<title>TopCoder</title>"
+            + "<head>"
+            + "<STYLE TYPE=\"text/css\">"
+            + ".html, body"
+            + "{font-family: Arial, Helvetica, Verdana, sans-serif;font-size: 12px;color: #333;}"
+            + "</STYLE>"
+            + "</head>"
+            + "<body>"
+            + "<div align=\"center\">"
+            + "<br><br>"
+            + "Please wait while your solution is submitted."
+            + "<br><br>"
+            + "<img src=\"http://www.topcoder.com/i/interface/processing.gif\" alt=\"Processing\" border=\"0\" />"
+            + "</div>" + "</body>" + "</html>";
 
 
     protected void showProcessingPage() throws IOException {
@@ -175,12 +176,12 @@ public abstract class Base extends BaseProcessor {
 
     protected LongCompileResponse receive(int waitTime, long coderID, long componentID) throws TimeOutException {
         try {
-        	LongCompileResponse ls = (LongCompileResponse) receiver.receive(waitTime, coderID+":"+componentID, getResponse());
-        	return ls;
+            LongCompileResponse ls = (LongCompileResponse) receiver.receive(waitTime, coderID + ":" + componentID, getResponse());
+            return ls;
         } catch (TimeOutException e) {
-        	throw e;        
+            throw e;
         } finally {
-        	unlock();
+            unlock();
         }
     }
 
@@ -189,7 +190,7 @@ public abstract class Base extends BaseProcessor {
             locks.remove(Constants.SERVER_BUSY + getSessionId());
         }
     }
-    
+
     protected static List getLanguages(ArrayList languageIds) {
         List ret = new ArrayList(languageIds.size());
         for (Iterator it = languageIds.iterator(); it.hasNext();) {
@@ -197,6 +198,7 @@ public abstract class Base extends BaseProcessor {
         }
         return ret;
     }
+
     public DataAccessInt getDataAccess() throws Exception {
         return getDataAccess(DBMS.OLTP_DATASOURCE_NAME, false);
     }
@@ -214,6 +216,7 @@ public abstract class Base extends BaseProcessor {
             dAccess = new DataAccess(datasource);
         return dAccess;
     }
+
     protected User getUser() {
         return getAuthentication().getUser();
     }

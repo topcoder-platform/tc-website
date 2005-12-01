@@ -1,7 +1,5 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import java.util.Arrays;
-
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.security.LoginException;
@@ -10,13 +8,15 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.codinginterface.CodingInterfaceConstants;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.*;
-import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.user.User;
 
+import java.util.Arrays;
+
 /**
  * Logs the user into the long contest system
- * @author farsight 
+ *
+ * @author farsight
  */
 public class Login extends Base {
 
@@ -28,7 +28,7 @@ public class Login extends Base {
     public static final int ACTIVE_STATUS = 1;
     public static final char[] INACTIVE_STATI = {'I', '0', '9', '6', '5', '4'};
     public static final char[] UNACTIVE_STATI = {'U', '2'};
-    
+
     protected void businessProcessing() throws TCWebException {
 
         /* may be null */
@@ -54,7 +54,7 @@ public class Login extends Base {
                             LoginRemote login = (LoginRemote) com.topcoder.web.common.security.Constants.createEJB(LoginRemote.class);
                             sub = login.login(username, password);
                             log.debug("correct user name and password");
-                        } catch (Exception e) {                        	
+                        } catch (Exception e) {
                             throw new LoginException("Handle or password incorrect.");
                         }
                         char status = getStatus(sub.getUserId());
@@ -70,13 +70,13 @@ public class Login extends Base {
                             } else {
                                 log.debug("user active");
                                 String nextPage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
-                                if(nextPage != null && !nextPage.equals("")) {
-                                	setNextPage(nextPage);
-                                	setIsNextPageInContext(false);
+                                if (nextPage != null && !nextPage.equals("")) {
+                                    setNextPage(nextPage);
+                                    setIsNextPageInContext(false);
                                 } else { // go to active contest page
-                                	getRequest().setAttribute(CodingInterfaceConstants.MODULE, Constants.RP_ACTIVE_CONTESTS);                                	
-                            		setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
-                            		setIsNextPageInContext(true);		
+                                    getRequest().setAttribute(CodingInterfaceConstants.MODULE, Constants.RP_ACTIVE_CONTESTS);
+                                    setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
+                                    setIsNextPageInContext(true);
                                 }
                                 log.debug("on successful login, going to " + getNextPage());
                                 getAuthentication().login(new SimpleUser(0, username, password), false);
@@ -115,11 +115,11 @@ public class Login extends Base {
         if (loginStatus.equals(STATUS_START)) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
         }
-        
-        if(getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY) == null) {
-        	getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)));
+
+        if (getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY) == null) {
+            getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)));
         }
-        
+
         setNextPage(Constants.LOGIN_JSP);
         setIsNextPageInContext(true);
     }
@@ -139,7 +139,7 @@ public class Login extends Base {
         return result;
 
     }
-    
+
     /**
      * Gets the e-mail status for the user
      *
