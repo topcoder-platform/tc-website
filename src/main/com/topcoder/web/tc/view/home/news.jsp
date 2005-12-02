@@ -12,7 +12,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>12.02.05<br>10:45 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm">Rise Of A Powerhouse</A></span><br><br>
       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/bw_cov120205_small.jpg" alt="BusinessWeek" border="0" /></div>
-      How the young knowledge workers of Central Europe are pushing the region to a new level. They came from around the world, young men with handles like SnapDragon and Bladerunner attacking computing problems so complex that even experienced coders could only stare at the screen in bewilderment. Only one mastered the final algorithm problem: Eryk Kopczynski, a.k.a. Eryx"
+      "How the young knowledge workers of Central Europe are pushing the region to a new level. They came from around the world, young men with handles like SnapDragon and Bladerunner attacking computing problems so complex that even experienced coders could only stare at the screen in bewilderment. Only one mastered the final algorithm problem: Eryk Kopczynski, a.k.a. Eryx"
       <br><br>
       </td>
    </tr>
