@@ -113,6 +113,9 @@ public class ViewStandings extends Base {
                     if (startRowIdx + maxResults >= standings.size()) nextStartRow = "-1";
                     else nextStartRow = "" + (startRowIdx + maxResults);
 
+                    //todo consider sorting in the db
+                    standings.sortByColumn(primaryCol, sortOrd.equals("asc"));
+
                     request.setAttribute(Constants.ROUND_STANDINGS_LIST_KEY, standings);
                     request.setAttribute("roundInfo", m.get("long_contest_round_information"));
                     request.setAttribute(Constants.PREV_IDX_KEY, prevStartRow);
