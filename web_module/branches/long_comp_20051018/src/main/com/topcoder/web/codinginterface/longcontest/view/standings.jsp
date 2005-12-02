@@ -86,16 +86,16 @@
                 </tr>
                 <tr>
                     <td class="tableHeader" width="25%">
-                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Handle</A>
+                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Handle</A>
                     </td>
                     <td class="tableHeader" width="25%" align="right" nowrap="nowrap">
-                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Score</A>
+                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Score</A>
                     </td>
                     <td class="tableHeader" width="25%" align="right" nowrap="nowrap">
-                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Rank</A>
+                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Rank</A>
                     </td>
                     <td class="tableHeader" width="25%" align="right" nowrap="nowrap">
-                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Submissions</A>
+                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Submissions</A>
                     </td>
                 </tr>
                 <%-- ITERATOR --%>
