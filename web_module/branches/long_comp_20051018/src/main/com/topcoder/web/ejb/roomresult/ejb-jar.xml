@@ -14,6 +14,7 @@
             <ejb-name>RoomResult</ejb-name>
             <home>com.topcoder.web.ejb.roomresult.RoomResultHome</home>
             <remote>com.topcoder.web.ejb.roomresult.RoomResult</remote>
+            <local-home>com.topcoder.web.ejb.roomresult.RoomResultLocalHome</local-home>
             <local>com.topcoder.web.ejb.roomresult.RoomResultLocal</local>
             <ejb-class>com.topcoder.web.ejb.roomresult.RoomResultBean</ejb-class>
             <session-type>Stateless</session-type>
