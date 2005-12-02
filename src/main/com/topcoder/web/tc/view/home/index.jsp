@@ -182,8 +182,8 @@ margin:0px auto;
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
             
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/bw_cov120205_small.gif" width="85" height="82" alt="BusinessWeek" border="0" /></div>
-            Rise Of A Powerhouse - How the young knowledge workers of Central Europe are pushing the region to a new level<A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm" target="_blank">...more</A><br>[December 2]<br><br>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/bw_cov120205_small.jpg" width="85" height="82" alt="BusinessWeek" border="0" /></div>
+            Rise Of A Powerhouse - How the young knowledge workers of Central Europe are pushing the region to a new level<A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm" target="_blank">&nbsp;...more</A><br>[December 2]<br><br>
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/usatoday_logo.gif" width="67" height="36" alt="USA Today" border="0" /></div>
             TopCoder Survey in USA Today [PDF] <A href="/pdfs/press_room/usatoday_113005.pdf" target="_blank">...more</A><br>[November 30]<br><br>
@@ -198,8 +198,6 @@ margin:0px auto;
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/info_week_logo.gif" width="67" height="10" alt="Information Week" border="0" /></div>
             Winning Design Ways <A href="http://www.informationweek.com/showArticle.jhtml?articleID=172901456" target="_blank">...more</A><br>[October 31]<br><br>
-
-            TopCoder Selects Aladdin Resort in Las Vegas for TopCoder Open 2006 <A href="/tc?module=Static&d1=pressroom&d2=pr_102105">...more</A><br>[October 21]<br><br>
 
             </td>
          </tr>

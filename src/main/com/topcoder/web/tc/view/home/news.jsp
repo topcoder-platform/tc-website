@@ -9,6 +9,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>12.02.05<br>10:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm">Rise Of A Powerhouse</A></span><br><br>
+      How the young knowledge workers of Central Europe are pushing the region to a new level.
+      <br><br>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505850" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>12.01.05<br>4:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
