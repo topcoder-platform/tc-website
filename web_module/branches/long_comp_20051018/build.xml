@@ -749,7 +749,7 @@
         </jar>
     </target>
     <target name="package-EJB-RoomResultBean" depends="compile">
-        <jar jarfile="${ejb_jars}/RoundResult.jar">
+        <jar jarfile="${ejb_jars}/RoomResult.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/roomresult/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/roomresult" includes="*.xml"/>
