@@ -22,23 +22,23 @@
          
 <span class="bigTitle">Algorithm Competition Schedule</span>
 <br><br>
-In order to be eligible to compete in the Algorithm Competition, each competitor must be a registered TopCoder member and have registered separately for the Algorithm Competition. Registration for the competition is unlimited, however each individual may only register once.
+In order to be eligible to compete in the Algorithm Competition, each competitor must be a registered TopCoder member and have registered separately for the Algorithm Competition.
 <br><br>   
 <span class="bodySubtitle">Registration</span><br>
-Registration for the 2006 TopCoder Open Algorithm Competition will open at 9:00AM EDT on Monday, August 1, 2006, and will close at 9:00AM EDT on Tuesday, August 16, 2006.  In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition.  There is no limit to the number of registrants for the competition, however each individual may only register once.
+Registration for the 2006 TopCoder Open Algorithm Competition will open at 9:00AM EST on Monday, February 13, 2006, and will close at 9:00AM EST on Tuesday, February 28, 2006.  In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition.  There is no limit to the number of registrants for the competition, however each individual may only register once.
 <br><br>
 <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
    <tr valign="top">
       <td class="sidebarText" width="25%">Registration</td>
       <td class="sidebarText" width="75%">
-         OPENS: Monday, August 1, 2006 at 9:00 AM EDT<br /><br/>
-         CLOSES: Tuesday, August 16, 2006 at 9:00 AM EDT
+         OPENS: Monday, February 13, 2006 9:00AM EST<br /><br/>
+         CLOSES: Tuesday, February 28, 2006 9:00AM EST
       </td>
    </tr>
 </table>
 <br><br>
 <span class="bodySubtitle">Qualification Round</span><br>
-The Qualification Round will be open for 24 hours and a maximum of 750 competitors will advance to Online Round #1.
+The Qualification Round will be open for 24 hours and a maximum of 750 competitors will advance to Online Round #1 including the 100 top rated members who will automatically advance.
 <br><br>
 <a name="sched"></a>
 <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
@@ -51,13 +51,12 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
    <tr valign="top">
       <td class="sidebarText">Qualification Round</td>
       <td class="sidebarText">
-         START: Tuesday, August 16, 2006<br />
-         12:00 PM EDT (noon)<br /><br/>
-         END: Wednesday, August 17, 2006<br />
-         12:00 PM EDT (noon)
+         START: Tuesday, February 28 Noon
+         <br /><br/>
+         END: Wednesday, March 1 Noon
       </td>
       <td class="sidebarText">All eligible registered competitors</td>
-      <td class="sidebarText">Top 150 scorers in each of 5 Qualification Round Problem Sets</td>
+      <td class="sidebarText">750</td>
    </tr>
 </table>
 <br><br>
@@ -74,7 +73,7 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
    <tr valign="top">
       <td class="sidebarText">Online Round #1</td>
       <td class="sidebarText">
-      Saturday, August 20th<br/>Register: 9:00 - 11:55 AM EDT<br/>START: 12:00 PM EDT (Noon)
+      Saturday, March 4th<br/>Register: 9:00 - 11:55 AM EST<br/>START: Noon EST
       <td class="sidebarText">750</td>
       <td class="sidebarText">400</td>
       </td>
@@ -83,7 +82,7 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
    <tr valign="top">
       <td class="sidebarText">Online Round #2</td>
       <td class="sidebarText">
-         Wednesday, August 24th<br/>Register:  6:30 - 9:25 PM EDT<br/>START: 9:30 PM EDT
+         Wednesday, March 8th<br/>Register:  6:30 - 9:25 PM EST<br/>START: 9:30 PM EST
       </td>
       <td class="sidebarText">400</td>
       <td class="sidebarText">200</td>
@@ -92,7 +91,7 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
    <tr valign="top">
       <td class="sidebarText">Online Round #3</td>
       <td class="sidebarText">
-         Wednesday, August 31st<br/>Register:  6:30 - 9:25 PM EDT<br/>START: 9:30 PM EDT
+         Wednesday, March 15th<br/>Register:  6:30 - 9:25 PM EST<br/>START: 9:30 PM EST
       </td>
       <td class="sidebarText">200</td>
       <td class="sidebarText">100</td>
@@ -101,7 +100,7 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
    <tr valign="top">
       <td class="sidebarText">Online Round #4</td>
       <td class="sidebarText">
-         Wednesday, September 7th<br/>Register:  6:30 - 9:25 PM EDT<br/>START: 9:30 PM EDT
+         WWednesday, March 22nd<br/>Register:  6:30 - 9:25 PM EST<br/>START: 9:30 PM EST
       </td>
       <td class="sidebarText">100</td>
       <td class="sidebarText">48</td>
@@ -125,8 +124,8 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
    <tr valign="top">
       <td class="sidebarText" nowrap=nowrap>Semifinal Room #1</td>
       <td class="sidebarText">
-         Thursday, October 13th<br />
-         Compete: 10:00 AM PDT<br />
+         Wednesday, May 3<br />
+         Compete: 9:00 AM PST<br />
       </td>
       <td class="sidebarText">16</td>
       <td class="sidebarText" nowrap="nowrap">2 - Championship Round<br/>
@@ -135,8 +134,8 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
    <tr valign="top">
       <td class="sidebarText" nowrap=nowrap>Semifinal Room #2</td>
       <td class="sidebarText">
-         Thursday, October 13th<br />
-         Compete: 1:00 PM PDT<br />
+         Wednesday, May 3<br />
+         Compete: 4:00 PM PST<br />
       </td>
       <td class="sidebarText">16</td>
       <td class="sidebarText">2 - Championship Round<br/>
@@ -145,8 +144,8 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
    <tr valign="top">
       <td class="sidebarText" nowrap=nowrap>Semifinal Room #3</td>
       <td class="sidebarText">
-         Thursday, October 13th<br />
-         Compete: 4:00 PM PDT<br />
+         Thursday, May 4th<br />
+         Compete: 9:00 AM PST<br />
       </td>
       <td class="sidebarText">16</td>
       <td class="sidebarText">2 - Championship Round<br/>
@@ -155,8 +154,8 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
    <tr valign="top">
       <td class="sidebarText" nowrap=nowrap>Wildcard Round</td>
       <td class="sidebarText">
-         Friday, October 14th<br />
-         Compete: 8:00 AM PDT<br />
+         Thursday, May 4th<br />
+         Compete: 4:00 PM PST<br />
       </td>
       <td class="sidebarText">12</td>
       <td class="sidebarText">2 - Championship Round</td>
@@ -164,8 +163,8 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
    <tr valign="top">
       <td class="sidebarText"><strong>Championship Round</strong></td>
       <td class="sidebarText">
-         <strong>Friday, October 14th<br />
-         Compete: 2:30 PM PDT<br /></strong>
+         <strong>Friday, May 5<br />
+         Compete: 2:30 PM PST<br /></strong>
       </td>
       <td class="sidebarText"><strong>8</strong></td>
       <td class="sidebarText"><strong>1 - Champion</strong></td>
