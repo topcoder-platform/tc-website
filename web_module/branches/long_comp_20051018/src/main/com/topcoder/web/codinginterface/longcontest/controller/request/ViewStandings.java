@@ -121,11 +121,10 @@ public class ViewStandings extends Base {
                     s.addDefault(standings.getColumnIndex("submission_number"), "asc");
                     getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
-                    if (sortCol==null) {
-                        sortCol = "rank";
+                    if (sortCol!=null) {
+                        //todo consider sorting in the db
+                        standings.sortByColumn(sortCol, sortOrd.equals("asc"));
                     }
-                    //todo consider sorting in the db
-                    standings.sortByColumn(sortCol, sortOrd.equals("asc"));
 
                     request.setAttribute(Constants.ROUND_STANDINGS_LIST_KEY, standings);
                     request.setAttribute("roundInfo", m.get("long_contest_round_information"));
