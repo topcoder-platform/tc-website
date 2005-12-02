@@ -76,7 +76,7 @@
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
     <tc-webtag:hiddenInput name="<%=Constants.MODULE%>" value="ViewStandings"/>
-    
+
 <div class="pagingBox">
 <%=(standings.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
     | <%=(standings.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
@@ -92,16 +92,16 @@
                 </tr>
                 <tr>
                     <td class="tableHeader" width="25%">
-                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Handle</A>
+                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("handle_lower")%>" includeParams="true"/>">Handle</A>
                     </td>
                     <td class="tableHeader" width="25%" align="right" nowrap="nowrap">
-                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Score</A>
+                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("points")%>" includeParams="true"/>">Score</A>
                     </td>
                     <td class="tableHeader" width="25%" align="right" nowrap="nowrap">
-                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Rank</A>
+                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("rank")%>" includeParams="true"/>">Rank</A>
                     </td>
                     <td class="tableHeader" width="25%" align="right" nowrap="nowrap">
-                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Submissions</A>
+                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("submission_number")%>" includeParams="true"/>">Submissions</A>
                     </td>
                 </tr>
                 <%-- ITERATOR --%>
