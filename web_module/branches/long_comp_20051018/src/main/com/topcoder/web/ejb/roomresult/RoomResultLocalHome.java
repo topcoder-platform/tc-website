@@ -10,5 +10,5 @@ import javax.ejb.CreateException;
  */
 public interface RoomResultLocalHome extends EJBLocalHome {
 
-    public RoomResultLocalHome create() throws CreateException;
+    public RoomResultLocal create() throws CreateException;
 }
