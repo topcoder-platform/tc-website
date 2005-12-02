@@ -34,11 +34,11 @@ Aladdin Resort and Casino* is located on the fabulous Las Vegas Strip.
 <br><br>
 <b>From San Francisco:</b> San Francisco to Las Vegas is about 580 miles (930 km). Take I-80 East to Reno, and then follow U.S. 95 South to Las Vegas.
 <br><br>
-<b>For other areas:</b>  <A href="www.mapquest.com" target="_blank">www.mapquest.com</A>
+<b>For other areas:</b>  <A href="http://www.mapquest.com" target="_blank">http://www.mapquest.com</A>
 <br><br>
-<b>Flying to Vegas:</b> The McCarran International Airport is located 8 minutes from the Aladdin Resort and Casino*.  It offers a variety of airlines and ground transportation to the strip.  See here for more details:  http://www.mccarran.com/
+<b>Flying to Vegas:</b> The McCarran International Airport is located 8 minutes from the Aladdin Resort and Casino*.  It offers a variety of airlines and ground transportation to the strip.  See here for more details:  <A href="http://www.mccarran.com/" target="_blank">http://www.mccarran.com/</A>
 <br><br>
-<b>Bussing to Vegas:</b> Go to the Greyhound web site (to get to Las Vegas, NV).
+<b>Bussing to Vegas:</b> Go to the <A href="http://www.greyhound.com" target="_blank">Greyhound website</A> (to get to Las Vegas, NV).
 <br><br>
 *Soon to be Planet Hollywood Resort and Casino
 <br><br>
