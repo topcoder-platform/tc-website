@@ -26,7 +26,7 @@ TopCoder is pleased to offer more exciting twists and turns for this year's Algo
 <ul>
 <li><strong>Registration</strong><br />
 Begins: February 13, 2006 9:00AM EST<br>
-Ends: AFebruary 28, 2006 9:00AM EST<br>
+Ends: February 28, 2006 9:00AM EST<br>
 You have 16 days to register so don't forget</li>
 
 <li><strong>Qualification Round</strong><br />
