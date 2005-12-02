@@ -16,9 +16,9 @@
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
-	<tr valign=top>
-		<td valign=top align=center>
-		<div class="bodySpacer">
+   <tr valign=top>
+      <td valign=top align=center>
+      <div class="bodySpacer">
          
 <span class="bigTitle">Component Competition Schedule</span>
 <br><br>
@@ -26,8 +26,8 @@
    <tr valign="top">
       <td class="sidebarText" width="25%">Registration</td>
       <td class="sidebarText" width="75%">
-         OPENS: Monday, June 13, 2006 at 9:00 AM EDT<br /><br/>
-         CLOSES: Wednesday, June 29, 2006 at 9:00 AM EDT
+         OPENS: Monday, January 2, 2006 at 9:00 AM EST<br /><br/>
+         CLOSES: Wednesday, February 15, 2006 at 9:00 AM EST
       </td>
    </tr>
 </table>
@@ -41,54 +41,66 @@
       <td class="sidebarTitle" width="25%">Submission Deadline*</td>
    </tr>
    <tr valign="top">
-      <td class="sidebarText">Week 1</td>
-      <td class="sidebarText">06.29.2006 9:00AM</td>
+      <td class="sidebarText">Week 1 of Online Qualification Round</td>
+      <td class="sidebarText">01.18.2006 9:00AM</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">07.06.2006 9:00AM</td>
+      <td class="sidebarText">01.25.2006 9:00AM</td>
    </tr>
    <tr valign="top">
-      <td class="sidebarText">Week 2</td>
-      <td class="sidebarText">07.06.2006 9:00AM</td>
+      <td class="sidebarText">Week 2 of Online Qualification Round</td>
+      <td class="sidebarText">01.25.2006 9:00AM</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">07.13.2006 9:00AM</td>
+      <td class="sidebarText">02.01.2006 9:00AM</td>
    </tr>
    <tr valign="top">
-      <td class="sidebarText">Week 3</td>
-      <td class="sidebarText">07.13.2006 9:00AM</td>
+      <td class="sidebarText">Week 3 of Online Qualification Round</td>
+      <td class="sidebarText">02.01.2006 9:00AM</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">07.20.2006 9:00AM</td>
+      <td class="sidebarText">02.08.2006 9:00AM</td>
    </tr>
    <tr valign="top">
-      <td class="sidebarText">Week 4</td>
-      <td class="sidebarText">07.20.2006 9:00AM</td>
+      <td class="sidebarText">Week 4 of Online Qualification Round</td>
+      <td class="sidebarText">02.08.2006 9:00AM</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">07.27.2006 9:00AM</td>
+      <td class="sidebarText">02.15.2006 9:00AM</td>
    </tr>
    <tr valign="top">
-      <td class="sidebarText">Week 5</td>
-      <td class="sidebarText">07.27.2006 9:00AM</td>
+      <td class="sidebarText">Week 5 of Online Qualification Round</td>
+      <td class="sidebarText">02.15.2006 9:00AM</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">08.03.2006 9:00AM</td>
+      <td class="sidebarText">02.22.2006 9:00AM</td>
    </tr>
    <tr valign="top">
-      <td class="sidebarText">Championship Round (online portion)</td>
-      <td class="sidebarText">08.24.2006 9:00AM</td>
+      <td class="sidebarText">Championship Round (online  portion component 1)</td>
+      <td class="sidebarText">03.15.2006 9:00AM</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">08.31.2006 9:00AM</td>
+      <td class="sidebarText">03.22.2006 9:00AM</td>
+   </tr>
+   <tr valign="top">
+      <td class="sidebarText">Championship Round (online  portion component 2)</td>
+      <td class="sidebarText">03.29.2006 9:00AM</td>
+      <td class="sidebarText" align="center">72 Hours</td>
+      <td class="sidebarText">04.05.2006 9:00AM</td>
+   </tr>
+   <tr valign="top">
+      <td class="sidebarText">Championship Round (online  portion component 3)</td>
+      <td class="sidebarText">04.12.2006 9:00AM</td>
+      <td class="sidebarText" align="center">72 Hours</td>
+      <td class="sidebarText">04.19.2006 9:00AM</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Championship Round (onsite portion)</td>
       <td class="sidebarText">N/A</td>
       <td class="sidebarText" align="center">N/A</td>
-      <td class="sidebarText">10.12.2006 4:00PM</td>
+      <td class="sidebarText">N/A</td>
    </tr>
    <tr valign="top">
-      <td class="sidebarText" colspan="4">*All times listed as Eastern Daylight Time</td>
+      <td class="sidebarText" colspan="4">*All times listed as Eastern Standard Time</td>
    </tr>
 </table>
 
       </div>
-		</td>
+      </td>
       
        
 <!-- Right Column-->
@@ -97,12 +109,12 @@
          <jsp:param name="level1" value="privatelabel"/>
          </jsp:include>
        </td>
-		
-	</tr>
-	
+      
+   </tr>
+   
 </table>
-	
-	
+   
+   
 
 
 <jsp:include page="../../foot.jsp" />
