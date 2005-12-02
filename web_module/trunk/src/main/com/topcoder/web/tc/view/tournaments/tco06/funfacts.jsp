@@ -20,6 +20,7 @@
       <td valign=top align=center>
       <div class=bodySpacer>
 <span class="bigTitle">Las Vegas Fun Facts</span>
+<ul>
 <li>The Eiffel Tower at Paris is half the size of the original.</li>
 <li>Though the spouting fountains and water shows of the big resorts may seem a waste of water, the hotel-casinos comprise only 7% of total water usage for the valley. The biggest use goes to keeping residential lawns green.</li>
 <li>Bugsy Siegel named his casino the Flamingo after the long legs of his showgirl girlfriend. </li>
