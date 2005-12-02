@@ -16,38 +16,42 @@
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
-	<tr valign=top>
-		<td valign=top align=center>
-		<div class=bodySpacer>
+   <tr valign=top>
+      <td valign=top align=center>
+      <div class=bodySpacer>
             
-<span class="bigTitle">Hotels near the TCO05</span>
+<span class="bigTitle">Hotels near the TCO06</span>
 <br><br>
-<span class="bodySubtitle"><A href="http://www.santaclaramarriott.com">Santa Clara Marriott</A></span><br>
-Just like its high-tech neighbors in California's Silicon Valley, the Santa Clara Marriott embraces innovation. From state-of-the-art meeting facilities to a restaurant that's at the forefront of new cuisine, the Santa Clara Marriott is the perfect choice in northern California.
+<A href="http://www.aladdincasino.com" target="_blank">Aladdin Resort and Casino*</A>
+<br>3667 Las Vegas Blvd. S.
+<br>Las Vegas, NV 89109
+<br>877-333-9474
 <br><br>
-2700 Mission College Boulevard<br>
-Santa Clara, CA 95054<br>
-408.988.1500
+Themed for Aladdin's legendary tale, this resort includes more restaurants, more shops, more entertainment and more casino options than any other destination in Las Vegas.
 <br><br>
-Several other hotels are located only a short drive from the Santa Clara Marriott. We have included a representative sample for your convenience:
+From its location in the heart of the Las Vegas Strip, the Aladdin offers easy access from the airport and highway as well as easy pedestrian access directly from the Strip.
 <br><br>
-
-<A href="www.westin.com/santaclara">The Westin</A><br>
-5101 Great America Parkway<br>
-Santa Clara, CA 95054<br>
-408.986.0700<br>
+Several other hotels are located only a short walk from the Aladdin Resort and Casino. We have included a representative sample for your convenience:
 <br><br>
-<A href="www.fremontmarriott.com">Fremont Marriott</A><br>
-46100 Landing Parkway<br>
-Fremont, CA 94538<br>
-510.413.3700<br>
+<A href="http://www.ballyslv.com" target="_blank">Bally's Las Vegas</A>
+<br>3645 Las Vegas Blvd South
+<br>Las Vegas, NV 89109-4307
+<br>888-742-9248
 <br><br>
-<A href="www.fourpointssunnyvale.com">Four Points by Sheraton Sunnyvale</A><br>
-1250 Lakeside Drive<br>
-Sunnyvale, CA 94085<br>
-408.738.4888
+<A href="http://www.paris-lv.com" target="_blank">Paris Las Vegas</A>
+<br>3655 Las Vegas Blvd South
+<br>Las Vegas, NV 89109
+<br>877-796-2096
+<br><br>
+<A href="http://www.travelodge.com" target="_blank">Travelodge</A>
+<br>3735 Las Vegas Blvd. South
+<br>Las Vegas, NV 89109
+<br>702-736-3443
+<br><br>
+*Soon to be Planet Hollywood Resort and Casino
+<br><br>
         </div>
-		</td>
+      </td>
         
          
 <!-- Right Column-->
@@ -56,12 +60,12 @@ Sunnyvale, CA 94085<br>
             <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
-		
-	</tr>
-	
+      
+   </tr>
+   
 </table>
-	
-	
+   
+   
 
 
 <jsp:include page="../../foot.jsp" />
