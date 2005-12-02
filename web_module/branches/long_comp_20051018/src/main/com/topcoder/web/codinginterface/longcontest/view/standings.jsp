@@ -67,9 +67,10 @@
 <span class="errorText"><%=request.getAttribute(Constants.MESSAGE)%></span><br>
 <%}%>
 <span class="bigHandle">Contest: <%=request.getAttribute(Constants.CONTEST_NAME_KEY)%></span><br>
+    <% if(roundInfo.getIntItem(0, "round_type_id")!=Constants.LONG_PRACTICE_ROUND_TYPE_ID) { %>
 <span class="bodySubtitle">Registrants: <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>" class="bcLink">
     <rsc:item name="num_registrants" set="<%=roundInfo%>"/></A></span>
-<br>
+<br><%  } %>
 <span class="bodySubtitle">Competitors: <rsc:item name="num_competitors" set="<%=roundInfo%>"/></span>
 <br>
 <form name="standingsForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
