@@ -9,7 +9,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><div style="float: right; padding-left: 5px;"><img src="/i/pressroom/bw_cov120205_small.jpg" alt="BusinessWeek" border="0" clear="all" /></div><br>12.02.05<br>10:35 AM</td>
+      <td class="newsIconCell" rowspan="2"><div style="float: right; padding-left: 5px;"><img src="/i/pressroom/bw_cov120205_small.jpg" alt="BusinessWeek" border="0" /></div><br clear="all" />12.02.05<br>10:35 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm">Rise Of A Powerhouse</A></span><br><br>
       How the young knowledge workers of Central Europe are pushing the region to a new level.
       <br><br>
