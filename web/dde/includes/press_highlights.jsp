@@ -9,7 +9,7 @@
    <tr><td class="prHead">
          <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/bw_cov120205_small.jpg"  width="85" height="82" alt="BusinessWeek" border="0" /></div>
          <A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm" target="_blank">Rise Of A Powerhouse</A> <br />
-         <b>How the young knowledge workers of Central Europe are pushing the region to a new level.</b> They came from around the world, young men with handles like SnapDragon and Bladerunner attacking computing problems so complex that even experienced coders could only stare at the screen in bewilderment.... [December 2]
+         <i>How the young knowledge workers of Central Europe are pushing the region to a new level.</i> They came from around the world, young men with handles like SnapDragon and Bladerunner attacking computing problems so complex that even experienced coders could only stare at the screen in bewilderment.... [December 2]
    </td></tr>
    <tr><td class="prHead"><A href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_112105">TopCoder Payouts to Winners of Design and Development Competitions Surpass $1 Million</A> [November 21]</td></tr>
    <tr><td class="prHead">
