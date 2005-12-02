@@ -68,8 +68,7 @@
                                         <A href="registrants page" class="statLink">
                                             <tc-webtag:beanWrite name="contest" property="numRegistrants"/></A></td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 35px;">
-                                        <A href="registrants page" class="statLink">
-                                            <tc-webtag:beanWrite name="contest" property="numCompetitors"/></A></td>
+                                            <tc-webtag:beanWrite name="contest" property="numCompetitors"/></td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center">
                                         <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>">submit</A>
                                     </td>
