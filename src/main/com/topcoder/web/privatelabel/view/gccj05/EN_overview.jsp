@@ -56,6 +56,8 @@ constraints.
 <br><br>
 The competition is available in four programming languages - Java, C++, C#, and VB.
 <br><br>
+A wizard with C but rusty with C++? Don't worry! We've got it covered. Check out the <A href="/pl/?module=Static&d1=gccj05&d2=EN_cpp">C++ for C Programmers page</A> that shows you the basics of learning C++ for the competition. Also, be sure to spend time in the Practice Rooms by clicking on the Competition Arena link above.
+<br><br>
 Here's the line-by-line documentation:
 <br><br>
 
