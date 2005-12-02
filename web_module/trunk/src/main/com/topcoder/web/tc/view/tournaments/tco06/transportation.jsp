@@ -16,22 +16,34 @@
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
-	<tr valign=top>
-		<td valign=top align=center>
-		<div class=bodySpacer>
-            
-<span class="bigTitle">How to get to the TCO05</span>
+   <tr valign=top>
+      <td valign=top align=center>
+      <div class=bodySpacer>
+<span class="bigTitle">How to get to the TCO06</span>
 <br><br>
-<strong>By Car:</strong>
-The Santa Clara Marriott is conveniently located only minutes off Highway 101 in Santa Clara, CA.  View driving directions. (link to directions page)
+Aladdin Resort and Casino*<br>
+3667 Las Vegas Blvd. S.<br>
+Las Vegas, NV 89109
 <br><br>
-<strong>By Plane:</strong>
-The Mineta San Jose International Airport (SJC) is located just 2 miles north of downtown San Jose and 3 miles north of the Santa Clara Marriott. SJC is serviced by several national and regional airlines, including American, Continental, Delta, jetBlue, Northwest, Southwest, United Airlines, US Airways and others. Visit <A href="http://www.sjc.org">www.sjc.org</A> for specific information.
+<span class="bodySubtitle">Driving to Vegas:</span><br>
+Aladdin Resort and Casino* is located on the fabulous Las Vegas Strip.
 <br><br>
-<strong>By Bus:</strong>
-Go to the <A href="http://www.greyhound.com">Greyhound</A> web site (to get to San Jose, CA).
+<b>From Los Angeles:</b> Los Angeles to Las Vegas is approximately 270 miles (430 km). Leaving Los Angeles, take I-15 North into Nevada. Once in Las Vegas, exit on East Flamingo Road if your destination is the Strip.  
+<br><br>
+<b>From Phoenix:</b> Phoenix to Las Vegas is about 290 miles (300 km). Take U.S. 93 North out of Phoenix, and follow it right into Las Vegas.
+<br><br>
+<b>From San Francisco:</b> San Francisco to Las Vegas is about 580 miles (930 km). Take I-80 East to Reno, and then follow U.S. 95 South to Las Vegas.
+<br><br>
+<b>For other areas:</b>  <A href="www.mapquest.com" target="_blank">www.mapquest.com</A>
+<br><br>
+<b>Flying to Vegas:</b> The McCarran International Airport is located 8 minutes from the Aladdin Resort and Casino*.  It offers a variety of airlines and ground transportation to the strip.  See here for more details:  http://www.mccarran.com/
+<br><br>
+<b>Bussing to Vegas:</b> Go to the Greyhound web site (to get to Las Vegas, NV).
+<br><br>
+*Soon to be Planet Hollywood Resort and Casino
+<br><br>
         </div>
-		</td>
+      </td>
         
          
 <!-- Right Column-->
@@ -40,12 +52,12 @@ Go to the <A href="http://www.greyhound.com">Greyhound</A> web site (to get to S
             <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
-		
-	</tr>
-	
+      
+   </tr>
+   
 </table>
-	
-	
+   
+   
 
 
 <jsp:include page="../../foot.jsp" />
