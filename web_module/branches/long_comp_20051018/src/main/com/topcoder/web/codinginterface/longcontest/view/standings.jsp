@@ -3,8 +3,7 @@
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%@ page
         language="java"
-        import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,"
-
+        import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"
         %>
 <%@ page import="com.topcoder.web.codinginterface.longcontest.Constants" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
