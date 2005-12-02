@@ -16,26 +16,26 @@
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
-	<tr valign=top>
-		<td valign=top align=center>
-		<div class=bodySpacer>
+   <tr valign=top>
+      <td valign=top align=center>
+      <div class=bodySpacer>
 <span class="bigTitle">Description of the Component Design and Development Competition</span>
 <br><br>
-We're inviting the top 16 finalists - 8 designers and 8 developers - to join us in Santa Clara, CA at the Finals of the Component Competition.
+We're inviting the top 16 finalists - 8 designers and 8 developers - to join us in Las Vegas, NV at the Finals of the Component Competition.
 <ul>
 <li><strong>Registration</strong><br>
-Begins: June 13, 2006 9:00AM EDT<br>
-Ends: June 29, 2006 9:00AM EDT
+Begins: January 2, 2006 9:00AM EST<br>
+Ends: February 15, 2006 9:00AM EST
 </li>
 <li><strong>Online Rounds</strong><br>
-June 29, 2006 - July 27, 2006
+January 18, 2006 - February 15, 2006
 </li>
 <li><strong>Online Finals</strong><br>
-August 24, 2006
+March 15, 2006 - April 19, 2006
 </li>
 <li><strong>Onsite Finals</strong><br>
-October 12 - 14, 2006<br>
-Santa Clara Marriott, Santa Clara, CA, USA
+May 3-5, 2006<br>
+Aladdin Resort and Casino*, Las Vegas, Nevada, USA
 </li>
 </ul>
 The competition is free and you must be 18 years or older to be eligible.  
@@ -54,7 +54,7 @@ Check your email and activate your new TopCoder account.<br>
 Click <A href="/tc?module=TCO05ComponentTerms">here</A> to register for the TCO Component Design and Development Competition
 --%>
         </div>
-		</td>
+      </td>
         
          
 <!-- Right Column-->
@@ -63,12 +63,12 @@ Click <A href="/tc?module=TCO05ComponentTerms">here</A> to register for the TCO 
             <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
-		
-	</tr>
-	
+      
+   </tr>
+   
 </table>
-	
-	
+   
+   
 
 
 <jsp:include page="../../foot.jsp" />

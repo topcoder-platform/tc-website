@@ -145,7 +145,7 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
       <td class="sidebarText" nowrap=nowrap>Semifinal Room #3</td>
       <td class="sidebarText">
          Thursday, May 4th<br />
-         Compete: 9:00 AM PST<br />
+         Compete: 9:00 AM PDT<br />
       </td>
       <td class="sidebarText">16</td>
       <td class="sidebarText">2 - Championship Round<br/>
@@ -155,7 +155,7 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
       <td class="sidebarText" nowrap=nowrap>Wildcard Round</td>
       <td class="sidebarText">
          Thursday, May 4th<br />
-         Compete: 4:00 PM PST<br />
+         Compete: 4:00 PM PDT<br />
       </td>
       <td class="sidebarText">12</td>
       <td class="sidebarText">2 - Championship Round</td>
@@ -164,7 +164,7 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
       <td class="sidebarText"><strong>Championship Round</strong></td>
       <td class="sidebarText">
          <strong>Friday, May 5<br />
-         Compete: 2:30 PM PST<br /></strong>
+         Compete: 2:30 PM PDT<br /></strong>
       </td>
       <td class="sidebarText"><strong>8</strong></td>
       <td class="sidebarText"><strong>1 - Champion</strong></td>
