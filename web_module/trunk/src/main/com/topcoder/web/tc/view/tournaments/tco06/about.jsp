@@ -23,7 +23,7 @@
             
 <span class="bigTitle">2006 TopCoder Open - Overview</span>
 <br><br>
-Are you ready to be dazzled?  We've put together another incredible competition for you and even higher stakes.  We're giving away $150,000 and a trip to one of the world's largest playgrounds for our 48 finalists where Las Vegas awaits.  
+Are you ready to be dazzled? We've put together another incredible competition for you and even higher stakes. We're giving away $150,000 and a trip to one of the world's largest playgrounds for our 64 finalists where Las Vegas awaits.  
 <br><br>
 The 2006 TopCoder Open is here.
 <br><br>
