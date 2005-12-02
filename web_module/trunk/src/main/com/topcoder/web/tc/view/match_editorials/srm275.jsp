@@ -492,17 +492,16 @@ solve(int curDay, int numRightLeft, int numWrongLeft)
       return cached value      // this results has already been computed
 
    int best = -1;
-   if numRightLeft &lt; <b>R</b>
-      // We haven't assigned <b>R</b> Right days in a row
+   if numRightLeft > 0
+      // We haven't assigned R Right days in a row
       // Assign the current day as being Right
       if p[curDay] == 'G' add = 1; else add = 0
-      best = MAX(best, add + solve(curDay + 1, numRightLeft - 1, <b>W</b>)
-   if numWrongLeft &lt; <b>W</b>
-
-      // We haven't assigned <b>W</b> Wrong days in a row
+      best = MAX(best, add + solve(curDay + 1, numRightLeft - 1, W)
+   if numWrongLeft > 0
+      // We haven't assigned W Wrong days in a row
       // Assign the current day as being Wrong
       if p[curDay] == 'B' add = 1; else add = 0
-      best = MAX(best, add + solve(curDay + 1, <b>R</b>, numWrongLeft - 1)
+      best = MAX(best, add + solve(curDay + 1, R, numWrongLeft - 1)
 
    cache[curDay][numRightLeft][numWrongLeft] = best   
 
