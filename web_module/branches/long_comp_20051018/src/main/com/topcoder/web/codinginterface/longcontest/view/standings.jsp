@@ -6,7 +6,7 @@
         import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"
         %>
 <%@ page import="com.topcoder.web.codinginterface.longcontest.Constants" %>
-<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants"%>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <% ResultSetContainer roundInfo = (ResultSetContainer) request.getAttribute("roundInfo"); %>
 <% ResultSetContainer standings = (ResultSetContainer) request.getAttribute(Constants.ROUND_STANDINGS_LIST_KEY); %>
@@ -19,6 +19,23 @@
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <script type="text/javascript">
+        function next() {
+            var myForm = document.compListForm;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) + parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.submit();
+        }
+        function previous() {
+            var myForm = document.compListForm;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+
+            myForm.submit();
+        }
+    </script>
 </head>
 
 <body>
@@ -55,25 +72,10 @@
 <br>
 <span class="bodySubtitle">Competitors: <rsc:item name="num_competitors" set="<%=roundInfo%>"/></span>
 <br>
-
+<form name="standingsForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
 <div class="pagingBox">
-    <logic:equal name="<%=Constants.PREV_IDX_KEY%>" value="-1">
-        &lt;&lt; previous
-    </logic:equal>
-    <logic:notEqual name="<%=Constants.PREV_IDX_KEY%>" value="-1">
-        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.PREV_IDX_KEY)%>&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)%>&<%=DataAccessConstants.SORT_DIRECTION%>=<%=request.getAttribute(DataAccessConstants.SORT_DIRECTION)%>" class="bcLink">
-            &lt;&lt; previous</a>
-    </logic:notEqual>
-
-    &nbsp;|&nbsp;
-
-    <logic:equal name="<%=Constants.NEXT_IDX_KEY%>" value="-1">
-        next &gt;&gt;
-    </logic:equal>
-    <logic:notEqual name="<%=Constants.NEXT_IDX_KEY%>" value="-1">
-        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.NEXT_IDX_KEY)%>&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)%>&<%=DataAccessConstants.SORT_DIRECTION%>=<%=request.getAttribute(DataAccessConstants.SORT_DIRECTION)%>" class="bcLink">next
-            &gt;&gt;</a>
-    </logic:notEqual>
+<%=(standings.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+    | <%=(standings.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
 </div>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
@@ -105,9 +107,9 @@
                         <td class="<%=even?"statLt":"statDk"%>">
                             <tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>"/></td>
                         <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;">
-                                <rsc:item name="points" row="<%=resultRow%>" format="0.00"/>
+                                <rsc:item name="points" row="<%=resultRow%>" format="0.00"/></td>
                         <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 15px;">
-                                <rsc:item name="rank" row="<%=resultRow%>"/>
+                                <rsc:item name="rank" row="<%=resultRow%>"/></td>
                         <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;">
                             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_SUBMISSION_HISTORY%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>" class="statLink">
                                 <rsc:item name="submission_number" row="<%=resultRow%>"/>
@@ -122,24 +124,10 @@
 </TABLE>
 
 <div class="pagingBox">
-    <logic:equal name="<%=Constants.PREV_IDX_KEY%>" value="-1">
-        &lt;&lt; previous
-    </logic:equal>
-    <logic:notEqual name="<%=Constants.PREV_IDX_KEY%>" value="-1">
-        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.PREV_IDX_KEY)%>&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)%>&<%=Constants.SORT_ORDER%>=<%=request.getAttribute(Constants.SORT_ORDER)%>" class="bcLink">
-            &lt;&lt; previous</a>
-    </logic:notEqual>
-
-    &nbsp;|&nbsp;
-
-    <logic:equal name="<%=Constants.NEXT_IDX_KEY%>" value="-1">
-        next &gt;&gt;
-    </logic:equal>
-    <logic:notEqual name="<%=Constants.NEXT_IDX_KEY%>" value="-1">
-        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.NEXT_IDX_KEY)%>&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)%>&<%=Constants.SORT_ORDER%>=<%=request.getAttribute(Constants.SORT_ORDER)%>" class="bcLink">next
-            &gt;&gt;</a>
-    </logic:notEqual>
+<%=(standings.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+    | <%=(standings.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
 </div>
+</form>
 
 </td>
 
