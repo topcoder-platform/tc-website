@@ -16,39 +16,41 @@
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
-	<tr valign=top>
-		<td valign=top align=center>
-		<div class=bodySpacer>
+   <tr valign=top>
+      <td valign=top align=center>
+      <div class=bodySpacer>
             
 <span class="bigTitle">Description of the Algorithm Competition</span>
 <br><br>
-This year's TCO brings you double the excitement and double the chances!  We're inviting the top 48 coders to join us in Santa Clara, CA at the Finals for the Algorithm Competition.
+TopCoder is pleased to offer more exciting twists and turns for this year's Algorithm Competition.  We are now introducing auto-qualification for our top rated members (see rules and regulations for more details), 'dart board seeding', and a trip to Las Vegas for the 48 that make it through the online rounds of competition.
 <ul>
 <li><strong>Registration</strong><br />
-Begins: August 1, 2006 9:00AM EDT<br>
-Ends: August 16, 2006 9:00AM EDT<br>
+Begins: February 13, 2006 9:00AM EST<br>
+Ends: AFebruary 28, 2006 9:00AM EST<br>
 You have 16 days to register so don't forget</li>
 
 <li><strong>Qualification Round</strong><br />
-Begins: August 16, 2006 Noon EDT<br>
-Ends: August 17, 2006 Noon EDT</li>
+Begins: February 28, 2006 Noon EST<br>
+Ends: March 1, 2006 Noon EST</li>
 
 <li><strong>Online Elimination Rounds</strong><br />
-August 20, 2006<br>
-August 24, 2006<br>
-August 31, 2006<br>
-September 7, 2006</li>
+March 4, 2006 - Round 1<br>
+March 8, 2006 - Round 2<br>
+March 15, 2006 - Round 3<br>
+March 22, 2006 - Round 4</li>
 
 <li><strong>Onsite Finals</strong><br />
-October 13 -14, 2006<br>
-Santa Clara Marriott, Santa Clara, CA, USA</li>
+May 3-5, 2006<br>
+Aladdin Resort and Casino*, Las Vegas, Nevada, USA</li>
 </ul>
 
-The competition is free and you must be 18 years or older to be eligible.  
+The competition is free and you must be 18 years or older to be eligible.
+<br><br>
+*Soon to be Planet Hollywood Resort and Casino
 <br><br>
 See the official <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_rules">rules and regulations</A> for full details.
         </div>
-		</td>
+      </td>
         
          
 <!-- Right Column-->
@@ -57,12 +59,12 @@ See the official <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_rules
             <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
-		
-	</tr>
-	
+      
+   </tr>
+   
 </table>
-	
-	
+   
+   
 
 
 <jsp:include page="../../foot.jsp" />

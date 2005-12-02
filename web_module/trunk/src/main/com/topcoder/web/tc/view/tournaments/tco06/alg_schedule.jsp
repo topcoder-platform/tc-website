@@ -16,14 +16,14 @@
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
-	<tr valign=top>
-		<td valign=top align=center>
-		<div class="bodySpacer">
+   <tr valign=top>
+      <td valign=top align=center>
+      <div class="bodySpacer">
          
 <span class="bigTitle">Algorithm Competition Schedule</span>
 <br><br>
 In order to be eligible to compete in the Algorithm Competition, each competitor must be a registered TopCoder member and have registered separately for the Algorithm Competition. Registration for the competition is unlimited, however each individual may only register once.
-<br><br>	
+<br><br>   
 <span class="bodySubtitle">Registration</span><br>
 Registration for the 2006 TopCoder Open Algorithm Competition will open at 9:00AM EDT on Monday, August 1, 2006, and will close at 9:00AM EDT on Tuesday, August 16, 2006.  In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition.  There is no limit to the number of registrants for the competition, however each individual may only register once.
 <br><br>
@@ -74,7 +74,7 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
    <tr valign="top">
       <td class="sidebarText">Online Round #1</td>
       <td class="sidebarText">
-		Saturday, August 20th<br/>Register: 9:00 - 11:55 AM EDT<br/>START: 12:00 PM EDT (Noon)
+      Saturday, August 20th<br/>Register: 9:00 - 11:55 AM EDT<br/>START: 12:00 PM EDT (Noon)
       <td class="sidebarText">750</td>
       <td class="sidebarText">400</td>
       </td>
@@ -178,7 +178,7 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
 </table>
 
       </div>
-		</td>
+      </td>
       
        
 <!-- Right Column-->
@@ -187,12 +187,12 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
          <jsp:param name="level1" value="privatelabel"/>
          </jsp:include>
        </td>
-		
-	</tr>
-	
+      
+   </tr>
+   
 </table>
-	
-	
+   
+   
 
 
 <jsp:include page="../../foot.jsp" />
