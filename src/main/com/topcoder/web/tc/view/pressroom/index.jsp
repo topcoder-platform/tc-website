@@ -55,13 +55,15 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm" target="_blank">Rise Of A Powerhouse</A> </strong></font><br />
-                        How the young knowledge workers of Central Europe are pushing the region to a new level<span class="prHead"> [December 2]</span></p>                   
+                        How the young knowledge workers of Central Europe are pushing the region to a new level.<br />
+                        They came from around the world, young men with handles like SnapDragon and Bladerunner attacking computing problems so complex that even experienced coders could only stare at the screen in bewilderment. Only one mastered the final algorithm problem: Eryk Kopczynski, a.k.a. Eryx, a reticent Warsaw University student who wears his long hair in a ponytail and says his life's ambition is to "discover some interesting notion."<br />
+                        <span class="prHead"> [December 2]</span></p>                   
                         </td>
                 </tr>
             </table>
 
             <hr width="100%" size="1" noshade="noshade" />
- 
+  
 <%-- USA Today --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
