@@ -123,7 +123,7 @@ public class ViewStandings extends Base {
 
                     if (sortCol!=null) {
                         //todo consider sorting in the db
-                        standings.sortByColumn(sortCol, sortOrd.equals("asc"));
+                        standings.sortByColumn(Integer.parseInt(sortCol), sortOrd.equals("asc"));
                     }
 
                     request.setAttribute(Constants.ROUND_STANDINGS_LIST_KEY, standings);
