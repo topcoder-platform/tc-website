@@ -84,6 +84,7 @@
                     <td class="tableTitle" colspan="6">Standings</td>
                 </tr>
                 <tr>
+                    <%--todo use the sort tag to build these links--%>
                     <td class="tableHeader" width="25%">
                         <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.START_ROW)%>&<%=Constants.PRIMARY_COLUMN%>=<%=Constants.HANDLE_COL%><%=(request.getAttribute(Constants.PRIMARY_COLUMN).equals(Constants.HANDLE_COL) ? ("&" + Constants.SORT_ORDER + "=" + (request.getAttribute(Constants.SORT_ORDER).equals("asc")?"desc":"asc")) : "")%>">Handle</A>
                     </td>
