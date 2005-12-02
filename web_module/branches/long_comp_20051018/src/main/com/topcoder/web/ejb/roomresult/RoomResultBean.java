@@ -25,7 +25,7 @@ public class RoomResultBean extends BaseEJB {
     }
     public void setAttended(long roundId, long roomId, long coderId, boolean attended, String dataSource)  {
         log.debug("setAttended called... " + roundId + " " + roomId + " " + coderId + " " + attended);
-        update("room_result", new String[] {"point_total"}, new String[] {attended?"Y":"N"},
+        update("room_result", new String[] {"attended"}, new String[] {attended?"Y":"N"},
                 new String[] {"round_id", "room_id", "coder_id"},
                 new String[] {String.valueOf(roundId), String.valueOf(roomId),String.valueOf(coderId)}, dataSource);
     }
@@ -38,7 +38,7 @@ public class RoomResultBean extends BaseEJB {
 
     public boolean getAttended(long roundId, long roomId, long coderId, String dataSource)  {
         log.debug("getAttended called... " + roundId + " " + roomId + " " + coderId);
-        return "Y".equals(selectString("room_result", "attended", new String[] {"round_id", "room_id", "coder_id"}, 
+        return "Y".equals(selectString("room_result", "attended", new String[] {"round_id", "room_id", "coder_id"},
             new String[] {String.valueOf(roundId), String.valueOf(roomId),String.valueOf(coderId)}, dataSource));
 
     }
