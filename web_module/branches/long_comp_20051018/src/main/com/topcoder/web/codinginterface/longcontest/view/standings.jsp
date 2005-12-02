@@ -73,6 +73,10 @@
 <span class="bodySubtitle">Competitors: <rsc:item name="num_competitors" set="<%=roundInfo%>"/></span>
 <br>
 <form name="standingsForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
+    <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+    <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE%>" value="ViewStandings"/>
+    
 <div class="pagingBox">
 <%=(standings.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
     | <%=(standings.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
