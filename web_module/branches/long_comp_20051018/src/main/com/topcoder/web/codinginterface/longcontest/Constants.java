@@ -28,8 +28,6 @@ public class Constants implements CodingInterfaceConstants {
     public static String PROBLEM_ID;
     public static String SUBMISSION_NUMBER;
     public static String SELECTED_LANGUAGE;
-    public static String SORT_ORDER;
-    public static String START_ROW;
     public static String START_COL;
     public static String COL_COUNT;
     public static String ROW_COUNT;

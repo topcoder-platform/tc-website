@@ -31,15 +31,8 @@ public class ViewStandings extends Base {
         String roundID = request.getParameter(Constants.ROUND_ID);
         String sortCol = request.getParameter(DataAccessConstants.SORT_COLUMN);
         String sortOrd = request.getParameter(DataAccessConstants.SORT_DIRECTION);
-        String startRow = request.getParameter(Constants.START_ROW);
-
-        int maxResults = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
-
-        // Give variables default values
-        if (sortOrd == null) sortOrd = "asc";
-        if (startRow == null) startRow = "0";
-
-        int startRowIdx = Integer.parseInt(startRow);
+        String startRank = request.getParameter(DataAccessConstants.START_RANK);
+        String numRecords = request.getParameter(DataAccessConstants.NUMBER_RECORDS);
 
         try {
 
@@ -67,11 +60,31 @@ public class ViewStandings extends Base {
 
                 if (roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
                     r.setContentHandle("long_contest_round_practice_standings");
+                    r.setProperty(DataAccessConstants.SORT_QUERY, "long_contest_round_practice_standings");
                 } else {
                     r.setContentHandle("long_contest_round_standings");
+                    r.setProperty(DataAccessConstants.SORT_QUERY, "long_contest_round_standings");
                 }
-
                 r.setProperty("rd", roundID);
+                if (sortCol != null && sortOrd != null) {
+                    r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
+                    r.setProperty(DataAccessConstants.SORT_DIRECTION, sortOrd);
+                }
+                if (numRecords==null) {
+                    numRecords = "50";
+                } else if (Integer.parseInt(numRecords) > 200) {
+                    numRecords = "200";
+                }
+                setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
+
+                if (startRank==null || Integer.parseInt(startRank) <= 0) {
+                    startRank = "1";
+                }
+                setDefault(DataAccessConstants.START_RANK, startRank);
+
+                r.setProperty(DataAccessConstants.START_RANK, startRank);
+                r.setProperty(DataAccessConstants.END_RANK,
+                        String.valueOf(Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1));
 
                 Map m = dai.getData(r);
 
@@ -106,13 +119,6 @@ public class ViewStandings extends Base {
                     } else {
                         standings = (ResultSetContainer) m.get("long_contest_round_standings");
                     }
-                    String prevStartRow, nextStartRow;
-
-                    if (startRowIdx == 0) prevStartRow = "-1";
-                    else prevStartRow = "" + (startRowIdx - maxResults >= 0 ? startRowIdx - maxResults : -1);
-
-                    if (startRowIdx + maxResults >= standings.size()) nextStartRow = "-1";
-                    else nextStartRow = "" + (startRowIdx + maxResults);
 
                     SortInfo s = new SortInfo();
                     s.addDefault(standings.getColumnIndex("rank"), "asc");
@@ -121,17 +127,15 @@ public class ViewStandings extends Base {
                     s.addDefault(standings.getColumnIndex("submission_number"), "asc");
                     getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
-                    if (sortCol!=null) {
+
+                    if (sortCol != null) {
                         //todo consider sorting in the db
                         standings.sortByColumn(Integer.parseInt(sortCol), sortOrd.equals("asc"));
                     }
 
                     request.setAttribute(Constants.ROUND_STANDINGS_LIST_KEY, standings);
                     request.setAttribute("roundInfo", m.get("long_contest_round_information"));
-                    request.setAttribute(Constants.PREV_IDX_KEY, prevStartRow);
-                    request.setAttribute(Constants.NEXT_IDX_KEY, nextStartRow);
                     request.setAttribute(Constants.ROUND_ID, roundID);
-                    request.setAttribute(Constants.START_ROW, startRow);
 
                     setNextPage(Constants.PAGE_STANDINGS);
                     setIsNextPageInContext(true);

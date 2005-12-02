@@ -75,7 +75,10 @@
 <form name="standingsForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+    <tc-webtag:hiddenInput name="<%=DataAccessConstants.NUMBER_RECORDS%>"/>
+    <tc-webtag:hiddenInput name="<%=DataAccessConstants.START_RANK%>"/>
     <tc-webtag:hiddenInput name="<%=Constants.MODULE%>" value="ViewStandings"/>
+
 
 <div class="pagingBox">
 <%=(standings.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>

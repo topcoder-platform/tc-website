@@ -35,7 +35,7 @@ public class ViewSystemTestResults extends Base {
             TCRequest request = getRequest();
             Request r = new Request();
 
-            String startRowStr = StringUtils.checkNull(getRequest().getParameter(Constants.START_ROW));
+            String startRowStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
             String startColStr = StringUtils.checkNull(getRequest().getParameter(Constants.START_COL));
             String rowCountStr = StringUtils.checkNull(getRequest().getParameter(Constants.ROW_COUNT));
             String colCountStr = StringUtils.checkNull(getRequest().getParameter(Constants.COL_COUNT));
@@ -119,8 +119,8 @@ public class ViewSystemTestResults extends Base {
             String pageLinkBase = buf.toString();
 
             buf = new StringBuffer(20);
-            if (request.getParameter(Constants.START_ROW) != null)
-                buf.append("&").append(Constants.START_ROW).append("=").append(request.getParameter(Constants.START_ROW));
+            if (request.getParameter(DataAccessConstants.START_RANK) != null)
+                buf.append("&").append(DataAccessConstants.START_RANK).append("=").append(request.getParameter(DataAccessConstants.START_RANK));
             String pagingRParam = buf.toString();
 
             buf = new StringBuffer(20);
@@ -131,7 +131,7 @@ public class ViewSystemTestResults extends Base {
             if (rsc.croppedDataBefore()) {
                 request.setAttribute("prevPageLink",
                         new StringBuffer(pageLinkBase)
-                                .append("&").append(Constants.START_ROW)
+                                .append("&").append(DataAccessConstants.START_RANK)
                                 .append("=").append("" + Math.max(1, rsc.getStartRow() - rowCount))
                                 .append(pagingCParam)
                                 .toString());
@@ -139,7 +139,7 @@ public class ViewSystemTestResults extends Base {
             if (rsc.croppedDataAfter()) {
                 request.setAttribute("nextPageLink",
                         new StringBuffer(pageLinkBase)
-                                .append("&").append(Constants.START_ROW)
+                                .append("&").append(DataAccessConstants.START_RANK)
                                 .append("=").append("" + (rsc.getStartRow() + rowCount))
                                 .append(pagingCParam)
                                 .toString());
