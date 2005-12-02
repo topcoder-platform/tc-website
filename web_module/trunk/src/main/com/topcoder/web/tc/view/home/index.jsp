@@ -173,6 +173,7 @@ margin:0px auto;
             <b>12/28</b> - SRM 280 - 9PM<br><br>
             </td>
          </tr>
+<%-- Press Room --%>
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
             <td class="homeTitle"><A href="/tc?module=Static&d1=pressroom&d2=index" class="homeTitleLink">Press Room Highlights</A></td>
@@ -180,6 +181,9 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/businessweek_logo.gif" width="67" height="16" alt="BusinessWeek" border="0" /></div>
+            Rise Of A Powerhouse<A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm" target="_blank">...more</A><br>[December 2]<br><br>
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/usatoday_logo.gif" width="67" height="36" alt="USA Today" border="0" /></div>
             TopCoder Survey in USA Today [PDF] <A href="/pdfs/press_room/usatoday_113005.pdf" target="_blank">...more</A><br>[November 30]<br><br>

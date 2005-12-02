@@ -46,6 +46,21 @@
             </table>
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+
+<%-- BusinessWeek --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm" target="_blank"><img src="/i/pressroom/businessweekCover120205.jpg" alt="BusinessWeek" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm" target="_blank">Rise Of A Powerhouse</A> </strong></font><br />
+                        How the young knowledge workers of Central Europe are pushing the region to a new level<span class="prHead"> [December 2]</span></p>                   
+                        </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
  
 <%-- USA Today --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
