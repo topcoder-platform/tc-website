@@ -51,7 +51,7 @@
 <%}%>
 <span class="bigHandle">Contest: <%=request.getAttribute(Constants.CONTEST_NAME_KEY)%></span><br>
 <span class="bodySubtitle">Registrants: <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>" class="bcLink">
-    <rsc:item name="num_registrants" set="<%=resultRow%>"/></A></span>
+    <rsc:item name="num_registrants" set="<%=roundInfo%>"/></A></span>
 <br>
 <span class="bodySubtitle">Competitors: <rsc:item name="num_competitors" set="<%=resultRow%>"/></span>
 <br>
