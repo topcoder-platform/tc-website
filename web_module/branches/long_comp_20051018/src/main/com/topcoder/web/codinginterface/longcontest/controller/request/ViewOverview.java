@@ -118,8 +118,7 @@ public class ViewOverview extends Base {
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new TCWebException("Error retrieving page.");
+            throw new TCWebException(e);
         }
     }
 }

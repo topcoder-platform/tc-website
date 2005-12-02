@@ -131,8 +131,10 @@ public class ViewStandings extends Base {
                 }
             }
 
+        } catch (TCWebException e) {
+            throw e;
         } catch (Exception e) {
-            throw new TCWebException("Error retrieving page.");
+            throw new TCWebException(e);
         }
     }
 

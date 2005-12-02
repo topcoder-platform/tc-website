@@ -64,10 +64,10 @@ public class ViewReg extends Base {
                 setNextPage(Constants.PAGE_VIEW_REG);
                 setIsNextPageInContext(true);
             }
-        } catch (NavigationException e) {
+        } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
-            throw new TCWebException("Error retrieving page.", e);
+            throw new TCWebException(e);
         }
 
     }

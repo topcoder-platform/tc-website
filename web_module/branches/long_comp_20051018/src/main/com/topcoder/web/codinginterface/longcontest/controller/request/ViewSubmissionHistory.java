@@ -107,9 +107,10 @@ public class ViewSubmissionHistory extends Base {
 
             setNextPage(Constants.PAGE_SUBMISSION_HISTORY);
             setIsNextPageInContext(true);
+        } catch (TCWebException e) {
+            throw e;
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new TCWebException("Error retrieving page.");
+            throw new TCWebException(e);
         }
     }
 }

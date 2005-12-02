@@ -30,19 +30,13 @@ public class ViewProblemSolution extends Base {
             r.setProperty(Constants.SUBMISSION_NUMBER, request.getParameter(Constants.SUBMISSION_NUMBER));
             DataAccessInt dataAccess = getDataAccess(DBMS.DW_DATASOURCE_NAME, false);
             Map m = dataAccess.getData(r);
-            //           ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_over");
-            //           boolean over = rsc.getBooleanItem(0,0);
-            //           if(!over){
-            //               throw new TCWebException("Long contest is not over yet.");
-            //           }
             request.setAttribute("resultMap", m);
             setNextPage(Constants.PAGE_PROBLEM_SOLUTION);
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new TCWebException("Error retrieving page.");
+            throw new TCWebException(e);
         }
     }
 }

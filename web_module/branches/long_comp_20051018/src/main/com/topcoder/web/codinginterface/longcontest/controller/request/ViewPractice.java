@@ -76,9 +76,10 @@ public class ViewPractice extends ViewActiveContests {
                 contests.add(longContest);
             }
 
+        } catch (TCWebException e) {
+            throw e;
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new TCWebException("Error retrieving page.");
+            throw new TCWebException(e);
         }
 
         // Store the list of practice contests in the http request

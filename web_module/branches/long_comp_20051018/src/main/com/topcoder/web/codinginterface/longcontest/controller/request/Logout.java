@@ -24,6 +24,8 @@ public class Logout extends Base {
         getAuthentication().logout();
         try {
             doLegacyWork(getRequest());
+        } catch (TCWebException e) {
+            throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
         }

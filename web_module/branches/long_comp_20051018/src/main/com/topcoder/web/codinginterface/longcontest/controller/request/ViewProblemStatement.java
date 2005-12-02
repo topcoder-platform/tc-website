@@ -13,10 +13,7 @@ import com.topcoder.shared.problemParser.ProblemComponentFactory;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.render.ProblemRenderer;
 
 import java.io.StringReader;
@@ -72,7 +69,7 @@ public class ViewProblemStatement extends Base {
                 Map m = dataAccess.getData(r);
                 boolean started = ((ResultSetContainer) m.get("long_contest_started")).getBooleanItem(0, 0);
                 if (!started) {
-                    throw new TCWebException("The contest has not started yet.");
+                    throw new NavigationException("The contest has not started yet.");
                 }
                 ResultSetContainer rsc = null;
                 rsc = (ResultSetContainer) m.get("long_problem_xml");
@@ -104,8 +101,7 @@ public class ViewProblemStatement extends Base {
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new TCWebException("Error retrieving page.");
+            throw new TCWebException(e);
         }
     }
 }
