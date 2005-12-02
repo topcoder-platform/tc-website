@@ -6,6 +6,7 @@
         import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"
         %>
 <%@ page import="com.topcoder.web.codinginterface.longcontest.Constants" %>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants"%>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <% ResultSetContainer roundInfo = (ResultSetContainer) request.getAttribute("roundInfo"); %>
 <% ResultSetContainer standings = (ResultSetContainer) request.getAttribute(Constants.ROUND_STANDINGS_LIST_KEY); %>
@@ -60,7 +61,7 @@
         &lt;&lt; previous
     </logic:equal>
     <logic:notEqual name="<%=Constants.PREV_IDX_KEY%>" value="-1">
-        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.PREV_IDX_KEY)%>&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)%>&<%=Constants.SORT_ORDER%>=<%=request.getAttribute(Constants.SORT_ORDER)%>" class="bcLink">
+        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.PREV_IDX_KEY)%>&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)%>&<%=DataAccessConstants.SORT_DIRECTION%>=<%=request.getAttribute(DataAccessConstants.SORT_DIRECTION)%>" class="bcLink">
             &lt;&lt; previous</a>
     </logic:notEqual>
 
@@ -70,7 +71,7 @@
         next &gt;&gt;
     </logic:equal>
     <logic:notEqual name="<%=Constants.NEXT_IDX_KEY%>" value="-1">
-        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.NEXT_IDX_KEY)%>&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)%>&<%=Constants.SORT_ORDER%>=<%=request.getAttribute(Constants.SORT_ORDER)%>" class="bcLink">next
+        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.NEXT_IDX_KEY)%>&<%=Constants.PRIMARY_COLUMN%>=<%=request.getAttribute(Constants.PRIMARY_COLUMN)%>&<%=DataAccessConstants.SORT_DIRECTION%>=<%=request.getAttribute(DataAccessConstants.SORT_DIRECTION)%>" class="bcLink">next
             &gt;&gt;</a>
     </logic:notEqual>
 </div>
@@ -84,18 +85,17 @@
                     <td class="tableTitle" colspan="6">Standings</td>
                 </tr>
                 <tr>
-                    <%--todo use the sort tag to build these links--%>
                     <td class="tableHeader" width="25%">
-                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.START_ROW)%>&<%=Constants.PRIMARY_COLUMN%>=<%=Constants.HANDLE_COL%><%=(request.getAttribute(Constants.PRIMARY_COLUMN).equals(Constants.HANDLE_COL) ? ("&" + Constants.SORT_ORDER + "=" + (request.getAttribute(Constants.SORT_ORDER).equals("asc")?"desc":"asc")) : "")%>">Handle</A>
+                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Handle</A>
                     </td>
                     <td class="tableHeader" width="25%" align="right" nowrap="nowrap">
-                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.START_ROW)%>&<%=Constants.PRIMARY_COLUMN%>=<%=Constants.SCORE_COL%><%=(request.getAttribute(Constants.PRIMARY_COLUMN).equals(Constants.SCORE_COL) ? ("&" + Constants.SORT_ORDER + "=" + (request.getAttribute(Constants.SORT_ORDER).equals("asc")?"desc":"asc")) : "")%>">Score</A>
+                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Score</A>
                     </td>
                     <td class="tableHeader" width="25%" align="right" nowrap="nowrap">
-                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.START_ROW)%>&<%=Constants.PRIMARY_COLUMN%>=<%=Constants.RANK_COL%><%=(request.getAttribute(Constants.PRIMARY_COLUMN).equals(Constants.RANK_COL) ? ("&" + Constants.SORT_ORDER + "=" + (request.getAttribute(Constants.SORT_ORDER).equals("asc")?"desc":"asc")) : "")%>">Rank</A>
+                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Rank</A>
                     </td>
                     <td class="tableHeader" width="25%" align="right" nowrap="nowrap">
-                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_STANDINGS%>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.START_ROW%>=<%=request.getAttribute(Constants.START_ROW)%>&<%=Constants.PRIMARY_COLUMN%>=<%=Constants.SUBMISSION_COL%><%=(request.getAttribute(Constants.PRIMARY_COLUMN).equals(Constants.SUBMISSION_COL) ? ("&" + Constants.SORT_ORDER + "=" + (request.getAttribute(Constants.SORT_ORDER).equals("asc")?"desc":"asc")) : "")%>">Submissions</A>
+                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Submissions</A>
                     </td>
                 </tr>
                 <%-- ITERATOR --%>

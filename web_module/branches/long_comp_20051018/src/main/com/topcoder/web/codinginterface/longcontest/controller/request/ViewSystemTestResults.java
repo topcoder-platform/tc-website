@@ -9,6 +9,7 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
@@ -38,8 +39,8 @@ public class ViewSystemTestResults extends Base {
             String startColStr = StringUtils.checkNull(getRequest().getParameter(Constants.START_COL));
             String rowCountStr = StringUtils.checkNull(getRequest().getParameter(Constants.ROW_COUNT));
             String colCountStr = StringUtils.checkNull(getRequest().getParameter(Constants.COL_COUNT));
-            String sortDir = StringUtils.checkNull(getRequest().getParameter(Constants.SORT_ORDER));
-            String sortColStr = StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_COLUMN));
+            String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+            String sortColStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
             int rowCount = Integer.parseInt(Constants.DEFAULT_SYSTEM_TEST_RESULTS_ROW_COUNT);
             int colCount = Integer.parseInt(Constants.DEFAULT_COL_COUNT);
@@ -109,10 +110,10 @@ public class ViewSystemTestResults extends Base {
                 buf.append("&").append(Constants.COL_COUNT).append("=").append(request.getParameter(Constants.COL_COUNT));
             String linkBase = buf.toString();
 
-            if (request.getParameter(Constants.PRIMARY_COLUMN) != null)
-                buf.append("&").append(Constants.PRIMARY_COLUMN).append("=").append(request.getParameter(Constants.PRIMARY_COLUMN));
-            if (request.getParameter(Constants.SORT_ORDER) != null)
-                buf.append("&").append(Constants.SORT_ORDER).append("=").append(request.getParameter(Constants.SORT_ORDER));
+            if (request.getParameter(DataAccessConstants.SORT_COLUMN) != null)
+                buf.append("&").append(DataAccessConstants.SORT_COLUMN).append("=").append(request.getParameter(DataAccessConstants.SORT_COLUMN));
+            if (request.getParameter(DataAccessConstants.SORT_DIRECTION) != null)
+                buf.append("&").append(DataAccessConstants.SORT_DIRECTION).append("=").append(request.getParameter(DataAccessConstants.SORT_DIRECTION));
             if (request.getParameter(Constants.TEST_CASE_ID) != null)
                 buf.append("&").append(Constants.TEST_CASE_ID).append("=").append(request.getParameter(Constants.TEST_CASE_ID));
             String pageLinkBase = buf.toString();

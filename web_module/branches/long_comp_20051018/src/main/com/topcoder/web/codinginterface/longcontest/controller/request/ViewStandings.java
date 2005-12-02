@@ -3,6 +3,7 @@ package com.topcoder.web.codinginterface.longcontest.controller.request;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
@@ -10,6 +11,7 @@ import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.SortInfo;
 
 import java.util.Map;
 
@@ -27,14 +29,13 @@ public class ViewStandings extends Base {
 
         TCRequest request = getRequest();
         String roundID = request.getParameter(Constants.ROUND_ID);
-        String primaryCol = request.getParameter(Constants.PRIMARY_COLUMN);
-        String sortOrd = request.getParameter(Constants.SORT_ORDER);
+        String sortCol = request.getParameter(DataAccessConstants.SORT_COLUMN);
+        String sortOrd = request.getParameter(DataAccessConstants.SORT_DIRECTION);
         String startRow = request.getParameter(Constants.START_ROW);
 
         int maxResults = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
 
         // Give variables default values
-        if (primaryCol == null) primaryCol = Constants.SCORE_COL;
         if (sortOrd == null) sortOrd = "asc";
         if (startRow == null) startRow = "0";
 
@@ -113,16 +114,21 @@ public class ViewStandings extends Base {
                     if (startRowIdx + maxResults >= standings.size()) nextStartRow = "-1";
                     else nextStartRow = "" + (startRowIdx + maxResults);
 
+                    SortInfo s = new SortInfo();
+                    s.addDefault(standings.getColumnIndex("rank"), "asc");
+                    s.addDefault(standings.getColumnIndex("handle_lower"), "asc");
+                    s.addDefault(standings.getColumnIndex("points"), "desc");
+                    s.addDefault(standings.getColumnIndex("submission_number"), "asc");
+                    getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+
                     //todo consider sorting in the db
-                    standings.sortByColumn(primaryCol, sortOrd.equals("asc"));
+                    standings.sortByColumn(sortCol, sortOrd.equals("asc"));
 
                     request.setAttribute(Constants.ROUND_STANDINGS_LIST_KEY, standings);
                     request.setAttribute("roundInfo", m.get("long_contest_round_information"));
                     request.setAttribute(Constants.PREV_IDX_KEY, prevStartRow);
                     request.setAttribute(Constants.NEXT_IDX_KEY, nextStartRow);
                     request.setAttribute(Constants.ROUND_ID, roundID);
-                    request.setAttribute(Constants.PRIMARY_COLUMN, primaryCol);
-                    request.setAttribute(Constants.SORT_ORDER, sortOrd);
                     request.setAttribute(Constants.START_ROW, startRow);
 
                     setNextPage(Constants.PAGE_STANDINGS);

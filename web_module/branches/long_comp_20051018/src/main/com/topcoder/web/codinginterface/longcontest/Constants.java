@@ -28,7 +28,6 @@ public class Constants implements CodingInterfaceConstants {
     public static String PROBLEM_ID;
     public static String SUBMISSION_NUMBER;
     public static String SELECTED_LANGUAGE;
-    public static String PRIMARY_COLUMN;
     public static String SORT_ORDER;
     public static String START_ROW;
     public static String START_COL;
@@ -89,11 +88,6 @@ public class Constants implements CodingInterfaceConstants {
     public static String RP_VIEW_PRACTICE;
     public static String PAGE_VIEW_PRACTICE;
     public static String PAGE_SUBMIT_SUCCESS;
-
-    public static String HANDLE_COL;
-    public static String SCORE_COL;
-    public static String RANK_COL;
-    public static String SUBMISSION_COL;
 
     static {
         initialize();
