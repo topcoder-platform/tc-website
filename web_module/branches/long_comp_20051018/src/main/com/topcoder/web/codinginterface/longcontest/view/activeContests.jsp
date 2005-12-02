@@ -71,7 +71,7 @@
                                 <div style="float: left;"><img src="/i/logo_r.gif" alt="" border="0"/></div>
                             </td>
                             <td class="<%=even?"statLt":"statDk"%>"><A
-                                    href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblem&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>"
+                                    href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>"
                                     class="statLink">
                                 <tc-webtag:beanWrite name="contest" property="problemName"/></A>
                             </td>
