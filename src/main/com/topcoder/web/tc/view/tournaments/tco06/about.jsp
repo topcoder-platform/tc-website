@@ -23,7 +23,7 @@
             
 <span class="bigTitle">2006 TopCoder Open - Overview</span>
 <br><br>
-Are you ready to be dazzled? We've put together another incredible competition for you and even higher stakes. We're giving away $150,000 and a trip to one of the world's largest playgrounds for our 64 finalists where Las Vegas awaits.  
+Are you ready to be dazzled? We've put together another incredible competition for you and even higher stakes. We're giving away $150,000 and a trip for 64 finalists to one of the world's largest playgrounds.  Las Vegas awaits!  
 <br><br>
 The 2006 TopCoder Open is here.
 <br><br>
@@ -37,23 +37,25 @@ The 2006 TopCoder Open is here.
 <ul>
 <li>Aladdin Resort and Casino*, Las Vegas, NV</li>
 </ul>
-Where else in the world can you marvel at dancing fountains (the Bellagio), see an erupting volcano (the Mirage), or watch pirates and sirens entertain on ships nightly? (Treasure Island) Not to mention downtown's Fremont Street Experience, and that is a haven for pedestrians.  Las Vegas has it all!
+Where else in the world can you marvel at dancing fountains (the Bellagio), see an erupting volcano (the Mirage), or watch pirates and sirens entertain on ships nightly (Treasure Island)?  Not to mention downtown's Fremont Street Experience that is a haven for pedestrians. Las Vegas has it all!
 <br><br>
 <span class="bodySubtitle">Important Dates:</span>
+<br><br>
+<b>Component Competition</b>
 <ul>
-<li>Component Competition</li>
 <li>Registration:  January 2, 2006</li>
 <li>Begins:  January 18, 2006</li>
 </ul>
+<b>Algorithm Competition</b>
 <ul>
-<li>Algorithm Competition</li>
 <li>Registration:  February 13, 2006</li>
 <li>Begins:  February 28, 2006</li>
 </ul>
 <ul>
-<li>Prizes for the Algorithm competition total $75,000!</li>
-<li>Prizes for the Component competition total $75,000!</li>
+<li>Prizes for the Algorithm and Component competitions total $75,000 each!</li>
 </ul>
+<span class="bodySubtitle">New to the 2006 TCO – the TCO Complete Coder Incentive Program!</span>
+<br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ccip_description">Learn how</A> you can earn more prize money by participating in both Component and Algorithm competitions.
 *soon to be Planet Hollywood Resort and Casino
 <br><br>
 See the official <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_rules">Algorithm</A> and <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_rules">Component</A> rules and regulations for full details.

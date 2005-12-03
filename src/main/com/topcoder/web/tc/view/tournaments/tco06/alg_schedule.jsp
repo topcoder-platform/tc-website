@@ -38,7 +38,7 @@ Registration for the 2006 TopCoder Open Algorithm Competition will open at 9:00A
 </table>
 <br><br>
 <span class="bodySubtitle">Qualification Round</span><br>
-The Qualification Round will be open for 24 hours and a maximum of 750 competitors will advance to Online Round #1 including the 100 top rated members who will automatically advance.
+The Qualification Round will be open for 24 hours and a maximum of 650 competitors will advance to Online Round #1 plus the 100 top rated members who automatically advance without competing in the Qualification Round.
 <br><br>
 <a name="sched"></a>
 <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
@@ -51,9 +51,9 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
    <tr valign="top">
       <td class="sidebarText">Qualification Round</td>
       <td class="sidebarText">
-         START: Tuesday, February 28 Noon
+         START: Tuesday, February 28 Noon EST
          <br /><br/>
-         END: Wednesday, March 1 Noon
+         END: Wednesday, March 1 Noon EST
       </td>
       <td class="sidebarText">All eligible registered competitors</td>
       <td class="sidebarText">750</td>
@@ -100,7 +100,7 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
    <tr valign="top">
       <td class="sidebarText">Online Round #4</td>
       <td class="sidebarText">
-         WWednesday, March 22nd<br/>Register:  6:30 - 9:25 PM EST<br/>START: 9:30 PM EST
+         Wednesday, March 22nd<br/>Register:  6:30 - 9:25 PM EST<br/>START: 9:30 PM EST
       </td>
       <td class="sidebarText">100</td>
       <td class="sidebarText">48</td>
@@ -125,7 +125,7 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
       <td class="sidebarText" nowrap=nowrap>Semifinal Room #1</td>
       <td class="sidebarText">
          Wednesday, May 3<br />
-         Compete: 9:00 AM PST<br />
+         Compete: 9:00 AM PDT<br />
       </td>
       <td class="sidebarText">16</td>
       <td class="sidebarText" nowrap="nowrap">2 - Championship Round<br/>
@@ -135,7 +135,7 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
       <td class="sidebarText" nowrap=nowrap>Semifinal Room #2</td>
       <td class="sidebarText">
          Wednesday, May 3<br />
-         Compete: 4:00 PM PST<br />
+         Compete: 4:00 PM PDT<br />
       </td>
       <td class="sidebarText">16</td>
       <td class="sidebarText">2 - Championship Round<br/>
