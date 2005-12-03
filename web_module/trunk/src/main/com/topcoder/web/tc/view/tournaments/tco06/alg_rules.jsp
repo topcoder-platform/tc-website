@@ -32,39 +32,38 @@
 <span class="bigRed">No purchase necessary to enter or win.  Void where prohibited.</span>
 <br><br>
 <span class="bodySubtitle">Overview of the Tournament</span><br>
-The 2006 TopCoder Open ("TCO") Algorithm Competition will take place between August 16 and October 14, 2006.  It will consist of one (1) online qualification round, four (4) online elimination rounds and three (3) onsite final rounds, being the Semifinal, Wildcard and Championship rounds.  The prize purse for this competition is $75,000 in cash.  Up to 90 competitors will win a cash prize, and for competing in Online Round #1, up to 750 competitors will receive a participatory prize.  The top 48 finishers in the online rounds will advance to the onsite Semifinal, Wildcard and Championship rounds being held at the Marriott in Santa Clara, California, USA on October 13th and 14th.
+The 2006 TopCoder Open ("TCO") Algorithm Competition will take place between February 13, 2006 and May 5, 2006.  It will consist of one (1) online qualification round, four (4) online elimination rounds and three (3) onsite final rounds, being the Semifinal, Wildcard and Championship rounds.  The prize purse for this competition is $75,000 in cash.  Up to 90 competitors will win a cash prize, and for competing in Online Round #1, up to 750 competitors will receive a participatory prize.  The top 48 finishers in the online rounds will advance to the onsite Semifinal, Wildcard and Championship rounds being held at the Aladdin Resort and Casino* on May 3-5, 2006.
 <br><br>
 <a name="eligibility"></a>
 <a href="#top"><img src="/i/interface/back_to_top_dk.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <span class="bodySubtitle">Eligibility</span><br><br>
-TopCoder members who are at least 18 years of age as of August 16, 2006 are eligible to compete in the Algorithm Competition.
+TopCoder members who are at least 18 years of age as of March 1, 2006 are eligible to compete in the Algorithm Competition.
 <br><br>
-TopCoder members who are 18 years of age or older as of August 16, 2006 are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Open is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
+TopCoder members who are 18 years of age or older as of March 1, 2006 are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Open is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
 <br><br>
-Employees of TopCoder, Inc. and of all official tournament sponsors, regardless of commitment date as sponsor, including any companies involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.  If a competitor's employer signs up as an official sponsor of the tournament on or after August 1, 2006, then that competitor will be disqualified from participating further in the tournament.  TopCoder members who are performing internships for any official tournament sponsor between August 1 and October 14, 2006 are also ineligible to compete.  
-<br><br>
-Those ineligible to compete, email <A href="mailto:jdamato@topcoder.com">Jessie D’Amato</A> for information on other opportunities.
+Employees of TopCoder, Inc. and of all official tournament sponsors, regardless of commitment date as sponsor, including any companies involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.  If a competitor's employer signs up as an official sponsor of the tournament on or after February 13, 2005, then that competitor will be disqualified from participating further in the tournament.  TopCoder members who are performing internships for any official tournament sponsor between January 2, 2006 and May 5, 2006 are also ineligible to compete.  
 <br><br>
 In the event that a competitor is disqualified from any round, no other competitors will be added in his/her place.  The only exception to this is advancement to the onsite rounds.
 <br><br>
 <a name="registration"></a>
 <a href="#top"><img src="/i/interface/back_to_top_dk.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <span class="bodySubtitle">Registration</span><br><br>
-Registration for the 2006 TopCoder Open Algorithm Competition will open at 9:00AM EDT on Monday, August 1, 2006, and will close at 9:00AM EDT on Tuesday, August 16, 2006.  In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition.  There is no limit to the number of registrants for the competition, however each individual may only register once.
+Registration for the 2006 TopCoder Open Algorithm Competition will open at 9:00AM EST on Monday, February 13, 2006, and will close at 9:00AM EST on Tuesday, February 28, 2006.  In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition.  There is no limit to the number of registrants for the competition, however each individual may only register once.
 <br><br>
 <a name="qualification"></a>
-<strong>Qualification Round - Noon EDT Tuesday, August 16 through Noon EDT Wednesday, August 17, 2006</strong>
+<strong>Qualification Round - Noon EST Tuesday, February 28 through Noon EST Wednesday, March 1, 2006.</strong>
 <br><br>
-The Qualification Round will be open for 24 hours from Noon EDT Tuesday, August 16 through Noon EDT Wednesday, August 17, 2006.  Each competitor may participate in the Qualification Round at any time during the 24 hours.  Competitors may only attempt to qualify one time using one account during the 24 hours.
+The Qualification Round will be open for 24 hours from Noon EST Tuesday, February 28 through Noon EST Wednesday, March 1, 2006.  Each competitor may participate in the Qualification Round at any time during the 24 hours.  Competitors may only attempt to qualify one time using one account during the 24 hours.  <strong>The top 100 rated members who are registered for the TCO will qualify automatically. They will not be allowed to participate in the qualification round.  These top 100 rated members who receive a bye for the qualification round must have competed in 3 SRM's lifetime and must be active as of February 28, 2006</strong>.
 <br><br>
-The Qualification Round will consist of only two phases: the Coding Phase and System Testing Phase.<br><strong>Note: The Qualification Round will not include a Challenge Phase.</strong>
+The Qualification Round will consist of only two phases: the Coding Phase and System Testing Phase.
+<br><strong>Note: The Qualification Round will not include a Challenge Phase.</strong>
 <ul>
-<li>The Qualification Round Coding Phase is a timed event where contestants are randomly presented with one of five possible problem sets.  Each problem set contains two questions representing two levels of complexity and, accordingly, two levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.  Competitors will have 60 minutes to complete either or both of the problems.  The 60 minutes will begin to elapse once the first problem is opened.  The timer in the coding window will count down to the end of the 60 minutes.  A competitor who begins the qualification attempt within the final 60 minutes of the Qualification Round will have less than 60 minutes to attempt qualification.</li>
-<li>The Qualification Round System Testing Phase is applied to all submitted code at the conclusion of the Qualification Round. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given question.</li>
+<li><strong>The Qualification Round Coding Phase</strong> is a timed event where contestants are randomly presented with one of five possible problem sets.  Each problem set contains two questions representing two levels of complexity and, accordingly, two levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.  Competitors will have 60 minutes to complete either or both of the problems.  The 60 minutes will begin to elapse once the first problem is opened.  The timer in the coding window will count down to the end of the 60 minutes.  A competitor who begins the qualification attempt within the final 60 minutes of the Qualification Round will have less than 60 minutes to attempt qualification.</li>
+<li><strong>The Qualification Round System Testing Phase</strong> is applied to all submitted code at the conclusion of the Qualification Round. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given question.</li>
 </ul>
-Upon logging in to the TopCoder Arena during the Qualification Round, each competitor who has registered for the Algorithm Competition will receive a message indicating which set of problems he/she has been assigned.  The highest 150 positive (i.e., greater than zero) scorers from each of the five problem sets presented during the Qualification Round will be eligible to compete in Online Round #1 of the Algorithm Competition.  A maximum of 750 competitors will advance to Online Round #1.  Members will be rated at the conclusion of the Qualification Round based on their performance against others presented with the same problem set.  
+Upon logging in to the TopCoder Arena during the Qualification Round, each competitor who has registered for the Algorithm Competition will receive a message indicating which set of problems he/she has been assigned.  The highest 130 positive (i.e., greater than zero) scorers from each of the five problem sets presented during the Qualification Round will be eligible to compete in Online Round #1 of the Algorithm Competition.  A maximum of 650 competitors will advance to Online Round #1.  Members will be rated at the conclusion of the Qualification Round based on their performance against others presented with the same problem set.  
 <br><br>
-NOTE:  In the event of a tie for any advancing position during the Qualification Round, the tie will be resolved in the following manner:
+<strong>NOTE:</strong> In the event of a tie for any advancing position during the Qualification Round, the tie will be resolved in the following manner:
 <ul>
 <li>By rating (higher is better) prior to the Qualification Round.</li>
 <li>If a tie still remains, all tied coders will advance to the next round.</li>
@@ -73,11 +72,11 @@ NOTE:  In the event of a tie for any advancing position during the Qualification
 <a href="#top"><img src="/i/interface/back_to_top_dk.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <a name="structure"></a>
 <span class="bodySubtitle">Online Elimination Rounds</span><br><br>
-Everyone who competes in an online round must register for each round in the TopCoder Competition Arena no later than five (5) minutes prior to the start of the online round. TopCoder members from around the world may be participating in the online rounds, but all start times will be communicated as Eastern Daylight Time (GMT -4), so contestants in different time zones must adjust accordingly. If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition. 
+Everyone who competes in an online round must register for each round in the TopCoder Competition Arena no later than five (5) minutes prior to the start of the online round. TopCoder members from around the world may be participating in the online rounds, but all start times will be communicated as Eastern Standard Time (GMT -5), so contestants in different time zones must adjust accordingly. If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition. 
 <br><br>
-All competitors who have qualified for an online round will be assigned to a specific room, based on their TopCoder rating after the previous round. TopCoder will determine all room assignments prior to the start of each online round in the TopCoder Iron Man format, which assigns members to rooms according to their rating after the previous round, such that members with the higher ratings are assigned to the lower numbered rooms.   Each room in an online round will be assigned 25 competitors.
+All competitors who have qualified for an online round will be assigned to rooms based on 'dartboard seeding' (completely random).
 <br><br>
-The dates and times of the online rounds of competition are as follows: 
+The dates and times of the online rounds of competition are as follows:
 <br><br>
 <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
    <tr>
@@ -86,22 +85,22 @@ The dates and times of the online rounds of competition are as follows:
 	</tr>
 	<tr>
       <td width="50%" class="sidebarText">Online Round #1</td>
-		<td width="50%" class="sidebarText">Saturday, August 20th<br/>Register: 9:00 - 11:55 AM<br/>START: 12:00 PM (Noon)</td>
+		<td width="50%" class="sidebarText">Saturday, March 4, 2006<br>Register: 9:00 - 11:55 AM<br>START:Noon</td>
 	</tr>
 	<tr>
       <td width="50%" class="sidebarText">Online Round #2</td>
-      <td width="50%" class="sidebarText">Wednesday, August 24th<br/>Register:  6:30 - 9:25 PM<br/>START: 9:30 PM</td>
+      <td width="50%" class="sidebarText">Wednesday, March 8, 2006<br>Register: 6:30 - 9:25 PM<br>START: 9:30 PM</td>
 	</tr>
 	<tr>
       <td width="50%" class="sidebarText">Online Round #3</td>
-      <td width="50%" class="sidebarText">Wednesday, August 31st<br/>Register:  6:30 - 9:25 PM<br/>START: 9:30 PM</td>
+      <td width="50%" class="sidebarText">Wednesday, March 15, 2006<br>Register: 6:30 - 9:25 PM<br>START: 9:30 PM</td>
 	</tr>
 	<tr>
       <td width="50%" class="sidebarText">Online Round #4</td>
-      <td width="50%" class="sidebarText">Wednesday, September 7th<br/>Register:  6:30 - 9:25 PM<br/>START: 9:30 PM</td>
+      <td width="50%" class="sidebarText">Wednesday, March 22, 2006<br>Register:  6:30 - 9:25 PM<br>START: 9:30 PM</td>
 	</tr>
 	<tr>
-      <td colspan="2" class="sidebarText">*NOTE:  In the event that a round must be cancelled for any reason, the "rain date" for the cancelled match will be the following day at the same time.
+      <td colspan="2" class="sidebarText">*NOTE:  In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.</td>
 	</tr>
 </table>
 <br/><br/>
@@ -116,21 +115,21 @@ After each round of competition, the highest scorers from across all rooms will 
 <li><strong>Online Round #3</strong><br>Up to 200 coders will compete and up to 100 will advance.  The highest 100 scorers across all rooms will advance to Online Round #4.</li>
 <li><strong>Online Round #4</strong><br>Up to 100 coders will compete and up to 48 will advance.  The highest 48 scorers across all rooms will advance to the field of Semifinalists.</li>
 </ul>
-NOTE:  In the event of a tie for any advancing position during the online rounds, the tie will be resolved in the following manner:
+<strong>NOTE:</strong> In the event of a tie for any advancing position during the online rounds, the tie will be resolved in the following manner:
 <ul>
 <li>Total points acquired (higher is better) during the previous online rounds of the tournament (excluding the Qualification Round).</li>
 <li>If a tie still remains, then by rating (higher is better) following the Qualification Round.</li>
 <li>If a tie still remains, all tied coders will advance to the next round.</li>
 </ul>
 <span class="bodySubtitle">Competition Round Structure</span><br>
-With the exception of the Qualification Round, each online and onsite round of competition consists of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. (Note: The format of these competition rounds is similar to the format of TopCoder Single Round Matches.  The rules in place for the Single Round Matches as of August 16, 2006 will also apply to the online and onsite rounds of the TCO, with the exception of the Unused Code Rule during the onsite rounds.)
+With the exception of the Qualification Round, each online and onsite round of competition consists of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. (Note: The format of these competition rounds is similar to the format of TopCoder Single Round Matches.  The rules in place for the Single Round Matches as of February 28, 2006 will also apply to the online and onsite rounds of the TCO, with the exception of the Unused Code Rule during the onsite rounds.)
 <ul>
 <li><strong>The Coding Phase</strong> is a timed event where all contestants are presented with the same three questions representing three levels of complexity and, accordingly, three levels of point earnings potential. Points for a problem are awarded upon submission of any solution that successfully compiles and are calculated on the total time elapsed from the time the problem was opened until the time it was submitted.  During the online rounds, the Coding Phase will last 75 minutes.  During the onsite rounds, the Coding Phase will last 85 minutes.</li>
 <li><strong>The Challenge Phase</strong> is a timed event wherein each competitor has a chance to challenge the functionality of other competitors' code. A successful challenge will result in a loss of the original problem submission points by the defendant, and a 50-point reward for the challenger.  Unsuccessful challengers will incur a point reduction of 25 points as a penalty, applied against their total score in that round of competition.  During the online rounds, the Challenge Phase will last 15 minutes.  During the onsite round, the Challenge Phase will last 10 minutes.</li>
 <li><strong>The System Testing Phase</strong> is applied to all submitted code that has not already been successfully challenged. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given problem. All successful challenges from the Challenge Phase will be added to the sets of inputs for the System Testing Phase.</li>
 </ul>
 <span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span><br>
-The forty-eight (48) advancers from Online Round #4 will travel to the Santa Clara Marriott on either Tuesday, October 11th or Wednesday, October 12th to compete in the Semifinal round of the tournament being held on Thursday, October 13th.  All contestants must arrive at the Santa Clara Marriott no later than 4:00 PM PDT on Wednesday, October 12th.  All contestants must confirm their attendance at the onsite rounds no later than 5:00 PM EDT on Wednesday, September 21, 2006.  That is, contestants must have acquired any necessary travel visas and know for certain that they can travel to the US by that date and time.  If a contestant is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive any prizes awarded to onsite finalists, and his/her spot in the tournament will be given to the next highest overall scorer from Online Round #4.  
+The forty-eight (48) advancers from Online Round #4 will travel to the Aladdin Resort and Casino* on Tuesday, May 2, 2006 to compete in the Semifinal round of the tournament being held on Wednesday, May 3 - Thursday, May 4, 2006.  All contestants must arrive at the Aladdin Resort and Casino* no later than 4:00 PM PDT on Tuesday, May 2, 2006.  All contestants must confirm their attendance at the onsite rounds no later than 5:00 PM EST on Friday, March 31, 2006.  That is, contestants must have acquired any necessary travel visas and know for certain that they can travel to the US by that date and time.  If a contestant is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive any prizes awarded to onsite finalists, and his/her spot in the tournament will be given to the next highest overall scorer from Online Round #4.
 <br><br>
 TopCoder will provide travel arrangements for each competitor up to a cost of $1,000 per person.  (That is, if a contestant's airfare is greater than $1,000, the difference between the cost of the airfare and $1,000 will be deducted from the contestant's total TCO prize money won.  If the contestant's total TCO prize money is not sufficient to cover the additional costs, the contestant will be responsible for remitting to TopCoder the remainder of the cost.)  TopCoder will also provide ground transportation to and from the airport, as well as hotel accommodations and certain meals for each contestant.  All other expenses are the responsibility of the contestant.  TopCoder will not provide travel or lodging accommodations for competitor guests at the 2006 TCO.  
 <br><br>
@@ -143,23 +142,23 @@ TopCoder will determine the room assignments for the Semifinal rooms prior to th
    </tr>
    <tr>
       <td width="50%" class="sidebarText">Semifinal Room #1</td>
-      <td width="50%" class="sidebarText">Thursday, October 13, 10:00 AM</td>
+      <td width="50%" class="sidebarText">Wednesday, May 3, 9:00 AM</td>
    </tr>
    <tr>
       <td width="50%" class="sidebarText">Semifinal Room #2</td>
-      <td width="50%" class="sidebarText">Thursday, October 13, 1:00 PM</td>
+      <td width="50%" class="sidebarText">Wednesday, May 3, 4:00 PM</td>
    </tr>
    <tr>
       <td width="50%" class="sidebarText">Semifinal Room #3</td>
-      <td width="50%" class="sidebarText">Thursday, October 13, 4:00 PM</td>
+      <td width="50%" class="sidebarText">Thursday, May 4, 9:00 AM</td>
    </tr>
    <tr>
       <td width="50%" class="sidebarText">Wildcard Round</td>
-      <td width="50%" class="sidebarText">Friday, October 14, 8:00 AM</td>
+      <td width="50%" class="sidebarText">Thursday, May 4, 4:00 PM</td>
    </tr>
    <tr>
       <td width="50%" class="sidebarText">Championship Round</td>
-      <td width="50%" class="sidebarText">Friday, October 14, 2:30 PM</td>
+      <td width="50%" class="sidebarText">Friday, May 5, 2:30 PM</td>
    </tr>
 </table>
 <br><br>	
@@ -171,8 +170,8 @@ TopCoder will determine the room assignments for the Semifinal rooms prior to th
 <li>Total points acquired (higher is better) during Online Rounds #1, #2, #3 and #4 of the 2006 TopCoder Open.</li>
 <li>If a tie still remains, then by rating (higher is better) following Online Round #4.</li>
    <ul>
-   <li>If a tie still remains in the Semifinal or Wildcard round, then all tied coders will advance to the Championship Round</li>
-   <li>If a tie still remains in the Championship round, then the prize money will be distributed equally amongst the tied coders</li>
+   <li>If a tie still remains in the Semifinal or Wildcard round, then all tied coders will advance to the Championship Round.</li>
+   <li>If a tie still remains in the Championship round, then the prize money will be distributed equally amongst the tied coders.</li>
    </ul>
 </ul>
 
@@ -184,31 +183,31 @@ The tournament will award prizes to up to 750 competitors and $75,000 in cash pr
 <table width="550" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
    <tr>
       <td width="50%" class="sidebarTitle">Competitor(s)
-      <td width="50%" class="sidebarTitle" align="center">Prize
+      <td width="50%" class="sidebarTitle" align="right" style="padding-right: 100px;">Prize
    </tr>
    <tr>
       <td class="sidebarText"><b>1st place finisher* - Algorithm Competition Champion</b></td>
-      <td class="sidebarText" align="center"><b>$20,000</b></td>
+      <td class="sidebarText" align="right" style="padding-right: 100px;"><b>$20,000</b></td>
    </tr>
    <tr>
       <td class="sidebarText">2nd place finisher* in the Championship Round</td>
-      <td class="sidebarText" align="center">$10,000</td>
+      <td class="sidebarText" align="right" style="padding-right: 100px;">$10,000</td>
    </tr>
    <tr>
       <td class="sidebarText">3rd place finisher* in the Championship Round</td>
-      <td class="sidebarText" align="center">$5,000</td>
+      <td class="sidebarText" align="right" style="padding-right: 100px;">$5,000</td>
    </tr>
    <tr>
       <td class="sidebarText">4th place finisher* in the Championship Round</td>
-      <td class="sidebarText" align="center">$2,500</td>
+      <td class="sidebarText" align="right" style="padding-right: 100px;">$2,500</td>
    </tr>
    <tr>
       <td class="sidebarText">5th - 8th place finishers* in the Championship Round</td>
-      <td class="sidebarText" align="center">$1,200 each</td>
+      <td class="sidebarText" align="right" style="padding-right: 100px;">$1,200 each</td>
    </tr>
    <tr>
       <td class="sidebarText">9th - 48th place finishers* in the Semifinal Rounds</td>
-      <td class="sidebarText" align="center">$500 each</td>
+      <td class="sidebarText" align="right" style="padding-right: 100px;">$500 each</td>
    </tr>
    <tr valign="bottom">
       <td class="sidebarText">Online Round #4
@@ -218,7 +217,7 @@ The tournament will award prizes to up to 750 competitors and $75,000 in cash pr
       <li>3rd Highest scorer in each room</li>
       </ul>
       </td>
-      <td class="sidebarText" align="center">
+      <td class="sidebarText" align="right" style="padding-right: 100px;">
       <ul>
       <li>$250</li>
       <li>$150</li>
@@ -234,7 +233,7 @@ The tournament will award prizes to up to 750 competitors and $75,000 in cash pr
       <li>3rd Highest scorer in each room</li>
       </ul>
       </td>
-      <td class="sidebarText" align="center">
+      <td class="sidebarText" align="right" style="padding-right: 100px;">
       <ul>
       <li>$150</li>
       <li>$100</li>
@@ -250,7 +249,7 @@ The tournament will award prizes to up to 750 competitors and $75,000 in cash pr
       <li>3rd Highest scorer in each room</li>
       </ul>
       </td>
-      <td class="sidebarText" align="center">
+      <td class="sidebarText" align="right" style="padding-right: 100px;">
       <ul>
       <li>$100</li>
       <li>$75</li>
@@ -266,7 +265,7 @@ The tournament will award prizes to up to 750 competitors and $75,000 in cash pr
       <li>3rd Highest scorer in each room</li>
       </ul>
       </td>
-      <td class="sidebarText" align="center">
+      <td class="sidebarText" align="right" style="padding-right: 100px;">
       <ul>
       <li>$75</li>
       <li>$50</li>
@@ -287,7 +286,7 @@ The tournament will award prizes to up to 750 competitors and $75,000 in cash pr
 <a name="conditions"></a>
 <a href="#top"><img src="/i/interface/back_to_top_dk.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <span class="bodySubtitle">Conditions of Participation</span><br><br>
-By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.  Also, by participating in this tournament, you consent to providing certain information to Sun Microsystems, Inc. for Java Studio Creator promotional purposes. Such information shall include the information contained in your TopCoder member profile and your competition statistics.
+By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.  Also, by participating in this tournament, you consent to providing certain information to the title sponsor.  Such information shall include the information contained in your TopCoder member profile and your competition statistics.
 <br><br>
 <span class="bigRed">Contestants must not cheat. All ideas for any code and/or challenge submitted must be the contestant's alone.</span>
 <br><br>
@@ -298,7 +297,7 @@ Prizewinners will be notified via e-mail within 10 days of the completion of eac
 <li>Affidavit of Eligibility and Liability and Publicity Release (must be notarized unless a notarized affidavit is already on file with TopCoder)</li>
 <li>Applicable tax form (unless one is already on file with TopCoder)</li>
 </ul>
-All contestants who advance to Online Round #4 must complete the following items by 9:00 PM EDT on Wednesday, September 7, 2006: 
+All contestants who advance to Online Round #4 must complete the following items by 9:00 PM EST on Wednesday, March 22, 2006: 
 <ul>
 <li>Competitor Questionnaire - the questions and responses may be published in the 2006 TopCoder Open program</li>
 <li>Update your member profile, including t-shirt size and address</li>
@@ -306,12 +305,12 @@ All contestants who advance to Online Round #4 must complete the following items
 </ul>
 Failure to submit the above items on time will result in a forfeit of any prize money won during Online Round #4 and/or advancement as an onsite finalist.
 <br><br>
-Contestants who advance to the onsite tournament rounds must also complete the following items and submit them to TopCoder by 5:00 PM EDT on Wednesday, September 21, 2006:
+Contestants who advance to the onsite tournament rounds must also complete the following items and submit them to TopCoder by 5:00 PM EDT on Wednesday, March 29, 2006:
 <ul>
 <li>Travel form - provides TopCoder with the appropriate travel information for your trip to the onsite tournament rounds</li>
 <li>Affidavit of Eligibility and Liability and Publicity Release</li>
    <ul>
-   <li>TopCoder must receive the original copy of a notarized affidavit unless a notarized affidavit is already on file with TopCoder.  The document must be postmarked by September 21, 2006, and must be sent in such a manner that it will arrive at TopCoder no later than October 5, 2006.</li>
+   <li>TopCoder must receive the original copy of a notarized affidavit unless a notarized affidavit is already on file with TopCoder.  The document must be postmarked by March 29, 2006, and must be sent in such a manner that it will arrive at TopCoder no later than April 12, 2006.</li>
    <li>If TopCoder already has a notarized affidavit and a tax form on file for a contestant, that contestant may affirm the affidavit online.  No hardcopy needs to be sent to TopCoder.</li>
    </ul>
 <li>Applicable tax form (unless one is already on file with TopCoder)</li>
