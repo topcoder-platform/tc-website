@@ -96,6 +96,14 @@ public class SubmitReg extends ViewReg {
                             response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getAnswerId());
                         }
                     }
+                    
+                	// register user for round	
+                	Request r = new Request();
+                    r.setContentHandle("long_contest_find_room");
+                    r.setProperty("rd", String.valueOf(roundID));
+                    registerUser(userID, Long.parseLong(roundID),
+                            ((ResultSetContainer)getDataAccess().getData(r).get("long_contest_find_room")).getLongItem(0, "room_id"));
+
                     tm.commit();
                 } catch (Exception e) {
                     if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
@@ -109,12 +117,7 @@ public class SubmitReg extends ViewReg {
                 setDefaults(responses);
                 setNextPage(Constants.PAGE_VIEW_REG);
                 setIsNextPageInContext(true);
-            } else { // register user for round	and then go to active contest page
-                Request r = new Request();
-                r.setContentHandle("long_contest_find_room");
-                r.setProperty("rd", String.valueOf(roundID));
-                registerUser(userID, Long.parseLong(roundID),
-                        ((ResultSetContainer)getDataAccess().getData(r).get("long_contest_find_room")).getLongItem(0, "room_id"));
+            } else { // go to active contest page
                 getRequest().setAttribute(CodingInterfaceConstants.MODULE, Constants.RP_ACTIVE_CONTESTS);
                 setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
                 setIsNextPageInContext(true);
@@ -134,16 +137,13 @@ public class SubmitReg extends ViewReg {
      * @param roundID The round's ID
      * @throws Exception
      */
-    protected void registerUser(long userID, long roundID, long roomID) throws Exception {
-        TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
-        try {
-            tm.begin();
+    protected void registerUser(long userID, long roundID, long roomID) throws Exception {        
+        try {            
             RoundRegistration reg = (RoundRegistration) createEJB(getInitialContext(), RoundRegistration.class);
             RoomResultLocal roomResult = (RoomResultLocal)createLocalEJB(getInitialContext(), RoomResult.class);
             reg.createRoundRegistration(userID, roundID);
             roomResult.createRoomResult(roundID, 0, userID, DBMS.JTS_OLTP_DATASOURCE_NAME);
-            roomResult.setAttended(roundID, 0, userID, false, DBMS.JTS_OLTP_DATASOURCE_NAME);
-            tm.commit();
+            roomResult.setAttended(roundID, 0, userID, false, DBMS.JTS_OLTP_DATASOURCE_NAME);            
         } catch (Exception e) {
             log.error("Error registerating user: " + userID + " for round: " + roundID, e);
             throw e;
