@@ -36,57 +36,57 @@
 <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
    <tr>
       <td class="sidebarTitle" width="25%">Round</td>
-      <td class="sidebarTitle" width="25%">All Projects Posted*</td>
+      <td class="sidebarTitle" width="25%">All Projects Posted</td>
       <td class="sidebarTitle" width="25%" align="center">Registration Period</td>
-      <td class="sidebarTitle" width="25%">Submission Deadline*</td>
+      <td class="sidebarTitle" width="25%">Submission Deadline</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Week 1 of Online Qualification Round</td>
-      <td class="sidebarText">01.18.2006 9:00AM</td>
+      <td class="sidebarText">01.18.2006 9:00AM*</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">01.25.2006 9:00AM</td>
+      <td class="sidebarText">01.25.2006 9:00AM*</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Week 2 of Online Qualification Round</td>
-      <td class="sidebarText">01.25.2006 9:00AM</td>
+      <td class="sidebarText">01.25.2006 9:00AM*</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">02.01.2006 9:00AM</td>
+      <td class="sidebarText">02.01.2006 9:00AM*</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Week 3 of Online Qualification Round</td>
-      <td class="sidebarText">02.01.2006 9:00AM</td>
+      <td class="sidebarText">02.01.2006 9:00AM*</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">02.08.2006 9:00AM</td>
+      <td class="sidebarText">02.08.2006 9:00AM*</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Week 4 of Online Qualification Round</td>
-      <td class="sidebarText">02.08.2006 9:00AM</td>
+      <td class="sidebarText">02.08.2006 9:00AM*</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">02.15.2006 9:00AM</td>
+      <td class="sidebarText">02.15.2006 9:00AM*</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Week 5 of Online Qualification Round</td>
-      <td class="sidebarText">02.15.2006 9:00AM</td>
+      <td class="sidebarText">02.15.2006 9:00AM*</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">02.22.2006 9:00AM</td>
+      <td class="sidebarText">02.22.2006 9:00AM*</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Championship Round (online  portion component 1)</td>
-      <td class="sidebarText">03.15.2006 9:00AM</td>
+      <td class="sidebarText">03.15.2006 9:00AM*</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">03.22.2006 9:00AM</td>
+      <td class="sidebarText">03.22.2006 9:00AM*</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Championship Round (online  portion component 2)</td>
-      <td class="sidebarText">03.29.2006 9:00AM</td>
+      <td class="sidebarText">03.29.2006 9:00AM*</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">04.05.2006 9:00AM</td>
+      <td class="sidebarText">04.05.2006 9:00AM**</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Championship Round (online  portion component 3)</td>
-      <td class="sidebarText">04.12.2006 9:00AM</td>
+      <td class="sidebarText">04.12.2006 9:00AM**</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">04.19.2006 9:00AM</td>
+      <td class="sidebarText">04.19.2006 9:00AM**</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Championship Round (onsite portion)</td>
@@ -95,7 +95,7 @@
       <td class="sidebarText">N/A</td>
    </tr>
    <tr valign="top">
-      <td class="sidebarText" colspan="4">*All times listed as Eastern Standard Time</td>
+      <td class="sidebarText" colspan="4">* Eastern Standard Time (GMT -5)<br>** Eastern Daylight Time (GMT -4)</td>
    </tr>
 </table>
 
