@@ -46,6 +46,9 @@ Aladdin Resort and Casino*, Las Vegas, Nevada, USA</li>
 
 The competition is free and you must be 18 years or older to be eligible.
 <br><br>
+<span class="bodySubtitle">New to the 2006 TCO – the TCO Complete Coder Incentive Program!</span>
+<br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ccip_description">Learn how</A> you can earn more prize money by participating in both Component and Algorithm competitions.
+<br><br>
 *Soon to be Planet Hollywood Resort and Casino
 <br><br>
 See the official <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_rules">rules and regulations</A> for full details.

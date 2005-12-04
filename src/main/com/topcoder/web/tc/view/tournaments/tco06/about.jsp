@@ -56,6 +56,7 @@ Where else in the world can you marvel at dancing fountains (the Bellagio), see 
 </ul>
 <span class="bodySubtitle">New to the 2006 TCO – the TCO Complete Coder Incentive Program!</span>
 <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ccip_description">Learn how</A> you can earn more prize money by participating in both Component and Algorithm competitions.
+<br><br>
 *soon to be Planet Hollywood Resort and Casino
 <br><br>
 See the official <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_rules">Algorithm</A> and <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_rules">Component</A> rules and regulations for full details.
