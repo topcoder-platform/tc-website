@@ -71,12 +71,17 @@
 
          <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274" rowspan="2" valign="top"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=logo_overview"><img src="/i/tournament/tco06Logo_logo.gif" alt="2006 TCO Logo Contest" border="0" /></A></td>
+                    <td width="274" rowspan="2" valign="top"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=about"><img src="/i/tournament/tco06Logo.gif" alt="2006 TopCoder Open" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText" colspan="2" valign="top"><font size="3"><strong>2006 TCO Logo Design Contest</strong></font>
+                    <td width="99%" class="bodyText" colspan="2" valign="top"><font size="3"><strong>2006 TopCoder Open&#153;</strong></font>
                      <br /><br />
-                     Ends November 18<br />
-                     <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=logo_overview">Details</A></td>
+                        May 3-5<br />
+                        Aladdin Resort and Casino<br/>
+                        Las Vegas, Nevada, USA<br />
+                     <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=about">Details</A>
+                        <br />
+                     <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=logo_overview">Logo Contest</A>
+                     </td>
                 </tr>
             </table>
 
@@ -95,7 +100,7 @@
                 <tr valign="top">
                     <td width="274" rowspan="2" valign="top"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=about"><img src="/i/tournament/photo_tco05.jpg" alt="2005 TCCC" width="274" height="121" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2005 TopCoder Open Sponsored by Sun Microsystems</strong></font></td>
+                    <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2005 TopCoder Open&#153; Sponsored by Sun Microsystems</strong></font></td>
                 </tr>
                 <tr valign="top">
                     <td class="bodyText">
@@ -103,6 +108,8 @@
                         Santa Clara Marriott<br/>
                         Santa Clara, CA, USA<br />
                         <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=about">Details</A>
+                        <br />
+                        <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=logo_overview">Logo Contest</A>
                     </td>
                     <td width="1%" valign="bottom"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=about"><img src="/i/pressroom/tco05_logo.gif" alt="" border="0" /></A></td>
                 </tr>
