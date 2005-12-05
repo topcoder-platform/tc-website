@@ -190,8 +190,7 @@ public class Submit extends Base {
                         cleanSession();
                         // Go to standings!
                         closeProcessingPage(buildProcessorRequestString("SubmitSuccess",
-                                new String[]{Constants.ROUND_ID}, new String[]{String
-                                .valueOf(rid)}));
+                                new String[]{Constants.ROUND_ID}, new String[]{String.valueOf(rid)}));
                     } else { // Compilation errors!
                         // Save temp variables into session
                         request.getSession().setAttribute(Constants.LANGUAGES, lang);
