@@ -93,7 +93,6 @@
             <strong>2006 TopCoder Open Component Competition</strong><br/>
             Registration Opens: 9:00 AM ET <br/>
             &#160;<br />
-            &#160;<br />
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
             <A class="calendarTCO06Link" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_schedule">Details</A>
             </td>
@@ -118,6 +117,7 @@
             <strong>Match 282</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
+            &#160;<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=8079&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">11</td>
@@ -184,6 +184,7 @@
             <strong>Match 286</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
+            &#160;<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=8083&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">31</td>
