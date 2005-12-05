@@ -16,9 +16,9 @@
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
-	<tr valign=top>
-		<td valign=top align=center>
-		<div class="bodySpacer">
+   <tr valign=top>
+      <td valign=top align=center>
+      <div class="bodySpacer">
             
 <span class="bigTitle">Algorithm Competition Official Rules and Regulations</span>
 <br><br>
@@ -81,27 +81,27 @@ The dates and times of the online rounds of competition are as follows:
 <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
    <tr>
       <td width="50%" class="sidebarTitle">Round of Competition</td>
-		<td width="50%" class="sidebarTitle">Date and Time * (all Eastern Daylight Time)</td>
-	</tr>
-	<tr>
-      <td width="50%" class="sidebarText">Online Round #1</td>
-		<td width="50%" class="sidebarText">Saturday, March 4, 2006<br>Register: 9:00 - 11:55 AM<br>START:Noon</td>
-	</tr>
-	<tr>
-      <td width="50%" class="sidebarText">Online Round #2</td>
-      <td width="50%" class="sidebarText">Wednesday, March 8, 2006<br>Register: 6:30 - 9:25 PM<br>START: 9:30 PM</td>
-	</tr>
-	<tr>
-      <td width="50%" class="sidebarText">Online Round #3</td>
-      <td width="50%" class="sidebarText">Wednesday, March 15, 2006<br>Register: 6:30 - 9:25 PM<br>START: 9:30 PM</td>
-	</tr>
-	<tr>
-      <td width="50%" class="sidebarText">Online Round #4</td>
-      <td width="50%" class="sidebarText">Wednesday, March 22, 2006<br>Register:  6:30 - 9:25 PM<br>START: 9:30 PM</td>
-	</tr>
-	<tr>
+      <td width="50%" class="sidebarTitle">Date and Time * (all Eastern Daylight Time)</td>
+   </tr>
+   <tr>
+      <td class="sidebarText">Online Round #1</td>
+      <td class="sidebarText">Saturday, March 4th<br/>Register: 9:00 - 11:55 AM EST<br/>START: Noon EST</td>
+   </tr>
+   <tr>
+      <td class="sidebarText">Online Round #2</td>
+      <td class="sidebarText">Wednesday, March 8th<br/>Register:  6:30 - 9:25 PM EST<br/>START: 9:30 PM EST</td>
+   </tr>
+   <tr>
+      <td class="sidebarText">Online Round #3</td>
+      <td class="sidebarText">Wednesday, March 15th<br/>Register:  6:30 - 9:25 PM EST<br/>START: 9:30 PM EST</td>
+   </tr>
+   <tr>
+      <td class="sidebarText">Online Round #4</td>
+      <td class="sidebarText">Wednesday, March 22nd<br/>Register:  6:30 - 9:25 PM EST<br/>START: 9:30 PM EST</td>
+   </tr>
+   <tr>
       <td colspan="2" class="sidebarText">*NOTE:  In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.</td>
-	</tr>
+   </tr>
 </table>
 <br/><br/>
 
@@ -138,30 +138,30 @@ TopCoder will determine the room assignments for the Semifinal rooms prior to th
 <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
    <tr>
       <td width="50%" class="sidebarTitle">Round of Competition</td>
-      <td width="50%" class="sidebarTitle">Date and Time (all Pacific Standard Time)</td>
+      <td width="50%" class="sidebarTitle">Date and Time</td>
    </tr>
    <tr>
       <td width="50%" class="sidebarText">Semifinal Room #1</td>
-      <td width="50%" class="sidebarText">Wednesday, May 3, 9:00 AM</td>
+      <td width="50%" class="sidebarText">Wednesday, May 3, 9:00 AM PDT</td>
    </tr>
    <tr>
       <td width="50%" class="sidebarText">Semifinal Room #2</td>
-      <td width="50%" class="sidebarText">Wednesday, May 3, 4:00 PM</td>
+      <td width="50%" class="sidebarText">Wednesday, May 3, 4:00 PM PDT</td>
    </tr>
    <tr>
       <td width="50%" class="sidebarText">Semifinal Room #3</td>
-      <td width="50%" class="sidebarText">Thursday, May 4, 9:00 AM</td>
+      <td width="50%" class="sidebarText">Thursday, May 4, 9:00 AM PDT</td>
    </tr>
    <tr>
       <td width="50%" class="sidebarText">Wildcard Round</td>
-      <td width="50%" class="sidebarText">Thursday, May 4, 4:00 PM</td>
+      <td width="50%" class="sidebarText">Thursday, May 4, 4:00 PM PDT</td>
    </tr>
    <tr>
       <td width="50%" class="sidebarText">Championship Round</td>
-      <td width="50%" class="sidebarText">Friday, May 5, 2:30 PM</td>
+      <td width="50%" class="sidebarText">Friday, May 5, 2:30 PM PDT</td>
    </tr>
 </table>
-<br><br>	
+<br><br>   
 <strong>The Semifinal Round</strong> will consist of three (3) rooms of sixteen (16) coders each. The two (2) highest scorers in each room will advance to the Championship Round.  The next four (4) highest scorers in each round will participate in one (1) Wildcard Round.  The two (2) highest scorers of the Wildcard Round will also advance to the Championship Round.
 <br><br>
 <strong>The Championship Round</strong> will be a single round of eight (8) coders. Placement in the Championship round is determined by comparing the total points of each coder, with the highest point value placing first. The winner of the Championship Round will be the coder with the highest point total for the round. In the event of a tie in the Semifinal, Wildcard and/or Championship rounds, the tie will be resolved in the following manner (in order):
@@ -334,7 +334,7 @@ A list of tournament winners by coder handles will be available on the web site 
 <br><br>
 This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue, Glastonbury, CT 06033.
         </div>
-		</td>
+      </td>
         
          
 <!-- Right Column-->
@@ -343,12 +343,12 @@ This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topc
             <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
-		
-	</tr>
-	
+      
+   </tr>
+   
 </table>
-	
-	
+   
+   
 
 
 <jsp:include page="../../foot.jsp" />
