@@ -49,8 +49,8 @@ The Qualification Round will be open for 24 hours and a maximum of 650 competito
       <td class="sidebarTitle" width="20%"># of Advancers</td>
    </tr>
    <tr valign="top">
-      <td class="sidebarText">Qualification Round</td>
-      <td class="sidebarText">
+      <td class="sidebarText" nowrap="nowrap">Qualification Round</td>
+      <td class="sidebarText" nowrap="nowrap">
          START: Tuesday, February 28 Noon EST
          <br /><br/>
          END: Wednesday, March 1 Noon EST
