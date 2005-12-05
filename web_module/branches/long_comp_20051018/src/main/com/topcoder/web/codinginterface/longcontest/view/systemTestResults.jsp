@@ -44,6 +44,28 @@
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+<STYLE TYPE="text/css">
+.scrollUp
+{
+padding-bottom: 5px;
+text-align: center;
+}
+.scrollDown
+{
+padding-top: 5px;
+text-align: center;
+}
+.scrollLeft
+{
+padding-right: 5px;
+text-align: right;
+}
+.scrollRight
+{
+padding-left: 5px;
+text-align: left;
+}
+</STYLE>
 </head>
 
 <body>
@@ -76,23 +98,21 @@
                 <rsc:item name="num_registrants" row="<%=infoRow%>"/></A></span><br>
             <span class="bodySubtitle">Competitors: <rsc:item name="num_competitors" row="<%=infoRow%>"/></span><br>
 
-            <div class="pagingBox">
-                <logic:notEmpty name="prevPageLink"><a href="<%=prevPageLink%>" class="bcLink">
-                </logic:notEmpty>&lt;&lt; previous<logic:notEmpty name="prevPageLink"></a></logic:notEmpty>
-                &nbsp;[competitors]&nbsp;
-                <logic:notEmpty name="nextPageLink"><a href="<%=nextPageLink%>" class="bcLink">
-                </logic:notEmpty>next &gt;&gt;<logic:notEmpty name="nextPageLink"></a></logic:notEmpty><br>
-                <logic:notEmpty name="prevPageColLink"><a href="<%=prevPageColLink%>" class="bcLink">
-                </logic:notEmpty>&lt;&lt; previous<logic:notEmpty name="prevPageColLink"></a></logic:notEmpty>
-                &nbsp;[test&nbsp;cases]&nbsp;
-                <logic:notEmpty name="nextPageColLink"><a href="<%=nextPageColLink%>" class="bcLink">
-                </logic:notEmpty>next &gt;&gt;<logic:notEmpty name="nextPageColLink"></a></logic:notEmpty>
-            </div>
+            <div class="pagingBox">&#160;</div>
 
-            <img src="/i/interface/btn_leftarrow.gif" alt="LEFT" border="0"/>
-            <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" class="bodyText">
+               <tr><td class="scrollUp" colspan="3">
+                  <logic:notEmpty name="prevPageLink">
+                  <a href="<%=prevPageLink%>"><img src="/i/interface/btn_tableScroll_U.gif" alt="UP" border="0" /></A>
+                  </logic:notEmpty>
+               </td></tr>
                 <tr>
-                    <td>
+                     <td class="scrollLeft">
+                        <logic:notEmpty name="prevPageColLink">
+                        <a href="<%=prevPageColLink%>" class="bcLink"><img src="/i/interface/btn_tableScroll_L.gif" alt="LEFT" border="0" /></A>
+                        </logic:notEmpty>
+                     </td>
+                    <td class="statTableHolder">
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                             <tr>
                                 <td class="tableTitle" colspan="<%=cases.getRowCount()+2%>">System Test Results</td>
@@ -141,22 +161,21 @@
                             </rsc:iterator>
                         </TABLE>
                     </TD>
+                     <td class="scrollRight">
+                        <logic:notEmpty name="nextPageColLink">
+                        <a href="<%=nextPageColLink%>"><img src="/i/interface/btn_tableScroll_R.gif" alt="RIGHT" border="0"/></A>
+                        </logic:notEmpty>
+                     </td>
                 </tr>
-            </TABLE>
-            <img src="/i/interface/btn_rightarrow.gif" alt="RIGHT" border="0"/>
+              <tr>
+                  <td class="scrollDown" colspan="3">
+                     <logic:notEmpty name="nextPageLink">
+                     <a href="<%=nextPageLink%>"><img src="/i/interface/btn_tableScroll_D.gif" alt="Down" border="0" /></A>
+                     </logic:notEmpty>
+                  </td></tr>
+             </TABLE>
 
-            <div class="pagingBox">
-                <logic:notEmpty name="prevPageLink"><a href="<%=prevPageLink%>" class="bcLink">
-                </logic:notEmpty>&lt;&lt; previous<logic:notEmpty name="prevPageLink"></a></logic:notEmpty>
-                &nbsp;[competitors]&nbsp;
-                <logic:notEmpty name="nextPageLink"><a href="<%=nextPageLink%>" class="bcLink">
-                </logic:notEmpty>next &gt;&gt;<logic:notEmpty name="nextPageLink"></a></logic:notEmpty><br>
-                <logic:notEmpty name="prevPageColLink"><a href="<%=prevPageColLink%>" class="bcLink">
-                </logic:notEmpty>&lt;&lt; previous<logic:notEmpty name="prevPageColLink"></a></logic:notEmpty>
-                &nbsp;[test&nbsp;cases]&nbsp;
-                <logic:notEmpty name="nextPageColLink"><a href="<%=nextPageColLink%>" class="bcLink">
-                </logic:notEmpty>next &gt;&gt;<logic:notEmpty name="nextPageColLink"></a></logic:notEmpty>
-            </div>
+            <div class="pagingBox">&#160;</div>
 
         </td>
 
