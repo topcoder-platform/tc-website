@@ -209,7 +209,7 @@ function arena() {
 
             <% if (level1.equals("long_contests")) { %>
                 <tr><td id="<%=level2.equals("topcoder")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest">Active Matches</A></td></tr>
-                <tr><td id="<%=level2.equals("topcoder_practice")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest">Practice Matches</A></td></tr>
+                <tr><td id="<%=level2.equals("topcoder_practice")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest?module=ViewPractice">Practice Matches</A></td></tr>
 <%--
                 <tr><td id="<%=level2.equals("intel")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest">Intel Multithreading Matches</A></td></tr>
                 <tr><td id="<%=level2.equals("intel_practice")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest">Intel Practice Matches</A></td></tr>
