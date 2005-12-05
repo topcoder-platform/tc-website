@@ -182,11 +182,6 @@ public class Submit extends Base {
 
                 try {
 
-                    // Save temp variables into session
-                    request.getSession().setAttribute(Constants.LANGUAGES, lang);
-                    request.getSession().setAttribute(Constants.CODE, code);
-                    request.getSession().setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
-
                     // Get the compilation response
                     LongCompileResponse res = receive(30 * 1000, uid, cid);
 
@@ -198,6 +193,10 @@ public class Submit extends Base {
                                 new String[]{Constants.ROUND_ID}, new String[]{String
                                 .valueOf(rid)}));
                     } else { // Compilation errors!
+                        // Save temp variables into session
+                        request.getSession().setAttribute(Constants.LANGUAGES, lang);
+                        request.getSession().setAttribute(Constants.CODE, code);
+                        request.getSession().setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
                         request.getSession().setAttribute(Constants.COMPILE_STATUS, new Boolean(res.getCompileStatus()));
                         request.getSession().setAttribute(Constants.COMPILE_MESSAGE, htmlEncode(res.getCompileError()));
                         // Go back to coding.
