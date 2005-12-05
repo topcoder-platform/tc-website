@@ -42,7 +42,7 @@ import java.util.Map;
  */
 public class Submit extends Base {
 
-    protected void businessProcessing() throws TCWebException {
+    protected void longContestProcessing() throws TCWebException {
         TCRequest request = getRequest();
 
         // The user must be signed in to submit code

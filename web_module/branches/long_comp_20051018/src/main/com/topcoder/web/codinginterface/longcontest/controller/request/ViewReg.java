@@ -33,7 +33,7 @@ public class ViewReg extends Base {
 
     protected List questionInfo = null;
 
-    protected void businessProcessing() throws TCWebException {
+    protected void longContestProcessing() throws TCWebException {
 
         // You need to be logged in before continuing...
         if (getUser().isAnonymous()) {

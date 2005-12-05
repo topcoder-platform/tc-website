@@ -25,7 +25,7 @@ public class ViewStandings extends Base {
 
     protected static final Logger log = Logger.getLogger(ViewStandings.class);
 
-    protected void businessProcessing() throws TCWebException {
+    protected void longContestProcessing() throws TCWebException {
 
         TCRequest request = getRequest();
         String roundID = request.getParameter(Constants.ROUND_ID);

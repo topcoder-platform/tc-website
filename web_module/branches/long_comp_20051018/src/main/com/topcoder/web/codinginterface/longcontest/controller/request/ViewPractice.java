@@ -18,7 +18,7 @@ public class ViewPractice extends ViewActiveContests {
 
     protected static final Logger log = Logger.getLogger(ViewPractice.class);
 
-    protected void businessProcessing() throws TCWebException {
+    protected void longContestProcessing() throws TCWebException {
 
         Vector contests = new Vector();
 

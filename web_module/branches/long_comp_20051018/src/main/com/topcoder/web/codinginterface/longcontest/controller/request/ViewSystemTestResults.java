@@ -27,7 +27,7 @@ import java.util.Map;
 public class ViewSystemTestResults extends Base {
     protected static final Logger log = Logger.getLogger(ViewSystemTestResults.class);
 
-    protected void businessProcessing() throws TCWebException {
+    protected void longContestProcessing() throws TCWebException {
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }

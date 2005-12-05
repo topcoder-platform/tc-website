@@ -1,4 +1,4 @@
-package com.topcoder.web.codinginterface.techassess.model;
+package com.topcoder.web.codinginterface.model;
 
 import java.io.Serializable;
 

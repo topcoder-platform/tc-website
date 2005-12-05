@@ -25,7 +25,7 @@ public class ViewActiveContests extends Base {
 
     protected static final Logger log = Logger.getLogger(ViewActiveContests.class);
 
-    protected void businessProcessing() throws TCWebException {
+    protected void longContestProcessing() throws TCWebException {
 
         User usr = getUser();
 

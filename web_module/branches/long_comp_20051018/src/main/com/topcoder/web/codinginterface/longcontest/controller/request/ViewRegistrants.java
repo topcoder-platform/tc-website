@@ -22,7 +22,7 @@ import java.util.Map;
 public class ViewRegistrants extends Base {
     protected static final Logger log = Logger.getLogger(ViewRegistrants.class);
 
-    protected void businessProcessing() throws TCWebException {
+    protected void longContestProcessing() throws TCWebException {
         try {
             TCRequest request = getRequest();
 

@@ -5,6 +5,8 @@ import com.topcoder.shared.common.ServicesConstants;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.language.BaseLanguage;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.messaging.TimeOutException;
@@ -14,9 +16,9 @@ import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.ServerBusyException;
+import com.topcoder.web.codinginterface.model.ImageInfo;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.messaging.WebQueueResponseManager;
-import com.topcoder.web.codinginterface.techassess.model.ImageInfo;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
@@ -47,7 +49,39 @@ public abstract class Base extends BaseProcessor {
     private ImageInfo sponsorImage = null;
     private static final Set locks = new HashSet();
 
-    protected abstract void businessProcessing() throws Exception;
+    protected void businessProcessing() throws Exception {
+        loadSponsorImage();
+        longContestProcessing();
+    }
+
+    protected abstract void longContestProcessing() throws Exception;
+
+    protected void loadSponsorImage() throws Exception {
+        log.debug("loadSponsorImage called...");
+        Request dataRequest = new Request();
+        dataRequest.setContentHandle("sponsor_image");
+        try {
+            //todo figure out what to do here.   we'll probably have to implement multiple versions
+            //todo for different image types.
+            DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+            Map resultMap = dai.getData(dataRequest);
+            ResultSetContainer rsc = (ResultSetContainer) resultMap.get("Sponsor_Image");
+            if (rsc==null||rsc.isEmpty()) {
+                sponsorImage = BLANK;
+            } else {
+                sponsorImage = new ImageInfo();
+                sponsorImage.setSrc(rsc.getStringItem(0, "file_path"));
+                sponsorImage.setHeight(rsc.getIntItem(0, "height"));
+                sponsorImage.setWidth(rsc.getIntItem(0, "width"));
+                sponsorImage.setLink(rsc.getStringItem(0, "link"));
+            }
+        } catch (TCWebException e) {
+            log.warn("company id not set, using default image");
+            sponsorImage = BLANK;
+        }
+        getRequest().setAttribute(Constants.SPONSOR_IMAGE, sponsorImage);
+
+    }
 
     public void setReceiver(WebQueueResponseManager receiver) {
         this.receiver = receiver;

@@ -29,7 +29,7 @@ public class Login extends Base {
     public static final char[] INACTIVE_STATI = {'I', '0', '9', '6', '5', '4'};
     public static final char[] UNACTIVE_STATI = {'U', '2'};
 
-    protected void businessProcessing() throws TCWebException {
+    protected void longContestProcessing() throws TCWebException {
 
         /* may be null */
         String username = getRequest().getParameter(Constants.KEY_USER_HANDLE);

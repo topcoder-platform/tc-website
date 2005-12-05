@@ -16,7 +16,7 @@ public class Logout extends Base {
 
     protected static final Logger log = Logger.getLogger(Logout.class);
 
-    protected void businessProcessing() throws TCWebException {
+    protected void longContestProcessing() throws TCWebException {
 
         TCRequest request = getRequest();
 

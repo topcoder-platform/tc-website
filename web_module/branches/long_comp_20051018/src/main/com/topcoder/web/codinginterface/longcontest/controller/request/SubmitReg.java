@@ -35,7 +35,7 @@ public class SubmitReg extends ViewReg {
     // The logger
     protected static final Logger log = Logger.getLogger(SubmitReg.class);
 
-    protected void businessProcessing() throws TCWebException {
+    protected void longContestProcessing() throws TCWebException {
 
         log.debug("SubmitReg called");
 
@@ -96,8 +96,8 @@ public class SubmitReg extends ViewReg {
                             response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getAnswerId());
                         }
                     }
-                    
-                	// register user for round	
+
+                	// register user for round
                 	Request r = new Request();
                     r.setContentHandle("long_contest_find_room");
                     r.setProperty("rd", String.valueOf(roundID));
@@ -137,13 +137,13 @@ public class SubmitReg extends ViewReg {
      * @param roundID The round's ID
      * @throws Exception
      */
-    protected void registerUser(long userID, long roundID, long roomID) throws Exception {        
-        try {            
+    protected void registerUser(long userID, long roundID, long roomID) throws Exception {
+        try {
             RoundRegistration reg = (RoundRegistration) createEJB(getInitialContext(), RoundRegistration.class);
             RoomResultLocal roomResult = (RoomResultLocal)createLocalEJB(getInitialContext(), RoomResult.class);
             reg.createRoundRegistration(userID, roundID);
             roomResult.createRoomResult(roundID, 0, userID, DBMS.JTS_OLTP_DATASOURCE_NAME);
-            roomResult.setAttended(roundID, 0, userID, false, DBMS.JTS_OLTP_DATASOURCE_NAME);            
+            roomResult.setAttended(roundID, 0, userID, false, DBMS.JTS_OLTP_DATASOURCE_NAME);
         } catch (Exception e) {
             log.error("Error registerating user: " + userID + " for round: " + roundID, e);
             throw e;

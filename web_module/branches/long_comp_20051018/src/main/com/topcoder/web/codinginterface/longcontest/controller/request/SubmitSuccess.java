@@ -12,7 +12,7 @@ import com.topcoder.web.common.TCWebException;
  */
 public class SubmitSuccess extends Base {
 
-    protected void businessProcessing() throws TCWebException {
+    protected void longContestProcessing() throws TCWebException {
         try {
             Request r = new Request();
             r.setContentHandle("long_queue_length");
