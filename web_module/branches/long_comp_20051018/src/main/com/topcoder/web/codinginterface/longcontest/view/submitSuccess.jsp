@@ -59,7 +59,7 @@
             <% } else { %>
             There are <%=count%> submissions in the queue.
             <% } %>
-
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewStandings&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>">View Standings</A>
         </TD>
 
         <%-- Right Column Begins --%>
