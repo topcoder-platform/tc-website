@@ -22,6 +22,7 @@ public class Constants implements CodingInterfaceConstants {
     private static String[] ignoreList = {"log", "isInitialized", "ignoreList", "bundle", "SHORT_CONTENT"};
 
     public static String ROUND_ID;
+    public static String ROUND_TYPE_ID;
     public static String CONTEST_ID;
     public static String CODER_ID;
     public static String TEST_CASE_ID;
@@ -59,6 +60,9 @@ public class Constants implements CodingInterfaceConstants {
     public static String DEFAULT_ROW_COUNT;
     public static String DEFAULT_SYSTEM_TEST_RESULTS_ROW_COUNT;
     public static int LONG_PRACTICE_ROUND_TYPE_ID;
+    public static int LONG_ROUND_TYPE_ID;
+    public static int INTEL_LONG_PRACTICE_ROUND_TYPE_ID;
+    public static int INTEL_LONG_ROUND_TYPE_ID;
 
     public static String LOGIN_JSP;
     public static String PAGE_VIEW_REG;
