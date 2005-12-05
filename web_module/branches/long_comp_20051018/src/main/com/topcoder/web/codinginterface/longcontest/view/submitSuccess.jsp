@@ -49,6 +49,11 @@
                 <jsp:param name="image" value="<%=image%>"/>
                 <jsp:param name="title" value="Coding Area"/>
             </jsp:include>
+
+            <div style="float:right; padding: 0px 0px 0px 5px;">
+               <A href=""><img src="/i/longcontest/spon_topcoder.gif" alt="Sponsor" border="0"/></A>
+            </div>
+
             <% int count = ((Number) request.getAttribute(Constants.QUEUE_LENGTH)).intValue();%>
 
             Successful Submission.
