@@ -10,7 +10,19 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <% ResultSetContainer roundInfo = (ResultSetContainer) request.getAttribute("roundInfo"); %>
 <% ResultSetContainer standings = (ResultSetContainer) request.getAttribute(Constants.ROUND_STANDINGS_LIST_KEY); %>
-
+<% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID)==null?Constants.LONG_ROUND_TYPE_ID:Integer.parseInt((String)request.getAttribute(Constants.ROUND_TYPE_ID));%>
+<% String level2 = "topcoder";
+   String image = "long_comps_topcoder";
+    if (roundType==Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
+        level2="topcoder_practice";
+    } else if (roundType ==Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
+        level2="intel_practice";
+        image = "long_comps_intel";
+    } else if (roundType ==Constants.INTEL_LONG_ROUND_TYPE_ID) {
+        level2="intel";
+        image = "long_comps_intel";
+    }
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -50,7 +62,7 @@
 <td width="180">
     <jsp:include page="/includes/global_left.jsp">
         <jsp:param name="level1" value="long_contests"/>
-        <jsp:param name="level2" value="topcoder"/>
+        <jsp:param name="level2" value="<%=level2%>"/>
     </jsp:include>
 </td>
 <%-- Left Column Ends --%>
@@ -59,7 +71,7 @@
 <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 
 <jsp:include page="page_title.jsp">
-    <jsp:param name="image" value="long_competitions"/>
+    <jsp:param name="image" value="<%=image%>"/>
     <jsp:param name="title" value="Standings"/>
 </jsp:include>
 
