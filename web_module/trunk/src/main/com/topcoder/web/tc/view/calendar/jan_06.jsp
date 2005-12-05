@@ -185,6 +185,7 @@
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
             &#160;<br />
+            &#160;<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=8083&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">31</td>
@@ -192,6 +193,7 @@
         <td id="calendarBlank">&#160;</td>
         <td id="calendarBlank">&#160;</td>
         <td id="calendarBlank">
+            &#160;<br />
             &#160;<br />
             &#160;<br />
             &#160;<br />
