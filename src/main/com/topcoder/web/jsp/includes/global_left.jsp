@@ -123,7 +123,7 @@ if ((navigator.userAgent.indexOf('MSIE') != -1) && (navigator.userAgent.indexOf(
 
 <script type="text/javascript">
 function arena() {
-  w = window.open("/tc?module=Static&d1=applet&d2=detect","Launch","top=2,left=2,width=400,height=400,resizable=yes,status=1");
+  w = window.open("http://www.topcoder.com/tc?module=Static&d1=applet&d2=detect","Launch","top=2,left=2,width=400,height=400,resizable=yes,status=1");
   return;
 }
 </script>
