@@ -52,9 +52,9 @@ Where else in the world can you marvel at dancing fountains (the Bellagio), see 
 <li>Begins:  February 28, 2006</li>
 </ul>
 <ul>
-<li>Prizes for the Algorithm and Component competitions total $75,000 each!</li>
+<li>Prizes for the Algorithm and Component competitions total $150,000</li>
 </ul>
-<span class="bodySubtitle">New to the 2006 TCO – the TCO Complete Coder Incentive Program!</span>
+<span class="bodySubtitle">New to the 2006 TCO - the TCO Complete Coder Incentive Program!</span>
 <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ccip_description">Learn how</A> you can earn more prize money by participating in both Component and Algorithm competitions.
 <br><br>
 *soon to be Planet Hollywood Resort and Casino
