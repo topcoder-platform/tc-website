@@ -1,11 +1,9 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.NavigationException;
@@ -36,7 +34,7 @@ public class ViewStandings extends Base {
 
         try {
 
-            DataAccessInt dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+            DataAccessInt dai = getDataAccess();
 
             if (roundID == null) {
                 // Find most recent round
@@ -54,7 +52,7 @@ public class ViewStandings extends Base {
             // Go ahead and try to load the round's standings
             if (roundID != null) {
 
-                int roundTypeID = getRoundType(dai, roundID);
+                int roundTypeID = getRoundType(roundID);
 
                 Request r = new Request();
 
@@ -149,30 +147,4 @@ public class ViewStandings extends Base {
             throw new TCWebException(e);
         }
     }
-
-    /**
-     * Get's the round type attribute for the specified round.
-     *
-     * @param dai     Data access
-     * @param roundID The specified round
-     * @return The round type of the specified round
-     * @throws Exception Propagates exceptions
-     */
-    private int getRoundType(DataAccessInt dai, String roundID) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("long_contest_round_information");
-        r.setProperty("rd", roundID);
-
-        Map m = dai.getData(r);
-
-        ResultSetContainer rsc = (ResultSetContainer) m.get("long_contest_round_information");
-
-        if (rsc.getRowCount() == 0) {
-            return -1;
-        } else {
-            return rsc.getIntItem(0, "round_type_id");
-        }
-    }
-
-
 }

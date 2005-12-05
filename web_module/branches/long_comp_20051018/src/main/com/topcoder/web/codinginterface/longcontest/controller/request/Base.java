@@ -51,10 +51,46 @@ public abstract class Base extends BaseProcessor {
 
     protected void businessProcessing() throws Exception {
         loadSponsorImage();
+        loadRoundType();
         longContestProcessing();
     }
 
     protected abstract void longContestProcessing() throws Exception;
+
+    protected void loadRoundType() throws Exception {
+        String round = getRequest().getParameter(Constants.ROUND_ID);
+        if (round!=null) {
+            log.debug("round id was " + round);
+            int roundType = getRoundType(round);
+            if (roundType>0) {
+                log.debug("got a round type");
+                getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(roundType));
+            }
+        }
+    }
+
+    /**
+     * Get's the round type attribute for the specified round.
+     *
+     * @param roundID The specified round
+     * @return The round type of the specified round
+     * @throws Exception Propagates exceptions
+     */
+    protected int getRoundType(String roundID) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("long_contest_round_information");
+        r.setProperty("rd", roundID);
+
+        Map m = getDataAccess().getData(r);
+
+        ResultSetContainer rsc = (ResultSetContainer) m.get("long_contest_round_information");
+
+        if (rsc.getRowCount() == 0) {
+            return -1;
+        } else {
+            return rsc.getIntItem(0, "round_type_id");
+        }
+    }
 
     protected void loadSponsorImage() throws Exception {
         log.debug("loadSponsorImage called...");
