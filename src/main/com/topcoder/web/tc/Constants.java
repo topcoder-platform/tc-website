@@ -228,6 +228,7 @@ public class Constants implements WebConstants {
 
     public static final String COLLEGE_TOUR_EVENT_ID="cteid";
     public static final String COLLEGE_TOUR_CONFIG_INFO="configInfo";
+    public static final String ROUND_NAME="rdname";
 
 
     static {
