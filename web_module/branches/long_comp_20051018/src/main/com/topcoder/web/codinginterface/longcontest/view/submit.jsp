@@ -129,6 +129,9 @@
 
                         <%}%>
                     </div>
+                    <div style="float:left; padding: 5px 5px 0px 0px;">
+                        <A href=""><img src="/i/longcontest/spon_topcoder.gif" alt="Sponsor" border="0"/></A>
+                    </div>
 
                     <div style="float:right; padding: 5px 0px 0px 5px;">
                         <A href="javascript: submit();"><img src="/i/interface/btn_submit.gif" alt="Submit" border="0"/></A>
