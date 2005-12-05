@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>12.05.05<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=508140&mc=1#518768">GCC Upgrade</A></span><br><br>
+      We've finished upgrading our C++ compilers to GCC 4.0.2.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=508140&mc=1#518768">discuss this</A>&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>12.05.05<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about">Announcing the 2006 TopCoder Open</A></span><br><br>
       Read up on the next big TopCoder event.
@@ -315,18 +327,6 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm271">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505785" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>11.07.05<br>5:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">TopCoder Software chat session scheduled for SRM 271</span><br><br>
-      TCS representatives Dave Messinger, Architect, Tony Jefts, Project Manager and others will be in the TCS chat room starting at 8PM EST, to discuss and give feedback on the TopCoder Software Component Competitions.  This is a great opportunity to speak to TopCoder Software Team Members on how to get started in Component Competitions.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <tc-webtag:forumLink forumID="505823" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 
 
