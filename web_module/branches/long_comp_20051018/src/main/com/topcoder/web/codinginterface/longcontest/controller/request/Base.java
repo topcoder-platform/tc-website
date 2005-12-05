@@ -81,7 +81,7 @@ public abstract class Base extends BaseProcessor {
         r.setContentHandle("long_contest_round_information");
         r.setProperty("rd", roundID);
 
-        Map m = getDataAccess().getData(r);
+        Map m = getDataAccess(true).getData(r);
 
         ResultSetContainer rsc = (ResultSetContainer) m.get("long_contest_round_information");
 
@@ -94,25 +94,28 @@ public abstract class Base extends BaseProcessor {
 
     protected void loadSponsorImage() throws Exception {
         log.debug("loadSponsorImage called...");
-        Request dataRequest = new Request();
-        dataRequest.setContentHandle("sponsor_image");
         try {
             //todo figure out what to do here.   we'll probably have to implement multiple versions
             //todo for different image types.
-            DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-            Map resultMap = dai.getData(dataRequest);
-            ResultSetContainer rsc = (ResultSetContainer) resultMap.get("Sponsor_Image");
-            if (rsc==null||rsc.isEmpty()) {
-                sponsorImage = BLANK;
-            } else {
-                sponsorImage = new ImageInfo();
-                sponsorImage.setSrc(rsc.getStringItem(0, "file_path"));
-                sponsorImage.setHeight(rsc.getIntItem(0, "height"));
-                sponsorImage.setWidth(rsc.getIntItem(0, "width"));
-                sponsorImage.setLink(rsc.getStringItem(0, "link"));
+            String round = getRequest().getParameter(Constants.ROUND_ID);
+            if (round!=null) {
+                Request dataRequest = new Request();
+                dataRequest.setContentHandle("long_sponsor_image");
+                dataRequest.setProperty("rd", round);
+                DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+                Map resultMap = dai.getData(dataRequest);
+                ResultSetContainer rsc = (ResultSetContainer) resultMap.get("long_sponsor_image");
+                if (rsc==null||rsc.isEmpty()) {
+                    sponsorImage = BLANK;
+                } else {
+                    sponsorImage = new ImageInfo();
+                    sponsorImage.setSrc(rsc.getStringItem(0, "file_path"));
+                    sponsorImage.setHeight(rsc.getIntItem(0, "height"));
+                    sponsorImage.setWidth(rsc.getIntItem(0, "width"));
+                    sponsorImage.setLink(rsc.getStringItem(0, "link"));
+                }
             }
         } catch (TCWebException e) {
-            log.warn("company id not set, using default image");
             sponsorImage = BLANK;
         }
         getRequest().setAttribute(Constants.SPONSOR_IMAGE, sponsorImage);
