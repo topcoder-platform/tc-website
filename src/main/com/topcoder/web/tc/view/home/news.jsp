@@ -9,6 +9,32 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>12.05.05<br>10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about">Announcing the 2006 TopCoder Open</A></span><br><br>
+      Read up on the next big TopCoder event.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505852" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>12.05.05<br>10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ccip_description">TCO06 Complete Coder Incentive Program</A></span><br><br>
+      Learn how you can earn more prize money by participating in both Component and Algorithm competitions.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ccip_description">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505851" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>12.02.05<br>10:45 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm">Rise Of A Powerhouse</A></span><br><br>
       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/bw_cov120205_small.jpg" alt="BusinessWeek" border="0" /></div>
@@ -301,34 +327,6 @@
    <tr><td class="newsLinksCell">
          <tc-webtag:forumLink forumID="505823" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>11.04.05<br>2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">"Achievements" added to Member Profiles</span><br><br>
-      We've added an "Achievements" link to Member Profiles, which lists accomplishments such as being named "Coder of the Month" and tournament advancement.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <tc-webtag:forumLink forumID="505822" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>11.04.05<br>10:20 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm270">SRM 270 - Problem Set & Analysis</A></span><br><br>
-      In the 270th SRM the coders in both divisions had to face a problem set with non-standard point values: 250-600-900 in Division 2 and 300-600-900 in Division 1. In both divisions  their medium problem had the highest failure rate and it offered a lot of great challenge opportunities.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/misof_mug.gif" /><br>by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm270">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505783" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 

@@ -24,7 +24,7 @@
 <br><br>
 We are excited to announce the addition of a new element to the 2006 TCO, called the TCO Complete Coder Incentive Program.  Here's how it works:
 <br><br>
-<span class="bodySubtitle"Structure</span><br>
+<span class="bodySubtitle">Structure</span><br>
 TCO competitors who want to guarantee they will receive prize money during Online Rounds 2, 3 & 4, plus the first Onsite Round of the TCO algorithm competition need only to compete in the component development and/or design process prior to Round 2 of the TCO algorithm competition.  
 <br><br>
 In order to be eligible for guaranteed prize money in certain rounds of the algorithm competition, a competitor must pass review on any three (3) components.  If a competitor passes review three (3) times in development only, he/she will receive prize money in each of Online Rounds 2, 3, 4 and the Onsite Semi-final Round of the algorithm competition, depending on when he/she is eliminated.  If a competitor passes review three (3) times and at least one (1) of those is in design, he/she will receive an additional 50% bonus in each of Online Rounds 2, 3, 4 and the Onsite Semi-final Round of the algorithm competition, depending on when he/she is eliminated.
