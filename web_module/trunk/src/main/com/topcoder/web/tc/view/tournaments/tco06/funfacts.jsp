@@ -11,7 +11,7 @@
 <jsp:include page="links.jsp" >
 <jsp:param name="tabLev1" value="overview"/>
 <jsp:param name="tabLev2" value="join_us"/>
-<jsp:param name="tabLev3" value=""/>
+<jsp:param name="tabLev3" value="fun_facts"/>
 </jsp:include>
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
@@ -20,6 +20,8 @@
       <td valign=top align=center>
       <div class=bodySpacer>
 <span class="bigTitle">Las Vegas Fun Facts</span>
+<br><br>
+Here are a couple facts about Las Vegas we thought you might find interesting:
 <ul>
 <li>The Eiffel Tower at Paris is half the size of the original.</li>
 <li>Though the spouting fountains and water shows of the big resorts may seem a waste of water, the hotel-casinos comprise only 7% of total water usage for the valley. The biggest use goes to keeping residential lawns green.</li>
