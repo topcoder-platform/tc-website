@@ -100,11 +100,11 @@ public abstract class Base extends BaseProcessor {
             String round = getRequest().getParameter(Constants.ROUND_ID);
             if (round!=null) {
                 Request dataRequest = new Request();
-                dataRequest.setContentHandle("long_sponsor_image");
+                dataRequest.setContentHandle("long_contest_sponsor_image");
                 dataRequest.setProperty("rd", round);
                 DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
                 Map resultMap = dai.getData(dataRequest);
-                ResultSetContainer rsc = (ResultSetContainer) resultMap.get("long_sponsor_image");
+                ResultSetContainer rsc = (ResultSetContainer) resultMap.get("long_contest_sponsor_image");
                 if (rsc==null||rsc.isEmpty()) {
                     sponsorImage = BLANK;
                 } else {
