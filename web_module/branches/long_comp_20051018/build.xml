@@ -1715,7 +1715,6 @@
                 <include name="com/topcoder/web/codinginterface/*.class"/>
                 <include name="com/topcoder/web/codinginterface/messaging/**"/>
                 <include name="com/topcoder/web/codinginterface/model/**"/>
-                <include name="com/topcoder/security/**/*.class"/>
                 <include name="com/topcoder/web/common/**"/>
                 <include name="com/topcoder/common/web/render/**"/>
             </classes>
