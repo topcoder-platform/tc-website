@@ -11,4 +11,5 @@ import java.rmi.RemoteException;
 public interface Registration extends EJBObject {
 
     void create(long eventId, long coderId, String dataSource) throws RemoteException;
+    boolean exists(long eventId, long coderId, String dataSource) throws RemoteException;
 }

@@ -13,5 +13,10 @@ public class RegistrationBean extends BaseEJB {
                 new String[] {String.valueOf(eventId), String.valueOf(coderId)}, dataSource);
     }
 
+    public boolean exists(long eventId, long coderId, String dataSource) {
+        return !selectSet("college_tour_registration", new String[]{"'1'"}, new String[]{"event_id", "coder_id"},
+                new String[] {String.valueOf(eventId), String.valueOf(coderId)}, dataSource).isEmpty();
+    }
+
 
 }
