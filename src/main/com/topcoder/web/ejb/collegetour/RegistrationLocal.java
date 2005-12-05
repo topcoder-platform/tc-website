@@ -8,7 +8,8 @@ import javax.ejb.EJBLocalObject;
  *          Create Date: Dec 5, 2005
  */
 public interface RegistrationLocal extends EJBLocalObject {
-    
+
     void create(long eventId, long coderId, String dataSource);
+    boolean exists(long eventId, long coderId, String dataSource);
 
 }
