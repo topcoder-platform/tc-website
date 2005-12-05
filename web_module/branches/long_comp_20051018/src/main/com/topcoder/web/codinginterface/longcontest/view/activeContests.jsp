@@ -51,7 +51,7 @@
                 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
                     <tr>
-                        <td class="tableTitle" colspan="8">Active Long Competitions</td>
+                        <td class="tableTitle" colspan="8">Active Contests</td>
                     </tr>
                     <tr>
                         <td class="tableHeader">Contest</td>
