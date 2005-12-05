@@ -45,6 +45,10 @@ margin:0px auto;
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr>
       <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
+<%-- $1,000,000
+--%>
+      <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><IMG SRC="/i/home/tco06.gif" border="0" ALT="Introducing the TCO06"/></A></td>
+<%-- $1,000,000
       <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=pressroom&d2=pr_112105"><IMG SRC="/i/home/milestone_million.gif" border="0" ALT="$1,000,000 in Component Competition Payouts"/></A></td>
 <%-- MSN
       <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=contracting&d2=msn"><IMG SRC="/i/home/msn_emp_opps.gif" border="0" ALT="MSN is hiring"/></A></td>

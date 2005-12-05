@@ -18,5 +18,6 @@
 <%-- SAP
 <A href="/?RoundId=8070&t=schedule&c=srm"><IMG SRC="/i/home/sap_srm273_banner.gif" border="0" ALT="SAP"/></A>
 --%>
-<%-- LOGO --%>
-<A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=logo_winner"><IMG SRC="/i/home/tco06_logo_contest_winner.gif" border="0" ALT="TCO06 Logo Contest Winner"/></A>
+<%-- TCO06
+--%>
+<A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><IMG SRC="/i/home/tco06.gif" border="0" ALT="Introducing the TCO06"/></A>
