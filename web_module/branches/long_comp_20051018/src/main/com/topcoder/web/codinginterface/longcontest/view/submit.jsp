@@ -64,12 +64,13 @@
                 <jsp:param name="image" value="<%=image%>"/>
                 <jsp:param name="title" value="Coding Area"/>
             </jsp:include>
+            <div align='center' class='bigRed'>
             <%
                 Boolean stat = ((Boolean) request.getAttribute(Constants.COMPILE_STATUS));
                 String error = StringUtils.checkNull((String) request.getAttribute(Constants.COMPILE_MESSAGE));
                 String status = "";
                 if (stat != null) {
-                    status = stat.booleanValue() ? "Your code compile successfully.<br>" : "Your code did not compile successfully.<br>";
+                    status = stat.booleanValue() ? "Your code compiled successfully.<br>" : "Your code did not compile successfully.<br>";
                 }
 
                 int checked = (request.getAttribute(Constants.SELECTED_LANGUAGE) == null ? -1 : Integer.parseInt((String) request.getAttribute(Constants.SELECTED_LANGUAGE)));
@@ -80,6 +81,7 @@
             <%=msg%>
             <%=status%>
             <%=error%>
+            </div>
             <div align="center">
                 <div style="width: 580px;">
                     <div style="float: left; padding-bottom: 5px; width: 100%:">
