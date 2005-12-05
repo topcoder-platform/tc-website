@@ -7,4 +7,5 @@ package com.topcoder.web.common;
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
+    public static final String COLLEGE_TOUR_EVENT_ID = "cteid";
 }
