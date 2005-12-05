@@ -69,6 +69,10 @@
                 <jsp:param name="title" value="Submission History"/>
             </jsp:include>
 
+            <div style="float:right; padding: 0px 0px 0px 5px;">
+               <A href=""><img src="/i/longcontest/spon_topcoder.gif" alt="Sponsor" border="0"/></A>
+            </div>
+
             <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
             <span class="bodySubtitle">Problem: <rsc:item name="problem_name" row="<%=infoRow%>"/></span><br>
             <span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=request.getParameter(Constants.CODER_ID)%>'/></span>

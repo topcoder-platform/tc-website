@@ -64,6 +64,9 @@
                 <jsp:param name="title" value="System Test"/>
             </jsp:include>
 
+            <div style="float:right; padding: 0px 0px 0px 5px;">
+               <A href=""><img src="/i/longcontest/spon_topcoder.gif" alt="Sponsor" border="0"/></A>
+            </div>
 
             <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=testRow%>"/></span><br>
             <span class="bodySubtitle">Problem: <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=testRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=testRow%>"/>">

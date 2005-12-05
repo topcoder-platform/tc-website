@@ -75,6 +75,9 @@
     <jsp:param name="title" value="Standings"/>
 </jsp:include>
 
+<div style="float:right; padding: 0px 0px 0px 5px;">
+   <A href=""><img src="/i/longcontest/spon_topcoder.gif" alt="Sponsor" border="0"/></A>
+</div>
 <%if (request.getAttribute(Constants.MESSAGE) != null) {%>
 <span class="errorText"><%=request.getAttribute(Constants.MESSAGE)%></span><br>
 <%}%>

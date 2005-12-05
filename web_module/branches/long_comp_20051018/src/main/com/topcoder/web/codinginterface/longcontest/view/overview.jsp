@@ -67,6 +67,10 @@
         <jsp:param name="title" value="Contest Overview"/>
     </jsp:include>
 
+   <div style="float:right; padding: 0px 0px 0px 5px;">
+      <A href=""><img src="/i/longcontest/spon_topcoder.gif" alt="Sponsor" border="0"/></A>
+   </div>
+
     <script language="JavaScript">
         <!--
     function goTo(selection){
@@ -80,6 +84,8 @@
     Please select a contest:<br>
     <tc-webtag:rscSelect name="<%=Constants.ROUND_ID%>" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=request.getParameter(Constants.ROUND_ID)%>" onChange="goTo(this)"/>
     <br><br>
+
+
     <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
 <span class="bodySubtitle">Categories:
 <% if (categories.isEmpty()) { %> None <% } %>

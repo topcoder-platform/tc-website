@@ -93,6 +93,10 @@ text-align: left;
                 <jsp:param name="title" value="System Test Results"/>
             </jsp:include>
 
+            <div style="float:right; padding: 0px 0px 0px 5px;">
+               <A href=""><img src="/i/longcontest/spon_topcoder.gif" alt="Sponsor" border="0"/></A>
+            </div>
+
             <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
             <span class="bodySubtitle">Registrants: <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>" class="bcLink">
                 <rsc:item name="num_registrants" row="<%=infoRow%>"/></A></span><br>

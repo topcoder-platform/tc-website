@@ -55,6 +55,10 @@
                 <jsp:param name="title" value="Registrants"/>
             </jsp:include>
 
+            <div style="float:right; padding: 0px 0px 0px 5px;">
+               <A href=""><img src="/i/longcontest/spon_topcoder.gif" alt="Sponsor" border="0"/></A>
+            </div>
+
             <logic:notEmpty name="<%=Constants.MESSAGE%>">
                 <tc-webtag:useBean id="message" type="java.lang.String" name="<%=Constants.MESSAGE%>" toScope="page"/>
                 <span class="errorText"><%=message%></span><br>
