@@ -31,7 +31,7 @@
     <%-- value of level2 is 'topcoder' or 'intel' --%>
     <jsp:include page="/includes/global_left.jsp">
         <jsp:param name="level1" value="long_contests"/>
-        <jsp:param name="level2" value="topcoder>"/>
+        <jsp:param name="level2" value="topcoder"/>
     </jsp:include>
 </td>
 <%-- Left Column Ends --%>
