@@ -28,12 +28,12 @@
         }
         A.calendarTCO06Link:link
         {
-        color: #6699CC;
+        color: #DDDDFF;
         text-decoration: underline;
         }
         A.calendarTCO06Link:visited
         {
-        color: #6699CC;
+        color: #DDDDFF;
         text-decoration: underline;
         }
         A.calendarTCO06Link:hover
