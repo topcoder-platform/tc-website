@@ -120,7 +120,7 @@
                     </div>
 
 
-                    <div style="float:left; text-align:left; padding-bottom: 5px;">
+                    <div style="float:left; clear:left; text-align:left; padding-bottom: 5px;">
                         <b>Problem Name: <%=request.getAttribute(Constants.CLASS_NAME)%><br>
                             Method Name: <%=request.getAttribute(Constants.METHOD_NAME)%></b>
                     </div>
@@ -130,7 +130,7 @@
                             Arg Types: <%=request.getAttribute(Constants.ARG_TYPES)%></b>
                     </div>
 
-                    <div align="right">
+                    <div align="left">
 
                         <%if (request.getAttribute(Constants.CODE) == null || request.getAttribute(Constants.CODE).toString().equals("")) {%>
                         <textarea cols="70" rows="20" name="code">
