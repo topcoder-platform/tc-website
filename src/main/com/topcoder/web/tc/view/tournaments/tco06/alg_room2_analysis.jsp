@@ -348,8 +348,8 @@ and <code>choose(n, m) % k = (choose(n - 1, m - 1) % k + choose(n - 1, m) % k) %
          
 <!-- Right Column-->
         <td width=170 align=right>
-            <jsp:include page="../../public_right.jsp">
-            <jsp:param name="level1" value="privatelabel"/>
+            <jsp:include page="right.jsp">
+            <jsp:param name="level1" value="all"/>
             </jsp:include>
          </td>
       
