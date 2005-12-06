@@ -37,11 +37,11 @@ public class EmailSender {
             try {
                 EmailSender e = new EmailSender();
                 String content = e.getFile(args[0]);
-                log("got content");
+                //log("got content");
                 ResultSetContainer recipients = e.getRecipients(args[1]);
                 log("got " + recipients.size() + " recipients");
                 String subject = args[2];
-                log("got subject");
+                //log("got subject");
                 int successCount = 0;
                 int failCount = 0;
                 long start = System.currentTimeMillis();
@@ -95,7 +95,7 @@ public class EmailSender {
     private ResultSetContainer getRecipients(String command) throws Exception {
         Request dataRequest = new Request();
         dataRequest.setContentHandle(command);
-        DataAccessInt dai = new DataAccess(new InformixSimpleDataSource(GCCJ05_TRANS));
+        DataAccessInt dai = new DataAccess(new InformixSimpleDataSource(GCCJ05_PROD));
         return (ResultSetContainer) dai.getData(dataRequest).get(command);
     }
 
