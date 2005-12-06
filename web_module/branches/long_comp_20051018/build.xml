@@ -1721,11 +1721,10 @@
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
                 <include name="codinginterface.tld"/>
-                <include name="tc-taglib.tld"/>
                 <include name="rsc-taglib.tld"/>
             </webinf>
             <webinf dir="${struts.dir}">
-                <include name="*.tld"/>
+                <include name="struts-logic.tld"/>
             </webinf>
             <lib dir="${struts.dir}">
                 <include name="*.jar"/>
