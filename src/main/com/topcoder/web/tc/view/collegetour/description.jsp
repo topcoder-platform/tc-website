@@ -40,9 +40,17 @@
       <div align=center>
       <img src="/i/collegetour/collegetour_promo.gif" alt="TopCoder College Tour" border=0 clear="all">
       </div>
-      <div align=right>
-      <img src="/i/collegetour/college_logo.gif" alt="College Logo" border=0/>
-      </div>
+      
+         <span valign=top>
+         <table border="0" cellpadding="10" cellspacing="0" align="right">
+            <tr>
+               <td align="center" class="bodyText">
+               <A href="#"><img src="/i/collegetour/college_logo.gif" alt="College Logo" border=0/></A>
+               </td>
+            </tr>
+          </table>
+          </span>
+          
       <p>
       <h2>TopCoder College Tour SRM Overview</h2>
       
@@ -67,10 +75,10 @@
       
       The timeline for the day of the event: 
       <ul>
-      <li>SRM START TIME -30 MINS Ð Computer lab opens & competitors set up  </li>
-      <li>SRM START TIME Ð Competition starts  </li>
-      <li>SRM START TIME +95 MINS Ð Competition ends  </li>
-      <li>SRM START TIME +100 MINS Ð Pizza, Results, TopCoder presentation </li>
+      <li>SRM START TIME -30 MINS - Computer lab opens & competitors set up  </li>
+      <li>SRM START TIME - Competition starts  </li>
+      <li>SRM START TIME +95 MINS - Competition ends  </li>
+      <li>SRM START TIME +100 MINS - Pizza, Results, TopCoder presentation </li>
       </ul><br/>
       
       <strong>RECRUITER NAME</strong>, a TopCoder representative, will be present to explain the TopCoder algorithm, design and development competitions, TopCoder Employment Services, and other aspects of TopCoder. 
