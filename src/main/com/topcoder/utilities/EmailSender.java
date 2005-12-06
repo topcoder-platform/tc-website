@@ -70,7 +70,7 @@ public class EmailSender {
             message.setSubject(subject);
             message.addToAddress(recipient.getStringItem("address"), TCSEmailMessage.TO);
             StringBuffer buf = new StringBuffer(text.length() + 50);
-            buf.append("Hello ").append(recipient.getStringItem("handle")).append(",\n\n");
+            //buf.append("Hello ").append(recipient.getStringItem("handle")).append(",\n\n");
             buf.append(text);
             message.setBody(buf.toString());
             EmailEngine.send(message);
