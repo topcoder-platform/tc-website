@@ -25,7 +25,7 @@ public class EmailSender {
     private static final String DEV_TRANS =
             "jdbc:informix-sqli://65.112.118.221:1526/informixoltp:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec";
     private static final String GCCJ05_TRANS =
-            "jdbc:informix-sqli://63.144.135.202:1526/gcj_china_05_oltp:INFORMIXSERVER=tc_memeber_dev_tcp;user=coder;password=altec";
+            "jdbc:informix-sqli://172.16.20.25:1526/gcj_china_05_oltp:INFORMIXSERVER=tc_memeber_dev_tcp;user=coder;password=altec";
 
     private static final String senderEmail = "gcjc@topcoder.com";
     private static final String senderName = "Google Code Jam China";
