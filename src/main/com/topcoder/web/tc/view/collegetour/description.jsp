@@ -31,7 +31,7 @@
 <!-- Center Column Begins -->
 <td class="statTableSpacer" width="100%" valign="top">
 
-<div class="bodyText">
+<div class="myTCBody">
 
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="college_tour"/>
@@ -45,7 +45,7 @@
       <img src="/i/collegetour/college_logo.gif" alt="College Logo" border=0/>
       </div>
       <p>
-      <h2>TopCoder College Tour SRM Overview</h2><br/>
+      <h2>TopCoder College Tour SRM Overview</h2>
       
       <h3>The Event:</h3> 
       TopCoder is sponsoring an onsite programming competition at SCHOOL NAME on SRM DATE. <br/><br/>
