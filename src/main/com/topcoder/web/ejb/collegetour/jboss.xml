@@ -2,7 +2,7 @@
 <jboss>
     <enterprise-beans>
         <session>
-            <ejb-name>RoomResult</ejb-name>
+            <ejb-name>Registration</ejb-name>
             <jndi-name>com.topcoder.web.ejb.collegetour.RegistrationHome</jndi-name>
             <local-jndi-name>com.topcoder.web.ejb.collegetour.RegistrationLocalHome</local-jndi-name>
         </session>
