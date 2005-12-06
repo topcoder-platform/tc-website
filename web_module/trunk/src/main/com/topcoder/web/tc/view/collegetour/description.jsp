@@ -29,8 +29,7 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-<td class="statTableSpacer" width="100%" valign="top">
-
+<td class="cardCell" width="100%" align="center">
 <div class="myTCBody">
 
 <jsp:include page="../page_title.jsp" >
