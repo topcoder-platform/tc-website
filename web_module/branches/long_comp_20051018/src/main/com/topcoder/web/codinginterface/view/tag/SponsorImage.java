@@ -39,6 +39,10 @@ public class SponsorImage extends TagSupport {
         this.border = border;
     }
 
+    public void setIfNull(String ifNull) {
+        this.ifNull = ifNull;
+    }
+
 
     public int doStartTag() throws JspException {
 
