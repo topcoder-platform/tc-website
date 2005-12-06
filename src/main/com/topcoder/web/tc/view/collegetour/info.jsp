@@ -67,7 +67,7 @@
       You can find out more information about each of the phases here: <A href="tc?module=Static&d1=help&d2=ratedEvent" target="_blank">The Phases of a Rated Event</A>
       
       <h3>Competition Arena</h3>
-      The competition takes place in what is called in the Arena. The Arena can be run as an applet from within your web browser or as a stand alone Java Web Start application (recommended). In order to compete, you will need to have Java installed on your computer (<A href="http://java.sun.com/" target="_blank">Sun Java</A>). You can find links to start the Arena on <A href="/tc">TopCoder</A>.
+      The competition takes place in what is called in the Arena. The Arena can be run as an applet from within your web browser or as a stand alone Java Web Start application (recommended). In order to compete, you will need to have Java installed on your computer (<A href="http://java.sun.com/" target="_blank">Sun Java</A>). You can find links to start the Arena on <A href="/tc" target="_blank">TopCoder</A>.
 
       <h3>Practice Arena</h3>
       It is highly recommended that all new members visit the practice rooms prior to competing in an algorithm rated event. By visiting a practice room you will learn the Arena interface, the nature of the problems, and the expected structure of your solution. You will also get a chance to look at thousands of submissions in various languages from other competitors who have visited the practice rooms.<br/><br/>
