@@ -10,8 +10,8 @@
 <!-- Tab barlinks-->
 <jsp:include page="links.jsp" >
 <jsp:param name="tabLev1" value="overview"/>
-<jsp:param name="tabLev2" value="eventPatrons"/>
-<jsp:param name="tabLev3" value="nsa"/>
+<jsp:param name="tabLev2" value="sponsors"/>
+<jsp:param name="tabLev3" value="verisign"/>
 </jsp:include>
 
 
@@ -21,13 +21,12 @@
       <td valign=top align=center>
       <div class="bodySpacer">
             
-<div align="center"><img src="/i/tournament/tco06/nsa_logo.gif" alt="NSA" border="0" /></div>
+<div align="center"><img src="/i/tournament/tco06/verisign_logo.gif" alt="NSA" border="0" /></div>
 <br><br>
-By clicking "Submit" below you will be releasing your TopCoder contact and statistical information to NSA and you will be giving NSA permission to contact you about their current job opportunities.
-<br><br>
+By clicking "Submit" below you will be releasing your TopCoder contact and statistical information to VeriSign and you will be giving VeriSign permission to contact you about their current job opportunities.
+<br><br>               
 <A href="/">Submit</A>.
 <br><br><br><br><br><br>
-
         </div>
       </td>
         
@@ -35,7 +34,7 @@ By clicking "Submit" below you will be releasing your TopCoder contact and stati
 <!-- Right Column-->
         <td width=170 align=right>
             <jsp:include page="right.jsp">
-            <jsp:param name="level1" value="nsa"/>
+            <jsp:param name="level1" value="verisign"/>
             </jsp:include>
          </td>
       
