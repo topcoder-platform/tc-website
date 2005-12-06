@@ -35,14 +35,6 @@ public abstract class Base extends BaseProcessor {
 
     protected static final Logger log = Logger.getLogger(Base.class);
 
-    private static final ImageInfo BLANK = new ImageInfo();
-
-    static {
-        BLANK.setHeight(85);
-        BLANK.setWidth(325);
-        BLANK.setSrc("/i/corp/screening/emptyClientLogo.gif");
-    }
-
     private QueueMessageSender sender = null;
     private WebQueueResponseManager receiver = null;
     private List languages = null;
@@ -59,10 +51,10 @@ public abstract class Base extends BaseProcessor {
 
     protected void loadRoundType() throws Exception {
         String round = getRequest().getParameter(Constants.ROUND_ID);
-        if (round!=null) {
+        if (round != null) {
             log.debug("round id was " + round);
             int roundType = getRoundType(round);
-            if (roundType>0) {
+            if (roundType > 0) {
                 log.debug("got a round type");
                 getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(roundType));
             }
@@ -94,31 +86,27 @@ public abstract class Base extends BaseProcessor {
 
     protected void loadSponsorImage() throws Exception {
         log.debug("loadSponsorImage called...");
-        try {
-            //todo figure out what to do here.   we'll probably have to implement multiple versions
-            //todo for different image types.
-            String round = getRequest().getParameter(Constants.ROUND_ID);
-            if (round!=null) {
-                Request dataRequest = new Request();
-                dataRequest.setContentHandle("long_contest_sponsor_image");
-                dataRequest.setProperty("rd", round);
-                DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-                Map resultMap = dai.getData(dataRequest);
-                ResultSetContainer rsc = (ResultSetContainer) resultMap.get("long_contest_sponsor_image");
-                if (rsc==null||rsc.isEmpty()) {
-                    sponsorImage = BLANK;
-                } else {
-                    sponsorImage = new ImageInfo();
-                    sponsorImage.setSrc(rsc.getStringItem(0, "file_path"));
+        String round = getRequest().getParameter(Constants.ROUND_ID);
+        if (round != null) {
+            Request dataRequest = new Request();
+            dataRequest.setContentHandle("long_contest_sponsor_image");
+            dataRequest.setProperty("rd", round);
+            DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+            Map resultMap = dai.getData(dataRequest);
+            ResultSetContainer rsc = (ResultSetContainer) resultMap.get("long_contest_sponsor_image");
+            if (!rsc.isEmpty()) {
+                sponsorImage = new ImageInfo();
+                sponsorImage.setSrc(rsc.getStringItem(0, "file_path"));
+                if (rsc.getItem(0, "height").getResultData() != null) {
                     sponsorImage.setHeight(rsc.getIntItem(0, "height"));
-                    sponsorImage.setWidth(rsc.getIntItem(0, "width"));
-                    sponsorImage.setLink(rsc.getStringItem(0, "link"));
                 }
+                if (rsc.getItem(0, "width").getResultData() != null) {
+                    sponsorImage.setWidth(rsc.getIntItem(0, "width"));
+                }
+                sponsorImage.setLink(rsc.getStringItem(0, "link"));
+                getRequest().setAttribute(Constants.SPONSOR_IMAGE, sponsorImage);
             }
-        } catch (TCWebException e) {
-            sponsorImage = BLANK;
         }
-        getRequest().setAttribute(Constants.SPONSOR_IMAGE, sponsorImage);
 
     }
 

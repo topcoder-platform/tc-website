@@ -54,10 +54,10 @@ public class SponsorImage extends TagSupport {
             if (alt != null) {
                 buffer.append(" alt=\"" + alt + "\"");
             }
-            if (image.getHeight() >= 0) {
+            if (image.getHeight() > 0) {
                 buffer.append(" height=\"" + image.getHeight() + "\"");
             }
-            if (image.getWidth() >= 0) {
+            if (image.getWidth() > 0) {
                 buffer.append(" width=\"" + image.getWidth() + "\"");
             }
 
