@@ -74,7 +74,7 @@ Upon logging in to the TopCoder Arena during the Qualification Round, each compe
 <span class="bodySubtitle">Online Elimination Rounds</span><br><br>
 Everyone who competes in an online round must register for each round in the TopCoder Competition Arena no later than five (5) minutes prior to the start of the online round. TopCoder members from around the world may be participating in the online rounds, but all start times will be communicated as Eastern Standard Time (GMT -5), so contestants in different time zones must adjust accordingly. If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition. 
 <br><br>
-All competitors who have qualified for an online round will be assigned to rooms based on 'dartboard seeding' (completely random).
+All competitors who have qualified for an online round will be assigned to rooms based on 'dartboard seeding' (completely random). Rooms will be created such that each room has a maximum of 25 competitors.  The number of rooms in each round is (maximum # advancers in the round)/25.
 <br><br>
 The dates and times of the online rounds of competition are as follows:
 <br><br>
