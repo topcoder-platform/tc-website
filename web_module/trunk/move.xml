@@ -4,20 +4,20 @@
  -->
 <project name="topcoder" default="" basedir=".">
 
-	<property name="jboss_home" value="../jboss-4.0.2"/>
-	<property name="tempMoveDir" value="move"/>
+    <property name="jboss_home" value="../jboss-4.0.2"/>
+    <property name="tempMoveDir" value="move"/>
     <property name="tempDeployDir" value="deploy"/>
     <property name="build" value="build"/>
     <property name="war_dir" value="${build}/wars"/>
-	<property name="techassess_war_dir" value="${jboss_home}/server/default/deploy/techassess.war/"/>
+    <property name="techassess_war_dir" value="${jboss_home}/server/default/deploy/techassess.war/"/>
 
     <target name="package-topcoder" depends="">
 
-<!--
-        <delete dir="src"/>
-        <delete dir="resources"/>
-        <delete dir="../shared/src"/
--->
+        <!--
+                <delete dir="src"/>
+                <delete dir="resources"/>
+                <delete dir="../shared/src"/
+        -->
         <delete dir="build"/>
         <delete file="topcoder.jar"/>
 
@@ -61,26 +61,26 @@
     </target>
 
     <target name="package-techassess" depends="">
-<!--
-        <delete dir="src"/>
-        <delete dir="resources"/>
-        <delete dir="build"/>
-        <delete dir="../shared/src"/>
-        <delete file="techassess.jar"/>
+        <!--
+                <delete dir="src"/>
+                <delete dir="resources"/>
+                <delete dir="build"/>
+                <delete dir="../shared/src"/>
+                <delete file="techassess.jar"/>
 
-        <cvs command="update -Pd" package="src"/>
-        <cvs command="update -Pd" package="resources"/>
-        <cvs command="update -Pd" package="lib"/>
+                <cvs command="update -Pd" package="src"/>
+                <cvs command="update -Pd" package="resources"/>
+                <cvs command="update -Pd" package="lib"/>
 
-        <exec dir="../shared" executable="cvs">
-            <arg line="update -dP src"/>
-        </exec>
--->
+                <exec dir="../shared" executable="cvs">
+                    <arg line="update -dP src"/>
+                </exec>
+        -->
 
         <ant antfile="build.xml" target="war-techassess"/>
         <ant dir="../app" antfile="build.xml" target="screening-ejb-jars"/>
 
-    	<mkdir dir="${tempMoveDir}"/>
+        <mkdir dir="${tempMoveDir}"/>
 
         <copy todir="${tempMoveDir}" file="build/wars/techassess.war"/>
         <copy todir="${tempMoveDir}" file="lib/bin/shared.jar"/>
@@ -104,7 +104,7 @@
             </fileset>
         </jar>
 
-    	<delete dir="${tempMoveDir}"/>
+        <delete dir="${tempMoveDir}"/>
     </target>
 
     <target name="package-software" depends="">
@@ -128,9 +128,9 @@
     </target>
 
     <target name="package-forums" depends="">
-<!--
-        <delete dir="src"/>
--->
+        <!--
+                <delete dir="src"/>
+        -->
         <delete dir="build"/>
         <delete dir="../shared/src"/>
         <delete file="forums.jar"/>
@@ -147,13 +147,13 @@
 
         <ant antfile="build.xml" target="build-forums"/>
 
-<!--
-        <copy todir="../jboss-4.0.2/server/default/lib">
-            <fileset dir="lib/bin">
-                <include name="shared.jar"/>
-            </fileset>
-        </copy>
--->
+        <!--
+                <copy todir="../jboss-4.0.2/server/default/lib">
+                    <fileset dir="lib/bin">
+                        <include name="shared.jar"/>
+                    </fileset>
+                </copy>
+        -->
 
         <jar destfile="forums.jar" update="true">
             <fileset dir=".">
@@ -171,7 +171,6 @@
     </target>
 
 
-
     <target name="deploy-techassess" depends="">
         <!-- create backup -->
         <tstamp/>
@@ -184,12 +183,13 @@
         <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/reconnect.jar"/>
         <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/ProblemServices.jar"/>
         <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/ScreeningServices.jar"/>
-        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/ScreeningTesterCompilerServices.jar"/>
+        <copy todir="${backupDirectory}"
+              file="${jboss_home}/server/default/deploy/ScreeningTesterCompilerServices.jar"/>
         <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/ScreeningAdminServices.jar"/>
         <copy todir="${backupDirectory}" file="${jboss_home}/server/default/lib/Screening.jar"/>
-    	<copy todir="${backupDirectory}" file="${jboss_home}/server/default/conf/ApplicationServer.properties"/>
-    	<copy todir="${backupDirectory}" file="${jboss_home}/server/default/conf/login-config.xml"/>
-    	<copy todir="${backupDirectory}" file="${jboss_home}/server/default/conf/problem.xsd"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/conf/ApplicationServer.properties"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/conf/login-config.xml"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/conf/problem.xsd"/>
 
         <mkdir dir="${tempDeployDir}"/>
         <unjar src="techassess.jar" dest="${tempDeployDir}"/>
@@ -197,19 +197,21 @@
         <copy overwrite="true" todir="${jboss_home}/server/default/lib" file="${tempDeployDir}/shared.jar"/>
         <copy overwrite="true" todir="${jboss_home}/server/default/deploy" file="${tempDeployDir}/reconnect.jar"/>
         <copy overwrite="true" todir="${jboss_home}/server/default/deploy" file="${tempDeployDir}/ProblemServices.jar"/>
-        <copy overwrite="true" todir="${jboss_home}/server/default/deploy" file="${tempDeployDir}/ScreeningServices.jar"/>
-        <copy overwrite="true" todir="${jboss_home}/server/default/deploy" file="${tempDeployDir}/ScreeningTesterCompilerServices.jar"/>
-        <copy overwrite="true" todir="${jboss_home}/server/default/deploy" file="${tempDeployDir}/ScreeningAdminServices.jar"/>
+        <copy overwrite="true" todir="${jboss_home}/server/default/deploy"
+              file="${tempDeployDir}/ScreeningServices.jar"/>
+        <copy overwrite="true" todir="${jboss_home}/server/default/deploy"
+              file="${tempDeployDir}/ScreeningTesterCompilerServices.jar"/>
+        <copy overwrite="true" todir="${jboss_home}/server/default/deploy"
+              file="${tempDeployDir}/ScreeningAdminServices.jar"/>
         <copy overwrite="true" todir="${jboss_home}/server/default/lib" file="${tempDeployDir}/Screening.jar"/>
         <delete dir="${tempDeployDir}"/>
 
-    	<delete file="${jboss_home}/server/default/deploy/techassess.war"/>
-    	<delete dir="${techassess_war_dir}"/>
-    	<mkdir dir="${techassess_war_dir}"/>
+        <delete file="${jboss_home}/server/default/deploy/techassess.war"/>
+        <delete dir="${techassess_war_dir}"/>
+        <mkdir dir="${techassess_war_dir}"/>
         <unwar src="${war_dir}/techassess.war" dest="${techassess_war_dir}" overwrite="yes"/>
         <delete dir="${techassess_war_dir}/META-INF"/>
     </target>
-
 
 
 </project>
