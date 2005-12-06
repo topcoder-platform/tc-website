@@ -8,6 +8,8 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.longcontest.model.LongContest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal;
+import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 
 import java.util.Date;
 import java.util.Map;
@@ -42,6 +44,9 @@ public class ViewActiveContests extends Base {
             Map m = dai.getData(r);
             ResultSetContainer rsc = (ResultSetContainer) m.get("long_contest_active_contests");
 
+            RoundRegistrationLocal reg =
+                    (RoundRegistrationLocal)createLocalEJB(getInitialContext(), RoundRegistration.class);
+
             // Go through the list of active contests
             for (int i = 0; i < rsc.getRowCount(); i++) {
 
@@ -53,7 +58,7 @@ public class ViewActiveContests extends Base {
                 longContest.setRoundName(rsc.getStringItem(i, "round_name"));
                 longContest.setStartTime((Date) rsc.getItem(i, "start_time").getResultData());
                 longContest.setEndTime((Date) rsc.getItem(i, "end_time").getResultData());
-                longContest.setCoderRegistered(isCoderRoundRegistered(dai, rsc.getLongItem(i, "round_id"), usr.getId()));
+                longContest.setCoderRegistered(reg.exists(usr.getId(),rsc.getLongItem(i, "round_id")));
                 longContest.setContestID(rsc.getLongItem(i, "contest_id"));
                 longContest.setStarted(rsc.getBooleanItem(i, "started"));
                 longContest.setNumCompetitors(rsc.getIntItem(i, "num_competitors"));
@@ -92,7 +97,7 @@ public class ViewActiveContests extends Base {
                     longContest.setRoundName(rscPassContests.getStringItem(i, "round_name"));
                     longContest.setStartTime((Date) rscPassContests.getItem(i, "start_time").getResultData());
                     longContest.setEndTime((Date) rscPassContests.getItem(i, "end_time").getResultData());
-                    longContest.setCoderRegistered(isCoderRoundRegistered(dai, rscPassContests.getLongItem(i, "round_id"), usr.getId()));
+                    longContest.setCoderRegistered(reg.exists(usr.getId(),rscPassContests.getLongItem(i, "round_id")));
                     longContest.setContestID(rscPassContests.getLongItem(i, "contest_id"));
                     longContest.setNumCompetitors(rscPassContests.getIntItem(i, "num_competitors"));
                     longContest.setNumRegistrants(rscPassContests.getIntItem(i, "num_registrants"));
@@ -162,7 +167,7 @@ public class ViewActiveContests extends Base {
      * @throws Exception Propagates unexpected exceptions
      * @return True if the coder is registered for the specified round, false otherwise.
      */
-    private boolean isCoderRoundRegistered(DataAccessInt dai, long roundID, long coderID) throws Exception {
+/*    private boolean isCoderRoundRegistered(DataAccessInt dai, long roundID, long coderID) throws Exception {
         Request r = new Request();
         ResultSetContainer rsc;
         log.debug("isCoderRoundRegistered called w/ roundID=" + roundID + " coderID=" + coderID);
@@ -177,7 +182,7 @@ public class ViewActiveContests extends Base {
             throw e;
         }
         return rsc.getIntItem(0, 0) > 0;
-    }
+    }*/
 
     /**
      * Gets the problem for the specified round
