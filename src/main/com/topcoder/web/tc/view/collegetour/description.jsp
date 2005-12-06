@@ -30,7 +30,7 @@
 <!-- Center Column Begins -->
 <td class="statTableSpacer" width="100%" valign="top">
 
-<div class="bodyText">
+<div class="myTCBody">
 
 
 

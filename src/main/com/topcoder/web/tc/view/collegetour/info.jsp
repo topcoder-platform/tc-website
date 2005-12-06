@@ -27,9 +27,9 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-<td class="statTableSpacer" width="100%" valign="top">
+<td class="statTableSpacer" width="100%" valign="top" align="center">
 
-<div class="bodyText">
+<div class="myTCBody">
 
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="college_tour"/>
