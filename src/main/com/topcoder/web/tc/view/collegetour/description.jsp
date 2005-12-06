@@ -38,8 +38,10 @@
           
       <p>
       <h2>2006 TopCoder U.S. College Tour</h2>
-      
-      <h3>Is your school on the schedule?</h3> 
+
+      <h3>Is your school on the schedule?</h3>      
+      <div style="float: right;"><tc-webtag:forumLink forumID="505834" message="Discuss this article" /></div>
+ 
       TopCoder will be touring the U.S. during 2006 to promote TopCoder programs and to grow membership.  We’re looking for college CS programs who are interested in hosting TopCoder on campus for an evening of problem solving, food, prizes and fun.
       
       <h3>How will the College Tour work?</h3>
