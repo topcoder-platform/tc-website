@@ -45,16 +45,16 @@
       <img src="/i/collegetour/college_logo.gif" alt="College Logo" border=0/>
       </div>
       <p>
-      <h1>TopCoder College Tour SRM Overview</h1><br/>
+      <h2>TopCoder College Tour SRM Overview</h2><br/>
       
-      <h2>The Event:</h2> <br/>
-      TopCoder is sponsoring an onsite programming competition at SCHOOL NAME on SRM DATE. <br/>
+      <h3>The Event:</h3> 
+      TopCoder is sponsoring an onsite programming competition at SCHOOL NAME on SRM DATE. <br/><br/>
       
-      <span class="bigRed">The last date for sign up for the event is DAY BEFORE SRM DATE.</span><br/>
+      <span class="bigRed">The last date for sign up for the event is DAY BEFORE SRM DATE.</span><br/><br/>
       
       The event is from SRM START TIME -30 MINS until SRM START TIME +120 MINS in the NAME OF BUILDING/LAB. This event is being run in conjunction with <A href="/?RoundId=8078&t=schedule&c=srm">SRM #281</A>. In addition to registering with TopCoder, all competitors must register <A href="//tc?module=registrants.jsp">here</a> and be onsite for the competition. After the event ends, pizza will served and a TopCoder representative will be present to discuss TopCoder competitions and employment services. 
       
-      <h2>Prizes:</h2><br/>
+      <h3>Prizes:</h3>
       
       <ul>
       <li>1st place prize - TBD </li>
@@ -64,7 +64,7 @@
       
       All competitors will receive a TopCoder t-shirt.  Placement in the SRM will be determined by the total number of points at the conclusion of the SRM.  The competitor with the highest total positive (i.e., greater than zero) points will finish in 1st place.  The overall winner will receive the 1st place prize, the 2nd place finisher will receive the 2nd place prize, and the 3rd place finisher will receive the 3rd place prize.  
       
-      <h1>Event Schedule</h1><br/>
+      <h3>Event Schedule</h3>
       
       The timeline for the day of the event: 
       <ul>
