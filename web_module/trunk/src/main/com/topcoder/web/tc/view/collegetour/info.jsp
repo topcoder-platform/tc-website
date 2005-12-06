@@ -53,7 +53,7 @@
             
       <h3>Languages</h3>
       TopCoder supports four languages: Java, C++, C# and VB.NET <br/>
-      You can find out more about language support here: <A href="tc?module=Static&d1=help&d2=codingWindow#language">Choosing a Language</A>
+      You can find out more about language support here: <A href="tc?module=Static&d1=help&d2=codingWindow#language" target="blank">Choosing a Language</A>
       
       <h3>Phases</h3>
       TopCoder competitions consist of three phases:
