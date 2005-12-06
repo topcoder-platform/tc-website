@@ -6,6 +6,7 @@
 
 <jsp:include page="../script.jsp" />
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
 
 </head>
 
@@ -27,8 +28,7 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-<td class="statTableSpacer" width="100%" valign="top" align="center">
-
+<td class="cardCell" width="100%" align="center">
 <div class="myTCBody">
 
 <jsp:include page="../page_title.jsp" >
@@ -36,6 +36,51 @@
 <jsp:param name="title" value="Instructions"/>
 </jsp:include>
 
+
+      <div align=center>
+      <img src="/i/collegetour/collegetour_promo.gif" alt="TopCoder College Tour" border=0 clear="all">
+      </div>
+ 
+      <p>
+      <h2>Competition Instructions</h2>
+      
+      To be able to compete in the competition, you must be a SCHOOL NAME student or a SCHOOL NAME faculty member. <br/><br/>
+      
+      <ul>
+      <li>Register on TopCoder </li>
+      <li>Register your TopCoder handle <A href="//tc?module=registrants.jsp">here</a></li>
+      </ul><br/>
+            
+      <h3>Languages</h3>
+      TopCoder supports four languages: Java, C++, C# and VB.NET <br/>
+      You can find out more about language support here: <A href="#">Choosing a Language</A>
+      
+      <h3>Phases</h3>
+      TopCoder competitions consist of three phases:
+      
+      <ul>
+      <li>Coding </li>
+      <li>Challenge </li>
+      <li>System-test</li>
+      </ul><br/>
+      
+      You can find out more information about each of the phases here: <A href="#">The Phases of a Rated Event</A>
+      
+      <h3>Competition Arena</h3>
+      The competition takes place in what is called in the Arena. The Arena can be run as an applet from within your web browser or as a stand alone Java Web Start application (recommended). In order to compete, you will need to have Java installed on your computer (<A href="#">Sun Java</A>). You can find links to start the Arena on <A href="/tc">TopCoder</A>.
+
+      <h3>Practice Arena</h3>
+      It is highly recommended that all new members visit the practice rooms prior to competing in an algorithm rated event. By visiting a practice room you will learn the Arena interface, the nature of the problems, and the expected structure of your solution. You will also get a chance to look at thousands of submissions in various languages from other competitors who have visited the practice rooms.<br/>
+
+
+      <A href="tc?module=Static&d1=help&d2=pracArena#practicerooms">Practice Room FAQ</A><br/><br/>
+      <A href="tc?module=Static&d1=help&d2=index">TopCoder FAQ</A>
+
+      
+      <br/><br/>
+      </p>
+
+</div>
 
 
 

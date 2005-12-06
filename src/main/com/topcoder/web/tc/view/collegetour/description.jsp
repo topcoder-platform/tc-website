@@ -40,71 +40,33 @@
       <div align=center>
       <img src="/i/collegetour/collegetour_promo.gif" alt="TopCoder College Tour" border=0 clear="all">
       </div>
-<!-- college logos -->
-         <span valign=top>
-         <table border="0" cellpadding="10" cellspacing="0" align="right">
-            <tr>
-               <td align="center" class="bodyText">
-               <A href="#"><img src="/i/collegetour/college_logo.gif" alt="College Logo" border=0/></A>
-               </td>
-            </tr>
-            <tr>
-               <td align="center" class="bodyText">
-               <A href="#"><img src="/i/collegetour/college_logo.gif" alt="College Logo" border=0/></A>
-               </td>
-            </tr>
-            <tr>
-               <td align="center" class="bodyText">
-               <A href="#"><img src="/i/collegetour/college_logo.gif" alt="College Logo" border=0/></A>
-               </td>
-            </tr>
-            <tr>
-               <td align="center" class="bodyText">
-               <A href="#"><img src="/i/collegetour/college_logo.gif" alt="College Logo" border=0/></A>
-               </td>
-            </tr>
-            <tr>
-               <td align="center" class="bodyText">
-               <A href="#"><img src="/i/collegetour/college_logo.gif" alt="College Logo" border=0/></A>
-               </td>
-            </tr>
-          </table>
-          </span>
           
       <p>
-      <h2>TopCoder College Tour SRM Overview</h2>
+      <h2>2006 TopCoder U.S. College Tour</h2>
       
-      <h3>The Event</h3> 
-      TopCoder is sponsoring an onsite programming competition at SCHOOL NAME on SRM DATE. <br/><br/>
+      <h3>Is your school on the schedule?</h3> 
+      TopCoder will be touring the U.S. during 2006 to promote TopCoder programs and to grow membership.  We’re looking for college CS programs who are interested in hosting TopCoder on campus for an evening of problem solving, food, prizes and fun.
       
-      <span class="bigRed">The last date for sign up for the event is DAY BEFORE SRM DATE.</span><br/><br/>
-      
-      The event is from SRM START TIME -30 MINS until SRM START TIME +120 MINS in the NAME OF BUILDING/LAB. This event is being run in conjunction with <A href="/?RoundId=8078&t=schedule&c=srm">SRM #281</A>. In addition to registering with TopCoder, all competitors must register <A href="//tc?module=registrants.jsp">here</a> and be onsite for the competition. After the event ends, pizza will served and a TopCoder representative will be present to discuss TopCoder competitions and employment services. 
-      
-      <h3>Prizes</h3>
+      <h3>How will the College Tour work?</h3>
+      Each selected campus will receive a visit from TopCoder during a regularly scheduled SRM.  TopCoder will provide a private registration path for each campus prior to the SRM.  At the time of the SRM, the registered students will gather in a computer lab and compete in their own room during the SRM, with everyone solving the same problems.  Everyone who registers and attends the SRM will receive a TopCoder t-shirt and the top performers will receive other prizes.  TopCoder will also provide pizza and beverages for all in attendance.
+      <br/><br/>
+      Prior to the SRM, TopCoder will provide the school with a web page dedicated to their event, to be used for promotional and informational purposes.  Additionally, TopCoder will provide flyers to be printed and hung around campus to attract attention.
+      <br/><br/>
+      At the conclusion of the SRM, a TopCoder representative will talk about the benefits of being involved with TopCoder:
       
       <ul>
-      <li>1st place prize - TBD </li>
-      <li>2nd place prize - TBD </li>
-      <li>3rd place prize - TBD </li>
+      <li><strong>SRMs:</strong>  Win cash prizes and chat before the competition with sponsors interested in hiring TopCoder members</li>
+      <li><strong>Component Projects:</strong>  Get paid for designing and/or developing real software projects that are used in applications for TopCoder clients</li>
+      <li><strong>TopCoder Software:</strong>  Consulting and full-time employment possibilities.</li>
+      <li><strong>TopCoder Employment Services:</strong>  Learn how the leading technology companies – Google, Yahoo, Microsoft, National Security Agency, Sun Microsystems, NVIDIA, VeriSign, Motorola, etc. – hire elite talent and how many positions there are available.</li>
+      <li><strong>TopCoder tournaments – TopCoder Open & TopCoder Collegiate Challenge:</strong>  Win huge cash prizes, major recognition, and an all-expenses paid trip to the onsite finals with other top-notch programmers from around the world.</li>
       </ul><br/>
       
-      All competitors will receive a TopCoder t-shirt.  Placement in the SRM will be determined by the total number of points at the conclusion of the SRM.  The competitor with the highest total positive (i.e., greater than zero) points will finish in 1st place.  The overall winner will receive the 1st place prize, the 2nd place finisher will receive the 2nd place prize, and the 3rd place finisher will receive the 3rd place prize.  
+      Interested in coordinating this event at your school?  Contact <A href="mailto:collegetour@topcoder.com">collegetour@topcoder.com</a> today!      
       
-      <h3>Event Schedule</h3>
-      
-      The timeline for the day of the event: 
-      <ul>
-      <li>SRM START TIME -30 MINS - Computer lab opens & competitors set up  </li>
-      <li>SRM START TIME - Competition starts  </li>
-      <li>SRM START TIME +95 MINS - Competition ends  </li>
-      <li>SRM START TIME +100 MINS - Pizza, Results, TopCoder presentation </li>
-      </ul><br/>
-      
-      <strong>RECRUITER NAME</strong>, a TopCoder representative, will be present to explain the TopCoder algorithm, design and development competitions, TopCoder Employment Services, and other aspects of TopCoder. 
-
       <br/><br/>
       </p>
+
 
 </div>
 
