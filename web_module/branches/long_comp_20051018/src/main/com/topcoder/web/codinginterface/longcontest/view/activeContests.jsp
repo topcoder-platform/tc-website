@@ -6,6 +6,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="codinginterface.tld" prefix="ci" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -68,7 +69,7 @@
                             <td class="<%=even?"statLt":"statDk"%>"><b><tc-webtag:beanWrite name="contest"
                                                                                             property="contestName"/></b>
 
-                                <div style="float: left;"><img src="/i/logo_r.gif" alt="" border="0"/></div>
+                                <div style="float: left;"><ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0"/></div>
                             </td>
                             <td class="<%=even?"statLt":"statDk"%>"><A
                                     href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>"

@@ -8,6 +8,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="codinginterface.tld" prefix="ci" %>
 <% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID)==null?Constants.LONG_ROUND_TYPE_ID:((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
 <% String level2 = "topcoder";
    String image = "long_comps_topcoder";
@@ -56,7 +57,7 @@
             </jsp:include>
 
             <div style="float:right; padding: 0px 0px 0px 5px;">
-               <A href=""><img src="/i/longcontest/spon_topcoder.gif" alt="Sponsor" border="0"/></A>
+               <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0"/>
             </div>
 
             <logic:notEmpty name="<%=Constants.MESSAGE%>">

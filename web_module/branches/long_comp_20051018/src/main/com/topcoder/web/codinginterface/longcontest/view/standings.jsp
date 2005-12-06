@@ -1,10 +1,12 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="codinginterface.tld" prefix="ci" %>
 <%@ page
         language="java"
         import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"
         %>
+
 <%@ page import="com.topcoder.web.codinginterface.longcontest.Constants" %>
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
@@ -76,7 +78,7 @@
 </jsp:include>
 
 <div style="float:right; padding: 0px 0px 0px 5px;">
-   <A href=""><img src="/i/longcontest/spon_topcoder.gif" alt="Sponsor" border="0"/></A>
+   <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0"/>
 </div>
 <%if (request.getAttribute(Constants.MESSAGE) != null) {%>
 <span class="errorText"><%=request.getAttribute(Constants.MESSAGE)%></span><br>
