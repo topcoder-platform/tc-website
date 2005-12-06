@@ -73,10 +73,9 @@ public class Login extends Base {
                                 if (nextPage != null && !nextPage.equals("")) {
                                     setNextPage(nextPage);
                                     setIsNextPageInContext(false);
-                                } else { // go to active contest page
-                                    getRequest().setAttribute(CodingInterfaceConstants.MODULE, Constants.RP_ACTIVE_CONTESTS);
+                                } else {
                                     setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
-                                    setIsNextPageInContext(true);
+                                    setIsNextPageInContext(false);
                                 }
                                 log.debug("on successful login, going to " + getNextPage());
                                 getAuthentication().login(new SimpleUser(0, username, password), false);
