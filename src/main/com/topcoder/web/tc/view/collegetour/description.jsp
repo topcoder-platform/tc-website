@@ -63,6 +63,11 @@
                <A href="#"><img src="/i/collegetour/college_logo.gif" alt="College Logo" border=0/></A>
                </td>
             </tr>
+            <tr>
+               <td align="center" class="bodyText">
+               <A href="#"><img src="/i/collegetour/college_logo.gif" alt="College Logo" border=0/></A>
+               </td>
+            </tr>
           </table>
           </span>
           
