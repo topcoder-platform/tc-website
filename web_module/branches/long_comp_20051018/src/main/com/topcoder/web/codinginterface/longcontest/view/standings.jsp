@@ -78,7 +78,7 @@
 </jsp:include>
 
 <div style="float:right; padding: 0px 0px 0px 5px;">
-   <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0"/>
+   <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
 </div>
 <%if (request.getAttribute(Constants.MESSAGE) != null) {%>
 <span class="errorText"><%=request.getAttribute(Constants.MESSAGE)%></span><br>

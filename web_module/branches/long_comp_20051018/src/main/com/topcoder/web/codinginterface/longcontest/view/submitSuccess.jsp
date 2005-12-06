@@ -52,7 +52,7 @@
             </jsp:include>
 
             <div style="float:right; padding: 0px 0px 0px 5px;">
-               <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0"/>
+               <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
             </div>
 
             <% int count = ((Number) request.getAttribute(Constants.QUEUE_LENGTH)).intValue();%>

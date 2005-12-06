@@ -69,7 +69,7 @@
                             <td class="<%=even?"statLt":"statDk"%>"><b><tc-webtag:beanWrite name="contest"
                                                                                             property="contestName"/></b>
 
-                                <div style="float: left;"><ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0"/></div>
+                                <div style="float: left;"><ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/></div>
                             </td>
                             <td class="<%=even?"statLt":"statDk"%>"><A
                                     href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>"

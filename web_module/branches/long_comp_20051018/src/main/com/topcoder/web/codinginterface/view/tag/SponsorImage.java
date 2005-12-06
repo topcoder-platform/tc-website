@@ -17,6 +17,7 @@ public class SponsorImage extends TagSupport {
     private String alt = null;
     private String vspace = null;
     private String border = null;
+    private String ifNull = null;
 
     public void setImage(ImageInfo image) {
         this.image = image;
@@ -80,6 +81,14 @@ public class SponsorImage extends TagSupport {
                 throw new JspException(e.getMessage());
             }
 
+        } else {
+            if (ifNull!=null) {
+                try {
+                    pageContext.getOut().println(ifNull);
+                } catch (IOException e) {
+                    throw new JspException(e.getMessage());
+                }
+            }
         }
 
         return EVAL_BODY_INCLUDE;
@@ -90,6 +99,7 @@ public class SponsorImage extends TagSupport {
         this.alt = null;
         this.vspace = null;
         this.border = null;
+        this.ifNull = null;
         return super.doEndTag();
     }
 

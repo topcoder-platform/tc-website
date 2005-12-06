@@ -133,7 +133,7 @@
                     </div>
 
                     <div style="float:left; padding: 5px 5px 0px 0px;">
-                       <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0"/>
+                       <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
                     </div>
 
                     <div style="float:right; padding: 5px 0px 0px 5px;">
