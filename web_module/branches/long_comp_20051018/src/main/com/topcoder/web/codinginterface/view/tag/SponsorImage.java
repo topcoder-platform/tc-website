@@ -24,7 +24,6 @@ public class SponsorImage extends TagSupport {
 
     public void setImage(String image) {
         this.image = (ImageInfo) pageContext.findAttribute(image);
-        ;
     }
 
     public void setAlt(String alt) {
@@ -43,7 +42,12 @@ public class SponsorImage extends TagSupport {
     public int doStartTag() throws JspException {
 
         if (image!=null) {
-            StringBuffer buffer = new StringBuffer();
+            StringBuffer buffer = new StringBuffer(200);
+            if (image.getLink()!=null) {
+                buffer.append("<a href=\"");
+                buffer.append(image.getLink());
+                buffer.append("\">");
+            }
             buffer.append("<img src=\"");
             buffer.append(image.getSrc() == null ? "" : image.getSrc());
             buffer.append("\"");
@@ -66,6 +70,9 @@ public class SponsorImage extends TagSupport {
             }
 
             buffer.append(" />");
+            if (image.getLink()!=null) {
+                buffer.append("</a>");
+            }
 
             try {
                 pageContext.getOut().println(buffer.toString());
