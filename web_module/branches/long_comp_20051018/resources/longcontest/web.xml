@@ -64,7 +64,10 @@
         <taglib-uri>tc-webtags.tld</taglib-uri>
         <taglib-location>/WEB-INF/tc-webtags.tld</taglib-location>
       </taglib>
-
+      <taglib>
+        <taglib-uri>codinginterface.tld</taglib-uri>
+        <taglib-location>/WEB-INF/codinginterface.tld</taglib-location>
+      </taglib>
 
     <error-page>
          <error-code>404</error-code>
