@@ -1,4 +1,5 @@
 <%@  page language="java"  %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -33,7 +34,7 @@
 
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="collegetour"/>
-<jsp:param name="title" value="Instructions"/>
+<jsp:param name="title" value="Description"/>
 </jsp:include>
 
 
