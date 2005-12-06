@@ -43,7 +43,9 @@
         document.codingForm.<%=Constants.ACTION_KEY%>.value = "save";
         document.codingForm.submit();
     }
-    function openWin(url, name, w, h) {
+    function openWin(url, name) {
+        var w = screen.availWidth * 2 / 3;
+        var h = screen.availHeight / 2;
         var left = Math.round((screen.availWidth - w) / 2);
         var top = Math.round((screen.availHeight - h) / 2);
         win = window.open(url, name, "scrollbars=yes,toolbar=no,resizable=yes,menubar=no"
@@ -100,7 +102,7 @@
                     <span class="bodyTitle">Coding Area</span><br>
                     <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=false<%=(checked!=-1?"&lid="+checked:"")%>" class="statLink">Problem
                         Statement</A>
-                    (<A href="Javascript:openWin('<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=true<%=(checked!=-1?"&lid="+checked:"")%>', 'Problem Statement', 500, 500);"  class="statLink">new window</A>)
+                    (<A href="Javascript:openWin('<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=true<%=(checked!=-1?"&lid="+checked:"")%>', 'Problem Statement');"  class="statLink">new window</A>)
                 </div>
 
                 <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="codingForm">
