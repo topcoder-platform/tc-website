@@ -64,7 +64,6 @@ public class EmailSender {
 
     private boolean send(ResultSetContainer.ResultSetRow recipient, String text, String subject) {
         try {
-            log("send email to " + recipient.getStringItem("address"));
             TCSEmailMessage message = new TCSEmailMessage();
             message.setFromAddress(senderEmail, senderName);
             message.setSubject(subject);
@@ -74,8 +73,10 @@ public class EmailSender {
             buf.append(text);
             message.setBody(buf.toString());
             EmailEngine.send(message);
+            log("send email to " + recipient.getStringItem("address"));
             return true;
         } catch (Exception e) {
+            log("failed email to " + recipient.getStringItem("address"));
             return false;
         }
     }
