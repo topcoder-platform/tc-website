@@ -4,6 +4,7 @@
     <session>
       <ejb-name>RoundRegistration</ejb-name>
       <jndi-name>com.topcoder.web.ejb.roundregistration.RoundRegistrationHome</jndi-name>
+        <local-jndi-name>com.topcoder.web.ejb.roundregistration.RoundRegistrationLocalHome</local-jndi-name>
     </session>
   </enterprise-beans>
 </jboss>

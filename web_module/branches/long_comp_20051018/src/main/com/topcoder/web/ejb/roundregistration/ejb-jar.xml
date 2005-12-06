@@ -14,6 +14,8 @@
             <ejb-name>RoundRegistration</ejb-name>
             <home>com.topcoder.web.ejb.roundregistration.RoundRegistrationHome</home>
             <remote>com.topcoder.web.ejb.roundregistration.RoundRegistration</remote>
+            <local-home>com.topcoder.web.ejb.roundregistration.RoundRegistrationLocalHome</local-home>
+            <local>com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal</local>
             <ejb-class>com.topcoder.web.ejb.roundregistration.RoundRegistrationBean</ejb-class>
             <session-type>Stateless</session-type>
             <transaction-type>Bean</transaction-type>

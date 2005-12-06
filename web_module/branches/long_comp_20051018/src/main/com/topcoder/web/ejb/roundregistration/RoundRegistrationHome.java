@@ -4,5 +4,5 @@ import javax.ejb.EJBHome;
 import java.rmi.RemoteException;
 
 public interface RoundRegistrationHome extends EJBHome {
-	public RoundRegistration create() throws CreateException, RemoteException;
+    RoundRegistration create() throws CreateException, RemoteException;
 }
