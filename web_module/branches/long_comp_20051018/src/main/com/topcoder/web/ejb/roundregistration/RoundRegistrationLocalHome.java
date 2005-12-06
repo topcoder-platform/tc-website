@@ -10,5 +10,5 @@ import javax.ejb.EJBLocalHome;
  */
 public interface RoundRegistrationLocalHome extends EJBLocalHome {
 
-    RoundRegistration create() throws CreateException;
+    RoundRegistrationLocal create() throws CreateException;
 }

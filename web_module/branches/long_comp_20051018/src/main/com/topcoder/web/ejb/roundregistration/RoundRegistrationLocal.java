@@ -2,7 +2,6 @@ package com.topcoder.web.ejb.roundregistration;
 
 import javax.ejb.EJBException;
 import javax.ejb.EJBLocalObject;
-import java.rmi.RemoteException;
 
 /**
  * @author dok
@@ -10,7 +9,7 @@ import java.rmi.RemoteException;
  *          Create Date: Dec 6, 2005
  */
 public interface RoundRegistrationLocal extends EJBLocalObject {
-        public void createRoundRegistration(long userId, long roundId) throws RemoteException, EJBException;
+    void createRoundRegistration(long userId, long roundId) throws EJBException;
 
-    public boolean exists(long userId, long roundId) throws RemoteException, EJBException;
+    boolean exists(long userId, long roundId) throws EJBException;
 }

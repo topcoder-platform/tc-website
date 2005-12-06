@@ -5,8 +5,6 @@ import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
 import javax.naming.Context;
-
-import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +14,7 @@ public class RoundRegistrationBean extends BaseEJB {
 
     private static final Logger log = Logger.getLogger(RoundRegistrationBean.class);
 
-    public void createRoundRegistration(long userId, long roundId) throws RemoteException, EJBException {
+    public void createRoundRegistration(long userId, long roundId) throws EJBException {
         log.debug("createRoundRegistration called... user_id=" + userId + " roundId=" + roundId);
 
         Context ctx = null;
@@ -48,7 +46,7 @@ public class RoundRegistrationBean extends BaseEJB {
         }
     }
     
-    public boolean exists(long userId, long roundId) throws RemoteException, EJBException {
+    public boolean exists(long userId, long roundId) throws EJBException {
         log.debug("exists called... user_id=" + userId + " roundId=" + roundId);
 
         Context ctx = null;
