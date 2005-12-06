@@ -10,8 +10,6 @@ import com.topcoder.shared.util.sql.InformixSimpleDataSource;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.channels.FileChannel;
 import java.util.Iterator;
 
 /**
@@ -82,11 +80,12 @@ public class EmailSender {
 
     private String getFile(String fileName) throws IOException {
         FileInputStream fis = new FileInputStream(fileName);
-        FileChannel chan = fis.getChannel();
-        log("channel has " + chan.size() + " bytes available");
-        ByteBuffer buf = ByteBuffer.allocate((int)chan.size());
-        chan.read(buf);
-        return buf.asCharBuffer().toString();
+        char ch = 0;
+        StringBuffer buf = new StringBuffer(1000);
+        while ((ch = (char)fis.read()) >=0) {
+            buf.append(ch);
+        }
+        return buf.toString();
 
     }
 
