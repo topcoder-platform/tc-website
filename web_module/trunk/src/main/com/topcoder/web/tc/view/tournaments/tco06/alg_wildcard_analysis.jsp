@@ -119,8 +119,8 @@ An implementation detail is that if you use a 64 bit integer for each row, all o
          
 <!-- Right Column-->
         <td width=170 align=right>
-            <jsp:include page="../../public_right.jsp">
-            <jsp:param name="level1" value="privatelabel"/>
+            <jsp:include page="right.jsp">
+            <jsp:param name="level1" value="all"/>
             </jsp:include>
          </td>
       
