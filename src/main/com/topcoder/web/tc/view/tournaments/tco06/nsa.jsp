@@ -44,7 +44,7 @@ NSA looks forward to recruiting from the top competitors in the 2006 TopCoder Op
 <!-- Right Column-->
         <td width=170 align=right>
             <jsp:include page="right.jsp">
-            <jsp:param name="level1" value="all"/>
+            <jsp:param name="level1" value="nsa"/>
             </jsp:include>
          </td>
       
