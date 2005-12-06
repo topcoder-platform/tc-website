@@ -161,7 +161,7 @@ public class ViewSystemTestResults extends Base {
                                 .toString());
             }
 
-            request.setAttribute("sortLinkBase", linkBase + pagingRParam + pagingCParam);
+            request.setAttribute("sortLinkBase", linkBase + pagingCParam);
 
             setNextPage(Constants.PAGE_VIEW_SYSTEM_TEST_RESULTS);
             setIsNextPageInContext(true);
