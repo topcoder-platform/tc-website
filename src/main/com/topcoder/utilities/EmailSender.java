@@ -8,7 +8,8 @@ import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.sql.InformixSimpleDataSource;
 
-import java.io.FileInputStream;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Iterator;
 
@@ -27,8 +28,9 @@ public class EmailSender {
 
     private static final String senderEmail = "gcjc@topcoder.com";
     private static final String senderName = "Google Code Jam China";
+
     public static void main(String[] args) {
-        if (args.length!=3) {
+        if (args.length != 3) {
             log("usage: " + EmailSender.class + " <filename> <command> <subject>");
             System.exit(1);
         } else {
@@ -44,14 +46,14 @@ public class EmailSender {
                 int failCount = 0;
                 long start = System.currentTimeMillis();
                 for (Iterator it = recipients.iterator(); it.hasNext();) {
-                    if (e.send((ResultSetContainer.ResultSetRow)it.next(), content, subject)) {
+                    if (e.send((ResultSetContainer.ResultSetRow) it.next(), content, subject)) {
                         successCount++;
                     } else {
                         failCount++;
                     }
                 }
                 long end = System.currentTimeMillis();
-                log("sent " + successCount + " emails, " + failCount + " failed.  it took " + (float)(end-start)/(float)1000 + " seconds");
+                log("sent " + successCount + " emails, " + failCount + " failed.  it took " + (float) (end - start) / (float) 1000 + " seconds");
                 System.exit(0);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -67,7 +69,7 @@ public class EmailSender {
             message.setFromAddress(senderEmail, senderName);
             message.setSubject(subject);
             message.addToAddress(recipient.getStringItem("address"), TCSEmailMessage.TO);
-            StringBuffer buf = new StringBuffer(text.length()+50);
+            StringBuffer buf = new StringBuffer(text.length() + 50);
             buf.append("Hello ").append(recipient.getStringItem("handle")).append(",\n\n");
             buf.append(text);
             message.setBody(buf.toString());
@@ -79,12 +81,13 @@ public class EmailSender {
     }
 
     private String getFile(String fileName) throws IOException {
-        FileInputStream fis = new FileInputStream(fileName);
-        char ch = 0;
         StringBuffer buf = new StringBuffer(1000);
-        while ((ch = (char)fis.read()) >=0) {
-            buf.append(ch);
+        BufferedReader ir = new BufferedReader(new FileReader(fileName));
+        while (ir.ready()) {
+            buf.append(ir.readLine());
+            buf.append("\n");
         }
+        ir.close();
         return buf.toString();
 
     }
@@ -93,7 +96,7 @@ public class EmailSender {
         Request dataRequest = new Request();
         dataRequest.setContentHandle(command);
         DataAccessInt dai = new DataAccess(new InformixSimpleDataSource(GCCJ05_TRANS));
-        return (ResultSetContainer)dai.getData(dataRequest).get(command);
+        return (ResultSetContainer) dai.getData(dataRequest).get(command);
     }
 
     private static void log(Object o) {
