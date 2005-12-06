@@ -32,11 +32,6 @@
 <td class="cardCell" width="100%" align="center">
 <div class="myTCBody">
 
-<jsp:include page="../page_title.jsp" >
-<jsp:param name="image" value="college_tour"/>
-<jsp:param name="title" value="Description"/>
-</jsp:include>
-
       <div align=center>
       <img src="/i/collegetour/collegetour_promo.gif" alt="TopCoder College Tour" border=0 clear="all">
       </div>

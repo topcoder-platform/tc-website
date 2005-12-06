@@ -38,7 +38,7 @@
 
 
       <div align=center>
-      <img src="/i/collegetour/collegetour_promo.gif" alt="TopCoder College Tour" border=0 clear="all">
+      <img src="/i/collegetour/college_logo.gif" alt="College Logo" border=0 clear="all">
       </div>
  
       <p>
@@ -49,7 +49,7 @@
       <ul>
       <li>Register on TopCoder </li>
       <li>Register your TopCoder handle <A href="//tc?module=registrants.jsp">here</a></li>
-      </ul><br/>
+      </ul>
             
       <h3>Languages</h3>
       TopCoder supports four languages: Java, C++, C# and VB.NET <br/>
@@ -70,7 +70,7 @@
       The competition takes place in what is called in the Arena. The Arena can be run as an applet from within your web browser or as a stand alone Java Web Start application (recommended). In order to compete, you will need to have Java installed on your computer (<A href="#">Sun Java</A>). You can find links to start the Arena on <A href="/tc">TopCoder</A>.
 
       <h3>Practice Arena</h3>
-      It is highly recommended that all new members visit the practice rooms prior to competing in an algorithm rated event. By visiting a practice room you will learn the Arena interface, the nature of the problems, and the expected structure of your solution. You will also get a chance to look at thousands of submissions in various languages from other competitors who have visited the practice rooms.<br/>
+      It is highly recommended that all new members visit the practice rooms prior to competing in an algorithm rated event. By visiting a practice room you will learn the Arena interface, the nature of the problems, and the expected structure of your solution. You will also get a chance to look at thousands of submissions in various languages from other competitors who have visited the practice rooms.<br/><br/>
 
 
       <A href="tc?module=Static&d1=help&d2=pracArena#practicerooms">Practice Room FAQ</A><br/><br/>
