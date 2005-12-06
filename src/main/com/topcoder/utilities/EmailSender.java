@@ -20,7 +20,7 @@ import java.util.Iterator;
  */
 public class EmailSender {
     private static final String GCCJ05_PROD = "jdbc:informix-sqli://192.168.14.51:2020/gcj_china_05_oltp:INFORMIXSERVER=informixol" +
-            "tp_tcp;user=coder;password=altec";
+            "tp_tcp;user=coder;password=teacup";
     private static final String DEV_TRANS =
             "jdbc:informix-sqli://65.112.118.221:1526/informixoltp:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec";
     private static final String GCCJ05_TRANS =
