@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>12.06.05<br>11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">Event calendar updated for <A href="/tc?module=Static&d1=calendar&d2=feb_06">February</A>, <A href="/tc?module=Static&d1=calendar&d2=mar_06">March</A>, <A href="/tc?module=Static&d1=calendar&d2=apr_06">April</A>, and <A href="/tc?module=Static&d1=calendar&d2=may_06">May</A></span><br><br>
+      We've updated the events calendar with SRM dates and important dates for the TCO06.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=calendar&d2=thisMonth">calendar</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505872" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>12.05.05<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=508140&mc=1#518768">GCC Upgrade</A></span><br><br>
       We've finished upgrading our C++ compilers to GCC 4.0.2.
@@ -275,17 +287,6 @@
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>11.11.05<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=507907&mc=1#516943">Upgraded Compiler Machines</A></span><br><br>
-      We've upgraded the compiler machines we use in the algorithm arena to new 3.6Ghz P4 machines. Everyone should now experience signficantly faster compile times.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=507907&mc=1#516943">discuss this</A>&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
 
 
 </table>
