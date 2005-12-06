@@ -58,8 +58,8 @@
       <li><strong>SRMs:</strong>  Win cash prizes and chat before the competition with sponsors interested in hiring TopCoder members</li>
       <li><strong>Component Projects:</strong>  Get paid for designing and/or developing real software projects that are used in applications for TopCoder clients</li>
       <li><strong>TopCoder Software:</strong>  Consulting and full-time employment possibilities.</li>
-      <li><strong>TopCoder Employment Services:</strong>  Learn how the leading technology companies Ð Google, Yahoo, Microsoft, National Security Agency, Sun Microsystems, NVIDIA, VeriSign, Motorola, etc. Ð hire elite talent and how many positions there are available.</li>
-      <li><strong>TopCoder tournaments Ð TopCoder Open & TopCoder Collegiate Challenge:</strong>  Win huge cash prizes, major recognition, and an all-expenses paid trip to the onsite finals with other top-notch programmers from around the world.</li>
+      <li><strong>TopCoder Employment Services:</strong>  Learn how the leading technology companies - Google, Yahoo, Microsoft, National Security Agency, Sun Microsystems, NVIDIA, VeriSign, Motorola, etc. - hire elite talent and how many positions there are available.</li>
+      <li><strong>TopCoder tournaments - TopCoder Open & TopCoder Collegiate Challenge:</strong>  Win huge cash prizes, major recognition, and an all-expenses paid trip to the onsite finals with other top-notch programmers from around the world.</li>
       </ul><br/>
       
       Interested in coordinating this event at your school?  Contact <A href="mailto:collegetour@topcoder.com">collegetour@topcoder.com</a> today!      
