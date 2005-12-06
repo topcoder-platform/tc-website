@@ -38,8 +38,11 @@ public class EmailSender {
                 long start = System.currentTimeMillis();
                 EmailSender e = new EmailSender();
                 String content = e.getFile(args[0]);
+                log("got content");
                 ResultSetContainer recipients = e.getRecipients(args[1]);
+                log("got " + recipients.size() + " recipients");
                 String subject = args[2];
+                log("got subject");
                 int successCount = 0;
                 int failCount = 0;
                 for (Iterator it = recipients.iterator(); it.hasNext();) {
@@ -61,6 +64,7 @@ public class EmailSender {
 
     private boolean send(ResultSetContainer.ResultSetRow recipient, String text, String subject) {
         try {
+            log("send email to " + recipient.getStringItem("address"));
             TCSEmailMessage message = new TCSEmailMessage();
             message.setFromAddress(senderEmail, senderName);
             message.setSubject(subject);
