@@ -88,7 +88,7 @@ public class EmailSender {
             buf.append("\n");
         }
         ir.close();
-        return buf.toString();
+        return new String(buf.toString().getBytes(), "utf-8");
 
     }
 
