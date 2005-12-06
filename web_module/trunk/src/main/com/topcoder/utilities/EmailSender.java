@@ -35,7 +35,6 @@ public class EmailSender {
             System.exit(1);
         } else {
             try {
-                long start = System.currentTimeMillis();
                 EmailSender e = new EmailSender();
                 String content = e.getFile(args[0]);
                 log("got content");
@@ -45,6 +44,7 @@ public class EmailSender {
                 log("got subject");
                 int successCount = 0;
                 int failCount = 0;
+                long start = System.currentTimeMillis();
                 for (Iterator it = recipients.iterator(); it.hasNext();) {
                     if (e.send((ResultSetContainer.ResultSetRow)it.next(), content, subject)) {
                         successCount++;
@@ -83,6 +83,7 @@ public class EmailSender {
     private String getFile(String fileName) throws IOException {
         FileInputStream fis = new FileInputStream(fileName);
         FileChannel chan = fis.getChannel();
+        log("channel has " + chan.size() + " bytes available");
         ByteBuffer buf = ByteBuffer.allocate((int)chan.size());
         chan.read(buf);
         return buf.asCharBuffer().toString();
