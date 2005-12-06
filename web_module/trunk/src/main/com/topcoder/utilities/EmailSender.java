@@ -30,8 +30,8 @@ public class EmailSender {
     private static final String senderName = "Google Code Jam China";
 
     public static void main(String[] args) {
-        if (args.length != 3) {
-            log("usage: " + EmailSender.class + " <filename> <command> <subject>");
+        if (args.length != 2) {
+            log("usage: " + EmailSender.class + " <filename> <command>");
             System.exit(1);
         } else {
             try {
@@ -40,7 +40,7 @@ public class EmailSender {
                 //log("got content");
                 ResultSetContainer recipients = e.getRecipients(args[1]);
                 log("got " + recipients.size() + " recipients");
-                String subject = args[2];
+                String subject = e.getSubject(args[0]);
                 //log("got subject");
                 int successCount = 0;
                 int failCount = 0;
@@ -83,13 +83,28 @@ public class EmailSender {
     private String getFile(String fileName) throws IOException {
         StringBuffer buf = new StringBuffer(1000);
         BufferedReader ir = new BufferedReader(new FileReader(fileName));
+        int i=0;
         while (ir.ready()) {
-            buf.append(ir.readLine());
-            buf.append("\n");
+            //skip the subject, we're assuming it's the first line
+            if (i>0) {
+                buf.append(ir.readLine());
+                buf.append("\n");
+            }
+            i++;
         }
         ir.close();
         return new String(buf.toString().getBytes(), "utf-8");
 
+    }
+
+    private String getSubject(String fileName) throws IOException {
+        StringBuffer buf = new StringBuffer(1000);
+        BufferedReader ir = new BufferedReader(new FileReader(fileName));
+        if (ir.ready()) {
+            buf.append(ir.readLine());
+        }
+        ir.close();
+        return new String(buf.toString().getBytes(), "utf-8");
     }
 
     private ResultSetContainer getRecipients(String command) throws Exception {
