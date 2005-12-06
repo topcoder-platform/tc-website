@@ -40,9 +40,24 @@
       <div align=center>
       <img src="/i/collegetour/collegetour_promo.gif" alt="TopCoder College Tour" border=0 clear="all">
       </div>
-      
+<!-- college logos -->
          <span valign=top>
          <table border="0" cellpadding="10" cellspacing="0" align="right">
+            <tr>
+               <td align="center" class="bodyText">
+               <A href="#"><img src="/i/collegetour/college_logo.gif" alt="College Logo" border=0/></A>
+               </td>
+            </tr>
+            <tr>
+               <td align="center" class="bodyText">
+               <A href="#"><img src="/i/collegetour/college_logo.gif" alt="College Logo" border=0/></A>
+               </td>
+            </tr>
+            <tr>
+               <td align="center" class="bodyText">
+               <A href="#"><img src="/i/collegetour/college_logo.gif" alt="College Logo" border=0/></A>
+               </td>
+            </tr>
             <tr>
                <td align="center" class="bodyText">
                <A href="#"><img src="/i/collegetour/college_logo.gif" alt="College Logo" border=0/></A>
