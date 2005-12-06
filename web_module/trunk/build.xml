@@ -536,6 +536,15 @@
          </jar>
      </target>
 
+     <target name="package-EJB-CollegeTourBean" depends="compile">
+         <jar jarfile="${ejb_jars}/CollegeTour.jar">
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/collegetour/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+             <metainf dir="${java}/com/topcoder/web/ejb/collegetour" includes="*.xml"/>
+         </jar>
+     </target>
+
      <target name="package-EJB-RBoard" depends="compile">
          <jar jarfile="${ejb_jars}/RBoard.jar">
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -1421,6 +1430,7 @@
 -->
          <antcall target="package-EJB-CoderBean"/>
          <antcall target="package-EJB-CoderSkillBean"/>
+         <antcall target="package-EJB-CollegeTourBean"/>
          <antcall target="package-EJB-ComponentRegistrationServicesBean"/>
          <antcall target="package-EJB-DataCacheBean"/>
 <!--
@@ -1473,6 +1483,7 @@
                  <include name="Catalog.jar"/>
                  <include name="Coder.jar"/>
                  <include name="CoderSkill.jar"/>
+                 <include name="CollegeTour.jar"/>
                  <include name="ComponentRegistrationServices.jar"/>
                  <include name="DataCache.jar"/>
                  <include name="ddepersistence.jar"/>
