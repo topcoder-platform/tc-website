@@ -30,7 +30,7 @@ public class EmailSender {
     private static final String senderEmail = "gcjc@topcoder.com";
     private static final String senderName = "Google Code Jam China";
     public static void main(String[] args) {
-        if (args.length!=2) {
+        if (args.length!=3) {
             log("usage: " + EmailSender.class + " <filename> <command> <subject>");
             System.exit(1);
         } else {
