@@ -153,7 +153,7 @@
                             <% if (((TCTimestampResult) projectDetail.getItem(0, "opens_on")).compareTo(new TCTimestampResult(new Timestamp(System.currentTimeMillis()))) == 1) { %>
                                 <i>Not open yet ***</i>
                             <% } else if (((ReviewBoardApplication) reviewer).isSpotFilled()) { %>
-                                <tc-webtag:handle coderId="<%=((ReviewBoardApplication)reviewer).getUserId()%>" context='<%=((ReviewBoardApplication)reviewer).getPhaesId()==112?"design":"development"%>'/>
+                                <tc-webtag:handle coderId="<%=((ReviewBoardApplication)reviewer).getUserId()%>" context='<%=((ReviewBoardApplication)reviewer).getPhaseId()==112?"design":"development"%>'/>
                             <% } else if (isWaiting) { %>
                                 <i>Waiting ****</i>
                             <% } else { %>
