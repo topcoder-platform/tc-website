@@ -82,6 +82,7 @@ public class EmailSender {
     }
 
     public void setDataSource(String dataSource) {
+        log("set datasource " + dataSource);
         this.dataSource = dataSource;
     }
 
