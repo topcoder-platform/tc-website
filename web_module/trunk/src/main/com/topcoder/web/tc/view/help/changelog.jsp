@@ -45,6 +45,7 @@
             <li>Changed default sort on component listing page to be date descending</li>
             <li>Make extra sure a tc member can't create a dup account for a private label events</li>
             <li>Color handles on the review project details page</li>
+            <li>Fix bug in demo reg where security user not created</li>
         </ul>
     </p>
     <p>
