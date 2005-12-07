@@ -22,6 +22,7 @@ public class NavBuilder extends TagSupport {
     private NavTree nav = null;
     private String selectedNode = null;
     private String openClass = null;
+    private String selectedClass = null;
 
     public void setNavTree(String navTree) {
         this.nav = (NavTree)pageContext.findAttribute(navTree);
@@ -64,7 +65,19 @@ public class NavBuilder extends TagSupport {
     private void printOutput(NavNode node, Set parents) throws IOException {
         JspWriter out = pageContext.getOut();
         out.print("\n<li>");
-        out.print(node.getContents());
+        if (node.isLink()&&node.isLeaf()) {
+            out.print("<a href=\"");
+            out.print(node.getHref());
+            out.print("\"");
+            out.print(" class=\"");
+            out.print(selectedClass);
+            out.print("\"");
+            out.print(">");
+            out.print(node.getContents());
+            out.print("</a>");
+        } else {
+            out.print(node.getContents());
+        }
         if (!node.isLeaf() && !node.getKey().equals(selectedNode)) {
             out.print("\n<ul id=\"");
             out.print(node.getKey());
@@ -92,6 +105,8 @@ public class NavBuilder extends TagSupport {
     public int doEndTag() throws JspException {
         this.nav = null;
         this.selectedNode = null;
+        this.openClass = null;
+        this.selectedClass = null;
         return super.doEndTag();
     }
 
