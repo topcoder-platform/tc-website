@@ -224,8 +224,8 @@ public class EmailSender {
                 throw new Exception("updated " + ret + " rows not one when attempting to set processed flag on id " + id);
             }
         } finally {
-            close(conn);
             close(ps);
+            close(conn);
         }
     }
 
