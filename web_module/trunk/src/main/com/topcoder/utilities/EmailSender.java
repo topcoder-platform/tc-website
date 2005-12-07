@@ -10,9 +10,7 @@ import com.topcoder.shared.util.sql.InformixSimpleDataSource;
 
 import javax.sql.DataSource;
 import javax.naming.Context;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ArrayList;
@@ -37,6 +35,7 @@ public class EmailSender {
     private String dataSource = null;
 
     public static void main(String[] args) {
+        long id= 0;
             try {
                 EmailSender e = new EmailSender();
 
@@ -48,7 +47,7 @@ public class EmailSender {
                 while (true) {
                     List jobs = e.getJobs();
                     for (int i=0; i<jobs.size(); i++) {
-                        long id= ((Long)jobs.get(i)).longValue();
+                        id= ((Long)jobs.get(i)).longValue();
                         log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
                         log("starting job " + id);
                         log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
@@ -76,6 +75,19 @@ public class EmailSender {
                 }
 
             } catch (Exception e) {
+                try {
+                    TCSEmailMessage message = new TCSEmailMessage();
+                    message.setFromAddress(senderEmail, senderName);
+                    message.setSubject("error sending email" + ((id>0)?"on job " + id:""));
+                    message.addToAddress("gpaul@topcoder.com", TCSEmailMessage.TO);
+                    //buf.append("Hello ").append(recipient.getStringItem("handle")).append(",\n\n");
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    e.printStackTrace(new PrintStream(baos));
+                    message.setBody(baos.toString());
+                    EmailEngine.send(message);
+                } catch (Exception ignore) {
+                    ignore.printStackTrace();
+                }
                 e.printStackTrace();
                 System.exit(1);
             }
