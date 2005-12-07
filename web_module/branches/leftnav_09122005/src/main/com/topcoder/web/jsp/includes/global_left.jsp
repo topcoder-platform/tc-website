@@ -136,7 +136,7 @@ function arena() {
 <div id="navbar">
 
 
-<nav:navBuilder navTree="tree" openClass="OPEN" selectedNode="<%=request.getParameter("node")%>"/>
+<nav:navBuilder navTree="tree" openClass="OPEN" selectedClass="highlight" selectedNode="<%=request.getParameter("node")%>"/>
 
 </div>
 <div style="padding: 15px; 0px; 15px; 20px;">
