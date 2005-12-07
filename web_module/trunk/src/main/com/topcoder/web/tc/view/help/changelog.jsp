@@ -43,6 +43,8 @@
             <li>Added text to the reliability rating page indicating that new competitors don't get a rating til they pass review, and that unreliable people can't register for more than 2 projects</li>
             <li>Added survey admin tool</li>
             <li>Changed default sort on component listing page to be date descending</li>
+            <li>Make extra sure a tc member can't create a dup account for a private label events</li>
+            <li>Color handles on the review project details page</li>
         </ul>
     </p>
     <p>
