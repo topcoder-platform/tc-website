@@ -39,9 +39,9 @@
       <p>
       <h2>2006 TopCoder U.S. College Tour</h2>
 
-      <h3>Is your school on the schedule? <div style="float: right;"><tc-webtag:forumLink forumID="505834" message="Discuss College Tour" /></div></h3>
+      <h3>Is your school on the schedule? <div style="align: right;"><tc-webtag:forumLink forumID="505834" message="Discuss College Tour" /></div></h3>
       
-      TopCoder will be touring the U.S. during 2006 to promote TopCoder programs and to grow membership.  We’re looking for college CS programs who are interested in hosting TopCoder on campus for an evening of problem solving, food, prizes and fun.
+      TopCoder will be touring the U.S. during 2006 to promote TopCoder programs and to grow membership.  We're looking for college CS programs who are interested in hosting TopCoder on campus for an evening of problem solving, food, prizes and fun.
       
       <h3>How will the College Tour work?</h3>
       Each selected campus will receive a visit from TopCoder during a regularly scheduled SRM.  TopCoder will provide a private registration path for each campus prior to the SRM.  At the time of the SRM, the registered students will gather in a computer lab and compete in their own room during the SRM, with everyone solving the same problems.  Everyone who registers and attends the SRM will receive a TopCoder t-shirt and the top performers will receive other prizes.  TopCoder will also provide pizza and beverages for all in attendance.
