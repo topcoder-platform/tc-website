@@ -3,13 +3,13 @@
 <html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.shared.dataAccess.resultSet.TCTimestampResult,
-                 com.topcoder.web.common.BaseProcessor,
                  com.topcoder.web.tc.model.ReviewBoardApplication,
                  com.topcoder.web.tc.Constants,
                  java.sql.Timestamp,
                  java.util.List"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail"); %>
 <% List reviewerList = (List) request.getAttribute("reviewerList"); %>
@@ -153,7 +153,7 @@
                             <% if (((TCTimestampResult) projectDetail.getItem(0, "opens_on")).compareTo(new TCTimestampResult(new Timestamp(System.currentTimeMillis()))) == 1) { %>
                                 <i>Not open yet ***</i>
                             <% } else if (((ReviewBoardApplication) reviewer).isSpotFilled()) { %>
-                                <tc:beanWrite name="reviewer" property="handle"/>
+                                <tc-webtag: coderId="<%=((ReviewBoardApplication)reviewer).getUserId()%>" context='<%=((ReviewBoardApplication)reviewer).getPhaeId()==112?"design":"development"%>'/>
                             <% } else if (isWaiting) { %>
                                 <i>Waiting ****</i>
                             <% } else { %>
