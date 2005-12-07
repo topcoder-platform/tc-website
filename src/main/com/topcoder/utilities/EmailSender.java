@@ -8,10 +8,18 @@ import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.sql.InformixSimpleDataSource;
 
+import javax.sql.DataSource;
+import javax.naming.Context;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.List;
+import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.sql.PreparedStatement;
 
 /**
  * @author dok
@@ -21,45 +29,87 @@ import java.util.Iterator;
 public class EmailSender {
     private static final String GCCJ05_PROD = "jdbc:informix-sqli://192.168.14.51:2020/gcj_china_05_oltp:INFORMIXSERVER=informixol" +
             "tp_tcp;user=coder;password=teacup";
-    private static final String DEV_TRANS =
-            "jdbc:informix-sqli://65.112.118.221:1526/informixoltp:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec";
     private static final String GCCJ05_TRANS =
             "jdbc:informix-sqli://172.16.20.25:1526/gcj_china_05_oltp:INFORMIXSERVER=tc_memeber_dev_tcp;user=coder;password=altec";
 
     private static final String senderEmail = "gcjc@topcoder.com";
     private static final String senderName = "Google Code Jam China";
+    private String dataSource = null;
 
     public static void main(String[] args) {
-        if (args.length != 2) {
-            log("usage: " + EmailSender.class + " <filename> <command>");
-            System.exit(1);
-        } else {
             try {
                 EmailSender e = new EmailSender();
-                String content = e.getFile(args[0]);
-                //log("got content");
-                ResultSetContainer recipients = e.getRecipients(args[1]);
-                log("got " + recipients.size() + " recipients");
-                String subject = e.getSubject(args[0]);
-                //log("got subject");
-                int successCount = 0;
-                int failCount = 0;
-                long start = System.currentTimeMillis();
-                for (Iterator it = recipients.iterator(); it.hasNext();) {
-                    if (e.send((ResultSetContainer.ResultSetRow) it.next(), content, subject)) {
-                        successCount++;
+                List jobs = e.getJobs();
+
+                if (args.length>0) {
+                    if (args[0].equals("dev")) {
+                        e.setDataSource(GCCJ05_TRANS);
                     } else {
-                        failCount++;
+                        e.setDataSource(GCCJ05_PROD);
                     }
+                } else {
+                    e.setDataSource(GCCJ05_PROD);
                 }
-                long end = System.currentTimeMillis();
-                log("sent " + successCount + " emails, " + failCount + " failed.  it took " + (float) (end - start) / (float) 1000 + " seconds");
-                System.exit(0);
+
+                while (true) {
+                    for (int i=0; i<jobs.size(); i++) {
+                        long id= ((Long)jobs.get(i)).longValue();
+                        log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                        log("starting job " + id);
+                        log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+
+                        String fileName = e.getFileName(id);
+                        String content = e.getFile(fileName);
+                        ResultSetContainer recipients = e.getRecipients(e.getCommand(id));
+                        log("got " + recipients.size() + " recipients");
+                        String subject = e.getSubject(fileName);
+                        int successCount = 0;
+                        int failCount = 0;
+                        long start = System.currentTimeMillis();
+                        for (Iterator it = recipients.iterator(); it.hasNext();) {
+                            if (e.send((ResultSetContainer.ResultSetRow) it.next(), content, subject)) {
+                                successCount++;
+                            } else {
+                                failCount++;
+                            }
+                        }
+                        long end = System.currentTimeMillis();
+                        log("job " + id + " sent " + successCount + " emails, " + failCount + " failed.  it took " + (float) (end - start) / (float) 1000 + " seconds");
+                        e.markComplete(id);
+                    }
+                    Thread.sleep(1000*60);
+                }
+
             } catch (Exception e) {
                 e.printStackTrace();
                 System.exit(1);
             }
+    }
+
+    public void setDataSource(String dataSource) {
+        this.dataSource = dataSource;
+    }
+
+    private List getJobs() throws ClassNotFoundException, SQLException {
+        DataSource d = new InformixSimpleDataSource(dataSource);
+        Connection conn = null;
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        ArrayList ret = new ArrayList(10);
+        try {
+            conn = d.getConnection();
+            String select = "select id from china_email where start_date < current and processed = 0";
+            ps = conn.prepareStatement(select);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                ret.add(new Long(rs.getLong("id")));
+            }
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
         }
+        return ret;
     }
 
     private boolean send(ResultSetContainer.ResultSetRow recipient, String text, String subject) {
@@ -81,23 +131,6 @@ public class EmailSender {
         }
     }
 
-    private String getFile(String fileName) throws IOException {
-        StringBuffer buf = new StringBuffer(1000);
-        BufferedReader ir = new BufferedReader(new FileReader(fileName));
-        int i=0;
-        while (ir.ready()) {
-            //skip the subject, we're assuming it's the first line
-            if (i>0) {
-                buf.append(ir.readLine());
-                buf.append("\n");
-            }
-            i++;
-        }
-        ir.close();
-        return new String(buf.toString().getBytes(), "utf-8");
-
-    }
-
     private String getSubject(String fileName) throws IOException {
         StringBuffer buf = new StringBuffer(1000);
         BufferedReader ir = new BufferedReader(new FileReader(fileName));
@@ -106,16 +139,149 @@ public class EmailSender {
         }
         ir.close();
         return new String(buf.toString().getBytes(), "utf-8");
+
+    }
+
+    private String getFile(String fileName) throws IOException {
+        StringBuffer buf = new StringBuffer(1000);
+        BufferedReader ir = new BufferedReader(new FileReader(fileName));
+        int i=0;
+        while (ir.ready()) {
+            //skip the subject, we're assuming it's the first line
+            String line = ir.readLine()+"\n";
+            if (i>0) {
+                buf.append(line);
+            }
+            i++;
+        }
+        ir.close();
+        return new String(buf.toString().getBytes(), "utf-8");
+
+    }
+
+    private String getFileName(long id) throws Exception, ClassNotFoundException, SQLException {
+
+        DataSource d = new InformixSimpleDataSource(dataSource);
+        Connection conn = null;
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        try {
+            conn = d.getConnection();
+            String select = "select file_name from china_email where id = ?";
+            ps = conn.prepareStatement(select);
+            ps.setLong(1, id);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getString("file_name");
+            } else {
+                throw new Exception("couldn't find file name for id " + id);
+            }
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+        }
+    }
+
+    private String getCommand(long id) throws Exception, ClassNotFoundException, SQLException {
+
+        DataSource d = new InformixSimpleDataSource(dataSource);
+        Connection conn = null;
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        try {
+            conn = d.getConnection();
+            String select = "select command from china_email where id = ?";
+            ps = conn.prepareStatement(select);
+            ps.setLong(1, id);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getString("command");
+            } else {
+                throw new Exception("couldn't find command for id " + id);
+            }
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+        }
     }
 
     private ResultSetContainer getRecipients(String command) throws Exception {
         Request dataRequest = new Request();
         dataRequest.setContentHandle(command);
-        DataAccessInt dai = new DataAccess(new InformixSimpleDataSource(GCCJ05_PROD));
+        DataAccessInt dai = new DataAccess(new InformixSimpleDataSource(dataSource));
         return (ResultSetContainer) dai.getData(dataRequest).get(command);
+    }
+
+    private void markComplete(long id) throws Exception {
+        DataSource d = new InformixSimpleDataSource(dataSource);
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = d.getConnection();
+            String update = "update china_email set processed = 1 where id = ?";
+            ps = conn.prepareStatement(update);
+            ps.setLong(1, id);
+            int ret = ps.executeUpdate();
+            if (ret!=1) {
+                throw new Exception("updated " + ret + " rows not one when attempting to set processed flag on id " + id);
+            }
+        } finally {
+            close(conn);
+            close(ps);
+        }
     }
 
     private static void log(Object o) {
         System.out.println(o.toString());
     }
+
+    protected void close(ResultSet rs) {
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (Exception ignore) {
+                ignore.printStackTrace();
+            }
+        }
+    }
+
+    protected void close(Connection conn) {
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (Exception ignore) {
+                ignore.printStackTrace();
+            }
+        }
+
+    }
+
+    protected void close(Context ctx) {
+        if (ctx != null) {
+            try {
+                ctx.close();
+            } catch (Exception ignore) {
+                ignore.printStackTrace();
+            }
+        }
+
+    }
+
+    protected void close(PreparedStatement ps) {
+        if (ps != null) {
+            try {
+                ps.close();
+            } catch (Exception ignore) {
+                ignore.printStackTrace();
+            }
+        }
+
+    }
+
+
+
+
+
 }
