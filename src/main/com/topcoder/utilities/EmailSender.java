@@ -39,12 +39,12 @@ public class EmailSender {
     public static void main(String[] args) {
             try {
                 EmailSender e = new EmailSender();
-                List jobs = e.getJobs();
 
                 e.setDataSource(GCCJ05_PROD);
                 if (args.length>0&&args[0].equals("dev")) {
                     e.setDataSource(GCCJ05_TRANS);
                 }
+                List jobs = e.getJobs();
 
                 while (true) {
                     for (int i=0; i<jobs.size(); i++) {
@@ -82,7 +82,7 @@ public class EmailSender {
     }
 
     public void setDataSource(String dataSource) {
-        log("set datasource " + dataSource);
+        //log("set datasource " + dataSource);
         this.dataSource = dataSource;
     }
 
