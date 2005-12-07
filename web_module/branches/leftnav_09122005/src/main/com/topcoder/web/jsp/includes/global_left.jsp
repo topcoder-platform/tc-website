@@ -15,7 +15,7 @@
 
     NavTree nav = new NavTree();
     nav.addRoot(new NavNode("<a href=\"javascript:toggleMenu('m_competitors')\" class=\"exp\">Competitions</a>", "m_competitors"));
-        nav.search("m_competitors").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc\">Home</a>", "home"));
+        nav.search("m_competitors").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc", "Home", "home"));
         nav.search("m_competitors").addChild(new NavNode("<a href=\"javascript:toggleMenu('m_my_tc')\" class=\"exp\">My TopCoder</a>", "m_my_tc"));
             nav.search("m_my_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/Registration\">Update My Profile</a>", "update_profile"));
             nav.search("m_my_tc").addChild(new NavNode("<a href=\"http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReferrals\">Members I've Referred</a>", "referrals"));
