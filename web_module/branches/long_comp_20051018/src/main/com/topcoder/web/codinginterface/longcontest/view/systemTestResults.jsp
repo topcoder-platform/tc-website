@@ -150,7 +150,7 @@ text-align: left;
                                 <% String style = even ? "statLt" : "statDk";
                                     even = !even; %>
                                 <logic:equal parameter="<%=Constants.CODER_ID%>" value="<%=coderRow.getStringItem("coder_id")%>">
-                                    <% style = "highlightStylePlaceholder"; %>
+                                    <% style = "statHighlight"; %>
                                 </logic:equal>
                                 <tr align="right">
                                     <td class="<%=style%>" align="left" nowrap="nowrap">
