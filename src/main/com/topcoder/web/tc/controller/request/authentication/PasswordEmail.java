@@ -9,8 +9,6 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 
-import java.util.StringTokenizer;
-
 
 public class PasswordEmail extends Base {
 
@@ -51,6 +49,7 @@ public class PasswordEmail extends Base {
                     msgText.append(rsc.getStringItem(0, "handle"));
                     msgText.append("\nPassword:  ");
                     msgText.append(rsc.getStringItem(0, "password"));
+                    msgText.append("\n\nWe recommend that you login and change your password immediately.\n");
                     msgText.append("\n\nThank You for registering with TopCoder!\n");
                     msgText.append("\n\nPlease do not reply to this e-mail.\n");
                     mail.setBody(msgText.toString());
