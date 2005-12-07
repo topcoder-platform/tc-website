@@ -36,7 +36,8 @@
 
 
 <h2>Development Faq</h2>
-<p>If you have any questions concerning Reliability Rating that are not answered here, please send an email to <A href="mailto:service@topcoder.com">service@topcoder.com</A>.</p>
+<p>If you have any questions concerning Reliability Rating that are not answered here, please send an email to
+    <A href="mailto:service@topcoder.com">service@topcoder.com</A>.</p>
 
 <h3>Reliability Rating</h3>
 <p>Member profiles have been modified to reflect a reliability factor for the last 15 component design and 15 development competitions. 
@@ -53,6 +54,9 @@ member presents a timely submission that scores at least a 70 in review.</p>
 will be marked reliable, if the user submitted a solution that passed screening.  Additionally, for those that had never
 submitted prior to October 5th, 2005 they will not be given a reliability rating until they submit a project that scores
 at least a 70 in review.</p>
+
+    <p>One will not be allow to register for more than 2 projects if their relevant reliability rating is less
+        than 70%, or if they don't have a reliability rating.</p>
 
 <p>Members will be eligible to receive a bonus on top of any prize money won if their Reliability Ratings are equal to or exceed 
 80%. Winning members with Reliability Ratings equal to or exceeding 80% and less than 90% will receive a bonus equal to 10% 
