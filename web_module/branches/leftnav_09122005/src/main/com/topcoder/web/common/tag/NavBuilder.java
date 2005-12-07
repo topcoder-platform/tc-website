@@ -36,6 +36,10 @@ public class NavBuilder extends TagSupport {
         this.openClass = openClass;
     }
 
+    public void setSelectedClass(String selectedClass) {
+        this.selectedClass = selectedClass;
+    }
+
     public int doStartTag() throws JspException {
         try {
             NavNode root;
