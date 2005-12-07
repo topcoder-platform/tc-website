@@ -40,8 +40,9 @@
     <p>
         4.0.8 - 2005.xx.xx
         <ul>
-            <li>Added text to the reliability rating page indicating that new competitors don't get a rating til they pass review</li>
+            <li>Added text to the reliability rating page indicating that new competitors don't get a rating til they pass review, and that unreliable people can't register for more than 2 projects</li>
             <li>Added survey admin tool</li>
+            <li>Changed default sort on component listing page to be date descending</li>
         </ul>
     </p>
     <p>
