@@ -73,9 +73,11 @@ public class NavBuilder extends TagSupport {
             out.print("<a href=\"");
             out.print(node.getHref());
             out.print("\"");
-            out.print(" class=\"");
-            out.print(selectedClass);
-            out.print("\"");
+            if (selectedNode!=null && node.equals(selectedNode)) {
+                out.print(" class=\"");
+                out.print(selectedClass);
+                out.print("\"");
+            }
             out.print(">");
             out.print(node.getContents());
             out.print("</a>");
