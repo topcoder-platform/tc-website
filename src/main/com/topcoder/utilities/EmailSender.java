@@ -41,14 +41,9 @@ public class EmailSender {
                 EmailSender e = new EmailSender();
                 List jobs = e.getJobs();
 
-                if (args.length>0) {
-                    if (args[0].equals("dev")) {
-                        e.setDataSource(GCCJ05_TRANS);
-                    } else {
-                        e.setDataSource(GCCJ05_PROD);
-                    }
-                } else {
-                    e.setDataSource(GCCJ05_PROD);
+                e.setDataSource(GCCJ05_PROD);
+                if (args.length>0&&args[0].equals("dev")) {
+                    e.setDataSource(GCCJ05_TRANS);
                 }
 
                 while (true) {
