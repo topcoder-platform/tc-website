@@ -44,9 +44,9 @@ public class EmailSender {
                 if (args.length>0&&args[0].equals("dev")) {
                     e.setDataSource(GCCJ05_TRANS);
                 }
-                List jobs = e.getJobs();
 
                 while (true) {
+                    List jobs = e.getJobs();
                     for (int i=0; i<jobs.size(); i++) {
                         long id= ((Long)jobs.get(i)).longValue();
                         log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
