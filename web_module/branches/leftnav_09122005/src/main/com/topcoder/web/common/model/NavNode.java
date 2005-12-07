@@ -121,4 +121,17 @@ public class NavNode {
     public NavNode getParent() {
         return parent;
     }
+
+    public boolean equals(Object o) {
+        if (o==null) {
+            return false;
+        }
+
+        try {
+            NavNode other = (NavNode)o;
+            return other.getKey().equals(key);
+        } catch (ClassCastException e) {
+            return false;
+        }
+    }
 }
