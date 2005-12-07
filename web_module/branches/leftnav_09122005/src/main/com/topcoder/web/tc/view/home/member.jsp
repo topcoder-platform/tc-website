@@ -6,6 +6,9 @@
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
 
 <jsp:include page="../script.jsp" />
+<jsp:include page="../style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -20,7 +23,7 @@
 <!-- Left Column Begins-->
 		<td width="180">
 			<jsp:include page="../includes/global_left.jsp">
-				<jsp:param name="node" value="m_competitors"/>
+				<jsp:param name="node" value="home"/>
 			</jsp:include>
 		</td>
 <!-- Left Column Ends -->
