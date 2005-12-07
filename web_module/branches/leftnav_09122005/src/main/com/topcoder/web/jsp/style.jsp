@@ -10,6 +10,5 @@
     <% } else if (key.equals("tc_main")) { %>
         <link type="text/css" rel="stylesheet" href="/css/style.css"/>
         <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
-        <link type="text/css" rel="stylesheet" href="/css/TCOstyle.css"/>
         <link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
     <% } %>
