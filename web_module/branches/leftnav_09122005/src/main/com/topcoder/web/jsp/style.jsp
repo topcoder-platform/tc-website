@@ -11,4 +11,9 @@
         <link type="text/css" rel="stylesheet" href="/css/style.css"/>
         <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
         <link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
+    <% } else if (key.equals("tc_stats")) { %>
+        <link type="text/css" rel="stylesheet" href="/css/style.css"/>
+        <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
+        <link type="text/css" rel="stylesheet" href="/css/stats.css"/>
+        <link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
     <% } %>
