@@ -5,24 +5,22 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCResourceBundle;
-import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.common.model.DemographicResponse;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.demographic.Response;
-import com.topcoder.web.ejb.user.User;
-import com.topcoder.web.ejb.user.UserAddress;
 import com.topcoder.web.ejb.address.Address;
+import com.topcoder.web.ejb.user.UserAddress;
+import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.email.Email;
-import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.HashMap;
-import java.util.Locale;
+import java.util.Iterator;
 
 public abstract class FullLogin extends FullReg {
 
@@ -120,6 +118,9 @@ public abstract class FullLogin extends FullReg {
        if (hasEventAccount()) {
             addError(Constants.HANDLE, getBundle().getProperty("error_event_account_exists"));
             return null;
+       } else if (userExists(getRequestParameter(Constants.HANDLE))) {
+           addError(Constants.HANDLE, getBundle().getProperty("error_event_account_exists"));
+           return null;
         } else {
             if (!hasErrors()&&hasTopCoderAccount()) {
                 //this must be done after the account checks, cuz that's where they get logged in...confusing?  yes
