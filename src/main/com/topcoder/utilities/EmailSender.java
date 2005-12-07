@@ -86,7 +86,6 @@ public class EmailSender {
                     message.setBody(baos.toString());
                     EmailEngine.send(message);
                 } catch (Exception ignore) {
-                    ignore.printStackTrace();
                 }
                 e.printStackTrace();
                 System.exit(1);
