@@ -98,7 +98,7 @@ text-align: left;
                <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
             </div>
 
-            <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
+            <span class="bigHandle">Contest: <A href="" class="bcLink"><rsc:item name="contest_name" row="<%=infoRow%>"/></A></span><br>
             <span class="bodySubtitle">Registrants: <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>" class="bcLink">
                 <rsc:item name="num_registrants" row="<%=infoRow%>"/></A></span><br>
             <span class="bodySubtitle">Competitors: <rsc:item name="num_competitors" row="<%=infoRow%>"/></span><br>
@@ -117,16 +117,16 @@ text-align: left;
                         <a href="<%=prevPageColLink%>" class="bcLink"><img src="/i/interface/btn_tableScroll_L.gif" alt="LEFT" border="0" /></A>
                         </logic:notEmpty>
                      </td>
-                    <td class="statTableHolder">
+                    <td class="statTableHolder" width="100%">
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                             <tr>
                                 <td class="tableTitle" colspan="<%=cases.getRowCount()+2%>">System Test Results</td>
                             </tr>
                             <tr>
-                                <td class="tableHeader">
+                                <td class="tableHeader" width="1%">
                                     <A href="<%=sortLinkBase%>&<%=DataAccessConstants.SORT_COLUMN%>=1&<%=DataAccessConstants.SORT_DIRECTION%>=<%=("1".equals(request.getParameter(DataAccessConstants.SORT_COLUMN))&&!"desc".equals(request.getParameter(DataAccessConstants.SORT_DIRECTION)))?"desc":"asc"%>">Handle</A>
                                 </td>
-                                <td class="tableHeader" align="right">
+                                <td class="tableHeader" align="right" width="1%">
                                     <A href="<%=sortLinkBase%>&<%=DataAccessConstants.SORT_COLUMN%>=2&<%=DataAccessConstants.SORT_DIRECTION%>=<%=("2".equals(request.getParameter(DataAccessConstants.SORT_COLUMN))&&!"asc".equals(request.getParameter(DataAccessConstants.SORT_DIRECTION)))?"asc":"desc"%>">Score</A>
                                 </td>
                                 <rsc:iterator list="<%=cases%>" id="resultRow">
