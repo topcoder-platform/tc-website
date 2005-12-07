@@ -7,7 +7,9 @@
 <title>TopCoder Statisics</title>
 
 <jsp:include page="../script.jsp" />
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<jsp:include page="../style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 </head>
 
