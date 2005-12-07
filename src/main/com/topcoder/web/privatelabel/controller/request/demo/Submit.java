@@ -1,5 +1,7 @@
 package com.topcoder.web.privatelabel.controller.request.demo;
 
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -28,7 +30,9 @@ import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import javax.rmi.PortableRemoteObject;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Map;
 
 /**
  * @author dok
@@ -61,6 +65,38 @@ public class Submit extends ResumeRegSubmit {
         }
     }
 
+
+
+    protected long commit(SimpleRegInfo regInfo) throws TCWebException {
+
+        UserPrincipal newUser = null;
+        long userId = 0;
+        try {
+
+            try {
+                PrincipalMgrRemote mgr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+                newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
+                regInfo.setUserId(newUser.getId());
+                userId = super.commit(regInfo);
+            } catch (Exception e) {
+                if (newUser != null && newUser.getId() > 0 && regInfo.isNew()) {
+                    PrincipalMgrRemote mgr = (PrincipalMgrRemote)
+                            com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+                    mgr.removeUser(newUser, CREATE_USER);
+                }
+            }
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+
+        return userId;
+    }
+
+
+
+
    protected long store(SimpleRegInfo regInfo) throws Exception {
        long ret = super.storeWithoutCoder(regInfo);
 
@@ -78,144 +114,6 @@ public class Submit extends ResumeRegSubmit {
 
     }
 
-
-
-/*
-    protected long commit(SimpleRegInfo regInfo) throws TCWebException {
-
-        long ret = 0;
-        UserPrincipal newUser = null;
-        TransactionManager tm = null;
-        try {
-            tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
-            tm.begin();
-            PrincipalMgrRemote mgr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
-            newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
-            //this isn't super wonderful since we're updating the input
-            regInfo.setUserId(newUser.getId());
-            ret = store(regInfo);
-            tm.commit();
-        } catch (Exception e) {
-            Exception ex = null;
-            try {
-                if (tm != null && tm.getStatus()==Status.STATUS_ACTIVE) {
-                    tm.rollback();
-                }
-            } catch (Exception x) {
-                throw new TCWebException(e);
-            }
-
-            try {
-                //since we don't have a transaction spanning the security
-                //stuff, attempt to remove this newly created user manually
-                if (newUser != null && newUser.getId() > 0 && regInfo.isNew()) {
-                    PrincipalMgrRemote mgr = (PrincipalMgrRemote)
-                            com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
-                    mgr.removeUser(newUser, CREATE_USER);
-                }
-            } catch (Exception x) {
-                if (ex==null) ex = x;
-                throw new TCWebException(x);
-            }
-            throw new TCWebException(e);
-        }
-        return ret;
-    }
-*/
-
-
-/*
-    protected long store(SimpleRegInfo regInfo) throws Exception {
-*/
-
-
-/*
-    protected long commit(SimpleRegInfo regInfo) throws TCWebException {
-        TransactionManager tm = null;
-
-        long ret = 0;
-        UserPrincipal newUser = null;
-        try {
-            tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
-            tm.begin();
-
-            PrincipalMgrRemote mgr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
-            newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
-
-            ret = store(regInfo, newUser);
-            tm.commit();
-        } catch (Exception e) {
-            Exception ex = null;
-            try {
-                if (tm != null && tm.getStatus()==Status.STATUS_ACTIVE) {
-                    tm.rollback();
-                }
-            } catch (Exception x) {
-                throw new TCWebException(e);
-            }
-
-            try {
-                //since we don't have a transaction spanning the security
-                //stuff, attempt to remove this newly created user manually
-                if (newUser != null && newUser.getId() > 0 && regInfo.isNew()) {
-                    PrincipalMgrRemote mgr = (PrincipalMgrRemote)
-                            com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
-                    mgr.removeUser(newUser, CREATE_USER);
-                }
-            } catch (Exception x) {
-                if (ex==null) ex = x;
-                throw new TCWebException(x);
-            }
-            throw new TCWebException(e);
-        }
-        return ret;
-    }
-
-
-    protected long store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
-*/
-/*
-        long ret = super.storeWithoutCoder(regInfo);
-
-        //need to add coder record to avoid breaking a bunch of foreign keys
-        CoderHome cHome = (CoderHome)
-                PortableRemoteObject.narrow(
-                        getInitialContext().lookup(CoderHome.class.getName()), CoderHome.class);
-        Coder coder = cHome.create();
-        coder.createCoder(regInfo.getUserId(), 1);
-
-        super.setCoderType(ret, ((FullRegInfo) regInfo).getCoderType());
-        super.storeQuestions(regInfo, ret);
-
-        //check for resume save
-        ResumeRegInfo info = (ResumeRegInfo) regInfo;
-        if (info.getUploadedFile() != null) {
-            byte[] fileBytes = null;
-            String fileName = "";
-            int fileType = -1;
-
-            fileBytes = new byte[(int) info.getUploadedFile().getSize()];
-            info.getUploadedFile().getInputStream().read(fileBytes);
-            if (fileBytes == null || fileBytes.length == 0)
-                addError(Constants.FILE, "Sorry, the file you attempted to upload was empty.");
-            else {
-                //fileType = Integer.parseInt(file.getParameter("fileType"));
-                Map types = getFileTypes(transDb);
-                if (types.containsKey(info.getUploadedFile().getContentType())) {
-                    log.debug("FOUND TYPE");
-                    fileType = ((Long) types.get(info.getUploadedFile().getContentType())).intValue();
-                } else {
-                    log.debug("DID NOT FIND TYPE " + info.getUploadedFile().getContentType());
-                }
-                fileName = info.getUploadedFile().getRemoteFileName();
-                ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
-                resumeServices.putResume(ret, fileType, fileName, fileBytes, transDb);
-            }
-        }
-
-        return ret;
-    }
-*/
 
 
     protected void handleActivation(SimpleRegInfo info, long userId) throws TCWebException {
