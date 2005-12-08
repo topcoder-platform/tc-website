@@ -348,7 +348,7 @@ public class Submit extends Base {
     }*/
 
     //todo this may need to be modified if in the future we limit which languages are available
-    protected static List getLanguges() {
+    protected static List getLanguages() {
         List ret = new ArrayList(4);
         ret.add(JavaLanguage.JAVA_LANGUAGE);
         ret.add(CPPLanguage.CPP_LANGUAGE);
