@@ -5,6 +5,9 @@
 <title>TopCoder - Help</title>
 
 <jsp:include page="../script.jsp" />
+<jsp:include page="../style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -18,10 +21,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="support"/>
-                <jsp:param name="level2" value="guide"/>
-            </jsp:include>
+         <jsp:include page="../includes/global_left.jsp">
+            <jsp:param name="node" value="alg_competition_guide"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
