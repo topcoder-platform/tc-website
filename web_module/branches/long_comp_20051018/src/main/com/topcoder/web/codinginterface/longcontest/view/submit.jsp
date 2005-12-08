@@ -8,8 +8,9 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
-<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <%@ taglib uri="codinginterface.tld" prefix="ci" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
+<tc-webtag:useBean id="languages" name="<%=Constants.LANGUAGES%>" type="java.util.List" toScope="page" />
 <% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID) == null ? Constants.LONG_ROUND_TYPE_ID : ((Integer) request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
 <% String level2 = "topcoder";
     String image = "long_comps_topcoder";
@@ -22,8 +23,6 @@
         level2 = "intel";
         image = "long_comps_intel";
     }
-    int checked = (request.getAttribute(Constants.SELECTED_LANGUAGE) == null ? -1 : Integer.parseInt((String) request.getAttribute(Constants.SELECTED_LANGUAGE)));
-    ResultSetContainer langs = (ResultSetContainer) request.getAttribute(Constants.LANGUAGES);
 %>
 
 <html>
@@ -108,10 +107,9 @@ color: FF0000;
               (<A href="Javascript:openWin('<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=true<%=(checked!=-1?"&lid="+checked:"")%>', 'Problem Statement');"  class="statLink">new window</A>)
             </td>
             <td align="right" valign="top">Choose your language:<br>
-               <rsc:iterator list="<%=langs%>" id="resultRow">
-                   <input type="radio" <%=resultRow.getIntItem("language_id") == checked ? "checked ":""%>
-                          name="<%=Constants.SELECTED_LANGUAGE%>" value="<%=resultRow.getIntItem("language_id")%>"><%=resultRow.getStringItem("language_name")%>
-               </rsc:iterator>
+                <tc-webtag:listIterator id="language" list="languages" type="com.topcoder.shared.language.Language">
+                  <tc-webtag:radioButton name="<%=Constants.LANGUAGE_ID%>" value="<%=String.valueOf(language.getId())%>" />&#160;<jsp:getProperty name="language" property="name"/>&#160;
+                </tc-webtag:listIterator>
             </td>
          </tr>
          <tr>
