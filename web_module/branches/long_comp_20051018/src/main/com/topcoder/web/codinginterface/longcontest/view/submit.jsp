@@ -22,6 +22,8 @@
         level2 = "intel";
         image = "long_comps_intel";
     }
+    int checked = (request.getAttribute(Constants.SELECTED_LANGUAGE) == null ? -1 : Integer.parseInt((String) request.getAttribute(Constants.SELECTED_LANGUAGE)));
+    ResultSetContainer langs = (ResultSetContainer) request.getAttribute(Constants.LANGUAGES);
 %>
 
 <html>
@@ -129,10 +131,6 @@
                      if (stat != null) {
                          status = stat.booleanValue() ? "Your code compiled successfully.<br>" : "Your code did not compile successfully.<br>";
                      }
-         
-                     int checked = (request.getAttribute(Constants.SELECTED_LANGUAGE) == null ? -1 : Integer.parseInt((String) request.getAttribute(Constants.SELECTED_LANGUAGE)));
-                     ResultSetContainer langs = (ResultSetContainer) request.getAttribute(Constants.LANGUAGES);
-         
                      String msg = (request.getAttribute(Constants.MESSAGE) != null ? "" + request.getAttribute(Constants.MESSAGE) : "");
                  %>
                  <%=msg%>
