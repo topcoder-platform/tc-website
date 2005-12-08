@@ -57,7 +57,7 @@
       
       <ul>
       <li><A href="/reg/index.jsp" target="blank">Register</a> on TopCoder </li>
-      <li>Register your TopCoder handle <A href="/tc?module=register.jsp" target="blank">here</a></li>
+      <li>Register your TopCoder handle <A href="/tc?module=Static&d1=collegetour&d2=register" target="blank">here</a></li>
       </ul>
             
       <h3>Languages</h3>

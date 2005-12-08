@@ -57,7 +57,7 @@
       
       <span class="bigRed">The last date for sign up for the event is DAY BEFORE SRM DATE.</span><br/><br/>
       
-      The event is from SRM START TIME -30 MINS until SRM START TIME +120 MINS in the NAME OF BUILDING/LAB. This event is being run in conjunction with <A href="/?RoundId=8078&t=schedule&c=srm">SRM #281</A>. In addition to registering with TopCoder, all competitors must register <A href="//tc?module=register.jsp">here</a> and be onsite for the competition. After the event ends, pizza will be served and a TopCoder representative will be present to discuss TopCoder competitions and employment services. 
+      The event is from SRM START TIME -30 MINS until SRM START TIME +120 MINS in the NAME OF BUILDING/LAB. This event is being run in conjunction with <A href="/?RoundId=8078&t=schedule&c=srm">SRM #281</A>. In addition to registering with TopCoder, all competitors must register <A href="/tc?module=register.jsp">here</a> and be onsite for the competition. After the event ends, pizza will be served and a TopCoder representative will be present to discuss TopCoder competitions and employment services. 
       
       <h3>Prizes</h3>
       
