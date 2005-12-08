@@ -76,24 +76,6 @@
         <jsp:param name="image" value="<%=image%>"/>
         <jsp:param name="title" value="Coding Area"/>
     </jsp:include>
-    <div align='center' class='bigRed'>
-        <%
-            Boolean stat = ((Boolean) request.getAttribute(Constants.COMPILE_STATUS));
-            String error = StringUtils.checkNull((String) request.getAttribute(Constants.COMPILE_MESSAGE));
-            String status = "";
-            if (stat != null) {
-                status = stat.booleanValue() ? "Your code compiled successfully.<br>" : "Your code did not compile successfully.<br>";
-            }
-
-            int checked = (request.getAttribute(Constants.SELECTED_LANGUAGE) == null ? -1 : Integer.parseInt((String) request.getAttribute(Constants.SELECTED_LANGUAGE)));
-            ResultSetContainer langs = (ResultSetContainer) request.getAttribute(Constants.LANGUAGES);
-
-            String msg = (request.getAttribute(Constants.MESSAGE) != null ? "" + request.getAttribute(Constants.MESSAGE) : "");
-        %>
-        <%=msg%>
-        <%=status%>
-        <%=error%>
-    </div>
 
     <div align="center">
     <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="codingForm">
@@ -139,6 +121,24 @@
          </tr>
          <tr>
             <td>
+             <div style="float:left;" class='bigRed'>
+                 <%
+                     Boolean stat = ((Boolean) request.getAttribute(Constants.COMPILE_STATUS));
+                     String error = StringUtils.checkNull((String) request.getAttribute(Constants.COMPILE_MESSAGE));
+                     String status = "";
+                     if (stat != null) {
+                         status = stat.booleanValue() ? "Your code compiled successfully.<br>" : "Your code did not compile successfully.<br>";
+                     }
+         
+                     int checked = (request.getAttribute(Constants.SELECTED_LANGUAGE) == null ? -1 : Integer.parseInt((String) request.getAttribute(Constants.SELECTED_LANGUAGE)));
+                     ResultSetContainer langs = (ResultSetContainer) request.getAttribute(Constants.LANGUAGES);
+         
+                     String msg = (request.getAttribute(Constants.MESSAGE) != null ? "" + request.getAttribute(Constants.MESSAGE) : "");
+                 %>
+                 <%=msg%>
+                 <%=status%>
+                 <%=error%>
+             </div>
               <div style="float:left; padding: 5px 5px 0px 0px;">
                   <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
               </div>
