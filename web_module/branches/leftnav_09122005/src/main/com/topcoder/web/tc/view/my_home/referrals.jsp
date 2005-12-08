@@ -8,6 +8,9 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <jsp:include page="../script.jsp" />
+<jsp:include page="../style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 <% ResultSetContainer referralList = (ResultSetContainer)request.getAttribute("referralList");%>
 
 </head>
@@ -22,10 +25,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="my_home"/>
-                <jsp:param name="level2" value="referrals"/>
-            </jsp:include>
+         <jsp:include page="../includes/global_left.jsp">
+            <jsp:param name="node" value="referrals"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
