@@ -156,7 +156,6 @@
       </table>
     </form>
         </div>
-    </div>
     <br/><br/>
 </td>
 
