@@ -15,24 +15,23 @@
 
     NavTree nav = new NavTree();
     nav.addRoot(new NavNode("<a href=\"Javascript:toggleMenu('m_competitors')\" class=\"exp\">Competitions</a>", "m_competitors"));
-        nav.search("m_competitors").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc", "Home", "home"));
+        nav.search("m_competitors").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc", "Home", "competition_home"));
+        nav.search("m_competitors").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/Registration", "Register to compete", "competition_registration"));
         nav.search("m_competitors").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_my_tc')\" class=\"exp\">My TopCoder</a>", "m_my_tc"));
-            nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/Registration", "Update My Profile", "update_profile"));
+            nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/Registration", "Update My Profile", "competition_update_profile"));
             nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReferrals", "Members I've Referred", "referrals"));
             nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/PactsMemberServlet?t=affidavit&c=affidavit_history", "Affidavits", "affidavits"));
-            nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=card&d2=description", "Card/Badges", "cards"));
+            nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=card&d2=description", "Card / Badges", "cards_badges"));
         nav.search("m_competitors").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_alg_comp')\" class=\"exp\">Algorithm Competitions</a>", "m_alg_comp"));
-            nav.search("m_alg_comp").addChild(new NavNode("Javascript:arena()", "Launch Arena Applet", "launch_arena"));
-            nav.search("m_alg_comp").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/?&t=schedule&c=index", "Calendar", "calendar"));
-            nav.search("m_alg_comp").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_alg_stats')\" class=\"exp\">Statistics</a>", "m_alg_stats"));
-                //todo this needs to be completed with the full compliment of stat links
-                nav.search("m_alg_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/stat?&c=last_match", "Match Results", "last_match"));
-                nav.search("m_alg_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=match_editorials&d2=archive", "Match Editorials", "match_editorials"));
-                nav.search("m_alg_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ProblemArchive", "Problem Archive", "last_match"));
-                //todo what is this?
-                nav.search("m_alg_stats").addChild(new NavNode("", "Achievements", "achievements"));
+            nav.search("m_alg_comp").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/NEW_PAGE", "Home", "alg_competition_home"));
+            nav.search("m_alg_comp").addChild(new NavNode("Javascript:arena()", "Compete / Launch Arena", "launch_arena"));
+            nav.search("m_alg_comp").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/?&t=schedule&c=index", "Calendar", "competition_calendar"));
+            //todo this needs to be completed with the full compliment of stat links
+            nav.search("m_alg_comp").addChild(new NavNode("/NEW_PAGE", "Match Archive", "alg_match_archive"));
+            nav.search("m_alg_comp").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ProblemArchive", "Problem Archive", "last_match"));
+            nav.search("m_alg_comp").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/?t=statistics&c=quick_stats", "Record Book", "alg_record_book"));
             nav.search("m_alg_comp").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_alg_support')\" class=\"exp\">Support/FAQs</a>", "m_alg_support"));
-                nav.search("m_alg_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=help&d2=index", "Competition Guide", "alg_comp_guide"));
+                nav.search("m_alg_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=help&d2=index", "How to compete", "alg_competition_guide"));
                 nav.search("m_alg_support").addChild(new NavNode("", "FAQs", "alg_faq"));
                 nav.search("m_alg_support").addChild(new NavNode("", "Sample Problem Statements", "alg_prob_state"));
                 nav.search("m_alg_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/?&t=support&c=ratings", "Rating System", "alg_rating_sys"));
@@ -133,13 +132,11 @@ function arena() {
 
 
 
-<div id="navbar">
-
-
+<div id="navbar" style="float: left; clear: left;">
 <nav:navBuilder navTree="tree" openClass="OPEN" selectedClass="highlight" selectedNode="<%=request.getParameter("node")%>"/>
-
 </div>
-<div style="padding: 15px; 0px; 15px; 20px;">
+
+<div style="float: left; clear: left; padding: 15px 0px 40px 15px;">
 <jsp:include page="../includes/modules/leftNavSearch.jsp"/>
 </div>
 
