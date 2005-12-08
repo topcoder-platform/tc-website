@@ -58,7 +58,7 @@ public class Submit extends Base {
             int cid = Integer.parseInt(getParameter(request, Constants.COMPONENT_ID));
             int rid = Integer.parseInt(getParameter(request, Constants.ROUND_ID));
             int cd = Integer.parseInt(getParameter(request, Constants.CONTEST_ID));
-            int language = Integer.parseInt((getParameter(request, Constants.LANGUAGE_ID) == null ? "-1" : getParameter(request, Constants.LANGUAGE_ID)));
+            int language = Integer.parseInt((getParameter(request, Constants.LANGUAGE_ID) == null ? "0" : getParameter(request, Constants.LANGUAGE_ID)));
             String action = getParameter(request, Constants.ACTION_KEY);
             String code = getParameter(request, Constants.CODE);
             String message = getParameter(request, Constants.MESSAGE);
@@ -134,19 +134,18 @@ public class Submit extends Base {
                     ResultSetContainer rsc = (ResultSetContainer) m.get("long_contest_recent_compilation");
                     // default values
                     code = "";
-                    language = -1;
                     // Any code in the DB?
                     if (rsc.size() > 0) {
                         code = rsc.getStringItem(0, "compilation_text");
                         if (!isNull(rsc, 0, "language_id")) {
                             language = rsc.getIntItem(0, "language_id");
-                        } else {
-                            language = -1;
                         }
                     }
                     // put the updated values back into request
                     request.setAttribute(Constants.CODE, code);
-                    request.setAttribute(Constants.LANGUAGE_ID, String.valueOf(language));
+                    if (language>0) {
+                        request.setAttribute(Constants.LANGUAGE_ID, String.valueOf(language));
+                    }
                 }
                 log.debug("set message in request to " + message);
                 request.setAttribute(Constants.LANGUAGES, getLanguages());
@@ -156,7 +155,7 @@ public class Submit extends Base {
             } else if (action.equals("submit")) { // user is submiting code
 
                 // Language specified?
-                if (language == -1) {
+                if (language > 0) {
                     log.debug("set message in request to please select a language");
                     request.setAttribute(Constants.MESSAGE, "Please select a language.");
                     setNextPage(Constants.SUBMISSION_JSP);
