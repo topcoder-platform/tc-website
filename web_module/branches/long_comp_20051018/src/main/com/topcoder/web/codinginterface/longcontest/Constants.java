@@ -39,8 +39,10 @@ public class Constants implements CodingInterfaceConstants {
 
     public static String LONG_CONTEST_INDEX_KEY;
     public static String PROBLEM_STATEMENT_KEY;
+/*
     public static String COMPILE_MESSAGE;
     public static String COMPILE_STATUS;
+*/
     public static String LANGUAGES;
     public static String CLASS_NAME;
     public static String METHOD_NAME;

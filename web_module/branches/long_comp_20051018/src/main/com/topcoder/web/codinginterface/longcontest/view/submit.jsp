@@ -137,19 +137,7 @@ color: FF0000;
          <tr>
             <td colspan="2">
 <span class="bodySubtitle">Messages</span><br>
-<textarea cols="70" rows="5" name="messages" class="messageAreaText" wrap="off" readonly><%
-Boolean stat = ((Boolean) request.getAttribute(Constants.COMPILE_STATUS));
-String error = StringUtils.checkNull((String) request.getAttribute(Constants.COMPILE_MESSAGE));
-String status = "";
-if (stat != null) {
-    status = stat.booleanValue() ? "Your code compiled successfully." : "Your code did not compile successfully.";
-}
-String msg = (request.getAttribute(Constants.MESSAGE) != null ? "" + request.getAttribute(Constants.MESSAGE) : "");
-%>
-<%=msg%>
-<%=status%>
-<%=error%>
-</textarea>
+<textarea cols="70" rows="5" name="messages" class="messageAreaText" wrap="off" readonly><%=(request.getAttribute(Constants.MESSAGE) != null ? "" + request.getAttribute(Constants.MESSAGE) : "")%></textarea>
             </td>
          </tr>
          <tr>

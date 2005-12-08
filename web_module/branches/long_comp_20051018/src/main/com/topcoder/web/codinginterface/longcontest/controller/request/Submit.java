@@ -1,6 +1,5 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import com.topcoder.server.common.Results;
 import com.topcoder.server.ejb.DBServices.DBServices;
 import com.topcoder.server.ejb.DBServices.DBServicesHome;
 import com.topcoder.server.ejb.TestServices.TestServices;
@@ -16,7 +15,6 @@ import com.topcoder.shared.problem.DataType;
 import com.topcoder.shared.problem.ProblemComponent;
 import com.topcoder.shared.problemParser.ProblemComponentFactory;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.NavigationException;
@@ -26,12 +24,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 
 import javax.naming.InitialContext;
-import java.io.BufferedReader;
 import java.io.StringReader;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Map;
 
 /**
@@ -62,8 +55,10 @@ public class Submit extends Base {
             int language = Integer.parseInt((getParameter(request, Constants.SELECTED_LANGUAGE) == null ? "-1" : getParameter(request, Constants.SELECTED_LANGUAGE)));
             String action = getParameter(request, Constants.ACTION_KEY);
             String code = getParameter(request, Constants.CODE);
+/*
             Boolean compStatus = ((Boolean) request.getSession().getAttribute(Constants.COMPILE_STATUS));
             String compMsg = getParameter(request, Constants.COMPILE_MESSAGE);
+*/
 
             // Clear session of temp variables
             cleanSession();
@@ -132,8 +127,10 @@ public class Submit extends Base {
 
             request.setAttribute(Constants.CODE, code);
             request.setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
+/*
             request.setAttribute(Constants.COMPILE_STATUS, compStatus);
             request.setAttribute(Constants.COMPILE_MESSAGE, compMsg);
+*/
 
             if (action == null) { // no action specified
                 // any code in session?
@@ -196,8 +193,11 @@ public class Submit extends Base {
                         request.getSession().setAttribute(Constants.LANGUAGES, lang);
                         request.getSession().setAttribute(Constants.CODE, code);
                         request.getSession().setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
+                        request.getSession().setAttribute(Constants.MESSAGE, res.getCompileError());
+/*
                         request.getSession().setAttribute(Constants.COMPILE_STATUS, new Boolean(res.getCompileStatus()));
                         request.getSession().setAttribute(Constants.COMPILE_MESSAGE, htmlEncode(res.getCompileError()));
+*/
                         // Go back to coding.
                         closeProcessingPage(buildProcessorRequestString("Submit",
                                 new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID},
@@ -206,7 +206,7 @@ public class Submit extends Base {
                 } catch (TimeOutException e) {
                     log.debug("compilation timed out...");
                     // The compilation timed out
-                    request.getSession().setAttribute(Constants.COMPILE_MESSAGE, "Your code compilation request timed out.<br>");
+                    request.getSession().setAttribute(Constants.MESSAGE, "Your code compilation request timed out.");
                     // Go back to coding.
                     closeProcessingPage(buildProcessorRequestString("Submit",
                             new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID, Constants.LANGUAGE_ID},
@@ -240,19 +240,6 @@ public class Submit extends Base {
         return r.getItem(row, colName).getResultData() == null;
     }
 
-    // Puts <BR> at the end of every line
-    protected String htmlEncode(String s) throws Exception {
-        StringBuffer sb = new StringBuffer();
-        BufferedReader br = new BufferedReader(new StringReader(s));
-        while (true) {
-            String l = br.readLine();
-            if (l == null) break;
-            sb.append(l);
-            sb.append("<br>");
-        }
-        return sb.toString();
-    }
-
     // Removes junk session variables that this class put into session
     private void cleanSession() {
         log.debug("Clearing submit session variables...");
@@ -260,8 +247,11 @@ public class Submit extends Base {
         getRequest().getSession().removeAttribute(Constants.CLASS_NAME);
         getRequest().getSession().removeAttribute(Constants.CODE);
         getRequest().getSession().removeAttribute(Constants.SELECTED_LANGUAGE);
+        getRequest().getSession().removeAttribute(Constants.MESSAGE);
+/*
         getRequest().getSession().removeAttribute(Constants.COMPILE_STATUS);
         getRequest().getSession().removeAttribute(Constants.COMPILE_MESSAGE);
+*/
     }
 
     /**
@@ -295,11 +285,13 @@ public class Submit extends Base {
         TestServices ts = t.create();
 
         // Save the code!
-        Results r = ts.saveComponent(cd, rid, cid, uid, code);
+        return ts.saveComponent(cd, rid, cid, uid, code).isSuccess();
 
+/*
         if (!r.isSuccess()) { // Could not save!
             return false;
         } else { // Save the language along w/ the code...
+            //todo get rid of this shit!!!!!!!
             if (lang != -1) {
                 Connection conn = null;
                 PreparedStatement ps = null;
@@ -321,8 +313,9 @@ public class Submit extends Base {
                 }
             }
         }
-
         return true;
+*/
+
     }
 
     // Checks to see if the user is registered for this round contest.
@@ -342,7 +335,7 @@ public class Submit extends Base {
     /**
      * Helper function which gets the problemstateid for a given coder's problem
      */
-    private long getComponentStateID(long coderId, long roundId, long componentId, Connection conn) throws SQLException {
+/*    private long getComponentStateID(long coderId, long roundId, long componentId, Connection conn) throws SQLException {
 
         PreparedStatement ps = null;
         StringBuffer sqlStr = new StringBuffer(200);
@@ -361,5 +354,5 @@ public class Submit extends Base {
         } finally {
             DBMS.close(null, ps, rs);
         }
-    }
+    }*/
 }
