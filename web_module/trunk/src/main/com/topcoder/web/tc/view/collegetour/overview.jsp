@@ -45,7 +45,7 @@
       <p align="center">Overview&#160;&#160;|&#160;&#160;
       <A href="/tc?module=Static&d1=collegetour&d2=info">Instructions</A>&#160;&#160;|&#160;&#160;
       <A href="/tc?module=Static&d1=collegetour&d2=register">Register</A>&#160;&#160;|&#160;&#160;
-      <A href="//tc?module=Static&d1=collegetour&d2=registrants">Registrants</A>
+      <A href="/tc?module=Static&d1=collegetour&d2=registrants">Registrants</A>
       </p>
 <!-- ends -->
 
