@@ -155,20 +155,6 @@ public abstract class Base extends BaseProcessor {
         getRequest().getSession().setAttribute(Constants.LANGUAGES, languages);
     }
 
-    public List getLanguages() throws TCWebException {
-        if (languages == null) {
-            List temp = (List) getRequest().getSession().getAttribute(Constants.LANGUAGES);
-            if (temp == null)
-                throw new TCWebException("languages have not been set");
-            else {
-                languages = temp;
-            }
-        }
-        return languages;
-
-    }
-
-
     protected Object getDefault(String key) {
         return defaults.get(key);
     }
