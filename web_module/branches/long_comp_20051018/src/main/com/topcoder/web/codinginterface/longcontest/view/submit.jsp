@@ -130,7 +130,7 @@ Boolean stat = ((Boolean) request.getAttribute(Constants.COMPILE_STATUS));
 String error = StringUtils.checkNull((String) request.getAttribute(Constants.COMPILE_MESSAGE));
 String status = "";
 if (stat != null) {
-    status = stat.booleanValue() ? "Your code compiled successfully.<br>" : "Your code did not compile successfully.<br>";
+    status = stat.booleanValue() ? "Your code compiled successfully." : "Your code did not compile successfully.";
 }
 String msg = (request.getAttribute(Constants.MESSAGE) != null ? "" + request.getAttribute(Constants.MESSAGE) : "");
 %>
