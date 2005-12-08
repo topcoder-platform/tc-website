@@ -102,9 +102,9 @@ color: FF0000;
          <tr>
             <td valign="top">
               <span class="bodyTitle">Coding Area</span><br>
-              <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=false<%=(checked!=-1?"&lid="+checked:"")%>" class="statLink">Problem
+              <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=false<%=(request.getAttribute(Constants.LANGUAGE_ID)!=null?"&lid="+request.getAttribute(Constants.LANGUAGE_ID):"")%>" class="statLink">Problem
                   Statement</A>
-              (<A href="Javascript:openWin('<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=true<%=(checked!=-1?"&lid="+checked:"")%>', 'Problem Statement');"  class="statLink">new window</A>)
+              (<A href="Javascript:openWin('<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=true<%=(request.getAttribute(Constants.LANGUAGE_ID)!=null?"&lid="+request.getAttribute(Constants.LANGUAGE_ID):"")%>', 'Problem Statement');"  class="statLink">new window</A>)
             </td>
             <td align="right" valign="top">Choose your language:<br>
                 <tc-webtag:listIterator id="language" list="languages" type="com.topcoder.shared.language.Language">
