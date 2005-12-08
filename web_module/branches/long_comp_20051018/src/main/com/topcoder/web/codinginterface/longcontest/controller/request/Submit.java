@@ -280,36 +280,7 @@ public class Submit extends Base {
         TestServices ts = t.create();
 
         // Save the code!
-        return ts.saveComponent(cd, rid, cid, uid, code).isSuccess();
-
-/*
-        if (!r.isSuccess()) { // Could not save!
-            return false;
-        } else { // Save the language along w/ the code...
-            //todo get rid of this shit!!!!!!!
-            if (lang != -1) {
-                Connection conn = null;
-                PreparedStatement ps = null;
-                StringBuffer sqlStr = new StringBuffer(200);
-                ResultSet rs = null;
-                try {
-                    conn = DBMS.getConnection();
-                    long csid = getComponentStateID(uid, rid, cid, conn);
-                    sqlStr.append("UPDATE compilation SET language_id = ? WHERE component_state_id = ?");
-                    ps = conn.prepareStatement(sqlStr.toString());
-                    ps.setInt(1, lang);
-                    ps.setLong(2, csid);
-                    ps.executeUpdate();
-                } catch (Exception e) {
-                    log.error("Unexpected exception in saveCode.", e);
-                    throw e;
-                } finally {
-                    DBMS.close(conn, ps, rs);
-                }
-            }
-        }
-        return true;
-*/
+        return ts.saveComponent(cd, rid, cid, uid, code, lang).isSuccess();
 
     }
 
@@ -327,29 +298,6 @@ public class Submit extends Base {
         return ret;
     }
 
-    /**
-     * Helper function which gets the problemstateid for a given coder's problem
-     */
-/*    private long getComponentStateID(long coderId, long roundId, long componentId, Connection conn) throws SQLException {
-
-        PreparedStatement ps = null;
-        StringBuffer sqlStr = new StringBuffer(200);
-        ResultSet rs = null;
-
-        try {
-            sqlStr.append("SELECT component_state_id FROM component_state ");
-            sqlStr.append("WHERE round_id = ? AND component_id = ? AND coder_id = ?");
-            ps = conn.prepareStatement(sqlStr.toString());
-            ps.setLong(1, roundId);
-            ps.setLong(2, componentId);
-            ps.setLong(3, coderId);
-            rs = ps.executeQuery();
-            if (!rs.next()) return -1;
-            return rs.getLong(1);
-        } finally {
-            DBMS.close(null, ps, rs);
-        }
-    }*/
 
     //todo this may need to be modified if in the future we limit which languages are available
     protected static List getLanguages() {
