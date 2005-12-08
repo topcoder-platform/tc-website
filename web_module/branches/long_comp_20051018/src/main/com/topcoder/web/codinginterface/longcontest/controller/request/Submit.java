@@ -55,10 +55,7 @@ public class Submit extends Base {
             int language = Integer.parseInt((getParameter(request, Constants.SELECTED_LANGUAGE) == null ? "-1" : getParameter(request, Constants.SELECTED_LANGUAGE)));
             String action = getParameter(request, Constants.ACTION_KEY);
             String code = getParameter(request, Constants.CODE);
-/*
-            Boolean compStatus = ((Boolean) request.getSession().getAttribute(Constants.COMPILE_STATUS));
-            String compMsg = getParameter(request, Constants.COMPILE_MESSAGE);
-*/
+            String message = getParameter(request, Constants.MESSAGE);
 
             // Clear session of temp variables
             cleanSession();
@@ -127,10 +124,6 @@ public class Submit extends Base {
 
             request.setAttribute(Constants.CODE, code);
             request.setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
-/*
-            request.setAttribute(Constants.COMPILE_STATUS, compStatus);
-            request.setAttribute(Constants.COMPILE_MESSAGE, compMsg);
-*/
 
             if (action == null) { // no action specified
                 // any code in session?
@@ -152,13 +145,15 @@ public class Submit extends Base {
                     request.setAttribute(Constants.CODE, code);
                     request.setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
                 }
-                request.setAttribute(Constants.MESSAGE, request.getSession().getAttribute(Constants.MESSAGE));
+                log.debug("set message in request to " + message);
+                request.setAttribute(Constants.MESSAGE, message);
                 setNextPage(Constants.SUBMISSION_JSP);
                 setIsNextPageInContext(true);
             } else if (action.equals("submit")) { // user is submiting code
 
                 // Language specified?
                 if (language == -1) {
+                    log.debug("set message in request to please select a language");
                     request.setAttribute(Constants.MESSAGE, "Please select a language.");
                     setNextPage(Constants.SUBMISSION_JSP);
                     setIsNextPageInContext(true);
@@ -185,8 +180,6 @@ public class Submit extends Base {
 
                     // Records errors and other info
                     if (res.getCompileStatus()) { // everything went ok! :)
-                        cleanSession();
-                        // Go to standings!
                         closeProcessingPage(buildProcessorRequestString("SubmitSuccess",
                                 new String[]{Constants.ROUND_ID}, new String[]{String.valueOf(rid)}));
                     } else { // Compilation errors!
@@ -194,11 +187,8 @@ public class Submit extends Base {
                         request.getSession().setAttribute(Constants.LANGUAGES, lang);
                         request.getSession().setAttribute(Constants.CODE, code);
                         request.getSession().setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
+                        log.debug("set message in session to " + res.getCompileError());
                         request.getSession().setAttribute(Constants.MESSAGE, res.getCompileError());
-/*
-                        request.getSession().setAttribute(Constants.COMPILE_STATUS, new Boolean(res.getCompileStatus()));
-                        request.getSession().setAttribute(Constants.COMPILE_MESSAGE, htmlEncode(res.getCompileError()));
-*/
                         // Go back to coding.
                         closeProcessingPage(buildProcessorRequestString("Submit",
                                 new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID},
@@ -207,6 +197,7 @@ public class Submit extends Base {
                 } catch (TimeOutException e) {
                     log.debug("compilation timed out...");
                     // The compilation timed out
+                    log.debug("set message in session to code compilation request timed out");
                     request.getSession().setAttribute(Constants.MESSAGE, "Your code compilation request timed out.");
                     // Go back to coding.
                     closeProcessingPage(buildProcessorRequestString("Submit",
@@ -220,6 +211,7 @@ public class Submit extends Base {
                 if (res) {
                     // save complete
                     // go back to coding!
+                    log.debug("set message in request to successful save");
                     request.setAttribute(Constants.MESSAGE, "Your code has been saved.");
                     setNextPage(Constants.SUBMISSION_JSP);
                     setIsNextPageInContext(true);
@@ -249,10 +241,6 @@ public class Submit extends Base {
         getRequest().getSession().removeAttribute(Constants.CODE);
         getRequest().getSession().removeAttribute(Constants.SELECTED_LANGUAGE);
         getRequest().getSession().removeAttribute(Constants.MESSAGE);
-/*
-        getRequest().getSession().removeAttribute(Constants.COMPILE_STATUS);
-        getRequest().getSession().removeAttribute(Constants.COMPILE_MESSAGE);
-*/
     }
 
     /**
