@@ -161,6 +161,7 @@ public class Submit extends Base {
                 if (language <= 0) {
                     log.debug("set message in request to please select a language");
                     request.setAttribute(Constants.MESSAGE, "Please select a language.");
+                    request.setAttribute(Constants.LANGUAGES, getLanguages());
                     setNextPage(Constants.SUBMISSION_JSP);
                     setIsNextPageInContext(true);
                     return;
@@ -218,6 +219,7 @@ public class Submit extends Base {
                     // go back to coding!
                     log.debug("set message in request to successful save");
                     request.setAttribute(Constants.MESSAGE, "Your code has been saved.");
+                    request.setAttribute(Constants.LANGUAGES, getLanguages());
                     setNextPage(Constants.SUBMISSION_JSP);
                     setIsNextPageInContext(true);
                 } else {
