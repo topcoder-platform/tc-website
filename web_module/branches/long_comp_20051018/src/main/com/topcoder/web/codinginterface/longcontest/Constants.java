@@ -28,7 +28,6 @@ public class Constants implements CodingInterfaceConstants {
     public static String TEST_CASE_ID;
     public static String PROBLEM_ID;
     public static String SUBMISSION_NUMBER;
-    public static String SELECTED_LANGUAGE;
     public static String START_COL;
     public static String COL_COUNT;
     public static String ROW_COUNT;
@@ -39,10 +38,6 @@ public class Constants implements CodingInterfaceConstants {
 
     public static String LONG_CONTEST_INDEX_KEY;
     public static String PROBLEM_STATEMENT_KEY;
-/*
-    public static String COMPILE_MESSAGE;
-    public static String COMPILE_STATUS;
-*/
     public static String LANGUAGES;
     public static String CLASS_NAME;
     public static String METHOD_NAME;
