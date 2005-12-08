@@ -158,7 +158,7 @@ public class Submit extends Base {
             } else if (action.equals("submit")) { // user is submiting code
 
                 // Language specified?
-                if (language > 0) {
+                if (language <= 0) {
                     log.debug("set message in request to please select a language");
                     request.setAttribute(Constants.MESSAGE, "Please select a language.");
                     setNextPage(Constants.SUBMISSION_JSP);
