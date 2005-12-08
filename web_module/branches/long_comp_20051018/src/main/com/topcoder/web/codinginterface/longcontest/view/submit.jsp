@@ -33,6 +33,19 @@
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+<STYLE TYPE="text/css">
+.codeAreaText,.messageAreaText
+{
+font-family: Courier;
+font-size: 12px;
+white-space: nowrap;
+}
+.messageAreaText
+{
+color: FF0000;
+}
+</STYLE>
+
 </head>
 
 <body>
@@ -114,18 +127,17 @@
          <tr>
             <td colspan="2">
                <%if (request.getAttribute(Constants.CODE) == null || request.getAttribute(Constants.CODE).toString().equals("")) {%>
-               <textarea cols="70" rows="20" name="code"></textarea>
+               <textarea cols="70" rows="20" name="code" class="codeAreaText" wrap="off"></textarea>
                <%} else {%>
-               <textarea cols="70" rows="20" name="code"><%=request.getAttribute(Constants.CODE)%></textarea>
+               <textarea cols="70" rows="20" name="code" class="codeAreaText" wrap="off"><%=request.getAttribute(Constants.CODE)%></textarea>
 
                <%}%>
             </td>
          </tr>
          <tr>
-            <td>
-             <div style="float:left; width: 300px;" class="bigRed" valign="top">
-<pre>"How the young knowledge workers of Central Europe are pushing the region to a new level. They came from around the world, young men with handles like SnapDragon and Bladerunner attacking computing problems so complex that even experienced coders could only stare at the screen in bewilderment. Only one mastered the final algorithm problem: Eryk Kopczynski, a.k.a. Eryx"
-<%
+            <td colspan="2">
+<span class="bodySubtitle">Messages</span><br>
+<textarea cols="70" rows="5" name="messages" class="messageAreaText" wrap="off" readonly><%
 Boolean stat = ((Boolean) request.getAttribute(Constants.COMPILE_STATUS));
 String error = StringUtils.checkNull((String) request.getAttribute(Constants.COMPILE_MESSAGE));
 String status = "";
@@ -134,11 +146,14 @@ if (stat != null) {
 }
 String msg = (request.getAttribute(Constants.MESSAGE) != null ? "" + request.getAttribute(Constants.MESSAGE) : "");
 %>
-<%=StringUtils.htmlEncode(msg)%>
-<%=StringUtils.htmlEncode(status)%>
-<%=StringUtils.htmlEncode(error)%>
-</pre>
-             </div>
+<%=msg%>
+<%=status%>
+<%=error%>
+</textarea>
+            </td>
+         </tr>
+         <tr>
+            <td>
               <div style="float:left; padding: 5px 5px 0px 0px;">
                   <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
               </div>
