@@ -123,25 +123,27 @@
          </tr>
          <tr>
             <td>
-             <div style="float:left;" class='bigRed'>
-                 <%
-                     Boolean stat = ((Boolean) request.getAttribute(Constants.COMPILE_STATUS));
-                     String error = StringUtils.checkNull((String) request.getAttribute(Constants.COMPILE_MESSAGE));
-                     String status = "";
-                     if (stat != null) {
-                         status = stat.booleanValue() ? "Your code compiled successfully.<br>" : "Your code did not compile successfully.<br>";
-                     }
-                     String msg = (request.getAttribute(Constants.MESSAGE) != null ? "" + request.getAttribute(Constants.MESSAGE) : "");
-                 %>
-                 <%=msg%>
-                 <%=status%>
-                 <%=error%>
+             <div style="float:left; width: 300px;" class="bigRed" valign="top">
+<pre>"How the young knowledge workers of Central Europe are pushing the region to a new level. They came from around the world, young men with handles like SnapDragon and Bladerunner attacking computing problems so complex that even experienced coders could only stare at the screen in bewilderment. Only one mastered the final algorithm problem: Eryk Kopczynski, a.k.a. Eryx" 
+<%
+Boolean stat = ((Boolean) request.getAttribute(Constants.COMPILE_STATUS));
+String error = StringUtils.checkNull((String) request.getAttribute(Constants.COMPILE_MESSAGE));
+String status = "";
+if (stat != null) {
+    status = stat.booleanValue() ? "Your code compiled successfully.<br>" : "Your code did not compile successfully.<br>";
+}
+String msg = (request.getAttribute(Constants.MESSAGE) != null ? "" + request.getAttribute(Constants.MESSAGE) : "");
+%>
+<%=msg%>
+<%=status%>
+<%=error%>
+</pre>
              </div>
               <div style="float:left; padding: 5px 5px 0px 0px;">
                   <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
               </div>
             </td>
-            <td align="right">
+            <td align="right" valign="top">
               <div style="float:right; padding: 5px 0px 0px 5px;">
                   <A href="javascript: submit();"><img src="/i/interface/btn_submit.gif" alt="Submit" border="0"/></A>
               </div>
