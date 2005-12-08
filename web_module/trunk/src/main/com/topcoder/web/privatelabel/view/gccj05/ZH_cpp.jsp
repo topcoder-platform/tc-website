@@ -77,7 +77,8 @@ C++中最重要的新添加概念就是类。类可以包含方法和变量。�
 参加比赛您必须熟悉至少两个类：vector和string。
 <br><br>
 <span class="greenSubtitle">包含（Includes）</span><br>
-在您使用STL中的类之前，您必须在代码中包含相应的头文件。vector类来自于头文件“vector”；string类来自于“string”。您还需要在代码中加上如下一行： 
+在您使用STL中的类之前，您必须在代码中包含相应的头文件。vector类来自于头文件“vector”；string类来自于“string”。您还需要在代码中加上如下一行：<br>
+using namespace std;
 <pre>这行告诉编译器到std名字空间中去寻找类。</pre>
 <span class="greenSubtitle">Vector</span><br>
 vector是C++中用来取代C数组的。vector解决了传统C语言数组的许多问题。vector能查询当前数组大小以及动态调整大小。用 vector<类型> 可以声明vector，其中类型是存储在vector中的变量类型。比如如果您想创建一个包含int的vector，可以使用：
