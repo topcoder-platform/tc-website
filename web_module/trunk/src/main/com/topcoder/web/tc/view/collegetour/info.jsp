@@ -40,7 +40,15 @@
       <div align=center>
       <img src="/i/collegetour/college_logo.gif" alt="College Logo" border=0 clear="all">
       </div>
- 
+      
+<!-- college tour site subnav -->
+      <p align="center"><A href="/tc?module=Static&d1=collegetour&d2=overview">Overview</A>&#160;&#160;|&#160;&#160;
+      Instructions&#160;&#160;|&#160;&#160;
+      <A href="/tc?module=Static&d1=collegetour&d2=register">Register</A>&#160;&#160;|&#160;&#160;
+      <A href="/tc?module=Static&d1=collegetour&d2=registrants">Registrants</A>
+      </p>
+<!-- ends -->
+
       <p>
       <h2>Competition Instructions</h2>
       

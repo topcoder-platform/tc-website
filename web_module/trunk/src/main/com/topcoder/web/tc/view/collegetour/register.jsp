@@ -39,6 +39,15 @@
 <jsp:param name="title" value="Register"/>
 </jsp:include>
 
+      
+<!-- college tour site subnav -->
+      <p align="center"><A href="/tc?module=Static&d1=collegetour&d2=overview">Overview</A>&#160;&#160;|&#160;&#160;
+      <A href="/tc?module=Static&d1=collegetour&d2=info">Instructions</A>&#160;&#160;|&#160;&#160;
+      Register&#160;&#160;|&#160;&#160;
+      <A href="/tc?module=Static&d1=collegetour&d2=registrants">Registrants</A>
+      </p>
+<!-- ends -->
+
       <p>
       Register for the College Tour event at SCHOOL NAME <A href="/reg/index.jsp" target="blank">here</a>
       </p>
