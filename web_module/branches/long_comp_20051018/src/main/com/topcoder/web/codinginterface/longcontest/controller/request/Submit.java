@@ -58,7 +58,10 @@ public class Submit extends Base {
             int cid = Integer.parseInt(getParameter(request, Constants.COMPONENT_ID));
             int rid = Integer.parseInt(getParameter(request, Constants.ROUND_ID));
             int cd = Integer.parseInt(getParameter(request, Constants.CONTEST_ID));
-            int language = Integer.parseInt((getParameter(request, Constants.LANGUAGE_ID) == null ? "0" : getParameter(request, Constants.LANGUAGE_ID)));
+            int language = 0;
+            if (getParameter(request, Constants.LANGUAGE_ID) != null) {
+                Integer.parseInt(getParameter(request, Constants.LANGUAGE_ID));
+            }
             String action = getParameter(request, Constants.ACTION_KEY);
             String code = getParameter(request, Constants.CODE);
             String message = getParameter(request, Constants.MESSAGE);
