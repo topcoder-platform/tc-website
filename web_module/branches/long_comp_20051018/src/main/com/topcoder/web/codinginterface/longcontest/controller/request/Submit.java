@@ -151,8 +151,8 @@ public class Submit extends Base {
                     // put the updated values back into request
                     request.setAttribute(Constants.CODE, code);
                     request.setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
-                    request.setAttribute(Constants.MESSAGE, request.getSession().getAttribute(Constants.MESSAGE));
                 }
+                request.setAttribute(Constants.MESSAGE, request.getSession().getAttribute(Constants.MESSAGE));
                 setNextPage(Constants.SUBMISSION_JSP);
                 setIsNextPageInContext(true);
             } else if (action.equals("submit")) { // user is submiting code
