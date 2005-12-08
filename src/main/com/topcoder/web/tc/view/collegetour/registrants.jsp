@@ -44,13 +44,13 @@
 
                 <span class="bigHandle">Name of College and SRM#</span><br>
                 <span class="bodySubtitle">Registrants: 12</span><br>
-
+                
                 <div class="pagingBox">
                     &lt;&lt; previous
                     &nbsp;|&nbsp;
                     next &gt;&gt;
                 </div>
-
+ 
                 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
                     <tr>
                         <td>
@@ -248,7 +248,7 @@
                         </TD>
                     </tr>
                 </TABLE>
-
+                
                 <div class="pagingBox">
                     &lt;&lt; previous
                     &nbsp;|&nbsp;
