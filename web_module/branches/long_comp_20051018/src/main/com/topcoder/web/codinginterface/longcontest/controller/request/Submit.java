@@ -61,6 +61,7 @@ public class Submit extends Base {
             int language = 0;
             if (getParameter(request, Constants.LANGUAGE_ID) != null) {
                 language = Integer.parseInt(getParameter(request, Constants.LANGUAGE_ID));
+                setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
             }
             String action = getParameter(request, Constants.ACTION_KEY);
             String code = getParameter(request, Constants.CODE);
