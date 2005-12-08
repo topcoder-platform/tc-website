@@ -23,11 +23,12 @@
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 
 <html>
- <head>
-   <title>TopCoder Statistics - Problem Archive</title>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-   <jsp:include page="../script.jsp" />
+<head>
+<title>TopCoder Statistics - Problem Archive</title>
+<jsp:include page="../script.jsp" />
+<jsp:include page="../style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
  </head>
  <body>
@@ -36,7 +37,7 @@
      <tr>
        <td WIDTH="180" VALIGN="top">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="statistics"/>
+                <jsp:param name="level1" value="alg_problem_archive"/>
             </jsp:include>
        </TD>
        <td WIDTH="10" VALIGN="top"><IMG src="/i/clear.gif" WIDTH="10" HEIGHT="1" border="0"/></TD>
