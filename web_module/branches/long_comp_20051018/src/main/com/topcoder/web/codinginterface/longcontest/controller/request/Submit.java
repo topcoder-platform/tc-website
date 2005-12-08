@@ -60,7 +60,7 @@ public class Submit extends Base {
             int cd = Integer.parseInt(getParameter(request, Constants.CONTEST_ID));
             int language = 0;
             if (getParameter(request, Constants.LANGUAGE_ID) != null) {
-                Integer.parseInt(getParameter(request, Constants.LANGUAGE_ID));
+                language = Integer.parseInt(getParameter(request, Constants.LANGUAGE_ID));
             }
             String action = getParameter(request, Constants.ACTION_KEY);
             String code = getParameter(request, Constants.CODE);
