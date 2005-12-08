@@ -9,6 +9,9 @@
 
 <jsp:include page="../script.jsp" />
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<jsp:include page="../style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 </head>
 
@@ -23,8 +26,7 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="statistics"/>
-                <jsp:param name="level2" value="match_editorials"/>
+                <jsp:param name="node" value="alg_match_statistics"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
