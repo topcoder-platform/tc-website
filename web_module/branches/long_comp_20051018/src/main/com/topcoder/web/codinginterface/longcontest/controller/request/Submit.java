@@ -8,6 +8,10 @@ import com.topcoder.shared.common.ApplicationServer;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.language.CPPLanguage;
+import com.topcoder.shared.language.CSharpLanguage;
+import com.topcoder.shared.language.JavaLanguage;
+import com.topcoder.shared.language.VBLanguage;
 import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.messaging.messages.LongCompileRequest;
 import com.topcoder.shared.messaging.messages.LongCompileResponse;
@@ -25,6 +29,8 @@ import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 
 import javax.naming.InitialContext;
 import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -52,7 +58,7 @@ public class Submit extends Base {
             int cid = Integer.parseInt(getParameter(request, Constants.COMPONENT_ID));
             int rid = Integer.parseInt(getParameter(request, Constants.ROUND_ID));
             int cd = Integer.parseInt(getParameter(request, Constants.CONTEST_ID));
-            int language = Integer.parseInt((getParameter(request, Constants.SELECTED_LANGUAGE) == null ? "-1" : getParameter(request, Constants.SELECTED_LANGUAGE)));
+            int language = Integer.parseInt((getParameter(request, Constants.LANGUAGE_ID) == null ? "-1" : getParameter(request, Constants.LANGUAGE_ID)));
             String action = getParameter(request, Constants.ACTION_KEY);
             String code = getParameter(request, Constants.CODE);
             String message = getParameter(request, Constants.MESSAGE);
@@ -92,8 +98,6 @@ public class Submit extends Base {
             }
 
             // These are the available programming languages
-            ResultSetContainer lang = (ResultSetContainer) m.get("long_languages");
-
             ResultSetContainer rscCompText = (ResultSetContainer) m.get("long_problem_xml");
             if (rscCompText.size() == 0) {
                 throw new NavigationException("Cannot find problem statement.");
@@ -116,14 +120,13 @@ public class Submit extends Base {
             }
 
             // Put these objects into request scope
-            request.setAttribute(Constants.LANGUAGES, lang);
             request.setAttribute(Constants.CLASS_NAME, className);
             request.setAttribute(Constants.METHOD_NAME, methodName);
             request.setAttribute(Constants.RETURN_TYPE, returnType);
             request.setAttribute(Constants.ARG_TYPES, argTypes.toString());
 
             request.setAttribute(Constants.CODE, code);
-            request.setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
+            request.setAttribute(Constants.LANGUAGE_ID, String.valueOf(language));
 
             if (action == null) { // no action specified
                 // any code in session?
@@ -143,9 +146,10 @@ public class Submit extends Base {
                     }
                     // put the updated values back into request
                     request.setAttribute(Constants.CODE, code);
-                    request.setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
+                    request.setAttribute(Constants.LANGUAGE_ID, String.valueOf(language));
                 }
                 log.debug("set message in request to " + message);
+                request.setAttribute(Constants.LANGUAGES, getLanguages());
                 request.setAttribute(Constants.MESSAGE, message);
                 setNextPage(Constants.SUBMISSION_JSP);
                 setIsNextPageInContext(true);
@@ -184,9 +188,8 @@ public class Submit extends Base {
                                 new String[]{Constants.ROUND_ID}, new String[]{String.valueOf(rid)}));
                     } else { // Compilation errors!
                         // Save temp variables into session
-                        request.getSession().setAttribute(Constants.LANGUAGES, lang);
                         request.getSession().setAttribute(Constants.CODE, code);
-                        request.getSession().setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
+                        request.getSession().setAttribute(Constants.LANGUAGE_ID, String.valueOf(language));
                         log.debug("set message in session to " + res.getCompileError());
                         request.getSession().setAttribute(Constants.MESSAGE, res.getCompileError());
                         // Go back to coding.
@@ -239,7 +242,6 @@ public class Submit extends Base {
         getRequest().getSession().removeAttribute(Constants.LANGUAGES);
         getRequest().getSession().removeAttribute(Constants.CLASS_NAME);
         getRequest().getSession().removeAttribute(Constants.CODE);
-        getRequest().getSession().removeAttribute(Constants.SELECTED_LANGUAGE);
         getRequest().getSession().removeAttribute(Constants.MESSAGE);
     }
 
@@ -344,4 +346,15 @@ public class Submit extends Base {
             DBMS.close(null, ps, rs);
         }
     }*/
+
+    //todo this may need to be modified if in the future we limit which languages are available
+    protected static List getLanguges() {
+        List ret = new ArrayList(4);
+        ret.add(JavaLanguage.JAVA_LANGUAGE);
+        ret.add(CPPLanguage.CPP_LANGUAGE);
+        ret.add(VBLanguage.VB_LANGUAGE);
+        ret.add(CSharpLanguage.CSHARP_LANGUAGE);
+        return ret;
+    }
+
 }
