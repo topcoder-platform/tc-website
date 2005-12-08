@@ -52,6 +52,11 @@ public class Category extends ForumsProcessor {
             sortOrder = String.valueOf(ResultFilter.DESCENDING);
         }
         
+        String markRead = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MARK_READ));
+        if (markRead.equals("t")) {
+            forumFactory.getReadTracker().markRead(user, forumCategory);
+        }
+        
         ResultFilter resultFilter = new ResultFilter();
         if ("fixed".equals(forumCategory.getProperty(ForumConstants.PROPERTY_SORT))) {
             resultFilter = ResultFilter.createDefaultForumFilter();

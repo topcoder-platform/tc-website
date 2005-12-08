@@ -232,7 +232,7 @@
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
-        <td>A thread with a <b>bold title</b> indicates it is either a new thread or has new postings.</td>
+        <td>A thread with a <b>bold title</b> indicates it is either a new thread or has new postings. <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark all as read)</A></td>
         <td align="right"><a href="?module=RSS&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
     </tr>
 </table>

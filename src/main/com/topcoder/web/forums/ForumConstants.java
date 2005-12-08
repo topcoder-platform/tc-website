@@ -31,6 +31,7 @@ public interface ForumConstants {
 	public final static String POST_MODE = "mode";
     
     public final static String SETTINGS_STATUS = "status";
+    public final static String MARK_READ = "markRead";
     
     public final static String SORT_FIELD = "sortField";
     public final static String SORT_ORDER = "sortOrder";
