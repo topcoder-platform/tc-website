@@ -28,7 +28,7 @@
             nav.search("m_alg_comp").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/?&t=schedule&c=index", "Calendar", "competition_calendar"));
             //todo this needs to be completed with the full compliment of stat links
             nav.search("m_alg_comp").addChild(new NavNode("/ALG_MATCH_ARCHIVE", "Match Statistics", "alg_match_statistics"));
-            nav.search("m_alg_comp").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ProblemArchive", "Problem Archive", "last_match"));
+            nav.search("m_alg_comp").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ProblemArchive", "Problem Archive", "alg_problem_archive"));
             nav.search("m_alg_comp").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/?t=statistics&c=quick_stats", "Record Book", "alg_record_book"));
             nav.search("m_alg_comp").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_alg_support')\" class=\"exp\">Support/FAQs</a>", "m_alg_support"));
                 nav.search("m_alg_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=help&d2=index", "How to compete", "alg_competition_guide"));

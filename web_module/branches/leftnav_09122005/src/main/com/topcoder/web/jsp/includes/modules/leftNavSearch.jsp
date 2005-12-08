@@ -1,5 +1,4 @@
-<%@ page import="com.topcoder.web.common.WebConstants,
-   com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.common.WebConstants, com.topcoder.shared.util.ApplicationServer" %>
 <b>Member Search:</b>
 <form name="simpleSearchForm" method="get" action="http://<%=ApplicationServer.SERVER_NAME%>/tc" class="noSpace">
    <input class="noSpace" type="hidden" name="module" value="SimpleSearch" />
