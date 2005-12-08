@@ -197,8 +197,8 @@ public class Submit extends Base {
                         request.getSession().setAttribute(Constants.MESSAGE, res.getCompileError());
                         // Go back to coding.
                         closeProcessingPage(buildProcessorRequestString("Submit",
-                                new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID},
-                                new String[]{String.valueOf(rid), String.valueOf(cd), String.valueOf(cid)}));
+                                new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID, Constants.LANGUAGE_ID},
+                                new String[]{String.valueOf(rid), String.valueOf(cd), String.valueOf(cid), String.valueOf(language)}));
                     }
                 } catch (TimeOutException e) {
                     log.debug("compilation timed out...");
