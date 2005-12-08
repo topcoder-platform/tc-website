@@ -47,7 +47,8 @@
       <A href="/tc?module=Static&d1=collegetour&d2=registrants">Registrants</A>
       </p>
 <!-- ends -->
-
+      <br/><br/>
+      
       <p>
       Register for the College Tour event at SCHOOL NAME <A href="/reg/index.jsp" target="blank">here</a>
       </p>
