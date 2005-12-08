@@ -128,7 +128,7 @@ public class Submit extends Base {
             request.setAttribute(Constants.CLASS_NAME, className);
             request.setAttribute(Constants.METHOD_NAME, methodName);
             request.setAttribute(Constants.RETURN_TYPE, returnType);
-            request.setAttribute(Constants.ARG_TYPES, argTypes);
+            request.setAttribute(Constants.ARG_TYPES, argTypes.toString());
 
             request.setAttribute(Constants.CODE, code);
             request.setAttribute(Constants.SELECTED_LANGUAGE, String.valueOf(language));
