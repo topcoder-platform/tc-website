@@ -242,9 +242,9 @@
             <table cellpadding="0" cellspacing="0" class="rtbcTable">
                 <tr>
                     <%  if (forumCategory.getID() != 1) { %>
-                    <td>A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.</td>
+                    <td>A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="forumCategory" property="ID"/>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark all as read)</A></td>
                     <%  } else { %>
-                    <td>A category with a <b>bold title</b> in the left navigation indicates it has a forum with new postings.</td>
+                    <td>A category with a <b>bold title</b> in the left navigation indicates it has a forum with new postings. <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="forumCategory" property="ID"/>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark all as read)</A></td>
                     <%  } %>
                     <td align="right"><a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="forumCategory" property="ID"/>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
                 </tr>
