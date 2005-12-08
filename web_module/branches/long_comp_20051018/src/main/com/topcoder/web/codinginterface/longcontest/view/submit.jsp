@@ -130,11 +130,9 @@
          <tr>
             <td colspan="2">
                <%if (request.getAttribute(Constants.CODE) == null || request.getAttribute(Constants.CODE).toString().equals("")) {%>
-               <textarea cols="70" rows="20" name="code">
-               </textarea>
+               <textarea cols="70" rows="20" name="code"></textarea>
                <%} else {%>
-               <textarea cols="70" rows="20" name="code">
-                   <%=request.getAttribute(Constants.CODE)%></textarea>
+               <textarea cols="70" rows="20" name="code"><%=request.getAttribute(Constants.CODE)%></textarea>
 
                <%}%>
             </td>
