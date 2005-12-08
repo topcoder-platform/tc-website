@@ -42,7 +42,7 @@
 
 
 
-                <span class="bigHandle">Name of College and SRM#</span><br>
+                <span class="bigHandle">Contest: Georgia Tech Algorithm Competition</span><br>
                 <span class="bodySubtitle">Registrants: 12</span><br>
                 
                 <div class="pagingBox">
