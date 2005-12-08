@@ -138,16 +138,16 @@ public class BasicAuthentication implements WebAuthentication {
                 u = checkCookie();
                 if (u == null) {
                     u = guest;
-                    log.debug("*** made up a guest ***");
+                    //log.debug("*** made up a guest ***");
                 } else {
-                    log.debug("*** " + u.getUserName() + " was in cookie ***");
+                    //log.debug("*** " + u.getUserName() + " was in cookie ***");
                 }
                 persistor.setObject(request.getSession().getId() + USER_COOKIE_NAME, u);
             } else {
-                log.debug("*** " + u.getUserName() + " was stale ***");
+                //log.debug("*** " + u.getUserName() + " was stale ***");
             }
         } else {
-            log.debug("*** " + u.getUserName() + " was live***");
+            //log.debug("*** " + u.getUserName() + " was live***");
         }
         return u;
     }
@@ -196,7 +196,7 @@ public class BasicAuthentication implements WebAuthentication {
      * but it is still pretty intensive...currently takes around 300 ms
      */
     private String hashForUser(long uid) throws Exception {
-        log.debug("hash for user: " + uid);
+        //log.debug("hash for user: " + uid);
         CachedDataAccess dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
         dai.setExpireTime(30 * 60 * 1000);   //cache their password for 30 minutes, this should help db load
         Request dataRequest = new Request();
@@ -240,7 +240,7 @@ public class BasicAuthentication implements WebAuthentication {
             //c.setPath(defaultCookiePath.getName());
             //c.setMaxAge(rememberUser ? Integer.MAX_VALUE : -1);  // this should fit comfortably, since the expiration date is a string on the wire
             c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
-            log.debug("setcookie: " + c.getName() + " " + c.getValue());
+            //log.debug("setcookie: " + c.getName() + " " + c.getValue());
             response.addCookie(c);
         }
     }
@@ -255,7 +255,7 @@ public class BasicAuthentication implements WebAuthentication {
 
     /** Check each cookie in the request header for a cookie set above. */
     public User checkCookie() {
-        log.debug("checkCookie called...");
+        //log.debug("checkCookie called...");
         Cookie[] ca = request.getCookies();
         for (int i = 0; ca != null && i < ca.length; i++) {
             //log.debug(ca[i].getName() + " " + ca[i].getValue());
