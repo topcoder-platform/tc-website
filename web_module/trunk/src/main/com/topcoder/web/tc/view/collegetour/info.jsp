@@ -45,10 +45,11 @@
       <h2>Competition Instructions</h2>
       
       To be able to compete in the competition, you must be a SCHOOL NAME student or a SCHOOL NAME faculty member. <br/><br/>
+      In order to compete, you must:
       
       <ul>
-      <li>Register on TopCoder </li>
-      <li>Register your TopCoder handle <A href="//tc?module=registrants.jsp">here</a></li>
+      <li><A href="/reg/index.jsp" target="blank">Register</a> on TopCoder </li>
+      <li>Register your TopCoder handle <A href="//tc?module=registrants.jsp" target="blank">here</a></li>
       </ul>
             
       <h3>Languages</h3>
