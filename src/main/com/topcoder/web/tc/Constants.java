@@ -229,6 +229,16 @@ public class Constants implements WebConstants {
     public static final String COLLEGE_TOUR_EVENT_ID="cteid";
     public static final String COLLEGE_TOUR_CONFIG_INFO="configInfo";
     public static final String ROUND_NAME="rdname";
+    public static final int RECRUITER_NAME_PROP_ID = 1;
+    public static final int FIRST_PLACE_PROP_ID = 2;
+    public static final int SECOND_PLACE_PROP_ID = 3;
+    public static final int THIRD_PLACE_PROP_ID = 4;
+    public static final int LOCATION_PROP_ID = 5;
+    public static final int EVENT_START_PROP_ID = 6;
+    public static final int EVENT_END_PROP_ID = 7;
+    public static final int RESULTS_PROP_ID = 8;
+    public static final int ROUND_START_PROP_ID = 9;
+    public static final int ROUND_END_PROP_ID = 10;
 
 
     static {
