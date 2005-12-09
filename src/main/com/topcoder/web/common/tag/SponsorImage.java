@@ -1,6 +1,6 @@
-package com.topcoder.web.codinginterface.view.tag;
+package com.topcoder.web.common.tag;
 
-import com.topcoder.web.codinginterface.techassess.model.ImageInfo;
+import com.topcoder.web.common.model.ImageInfo;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -24,7 +24,6 @@ public class SponsorImage extends TagSupport {
 
     public void setImage(String image) {
         this.image = (ImageInfo) pageContext.findAttribute(image);
-        ;
     }
 
     public void setAlt(String alt) {

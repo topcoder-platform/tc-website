@@ -29,7 +29,7 @@
 
     <tag>
         <name>sponsorImage</name>
-        <tagclass>com.topcoder.web.codinginterface.view.tag.SponsorImage</tagclass>
+        <tagclass>com.topcoder.web.common.tag.SponsorImage</tagclass>
         <bodycontent>JSP</bodycontent>
         <info></info>
         <attribute>
