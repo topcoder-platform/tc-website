@@ -1,14 +1,14 @@
 package com.topcoder.web.tc.controller.request.collegetour;
 
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.security.ClassResource;
-import com.topcoder.web.ejb.collegetour.RegistrationLocal;
-import com.topcoder.web.ejb.collegetour.Registration;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.ejb.collegetour.Registration;
+import com.topcoder.web.ejb.collegetour.RegistrationLocal;
 
-import javax.transaction.TransactionManager;
 import javax.transaction.Status;
+import javax.transaction.TransactionManager;
 
 /**
  * @author dok
@@ -33,7 +33,7 @@ public class Register extends Base {
                 }
             }
 
-            setNextPage("/collegetour/registrants.jsp");
+            setNextPage("/success.jsp");
             setIsNextPageInContext(true);
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
