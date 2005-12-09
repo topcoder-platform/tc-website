@@ -35,9 +35,9 @@
         <!-- Left Column Ends -->
 
         <!-- Center Column Begins -->
-        <td class="statTableSpacer" width="100%" valign="top">
+        <td class="cardCell" width="100%" align="center">
+        <div class="myTCBody">
 
-            <div class="bodyText">
 
                 <jsp:include page="../page_title.jsp">
                     <jsp:param name="image" value="college_tour"/>
@@ -45,12 +45,18 @@
                 </jsp:include>
 
 
+                <div align=center>
+                <tc-webtag:sponsorImage image="image" alt="College Logo" border="0"/>
+                </div>
+
+
                 <!-- college tour site subnav -->
                 <p align="center">
                     <A href="/tc?module=CollegeTourOverview&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Overview</A>&#160;&#160;|&#160;&#160;
                     <A href="/tc?module=CollegeTourInfo&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Instructions</A>&#160;&#160;|&#160;&#160;
                     <A href="/tc?module=CollegeTourReg&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Register</A>&#160;&#160;|&#160;&#160;
-                    Registrants
+                    Registrants&#160;&#160;|&#160;&#160;
+                <tc-webtag:forumLink forumID="505834" message="Discuss this event" />
                 </p>
                 <!-- ends -->
 
