@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.tc.Constants"%>
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -34,7 +35,7 @@
 
                 <jsp:include page="../page_title.jsp">
                     <jsp:param name="image" value="college_tour"/>
-                    <jsp:param name="title" value="Overview"/>
+                    <jsp:param name="title" value="Registration"/>
                 </jsp:include>
 
                 <div align=center>
