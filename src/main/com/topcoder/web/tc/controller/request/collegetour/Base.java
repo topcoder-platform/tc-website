@@ -25,9 +25,12 @@ abstract public class Base extends BaseProcessor {
     private long eventId = 0;
     private Timestamp codingStart = null;
     private Timestamp sysTestEnd = null;
+    private Timestamp regStart = null;
+    private Timestamp regEnd = null;
 
     protected final void businessProcessing() throws Exception {
         String eid = getRequest().getParameter(Constants.COLLEGE_TOUR_EVENT_ID);
+        getRequest().setAttribute(Constants.COLLEGE_TOUR_EVENT_ID, eid);
         if (eid==null) {
             throw new TCWebException("invalid request no event id specified");
         } else {
@@ -47,6 +50,9 @@ abstract public class Base extends BaseProcessor {
                 getRequest().setAttribute(Constants.ROUND_NAME, rsc.getStringItem(0, "round_name"));
                 codingStart = (Timestamp)rsc.getItem(0, "coding_start").getResultData();
                 sysTestEnd = (Timestamp)rsc.getItem(0, "sys_test_end").getResultData();
+                regStart = (Timestamp)rsc.getItem(0, "reg_start").getResultData();
+                regEnd = (Timestamp)rsc.getItem(0, "reg_end").getResultData();
+                getRequest().setAttribute("regEnd", regEnd);
             }
         }
         collegeTourProcessing();
@@ -71,15 +77,23 @@ abstract public class Base extends BaseProcessor {
             long endDelta = Integer.parseInt(((String)map.get(new Integer(Constants.EVENT_START_PROP_ID))));
             long resultsDelta = Integer.parseInt(((String)map.get(new Integer(Constants.EVENT_START_PROP_ID))));
 
-            map.put(new Integer(Constants.EVENT_START_PROP_ID), new Timestamp(codingStart.getTime()+startDelta));
-            map.put(new Integer(Constants.EVENT_END_PROP_ID), new Timestamp(codingStart.getTime()+endDelta));
-            map.put(new Integer(Constants.RESULTS_PROP_ID), new Timestamp(sysTestEnd.getTime()+resultsDelta));
+            map.put(new Integer(Constants.EVENT_START_PROP_ID), new Timestamp(codingStart.getTime()+(startDelta*1000*60)));
+            map.put(new Integer(Constants.EVENT_END_PROP_ID), new Timestamp(codingStart.getTime()+(endDelta*1000*60)));
+            map.put(new Integer(Constants.RESULTS_PROP_ID), new Timestamp(sysTestEnd.getTime()+(resultsDelta*1000*60)));
             map.put(new Integer(Constants.ROUND_START_PROP_ID), codingStart);
             map.put(new Integer(Constants.RESULTS_PROP_ID), sysTestEnd);
 
             getRequest().setAttribute(Constants.COLLEGE_TOUR_CONFIG_INFO, map);
 
         }
+    }
+
+    public Timestamp getRegStart() {
+        return regStart;
+    }
+
+    public Timestamp getRegEnd() {
+        return regEnd;
     }
 
     public long getSchoolId() {
