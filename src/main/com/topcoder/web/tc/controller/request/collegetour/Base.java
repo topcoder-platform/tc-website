@@ -98,7 +98,7 @@ abstract public class Base extends BaseProcessor {
             map.put(new Integer(Constants.EVENT_END_PROP_ID), new Timestamp(codingStart.getTime()+(endDelta*1000*60)));
             map.put(new Integer(Constants.RESULTS_PROP_ID), new Timestamp(sysTestEnd.getTime()+(resultsDelta*1000*60)));
             map.put(new Integer(Constants.ROUND_START_PROP_ID), codingStart);
-            map.put(new Integer(Constants.RESULTS_PROP_ID), sysTestEnd);
+            map.put(new Integer(Constants.ROUND_END_PROP_ID), sysTestEnd);
 
             getRequest().setAttribute(Constants.COLLEGE_TOUR_CONFIG_INFO, map);
 
