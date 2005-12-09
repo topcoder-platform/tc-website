@@ -1,4 +1,4 @@
-package com.topcoder.web.tc.model;
+package com.topcoder.web.common.model;
 
 import java.io.Serializable;
 import java.util.List;

@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.web.tc.Constants,
                  com.topcoder.web.common.tag.AnswerInput,
-                 com.topcoder.web.tc.model.Question,
+                 com.topcoder.web.common.model.Question,
                  java.util.List"%>
 <%@ page import="com.topcoder.web.common.model.Question"%>
 <%@  page language="java"  %>
