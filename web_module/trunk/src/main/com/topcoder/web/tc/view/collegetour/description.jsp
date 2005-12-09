@@ -33,7 +33,7 @@
             <div class="myTCBody">
 
                 <div align=center>
-                    <img src="/i/collegetour/collegetour_promo.gif" alt="TopCoder College Tour" border=0 clear="all">
+                    <img src="/i/collegetour/banner.jpg" alt="Competition, evolved." border=0 clear="all">
                 </div>
 
                 <p>
