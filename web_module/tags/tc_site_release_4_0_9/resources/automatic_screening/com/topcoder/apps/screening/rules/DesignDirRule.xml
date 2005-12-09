@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<DirectoryValidation>
+  <BaseValidators>
+    <BaseValidator name="DirectoryExistsValidator">
+      <Class>com.topcoder.file.directoryvalidator.validators.DirectoryExistsValidator</Class>
+      <FailureMessage>The directory does not exist</FailureMessage>
+      <SuccessMessage>The directory exists</SuccessMessage>
+    </BaseValidator>
+  </BaseValidators>
+
+  <ValidatorDefs>
+    <ValidatorDef name="DirectoryExistsValidator">
+      <Validator>DirectoryExistsValidator</Validator>
+    </ValidatorDef>
+  </ValidatorDefs>
+
+  <Directory>
+    <Name>docs</Name>
+    <Validator>DirectoryExistsValidator</Validator>
+  </Directory>
+</DirectoryValidation>
