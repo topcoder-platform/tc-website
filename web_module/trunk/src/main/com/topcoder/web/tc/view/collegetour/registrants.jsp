@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.tc.Constants"%>
 <%@ page language="java" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>

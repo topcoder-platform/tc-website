@@ -42,7 +42,7 @@
                 </jsp:include>
 
                 <div align=center>
-                    <img src="/i/collegetour/college_logo.gif" alt="College Logo" border=0 clear="all">
+                    <tc-webtag:sponsorImage image="image" alt="College Logo" border="0"/>
                 </div>
 
                 <!-- college tour site subnav -->

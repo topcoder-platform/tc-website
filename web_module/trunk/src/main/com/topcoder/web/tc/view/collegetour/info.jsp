@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page language="java" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -39,7 +40,7 @@
 
 
             <div align=center>
-                <img src="/i/collegetour/college_logo.gif" alt="College Logo" border=0 clear="all">
+                <tc-webtag:sponsorImage image="image" alt="College Logo" border="0"/>
             </div>
 
             <!-- college tour site subnav -->
