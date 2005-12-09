@@ -159,7 +159,7 @@ Google 中国为每位决赛选手提供所有的旅行膳宿，并妥善安排�
 </tr>
 <tr valign="top">
 <td class="sidebarText"><b>第1名 (共价值40,000人民币)</b></td>
-<td class="sidebarText"><b>一组高端个人编程工作站</b></td>
+<td class="sidebarText"><b>一组高端个人编程工作站，一台笔记本电脑 ，一款全新MP3</b></td>
 </tr>
 <tr valign="top">
 <td class="sidebarText">第2至第4名 (每位奖品价值20,000人民币)</td>
