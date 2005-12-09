@@ -9,6 +9,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>12.09.05<br>11:15 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm276">SRM 276 - Problem Set & Analysis</A></span><br><br>
+      In Division 1, <tc-webtag:handle coderId="8357090" context="algorithm"/> took the lead in the coding phase, with the first correct submission on the 1000, and held that lead all the way through.  <tc-webtag:handle coderId="7421158" context="algorithm"/>, <tc-webtag:handle coderId="9906197" context="algorithm"/>, <tc-webtag:handle coderId="10574855" context="algorithm"/>, and <tc-webtag:handle coderId="7462740" context="algorithm"/> rounded out the top 5.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" /><br>by <tc-webtag:handle coderId="10407399" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm276">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505790" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>12.06.05<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">Event calendar updated for <A href="/tc?module=Static&d1=calendar&d2=feb_06">February</A>, <A href="/tc?module=Static&d1=calendar&d2=mar_06">March</A>, <A href="/tc?module=Static&d1=calendar&d2=apr_06">April</A>, and <A href="/tc?module=Static&d1=calendar&d2=may_06">May</A></span><br><br>
       We've updated the events calendar with SRM dates and important dates for the TCO06.
@@ -272,19 +289,6 @@
    <tr><td class="newsLinksCell">
          <tc-webtag:forumLink forumID="505827" message="discuss this" />&#160;|&#160;
       <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>11.14.05<br>12:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=msn">MSN is hiring TopCoders</A></span><br><br>
-      "YOU are the individuals who possess the ability to solve the technical challenges of the future..."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505826" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
 
