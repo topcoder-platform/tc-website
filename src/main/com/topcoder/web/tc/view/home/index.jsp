@@ -45,7 +45,7 @@ margin:0px auto;
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr>
       <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
-<%-- $1,000,000
+<%-- TCO06
 --%>
       <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><IMG SRC="/i/home/tco06.gif" border="0" ALT="Introducing the TCO06"/></A></td>
 <%-- $1,000,000
@@ -152,11 +152,11 @@ margin:0px auto;
             <A href="/movies/press/cnn_072405.mp4"><img src="/i/home/mov_cnn_072405.jpg" alt="TopCoder Movies" border="0" /></A>
 --%>
 <%-- MSN
-            <A href="/?RoundId=8069&t=schedule&c=srm"><img src="/i/home/msn_srm272.gif" alt="MSN" border="0" /></A>
 --%>
+            <A href="/?RoundId=8074&t=schedule&c=srm"><img src="/i/home/msn_srm277.gif" alt="MSN" border="0" /></A>
 <%-- SAP
---%>
             <A href="/?RoundId=8073&t=schedule&c=srm"><img src="/i/home/sap_srm276.gif" alt="SAP" border="0" /></A>
+--%>
 <%-- GCJC
             <A href="/gcjc"><img src="/i/home/gcjc.gif" alt="Google Code Jam China" border="0" /></A>
 --%>
