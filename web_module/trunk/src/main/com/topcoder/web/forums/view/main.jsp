@@ -230,7 +230,7 @@
             
             <table cellpadding="0" cellspacing="0" class="rtbcTable">
                 <tr>
-                    <td>A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.</td>
+                    <td>A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <A href="?module=Main&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark all as read)</A></td>
                     <td align="right"><a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=1"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
                 </tr>
                 <tr>

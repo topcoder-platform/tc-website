@@ -6,6 +6,8 @@ package com.topcoder.web.forums.controller.request;
 import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.ForumCategory;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.forums.ForumConstants;
 
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -34,6 +36,11 @@ public class Main extends ForumsProcessor {
             } else {
                 mainCategoryList.add(category);
             }
+        }
+        
+        String markRead = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MARK_READ));
+        if (markRead.equals("t")) {
+            forumFactory.getReadTracker().markRead(user, forumFactory.getRootForumCategory());
         }
         
         Iterator itForums = forumFactory.getRootForumCategory().getForums(resultFilter);
