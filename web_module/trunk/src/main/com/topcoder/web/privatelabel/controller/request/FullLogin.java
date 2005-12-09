@@ -114,11 +114,12 @@ public abstract class FullLogin extends FullReg {
     protected SimpleRegInfo makeRegInfo() throws Exception {
         Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
         FullRegInfo info = new FullRegInfo();
+        User user = (User)createEJB(getInitialContext(), User.class);
 
        if (hasEventAccount()) {
             addError(Constants.HANDLE, getBundle().getProperty("error_event_account_exists"));
             return null;
-       } else if (userExists(getRequestParameter(Constants.HANDLE))) {
+       } else if (user.userExists(getRequestParameter(Constants.HANDLE), db)) {
            addError(Constants.HANDLE, getBundle().getProperty("error_event_account_exists"));
            return null;
         } else {
