@@ -8,10 +8,12 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.ImageInfo;
 import com.topcoder.web.tc.Constants;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.sql.Timestamp;
 
 /**
@@ -38,7 +40,8 @@ abstract public class Base extends BaseProcessor {
             Request r = new Request();
             r.setContentHandle("college_tour_event_info");
             r.setProperty(Constants.COLLEGE_TOUR_EVENT_ID, eid);
-            ResultSetContainer rsc = (ResultSetContainer)getDataAccess(true).getData(r).get("college_tour_event_info");
+            Map m = getDataAccess(true).getData(r);
+            ResultSetContainer rsc = (ResultSetContainer)m.get("college_tour_event_info");
             if (rsc.isEmpty()) {
                 throw new TCWebException("Missing config info for college tour event " + eid);
             } else {
@@ -53,6 +56,20 @@ abstract public class Base extends BaseProcessor {
                 regStart = (Timestamp)rsc.getItem(0, "reg_start").getResultData();
                 regEnd = (Timestamp)rsc.getItem(0, "reg_end").getResultData();
                 getRequest().setAttribute("regEnd", regEnd);
+
+                ResultSetContainer imageInfo = (ResultSetContainer)m.get("college_tour_round_image");
+                if (!imageInfo.isEmpty()) {
+                    ImageInfo image = new ImageInfo();
+                    if (imageInfo.getItem(0, "height").getResultData()!=null) {
+                        image.setHeight(imageInfo.getIntItem(0, "height"));
+                    }
+                    if (imageInfo.getItem(0, "width").getResultData()!=null) {
+                        image.setHeight(imageInfo.getIntItem(0, "width"));
+                    }
+                    image.setLink(imageInfo.getStringItem(0, "link"));
+                    image.setSrc(imageInfo.getStringItem(0, "file_path"));
+                    getRequest().setAttribute("image", image);
+                }
             }
         }
         collegeTourProcessing();
