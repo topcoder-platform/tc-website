@@ -1,4 +1,5 @@
 <%@ page language="java" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -31,9 +32,22 @@
         <td class="cardCell" width="100%" align="center">
             <div class="myTCBody">
 
+                <jsp:include page="../page_title.jsp">
+                    <jsp:param name="image" value="college_tour"/>
+                    <jsp:param name="title" value="Overview"/>
+                </jsp:include>
+
                 <div align=center>
-                    <img src="/i/collegetour/collegetour_promo.gif" alt="TopCoder College Tour" border=0 clear="all">
+                    <tc-webtag:sponsorImage image="image" alt="College Logo" border="0"/>
                 </div>
+
+                <p align="center">
+                    <A href="/tc?module=CollegeTourOverview&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Overview</A>&#160;&#160;|&#160;&#160;
+                    <A href="/tc?module=CollegeTourInfo&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Instructions</A>&#160;&#160;|&#160;&#160;
+                    Register&#160;&#160;|&#160;&#160;
+                    <A href="/tc?module=CollegeTourRegistrants&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Registrants</A>
+                </p>
+
 
                 <p>
                     You have successfully registered.
