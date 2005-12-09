@@ -1,4 +1,4 @@
-package com.topcoder.web.common.model;
+package com.topcoder.web.tc.model;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,6 +10,7 @@ public class Question implements Serializable {
     public static final int SHORT_ANSWER = 4;
 
     public static final int GENERAL_DO_NOT_SHOW_RESULTS_TYPE = 6;
+    public static final int SCHULZE_ELECTION_TYPE = 7;
 
     private long id;
     private int typeId;
