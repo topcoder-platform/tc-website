@@ -73,12 +73,13 @@
 
 
                                 <% boolean even = false;%>
-                                <rsc:iterator list="<%=dates%>" id="resultRow">
+                                <rsc:iterator list="<%=registrants%>" id="resultRow">
                                     <tr>
                                         <td class="<%=even?"statLt":"statDk"%>">
                                             <tc-webtag:handle coderId='<%= resultRow.getLongItem("coder_id")%>' context='algorithm'/>
                                         </td>
                                     </tr>
+                                    <%even=!even;%>
                                 </rsc:iterator>
 
                             </TABLE>
