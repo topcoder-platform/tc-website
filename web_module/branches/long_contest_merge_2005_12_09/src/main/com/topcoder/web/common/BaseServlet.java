@@ -113,9 +113,9 @@ public abstract class BaseServlet extends HttpServlet {
 
     protected void process(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        RequestProcessor rp = null;
-        WebAuthentication authentication = null;
-        SessionInfo info = null;
+        RequestProcessor rp;
+        WebAuthentication authentication;
+        SessionInfo info;
 
         try {
             try {
@@ -146,13 +146,17 @@ public abstract class BaseServlet extends HttpServlet {
 
                 try {
                     String cmd = StringUtils.checkNull((String) tcRequest.getAttribute(MODULE));
-                    if (cmd.equals(""))
+                    log.debug("got module attribute " + cmd);
+                    if (cmd.equals("")) {
                         cmd = StringUtils.checkNull(tcRequest.getParameter(MODULE));
+                    }
 
-                    if (cmd.equals(""))
+                    if (cmd.equals("")) {
                         cmd = DEFAULT_PROCESSOR;
-                    if (!isLegalCommand(cmd))
+                    }
+                    if (!isLegalCommand(cmd)) {
                         throw new NavigationException();
+                    }
 
                     String processorName = PATH + (PATH.endsWith(".") ? "" : ".") + getProcessor(cmd);
 
@@ -179,7 +183,6 @@ public abstract class BaseServlet extends HttpServlet {
                 }
                 if (!response.isCommitted()) {
                     fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
-                    return;
                 }
             } catch (Exception e) {
                 handleException(request, response, e);
@@ -221,7 +224,7 @@ public abstract class BaseServlet extends HttpServlet {
 
     protected RequestProcessor callProcess(String processorName, TCRequest request, TCResponse response,
                                            WebAuthentication authentication) throws Exception {
-        RequestProcessor rp = null;
+        RequestProcessor rp;
 
         rp = (RequestProcessor) Class.forName(processorName).newInstance();
         rp.setRequest(request);
@@ -234,7 +237,7 @@ public abstract class BaseServlet extends HttpServlet {
 
     protected SessionInfo createSessionInfo(TCRequest request,
                                             WebAuthentication auth, Set groups) throws Exception {
-        SessionInfo ret = null;
+        SessionInfo ret;
         ret = new SessionInfo(request, auth, groups);
         return ret;
     }
@@ -287,10 +290,8 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
     protected String getProcessor(String key) {
-        String ret = null;
-        if (ret == null) {
-            ret = getServletConfig().getInitParameter(key);
-        }
+        String ret;
+        ret = getServletConfig().getInitParameter(key);
         if (ret == null) {
             ret = key;
         }
@@ -301,7 +302,7 @@ public abstract class BaseServlet extends HttpServlet {
         /* forward to the login page, with a message and a way back */
         request.setAttribute(MESSAGE_KEY, "In order to continue, you must provide your user name " +
                 "and password.");
-        log.debug("going to " + info.getRequestString() + " on success login");
+        log.debug("going to " + info.getRequestString() + " on successful login");
         request.setAttribute(NEXT_PAGE_KEY, info.getRequestString());
 
         request.setAttribute(MODULE, LOGIN_PROCESSOR);

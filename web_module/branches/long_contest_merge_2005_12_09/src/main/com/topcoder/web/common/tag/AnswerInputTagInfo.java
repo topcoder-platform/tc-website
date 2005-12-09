@@ -1,4 +1,6 @@
-package com.topcoder.web.tc.view.tag;
+package com.topcoder.web.common.tag;
+
+import com.topcoder.web.common.tag.AnswerInput;
 
 import javax.servlet.jsp.tagext.TagData;
 import javax.servlet.jsp.tagext.TagExtraInfo;
