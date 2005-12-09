@@ -39,7 +39,7 @@ public class Register extends Base {
                     tm.rollback();
                 }
             }
-            setNextPage("/success.jsp");
+            setNextPage("/collegetour/success.jsp");
             setIsNextPageInContext(true);
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
