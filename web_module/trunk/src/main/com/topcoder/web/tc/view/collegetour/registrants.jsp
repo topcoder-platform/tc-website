@@ -67,7 +67,7 @@
                                 </tr>
                                 <tr>
                                     <td class="tableHeader" width="20%">
-                                        <A href="/longcontest/longcontest?module=ViewRegistrants&rd=8002&sc=1&sd=asc">Handle</A>
+                                        Handle
                                     </td>
                                 </tr>
 
