@@ -13,21 +13,18 @@ import java.io.IOException;
  */
 public class SponsorImage extends TagSupport {
 
-    private ImageInfo image = null;
+    private ImageInfo imageObject = null;
     private String alt = null;
     private String vspace = null;
     private String border = null;
 
-    public void setImage(ImageInfo image) {
-        this.image = image;
-    }
 
     public void setImage(String image) {
-        this.image = (ImageInfo) pageContext.findAttribute(image);
+        this.imageObject = (ImageInfo) pageContext.findAttribute(image);
     }
 
     public void setImageObject(ImageInfo image) {
-        this.image = image;
+        this.imageObject = image;
     }
 
     public void setAlt(String alt) {
