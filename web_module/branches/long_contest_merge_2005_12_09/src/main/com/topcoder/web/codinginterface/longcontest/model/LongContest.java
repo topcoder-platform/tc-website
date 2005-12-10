@@ -1,5 +1,7 @@
 package com.topcoder.web.codinginterface.longcontest.model;
 
+import com.topcoder.web.common.model.ImageInfo;
+
 import java.util.Date;
 
 public class LongContest {
@@ -18,6 +20,7 @@ public class LongContest {
     private boolean started;
     private int numCompetitors;
     private int numRegistrants;
+    private ImageInfo sponsorImage;
 
     public boolean isCoderRegistered() {
         return coderRegistered;
@@ -129,6 +132,14 @@ public class LongContest {
 
     public void setNumRegistrants(int numRegistrants) {
         this.numRegistrants = numRegistrants;
+    }
+
+    public ImageInfo getSponsorImage() {
+        return sponsorImage;
+    }
+
+    public void setSponsorImage(ImageInfo sponsorImage) {
+        this.sponsorImage = sponsorImage;
     }
 
 }
