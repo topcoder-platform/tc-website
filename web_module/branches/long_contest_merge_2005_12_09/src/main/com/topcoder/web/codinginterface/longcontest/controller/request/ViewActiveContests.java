@@ -8,6 +8,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.longcontest.model.LongContest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.ImageInfo;
 import com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 
@@ -63,6 +64,9 @@ public class ViewActiveContests extends Base {
                 longContest.setStarted(rsc.getBooleanItem(i, "started"));
                 longContest.setNumCompetitors(rsc.getIntItem(i, "num_competitors"));
                 longContest.setNumRegistrants(rsc.getIntItem(i, "num_registrants"));
+                if (rsc.getStringItem(i, "file_path")!=null) {
+                    longContest.setSponsorImage(makeImage(rsc.getRow(i)));
+                }
 
                 // Get the problem assigned to the round
                 RoundProblem prob = getRoundProblem(dai, rsc.getLongItem(i, "round_id"));
@@ -101,6 +105,9 @@ public class ViewActiveContests extends Base {
                     longContest.setContestID(rscPassContests.getLongItem(i, "contest_id"));
                     longContest.setNumCompetitors(rscPassContests.getIntItem(i, "num_competitors"));
                     longContest.setNumRegistrants(rscPassContests.getIntItem(i, "num_registrants"));
+                    if (rsc.getStringItem(i, "file_path")!=null) {
+                        longContest.setSponsorImage(makeImage(rsc.getRow(i)));
+                    }
 
                     // Gets the problem for the round
                     RoundProblem prob = getRoundProblem(dai, rscPassContests.getLongItem(i, "round_id"));
@@ -133,56 +140,19 @@ public class ViewActiveContests extends Base {
         setIsNextPageInContext(true);
     }
 
-    /**
-     * Gets the number of registrants for a specified round.
-     *
-     * @param dai     Data source
-     * @param roundID The round's ID
-     * @throws Exception
-     * @return The number of registrants for a given round
-     */
-/*
-    private int getNumRegistrants(DataAccessInt dai, long roundID) throws Exception {
-        Request r = new Request();
-        ResultSetContainer rsc;
-        try {
-            r.setContentHandle("long_contest_num_registered");
-            r.setProperty("rd", "" + roundID);
-            Map m = dai.getData(r);
-            rsc = (ResultSetContainer) m.get("long_contest_num_registered");
-        } catch (Exception e) {
-            log.error("Error occured executing DB command: long_contest_num_registered", e);
-            throw e;
+    private ImageInfo makeImage(ResultSetContainer.ResultSetRow row) {
+        ImageInfo image = new ImageInfo();
+        image.setSrc(row.getStringItem("file_path"));
+        image.setLink(row.getStringItem("link"));
+        if (row.getItem("height").getResultData()!=null) {
+            image.setHeight(row.getIntItem("height"));
         }
-        return rsc.getIntItem(0, 0);
-    }
-*/
+        if (row.getItem("width").getResultData()!=null) {
+            image.setHeight(row.getIntItem("width"));
+        }
 
-    /**
-     * Determines whether the coder is registered for the specified round.
-     *
-     * @param dai     Data source
-     * @param roundID The round's ID
-     * @param coderID The coder's ID
-     * @throws Exception Propagates unexpected exceptions
-     * @return True if the coder is registered for the specified round, false otherwise.
-     */
-/*    private boolean isCoderRoundRegistered(DataAccessInt dai, long roundID, long coderID) throws Exception {
-        Request r = new Request();
-        ResultSetContainer rsc;
-        log.debug("isCoderRoundRegistered called w/ roundID=" + roundID + " coderID=" + coderID);
-        try {
-            r.setContentHandle("long_contest_coder_registered");
-            r.setProperty("rd", "" + roundID);
-            r.setProperty("cr", "" + coderID);
-            Map m = dai.getData(r);
-            rsc = (ResultSetContainer) m.get("long_contest_coder_registered");
-        } catch (Exception e) {
-            log.error("Error occured executing DB command: long_contest_coder_registered", e);
-            throw e;
-        }
-        return rsc.getIntItem(0, 0) > 0;
-    }*/
+        return image;
+    }
 
     /**
      * Gets the problem for the specified round
