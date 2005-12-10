@@ -7,7 +7,6 @@ import com.topcoder.web.common.WebConstants;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.MissingResourceException;
-import java.util.logging.Logger;
 
 public class Constants implements WebConstants {
 
