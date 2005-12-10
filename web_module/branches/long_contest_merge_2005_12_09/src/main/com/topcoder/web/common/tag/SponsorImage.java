@@ -26,6 +26,10 @@ public class SponsorImage extends TagSupport {
         this.image = (ImageInfo) pageContext.findAttribute(image);
     }
 
+    public void setImageObject(ImageInfo image) {
+        this.image = image;
+    }
+
     public void setAlt(String alt) {
         this.alt = alt;
     }
