@@ -42,19 +42,19 @@ public class SponsorImage extends TagSupport {
 
     public int doStartTag() throws JspException {
 
-        if (image!=null) {
+        if (imageObject!=null) {
             StringBuffer buffer = new StringBuffer();
             buffer.append("<img src=\"");
-            buffer.append(image.getSrc() == null ? "" : image.getSrc());
+            buffer.append(imageObject.getSrc() == null ? "" : imageObject.getSrc());
             buffer.append("\"");
             if (alt != null) {
                 buffer.append(" alt=\"" + alt + "\"");
             }
-            if (image.getHeight() >= 0) {
-                buffer.append(" height=\"" + image.getHeight() + "\"");
+            if (imageObject.getHeight() >= 0) {
+                buffer.append(" height=\"" + imageObject.getHeight() + "\"");
             }
-            if (image.getWidth() >= 0) {
-                buffer.append(" width=\"" + image.getWidth() + "\"");
+            if (imageObject.getWidth() >= 0) {
+                buffer.append(" width=\"" + imageObject.getWidth() + "\"");
             }
 
             if (vspace != null) {
@@ -79,7 +79,7 @@ public class SponsorImage extends TagSupport {
     }
 
     public int doEndTag() throws JspException {
-        this.image = null;
+        this.imageObject = null;
         this.alt = null;
         this.vspace = null;
         this.border = null;
