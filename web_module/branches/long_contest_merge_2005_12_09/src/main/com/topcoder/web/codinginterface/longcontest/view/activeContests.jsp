@@ -68,7 +68,7 @@
                         <tr>
                             <td class="<%=even?"statLt":"statDk"%>"><b><tc-webtag:beanWrite name="contest"
                                                                                             property="contestName"/></b>
-
+                                <tc-webtag:useBean id="<%=Constants.SPONSOR_IMAGE%>" name="contest" type="com.topcoder.web.common.Model.ImageInfo" property="sponsorImage" toScope="page" />
                                 <div style="float: left;"><ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull=""/></div>
                             </td>
                             <td class="<%=even?"statLt":"statDk"%>"><A
