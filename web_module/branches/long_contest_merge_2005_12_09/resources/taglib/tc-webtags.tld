@@ -710,7 +710,7 @@
         <info></info>
         <attribute>
             <name>image</name>
-            <required>true</required>
+            <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
@@ -728,7 +728,16 @@
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
-    </tag>
+        <attribute>
+            <name>ifNull</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>imageObject</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>    </tag>
 
     <tag>
         <name>questionIterator</name>
