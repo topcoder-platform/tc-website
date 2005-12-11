@@ -3,6 +3,7 @@
         import="com.topcoder.web.codinginterface.longcontest.Constants"
 
         %>
+    <%@ page import="com.topcoder.web.codinginterface.longcontest.model.LongContest"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
@@ -67,7 +68,7 @@
                     <logic:iterate name="<%=Constants.CONTEST_LIST_KEY%>" id="contest">
                         <tr>
                             <td class="<%=even?"statLt":"statDk"%>"><b><tc-webtag:beanWrite name="contest" property="contestName"/></b>
-                                <% pageContext.setAttribute("sponsorImage", contest.getSponsorImage());%>
+                                <% pageContext.setAttribute("sponsorImage", ((LongContest)contest).getSponsorImage());%>
                                 <div style="float: left;"><ci:sponsorImage image="sponsorImage" alt="Sponsor" border="0" ifNull=""/></div>
                             </td>
                             <td class="<%=even?"statLt":"statDk"%>"><A
