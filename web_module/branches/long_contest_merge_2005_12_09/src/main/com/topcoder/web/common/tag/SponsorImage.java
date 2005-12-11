@@ -17,6 +17,7 @@ public class SponsorImage extends TagSupport {
     private String alt = null;
     private String vspace = null;
     private String border = null;
+    private String ifNull = null;
 
 
     public void setImage(String image) {
@@ -37,6 +38,10 @@ public class SponsorImage extends TagSupport {
 
     public void setBorder(String border) {
         this.border = border;
+    }
+
+    public void setIfNull(String ifNull) {
+        this.ifNull = ifNull;
     }
 
 
@@ -72,6 +77,12 @@ public class SponsorImage extends TagSupport {
             } catch (IOException e) {
                 throw new JspException(e.getMessage());
             }
+        } else if (ifNull!=null) {
+            try {
+                pageContext.getOut().println(ifNull);
+            } catch (IOException e) {
+                throw new JspException(e.getMessage());
+            }
 
         }
 
@@ -83,6 +94,7 @@ public class SponsorImage extends TagSupport {
         this.alt = null;
         this.vspace = null;
         this.border = null;
+        this.ifNull = null;
         return super.doEndTag();
     }
 
