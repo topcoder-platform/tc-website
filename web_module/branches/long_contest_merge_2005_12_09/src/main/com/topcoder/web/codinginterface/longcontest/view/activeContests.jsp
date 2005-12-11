@@ -1,4 +1,4 @@
-<%@ page
+    <%@ page
         language="java"
         import="com.topcoder.web.codinginterface.longcontest.Constants"
 
@@ -66,9 +66,9 @@
                     <%boolean even = true;%>
                     <logic:iterate name="<%=Constants.CONTEST_LIST_KEY%>" id="contest">
                         <tr>
-                            <td class="<%=even?"statLt":"statDk"%>"><b><tc-webtag:beanWrite name="contest"
-                                                                                            property="contestName"/></b>
-                                    <div style="float: left;"><ci:sponsorImage imageObject="<%=contest.getSponsorImage()%>" alt="Sponsor" border="0" ifNull=""/></div>
+                            <td class="<%=even?"statLt":"statDk"%>"><b><tc-webtag:beanWrite name="contest" property="contestName"/></b>
+                                <% pageContext.setAttribute("sponsorImage", contest.getSponsorImage());%>
+                                <div style="float: left;"><ci:sponsorImage image="sponsorImage" alt="Sponsor" border="0" ifNull=""/></div>
                             </td>
                             <td class="<%=even?"statLt":"statDk"%>"><A
                                     href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>"
