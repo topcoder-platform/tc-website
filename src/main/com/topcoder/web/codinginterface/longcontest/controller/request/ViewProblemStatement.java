@@ -15,6 +15,8 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.render.ProblemRenderer;
+import com.topcoder.web.ejb.roundregistration.RoundRegistration;
+import com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal;
 
 import java.io.StringReader;
 import java.util.Map;
@@ -33,9 +35,14 @@ public class ViewProblemStatement extends Base {
         }
         try {
             TCRequest request = getRequest();
+            long rd = Long.parseLong(request.getParameter(Constants.ROUND_ID));
+            RoundRegistrationLocal roundReg = (RoundRegistrationLocal)createLocalEJB(getInitialContext(), RoundRegistration.class);
+            if (!isRoundOver(rd)&&!roundReg.exists(getUser().getId(), rd)) {
+                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            }
             CacheClient cc = null;
             String html = null;
-            int cid;
+            long cid;
             if (request.getParameter(Constants.COMPONENT_ID) == null) {
                 Request r = new Request();
                 r.setContentHandle("long_contest_problem_component");
@@ -44,9 +51,8 @@ public class ViewProblemStatement extends Base {
                         getDataAccess(false).getData(r).get("long_contest_problem_component"))
                         .getIntItem(0, "component_id");
             } else {
-                cid = Integer.parseInt(request.getParameter(Constants.COMPONENT_ID));
+                cid = Long.parseLong(request.getParameter(Constants.COMPONENT_ID));
             }
-            int rd = Integer.parseInt(request.getParameter(Constants.ROUND_ID));
             int lid = JavaLanguage.ID;  // Default to Java
             if (!"".equals(StringUtils.checkNull(request.getParameter(Constants.LANGUAGE_ID)))) {
                 lid = Integer.parseInt(request.getParameter(Constants.LANGUAGE_ID));
