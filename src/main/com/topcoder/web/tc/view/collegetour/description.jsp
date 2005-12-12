@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.tc.Constants"%>
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -78,7 +79,8 @@
                     <A href="mailto:collegetour@topcoder.com">collegetour@topcoder.com</a> today!
 
                     <br/><br/>
-                    <tc-webtag:forumLink forumID="505834" message="Discuss College Tour"/>
+
+                    <tc-webtag:forumLink forumID="<%=request.getAttribute(Constants.FORUM_ID)%>" message="Discuss College Tour"/>
                 </p>
 
 
