@@ -7,7 +7,6 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.language.BaseLanguage;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.messaging.messages.LongCompileRequest;
@@ -236,14 +235,6 @@ public abstract class Base extends BaseProcessor {
         synchronized (locks) {
             locks.remove(Constants.SERVER_BUSY + getSessionId());
         }
-    }
-
-    protected static List getLanguages(ArrayList languageIds) {
-        List ret = new ArrayList(languageIds.size());
-        for (Iterator it = languageIds.iterator(); it.hasNext();) {
-            ret.add(BaseLanguage.getLanguage(((Integer) it.next()).intValue()));
-        }
-        return ret;
     }
 
     public DataAccessInt getDataAccess() throws Exception {
