@@ -12,6 +12,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
 import java.lang.reflect.Method;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -141,7 +142,7 @@ public abstract class BaseProcessor implements RequestProcessor {
 
     /**
      * Returns true iff the user has an active logged in session.
-     * @return
+     * @return boolean
      */
     protected boolean userLoggedIn() {
         return !auth.getUser().isAnonymous();
@@ -150,7 +151,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     /**
      * Returns true iff we can identify the user.  Basically, if the user
      * has a cookie, or an active logged in session.
-     * @return
+     * @return boolean
      */
     protected boolean userIdentified() {
         return !auth.getActiveUser().isAnonymous();

@@ -7,9 +7,9 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.voting.*;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.model.Question;
 
 import java.util.*;
 

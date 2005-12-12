@@ -14,7 +14,6 @@ public class Constants implements WebConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("TC");
     private static final Logger log = Logger.getLogger(Constants.class);
 
-    public static String STATIC_PREFIX;
     public static String DEFAULT_PAGE;
     public static String HOME_PAGE;
 

@@ -1,7 +1,8 @@
 <%@ page import="com.topcoder.web.tc.Constants,
-                 com.topcoder.web.tc.view.tag.AnswerInput,
-                 com.topcoder.web.tc.model.Question,
+                 com.topcoder.web.common.tag.AnswerInput,
+                 com.topcoder.web.common.model.Question,
                  java.util.List"%>
+<%@ page import="com.topcoder.web.common.model.Question"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>

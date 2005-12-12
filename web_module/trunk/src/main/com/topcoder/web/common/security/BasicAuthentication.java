@@ -42,6 +42,7 @@ public class BasicAuthentication implements WebAuthentication {
     public static final Resource HS_SITE = new SimpleResource("hs");
     public static final Resource PRIVATE_LABEL_SITE = new SimpleResource("pl");
     public static final Resource TECH_ASSESS_SITE = new SimpleResource("techassess");
+    public static final Resource LONG_CONTEST_SITE = new SimpleResource("lc");
 
     /**
      * Construct an authentication instance backed by the given persistor
@@ -139,14 +140,14 @@ public class BasicAuthentication implements WebAuthentication {
                     u = guest;
                     //log.debug("*** made up a guest ***");
                 } else {
-                    //log.debug("*** they were in cookie ***");
+                    //log.debug("*** " + u.getUserName() + " was in cookie ***");
                 }
                 persistor.setObject(request.getSession().getId() + USER_COOKIE_NAME, u);
             } else {
-                //log.debug("*** they were stale ***");
+                //log.debug("*** " + u.getUserName() + " was stale ***");
             }
         } else {
-            //log.debug("*** they were live***");
+            //log.debug("*** " + u.getUserName() + " was live***");
         }
         return u;
     }
@@ -195,7 +196,7 @@ public class BasicAuthentication implements WebAuthentication {
      * but it is still pretty intensive...currently takes around 300 ms
      */
     private String hashForUser(long uid) throws Exception {
-        log.debug("hash for user: " + uid);
+        //log.debug("hash for user: " + uid);
         CachedDataAccess dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
         dai.setExpireTime(30 * 60 * 1000);   //cache their password for 30 minutes, this should help db load
         Request dataRequest = new Request();
@@ -233,12 +234,15 @@ public class BasicAuthentication implements WebAuthentication {
      * public so com.topcoder.web.hs.controller.requests.Base can reach it, a bit of a kludge
      */
     public void setCookie(long uid, boolean rememberUser) throws Exception {
-        String hash = hashForUser(uid);
-        Cookie c = new Cookie(defaultCookiePath.getName()+"_"+USER_COOKIE_NAME, "" + uid + "|" + hash);
-        //c.setPath(defaultCookiePath.getName());
-        c.setMaxAge(rememberUser ? Integer.MAX_VALUE : -1);  // this should fit comfortably, since the expiration date is a string on the wire
-        log.debug("setcookie: " + c.getName() + " " + c.getValue());
-        response.addCookie(c);
+        if (rememberUser) {
+            String hash = hashForUser(uid);
+            Cookie c = new Cookie(defaultCookiePath.getName()+"_"+USER_COOKIE_NAME, "" + uid + "|" + hash);
+            //c.setPath(defaultCookiePath.getName());
+            //c.setMaxAge(rememberUser ? Integer.MAX_VALUE : -1);  // this should fit comfortably, since the expiration date is a string on the wire
+            c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
+            //log.debug("setcookie: " + c.getName() + " " + c.getValue());
+            response.addCookie(c);
+        }
     }
 
     /** Remove any cookie previously set on the client by the method above. */
@@ -251,7 +255,7 @@ public class BasicAuthentication implements WebAuthentication {
 
     /** Check each cookie in the request header for a cookie set above. */
     public User checkCookie() {
-        log.debug("checkCookie called...");
+        //log.debug("checkCookie called...");
         Cookie[] ca = request.getCookies();
         for (int i = 0; ca != null && i < ca.length; i++) {
             //log.debug(ca[i].getName() + " " + ca[i].getValue());
