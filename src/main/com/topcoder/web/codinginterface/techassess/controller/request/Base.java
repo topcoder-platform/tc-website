@@ -19,9 +19,9 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.messaging.WebQueueResponseManager;
 import com.topcoder.web.codinginterface.ServerBusyException;
-import com.topcoder.web.codinginterface.model.ImageInfo;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.common.*;
+import com.topcoder.web.common.model.ImageInfo;
 
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionBindingListener;
