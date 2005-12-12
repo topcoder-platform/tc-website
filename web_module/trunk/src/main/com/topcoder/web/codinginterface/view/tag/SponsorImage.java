@@ -1,6 +1,6 @@
 package com.topcoder.web.codinginterface.view.tag;
 
-import com.topcoder.web.codinginterface.model.ImageInfo;
+import com.topcoder.web.common.model.ImageInfo;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
