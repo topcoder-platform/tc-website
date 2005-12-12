@@ -71,10 +71,25 @@
                                 <% pageContext.setAttribute("sponsorImage", ((LongContest)contest).getSponsorImage());%>
                                 <div style="float: left;"><ci:sponsorImage image="sponsorImage" alt="Sponsor" border="0" ifNull=""/></div>
                             </td>
-                            <td class="<%=even?"statLt":"statDk"%>"><A
-                                    href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>"
-                                    class="statLink">
-                                <tc-webtag:beanWrite name="contest" property="problemName"/></A>
+                            <td class="<%=even?"statLt":"statDk"%>">
+                                <logic:equal name="contest" property="passed" value="false">
+                                    <logic:equal name="contest" property="coderRegistered" value="false">
+                                        <tc-webtag:beanWrite name="contest" property="problemName"/>
+                                    </logic:equal>
+                                    <logic:notEqual name="contest" property="coderRegistered" value="false">
+                                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">
+                                        <tc-webtag:beanWrite name="contest" property="problemName"/>
+                                        </A>
+                                    </logic:notEqual>
+                                </logic:equal>
+                                <logic:notEqual name="contest" property="passed" value="false">
+                                    <logic:notEqual name="contest" property="coderRegistered" value="false">
+                                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">
+                                        <tc-webtag:beanWrite name="contest" property="problemName"/>
+                                        </A>
+                                    </logic:notEqual>
+                                </logic:notEqual>
+
                             </td>
                             <td class="<%=even?"statLt":"statDk"%>">
                                 <logic:equal name="contest" property="passed" value="false">
