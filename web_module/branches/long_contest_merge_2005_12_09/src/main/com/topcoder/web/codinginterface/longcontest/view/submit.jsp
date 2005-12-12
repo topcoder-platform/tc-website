@@ -1,7 +1,6 @@
 <%@ page
         language="java"
-        import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                com.topcoder.web.codinginterface.longcontest.Constants,
+        import="com.topcoder.web.codinginterface.longcontest.Constants,
                 com.topcoder.web.common.StringUtils"
 
         %>
