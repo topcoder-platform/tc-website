@@ -44,6 +44,7 @@
 
 <!-- 2005  -->
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
+<tr><td class="newsText"><A href="http://www.forbes.com/home/work/2005/12/09/silicon-valley-hiring-cx_rr_1212hire.html" target="_blank">Help Wanted In Silicon Valley</A> [December 12 - Forbes]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm" target="_blank">Rise Of A Powerhouse</A> [December 2 - BusinessWeek]<br/></td></tr>
 <tr><td class="newsText"><A href="/pdfs/press_room/usatoday_113005.pdf" target="_blank">TopCoder Survey in USA Today [PDF]</A> [November 30 - USA Today]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.infoworld.com/article/05/11/22/HNgooglecompetition_1.html" target="_blank">Google to hold programming competition in China</A> [November 22 - InfoWorld]<br/></td></tr>

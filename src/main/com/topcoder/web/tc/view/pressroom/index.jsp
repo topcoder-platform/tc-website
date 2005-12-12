@@ -47,6 +47,23 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- Forbes --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://www.forbes.com/home/work/2005/12/09/silicon-valley-hiring-cx_rr_1212hire.html" target="_blank"><img src="/i/pressroom/forbes_logo.gif" alt="Forbes" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.forbes.com/home/work/2005/12/09/silicon-valley-hiring-cx_rr_1212hire.html" target="_blank">Help Wanted In Silicon Valley</A> </strong></font><br />
+                        For programmers, happy days are here again. But for their employers, fear is setting in.<br />
+                        <span class="prHead"> [December 12]</span></p>                   
+                        </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+  
+
 <%-- BusinessWeek --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
