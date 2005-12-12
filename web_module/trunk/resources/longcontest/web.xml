@@ -16,7 +16,7 @@
         </init-param>
         <init-param>
             <param-name>default_processor</param-name>
-            <param-value>Index</param-value>
+            <param-value>ViewActiveContests</param-value>
             <description>the processor to execute if none is specified in the request</description>
         </init-param>
         <init-param>
@@ -26,7 +26,7 @@
         </init-param>
         <init-param>
             <param-name>login_servlet</param-name>
-            <param-value>/longcontest/longcontest</param-value>
+            <param-value>/longcontest</param-value>
             <description>the servlet path to use when we need to direct the user to login</description>
         </init-param>
             <init-param>
@@ -45,30 +45,29 @@
 
     <servlet-mapping>
         <servlet-name>main</servlet-name>
-        <url-pattern>/longcontest</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
     <session-config>
         <session-timeout>60</session-timeout>
     </session-config>
 
-
-    <!--
       <taglib>
-        <taglib-uri>/WEB-INF/struts-bean.tld</taglib-uri>
-        <taglib-location>/WEB-INF/struts-bean.tld</taglib-location>
+        <taglib-uri>struts-logic.tld</taglib-uri>
+        <taglib-location>/WEB-INF/struts-logic.tld</taglib-location>
       </taglib>
-    -->
-
-
-    <!--
-        <ejb-ref>
-            <ejb-ref-name>security/Login</ejb-ref-name>
-            <ejb-ref-type>Session</ejb-ref-type>
-            <home>com.topcoder.security.login.LoginRemoteHome</home>
-            <remote>com.topcoder.security.login.LoginRemote</remote>
-        </ejb-ref>
-    -->
+      <taglib>
+        <taglib-uri>rsc-taglib.tld</taglib-uri>
+        <taglib-location>/WEB-INF/rsc-taglib.tld</taglib-location>
+      </taglib>
+      <taglib>
+        <taglib-uri>tc-webtags.tld</taglib-uri>
+        <taglib-location>/WEB-INF/tc-webtags.tld</taglib-location>
+      </taglib>
+      <taglib>
+        <taglib-uri>codinginterface.tld</taglib-uri>
+        <taglib-location>/WEB-INF/codinginterface.tld</taglib-location>
+      </taglib>
 
     <error-page>
          <error-code>404</error-code>
