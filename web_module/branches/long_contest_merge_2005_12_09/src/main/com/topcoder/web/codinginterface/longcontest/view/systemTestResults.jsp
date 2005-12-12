@@ -98,7 +98,7 @@ text-align: left;
                <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
             </div>
 
-            <span class="bigHandle">Contest: <A href="" class="bcLink"><rsc:item name="contest_name" row="<%=infoRow%>"/></A></span><br>
+            <span class="bigHandle">Contest: <A href="/tc?module=ViewOverview&rd=<rsc:item name="round_id" row="<%=infoRow%>"/>" class="bcLink"><rsc:item name="contest_name" row="<%=infoRow%>"/></A></span><br>
             <span class="bodySubtitle">Registrants: <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>" class="bcLink">
                 <rsc:item name="num_registrants" row="<%=infoRow%>"/></A></span><br>
             <span class="bodySubtitle">Competitors: <rsc:item name="num_competitors" row="<%=infoRow%>"/></span><br>
