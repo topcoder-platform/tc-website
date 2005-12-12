@@ -4,12 +4,12 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
+import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.ejb.survey.Response;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.model.Answer;
-import com.topcoder.web.tc.model.Question;
-import com.topcoder.web.tc.model.SurveyResponse;
-import com.topcoder.web.tc.view.tag.AnswerInput;
+import com.topcoder.web.common.model.Answer;
+import com.topcoder.web.common.model.Question;
+import com.topcoder.web.common.model.SurveyResponse;
 
 import javax.transaction.TransactionManager;
 import javax.transaction.Status;

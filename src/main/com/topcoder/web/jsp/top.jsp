@@ -1,34 +1,19 @@
 <%@  page
   language="java"
   import="java.text.DecimalFormat,
-          java.util.HashMap,
-          com.topcoder.web.common.model.CoderSessionInfo,
-          com.topcoder.web.common.BaseServlet,
           com.topcoder.shared.util.ApplicationServer,
           com.topcoder.common.web.data.Navigation" %>
+<%@ page import="com.topcoder.web.common.SessionInfo"%>
+<%@ page import="com.topcoder.web.common.BaseServlet"%>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%
-    Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
-    if (nav==null) nav = new Navigation(request, response);
-    request.getSession(true).setAttribute("navigation", nav);
-    CoderSessionInfo sessionInfo = nav.getSessionInfo();
-   String styleClass = "coderTextWhite";
-   int rating = 0;
-   if (!sessionInfo.isAnonymous()) {
-       rating = sessionInfo.getHighestRating();
-       if ( rating > 2199 ) {
-         styleClass = "coderTextRed";
-       } else if ( rating > 1499 && rating < 2200 ) {
-         styleClass = "coderTextYellow";
-       } else if ( rating > 1199 && rating < 1500 ) {
-         styleClass = "coderTextBlue";
-       } else if ( rating > 899 && rating < 1200 ) {
-         styleClass = "coderTextGreen";
-       } else if (rating > 0 && rating < 900) {
-         styleClass = "coderTextGray";
-       } else if (rating < 0) {
-         styleClass = "coderTextOrange";
-       }
-     }
+    SessionInfo sessionInfo = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
+    if (sessionInfo==null) {
+        Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
+        if (nav==null) nav = new Navigation(request, response);
+        request.getSession(true).setAttribute("navigation", nav);
+        sessionInfo = nav.getSessionInfo();
+    }
 
     String level1 = request.getParameter("level1")==null?"competition":request.getParameter("level1");
 
@@ -45,11 +30,19 @@
 
         <td class=homeTopBar width="100%" align=right valign="bottom">
 <% if ( !sessionInfo.isAnonymous() ) { %>
-            <strong>Hello,</strong>&#160;<span class="smallText"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MemberProfile&cr=<%=sessionInfo.getUserId()%>" class="<%=styleClass%>"><%=sessionInfo.getHandle()%></a></span>
-            &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&amp;module=Logout" class=loginLinks>Logout</a>
+    <strong>Hello,</strong>&#160;<span class="smallText"><tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>'/></span>
+   <% if (level1.equals("long")) { %>
+            &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Logout" class=loginLinks>Logout</a>
+   <% } else { %>
+            &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout" class=loginLinks>Logout</a>
+   <% } %>           
             &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/Registration" class=loginLinks>Update Profile</a>
-<% } else { %>
+<% } else {
+    if (level1.equals("long")) {%>
+            <a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Login" class=loginLinks>Login</a>
+   <% } else { %>
             <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&module=Login" class=loginLinks>Login</a>
+   <% } %>
             &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/Registration" class=loginLinks>Register</a>
 <%}%>
             &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/" class=loginLinks>Home</a>

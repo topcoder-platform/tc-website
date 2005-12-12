@@ -116,6 +116,9 @@ This member has not yet been rated in a competition.
 <% } else if(tab.equals("dev")) { %>
 <jsp:include page="memberProfileTabs.jsp" />
 <jsp:include page="memberProfileTabDev.jsp" />
+<% } else if(tab.equals("long")) { %>
+<jsp:include page="memberProfileTabs.jsp" />
+<jsp:include page="memberProfileTabLong.jsp" />
 <% }%>
 <% }%>
         </td>

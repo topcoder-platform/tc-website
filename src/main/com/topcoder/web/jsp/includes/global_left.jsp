@@ -131,12 +131,13 @@ function arena() {
 
 
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="com.topcoder.web.common.SessionInfo"%>
 <%
     String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
     String level2 = request.getParameter("level2")==null?"":request.getParameter("level2");
     String level3 = request.getParameter("level3")==null?"":request.getParameter("level3");
     String unreadCategories = request.getParameter("unreadCategories")==null?"":request.getParameter("unreadCategories");
-    CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
+    SessionInfo info = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
     //bleh, gott do this for registration cuz it does a redirect to a jsp
     if (info==null) info = new Navigation(request, response).getSessionInfo();
 %>
@@ -300,7 +301,7 @@ function arena() {
             %>
                 <tr><td id="<%=level2.equals("round_overview")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/stat?&c=round_overview<%=request.getParameter("rd")==null?"":"&rd="+request.getParameter("rd")%>">Round Overview</a></td></tr>
                 <tr><td id="<%=level2.equals("last_match")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/stat?&c=last_match">Last Match Results</a></td></tr>
-                <% if (!info.isAnonymous() && info.getRating()>0) { %>
+                <% if (!info.isAnonymous() && info instanceof CoderSessionInfo &&  ((CoderSessionInfo)info).getRating()>0) { %>
                     <tr><td id="<%=level2.equals("my_last_match")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=coder_room_stats&cr=<%=info.getUserId()%>">My Last Match</a></td></tr>
                     <tr><td id="<%=level2.equals("member_profile")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MemberProfile&cr=<%=info.getUserId()%>">Member Profile</a></td></tr>
                     <tr><td id="<%=level2.equals("ratings_history")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=ratings_history&cr=<%=info.getUserId()%>">Ratings History</a></td></tr>
@@ -335,6 +336,19 @@ function arena() {
                 <tr><td id="<%=level2.equals("private_label")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/pl/">Private Label</A></td></tr>
             <% } %>
 <%-- Events ends --%>
+
+<%-- Marathon Match begins --%>
+                <tr><td id="<%=level1.equals("long_contests")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest" class="<%=level1.equals("long_contests")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("long_contests")?"bottom":"right"%>.gif" border="0"/>Marathon Matches</a></td></tr>
+
+            <% if (level1.equals("long_contests")) { %>
+                <tr><td id="<%=level2.equals("topcoder")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest">Active Contests</A></td></tr>
+                <tr><td id="<%=level2.equals("topcoder_practice")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest?module=ViewPractice">Practice</A></td></tr>
+<%--
+                <tr><td id="<%=level2.equals("intel")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest">Intel Multithreading Matches</A></td></tr>
+                <tr><td id="<%=level2.equals("intel_practice")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest">Intel Practice Matches</A></td></tr>
+--%>
+            <% } %>
+<%-- Marathon Match ends --%>
 
    <%-- Forums begins --%>
                 <tr><td id="<%=level1.equals("forums")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Main" class="<%=level1.equals("forums")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("forums")?"bottom":"right"%>.gif" border="0"/>Forums</a></td></tr>

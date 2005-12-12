@@ -1,36 +1,29 @@
 package com.topcoder.web.codinginterface.longcontest.controller;
 
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.messaging.QueueMessageSender;
-import com.topcoder.shared.screening.common.ScreeningApplicationServer;
-import com.topcoder.shared.screening.common.ScreeningContext;
 import com.topcoder.shared.security.Resource;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
 import com.topcoder.web.codinginterface.messaging.WebQueueResponseManager;
 import com.topcoder.web.codinginterface.messaging.WebResponsePool;
-import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.security.Constants;
-import com.topcoder.web.common.security.LightAuthentication;
+import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.naming.Context;
 import javax.naming.NamingException;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * User: lars
@@ -41,6 +34,11 @@ public class MainServlet extends BaseServlet {
     private static QueueMessageSender sender = null;
     private static WebQueueResponseManager receiver = null;
 
+    protected void process(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+        System.out.println("Main Servlet Called!");
+        super.process(request, response);
+    }
 
     public void init(ServletConfig config) throws ServletException {
         log.debug("loading up the longcontest servlet");
@@ -68,7 +66,6 @@ public class MainServlet extends BaseServlet {
                 new WebResponsePool());
         log.info("created queue response manager");
 
-
 /*
         Constants.initialize();
 
@@ -81,8 +78,6 @@ public class MainServlet extends BaseServlet {
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
         return true;
     }
-
-    private static final String KEY_PREFIX = "user_subject:";
 
     protected RequestProcessor callProcess(String processorName, TCRequest request, TCResponse response,
                                            WebAuthentication authentication) throws Exception {
@@ -98,15 +93,11 @@ public class MainServlet extends BaseServlet {
         log.debug("done process");
         return rp;
     }
-    protected void handleLogin(HttpServletRequest request, HttpServletResponse response, SessionInfo info) throws Exception {
-        /* forward to the login page, with a message and a way back */
-        request.setAttribute(MESSAGE_KEY, "In order to continue, you must provide your user name " +
-                "and password.");
-        log.debug("going to " + info.getRequestString() + " on success login");
-        request.setAttribute(NEXT_PAGE_KEY, info.getRequestString());
 
-        request.setAttribute(MODULE, LOGIN_PROCESSOR);
-        getServletContext().getContext(LOGIN_SERVLET).getRequestDispatcher(response.encodeURL(LOGIN_SERVLET)).forward(request, response);
+    protected WebAuthentication createAuthentication(TCRequest request,
+                                                     TCResponse response) throws Exception {
+        return new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response,
+                BasicAuthentication.LONG_CONTEST_SITE);
     }
 
 }
