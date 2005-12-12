@@ -8,6 +8,7 @@ package com.topcoder.web.common;
 public interface WebConstants {
     public static final String HANDLE = "ha";
     public static final String ROUND_ID = "rd";
+    public static final String FORUM_ID = "forumID";
     public static final String STATIC_PREFIX = "d";
 
 }

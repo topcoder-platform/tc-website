@@ -25,6 +25,7 @@ abstract public class Base extends BaseProcessor {
     private long schoolId = 0;
     private long roundId = 0;
     private long eventId = 0;
+    private long forumId = 0;
     private Timestamp codingStart = null;
     private Timestamp sysTestEnd = null;
     private Timestamp regStart = null;
@@ -47,6 +48,10 @@ abstract public class Base extends BaseProcessor {
             } else {
                 schoolId = rsc.getLongItem(0, "school_id");
                 roundId = rsc.getLongItem(0, "round_id");
+                if (rsc.getItem(0, "forum_id").getResultData()!=null) {
+                    forumId = rsc.getLongItem(0, "forum_id");
+                    getRequest().setAttribute(Constants.FORUM_ID, String.valueOf(forumId));
+                }
                 getRequest().setAttribute(Constants.ROUND_ID, String.valueOf(roundId));
                 getRequest().setAttribute(Constants.SCHOOL_ID, String.valueOf(schoolId));
                 getRequest().setAttribute(Constants.SCHOOL_NAME, rsc.getStringItem(0, "school_name"));
@@ -123,6 +128,10 @@ abstract public class Base extends BaseProcessor {
 
     public long getEventId() {
         return eventId;
+    }
+
+    public long getForumId() {
+        return forumId;
     }
 
     protected abstract void collegeTourProcessing() throws Exception;
