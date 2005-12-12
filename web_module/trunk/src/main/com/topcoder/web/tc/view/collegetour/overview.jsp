@@ -51,7 +51,9 @@
                     <A href="/tc?module=CollegeTourInfo&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Instructions</A>&#160;&#160;|&#160;&#160;
                     <A href="/tc?module=CollegeTourReg&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Register</A>&#160;&#160;|&#160;&#160;
                     <A href="/tc?module=CollegeTourRegistrants&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Registrants</A>&#160;&#160;|&#160;&#160;
-                    <tc-webtag:forumLink forumID="<%=request.getAttribute(Constants.FORUM_ID)%>" message="Discuss this event" />
+                    <% if (request.getAttribute(Constants.FORUM_ID))!=null) {%>
+                    <tc-webtag:forumLink forumID="<%=Long.parseLong((String)request.getAttribute(Constants.FORUM_ID))%>" message="Discuss College Tour"/>
+                    <% } %>
                 </p>
 
                 <!-- ends -->
