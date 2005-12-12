@@ -262,5 +262,13 @@ public abstract class Base extends BaseProcessor {
         return getAuthentication().getUser();
     }
 
+    protected boolean isRoundOver(long roundId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("long_contest_over");
+        r.setProperty(Constants.ROUND_ID, String.valueOf(roundId));
+        ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("long_contest_over");
+        return rsc.getBooleanItem(0, 0);
+    }
+
 }
 
