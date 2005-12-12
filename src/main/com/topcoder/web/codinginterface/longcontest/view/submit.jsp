@@ -107,7 +107,7 @@ color: FF0000;
               (<A href="Javascript:openWin('<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=true<%=(request.getAttribute(Constants.LANGUAGE_ID)!=null?"&lid="+request.getAttribute(Constants.LANGUAGE_ID):"")%>', 'Problem Statement');"  class="statLink">new window</A>)
             </td>
             <td align="right" valign="top">Choose your language:<br>
-                <tc-webtag:listIterator id="language" list="languages" type="com.topcoder.shared.language.Language">
+                <tc-webtag:listIterator id="language" listKey="languages" type="com.topcoder.shared.language.Language">
                   <tc-webtag:radioButton name="<%=Constants.LANGUAGE_ID%>" value="<%=String.valueOf(language.getId())%>" />&#160;<jsp:getProperty name="language" property="name"/>&#160;
                 </tc-webtag:listIterator>
             </td>
