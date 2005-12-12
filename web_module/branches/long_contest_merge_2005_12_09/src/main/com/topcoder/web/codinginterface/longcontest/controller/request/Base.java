@@ -16,13 +16,13 @@ import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.ServerBusyException;
-import com.topcoder.web.codinginterface.model.ImageInfo;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.messaging.WebQueueResponseManager;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.ImageInfo;
 
 import java.io.IOException;
 import java.util.*;
