@@ -46,7 +46,7 @@
                     evening of problem solving, food, prizes and fun.
 
                     <h3>How will the College Tour work?</h3>
-                    Each selected campus will receive a visit from TopCoder during a regularly scheduled SRM. TopCoder
+                    Each selected campus will receive a visit from TopCoder during a regularly scheduled SRM (<strong>S</strong>ingle <strong>R</strong>ound <strong>M</strong>atch). TopCoder
                     will provide a private registration path for each campus prior to the SRM. At the time of the SRM,
                     the registered students will gather in a computer lab and compete in their own room during the SRM,
                     with everyone solving the same problems. Everyone who registers and attends the SRM will receive a
