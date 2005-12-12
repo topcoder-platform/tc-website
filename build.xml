@@ -1606,7 +1606,7 @@
                 </fileset>
                 <fileset dir="${java}/com/topcoder/web/jsp">
                     <include name="*.jsp"/>
-                    <include name="includes/*.jsp"/>
+                    <include name="includes/**/*.jsp"/>
                 </fileset>
 
             </war>
