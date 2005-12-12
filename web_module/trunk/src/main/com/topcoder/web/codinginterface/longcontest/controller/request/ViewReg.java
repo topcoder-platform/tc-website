@@ -8,7 +8,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.codinginterface.CodingInterfaceConstants;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.Answer;
@@ -47,9 +46,8 @@ public class ViewReg extends Base {
             // Is the coder already registered for the round?
             if (isUserRegistered(getUser().getId(), Long.parseLong(roundID))) {
                 // Go to the active contests page if user is already registered.
-                getRequest().setAttribute(CodingInterfaceConstants.MODULE, Constants.RP_ACTIVE_CONTESTS);
                 setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
-                setIsNextPageInContext(true);
+                setIsNextPageInContext(false);
             } else {
                 // Get the round terms.
                 DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
