@@ -272,7 +272,7 @@ An implementation point of view is in place. We could implement the maximum bipa
 
 Now let’s solve some TopCoder problems!
 
-<span class="bodySubtitle">RookAttack<span><br>
+<span class="bodySubtitle">RookAttack</span><br>
 [http://www.topcoder.com/stat?c=problem_statement&pm=1931&rd=4709]
 
 This problem asks us to place a maximum number of rooks on a   chessboard with some squares cut out. The idea behind this might be a little hard to spot, but once this is done, we get into a standard maximum bipartite-matching problem.
