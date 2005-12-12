@@ -79,7 +79,7 @@
                     <A href="mailto:collegetour@topcoder.com">collegetour@topcoder.com</a> today!
 
                     <br/><br/>
-                    <% if (request.getAttribute(Constants.FORUM_ID))!=null) {%>
+                    <% if (request.getAttribute(Constants.FORUM_ID)!=null) {%>
                     <tc-webtag:forumLink forumID="<%=Long.parseLong((String)request.getAttribute(Constants.FORUM_ID))%>" message="Discuss College Tour"/>
                     <% } %>
                 </p>
