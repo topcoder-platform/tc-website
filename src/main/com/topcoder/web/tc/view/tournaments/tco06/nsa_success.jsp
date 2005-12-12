@@ -22,10 +22,9 @@
       <div class="bodySpacer">
             
 <div align="center"><img src="/i/tournament/tco06/nsa_logo.gif" alt="NSA" border="0" /></div>
+Your application has been received.
 <br><br>
-By clicking "Submit" below you will be releasing your TopCoder contact and statistical information to NSA and you will be giving NSA permission to contact you about their current job opportunities.
-<br><br>
-<A href="/tc?module=JobHit&jid=326&jt=1">Submit</A>.
+If you would like to be contacted by NSA, please go to <A href="http://www.nsa.gov/careers/">NSA's Careers Homepage</A> and apply online to register as an applicant.
 <br><br><br><br><br><br>
 
         </div>
