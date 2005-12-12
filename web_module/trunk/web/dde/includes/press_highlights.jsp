@@ -7,6 +7,9 @@
 <table width="530" border="0" cellspacing="0" cellpadding="4">   
 
    <tr><td class="prHead">
+         <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/forbes_logo.gif" width="67" height="23" alt="Forbes" border="0" /></div>
+         <A href="http://www.forbes.com/home/work/2005/12/09/silicon-valley-hiring-cx_rr_1212hire.html" target="_blank">Help Wanted In Silicon Valley</A> [December 12]
+   <tr><td class="prHead">
          <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/bw_cov120205_small.jpg"  width="85" height="82" alt="BusinessWeek" border="0" /></div>
          <A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm" target="_blank">Rise Of A Powerhouse</A> <br />
          <b>How the young knowledge workers of Central Europe are pushing the region to a new level.</b> They came from around the world, young men with handles like SnapDragon and Bladerunner attacking computing problems so complex that even experienced coders could only stare at the screen in bewilderment.... [December 2]
@@ -21,8 +24,7 @@
          <A href="http://www.informationweek.com/showArticle.jhtml?articleID=172901456" target="_blank">Winning Design Ways</A> [October 31]
    </td></tr>
    <tr><td class="prHead"><A href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_102105">TopCoder Selects Aladdin Resort in Las Vegas for TopCoder Open 2006</A> [October 21]</td></tr>
-   <tr><td class="prHead"><A href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_101705">Champions Announced In 2005 TopCoder Open Sponsored by Sun Microsystems</A> [October 17]</td></tr>
-   </td></tr>
+
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
 
 </table>
