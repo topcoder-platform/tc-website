@@ -1614,6 +1614,10 @@
         <target name="deploy-longcontest" depends="war-longcontest">
             <antcall target="package-EJB-RoundRegistrationBean"/>
             <antcall target="package-EJB-RoomResultBean"/>
+            <antcall target="expand-longcontest"/>
+        </target>
+
+        <target name="expand-longcontest" depends="">
             <copy todir="${jboss_deploy}">
                 <fileset dir="${ejb_jars}">
                     <include name="RoundRegistration.jar"/>
@@ -1622,13 +1626,6 @@
                     <include name="DBServices.jar"/>
                 </fileset>
             </copy>
-            <antcall target="expand-longcontest"/>
-        </target>
-
-        <target name="expand-longcontest" depends="">
-            <copy file="${resources}/LongContest.properties" todir="${jboss_home}/server/all/conf" overwrite="true"/>
-            <copy file="${shared.jar}" todir="${jboss_home}/server/all/lib" overwrite="true"/>
-            <delete file="${jboss_home}/server/all/deploy/longcontest.war"/>
             <unwar src="${war.dir}/longcontest.war" dest="${jboss_home}/server/all/deploy/longcontest.war/"
                    overwrite="yes"/>
             <delete dir="${jboss_home}/server/all/deploy/longcontest.war/META-INF"/>
