@@ -13,11 +13,10 @@ package com.topcoder.web.tc.controller.request.statistics;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.security.ClassResource;
-import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
+
 import java.util.Iterator;
 import java.util.Map;
 
@@ -48,6 +47,8 @@ public class MemberProfile extends Base {
             boolean hasAlg = false;
             boolean hasDes = false;
             boolean hasDev = false;
+            boolean hasLong = false;
+
             
             int algRating = 0;
             int desRating = 0;
@@ -72,11 +73,16 @@ public class MemberProfile extends Base {
                     devRating = rsc.getIntItem(0, "development_rating");
                 }
 
+                log.debug("has long comp is " + rsc.getStringItem(0, "has_long_comp"));
+                hasLong=rsc.getStringItem(0, "has_long_comp").equals("1");
+
+
                 //get the selected tab
                 if(tab.equals("")) {
-                    //get the higest rating
-                    if(algRating == 0 && desRating == 0 && devRating == 0) {
+                    if(!hasAlg && !hasDes && !hasDev && !hasLong) {
                         tab = "";
+                    } else if (!hasAlg && !hasDes && !hasDev && hasLong) {
+                        tab = "long";
                     } else if(algRating >= desRating && algRating >= devRating) {
                         tab = "alg";
                     } else if(desRating >= algRating && desRating >= devRating) {
@@ -127,6 +133,19 @@ public class MemberProfile extends Base {
                         String key = (String) it.next();
                         result.put(key, algoData.get(key));
                     }
+                } else if (tab.equals("long")) {
+                    r = new Request();
+                    r.setContentHandle("Coder_Long_Data");
+                    r.setProperty("cr", coderId);
+
+                    dai = getDataAccess(true);
+                    Map longData = dai.getData(r);
+                    Iterator it = longData.keySet().iterator();
+                    while(it.hasNext()) {
+                        String key = (String) it.next();
+                        result.put(key, longData.get(key));
+                    }
+
                 }
             }
             getRequest().setAttribute("resultMap", result);
@@ -134,6 +153,7 @@ public class MemberProfile extends Base {
             getRequest().setAttribute("hasAlg", new Boolean(hasAlg));
             getRequest().setAttribute("hasDes", new Boolean(hasDes));
             getRequest().setAttribute("hasDev", new Boolean(hasDev));
+            getRequest().setAttribute("hasLong", new Boolean(hasLong));
             getRequest().setAttribute("tab", tab);
             
             setNextPage(Constants.MEMBER_PROFILE);
