@@ -18,7 +18,7 @@
    </tr>
    <tr><td class="newsLinksCell">
        <A href="http://www.forbes.com/home/work/2005/12/09/silicon-valley-hiring-cx_rr_1212hire.html">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505850" message="discuss this" />&#160;|&#160;
+       <tc-webtag:forumLink forumID="505873" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
