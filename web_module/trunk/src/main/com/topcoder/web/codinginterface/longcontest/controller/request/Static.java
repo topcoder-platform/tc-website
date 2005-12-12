@@ -1,15 +1,14 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.codinginterface.longcontest.Constants;
+import com.topcoder.web.common.NavigationException;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Dec 9, 2005
  */
-public class Static extends BaseProcessor {
+public class Static extends Base {
 
     protected void businessProcessing() throws Exception {
 
@@ -30,6 +29,10 @@ public class Static extends BaseProcessor {
             path.append(".jsp");
         }
         setNextPage(path.toString());
+
+    }
+
+    protected void longContestProcessing() throws Exception {
 
     }
 
