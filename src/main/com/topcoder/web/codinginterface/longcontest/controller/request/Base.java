@@ -37,7 +37,6 @@ public abstract class Base extends BaseProcessor {
 
     private QueueMessageSender sender = null;
     private WebQueueResponseManager receiver = null;
-    private List languages = null;
     private ImageInfo sponsorImage = null;
     private static final Set locks = new HashSet();
 
@@ -148,11 +147,6 @@ public abstract class Base extends BaseProcessor {
 
     protected String getSessionId() {
         return getRequest().getSession().getId();
-    }
-
-    public void setLanguages(List languages) {
-        this.languages = languages;
-        getRequest().getSession().setAttribute(Constants.LANGUAGES, languages);
     }
 
     protected Object getDefault(String key) {
