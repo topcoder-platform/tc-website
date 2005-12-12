@@ -64,7 +64,7 @@
                         <li><strong>SRMs:</strong> Win cash prizes and chat before the competition with sponsors
                             interested in hiring TopCoder members</li>
                         <li><strong>Component Projects:</strong> Get paid for designing and/or developing real software
-                            projects that are used in applications for TopCoder clients</li>
+                            projects that are used in applications for TopCoder clients.</li>
                         <li><strong>TopCoder Software:</strong> Consulting and full-time employment possibilities.</li>
                         <li><strong>TopCoder Employment Services:</strong> Learn how the leading technology companies -
                             Google, Yahoo, Microsoft, National Security Agency, Sun Microsystems, NVIDIA, VeriSign,
