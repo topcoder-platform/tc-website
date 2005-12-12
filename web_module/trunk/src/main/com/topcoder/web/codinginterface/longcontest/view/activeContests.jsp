@@ -83,11 +83,9 @@
                                     </logic:notEqual>
                                 </logic:equal>
                                 <logic:notEqual name="contest" property="passed" value="false">
-                                    <logic:notEqual name="contest" property="coderRegistered" value="false">
                                         <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">
                                         <tc-webtag:beanWrite name="contest" property="problemName"/>
                                         </A>
-                                    </logic:notEqual>
                                 </logic:notEqual>
 
                             </td>
