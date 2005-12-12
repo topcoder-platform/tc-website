@@ -734,6 +734,7 @@
                 <include name="cache.properties"/>
                 <include name="Email.properties"/>
                 <include name="EmailEngineConfig.properties"/>
+                <include name="LongContest.properties"/>
             </fileset>
         </copy>
         <copy todir="${jboss_conf}">
