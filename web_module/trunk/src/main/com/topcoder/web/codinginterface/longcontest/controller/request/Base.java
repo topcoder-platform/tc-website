@@ -263,6 +263,7 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected boolean isRoundOver(long roundId) throws Exception {
+        log.debug("is round over called");
         Request r = new Request();
         r.setContentHandle("long_contest_over");
         r.setProperty(Constants.ROUND_ID, String.valueOf(roundId));
