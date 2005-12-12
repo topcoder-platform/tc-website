@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>12.05.05<br>10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">NSA returns as TCO06 event patron</A></span><br><br>
+      TopCoder welcomes back NSA as an event patron for the 2006 TopCoder Open.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505874" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>12.12.05<br>11:15 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.forbes.com/home/work/2005/12/09/silicon-valley-hiring-cx_rr_1212hire.html">Help Wanted In Silicon Valley</A></span><br><br>
       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/forbes_logo.gif" width="67" height="23" alt="Forbes" border="0" /></div>
@@ -281,19 +294,6 @@
          <tc-webtag:forumLink forumID="505830" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>11.17.05<br>6:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">$5,000 prize purse and iPod raffle per match for SRMs <A href="/?RoundId=8070&t=schedule&c=srm">273</A>, <A href="/?RoundId=8073&t=schedule&c=srm">276</A>, <A href="/?RoundId=8076&t=schedule&c=srm">279</A>, sponsored by <A href="/tc?module=Static&d1=sponsors&d2=sap">SAP</A></span><br><br>
-      Compete in any of these SRM's sponsored by SAP for a chance to win cash prizes.  There's also a raffle for an iPod.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <tc-webtag:forumLink forumID="505828" message="discuss this" />&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-
 
 
 </table>

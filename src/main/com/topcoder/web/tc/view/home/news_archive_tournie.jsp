@@ -35,7 +35,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tr class="bodyText"><td nowrap="nowrap">12.05.05 10:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about">Announcing the 2006 TopCoder Open</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">12.12.05 2:15 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">NSA returns as TCO06 event patron</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.05.05 10:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ccip_description">TCO06 Complete Coder Incentive Program</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.30.05 5:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=logo_winner">b21 is the TCO06 Logo Contest Winner!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.23.05 10:00 AM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=213">Vote for the TCO06 logo</A></td></tr>
