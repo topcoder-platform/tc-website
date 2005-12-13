@@ -39,7 +39,7 @@
         <jsp:param name="title" value="Rules & Regulations"/>
     </jsp:include>
 
-<span class="bigTitle">Marathon Match Official Rules & Regulations</span>
+<span class="bigTitle">Official Rules & Regulations</span>
 <br><br>
 No purchase necessary to enter or win. 
 <br><br>

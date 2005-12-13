@@ -34,6 +34,8 @@
         <jsp:param name="title" value="Instructions"/>
     </jsp:include>
 
+<div align="center"><img src="/i/longcontest/banner.jpg" alt="TopCoder Marathon Matches" border="0" /></div>
+<br><br>
 <span class="bigTitle">Instructions</span>
 <br><br>
 TopCoder has created Marathon Matches in effort to provide a more flexible competition format with an extended timeline that offers different types of problems than what can be offered in a traditional TopCoder algorithm round.  
