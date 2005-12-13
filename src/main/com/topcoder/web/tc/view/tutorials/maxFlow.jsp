@@ -75,28 +75,28 @@ Rephrasing the statement in terms of graph theory, we are given a network - a di
 <br><br>
 The image below shows the optimal solution to an instance of this problem, each edge being labeled with the values f/c associated to it. 
 
-<div align=center padding="10px"><img src="/i/education/maxFlow01.gif" alt="Figure 1a - Maximum Flow in a network"/></div>
+<div align=center padding=10px><img src="/i/education/maxFlow01.gif" alt="Figure 1a - Maximum Flow in a network"/></div>
 
 
 <span class="bodySubtitle">How to Solve It</span><br>
 
 Now how do we actually solve the problem? First, let us define two basic concepts for understanding flow networks: residual networks and augmenting paths. Consider an arbitrary flow in a network. The residual network has the same vertices as the original network, and one or two edges for each edge in the original. More specifically, if the flow along the edge x-y is less than the capacity there is a forward edge x-y with a capacity equal to the difference between the capacity and the flow (this is called the residual capacity), and if the flow is positive there is a backward edge y-x with a capacity equal to the flow on x-y. An augmenting path is simply a path from the source to the sink in the residual network, whose purpose is to increase the flow in the original one. It is important to understand that the edges in this path can point the "wrong way" according to the original network. The path capacity of a path is the minimum capacity of an edge along that path. Let's take the following example:
 
-<div align=center padding="10px"><img src="/i/education/maxFlow02.gif" alt="Figure 2a" /></div>
+<div align=center padding=10px><img src="/i/education/maxFlow02.gif" alt="Figure 2a" /></div>
 
-<br><div align=center padding="10px"><img src="/i/education/maxFlow03.gif" alt="Figure 2b - The residual network of the network in 2a" /></div>
+<br><div align=center padding=10px><img src="/i/education/maxFlow03.gif" alt="Figure 2b - The residual network of the network in 2a" /></div>
 
 By considering the path X_A_C_Y, we can increase the flow by 1 - the edges X_A and A_C have capacity of 3, as in the original network, but the edge C_Y has capacity 1, and we take the minimum of these values to get the path capacity. Increasing the flow along this path with 1 yields the flow below:
 
-<div align=center padding="10px"><img src="/i/education/maxFlow04.gif" alt="Figure 3a" /></div>
+<div align=center padding=10px><img src="/i/education/maxFlow04.gif" alt="Figure 3a" /></div>
 
 The value of the current flow is now 2, and as shown in Figure 1, we could do better. So, let's try to increase the flow. Clearly, there is no point in considering the directed paths X_A_C_Y or X_B_D_E_Y as the edges C_Y and X_B, respectively, are filled to capacity. As a matter of fact, there is no directed path in the network shown above, due to the edges mentioned above being filled to capacity. At this point, the question that naturally comes to mind is: is it possible to increase the flow in this case? And the answer is yes, it is. Let's take a look at the residual network: 
 
-<div align=center padding="10px"><img src="/i/education/maxFlow05.gif" alt="Figure 3b - The residual network of the network in 3a" /></div>
+<div align=center padding=10px><img src="/i/education/maxFlow05.gif" alt="Figure 3b - The residual network of the network in 3a" /></div>
 
 Let's consider the only path from X to Y here: X_A_C_B_D_E_Y. Note that this is not a path in the directed graph, because C_B is walked in the opposite way. We'll use this path in order to increase the total flow in the original network. We'll "push" flow on each of the edges, except for C_B  which we will use in order to "cancel" flow on B_C. The amount by which this operation can be performed is limited by the capacities of all edges along the path (as shown in Figure 3b). Once again we take the minimum, to conclude that this path also has capacity 1. Updating the path in the way described here yields the flow shown in Figure 1a. We are left with the following residual network where a path between the source and the sink doesn't exist:
 
-<div align=center padding="10px"><img src="/i/education/maxFlow06.gif" alt="Figure 1b - The residual network of the network in 1a" /></div>
+<div align=center padding=10px><img src="/i/education/maxFlow06.gif" alt="Figure 1b - The residual network of the network in 1a" /></div>
 
 This example suggests the following algorithm: start with no flow everywhere and increase the total flow in the network while there is an augmenting path from the source to the sink with no full forward edges or empty backward edges - a path in the residual network. The algorithm (known as the Ford-Fulkerson method) is guaranteed to terminate: due to the capacities and flows of the edges being integers and the path-capacity being positive, at each step we get a new flow that is closer to the maximum. As a side note, the algorithm isn't guaranteed to even terminate if the capacities are irrationals. 
 <br><br>
@@ -104,13 +104,13 @@ What about the correctness of this algorithm? It is obvious that in a network in
 <br><br>
 A cut in a flow network is simply a partition of the vertices in two sets, let's call them A and B, in such a way that the source vertex is in A and the sink is in B. The capacity of a cut is the sum of the capacities of the edges that go from a vertex in A to a vertex in B. The flow of the cut is the difference of the flows that go from A to B (the sum of the flows along the edges that have the starting point in A and the ending point in B), respectively from B to A, which is exactly the value of the flow in the network, due to the entering flow equals leaving flow - property, which is true for every vertex other than the source and the sink.
 
-<div align=center padding="10px"><img src="/i/education/maxFlow07.gif" alt="Figure 4 - A cut in the network" /></div>
+<div align=center padding=10px><img src="/i/education/maxFlow07.gif" alt="Figure 4 - A cut in the network" /></div>
  
 Notice that the flow of the cut is less or equal to the capacity of the cut due to the constraint of the flow being less or equal to the capacity of every edge. This implies that the maximum flow is less or equal to every cut of the network. This is where the max-flow min-cut theorem comes in and states that the value of the maximum flow through the network is exactly the value of the minimum cut of the network. Let's give an intuitive argument for this fact. We will assume that we are in the situation in which no augmenting path in the network has been found. Let's color in yellow, like in the figure above, every vertex that is reachable by a path that starts from the source and consists of non-full forward edges and of non-empty backward edges. Clearly the sink will be colored in blue, since there is no augmenting path from the source to the sink. Now take every edge that has a yellow starting point and a blue ending point. This edge will have the flow equal to the capacity, otherwise we could have added this edge to the path we had at that point and color the ending point in yellow. Note that if we remove these edges there will be no directed path from the source to the sink in the graph. Now consider every edge that has a blue starting point and a yellow ending point. The flow on this edge must be 0 since otherwise we could have added this edge as a backward edge on the current path and color the starting point in yellow. Thus, the value of the flow must equal the value of the cut, and since every flow is less or equal to every cut, this must be a maximum flow, and the cut is a minimum cut as well.
 <br><br>
 In fact, we have solved another problem that at first glance would appear to have nothing to do with maximum flow in a network, ie. given a weighted directed graph, remove a minimum-weighted set of edges in such a way that a given node is unreachable from another given node. The result is, according to the max-flow min-cut theorem, the maximum flow in the graph, with capacities being the weights given. We are also able to find this set of edges in the way described above: we take every edge with the starting point marked as reachable in the last traversal of the graph and with an unmarked ending point. This edge is a member of the minimum cut.
 
-<div align=center padding="10px"><img src="/i/education/maxFlow08.gif" alt="Figure 5 - A minimum cut in the network"/></div>
+<div align=center padding=10px><img src="/i/education/maxFlow08.gif" alt="Figure 5 - A minimum cut in the network"/></div>
 
 
 <span class="bodySubtitle">Augmenting-Path Algorithms</span><br>
