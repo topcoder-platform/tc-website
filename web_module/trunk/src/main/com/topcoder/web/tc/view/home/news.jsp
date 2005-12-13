@@ -13,7 +13,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=maxFlow">Maximum Flow Tutorial</A></span><br><br>
         This article covers a problem that often arises in real life situations and, as expected, in programming contests, with TopCoder being no exception.</td>
-      <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" /><br>by <tc-webtag:handle coderId="8593420" context="algorithm"/></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/_efer__mug.gif" /><br>by <tc-webtag:handle coderId="8593420" context="algorithm"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
