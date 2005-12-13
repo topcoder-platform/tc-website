@@ -21,7 +21,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>12.05.05<br>10:00 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>12.12.05<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">NSA returns as TCO06 event patron</A></span><br><br>
       TopCoder welcomes back NSA as an event patron for the 2006 TopCoder Open.
       </td>
