@@ -108,6 +108,13 @@
                <tc-webtag:handle coderId="10407399" context="algorithm"/>
                </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=sorting"><strong>Sorting</strong></a>
             </td></tr>
+            <tr valign=top><td class="bodyText">
+               <tc-webtag:handle coderId="8593420" context="algorithm"/>
+               </td><td class="bodyText" nowrap=nowrap><strong>Maximum Flow</a><br />
+               &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=maxFlow"><strong>Section 1</strong></a><br>
+               &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=maxFlow2"><strong>Section 2</strong></a><br>
+            </td></tr>
+            
          </table>
         </div>
         <p><br></p>

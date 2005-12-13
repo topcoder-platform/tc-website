@@ -340,9 +340,9 @@ Here are some problems to practice:<br>
 <A href="http://www.topcoder.com/stat?c=problem_statement&pm=4731&rd=8016">PlayingCubes</A> - for this one ignore the low constraints and try to find a max-flow algorithm<br>
 <A href="http://www.topcoder.com/stat?c=problem_statement&pm=2010&rd=5080">DataFilter</A> - be warned this is the hard problem from the TCCC 2004 Finals and is tough indeed!<br>
   
-Some other problems from http://acm.uva.es/p/: 563, 753, 820, 10122, 10330, 10511, 10735.<br>
+Some other problems from <A href="http://acm.uva.es/p/">http://acm.uva.es/p/</A>: 563, 753, 820, 10122, 10330, 10511, 10735.<br>
 <br>
-For any questions or comments please use the Round Tables.
+For any questions or comments please use the Forums.
 
         </div>
         <p><br/></p>
