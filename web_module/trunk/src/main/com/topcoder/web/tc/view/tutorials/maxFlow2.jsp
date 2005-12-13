@@ -118,7 +118,7 @@ Now let's solve some TopCoder problems!
 <span class="bodySubtitle">RookAttack</span><br>
 <A href="http://www.topcoder.com/stat?c=problem_statement&pm=1931&rd=4709">Problem Statement</A>
 <br/><br/>
-This problem asks us to place a maximum number of rooks on a <font="serif, times" style="italic">rows x cols</font> chessboard with some squares cut out. The idea behind this might be a little hard to spot, but once this is done, we get into a standard maximum bipartite-matching problem.
+This problem asks us to place a maximum number of rooks on a <font face="times new roman, serif" style="italic">rows x cols</font> chessboard with some squares cut out. The idea behind this might be a little hard to spot, but once this is done, we get into a standard maximum bipartite-matching problem.
 <br/><br/>
 Notice that at most one rook can be placed on each row or column. In other words, each row corresponds at most to one column where a rook can be placed. This suggests a bipartite matching where set A is composed of elements corresponding to every row of the board, while set B consists of the columns. For each row add edges to every column if the corresponding square is not cut out of the board. Now we can just run maximum bipartite-matching in this network and compute the result. Since there are at most   edges, the time complexity of the algorithm is:  
 <br/><br/>
