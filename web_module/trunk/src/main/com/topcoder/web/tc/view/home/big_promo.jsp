@@ -21,3 +21,6 @@
 <%-- TCO06
 --%>
 <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><IMG SRC="/i/home/tco06.gif" border="0" ALT="Introducing the TCO06"/></A>
+<%-- Marathon Matches
+<A href="/longcontest/?module=Static&d1=instructions"><IMG SRC="/i/home/marathon_matches.jpg" border="0" ALT="Marathon Matches"/></A>
+--%>
