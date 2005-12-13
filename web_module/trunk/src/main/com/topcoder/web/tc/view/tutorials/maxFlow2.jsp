@@ -61,7 +61,7 @@ By&#160;<tc-webtag:handle coderId="8593420" context="algorithm"/><br />
 </p>
 
 <A href="/tc?module=Static&d1=tutorials&d2=maxFlow">...read Section 1</A>
-<br/><br/>
+<br/>
 
 <H3>Section 2</H3>
 <span class="bodySubtitle">Max-Flow/Min-Cut Related Problems</span><br>
@@ -119,7 +119,7 @@ Now let's solve some TopCoder problems!
 <A href="http://www.topcoder.com/stat?c=problem_statement&pm=1931&rd=4709">Problem Statement</A>
 <br/><br/>
 This problem asks us to place a maximum number of rooks on a <i>rows x cols</i> chessboard with some squares cut out. The idea behind this might be a little hard to spot, but once this is done, we get into a standard maximum bipartite-matching problem.
-<br/>
+<br/><br/>
 Notice that at most one rook can be placed on each row or column. In other words, each row corresponds at most to one column where a rook can be placed. This suggests a bipartite matching where set A is composed of elements corresponding to every row of the board, while set B consists of the columns. For each row add edges to every column if the corresponding square is not cut out of the board. Now we can just run maximum bipartite-matching in this network and compute the result. Since there are at most   edges, the time complexity of the algorithm is:  
 <br/><br/>
 <div align=center><img src="/i/education/maxFlow17.gif" alt="Figure 14 - Example 3 and the corresponding network" /></div>
