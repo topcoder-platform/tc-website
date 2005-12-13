@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>12.13.05<br>10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=instructions">Introducing Marathon Matches</A></span><br><br>
+      We're proud to introduce a new type of competition for TopCoder members.  The beta starts this week.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/longcontest/?module=Static&d1=instructions">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505875" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>12.05.05<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">NSA returns as TCO06 event patron</A></span><br><br>
       TopCoder welcomes back NSA as an event patron for the 2006 TopCoder Open.
@@ -280,19 +292,6 @@
        <A href="/tc?module=Static&d1=pressroom&d2=pr_112105">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505831" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>11.18.05<br>5:10 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=msn">MSN chat session scheduled for SRM 272</A></span><br><br>
-      MSN will be in the Arena Applet at 11:00 AM EST on 11/18 just before SRM 272 to discuss working for MSN.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=contracting&d2=msn">job openings</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505830" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
 
