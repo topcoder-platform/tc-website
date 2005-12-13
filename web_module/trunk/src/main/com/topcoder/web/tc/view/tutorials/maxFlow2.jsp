@@ -342,7 +342,7 @@ Here are some problems to practice:<br>
   
 Some other problems from <A href="http://acm.uva.es/p/">http://acm.uva.es/p/</A>: 563, 753, 820, 10122, 10330, 10511, 10735.<br>
 <br>
-For any questions or comments please use the Forums.
+For any questions or comments please use the <tc-webtag:forumLink forumID="505876" message="Forums" />.
 
         </div>
         <p><br/></p>
