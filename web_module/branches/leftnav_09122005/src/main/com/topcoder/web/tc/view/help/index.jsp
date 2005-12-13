@@ -22,7 +22,7 @@
 <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="../includes/global_left.jsp">
-            <jsp:param name="node" value="alg_competition_guide"/>
+            <jsp:param name="node" value="alg_how_to_compete"/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -33,14 +33,12 @@
 
 <!-- Center Column Begins -->
         <td width="100%" align="left" class="bodyText">
-        <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br/>
-        <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="support"/>  
-           <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value="Algorithm Competition Guide"/>  
-        </jsp:include>
+         <jsp:include page="../page_title.jsp" >
+         <jsp:param name="image" value="alg_support_faqs"/>
+         <jsp:param name="title" value="How to compete"/>
+         </jsp:include>
 
-        <h2>Algorithm Competition Guide</h2>
+        <h2>How to compete</h2>
 
         <p><span class="bodySubtitle"><a href="/tc?module=Static&d1=help&d2=getStarted">General TopCoder Arena Usage / Getting Started</a></span><br/>
             <span class="outline1">1 <a href="/tc?module=Static&d1=help&d2=getStarted#becomemember">Become a TopCoder Member</a></span><br/>
