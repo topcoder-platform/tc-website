@@ -1,6 +1,7 @@
 package com.topcoder.utilities.cheaterChecker;
 
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.sql.InformixSimpleDataSource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.utilities.CommentStripper;
 
@@ -14,6 +15,8 @@ import java.util.*;
 public class Google {
     private static Logger log = Logger.getLogger(Contest.class);
 
+    private static final String PROD_GOOGLE_CHINA = "jdbc:informix-sqli://192.168.14.51:2020/gcj_china_05_oltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=teacup";
+
     public static void main(String[] args) {
         String dataSourceName = null;
         long[] rounds = new long[args.length - 2];
@@ -23,6 +26,7 @@ public class Google {
             return;
         }
         dataSourceName = args[0];
+
         componentId = Long.parseLong(args[1]);
         for (int i = 2; i < args.length; i++) {
             rounds[i - 2] = Long.parseLong(args[i]);
@@ -31,9 +35,13 @@ public class Google {
         try {
             ArrayList allPotentialViolators = new ArrayList();
             Fraud fraud = null;
-            List submissions = getSubmissions(dataSourceName, rounds[0], componentId);
+            DataSource ds = null;
+            if (dataSourceName.equals("GOOGLE_CHINA_05")) {
+                ds = new InformixSimpleDataSource(PROD_GOOGLE_CHINA);
+            }
+            List submissions = getSubmissions(ds, rounds[0], componentId);
             for (int i = 1; i < rounds.length; i++) {
-                submissions.addAll(getSubmissions(dataSourceName, rounds[i], componentId));
+                submissions.addAll(getSubmissions(ds, rounds[i], componentId));
             }
             log.debug("got submissions");
             if (submissions != null && submissions.size() > 0) {
@@ -147,16 +155,15 @@ public class Google {
 
     }
 
-    private static List getSubmissions(String dataSourceName, long roundId, long componentId) throws Exception {
+    private static List getSubmissions(DataSource ds, long roundId, long componentId) throws Exception {
         ResultSet rs = null;
         PreparedStatement ps = null;
         Connection conn = null;
         Submission s = null;
         List ret = null;
-        DataSource ds = null;
 
         try {
-            conn = DBMS.getConnection(dataSourceName);
+            conn = ds.getConnection();
             StringBuffer query = new StringBuffer(500);
 
             query.append(" SELECT cc.coder_id ");
