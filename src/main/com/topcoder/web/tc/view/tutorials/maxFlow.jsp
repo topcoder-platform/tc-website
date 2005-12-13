@@ -123,15 +123,15 @@ The neat part of the Ford-Fulkerson algorithm described above is that it gets th
 <pre class="code">
 int max_flow()  
 result = 0
-	while (true) 
+  while (true) 
 // the function find_path returns the path capacity of the 
-		augmenting path found
-		path_capacity = find_path()
-		// no augmenting path found
-		if (d = 0) exit while
-		else result += path_capacity
-	end while
-	return result
+    augmenting path found
+    path_capacity = find_path()
+    // no augmenting path found
+    if (d = 0) exit while
+    else result += path_capacity
+  end while
+  return result
 </pre>
 
 To keep it simple, we will use a 2-dimensional array for storing the capacities of the residual network that we are left with after each step in the algorithm. Initially the residual network is just the original network. We will not store the flows along the edges explicitly, but it's easy to figure out how to find them upon the termination of the algorithm: for each edge x-y in the original network the flow is given by the capacity of the backward edge y-x in the residual network. Be careful though; if the reversed arc y-x also exists in the original network, this will fail, and it is recommended that the initial capacity of each arc be stored somewhere, and then the flow along the edge is the difference between the initial and the residual capacity.
@@ -142,43 +142,43 @@ The next best thing in the matter of simplicity is a breadth-first search (BFS).
 
 <pre class="code">
 int bfs() 
-	queue Q
-	push source to Q
-	mark source as visited
-	keep an array from with the semnification: from[x] is the 
+  queue Q
+  push source to Q
+  mark source as visited
+  keep an array from with the semnification: from[x] is the 
 previous vertex visited in the shortest path from the source to x;
 initialize from with -1 (or any other sentinel value) 
-	while Q is not empty
-		where = pop from Q 
-		for each vertex next adjacent to where
-			if next is not visited and capacity[where][next] > 0
-				push next to Q
-				mark next as visited
-				from[next] = where
-				if next = sink
-					exit while loop
-		end for
-	end while
-	// we compute the path capacity
-	where = sink, path_cap = infinity
-	while from[where] > -1
-		prev = from[where] // the previous vertex 
-		path_cap = min(path_cap, capacity[prev][where])
-		where = prev
-	end while
-	// we update the residual network; if no path is found the while 
+  while Q is not empty
+    where = pop from Q 
+    for each vertex next adjacent to where
+      if next is not visited and capacity[where][next] > 0
+        push next to Q
+        mark next as visited
+        from[next] = where
+        if next = sink
+          exit while loop
+    end for
+  end while
+  // we compute the path capacity
+  where = sink, path_cap = infinity
+  while from[where] > -1
+    prev = from[where] // the previous vertex 
+    path_cap = min(path_cap, capacity[prev][where])
+    where = prev
+  end while
+  // we update the residual network; if no path is found the while 
 loop will not be entered
-	where = sink
-	while from[where] > -1
-		prev = from[where]
-		capacity[prev][where] -= path_capacity
-	      capacity[where][prev] += path_capacity
-		where = prev
-	end while
-	// if no path is found, path_cap is infinity
-	if path_cap = infinity
-		return 0
-	else return path_cap
+  where = sink
+  while from[where] > -1
+    prev = from[where]
+    capacity[prev][where] -= path_capacity
+        capacity[where][prev] += path_capacity
+    where = prev
+  end while
+  // if no path is found, path_cap is infinity
+  if path_cap = infinity
+    return 0
+  else return path_cap
 </pre>
 
 As we can see, this is pretty easy to implement. As for its performance, it is guaranteed that this takes at most   steps, where N is the number of vertices and M is the number of edges in the network. This number may seem very large, but it is over-estimated for most networks. For example, in the network we considered 3 augmenting paths are needed which is significantly less than the upper bound of 28. Due to the   running time of BFS (implemented with adjacency lists) the worst-case running time of the shortest-augmenting path max-flow algorithm is  , but usually the algorithm performs much better than this.
@@ -187,35 +187,35 @@ Next we will consider an approach that uses a priority-first search (PFS), that 
 
 <pre class="code">
 int pfs() 
-	priority queue PQ
-	push node(source, infinity, -1) to PQ
-	keep the array from as in bfs()
-	// if no augmenting path is found, path_cap will remain 0
-	path_cap = 0
-	while PQ is not empty
-		node aux = pop from PQ
-		where = aux.vertex, cost = aux.priority 
-		if we already visited where continue
-		from[where] = aux.from
-		if where = sink 
-			path_cap = cost
-			exit while loop
-		mark where as visited
-		for each vertex next adjacent to where
-			if capacity[where][next] > 0
-				new_cost = min(cost, capacity[where][next])
-				push node(next, new_cost, where) to PQ
-		end for
-	end while
-	// update the residual network
-	where = sink
-	while from[where] > -1
-		prev = from[where]
-		capacity[prev][where] -= path_cap
-		capacity[where][prev] += path_cap
-		where = prev
-	end while
-	return path_cap
+  priority queue PQ
+  push node(source, infinity, -1) to PQ
+  keep the array from as in bfs()
+  // if no augmenting path is found, path_cap will remain 0
+  path_cap = 0
+  while PQ is not empty
+    node aux = pop from PQ
+    where = aux.vertex, cost = aux.priority 
+    if we already visited where continue
+    from[where] = aux.from
+    if where = sink 
+      path_cap = cost
+      exit while loop
+    mark where as visited
+    for each vertex next adjacent to where
+      if capacity[where][next] > 0
+        new_cost = min(cost, capacity[where][next])
+        push node(next, new_cost, where) to PQ
+    end for
+  end while
+  // update the residual network
+  where = sink
+  while from[where] > -1
+    prev = from[where]
+    capacity[prev][where] -= path_cap
+    capacity[where][prev] += path_cap
+    where = prev
+  end while
+  return path_cap
 </pre>
 
 The analysis of its performance is pretty complicated, but it may prove worthwhile to remember that with PFS at most  steps are required, where U is the maximum capacity of an edge in the network. As with BFS, this number is a lot larger than the actual number of steps for most networks. Combine this with the   complexity of the search to get the worst-case running time of this algorithm.
@@ -290,94 +290,94 @@ In the C++ code below BFS is used for finding an augmenting-path:
 <pre class="code">
 class RookAttack
  {     // a list of the non-empty squares for each row
-	 vector<int> lst[300];
-	 // in this arrays we keep matches found to every row and column
-	 int row_match[300], col_match[300]; 
-	 // we search for an augmenting path starting with row <i>source</i>
-	 bool find_match(int source) {
-		 // from[x] = the row-vertex that precedes x in the path
-		 int from[300], where, match;
-		 memset(from, -1, sizeof(from));
-		 from[source] = source;
-		 deque<int> q;
-		 q.push_back(source);
-		 bool found_path = false;
-		 while (!found_path && !q.empty()) {
-			 // where = current row-vertex we are in 	
-			 where = q.front(); q.pop_front();
-			 // we take every uncut square in the current row
-			 for (int i = 0; i < lst[where].size(); ++ i) {
-				 match = lst[where][i];
-				 // next = the row matched with column <i>match</i>
-				 int next = col_match[match];
-				 if (where != next) {
-					 // no row matched with column match thus 
+   vector<int> lst[300];
+   // in this arrays we keep matches found to every row and column
+   int row_match[300], col_match[300]; 
+   // we search for an augmenting path starting with row <i>source</i>
+   bool find_match(int source) {
+     // from[x] = the row-vertex that precedes x in the path
+     int from[300], where, match;
+     memset(from, -1, sizeof(from));
+     from[source] = source;
+     deque<int> q;
+     q.push_back(source);
+     bool found_path = false;
+     while (!found_path && !q.empty()) {
+       // where = current row-vertex we are in   
+       where = q.front(); q.pop_front();
+       // we take every uncut square in the current row
+       for (int i = 0; i < lst[where].size(); ++ i) {
+         match = lst[where][i];
+         // next = the row matched with column <i>match</i>
+         int next = col_match[match];
+         if (where != next) {
+           // no row matched with column match thus 
 we found an augmenting path
-					 if (next == -1) {
-						 found_path = true;
-						 break;
-					 }
-					 // a check whether we already visited 
+           if (next == -1) {
+             found_path = true;
+             break;
+           }
+           // a check whether we already visited 
 the row-vertex next 
-					 if (from[next] == -1) {
-						 q.push_back(next);
-						 from[next] = where;
-					 }
-				 }
-			 }
-		 }
-		 if (!found_path)
-			 return false;
-		 while (from[where] != where) {
-			 // we de-match where from its current match <i>(aux)</i> 
+           if (from[next] == -1) {
+             q.push_back(next);
+             from[next] = where;
+           }
+         }
+       }
+     }
+     if (!found_path)
+       return false;
+     while (from[where] != where) {
+       // we de-match where from its current match <i>(aux)</i> 
 and match it with match
-			 int aux = row_match[where];
-			 row_match[where] = match;
-			 col_match[match] = where;
-			 where = from[where];
-			 match = aux;
-		 }
-		 // at this point where = source
-		 row_match[where] = match;
-		 col_match[match] = where;
-		 return true;
-	 }
+       int aux = row_match[where];
+       row_match[where] = match;
+       col_match[match] = where;
+       where = from[where];
+       match = aux;
+     }
+     // at this point where = source
+     row_match[where] = match;
+     col_match[match] = where;
+     return true;
+   }
 
-       public: 
-       int howMany(int rows, int cols, vector <string> cutouts) 
-       {       // build lst from cutouts; column j should appear in 
+   public: 
+   int howMany(int rows, int cols, vector <string> cutouts) 
+   {  // build lst from cutouts; column j should appear in 
 row's i list if square (i, j) is present on the board 
 
-		   int ret = 0;
-		   memset(row_match, -1, sizeof(row_match));
-		   memset(col_match, -1, sizeof(col_match));
-		   // we try to find a match for each row	
-		   for (int i = 0; i < rows; ++ i) 
-			   ret += find_match(i);
-		   return ret;
-       }  
+      int ret = 0;
+      memset(row_match, -1, sizeof(row_match));
+      memset(col_match, -1, sizeof(col_match));
+      // we try to find a match for each row  
+      for (int i = 0; i < rows; ++ i) 
+        ret += find_match(i);
+      return ret;
+   }  
  };
 </pre>
 
 Let's take a look at the DFS version, too. We can implement the <i>find_match</i> function like this: for each non-empty square in the current row try to match the row with its corresponding column and call <i>find_match</i> recursively to attempt to find a new match for the current match (if the current match exists - if not, an augmenting path is found) of this column. If one is found, we can perform the desired match. Note that to make this run in time we must not visit the same column (or row) twice. Notice the C++ code below is extremely short:
 
 <pre class="code">
-	 bool find_match(int where) {
-		 // the previous column was not matched
-		 if (where == -1)
-			 return true;
-		 for (int i = 0; i < lst[where].size(); ++ i) {
-			 int match = lst[where][i];
-			 if (visited[match] == false) {
-				 visited[match] = true;
-				 if (find_match(col_match[match])) {
-					 col_match[match] = where;
-					 return true;
-				 }
-			 }
-		 }
-		 return false;
-	 }
+   bool find_match(int where) {
+     // the previous column was not matched
+     if (where == -1)
+       return true;
+     for (int i = 0; i < lst[where].size(); ++ i) {
+       int match = lst[where][i];
+       if (visited[match] == false) {
+         visited[match] = true;
+         if (find_match(col_match[match])) {
+           col_match[match] = where;
+           return true;
+         }
+       }
+     }
+     return false;
+   }
 </pre>
 
 This runs in time because the number of augmenting paths is the same for both versions. The only difference is that BFS finds the shortest augmenting-path while DFS finds a longer one. As implementation speed is an important factor in TopCoder matches, in this case it would be a good deal to use the slower, but easier DFS version.
@@ -414,93 +414,93 @@ However, there is a faster and more elegant solution using a priority-first sear
 
 <pre class="code">
 struct node {
-	int where, cost, from;
-	node(int _where, int _cost, int _from): where(_where), 
+  int where, cost, from;
+  node(int _where, int _cost, int _from): where(_where), 
 cost(_cost), from(_from) {};
 };
 bool operator < (node a, node b) {
-	return a.cost > b.cost;
+  return a.cost > b.cost;
 }
 
 int minTime(vector <string> park) 
 {
-	// build a cost matrix cost[i][j] = cost of getting from car i to 
+  // build a cost matrix cost[i][j] = cost of getting from car i to 
 parking spot j, by doing a BFS
-	// vertices 0, 1, ..., N - 1 will represent the cars, and 
+  // vertices 0, 1, ..., N - 1 will represent the cars, and 
 vertices N, N + 1, ..., N + M - 1 will represent 
 //the parking spots; N + M will be the super-sink
-	int D = 0, sink = N + M;
-	int car_match[105], park_match[105];
-	memset(car_match, -1, sizeof(car_match));
-	memset(park_match, -1, sizeof(park_match));
+  int D = 0, sink = N + M;
+  int car_match[105], park_match[105];
+  memset(car_match, -1, sizeof(car_match));
+  memset(park_match, -1, sizeof(park_match));
 
-	for (int source = 0; source < N; ++ source) {
-		bool visited[210];
-		memset(visited, false, sizeof(visited));
-		int from[210];
-		memset(from, -1, sizeof(from));
-		priority_queue<node> pq;
-		pq.push(node(source, 0, -1));
-		while (!pq.empty()) {
-			int cst = pq.top().cost, where = pq.top().where,
+  for (int source = 0; source < N; ++ source) {
+    bool visited[210];
+    memset(visited, false, sizeof(visited));
+    int from[210];
+    memset(from, -1, sizeof(from));
+    priority_queue<node> pq;
+    pq.push(node(source, 0, -1));
+    while (!pq.empty()) {
+      int cst = pq.top().cost, where = pq.top().where,
 _from = pq.top().from;
-			pq.pop();
-			if (visited[where]) continue;
-			visited[where] = true;
-			from[where] = _from;
-			// if where is a car try all M parking spots
-			if (where < N) {
-				for (int i = 0; i < M; ++ i) {
-					// if the edge doesn't exist or this car 
+      pq.pop();
+      if (visited[where]) continue;
+      visited[where] = true;
+      from[where] = _from;
+      // if where is a car try all M parking spots
+      if (where < N) {
+        for (int i = 0; i < M; ++ i) {
+          // if the edge doesn't exist or this car 
 is already matched with this parking spot
-					if (cost[where][i] == infinity || 
+          if (cost[where][i] == infinity || 
 car_match[where] == i) continue;
-					int ncst = max(cst, cost[where][i]);
-					// the i-th parking spot is N + i
-					pq.push(node(N + i, ncst, where));
-				}
-			}
-			else {
-				// it this parking spot is unmatched we found 
+          int ncst = max(cst, cost[where][i]);
+          // the i-th parking spot is N + i
+          pq.push(node(N + i, ncst, where));
+        }
+      }
+      else {
+        // if this parking spot is unmatched we found 
 the augmenting path with minimum cost
-				if (park_match[where - N] == -1) {
-					from[sink] = where;
-					// if D needs to be increased, increase it
-					D = max(D, cst);
-					break;
-				}
-				// otherwise we follow the backward edge
-				int next = park_match[where - N];
-				int ncst = max(cst, cost[next][where]);
-				pq.push(node(next, ncst, where));
-			}
-		}
+        if (park_match[where - N] == -1) {
+          from[sink] = where;
+          // if D needs to be increased, increase it
+          D = max(D, cst);
+          break;
+        }
+        // otherwise we follow the backward edge
+        int next = park_match[where - N];
+        int ncst = max(cst, cost[next][where]);
+        pq.push(node(next, ncst, where));
+      }
+    }
 
-		int where = from[sink];
-		// if no augmenting path is found we have no solution
-		if (where == -1)
-			return -1;
-		// follow the augmenting path
-		while (from[where] > -1) {
-			int prev = from[where];
-			// if where is a parking spot the edge (prev, where) 
+    int where = from[sink];
+    // if no augmenting path is found we have no solution
+    if (where == -1)
+      return -1;
+    // follow the augmenting path
+    while (from[where] > -1) {
+      int prev = from[where];
+      // if where is a parking spot the edge (prev, where) 
 is a forward edge and the match must be updated
-			if (where >= N) {
-				car_match[prev] = where;
-				park_match[where - N] = prev;
-			}
-			where = prev;
-		}
-	}
+      if (where >= N) {
+        car_match[prev] = where;
+        park_match[where - N] = prev;
+      }
+      where = prev;
+    }
+  }
 
-	return D;
+  return D;
 } 
 </pre>
 
 Here are some problems to practice:<br>
 <A href="http://www.topcoder.com/stat?c=problem_statement&pm=4731&rd=8016">PlayingCubes</A> - for this one ignore the low constraints and try to find a max-flow algorithm<br>
-<A href="http://www.topcoder.com/stat?c=problem_statement&pm=2010&rd=5080">DataFilter</A> - be warned this is the hard from the TCCC 2004 Finals and is tough indeed!<br>
-	
+<A href="http://www.topcoder.com/stat?c=problem_statement&pm=2010&rd=5080">DataFilter</A> - be warned this is the hard problem from the TCCC 2004 Finals and is tough indeed!<br>
+  
 Some other problems from http://acm.uva.es/p/: 563, 753, 820, 10122, 10330, 10511, 10735.<br>
 <br>
 For any questions or comments please use the Round Tables.
