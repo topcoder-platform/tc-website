@@ -47,7 +47,7 @@ No purchase necessary to enter or win.
 <span class="bodySubtitle">About the Competition</span>
 <ul>
 <li><strong>When to start the Competition Round</strong><br>
-TopCoder members must register for the competition round. Registration may occur at any time from 12:00 Noon Eastern Time on 12/14/05 to 12:00 Noon Eastern Time on 12/21/05. All competitors who have registered for the competition round will immediately be given access to the competition problem statement for that round. The competition round will begin at 12:00 Noon Eastern Time on 12/14/05 which is the earliest time that any member will be given access to the problem statement.</li>
+TopCoder members must register for the competition round. Registration may occur at any time from 12:00 Noon Eastern Time on 12/15/05 to 12:00 Noon Eastern Time on 12/22/05. All competitors who have registered for the competition round will immediately be given access to the competition problem statement for that round. The competition round will begin at 12:00 Noon Eastern Time on 12/15/05 which is the earliest time that any member will be given access to the problem statement.</li>
 <li><strong>Upon Entering a Marathon Match</strong><br>
 Each Marathon Match will contain a single problem.  The problem statement will indicate both the question presented to the contestant as well as how submissions will be scored.  Contestants will submit their solution which will immediately be put on a queue for system testing.  Once system testing is complete, the competitor will be assigned a score which will be available on the website.  Each competitor may submit as many times as they choose, however they may only submit once per hour.</li>
 </ul>
@@ -66,7 +66,7 @@ TopCoder, in its sole discretion, reserves the right to disqualify any person ta
 <span class="bodySubtitle">Participants</span><br>
 The competition is open to all members who are at least 13 years of age.
 <br><br>
-All competitors must be registered members of TopCoder, and must have agreed to the rules on this page prior to participating in this competition between the 12/14/05 12:00 Noon start time and the 12/21/05 12:00 Noon Eastern Time competition submission deadline.
+All competitors must be registered members of TopCoder, and must have agreed to the rules on this page prior to participating in this competition between the 12/15/05 12:00 Noon start time and the 12/22/05 12:00 Noon Eastern Time competition submission deadline.
 <br><br>
 Employees of TopCoder and those involved in the development, production (including prize suppliers and sponsors), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the competition and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the competition. 
 <br><br>
