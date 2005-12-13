@@ -477,8 +477,7 @@ if ((navigator.userAgent.indexOf('MSIE') != -1) && (navigator.userAgent.indexOf(
 <%-- Marathon Match begins --%>
 <!--
 <tr><td id="<%=level1.equals("long_contests")?"leftNavOn":"leftNav"%>">
-    <a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest" class="<%=level1.equals("long_contests")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("long_contests")?"bottom":"right"%>.gif" border="0"/>Marathon
-        Matches</a></td></tr>
+    <a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest" class="<%=level1.equals("long_contests")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("long_contests")?"bottom":"right"%>.gif" border="0"/>Marathon Matches</a></td></tr>
 -->
 
 <% //if (level1.equals("long_contests")) { %>
