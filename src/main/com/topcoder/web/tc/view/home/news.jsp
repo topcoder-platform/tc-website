@@ -6,6 +6,21 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>12.13.05<br>4:55 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=maxFlow">Maximum Flow Tutorial</A></span><br><br>
+        This article covers a problem that often arises in real life situations and, as expected, in programming contests, with TopCoder being no exception.</td>
+      <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" /><br>by <tc-webtag:handle coderId="8593420" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=sorting">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505834" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -278,20 +293,6 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm272">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505786" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.21.05<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_112105">Component Competition Winnings Surpass $1 Million</A></span><br><br>
-      Contributions to TopCoder Software Competitions and Projects Show Attractive Returns for Global Programming Community from Countries Including China, Russian Federation and Romania As Royalty Payments Grow.
-      <br><br>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_112105">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505831" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
 
