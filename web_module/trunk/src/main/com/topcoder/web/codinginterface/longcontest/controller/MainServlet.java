@@ -36,7 +36,6 @@ public class MainServlet extends BaseServlet {
 
     protected void process(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        System.out.println("Main Servlet Called!");
         super.process(request, response);
     }
 
