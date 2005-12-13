@@ -28,6 +28,8 @@
 
 <%-- Center Column Begins --%>
 <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+<div align="center">
+   <div style="width: 500px; text-align: left;">
 
     <jsp:include page="page_title.jsp">
         <jsp:param name="image" value="long_comps_topcoder"/>
@@ -38,7 +40,7 @@
 <br><br>
 <span class="bigTitle">Instructions</span>
 <br><br>
-TopCoder has created Marathon Matches in effort to provide a more flexible competition format with an extended timeline that offers different types of problems than what can be offered in a traditional TopCoder algorithm round.  
+TopCoder has created Marathon Matches in an effort to provide a more flexible competition format with an extended timeline that offers different types of problems than what can be offered in a traditional TopCoder algorithm round.  
 <br><br>
 <strong>Registration</strong><br>
 In order to compete in a Marathon Match one must first register. One may register at any time during the submission phase. The submission phase will last for an extended period of time (a week for example). In order to register, you will need to click Register next to the appropriate Marathon Match within the Active Contests list, agree to the rules of the event and you may need to answer a survey question.  Once registered, you may view the problem statement for the Marathon Match by clicking the Problem Name from within the Active Contests list.  During the submission phase, problem statements will only be made available to members who are registered for that specific event.
@@ -55,7 +57,8 @@ At any time during a Marathon Match, TopCoder members may view the latest standi
 Once the submission phase of a Marathon Match has ended, the final results will become available by clicking the Results link.  Competitors will be able to see the test cases, other competitors' submissions, and results.
 <br><br>
 
-
+   </div>
+</div>
 </td>
 
 <%-- Right Column Begins --%>
