@@ -70,19 +70,19 @@ How to recognize max-flow problems? Often they are hard to detect and usually bo
 <br><br>
 The problem description might suggest multiple sources and/or sinks. For example, in the sample statement in the beginning of this article, the company might own more than one factory and multiple distribution centers. How can we deal with this? We should try to convert this to a network that has a unique source and sink. In order to accomplish this we will add two "dummy" vertices to our original network - we will refer to them as super-source and super-sink. In addition to this we will add an edge from the super-source to every ordinary source (a factory). As we don't have restrictions on the number of trucks that each factory can send, we should assign to each edge an infinite capacity. Note that if we had such restrictions, we should have assigned to each edge a capacity equal to the number of trucks each factory could send. Likewise, we add an edge from every ordinary sink (distribution centers) to the super-sink with infinite capacity. A maximum flow in this new-built network is the solution to the problem - the sources now become ordinary vertices, and they are subject to the entering-flow equals leaving-flow property. You may want to keep this in your bag of tricks, as it may prove useful to most problems.
 	 
-<br><div align=center><img src="/i/education/maxFlow09.gif" alt="Figure 6 - Reduction of a multiple-source/multiple-sink max-flow problem" vspace="2"/></div><br>
+<div align=center padding="10px"><img src="/i/education/maxFlow09.gif" alt="Figure 6 - Reduction of a multiple-source/multiple-sink max-flow problem" /></div>
 
 What if we are also given the maximum number of trucks that can drive through each of the cities in the country (other than the cities where the factory and the distribution center are located)? In other words we have to deal with vertex-capacities too. Intuitively, we should be able to reduce this to maximum-flow, but we must find a way to take the capacities from vertices and put them back on edges, where they belong. Another nice trick comes into play. We will build a network that has two times more vertices than the initial one. For each vertex we will have two nodes: an in-vertex and an out-vertex, and we will direct each edge x-y from the out-vertex of x to the in-vertex of y. We can assign them the capacities from the problem statement. Additionally we can add an edge for each vertex from the in to the out-vertex. The capacity this edge will be assigned is obviously the vertex-capacity. Now we just run max-flow on this network and compute the result.
 
-<br><div align=center><img src="/i/education/maxFlow10.gif" alt="Figure 7 - Eliminating vertex-capacities" vspace="2"/></div><br>
+<div align=center padding="10px"><img src="/i/education/maxFlow10.gif" alt="Figure 7 - Eliminating vertex-capacities" /></div>
 
 Maximum flow problems may appear out of nowhere. Let's take this problem for instance: "You are given the in and out degrees of the vertices of a directed graph. Your task is to find the edges (assuming that no edge can appear more than once)." First, notice that we can perform this simple test at the beginning. We can compute the number M of edges by summing the out-degrees or the in-degrees of the vertices. If these numbers are not equal, clearly there is no graph that could be built. This doesn't solve our problem, though. There are some greedy approaches that come to mind, but none of them work. We will combine the tricks discussed above to give a max-flow algorithm that solves this problem. First, build a network that has 2 (in/out) vertices for each initial vertex. Now draw an edge from every out vertex to every in vertex. Next, add a super-source and draw an edge from it to every out-vertex. Add a super-sink and draw an edge from every in vertex to it. We now need some capacities for this to be a flow network. It should be pretty obvious what the intent with this approach is, so we will assign the following capacities: for each edge drawn from the super-source we assign a capacity equal to the out-degree of the vertex it points to. As there may be only one arc from a vertex to another, we assign a 1 capacity to each of the edges that go from the outs to the ins. As you can guess, the capacities of the edges that enter the super-sink will be equal to the in-degrees of the vertices. If the maximum flow in this network equals M - the number of edges, we have a solution, and for each edge between the out and in vertices that has a flow along it (which is maximum 1, as the capacity is 1) we can draw an edge between corresponding vertices in our graph. Note that both x-y and y-x edges may appear in the solution. This is very similar to the maximum matching in a bipartite graph that we will discuss later. An example is given below where the out-degrees are (2, 1, 1, 1) and the in-degrees (1, 2, 1, 1).
 
-<br><div align=center><img src="/i/education/maxFlow11.gif" alt="Figure 8"/></div><br>
+<div align=center padding="10px"><img src="/i/education/maxFlow11.gif" alt="Figure 8"/></div>
 
 Some other problems may ask to separate two locations minimally. Some of these problems usually can be reduced to minimum-cut in a network. Two examples will be discussed here, but first let's take the standard min-cut problem and make it sound more like a TopCoder problem. We learned earlier how to find the value of the min-cut and how to find an arbitrary min-cut. In addition to this we will now like to have a minimum-cut with the minimum number of edges. An idea would be to try to modify the original network in such a way that the minimum cut here is the minimum cut with the minimum edges in the original one. Notice what happens if we multiply each edge capacity with a constant T. Clearly, the value of the maximum flow is multiplied by T, thus the value of the minimum cut is T times bigger than the original. A minimum cut in the original network is a minimum cut in the modified one as well. Now suppose we add 1 to the capacity of each edge. Is a minimum cut in the original network a minimum cut in this one? The answer is no, as we can see in Figure 8 shown below, if we take T = 2.
 
-<br><div align=center><img src="/i/education/maxFlow12.gif" alt="Figure 9 - the minimum-cut before/after" vspace="2"/></div><br>
+<div align=center padding="10px"><img src="/i/education/maxFlow12.gif" alt="Figure 9 - the minimum-cut before/after" /></div>
 
 Why did this happen? Take an arbitrary cut. The value of the cut will be T times the original value of the cut, plus the number of edges in it. Thus, a non-minimum cut in the first place could become minimum if it contains just a few edges. This is because the constant might not have been chosen properly in the beginning, as is the case in the example above. We can fix this by choosing T large enough to neutralize the difference in the number of edges between cuts in the network. In the above example T = 4 would be enough, but to generalize, we take T = 10, one more than the number of edges in the original network, and one more than the number of edges that could possibly be in a minimum-cut. It is now true that a minimum-cut in the new network is minimum in the original network as well. However the converse is not true, and it is to our advantage. Notice how the difference between minimum cuts is now made by the number of edges in the cut. So we just find the min-cut in this new network to solve the problem correctly.
 <br><br>
@@ -95,23 +95,23 @@ What if instead of edges we now have to remove a minimum number of vertices to d
 
 This is one of the most important applications of maximum flow, and a lot of problems can be reduced to it. A matching in a graph is a set of edges such that no vertex is touched by more than one edge. Obviously, a matching with a maximum cardinality is a maximum matching. For a general graph, this is a hard problem to deal with.
 
-<br><div align=center><img src="/i/education/maxFlow13.gif" alt="Figure 10" vspace="2"/></div><br>
+<div align=center padding="10px"><img src="/i/education/maxFlow13.gif" alt="Figure 10" /></div>
 
 Let's direct our attention towards the case where the graph is bipartite - its vertices can be split into two sets such that there is no edge connecting vertices from the same set. In this case, it may sound like this: "Each of your employees can handle a given set of jobs. Assign a job to as many of them as you can."
 <br><br>
 A bipartite graph can be built in this case: the first set consists of your employees while the second one contains the jobs to be done. There is an edge from an employee to each of the jobs he could be assigned. An example is given below:
 
-<br><div align=center><img src="/i/education/maxFlow14.gif" alt="Figure 11" vspace="2"/></div><br>
+<div align=center padding="10px"><img src="/i/education/maxFlow14.gif" alt="Figure 11" /></div>
 
 So, Joe can do jobs B, C and D while Mark wouldn't mind being assigned jobs A, D or E. This is a happy case in which each of your employees is assigned a job:
 
-<br><div align=center><img src="/i/education/maxFlow15.gif" alt="Figure 12" vspace="2"/></div><br>
+<div align=center padding="10px"><img src="/i/education/maxFlow15.gif" alt="Figure 12" /></div>
 
 In order to solve the problem we first need to build a flow network. Just as we did inthe multiple-source multiple-sink problem we will add two "dummy" vertices: a super-source and a super-sink, and we will draw an edge from the super-source to each of the vertices in set A (employees in the example above) and from each vertex in set B to the super-sink. In the end, each unit of flow will be equivalent to a match between an employee and a job, so each edge will be assigned a capacity of 1. If we would have assigned a capacity larger than 1 to an edge from the super-source, we could have assigned more than one job to an employee. Likewise, if we would have assigned a capacity larger than 1 to an edge going to the super-sink, we could have assigned the same job to more than one employee. The maximum flow in this network will give us the cardinality of the maximum matching. It is easy to find out whether a vertex in set B is matched with a vertex x in set A as well. We look at each edge connecting x to a vertex in set B, and if the flow is positive along one of them, there exists a match. As for the running time, the number of augmenting paths is limited by  , where by   is denoted the cardinality of set X, making the running time  , where N is the number of vertices, and M the number of edges in the graph.
 <br><br>
 An implementation point of view is in place. We could implement the maximum bipartite matching just like in the pseudocode given earlier. Usually though, we might want to consider the particularities of the problem before getting to the implementation part, as they can save time or space. In this case, we could drop the 2-dimensional array that stored the residual network and replace it with two one-dimensional arrays: one of them stores the match in set B (or a sentinel value if it doesn't exist) for each element of set A, while the other is the other way around. Also, notice that each augmenting path has capacity 1, as it contributes with just a unit of flow. Each element of set A can be the first (well, the second, after the super-source) in an augmenting path at most once, so we can just iterate through each of them and try to find a match in set B. If an augmenting path exists, we follow it. This might lead to de-matching other elements along the way, but because we are following an augmenting path, no element will eventually remain unmatched in the process.
 
-<br><div align=center><img src="/i/education/maxFlow16.gif" alt="Figure 13 A) before B) an augmenting path C) after" vspace="2"/></div><br>
+<div align=center padding="10px"><img src="/i/education/maxFlow16.gif" alt="Figure 13 A) before B) an augmenting path C) after" /></div>
 
 Now let's solve some TopCoder problems!
 <br><br>
@@ -122,7 +122,7 @@ This problem asks us to place a maximum number of rooks on a <i>rows x cols</i> 
 
 Notice that at most one rook can be placed on each row or column. In other words, each row corresponds at most to one column where a rook can be placed. This suggests a bipartite matching where set A is composed of elements corresponding to every row of the board, while set B consists of the columns. For each row add edges to every column if the corresponding square is not cut out of the board. Now we can just run maximum bipartite-matching in this network and compute the result. Since there are at most   edges, the time complexity of the algorithm is:  
 
-<br><div align=center><img src="/i/education/maxFlow17.gif" alt="Figure 14 - Example 3 and the corresponding network" vspace="2"/></div><br>
+<div align=center padding="10px"><img src="/i/education/maxFlow17.gif" alt="Figure 14 - Example 3 and the corresponding network" /></div>
  
 In the C++ code below BFS is used for finding an augmenting-path:
 
@@ -231,7 +231,7 @@ In this problem we are given a set of requirements, each stating that a number o
 <br><br>
 At first glance, this would have been a typical bipartite-matching problem if every requirement had been fulfilled by taking just a single class. Set A would have consisted of the classes available (all characters with ASCII code in the range 33-126, except for the numeric characters Ô0'-Ô9'), while the set of requirements would have played the role of set B. This can be taken care of easily. Each requirement will contribute to set B with a number of elements equal to the number of classes that must be taken in order to fulfill it - in other words, split each requirement into several requirements. At this point, a bipartite-matching algorithm can be used, but care should be allotted to the order in which we iterate through the set of classes and match a class with a requirement.
 
-<br><div align=center><img src="/i/education/maxFlow18.gif" alt="Figure 15 - Example 4 from the problem statement" vspace="2"/></div><br>
+<div align=center padding="10px"><img src="/i/education/maxFlow18.gif" alt="Figure 15 - Example 4 from the problem statement" /></div>
 
 It is important to understand that any order to iterate through set A can be considered when solving the standard bipartite-matching problem. For example, it doesn't matter what element from set A we choose to be the first one to be matched. Consider the solution found by the algorithm containing this element x from A, matched with an element y from B. Also, we should consider any optimal solution. Clearly, in the optimal, y must be matched with an element z from A, otherwise we can add the pair x-y to the matching, contradicting the fact that the solution is optimal. Then, we can just exchange z with x to come with a solution of the same cardinality, which completes the proof.
 <br><br>
@@ -239,7 +239,7 @@ That being said, to gain as much as possible from the classes already taken we f
 <br><br>
 As a final note, it is possible to speed things up a bit. To achieve this, we will drop the idea of splitting each requirement. Instead we will modify the capacities of the edges connecting those with the super-sink. They will now be equal to the number of classes to be taken for each requirement. Then we can just go on with the same approach as above.
 
-<br><div align=center><img src="/i/education/maxFlow19.gif" alt="Figure 16 - Example 4 from the problem statement" vspace="2"/></div><br>
+<div align=center padding="10px"><img src="/i/education/maxFlow19.gif" alt="Figure 16 - Example 4 from the problem statement" /></div>
 
 <br><br>
 <span class="bodySubtitle">Parking</span><br>
