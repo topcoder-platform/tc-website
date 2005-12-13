@@ -707,6 +707,7 @@
         <antcall target="expand-email"/>
         <antcall target="expand-corp"/>
         <antcall target="expand-privatelabel"/>
+        <antcall target="expand-longcontest"/>
 
         <antcall target="move-libs"/>
         <antcall target="move-conf"/>
