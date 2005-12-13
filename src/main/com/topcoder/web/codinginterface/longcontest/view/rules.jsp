@@ -25,7 +25,7 @@
         <td width="180">
           <jsp:include page="/includes/global_left.jsp">
               <jsp:param name="level1" value="long_contests"/>
-              <jsp:param name="level2" value="topcoder"/>
+              <jsp:param name="level2" value="how_to_compete"/>
           </jsp:include>
         </td>
 <!-- Left Column Ends -->
