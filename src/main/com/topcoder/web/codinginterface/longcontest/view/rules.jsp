@@ -32,7 +32,8 @@
 
 <!-- Center Column Begins -->
 <td class="statTableSpacer" width="100%" valign="top">
-<div class="bodyText">
+<div align="center">
+   <div style="width: 500px; text-align: left;">
 
     <jsp:include page="page_title.jsp">
         <jsp:param name="image" value="long_comps_topcoder"/>
@@ -76,6 +77,8 @@ A winners list of coder handles for all competitions will be available on the we
 <br><br>
 This tournament is brought to you by TopCoder, Inc., 703 Hebron Ave, Glastonbury, CT 06033.
 <br><br>
+
+   </div>
 </div>
 </td>
 <!-- Center Column Ends -->
