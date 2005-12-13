@@ -33,9 +33,9 @@
 
 <div align="center" style="padding-top: 15px;"><img src="/i/longcontest/banner.jpg" alt="TopCoder Marathon Matches" border="0" /></div>
 <br><br>
-<span class="bigTitle">Instructions</span>
-<br><br>
 TopCoder has created Marathon Matches in an effort to provide a more flexible competition format with an extended timeline that offers different types of problems than what can be offered in a traditional TopCoder algorithm round.  
+<br><br>
+<span class="bodySubtitle">Instructions</span>
 <br><br>
 <strong>Registration</strong><br>
 In order to compete in a Marathon Match one must first register. One may register at any time during the submission phase. The submission phase will last for an extended period of time (a week for example). In order to register, you will need to click Register next to the appropriate Marathon Match within the Active Contests list, agree to the <A href="/longcontest/?module=Static&d1=rules">rules</A> of the event and you may need to answer a survey question.  Once registered, you may view the problem statement for the Marathon Match by clicking the Problem Name from within the Active Contests list.  During the submission phase, problem statements will only be made available to members who are registered for that specific event.

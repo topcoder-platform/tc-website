@@ -35,6 +35,7 @@
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="education_row"/>
                 <xsl:call-template name="events_row"/>
+                <xsl:call-template name="marathon_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
             </table>
@@ -139,6 +140,7 @@
 
                 <xsl:call-template name="education_row"/>
                 <xsl:call-template name="events_row"/>
+                <xsl:call-template name="marathon_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
             </table>
@@ -258,6 +260,7 @@
                 </tr>
 
                 <xsl:call-template name="events_row"/>
+                <xsl:call-template name="marathon_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
             </table>
@@ -313,6 +316,7 @@
                     </td>
                 </tr>
 
+                <xsl:call-template name="marathon_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
             </table>
@@ -333,6 +337,7 @@
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="education_row"/>
                 <xsl:call-template name="events_row"/>
+                <xsl:call-template name="marathon_row"/>
                 <xsl:call-template name="rtables_row"/>
 
                 <tr><td id="leftNavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=help&amp;d2=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Support / FAQs</A></td></tr>
@@ -585,6 +590,7 @@
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="education_row"/>
                 <xsl:call-template name="events_row"/>
+                <xsl:call-template name="marathon_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
             </table>
@@ -607,6 +613,7 @@
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="education_row"/>
                 <xsl:call-template name="events_row"/>
+                <xsl:call-template name="marathon_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
             </table>
@@ -694,6 +701,10 @@
 
 <xsl:template name="events_row">
                 <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_index</xsl:attribute>Events</A></td></tr>
+</xsl:template>
+
+<xsl:template name="marathon_row">
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/longcontest/?module=Static&amp;d1=instructions</xsl:attribute>Marathon Matches</A></td></tr>
 </xsl:template>
 
 <xsl:template name="rtables_row">
