@@ -84,7 +84,7 @@ Now how do we actually solve the problem? First, let us define two basic concept
 
 <br><div align=center><img src="/i/education/maxFlow02.gif" alt="Figure 2a"/></div><br>
 
-<br><div align=center><img src="/i/education/maxFlow03.gif" alt="Figure 2b - The residual network of the network in 2a"/></div><br>
+<br><div align=center><img src="/i/education/maxFlow03.gif" alt="Figure 2b - The residual network of the network in 2a" vspace="2"/></div><br>
 
 By considering the path X_A_C_Y, we can increase the flow by 1 - the edges X_A and A_C have capacity of 3, as in the original network, but the edge C_Y has capacity 1, and we take the minimum of these values to get the path capacity. Increasing the flow along this path with 1 yields the flow below:
 
