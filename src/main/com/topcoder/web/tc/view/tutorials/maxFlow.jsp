@@ -75,7 +75,7 @@ Rephrasing the statement in terms of graph theory, we are given a network - a di
 <br><br>
 The image below shows the optimal solution to an instance of this problem, each edge being labeled with the values f/c associated to it. 
 
-<div align=center padding=10px><img src="/i/education/maxFlow01.gif" alt="Figure 1a - Maximum Flow in a network"/></div>
+<div align=center><img src="/i/education/maxFlow01.gif" alt="Figure 1a - Maximum Flow in a network" padding="20px"/></div>
 
 
 <span class="bodySubtitle">How to Solve It</span><br>
@@ -88,7 +88,7 @@ Now how do we actually solve the problem? First, let us define two basic concept
 
 By considering the path X_A_C_Y, we can increase the flow by 1 - the edges X_A and A_C have capacity of 3, as in the original network, but the edge C_Y has capacity 1, and we take the minimum of these values to get the path capacity. Increasing the flow along this path with 1 yields the flow below:
 
-<div align=center padding=10px><img src="/i/education/maxFlow04.gif" alt="Figure 3a" /></div>
+<div align=center><img src="/i/education/maxFlow04.gif" alt="Figure 3a" padding="20px"/></div>
 
 The value of the current flow is now 2, and as shown in Figure 1, we could do better. So, let's try to increase the flow. Clearly, there is no point in considering the directed paths X_A_C_Y or X_B_D_E_Y as the edges C_Y and X_B, respectively, are filled to capacity. As a matter of fact, there is no directed path in the network shown above, due to the edges mentioned above being filled to capacity. At this point, the question that naturally comes to mind is: is it possible to increase the flow in this case? And the answer is yes, it is. Let's take a look at the residual network: 
 
