@@ -475,12 +475,11 @@ if ((navigator.userAgent.indexOf('MSIE') != -1) && (navigator.userAgent.indexOf(
 <%-- Events ends --%>
 
 <%-- Marathon Match begins --%>
-<!--
 <tr><td id="<%=level1.equals("long_contests")?"leftNavOn":"leftNav"%>">
-    <a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest" class="<%=level1.equals("long_contests")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("long_contests")?"bottom":"right"%>.gif" border="0"/>Marathon Matches</a></td></tr>
--->
+    <a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Static&d1=instructions" class="<%=level1.equals("long_contests")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("long_contests")?"bottom":"right"%>.gif" border="0"/>Marathon Matches</a></td></tr>
+<% if (level1.equals("long_contests")) { %>
+   <tr><td id="<%=level2.equals("how_to_compete")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Static&d1=instructions">How do I compete?</A></td></tr>
 
-<% //if (level1.equals("long_contests")) { %>
 <%--
 <tr><td id="<%=level2.equals("topcoder")?"leftSubnavOn":"leftSubnav"%>">
     <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest">Active Contests</A></td></tr>
@@ -492,7 +491,7 @@ if ((navigator.userAgent.indexOf('MSIE') != -1) && (navigator.userAgent.indexOf(
                 <tr><td id="<%=level2.equals("intel")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest">Intel Multithreading Matches</A></td></tr>
                 <tr><td id="<%=level2.equals("intel_practice")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest">Intel Practice Matches</A></td></tr>
 --%>
-<% //} %>
+<% } %>
 <%-- Marathon Match ends --%>
 
 <%-- Forums begins --%>
