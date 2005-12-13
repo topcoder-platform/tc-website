@@ -38,6 +38,13 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
+        4.1.0 - 2005 12.12
+        <ul>
+            <li>Marathon Match Site</li>
+            <li>College Tour Site</li>
+        </ul>
+    </p>
+    <p>
         4.0.9 - 2005.12.08
         <ul>
             <li>Added text to the reliability rating page indicating that new competitors don't get a rating til they pass review, and that unreliable people can't register for more than 2 projects</li>
