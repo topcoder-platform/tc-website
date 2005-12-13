@@ -17,8 +17,8 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=sorting">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505834" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=tutorials&d2=maxFlow">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505876" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
 
