@@ -46,12 +46,16 @@
                 <include name="resources/xsl/**"/>
                 <include name="resources/taglib/**"/>
                 <include name="resources/tc/**"/>
-                <include name="resources/state/**"/>
+                <include name="resources/longcontest/**"/>
+                <include name="resources/stat/**"/>
                 <include name="resources/corp/**"/>
                 <include name="resources/email/**"/>
                 <include name="resources/privatelabel/**"/>
                 <include name="resources/TC.properties"/>
                 <include name="resources/PrivateLabel*.properties"/>
+                <include name="resources/LongContest.properties"/>
+                <include name="resources/CorpConstants.properties"/>
+                <include name="resources/DataAccess.properties"/>
                 <include name="move.xml"/>
                 <include name="lib/bin/shared.jar"/>
                 <include name="lib/bin/classes.jar"/>
