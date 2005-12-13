@@ -51,7 +51,7 @@
    <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
-<div style="float: right;"><tc-webtag:forumLink forumID="505834" message="Discuss this article" /></div>
+<div style="float: right;"><tc-webtag:forumLink forumID="505876" message="Discuss this article" /></div>
 <span class="bodyTitle">Maximum Flow</span>
 
 <p>

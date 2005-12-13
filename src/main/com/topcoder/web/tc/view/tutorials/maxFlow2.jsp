@@ -51,7 +51,7 @@
    <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
-<div style="float: right;"><tc-webtag:forumLink forumID="505834" message="Discuss this article" /></div>
+<div style="float: right;"><tc-webtag:forumLink forumID="505876" message="Discuss this article" /></div>
 <span class="bodyTitle">Maximum Flow</span>
 
 <p>
@@ -229,7 +229,7 @@ The following version of the problem is left as an exercise for the reader: to t
 <br><br>
 In this problem we are given a set of requirements, each stating that a number of classes should be taken from a given set of classes. Each class may be taken once and fulfills a single requirement. Actually, the last condition is what makes the problem harder, and excludes the idea of a greedy algorithm. We are also given a set of classes already taken. If it weren't for this, to ensure the minimality of the return, the size of the returned string would have been (if a solution existed) the sum of the number of classes for each requirement. Now as many classes as possible must be used from this set.
 <br><br>
-At first glance, this would have been a typical bipartite-matching problem if every requirement had been fulfilled by taking just a single class. Set A would have consisted of the classes available (all characters with ASCII code in the range 33-126, except for the numeric characters Ô0'-Ô9'), while the set of requirements would have played the role of set B. This can be taken care of easily. Each requirement will contribute to set B with a number of elements equal to the number of classes that must be taken in order to fulfill it - in other words, split each requirement into several requirements. At this point, a bipartite-matching algorithm can be used, but care should be allotted to the order in which we iterate through the set of classes and match a class with a requirement.
+At first glance, this would have been a typical bipartite-matching problem if every requirement had been fulfilled by taking just a single class. Set A would have consisted of the classes available (all characters with ASCII code in the range 33-126, except for the numeric characters '0'-'9'), while the set of requirements would have played the role of set B. This can be taken care of easily. Each requirement will contribute to set B with a number of elements equal to the number of classes that must be taken in order to fulfill it - in other words, split each requirement into several requirements. At this point, a bipartite-matching algorithm can be used, but care should be allotted to the order in which we iterate through the set of classes and match a class with a requirement.
 <br/><br/>
 <div align=center><img src="/i/education/maxFlow18.gif" alt="Figure 15 - Example 4 from the problem statement" /></div>
 <br/>
