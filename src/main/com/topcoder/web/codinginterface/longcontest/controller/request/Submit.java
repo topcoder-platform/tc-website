@@ -182,8 +182,8 @@ public class Submit extends Base {
                 long nextSubmit = lastSubmit +Constants.SUBMISSION_RATE*60*1000;
                 log.debug("now " + now + " last: " + lastSubmit + " diff: " + (now-lastSubmit));
                 if (now<nextSubmit) {
-                    long minutes = (nextSubmit-lastSubmit)/(60*1000);
-                    long seconds = (nextSubmit-lastSubmit-(minutes*60*1000))/1000;
+                    long minutes = (nextSubmit-now)/(60*1000);
+                    long seconds = (nextSubmit-now-(minutes*60*1000))/1000;
                     StringBuffer buf = new StringBuffer(100);
                     buf.append("Sorry, you may not submit again for another");
                     if (minutes > 1) {
