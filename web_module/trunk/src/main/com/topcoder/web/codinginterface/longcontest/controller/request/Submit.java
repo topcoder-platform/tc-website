@@ -22,6 +22,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.render.DataTypeRenderer;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 
 import javax.naming.InitialContext;
@@ -122,10 +123,12 @@ public class Submit extends Base {
                 DataType args[] = pc.getAllParamTypes()[i];
                 StringBuffer argTypes = new StringBuffer();
                 for (int j = 0; j < args.length; j++) {
-                    if (argTypes.length() > 0) argTypes.append(", ");
-                    argTypes.append(args[j].getDescription());
+                    if (j > 0) {
+                        argTypes.append(", ");
+                    }
+                    argTypes.append(new DataTypeRenderer(args[j]).toPlainText(BaseLanguage.getLanguage(language)));
                 }
-                paramTypes.add(argTypes);
+                paramTypes.add(argTypes.toString());
 
             }
             log.debug("there are " + returnTypes.size() + " return types in this problem");
