@@ -26,15 +26,14 @@
 <% } %>
 
 <!-- Registration tab -->
-
+<%--
 <% if (selectedTab.equals("registration")) {%>
 <font color="006633">Registration</font>&#160;|&#160;
 <% } else { %>
-<%--
 <a href="/pl/?module=Static&d1=gccj05&d2=EN_login">Registration</a>&#160;|&#160;
---%>
 <a href="/pl/?module=Static&d1=gccj05&d2=EN_reg_closed">Registration</a>&#160;|&#160;
 <% } %>
+--%>
 
 <!-- Instructions tab -->
 <% if (selectedTab.equals("instructions")) {%>
@@ -51,13 +50,14 @@
 <% } %>
 
 <%--
+--%>
 <!-- Advancers tab -->
 <% if (selectedTab.equals("advancers")) {%>
 <font color="006633">Advancers</font>&#160;|&#160;
 <% } else { %>
 <a href="/pl/?module=Static&d1=gccj05&d2=EN_advancers">Advancers</a>&#160;|&#160;
 <% } %>
---%>
+
 <!-- Practice Arena  tab -->
 <% if (selectedTab.equals("arena")) {%>
 <font color="006633">Competition Arena</font>&#160;|&#160;
