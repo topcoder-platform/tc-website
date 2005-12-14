@@ -38,7 +38,7 @@
                 </div>
 
                 <p>
-                    <h2>2006 TopCoder U.S. College Tour</h2>
+                    <h2 align="center">2006 TopCoder U.S. College Tour</h2>
 
                     <h3>Is your school on the schedule?</h3>
 

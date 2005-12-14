@@ -51,8 +51,8 @@
                     <td class=advancersTitle colspan=2>Onsite Finals</td>
                 </tr>
                 <tr>
-                    <td class=advancersRound width="50%">Handle</td>
-                    <td class=advancersRound width="50%" align="right">Score</td>
+                    <td class=advancersRound width="50%">帐号</td>
+                    <td class=advancersRound width="50%" align="right">题目</td>
                 </tr>
 
 

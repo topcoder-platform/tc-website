@@ -49,7 +49,7 @@
 
                 <table class=tableFrame cellpadding=5 cellspacing=2 border="0" width="400">
                     <tr>
-                        <td class="advancersTitle">Round</td>
+                        <td class="advancersTitle">轮次</td>
                         <td class="advancersTitle" align="right" width="100%">晋级</td>
                     </tr>
                     <tr valign="top">
