@@ -115,11 +115,10 @@ public class Submit extends Base {
             ArrayList returnTypes = new ArrayList(methodCount);
             ArrayList paramTypes = new ArrayList(methodCount);
             log.debug("there are " + methodCount + " methods in this problem");
+            log.debug("there are " + returnTypes.size() + " return types in this problem");
             for (int i=(methodCount>1?1:0); i<methodCount; i++) {
                 methodNames.add(pc.getAllMethodNames()[i]);
-                if (language>0) {
-                    returnTypes.add(pc.getAllReturnTypes()[i].getDescriptor(language));
-                }
+                returnTypes.add(pc.getAllReturnTypes()[i].getDescriptor(language));
                 DataType args[] = pc.getAllParamTypes()[i];
                 StringBuffer argTypes = new StringBuffer();
                 for (int j = 0; j < args.length; j++) {
