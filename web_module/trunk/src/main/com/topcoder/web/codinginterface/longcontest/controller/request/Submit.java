@@ -139,7 +139,6 @@ public class Submit extends Base {
             request.setAttribute(Constants.ARG_TYPES, paramTypes);
 
             request.setAttribute(Constants.CODE, code);
-            request.setAttribute(Constants.LANGUAGE_ID, String.valueOf(language));
 
             if (action == null) { // no action specified
                 // any code in session?
@@ -157,7 +156,7 @@ public class Submit extends Base {
                     // put the updated values back into request
                     request.setAttribute(Constants.CODE, code);
                     if (language>0) {
-                        request.setAttribute(Constants.LANGUAGE_ID, String.valueOf(language));
+                        setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
                     }
                 }
                 log.debug("set message in request to " + message);
