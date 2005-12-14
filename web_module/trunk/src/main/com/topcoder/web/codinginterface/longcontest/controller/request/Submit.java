@@ -126,7 +126,7 @@ public class Submit extends Base {
                     if (j > 0) {
                         argTypes.append(", ");
                     }
-                    argTypes.append(new DataTypeRenderer(args[j]).toPlainText(BaseLanguage.getLanguage(language)));
+                    argTypes.append(new DataTypeRenderer(args[j]).toPlainText(BaseLanguage.getLanguage(language>0?language:JavaLanguage.ID)));
                 }
                 paramTypes.add(argTypes.toString());
 
