@@ -31,18 +31,18 @@ public class Constants implements CodingInterfaceConstants {
     public static String START_COL;
     public static String COL_COUNT;
     public static String ROW_COUNT;
-    public static String KEY_USER_HANDLE;
-    public static String KEY_USER_PASS;
+    public static final String KEY_USER_HANDLE = "ha";
+    public static final String KEY_USER_PASS = "pass";
     public static String ACTION_KEY;
     public static String QUEUE_LENGTH;
 
     public static String LONG_CONTEST_INDEX_KEY;
     public static String PROBLEM_STATEMENT_KEY;
     public static String LANGUAGES;
-    public static String CLASS_NAME;
-    public static String METHOD_NAME;
-    public static String RETURN_TYPE;
-    public static String ARG_TYPES;
+    public static final String CLASS_NAME = "cname";
+    public static final String METHOD_NAME = "methname";
+    public static final String RETURN_TYPE = "rettype";
+    public static final String ARG_TYPES = "argtypes";
 
     public static String CONTEST_LIST_KEY;
     public static String ROUND_STANDINGS_LIST_KEY;
