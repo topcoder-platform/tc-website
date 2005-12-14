@@ -129,93 +129,106 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
         buf.append(problemComponent.getClassName());
         buf.append("</td>");
         buf.append("</tr>");
-        buf.append("<tr><td");
-        if (getTdClass() != null) {
-            buf.append(" class=\"");
-            buf.append(getTdClass());
-            buf.append("\"");
-        }
-        buf.append(">Method:</td>");
-        buf.append("<td");
-        if (getTdClass() != null) {
-            buf.append(" class=\"");
-            buf.append(getTdClass());
-            buf.append("\"");
-        }
-        buf.append(">");
-        buf.append(problemComponent.getMethodName());
-        buf.append("</td>");
-        buf.append("</tr>");
-        buf.append("<tr><td");
-        if (getTdClass() != null) {
-            buf.append(" class=\"");
-            buf.append(getTdClass());
-            buf.append("\"");
-        }
-        buf.append(">Parameters:</td>");
-        buf.append("<td");
-        if (getTdClass() != null) {
-            buf.append(" class=\"");
-            buf.append(getTdClass());
-            buf.append("\"");
-        }
-        buf.append(">");
-        DataType[] paramTypes = problemComponent.getParamTypes();
-        for (int i = 0; i < paramTypes.length; i++) {
-            if (i > 0)
-                buf.append(", ");
-            buf.append(new DataTypeRenderer(paramTypes[i]).toHTML(language));
-        }
-        buf.append("</td>");
-        buf.append("</tr>");
-        buf.append("<tr><td");
-        if (getTdClass() != null) {
-            buf.append(" class=\"");
-            buf.append(getTdClass());
-            buf.append("\"");
-        }
-        buf.append(">Returns:</td>");
-        buf.append("<td");
-        if (getTdClass() != null) {
-            buf.append(" class=\"");
-            buf.append(getTdClass());
-            buf.append("\"");
-        }
-        buf.append(">");
-        buf.append(new DataTypeRenderer(problemComponent.getReturnType()).toHTML(language));
 
-        buf.append("</td>");
-        buf.append("</tr>");
-        buf.append("<tr><td");
-        if (getTdClass() != null) {
-            buf.append(" class=\"");
-            buf.append(getTdClass());
-            buf.append("\"");
+
+        int methodCount = problemComponent.getAllMethodNames().length;
+        for (int i=(methodCount)>1?1:0; i<methodCount; i++) {
+            buf.append("<tr><td");
+            if (getTdClass() != null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+
+            buf.append(">Method:</td>");
+            buf.append("<td");
+            if (getTdClass() != null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">");
+            buf.append(problemComponent.getAllMethodNames()[i]);
+            buf.append("</td>");
+            buf.append("</tr>");
+            buf.append("<tr><td");
+            if (getTdClass() != null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">Parameters:</td>");
+            buf.append("<td");
+            if (getTdClass() != null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">");
+            DataType[] paramTypes = problemComponent.getAllParamTypes()[i];
+            for (int j = 0; j < paramTypes.length; j++) {
+                if (j > 0)
+                    buf.append(", ");
+                buf.append(new DataTypeRenderer(paramTypes[j]).toHTML(language));
+            }
+            buf.append("</td>");
+            buf.append("</tr>");
+            buf.append("<tr><td");
+            if (getTdClass() != null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">Returns:</td>");
+            buf.append("<td");
+            if (getTdClass() != null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">");
+            buf.append(new DataTypeRenderer(problemComponent.getAllReturnTypes()[i]).toHTML(language));
+
+            buf.append("</td>");
+            buf.append("</tr>");
+            buf.append("<tr><td");
+            if (getTdClass() != null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">Method signature:</td>");
+            buf.append("<td");
+            if (getTdClass() != null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">");
+            buf.append(encodeHTML(language.getMethodSignature(problemComponent.getAllMethodNames()[i],
+                    problemComponent.getAllReturnTypes()[i],
+                    problemComponent.getAllParamTypes()[i],
+                    problemComponent.getAllParamNames()[i])));
+            buf.append("</td>");
+            buf.append("</tr>");
+            buf.append("<tr><td colspan=\"2\"");
+            if (getTdClass() != null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">(be sure your method is public)</td></tr>");
         }
-        buf.append(">Method signature:</td>");
-        buf.append("<td");
-        if (getTdClass() != null) {
-            buf.append(" class=\"");
-            buf.append(getTdClass());
-            buf.append("\"");
-        }
-        buf.append(">");
-        buf.append(encodeHTML(language.getMethodSignature(problemComponent.getMethodName(),
-                problemComponent.getReturnType(),
-                problemComponent.getParamTypes(),
-                problemComponent.getParamNames())));
-        buf.append("</td>");
-        buf.append("</tr>");
-        buf.append("<tr><td colspan=\"2\"");
-        if (getTdClass() != null) {
-            buf.append(" class=\"");
-            buf.append(getTdClass());
-            buf.append("\"");
-        }
-        buf.append(">(be sure your method is public)</td></tr>");
+
         buf.append("</table>");
         buf.append("</td>");
         buf.append("</tr>");
+
+
+
+
+
+
 
         /* Spec */
         if (problemComponent.getSpec() != null) {
