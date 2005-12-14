@@ -115,9 +115,9 @@ public class Submit extends Base {
             ArrayList returnTypes = new ArrayList(methodCount);
             ArrayList paramTypes = new ArrayList(methodCount);
             log.debug("there are " + methodCount + " methods in this problem");
-            log.debug("there are " + returnTypes.size() + " return types in this problem");
             for (int i=(methodCount>1?1:0); i<methodCount; i++) {
                 methodNames.add(pc.getAllMethodNames()[i]);
+                log.debug("adding return type : " + pc.getAllReturnTypes()[i].getDescriptor(language));
                 returnTypes.add(pc.getAllReturnTypes()[i].getDescriptor(language));
                 DataType args[] = pc.getAllParamTypes()[i];
                 StringBuffer argTypes = new StringBuffer();
@@ -128,6 +128,7 @@ public class Submit extends Base {
                 paramTypes.add(argTypes);
 
             }
+            log.debug("there are " + returnTypes.size() + " return types in this problem");
             // Put these objects into request scope
             request.setAttribute(Constants.CLASS_NAME, className);
             request.setAttribute(Constants.METHOD_NAME, methodNames);
