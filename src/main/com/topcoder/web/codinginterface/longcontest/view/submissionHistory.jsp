@@ -79,12 +79,14 @@
             <br>
             <span class="bodySubtitle">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></span><br>
 
-            <div class="pagingBox">
-                <logic:notEmpty name="prevPageLink"><a href="<%=prevPageLink%>" class="bcLink">
-                </logic:notEmpty>&lt;&lt; previous<logic:notEmpty name="prevPageLink"></a></logic:notEmpty>
-                &nbsp;|&nbsp;
-                <logic:notEmpty name="nextPageLink"><a href="<%=nextPageLink%>" class="bcLink">
-                </logic:notEmpty>next &gt;&gt;<logic:notEmpty name="nextPageLink"></a></logic:notEmpty>
+            <div style="clear: both;" align="center">
+               <div class="pagingBox">
+                   <logic:notEmpty name="prevPageLink"><a href="<%=prevPageLink%>" class="bcLink">
+                   </logic:notEmpty>&lt;&lt; prev<logic:notEmpty name="prevPageLink"></a></logic:notEmpty>
+                   &nbsp;|&nbsp;
+                   <logic:notEmpty name="nextPageLink"><a href="<%=nextPageLink%>" class="bcLink">
+                   </logic:notEmpty>next &gt;&gt;<logic:notEmpty name="nextPageLink"></a></logic:notEmpty>
+               </div>
             </div>
 
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
@@ -130,7 +132,7 @@
 
             <div class="pagingBox">
                 <logic:notEmpty name="prevPageLink"><a href="<%=prevPageLink%>" class="bcLink">
-                </logic:notEmpty>&lt;&lt; previous<logic:notEmpty name="prevPageLink"></a></logic:notEmpty>
+                </logic:notEmpty>&lt;&lt; prev<logic:notEmpty name="prevPageLink"></a></logic:notEmpty>
                 &nbsp;|&nbsp;
                 <logic:notEmpty name="nextPageLink"><a href="<%=nextPageLink%>" class="bcLink">
                 </logic:notEmpty>next &gt;&gt;<logic:notEmpty name="nextPageLink"></a></logic:notEmpty>
