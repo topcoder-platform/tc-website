@@ -77,7 +77,7 @@
 
            Test Case:
                 </p>
-            <p><%=testRow.getStringItem("expected_result")%></p>
+            <pre><%=testRow.getStringItem("expected_result")%></pre>
 
 
         </td>
