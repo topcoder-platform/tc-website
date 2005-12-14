@@ -103,11 +103,11 @@
                             </tr>
                             <tr>
                                 <td class="tableHeader" width="25%">
-                                    <A href="<%=sortLinkBase%><tc-webtag:sort column="3"/>">Submission</A></td>
+                                    <A href="<%=sortLinkBase%><tc-webtag:sort column="4"/>">Submission</A></td>
                                 <td class="tableHeader" width="25%" align="center">
-                                    <A href="<%=sortLinkBase%><tc-webtag:sort column="4"/>">Time</A></td>
+                                    <A href="<%=sortLinkBase%><tc-webtag:sort column="5"/>">Time</A></td>
                                 <td class="tableHeader" width="25%" align="right">
-                                    <A href="<%=sortLinkBase%><tc-webtag:sort column="5"/>">Score</A></td>
+                                    <A href="<%=sortLinkBase%><tc-webtag:sort column="6"/>">Score</A></td>
                                 <% if (over) { %>
                                 <td class="tableHeader" width="25%" align="right">&#160;</td>
                                 <% } %>
