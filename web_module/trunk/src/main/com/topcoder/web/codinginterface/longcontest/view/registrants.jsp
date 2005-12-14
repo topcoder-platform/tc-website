@@ -79,12 +79,14 @@
                 <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
                 <span class="bodySubtitle">Registrants: <rsc:item name="num_competitors" row="<%=infoRow%>"/></span><br>
 
-                <div class="pagingBox">
-                    <logic:notEmpty name="prevPageLink"><a href="<%=prevPageLink%>" class="bcLink">
-                    </logic:notEmpty>&lt;&lt; previous<logic:notEmpty name="prevPageLink"></a></logic:notEmpty>
-                    &nbsp;|&nbsp;
-                    <logic:notEmpty name="nextPageLink"><a href="<%=nextPageLink%>" class="bcLink">
-                    </logic:notEmpty>next &gt;&gt;<logic:notEmpty name="nextPageLink"></a></logic:notEmpty>
+               <div style="clear: both;" align="center">
+                   <div class="pagingBox">
+                       <logic:notEmpty name="prevPageLink"><a href="<%=prevPageLink%>" class="bcLink">
+                       </logic:notEmpty>&lt;&lt; previous<logic:notEmpty name="prevPageLink"></a></logic:notEmpty>
+                       &nbsp;|&nbsp;
+                       <logic:notEmpty name="nextPageLink"><a href="<%=nextPageLink%>" class="bcLink">
+                       </logic:notEmpty>next &gt;&gt;<logic:notEmpty name="nextPageLink"></a></logic:notEmpty>
+                   </div>
                 </div>
 
                 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
