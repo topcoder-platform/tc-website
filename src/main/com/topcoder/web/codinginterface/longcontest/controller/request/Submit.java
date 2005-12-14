@@ -8,10 +8,7 @@ import com.topcoder.shared.common.ApplicationServer;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.language.CPPLanguage;
-import com.topcoder.shared.language.CSharpLanguage;
-import com.topcoder.shared.language.JavaLanguage;
-import com.topcoder.shared.language.VBLanguage;
+import com.topcoder.shared.language.*;
 import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.messaging.messages.LongCompileRequest;
 import com.topcoder.shared.messaging.messages.LongCompileResponse;
@@ -113,21 +110,30 @@ public class Submit extends Base {
 
             // The class name for this problem
             String className = pc.getClassName();
-            String methodName = pc.getMethodName();
-            String returnType = pc.getReturnType().getDescription();
-            DataType args[] = pc.getAllParamTypes()[0];
+            int methodCount = pc.getAllMethodNames().length;
+            ArrayList methodNames = new ArrayList(methodCount);
+            ArrayList returnTypes = new ArrayList(methodCount);
+            ArrayList paramTypes = new ArrayList(methodCount);
+            log.debug("there are " + methodCount + " methods in this problem");
+            for (int i=(methodCount>1?1:0); i<methodCount; i++) {
+                methodNames.add(pc.getAllMethodNames()[i]);
+                if (language>0) {
+                    returnTypes.add(pc.getAllReturnTypes()[i].getDescriptor(language));
+                }
+                DataType args[] = pc.getAllParamTypes()[i];
+                StringBuffer argTypes = new StringBuffer();
+                for (int j = 0; j < args.length; j++) {
+                    if (argTypes.length() > 0) argTypes.append(", ");
+                    argTypes.append(args[j].getDescription());
+                }
+                paramTypes.add(argTypes);
 
-            StringBuffer argTypes = new StringBuffer();
-            for (int i = 0; i < args.length; i++) {
-                if (argTypes.length() > 0) argTypes.append(", ");
-                argTypes.append(args[i].getDescription());
             }
-
             // Put these objects into request scope
             request.setAttribute(Constants.CLASS_NAME, className);
-            request.setAttribute(Constants.METHOD_NAME, methodName);
-            request.setAttribute(Constants.RETURN_TYPE, returnType);
-            request.setAttribute(Constants.ARG_TYPES, argTypes.toString());
+            request.setAttribute(Constants.METHOD_NAME, methodNames);
+            request.setAttribute(Constants.RETURN_TYPE, returnTypes);
+            request.setAttribute(Constants.ARG_TYPES, paramTypes);
 
             request.setAttribute(Constants.CODE, code);
             request.setAttribute(Constants.LANGUAGE_ID, String.valueOf(language));
