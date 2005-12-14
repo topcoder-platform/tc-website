@@ -175,7 +175,15 @@ public class Submit extends Base {
                                 buf.append(seconds);
                                 buf.append(" second");
                             }
-                            throw new NavigationException(buf.toString());
+                            request.setAttribute(Constants.CODE, code);
+                            if (language>0) {
+                                setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
+                            }
+                            request.setAttribute(Constants.LANGUAGES, getLanguages());
+                            request.setAttribute(Constants.MESSAGE, buf.toString());
+                            setNextPage(Constants.SUBMISSION_JSP);
+                            setIsNextPageInContext(true);
+                            return;
                         }
 
 
