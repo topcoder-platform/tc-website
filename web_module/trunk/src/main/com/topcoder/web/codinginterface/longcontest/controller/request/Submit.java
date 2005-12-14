@@ -179,6 +179,7 @@ public class Submit extends Base {
                 ResultSetContainer rsc = (ResultSetContainer) m.get("long_contest_recent_compilation");
                 long lastSubmit = rsc.getLongItem(0, "submit_time");
                 long now = System.currentTimeMillis();
+                log.debug("now " + now + " last: " + lastSubmit + " diff: " + (now-lastSubmit));
                 if (lastSubmit>(now-(Constants.SUBMISSION_RATE*60*1000))) {
                     long minutes = (now-lastSubmit)/(60*1000);
                     long seconds = (now-lastSubmit-(minutes*60*1000))/1000;
