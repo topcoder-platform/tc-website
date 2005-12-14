@@ -56,7 +56,6 @@
     <td class=advancersRound width="30%" align="right">Score</td>
 </tr>
 
-<tr class="sidebarText"><td>-oo-</td><td nowrap="nowrap">Qualification Groups 4/8/14/18/22</td><td align="right">778.43</td></tr>
 <tr class="sidebarText"><td>3C</td><td nowrap="nowrap">Qualification Groups 1/6/11/19/25</td><td align="right">662.25</td></tr>
 <tr class="sidebarText"><td>900913</td><td nowrap="nowrap">Qualification Groups 2/10/12/16/24</td><td align="right">182.86</td></tr>
 <tr class="sidebarText"><td>aaaaatiger</td><td nowrap="nowrap">Qualification Groups 3/7/15/17/23</td><td align="right">152.39</td></tr>
@@ -78,7 +77,6 @@
 <tr class="sidebarText"><td>Asterix.Zhang</td><td nowrap="nowrap">Qualification Groups 2/10/12/16/24</td><td align="right">199.83</td></tr>
 <tr class="sidebarText"><td>asuperstar</td><td nowrap="nowrap">Qualification Groups 4/8/14/18/22</td><td align="right">164.17</td></tr>
 <tr class="sidebarText"><td>ataraxia</td><td nowrap="nowrap">Qualification Groups 1/6/11/19/25</td><td align="right">505.43</td></tr>
-<tr class="sidebarText"><td>atest</td><td nowrap="nowrap">Qualification Groups 5/9/13/20/21</td><td align="right">247.91</td></tr>
 <tr class="sidebarText"><td>atlantis9</td><td nowrap="nowrap">Qualification Groups 5/9/13/20/21</td><td align="right">199.69</td></tr>
 <tr class="sidebarText"><td>atombomb</td><td nowrap="nowrap">Qualification Groups 1/6/11/19/25</td><td align="right">134.85</td></tr>
 <tr class="sidebarText"><td>atomus</td><td nowrap="nowrap">Qualification Groups 2/10/12/16/24</td><td align="right">163.68</td></tr>
@@ -153,7 +151,6 @@
 <tr class="sidebarText"><td>dmks</td><td nowrap="nowrap">Qualification Groups 2/10/12/16/24</td><td align="right">551.47</td></tr>
 <tr class="sidebarText"><td>doinglu</td><td nowrap="nowrap">Qualification Groups 5/9/13/20/21</td><td align="right">204.47</td></tr>
 <tr class="sidebarText"><td>doubtpig</td><td nowrap="nowrap">Qualification Groups 1/6/11/19/25</td><td align="right">345.57</td></tr>
-<tr class="sidebarText"><td>duwchy</td><td nowrap="nowrap">Qualification Groups 5/9/13/20/21</td><td align="right">211.96</td></tr>
 <tr class="sidebarText"><td>Dysentery</td><td nowrap="nowrap">Qualification Groups 1/6/11/19/25</td><td align="right">288.24</td></tr>
 <tr class="sidebarText"><td>eagleinfly</td><td nowrap="nowrap">Qualification Groups 4/8/14/18/22</td><td align="right">192.67</td></tr>
 <tr class="sidebarText"><td>eaman</td><td nowrap="nowrap">Qualification Groups 1/6/11/19/25</td><td align="right">129.30</td></tr>
@@ -266,6 +263,7 @@
 <tr class="sidebarText"><td>laibo</td><td nowrap="nowrap">Qualification Groups 5/9/13/20/21</td><td align="right">629.91</td></tr>
 <tr class="sidebarText"><td>LanQiang</td><td nowrap="nowrap">Qualification Groups 2/10/12/16/24</td><td align="right">486.52</td></tr>
 <tr class="sidebarText"><td>lanti_jam</td><td nowrap="nowrap">Qualification Groups 3/7/15/17/23</td><td align="right">165.98</td></tr>
+<tr class="sidebarText"><td>LaoLin</td><td nowrap="nowrap">Qualification Groups 5/9/13/20/21</td><td align="right">193.46</td></tr>
 <tr class="sidebarText"><td>larry88</td><td nowrap="nowrap">Qualification Groups 2/10/12/16/24</td><td align="right">187.55</td></tr>
 <tr class="sidebarText"><td>lay6</td><td nowrap="nowrap">Qualification Groups 4/8/14/18/22</td><td align="right">162.38</td></tr>
 <tr class="sidebarText"><td>lbadcat</td><td nowrap="nowrap">Qualification Groups 4/8/14/18/22</td><td align="right">165.14</td></tr>
@@ -314,6 +312,7 @@
 <tr class="sidebarText"><td>megjian</td><td nowrap="nowrap">Qualification Groups 1/6/11/19/25</td><td align="right">156.45</td></tr>
 <tr class="sidebarText"><td>meiy</td><td nowrap="nowrap">Qualification Groups 4/8/14/18/22</td><td align="right">173.95</td></tr>
 <tr class="sidebarText"><td>milanzt</td><td nowrap="nowrap">Qualification Groups 3/7/15/17/23</td><td align="right">181.44</td></tr>
+<tr class="sidebarText"><td>mitnickcbc</td><td nowrap="nowrap">Qualification Groups 5/9/13/20/21</td><td align="right">209.11</td></tr>
 <tr class="sidebarText"><td>moonancient</td><td nowrap="nowrap">Qualification Groups 2/10/12/16/24</td><td align="right">201.23</td></tr>
 <tr class="sidebarText"><td>mountaintai</td><td nowrap="nowrap">Qualification Groups 3/7/15/17/23</td><td align="right">162.14</td></tr>
 <tr class="sidebarText"><td>Mrmoon</td><td nowrap="nowrap">Qualification Groups 5/9/13/20/21</td><td align="right">220.85</td></tr>
