@@ -64,6 +64,7 @@ The Problems
 <b><a href="/stat?c=problem_statement&amp;pm=4716&amp;rd=8012" name="4716">CompetitionStatistics</a></b>
 </font>
 <A href="Javascript:openProblemRating(4716)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505755" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
 
 Used as: Division Two - Level One: <blockquote><table cellspacing="2">
   <tr>
@@ -123,6 +124,8 @@ achieves.
 <b><a href="/stat?c=problem_statement&amp;pm=4475&amp;rd=8012" name="4475">PrimePolynom</a></b>
 </font>
 <A href="Javascript:openProblemRating(4475)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505755" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -195,6 +198,7 @@ number if prime:
 <b><a href="/stat?c=problem_statement&amp;pm=4619&amp;rd=8012" name="4619">NumericalSequence</a></b>
 </font>
 <A href="Javascript:openProblemRating(4619)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505755" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
 
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
   <tr>
@@ -308,6 +312,8 @@ and continue with the resulting sequence.
 
 </font>
 <A href="Javascript:openProblemRating(4718)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505755" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division One - Level Two: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -391,6 +397,8 @@ rest.
 </font>
 
 <A href="Javascript:openProblemRating(4468)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505755" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division One - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
