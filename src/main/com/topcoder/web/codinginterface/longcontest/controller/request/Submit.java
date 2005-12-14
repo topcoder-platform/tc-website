@@ -148,45 +148,6 @@ public class Submit extends Base {
                     code = "";
                     // Any code in the DB?
                     if (rsc.size() > 0) {
-
-                        long lastSubmit = rsc.getLongItem(0, "submit_time");
-                        long now = System.currentTimeMillis();
-                        if (lastSubmit>(now-(Constants.SUBMISSION_RATE*60*1000))) {
-                            long minutes = (now-lastSubmit)/(60*1000);
-                            long seconds = (now-lastSubmit-(minutes*60*1000))/1000;
-                            StringBuffer buf = new StringBuffer(100);
-                            buf.append("Sorry, you may not submit again for another");
-                            if (minutes > 1) {
-                                buf.append(" ");
-                                buf.append(minutes);
-                                buf.append(" minutes");
-                            } else if (minutes==1) {
-                                buf.append(" minute");
-                            }
-                            if(minutes>0&&seconds>0) {
-                                buf.append(" and");
-                            }
-                            if (seconds>1) {
-                                buf.append(" ");
-                                buf.append(seconds);
-                                buf.append(" seconds");
-                            } else if (seconds==1) {
-                                buf.append(" ");
-                                buf.append(seconds);
-                                buf.append(" second");
-                            }
-                            request.setAttribute(Constants.CODE, code);
-                            if (language>0) {
-                                setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
-                            }
-                            request.setAttribute(Constants.LANGUAGES, getLanguages());
-                            request.setAttribute(Constants.MESSAGE, buf.toString());
-                            setNextPage(Constants.SUBMISSION_JSP);
-                            setIsNextPageInContext(true);
-                            return;
-                        }
-
-
                         code = rsc.getStringItem(0, "compilation_text");
                         if (!isNull(rsc, 0, "language_id")) {
                             language = rsc.getIntItem(0, "language_id");
@@ -210,6 +171,44 @@ public class Submit extends Base {
                     log.debug("set message in request to please select a language");
                     request.setAttribute(Constants.MESSAGE, "Please select a language.");
                     request.setAttribute(Constants.LANGUAGES, getLanguages());
+                    setNextPage(Constants.SUBMISSION_JSP);
+                    setIsNextPageInContext(true);
+                    return;
+                }
+
+                ResultSetContainer rsc = (ResultSetContainer) m.get("long_contest_recent_compilation");
+                long lastSubmit = rsc.getLongItem(0, "submit_time");
+                long now = System.currentTimeMillis();
+                if (lastSubmit>(now-(Constants.SUBMISSION_RATE*60*1000))) {
+                    long minutes = (now-lastSubmit)/(60*1000);
+                    long seconds = (now-lastSubmit-(minutes*60*1000))/1000;
+                    StringBuffer buf = new StringBuffer(100);
+                    buf.append("Sorry, you may not submit again for another");
+                    if (minutes > 1) {
+                        buf.append(" ");
+                        buf.append(minutes);
+                        buf.append(" minutes");
+                    } else if (minutes==1) {
+                        buf.append(" minute");
+                    }
+                    if(minutes>0&&seconds>0) {
+                        buf.append(" and");
+                    }
+                    if (seconds>1) {
+                        buf.append(" ");
+                        buf.append(seconds);
+                        buf.append(" seconds");
+                    } else if (seconds==1) {
+                        buf.append(" ");
+                        buf.append(seconds);
+                        buf.append(" second");
+                    }
+                    request.setAttribute(Constants.CODE, code);
+                    if (language>0) {
+                        setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
+                    }
+                    request.setAttribute(Constants.LANGUAGES, getLanguages());
+                    request.setAttribute(Constants.MESSAGE, buf.toString());
                     setNextPage(Constants.SUBMISSION_JSP);
                     setIsNextPageInContext(true);
                     return;
