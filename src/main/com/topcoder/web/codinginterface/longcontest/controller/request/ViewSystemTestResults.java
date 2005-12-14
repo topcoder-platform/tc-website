@@ -73,7 +73,7 @@ public class ViewSystemTestResults extends Base {
             if (!"".equals(StringUtils.checkNull(request.getParameter(Constants.TEST_CASE_ID))))
                 r.setProperty(Constants.TEST_CASE_ID, request.getParameter(Constants.TEST_CASE_ID));
 
-            Map result = getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r);
+            Map result = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r);
 
             ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_test_results_coders");
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));

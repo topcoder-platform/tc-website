@@ -27,7 +27,7 @@ public class ViewSystemTest extends Base {
             r.setProperty(Constants.PROBLEM_ID, request.getParameter(Constants.PROBLEM_ID));
             r.setProperty(Constants.ROUND_ID, request.getParameter(Constants.ROUND_ID));
             r.setProperty(Constants.TEST_CASE_ID, request.getParameter(Constants.TEST_CASE_ID));
-            DataAccessInt dataAccess = getDataAccess(DBMS.DW_DATASOURCE_NAME, false);
+            DataAccessInt dataAccess = getDataAccess(DBMS.DW_DATASOURCE_NAME, true);
             Map m = dataAccess.getData(r);
             request.setAttribute("resultMap", m);
             setNextPage(Constants.PAGE_VIEW_SYSTEM_TEST);
