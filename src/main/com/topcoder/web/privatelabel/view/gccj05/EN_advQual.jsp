@@ -51,6 +51,8 @@
     <td class=advancersRound width="30%">Handle</td>
     <td class=advancersRound width="40%">Problem Set</td>
     <td class=advancersRound width="30%" align="right">Score</td></tr>
+
+<tr class="sidebarText"><td>-oo-</td><td nowrap="nowrap">Qualification Groups 4/8/14/18/22</td><td align="right">778.43</td></tr> 
 <tr class="sidebarText"><td>3C</td><td nowrap="nowrap">Qualification Groups 1/6/11/19/25</td><td align="right">662.25</td></tr>
 <tr class="sidebarText"><td>900913</td><td nowrap="nowrap">Qualification Groups 2/10/12/16/24</td><td align="right">182.86</td></tr>
 <tr class="sidebarText"><td>aaaaatiger</td><td nowrap="nowrap">Qualification Groups 3/7/15/17/23</td><td align="right">152.39</td></tr>
