@@ -26,15 +26,15 @@
     <% } %>
 
     <%-- Registration tab --%>
+<%--
 
     <% if (selectedTab.equals("registration")) {%>
     <font color="006633">竞赛注册</font> &nbsp;|&nbsp;
     <% } else { %>
-<%--
     <a href="/pl/?module=Static&d1=gccj05&d2=ZH_login">竞赛注册</a> &nbsp;|&nbsp;
---%>
     <a href="/pl/?module=Static&d1=gccj05&d2=ZH_reg_closed">竞赛注册</a> &nbsp;|&nbsp;
     <% } %>
+--%>
 
     <%-- Instructions tab --%>
     <% if (selectedTab.equals("instructions")) {%>
@@ -52,12 +52,12 @@
 
     <%-- Advancers tab --%>
     <%--
+    --%>
     <% if (selectedTab.equals("晋级")) {%>
          <font color="006633">Advancers</font> &nbsp;|&nbsp;
     <% } else { %>
           <a href="/pl/?module=Static&d1=gccj05&d2=ZH_advancers">晋级</a> &nbsp;|&nbsp;
     <% } %>
-    --%>
     <%-- Practice Arena  tab --%>
     <% if (selectedTab.equals("arena")) {%>
     <font color="006633">竞技场</font> &nbsp;|&nbsp;

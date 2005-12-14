@@ -40,7 +40,7 @@
 
 <br><br>
 
-<span class="bigTitle">Tough problems. Intense competition. No pressure.</span>
+<span class="bigTitle">Advancers</span>
 <span valign=top>
          <jsp:include page="EN_right.jsp"/>
          </span>
