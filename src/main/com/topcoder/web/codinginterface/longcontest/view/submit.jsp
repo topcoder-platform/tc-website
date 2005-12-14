@@ -5,6 +5,7 @@
                 com.topcoder.web.common.StringUtils"
 
         %>
+<%@ page import="java.util.ArrayList"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
@@ -112,16 +113,24 @@ color: FF0000;
                 </tc-webtag:listIterator>
             </td>
          </tr>
+          <%
+              ArrayList methodNames = (ArrayList)request.getAttribute(Constants.METHOD_NAME);
+              ArrayList returnTypes = (ArrayList)request.getAttribute(Constants.RETURN_TYPE);
+              ArrayList paramTypes = (ArrayList)request.getAttribute(Constants.ARG_TYPES);
+
+              for (int i=0; i<methodNames.size(); i++) {
+          %>
          <tr>
             <td valign="top">
                <b>Problem Name: <%=request.getAttribute(Constants.CLASS_NAME)%><br>
-                   Method Name: <%=request.getAttribute(Constants.METHOD_NAME)%></b>
+                   Method Name: <%=methodNames.get(i)%></b>
             </td>
             <td align="right" valign="top">
-               <b>Return Type: <%=StringUtils.htmlEncode((String)request.getAttribute(Constants.RETURN_TYPE))%><br>
-                   Arg Types: <%=StringUtils.htmlEncode((String)request.getAttribute(Constants.ARG_TYPES))%></b>
+               <b>Return Type: <%=StringUtils.htmlEncode((String)returnTypes.get(i))%><br>
+                   Arg Types: <%=StringUtils.htmlEncode((String)paramTypes.get(i))%></b>
             </td>
          </tr>
+          <% } %>
          <tr>
             <td colspan="2">
                <%if (request.getAttribute(Constants.CODE) == null || request.getAttribute(Constants.CODE).toString().equals("")) {%>
