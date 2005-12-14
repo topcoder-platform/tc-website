@@ -51,9 +51,9 @@
     <td class=advancersTitle colspan=3>Round 1</td>
 </tr>
 <tr>
-    <td class=advancersRound width="30%">Handle</td>
-    <td class=advancersRound width="40%">Score</td>
-    <td class=advancersRound width="30%" align="center">Advanced</td>
+    <td class=advancersRound width="30%">帐号</td>
+    <td class=advancersRound width="40%">题目</td>
+    <td class=advancersRound width="30%" align="right">分数</td>
 </tr>
 
 

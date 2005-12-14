@@ -51,9 +51,9 @@
     <td class=advancersTitle colspan=3>入围赛</td>
 </tr>
 <tr>
-    <td class=advancersRound width="30%">Handle</td>
-    <td class=advancersRound width="40%">Problem Set</td>
-    <td class=advancersRound width="30%" align="right">Score</td>
+    <td class=advancersRound width="30%">帐号</td>
+    <td class=advancersRound width="40%">题目</td>
+    <td class=advancersRound width="30%" align="right">分数</td>
 </tr>
 
 <tr class="sidebarText"><td>-oo-</td><td nowrap="nowrap">Qualification Groups 4/8/14/18/22</td><td align="right">778.43</td></tr> 
