@@ -63,7 +63,7 @@ The Problems
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4716&amp;rd=8012" name="4716">CompetitionStatistics</a></b>
 </font>
-<A href="Javascript:openProblemRating(4716)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+<A href="Javascript:openProblemRating(4716)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
 <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505755" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
 
 Used as: Division Two - Level One: <blockquote><table cellspacing="2">
@@ -123,7 +123,7 @@ achieves.
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4475&amp;rd=8012" name="4475">PrimePolynom</a></b>
 </font>
-<A href="Javascript:openProblemRating(4475)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+<A href="Javascript:openProblemRating(4475)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
 <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505755" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
 
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
@@ -197,7 +197,7 @@ number if prime:
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4619&amp;rd=8012" name="4619">NumericalSequence</a></b>
 </font>
-<A href="Javascript:openProblemRating(4619)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+<A href="Javascript:openProblemRating(4619)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
 <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505755" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
 
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
@@ -311,7 +311,7 @@ and continue with the resulting sequence.
 <b><a href="/stat?c=problem_statement&amp;pm=4718&amp;rd=8012" name="4718">SuperString</a></b>
 
 </font>
-<A href="Javascript:openProblemRating(4718)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+<A href="Javascript:openProblemRating(4718)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
 <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505755" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
 
 Used as: Division One - Level Two: <blockquote><table cellspacing="2">
@@ -396,7 +396,7 @@ rest.
 <b><a href="/stat?c=problem_statement&amp;pm=4468&amp;rd=8012" name="4468">CardRemover</a></b>
 </font>
 
-<A href="Javascript:openProblemRating(4468)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+<A href="Javascript:openProblemRating(4468)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
 <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505755" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2">
@@ -486,47 +486,33 @@ Of course, you need to add some memoization to cache the result for a particular
 (a,b) pair, or else you will time out.
 </p>
 
+<p>
+<img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+By&#160;<tc-webtag:handle coderId="159052" context="algorithm"/><br />
+<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
+</p>
 
+</div>
+</td>
 
-
-
-                <p>
-                <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-                By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=159052"><strong>lbackstrom</strong></a><br />
-                <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
-                </p>
-             </td>
-          </tr>
-       </table>
-
-       <p><br /></p>
-
-    </td>
 <!-- Center Column Ends -->
 
-<!-- Gutter -->
-    <td width="4"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
 <!-- Right Column Begins -->
-    <td width="170">
-       <img src="/i/clear.gif" width="170" height="1" border="0"/><br />
-       <xsl:call-template name="public_right_col"/>
-    </td>
+         <td width="170">
+            <jsp:include page="../public_right.jsp">
+               <jsp:param name="level1" value="privatelabel"/>
+            </jsp:include>
+         </td>
 <!-- Right Column Ends -->
 
 <!-- Gutter -->
-    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
 <!-- Gutter Ends -->
-
- </tr>
+    </tr>
 </table>
 
-<xsl:call-template name="Foot"/>
+<jsp:include page="../foot.jsp" />
 
 </body>
 
 </html>
-
- </xsl:template>
-</xsl:stylesheet>

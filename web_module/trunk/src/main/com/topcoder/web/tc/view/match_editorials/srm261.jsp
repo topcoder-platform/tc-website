@@ -76,7 +76,9 @@ The Problems
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4651&amp;rd=7995" name="4651">SpreadsheetColumn</a></b>
 </font>
-<A href="Javascript:openProblemRating(4651)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br>
+<A href="Javascript:openProblemRating(4651)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505758" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division Two - Level One: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -137,7 +139,9 @@ else {
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4661&amp;rd=7995" name="4661">PrimeStatistics</a></b>
 </font>
-<A href="Javascript:openProblemRating(4661)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br>
+<A href="Javascript:openProblemRating(4661)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505758" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -261,7 +265,9 @@ in the examples. Many coders spotted this and were awarded in the challenge phas
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4652&amp;rd=7995" name="4652">GomokuBoardChecker</a></b>
 </font>
-<A href="Javascript:openProblemRating(4652)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br>
+<A href="Javascript:openProblemRating(4652)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505758" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -356,7 +362,9 @@ is invalid, otherwise the player won.
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4700&amp;rd=7995" name="4700">EncodingTrees</a></b>
 </font>
-<A href="Javascript:openProblemRating(4700)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br>
+<A href="Javascript:openProblemRating(4700)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505758" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division One - Level Two: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -493,7 +501,9 @@ String getCode(int N, int index) {
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4660&amp;rd=7995" name="4660">StackingBoxes</a></b>
 </font>
-<A href="Javascript:openProblemRating(4660)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br>
+<A href="Javascript:openProblemRating(4660)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505758" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division One - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
