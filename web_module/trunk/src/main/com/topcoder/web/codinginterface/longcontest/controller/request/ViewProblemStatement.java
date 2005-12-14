@@ -90,7 +90,7 @@ public class ViewProblemStatement extends Base {
                 problem.setProblemComponents(pc);
                 ProblemRenderer pr = new ProblemRenderer(problem);
                 //pr.setTdclass("statText");
-                html = pr.toHTML(BaseLanguage.getLanguage(lid));
+                html = pr.toHTML(BaseLanguage.getLanguage(lid>0?lid:JavaLanguage.ID));
                 if (hasCacheConnection) {
                     cc.set(key, html, 1000 * 60 * Constants.PROBLEM_REFRESH);
                 }
