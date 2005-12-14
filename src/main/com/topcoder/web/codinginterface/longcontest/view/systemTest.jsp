@@ -75,9 +75,9 @@
 
             <p>
 
-                Arguments:<%=StringUtils.htmlEncode(testRow.getStringItem("args"))%><p>
-
-            Expected Result: <%=StringUtils.htmlEncode(testRow.getStringItem("expected_result"))%>
+           Test Case:
+                </p>
+            <p><%=testRow.getStringItem("expected_result")%></p>
 
 
         </td>
