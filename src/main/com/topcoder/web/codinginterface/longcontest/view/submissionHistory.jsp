@@ -95,7 +95,11 @@
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
                             <tr>
+                                <% if (over) { %>
                                 <td class="tableTitle" colspan="4">Submission History</td>
+                                <% } else { %>
+                                <td class="tableTitle" colspan="3">Submission History</td>
+                                <% } %>
                             </tr>
                             <tr>
                                 <td class="tableHeader" width="25%">
