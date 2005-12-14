@@ -70,8 +70,10 @@ public class ViewSystemTestResults extends Base {
             r.setContentHandle("long_contest_system_test_results");
             r.setProperty(Constants.ROUND_ID, request.getParameter(Constants.ROUND_ID));
             r.setProperty(Constants.PROBLEM_ID, request.getParameter(Constants.PROBLEM_ID));
+/*
             if (!"".equals(StringUtils.checkNull(request.getParameter(Constants.TEST_CASE_ID))))
                 r.setProperty(Constants.TEST_CASE_ID, request.getParameter(Constants.TEST_CASE_ID));
+*/
 
             Map result = getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r);
 
