@@ -66,7 +66,7 @@ public class ViewOverview extends Base {
                 }
             }
             r.setProperty(Constants.ROUND_ID, roundID);
-            Map result = getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r);
+            Map result = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r);
             ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_overview_coders");
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
 

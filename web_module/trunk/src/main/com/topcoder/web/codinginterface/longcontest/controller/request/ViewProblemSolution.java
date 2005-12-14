@@ -28,7 +28,7 @@ public class ViewProblemSolution extends Base {
             r.setProperty(Constants.PROBLEM_ID, request.getParameter(Constants.PROBLEM_ID));
             r.setProperty(Constants.ROUND_ID, request.getParameter(Constants.ROUND_ID));
             r.setProperty(Constants.SUBMISSION_NUMBER, request.getParameter(Constants.SUBMISSION_NUMBER));
-            DataAccessInt dataAccess = getDataAccess(DBMS.DW_DATASOURCE_NAME, false);
+            DataAccessInt dataAccess = getDataAccess(DBMS.DW_DATASOURCE_NAME, true);
             Map m = dataAccess.getData(r);
             request.setAttribute("resultMap", m);
             setNextPage(Constants.PAGE_PROBLEM_SOLUTION);
