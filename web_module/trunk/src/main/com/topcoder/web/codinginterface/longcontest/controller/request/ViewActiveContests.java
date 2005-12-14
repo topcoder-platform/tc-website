@@ -85,6 +85,9 @@ public class ViewActiveContests extends Base {
             }
 
             if (rsc.getRowCount() < 5) { // list some pass contests
+
+                //todo change this so that it looks to the dw to get the list of contests
+                //todo and then populates a couple fields from transactional to fill out the list
                 Request reqPassContests = new Request();
                 reqPassContests.setContentHandle("long_contest_pass_contests");
                 Map mapPassContests = dai.getData(reqPassContests);
