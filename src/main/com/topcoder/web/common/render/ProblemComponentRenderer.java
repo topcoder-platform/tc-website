@@ -490,24 +490,39 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
         text.append("\n\nDEFINITION");
         text.append("\nClass:");
         text.append(problemComponent.getClassName());
+
+
+
+
+
+        int methodCount = problemComponent.getAllMethodNames().length;
+        for (int i=(methodCount)>1?1:0; i<methodCount; i++) {
+
         text.append("\nMethod:");
-        text.append(problemComponent.getMethodName());
+        text.append(problemComponent.getAllMethodNames()[i]);
         text.append("\nParameters:");
-        DataType[] paramTypes = problemComponent.getParamTypes();
+        DataType[] paramTypes = problemComponent.getAllParamTypes()[i];
         for (int j = 0; j < paramTypes.length; j++) {
             if (j > 0)
                 text.append(", ");
             text.append(new DataTypeRenderer(paramTypes[j]).toPlainText(language));
         }
         text.append("\nReturns:");
-        text.append(new DataTypeRenderer(problemComponent.getReturnType()).toPlainText(language));
+        text.append(new DataTypeRenderer(problemComponent.getAllReturnTypes()[i]).toPlainText(language));
 
         text.append("\nMethod signature:");
-        text.append(language.getMethodSignature(problemComponent.getMethodName(),
-                problemComponent.getReturnType(),
-                problemComponent.getParamTypes(),
-                problemComponent.getParamNames()));
+        text.append(language.getMethodSignature(problemComponent.getAllMethodNames()[i],
+                problemComponent.getAllReturnTypes()[i],
+                problemComponent.getAllParamTypes()[i],
+                problemComponent.getAllParamNames()[i]));
         text.append("\n");
+        }
+
+
+
+
+
+
 
         /* Spec */
         if (problemComponent.getSpec() != null)
