@@ -179,10 +179,11 @@ public class Submit extends Base {
                 ResultSetContainer rsc = (ResultSetContainer) m.get("long_contest_recent_compilation");
                 long lastSubmit = rsc.getLongItem(0, "submit_time");
                 long now = System.currentTimeMillis();
+                long nextSubmit = lastSubmit +Constants.SUBMISSION_RATE*60*1000;
                 log.debug("now " + now + " last: " + lastSubmit + " diff: " + (now-lastSubmit));
-                if (lastSubmit>(now-(Constants.SUBMISSION_RATE*60*1000))) {
-                    long minutes = (now-lastSubmit)/(60*1000);
-                    long seconds = (now-lastSubmit-(minutes*60*1000))/1000;
+                if (now<nextSubmit) {
+                    long minutes = (nextSubmit-lastSubmit)/(60*1000);
+                    long seconds = (nextSubmit-lastSubmit-(minutes*60*1000))/1000;
                     StringBuffer buf = new StringBuffer(100);
                     buf.append("Sorry, you may not submit again for another");
                     if (minutes > 1) {
