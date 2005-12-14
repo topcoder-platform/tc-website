@@ -40,7 +40,7 @@
 
                 <br><br>
 
-                <span class="bigTitle">Tough problems. Intense competition. No pressure.</span>
+                <span class="bigTitle">晋级</span>
                 <span valign=top>
          <jsp:include page="ZH_right.jsp"/>
          </span>
@@ -50,14 +50,14 @@
                 <table class=tableFrame cellpadding=5 cellspacing=2 border="0" width="400">
                     <tr>
                         <td class="advancersTitle">Round</td>
-                        <td class="advancersTitle" align="right" width="100%">Advancers</td>
+                        <td class="advancersTitle" align="right" width="100%">晋级</td>
                     </tr>
                     <tr valign="top">
-                        <td class="advancersRound"><a href="/pl/?module=Static&d1=gccj05&d2=ZH_advQual" class="topLink">Qualification
-                            Round</a></td>
+                        <td class="advancersRound"><a href="/pl/?module=Static&d1=gccj05&d2=ZH_advQual" class="topLink">入围赛</a></td>
                         <td class="sidebarText" align="right"><a
-                                href="/pl/?module=Static&d1=gccj05&d2=ZH_advQual">534</a></td>
+                                href="/pl/?module=Static&d1=gccj05&d2=ZH_advQual">500</a></td>
                     </tr>
+<%--
                     <tr valign="top">
                         <td class="advancersRound"><a href="/pl/?module=Static&d1=gccj05&d2=ZH_advRound1"
                                                       class="topLink">Round 1</a></td>
@@ -70,6 +70,7 @@
                         <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gccj05&d2=ZH_advFinal">Winners</a>
                         </td>
                     </tr>
+--%>
                 </table>
 
 
