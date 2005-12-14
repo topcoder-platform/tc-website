@@ -1,6 +1,7 @@
 <%@  page language="java"  %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -36,6 +37,10 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
+<div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+<tc-webtag:forumLink forumID="505757" message="Discuss this match" /></div>
+<span class="bodySubtitle">SRM 260</span><br>Saturday, August 27, 2005
+<br><br>
 
 <span class="bigTitle">Match summary</span>
 

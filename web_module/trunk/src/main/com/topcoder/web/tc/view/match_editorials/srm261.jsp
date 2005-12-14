@@ -38,10 +38,7 @@
 </jsp:include>
 
 <div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
-<%--
-<tc-webtag:forumLink forumID="505001" message="Discuss this match" /></div>
---%>
-<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505001">Discuss this match</A></div>
+<tc-webtag:forumLink forumID="505758" message="Discuss this match" /></div>
 <span class="bodySubtitle">SRM 261</span><br>Tuesday, August 30, 2005
 <br><br>
 
