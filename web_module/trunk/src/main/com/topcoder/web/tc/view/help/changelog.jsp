@@ -38,6 +38,12 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
+        4.1.1 - 2005 12.14
+        <ul>
+            <li>Bug fixes for Marathon Match site</li>
+        </ul>
+    </p>
+    <p>
         4.1.0 - 2005 12.12
         <ul>
             <li>Marathon Match Site</li>
