@@ -68,6 +68,7 @@
             <div style="float:right; padding: 0px 0px 0px 5px;">
                <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
                <A href="">back to results</A>
+                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewSystemTestResults&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=testRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=testRow%>"/>">results</A>
             </div>
 
             <span class="bigHandle">Contest: <A href="?module=ViewOverview&rd=<rsc:item name="round_id" row="<%=testRow%>"/>" class="bcLink"><rsc:item name="contest_name" row="<%=testRow%>"/></A></span><br>
@@ -78,7 +79,7 @@
 
            Test Case:
                 </p>
-            <%-- this substring bullshit is because we're storing a string in the db serialize and pretty
+            <%-- this substring bullshit is because we're storing a string in the db serialized and pretty
             printer wraps strings in double quotes.  they are getting removed with this substring as they
             are not appropriate in this case.  the writer is responsible for all formatting --%>
             <pre><%=testRow.getStringItem("expected_result").substring(1, testRow.getStringItem("expected_result").length()-2)%></pre>
