@@ -40,7 +40,7 @@
 
                 <br><br>
 
-                <span class="bigTitle">Tough problems. Intense competition. No pressure.</span>
+                <span class="bigTitle">Advancers</span>
                 <span valign=top>
          <jsp:include page="EN_right.jsp"/>
          </span>
@@ -56,8 +56,9 @@
                         <td class="advancersRound"><a href="/pl/?module=Static&d1=gccj05&d2=EN_advQual" class="topLink">Qualification
                             Round</a></td>
                         <td class="sidebarText" align="right"><a
-                                href="/pl/?module=Static&d1=gccj05&d2=EN_advQual">534</a></td>
+                                href="/pl/?module=Static&d1=gccj05&d2=EN_advQual">500</a></td>
                     </tr>
+<%--
                     <tr valign="top">
                         <td class="advancersRound"><a href="/pl/?module=Static&d1=gccj05&d2=EN_advRound1"
                                                       class="topLink">Round 1</a></td>
@@ -70,6 +71,7 @@
                         <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gccj05&d2=EN_advFinal">Winners</a>
                         </td>
                     </tr>
+--%>
                 </table>
 
 
