@@ -72,3 +72,5 @@
 <a href="/?t=sponsor&c=link&link=http://groups.google.com/group/China-Code-Jam" target="_blank">Code Jam China Group</a>
 <% } %>
 </font>
+<br><br>
+<span class="bigRed">The Qualification Round is complete. <A href="/pl/?module=Static&d1=gccj05&d2=EN_advQual" class="bigRed">Click here</A> to see who advanced!</span>
