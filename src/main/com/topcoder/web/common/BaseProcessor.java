@@ -12,7 +12,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
 import java.lang.reflect.Method;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -276,6 +275,10 @@ public abstract class BaseProcessor implements RequestProcessor {
                 log.error("couldn't close context");
             }
         }
+    }
+
+    protected SessionInfo getSessionInfo() {
+        return (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
     }
 
 
