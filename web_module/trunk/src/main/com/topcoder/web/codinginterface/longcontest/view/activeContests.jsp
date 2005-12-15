@@ -149,7 +149,7 @@
                                 <tc-webtag:beanWrite name="contest" property="endTime"
                                                      format="MM.dd.yyyy HH:mm"/></td>
                             <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
-                                <% long id = getForumId(contest.getRoundId());
+                                <% long id = getForumId(((LongContest)contest).getRoundID());
                                 if (id>0) { %>
                                   <tc-webtag:forumLink forumID="<%=id%>" message="Discussr"/>
                                 <% } %>
