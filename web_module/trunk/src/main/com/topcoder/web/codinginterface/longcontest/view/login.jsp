@@ -14,7 +14,7 @@
 <html>
 <head>
     <title>TopCoder</title>
-    <jsp:include page="../script.jsp" />
+    <jsp:include page="script.jsp" />
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
     <SCRIPT type="text/javascript">
         function submitEnter(e) {
