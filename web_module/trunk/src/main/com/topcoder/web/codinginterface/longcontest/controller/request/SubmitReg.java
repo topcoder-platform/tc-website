@@ -45,14 +45,24 @@ public class SubmitReg extends ViewReg {
 
         // Gets the round id the user wants to register for
         String roundID = getRequest().getParameter(Constants.ROUND_ID);
-
-        // Put variables back into the http request
-        getRequest().setAttribute(Constants.ROUND_ID, roundID);
-
-        // Gets the user's id
-        long userID = getUser().getId();
-
         try {
+            long userID = getUser().getId();
+
+            long round = Long.parseLong(roundID);
+            if (isUserRegistered(userID, round)) {
+                setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
+                setIsNextPageInContext(false);
+            }
+
+            if (isRegistrationOpen(round)) {
+                throw new NavigationException("Registration is not currently open");
+            }
+
+            // Put variables back into the http request
+            getRequest().setAttribute(Constants.ROUND_ID, roundID);
+
+            // Gets the user's id
+
             // Gets a handle to the data source
             DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
 
@@ -77,7 +87,6 @@ public class SubmitReg extends ViewReg {
             // Checks to make sure the user responed to all required questions
             checkRequiredQuestions(responses);
 
-            boolean hasAllFreeForm = true;
             if (!hasErrors()) { // If the user responded to all the questions, let's go...
 
                 TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
@@ -88,7 +97,6 @@ public class SubmitReg extends ViewReg {
                     // Go through each of the user survey responses and put them into the DB
                     for (Iterator it = responses.iterator(); it.hasNext();) {
                         resp = (SurveyResponse) it.next();
-                        hasAllFreeForm &= resp.isFreeForm();
                         if (resp.isFreeForm()) {
                             response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getText());
                         } else {
@@ -96,8 +104,8 @@ public class SubmitReg extends ViewReg {
                         }
                     }
 
-                	// register user for round
-                	Request r = new Request();
+                    // register user for round
+                    Request r = new Request();
                     r.setContentHandle("long_contest_find_room");
                     r.setProperty("rd", String.valueOf(roundID));
                     registerUser(userID, Long.parseLong(roundID),
@@ -298,6 +306,5 @@ public class SubmitReg extends ViewReg {
             }
         }
     }
-
 
 }

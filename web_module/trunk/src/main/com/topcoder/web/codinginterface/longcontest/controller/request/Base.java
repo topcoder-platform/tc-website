@@ -42,46 +42,30 @@ public abstract class Base extends BaseProcessor {
 
     protected void businessProcessing() throws Exception {
         loadSponsorImage();
-        loadRoundType();
+        loadRoundInfo();
         longContestProcessing();
     }
 
     protected abstract void longContestProcessing() throws Exception;
 
-    protected void loadRoundType() throws Exception {
+    protected void loadRoundInfo() throws Exception {
         String round = getRequest().getParameter(Constants.ROUND_ID);
         if (round != null) {
             log.debug("round id was " + round);
-            int roundType = getRoundType(round);
-            if (roundType > 0) {
-                log.debug("got a round type");
-                getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(roundType));
+            long roundId = Long.parseLong(round);
+            ResultSetContainer rsc = getRoundInfo(roundId);
+
+            if (!rsc.isEmpty()) {
+                if (rsc.getItem(0, "forum_id").getResultData()!=null) {
+                    getRequest().setAttribute(Constants.FORUM_ID, new Long(rsc.getLongItem(0, "forum_id")));
+                }
+                getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(rsc.getIntItem(0, "round_type_id")));
             }
+            getRequest().setAttribute(Constants.RESULTS_AVAILABLE, new Boolean(areResultsAvailable(roundId)));
         }
+
     }
 
-    /**
-     * Get's the round type attribute for the specified round.
-     *
-     * @param roundID The specified round
-     * @return The round type of the specified round
-     * @throws Exception Propagates exceptions
-     */
-    protected int getRoundType(String roundID) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("long_contest_round_information");
-        r.setProperty("rd", roundID);
-
-        Map m = getDataAccess(true).getData(r);
-
-        ResultSetContainer rsc = (ResultSetContainer) m.get("long_contest_round_information");
-
-        if (rsc.getRowCount() == 0) {
-            return -1;
-        } else {
-            return rsc.getIntItem(0, "round_type_id");
-        }
-    }
 
     protected void loadSponsorImage() throws Exception {
         log.debug("loadSponsorImage called...");
@@ -262,7 +246,15 @@ public abstract class Base extends BaseProcessor {
         return getAuthentication().getUser();
     }
 
+    /**
+     *
+     * @param roundId
+     * @return true if the coding phase is over, false otherwise
+     * @throws Exception if there is a db problem or if the round doesn't exist
+     */
     protected boolean isRoundOver(long roundId) throws Exception {
+        //todo consider removing the long contest over command and using data from the round info command
+        //todo of course, then we're comparing app server time with db time, but i think we'll survive
         log.debug("is round over called");
         Request r = new Request();
         r.setContentHandle("long_contest_over");
@@ -271,5 +263,32 @@ public abstract class Base extends BaseProcessor {
         return rsc.getBooleanItem(0, 0);
     }
 
+
+    /**
+     *
+     * @param roundId
+     * @return
+     * @throws Exception if there is a db problem
+     */
+    protected ResultSetContainer getRoundInfo(long roundId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("long_contest_round_information");
+        r.setProperty("rd", String.valueOf(roundId));
+        Map m = getDataAccess(true).getData(r);
+        return (ResultSetContainer)m.get("long_contest_round_information");
+    }
+
+    /**
+     *
+     * @param roundId
+     * @return true if the round has been load already, false otherwise
+     * @throws Exception
+     */
+    protected boolean areResultsAvailable(long roundId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("round_exists");
+        r.setProperty("rd", String.valueOf(roundId));
+        return !((ResultSetContainer)getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r).get("round_exists")).isEmpty();
+    }
 }
 
