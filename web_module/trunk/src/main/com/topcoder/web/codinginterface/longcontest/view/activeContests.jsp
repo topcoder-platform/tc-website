@@ -151,7 +151,7 @@
                             <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
                                 <% long id = getForumId(((LongContest)contest).getRoundID());
                                 if (id>0) { %>
-                                  <tc-webtag:forumLink forumID="<%=id%>" message="Discussr"/>
+                                  <tc-webtag:forumLink forumID="<%=id%>" message="discuss"/>
                                 <% } %>
                             </td>
 
