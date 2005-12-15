@@ -124,7 +124,6 @@ color: FF0000;
 ArrayList methodNames = (ArrayList)request.getAttribute(Constants.METHOD_NAME);
 ArrayList returnTypes = (ArrayList)request.getAttribute(Constants.RETURN_TYPE);
 ArrayList paramTypes = (ArrayList)request.getAttribute(Constants.ARG_TYPES);
-%> Class Name: <% request.getAttribute(Constants.CLASS_NAME)
 for (int i=0; i<methodNames.size(); i++) {
 %>Method Name: <%=methodNames.get(i)%>
 Return Type: <%=StringUtils.htmlEncode((String)returnTypes.get(i))%>
