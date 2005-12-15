@@ -505,9 +505,11 @@ if ((navigator.userAgent.indexOf('MSIE') != -1) && (navigator.userAgent.indexOf(
     <td id="<%if (unreadCategories.indexOf("matches")==-1) {%><%=level2.equals("matches")?"leftSubnavOldOn":"leftSubnavOld"%><%} else {%><%=level2.equals("matches")?"leftSubnavOn":"leftSubnav"%><%}%>">
         <A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=14">Algorithm
             Matches</A></td></tr>
+<%--
+--%>
 <tr>
     <td id="<%if (unreadCategories.indexOf("longcontests")==-1) {%><%=level2.equals("longcontests")?"leftSubnavOldOn":"leftSubnavOld"%><%} else {%><%=level2.equals("longcontests")?"leftSubnavOn":"leftSubnav"%><%}%>">
-        <A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=14">Marathon Matches
+        <A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=17">Marathon Matches
             </A></td></tr>
 <tr>
     <td id="<%if (unreadCategories.indexOf("news")==-1) {%><%=level2.equals("news")?"leftSubnavOldOn":"leftSubnavOld"%><%} else {%><%=level2.equals("news")?"leftSubnavOn":"leftSubnav"%><%}%>">
