@@ -506,6 +506,10 @@ if ((navigator.userAgent.indexOf('MSIE') != -1) && (navigator.userAgent.indexOf(
         <A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=14">Algorithm
             Matches</A></td></tr>
 <tr>
+    <td id="<%if (unreadCategories.indexOf("longcontests")==-1) {%><%=level2.equals("longcontests")?"leftSubnavOldOn":"leftSubnavOld"%><%} else {%><%=level2.equals("longcontests")?"leftSubnavOn":"leftSubnav"%><%}%>">
+        <A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=14">Marathon Matches
+            </A></td></tr>
+<tr>
     <td id="<%if (unreadCategories.indexOf("news")==-1) {%><%=level2.equals("news")?"leftSubnavOldOn":"leftSubnavOld"%><%} else {%><%=level2.equals("news")?"leftSubnavOn":"leftSubnav"%><%}%>">
         <A class="leftOn" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=8">News
             Discussions</A></td></tr>
