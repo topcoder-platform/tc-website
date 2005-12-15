@@ -32,13 +32,13 @@ function goURL(daURL) {
 }
 
 function redirectCheck(pluginFound, redirectURL, redirectIfFound) {
-    if( redirectURL && ((pluginFound && redirectIfFound) || 
+    if( redirectURL && ((pluginFound && redirectIfFound) ||
    (!pluginFound && !redirectIfFound)) ) {
    goURL(redirectURL);
    return pluginFound;
     } else {
    return pluginFound;
-    }   
+    }
 }
 
 function canDetectPlugins() {
@@ -82,7 +82,7 @@ function detectPlugin() {
    for (pluginsArrayCounter=0; pluginsArrayCounter < pluginsArrayLength; pluginsArrayCounter++ ) {
        var numFound = 0;
        for(namesCounter=0; namesCounter < daPlugins.length; namesCounter++) {
-      if( (navigator.plugins[pluginsArrayCounter].name.indexOf(daPlugins[namesCounter]) >= 0) || 
+      if( (navigator.plugins[pluginsArrayCounter].name.indexOf(daPlugins[namesCounter]) >= 0) ||
           (navigator.plugins[pluginsArrayCounter].description.indexOf(daPlugins[namesCounter]) >= 0) ) {
          numFound++;
       }
@@ -480,13 +480,11 @@ if ((navigator.userAgent.indexOf('MSIE') != -1) && (navigator.userAgent.indexOf(
 <% if (level1.equals("long_contests")) { %>
    <tr><td id="<%=level2.equals("how_to_compete")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Static&d1=instructions">How to compete</A></td></tr>
 
-<%--
 <tr><td id="<%=level2.equals("topcoder")?"leftSubnavOn":"leftSubnav"%>">
     <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest">Active Contests</A></td></tr>
 <tr><td id="<%=level2.equals("topcoder_practice")?"leftSubnavOn":"leftSubnav"%>">
     <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest?module=ViewPractice">Practice</A></td>
 </tr>
---%>
 <%--
                 <tr><td id="<%=level2.equals("intel")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest">Intel Multithreading Matches</A></td></tr>
                 <tr><td id="<%=level2.equals("intel_practice")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest">Intel Practice Matches</A></td></tr>
