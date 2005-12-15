@@ -108,7 +108,7 @@ public class ViewActiveContests extends Base {
                     longContest.setContestID(rscPassContests.getLongItem(i, "contest_id"));
                     longContest.setNumCompetitors(rscPassContests.getIntItem(i, "num_competitors"));
                     longContest.setNumRegistrants(rscPassContests.getIntItem(i, "num_registrants"));
-                    if (rsc.getStringItem(i, "file_path")!=null) {
+                    if (rsc.getItem(i, "file_path").getResultData()!=null) {
                         longContest.setSponsorImage(makeImage(rsc.getRow(i)));
                     }
 
