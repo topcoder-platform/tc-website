@@ -235,7 +235,9 @@ public class Submit extends Base {
                 if (code==null) {
                     log.debug("********************* code is null ***********************");
                 }
-                LongCompileRequest lcr = new LongCompileRequest((int) uid, cid, rid, cd, language, ApplicationServer.WEB_SERVER_ID, code);
+                //todo bad, those should all be long
+                LongCompileRequest lcr = new LongCompileRequest((int) uid, (int)cid, (int)rid, (int)cd,
+                        language, ApplicationServer.WEB_SERVER_ID, code);
 
                 try {
                     // Send the request!
