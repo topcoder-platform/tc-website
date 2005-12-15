@@ -64,7 +64,7 @@ The Problems
 <A href="Javascript:openProblemRating(4500)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
 <A href="http://forums.topcoder.com/?module=ThreadList&forumID=505732" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
 
-Used as: Division Two - Level One: <blockquote><table cellspacing="2" ID="Table1">
+Used as: Division Two - Level One: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Value</b>
@@ -134,7 +134,7 @@ public int winnings(int bet, int dealer, int dealerBlackjack, int player, int bl
 <A href="Javascript:openProblemRating(4485)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
 <A href="http://forums.topcoder.com/?module=ThreadList&forumID=505732" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
 
-Used as: Division Two - Level Two: <blockquote><table cellspacing="2" ID="Table2">
+Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Value</b>
@@ -177,7 +177,7 @@ Used as: Division Two - Level Two: <blockquote><table cellspacing="2" ID="Table2
   </tr>
 </table></blockquote>
 
-Used as: Division One - Level One: <blockquote><table cellspacing="2" ID="Table3">
+Used as: Division One - Level One: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Value</b>
@@ -265,7 +265,7 @@ public String[] whoCanSee(String[] userNames, String[] allowedData, String[] rep
 <A href="Javascript:openProblemRating(4501)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
 <A href="http://forums.topcoder.com/?module=ThreadList&forumID=505732" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
 
-Used as: Division Two - Level Three: <blockquote><table cellspacing="2" ID="Table4">
+Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Value</b>
@@ -367,7 +367,7 @@ return d[origin][destination];
 <A href="Javascript:openProblemRating(4574)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
 <A href="http://forums.topcoder.com/?module=ThreadList&forumID=505732" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
 
-Used as: Division One - Level Two: <blockquote><table cellspacing="2" ID="Table5">
+Used as: Division One - Level Two: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Value</b>
@@ -568,7 +568,7 @@ public int fewestKeys(int[] keys, String operators, int target) {
 <A href="Javascript:openProblemRating(4425)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
 <A href="http://forums.topcoder.com/?module=ThreadList&forumID=505732" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
 
-Used as: Division One - Level Three: <blockquote><table cellspacing="2" ID="Table6">
+Used as: Division One - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Value</b>
