@@ -58,7 +58,7 @@
             </jsp:include>
             <div align="center">
                 <div style="width: 510px; text-align: left;">
-                    <div style="float: right;"><img src="/i/longcontest/spon_topcoder.gif" alt="Sponsor" border="0"/>
+                    <div style="float: right;"><ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
                     </div>
                     <span class="bigHandle">Contest: <%=request.getAttribute(Constants.CONTEST_NAME_KEY)%></span>
 
