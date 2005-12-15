@@ -54,7 +54,7 @@ public class MainServlet extends BaseServlet {
         sender = new QueueMessageSender(ApplicationServer.JMS_FACTORY,
                 DBMS.COMPILE_QUEUE, context);
         sender.setPersistent(true);
-        sender.setDBPersistent(true);
+        sender.setDBPersistent(false);
         sender.setFaultTolerant(false);
         log.info("created queue message sender");
 
