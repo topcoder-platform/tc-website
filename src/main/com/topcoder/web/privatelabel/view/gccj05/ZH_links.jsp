@@ -72,3 +72,5 @@
                <a href="/?t=sponsor&c=link&link=http://groups.google.com/group/China-Code-Jam" target="_blank">中国编程挑战赛讨论社区</a>
             <% } %>
 </font>
+<br><br>
+<span class="bigRed">The Qualification Round is complete. <A href="/pl/?module=Static&d1=gccj05&d2=ZH_advQual" class="bigRed">Click here</A> to see who advanced!</span>
