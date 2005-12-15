@@ -281,7 +281,7 @@ public class Submit extends Base {
                 }
 
             } else if (action.equals("save")) { // user is saving code
-                boolean res = saveCode(code, language, (int) uid, cd, rid, cid);
+                boolean res = saveCode(code, language, uid, cd, rid, cid);
 
                 if (res) {
                     // save complete
@@ -332,7 +332,7 @@ public class Submit extends Base {
     }
 
     // Save the user's code into the database
-    private boolean saveCode(String code, int lang, int uid, int cd, int rid, int cid) throws Exception {
+    private boolean saveCode(String code, int lang, long uid, long cd, long rid, long cid) throws Exception {
         log.debug("saveCode called... lang=" + lang + " uid=" + uid + " cd=" + cd + " rid=" + rid + " cid=" + cid);
 
         // Find the DB_Services bean so we could set the problem state to open before saving the code.
@@ -340,8 +340,8 @@ public class Submit extends Base {
         DBServicesHome dbsHome = (DBServicesHome) ctx.lookup(ApplicationServer.DB_SERVICES);
         DBServices dbs = dbsHome.create();
 
-        if (!dbs.isComponentOpened(uid, rid, cid)) { // Is there a record of the user opening the problem?
-            dbs.coderOpenComponent(uid, cd, rid, 0, cid);
+        if (!dbs.isComponentOpened((int)uid, (int)rid, (int)cid)) { // Is there a record of the user opening the problem?
+            dbs.coderOpenComponent((int)uid, (int)cd, (int)rid, 0, (int)cid);
         }
 
         // Find the TestServices bean so we could save the code.
@@ -349,7 +349,7 @@ public class Submit extends Base {
         TestServices ts = t.create();
 
         // Save the code!
-        return ts.saveComponent(cd, rid, cid, uid, code, lang).isSuccess();
+        return ts.saveComponent((int)cd, (int)rid, (int)cid, (int)uid, code, lang).isSuccess();
 
     }
 
