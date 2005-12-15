@@ -177,43 +177,45 @@ public class Submit extends Base {
                 }
 
                 ResultSetContainer rsc = (ResultSetContainer) m.get("long_contest_recent_compilation");
-                long lastSubmit = rsc.getItem(0, "submit_time").getResultData()==null?0:rsc.getLongItem(0, "submit_time");
-                long now = System.currentTimeMillis();
-                long nextSubmit = lastSubmit +Constants.SUBMISSION_RATE*60*1000;
-                log.debug("now " + now + " last: " + lastSubmit + " diff: " + (now-lastSubmit));
-                if (now<nextSubmit) {
-                    long minutes = (nextSubmit-now)/(60*1000);
-                    long seconds = (nextSubmit-now-(minutes*60*1000))/1000;
-                    StringBuffer buf = new StringBuffer(100);
-                    buf.append("Sorry, you may not submit again for another");
-                    if (minutes > 1) {
-                        buf.append(" ");
-                        buf.append(minutes);
-                        buf.append(" minutes");
-                    } else if (minutes==1) {
-                        buf.append(" minute");
+                if (!rsc.isEmpty()) {
+                    long lastSubmit = rsc.getItem(0, "submit_time").getResultData()==null?0:rsc.getLongItem(0, "submit_time");
+                    long now = System.currentTimeMillis();
+                    long nextSubmit = lastSubmit +Constants.SUBMISSION_RATE*60*1000;
+                    log.debug("now " + now + " last: " + lastSubmit + " diff: " + (now-lastSubmit));
+                    if (now<nextSubmit) {
+                        long minutes = (nextSubmit-now)/(60*1000);
+                        long seconds = (nextSubmit-now-(minutes*60*1000))/1000;
+                        StringBuffer buf = new StringBuffer(100);
+                        buf.append("Sorry, you may not submit again for another");
+                        if (minutes > 1) {
+                            buf.append(" ");
+                            buf.append(minutes);
+                            buf.append(" minutes");
+                        } else if (minutes==1) {
+                            buf.append(" minute");
+                        }
+                        if(minutes>0&&seconds>0) {
+                            buf.append(" and");
+                        }
+                        if (seconds>1) {
+                            buf.append(" ");
+                            buf.append(seconds);
+                            buf.append(" seconds");
+                        } else if (seconds==1) {
+                            buf.append(" ");
+                            buf.append(seconds);
+                            buf.append(" second");
+                        }
+                        request.setAttribute(Constants.CODE, code);
+                        if (language>0) {
+                            setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
+                        }
+                        request.setAttribute(Constants.LANGUAGES, getLanguages());
+                        request.setAttribute(Constants.MESSAGE, buf.toString());
+                        setNextPage(Constants.SUBMISSION_JSP);
+                        setIsNextPageInContext(true);
+                        return;
                     }
-                    if(minutes>0&&seconds>0) {
-                        buf.append(" and");
-                    }
-                    if (seconds>1) {
-                        buf.append(" ");
-                        buf.append(seconds);
-                        buf.append(" seconds");
-                    } else if (seconds==1) {
-                        buf.append(" ");
-                        buf.append(seconds);
-                        buf.append(" second");
-                    }
-                    request.setAttribute(Constants.CODE, code);
-                    if (language>0) {
-                        setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
-                    }
-                    request.setAttribute(Constants.LANGUAGES, getLanguages());
-                    request.setAttribute(Constants.MESSAGE, buf.toString());
-                    setNextPage(Constants.SUBMISSION_JSP);
-                    setIsNextPageInContext(true);
-                    return;
                 }
 
                 // The request info for the compiler
