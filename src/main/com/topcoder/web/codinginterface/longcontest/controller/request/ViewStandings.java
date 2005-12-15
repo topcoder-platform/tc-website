@@ -52,7 +52,7 @@ public class ViewStandings extends Base {
             // Go ahead and try to load the round's standings
             if (roundID != null) {
 
-                int roundTypeID = getRoundType(roundID);
+                int roundTypeID = ((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();
 
                 Request r = new Request();
 
@@ -93,7 +93,7 @@ public class ViewStandings extends Base {
 
                 // Round started yet?
                 boolean started = ((ResultSetContainer) m.get("long_contest_started")).getBooleanItem(0, 0);
-                boolean over = ((ResultSetContainer) m.get("long_contest_over")).getBooleanItem(0, 0);
+                boolean over = isRoundOver(Long.parseLong(roundID));
 
                 // If this is a practice contest than let it pass
 

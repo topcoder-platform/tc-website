@@ -16,6 +16,7 @@ import com.topcoder.shared.problem.DataType;
 import com.topcoder.shared.problem.ProblemComponent;
 import com.topcoder.shared.problemParser.ProblemComponentFactory;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.NavigationException;
@@ -24,6 +25,7 @@ import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.render.DataTypeRenderer;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
+import com.topcoder.web.ejb.coder.Coder;
 
 import javax.naming.InitialContext;
 import java.io.StringReader;
@@ -53,14 +55,9 @@ public class Submit extends Base {
         try {
 
             // Get the query parameters
-            int cid = Integer.parseInt(getParameter(request, Constants.COMPONENT_ID));
-            int rid = Integer.parseInt(getParameter(request, Constants.ROUND_ID));
-            int cd = Integer.parseInt(getParameter(request, Constants.CONTEST_ID));
-            int language = 0;
-            if (getParameter(request, Constants.LANGUAGE_ID) != null) {
-                language = Integer.parseInt(getParameter(request, Constants.LANGUAGE_ID));
-                setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
-            }
+            long cid = Long.parseLong(getParameter(request, Constants.COMPONENT_ID));
+            long rid = Long.parseLong(getParameter(request, Constants.ROUND_ID));
+            long cd = Long.parseLong(getParameter(request, Constants.CONTEST_ID));
             String action = getParameter(request, Constants.ACTION_KEY);
             String code = getParameter(request, Constants.CODE);
             String message = getParameter(request, Constants.MESSAGE);
@@ -81,7 +78,10 @@ public class Submit extends Base {
             // Fetch request
             Map m = dataAccess.getData(r);
 
-            int roundTypeID = ((ResultSetContainer) m.get("long_contest_round_information")).getIntItem(0, "round_type_id");
+            ResultSetContainer info = getRoundInfo(rid);
+
+            int roundTypeID = info.getIntItem(0, "round_type_id");
+
             boolean practiceRound = (roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID);
 
             // If the user is not registered s/he cannot submit code, unless this is a practice round.
@@ -91,15 +91,13 @@ public class Submit extends Base {
 
             // Check to make sure the contest has begun and is not over, unless this is a practice round.
             boolean started = ((ResultSetContainer) m.get("long_contest_started")).getBooleanItem(0, 0);
-            boolean over = ((ResultSetContainer) m.get("long_contest_over")).getBooleanItem(0, 0);
             if (!started) {
                 throw new NavigationException("The contest has not started yet.");
             }
-            if (!practiceRound && over) {
+            if (!practiceRound && isRoundOver(rid)) {
                 throw new NavigationException("The contest is over.");
             }
 
-            // These are the available programming languages
             ResultSetContainer rscCompText = (ResultSetContainer) m.get("long_problem_xml");
             if (rscCompText.size() == 0) {
                 throw new NavigationException("Cannot find problem statement.");
@@ -108,6 +106,26 @@ public class Submit extends Base {
             String problemText = rscCompText.getStringItem(0, "component_text");
             StringReader reader = new StringReader(problemText);
             ProblemComponent pc = new ProblemComponentFactory().buildFromXML(reader, true);
+
+            ResultSetContainer lastCompilation = (ResultSetContainer) m.get("long_contest_recent_compilation");
+            int language = 0;
+            if (getParameter(request, Constants.LANGUAGE_ID) != null) {
+                language = Integer.parseInt(getParameter(request, Constants.LANGUAGE_ID));
+                setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
+            } else if (!lastCompilation.isEmpty()) {
+                if (!isNull(lastCompilation, 0, "language_id")) {
+                    language = lastCompilation.getIntItem(0, "language_id");
+                }
+            } else {
+                //load up their default language
+                Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
+                language = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
+            }
+
+            if (language>0) {
+                setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
+                getRequest().setAttribute(Constants.LANGUAGE_ID, String.valueOf(language));
+            }
 
             // The class name for this problem
             String className = pc.getClassName();
@@ -143,20 +161,14 @@ public class Submit extends Base {
             if (action == null) { // no action specified
                 // any code in session?
                 if (code == null) { // try and load the most recent code
-                    ResultSetContainer rsc = (ResultSetContainer) m.get("long_contest_recent_compilation");
-                    // default values
                     code = "";
                     // Any code in the DB?
-                    if (rsc.size() > 0) {
-                        code = rsc.getStringItem(0, "compilation_text");
-                        if (!isNull(rsc, 0, "language_id")) {
-                            language = rsc.getIntItem(0, "language_id");
-                        }
+                    if (!lastCompilation.isEmpty()) {
+                        code = lastCompilation.getStringItem(0, "compilation_text");
                     }
                     // put the updated values back into request
                     request.setAttribute(Constants.CODE, code);
                     if (language>0) {
-                        setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
                     }
                 }
                 log.debug("set message in request to " + message);
@@ -176,9 +188,10 @@ public class Submit extends Base {
                     return;
                 }
 
-                ResultSetContainer rsc = (ResultSetContainer) m.get("long_contest_recent_compilation");
-                if (!rsc.isEmpty()) {
-                    long lastSubmit = rsc.getItem(0, "submit_time").getResultData()==null?0:rsc.getLongItem(0, "submit_time");
+
+                //todo if we got a cray to do testing, we can take the limit off for practice rounds
+                if (!lastCompilation.isEmpty()) {
+                    long lastSubmit = lastCompilation.getItem(0, "submit_time").getResultData()==null?0:lastCompilation.getLongItem(0, "submit_time");
                     long now = System.currentTimeMillis();
                     long nextSubmit = lastSubmit +Constants.SUBMISSION_RATE*60*1000;
                     log.debug("now " + now + " last: " + lastSubmit + " diff: " + (now-lastSubmit));

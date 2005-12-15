@@ -10,10 +10,12 @@ import com.topcoder.shared.problem.ProblemComponent;
 import com.topcoder.shared.problemParser.ProblemComponentFactory;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 import com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal;
+import com.topcoder.web.ejb.coder.Coder;
 
 import java.io.StringReader;
 import java.util.Map;
@@ -51,6 +53,20 @@ public class ViewProblemStatement extends Base {
             int lid = JavaLanguage.ID;  // Default to Java
             if (!"".equals(StringUtils.checkNull(request.getParameter(Constants.LANGUAGE_ID)))) {
                 lid = Integer.parseInt(request.getParameter(Constants.LANGUAGE_ID));
+            } else {
+                Request r = new Request();
+                r.setContentHandle("long_contest_recent_compilation");
+                r.setProperty(Constants.COMPONENT_ID, String.valueOf(cid));
+                r.setProperty(Constants.ROUND_ID, String.valueOf(rd));
+                r.setProperty(Constants.CODER_ID, String.valueOf(getUser().getId()));
+                ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("long_contest_recent_compilation");
+                if (!rsc.isEmpty()&&rsc.getItem(0, "language_id").getResultData()!=null) {
+                    lid = rsc.getIntItem(0, "language_id");
+                } else {
+                    Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
+                    lid = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
+                }
+
             }
 
             Request r = new Request();
@@ -60,7 +76,8 @@ public class ViewProblemStatement extends Base {
             DataAccessInt dataAccess = getDataAccess(false);
             Map m = dataAccess.getData(r);
             boolean started = ((ResultSetContainer) m.get("long_contest_started")).getBooleanItem(0, 0);
-            if (!started) {
+            //let admins see the problem even if the contest isn't open
+            if (!started&&!getSessionInfo().isAdmin()) {
                 throw new NavigationException("The contest has not started yet.");
             }
             ResultSetContainer rsc = null;
@@ -74,11 +91,6 @@ public class ViewProblemStatement extends Base {
             pc[0] = new ProblemComponentFactory().buildFromXML(reader, true);
             Problem problem = new Problem();
             problem.setProblemComponents(pc);
-/*
-                ProblemRenderer pr = new ProblemRenderer(problem);
-                //pr.setTdclass("statText");
-                html = pr.toHTML(BaseLanguage.getLanguage(lid>0?lid:JavaLanguage.ID));
-*/
             request.setAttribute(Constants.PROBLEM_STATEMENT_KEY, problem);
             request.setAttribute(Constants.LANGUAGE_ID, BaseLanguage.getLanguage(lid));
 

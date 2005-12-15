@@ -95,43 +95,39 @@ public class ViewActiveContests extends Base {
                 reqPassContests.setContentHandle("long_contest_pass_contests");
                 Map mapPassContests = dai.getData(reqPassContests);
                 ResultSetContainer rscPassContests = (ResultSetContainer) mapPassContests.get("long_contest_pass_contests");
-                for (int i = 0; i < rscPassContests.getRowCount(); i++) {
-                    if (rsc.getRowCount() + i + 1 >= 5) {
-                        break;
+                for (int i = 0; i < rscPassContests.getRowCount()&contests.size()<5; i++) {
+                    if (areResultsAvailable(rscPassContests.getLongItem(i, "round_id"))) {
+                        LongContest longContest = new LongContest();
+                        longContest.setPassed(true);
+
+                        // Store the values into a model
+                        longContest.setContestName(rscPassContests.getStringItem(i, "contest_name"));
+                        longContest.setRoundID(rscPassContests.getLongItem(i, "round_id"));
+                        longContest.setRoundName(rscPassContests.getStringItem(i, "round_name"));
+                        longContest.setStartTime((Date) rscPassContests.getItem(i, "start_time").getResultData());
+                        longContest.setEndTime((Date) rscPassContests.getItem(i, "end_time").getResultData());
+                        longContest.setCoderRegistered(reg.exists(usr.getId(),rscPassContests.getLongItem(i, "round_id")));
+                        longContest.setContestID(rscPassContests.getLongItem(i, "contest_id"));
+                        longContest.setNumCompetitors(rscPassContests.getIntItem(i, "num_competitors"));
+                        longContest.setNumRegistrants(rscPassContests.getIntItem(i, "num_registrants"));
+                        if (rscPassContests.getStringItem(i, "forum_id")!=null) {
+                            longContest.setForumId(rscPassContests.getLongItem(i, "forum_id"));
+                        }
+                        if (rscPassContests.getItem(i, "file_path").getResultData()!=null) {
+                            longContest.setSponsorImage(makeImage(rscPassContests.getRow(i)));
+                        }
+
+                        // Gets the problem for the round
+                        RoundProblem prob = getRoundProblem(dai, rscPassContests.getLongItem(i, "round_id"));
+
+                        if (prob != null) {
+                            longContest.setComponentID(prob.getComponentID());
+                            longContest.setProblemID(prob.getProblemID());
+                            longContest.setProblemName(prob.getName());
+                        }
+
+                        contests.add(longContest);
                     }
-                    LongContest longContest = new LongContest();
-
-                    // Store the values into a model
-                    longContest.setContestName(rscPassContests.getStringItem(i, "contest_name"));
-                    longContest.setRoundID(rscPassContests.getLongItem(i, "round_id"));
-                    longContest.setRoundName(rscPassContests.getStringItem(i, "round_name"));
-                    longContest.setStartTime((Date) rscPassContests.getItem(i, "start_time").getResultData());
-                    longContest.setEndTime((Date) rscPassContests.getItem(i, "end_time").getResultData());
-                    longContest.setCoderRegistered(reg.exists(usr.getId(),rscPassContests.getLongItem(i, "round_id")));
-                    longContest.setContestID(rscPassContests.getLongItem(i, "contest_id"));
-                    longContest.setNumCompetitors(rscPassContests.getIntItem(i, "num_competitors"));
-                    longContest.setNumRegistrants(rscPassContests.getIntItem(i, "num_registrants"));
-                    if (rscPassContests.getStringItem(i, "forum_id")!=null) {
-                        longContest.setForumId(rscPassContests.getLongItem(i, "forum_id"));
-                    }
-                    if (rscPassContests.getItem(i, "file_path").getResultData()!=null) {
-                        longContest.setSponsorImage(makeImage(rscPassContests.getRow(i)));
-                    }
-
-                    // Gets the problem for the round
-                    RoundProblem prob = getRoundProblem(dai, rscPassContests.getLongItem(i, "round_id"));
-
-                    if (prob != null) {
-                        longContest.setComponentID(prob.getComponentID());
-                        longContest.setProblemID(prob.getProblemID());
-                        longContest.setProblemName(prob.getName());
-                    }
-
-                    // Marks this contest as a passed contest
-                    longContest.setPassed(true);
-
-                    contests.add(longContest);
-
                 }
             }
 

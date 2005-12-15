@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.sql.Timestamp;
 
 /**
  * Allows a coder to register for a round.
@@ -231,5 +232,21 @@ public class ViewReg extends Base {
         }
         return ret;
     }
+
+
+    protected boolean isRegistrationOpen(long roundId) throws Exception {
+        ResultSetContainer rsc = getRoundInfo(roundId);
+
+        if (rsc.isEmpty()) {
+            throw new Exception("Round doesn't exist " + roundId);
+        } else {
+            Timestamp end = (Timestamp)rsc.getItem(0, "reg_end").getResultData();
+            Timestamp start = (Timestamp)rsc.getItem(0, "reg_start").getResultData();
+            Timestamp now = new Timestamp(System.currentTimeMillis());
+            return now.before(end)&&now.after(start);
+        }
+
+    }
+
 
 }
