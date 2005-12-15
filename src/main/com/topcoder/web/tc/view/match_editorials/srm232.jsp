@@ -44,22 +44,6 @@
 
 <span class="bigTitle">Match summary</span>
 
-<!--body contextual links-->
-                <table width="100%" border="0" cellspacing="0" cellpadding="3">
-                   <tr valign="middle">
-                      <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 232</font></td>
-                      <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive" class="bodyText"><strong>Archive</strong></a></td>
-                   </tr>
-
-                   <tr valign="middle">
-                      <td class="bodyText">Wednesday, February 23, 2005</td>
-                      <td class="bodyText" align="right"><a href="mailto:editorial@topcoder.com">Comments / Ideas?</a></td>
-                   </tr>
-                </table>
-<!--end contextual links-->
-
-<h2>Match summary</h2>
-
 <p>This match seemed to have a lot less challenges than other matches, but the
 systests were brutal for many coders, especially on the division 1 650 and 900.
 The top three slots in division 1 were taken by <b>SnapDragon</b>, <b>tomek</b>,
