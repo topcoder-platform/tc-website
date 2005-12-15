@@ -11,5 +11,5 @@
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 </head>
-<tc-webtag:problemStatement problem="<%=(Problem)request.getAttribute(Constants.PROBLEM_STATEMENT_KEY)%>" language="<%=String.valueOf(((Language)request.getAttribute(Constants.LANGUAGE_ID)).getId())%>"/>
+<tc-webtag:problemStatement problem="<%=(Problem)request.getAttribute(Constants.PROBLEM_STATEMENT_KEY)%>" language="<%=((Language)request.getAttribute(Constants.LANGUAGE_ID)).getName()%>"/>
 
