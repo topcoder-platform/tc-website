@@ -108,8 +108,8 @@ public class ViewActiveContests extends Base {
                     longContest.setContestID(rscPassContests.getLongItem(i, "contest_id"));
                     longContest.setNumCompetitors(rscPassContests.getIntItem(i, "num_competitors"));
                     longContest.setNumRegistrants(rscPassContests.getIntItem(i, "num_registrants"));
-                    if (rsc.getItem(i, "file_path").getResultData()!=null) {
-                        longContest.setSponsorImage(makeImage(rsc.getRow(i)));
+                    if (rscPassContests.getItem(i, "file_path").getResultData()!=null) {
+                        longContest.setSponsorImage(makeImage(rscPassContests.getRow(i)));
                     }
 
                     // Gets the problem for the round
