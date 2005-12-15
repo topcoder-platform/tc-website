@@ -1,13 +1,14 @@
 package com.topcoder.web.codinginterface;
 
+import com.topcoder.web.common.WebConstants;
+
 /**
  * @author  dok
  * @version  $Revision$ $Date$
  * Create Date: Jan 21, 2005
  */
-public interface CodingInterfaceConstants {
+public interface CodingInterfaceConstants extends WebConstants {
 
-    public static final String HANDLE = "ha";
     public static final String PASSWORD = "ps";
     public static final String COMPONENT_ID = "compid";
     public static final String PROBLEM_TYPE_ID = "ptid"; //this may belong in the tech assess constants, not here
