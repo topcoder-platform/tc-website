@@ -3,6 +3,7 @@
         import="com.topcoder.web.codinginterface.longcontest.Constants"
 
         %>
+<%@ page import="com.topcoder.shared.problem.Problem"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
@@ -55,7 +56,7 @@
             </jsp:include>
 
             <div align="center">
-                <tc-webtag:problemStatement problem="<%=request.getAttribute(Constants.PROBLEM_STATEMENT_KEY)%>" language="<%=request.getAttribute(Constants.LANGUAGE_ID)%>"/>
+                <tc-webtag:problemStatement problem="<%=(Problem)request.getAttribute(Constants.PROBLEM_STATEMENT_KEY)%>" language="<%=request.getAttribute(Constants.LANGUAGE_ID)%>"/>
             </div>
         </td>
 
