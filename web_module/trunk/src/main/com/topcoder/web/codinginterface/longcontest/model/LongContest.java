@@ -21,6 +21,7 @@ public class LongContest {
     private int numCompetitors;
     private int numRegistrants;
     private ImageInfo sponsorImage;
+    private long forumId;
 
     public boolean isCoderRegistered() {
         return coderRegistered;
@@ -140,6 +141,14 @@ public class LongContest {
 
     public void setSponsorImage(ImageInfo sponsorImage) {
         this.sponsorImage = sponsorImage;
+    }
+
+    public long getForumId() {
+        return forumId;
+    }
+
+    public void setForumId(long forumId) {
+        this.forumId = forumId;
     }
 
 }

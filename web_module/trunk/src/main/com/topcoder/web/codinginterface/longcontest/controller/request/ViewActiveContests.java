@@ -64,6 +64,9 @@ public class ViewActiveContests extends Base {
                 longContest.setStarted(rsc.getBooleanItem(i, "started"));
                 longContest.setNumCompetitors(rsc.getIntItem(i, "num_competitors"));
                 longContest.setNumRegistrants(rsc.getIntItem(i, "num_registrants"));
+                if (rsc.getStringItem(i, "forum_id")!=null) {
+                    longContest.setForumId(rsc.getLongItem(i, "forum_id"));
+                }
                 if (rsc.getStringItem(i, "file_path")!=null) {
                     longContest.setSponsorImage(makeImage(rsc.getRow(i)));
                 }
@@ -108,6 +111,9 @@ public class ViewActiveContests extends Base {
                     longContest.setContestID(rscPassContests.getLongItem(i, "contest_id"));
                     longContest.setNumCompetitors(rscPassContests.getIntItem(i, "num_competitors"));
                     longContest.setNumRegistrants(rscPassContests.getIntItem(i, "num_registrants"));
+                    if (rscPassContests.getStringItem(i, "forum_id")!=null) {
+                        longContest.setForumId(rscPassContests.getLongItem(i, "forum_id"));
+                    }
                     if (rscPassContests.getItem(i, "file_path").getResultData()!=null) {
                         longContest.setSponsorImage(makeImage(rscPassContests.getRow(i)));
                     }
