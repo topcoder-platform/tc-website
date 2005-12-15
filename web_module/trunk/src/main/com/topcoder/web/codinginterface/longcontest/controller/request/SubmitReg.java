@@ -140,8 +140,8 @@ public class SubmitReg extends ViewReg {
             RoundRegistration reg = (RoundRegistration) createEJB(getInitialContext(), RoundRegistration.class);
             RoomResultLocal roomResult = (RoomResultLocal)createLocalEJB(getInitialContext(), RoomResult.class);
             reg.createRoundRegistration(userID, roundID);
-            roomResult.createRoomResult(roundID, 0, userID, DBMS.JTS_OLTP_DATASOURCE_NAME);
-            roomResult.setAttended(roundID, 0, userID, false, DBMS.JTS_OLTP_DATASOURCE_NAME);
+            roomResult.createRoomResult(roundID, roomID, userID, DBMS.JTS_OLTP_DATASOURCE_NAME);
+            roomResult.setAttended(roundID, roomID, userID, false, DBMS.JTS_OLTP_DATASOURCE_NAME);
         } catch (Exception e) {
             log.error("Error registerating user: " + userID + " for round: " + roundID, e);
             throw e;
