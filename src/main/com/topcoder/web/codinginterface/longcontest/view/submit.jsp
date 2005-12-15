@@ -6,6 +6,8 @@
 
         %>
 <%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.HashMap"%>
+<%@ page import="com.topcoder.web.common.BaseProcessor"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
@@ -24,6 +26,9 @@
         level2 = "intel";
         image = "long_comps_intel";
     }
+
+    HashMap defaults = (HashMap) pageContext.getRequest().getAttribute(BaseProcessor.DEFAULTS_KEY);
+    String lang = (String)defaults.get(Constants.LANGUAGE_ID);
 %>
 
 <html>
@@ -34,13 +39,12 @@
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <STYLE TYPE="text/css">
-.codeAreaText,.messageAreaText
+.codeTextArea,.messageTextArea,
 {
 font-family: Courier;
 font-size: 12px;
-white-space: nowrap;
 }
-.messageAreaText
+.messageTextArea
 {
 color: FF0000;
 }
@@ -103,9 +107,10 @@ color: FF0000;
          <tr>
             <td valign="top">
               <span class="bodyTitle">Coding Area</span><br>
-              <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=false<%=(request.getAttribute(Constants.LANGUAGE_ID)!=null?"&lid="+request.getAttribute(Constants.LANGUAGE_ID):"")%>" class="statLink">Problem
+               <strong>Problem Name: <%=request.getAttribute(Constants.CLASS_NAME)%></strong><br>
+              <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=false<%=(lang!=null?"&lid="+lang:"")%>" class="statLink">Problem
                   Statement</A>
-              (<A href="Javascript:openWin('<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=true<%=(request.getAttribute(Constants.LANGUAGE_ID)!=null?"&lid="+request.getAttribute(Constants.LANGUAGE_ID):"")%>', 'Problem Statement');"  class="statLink">new window</A>)
+              (<A href="Javascript:openWin('<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=true<%=(lang!=null?"&lid="+lang:"")%>', 'Problem Statement');"  class="statLink">new window</A>)
             </td>
             <td align="right" valign="top">Choose your language:<br>
                 <tc-webtag:listIterator id="language" listKey="languages" type="com.topcoder.shared.language.Language">
@@ -113,30 +118,28 @@ color: FF0000;
                 </tc-webtag:listIterator>
             </td>
          </tr>
-          <%
-              ArrayList methodNames = (ArrayList)request.getAttribute(Constants.METHOD_NAME);
-              ArrayList returnTypes = (ArrayList)request.getAttribute(Constants.RETURN_TYPE);
-              ArrayList paramTypes = (ArrayList)request.getAttribute(Constants.ARG_TYPES);
-
-              for (int i=0; i<methodNames.size(); i++) {
-          %>
          <tr>
-            <td valign="top">
-               <b>Problem Name: <%=request.getAttribute(Constants.CLASS_NAME)%><br>
-                   Method Name: <%=methodNames.get(i)%></b>
-            </td>
-            <td align="right" valign="top">
-               <b>Return Type: <%=StringUtils.htmlEncode((String)returnTypes.get(i))%><br>
-                   Arg Types: <%=StringUtils.htmlEncode((String)paramTypes.get(i))%></b>
+            <td valign="top" colspan="2">
+            <textarea cols="70" rows="4" name="methods" class="codeTextArea" wrap="off" readonly><%
+ArrayList methodNames = (ArrayList)request.getAttribute(Constants.METHOD_NAME);
+ArrayList returnTypes = (ArrayList)request.getAttribute(Constants.RETURN_TYPE);
+ArrayList paramTypes = (ArrayList)request.getAttribute(Constants.ARG_TYPES);
+
+for (int i=0; i<methodNames.size(); i++) {
+%>Method Name: <%=methodNames.get(i)%>
+Return Type: <%=StringUtils.htmlEncode((String)returnTypes.get(i))%>
+Arg Types: <%=StringUtils.htmlEncode((String)paramTypes.get(i))%>
+
+<% } %></textarea>
             </td>
          </tr>
-          <% } %>
          <tr>
             <td colspan="2">
+               <span class="bodySubtitle">Submission</span><br>
                <%if (request.getAttribute(Constants.CODE) == null || request.getAttribute(Constants.CODE).toString().equals("")) {%>
-               <textarea cols="70" rows="20" name="code" class="codeAreaText" wrap="off"></textarea>
+               <textarea cols="70" rows="20" name="code" class="codeTextArea" wrap="off"></textarea>
                <%} else {%>
-               <textarea cols="70" rows="20" name="code" class="codeAreaText" wrap="off"><%=request.getAttribute(Constants.CODE)%></textarea>
+               <textarea cols="70" rows="20" name="code" class="codeTextArea" wrap="off"><%=request.getAttribute(Constants.CODE)%></textarea>
 
                <%}%>
             </td>
@@ -144,7 +147,7 @@ color: FF0000;
          <tr>
             <td colspan="2">
 <span class="bodySubtitle">Messages</span><br>
-<textarea cols="70" rows="5" name="messages" class="messageAreaText" wrap="off" readonly><%=(request.getAttribute(Constants.MESSAGE) != null ? "" + request.getAttribute(Constants.MESSAGE) : "")%></textarea>
+<textarea cols="70" rows="5" name="messages" class="messageTextArea" wrap="off" readonly><%=(request.getAttribute(Constants.MESSAGE) != null ? "" + request.getAttribute(Constants.MESSAGE) : "")%></textarea>
             </td>
          </tr>
          <tr>
