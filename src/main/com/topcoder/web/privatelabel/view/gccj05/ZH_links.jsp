@@ -73,4 +73,4 @@
             <% } %>
 </font>
 <br><br>
-<span class="bigRed">资格赛已经结束。 <A href="/pl/?module=Static&d1=gccj05&d2=ZH_advQual" class="bigRed">点击这里</A>查看晋级的参赛者！</span>
+<span class="bigRed">资格赛已经结束。<A href="/pl/?module=Static&d1=gccj05&d2=ZH_advQual" class="bigRed">点击这里</A>查看晋级的参赛者！</span>

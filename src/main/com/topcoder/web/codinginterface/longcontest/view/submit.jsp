@@ -107,7 +107,7 @@ color: FF0000;
          <tr>
             <td valign="top">
               <span class="bodyTitle">Coding Area</span><br>
-               <strong>Problem Name: <%=request.getAttribute(Constants.CLASS_NAME)%></strong><br>
+               <strong>Class Name: <%=request.getAttribute(Constants.CLASS_NAME)%></strong><br>
               <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=false<%=(lang!=null?"&lid="+lang:"")%>" class="statLink">Problem
                   Statement</A>
               (<A href="Javascript:openWin('<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewProblemStatement&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>&popup=true<%=(lang!=null?"&lid="+lang:"")%>', 'Problem Statement');"  class="statLink">new window</A>)

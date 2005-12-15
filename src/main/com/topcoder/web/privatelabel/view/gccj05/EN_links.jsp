@@ -73,4 +73,4 @@
 <% } %>
 </font>
 <br><br>
-<span class="bigRed">The Qualification Round is complete. <A href="/pl/?module=Static&d1=gccj05&d2=EN_advQual" class="bigRed">Click here</A> to see who advanced!</span>
+<span class="bigRed">The Qualification Round is complete.<A href="/pl/?module=Static&d1=gccj05&d2=EN_advQual" class="bigRed">Click here</A> to see who advanced!</span>
