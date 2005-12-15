@@ -34,7 +34,7 @@
 <html>
 <head>
     <title>Submit - <%=request.getAttribute(Constants.CLASS_NAME)%></title>
-    <jsp:include page="../script.jsp" />
+    <jsp:include page="script.jsp" />
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 <STYLE TYPE="text/css">
 .codeTextArea,.messageTextArea,
