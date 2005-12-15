@@ -8,17 +8,16 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.codinginterface.CodingInterfaceConstants;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.SurveyResponse;
 import com.topcoder.web.common.tag.AnswerInput;
+import com.topcoder.web.ejb.roomresult.RoomResult;
+import com.topcoder.web.ejb.roomresult.RoomResultLocal;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 import com.topcoder.web.ejb.survey.Response;
-import com.topcoder.web.ejb.roomresult.RoomResultLocal;
-import com.topcoder.web.ejb.roomresult.RoomResult;
 
 import javax.transaction.Status;
 import javax.transaction.TransactionManager;
@@ -118,9 +117,8 @@ public class SubmitReg extends ViewReg {
                 setNextPage(Constants.PAGE_VIEW_REG);
                 setIsNextPageInContext(true);
             } else { // go to active contest page
-                getRequest().setAttribute(CodingInterfaceConstants.MODULE, Constants.RP_ACTIVE_CONTESTS);
                 setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
-                setIsNextPageInContext(true);
+                setIsNextPageInContext(false);
             }
 
         } catch (TCWebException e) {
