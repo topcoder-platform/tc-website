@@ -1624,8 +1624,6 @@
                 <fileset dir="${ejb_jars}">
                     <include name="RoundRegistration.jar"/>
                     <include name="RoomResult.jar"/>
-                    <include name="TestServices.jar"/>
-                    <include name="DBServices.jar"/>
                 </fileset>
             </copy>
             <unwar src="${war.dir}/longcontest.war" dest="${jboss_home}/server/all/deploy/longcontest.war/"
