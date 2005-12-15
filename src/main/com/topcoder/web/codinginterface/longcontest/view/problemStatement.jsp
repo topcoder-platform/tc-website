@@ -55,7 +55,7 @@
             </jsp:include>
 
             <div align="center">
-                <%= request.getAttribute(Constants.PROBLEM_STATEMENT_KEY) %>
+                <tc-webtag:problemStatement problem="<%=request.getAttribute(Constants.PROBLEM_STATEMENT_KEY)%>" language="<%=request.getAttribute(Constants.LANGUAGE_ID)%>"/>
             </div>
         </td>
 
