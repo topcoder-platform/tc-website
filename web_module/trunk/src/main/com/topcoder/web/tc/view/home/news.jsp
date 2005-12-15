@@ -8,6 +8,19 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>12.15.05<br>9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=collegetour&d2=description">Introducing the U.S. College Tour</A></span><br><br>
+      TopCoder will be touring U.S. universities during 2006.  Is your school on the schedule?
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=collegetour&d2=description">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505877" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>12.13.05<br>4:55 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -276,23 +289,6 @@
          <A href="/tc?module=Static&d1=contracting&d2=msn_chat_111905">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505830" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>11.21.05<br>11:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm272">SRM 272 - Problem Set & Analysis</A></span><br><br>
-      With twelve coders in Div1 solving all three problems, this match was easier than some, but not without its difficulties. <tc-webtag:handle coderId="277659" context="algorithm"/> was able to come up with two successful challenges to pass <tc-webtag:handle coderId="8355516" context="algorithm"/> and take 3rd in the match.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/Ryan_mug.gif" /><br>by <tc-webtag:handle coderId="284007" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm272">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505786" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 
