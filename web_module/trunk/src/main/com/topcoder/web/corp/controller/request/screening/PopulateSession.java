@@ -27,7 +27,7 @@ public class PopulateSession extends BaseSessionProcessor {
             DataAccessInt access = Util.getDataAccess();
 
             Map map = access.getData(sessionInfo);
-            TestSessionInfo info = getSessionInfo();
+            TestSessionInfo info = getTestSessionInfo();
 
             info.setCandidateList((ResultSetContainer)
                     map.get(Constants.SESSION_CANDIDATE_INFO_QUERY_KEY));
