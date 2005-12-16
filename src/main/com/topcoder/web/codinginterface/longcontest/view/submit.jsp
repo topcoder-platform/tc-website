@@ -114,7 +114,9 @@ color: FF0000;
                 <tc-webtag:listIterator id="language" listKey="languages" type="com.topcoder.shared.language.Language">
                   <tc-webtag:radioButton name="<%=Constants.LANGUAGE_ID%>" value="<%=String.valueOf(language.getId())%>" />&#160;<jsp:getProperty name="language" property="name"/>&#160;
                 </tc-webtag:listIterator><br>
-               <A href="" class="statLink">discuss this contest</A>
+    <% if (request.getAttribute(Constants.FORUM_ID)!=null) { %>
+                <A href="<%=request.getAttribute(Constants.FORUM_ID)%>" class="bcLink">Discuss this contest</A>
+    <% } %>
             </td>
          </tr>
          <tr>
