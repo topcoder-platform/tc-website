@@ -36,7 +36,7 @@ public class ViewProblemStatement extends Base {
             TCRequest request = getRequest();
             long rd = Long.parseLong(request.getParameter(Constants.ROUND_ID));
             RoundRegistrationLocal roundReg = (RoundRegistrationLocal) createLocalEJB(getInitialContext(), RoundRegistration.class);
-            if (!isRoundOver(rd) && !roundReg.exists(getUser().getId(), rd)) {
+            if (!isRoundOver(rd) && !roundReg.exists(getUser().getId(), rd) && !getSessionInfo().isAdmin()) {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }
             long cid;
