@@ -4,14 +4,15 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveGlobals;
+import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumThread;
-import com.jivesoftware.forum.ForumThreadIterator;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.ReadTracker;
 import com.jivesoftware.forum.action.util.Paginator;
 import com.jivesoftware.forum.stats.ViewCountManager;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.messagehistory.MessageHistory;
 import com.topcoder.web.forums.ForumConstants;
@@ -19,7 +20,6 @@ import com.topcoder.web.forums.model.Paging;
 import com.topcoder.web.forums.controller.ForumsUtil;
 
 import java.util.Iterator;
-import java.util.NoSuchElementException;
 import javax.naming.InitialContext;
 
 /**
@@ -64,8 +64,16 @@ public class Thread extends ForumsProcessor {
         Paginator paginator = new Paginator(paging);
         Iterator itMessages = null;
 
-        InitialContext ctx = TCContext.getInitial();
-        MessageHistory historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
+        MessageHistory historyBean = null;
+        InitialContext ctx = null;
+        try {
+            ctx = TCContext.getInitial();
+            historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);   
+        } catch (Exception e) {
+            Log.error(e);
+        } finally {
+            BaseProcessor.close(ctx);
+        }
         
 		getRequest().setAttribute("forumFactory", forumFactory);
 		getRequest().setAttribute("forum", forum);

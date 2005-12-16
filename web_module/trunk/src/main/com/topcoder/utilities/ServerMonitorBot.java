@@ -59,7 +59,7 @@ public class ServerMonitorBot {
                     if (fiveone) {
                         fiveone = false;
                         System.out.println("FAILED, SENDING MAIL");
-                        addError("connetion to 12.51 failed");
+                        addError("connection to 12.51 failed");
                         sendError();
                     }
                 } else if (ret.indexOf("200 OK") == -1) {
@@ -101,7 +101,7 @@ public class ServerMonitorBot {
                     if (software) {
                         software = false;
                         System.out.println("FAILED, SENDING MAIL");
-                        addError("connetion to 12.151 failed");
+                        addError("connection to 12.151 failed");
                         sendError();
                     }
                 } else if (ret.indexOf("200 OK") == -1) {
@@ -141,7 +141,7 @@ public class ServerMonitorBot {
                     if (fivetwo) {
                         fivetwo = false;
                         System.out.println("FAILED, SENDING MAIL");
-                        addError("connetion to 12.52 failed");
+                        addError("connection to 12.52 failed");
                         sendError();
                     }
                 } else if (ret.indexOf("200 OK") == -1) {

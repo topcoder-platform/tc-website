@@ -5,12 +5,14 @@ package com.topcoder.web.forums.controller.request;
 
 import javax.naming.InitialContext;
 
+import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.StringUtil;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.messagehistory.MessageHistory;
@@ -59,8 +61,16 @@ public class PreviewMessage extends ForumsProcessor {
             addError(ForumConstants.MESSAGE_SUBJECT, ForumConstants.ERR_POST_MODE_UNRECOGNIZED);
         }
         
-        InitialContext ctx = TCContext.getInitial();
-        MessageHistory historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
+        InitialContext ctx = null;
+        MessageHistory historyBean = null;
+        try {
+            ctx = TCContext.getInitial();
+            historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
+        } catch (Exception e) {
+            Log.error(e);
+        } finally {
+            BaseProcessor.close(ctx);
+        }
         
         getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("forum", forum);
