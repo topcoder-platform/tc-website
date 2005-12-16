@@ -3,7 +3,6 @@ package com.topcoder.web.tc.controller.request.report;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.coderskill.CoderSkill;
 import com.topcoder.web.ejb.resume.ResumeServices;
@@ -266,7 +265,7 @@ public class PlacementInfoDetail extends Base {
 
         info.setUserID(userId);
 
-        InitialContext ctx = TCContext.getInitial();
+        InitialContext ctx = getInitialContext();
         UserPreference prefbean = (UserPreference) createEJB(ctx, UserPreference.class);
 
         //load pref group list, then preferences in group
