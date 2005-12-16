@@ -113,19 +113,19 @@
                     <td class="tableTitle" colspan="6">Standings</td>
                 </tr>
                 <tr>
-                    <td class="tableHeader" width="25%">
+                    <td class="tableHeader" width="20">
                         <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("handle_lower")%>" includeParams="true"/>">Handle</A>
                     </td>
-                    <td class="tableHeader" width="25%" align="right" nowrap="nowrap">
+                    <td class="tableHeader" width="20%" align="right" nowrap="nowrap">
                         <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("points")%>" includeParams="true"/>">Score</A>
                     </td>
-                    <td class="tableHeader" width="25%" align="right" nowrap="nowrap">
+                    <td class="tableHeader" width="20%" align="center" nowrap="nowrap">
                         <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("rank")%>" includeParams="true"/>">Rank</A>
                     </td>
-                    <td class="tableHeader" width="25%" align="right" nowrap="nowrap">
+                    <td class="tableHeader" width="20%" align="center" nowrap="nowrap">
                         <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("submit_time")%>" includeParams="true"/>">Last Submission Time</A>
                     </td>
-                    <td class="tableHeader" width="25%" align="right" nowrap="nowrap">
+                    <td class="tableHeader" width="20%" align="center" nowrap="nowrap">
                         <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("submission_number")%>" includeParams="true"/>">Submissions</A>
                     </td>
                 </tr>
@@ -137,11 +137,11 @@
 <tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>"/></td>
 <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;">
 <rsc:item name="points" row="<%=resultRow%>" format="0.00"/><%=resultRow.getIntItem("status_id")==130?"*":""%></td>
-<td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 15px;">
+<td class="<%=even?"statLt":"statDk"%>" align="center">
 <rsc:item name="rank" row="<%=resultRow%>"/></td>
-<td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 15px;">
+<td class="<%=even?"statLt":"statDk"%>" align="center">
 <tc-webtag:format object="<%=new Date(resultRow.getLongItem("submit_time"))%>" format="MM.dd.yyyy HH:mm:ss"/></td></td>
-<td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;">
+<td class="<%=even?"statLt":"statDk"%>" align="center">
 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_SUBMISSION_HISTORY%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>" class="statLink">
 <rsc:item name="submission_number" row="<%=resultRow%>"/>
 </A></td></tr><%even = !even;%></rsc:iterator>
