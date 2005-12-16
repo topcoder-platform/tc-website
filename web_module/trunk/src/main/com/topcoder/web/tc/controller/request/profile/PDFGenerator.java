@@ -60,7 +60,7 @@ public class PDFGenerator extends BaseProcessor {
 
         config.setUserID(uid);
 
-        InitialContext ctx = TCContext.getInitial();
+        InitialContext ctx = getInitialContext();
         User userbean = (User)createEJB(ctx, User.class);
 
         config.setHandle(userbean.getHandle(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME));

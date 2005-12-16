@@ -6,13 +6,6 @@
 
 package com.topcoder.web.tc.controller.request.contracting;
 
-import java.io.IOException;
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.StringTokenizer;
-
-import javax.naming.InitialContext;
-
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -21,7 +14,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.MultipartRequest;
@@ -33,6 +25,12 @@ import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.user.UserPreference;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.ContractingInfo;
+
+import javax.naming.InitialContext;
+import java.io.IOException;
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.StringTokenizer;
 
 
 /**
@@ -153,7 +151,7 @@ abstract public class ContractingBase extends BaseProcessor {
             } catch (Exception e) {
                 addError("Resume", "A resume is required.");
             }
-            
+
             // user must select different priorities
             int[] priority = new int[] {21,22,23};
             boolean[] error = new boolean[priority.length];
@@ -178,7 +176,7 @@ abstract public class ContractingBase extends BaseProcessor {
             		}
             	}
             }
-            
+
             // user must enter a valid date for starting - id=14
             String date = info.getPreference("14");
             if (date != null) {
@@ -213,7 +211,7 @@ abstract public class ContractingBase extends BaseProcessor {
             		addError(Constants.PREFERENCE_PREFIX + "14", "Please enter a valid date in the format MM/DD/YYYY.");
             	}
             }
-            
+
         }
 
         if (hasErrors())
@@ -381,7 +379,7 @@ abstract public class ContractingBase extends BaseProcessor {
 
         info.setUserID(getUser().getId());
 
-        InitialContext ctx = TCContext.getInitial();
+        InitialContext ctx = getInitialContext();
         UserPreference prefbean = (UserPreference) createEJB(ctx, UserPreference.class);
 
         //load pref group list, then preferences in group

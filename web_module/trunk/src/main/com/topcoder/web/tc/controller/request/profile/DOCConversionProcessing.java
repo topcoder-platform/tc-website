@@ -6,21 +6,16 @@
 
 package com.topcoder.web.tc.controller.request.profile;
 
+import com.topcoder.servlet.request.UploadedFile;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.tc.Constants;
-
-import com.topcoder.web.ejb.fileconversion.*;
-import com.topcoder.shared.util.*;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-
 import com.topcoder.web.common.MultipartRequest;
-import com.topcoder.servlet.request.*;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.fileconversion.FileConversion;
 
+import javax.naming.InitialContext;
 import javax.servlet.ServletOutputStream;
-import java.io.*;
 /**
  *
  * @author rfairfax
@@ -64,6 +59,8 @@ public class DOCConversionProcessing extends BaseProcessor {
             }
         } catch(Exception e) {
             e.printStackTrace();
+        } finally {
+            TCContext.close(ctx);
         }
             
     }

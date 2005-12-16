@@ -114,13 +114,18 @@ public final class TaskDevelopment {
                     devTag.addTag(new ValueTag("projectId", projectId));
 
                     if (command.equals("tcs_inquire")) {
-                        InitialContext ctx = TCContext.getInitial();
-                        ComponentRegistrationServices cregBean = (ComponentRegistrationServices) BaseProcessor.createEJB(ctx, ComponentRegistrationServices.class);
-                        rsc = cregBean.getActiveQuestions();
-                        devTag.addTag(rsc.getTag("Questions", "Question"));
-                        devTag.addTag(new ValueTag("numSurveyQs", rsc.getRowCount()));
-                        rsc = cregBean.getActiveAnswers();
-                        devTag.addTag(rsc.getTag("Answers", "Answer"));
+                        InitialContext ctx = null;
+                        try {
+                            ctx = TCContext.getInitial();
+                            ComponentRegistrationServices cregBean = (ComponentRegistrationServices) BaseProcessor.createEJB(ctx, ComponentRegistrationServices.class);
+                            rsc = cregBean.getActiveQuestions();
+                            devTag.addTag(rsc.getTag("Questions", "Question"));
+                            devTag.addTag(new ValueTag("numSurveyQs", rsc.getRowCount()));
+                            rsc = cregBean.getActiveAnswers();
+                            devTag.addTag(rsc.getTag("Answers", "Answer"));
+                        } finally {
+                            TCContext.close(ctx);
+                        }
                     }
 
                     Request dataRequest = null;
@@ -296,8 +301,14 @@ public final class TaskDevelopment {
                         }
 
                         //get fancy new ejb
-                        InitialContext ctx = TCContext.getInitial();
-                        ComponentRegistrationServices cregBean = (ComponentRegistrationServices) BaseProcessor.createEJB(ctx, ComponentRegistrationServices.class);
+                        InitialContext ctx = null;
+                        ComponentRegistrationServices cregBean = null;
+                        try {
+                            ctx = TCContext.getInitial();
+                            cregBean = (ComponentRegistrationServices) BaseProcessor.createEJB(ctx, ComponentRegistrationServices.class);
+                        } finally {
+                            TCContext.close(ctx);
+                        }
 
                         if (!isSuspended(nav.getSessionInfo().getUserId())) {
                             if (!cregBean.isRegClosed(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME)) {

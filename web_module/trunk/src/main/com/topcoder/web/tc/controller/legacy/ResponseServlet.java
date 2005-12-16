@@ -93,6 +93,8 @@ public final class ResponseServlet extends HttpServlet {
         } catch (Exception e) {
             forwardToErrorPage(request, response, e,
                     "Sorry, invalid request, it could not be processed.");
+        } finally {
+            TCContext.close(ctx);
         }
 
     }

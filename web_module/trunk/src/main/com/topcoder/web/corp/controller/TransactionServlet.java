@@ -262,16 +262,21 @@ public class TransactionServlet extends HttpServlet {
                 //only begin if they have agreed to terms.
                 if ("on".equalsIgnoreCase(request.getParameter(Constants.KEY_AGREE_TO_TERMS))) {
                     if (txInfo.isFromEligibleCountry()) {
-                        InitialContext ic = TCContext.getInitial();
-                        UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
-                        //they must have agreeded to terms, since the purchase is beginning.  should probably be done outside
-                        //but then we don't have access to the transaction info object
-                        if (!userTerms.hasTermsOfUse(txInfo.getBuyerID(), txInfo.getTermsId(), DBMS.CORP_OLTP_DATASOURCE_NAME)) {
-                            userTerms.createUserTermsOfUse(txInfo.getBuyerID(), txInfo.getTermsId(), DBMS.CORP_OLTP_DATASOURCE_NAME);
+                        InitialContext ic = null;
+                        try {
+                            TCContext.getInitial();
+                            UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
+                            //they must have agreeded to terms, since the purchase is beginning.  should probably be done outside
+                            //but then we don't have access to the transaction info object
+                            if (!userTerms.hasTermsOfUse(txInfo.getBuyerID(), txInfo.getTermsId(), DBMS.CORP_OLTP_DATASOURCE_NAME)) {
+                                userTerms.createUserTermsOfUse(txInfo.getBuyerID(), txInfo.getTermsId(), DBMS.CORP_OLTP_DATASOURCE_NAME);
+                            }
+                            txInfo.setAgreed(true);
+                            txBegin(request, txInfo);
+                            request.getRequestDispatcher(defaultPageIntForm).forward(request, response);
+                        } finally {
+                            BaseProcessor.close(ic);
                         }
-                        txInfo.setAgreed(true);
-                        txBegin(request, txInfo);
-                        request.getRequestDispatcher(defaultPageIntForm).forward(request, response);
                     } else {
                         request.getRequestDispatcher(defaultPageBadCountry).forward(request, response);
                     }
@@ -527,9 +532,14 @@ public class TransactionServlet extends HttpServlet {
     private TransactionInfo buildTermsTransactionInfo(HttpServletRequest req, HttpServletResponse resp)
             throws Exception {
         TransactionInfo txInfo = buildTransactionInfo(req, resp);
-        InitialContext ic = TCContext.getInitial();
-        TermsOfUse terms = ((TermsOfUseHome) ic.lookup(TermsOfUseHome.EJB_REF_NAME)).create();
-        txInfo.setTerms(terms.getText(txInfo.getTermsId(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME));
+        InitialContext ic = null;
+        try {
+            ic = TCContext.getInitial();
+            TermsOfUse terms = ((TermsOfUseHome) ic.lookup(TermsOfUseHome.EJB_REF_NAME)).create();
+            txInfo.setTerms(terms.getText(txInfo.getTermsId(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME));
+        } finally {
+            BaseProcessor.close(ic);
+        }
         return txInfo;
     }
 
@@ -557,36 +567,42 @@ public class TransactionServlet extends HttpServlet {
 
     private boolean userCountryEligible(long userId, long productId) throws Exception {
         boolean eligible = true;
-        InitialContext context = new InitialContext();
+        InitialContext context = null;
 
-        UserAddressHome uaHome = (UserAddressHome)
-                PortableRemoteObject.narrow(
-                        context.lookup(UserAddressHome.class.getName()), UserAddressHome.class);
-        UserAddress userAddress = uaHome.create();
-        AddressHome aHome = (AddressHome)
-                PortableRemoteObject.narrow(
-                        context.lookup(AddressHome.class.getName()), AddressHome.class);
-        Address address = aHome.create();
-        ResultSetContainer rsc = userAddress.getUserAddresses(userId, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
+        try {
+            context = new InitialContext();
+            UserAddressHome uaHome = (UserAddressHome)
+                    PortableRemoteObject.narrow(
+                            context.lookup(UserAddressHome.class.getName()), UserAddressHome.class);
+            UserAddress userAddress = uaHome.create();
+            AddressHome aHome = (AddressHome)
+                    PortableRemoteObject.narrow(
+                            context.lookup(AddressHome.class.getName()), AddressHome.class);
+            Address address = aHome.create();
+            ResultSetContainer rsc = userAddress.getUserAddresses(userId, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
 
-        //if they have no address, deny them
-        eligible &= !rsc.isEmpty();
+            //if they have no address, deny them
+            eligible &= !rsc.isEmpty();
 
-        DataAccessInt dataAccess = new DataAccess(DBMS.CORP_OLTP_DATASOURCE_NAME);
-        Request dr = new Request();
-        dr.setContentHandle("eligible_country_for_product");
-        dr.setProperty("prodID", String.valueOf(productId));
-        Map result = null;
-        //go through all their addresses.  if any one is not eligible, then they are not eligible
-        for (Iterator it = rsc.iterator(); it.hasNext();) {
-            ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();
-            long addressId = ((Long) row.getItem("address_id").getResultData()).longValue();
-            dr.setProperty("countryID", address.getCountryCode(addressId, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME));
-            result = dataAccess.getData(dr);
-            /* the query returns a row only if the country is ineligible to purchase the product */
-            eligible &= ((ResultSetContainer) result.get("country_not_eligible_for_product")).isEmpty();
+            DataAccessInt dataAccess = new DataAccess(DBMS.CORP_OLTP_DATASOURCE_NAME);
+            Request dr = new Request();
+            dr.setContentHandle("eligible_country_for_product");
+            dr.setProperty("prodID", String.valueOf(productId));
+            Map result = null;
+            //go through all their addresses.  if any one is not eligible, then they are not eligible
+            for (Iterator it = rsc.iterator(); it.hasNext();) {
+                ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();
+                long addressId = ((Long) row.getItem("address_id").getResultData()).longValue();
+                dr.setProperty("countryID", address.getCountryCode(addressId, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME));
+                result = dataAccess.getData(dr);
+                /* the query returns a row only if the country is ineligible to purchase the product */
+                eligible &= ((ResultSetContainer) result.get("country_not_eligible_for_product")).isEmpty();
+            }
+            log.debug("user_id: " + userId + " product_id: " + productId + " eligible: " + eligible);
+        } finally {
+            BaseProcessor.close(context);
         }
-        log.debug("user_id: " + userId + " product_id: " + productId + " eligible: " + eligible);
+
         return eligible;
     }
 
