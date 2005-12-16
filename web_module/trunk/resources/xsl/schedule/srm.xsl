@@ -108,11 +108,6 @@
                           </TR>
                           
 
-                      <xsl:if test="$roundId='8075'">
-                        <TR><TD COLSPAN="3" ALIGN="center" class="bodyText">
-                          TopCoder Employment Services is placing members in the Tampa Bay, FL area.  <A HREF="/tc?module=ContractingPreferences">Click here to register.</A>
-                        </TD></TR>
-                      </xsl:if>
                       <xsl:if test="$roundId='4365'">
                         <TR><TD COLSPAN="3" ALIGN="center" class="bodyText">
                           <A HREF="/?&amp;t=schedule&amp;c=srm_spon_artifact">...More about Artifact</A>
@@ -127,6 +122,10 @@
                                 <center><strong><A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/ForumsHost"/>/?module=ThreadList&amp;forumID=<xsl:value-of select="/TC/SCHEDULE/Round/Details/forum_id"/></xsl:attribute>Discuss this match</A></strong><br/><br/></center>
                             </xsl:if>
                             <xsl:choose>
+                            <xsl:when test="$roundId='8075'">                                
+                                <br/>
+                                TopCoder Employment Services is placing members in the Tampa Bay, FL area.  <A HREF="/tc?module=ContractingPreferences">Click here to register.</A><br/><br/>
+                            </xsl:when>
                             <xsl:when test="$roundId='8070' or $roundId='8073' or $roundId='8076'">                                
                                 <br/>
                                 <b>If you're a member of <A href="/tc?module=Static&amp;d1=sponsors&amp;d2=sap">SAP Developer Network</A> AND take part in <xsl:value-of select="/TC/SCHEDULE/Round/Details/contest_name"/>, you'll be eligible for a chance to win one 60GB Apple iPod!</b><br/><br/>
