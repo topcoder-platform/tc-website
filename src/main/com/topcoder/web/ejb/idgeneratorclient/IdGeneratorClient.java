@@ -1,6 +1,7 @@
 package com.topcoder.web.ejb.idgeneratorclient;
 
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
@@ -11,19 +12,17 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 
 /**
- *
  * The Client which uses the IdGenerator component to generate
  * an long sequence id for any sequence name in the Screening Database
  *
  * @author Fred Wang (fred@fredwang.com)
  * @version $Revision$
- * Dec 23, 2002 6:44:37 PM
+ *          Dec 23, 2002 6:44:37 PM
  */
 public class IdGeneratorClient {
 
     private static Logger log = Logger.getLogger(IdGeneratorClient.class);
 
-    static InitialContext ctx = null;
 
     /**
      * Uses the IdGenerator class to retrieve a sequence value for the
@@ -32,7 +31,7 @@ public class IdGeneratorClient {
      *
      * @param seqName
      * @return The next sequence val. -1 if there is an exception thrown
-     * or other error retrieving the sequence id.
+     *         or other error retrieving the sequence id.
      */
 
     public static long getSeqId(String seqName) throws SQLException, NamingException {
@@ -43,6 +42,8 @@ public class IdGeneratorClient {
     public static long getSeqId(String seqName, String dataSourceName) throws NamingException, SQLException {
         log.debug("getSeqId(String, String) called");
         long retVal = -1;
+        InitialContext ctx = null;
+        try {
             ctx = new InitialContext();
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(new SimpleDB(),
@@ -55,7 +56,10 @@ public class IdGeneratorClient {
                         true);
             }
             retVal = IdGenerator.nextId(seqName);
-            //System.out.println("retVal = " + retVal);
+        } finally {
+            TCContext.close(ctx);
+        }
+        //System.out.println("retVal = " + retVal);
         return retVal;
     }
 
