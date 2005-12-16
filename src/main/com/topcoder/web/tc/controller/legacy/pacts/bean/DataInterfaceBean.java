@@ -64,12 +64,15 @@ public class DataInterfaceBean implements PactsConstants {
     // thrown by the various calls herein (CreateException, NamingException,
     // RemoteException) get packaged into a RemoteException for convenience.
     private PactsServices getEjbHandle() throws RemoteException {
+        InitialContext c = null;
         try {
-            InitialContext c = TCContext.getInitial();
+            c = TCContext.getInitial();
             return (PactsServices) BaseProcessor.createEJB(c, PactsServices.class);
         } catch (Exception e) {
             e.printStackTrace();
             throw new RemoteException(e.getMessage());
+        } finally {
+            TCContext.close(c);
         }
     }
 

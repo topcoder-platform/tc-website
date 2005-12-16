@@ -692,12 +692,17 @@ final class UserDb {
     }
 
     private static String encodePassword(String password) throws Exception {
-        Context context = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+        Context context = null;
+        try {
+            context = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+            PasswordRemoteHome passHome = (PasswordRemoteHome) context.lookup(PasswordRemoteHome.EJB_REF_NAME);
+            PasswordRemote pass = passHome.create();
+            return pass.encodePassword(password);
+        } finally {
+            TCContext.close(context);
+        }
 
-        PasswordRemoteHome passHome = (PasswordRemoteHome) context.lookup(PasswordRemoteHome.EJB_REF_NAME);
-        PasswordRemote pass = passHome.create();
 
-        return pass.encodePassword(password);
     }
 
 

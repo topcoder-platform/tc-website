@@ -740,20 +740,24 @@ public class Registration
     }
 
     public String getHandle(String memberId) {
+        InitialContext ctx = null;
         try {
-            InitialContext ctx = TCContext.getInitial();
+            ctx = TCContext.getInitial();
             com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
 
             return userbean.getHandle(Long.parseLong(memberId), DBMS.OLTP_DATASOURCE_NAME);
         } catch (Exception ignore) {
+        } finally {
+            TCContext.close(ctx);
         }
 
         return "";
     }
 
     public boolean memberExists(String memberId) {
+        InitialContext ctx = null;
         try {
-            InitialContext ctx = TCContext.getInitial();
+            ctx = TCContext.getInitial();
             com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
 
             if (!userbean.userExists(Long.parseLong(memberId), DBMS.OLTP_DATASOURCE_NAME))
@@ -764,6 +768,8 @@ public class Registration
                 return true;
             }
         } catch (Exception ignore) {
+        } finally {
+            TCContext.close(ctx);
         }
 
         return false;
@@ -1764,10 +1770,15 @@ public class Registration
                 } else {
                     log.debug("dunno this school, look it up " + this.schoolName);
                     //lookup school by name
-                    InitialContext ctxSchool = TCContext.getInitial();
-                    com.topcoder.web.ejb.school.School s =
-                            (com.topcoder.web.ejb.school.School) BaseProcessor.createEJB(ctxSchool,
-                                    com.topcoder.web.ejb.school.School.class);
+                    InitialContext ctxSchool = null;
+                    com.topcoder.web.ejb.school.School s = null;
+                    try {
+                        ctxSchool = TCContext.getInitial();
+                        s = (com.topcoder.web.ejb.school.School) BaseProcessor.createEJB(ctxSchool,
+                                        com.topcoder.web.ejb.school.School.class);
+                    } finally {
+                        TCContext.close(ctxSchool);
+                    }
 
                     schoolId = s.getSchoolId(this.schoolName, DBMS.OLTP_DATASOURCE_NAME);
                     if (schoolId == 0) {
@@ -1833,13 +1844,18 @@ public class Registration
 
                 //auto activate
                 if (isRegister() && autoActivate) {
-                    InitialContext ctx = TCContext.getInitial();
-                    com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
-                    doLegacyCrap(coder.getCoderId());
-                    Email email = (Email) BaseProcessor.createEJB(ctx, Email.class);
-                    email.setStatusId(email.getPrimaryEmailId(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME),
-                            1, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    userbean.setStatus(coder.getCoderId(), ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
+                    InitialContext ctx = null;
+                    try {
+                        ctx = TCContext.getInitial();
+                        com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
+                        doLegacyCrap(coder.getCoderId());
+                        Email email = (Email) BaseProcessor.createEJB(ctx, Email.class);
+                        email.setStatusId(email.getPrimaryEmailId(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME),
+                                1, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        userbean.setStatus(coder.getCoderId(), ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
+                    } finally {
+                        TCContext.close(ctx);
+                    }
 
                 }
 
@@ -1891,13 +1907,18 @@ public class Registration
                 }
                 //auto activate
                 if (isRegister() && autoActivate) {
-                    InitialContext ctx = TCContext.getInitial();
-                    com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
-                    doLegacyCrap(coder.getCoderId());
-                    Email email = (Email) BaseProcessor.createEJB(ctx, Email.class);
-                    email.setStatusId(email.getPrimaryEmailId(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME),
-                            1, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    userbean.setStatus(coder.getCoderId(), ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
+                    InitialContext ctx =null;
+                    try {
+                        ctx = TCContext.getInitial();
+                        com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
+                        doLegacyCrap(coder.getCoderId());
+                        Email email = (Email) BaseProcessor.createEJB(ctx, Email.class);
+                        email.setStatusId(email.getPrimaryEmailId(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME),
+                                1, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        userbean.setStatus(coder.getCoderId(), ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
+                    } finally {
+                        TCContext.close(ctx);
+                    }
                 }
 
             } catch (Exception e) {

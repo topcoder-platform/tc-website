@@ -115,6 +115,8 @@ public final class TourneyRegServlet extends HttpServlet {
         } catch (Exception e) {
             forwardToErrorPage(request, response, e,
                     "Your registration failed.  Please contact TopCoder.");
+        } finally {
+            TCContext.close(ctx);
         }
 
     }

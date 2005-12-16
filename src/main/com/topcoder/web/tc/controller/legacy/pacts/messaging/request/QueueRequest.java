@@ -56,9 +56,10 @@ public class QueueRequest {
      */
     private void init() {
         boolean successfull = false;
+        InitialContext ctx = null;
         try {
             //InitialContext ctx = TCContext.getInitial("172.16.210.55:1100");
-            InitialContext ctx = TCContext.getInitial();
+            ctx = TCContext.getInitial();
             // keep trying to initialize the queue until it starts
             while (!successfull) {
                 try {
@@ -81,6 +82,8 @@ public class QueueRequest {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            TCContext.close(ctx);
         }
 
     }

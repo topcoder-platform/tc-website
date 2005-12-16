@@ -151,7 +151,12 @@ public class UserEdit extends BaseProcessor {
                 password = mgr.getPassword(targetUserID);
                 password2 = password;
                 userName = secTok.targetUser.getName();
-                retrieveUserDataFromDB(TCContext.getInitial());
+                InitialContext ctx = TCContext.getInitial();
+                try {
+                    retrieveUserDataFromDB(ctx);
+                } finally {
+                    TCContext.close(ctx);
+                }
             }
             setFormFieldsDefaults();
             setNextPage(formPage);

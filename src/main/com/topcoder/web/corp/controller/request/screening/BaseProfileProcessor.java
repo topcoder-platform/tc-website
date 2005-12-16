@@ -16,6 +16,7 @@ import com.topcoder.web.ejb.sessionprofile.SessionProfileProblem;
 import com.topcoder.web.ejb.sessionprofile.SessionProfileProblemHome;
 
 import javax.rmi.PortableRemoteObject;
+import javax.naming.InitialContext;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -78,24 +79,29 @@ public abstract class BaseProfileProcessor extends BaseScreeningProcessor {
     protected List getTestSetBList(long profileId, User user) throws Exception {
 
         List ret = new ArrayList();
+        InitialContext ctx = null;
+        try {
+            ctx = TCContext.getInitial();
+            SessionProfileProblemHome sppHome = (SessionProfileProblemHome)
+                    PortableRemoteObject.narrow(
+                            ctx.lookup(SessionProfileProblemHome.class.getName()),
+                            SessionProfileProblemHome.class);
+            SessionProfileProblem problem = sppHome.create();
 
-        SessionProfileProblemHome sppHome = (SessionProfileProblemHome)
-                PortableRemoteObject.narrow(
-                        TCContext.getInitial().lookup(SessionProfileProblemHome.class.getName()),
-                        SessionProfileProblemHome.class);
-        SessionProfileProblem problem = sppHome.create();
-
-        ResultSetContainer rsc = problem.getProblems(profileId);
-        Integer problemTypeB = new Integer(TEST_SET_B_PROBLEM_TYPE);
-        for (Iterator i = rsc.iterator(); i.hasNext();) {
-            ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) i.next();
-            if (row.getItem("problem_type_id").getResultData().equals(problemTypeB)) {
-                long tempRoundId = Long.parseLong(row.getItem("session_round_id").toString());
-                long tempProblemId = Long.parseLong(row.getItem("problem_id").toString());
-                ret.add(ProblemInfo.createProblemInfo(user, tempRoundId, tempProblemId));
+            ResultSetContainer rsc = problem.getProblems(profileId);
+            Integer problemTypeB = new Integer(TEST_SET_B_PROBLEM_TYPE);
+            for (Iterator i = rsc.iterator(); i.hasNext();) {
+                ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) i.next();
+                if (row.getItem("problem_type_id").getResultData().equals(problemTypeB)) {
+                    long tempRoundId = Long.parseLong(row.getItem("session_round_id").toString());
+                    long tempProblemId = Long.parseLong(row.getItem("problem_id").toString());
+                    ret.add(ProblemInfo.createProblemInfo(user, tempRoundId, tempProblemId));
+                }
             }
+            return ret;
+        } finally {
+            TCContext.close(ctx);
         }
-        return ret;
     }
 
     protected ResultSetContainer getLanguageList() throws Exception {
