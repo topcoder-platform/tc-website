@@ -106,8 +106,13 @@
                               </TR>
                             </TD>
                           </TR>
+                          
 
-
+                      <xsl:if test="$roundId='8075'">
+                        <TR><TD COLSPAN="3" ALIGN="center" class="bodyText">
+                          TopCoder Employment Services is placing members in the Tampa Bay, FL area.  <A HREF="/tc?module=ContractingPreferences">Click here to register.</A>
+                        </TD></TR>
+                      </xsl:if>
                       <xsl:if test="$roundId='4365'">
                         <TR><TD COLSPAN="3" ALIGN="center" class="bodyText">
                           <A HREF="/?&amp;t=schedule&amp;c=srm_spon_artifact">...More about Artifact</A>
