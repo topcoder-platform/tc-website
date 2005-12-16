@@ -188,14 +188,13 @@ public class TCESServlet extends HttpServlet {
         } catch (NotAuthorizedException ae) {
             log.debug("TCES Authorization failure! ", ae);
             forwardToErrorPage(request, response, ae, true);
-            return;
         } catch (ClassNotFoundException cnfex) {
             log.debug("Unable to dispatch task! " + cnfex.getMessage());
             forwardToErrorPage(request, response, cnfex, false);
-            return;
         } catch (Exception ex) {
             forwardToErrorPage(request, response, ex, false);
-            return;
+        } finally {
+            BaseProcessor.close(ctx);
         }
     }
 
