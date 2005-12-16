@@ -51,6 +51,7 @@ public class ViewStandings extends Base {
 
             // Go ahead and try to load the round's standings
             if (roundID != null) {
+                setDefault(Constants.ROUND_ID, roundID);
                 int roundTypeID = ((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();
 
                 Request r = new Request();
