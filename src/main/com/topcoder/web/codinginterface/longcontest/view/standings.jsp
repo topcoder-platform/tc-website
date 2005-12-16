@@ -120,7 +120,7 @@
                         <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("points")%>" includeParams="true"/>">Score</A>
                     </td>
                     <td class="tableHeader" width="20%" align="center" nowrap="nowrap">
-                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("rank")%>" includeParams="true"/>">Rank</A>
+                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("points")%>" includeParams="true"/>">Rank</A>
                     </td>
                     <td class="tableHeader" width="20%" align="center" nowrap="nowrap">
                         <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("submit_time")%>" includeParams="true"/>">Last Submission Time</A>
