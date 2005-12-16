@@ -70,6 +70,7 @@
 
             <div style="float:right; padding: 0px 0px 0px 5px;">
                <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
+               <A href="">back to Standings</A>
             </div>
             <span class="bigHandle">Contest:
                 <% if ((request.getAttribute(Constants.RESULTS_AVAILABLE)).equals(Boolean.TRUE)) { %>
