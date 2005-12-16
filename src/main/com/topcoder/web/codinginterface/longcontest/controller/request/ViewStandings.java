@@ -64,32 +64,11 @@ public class ViewStandings extends Base {
                     r.setProperty(DataAccessConstants.SORT_QUERY, "long_contest_round_standings");
                 }
                 r.setProperty("rd", roundID);
-                if (sortCol != null && sortOrd != null) {
-                    r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
-                    r.setProperty(DataAccessConstants.SORT_DIRECTION, sortOrd);
-                }
-                if (numRecords==null) {
-                    numRecords = Constants.DEFAULT_ROW_COUNT;
-                } else if (Integer.parseInt(numRecords) > Integer.parseInt(Constants.DEFAULT_ROW_COUNT)) {
-                    numRecords = Constants.DEFAULT_ROW_COUNT;
-                }
-                setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
-                log.debug("num records set to " + numRecords);
-
-                if (startRank!=null) {
-                    setDefault(DataAccessConstants.START_RANK, startRank);
-                    r.setProperty(DataAccessConstants.START_RANK, startRank);
-                    r.setProperty(DataAccessConstants.END_RANK,
-                            String.valueOf(Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1));
-                    log.debug("end rank set to " + (Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1));
-                } else {
-                    setDefault(DataAccessConstants.START_RANK, "1");
-                }
 
                 Map m = dai.getData(r);
 
                 // Does this round exist?
-                if (((ResultSetContainer) m.get("long_contest_round_information")).size() == 0) {
+                if (((ResultSetContainer) m.get("long_contest_round_information")).isEmpty()) {
                     throw new NavigationException("Invalid round specified.");
                 }
 
@@ -127,6 +106,26 @@ public class ViewStandings extends Base {
                     s.addDefault(standings.getColumnIndex("submission_number"), "asc");
                     s.addDefault(standings.getColumnIndex("submit_time"), "desc");
                     getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+
+                    if (sortCol != null && sortOrd != null) {
+                        standings.sortByColumn(sortCol, "asc".equals(sortOrd));
+                    }
+
+                    if (numRecords==null) {
+                        numRecords = Constants.DEFAULT_ROW_COUNT;
+                    } else if (Integer.parseInt(numRecords) > Integer.parseInt(Constants.DEFAULT_ROW_COUNT)) {
+                        numRecords = Constants.DEFAULT_ROW_COUNT;
+                    }
+                    setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
+                    log.debug("num records set to " + numRecords);
+
+                    if (startRank!=null) {
+                        setDefault(DataAccessConstants.START_RANK, startRank);
+                        standings = new ResultSetContainer(standings, Integer.parseInt(startRank),
+                                Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1);
+                    } else {
+                        setDefault(DataAccessConstants.START_RANK, "1");
+                    }
 
                     request.setAttribute(Constants.ROUND_STANDINGS_LIST_KEY, standings);
                     request.setAttribute("roundInfo", m.get("long_contest_round_information"));
