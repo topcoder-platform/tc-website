@@ -70,8 +70,8 @@ public class ViewStandings extends Base {
                 }
                 if (numRecords==null) {
                     numRecords = "50";
-                } else if (Integer.parseInt(numRecords) > 200) {
-                    numRecords = "200";
+                } else if (Integer.parseInt(numRecords) > Integer.parseInt(Constants.DEFAULT_ROW_COUNT)) {
+                    numRecords = Constants.DEFAULT_ROW_COUNT;
                 }
                 setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
 
