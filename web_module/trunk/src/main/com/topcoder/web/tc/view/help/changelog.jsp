@@ -38,6 +38,23 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
+        4.1.2 - 2005 12.15
+        <ul>
+            <li>Marathon Match site
+                <ul>
+                    <li>Fix bug where language wasn't reflected in types for problem statement page from active contests</li>
+                    <li>Fix bug where language wasn't reflected on reload of submit page in the args/return type</li>
+                    <li>Fix tc time link</li>
+                    <li>allow admins to see the probelm statement even though they are not reg'd</li>
+                    <li>only show contest link on submission history if results are available</li>
+                    <li>Forum links</li>
+                    <li>pending indicator on submission history and standings</li>
+                </ul>
+            </li>
+        </ul>
+
+    </p>
+    <p>
         4.1.1 - 2005 12.14
         <ul>
             <li>Bug fixes for Marathon Match site</li>
