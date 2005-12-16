@@ -3,7 +3,6 @@ package com.topcoder.web.codinginterface.longcontest.controller.request;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.CoderSessionInfo;
 
@@ -34,9 +33,8 @@ public class Logout extends Base {
         getRequest().getSession().invalidate();
 
         // Go to active contests page
-        request.setAttribute("module", Constants.RP_ACTIVE_CONTESTS);
         setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
-        setIsNextPageInContext(true);
+        setIsNextPageInContext(false);
     }
 
     private void doLegacyWork(TCRequest request) throws Exception {
