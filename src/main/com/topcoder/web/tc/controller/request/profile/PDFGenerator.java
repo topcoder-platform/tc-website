@@ -776,7 +776,7 @@ public class PDFGenerator extends BaseProcessor {
     }
 
     public void drawResume(Document doc, PlacementConfig info, PdfWriter writer) throws Exception {
-        InitialContext ctx = TCContext.getInitial();
+        InitialContext ctx = getInitialContext();
         ResumeServices resumebean = (ResumeServices)createEJB(ctx, ResumeServices.class);
 
         if(resumebean.hasResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME)) {
@@ -793,10 +793,14 @@ public class PDFGenerator extends BaseProcessor {
             if(ext.equals("pdf")) {
                 result = rawBytes;
             } else {
-                ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.FILE_CONVERSION_PROVIDER_URL);
+                try {
+                    ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.FILE_CONVERSION_PROVIDER_URL);
 
-                FileConversion filebean = (FileConversion)createEJB(ctx, FileConversion.class);
-                result = filebean.convertDoc(rawBytes,ext);
+                    FileConversion filebean = (FileConversion)createEJB(ctx, FileConversion.class);
+                    result = filebean.convertDoc(rawBytes,ext);
+                } finally {
+                    TCContext.close(ctx);
+                }
             }
 
             PdfReader reader = new PdfReader(result);

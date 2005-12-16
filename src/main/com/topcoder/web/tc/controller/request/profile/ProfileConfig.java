@@ -6,33 +6,21 @@
 
 package com.topcoder.web.tc.controller.request.profile;
 
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.StringUtils;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.*;
+import com.topcoder.web.ejb.coderskill.CoderSkill;
+import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.PlacementConfigInfo;
-
-import com.topcoder.web.ejb.user.User;
-import com.topcoder.web.ejb.email.Email;
-import com.topcoder.web.ejb.coderskill.CoderSkill;
-
-import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.*;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
-
 import com.topcoder.web.tc.model.Skill;
 
-import java.lang.StringBuffer;
-
-import javax.servlet.http.Cookie;
-import javax.naming.Context;
 import javax.naming.InitialContext;
-import java.util.ArrayList;
-import java.util.Map;
-
-import com.topcoder.web.common.*;
-import com.topcoder.shared.security.ClassResource;
 /**
  *
  * @author rfairfax
@@ -51,7 +39,7 @@ public class ProfileConfig extends BaseProcessor {
 
                 info.setUserID(uid);
 
-                InitialContext ctx = TCContext.getInitial();
+                InitialContext ctx = getInitialContext();
                 User userbean = (User)createEJB(ctx, User.class);
                 Email emailbean = (Email)createEJB(ctx, Email.class);
 
