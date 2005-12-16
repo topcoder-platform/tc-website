@@ -52,6 +52,10 @@ public class ViewStandings extends Base {
             // Go ahead and try to load the round's standings
             if (roundID != null) {
 
+
+
+
+
                 int roundTypeID = ((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();
 
                 Request r = new Request();
@@ -104,7 +108,7 @@ public class ViewStandings extends Base {
 
                 if (!started) {
                     throw new NavigationException("Invalid round specified.");
-                } else if (over) { // go to overview page
+                } else if (over&&areResultsAvailable(Long.parseLong(roundID))) { // go to overview page
                     String url = buildProcessorRequestString("ViewOverview", new String[]{Constants.ROUND_ID}, new String[]{roundID});
                     log.debug("Going to overview page: " + url);
                     setNextPage(url);
