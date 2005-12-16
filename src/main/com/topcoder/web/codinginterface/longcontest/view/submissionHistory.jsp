@@ -137,7 +137,7 @@
                     </TD>
                 </tr>
             </TABLE>
-            <p>* Indicates this this submission has not yet been scored</p>
+            <p>* Indicates that this submission has not yet been scored</p>
 
             <div class="pagingBox">
                 <logic:notEmpty name="prevPageLink"><a href="<%=prevPageLink%>" class="bcLink">
