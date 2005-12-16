@@ -127,21 +127,18 @@
                 </tr>
                 <%-- ITERATOR --%>
                 <%boolean even = true;%>
-                <rsc:iterator list="<%=standings%>" id="resultRow">
-                    <tr>
-                        <td class="<%=even?"statLt":"statDk"%>">
-                            <tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>"/></td>
-                        <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;">
-                                <rsc:item name="points" row="<%=resultRow%>" format="0.00"/><%=resultRow.getIntItem("status_id")==130?"*":""%></td>
-                        <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 15px;">
-                                <rsc:item name="rank" row="<%=resultRow%>"/></td>
-                        <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;">
-                            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_SUBMISSION_HISTORY%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>" class="statLink">
-                                <rsc:item name="submission_number" row="<%=resultRow%>"/>
-                            </A></td>
-                    </tr>
-                    <%even = !even;%>
-                </rsc:iterator>
+                <%--control whitespace to reduce html size --%>
+                <rsc:iterator list="<%=standings%>" id="resultRow"><tr>
+<td class="<%=even?"statLt":"statDk"%>">
+<tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>"/></td>
+<td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;">
+<rsc:item name="points" row="<%=resultRow%>" format="0.00"/><%=resultRow.getIntItem("status_id")==130?"*":""%></td>
+<td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 15px;">
+<rsc:item name="rank" row="<%=resultRow%>"/></td>
+<td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;">
+<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_SUBMISSION_HISTORY%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>" class="statLink">
+<rsc:item name="submission_number" row="<%=resultRow%>"/>
+</A></td></tr><%even = !even;%></rsc:iterator>
                 <%-- END ITERATOR --%>
             </TABLE>
         </TD>
