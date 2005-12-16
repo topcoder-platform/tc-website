@@ -54,7 +54,7 @@ public class SubmitReg extends ViewReg {
                 setIsNextPageInContext(false);
             }
 
-            if (isRegistrationOpen(round)) {
+            if (!isRegistrationOpen(round)) {
                 throw new NavigationException("Registration is not currently open");
             }
 
