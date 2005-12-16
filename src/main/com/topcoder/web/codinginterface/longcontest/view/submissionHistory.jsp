@@ -124,7 +124,7 @@
                                     <td class="<%=even?"statLt":"statDk"%>" align="center">
                                         <tc-webtag:format object="<%=new Date(resultRow.getLongItem("submit_time"))%>" format="MM.dd.yyyy HH:mm:ss"/></td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="right">
-                                        <rsc:item name="submission_points" row="<%=resultRow%>" format="0.00"/></td>
+                                        <rsc:item name="submission_points" row="<%=resultRow%>" format="0.00"/><%=resultRow.getIntItem("status_id")==130?"*":""%></td>
                                     <% if (over) { %>
                                     <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;">
                                         <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemSolution&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>">solution</A>
@@ -137,6 +137,7 @@
                     </TD>
                 </tr>
             </TABLE>
+            <p>* Indicates this this submission has not yet been scored</p>
 
             <div class="pagingBox">
                 <logic:notEmpty name="prevPageLink"><a href="<%=prevPageLink%>" class="bcLink">
