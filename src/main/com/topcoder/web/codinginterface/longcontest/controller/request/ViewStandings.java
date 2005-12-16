@@ -73,7 +73,7 @@ public class ViewStandings extends Base {
                     r.setProperty(DataAccessConstants.SORT_DIRECTION, sortOrd);
                 }
                 if (numRecords==null) {
-                    numRecords = "50";
+                    numRecords = Constants.DEFAULT_ROW_COUNT;
                 } else if (Integer.parseInt(numRecords) > Integer.parseInt(Constants.DEFAULT_ROW_COUNT)) {
                     numRecords = Constants.DEFAULT_ROW_COUNT;
                 }
