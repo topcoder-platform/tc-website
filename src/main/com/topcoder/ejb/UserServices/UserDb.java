@@ -32,6 +32,7 @@ final class UserDb {
         Connection conn = null;
         PreparedStatement ps = null;
         PreparedStatement ps1 = null;
+        InitialContext ctx = null;
         /**************************************************************/
         StringBuffer query = new StringBuffer(200);
         /**************************************************************/
@@ -107,7 +108,7 @@ final class UserDb {
                 coder.setCoderId(user.getUserId());
 
                 /* make inserts for common db */
-                InitialContext ctx = new InitialContext();
+                ctx = new InitialContext();
                 com.topcoder.web.ejb.user.User userEJB = ((UserHome) ctx.lookup(UserHome.EJB_REF_NAME)).create();
                 Email emailEJB = ((EmailHome) ctx.lookup(EmailHome.EJB_REF_NAME)).create();
                 userEJB.createUser(user.getUserId(), user.getHandle(), user.getStatus().charAt(0), DBMS.COMMON_OLTP_DATASOURCE_NAME);
@@ -153,6 +154,13 @@ final class UserDb {
                     log.error("insertCoder cx NOT closed...");
                 }
             }
+            if (ctx!=null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+
+                }
+            }
         }
     }
 
@@ -162,6 +170,7 @@ final class UserDb {
         PreparedStatement ps = null;
         PreparedStatement ps1 = null;
         Connection conn = null;
+        InitialContext ctx = null;
         try {
             conn = DBMS.getConnection(DBMS.JTS_OLTP_DATASOURCE_NAME);
             if (user.getModified().equals("U")) {
@@ -225,7 +234,7 @@ final class UserDb {
                 CoderRegistration coder = (CoderRegistration) userTypeDetails.get("Coder");
                 UserDbCoder.updateCoder(conn, coder);
 
-                InitialContext ctx = new InitialContext();
+                ctx = new InitialContext();
                 com.topcoder.web.ejb.user.User userEJB = ((UserHome) ctx.lookup(UserHome.EJB_REF_NAME)).create();
                 Email emailEJB = ((EmailHome) ctx.lookup(EmailHome.EJB_REF_NAME)).create();
                 userEJB.setFirstName(user.getUserId(), coder.getFirstName(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
@@ -263,6 +272,14 @@ final class UserDb {
                     log.error("updateCoder cx NOT closed...");
                 }
             }
+            if (ctx!=null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+
+                }
+            }
+
         }
     }
 

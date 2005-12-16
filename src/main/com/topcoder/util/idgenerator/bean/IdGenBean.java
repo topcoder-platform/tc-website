@@ -59,8 +59,9 @@ public class IdGenBean implements SessionBean {
     public void ejbCreate() throws IdGenException {
         synchronized (IdGenerator.class) {
             if (!IdGenerator.isInitialized()) {
+                Context context = null;
                 try {
-                    Context context=new InitialContext();
+                    context=new InitialContext();
                     DataSource dataSource=(DataSource) context.lookup("java:comp/env/jdbc/DefaultDS");
                     String dbClassName=(String) context.lookup("java:comp/env/DBClassName");
                     DB db=(DB) (Class.forName(dbClassName)).newInstance();
@@ -79,6 +80,14 @@ public class IdGenBean implements SessionBean {
                     throw new IdGenException(""+e);
                 } catch (ClassNotFoundException e) {
                     throw new IdGenException(""+e);
+                } finally {
+                    if (context!=null) {
+                        try {
+                            context.close();
+                        } catch (Exception ignore) {
+
+                        }
+                    }
                 }
             }
         }

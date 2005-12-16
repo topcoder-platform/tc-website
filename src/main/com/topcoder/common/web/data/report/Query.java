@@ -106,13 +106,16 @@ public class Query implements Serializable {
      */
     public ArrayList execute() throws Exception {
         ArrayList result = null;
+        InitialContext ctx = null;
         try {
-            InitialContext ctx = TCContext.getInitial();
+            ctx = TCContext.getInitial();
             Reporting r = (Reporting) BaseProcessor.createEJB(ctx, Reporting.class);
             result = r.getResult(this);
         } catch (Exception e) {
             log.error("query: " + query);
             e.printStackTrace();
+        } finally {
+            TCContext.close(ctx);
         }
 
         return result;

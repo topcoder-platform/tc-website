@@ -15,10 +15,10 @@ import java.util.Collection;
 import java.util.Hashtable;
 
 public class PrincipalMgr {
-    private InitialContext context;
     private PrincipalMgrRemoteHome home;
 
     public PrincipalMgr() throws PrincipalMgrException {
+        InitialContext context = null;
         try {
             Hashtable env = new Hashtable();
             env.put(InitialContext.INITIAL_CONTEXT_FACTORY,
@@ -33,6 +33,14 @@ public class PrincipalMgr {
                             PrincipalMgrRemoteHome.class);
         } catch (NamingException e) {
             throw new PrincipalMgrException("Problem creating Home", e);
+        } finally {
+            if (context!=null) {
+                try {
+                    context.close();
+                } catch (Exception ignore) {
+
+                }
+            }
         }
     }
 
