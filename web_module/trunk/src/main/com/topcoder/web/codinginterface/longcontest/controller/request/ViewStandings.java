@@ -108,7 +108,7 @@ public class ViewStandings extends Base {
                     getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
                     if (sortCol != null && sortOrd != null) {
-                        standings.sortByColumn(sortCol, "asc".equals(sortOrd));
+                        standings.sortByColumn(Integer.parseInt(sortCol), "asc".equals(sortOrd));
                     }
 
                     if (numRecords==null) {
