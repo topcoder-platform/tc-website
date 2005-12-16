@@ -50,7 +50,7 @@ public class ViewReg extends Base {
                 // Go to the active contests page if user is already registered.
                 setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
                 setIsNextPageInContext(false);
-            } else if (isRegistrationOpen(round)) {
+            } else if (!isRegistrationOpen(round)) {
                 throw new NavigationException("Registration is not currently open");
             } else {
                 // Get the round terms.
