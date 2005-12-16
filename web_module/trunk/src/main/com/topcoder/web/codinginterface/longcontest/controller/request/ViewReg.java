@@ -44,11 +44,14 @@ public class ViewReg extends Base {
         String roundID = getRequest().getParameter(Constants.ROUND_ID);
 
         try {
+            long round = Long.parseLong(roundID);
             // Is the coder already registered for the round?
-            if (isUserRegistered(getUser().getId(), Long.parseLong(roundID))) {
+            if (isUserRegistered(getUser().getId(), round)) {
                 // Go to the active contests page if user is already registered.
                 setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
                 setIsNextPageInContext(false);
+            } else if (isRegistrationOpen(round)) {
+                throw new NavigationException("Registration is not currently open");
             } else {
                 // Get the round terms.
                 DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
