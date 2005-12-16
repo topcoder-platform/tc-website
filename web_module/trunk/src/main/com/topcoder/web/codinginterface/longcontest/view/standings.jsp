@@ -147,7 +147,7 @@
         </TD>
     </tr>
 </TABLE>
-    <p>* Indicates that this competitor's most recent submission is still pending</p>
+    <p>* Indicates that this competitor's most recent submission has not yet been scored</p>
 
 <div class="pagingBox">
 <%=(standings.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
