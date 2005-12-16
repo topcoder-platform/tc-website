@@ -51,11 +51,6 @@ public class ViewStandings extends Base {
 
             // Go ahead and try to load the round's standings
             if (roundID != null) {
-
-
-
-
-
                 int roundTypeID = ((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();
 
                 Request r = new Request();
@@ -80,15 +75,13 @@ public class ViewStandings extends Base {
                 setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
                 log.debug("num records set to " + numRecords);
 
-                if (startRank==null || Integer.parseInt(startRank) <= 0) {
-                    startRank = "1";
+                if (startRank!=null) {
+                    setDefault(DataAccessConstants.START_RANK, startRank);
+                    r.setProperty(DataAccessConstants.START_RANK, startRank);
+                    r.setProperty(DataAccessConstants.END_RANK,
+                            String.valueOf(Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1));
+                    log.debug("end rank set to " + (Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1));
                 }
-                setDefault(DataAccessConstants.START_RANK, startRank);
-
-                r.setProperty(DataAccessConstants.START_RANK, startRank);
-                r.setProperty(DataAccessConstants.END_RANK,
-                        String.valueOf(Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1));
-                log.debug("end rank set to " + (Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1));
 
                 Map m = dai.getData(r);
 
@@ -130,12 +123,6 @@ public class ViewStandings extends Base {
                     s.addDefault(standings.getColumnIndex("points"), "desc");
                     s.addDefault(standings.getColumnIndex("submission_number"), "asc");
                     getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
-
-
-                    if (sortCol != null) {
-                        //todo consider sorting in the db
-                        standings.sortByColumn(Integer.parseInt(sortCol), sortOrd.equals("asc"));
-                    }
 
                     request.setAttribute(Constants.ROUND_STANDINGS_LIST_KEY, standings);
                     request.setAttribute("roundInfo", m.get("long_contest_round_information"));
