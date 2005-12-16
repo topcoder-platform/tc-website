@@ -78,6 +78,7 @@ public class ViewStandings extends Base {
                     numRecords = Constants.DEFAULT_ROW_COUNT;
                 }
                 setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
+                log.debug("num records set to " + numRecords);
 
                 if (startRank==null || Integer.parseInt(startRank) <= 0) {
                     startRank = "1";
@@ -87,6 +88,7 @@ public class ViewStandings extends Base {
                 r.setProperty(DataAccessConstants.START_RANK, startRank);
                 r.setProperty(DataAccessConstants.END_RANK,
                         String.valueOf(Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1));
+                log.debug("end rank set to " + (Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1));
 
                 Map m = dai.getData(r);
 
