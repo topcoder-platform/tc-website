@@ -3,6 +3,7 @@
  */
 package com.topcoder.web.forums.controller.request;
 
+import com.jivesoftware.base.Log;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.PermissionsManager;
 import com.jivesoftware.forum.Forum;
@@ -75,10 +76,17 @@ public class Admin extends ForumsProcessor {
                 }
             }
         } else if (command.equals("Create forum from EJB") && !match.equals("")) {
-            InitialContext ctx = TCContext.getInitial();
-            Forums forums = (Forums)createEJB(ctx, Forums.class);
-            int matchID = Integer.parseInt(match);
-            forums.createMatchForum(matchID);
+            InitialContext ctx = null;
+            try {
+                ctx = TCContext.getInitial();
+                Forums forums = (Forums)createEJB(ctx, Forums.class);
+                int matchID = Integer.parseInt(match);
+                forums.createMatchForum(matchID);
+            } catch (Exception e) {
+                Log.error(e);
+            } finally {
+                BaseProcessor.close(ctx);
+            }
         }
         else if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
             log.info(user.getUsername() + " running command: " + command);

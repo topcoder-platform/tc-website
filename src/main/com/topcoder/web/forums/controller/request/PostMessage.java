@@ -6,6 +6,7 @@ package com.topcoder.web.forums.controller.request;
 import javax.naming.InitialContext;
 
 import com.jivesoftware.base.JiveConstants;
+import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
@@ -13,6 +14,7 @@ import com.jivesoftware.forum.ForumPermissions;
 import com.jivesoftware.forum.WatchManager;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.messagehistory.MessageHistory;
@@ -112,9 +114,17 @@ public class PostMessage extends ForumsProcessor {
         
         // Add an edit to the revision history only if Jive recognizes that an edit has taken place
         if (postMode.equals("Edit") && message.getModificationDate().getTime() > histModificationDate) {
-            InitialContext ctx = TCContext.getInitial();
-            MessageHistory historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
-            historyBean.addEdit(message.getID(), histSubject, histBody, histModificationDate, DBMS.FORUMS_DATASOURCE_NAME);
+            InitialContext ctx = null;
+            MessageHistory historyBean = null;
+            try {
+                ctx = TCContext.getInitial();
+                historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
+                historyBean.addEdit(message.getID(), histSubject, histBody, histModificationDate, DBMS.FORUMS_DATASOURCE_NAME);
+            } catch (Exception e) {
+                Log.error(e);
+            } finally {
+                BaseProcessor.close(ctx);
+            }
         }
 
         WatchManager watchManager = forumFactory.getWatchManager();
