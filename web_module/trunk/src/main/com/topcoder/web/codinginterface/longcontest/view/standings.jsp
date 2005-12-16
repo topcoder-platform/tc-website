@@ -132,7 +132,7 @@
                         <td class="<%=even?"statLt":"statDk"%>">
                             <tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>"/></td>
                         <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;">
-                                <rsc:item name="points" row="<%=resultRow%>" format="0.00"/></td>
+                                <rsc:item name="points" row="<%=resultRow%>" format="0.00"/><%=resultRow.getIntItem("status_id")==130?"*":""%></td>
                         <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 15px;">
                                 <rsc:item name="rank" row="<%=resultRow%>"/></td>
                         <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;">
@@ -147,6 +147,7 @@
         </TD>
     </tr>
 </TABLE>
+    <p>* Indicates that this competitor's most recent submission is still pending</p>
 
 <div class="pagingBox">
 <%=(standings.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
