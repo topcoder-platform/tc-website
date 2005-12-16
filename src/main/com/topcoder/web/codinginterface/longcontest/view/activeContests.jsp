@@ -4,10 +4,6 @@
 
         %>
     <%@ page import="com.topcoder.web.codinginterface.longcontest.model.LongContest"%>
-    <%@ page import="com.topcoder.shared.dataAccess.Request"%>
-    <%@ page import="com.topcoder.shared.dataAccess.DataAccess"%>
-    <%@ page import="com.topcoder.shared.util.DBMS"%>
-    <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
@@ -23,25 +19,6 @@
 </head>
 
 <body>
-
-<%!
-    long getForumId(long roundId) {
-        Request r = new Request();
-        r.setContentHandle("round_forum_id");
-        r.setProperty("rd", String.valueOf(roundId));
-        DataAccess d = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
-        long ret = 0;
-        try {
-            ResultSetContainer rsc = (ResultSetContainer)d.getData(r).get("round_forum_id");
-            if (rsc.getItem(0, "forum_id").getResultData()!=null) {
-                ret = rsc.getLongItem(0, "forum_id");
-            }
-        } catch (Exception e) {
-
-        }
-        return ret;
-    }
-%>
 
 <jsp:include page="top.jsp">
     <jsp:param name="level1" value="long"/>
@@ -147,10 +124,9 @@
                                 <tc-webtag:beanWrite name="contest" property="endTime"
                                                      format="MM.dd.yyyy HH:mm"/></td>
                             <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
-                                <% long id = getForumId(((LongContest)contest).getRoundID());
-                                if (id>0) { %>
-                                  <tc-webtag:forumLink forumID="<%=id%>" message="discuss"/>
-                                <% } %>
+                                <logic:notEqual name="contest" property="forumId" value="0">
+                                    <tc-webtag:forumLink forumID="<%=((LongContest)contest).getForumId()%>" message="discuss"/>
+                                </logic:notEqual>
                             </td>
 
                         </tr>
