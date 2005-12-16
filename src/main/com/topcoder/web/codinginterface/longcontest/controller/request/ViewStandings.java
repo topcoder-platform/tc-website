@@ -125,6 +125,7 @@ public class ViewStandings extends Base {
                     s.addDefault(standings.getColumnIndex("handle_lower"), "asc");
                     s.addDefault(standings.getColumnIndex("points"), "desc");
                     s.addDefault(standings.getColumnIndex("submission_number"), "asc");
+                    s.addDefault(standings.getColumnIndex("submit_time"), "desc");
                     getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
                     request.setAttribute(Constants.ROUND_STANDINGS_LIST_KEY, standings);
