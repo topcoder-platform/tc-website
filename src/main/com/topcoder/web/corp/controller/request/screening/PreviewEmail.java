@@ -12,7 +12,7 @@ public class PreviewEmail extends BaseSessionProcessor {
         EmailInfo info = null;
         try {
             log.debug(" in preview email");
-            TestSessionInfo sInfo = getSessionInfo();
+            TestSessionInfo sInfo = getTestSessionInfo();
 
             //these three values should be passed in
             sInfo.setCandidateId(getRequest().getParameter(Constants.CANDIDATE_ID));
@@ -27,7 +27,7 @@ public class PreviewEmail extends BaseSessionProcessor {
             log.debug("got exception " + e.getMessage() + " go with empty info");
             updateSessionInfo();
             info = new EmailInfo();
-            info.setSessionInfo(getSessionInfo());
+            info.setSessionInfo(getTestSessionInfo());
         }
 
         getRequest().setAttribute(Constants.EMAIL_INFO, info);

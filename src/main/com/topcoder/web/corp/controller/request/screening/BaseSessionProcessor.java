@@ -21,7 +21,7 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
     private static int BEGIN = 0;
     private static int END = 1;
 
-    protected TestSessionInfo getSessionInfo() throws TCWebException {
+    protected TestSessionInfo getTestSessionInfo() throws TCWebException {
         HttpSession session = getRequest().getSession();
         TestSessionInfo info = (TestSessionInfo)
                 session.getAttribute(Constants.SESSION_INFO);
@@ -39,7 +39,7 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
     }
 
     protected void updateSessionInfo() throws TCWebException {
-        TestSessionInfo info = getSessionInfo();
+        TestSessionInfo info = getTestSessionInfo();
 
         info.setProfileId(getRequest().getParameter(Constants.PROFILE_ID));
         info.setCandidateId(getRequest().getParameter(Constants.CANDIDATE_ID));
@@ -58,7 +58,7 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
     }
 
     protected boolean validateSessionInfo() throws Exception {
-        TestSessionInfo info = getSessionInfo();
+        TestSessionInfo info = getTestSessionInfo();
 
         boolean beginSuccess =
                 validateDate(BEGIN,
