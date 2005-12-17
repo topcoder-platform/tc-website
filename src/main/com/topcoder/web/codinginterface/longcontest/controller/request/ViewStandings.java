@@ -9,6 +9,7 @@ import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.SortInfo;
 
 import java.util.Map;
@@ -27,8 +28,8 @@ public class ViewStandings extends Base {
 
         TCRequest request = getRequest();
         String roundID = request.getParameter(Constants.ROUND_ID);
-        String sortCol = request.getParameter(DataAccessConstants.SORT_COLUMN);
-        String sortOrd = request.getParameter(DataAccessConstants.SORT_DIRECTION);
+        String sortCol = StringUtils.checkNull(request.getParameter(DataAccessConstants.SORT_COLUMN));
+        String sortOrd = StringUtils.checkNull(request.getParameter(DataAccessConstants.SORT_DIRECTION));
         String startRank = request.getParameter(DataAccessConstants.START_RANK);
         String numRecords = request.getParameter(DataAccessConstants.NUMBER_RECORDS);
 
@@ -107,7 +108,7 @@ public class ViewStandings extends Base {
                     s.addDefault(standings.getColumnIndex("submit_time"), "desc");
                     getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
-                    if (sortCol != null && sortOrd != null) {
+                    if (!sortCol.equals("") && !sortOrd.equals("")) {
                         standings.sortByColumn(Integer.parseInt(sortCol), "asc".equals(sortOrd));
                     }
 
