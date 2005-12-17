@@ -59,10 +59,10 @@ public class ViewStandings extends Base {
 
                 if (roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
                     r.setContentHandle("long_contest_round_practice_standings");
-                    r.setProperty(DataAccessConstants.SORT_QUERY, "long_contest_round_practice_standings");
+                    //r.setProperty(DataAccessConstants.SORT_QUERY, "long_contest_round_practice_standings");
                 } else {
                     r.setContentHandle("long_contest_round_standings");
-                    r.setProperty(DataAccessConstants.SORT_QUERY, "long_contest_round_standings");
+                    //r.setProperty(DataAccessConstants.SORT_QUERY, "long_contest_round_standings");
                 }
                 r.setProperty("rd", roundID);
 
@@ -110,6 +110,7 @@ public class ViewStandings extends Base {
 
                     if (!sortCol.equals("") && !sortOrd.equals("")) {
                         standings.sortByColumn(Integer.parseInt(sortCol), "asc".equals(sortOrd));
+
                     }
 
                     if (numRecords==null) {
