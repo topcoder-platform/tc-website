@@ -39,7 +39,7 @@ public class SortTag extends TagSupport {
     }
 
     public void setExcludeParams(String exclude) {
-        log.debug("exclude is " + exclude);
+        //log.debug("exclude is " + exclude);
 
         exclude = exclude + ";";
         excludeParams = new HashSet();
@@ -50,7 +50,7 @@ public class SortTag extends TagSupport {
 
            if(pos < 0) break;
 
-            log.debug("adding " + exclude.substring(from,pos));
+            //log.debug("adding " + exclude.substring(from,pos));
            excludeParams.add(exclude.substring(from,pos));
 
            from = pos + 1;
@@ -107,20 +107,22 @@ public class SortTag extends TagSupport {
             Object value = null;
             for (; e.hasMoreElements();) {
                 key = (String) e.nextElement();
-                //log.debug("key is " + key);
-                value = pageContext.getRequest().getParameterValues(key);
-                String[] sArray = null;
-                if (value instanceof String) {
-                    //don't add the sort params from the old request
-                    if (!key.equals(DataAccessConstants.SORT_COLUMN) && !key.equals(DataAccessConstants.SORT_DIRECTION)) {
-                        add(buf, key, value.toString());
-                    }
-                } else if (value.getClass().isArray()) {
-                    sArray = (String[]) value;
-                    for (int i = 0; i < sArray.length; i++) {
+                if (!excludeParams.contains(key)) {
+                    //log.debug("key is " + key);
+                    value = pageContext.getRequest().getParameterValues(key);
+                    String[] sArray = null;
+                    if (value instanceof String) {
                         //don't add the sort params from the old request
                         if (!key.equals(DataAccessConstants.SORT_COLUMN) && !key.equals(DataAccessConstants.SORT_DIRECTION)) {
-                            add(buf, key, sArray[i]);
+                            add(buf, key, value.toString());
+                        }
+                    } else if (value.getClass().isArray()) {
+                        sArray = (String[]) value;
+                        for (int i = 0; i < sArray.length; i++) {
+                            //don't add the sort params from the old request
+                            if (!key.equals(DataAccessConstants.SORT_COLUMN) && !key.equals(DataAccessConstants.SORT_DIRECTION)) {
+                                add(buf, key, sArray[i]);
+                            }
                         }
                     }
                 }
