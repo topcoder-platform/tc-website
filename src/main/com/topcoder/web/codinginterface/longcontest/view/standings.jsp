@@ -114,19 +114,19 @@
                 </tr>
                 <tr>
                     <td class="tableHeader" width="20">
-                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("handle_lower")%>" includeParams="true"/>">Handle</A>
+                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="sr,nr"/>">Handle</A>
                     </td>
                     <td class="tableHeader" width="20%" align="right" nowrap="nowrap">
-                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("points")%>" includeParams="true"/>">Score</A>
+                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("points")%>" includeParams="true" excludeParams="sr,nr"/>">Score</A>
                     </td>
                     <td class="tableHeader" width="20%" align="center" nowrap="nowrap">
-                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("points")%>" includeParams="true"/>">Rank</A>
+                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("points")%>" includeParams="true" excludeParams="sr,nr"/>">Rank</A>
                     </td>
                     <td class="tableHeader" width="20%" align="center" nowrap="nowrap">
-                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("submit_time")%>" includeParams="true"/>">Last Submission Time</A>
+                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("submit_time")%>" includeParams="true" excludeParams="sr,nr"/>">Last Submission Time</A>
                     </td>
                     <td class="tableHeader" width="20%" align="center" nowrap="nowrap">
-                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("submission_number")%>" includeParams="true"/>">Submissions</A>
+                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("submission_number")%>" includeParams="true" excludeParams="sr,nr"/>">Submissions</A>
                     </td>
                 </tr>
                 <%-- ITERATOR --%>

@@ -30,8 +30,8 @@ public class ViewStandings extends Base {
         String roundID = request.getParameter(Constants.ROUND_ID);
         String sortCol = StringUtils.checkNull(request.getParameter(DataAccessConstants.SORT_COLUMN));
         String sortOrd = StringUtils.checkNull(request.getParameter(DataAccessConstants.SORT_DIRECTION));
-        String startRank = request.getParameter(DataAccessConstants.START_RANK);
-        String numRecords = request.getParameter(DataAccessConstants.NUMBER_RECORDS);
+        String startRank = StringUtils.checkNull(request.getParameter(DataAccessConstants.START_RANK));
+        String numRecords = StringUtils.checkNull(request.getParameter(DataAccessConstants.NUMBER_RECORDS));
 
         try {
 
@@ -113,20 +113,20 @@ public class ViewStandings extends Base {
 
                     }
 
-                    if (numRecords==null) {
+                    if (numRecords.equals("")) {
                         numRecords = Constants.DEFAULT_ROW_COUNT;
                     } else if (Integer.parseInt(numRecords) > Integer.parseInt(Constants.DEFAULT_ROW_COUNT)) {
                         numRecords = Constants.DEFAULT_ROW_COUNT;
                     }
                     setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
-                    log.debug("num records set to " + numRecords);
 
-                    if (startRank!=null) {
-                        setDefault(DataAccessConstants.START_RANK, startRank);
+                    if (startRank.equals("")) {
+                        startRank="1";
+                    }
+                    setDefault(DataAccessConstants.START_RANK, startRank);
+                    if (Integer.parseInt(startRank)>1 || standings.size()>Integer.parseInt(numRecords)) {
                         standings = new ResultSetContainer(standings, Integer.parseInt(startRank),
                                 Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1);
-                    } else {
-                        setDefault(DataAccessConstants.START_RANK, "1");
                     }
 
                     request.setAttribute(Constants.ROUND_STANDINGS_LIST_KEY, standings);
