@@ -53,7 +53,7 @@ Each Marathon Match will contain a single problem.  The problem statement will i
 <br><br>
 By participating in the competition round, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.
 <br><br>
-Contestants must not cheat; all ideas for any code and/or challenge submitted must be the contestant's alone.
+Contestants must not cheat; all ideas for any code submitted must be the contestant's alone.
 <br><br>
 The winner in each Marathon Match will be the competitor that scores the most points across all competitors who participate in that match. All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the competition shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.
 <br><br>
