@@ -108,6 +108,8 @@
                                     <A href="<%=sortLinkBase%><tc-webtag:sort column="5"/>">Time</A></td>
                                 <td class="tableHeader" width="25%" align="right">
                                     <A href="<%=sortLinkBase%><tc-webtag:sort column="6"/>">Score</A></td>
+                                <td class="tableHeader" width="25%" align="right">
+                                    <A href="<%=sortLinkBase%><tc-webtag:sort column="<%=submissions.getColumnIndex("language_name")%>"/>">Language</A></td>
                                 <% if (over) { %>
                                 <td class="tableHeader" width="25%" align="right">&#160;</td>
                                 <% } %>
@@ -121,6 +123,8 @@
                                         <tc-webtag:format object="<%=new Date(resultRow.getLongItem("submit_time"))%>" format="MM.dd.yyyy HH:mm:ss"/></td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="right">
                                         <rsc:item name="submission_points" row="<%=resultRow%>" format="0.00"/><%=resultRow.getIntItem("status_id")==130?"*":""%></td>
+                                    <td class="<%=even?"statLt":"statDk"%>" align="center">
+                                        <rsc:item name="language_name" row="<%=resultRow%>"/></td>
                                     <% if (over) { %>
                                     <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;">
                                         <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemSolution&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>">solution</A>
