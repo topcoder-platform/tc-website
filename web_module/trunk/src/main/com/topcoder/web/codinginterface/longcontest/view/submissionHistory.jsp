@@ -102,16 +102,16 @@
                                 <% } %>
                             </tr>
                             <tr>
-                                <td class="tableHeader" width="25%">
+                                <td class="tableHeader" width="20%">
                                     <A href="<%=sortLinkBase%><tc-webtag:sort column="4"/>">Submission</A></td>
-                                <td class="tableHeader" width="25%" align="center">
+                                <td class="tableHeader" width="20%" align="center">
                                     <A href="<%=sortLinkBase%><tc-webtag:sort column="5"/>">Time</A></td>
-                                <td class="tableHeader" width="25%" align="right">
+                                <td class="tableHeader" width="20%" align="right">
                                     <A href="<%=sortLinkBase%><tc-webtag:sort column="6"/>">Score</A></td>
-                                <td class="tableHeader" width="25%" align="right">
+                                <td class="tableHeader" width="20%" align="center">
                                     <A href="<%=sortLinkBase%><tc-webtag:sort column="<%=submissions.getColumnIndex("language_name")%>"/>">Language</A></td>
                                 <% if (over) { %>
-                                <td class="tableHeader" width="25%" align="right">&#160;</td>
+                                <td class="tableHeader" width="20%" align="right">&#160;</td>
                                 <% } %>
                             </tr>
                             <%boolean even = true;%>
