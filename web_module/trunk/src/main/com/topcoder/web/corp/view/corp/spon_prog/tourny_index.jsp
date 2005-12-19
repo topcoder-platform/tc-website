@@ -89,20 +89,19 @@
 
                         <table width="530" border="0" cellpadding="5" cellspacing="0" align="center">
                         	<tr>
-                        		<td><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about"><img src="/i/corp/tourny_tco05.gif" width="182" height="88" alt="" border="0"></a></td>
-                        		<td><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=about"><img src="/i/corp/tourny_tccc05.gif" width="182" height="88" alt="" border="0"></a></td>
+                        		<td align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about"><img src="/i/corp/tourny_tco05.gif" width="182" height="88" alt="" border="0"></a></td>
+                        		<td align="center"><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=about"><img src="/i/corp/tourny_tccc05.gif" width="182" height="88" alt="" border="0"></a></td>
                         	</tr>
                         	<tr>
-                        		<td><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/corp/tourny_tco04.gif" width="182" height="88" alt="" border="0"></a></td>
-                        		<td><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_about"><img src="/i/corp/tourny_tccc04.gif" width="182" height="88" alt="" border="0"></a></td>
+                        		<td align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/corp/tourny_tco04.gif" width="182" height="88" alt="" border="0"></a></td>
+                        		<td align="center"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_about"><img src="/i/corp/tourny_tccc04.gif" width="182" height="88" alt="" border="0"></a></td>
                         	</tr>
                         	<tr>
-                        		<td><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=final"><img src="/i/corp/tourny_tco03.gif" width="182" height="88" alt="" border="0"></a></td>
-                        		<td><a href="/index?t=tournaments&c=tccc03_champ"><img src="/i/corp/tourny_tccc03.gif" width="182" height="88" alt="" border="0"></a></td>
+                        		<td align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=final"><img src="/i/corp/tourny_tco03.gif" width="182" height="88" alt="" border="0"></a></td>
+                        		<td align="center"><a href="/index?t=tournaments&c=tccc03_champ"><img src="/i/corp/tourny_tccc03.gif" width="182" height="88" alt="" border="0"></a></td>
                         	</tr>
                         	<tr>
-                        		<td><a href="/index?t=tournaments&c=invit02_champ"><img src="/i/corp/tourny_tci02.gif" width="182" height="88" alt="" border="0"></a></td>
-                        		<td><a href="/index?t=tournaments&c=2002tccc_champ"><img src="/i/corp/tourny_tccc02.gif" width="182" height="88" alt="" border="0"></a></td>
+                        		<td colspan="2" align="center"><a href="/index?t=tournaments&c=2002tccc_champ"><img src="/i/corp/tourny_tccc02.gif" width="182" height="88" alt="" border="0"></a></td>
                         	</tr>
                        </table>
 
