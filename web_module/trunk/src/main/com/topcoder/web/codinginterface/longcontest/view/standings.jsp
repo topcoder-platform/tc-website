@@ -126,6 +126,9 @@
                         <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("submit_time")%>" includeParams="true" excludeParams="sr,nr"/>">Last Submission Time</A>
                     </td>
                     <td class="tableHeader" width="20%" align="center" nowrap="nowrap">
+                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("language_name")%>" includeParams="true" excludeParams="sr,nr"/>">Language</A>
+                    </td>
+                    <td class="tableHeader" width="20%" align="center" nowrap="nowrap">
                         <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("submission_number")%>" includeParams="true" excludeParams="sr,nr"/>">Submissions</A>
                     </td>
                 </tr>
@@ -142,12 +145,14 @@
 <td class="<%=even?"statLt":"statDk"%>" align="center">
 <tc-webtag:format object="<%=new Date(resultRow.getLongItem("submit_time"))%>" format="MM.dd.yyyy HH:mm:ss"/></td></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center">
+<tc-webtag:format object="<%=resultRow.getStringItem("language_name")%>"/></td></td>
+<td class="<%=even?"statLt":"statDk"%>" align="center">
 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_SUBMISSION_HISTORY%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>" class="statLink">
 <rsc:item name="submission_number" row="<%=resultRow%>"/>
 </A></td></tr><%even = !even;%></rsc:iterator>
                 <%-- END ITERATOR --%>
-            </TABLE>
-        </TD>
+            </table>
+        </td>
     </tr>
 </TABLE>
     <p>* Indicates that this competitor's most recent submission has not yet been scored</p>
