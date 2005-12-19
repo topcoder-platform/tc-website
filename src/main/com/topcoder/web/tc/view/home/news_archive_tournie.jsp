@@ -35,6 +35,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">12.19.05 1:15 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign">VeriSign returns as TCO06 sponsor</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.12.05 2:15 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">NSA returns as TCO06 event patron</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.05.05 10:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ccip_description">TCO06 Complete Coder Incentive Program</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.30.05 5:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=logo_winner">b21 is the TCO06 Logo Contest Winner!</A></td></tr>
