@@ -47,6 +47,20 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%--  TCO06 Verisign --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_121905"><img src="/i/pressroom/verisign_logo.gif" alt="Verisign" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_121905">TopCoder Welcomes VeriSign as Return Sponsor of 2006 TopCoder Open in Las Vegas</A></strong></font><br />
+                        "We are proud to be a returning sponsor of the 2006 TopCoder Open, which provides companies like VeriSign a pool of talented professional and academic minds to choose the next-generation of employees that will develop advanced services and technologies,"<span class="prHead"> [December 19]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- Forbes --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -63,7 +77,6 @@
 
             <hr width="100%" size="1" noshade="noshade" />
   
-
 <%-- BusinessWeek --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
