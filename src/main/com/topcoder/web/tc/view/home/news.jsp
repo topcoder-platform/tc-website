@@ -7,20 +7,7 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>12.19.05<br>1:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign">Employment Services chat session scheduled for SRM 278</A></span><br><br>
-      TopCoder Employment Services will be in the Arena at 8:00 pm, prior to SRM 278, to discuss job openings in the Tampa Bay, FL area.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505879" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
+<%------------------------------------------------------
 
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>12.12.05<br>1:15 PM</td>
@@ -33,6 +20,19 @@
        <A href="/tc?module=Static&d1=pressroom&d2=pr_121905">press release</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505880" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+--%>
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>12.19.05<br>4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign">Employment Services chat session scheduled for SRM 278</A></span><br><br>
+      TopCoder Employment Services will be in the Arena at 8:00 pm, prior to SRM 278, to discuss job openings in the Tampa Bay, FL area.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505879" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
