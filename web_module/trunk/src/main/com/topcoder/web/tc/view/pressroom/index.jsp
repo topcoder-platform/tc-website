@@ -47,7 +47,7 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
-<%--  TCO06 Verisign --%>
+<%--  TCO06 Verisign 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_121905"><img src="/i/pressroom/verisign_logo.gif" alt="Verisign" border="0" /></A></td>
@@ -60,7 +60,7 @@
             </table>
 
             <hr width="100%" size="1" noshade="noshade" />
-
+--%>
 <%-- Forbes --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
