@@ -19,7 +19,7 @@
     ResultSetContainer submissions = (ResultSetContainer) resultMap.get("long_coder_submissions");
     ResultSetContainer tmp = (ResultSetContainer) resultMap.get("long_contest_over");
     boolean over = tmp.getBooleanItem(0, 0);
-    boolean self = !submissions.isEmpty() && submissions.getLongItem(0, "coder_id")==sessionInfo.getUser().getId();
+    boolean self = !submissions.isEmpty() && submissions.getLongItem(0, "coder_id")==sessionInfo.getUserId();
     tmp = (ResultSetContainer) resultMap.get("long_contest_coder_submissions_info");
     ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow) tmp.get(0);
 %>
