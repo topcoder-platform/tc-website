@@ -46,6 +46,7 @@
                     <li>Add total submission count to active contests page</li>
                     <li>add language to standings page</li>
                     <li>link to submission from submission history page if you're looking at your own stuff</li>
+                    <li>fixed bug in sorting tag where ignored parameters weren't actually ignored</li>
                 </ul>
             </li>
         </ul>
