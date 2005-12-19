@@ -24,8 +24,10 @@
 <div align="center"><img src="/i/tournament/tco06/verisign_logo_final.gif" alt="VeriSign" border="0" /></div>
 <br><br>
 By clicking "Submit" below you will be releasing your TopCoder contact and statistical information to VeriSign and you will be giving VeriSign permission to contact you about their current job opportunities.
-<br><br>               
+<br><br>
+<%--               
 <A href="/tc?module=JobHit&jid=328&jt=1">Submit</A>.
+--%>
 <br><br><br><br><br><br>
         </div>
       </td>
