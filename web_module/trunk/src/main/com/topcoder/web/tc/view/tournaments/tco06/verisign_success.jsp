@@ -21,7 +21,7 @@
       <td valign=top align=center>
       <div class="bodySpacer">
             
-<div align="center"><img src="/i/tournament/tco06/verisign_logo.gif" alt="NSA" border="0" /></div>
+<div align="center"><img src="/i/tournament/tco06/verisign_logo_final.gif" alt="VeriSign" border="0" /></div>
 <br><br>
 Your application has been received.
 <br><br><br><br><br><br><br><br><br><br>

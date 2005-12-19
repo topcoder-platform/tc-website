@@ -21,7 +21,7 @@
       <td valign=top align=center>
       <div class="bodySpacer">
             
-<div align="center"><img src="/i/tournament/tco06/verisign_logo.gif" alt="NSA" border="0" /></div>
+<div align="center"><img src="/i/tournament/tco06/verisign_logo_final.gif" alt="VeriSign" border="0" /></div>
 <br><br>
 By clicking "Submit" below you will be releasing your TopCoder contact and statistical information to VeriSign and you will be giving VeriSign permission to contact you about their current job opportunities.
 <br><br>               
