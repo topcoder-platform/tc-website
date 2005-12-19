@@ -8,6 +8,19 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>12.19.05<br>10:10 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/?RoundId=8075&t=schedule&c=srm">Employment Services chat session scheduled for SRM 278</A></span><br><br>
+      TopCoder Employment Services will be in the Arena at 8:00 pm, prior to SRM 278, to discuss job openings in the Tampa Bay, FL area as well
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/?RoundId=8075&t=schedule&c=srm">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505879" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>12.19.05<br>10:05 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -279,20 +292,6 @@
          <A href="/tc?module=ViewSurvey&sid=213">vote</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505817" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.22.05<br>5:25 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.infoworld.com/article/05/11/22/HNgooglecompetition_1.html">Google to hold programming competition in China</A></span><br><br>
-      "Hoping to attract talented Chinese programmers to Google's (Profile, Products, Articles) planned research and development (R&D) center in Beijing, the company will host a programming competition, called the Google China Code Jam."
-      <br><br>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://www.infoworld.com/article/05/11/22/HNgooglecompetition_1.html">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505832" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
 

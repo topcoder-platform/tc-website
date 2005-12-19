@@ -36,6 +36,7 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">12.19.05 10:10 AM&#160;-&#160</td><td width="100%"><A href="/?RoundId=8075&t=schedule&c=srm">Employment Services chat session scheduled for SRM 278</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.21.05 11:40 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=contracting&d2=msn_chat_111905">MSN chat session from SRM 272</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.18.05 5:10 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=contracting&d2=msn">MSN chat session scheduled for SRM 272</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.14.05 12:00 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=contracting&d2=msn">MSN is hiring TopCoders</A></td></tr>
