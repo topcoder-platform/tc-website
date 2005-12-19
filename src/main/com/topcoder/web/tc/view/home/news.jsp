@@ -6,6 +6,22 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>12.19.05<br>1:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="tc?module=Static&d1=pressroom&d2=pr_121905">TopCoder Welcomes VeriSign as Return Sponsor of 2006 TopCoder Open in Las Vegas</A></span><br><br>
+      "We are proud to be a returning sponsor of the 2006 TopCoder Open, which provides companies like VeriSign a pool of talented professional and academic minds to choose the next-generation of employees that will develop advanced services and technologies,"<span class="prHead"> [December 19]
+      <br><br>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="tc?module=Static&d1=pressroom&d2=pr_121905">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505880" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
+   </td></tr>
+
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>12.19.05<br>10:10 AM</td>
@@ -279,19 +295,6 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm273">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505787" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.23.05<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=213">Vote for the TCO06 logo</A></span><br><br>
-      The 10 finalists are ready for you to rank.  Voting ends at 5:00pm on Wednesday, November 30, 2005.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=ViewSurvey&sid=213">vote</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505817" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 
