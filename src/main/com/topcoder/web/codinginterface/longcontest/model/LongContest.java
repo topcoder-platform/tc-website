@@ -22,6 +22,7 @@ public class LongContest {
     private int numRegistrants;
     private ImageInfo sponsorImage;
     private long forumId;
+    private int submissionCount;
 
     public boolean isCoderRegistered() {
         return coderRegistered;
@@ -149,6 +150,14 @@ public class LongContest {
 
     public void setForumId(long forumId) {
         this.forumId = forumId;
+    }
+
+    public int getSubmissionCount() {
+        return submissionCount;
+    }
+
+    public void setSubmissionCount(int submissionCount) {
+        this.submissionCount = submissionCount;
     }
 
 }

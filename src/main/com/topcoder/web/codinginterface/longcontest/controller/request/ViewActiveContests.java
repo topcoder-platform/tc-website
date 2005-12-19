@@ -64,6 +64,7 @@ public class ViewActiveContests extends Base {
                 longContest.setStarted(rsc.getBooleanItem(i, "started"));
                 longContest.setNumCompetitors(rsc.getIntItem(i, "num_competitors"));
                 longContest.setNumRegistrants(rsc.getIntItem(i, "num_registrants"));
+                longContest.setSubmissionCount(rsc.getIntItem(i, "submission_count"));
                 if (rsc.getStringItem(i, "forum_id")!=null) {
                     longContest.setForumId(rsc.getLongItem(i, "forum_id"));
                 }
@@ -110,6 +111,8 @@ public class ViewActiveContests extends Base {
                         longContest.setContestID(rscPassContests.getLongItem(i, "contest_id"));
                         longContest.setNumCompetitors(rscPassContests.getIntItem(i, "num_competitors"));
                         longContest.setNumRegistrants(rscPassContests.getIntItem(i, "num_registrants"));
+                        longContest.setSubmissionCount(rscPassContests.getIntItem(i, "submission_count"));
+
                         if (rscPassContests.getStringItem(i, "forum_id")!=null) {
                             longContest.setForumId(rscPassContests.getLongItem(i, "forum_id"));
                         }
