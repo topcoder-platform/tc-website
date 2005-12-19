@@ -8,6 +8,23 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>12.19.05<br>10:05 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm277">SRM 277 - Problem Set & Analysis</A></span><br><br>
+      With 963 registrants, participants were bound to get a run for their money in both divisions. Division 1 coders were greeted by a complimentary 250 only to face a tricky 500 and a hard-to-code 1000.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/lovro_mug.gif" /><br>by <tc-webtag:handle coderId="7390467" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm277">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505791" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>12.15.05<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=collegetour&d2=description">Introducing the U.S. College Tour</A></span><br><br>
       TopCoder will be touring U.S. universities during 2006.  Is your school on the schedule?
@@ -276,19 +293,6 @@
        <A href="http://www.infoworld.com/article/05/11/22/HNgooglecompetition_1.html">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505832" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>11.18.05<br>5:10 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=msn_chat_111905">MSN chat session from SRM 272</A></span><br><br>
-      MSN recently held a chat session just prior to SRM 272 to discuss working at MSN.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=contracting&d2=msn_chat_111905">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505830" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
 
