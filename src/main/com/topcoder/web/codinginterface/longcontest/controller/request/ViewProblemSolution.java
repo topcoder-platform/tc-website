@@ -24,10 +24,10 @@ public class ViewProblemSolution extends Base {
             TCRequest request = getRequest();
             String round = request.getParameter(Constants.ROUND_ID);
             String coder = request.getParameter(Constants.CODER_ID);
+            log.debug("coder: " + coder + " user " + getUser().getId());
             String dataSource = DBMS.DW_DATASOURCE_NAME;
             //if the results aren't final, they can see their own code, but not anyone else's
-            if (!areResultsAvailable(Long.parseLong(round)) &&
-                    String.valueOf(getUser().getId()).equals(coder)) {
+            if (!areResultsAvailable(Long.parseLong(round)) && getUser().getId()==Long.parseLong(coder)) {
                 dataSource = DBMS.OLTP_DATASOURCE_NAME;
             } else {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
