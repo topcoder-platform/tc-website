@@ -19,6 +19,7 @@
     ResultSetContainer submissions = (ResultSetContainer) resultMap.get("long_coder_submissions");
     ResultSetContainer tmp = (ResultSetContainer) resultMap.get("long_contest_over");
     boolean over = tmp.getBooleanItem(0, 0);
+    boolean self = !submissions.isEmpty() && submissions.getLongItem(0, "coder_id")==sessionInfo.getUser().getId();
     tmp = (ResultSetContainer) resultMap.get("long_contest_coder_submissions_info");
     ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow) tmp.get(0);
 %>
@@ -95,7 +96,7 @@
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
                             <tr>
-                                <% if (over) { %>
+                                <% if (over||self) { %>
                                 <td class="tableTitle" colspan="5">Submission History</td>
                                 <% } else { %>
                                 <td class="tableTitle" colspan="4">Submission History</td>
@@ -110,7 +111,7 @@
                                     <A href="<%=sortLinkBase%><tc-webtag:sort column="6"/>">Score</A></td>
                                 <td class="tableHeader" width="20%" align="center">
                                     <A href="<%=sortLinkBase%><tc-webtag:sort column="<%=submissions.getColumnIndex("language_name")%>"/>">Language</A></td>
-                                <% if (over) { %>
+                                <% if (over||self) { %>
                                 <td class="tableHeader" width="20%" align="right">&#160;</td>
                                 <% } %>
                             </tr>
@@ -125,7 +126,7 @@
                                         <rsc:item name="submission_points" row="<%=resultRow%>" format="0.00"/><%=resultRow.getIntItem("status_id")==130?"*":""%></td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center">
                                         <rsc:item name="language_name" row="<%=resultRow%>"/></td>
-                                    <% if (over) { %>
+                                    <% if (over||self) { %>
                                     <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;">
                                         <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemSolution&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>">solution</A>
                                     </td>
