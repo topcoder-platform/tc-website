@@ -188,6 +188,8 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            TopCoder Welcomes VeriSign as Return Sponsor of 2006 TopCoder Open in Las Vegas <A href="/tc?module=Static&d1=pressroom&d2=pr_121905">...more</A><br>[December 19]<br><br>
+
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/forbes_logo.gif" width="67" height="23" alt="Forbes" border="0" /></div>
             Help Wanted In Silicon Valley<A href="http://www.forbes.com/home/work/2005/12/09/silicon-valley-hiring-cx_rr_1212hire.html" target="_blank">&nbsp;...more</A><br>[December 12]<br><br>
 
@@ -201,9 +203,6 @@ margin:0px auto;
             Google to hold programming competition in China <A href="http://www.infoworld.com/article/05/11/22/HNgooglecompetition_1.html" target="_blank">...more</A><br>[November 22]<br><br>
 
             TopCoder Payouts to Winners of Design and Development Competitions Surpass $1 Million <A href="/tc?module=Static&d1=pressroom&d2=pr_112105">...more</A><br>[November 21]<br><br>
-
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/ftponline_logo.gif" width="67" height="18" alt="FTPONLINE" border="0" /></div>
-            Spirited Reusable Component Development <A href="http://www.ftponline.com/weblogger/forum.aspx?ID=13&DATE=11/01/2005&blog=#449" target="_blank">...more</A><br>[November 1]<br><br>
 
             </td>
          </tr>
