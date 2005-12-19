@@ -26,7 +26,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>12.19.05<br>4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign">Employment Services chat session scheduled for SRM 278</A></span><br><br>
-      TopCoder Employment Services will be in the Arena at 8:00 pm, prior to SRM 278, to discuss job openings in the Tampa Bay, FL area.
+      TopCoder Employment Services will be in the Arena at 8:00 pm, prior to SRM 278, to discuss job openings in the Florida area, specifically in the Tampa Bay, St. Petersburg, and Clearwater areas.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
