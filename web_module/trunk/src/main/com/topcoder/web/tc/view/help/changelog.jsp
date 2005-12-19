@@ -38,6 +38,20 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
+        4.1.3 - 2005 12.19
+        <ul>
+            <li>Marathon Match site Minor enhancements/bug fixes
+                <ul>
+                    <li>Make paging on the standings page work</li>
+                    <li>Add total submission count to standings page</li>
+                    <li>add language to standings page</li>
+                    <li>link to submission from submission history page if you're looking at your own stuff</li>
+                </ul>
+            </li>
+        </ul>
+
+    </p>
+    <p>
         4.1.2 - 2005 12.15
         <ul>
             <li>Marathon Match site
