@@ -43,7 +43,7 @@
             <li>Marathon Match site Minor enhancements/bug fixes
                 <ul>
                     <li>Make paging on the standings page work</li>
-                    <li>Add total submission count to standings page</li>
+                    <li>Add total submission count to active contests page</li>
                     <li>add language to standings page</li>
                     <li>link to submission from submission history page if you're looking at your own stuff</li>
                 </ul>
