@@ -58,6 +58,7 @@
                         <td class="tableHeader" colspan="3" nowrap="nowrap">Problem Name</td>
                         <td class="tableHeader" align="center" nowrap="nowrap">Registrants</td>
                         <td class="tableHeader" align="center" nowrap="nowrap">Competitors</td>
+                        <td class="tableHeader" align="center" nowrap="nowrap">Submissions</td>
                         <td class="tableHeader" align="center" nowrap="nowrap">Start time</td>
                         <td class="tableHeader" align="center" nowrap="nowrap">End time</td>
                         <td class="tableHeader" align="center" nowrap="nowrap">Forum</td>
@@ -117,6 +118,8 @@
                                     <tc-webtag:beanWrite name="contest" property="numRegistrants"/></A></td>
                             <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
                                     <tc-webtag:beanWrite name="contest" property="numCompetitors"/></td>
+                            <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
+                                                    <tc-webtag:beanWrite name="contest" property="submissionCount"/></td>
                             <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
                                 <tc-webtag:beanWrite name="contest" property="startTime"
                                                      format="MM.dd.yyyy HH:mm"/></td>
