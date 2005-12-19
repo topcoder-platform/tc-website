@@ -96,9 +96,9 @@
 
                             <tr>
                                 <% if (over) { %>
-                                <td class="tableTitle" colspan="4">Submission History</td>
+                                <td class="tableTitle" colspan="5">Submission History</td>
                                 <% } else { %>
-                                <td class="tableTitle" colspan="3">Submission History</td>
+                                <td class="tableTitle" colspan="4">Submission History</td>
                                 <% } %>
                             </tr>
                             <tr>
