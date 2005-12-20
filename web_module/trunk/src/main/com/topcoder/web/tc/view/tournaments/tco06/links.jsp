@@ -73,12 +73,13 @@
                <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=photos"><img src="/i/tournament/tco06/tabs/L2_onsiteeventsOff.gif" alt="" border=0 /></A></td>
             <% } %>
 
+--%>
+
             <% if (tabLev2.equals("sponsors")) {%>
                <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign"><img src="/i/tournament/tco06/tabs/L2_sponsorsOn.gif" alt="" border=0 /></A></td>
             <% } else { %>
                <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign"><img src="/i/tournament/tco06/tabs/L2_sponsorsOff.gif" alt="" border=0 /></A></td>
             <% } %>
---%>
 
             <% if (tabLev2.equals("eventPatrons")) {%>
                <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa"><img src="/i/tournament/tco06/tabs/L2_eventPatronsOn.gif" alt="" border=0 /></A></td>
