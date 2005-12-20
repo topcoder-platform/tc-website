@@ -155,14 +155,14 @@ margin:0px auto;
             <A href="/?RoundId=8074&t=schedule&c=srm"><img src="/i/home/msn_srm277.gif" alt="MSN" border="0" /></A>
 --%>
 <%-- SAP
-            <A href="/?RoundId=8073&t=schedule&c=srm"><img src="/i/home/sap_srm276.gif" alt="SAP" border="0" /></A>
 --%>
+            <A href="/?RoundId=8073&t=schedule&c=srm"><img src="/i/home/sap_srm279.gif" alt="SAP" border="0" /></A>
 <%-- GCJC
             <A href="/gcjc"><img src="/i/home/gcjc.gif" alt="Google Code Jam China" border="0" /></A>
 --%>
 <%-- TCES
---%>
             <A href="/?RoundId=8075&t=schedule&c=srm"><img src="/i/home/tces_srm278.gif" alt="TCES" border="0" /></A>
+--%>
          </td></tr>
       </table>
       <table border="0" cellpadding="0" cellspacing="0">
