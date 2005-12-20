@@ -44,9 +44,9 @@
 
 <span class="bigTitle">Match summary</span>
 <p> 
-Recent <a href="/tc?module=Static&d1=tutorials&d2=maxFlow">Maximum Flow Tutorial</a>
- was followed by a bipartite matching Division 1 - Level 3 problem. Other two were much easier, so 6 coders were able to hit 1500+ points mark.
-In a tough race, 2 challenges helped krijgertje to win the SRM and appear in the top-3 for the 4-th SRM in a row. 
+The recent <a href="/tc?module=Static&d1=tutorials&d2=maxFlow">Maximum Flow Tutorial</a>
+ was followed by a bipartite matching Division 1 - Level 3 problem. The other two were much easier, so 6 coders were able to hit the 1500+ points mark.
+In a tough race, 2 challenges helped krijgertje to win the SRM and appear in the top 3 for the 4th SRM in a row. 
 tmyklebu, Petr and happyyellow followed all within 1 challenge, with misof being another 100 points behind.
 </p>
 <p>
