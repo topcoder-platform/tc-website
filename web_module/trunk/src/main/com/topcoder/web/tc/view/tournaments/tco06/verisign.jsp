@@ -21,9 +21,9 @@
       <td valign=top align=center>
       <div class="bodySpacer">
             
-<div align="center"><img src="/i/tournament/tco06/verisign_logo_final.gif" alt="VeriSign" border="0" /></div>
+<div align="center"><img src="/i/tournament/tco06/verisign_logo.gif" alt="VeriSign" border="0" /></div>
 <br><br>
-<span class="bigTitle">Where it All Comes Together</span>
+<span class="bigTitle">VeriSign... Where it All Comes Together.&#153;</span>
 <br><br>
 Billions of times each day, people all over the world will visit Web pages, make phone calls, conduct online purchases, download digital content to mobile devices, and run secure online applications. And at the center, you'll find VeriSign, enabling and protecting digital interactions. Every day, the world relies on VeriSign intelligent infrastructure services to reap the benefits of the ongoing revolution in digital communications, commerce, and content. 
 <br><br>
