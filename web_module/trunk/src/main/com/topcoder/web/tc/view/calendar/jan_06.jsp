@@ -117,7 +117,7 @@
             <strong>Match 282</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
-            <%--Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=nsa">NSA</A><br />--%>
+            Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=nsa">NSA</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=8079&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">11</td>
