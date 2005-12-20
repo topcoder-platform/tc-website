@@ -53,7 +53,7 @@ Although P.S was rewarded with a 274 point rating jump, both <b>fbird</b>'s and 
 were enough to make up for the deficit on the level three and P.S ended up in third place overall. </P>
                         
 <H1>The Problems</H1>
-<FONT size="+2"><B>MarginCalculator</B></FONT>
+<FONT size="+2"><B>MarginCalculator</B></FONT>&#160;
 <A href="http://forums.topcoder.com/?module=ThreadList&forumID=505590" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
 
 Used as: Division-II, Level 1:
@@ -84,7 +84,7 @@ value) and divide it by the total price. We then multiply this percentage by
 <CODE>100</CODE> and truncate it (by casting it to an <CODE>int</CODE>) and 
 return it. </p>
 
-<FONT size="+2"><B>SuperRot</B></FONT>
+<FONT size="+2"><B>SuperRot</B></FONT>&#160;
 <A href="http://forums.topcoder.com/?module=ThreadList&forumID=505590" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
 
 Used as: Division-II, Level 2:
@@ -141,7 +141,7 @@ transformations to it: </p>
 construct a new string or do our work in a mutable string buffer, but the 
 concept is the same. </p>
 
-<FONT size="+2"><B>ContestScore</B></FONT>
+<FONT size="+2"><B>ContestScore</B></FONT>&#160;
 <A href="http://forums.topcoder.com/?module=ThreadList&forumID=505590" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
 
 Used as: Division-II, Level 3:
@@ -249,7 +249,7 @@ Used as: Division-I, Level 1:
             </p>
 <p><br  /></p>
 
-<font size="+2"><b>PossibleOrders</b></font>
+<font size="+2"><b>PossibleOrders</b></font>&#160;
 <A href="http://forums.topcoder.com/?module=ThreadList&forumID=505590" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
 
 Used as: Division-I, Level 3:
