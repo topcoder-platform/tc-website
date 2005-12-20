@@ -1,4 +1,5 @@
-    <%@ page
+<%@ page contentType="text/html;charset=utf-8" %>
+<%@ page
         language="java"
         import="com.topcoder.web.codinginterface.longcontest.Constants"
 
@@ -16,6 +17,7 @@
     <title>TopCoder</title>
     <jsp:include page="script.jsp" />
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 
 <body>
