@@ -175,9 +175,9 @@ margin:0px auto;
             <td class="homeText"><br>
             <b>12/08</b> - SRM 276 - 11AM - SAP<br><br>
             <b>12/17</b> - SRM 277 - 12 noon - MSN<br><br>
-            <b>12/19</b> - SRM 278 - 9PM<br><br>
+            <b>12/19</b> - SRM 278 - 9PM - TCES<br><br>
             <b>12/21</b> - SRM 279 - 7AM - SAP<br><br>
-            <b>12/28</b> - SRM 280 - 9PM<br><br>
+            <b>12/28</b> - SRM 280 - 9PM - VeriSign<br><br>
             </td>
          </tr>
 <%-- Press Room --%>

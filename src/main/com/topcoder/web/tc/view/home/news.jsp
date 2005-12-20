@@ -9,6 +9,36 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>12.20.05<br>4:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm278">SRM 278 - Problem Set & Analysis</A></span><br><br>
+      In a tough race, 2 challenges helped <tc-webtag:handle coderId="9906197" context="algorithm"/> to win the SRM and appear in the top 3 for the 4th SRM in a row.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/Olexiy_mug.gif" /><br>by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm278">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505792" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>12.20.05<br>3:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=tces_chat_121905">TCES chat transcript from SRM 278</A></span><br><br>
+      TCES recently held a chat session just prior to SRM 278 to discuss job openings in Florida.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=contracting&d2=tces_chat_121905">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505882" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>12.20.05<br>2:40 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=msn_chat_121705">MSN chat transcript from SRM 277</A></span><br><br>
       MSN recently held a chat session just prior to SRM 277 to discuss working at MSN.
@@ -259,33 +289,6 @@
          <A href="/tc?module=Static&d1=tutorials&d2=sorting">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505834" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>11.30.05<br>5:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=logo_winner">b21 is the TCO06 Logo Contest Winner!</A></span><br><br>
-      Congratulations to <tc-webtag:handle coderId="14947701"/>.  Take a look at the final results.  It was a close one.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=SurveyResults&sid=213">survey results</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505817" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>11.30.05<br>4:25 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/usatoday_113005.pdf">TopCoder Survey in USA Today [PDF]</A></span><br><br>
-      A TopCoder survey on where members would prefer to work (given equal pay) is running as a Snapshot in today's Money section of USA Today (bottom left).
-      <br><br>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/pdfs/press_room/usatoday_113005.pdf">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505833" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
 
