@@ -110,7 +110,7 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
 
 </table></blockquote> 
 <p>
-Given a Hight of rectangles split into groups, find the group with the biggest total area. 
+Given several rectangles split into groups, find the group with the biggest total area. 
 The most difficult part here is to calculate the value for each of the groups.
 One must use map structure in a general case, but much simpler approach works. 
 Group name is limited to one letter in the problem, therefore an array of 26 elements can store values for all possible group names.
