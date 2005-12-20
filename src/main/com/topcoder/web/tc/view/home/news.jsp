@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>12.20.05<br>2:40 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=msn_chat_121705">MSN chat transcript from SRM 277</A></span><br><br>
+      MSN recently held a chat session just prior to SRM 277 to discuss working at MSN.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=contracting&d2=msn_chat_121705">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505829" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>12.20.05<br>1:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign">VeriSign returns as TCO06 sponsor</A></span><br><br>
       "We are proud to be a returning sponsor of the 2006 TopCoder Open, which provides companies like VeriSign a pool of talented professional and academic minds to choose the next-generation of employees that will develop advanced services and technologies."
@@ -274,24 +287,6 @@
        <tc-webtag:forumLink forumID="505833" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>11.25.05<br>2:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm274">SRM 274 - Problem Set & Analysis</A></span><br><br>
-      SRM 274 was won by <tc-webtag:handle coderId="10574855" context="algorithm"/> with 1862.76 points, with the second-fastest time on each of the three problems, and 5 successful and 2 unsuccessful challenges.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/John_Dethridge_mug.gif" /><br>by <tc-webtag:handle coderId="270505" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm274">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505788" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
 
 
 </table>
