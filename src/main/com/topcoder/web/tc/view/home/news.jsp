@@ -24,6 +24,19 @@
 --%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>12.20.05<br>10:15 AM</td>
+     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=8075">Software advancements survey</A></span><br><br>
+      What category of software applications do you feel will see the greatest advancements in the the next 12 months?
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=ViewSurvey&sid=8075">view survey</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505881" message="discuss this" />&#160;|&#160;
+         <A href="/tc?&module=SurveyList">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>12.19.05<br>4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/?RoundId=8075&t=schedule&c=srm">Employment Services chat session scheduled for SRM 278</A></span><br><br>
       TopCoder Employment Services will be in the Arena at 8:00 pm, prior to SRM 278, to discuss job openings in the Florida area, specifically in the Tampa Bay, St. Petersburg, and Clearwater areas.
@@ -280,22 +293,6 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>11.25.05<br>2:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm273">SRM 273 - Problem Set & Analysis</A></span><br><br>
-      In Div1, the top scores were quite impressive. Out of the 14 coders who solved all three problems, <tc-webtag:handle coderId="10574855" context="algorithm"/> was a clear winner with a score of 1483.76.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/supernova_mug.gif" /><br>by <tc-webtag:handle coderId="7371063" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm273">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505787" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
 
 
 </table>
