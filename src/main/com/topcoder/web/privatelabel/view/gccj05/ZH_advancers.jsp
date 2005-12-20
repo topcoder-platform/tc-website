@@ -57,13 +57,13 @@
                         <td class="sidebarText" align="right"><a
                                 href="/pl/?module=Static&d1=gccj05&d2=ZH_advQual">500</a></td>
                     </tr>
-<%--
                     <tr valign="top">
                         <td class="advancersRound"><a href="/pl/?module=Static&d1=gccj05&d2=ZH_advRound1"
-                                                      class="topLink">Round 1</a></td>
+                                                      class="topLink">第一轮</a></td>
                         <td class="sidebarText" align="right"><a
-                                href="/pl/?module=Static&d1=gccj05&d2=ZH_advRound1">50</a></td>
+                                href="/pl/?module=Static&d1=gccj05&d2=ZH_advRound1">250</a></td>
                     </tr>
+<%--
                     <tr valign="top">
                         <td class="advancersRound"><a href="/pl/?module=Static&d1=gccj05&d2=ZH_advFinal"
                                                       class="topLink">Onsite Finals</a></td>

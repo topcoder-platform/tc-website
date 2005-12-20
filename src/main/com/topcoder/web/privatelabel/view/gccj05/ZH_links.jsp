@@ -53,8 +53,8 @@
     <%-- Advancers tab --%>
     <%--
     --%>
-    <% if (selectedTab.equals("晋级")) {%>
-         <font color="006633">Advancers</font> &nbsp;|&nbsp;
+    <% if (selectedTab.equals("advancers")) {%>
+         <font color="006633">晋级</font> &nbsp;|&nbsp;
     <% } else { %>
           <a href="/pl/?module=Static&d1=gccj05&d2=ZH_advancers">晋级</a> &nbsp;|&nbsp;
     <% } %>
@@ -73,4 +73,4 @@
             <% } %>
 </font>
 <br><br>
-<span class="bigRed">资格赛已经结束。<A href="/pl/?module=Static&d1=gccj05&d2=ZH_advQual" class="bigRed">点击这里</A>查看晋级的参赛者！</span>
+<span class="bigRed">第一轮比赛已经结束。<A href="/pl/?module=Static&d1=gccj05&d2=ZH_advRound1" class="bigRed">点击这里</A>查看晋级的参赛者！</span>
