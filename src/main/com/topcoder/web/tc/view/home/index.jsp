@@ -156,7 +156,7 @@ margin:0px auto;
 --%>
 <%-- SAP
 --%>
-            <A href="/?RoundId=8073&t=schedule&c=srm"><img src="/i/home/sap_srm279.gif" alt="SAP" border="0" /></A>
+            <A href="/?RoundId=8076&t=schedule&c=srm"><img src="/i/home/sap_srm279.gif" alt="SAP" border="0" /></A>
 <%-- GCJC
             <A href="/gcjc"><img src="/i/home/gcjc.gif" alt="Google Code Jam China" border="0" /></A>
 --%>
