@@ -1,6 +1,6 @@
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@  page language="java"  %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -8,6 +8,7 @@
 
     <jsp:include page="script.jsp" />
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
 </head>
 

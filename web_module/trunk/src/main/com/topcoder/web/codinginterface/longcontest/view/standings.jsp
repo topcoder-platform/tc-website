@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
@@ -32,6 +33,7 @@
     <title>TopCoder</title>
     <jsp:include page="script.jsp" />
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <script type="text/javascript">
         function next() {
             var myForm = document.standingsForm;

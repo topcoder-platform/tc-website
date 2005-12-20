@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@  page language="java"  %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
@@ -8,6 +9,7 @@
 
     <jsp:include page="script.jsp" />
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
 </head>
 

@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -28,6 +29,7 @@
     <title>TopCoder</title>
     <jsp:include page="script.jsp" />
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 
 <body>

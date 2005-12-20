@@ -1,7 +1,7 @@
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@ page
         language="java"
-        import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                com.topcoder.web.codinginterface.longcontest.Constants,
+        import="com.topcoder.web.codinginterface.longcontest.Constants,
                 com.topcoder.web.common.StringUtils"
 
         %>
@@ -36,6 +36,7 @@
     <title>Submit - <%=request.getAttribute(Constants.CLASS_NAME)%></title>
     <jsp:include page="script.jsp" />
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <STYLE TYPE="text/css">
 .codeTextArea,.messageTextArea,
 {

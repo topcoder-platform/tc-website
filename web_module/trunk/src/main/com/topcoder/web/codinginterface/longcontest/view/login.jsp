@@ -1,5 +1,5 @@
-<%@ page contentType="text/html; charset=ISO-8859-1"
-         import="com.topcoder.web.codinginterface.longcontest.Constants,
+<%@ page contentType="text/html;charset=utf-8" %>
+<%@ page import="com.topcoder.web.codinginterface.longcontest.Constants,
                  com.topcoder.web.common.BaseServlet" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -16,6 +16,7 @@
     <title>TopCoder</title>
     <jsp:include page="script.jsp" />
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <SCRIPT type="text/javascript">
         function submitEnter(e) {
             var keycode;
