@@ -512,6 +512,16 @@
         </jar>
     </target>
 
+    <target name="package-EJB-ProjectBean" depends="compile">
+        <jar jarfile="${ejb_jars}/Project.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/project/*.class"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/project" includes="*.xml"/>
+        </jar>
+    </target>
+
+
     <target name="package-EJB-UserEvent" depends="compile">
         <jar jarfile="${ejb_jars}/UserEvent.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException"/>
@@ -1389,6 +1399,7 @@
         <antcall target="package-EJB-PhoneBean"/>
         <antcall target="package-EJB-PreferenceLevelBean"/>
         <antcall target="package-EJB-ProblemRatingBean"/>
+        <antcall target="package-EJB-ProjectBean"/>
         <antcall target="package-EJB-RBoard"/>
         <antcall target="package-EJB-ReportingBean"/>
         <antcall target="package-EJB-ResumeServicesBean"/>
