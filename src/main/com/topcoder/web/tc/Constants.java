@@ -141,6 +141,7 @@ public class Constants implements WebConstants {
     public static int TCCC05_ALGORITHM_TERMS_OF_USE_ID;
     public static int TCCC05_COMPONENT_TERMS_OF_USE_ID;
     public static int TCO05_EVENT_ID;
+    public static final int TCO06_EVENT_ID = 5;
     public static int TCO05_ALGORITHM_TERMS_OF_USE_ID;
     public static int TCO05_COMPONENT_TERMS_OF_USE_ID;
     public static final int TCO06_ALGORITHM_TERMS_OF_USE_ID=20383;
