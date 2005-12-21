@@ -1451,6 +1451,7 @@
                 <include name="Phone.jar"/>
                 <include name="PreferenceLevel.jar"/>
                 <include name="ProblemRatingServices.jar"/>
+                <include name="Project.jar"/>
                 <include name="RBoard.jar"/>
                 <include name="Reporting.jar"/>
                 <include name="ResumeServices.jar"/>
