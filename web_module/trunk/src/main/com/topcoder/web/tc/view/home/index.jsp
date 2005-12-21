@@ -188,7 +188,7 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-            <%--TopCoder Welcomes VeriSign as Return Sponsor of 2006 TopCoder Open in Las Vegas <A href="/tc?module=Static&d1=pressroom&d2=pr_121905">...more</A><br>[December 19]<br><br>--%>
+            TopCoder Welcomes VeriSign as Return Sponsor of 2006 TopCoder Open in Las Vegas <A href="/tc?module=Static&d1=pressroom&d2=pr_121905">...more</A><br>[December 19]<br><br>
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/forbes_logo.gif" width="67" height="23" alt="Forbes" border="0" /></div>
             Help Wanted In Silicon Valley<A href="http://www.forbes.com/home/work/2005/12/09/silicon-valley-hiring-cx_rr_1212hire.html" target="_blank">&nbsp;...more</A><br>[December 12]<br><br>
