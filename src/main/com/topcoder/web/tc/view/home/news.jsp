@@ -52,20 +52,6 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>12.20.05<br>1:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign">VeriSign returns as TCO06 sponsor</A></span><br><br>
-      "We are proud to be a returning sponsor of the 2006 TopCoder Open, which provides companies like VeriSign a pool of talented professional and academic minds to choose the next-generation of employees that will develop advanced services and technologies."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign">details</A>&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_121905">press release</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505880" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>12.20.05<br>10:15 AM</td>
      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=8075">Software advancements survey</A></span><br><br>
       What category of software applications do you feel will see the greatest advancements in the the next 12 months?
@@ -88,6 +74,20 @@
          <A href="/?RoundId=8075&t=schedule&c=srm">details</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505879" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>12.19.05<br>1:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign">VeriSign returns as TCO06 sponsor</A></span><br><br>
+      "We are proud to be a returning sponsor of the 2006 TopCoder Open, which provides companies like VeriSign a pool of talented professional and academic minds to choose the next-generation of employees that will develop advanced services and technologies."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign">details</A>&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_121905">press release</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505880" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
