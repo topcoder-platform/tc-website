@@ -3,8 +3,8 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <% int termsId = ((Integer)request.getAttribute(Constants.TERMS_OF_USE_ID)).intValue();%>
 <% String agreeProcessor = null;
-    if (termsId == Constants.TCO05_ALGORITHM_TERMS_OF_USE_ID) agreeProcessor="TCO05AlgorithmTermsAgree";
-    else if (termsId == Constants.TCO05_COMPONENT_TERMS_OF_USE_ID) agreeProcessor="TCO05ComponentTermsAgree";
+    if (termsId == Constants.TCO06_ALGORITHM_TERMS_OF_USE_ID) agreeProcessor="TCO06AlgorithmTermsAgree";
+    else if (termsId == Constants.TCO06_COMPONENT_TERMS_OF_USE_ID) agreeProcessor="TCO06ComponentTermsAgree";
     %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
