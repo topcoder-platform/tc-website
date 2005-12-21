@@ -38,6 +38,14 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
+        4.1.4 - 2005 12.xx
+        <ul>
+            <li>Added some additional transactional locking to the reviewer reg process.</li>
+        </ul>
+
+    </p>
+
+    <p>
         4.1.3 - 2005 12.19
         <ul>
             <li>Marathon Match site Minor enhancements/bug fixes
