@@ -56,7 +56,7 @@ padding: 0px;
    <span style="font-size: 18px; color: #990000;">Error</span>
    <br><br>
    <span class="homeText">
-      <%=message==null?"Sorry, there was an error in your request.":message%>
+      <%=message==null?"Sorry, there was an error in your request.":"<b>"+message+"</b>"%>
       <br><br>
       Please <a href="<%=url==null?"javascript:history.back();":url%>">go back</a> to the last page you were viewing.
       <br><br>
@@ -76,7 +76,7 @@ padding: 0px;
             <A href="/tc?module=Static&d1=about&d2=terms" class="footerLinks">Terms</A>
          <br>
             <A href="/tc" class="footerLinks">Developer Center</A>&#160;&#160;|&#160;&#160;
-            <A href="/corp/?module=Static&d1=corp&d2=index" class="footerLinks">Corporate Services</A>
+            <A href="/corp/?module=Static&d1=corp&d2=index" class="footerLinks">Corporate Services</A></td></tr>
     <tr><td class="copyright"colspan="5">Copyright &#169; 2001-2004, TopCoder, Inc. All rights reserved.</td></tr>
 </table>
 </body>
