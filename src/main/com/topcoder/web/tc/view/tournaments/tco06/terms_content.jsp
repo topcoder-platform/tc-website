@@ -1,8 +1,6 @@
 <%@ page import="com.topcoder.web.tc.Constants"%>
 <%@ page import="java.net.URL"%>
-<%@ page import="java.io.InputStream"%>
 <%@ page import="java.io.BufferedReader"%>
-<%@ page import="java.io.FileReader"%>
 <%@ page import="java.io.InputStreamReader"%>
 <%@ page language="java"  %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
