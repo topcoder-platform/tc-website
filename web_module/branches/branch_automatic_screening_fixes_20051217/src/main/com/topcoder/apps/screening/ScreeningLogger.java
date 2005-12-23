@@ -31,7 +31,7 @@ public class ScreeningLogger {
     /**
      * The namespace for the configuration.
      */
-    private static final String SCREENING_LOGGER_NAMESPACE = "com.topcoder.apps.screening.logger";
+    private static final String SCREENING_LOGGER_NAMESPACE = "com.topcoder.apps.screening.ScreeningLogger";
 
     /**
      * The name of the property in the configuration file that contains the number of retries for lock hits.
@@ -51,7 +51,7 @@ public class ScreeningLogger {
     /**
      * The default sleep time before a retry.
      */
-    private static final int DEFAULT_RETRY_SLEEP_TIME = 1000;
+    private static final int DEFAULT_RETRY_SLEEP_TIME = 30000;
 
     /**
      * <strong>Purpose</strong>:
@@ -125,6 +125,10 @@ public class ScreeningLogger {
 
 	    maxRetries = defaultMaxRetries;
 	    retrySleepTime = defaultRetrySleepTime;
+
+        log.info("Retries: " + maxRetries); // plk
+        log.info("Time: " + retrySleepTime); // plk
+
 //        getConfig();
 
         initializeIdGen();
