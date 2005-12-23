@@ -6,6 +6,7 @@ package com.topcoder.apps.screening;
 import com.topcoder.shared.util.logging.Logger; // PLK
 import com.topcoder.apps.screening.ScreeningJob; // PLK
 
+import com.topcoder.util.config.ConfigManager;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import java.rmi.RemoteException;
@@ -22,11 +23,35 @@ import java.sql.Timestamp;
  * This class is used to log auto-screening results to a database. It logs the results of the screening process
  * steps as well as the final result (success/failure).
  *
- * @author TheCois
- * @author WishingBone
- * @version 1.0
+ * @author TheCois, WishingBone, pulky
+ * @version 1.0.1
  */
 public class ScreeningLogger {
+
+    /**
+     * The namespace for the configuration.
+     */
+    private static final String SCREENING_LOGGER_NAMESPACE = "com.topcoder.apps.screening.logger";
+
+    /**
+     * The name of the property in the configuration file that contains the number of retries for lock hits.
+     */
+    private static final String MAX_RETRIES_PROPERTY_NAME = "max_retries";
+
+    /**
+     * The name of the property in the configuration file that contains the sleep time before a retry.
+     */
+    private static final String RETRY_SLEEP_TIME_PROPERTY_NAME = "retry_sleep_time";
+
+    /**
+     * The default number of retries for lock hits.
+     */
+    private static final int DEFAULT_MAX_RETRIES = 3;
+
+    /**
+     * The default sleep time before a retry.
+     */
+    private static final int DEFAULT_RETRY_SLEEP_TIME = 1000;
 
     /**
      * <strong>Purpose</strong>:
@@ -50,6 +75,19 @@ public class ScreeningLogger {
      */
     private IdGen idGen;
 
+    /**
+     * <strong>Purpose</strong>:
+     * The number of retries for lock hits.
+     */
+    private final int maxRetries;
+
+    /**
+     * <strong>Purpose</strong>:
+     * The sleep time before a retry. (milliseconds)
+     */
+    private final int retrySleepTime;
+
+
 
     private Logger log = null; // PLK
 
@@ -59,7 +97,38 @@ public class ScreeningLogger {
      * Creates an instance of this class.
      */
     public ScreeningLogger() {
+	    int defaultMaxRetries = DEFAULT_MAX_RETRIES;
+	    int defaultRetrySleepTime = DEFAULT_RETRY_SLEEP_TIME;
+
+    	try {
+            ConfigManager cm = ConfigManager.getInstance();
+        	String maxRetriesString = cm.getString(SCREENING_LOGGER_NAMESPACE, MAX_RETRIES_PROPERTY_NAME);
+    	    if (maxRetriesString != null) {
+            	try {
+            		defaultMaxRetries = Integer.parseInt(maxRetriesString);
+            	} catch (NumberFormatException nfe) {
+            	    // uses default
+            	}
+            }
+
+        	String retrySleepTimeString = cm.getString(SCREENING_LOGGER_NAMESPACE, RETRY_SLEEP_TIME_PROPERTY_NAME);
+    	    if (retrySleepTimeString != null) {
+            	try {
+            		defaultRetrySleepTime = Integer.parseInt(retrySleepTimeString);
+            	} catch (NumberFormatException nfe) {
+            	    // uses default
+            	}
+            }
+    	} catch (Exception e) {
+    	    // uses default
+    	}
+
+	    maxRetries = defaultMaxRetries;
+	    retrySleepTime = defaultRetrySleepTime;
+//        getConfig();
+
         initializeIdGen();
+
     }
 
     /**
@@ -73,9 +142,11 @@ public class ScreeningLogger {
      * @param submissionVId The submission id to log.
      */
     public ScreeningLogger(long userId, long submissionVId) {
+        this();
         this.userId = userId;
         setSubmissionVId(submissionVId);
-        initializeIdGen();
+/*        getConfig();
+        initializeIdGen();*/
     }
 
     /**
@@ -128,7 +199,29 @@ public class ScreeningLogger {
             stmt.setLong(4, this.userId);
             stmt.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
             stmt.setLong(6, this.submissionVId);
-            stmt.executeUpdate();
+
+            log.info("Text: " + message.getResponseText()); // plk
+
+            int updResult = 0;
+            for (int retryCnt = 0; retryCnt < maxRetries && updResult != 1; retryCnt++) {
+                updResult = stmt.executeUpdate();
+
+                if (updResult != 1) {
+
+                    log.info("Hit lock! - " + retryCnt); // plk
+
+                    // hit an optimistic lock, go to sleep
+                    try {
+                        Thread.sleep(retrySleepTime);
+                    } catch (InterruptedException e) {
+                    }
+                } else {
+                    log.info("Updated OK!" + retryCnt); // plk
+                }
+            }
+            if (updResult != 1) {
+                throw new DatabaseException("Log result failed after " + maxRetries + " retries.");
+            }
         } catch (SQLException sqle) {
             throw new DatabaseException("Log result fails.", sqle);
         } catch (RemoteException re) {
