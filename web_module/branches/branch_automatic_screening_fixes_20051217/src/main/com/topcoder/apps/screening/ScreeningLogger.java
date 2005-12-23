@@ -97,6 +97,9 @@ public class ScreeningLogger {
      * Creates an instance of this class.
      */
     public ScreeningLogger() {
+                log = Logger.getLogger(ScreeningJob.class); // plk
+        log.info("Hello from ScreeningLogger."); // plk
+
             log.info(" LOG 1"); // plk
 	    int defaultMaxRetries = DEFAULT_MAX_RETRIES;
 	    int defaultRetrySleepTime = DEFAULT_RETRY_SLEEP_TIME;
@@ -175,10 +178,6 @@ public class ScreeningLogger {
         } catch (Exception ex) {
             throw new DatabaseException("Failed to intialize Id Generator.", ex);
         }
-
-            log = Logger.getLogger(ScreeningJob.class); // plk
-            log.info("Hello from ScreeningLogger."); // plk
-
     }
 
     /**
