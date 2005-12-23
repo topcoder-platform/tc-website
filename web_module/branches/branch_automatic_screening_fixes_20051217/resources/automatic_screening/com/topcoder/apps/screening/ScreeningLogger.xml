@@ -1,10 +1,10 @@
 <CMConfig>
   <Config name="com.topcoder.apps.screening.ScreeningLogger">
     <Property name="max_retries">
-        <Value>4</Value>
+        <Value>3</Value>
     </Property>
     <Property name="retry_sleep_time">
-        <Value>40000</Value>
+        <Value>1000</Value>
     </Property>
   </Config>
 </CMConfig>
