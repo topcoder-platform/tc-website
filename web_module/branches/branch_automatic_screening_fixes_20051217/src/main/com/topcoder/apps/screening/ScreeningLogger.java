@@ -204,21 +204,23 @@ public class ScreeningLogger {
 
             int updResult = 0;
             for (int retryCnt = 0; retryCnt < maxRetries && updResult != 1; retryCnt++) {
-                updResult = stmt.executeUpdate();
+                try {
+                    updResult = stmt.executeUpdate();
+                } catch (SQLException sqle) {
+                    log.info("paso "); // plk
 
-            log.info("paso "); // plk
+                    if (updResult != 1) {
 
-                if (updResult != 1) {
+                        log.info("Hit lock! - " + retryCnt); // plk
 
-                    log.info("Hit lock! - " + retryCnt); // plk
-
-                    // hit an optimistic lock, go to sleep
-                    try {
-                        Thread.sleep(retrySleepTime);
-                    } catch (InterruptedException e) {
+                        // hit an optimistic lock, go to sleep
+                        try {
+                            Thread.sleep(retrySleepTime);
+                        } catch (InterruptedException e) {
+                        }
+                    } else {
+                        log.info("Updated OK!" + retryCnt); // plk
                     }
-                } else {
-                    log.info("Updated OK!" + retryCnt); // plk
                 }
             }
             if (updResult != 1) {
