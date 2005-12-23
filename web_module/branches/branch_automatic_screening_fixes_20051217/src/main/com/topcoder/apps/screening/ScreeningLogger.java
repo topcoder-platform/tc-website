@@ -206,6 +206,8 @@ public class ScreeningLogger {
             for (int retryCnt = 0; retryCnt < maxRetries && updResult != 1; retryCnt++) {
                 updResult = stmt.executeUpdate();
 
+            log.info("paso "); // plk
+
                 if (updResult != 1) {
 
                     log.info("Hit lock! - " + retryCnt); // plk
@@ -220,6 +222,7 @@ public class ScreeningLogger {
                 }
             }
             if (updResult != 1) {
+                log.info("tiro "); // plk
                 throw new DatabaseException("Log result failed after " + maxRetries + " retries.");
             }
         } catch (SQLException sqle) {
