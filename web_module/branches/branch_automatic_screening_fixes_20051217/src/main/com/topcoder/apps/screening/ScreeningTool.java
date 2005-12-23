@@ -66,8 +66,15 @@ public class ScreeningTool {
      * Creates a ScreeningTool class. The rules are loaded at this point.
      */
     public ScreeningTool() throws Exception {
+        Logger log = null; // plk
+        log = Logger.getLogger(ScreeningJob.class); // plk
+
+            log.info(" TOOL Tengo instancia"); // plk
         ConfigManager cm = ConfigManager.getInstance();
+            log.info(" TOOL Tengo instancia ok"); // plk
         this.tempFolder = new File(cm.getString(NAMESPACE, TEMP_FOLDER_PROPERTY_NAME));
+            log.info(" temp"); // plk
+
         this.rules = new HashMap();
         String[] rules = cm.getStringArray(NAMESPACE, RULES_PROPERTY_NAME);
         for (int i = 0; i < rules.length; ++i) {
