@@ -3,6 +3,9 @@
  */
 package com.topcoder.apps.screening;
 
+import com.topcoder.shared.util.logging.Logger; // PLK
+import com.topcoder.apps.screening.ScreeningJob; // PLK
+
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import java.rmi.RemoteException;
@@ -47,6 +50,10 @@ public class ScreeningLogger {
      */
     private IdGen idGen;
 
+
+    private Logger log = null; // PLK
+
+
     /**
      * <strong>Purpose</strong>:
      * Creates an instance of this class.
@@ -84,6 +91,10 @@ public class ScreeningLogger {
         } catch (Exception ex) {
             throw new DatabaseException("Failed to intialize Id Generator.", ex);
         }
+
+            log = Logger.getLogger(ScreeningJob.class); // plk
+            log.info("Hello from ScreeningLogger."); // plk
+
     }
 
     /**
