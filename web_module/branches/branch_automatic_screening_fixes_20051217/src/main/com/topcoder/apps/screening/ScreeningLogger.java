@@ -51,7 +51,7 @@ public class ScreeningLogger {
     /**
      * The default sleep time before a retry.
      */
-    private static final int DEFAULT_RETRY_SLEEP_TIME = 30000;
+    private static final int DEFAULT_RETRY_SLEEP_TIME = 1000;
 
     /**
      * <strong>Purpose</strong>:
@@ -97,31 +97,23 @@ public class ScreeningLogger {
      * Creates an instance of this class.
      */
     public ScreeningLogger() {
-                log = Logger.getLogger(ScreeningJob.class); // plk
+        log = Logger.getLogger(ScreeningJob.class); // plk
         log.info("Hello from ScreeningLogger."); // plk
 
-            log.info(" LOG 1"); // plk
 	    int defaultMaxRetries = DEFAULT_MAX_RETRIES;
 	    int defaultRetrySleepTime = DEFAULT_RETRY_SLEEP_TIME;
 
     	try {
-            log.info(" LOG 2"); // plk
             ConfigManager cm = ConfigManager.getInstance();
-            log.info(" LOG 3"); // plk
-            log.info("Tengo instancia"); // plk
 
         	String maxRetriesString = cm.getString(SCREENING_LOGGER_NAMESPACE, MAX_RETRIES_PROPERTY_NAME);
-            log.info("tome string"); // plk
     	    if (maxRetriesString != null) {
             	try {
-            log.info("parseo"); // plk
             		defaultMaxRetries = Integer.parseInt(maxRetriesString);
             	} catch (NumberFormatException nfe) {
             	    // uses default
             	}
             }
-
-            log.info("ok1"); // plk
 
         	String retrySleepTimeString = cm.getString(SCREENING_LOGGER_NAMESPACE, RETRY_SLEEP_TIME_PROPERTY_NAME);
     	    if (retrySleepTimeString != null) {
@@ -140,8 +132,6 @@ public class ScreeningLogger {
 
         log.info("Retries: " + maxRetries); // plk
         log.info("Time: " + retrySleepTime); // plk
-
-//        getConfig();
 
         initializeIdGen();
 
