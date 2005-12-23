@@ -102,14 +102,20 @@ public class ScreeningLogger {
 
     	try {
             ConfigManager cm = ConfigManager.getInstance();
+            log.info("Tengo instancia"); // plk
+
         	String maxRetriesString = cm.getString(SCREENING_LOGGER_NAMESPACE, MAX_RETRIES_PROPERTY_NAME);
+            log.info("tome string"); // plk
     	    if (maxRetriesString != null) {
             	try {
+            log.info("parseo"); // plk
             		defaultMaxRetries = Integer.parseInt(maxRetriesString);
             	} catch (NumberFormatException nfe) {
             	    // uses default
             	}
             }
+
+            log.info("ok1"); // plk
 
         	String retrySleepTimeString = cm.getString(SCREENING_LOGGER_NAMESPACE, RETRY_SLEEP_TIME_PROPERTY_NAME);
     	    if (retrySleepTimeString != null) {
