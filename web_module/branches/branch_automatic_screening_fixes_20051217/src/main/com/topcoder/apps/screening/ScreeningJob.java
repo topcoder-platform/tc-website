@@ -347,7 +347,7 @@ public class ScreeningJob extends TimerTask {
             DbHelper.dispose(conn, null, null);
         }
     }
-    
+
     /**
      * Get the version id for the current submission, using a specified connection.
      *
@@ -386,7 +386,7 @@ public class ScreeningJob extends TimerTask {
             DbHelper.dispose(conn, null, null);
         }
     }
-    
+
     /**
      * Place a request in the database queue, using a specific connection.
      *
@@ -470,12 +470,21 @@ public class ScreeningJob extends TimerTask {
      * @throws Exception to command line.
      */
     public static void main(String[] args) throws Exception {
+        Logger log = null; // plk
+        log = Logger.getLogger(ScreeningJob.class); // plk
+
+            log.info(" JOB Tengo instancia"); // plk
+
         ConfigManager cm = ConfigManager.getInstance();
+            log.info(" JOB Tengo instancia ok"); // plk
         int num = 1;
         if (args.length > 0) {
             num = Integer.parseInt(args[0]);
         } else if (cm.existsNamespace(NAMESPACE)) {
+            log.info(" JOB entro namespace"); // plk
+
             String value = cm.getString(NAMESPACE, THREAD_NUMBER_PROPERTY_NAME);
+            log.info(" JOB ok getstring"); // plk
             if (value != null && value.trim().length() > 0) {
                 num = Integer.parseInt(value);
             }
