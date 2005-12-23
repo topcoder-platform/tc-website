@@ -97,11 +97,14 @@ public class ScreeningLogger {
      * Creates an instance of this class.
      */
     public ScreeningLogger() {
+            log.info(" LOG 1"); // plk
 	    int defaultMaxRetries = DEFAULT_MAX_RETRIES;
 	    int defaultRetrySleepTime = DEFAULT_RETRY_SLEEP_TIME;
 
     	try {
+            log.info(" LOG 2"); // plk
             ConfigManager cm = ConfigManager.getInstance();
+            log.info(" LOG 3"); // plk
             log.info("Tengo instancia"); // plk
 
         	String maxRetriesString = cm.getString(SCREENING_LOGGER_NAMESPACE, MAX_RETRIES_PROPERTY_NAME);

@@ -114,10 +114,14 @@ public class ScreeningTool {
         if (!this.rules.containsKey(type)) {
             return;
         }
+            log.info(" TOOL 1"); // plk
 
         File root = new File(tempFolder, String.valueOf(submissionVId));
+            log.info(" TOOL 2"); // plk
         ScreeningLogger logger = new ScreeningLogger();
+            log.info(" TOOL 3"); // plk
         logger.setSubmissionVId(submissionVId);
+            log.info(" TOOL 4"); // plk
 
         try {
             boolean success = true;
