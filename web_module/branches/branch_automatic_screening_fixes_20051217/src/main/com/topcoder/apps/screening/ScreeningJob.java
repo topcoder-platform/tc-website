@@ -315,7 +315,7 @@ public class ScreeningJob extends TimerTask {
             conn = DbHelper.getConnection();
             stmt = conn.prepareStatement(
                     "DELETE FROM screening_results " +
-                    "WHERE submission_v_id = ?)");
+                    "WHERE submission_v_id = ?");
             stmt.setLong(1, submissionVId);
             stmt.executeUpdate();
             stmt = null;
