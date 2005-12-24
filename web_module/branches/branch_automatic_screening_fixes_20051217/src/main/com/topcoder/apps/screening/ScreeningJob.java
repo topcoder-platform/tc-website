@@ -317,7 +317,11 @@ public class ScreeningJob extends TimerTask {
                     "DELETE FROM screening_results " +
                     "WHERE submission_v_id = ?");
             stmt.setLong(1, submissionVId);
-            stmt.executeUpdate();
+            try {
+                stmt.executeUpdate();
+            } catch (SQLException sqle) {
+                log.error("Could not rollback screening_results: " + sqle.toString());
+            }
             stmt = null;
             log.info("ok delete."); // PLK
 
