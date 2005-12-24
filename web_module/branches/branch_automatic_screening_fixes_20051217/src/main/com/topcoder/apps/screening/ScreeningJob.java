@@ -311,6 +311,7 @@ public class ScreeningJob extends TimerTask {
         Connection conn = null;
         PreparedStatement stmt = null;
         try {
+            log.info("Tira delete."); // PLK
             conn = DbHelper.getConnection();
             stmt = conn.prepareStatement(
                     "DELETE FROM screening_results " +
@@ -318,6 +319,9 @@ public class ScreeningJob extends TimerTask {
             stmt.setLong(1, submissionVId);
             stmt.executeUpdate();
             stmt = null;
+            log.info("ok delete."); // PLK
+
+            log.info("Tira update."); // PLK
 
             stmt = conn.prepareStatement(
                     "UPDATE screening_task " +
@@ -325,9 +329,11 @@ public class ScreeningJob extends TimerTask {
                     "WHERE screener_id = ?");
             stmt.setLong(1, screener);
             stmt.executeUpdate();
+            log.info("ok update."); // PLK
         } catch (SQLException sqle) {
             log.error(sqle.toString());
         } finally {
+            log.info("algun error."); // PLK
             DbHelper.dispose(conn, stmt, null);
         }
     }
