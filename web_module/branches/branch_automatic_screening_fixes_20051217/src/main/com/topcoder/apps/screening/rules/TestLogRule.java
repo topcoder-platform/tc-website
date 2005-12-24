@@ -7,13 +7,14 @@ import com.topcoder.apps.screening.ScreeningRule;
 import com.topcoder.apps.screening.ScreeningLogger;
 import com.topcoder.apps.screening.ResponseCode;
 import com.topcoder.apps.screening.SimpleScreeningData;
+import com.topcoder.apps.screening.DatabaseException;
 
 /**
  * <strong>Purpose</strong>:
  * Checks if the log directory exists and contains a plain text log and an xml log.
  *
- * @author WishingBone
- * @version 1.0
+ * @author WishingBone, pulky
+ * @version 1.0.1
  */
 public class TestLogRule implements ScreeningRule {
 
@@ -56,6 +57,9 @@ public class TestLogRule implements ScreeningRule {
                 logger.log(new SimpleScreeningData("The xml log does not exist.", ResponseCode.NO_LOG_FILES));
             }
             return plainText && xml;
+        } catch (DatabaseException dbe) {
+            // propagate database exception so submission would be rescreened.
+            throw dbe;
         } catch (Exception ex) {
             logger.log(new SimpleScreeningData("Failed to validate log files.", ResponseCode.NO_LOG_FILES));
         }

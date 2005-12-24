@@ -23,8 +23,8 @@ import java.sql.SQLException;
  * This is the command line utility that runs the screening. It is a TimerTask which is run once every second.
  * The command line could accept a single argument which is the number of threads to spawn.
  *
- * @author WishingBone
- * @version 1.0
+ * @author WishingBone, pulky
+ * @version 1.0.1
  */
 public class ScreeningJob extends TimerTask {
 
@@ -49,9 +49,19 @@ public class ScreeningJob extends TimerTask {
     private static final String SCREENER_ID_PROPERTY_NAME = "screener_id";
 
     /**
+     * The name of the property in the configuration file that contains the maximum screening attempts.
+     */
+    private static final String MAX_SCREENING_ATTEMPTS_PROPERTY_NAME = "max_screening_attempts";
+
+    /**
      * The log name.
      */
     private final static String LOG_NAME = "Automated_Screening";
+
+    /**
+     * The default number of screening attempts.
+     */
+    private static final int DEFAULT_SCREENING_ATTEMPTS = 3;
 
     /**
      * One ScreeningTool is used among threads since the screen() method is stateless.
@@ -89,16 +99,22 @@ public class ScreeningJob extends TimerTask {
     private Logger log = null;
 
     /**
+     * The max screening attempts for a screening task.
+     */
+    private int maxScreeningAttempts;
+
+    /**
      * Creates a ScreeningJob. It initializes all the fields and could propagate exception to command line.
      *
      * @param num the number of threads to use.
      *
      * @throws Exception to command line.
      */
-    private ScreeningJob(int num, int screener) throws Exception {
+    private ScreeningJob(int num, int screener, int maxScreeningAttempts) throws Exception {
         this.tool = new ScreeningTool();
         this.num = num;
         this.screener = screener;
+        this.maxScreeningAttempts = maxScreeningAttempts;
         this.threads = new Thread[num];
         resetPendingTasks();
         log = Logger.getLogger(ScreeningJob.class);
@@ -207,6 +223,11 @@ public class ScreeningJob extends TimerTask {
                     "SELECT submitter_id, screening_task.submission_v_id, submission_path, screening_project_type_id " +
                     "FROM submission, screening_task " +
                     "WHERE submission.submission_v_id = screening_task.submission_v_id AND screener_id IS NULL");
+            /*stmt = conn.prepareStatement(
+                    "SELECT submitter_id, screening_task.submission_v_id, submission_path, screening_project_type_id " +
+                    "FROM submission, screening_task " +
+                    "WHERE submission.submission_v_id = screening_task.submission_v_id AND screener_id IS NULL " +
+                    "and screening_attempts < " + maxScreeningAttempts);*/
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -243,6 +264,8 @@ public class ScreeningJob extends TimerTask {
             try {
                 conn = DbHelper.getConnection();
                 stmt = conn.prepareStatement("UPDATE screening_task SET screener_id = ? WHERE submission_v_id = ? AND screener_id IS NULL");
+/*                stmt = conn.prepareStatement("UPDATE screening_task SET screener_id = ?, " +
+                    "screening_attempts = screening_attempts + 1 WHERE submission_v_id = ? AND screener_id IS NULL");*/
                 stmt.setLong(1, this.screener);
                 stmt.setLong(2, request.getSubmissionVId());
 
@@ -271,6 +294,36 @@ public class ScreeningJob extends TimerTask {
             conn = DbHelper.getConnection();
             stmt = conn.prepareStatement("DELETE FROM screening_task WHERE submission_v_id = ?");
             stmt.setLong(1, submissionVId);
+            stmt.executeUpdate();
+        } catch (SQLException sqle) {
+            log.error(sqle.toString());
+        } finally {
+            DbHelper.dispose(conn, stmt, null);
+        }
+    }
+
+    /**
+     * Rolls back a request so it can be reprocessed.
+     *
+     * @param submissionVId the submission version id.
+     */
+    private void rollbackRequest(long submissionVId) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try {
+            conn = DbHelper.getConnection();
+            stmt = conn.prepareStatement(
+                    "DELETE FROM screening_results " +
+                    "WHERE submission_v_id = ?)");
+            stmt.setLong(1, submissionVId);
+            stmt.executeUpdate();
+            stmt = null;
+
+            stmt = conn.prepareStatement(
+                    "UPDATE screening_task " +
+                    "SET screener_id = NULL " +
+                    "WHERE screener_id = ?");
+            stmt.setLong(1, screener);
             stmt.executeUpdate();
         } catch (SQLException sqle) {
             log.error(sqle.toString());
@@ -399,6 +452,8 @@ public class ScreeningJob extends TimerTask {
         try {
             stmt = conn.prepareStatement(
                     "INSERT INTO screening_task(submission_v_id, submission_path, screening_project_type_id) VALUES(?, ?, ?)");
+/*            stmt = conn.prepareStatement(
+                    "INSERT INTO screening_task(submission_v_id, submission_path, screening_project_type_id, 0) VALUES(?, ?, ?, 1)");*/
             stmt.setLong(1, request.getSubmissionVId());
             stmt.setString(2, request.getSubmissionPath());
             stmt.setLong(3, request.getProjectType().getId());
@@ -453,13 +508,16 @@ public class ScreeningJob extends TimerTask {
             log.info("Thread " + id + ": start " + buffer.toString() + new Date());
             log.info("Current load " + getCurrentLoad() + "/" + num);
 
-            tool.screen(log, new File(request.getSubmissionPath()), request.getProjectType(), request.getSubmissionVId());
-            completeRequest(request.getSubmissionVId());
+            boolean successfullScreen = tool.screen(log, new File(request.getSubmissionPath()), request.getProjectType(), request.getSubmissionVId());
+            if (successfullScreen) {
+                completeRequest(request.getSubmissionVId());
+            } else {
+                rollbackRequest(request.getSubmissionVId());
+            }
 
             log.info("Thread " + id + ": end " + buffer.toString() + new Date());
             log.info("Current load " + (getCurrentLoad() - 1) + "/" + num);
         }
-
     }
 
     /**
@@ -471,10 +529,11 @@ public class ScreeningJob extends TimerTask {
      */
     public static void main(String[] args) throws Exception {
         ConfigManager cm = ConfigManager.getInstance();
+        boolean namespaceExists = cm.existsNamespace(NAMESPACE);
         int num = 1;
         if (args.length > 0) {
             num = Integer.parseInt(args[0]);
-        } else if (cm.existsNamespace(NAMESPACE)) {
+        } else if (namespaceExists) {
             String value = cm.getString(NAMESPACE, THREAD_NUMBER_PROPERTY_NAME);
             if (value != null && value.trim().length() > 0) {
                 num = Integer.parseInt(value);
@@ -483,7 +542,7 @@ public class ScreeningJob extends TimerTask {
         int interval = 30;
         if (args.length > 1) {
             interval = Integer.parseInt(args[1]);
-        } else if (cm.existsNamespace(NAMESPACE)) {
+        } else if (namespaceExists) {
             String value = cm.getString(NAMESPACE, RUN_INTERVAL_PROPERTY_NAME);
             if (value != null && value.trim().length() > 0) {
                 interval = Integer.parseInt(value);
@@ -492,19 +551,28 @@ public class ScreeningJob extends TimerTask {
         int screener = 1;
         if (args.length > 2) {
             screener = Integer.parseInt(args[2]);
-        } else if (cm.existsNamespace(NAMESPACE)) {
+        } else if (namespaceExists) {
             String value = cm.getString(NAMESPACE, SCREENER_ID_PROPERTY_NAME);
             if (value != null && value.trim().length() > 0) {
                 screener = Integer.parseInt(value);
             }
         }
 
+        int maxScreeningAttempts = DEFAULT_SCREENING_ATTEMPTS;
+        if (namespaceExists) {
+            String value = cm.getString(NAMESPACE, MAX_SCREENING_ATTEMPTS_PROPERTY_NAME);
+            if (value != null && value.trim().length() > 0) {
+                maxScreeningAttempts = Integer.parseInt(value);
+            }
+        }
+
         System.out.println("Number of threads = " + num);
         System.out.println("Interval = " + interval);
         System.out.println("Screener ID = " + screener);
+        System.out.println("Max screening attempts = " + maxScreeningAttempts);
 
         // Schedule it immediate and run per second.
-        new Timer(false).schedule(new ScreeningJob(num, screener), 0, interval * 1000);
+        new Timer(false).schedule(new ScreeningJob(num, screener, maxScreeningAttempts), 0, interval * 1000);
     }
 
 }

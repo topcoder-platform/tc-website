@@ -9,13 +9,14 @@ import com.topcoder.apps.screening.ScreeningRule;
 import com.topcoder.apps.screening.ScreeningLogger;
 import com.topcoder.apps.screening.ResponseCode;
 import com.topcoder.apps.screening.SimpleScreeningData;
+import com.topcoder.apps.screening.DatabaseException;
 
 /**
  * <strong>Purpose</strong>:
  * Checks if the submission conforms to proper directory structure.
  *
- * @author WishingBone
- * @version 1.0
+ * @author WishingBone, pulky
+ * @version 1.0.1
  */
 public class DesignDirRule implements ScreeningRule {
 
@@ -36,6 +37,9 @@ public class DesignDirRule implements ScreeningRule {
                             "com/topcoder/apps/screening/rules/DesignDirRule.xml").toString().substring(5))),
                     root.getAbsolutePath());
             return vLogger.isSuccessful();
+        } catch (DatabaseException dbe) {
+            // propagate database exception so submission would be rescreened.
+            throw dbe;
         } catch (Exception ex) {
             logger.log(new SimpleScreeningData("Failed to validate directory structure.", ResponseCode.INVALID_DIRECTORY));
         }

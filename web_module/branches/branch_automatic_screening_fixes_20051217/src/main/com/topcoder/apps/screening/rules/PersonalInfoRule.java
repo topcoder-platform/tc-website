@@ -20,13 +20,14 @@ import com.topcoder.apps.screening.ScreeningLogger;
 import com.topcoder.apps.screening.ResponseCode;
 import com.topcoder.apps.screening.SimpleScreeningData;
 import com.topcoder.apps.screening.DbHelper;
+import com.topcoder.apps.screening.DatabaseException;
 
 /**
  * <strong>Purpose</strong>:
  * Checks if the personal information exists in the submission.
  *
- * @author WishingBone
- * @version 1.0
+ * @author WishingBone, pulky
+ * @version 1.0.1
  */
 public class PersonalInfoRule implements ScreeningRule {
 
@@ -43,6 +44,9 @@ public class PersonalInfoRule implements ScreeningRule {
         try {
             Map infos = fetchInfos(logger.getSubmissionVId());
             matchFile(root, infos, logger);
+        } catch (DatabaseException dbe) {
+            // propagate database exception so submission would be rescreened.
+            throw dbe;
         } catch (Exception ex) {
             logger.log(new SimpleScreeningData("Failed to match personal information.", ResponseCode.PERSONAL_INFO));
         }

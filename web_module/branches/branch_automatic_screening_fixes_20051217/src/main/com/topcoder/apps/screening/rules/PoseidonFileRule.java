@@ -14,14 +14,15 @@ import com.topcoder.apps.screening.ScreeningRule;
 import com.topcoder.apps.screening.ScreeningLogger;
 import com.topcoder.apps.screening.ResponseCode;
 import com.topcoder.apps.screening.SimpleScreeningData;
+import com.topcoder.apps.screening.DatabaseException;
 
 /**
  * <strong>Purpose</strong>:
  * Checks if a poseidon file exists. If it does, it further verifies it contains use case diagram,
  * class diagram and sequence diagram.
  *
- * @author WishingBone
- * @version 1.0
+ * @author WishingBone, pulky
+ * @version 1.0.1
  */
 public class PoseidonFileRule implements ScreeningRule {
 
@@ -61,6 +62,9 @@ public class PoseidonFileRule implements ScreeningRule {
 
             logger.log(new SimpleScreeningData(ResponseCode.NO_POS_DESIGN));
             return false;
+        } catch (DatabaseException dbe) {
+            // propagate database exception so submission would be rescreened.
+            throw dbe;
         } catch (Exception ex) {
             logger.log(new SimpleScreeningData("Failed to validate poseidon file.", ResponseCode.NO_POS_DESIGN));
         }
