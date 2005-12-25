@@ -23,6 +23,22 @@ import java.sql.SQLException;
  * This is the command line utility that runs the screening. It is a TimerTask which is run once every second.
  * The command line could accept a single argument which is the number of threads to spawn.
  *
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Added "maxScreeningAttempts" property to CM.
+ * </li>
+ * <li>
+ * fetchRequest, pullRequests, placeRequest were modified to add the new screening attempts treatment.
+ * </li>
+ * <li>
+ * rollbackRequest added to prepare the request to be reprocessed.
+ * </li>
+ * <li>
+ * run() was changed to test Screening for success or failure and completeRequest or rollbackRequest as needed.
+ * </li>
+ * </ol>
+ *
  * @author WishingBone, pulky
  * @version 1.0.1
  */
@@ -50,6 +66,8 @@ public class ScreeningJob extends TimerTask {
 
     /**
      * The name of the property in the configuration file that contains the maximum screening attempts.
+     *
+     * @since 1.0.1
      */
     private static final String MAX_SCREENING_ATTEMPTS_PROPERTY_NAME = "max_screening_attempts";
 
@@ -60,6 +78,8 @@ public class ScreeningJob extends TimerTask {
 
     /**
      * The default number of screening attempts.
+     *
+     * @since 1.0.1
      */
     private static final int DEFAULT_SCREENING_ATTEMPTS = 3;
 
@@ -100,6 +120,8 @@ public class ScreeningJob extends TimerTask {
 
     /**
      * The max screening attempts for a screening task.
+     *
+     * @since 1.0.1
      */
     private int maxScreeningAttempts;
 
@@ -107,6 +129,8 @@ public class ScreeningJob extends TimerTask {
      * Creates a ScreeningJob. It initializes all the fields and could propagate exception to command line.
      *
      * @param num the number of threads to use.
+     * @param screener the screener number to use.
+     * @param maxScreeningAttempts the number of screening attempts to use.
      *
      * @throws Exception to command line.
      */
@@ -207,6 +231,7 @@ public class ScreeningJob extends TimerTask {
 
     /**
      * Pull all the screening requests from database queue.
+     * Only pulls the request that have been processed less than "maxScreeningAttempts" times
      *
      * @return a list of ScreeningRequest instances.
      */
@@ -249,6 +274,7 @@ public class ScreeningJob extends TimerTask {
 
     /**
      * Fetch a request from the list of requests.
+     * Also updates the screening_atempts counter.
      *
      * @param requests a list of requests to select from.
      *
@@ -263,7 +289,8 @@ public class ScreeningJob extends TimerTask {
             PreparedStatement stmt = null;
             try {
                 conn = DbHelper.getConnection();
-                stmt = conn.prepareStatement("UPDATE screening_task SET screener_id = ? WHERE submission_v_id = ? AND screener_id IS NULL");
+                stmt = conn.prepareStatement("UPDATE screening_task SET screener_id = ? WHERE submission_v_id = ? " +
+                    "AND screener_id IS NULL");
 /*                stmt = conn.prepareStatement("UPDATE screening_task SET screener_id = ?, " +
                     "screening_attempts = screening_attempts + 1 WHERE submission_v_id = ? AND screener_id IS NULL");*/
                 stmt.setLong(1, this.screener);
@@ -306,12 +333,13 @@ public class ScreeningJob extends TimerTask {
      * Rolls back a request so it can be reprocessed.
      *
      * @param submissionVId the submission version id.
+     *
+     * @since 1.0.1
      */
     private void rollbackRequest(long submissionVId) {
         Connection conn = null;
         PreparedStatement stmt = null;
         try {
-            log.info("Tira delete."); // PLK
             conn = DbHelper.getConnection();
             stmt = conn.prepareStatement(
                     "DELETE FROM screening_results " +
@@ -323,9 +351,6 @@ public class ScreeningJob extends TimerTask {
                 log.error("Could not rollback screening_results: " + sqle.toString());
             }
             stmt = null;
-            log.info("ok delete."); // PLK
-
-            log.info("Tira update."); // PLK
 
             stmt = conn.prepareStatement(
                     "UPDATE screening_task " +
@@ -333,11 +358,9 @@ public class ScreeningJob extends TimerTask {
                     "WHERE screener_id = ?");
             stmt.setLong(1, screener);
             stmt.executeUpdate();
-            log.info("ok update."); // PLK
         } catch (SQLException sqle) {
             log.error(sqle.toString());
         } finally {
-            log.info("algun error."); // PLK
             DbHelper.dispose(conn, stmt, null);
         }
     }
@@ -423,7 +446,8 @@ public class ScreeningJob extends TimerTask {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
-            stmt = conn.prepareStatement("SELECT submission_v_id FROM submission WHERE submission_id = ? AND cur_version = 1");
+            stmt = conn.prepareStatement("SELECT submission_v_id FROM submission WHERE submission_id = ? " +
+                "AND cur_version = 1");
             stmt.setLong(1, submissionId);
             rs = stmt.executeQuery();
             rs.next();
@@ -451,7 +475,7 @@ public class ScreeningJob extends TimerTask {
     }
 
     /**
-     * Place a request in the database queue, using a specific connection.
+     * Place a request in the database queue, using a specific connection. Initializes screening_attempts with 0.
      *
      * @param request the request to place.
      * @param conn the connection to use.
@@ -460,10 +484,10 @@ public class ScreeningJob extends TimerTask {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
-            stmt = conn.prepareStatement(
-                    "INSERT INTO screening_task(submission_v_id, submission_path, screening_project_type_id) VALUES(?, ?, ?)");
-/*            stmt = conn.prepareStatement(
-                    "INSERT INTO screening_task(submission_v_id, submission_path, screening_project_type_id, 0) VALUES(?, ?, ?, 1)");*/
+            stmt = conn.prepareStatement("INSERT INTO screening_task(submission_v_id, submission_path, " +
+                "screening_project_type_id) VALUES(?, ?, ?)");
+/*            stmt = conn.prepareStatement("INSERT INTO screening_task(submission_v_id, submission_path, " +
+                "screening_project_type_id, 0) VALUES(?, ?, ?, 0)");*/
             stmt.setLong(1, request.getSubmissionVId());
             stmt.setString(2, request.getSubmissionPath());
             stmt.setLong(3, request.getProjectType().getId());
@@ -518,7 +542,9 @@ public class ScreeningJob extends TimerTask {
             log.info("Thread " + id + ": start " + buffer.toString() + new Date());
             log.info("Current load " + getCurrentLoad() + "/" + num);
 
-            boolean successfullScreen = tool.screen(log, new File(request.getSubmissionPath()), request.getProjectType(), request.getSubmissionVId());
+            // runs screening, if succeded, completes the request, otherwise, rolbacks it to be reprocessed.
+            boolean successfullScreen = tool.screen(log, new File(request.getSubmissionPath()),
+                request.getProjectType(), request.getSubmissionVId());
             if (successfullScreen) {
                 completeRequest(request.getSubmissionVId());
             } else {
@@ -531,7 +557,8 @@ public class ScreeningJob extends TimerTask {
     }
 
     /**
-     * Command line entry. Contains a single argument - the number of threads to use. Could be absent which means to run single thread.
+     * Command line entry. Contains a single argument - the number of threads to use. Could be absent which means
+     * to run single thread.
      *
      * @param args the arguments.
      *

@@ -19,6 +19,13 @@ import java.util.Iterator;
  * of project and initiates the screening logic for each of them. It also provides static access to
  * the query interface as well as a command line interface.
  *
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * screen method was modified to return a boolean indicating if the screening *process* was successful.
+ * </li>
+ * </ol>
+ *
  * @author WishingBone, pulky
  * @version 1.0.1
  */
@@ -93,6 +100,8 @@ public class ScreeningTool {
      * @param file the file to screen.
      * @param type the project type of this submission.
      * @param submissionId the submission id of the submission.
+     *
+     * @return true if screening process succedeed.
      */
     public boolean screen(Logger log, File file, ProjectType type, long submissionVId) {
         boolean retVal = true;
