@@ -21,6 +21,13 @@ import com.topcoder.apps.screening.DatabaseException;
  * Checks if a poseidon file exists. If it does, it further verifies it contains use case diagram,
  * class diagram and sequence diagram.
  *
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * DatabaseException is catched and propageted to the ScreeningTool class.
+ * </li>
+ * </ol>
+ *
  * @author WishingBone, pulky
  * @version 1.0.1
  */
@@ -34,6 +41,10 @@ public class PoseidonFileRule implements ScreeningRule {
      * @param file the file to screen.
      * @param root the root dir of the extracted submission.
      * @param logger the logger to write responses to.
+     *
+     * @return true if the rule succedeed.
+     *
+     * @throws DatabaseException if screening process got DatabaseException.
      */
     public boolean screen(File file, File root, ScreeningLogger logger) {
         try {
