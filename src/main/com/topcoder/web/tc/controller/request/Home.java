@@ -5,8 +5,8 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.util.TCO05ComponentTerms;
-import com.topcoder.web.tc.controller.request.util.TCO05AlgorithmTerms;
+import com.topcoder.web.tc.controller.request.util.TCO06AlgorithmTerms;
+import com.topcoder.web.tc.controller.request.util.TCO06ComponentTerms;
 
 public class Home extends Base {
 
@@ -83,20 +83,19 @@ public class Home extends Base {
             dataRequest.setProperty("cr", String.valueOf(getUser().getId()));
             getRequest().setAttribute("member_info", dwDai.getData(dataRequest).get("Coder_Data"));
 
-/*
-            TCO05ComponentTerms compTerms = new TCO05ComponentTerms();
+
+            TCO06ComponentTerms compTerms = new TCO06ComponentTerms();
             compTerms.setRequest(getRequest());
             compTerms.setResponse(getResponse());
             compTerms.setAuthentication(getAuthentication());
 
-            TCO05AlgorithmTerms algoTerms = new TCO05AlgorithmTerms();
+            TCO06AlgorithmTerms algoTerms = new TCO06AlgorithmTerms();
             algoTerms.setRequest(getRequest());
             algoTerms.setResponse(getResponse());
             algoTerms.setAuthentication(getAuthentication());
 
             getRequest().setAttribute("compTerms", compTerms);
             getRequest().setAttribute("algoTerms", algoTerms);
-*/
 
         } catch (TCWebException e) {
             throw e;
