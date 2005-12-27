@@ -237,10 +237,7 @@ information and your competition statistics.
 <br><br>
 <span class="bigRed">Contestants must not cheat. All ideas for any code and/or challenge submitted must be the contestant's alone.</span>
 <br><br>
-Winners in each round of competition will be those competitors who win the most points in their respective rooms. All
-decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the
-tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all
-respects.
+Winners in each round of competition will be those competitors that are the top scorers. All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.
 <br><br>
 Prizewinners will be announced upon completion of the Championship Round. Any prizewinner claiming a prize must
 complete the following documents onsite before claiming the prize (Google will provide the prizewinners with these
