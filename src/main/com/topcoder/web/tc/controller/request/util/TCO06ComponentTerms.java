@@ -13,8 +13,8 @@ public class TCO06ComponentTerms extends TCO06AlgorithmTerms {
 
     public Calendar getBeginning() {
         Calendar start = Calendar.getInstance();
-//        start.set(2006, Calendar.JANUARY, 2,9,0);
-        start.set(2005, Calendar.JANUARY, 2,9,0);
+        start.set(2006, Calendar.JANUARY, 2,9,0);
+//        start.set(2005, Calendar.JANUARY, 2,9,0);
         return start;
     }
 
