@@ -16,9 +16,9 @@
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
-	<tr valign=top>
-		<td valign=top align=center>
-		<div class="bodySpacer">
+   <tr valign=top>
+      <td valign=top align=center>
+      <div class="bodySpacer">
          
 <span class="bigTitle">Component Competition Official Rules and Regulations</span>
 <br><br>
@@ -385,7 +385,7 @@ A list of tournament winners by coder handles will be available on the web site 
 <br><br>
 This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue, Glastonbury, CT 06033.
       </div>
-		</td>
+      </td>
       
        
 <!-- Right Column-->
@@ -394,12 +394,12 @@ This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topc
          <jsp:param name="level1" value="all"/>
          </jsp:include>
        </td>
-		
-	</tr>
-	
+      
+   </tr>
+   
 </table>
-	
-	
+   
+   
 
 
 <jsp:include page="../../foot.jsp" />

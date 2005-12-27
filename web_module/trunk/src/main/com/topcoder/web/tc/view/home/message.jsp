@@ -2,8 +2,8 @@
                  java.util.Date"%>
 <%--
 --%>
-<jsp:useBean id="compTerms" class="com.topcoder.web.tc.controller.request.util.TCO05ComponentTerms" scope="request" />
-<jsp:useBean id="algoTerms" class="com.topcoder.web.tc.controller.request.util.TCO05AlgorithmTerms" scope="request" />
+<jsp:useBean id="compTerms" class="com.topcoder.web.tc.controller.request.util.TCO06ComponentTerms" scope="request" />
+<jsp:useBean id="algoTerms" class="com.topcoder.web.tc.controller.request.util.TCO06AlgorithmTerms" scope="request" />
 <%  Calendar now = Calendar.getInstance();
     now.setTime(new Date());
     if ((now.after(compTerms.getBeginning())&&now.before(compTerms.getEnd()))||(now.after(algoTerms.getBeginning())&&now.before(algoTerms.getEnd()))) {
@@ -23,7 +23,7 @@
             <% } else { %>
             <% if ((now.after(algoTerms.getBeginning())&&now.before(algoTerms.getEnd()))) { %>
               <% if (algoTerms.isEligible()) { %>
-                 You are not registered for the <strong>TCO Algorithm Competition</strong>, click <a href="/tc?module=TCO05AlgorithmTerms" class="tco06MessageLink">here</a> to register.<br/>
+                 You are not registered for the <strong>TCO Algorithm Competition</strong>, click <a href="/tc?module=TCO06AlgorithmTerms" class="tco06MessageLink">here</a> to register.<br/>
             <%   } else { %>
                    Sorry, you are not eligible to register for the TCO.
             <%   }
@@ -35,7 +35,7 @@
 
             <% if ((now.after(compTerms.getBeginning())&&now.before(compTerms.getEnd()))) { %>
             <%   if (compTerms.isEligible()) { %>
-                   You are not registered for the <strong>TCO Component Competition</strong>, click <a href="/tc?module=TCO05ComponentTerms" class="tco06MessageLink">here</a> to register.
+                   You are not registered for the <strong>TCO Component Competition</strong>, click <a href="/tc?module=TCO06ComponentTerms" class="tco06MessageLink">here</a> to register.
             <%   } else { %>
                    Sorry, you are not eligible to register for the TCO.
             <%   }
