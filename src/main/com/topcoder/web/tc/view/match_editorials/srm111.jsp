@@ -78,7 +78,8 @@ Kudos, <B>helloworldX</B> :)
 </P>
 
 <P>
-<B>Division-II, Level 2:</B> (500pt) &amp; <B>Division-I, Level 1:</B> (300pt)
+<B>Division-II, Level 2:</B> (500pt) &amp; <B>Division-I, Level 1:</B> (300pt)&#160;
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505528" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
 </P>
 
 <P>
@@ -121,7 +122,9 @@ Return that value. Done.
 </P>
 
 <P>
-<B>Division-II, Level 3:</B> (1000pt)<BR/>
+<B>Division-II, Level 3:</B> (1000pt)&#160;
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505528" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Submission rate - 4% (8/214)<BR/>
 Success rate - 0% (0/8)<BR/>
 High score: No successful submissions<BR/>
@@ -200,7 +203,9 @@ Yes, that's the only thing we need the simulation for.
 </P>
 
 <P>
-<B>Division-I, Level 2:</B> (450pt)<BR/>
+<B>Division-I, Level 2:</B> (450pt)&#160;
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505528" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Submission rate - 64% (67/105)<BR/>
 Success rate - 63% (42/67)<BR/>
 High score: <B>ZorbaTHut</B>, 404.62<BR/>
@@ -249,7 +254,9 @@ the same calculations twice.
 
 
 <P>
-<B>Division-I, Level 3:</B> (1100pt)<BR/>
+<B>Division-I, Level 3:</B> (1100pt)&#160;
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505528" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Submission rate - 7% (7/105)<BR/>
 Success rate - 71% (5/7)<BR/>
 High score: <B>John Dethridge</B>, 747.08<BR/>
