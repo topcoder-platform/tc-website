@@ -10,37 +10,37 @@
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 
 <STYLE TYPE="text/css">
-        #calendarTCO06
-        {
-        color: #FFF;
-        font-size: 11px;
-        font-weight: normal;
-        text-align: left;
-        vertical-align: top;
-        background-color: #0F4377;
-        background-image: url(/i/bg_calcell_tco06_gradient.gif);
-        background-repeat: repeat-x;
-        }
-        #calendarTCO06Date
-        {
-        color: #FFFFFF;
-        font-weight: bold;
-        }
-        A.calendarTCO06Link:link
-        {
-        color: #DDDDFF;
-        text-decoration: underline;
-        }
-        A.calendarTCO06Link:visited
-        {
-        color: #DDDDFF;
-        text-decoration: underline;
-        }
-        A.calendarTCO06Link:hover
-        {
-        color: #FF0000;
-        text-decoration: none;
-        }
+#calendarTCO06
+{
+color: #FFF;
+font-size: 11px;
+font-weight: normal;
+text-align: left;
+vertical-align: top;
+background-color: #0F4377;
+background-image: url(/i/bg_calcell_tco06_gradient.gif);
+background-repeat: repeat-x;
+}
+#calendarTCO06Date
+{
+color: #FFFFFF;
+font-weight: bold;
+}
+A.calendarTCO06Link:link
+{
+color: #DDDDFF;
+text-decoration: underline;
+}
+A.calendarTCO06Link:visited
+{
+color: #DDDDFF;
+text-decoration: underline;
+}
+A.calendarTCO06Link:hover
+{
+color: #FF0000;
+text-decoration: none;
+}
 
 </STYLE>
 
