@@ -38,9 +38,10 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
-        4.1.4 - 2005 12.xx
+        4.1.4 - 2005.12.27
         <ul>
             <li>Added some additional transactional locking to the reviewer reg process.</li>
+            <li>tco06 reg processing</li>
         </ul>
 
     </p>
