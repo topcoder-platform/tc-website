@@ -151,17 +151,16 @@ margin:0px auto;
 <%-- CNN MOVIE
             <A href="/movies/press/cnn_072405.mp4"><img src="/i/home/mov_cnn_072405.jpg" alt="TopCoder Movies" border="0" /></A>
 --%>
-<%-- MSN
-            <A href="/?RoundId=8074&t=schedule&c=srm"><img src="/i/home/msn_srm277.gif" alt="MSN" border="0" /></A>
+<%-- SRM SPONSORSHIP
 --%>
-<%-- SAP
---%>
-            <A href="/?RoundId=8076&t=schedule&c=srm"><img src="/i/home/sap_srm279.gif" alt="SAP" border="0" /></A>
+            <map name="srm_sponsor">
+            <area shape="rect" alt="" coords="1,1, 269,90" href="/?RoundId=8077&t=schedule&c=srm" />
+            <area shape="rect" alt="" coords="1,91, 269,139" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign" />
+            </map>
+
+            <img src="/i/home/verisign_srm280.gif" alt="VeriSign" border="0" usemap="#srm_sponsor"/>
 <%-- GCJC
             <A href="/gcjc"><img src="/i/home/gcjc.gif" alt="Google Code Jam China" border="0" /></A>
---%>
-<%-- TCES
-            <A href="/?RoundId=8075&t=schedule&c=srm"><img src="/i/home/tces_srm278.gif" alt="TCES" border="0" /></A>
 --%>
          </td></tr>
       </table>
