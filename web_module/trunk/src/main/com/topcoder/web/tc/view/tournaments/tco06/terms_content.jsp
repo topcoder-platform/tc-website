@@ -5,13 +5,22 @@
 <%@ page language="java"  %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<html class="termsHTML">
 <head>
 <title>2006 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
+<STYLE TYPE="text/css">
+html.termsHTML, body.termsBody
+{
+color: #FFFFFF;
+background: #032F6B;
+padding: 0px;
+margin: 0px;
+}
+</STYLE>
 </head>
 
-<body>
+<body class="termsBody">
 
     <%
 
