@@ -6,7 +6,21 @@
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
 
 <jsp:include page="../script.jsp" />
+<STYLE TYPE="text/css">
+.tco06Message
+{
+color: #FFFFFF;
+font-size: 11px;
+font-weight: normal;
+padding: 5px;
+background: #0F4377 url(/i/bg_calcell_tco06_gradient.gif) top center repeat-x;
+}
+A.tco06MessageLink:link{color: #DDDDFF;text-decoration: underline;}
+A.tco06MessageLink:visited{color: #AAAAFF;text-decoration: underline;}
+A.tco06MessageLink:hover{color: #FF0000;text-decoration: none;}
+A.tco06MessageLink:active{color: #FF0000;text-decoration: none;}
 
+</STYLE>
 </head>
 
 <body>
