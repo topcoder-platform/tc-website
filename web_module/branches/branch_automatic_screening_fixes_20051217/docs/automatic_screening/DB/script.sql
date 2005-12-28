@@ -62,7 +62,7 @@ create table 'informix'.screening_task (
     submission_path VARCHAR(255) not null,
     screening_project_type_id DECIMAL(5,0) not null,
     screener_id DECIMAL(2,0),
-    screening_attempts DECIMAL(1,0) not null
+    screening_attempts DECIMAL(2,0) not null
 )extent size 1000 next size 500
 lock mode row ;
 
