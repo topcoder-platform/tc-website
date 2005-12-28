@@ -72,7 +72,9 @@ public class ZipFileRule implements ScreeningRule {
             root.mkdir();
 
             String command = "/usr/bin/unzip " + file.getAbsolutePath();
+            log.info("command: " + command); // plk
             ExecutionResult er = Exec.execute(new String[] {command, root.getAbsolutePath()}, 20000);
+            log.info("ok"); // plk
 
 /*            ArchiveUtility au = new ArchiveUtility(file, new ZipArchiver());
             au.extractContents(root);*/
@@ -82,6 +84,7 @@ public class ZipFileRule implements ScreeningRule {
             // propagate database exception so submission would be rescreened.
             throw dbe;
         } catch (Exception ex) {
+            ex.printStackTrace();
             logger.log(new SimpleScreeningData("Unable to extract from ZIP file.", ResponseCode.NON_ZIP_FILE));
         }
         return false;
