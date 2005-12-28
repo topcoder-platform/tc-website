@@ -60,8 +60,9 @@ The Problems
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4448&amp;rd=6535" name="4448">MassiveNumbers</a></b>
 </font>
-<A href="Javascript:openProblemRating(4448)"><img hspace="10" border="0" height=
-"18" width="60" src="/i/rate_it.gif"/></A><br />
+<A href="Javascript:openProblemRating(4448)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505727" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division Two - Level One: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
