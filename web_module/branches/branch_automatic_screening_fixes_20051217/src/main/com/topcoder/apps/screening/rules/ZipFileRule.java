@@ -69,19 +69,12 @@ public class ZipFileRule implements ScreeningRule {
                 return false;
             }
 
-            //root.mkdir();
-
             String command = "/usr/bin/unzip -uo -qq " + file.getAbsolutePath() + " -d " + root.getAbsolutePath();
             log.info("command: " + command); // plk
             ExecutionResult er = Exec.execute(new String[] {command});
-            log.info("ok"); // plk
-
-/*            ArchiveUtility au = new ArchiveUtility(file, new ZipArchiver());
-            au.extractContents(root);
-"/usr/bin/unzip -uo -qq /home/tcsdev1/submissions/Submitter_10608475_2005-12-28-17-25-02-990.zip -d /home/tcsdev1/screening_tmp/14619"
-*/
-
-
+            if (er.getExitStatus() != 0) {
+                throw new Exception();
+            }
             return true;
         } catch (DatabaseException dbe) {
             // propagate database exception so submission would be rescreened.
