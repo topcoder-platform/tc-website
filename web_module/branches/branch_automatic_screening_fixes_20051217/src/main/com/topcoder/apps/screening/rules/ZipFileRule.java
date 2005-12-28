@@ -77,8 +77,10 @@ public class ZipFileRule implements ScreeningRule {
             log.info("ok"); // plk
 
 /*            ArchiveUtility au = new ArchiveUtility(file, new ZipArchiver());
-            au.extractContents(root);*/
+            au.extractContents(root);
 "/usr/bin/unzip -uo -qq /home/tcsdev1/submissions/Submitter_10608475_2005-12-28-17-25-02-990.zip -d /home/tcsdev1/screening_tmp/14619"
+*/
+
 
             return true;
         } catch (DatabaseException dbe) {
