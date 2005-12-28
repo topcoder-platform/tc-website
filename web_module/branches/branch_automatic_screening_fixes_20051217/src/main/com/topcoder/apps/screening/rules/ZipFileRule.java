@@ -51,13 +51,7 @@ public class ZipFileRule implements ScreeningRule {
         try {
             Logger log = null; // plk
             log = Logger.getLogger(ScreeningJob.class); // plk
-            log.info("file: " + file.getName()); // plk
-            log.info("root: " + root.getName()); // plk
-            log.info("path: " + file.getAbsolutePath()); // plk
-            log.info("canonical: " + file.getCanonicalPath()); // plk
-            log.info("path: " + root.getAbsolutePath()); // plk
-            log.info("canonical: " + root.getCanonicalPath()); // plk
-
+            log.info("/usr/bin/unzip " + file.getAbsolutePath() + "-d " + root.getAbsolutePath()); // plk
 
             if (!file.getName().toLowerCase().endsWith(".zip")) {
                 logger.log(new SimpleScreeningData(ResponseCode.NON_ZIP_FILE));
