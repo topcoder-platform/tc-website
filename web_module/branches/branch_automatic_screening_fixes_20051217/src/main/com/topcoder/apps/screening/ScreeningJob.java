@@ -487,6 +487,7 @@ public class ScreeningJob extends TimerTask {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
+            System.out.println("insert");
             log.info("insert."); // plk
             stmt = conn.prepareStatement("INSERT INTO screening_task(submission_v_id, submission_path, " +
                 "screening_project_type_id, screening_attempts) VALUES(?, ?, ?, ?)");
