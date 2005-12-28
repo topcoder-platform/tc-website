@@ -74,8 +74,9 @@ Nothing too tricky in this problem.  The most straightforward way to solve this 
                 </td></tr><tr><td class="bodyText" style="background: #eee;"><b>High Score</b></td><td class="bodyText" style="background: #eee;"><b>venco</b> for 242.55   points
                 </td></tr></table></blockquote><P>
 For each encounter with the boss, there are two numbers which are interesting.  The obvious one is the sum of all attacks for the encounter.  We know that this number is enough to defeat the boss, so the minimum of this number over all encounters is the second element of the return.  For example, if one encounter totaled 10 damage, and another encounter totaled 8 damage, we know that 8 damage is enough to defeat the boss.  The second number of interest is the sum of all of the attacks except the last.  We know that each time, this sum was not enough to defeat the boss, and thus the boss has at least this sum plus one health.  So, the first element must be the maximum of the sum of all numbers but the last, plus one.  The only other thing to do is map the names of the attacks to the amount of damage they do.  Java's HashMap, or it equivalent does this pretty easily.
-  </P><font size="+2"><b>LongDistance</b></font><BR/>
 
+  </P><font size="+2"><b>LongDistance</b></font>&#160;
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505535" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
     Used as: Division II - Level 3:
     <blockquote><table cellspacing="2"><tr><td class="bodyText" style="background: #eee;"><b>Value</b></td><td class="bodyText" style="background: #eee;">1100 points</td></tr><tr><td class="bodyText" style="background: #eee;"><b>Submission Rate</b></td><td class="bodyText" style="background: #eee;">49 / 223 (21.97%) 
 </td></tr><tr><td class="bodyText" style="background: #eee;"><b>Success Rate</b></td><td class="bodyText" style="background: #eee;">3 / 49 (6.12%) 
