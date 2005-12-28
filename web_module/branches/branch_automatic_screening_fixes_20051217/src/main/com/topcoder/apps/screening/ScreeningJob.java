@@ -489,7 +489,8 @@ public class ScreeningJob extends TimerTask {
                 "screening_project_type_id, screener_id, screening_attempts) VALUES(?, ?, ?, NULL, 0)");
             stmt.setLong(1, request.getSubmissionVId());
             stmt.setString(2, request.getSubmissionPath());
-            stmt.setLong(3, request.getProjectType().getId());
+            stmt.setLong(3, 3);
+            //stmt.setLong(3, request.getProjectType().getId());
             //stmt.setInt(4, 0);
             stmt.executeUpdate();
         } catch (SQLException sqle) {
