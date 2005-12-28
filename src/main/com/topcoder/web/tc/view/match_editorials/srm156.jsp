@@ -181,7 +181,9 @@ and <b>compound</b> = "BAAABAAA".  The correct answer is 2 ("BAAA", "BAAA"), but
 ("BAAABA", "A", "A"), as it tries to use the largest dictionary word possible at the beginning.</p>
 
 <font size="+2"><b>SmartElevator</b>
-</font><A href="Javascript:openProblemRating(1788)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
+</font><A href="Javascript:openProblemRating(1788)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A>
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505592" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division One - Level Two: <blockquote><table cellspacing="2">
 <tr><td style="background: #eee;" class="bodyText"><b>Value</b></td><td style="background: #eee;" class="bodyText"> 
       550 
