@@ -10,7 +10,7 @@
   CLASSPATH=$CLASSPATH:../lib/jars/jboss/jbossall-client.jar
   CLASSPATH=$CLASSPATH:../lib/jars/log4j-1.2.7.jar
   CLASSPATH=$CLASSPATH:../lib/jars/tcs/base_exception.jar
-  CLASSPATH=$CLASSPATH:../lib/jars/tcs/compression_utility/2.0/compression_utility.jar
+  CLASSPATH=$CLASSPATH:../lib/jars/tcs/compression_utility/2.0.2/compression_utility.jar
   CLASSPATH=$CLASSPATH:../lib/jars/tcs/configuration_manager/2.1.3/configuration_manager.jar
   CLASSPATH=$CLASSPATH:../lib/jars/tcs/data_validation/1.0/data_validation.jar
   CLASSPATH=$CLASSPATH:../lib/jars/tcs/db_connection_factory/1.0/db_connection_factory.jar

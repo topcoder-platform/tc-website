@@ -72,6 +72,13 @@ public class ScreeningJob extends TimerTask {
     private static final String MAX_SCREENING_ATTEMPTS_PROPERTY_NAME = "max_screening_attempts";
 
     /**
+     * The maximum number of screening attempts permitted.
+     *
+     * @since 1.0.1
+     */
+    private static final int MAX_SCREENING_ATTEMPTS_PERMITTED = 99;
+
+    /**
      * The log name.
      */
     private final static String LOG_NAME = "Automated_Screening";
@@ -247,12 +254,8 @@ public class ScreeningJob extends TimerTask {
             stmt = conn.prepareStatement(
                     "SELECT submitter_id, screening_task.submission_v_id, submission_path, screening_project_type_id " +
                     "FROM submission, screening_task " +
-                    "WHERE submission.submission_v_id = screening_task.submission_v_id AND screener_id IS NULL");
-            /*stmt = conn.prepareStatement(
-                    "SELECT submitter_id, screening_task.submission_v_id, submission_path, screening_project_type_id " +
-                    "FROM submission, screening_task " +
                     "WHERE submission.submission_v_id = screening_task.submission_v_id AND screener_id IS NULL " +
-                    "and screening_attempts < " + maxScreeningAttempts);*/
+                    "and screening_attempts < " + maxScreeningAttempts);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -289,10 +292,8 @@ public class ScreeningJob extends TimerTask {
             PreparedStatement stmt = null;
             try {
                 conn = DbHelper.getConnection();
-                stmt = conn.prepareStatement("UPDATE screening_task SET screener_id = ? WHERE submission_v_id = ? " +
-                    "AND screener_id IS NULL");
-/*                stmt = conn.prepareStatement("UPDATE screening_task SET screener_id = ?, " +
-                    "screening_attempts = screening_attempts + 1 WHERE submission_v_id = ? AND screener_id IS NULL");*/
+                stmt = conn.prepareStatement("UPDATE screening_task SET screener_id = ?, " +
+                    "screening_attempts = screening_attempts + 1 WHERE submission_v_id = ? AND screener_id IS NULL");
                 stmt.setLong(1, this.screener);
                 stmt.setLong(2, request.getSubmissionVId());
 
@@ -485,9 +486,7 @@ public class ScreeningJob extends TimerTask {
         ResultSet rs = null;
         try {
             stmt = conn.prepareStatement("INSERT INTO screening_task(submission_v_id, submission_path, " +
-                "screening_project_type_id) VALUES(?, ?, ?)");
-/*            stmt = conn.prepareStatement("INSERT INTO screening_task(submission_v_id, submission_path, " +
-                "screening_project_type_id, 0) VALUES(?, ?, ?, 0)");*/
+                "screening_project_type_id, screening_attempts) VALUES(?, ?, ?, 0)");
             stmt.setLong(1, request.getSubmissionVId());
             stmt.setString(2, request.getSubmissionPath());
             stmt.setLong(3, request.getProjectType().getId());
@@ -600,6 +599,12 @@ public class ScreeningJob extends TimerTask {
             String value = cm.getString(NAMESPACE, MAX_SCREENING_ATTEMPTS_PROPERTY_NAME);
             if (value != null && value.trim().length() > 0) {
                 maxScreeningAttempts = Integer.parseInt(value);
+                if (maxScreeningAttempts > MAX_SCREENING_ATTEMPTS_PERMITTED) {
+                    System.out.println("Screening attempts = " + maxScreeningAttempts +
+                        " exceeds maximum permitted (" + MAX_SCREENING_ATTEMPTS_PERMITTED +
+                            "), the maximum value will be used.");
+                    maxScreeningAttempts = MAX_SCREENING_ATTEMPTS_PERMITTED;
+                }
             }
         }
 
