@@ -71,13 +71,15 @@ public class ZipFileRule implements ScreeningRule {
 
             root.mkdir();
 
-            String command = "/usr/bin/unzip " + file.getAbsolutePath();
+            String command = "/usr/bin/unzip " + file.getAbsolutePath() + " -d " + root.getAbsolutePath();
             log.info("command: " + command); // plk
-            ExecutionResult er = Exec.execute(new String[] {command, root.getAbsolutePath()}, 20000);
+            ExecutionResult er = Exec.execute(new String[] {command, file.getAbsolutePath()}, 80000);
             log.info("ok"); // plk
 
 /*            ArchiveUtility au = new ArchiveUtility(file, new ZipArchiver());
             au.extractContents(root);*/
+
+/*/usr/bin/unzip /home/tcsdev1/submissions/Submitter_10608475_2005-12-28-17-09-02-104.zip*/
 
             return true;
         } catch (DatabaseException dbe) {
