@@ -18,7 +18,7 @@ import com.topcoder.apps.screening.DatabaseException;
  * Version 1.0.1 Change notes:
  * <ol>
  * <li>
- * DatabaseException is catched and propageted to the ScreeningTool class.
+ * DatabaseException is catched and propagated to the ScreeningTool class.
  * </li>
  * </ol>
  *

@@ -2,7 +2,12 @@
  * Copyright (c) 2005 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.screening.rules;
+import com.topcoder.shared.util.logging.Logger; // plk
+
+import com.topcoder.apps.screening.ScreeningJob; // plk
+
 import java.io.File;
+import com.topcoder.util.exec.Exec;
 import com.topcoder.file.type.MagicNumbers;
 import com.topcoder.file.type.FileType;
 import com.topcoder.util.archiving.ArchiveUtility;
@@ -20,7 +25,7 @@ import com.topcoder.apps.screening.DatabaseException;
  * Version 1.0.1 Change notes:
  * <ol>
  * <li>
- * DatabaseException is catched and propageted to the ScreeningTool class.
+ * DatabaseException is catched and propagated to the ScreeningTool class.
  * </li>
  * </ol>
  *
@@ -44,6 +49,12 @@ public class ZipFileRule implements ScreeningRule {
      */
     public boolean screen(File file, File root, ScreeningLogger logger) {
         try {
+            Logger log = null; // plk
+            log = Logger.getLogger(ScreeningJob.class); // plk
+            log.info("file: " + file.getName()); // plk
+            log.info("root: " + root.getName()); // plk
+
+
             if (!file.getName().toLowerCase().endsWith(".zip")) {
                 logger.log(new SimpleScreeningData(ResponseCode.NON_ZIP_FILE));
                 return false;
@@ -56,6 +67,9 @@ public class ZipFileRule implements ScreeningRule {
             }
 
             root.mkdir();
+
+            //ExecutionResult er = Exec.execute(new String[] {command, file.getAbsolutePath()}, timeout * 1000);
+
             ArchiveUtility au = new ArchiveUtility(file, new ZipArchiver());
             au.extractContents(root);
 
