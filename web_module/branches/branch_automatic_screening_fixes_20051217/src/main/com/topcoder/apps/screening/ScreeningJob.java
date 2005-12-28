@@ -482,9 +482,12 @@ public class ScreeningJob extends TimerTask {
      * @param conn the connection to use.
      */
     public static void placeRequest(ScreeningRequest request, Connection conn) {
+        Logger log = null; // plk
+        log = Logger.getLogger(ScreeningJob.class);
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
+            log.info("insert."); // plk
             stmt = conn.prepareStatement("INSERT INTO screening_task(submission_v_id, submission_path, " +
                 "screening_project_type_id, screening_attempts) VALUES(?, ?, ?, ?)");
             stmt.setLong(1, request.getSubmissionVId());
@@ -493,8 +496,10 @@ public class ScreeningJob extends TimerTask {
             stmt.setLong(4, 0);
             stmt.executeUpdate();
         } catch (SQLException sqle) {
+            log.info("mal."); // plk
             throw new DatabaseException("placeRequest() fails.", sqle);
         } finally {
+            log.info("termino."); // plk
             DbHelper.dispose(null, stmt, null);
         }
     }
