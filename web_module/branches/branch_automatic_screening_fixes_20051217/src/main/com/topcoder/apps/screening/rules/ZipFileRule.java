@@ -4,6 +4,10 @@
 package com.topcoder.apps.screening.rules;
 
 import java.io.File;
+
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.apps.screening.ScreeningJob;
+
 import com.topcoder.util.exec.Exec;
 import com.topcoder.util.exec.ExecutionException;
 import com.topcoder.util.exec.ExecutionResult;
@@ -59,11 +63,17 @@ public class ZipFileRule implements ScreeningRule {
                 return false;
             }
 
+ Logger log = null;
+log = Logger.getLogger(ScreeningJob.class);
+
             String command = "/usr/bin/unzip -uo -qq " + file.getAbsolutePath() + " -d " + root.getAbsolutePath();
             ExecutionResult er = null;
             try {
                 er = Exec.execute(new String[] {command});
             } catch (ExecutionException ee) {
+                log.info("exit status " + er.getExitStatus());
+                log.info("exit out " + er.getOut());
+                log.info("exit err " + er.getErr());
             }
             if (er == null || er.getExitStatus() != 0) {
                 throw new Exception();
@@ -73,6 +83,7 @@ public class ZipFileRule implements ScreeningRule {
             // propagate database exception so submission would be rescreened.
             throw dbe;
         } catch (Exception ex) {
+            ex.printStackTrace();
             logger.log(new SimpleScreeningData("Unable to extract from ZIP file.", ResponseCode.NON_ZIP_FILE));
         }
         return false;
