@@ -75,9 +75,7 @@
 <span class="bodySubtitle">SRM 97</span><br>June 12, 2002
 <br /><br />
 
-<H1> 
-The Problems 
-</H1> 
+<span class="bigTitle">Match summary</span>
 
 <P>
 The Level One problem was a bruteforcable geometry problem with a few
