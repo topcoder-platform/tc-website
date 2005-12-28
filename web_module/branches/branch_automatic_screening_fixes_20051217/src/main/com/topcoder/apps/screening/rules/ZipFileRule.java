@@ -71,9 +71,13 @@ log = Logger.getLogger(ScreeningJob.class);
             try {
                 er = Exec.execute(new String[] {command});
             } catch (ExecutionException ee) {
+                if (er == null) {
+                       log.info("er null");
+                } else {
                 log.info("exit status " + er.getExitStatus());
                 log.info("exit out " + er.getOut());
                 log.info("exit err " + er.getErr());
+            }
             }
             if (er == null || er.getExitStatus() != 0) {
                 throw new Exception();
