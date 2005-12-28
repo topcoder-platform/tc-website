@@ -486,11 +486,11 @@ public class ScreeningJob extends TimerTask {
         ResultSet rs = null;
         try {
             stmt = conn.prepareStatement("INSERT INTO screening_task(submission_v_id, submission_path, " +
-                "screening_project_type_id, screening_attempts) VALUES(?, ?, ?, ?)");
+                "screening_project_type_id, screener_id, screening_attempts) VALUES(?, ?, ?, NULL, 0)");
             stmt.setLong(1, request.getSubmissionVId());
             stmt.setString(2, request.getSubmissionPath());
             stmt.setLong(3, request.getProjectType().getId());
-            stmt.setInt(4, 0);
+            //stmt.setInt(4, 0);
             stmt.executeUpdate();
         } catch (SQLException sqle) {
             throw new DatabaseException("placeRequest() fails.", sqle);
