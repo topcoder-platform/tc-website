@@ -5,6 +5,7 @@ package com.topcoder.apps.screening.rules;
 
 import java.io.File;
 import com.topcoder.util.exec.Exec;
+import com.topcoder.util.exec.ExecutionException;
 import com.topcoder.util.exec.ExecutionResult;
 import com.topcoder.file.type.MagicNumbers;
 import com.topcoder.file.type.FileType;
@@ -59,16 +60,19 @@ public class ZipFileRule implements ScreeningRule {
             }
 
             String command = "/usr/bin/unzip -uo -qq " + file.getAbsolutePath() + " -d " + root.getAbsolutePath();
-            ExecutionResult er = Exec.execute(new String[] {command});
-/*            if (er.getExitStatus() != 0) {
+            ExecutionResult er = null;
+            try {
+                er = Exec.execute(new String[] {command});
+            } catch (ExecutionException ee) {
+            }
+            if (er == null || er.getExitStatus() != 0) {
                 throw new Exception();
-            }*/
+            }
             return true;
         } catch (DatabaseException dbe) {
             // propagate database exception so submission would be rescreened.
             throw dbe;
         } catch (Exception ex) {
-            ex.printStackTrace();
             logger.log(new SimpleScreeningData("Unable to extract from ZIP file.", ResponseCode.NON_ZIP_FILE));
         }
         return false;
