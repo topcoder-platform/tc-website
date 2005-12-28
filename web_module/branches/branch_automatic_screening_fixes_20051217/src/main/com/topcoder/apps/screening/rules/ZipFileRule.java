@@ -8,6 +8,7 @@ import com.topcoder.apps.screening.ScreeningJob; // plk
 
 import java.io.File;
 import com.topcoder.util.exec.Exec;
+import com.topcoder.util.exec.ExecutionResult;
 import com.topcoder.file.type.MagicNumbers;
 import com.topcoder.file.type.FileType;
 import com.topcoder.util.archiving.ArchiveUtility;
@@ -51,7 +52,11 @@ public class ZipFileRule implements ScreeningRule {
         try {
             Logger log = null; // plk
             log = Logger.getLogger(ScreeningJob.class); // plk
-            log.info("/usr/bin/unzip " + file.getAbsolutePath() + "-d " + root.getAbsolutePath()); // plk
+/*            log.info("/usr/bin/unzip " + file.getAbsolutePath() + "-d " + root.getAbsolutePath()); // plk
+
+            /usr/bin/unzip /home/tcsdev1/submissions/Submitter_10608475_2005-12-28-16-56-48-193.zip
+
+-d /home/tcsdev1/screening_tmp/14615*/
 
             if (!file.getName().toLowerCase().endsWith(".zip")) {
                 logger.log(new SimpleScreeningData(ResponseCode.NON_ZIP_FILE));
@@ -66,10 +71,11 @@ public class ZipFileRule implements ScreeningRule {
 
             root.mkdir();
 
-            //ExecutionResult er = Exec.execute(new String[] {command, file.getAbsolutePath()}, timeout * 1000);
+            String command = "/usr/bin/unzip " + file.getAbsolutePath();
+            ExecutionResult er = Exec.execute(new String[] {command, root.getAbsolutePath()}, 20000);
 
-            ArchiveUtility au = new ArchiveUtility(file, new ZipArchiver());
-            au.extractContents(root);
+/*            ArchiveUtility au = new ArchiveUtility(file, new ZipArchiver());
+            au.extractContents(root);*/
 
             return true;
         } catch (DatabaseException dbe) {
