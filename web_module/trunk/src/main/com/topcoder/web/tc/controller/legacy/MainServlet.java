@@ -129,17 +129,17 @@ public final class MainServlet extends BaseServlet {
                 handle = Conversion.checkNull(nav.getSessionInfo().getHandle());
             }
             StringBuffer trail = new StringBuffer(1000);
-            trail.append("[**** ");
+            trail.append("[* ");
             trail.append(handle);
-            trail.append(" **** ");
+            trail.append(" * ");
             trail.append(request.getRemoteAddr());
-            trail.append(" **** ");
+            trail.append("  ");
             trail.append(request.getMethod());
-            trail.append(" **** ");
+            trail.append(" * ");
             trail.append(requestTask);
-            trail.append(" **** ");
+            trail.append(" * ");
             trail.append(requestCommand);
-            trail.append(" ****]");
+            trail.append(" *]");
             log.info(trail.toString());
             if (log.isDebugEnabled()) {
                 String h = null;

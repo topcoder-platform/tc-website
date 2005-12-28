@@ -49,15 +49,15 @@ public class TCSServlet extends BaseServlet {
             //RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
             StringBuffer loginfo = new StringBuffer(100);
-            loginfo.append("[**** ");
+            loginfo.append("[* ");
             loginfo.append(info.getHandle());
-            loginfo.append(" **** ");
+            loginfo.append(" * ");
             loginfo.append(request.getRemoteAddr());
-            loginfo.append(" **** ");
+            loginfo.append(" * ");
             loginfo.append(request.getMethod());
             loginfo.append(" ");
             loginfo.append(info.getRequestString());
-            loginfo.append(" ****]");
+            loginfo.append(" *]");
             log.info(loginfo);
 
             try {
