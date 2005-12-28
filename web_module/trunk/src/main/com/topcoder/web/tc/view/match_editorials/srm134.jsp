@@ -327,7 +327,9 @@
                                                         Once we get to this point we have our answer.
                                                     </p>
                                         <p>&#160;</p>
-                                        <a name="ExpertSystem"></a><font size="+2"><b>ExpertSystem</b></font><br/>
+                                        <a name="ExpertSystem"></a><font size="+2"><b>ExpertSystem</b></font>&#160;
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505560" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+                                        
                                             Used as: Division-I, Level 3:
                                             <blockquote><table cellspacing="2">
                                         <tr>
