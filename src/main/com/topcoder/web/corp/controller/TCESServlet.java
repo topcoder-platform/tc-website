@@ -115,15 +115,15 @@ public class TCESServlet extends HttpServlet {
             request.setAttribute(BaseServlet.SESSION_INFO_KEY, info);
 
             StringBuffer loginfo = new StringBuffer(100);
-            loginfo.append("[**** ");
+            loginfo.append("[* ");
             loginfo.append(info.getHandle());
-            loginfo.append(" **** ");
+            loginfo.append(" * ");
             loginfo.append(request.getRemoteHost());
-            loginfo.append(" **** ");
+            loginfo.append(" * ");
             loginfo.append(request.getMethod());
             loginfo.append(" ");
             loginfo.append(info.getRequestString());
-            loginfo.append(" ****]");
+            loginfo.append(" *]");
             log.info(loginfo);
 
             Resource taskResource = new SimpleResource(taskClassName);

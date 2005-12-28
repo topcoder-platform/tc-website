@@ -7,11 +7,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.HttpObjectFactory;
-import com.topcoder.web.common.RequestTracker;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
@@ -27,10 +23,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Properties;
-import java.util.Set;
-import java.util.Collections;
 
 
 public class StatisticsHttpServlet extends HttpServlet {
@@ -162,15 +157,15 @@ public class StatisticsHttpServlet extends HttpServlet {
                 session.setAttribute("navigation", nav);
 
                 StringBuffer loginfo = new StringBuffer(100);
-                loginfo.append("[**** ");
+                loginfo.append("[* ");
                 loginfo.append(info.getHandle());
-                loginfo.append(" **** ");
+                loginfo.append(" * ");
                 loginfo.append(request.getRemoteAddr());
-                loginfo.append(" **** ");
+                loginfo.append(" * ");
                 loginfo.append(request.getMethod());
                 loginfo.append(" ");
                 loginfo.append(info.getRequestString());
-                loginfo.append(" ****]");
+                loginfo.append(" *]");
                 log.info(loginfo);
 
                 //hoke so that we can reload the properties file on the fly
