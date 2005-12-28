@@ -69,11 +69,11 @@ public class ZipFileRule implements ScreeningRule {
                 return false;
             }
 
-            root.mkdir();
+            //root.mkdir();
 
             String command = "/usr/bin/unzip " + file.getAbsolutePath() + " -d " + root.getAbsolutePath();
             log.info("command: " + command); // plk
-            ExecutionResult er = Exec.execute(new String[] {command, file.getAbsolutePath()}, 80000);
+            ExecutionResult er = Exec.execute(new String[] {command});
             log.info("ok"); // plk
 
 /*            ArchiveUtility au = new ArchiveUtility(file, new ZipArchiver());
