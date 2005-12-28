@@ -86,7 +86,9 @@ and difficult problems.<BR/><BR/>
 
 <H1> The Problems </H1> 
 
-<DT><B>Div. 2, Level 1: Average</B></DT>
+<DT><B>Div. 2, Level 1: Average</B>&#160;
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505507" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+</DT>
 The solution to <TT>Average</TT> was exactly as it seemed: compute the average, and count the number
 of children whose total scores were below average.  Common mistakes on this problem were:
 <UL>
@@ -99,7 +101,9 @@ of its operands are of integral types (even when assigning to a <TT>float</TT> o
 Thus, to force floating point division, cast at least one of the arguments to a floating point
 type.
 <BR/><BR/>
-<DT><B>Div. 1, Level 1 / Div. 2, Level 2: Powerful</B></DT>
+<DT><B>Div. 1, Level 1 / Div. 2, Level 2: Powerful</B>&#160;
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505507" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+</DT>
 <DD>
 The definition of <TT>Powerful</TT> was to find the largest integer <TT>k &gt; 1</TT> such that
 <TT>b</TT><SUP><TT>k</TT></SUP> = <TT>n</TT> for some integer <TT>b</TT> and the given integer <TT>n</TT>.
@@ -124,7 +128,9 @@ The most common problems were fencepost errors (upper bounds off by <TT>1</TT>) 
 instability (particularly the problem related to the first method described above).
 </DD>
 <BR/><BR/>
-<DT><B>Div. 2, Level 3: Filter</B></DT>
+<DT><B>Div. 2, Level 3: Filter</B>&#160;
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505507" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+</DT>
 The <TT>Filter</TT> problem in Division 2 is an interesting problem in that it represents a common digital 
 picture processing operation called <A HREF="http://www.dai.ed.ac.uk/HIPR2/open.htm" CLASS="bodyText">opening</A>. 
 The open operation takes an input image and a <A HREF="http://www.dai.ed.ac.uk/HIPR2/strctel.htm" CLASS="bodyText">structuring element</A>, 
@@ -187,7 +193,9 @@ boolean dilation_operator(boolean[][] image, int r, int c)
 </DIV><BR/><BR/>
 In general solutions to this problem could be seen as some sort of variant of an opening.<BR/><BR/>
 <BR/><BR/>
-<DT><B>Div. 1, Level 2: HexGolf</B></DT>
+<DT><B>Div. 1, Level 2: HexGolf</B>&#160;
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505507" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+</DT>
 The <TT>HexGolf</TT> problem was to find the minimum number of strokes it would take to move a ball to a particular 
 position in a hexagonal grid.  For each stroke one can choose from a set of clubs, each of which moves the ball a 
 certain distance in any direction parallel to one of the three axes of the hexagonal grid. We are given an upper 
@@ -239,7 +247,10 @@ implement and requires much less memory.  For this problem, a DFS is equivalent 
 complexity is equivalent to that of the worst-case BFS. Since the DFS implementation requires no maintenance of a 
 queue, it is obviously the fastest solution to implement.
 <BR/><BR/>
-<DT><B>Division 1, Level 3: Buddy</B></DT>
+
+<DT><B>Division 1, Level 3: Buddy</B>&#160;
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505507" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+</DT>
 Despite its modest value (<TT>900</TT> points), this was easily one of the most difficult problems ever posed in a 
 TopCoder competition.  This problem can be reduced to that of finding the minimum-weight bipartite matching (if any).
 <BR/><BR/>
