@@ -466,6 +466,10 @@ public class ScreeningJob extends TimerTask {
      * @param request the request to place.
      */
     public static void placeRequest(ScreeningRequest request) {
+        Logger log = null; // plk
+        log = Logger.getLogger(ScreeningJob.class); // plk
+        log.info("insert1."); // plk
+        System.out.println("insert1");
         Connection conn = null;
         try {
             conn = DbHelper.getConnection();
@@ -483,7 +487,7 @@ public class ScreeningJob extends TimerTask {
      */
     public static void placeRequest(ScreeningRequest request, Connection conn) {
         Logger log = null; // plk
-        log = Logger.getLogger(ScreeningJob.class);
+        log = Logger.getLogger(ScreeningJob.class); // plk
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
