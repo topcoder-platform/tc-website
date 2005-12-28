@@ -2,9 +2,6 @@
  * Copyright (c) 2005 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.screening.rules;
-import com.topcoder.shared.util.logging.Logger; // plk
-
-import com.topcoder.apps.screening.ScreeningJob; // plk
 
 import java.io.File;
 import com.topcoder.util.exec.Exec;
@@ -50,14 +47,6 @@ public class ZipFileRule implements ScreeningRule {
      */
     public boolean screen(File file, File root, ScreeningLogger logger) {
         try {
-            Logger log = null; // plk
-            log = Logger.getLogger(ScreeningJob.class); // plk
-/*            log.info("/usr/bin/unzip " + file.getAbsolutePath() + "-d " + root.getAbsolutePath()); // plk
-
-            /usr/bin/unzip /home/tcsdev1/submissions/Submitter_10608475_2005-12-28-16-56-48-193.zip
-
--d /home/tcsdev1/screening_tmp/14615*/
-
             if (!file.getName().toLowerCase().endsWith(".zip")) {
                 logger.log(new SimpleScreeningData(ResponseCode.NON_ZIP_FILE));
                 return false;
@@ -70,11 +59,10 @@ public class ZipFileRule implements ScreeningRule {
             }
 
             String command = "/usr/bin/unzip -uo -qq " + file.getAbsolutePath() + " -d " + root.getAbsolutePath();
-            log.info("command: " + command); // plk
             ExecutionResult er = Exec.execute(new String[] {command});
-            if (er.getExitStatus() != 0) {
+/*            if (er.getExitStatus() != 0) {
                 throw new Exception();
-            }
+            }*/
             return true;
         } catch (DatabaseException dbe) {
             // propagate database exception so submission would be rescreened.
