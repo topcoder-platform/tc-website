@@ -33,7 +33,7 @@
 
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="statistics_w"/>
-                <jsp:param name="title" value="Long Contest Competition History"/>
+                <jsp:param name="title" value="Marathon Match Competition History"/>
             </jsp:include>
 
             <% if (results!=null && !results.isEmpty()) { %>
@@ -58,7 +58,7 @@
                 <tr>
                     <td>
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-                            <tr><td class="tableTitle" colspan="4">Long Contest Competition History</td></tr>
+                            <tr><td class="tableTitle" colspan="4">Marathon Match Competition History</td></tr>
                             <tr>
                                 <TD CLASS="tableHeader" width="25%">Competition</TD>
                                 <TD CLASS="tableHeader" width="25%" align="right">Rank</TD>
