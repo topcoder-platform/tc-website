@@ -39,7 +39,7 @@
             <% if (results!=null && !results.isEmpty()) { %>
             <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=results.getLongItem(0, "coder_id")%>'/></span>
             <br>
-            <span class="bodySubtitle">Long Contest Statistics&#160;>&#160;</span><br>
+            <span class="bodySubtitle">Marathon Match Statistics&#160;>&#160;</span><br>
             <span class="bc">
 <A HREF="/" class="bcLink">Member Profile</A>
 &#160;|&#160;Competition History
@@ -52,6 +52,7 @@
                 <a href="/" class="bcLink">next &gt;&gt;</a>
             </div>
 --%>
+            <div class="pagingBox">&nbsp;</div>
 
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
                 <tr>
@@ -96,6 +97,8 @@
                 <a href="/" class="bcLink">next &gt;&gt;</a>
             </div>
 --%>
+            <div class="pagingBox">&nbsp;</div>
+
             <% } else { %>
             <p>This member has no history.</p>
             <% } %>
