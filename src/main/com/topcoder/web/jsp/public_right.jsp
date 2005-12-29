@@ -27,7 +27,7 @@ function find(n) {
 --%>
 
 <!-- Member Profiles, Search Pages, and Private Label Events Pages begins -->
-<% if ((level1.equals("profile")) | (level1.equals("search")) | (level1.equals("tournament")) | (level1.equals("privatelabel"))) { %>
+<% if ((level1.equals("default")) | (level1.equals("profile")) | (level1.equals("search")) | (level1.equals("tournament")) | (level1.equals("privatelabel"))) { %>
 
           <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
 
