@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>12.29.05<br>11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign_chat_122805">VeriSign chat transcript from SRM 280</A></span><br><br>
+      VeriSign recently held a chat session just prior to SRM 280 to discuss working at VeriSign.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign_chat_122805">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="504996" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>12.22.05<br>12:20 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -273,23 +286,6 @@
        <A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505850" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>12.01.05<br>4:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm275">SRM 275 - Problem Set & Analysis</A></span><br><br>
-      <tc-webtag:handle coderId="144400" context="algorithm"/> continued his quest to regain top position on the coder rankings list from <tc-webtag:handle coderId="10574855" context="algorithm"/> by easily winning Division 1 by almost 100 points.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/NeverMore_mug.gif" /><br>by <tc-webtag:handle coderId="287130" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm275">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505789" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 
