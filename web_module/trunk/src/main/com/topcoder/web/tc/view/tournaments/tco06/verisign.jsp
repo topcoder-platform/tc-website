@@ -1,4 +1,5 @@
 <%@  page language="java"  %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -22,7 +23,9 @@
       <div class="bodySpacer">
             
 <div align="center"><img src="/i/tournament/tco06/verisign_logo.gif" alt="VeriSign" border="0" /></div>
-<br><br>
+<p align="center"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=504996">VeriSign Employment Forum</A>
+&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign_chat_122805">SRM 280 Chat Transcript</A>
+</p>
 <span class="bigTitle">VeriSign&#174;... Where it All Comes Together.&#153;</span>
 <br><br>
 Billions of times each day, people all over the world will visit Web pages, make phone calls, conduct online purchases, download digital content to mobile devices, and run secure online applications. And at the center, you'll find VeriSign, enabling and protecting digital interactions. Every day, the world relies on VeriSign intelligent infrastructure services to reap the benefits of the ongoing revolution in digital communications, commerce, and content. 
