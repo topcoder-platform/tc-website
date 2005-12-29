@@ -4,10 +4,7 @@
 package com.topcoder.apps.screening.rules;
 
 import java.io.File;
-
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.apps.screening.ScreeningJob;
-
+import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.exec.Exec;
 import com.topcoder.util.exec.ExecutionException;
 import com.topcoder.util.exec.ExecutionResult;
@@ -38,6 +35,20 @@ import com.topcoder.apps.screening.DatabaseException;
 public class ZipFileRule implements ScreeningRule {
 
     /**
+     * The namespace for the configuration.
+     *
+     * @since 1.0.1
+     */
+    private static final String NAMESPACE = "com.topcoder.apps.screening.rules.ZipFileRule";
+
+    /**
+     *
+     * @since 1.0.1
+     * The name of the property in the configuration file that contains the unzip command.
+     */
+    private static final String UNZIP_PROPERTY_NAME = "unzip_command";
+
+    /**
      * <strong>Purpose</strong>:
      * Screen the submission. Both the file and the root directory are given. Screening responses
      * are written to the ScreeningLogger instance.
@@ -63,11 +74,11 @@ public class ZipFileRule implements ScreeningRule {
                 return false;
             }
 
- Logger log = null;
-log = Logger.getLogger(ScreeningJob.class);
+            // unzips the file using external tool
+            ConfigManager cm = ConfigManager.getInstance();
+            String command = cm.getString(NAMESPACE, UNZIP_PROPERTY_NAME);
+            command += " " + file.getAbsolutePath() + " -d " + root.getAbsolutePath();
 
-            String command = "/usr/bin/unzip -uo -qq " + file.getAbsolutePath() + " -d " + root.getAbsolutePath();
-                log.info(command);
             ExecutionResult er = null;
             try {
                 er = Exec.execute(new String[] {command});
@@ -78,7 +89,6 @@ log = Logger.getLogger(ScreeningJob.class);
             // propagate database exception so submission would be rescreened.
             throw dbe;
         } catch (Exception ex) {
-            ex.printStackTrace();
             logger.log(new SimpleScreeningData("Unable to extract from ZIP file.", ResponseCode.NON_ZIP_FILE));
         }
         return false;
