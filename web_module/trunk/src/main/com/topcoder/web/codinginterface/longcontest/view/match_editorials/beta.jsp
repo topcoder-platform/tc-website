@@ -1,12 +1,14 @@
 <%@ page contentType="text/html;charset=utf-8" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
 <head>
-    <title>TopCoder</title>
-    <jsp:include page="/script.jsp" />
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>TopCoder</title>
+<jsp:include page="/script.jsp" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 
 <body>
@@ -29,12 +31,27 @@
 <%-- Center Column Begins --%>
 <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 <div align="center">
-   <div style="width: 100%; text-align: left;">
+   <div class="bodyText" style="width: 100%; text-align: left;">
 
     <jsp:include page="/page_title.jsp">
         <jsp:param name="image" value="long_comps_topcoder"/>
         <jsp:param name="title" value="Match Editorials"/>
     </jsp:include>
+
+<div style="float: right;" align="right"><A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+<tc-webtag:forumLink forumID="505878" message="Discuss this match" />
+</div>
+
+<span class="bodySubtitle">Marathon Match Beta</span><br>12.15.2005 - 12.22.2005
+<br><br>
+
+<img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/><br>
+By&#160;<tc-webtag:handle coderId="159052" context="algorithm"/><br>
+<span class="smallText"><em>TopCoder Member</em></span>
+
+<br><br><br>
+<span class="bodySubtitle"><A href="/longcontest/?module=ViewProblemStatement&compid=5503&rd=9874">CostlySorting</A></span>
+<br><br>
 
 Sorting is a classic problem, and algorithms for it have been investigated since
 the dawn of computers.  A very early result tells us that if the only
@@ -81,7 +98,7 @@ count how many times the comparison occurs one way, and how many times it occurs
 the other way.  This Monte Carlo method isn't perfect, but we can generate
 enough permutations (over 1000) within the timelimit to make it pretty good.
 An alternative approach was used by SnapDragon (the second place finisher) and
-is described <a href="http://forums.topcoder.com/?module=Thread&threadID=508413&start=75&mc=118#521087">here</a>.
+is described <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=508413&start=75&mc=118#521087">here</a>.
 <br><br>
 Once we have found a good approximation of p for a particular comparison, we
 would like to assign a score to that comparison that is based on the value of p,
@@ -93,8 +110,7 @@ There are a number of different ways to do this, but I'll just
 describe those used by the first and second place finishers.
 <br><br>
 BradAustin used a variant on the classic entropy equation from information
-theory.  On average, a split yields <br> <tt>-p lg(p) - (1-p)
-lg(1-p)</tt> bits of information.  With k bits of information, you can
+theory.  On average, a split yields <tt>-p lg(p) - (1-p) lg(1-p)</tt> bits of information.With k bits of information, you can
 encode 2<sup>k</sup> different things (orders in this cases).  The
 goal, of course, is to get enough bits of information so that
 2<sup>k</sup> &ge; N! and the correct order can be determined.
@@ -158,7 +174,7 @@ BradAustin scored 53.3325 and SnapDragon scored 53.5088.  While the
 optimal solution is definitely a little bit better, it seems that the
 submitted solutions are very close to optimal, at least for a small
 number of elements.
-
+<br><br>
    </div>
 </div>
 </td>

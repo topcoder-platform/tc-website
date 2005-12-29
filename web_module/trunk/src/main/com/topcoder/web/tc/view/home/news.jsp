@@ -9,6 +9,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>12.29.05<br>3:10 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=beta">Marathon Match Beta - Analysis</A></span><br><br>
+      Sorting is a classic problem, and algorithms for it have been investigated since the dawn of computers.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/lbackstrom_mug.gif" /><br>by <tc-webtag:handle coderId="159052" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/longcontest/?module=Static&d1=match_editorials&d2=beta">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505878" message="discuss this" />&#160;|&#160;
+         <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>12.29.05<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign_chat_122805">VeriSign chat transcript from SRM 280</A></span><br><br>
       VeriSign recently held a chat session just prior to SRM 280 to discuss working at VeriSign.
@@ -271,21 +288,6 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ccip_description">details</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505851" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>12.02.05<br>10:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm">Rise Of A Powerhouse</A></span><br><br>
-      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/bw_cov120205_small.jpg" alt="BusinessWeek" border="0" /></div>
-      "How the young knowledge workers of Central Europe are pushing the region to a new level. They came from around the world, young men with handles like SnapDragon and Bladerunner attacking computing problems so complex that even experienced coders could only stare at the screen in bewilderment. Only one mastered the final algorithm problem: Eryk Kopczynski, a.k.a. Eryx"
-      <br><br>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505850" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
 

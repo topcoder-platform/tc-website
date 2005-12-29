@@ -29,13 +29,16 @@
 <%-- Center Column Begins --%>
 <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 <div align="center">
-   <div style="width: 500px; text-align: left;">
+   <div style="width: 100%; text-align: left;">
 
     <jsp:include page="/page_title.jsp">
         <jsp:param name="image" value="long_comps_topcoder"/>
         <jsp:param name="title" value="Match Editorials"/>
     </jsp:include>
 
+<table class="bodyText" cellpadding="3" cellspacing="0" border="0">
+<tr><td>12.22.2005</td><td><strong>Beta</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=beta">Analysis</A></td></tr>
+</table>
 
    </div>
 </div>

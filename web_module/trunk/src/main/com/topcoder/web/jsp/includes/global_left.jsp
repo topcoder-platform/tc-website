@@ -485,6 +485,9 @@ if ((navigator.userAgent.indexOf('MSIE') != -1) && (navigator.userAgent.indexOf(
 <tr><td id="<%=level2.equals("topcoder_practice")?"leftSubnavOn":"leftSubnav"%>">
     <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest?module=ViewPractice">Practice</A></td>
 </tr>
+<tr><td id="<%=level2.equals("topcoder_editorials")?"leftSubnavOn":"leftSubnav"%>">
+    <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Static&d1=match_editorials&d2=archive">Match Editorials</A></td>
+</tr>
 <%--
                 <tr><td id="<%=level2.equals("intel")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest">Intel Multithreading Matches</A></td></tr>
                 <tr><td id="<%=level2.equals("intel_practice")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest">Intel Practice Matches</A></td></tr>
