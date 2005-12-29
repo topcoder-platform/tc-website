@@ -113,35 +113,35 @@ public class ScreeningLogger {
      * Creates an instance of this class.
      */
     public ScreeningLogger() {
-	    int defaultMaxRetries = DEFAULT_MAX_RETRIES;
-	    int defaultRetrySleepTime = DEFAULT_RETRY_SLEEP_TIME;
+        int defaultMaxRetries = DEFAULT_MAX_RETRIES;
+        int defaultRetrySleepTime = DEFAULT_RETRY_SLEEP_TIME;
 
-    	try {
+        try {
             ConfigManager cm = ConfigManager.getInstance();
 
-        	String maxRetriesString = cm.getString(SCREENING_LOGGER_NAMESPACE, MAX_RETRIES_PROPERTY_NAME);
-    	    if (maxRetriesString != null) {
-            	try {
-            		defaultMaxRetries = Integer.parseInt(maxRetriesString);
-            	} catch (NumberFormatException nfe) {
-            	    // uses default
-            	}
+            String maxRetriesString = cm.getString(SCREENING_LOGGER_NAMESPACE, MAX_RETRIES_PROPERTY_NAME);
+            if (maxRetriesString != null) {
+                try {
+                    defaultMaxRetries = Integer.parseInt(maxRetriesString);
+                } catch (NumberFormatException nfe) {
+                    // uses default
+                }
             }
 
-        	String retrySleepTimeString = cm.getString(SCREENING_LOGGER_NAMESPACE, RETRY_SLEEP_TIME_PROPERTY_NAME);
-    	    if (retrySleepTimeString != null) {
-            	try {
-            		defaultRetrySleepTime = Integer.parseInt(retrySleepTimeString);
-            	} catch (NumberFormatException nfe) {
-            	    // uses default
-            	}
+            String retrySleepTimeString = cm.getString(SCREENING_LOGGER_NAMESPACE, RETRY_SLEEP_TIME_PROPERTY_NAME);
+            if (retrySleepTimeString != null) {
+                try {
+                    defaultRetrySleepTime = Integer.parseInt(retrySleepTimeString);
+                } catch (NumberFormatException nfe) {
+                    // uses default
+                }
             }
-    	} catch (Exception e) {
-    	    // uses default
-    	}
+        } catch (Exception e) {
+            // uses default
+        }
 
-	    maxRetries = defaultMaxRetries;
-	    retrySleepTime = defaultRetrySleepTime;
+        maxRetries = defaultMaxRetries;
+        retrySleepTime = defaultRetrySleepTime;
 
         initializeIdGen();
     }
