@@ -68,7 +68,7 @@
                             <%boolean even = true;%>
                             <rsc:iterator list="<%=results%>" id="resultRow">
                                 <tr>
-                                    <TD class="<%=even?"statLt":"statDk"%>"><A href="/longcontest/?module=ViewOverview&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>">Long Contest</A>
+                                    <TD class="<%=even?"statLt":"statDk"%>"><A href="/longcontest/?module=ViewOverview&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>"><rsc:item row="<%=resultRow%>" name="name"/></A>
                                     </TD>
                                     <TD class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item row="<%=resultRow%>" name="placed"/></TD>
                                     <TD class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item row="<%=resultRow%>" name="point_total" format="0.00"/></TD>
