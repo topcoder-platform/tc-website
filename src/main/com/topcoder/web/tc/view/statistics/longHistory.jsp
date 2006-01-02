@@ -41,7 +41,7 @@
             <br>
             <span class="bodySubtitle">Marathon Match Statistics&#160;>&#160;</span><br>
             <span class="bc">
-<A HREF="/" class="bcLink">Member Profile</A>
+<A HREF="/tc?module=MemberProfile&cr=<%=results.getLongItem(0, "coder_id")%>" class="bcLink">Member Profile</A>
 &#160;|&#160;Competition History
 </span>
 
