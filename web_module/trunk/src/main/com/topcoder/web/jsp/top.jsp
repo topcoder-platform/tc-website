@@ -30,7 +30,7 @@
 
         <td class=homeTopBar width="100%" align=right valign="bottom">
 <% if ( !sessionInfo.isAnonymous() ) { %>
-    <strong>Hello,</strong>&#160;<span class="smallText"><tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>'/></span>
+    <strong>Hello,</strong>&#160;<span class="smallText"><tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' darkBG="true" /></span>
    <% if (level1.equals("long")) { %>
             &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Logout" class=loginLinks>Logout</a>
    <% } else { %>
