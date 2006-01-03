@@ -26,15 +26,21 @@ public class ViewProblemSolution extends Base {
             String coder = request.getParameter(Constants.CODER_ID);
             log.debug("coder: " + coder + " user " + getUser().getId());
             String dataSource = null;
-            //if the results aren't final, they can see their own code, but not anyone else's
-            if (!areResultsAvailable(Long.parseLong(round))) {
-                if (getUser().getId()==Long.parseLong(coder)) {
-                    dataSource = DBMS.OLTP_DATASOURCE_NAME;
-                } else {
-                    throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-                }
+            // they can also see any solution if it's a practice round
+            int roundType = ((Integer)getRequest().getAttribute(Constants.ROUND_TYPE_ID)).intValue();
+            if (roundType==Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
+                dataSource = DBMS.OLTP_DATASOURCE_NAME;
             } else {
-                dataSource = DBMS.DW_DATASOURCE_NAME;
+                //if the results aren't final, they can see their own code, but not anyone else's.
+                if (!areResultsAvailable(Long.parseLong(round))) {
+                    if (getUser().getId()==Long.parseLong(coder)) {
+                        dataSource = DBMS.OLTP_DATASOURCE_NAME;
+                    } else {
+                        throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+                    }
+                } else {
+                    dataSource = DBMS.DW_DATASOURCE_NAME;
+                }
             }
             Request r = new Request();
             r.setContentHandle("long_contest_submission");
