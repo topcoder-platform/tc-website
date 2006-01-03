@@ -166,16 +166,20 @@ margin:0px auto;
       <table border="0" cellpadding="0" cellspacing="0">
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">December Events:</A></td>
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">January Events:</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-            <b>12/08</b> - SRM 276 - 11AM - SAP<br><br>
-            <b>12/17</b> - SRM 277 - 12 noon - MSN<br><br>
-            <b>12/19</b> - SRM 278 - 9PM - TCES<br><br>
-            <b>12/21</b> - SRM 279 - 7AM - SAP<br><br>
-            <b>12/28</b> - SRM 280 - 9PM - VeriSign<br><br>
+            <b>1/02</b> - TCO06 Component - Registration opens - 9AM<br><br>
+            <b>1/05</b> - SRM 281 - 11AM<br><br>
+            <b>1/10</b> - SRM 282 - 9PM - NSA<br><br>
+            <b>1/18</b> - TCO06 Component - Registration closes - 9AM<br><br>
+            <b>1/19</b> - SRM 283 - 7AM<br><br>
+            <b>1/21</b> - SRM 284 - 12 noon - MSN<br><br>
+            <b>1/24</b> - SRM 285 - 11AM<br><br>
+            <b>1/25</b> - TCO06 Component - Week1 submission deadline- 9AM<br><br>
+            <b>1/30</b> - SRM 286 - 9PM<br><br>
             </td>
          </tr>
 <%-- Press Room --%>

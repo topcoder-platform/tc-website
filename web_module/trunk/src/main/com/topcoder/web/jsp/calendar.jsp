@@ -2,18 +2,18 @@
 <style type="text/css">
 #calendarTCO06Mini
 {
-   color: #FFFFFF;
-   font-size: 11px;
-   font-weight: bold;
-   text-align: center;
-   vertical-align: middle;
-   background-color: #9C268F;;
+color: #FFFFFF;
+font-size: 11px;
+font-weight: bold;
+text-align: center;
+vertical-align: middle;
+background-color: #9C268F;;
 }
 #calendarTCO06Date
 {
-   color: #FFFFFF;
-   font-weight: bold;
-   text-decoration: none;
+color: #FFFFFF;
+font-weight: bold;
+text-decoration: none;
 }
 </style>
 
@@ -73,6 +73,7 @@
 <td id="calendarMini">28</td>
 </tr>
 
+<tr> 
 <td id="calendarMini">29</td>
 <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=8083&amp;t=schedule&amp;c=srm">30</A></td>
 <td id="calendarMini">31</td>
