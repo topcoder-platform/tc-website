@@ -23,21 +23,21 @@
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
-	<tr valign=top>
-		<td valign=top align=center>
-		<div class=bodySpacer>
+   <tr valign=top>
+      <td valign=top align=center>
+      <div class=bodySpacer>
             <p class=bigTitle>Registration</p>
 
-			<p align="left">To complete your registration for the 2006 TopCoder Open you must <b>read and agree to</b> the terms listed below.</p>
+         <p align="left">To complete your registration for the 2006 TopCoder Open you must <b>read and agree to</b> the terms listed below.</p>
 
             <div align="center">
                 <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tco06&d3=terms_content&<%=Constants.TERMS_OF_USE_ID%>=<%=termsId%>"></iframe>
             </div>
 
-			<p align="center"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=<%=agreeProcessor%>">I agree</a> to these terms and wish to participate in the 2006 TopCoder Open.
+         <p align="center"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=<%=agreeProcessor%>">I agree</a> to these terms and wish to participate in the 2006 TopCoder Open.
 
-			</div>
-		</td>
+         </div>
+      </td>
 
 <!-- Right Column-->
         <td width=170 align=right>
@@ -46,7 +46,7 @@
             </jsp:include>
          </td>
 
-	</tr>
+   </tr>
 
 </table>
 
