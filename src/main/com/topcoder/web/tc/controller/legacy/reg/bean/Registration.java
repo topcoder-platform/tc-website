@@ -1,21 +1,7 @@
 package com.topcoder.web.tc.controller.legacy.reg.bean;
 
+import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.util.Cache;
-import com.topcoder.common.web.data.User;
-import com.topcoder.common.web.data.CoderRegistration;
-import com.topcoder.common.web.data.Notify;
-import com.topcoder.common.web.data.DemographicAssignment;
-import com.topcoder.common.web.data.DemographicQuestion;
-import com.topcoder.common.web.data.DemographicResponse;
-import com.topcoder.common.web.data.School;
-import com.topcoder.common.web.data.State;
-import com.topcoder.common.web.data.CoderType;
-import com.topcoder.common.web.data.Language;
-import com.topcoder.common.web.data.Editor;
-import com.topcoder.common.web.data.Country;
-import com.topcoder.common.web.data.GroupUser;
-import com.topcoder.common.web.data.DemographicAnswer;
-import com.topcoder.common.web.data.Authentication;
 import com.topcoder.ejb.AuthenticationServices.AuthenticationServices;
 import com.topcoder.ejb.DataCache.DataCache;
 import com.topcoder.ejb.UserServices.UserServices;
@@ -31,20 +17,19 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.resume.ResumeServices;
-import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.tc.view.reg.tag.Demographic;
 import com.topcoder.web.tc.view.reg.tag.Notification;
 import com.topcoder.web.tc.view.reg.tag.StateSelect;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.transaction.TransactionManager;
-import javax.transaction.Status;
 import javax.rmi.PortableRemoteObject;
+import javax.transaction.Status;
+import javax.transaction.TransactionManager;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.*;
@@ -156,6 +141,9 @@ public class Registration
 
     private final static String PUNCTUATION = "-_.{}[]()";
     public final static String HANDLE_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+            "abcdefghijklmnopqrstuvwxyz" +
+            "0123456789" + PUNCTUATION;
+    public final static String PASSWORD_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
             "abcdefghijklmnopqrstuvwxyz" +
             "0123456789" + PUNCTUATION;
 
@@ -472,6 +460,9 @@ public class Registration
                 addError(CONFIRM_PASSWORD, "Please re-type your password.");
             else if (!this.confirmPassword.equals(this.password))
                 addError(CONFIRM_PASSWORD, "Your re-typed password does not match your password.");
+            else if (StringUtils.containsOnly(this.password, PASSWORD_ALPHABET, false)) {
+                addError(PASSWORD, "Your password may contain only letters, numbers, {}[]()-_.");
+            }
 
             if (isEmpty(this.email))
                 addError(EMAIL, "Please enter your email address.");
@@ -668,6 +659,7 @@ public class Registration
         }
         return allPunctuation;
     }
+
 
     public static boolean isValidHandle(String handle) {
         for (int i = 0; i < handle.length(); i++) {
