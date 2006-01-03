@@ -460,7 +460,7 @@ public class Registration
                 addError(CONFIRM_PASSWORD, "Please re-type your password.");
             else if (!this.confirmPassword.equals(this.password))
                 addError(CONFIRM_PASSWORD, "Your re-typed password does not match your password.");
-            else if (StringUtils.containsOnly(this.password, PASSWORD_ALPHABET, false)) {
+            else if (!StringUtils.containsOnly(this.password, PASSWORD_ALPHABET, false)) {
                 addError(PASSWORD, "Your password may contain only letters, numbers, {}[]()-_.");
             }
 
