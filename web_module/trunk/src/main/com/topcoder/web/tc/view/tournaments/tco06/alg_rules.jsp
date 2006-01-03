@@ -53,7 +53,18 @@ Registration for the 2006 TopCoder Open Algorithm Competition will open at 9:00A
 <a name="qualification"></a>
 <strong>Qualification Round - Noon EST Tuesday, February 28 through Noon EST Wednesday, March 1, 2006.</strong>
 <br><br>
-The Qualification Round will be open for 24 hours from Noon EST Tuesday, February 28 through Noon EST Wednesday, March 1, 2006.  Each competitor may participate in the Qualification Round at any time during the 24 hours.  Competitors may only attempt to qualify one time using one account during the 24 hours.  <strong>The top 100 rated members who are registered for the TCO will qualify automatically. They will not be allowed to participate in the qualification round.  These top 100 rated members who receive a bye for the qualification round must have competed in 3 SRM's lifetime and must be active as of February 28, 2006</strong>.
+The Qualification Round will be open for 24 hours from Noon EST Tuesday, February 28 through Noon EST Wednesday, March 1, 2006.  Each competitor may participate in the Qualification Round at any time during the 24 hours.  Competitors may only attempt to qualify one time using one account during the 24 hours.  
+<br><br>
+<strong>
+The top 100 highest rated members who meet all of the following criteria will qualify automatically:
+<ul>
+<li>Must have competed in a TopCoder rated event between September 28, 2005 and February 28, 2006.</li>
+<li>Must have competed in at least 3 lifetime rated events at TopCoder</li>
+<li>Must have registered for the 2006 TCO</li>
+<li>Must meet all tournament eligibility criteria</li>
+</ul>
+Automatic qualifiers ("byes") will not be allowed to participate in the qualification round.  
+</strong>.
 <br><br>
 The Qualification Round will consist of only two phases: the Coding Phase and System Testing Phase.
 <br><strong>Note: The Qualification Round will not include a Challenge Phase.</strong>
