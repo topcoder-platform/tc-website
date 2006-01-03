@@ -83,11 +83,11 @@ public class MemberProfile extends Base {
                         tab = "";
                     } else if (!hasAlg && !hasDes && !hasDev && hasLong) {
                         tab = "long";
-                    } else if(algRating >= desRating && algRating >= devRating) {
+                    } else if(hasAlg && algRating >= desRating && algRating >= devRating) {
                         tab = "alg";
-                    } else if(desRating >= algRating && desRating >= devRating) {
+                    } else if(hasDes && desRating >= algRating && desRating >= devRating) {
                         tab = "des";
-                    } else {
+                    } else if (hasDev) {
                         tab = "dev";
                     }
                 }
