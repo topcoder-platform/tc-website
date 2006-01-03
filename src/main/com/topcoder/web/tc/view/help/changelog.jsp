@@ -41,6 +41,7 @@
         4.1.5 - 2006.xx.xx
         <ul>
             <li>allow people to see solutions (other than their own) for practice long contest rounds.</li>
+            <li>passwords may only contains the ascii characters we allow</li>
         </ul>
 
     </p>
