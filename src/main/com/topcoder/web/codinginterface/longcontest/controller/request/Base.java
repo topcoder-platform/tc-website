@@ -277,7 +277,7 @@ public abstract class Base extends BaseProcessor {
         Map m = getDataAccess(true).getData(r);
         return (ResultSetContainer)m.get("long_contest_round_information");
     }
-
+    
     /**
      *
      * @param roundId
@@ -285,10 +285,14 @@ public abstract class Base extends BaseProcessor {
      * @throws Exception
      */
     protected boolean areResultsAvailable(long roundId) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("round_exists");
-        r.setProperty("rd", String.valueOf(roundId));
-        return !((ResultSetContainer)getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r).get("round_exists")).isEmpty();
+        if (getRequest().getAttribute(Constants.RESULTS_AVAILABLE)!=null) {
+            return ((Boolean)getRequest().getAttribute(Constants.RESULTS_AVAILABLE)).booleanValue();
+        } else {
+            Request r = new Request();
+            r.setContentHandle("round_exists");
+            r.setProperty("rd", String.valueOf(roundId));
+            return !((ResultSetContainer)getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r).get("round_exists")).isEmpty();
+        }
     }
 }
 
