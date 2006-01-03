@@ -42,7 +42,7 @@
 <tc-webtag:forumLink forumID="505003" message="Discuss this match" /></div>
 --%>
 <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505752">Discuss this match</A></div>
-<span class="bodySubtitle">TCO05 - Qualification 4</span><br>August 16-17, 2005
+<span class="bodySubtitle">2005 TopCoder Open <br>Qualification 4</span><br>August 16-17, 2005
 <br><br>
 
 <span class="bigTitle">Match summary</span>
@@ -61,7 +61,9 @@ The Problems
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4637&amp;rd=8024" name="4637">DayPlanner</a></b>
 </font>
-<A href="Javascript:openProblemRating(4637)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br>
+<A href="Javascript:openProblemRating(4637)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505752" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 
 Used as: Division One - Level One: <blockquote><table cellspacing="2">
   <tr>
@@ -138,7 +140,9 @@ public String getEnds(String[] tasks) {
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4628&amp;rd=8024" name="4628">TheCoderMan</a></b>
 </font>
-<A href="Javascript:openProblemRating(4628)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br>
+<A href="Javascript:openProblemRating(4628)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505752" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division One - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">

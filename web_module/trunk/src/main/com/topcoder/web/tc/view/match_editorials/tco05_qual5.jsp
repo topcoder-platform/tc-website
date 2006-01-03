@@ -42,7 +42,7 @@
 <tc-webtag:forumLink forumID="505014" message="Discuss this match" /></div>
 --%>
 <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505753">Discuss this match</A></div>
-<span class="bodySubtitle">TCO05 - Qualification 5</span><br>August 16-17, 2005
+<span class="bodySubtitle">2005 TopCoder Open <br>Qualification 5</span><br>August 16-17, 2005
 <br><br>
 
 <span class="bigTitle">Match summary</span>
@@ -60,7 +60,8 @@ The Problems
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4638&amp;rd=8026" name="4638">RecipeFraction</a></b>
 </font>
-<A href="Javascript:openProblemRating(4638)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br>
+<A href="Javascript:openProblemRating(4638)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505753" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
 
 Used as: Division One - Level One: <blockquote><table cellspacing="2">
   <tr>
@@ -132,7 +133,9 @@ public double getFraction(String[] recipe, String[] ingredients) {
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4673&amp;rd=8026" name="4673">CheatABit</a></b>
 </font>
-<A href="Javascript:openProblemRating(4673)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br>
+<A href="Javascript:openProblemRating(4673)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505753" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division One - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">

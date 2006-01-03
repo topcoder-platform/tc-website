@@ -39,7 +39,7 @@
 
 <div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
 <tc-webtag:forumLink forumID="505749" message="Discuss this match" /></div>
-<span class="bodySubtitle">TCO05 - Qualification 1</span><br>August 16-17, 2005
+<span class="bodySubtitle">2005 TopCoder Open <br>Qualification 1</span><br>August 16-17, 2005
 <br><br>
 
 <span class="bigTitle">Match summary</span>
@@ -57,7 +57,8 @@ The Problems
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4680&amp;rd=8020" name="4680">VideoEncode</a></b>
 </font>
-<A href="Javascript:openProblemRating(4680)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br>
+<A href="Javascript:openProblemRating(4680)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505749" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
 
 Used as: Division One - Level One: <blockquote><table cellspacing="2">
   <tr>
@@ -127,7 +128,9 @@ public double bitrate(String length, int desiredSize) {
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4712&amp;rd=8020" name="4712">GridGame</a></b>
 </font>
-<A href="Javascript:openProblemRating(4712)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br>
+<A href="Javascript:openProblemRating(4712)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505749" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division One - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">

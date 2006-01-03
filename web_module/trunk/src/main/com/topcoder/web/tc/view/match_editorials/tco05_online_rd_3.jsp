@@ -38,11 +38,8 @@
 </jsp:include>
 
 <div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
-<%--
-<tc-webtag:forumLink forumID="505003" message="Discuss this match" /></div>
---%>
-<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505003">Discuss this match</A></div>
-<span class="bodySubtitle">TCO05 - Online Round 3</span><br>Wednesday, August 31, 2005
+<tc-webtag:forumLink forumID="505759" message="Discuss this match" /></div>
+<span class="bodySubtitle">2005 TopCoder Open <br> Online Round 3 </span><BR/>Wednesday, August 31, 2005
 <br><br>
 
 <span class="bigTitle">Match summary</span>
@@ -66,8 +63,9 @@ The Problems
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4731&amp;rd=8016" name="4731">PlayingCubes</a></b>
 </font>
-<A href="Javascript:openProblemRating(4731)"><img hspace="10" border="0" height="
-18" width="60" src="/i/rate_it.gif"/></A><br>
+<A href="Javascript:openProblemRating(4731)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505759" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 
 Used as: Division One - Level One: <blockquote><table cellspacing="2">
   <tr>
@@ -164,8 +162,9 @@ that a computer can't do it in under 2 seconds pretty easily.
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4013&amp;rd=8016" name="4013">OptimalTax</a></b>
 </font>
-<A href="Javascript:openProblemRating(4013)"><img hspace="10" border="0" height="
-18" width="60" src="/i/rate_it.gif"/></A><br>
+<A href="Javascript:openProblemRating(4013)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505759" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division One - Level Two: <blockquote><table cellspacing="2">
 
   <tr>
@@ -273,8 +272,9 @@ manipulating equations.
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4769&amp;rd=8016" name="4769">Springs</a></b>
 </font>
-<A href="Javascript:openProblemRating(4769)"><img hspace="10" border="0" height="
-18" width="60" src="/i/rate_it.gif"/></A><br>
+<A href="Javascript:openProblemRating(4769)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505759" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division One - Level Three: <blockquote><table cellspacing="2">
   <tr>
 
