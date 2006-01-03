@@ -11,45 +11,41 @@
 <area shape="poly" alt="" coords="570,29, 542,1, 795,1, 823,29" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ccip_description" />
 </map>
 
-<table width="100%" border=0 cellpadding=0 cellspacing=0> 
+<table width="100%" border="0" cellpadding=0 cellspacing=0> 
 <!-- LEVEL 1 TABS -->
 <% if (tabLev1.equals("overview")) {%>
    <tr>
       <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><img src="/i/tournament/tco06/tco06_logo.gif" border=0/></A></td>
       <td valign="middle" align="center"></td>
-      <td valign="top" align="right" rowspan="2" width="50%"><a href="/"><img src="/i/tournament/tco06/tc_logo.gif" border=0/></a></td>
+      <td valign="top" align="right" width="50%"><a href="/"><img src="/i/tournament/tco06/tc_logo.gif" border=0/></a></td>
    </tr>
-   <tr><td class="topNavBox" colspan="2"><img src="/i/tournament/tco06/tabs/L1_overviewOn.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
+   <tr><td class="topNavBox" colspan="3"><img src="/i/tournament/tco06/tabs/L1_overviewOn.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
 <% } else if (tabLev1.equals("algorithm")) { %>
    <tr>
       <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><img src="/i/tournament/tco06/tco06_logo.gif" border=0/></A></td>
       <td valign="middle" align="center"></td>
-      <td valign="top" align="right" rowspan="2" width="50%"><a href="/"><img src="/i/tournament/tco06/tc_logo.gif" border=0/></a></td>
+      <td valign="top" align="right" width="50%"><a href="/"><img src="/i/tournament/tco06/tc_logo.gif" border=0/></a></td>
    </tr>
-   <tr><td class="topNavBox" colspan="2"><img src="/i/tournament/tco06/tabs/L1_algOn.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
+   <tr><td class="topNavBox" colspan="3"><img src="/i/tournament/tco06/tabs/L1_algOn.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
 <% } else if (tabLev1.equals("component")) { %>
    <tr>
       <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><img src="/i/tournament/tco06/tco06_logo.gif" border=0/></A></td>
-      <td valign=middle align=center rowspan=2>
-<%--
-      <a href="/tc?module=tco06ComponentTerms"><img src="/i/tournament/tco06/tco06_headline.gif" border=0/></a>
---%>
-      </td>
-      <td valign=top align=right rowspan=2 width="50%"><a href="/"><img src="/i/tournament/tco06/tc_logo.gif" border=0/></a></td>
+      <td valign="middle" align="center"><a href="/tc?module=TCO06ComponentTerms"><img src="/i/tournament/tco06/headline_component.gif" border=0/></a></td>
+      <td valign="top" align="right" width="50%"><a href="/"><img src="/i/tournament/tco06/tc_logo.gif" border=0/></a></td>
    </tr>
-   <tr><td class=topNavBox><img src="/i/tournament/tco06/tabs/L1_compOn.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
+   <tr><td class="topNavBox" colspan="3"><img src="/i/tournament/tco06/tabs/L1_compOn.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
 <% } else if (tabLev1.equals("ccip")) { %>
    <tr>
       <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><img src="/i/tournament/tco06/tco06_logo.gif" border=0/></A></td>
       <td valign="middle" align="center"></td>
-      <td valign="top" align="right" rowspan="2" width="50%"><a href="/"><img src="/i/tournament/tco06/tc_logo.gif" border=0/></a></td>
+      <td valign="top" align="right" width="50%"><a href="/"><img src="/i/tournament/tco06/tc_logo.gif" border=0/></a></td>
    </tr>
-   <tr><td class="topNavBox" colspan="2"><img src="/i/tournament/tco06/tabs/L1_ccipOn.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
+   <tr><td class="topNavBox" colspan="3"><img src="/i/tournament/tco06/tabs/L1_ccipOn.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
 <% } %>
 
 <!-- LEVEL 2 TABS -->
    <tr>
-      <td colspan=3>
+      <td colspan="3">
       <table border=0 cellspacing=0 cellpadding=0 width="100%">
           <tr>
               <td class="nav">&#160;&#160;&#160;</td>

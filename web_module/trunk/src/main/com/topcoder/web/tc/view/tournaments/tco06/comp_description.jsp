@@ -42,17 +42,15 @@ The competition is free and you must be 18 years or older to be eligible.
 <br><br>
 See the official <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_rules">rules and regulations</A> for full details.
 <br><br>
-<%--
 <span class="bigTitle">How to Register for the Component Competition</span>
 <br><br>
 <strong>Already a TopCoder Member?</strong><br>
-Click <A href="/tc?module=TCO05ComponentTerms">here</A> to register for the TCO Component Design and Development Competition.
+Click <A href="/tc?module=TCO06ComponentTerms">here</A> to register for the TCO Component Design and Development Competition.
 <br><br>
 <strong>Not Yet a TopCoder Member?</strong><br>
-Click <A href="/reg/index.jsp">here</A> to register as a TopCoder member.<br>
+Click <A href="/Registration">here</A> to register as a TopCoder member.<br>
 Check your email and activate your new TopCoder account.<br>
-Click <A href="/tc?module=TCO05ComponentTerms">here</A> to register for the TCO Component Design and Development Competition
---%>
+Click <A href="/tc?module=TCO06ComponentTerms">here</A> to register for the TCO Component Design and Development Competition
         </div>
       </td>
         
