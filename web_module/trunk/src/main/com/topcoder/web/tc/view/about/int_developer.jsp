@@ -62,7 +62,7 @@
 </P>
 
 <p>
-TopCoder is looking to hire a full-time software developer to design and implement enhancements to TopCoder�s internal systems.  Candidates must work well under pressure in a high-risk environment and must have good communication skills.
+TopCoder is looking to hire a full-time software developer to design and implement enhancements to TopCoder's internal systems.  Candidates must work well under pressure in a high-risk environment and must have good communication skills.
 </p>
 <p><b>Responsibilities</b></p>
 <ul>
