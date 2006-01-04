@@ -56,7 +56,7 @@
 
                 <tr valign="middle">
                     <td width="35" class="projectHeaders" align="center">Catalog</td>
-                    <td width="30%" class="projectHeaders">Project</td>
+                    <td width="30%" class="projectHeaders">Component</td>
                     <td class="projectHeaders" align="center">Designer</td>
                     <td class="projectHeaders" align="center"><%=registrants.getStringItem(0, "phase")%><br/>Rating</td>
                     <td class="projectHeaders" align="center">Registration<br/>Date</td>
