@@ -38,10 +38,12 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
-        4.1.5 - 2006.xx.xx
+        4.1.5 - 2006.01.04
         <ul>
             <li>allow people to see solutions (other than their own) for practice long contest rounds.</li>
             <li>passwords may only contains the ascii characters we allow</li>
+            <li>make the comp projects page a jsp, rename it active contests</li>
+            <li>make the multiplier status page be a jsp and call it registrants</li>
         </ul>
 
     </p>
