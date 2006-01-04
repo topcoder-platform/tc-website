@@ -81,4 +81,9 @@ public class TCO06AlgorithmTermsAgree extends TermsAgreeBase {
     public boolean isEligible() throws Exception {
         return helper.isEligible();
     }
+
+    protected String getCacheKey() {
+        return "tco06_alg_registrants";
+    }
+
 }

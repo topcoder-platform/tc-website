@@ -102,5 +102,11 @@ public class TCO06ComponentTermsAgree extends TermsAgreeBase {
     public boolean isEligible() throws Exception {
         return helper.isEligible();
     }
+
+    protected String getCacheKey() {
+        return "tco06_comp_registrants";
+    }
+
+
 }
 
