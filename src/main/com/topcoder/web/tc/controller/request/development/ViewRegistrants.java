@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.request.development;
 
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.Request;
 
 /**
@@ -13,6 +14,7 @@ public class ViewRegistrants extends Base {
         try {
             Request r = new Request();
             r.setContentHandle("registrants");
+            r.setProperty(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
             getRequest().setAttribute("resultMap", getDataAccess().getData(r));
             setNextPage("/dev/registrants.jsp");
             setIsNextPageInContext(true);
