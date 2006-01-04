@@ -2,6 +2,8 @@ package com.topcoder.web.tc.controller.request.util;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.distCache.CacheClient;
+import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
@@ -32,6 +34,7 @@ abstract class TermsAgreeBase extends TermsBase {
                     if (isEligible()) {
                         log.info("registering " + getUser().getId() + " for the " + getEventName());
                         userTerms.createUserTermsOfUse(getUser().getId(), getTermsId(), DBMS.OLTP_DATASOURCE_NAME);
+                        refreshCache();
                     } else {
                         throw new NavigationException("You are not eligible to register for the " + getEventName());
                     }
@@ -43,5 +46,19 @@ abstract class TermsAgreeBase extends TermsBase {
         }
     }
 
+    private void refreshCache() {
+        if (getCacheKey()!=null) {
+            try {
+                CacheClient cc = CacheClientFactory.createCacheClient();
+                cc.remove(getCacheKey());
+            } catch (Exception ignore) {
+                ignore.printStackTrace();
+            }
+        }
+    }
+
+    protected String getCacheKey() {
+        return null;
+    }
 
 }
