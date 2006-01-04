@@ -6,8 +6,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
@@ -42,7 +40,6 @@ public class TCCC04TermsAgree extends Base {
                         if (isEligible(getUser().getId())) {
                             log.info("registering " + getUser().getId() + " for the tccc04");
                             userTerms.createUserTermsOfUse(getUser().getId(), Constants.TCCC04_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
-                            refreshCache();
                         } else {
                             throw new NavigationException("You are not eligible to register for the TCCC");
                         }
@@ -57,17 +54,6 @@ public class TCCC04TermsAgree extends Base {
             throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
-        }
-    }
-
-    private void refreshCache() {
-        if (getCacheKey()!=null) {
-            try {
-                CacheClient cc = CacheClientFactory.createCacheClient();
-                cc.remove(getCacheKey());
-            } catch (Exception ignore) {
-                ignore.printStackTrace();
-            }
         }
     }
 
@@ -92,9 +78,5 @@ public class TCCC04TermsAgree extends Base {
             close(ctx);
         }
         return ret;
-    }
-
-    protected String getCacheKey() {
-        return null;
     }
 }
