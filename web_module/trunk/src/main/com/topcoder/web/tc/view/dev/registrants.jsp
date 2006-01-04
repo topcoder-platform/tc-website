@@ -64,7 +64,7 @@
                 </tr>
 
 
-                <rsc:iterator list="<%=designContests%>" id="resultRow">
+                <rsc:iterator list="<%=registrants%>" id="resultRow">
                 <tr>
                     <td class="projectCells" align="center">
                         <% if ("Java".equals(resultRow.getStringItem("catalog_name"))) { %>
