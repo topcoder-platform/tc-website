@@ -55,7 +55,7 @@
     </tr>
     <tr valign="middle">
         <td class="projectHeaders" align="center">Catalog</td>
-        <td width="15%" class="projectHeaders">Contest</td>
+        <td width="15%" class="projectHeaders">Component</td>
         <td class="projectHeaders" align="center">Registrants<br/>Rated/Unrated</td>
         <td class="projectHeaders" align="center">Registration Ends</td>
         <td class="projectHeaders" align="center">Submissions</td>
@@ -122,7 +122,7 @@
     </tr>
     <tr valign="middle">
         <td class="projectHeaders" align="center">Catalog</td>
-        <td width="15%" class="projectHeaders">Contest</td>
+        <td width="15%" class="projectHeaders">Component</td>
         <td class="projectHeaders" align="center">Registrants<br/>Rated/Unrated</td>
         <td class="projectHeaders" align="center">Registration Ends</td>
         <td class="projectHeaders" align="center">Submissions</td>
