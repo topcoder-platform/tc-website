@@ -21,40 +21,35 @@ import com.topcoder.web.common.model.SortInfo;
 import java.util.Map;
 
 /**
- *
  * @author rfairfax
  */
 public class TCO05CompRegistrants extends Base {
 
-    public void businessProcessing() {
-        try {
-            Request r = new Request();
-            r.setContentHandle("tco05_comp_registrants");
+    public void businessProcessing() throws Exception {
+        Request r = new Request();
+        r.setContentHandle("tco05_comp_registrants");
 
-            Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
+        Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
 
-            ResultSetContainer rsc = (ResultSetContainer)m.get("tco05_comp_registrants");
+        ResultSetContainer rsc = (ResultSetContainer) m.get("tco05_comp_registrants");
 
-            String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-            String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+        String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
-            if (!(sortCol.equals("") || sortDir.equals(""))) {
-                rsc.sortByColumn(Integer.parseInt(sortCol), sortDir.equals("asc"));
-            }
-
-            SortInfo s = new SortInfo();
-            s.addDefault(rsc.getColumnIndex("handle_lower"), "asc");
-            s.addDefault(rsc.getColumnIndex("design_rating"), "desc");
-            s.addDefault(rsc.getColumnIndex("dev_rating"), "desc");
-            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
-
-
-            getRequest().setAttribute("list", rsc);
-
-            setNextPage("/tournaments/tco05/comp_registrants.jsp");
-            setIsNextPageInContext(true);
-
-        } catch (Exception e) {
+        if (!(sortCol.equals("") || sortDir.equals(""))) {
+            rsc.sortByColumn(Integer.parseInt(sortCol), sortDir.equals("asc"));
         }
+
+        SortInfo s = new SortInfo();
+        s.addDefault(rsc.getColumnIndex("handle_lower"), "asc");
+        s.addDefault(rsc.getColumnIndex("design_rating"), "desc");
+        s.addDefault(rsc.getColumnIndex("dev_rating"), "desc");
+        getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+
+
+        getRequest().setAttribute("list", rsc);
+
+        setNextPage("/tournaments/tco05/comp_registrants.jsp");
+        setIsNextPageInContext(true);
     }
 }
