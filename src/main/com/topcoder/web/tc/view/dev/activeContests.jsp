@@ -87,7 +87,7 @@
                     <rsc:item name="component_name" row="<%=resultRow%>"/> Version
                     <rsc:item name="version_text" row="<%=resultRow%>"/>
                 </a>
-                <%=resultRow.getIntItem("max_unrated_registrants") == 0 ? "**" : ""%>
+                <%=resultRow.getItem("max_unrated_registrants").getResultData()==null || resultRow.getIntItem("max_unrated_registrants") == 0 ? "**" : ""%>
             </td>
             <td class="projectCells" align="center">
                 <rsc:item name="total_rated_inquiries" row="<%=resultRow%>"/>/
@@ -154,7 +154,7 @@
                     <rsc:item name="component_name" row="<%=resultRow%>"/> Version
                     <rsc:item name="version_text" row="<%=resultRow%>"/>
                 </a>
-                <%=resultRow.getIntItem("max_unrated_registrants") == 0 ? "**" : ""%>
+                <%=resultRow.getItem("max_unrated_registrants").getResultData()==null || resultRow.getIntItem("max_unrated_registrants") == 0 ? "**" : ""%>
             </td>
             <td class="projectCells" align="center">
                 <rsc:item name="total_rated_inquiries" row="<%=resultRow%>"/>/
