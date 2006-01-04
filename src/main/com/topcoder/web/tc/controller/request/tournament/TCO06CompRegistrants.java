@@ -12,6 +12,7 @@ package com.topcoder.web.tc.controller.request.tournament;
 
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.tc.controller.request.Base;
@@ -29,7 +30,9 @@ public class TCO06CompRegistrants extends Base {
         Request r = new Request();
         r.setContentHandle("tco06_comp_registrants");
 
-        Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
+        CachedDataAccess da = (CachedDataAccess)getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true);
+        da.setExpireTime(15*60*1000);
+        Map m = da.getData(r);
 
         ResultSetContainer rsc = (ResultSetContainer) m.get("tco06_comp_registrants");
 
