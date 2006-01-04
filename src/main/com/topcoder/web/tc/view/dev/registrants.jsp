@@ -82,7 +82,7 @@
                         <% } %>
                     </td>
                     <td class="projectCells">
-                        <a target="_blank" href="<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>">
+                        <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>">
                             <rsc:item name="component_name" row="<%=resultRow%>"/>
                             <rsc:item name="version_text" row="<%=resultRow%>"/>
                         </a>
@@ -101,6 +101,7 @@
                     </td>
                 </tr>
                 </rsc:iterator>
+            </table>
 
         </td>
         <!-- Center Column Ends -->
