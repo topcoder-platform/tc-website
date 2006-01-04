@@ -23,7 +23,7 @@ import java.util.Map;
 /**
  * @author rfairfax
  */
-public class TCO066AlgRegistrants extends Base {
+public class TCO06AlgRegistrants extends Base {
 
     public void businessProcessing() throws Exception {
         Request r = new Request();
