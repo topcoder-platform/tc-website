@@ -3,6 +3,7 @@ package com.topcoder.web.tc.controller.request.util;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.shared.dataAccess.Request;
 
 import java.util.Calendar;
 
@@ -83,7 +84,9 @@ public class TCO06AlgorithmTermsAgree extends TermsAgreeBase {
     }
 
     protected String getCacheKey() {
-        return "tco06_alg_registrants";
+        Request r = new Request();
+        r.setContentHandle("tco06_alg_registrants");
+        return r.getCacheKey();
     }
 
 }

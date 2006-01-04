@@ -7,6 +7,7 @@ import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.ejb.user.UserEvent;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.dataAccess.Request;
 
 import java.util.Calendar;
 
@@ -104,7 +105,9 @@ public class TCO06ComponentTermsAgree extends TermsAgreeBase {
     }
 
     protected String getCacheKey() {
-        return "tco06_comp_registrants";
+        Request r = new Request();
+        r.setContentHandle("tco06_comp_registrants");
+        return r.getCacheKey();
     }
 
 
