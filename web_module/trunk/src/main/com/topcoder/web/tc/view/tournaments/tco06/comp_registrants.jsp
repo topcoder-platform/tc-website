@@ -36,9 +36,9 @@
       <td class="advTitle" colspan="3" width="100%">Registrants</td>
    </tr>
     <tr class="advHeader">
-       <td align="left" width="50%"><a href="/tc?module=TCO05CompRegistrants<tc-webtag:sort column="1"/>">Handle</a></td>
-       <td align="right" width="25%"><a href="/tc?module=TCO05CompRegistrants<tc-webtag:sort column="2"/>">Design Rating</a></td>
-       <td align="right" width="25%"><a href="/tc?module=TCO05CompRegistrants<tc-webtag:sort column="3"/>">Development Rating</a></td>
+       <td align="left" width="50%"><a href="/tc?module=TCO06CompRegistrants<tc-webtag:sort column="1"/>">Handle</a></td>
+       <td align="right" width="25%"><a href="/tc?module=TCO06CompRegistrants<tc-webtag:sort column="2"/>">Design Rating</a></td>
+       <td align="right" width="25%"><a href="/tc?module=TCO06CompRegistrants<tc-webtag:sort column="3"/>">Development Rating</a></td>
     </tr>
 <%boolean even = false;%>
 <rsc:iterator list='<%=rsc%>' id="resultRow">
