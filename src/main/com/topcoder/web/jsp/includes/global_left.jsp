@@ -485,8 +485,9 @@ if ((navigator.userAgent.indexOf('MSIE') != -1) && (navigator.userAgent.indexOf(
 <tr><td id="<%=level2.equals("topcoder_practice")?"leftSubnavOn":"leftSubnav"%>">
     <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest?module=ViewPractice">Practice</A></td>
 </tr>
-<tr><td id="<%=level2.equals("intel")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest">Intel Multi-threading Series</A></td></tr>
-<tr><td id="<%=level2.equals("intel_practice")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest">Intel Practice</A></td></tr>
+<tr><td id="<%=level2.equals("intel_overview")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Static&d1=intel_instructions">Intel Multi-threading Series</A></td></tr>
+<tr><td id="<%=level2.equals("intel_active_contests")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/">Intel Active Contests</A></td></tr>
+<tr><td id="<%=level2.equals("intel_practice")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/">Intel Practice</A></td></tr>
 <%--
 --%>
 <tr><td id="<%=level2.equals("topcoder_editorials")?"leftSubnavOn":"leftSubnav"%>">
