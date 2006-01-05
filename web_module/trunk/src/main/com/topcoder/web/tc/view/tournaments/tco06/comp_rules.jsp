@@ -94,51 +94,51 @@ Both the design and development competitions will have five (5) weeks of online 
    </tr>
    <tr valign="top">
       <td class="sidebarText">Week 1 of Online Qualification Round</td>
-      <td class="sidebarText">01.18.2006 9:00AM*</td>
+      <td class="sidebarText">01.19.2006 9:00AM*</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">01.25.2006 9:00AM*</td>
+      <td class="sidebarText">01.26.2006 9:00AM*</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Week 2 of Online Qualification Round</td>
-      <td class="sidebarText">01.25.2006 9:00AM*</td>
+      <td class="sidebarText">01.26.2006 9:00AM*</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">02.01.2006 9:00AM*</td>
+      <td class="sidebarText">02.02.2006 9:00AM*</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Week 3 of Online Qualification Round</td>
-      <td class="sidebarText">02.01.2006 9:00AM*</td>
+      <td class="sidebarText">02.02.2006 9:00AM*</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">02.08.2006 9:00AM*</td>
+      <td class="sidebarText">02.09.2006 9:00AM*</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Week 4 of Online Qualification Round</td>
-      <td class="sidebarText">02.08.2006 9:00AM*</td>
+      <td class="sidebarText">02.09.2006 9:00AM*</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">02.15.2006 9:00AM*</td>
+      <td class="sidebarText">02.16.2006 9:00AM*</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Week 5 of Online Qualification Round</td>
-      <td class="sidebarText">02.15.2006 9:00AM*</td>
+      <td class="sidebarText">02.16.2006 9:00AM*</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">02.22.2006 9:00AM*</td>
+      <td class="sidebarText">02.23.2006 9:00AM*</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Championship Round (online  portion component 1)</td>
-      <td class="sidebarText">03.15.2006 9:00AM*</td>
+      <td class="sidebarText">03.16.2006 9:00AM*</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">03.22.2006 9:00AM*</td>
+      <td class="sidebarText">03.23.2006 9:00AM*</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Championship Round (online  portion component 2)</td>
-      <td class="sidebarText">03.29.2006 9:00AM*</td>
+      <td class="sidebarText">03.30.2006 9:00AM*</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">04.05.2006 9:00AM**</td>
+      <td class="sidebarText">04.06.2006 9:00AM**</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Championship Round (online  portion component 3)</td>
-      <td class="sidebarText">04.12.2006 9:00AM**</td>
+      <td class="sidebarText">04.13.2006 9:00AM**</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">04.19.2006 9:00AM**</td>
+      <td class="sidebarText">04.20.2006 9:00AM**</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Championship Round (onsite portion)</td>
@@ -156,7 +156,7 @@ Both the design and development competitions will have five (5) weeks of online 
 <a href="#top"><img src="/i/interface/back_to_top_dk.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <span class="bodySubtitle">Scoring and Advancing</span>
 <br><br>
-During each week of competition, eligible competitors can submit design and development solutions for at least one eligible component by the submission deadline. Submissions will be scored by the TopCoder Review Boards and will be subject to final review and appeal in the same manner as standard component design and development submissions. Scoring of each submission by the TopCoder Review Boards is based on the criteria outlined in the Development Review Scorecard for the Development Contest or the criteria outlined in the Design Review Scorecard for the Design Contest. Note that the scorecards to be used for the CDDC are the ones that are in effect as of January 18, 2006. ALL SUBMISSIONS MUST BE RECEIVED ACCORDING TO THE SUBMISSION DEADLINE TO BE CONSIDERED A VIABLE ENTRY. THERE WILL BE NO EXCEPTIONS. There will be no elimination of contestants during the online competition.
+During each week of competition, eligible competitors can submit design and development solutions for at least one eligible component by the submission deadline. Submissions will be scored by the TopCoder Review Boards and will be subject to final review and appeal in the same manner as standard component design and development submissions. Scoring of each submission by the TopCoder Review Boards is based on the criteria outlined in the Development Review Scorecard for the Development Contest or the criteria outlined in the Design Review Scorecard for the Design Contest. Note that the scorecards to be used for the CDDC are the ones that are in effect as of January 19, 2006. ALL SUBMISSIONS MUST BE RECEIVED ACCORDING TO THE SUBMISSION DEADLINE TO BE CONSIDERED A VIABLE ENTRY. THERE WILL BE NO EXCEPTIONS. There will be no elimination of contestants during the online competition.
 <br><br>
 Up to the four (4) highest individual placement scores that each contestant receives for his/her submissions throughout the five (5) weeks of competition will be added together for a cumulative placement score. Up to eight (8) competitors in each competition with the highest cumulative positive (i.e., greater than zero) placement score will advance to the onsite Championship round.
 <br><br>

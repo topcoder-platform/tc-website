@@ -44,7 +44,7 @@ Where else in the world can you marvel at dancing fountains (the Bellagio), see 
 <b>Component Competition</b>
 <ul>
 <li>Registration:  January 2, 2006</li>
-<li>Begins:  January 18, 2006</li>
+<li>Begins:  January 19, 2006</li>
 </ul>
 <b>Algorithm Competition</b>
 <ul>
