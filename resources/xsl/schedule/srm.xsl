@@ -308,7 +308,7 @@
                       </TD></TR>
 
                     </xsl:when>
-                    <xsl:when test="$roundId='8069' or $roundId='8074' or $roundId='8081'">
+                    <xsl:when test="$roundId='8069' or $roundId='8074' or $roundId='8083'">
                       <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
                         <font size="3"><b>***TopCoder will be giving away $5,000 per match sponsored by MSN***</b></font><br/><br/>
                         <B>Single Round Match Description</B>
