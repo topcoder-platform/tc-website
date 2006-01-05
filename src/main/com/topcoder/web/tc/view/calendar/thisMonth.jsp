@@ -145,7 +145,6 @@ text-decoration: none;
             <strong>Match 284</strong><br />
             Register: 9:00&#160;AM<br />
             Compete: 12:00&#160;PM<br />
-            Sponsored by: <br><A href="/tc?module=Static&d1=contracting&d2=msn">MSN</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=8081&t=schedule&c=srm">Details</A><br/><br/></td>
     </tr>
@@ -187,8 +186,7 @@ text-decoration: none;
             <strong>Match 286</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
-            &#160;<br />
-            &#160;<br />
+            Sponsored by: <br><A href="/tc?module=Static&d1=contracting&d2=msn">MSN</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=8083&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">31</td>
