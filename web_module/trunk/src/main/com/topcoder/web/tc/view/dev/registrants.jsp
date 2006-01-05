@@ -30,7 +30,7 @@
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="development"/>
                 <jsp:param name="level2" value="components"/>
-                <jsp:param name="level3" value="comp_proj_sub"/>
+                <jsp:param name="level3" value="active_contests"/>
             </jsp:include>
         </td>
         <!-- Left Column Ends -->
