@@ -6,6 +6,12 @@
             <head>
 
                 <meta http-equiv="Refresh" content="5; URL=/tc?module=ViewActiveContests"/>
+               <p>This page has moved.  You will be redirected to the Active Contests Page in just a moment.
+               <br /><br />
+               Click <A href="/tc?module=ViewActiveContests">here</A> to get to the page manually.
+               </p>
+               
+               <p><br /></p>
 
             </head>
 
