@@ -14,7 +14,7 @@
     <title>TopCoder - Component Active Contests</title>
 
     <jsp:include page="../script.jsp"/>
-
+    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 </head>
 
 <body>
@@ -52,77 +52,77 @@
 
 <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
-<table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
-    <tr>
-        <td class="projectTitles" colspan="9">Component Design Contests</td>
-    </tr>
-    <tr valign="middle">
-        <td class="projectHeaders" align="center">Catalog</td>
-        <td width="15%" class="projectHeaders">Component</td>
-        <td class="projectHeaders" align="center">Registrants<br/>Rated/Unrated</td>
-        <td class="projectHeaders" align="center">Registration Ends</td>
-        <td class="projectHeaders" align="center">Submissions</td>
-        <td class="projectHeaders" align="center">Payment *</td>
-        <td class="projectHeaders" align="center">Complexity</td>
-        <td class="projectHeaders" align="center">Submit by</td>
-<%--        <td class="projectHeaders" align="center">Details</td> --%>
-    </tr>
 
-    <rsc:iterator list="<%=designContests%>" id="resultRow">
-        <tr valign="top">
-            <td class="projectCells" align="center">
-                <% if ("Java".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smJava.gif"/>
-                <% } else if ("Java Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smJavaCustom.gif"/>
-                <% } else if (".NET".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/netSm.gif"/>
-                <% } else if (".NET Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/smNetCustom.gif"/>
-                <% } else if ("Flash".equals(resultRow.getStringItem("catalog_name"))) { %>
-                <img src="/i/development/flashSm.gif"/>
-                <% } else { %>
-                <rsc:item name="catalog_name" row="<%=resultRow%>"/>
-                <% } %>
-            </td>
-            <td class="projectCells">
-                <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
-                    <rsc:item name="component_name" row="<%=resultRow%>"/> <rsc:item name="version_text" row="<%=resultRow%>"/>
-                </a>
-                <%=resultRow.getItem("max_unrated_registrants").getResultData()!=null && resultRow.getIntItem("max_unrated_registrants") == 0 ? "**" : ""%>
-            </td>
-            <td class="projectCells" align="center">
-                <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
-                   <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">
-                <% } %>
-                   <rsc:item name="total_rated_inquiries" row="<%=resultRow%>"/>/
-                   <rsc:item name="total_unrated_inquiries" row="<%=resultRow%>"/>
-                <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
-                   </a>
-                <% } %>
-            </td>
-            <td class="projectCells" align="center">
-                <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>
-            </td>
-            <td class="projectCells" align="center">
-                <rsc:item name="total_submissions" row="<%=resultRow%>"/>
-            </td>
-            <td class="projectCells" align="center">
-                <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/></td>
-            <td class="projectCells" align="center"><rsc:item name="description" row="<%=resultRow%>"/></td>
-            <td class="projectCells" align="center" nowrap="nowrap">
-                <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/></td>
-<%--
-            <td class="projectCells" align="center">
-                <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
-                <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">details</a>
-                <% } %>
-            </td>
---%>
-        </tr>
-
-    </rsc:iterator>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
+<tr>
+<td>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
+   <tr><td class="tableTitle" colspan="10">Active Component Design Contests</td></tr>
+   <tr>
+      <td class="tableHeader">Catalog</td>
+      <td class="tableHeader">Component</td>
+      <td class="tableHeader" align="center">Registrants<br/>Rated/Unrated</td>
+      <td class="tableHeader" align="center">Registration Ends</td>
+      <td class="tableHeader" align="center">Submissions</td>
+      <td class="tableHeader" align="right">Payment *</td>
+      <td class="tableHeader" align="center">Complexity</td>
+      <td class="tableHeader" align="center">Submit by</td>
+   </tr>
+   <rsc:iterator list="<%=designContests%>" id="resultRow">
+   <tr>
+      <td class="statDk">
+         <% if ("Java".equals(resultRow.getStringItem("catalog_name"))) { %>
+         <img src="/i/development/smJava.gif"/>
+         <% } else if ("Java Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
+         <img src="/i/development/smJavaCustom.gif"/>
+         <% } else if (".NET".equals(resultRow.getStringItem("catalog_name"))) { %>
+         <img src="/i/development/netSm.gif"/>
+         <% } else if (".NET Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
+         <img src="/i/development/smNetCustom.gif"/>
+         <% } else if ("Flash".equals(resultRow.getStringItem("catalog_name"))) { %>
+         <img src="/i/development/flashSm.gif"/>
+         <% } else { %>
+         <rsc:item name="catalog_name" row="<%=resultRow%>"/>
+         <% } %>
+      </td>
+      <td class="statDk">
+         <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
+         <rsc:item name="component_name" row="<%=resultRow%>"/> <rsc:item name="version_text" row="<%=resultRow%>"/>
+         </a>
+         <%=resultRow.getItem("max_unrated_registrants").getResultData()!=null && resultRow.getIntItem("max_unrated_registrants") == 0 ? "**" : ""%>
+      </td>
+      <td class="statDk" align="center">
+         <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
+         <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">
+         <% } %>
+         <rsc:item name="total_rated_inquiries" row="<%=resultRow%>"/>/
+         <rsc:item name="total_unrated_inquiries" row="<%=resultRow%>"/>
+         <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
+         </a>
+         <% } %>
+      </td>
+      <td class="statDk" align="center">
+         <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>
+      </td>
+      <td class="statDk" align="center">
+         <rsc:item name="total_submissions" row="<%=resultRow%>"/>
+      </td>
+      <td class="statDk" align="right">
+         <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/>
+      </td>
+      <td class="statDk" align="center">
+         <rsc:item name="description" row="<%=resultRow%>"/>
+      </td>
+      <td class="statDk" align="center">
+         <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>
+      </td>
+   </tr>
+   </rsc:iterator>
 </table>
+</td>
+</tr>
+</table>
+
 <br/>
 
 
