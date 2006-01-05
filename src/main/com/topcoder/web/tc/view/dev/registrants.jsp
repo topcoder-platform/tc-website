@@ -94,10 +94,10 @@
                         <rsc:item name="rating" row="<%=resultRow%>" ifNull="Not Rated"/>
                     </td>
                     <td class="projectCells" align="center" nowrap="0">
-                        <rsc:item name="inquiry_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
+                        <rsc:item name="inquiry_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>
                     </td>
                     <td class="projectCells" align="center" nowrap="0">
-                        <rsc:item name="submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" ifNull="-"/>
+                        <rsc:item name="submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York" ifNull="-"/>
                     </td>
                 </tr>
                 </rsc:iterator>
