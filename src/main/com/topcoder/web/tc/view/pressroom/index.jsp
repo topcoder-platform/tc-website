@@ -40,6 +40,30 @@
                 <tr><td class="bodyText"><div align="right"><strong>Current News</strong>&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=pressroom&d2=pr_archive">Press Releases Archive</A>&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=pressroom&d2=art_archive">Articles Archive</A></div></td></tr>
             </table>
             
+<%-- 2006 --%>
+            <table width="100%" border="0" cellpadding="4" cellspacing="0">
+                <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
+            </table>
+            
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+
+<%-- INC --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/pdfs/press_room/inc_0106.pdf" target="_blank"><img src="/i/pressroom/incDOTcom_logo.gif" alt="inc." border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/pdfs/press_room/inc_0106.pdf" target="_blank">Put a hacker to work [PDF]</A> </strong></font><br />
+"TopCoder has an unusual way of finding talent. It hosts code-writing contests, in which geeks around the world compete for bragging rights and cash."<span class="prHead"> [January 2006]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+
+            
 <%-- 2005 --%>
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
