@@ -767,7 +767,7 @@
                         <xsl:otherwise>left</xsl:otherwise>
                     </xsl:choose>
                 </xsl:attribute>
-            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=comp_projects</xsl:attribute>
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=ViewActiveContests</xsl:attribute>
             <img width="10" height="10" alt="" border="0" src="/i/nav_arrow_bottom.gif">
                  <xsl:attribute name="src">
                     <xsl:choose>
@@ -789,7 +789,7 @@
                                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                                     </xsl:choose>
                                     </xsl:attribute>
-                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=comp_projects</xsl:attribute>Projects</A>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=ViewActiveContests</xsl:attribute>Active Contests</A>
                                 </td>
                             </tr>
 
