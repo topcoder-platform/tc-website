@@ -14,7 +14,7 @@
     	</tr>
 		<tr>
    			<td align=center>
-        		<A href="/?t=development&c=comp_projects"><img src="/i/development/usdc/usdc_tag.gif" width="280" height="25" border="0" alt="Ultimate Software Development Contest"></A><br/>
+        		<A href="/tc?module=ViewActiveContests"><img src="/i/development/usdc/usdc_tag.gif" width="280" height="25" border="0" alt="Ultimate Software Development Contest"></A><br/>
             	<img src="/i/clear.gif" width="10" height="10" border="0"/>        		
             </td>
     	</tr>

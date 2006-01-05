@@ -105,7 +105,7 @@ return false;
                         <b>You currently do not have a TopCoder rating</b>.  Establishing a TopCoder rating will significantly increase your chance of being contacted for potential employment positions.  <br /><br />
                         <span class=bigRed>Your next chance to become rated in an algorithm competition is <rsc:item set="<%=nextSRM%>" name="registration_start" format="EEEE, MMMM d"/>
                         - check <a href="/?t=schedule&c=srm&RoundId=<rsc:item set="<%=nextSRM%>" name="round_id"/>" class=bigRed>here</a> for details.<br /><br />
-                        Check <a href="/?t=development&c=comp_projects" class=bigRed>here</a> for information on becoming rated in the component competition.<br /><br /></span>
+                        Check <a href="/tc?module=ViewActiveContests" class="bigRed">here</a> for information on becoming rated in the component competition.<br /><br /></span>
                     </td>
                 </tr>
             </table>
@@ -165,8 +165,8 @@ return false;
             <td width="100%" colspan=2 class=<%=cssClasses[i++ % 2]%>><%=pref.getText()%>:<br/><tc:preferenceInput preference="<%=pref%>" /></td>
             <% } else { %>
             <td width="100%" class=<%=cssClasses[i % 2]%>><label><tc:preferenceInput preference="<%=pref%>" /> <%=pref.getText()%></label></td>
-            <td class=<%=cssClasses[i++ % 2]%>>
-                                        &nbsp;
+            <td class=<%=cssClasses[i++ % 2]%>>&nbsp;
+                                        
             </td>
             <% } %>
          </tr>

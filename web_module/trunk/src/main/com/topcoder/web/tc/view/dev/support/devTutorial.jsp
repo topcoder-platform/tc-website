@@ -194,7 +194,7 @@
 				development solutions, but also allows you to compete in TopCoder algorithm competitions. To register, follow this <a href="/reg/index.jsp" target="_blank">link</a>.</p>
 			<h2><A name="#sectionII"></A>II. Picking A Project</h2>
 			<p>Picking a project is the first step to a winning development submission.
-				You can quickly find open development projects at <a href="/?t=development&amp;c=comp_projects" target="_blank">
+				You can quickly find open development contests at <a href="/tc?module=ViewActiveContests" target="_blank">
 					this page</a>.  From that page, you can see which projects are open,
 				when registration ends and when submissions are due.  These dates are
 				very important.  You must indicate your interest to develop a solution by
