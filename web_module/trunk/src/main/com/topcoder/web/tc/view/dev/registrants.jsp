@@ -55,8 +55,10 @@
                     Component <%=registrants.getStringItem(0, "phase")%> Status</td></tr>
 
                 <tr valign="middle">
+<%--
                     <td width="35" class="projectHeaders" align="center">Catalog</td>
                     <td width="30%" class="projectHeaders">Component</td>
+--%>
                     <td class="projectHeaders" align="center">Designer</td>
                     <td class="projectHeaders" align="center"><%=registrants.getStringItem(0, "phase")%><br/>Rating</td>
                     <td class="projectHeaders" align="center">Registration<br/>Date</td>
@@ -66,6 +68,7 @@
 
                 <rsc:iterator list="<%=registrants%>" id="resultRow">
                 <tr>
+<%--
                     <td class="projectCells" align="center">
                         <% if ("Java".equals(resultRow.getStringItem("catalog_name"))) { %>
                         <img src="/i/development/smJava.gif"/>
@@ -87,6 +90,7 @@
                             <rsc:item name="version_text" row="<%=resultRow%>"/>
                         </a>
                     </td>
+--%>
                     <td class="projectCells" align="center">
                         <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='<%=resultRow.getStringItem("phase")%>'/>
                     </td>

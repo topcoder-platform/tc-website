@@ -65,7 +65,7 @@
         <td class="projectHeaders" align="center">Payment *</td>
         <td class="projectHeaders" align="center">Complexity</td>
         <td class="projectHeaders" align="center">Submit by</td>
-        <td class="projectHeaders" align="center">Details</td>
+<%--        <td class="projectHeaders" align="center">Details</td> --%>
     </tr>
 
     <rsc:iterator list="<%=designContests%>" id="resultRow">
@@ -92,8 +92,14 @@
                 <%=resultRow.getItem("max_unrated_registrants").getResultData()!=null && resultRow.getIntItem("max_unrated_registrants") == 0 ? "**" : ""%>
             </td>
             <td class="projectCells" align="center">
+                <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
+                   <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">
+                <% } %>
                 <rsc:item name="total_rated_inquiries" row="<%=resultRow%>"/>/
                 <rsc:item name="total_unrated_inquiries" row="<%=resultRow%>"/>
+                <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
+                   </a>
+                <% } %>
             </td>
             <td class="projectCells" align="center">
                 <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>
@@ -106,11 +112,13 @@
             <td class="projectCells" align="center"><rsc:item name="description" row="<%=resultRow%>"/></td>
             <td class="projectCells" align="center" nowrap="nowrap">
                 <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/></td>
+<%--
             <td class="projectCells" align="center">
                 <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
                 <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">details</a>
                 <% } %>
             </td>
+--%>
         </tr>
 
     </rsc:iterator>
@@ -131,7 +139,7 @@
         <td class="projectHeaders" align="center">Payment *</td>
         <td class="projectHeaders" align="center">Complexity</td>
         <td class="projectHeaders" align="center">Submit by</td>
-        <td class="projectHeaders" align="center">Details</td>
+<%--        <td class="projectHeaders" align="center">Details</td> --%>
     </tr>
 
     <rsc:iterator list="<%=devContests%>" id="resultRow">
@@ -172,11 +180,13 @@
             <td class="projectCells" align="center"><rsc:item name="description" row="<%=resultRow%>"/></td>
             <td class="projectCells" align="center" nowrap="nowrap">
                 <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/></td>
+<%--
             <td class="projectCells" align="center">
                 <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
                 <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">details</a>
                 <% } %>
             </td>
+--%>
         </tr>
 
     </rsc:iterator>
