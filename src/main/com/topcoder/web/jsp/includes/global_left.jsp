@@ -270,26 +270,19 @@ if ((navigator.userAgent.indexOf('MSIE') != -1) && (navigator.userAgent.indexOf(
         <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests">Active Contests</A>
     </td></tr>
     <tr><td id="<%=level3.equals("reviews")?"leftSubnavOn":"leftSubnav"%>">
-        <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewProjects">Review
-            Opportunities</A></td></tr>
+        <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewProjects">Review Opportunities</A></td></tr>
     <tr><td id="<%=level3.equals("winners")?"leftSubnavOn":"leftSubnav"%>">
-        <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=components">Recent Project
-            Winners</A></td></tr>
+        <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=components">Recent Contest Winners</A></td></tr>
     <tr><td id="<%=level3.equals("des_contests")?"leftSubnavOn":"leftSubnav"%>">
-        <a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompList&pi=112">Design Contests</a>
-    </td></tr>
+        <a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompList&pi=112">Design Contest Results</a></td></tr>
     <tr><td id="<%=level3.equals("dev_contests")?"leftSubnavOn":"leftSubnav"%>">
-        <a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompList&pi=113">Development
-            Contests</a></td></tr>
+        <a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompList&pi=113">Development Contest Results</a></td></tr>
     <tr><td id="<%=level3.equals("submit")?"leftSubnavOn":"leftSubnav"%>">
-        <A class="leftOn" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Project Submit & Review</A>
-    </td></tr>
+        <A class="leftOn" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Submit & Review</A></td></tr>
     <tr><td id="<%=level3.equals("status")?"leftSubnavOn":"leftSubnav"%>">
-        <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=comp_archive">Project
-            Status</A></td></tr>
+        <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=comp_archive">Contest Status</A></td></tr>
     <tr><td id="<%=level3.equals("method")?"leftSubnavOn":"leftSubnav"%>">
-        <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=comp_meth">Development
-            Methodology</A></td></tr>
+        <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=comp_meth">Component Methodology</A></td></tr>
     <% } %>
     <tr><td id="<%=level2.equals("contests")?"leftNavOn":"leftNav"%>">
         <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=dev&d2=usdc_overview" class="<%=level2.equals("contests")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("contests")?"bottom":"right"%>.gif" alt="" border="0"/>Contests</a>

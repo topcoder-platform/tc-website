@@ -805,7 +805,7 @@
                                     <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=ViewReviewProjects</xsl:attribute>Review Opportunities</A>
                                 </td>
                             </tr>
-              <!-- Project Winners -->
+              <!-- Contest Winners -->
                             <tr>
                                 <td id="leftSubnav">
                                     <xsl:attribute name="id">
@@ -814,7 +814,7 @@
                                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                                     </xsl:choose>
                                     </xsl:attribute>
-                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=components</xsl:attribute>Recent Project Winners</A>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=components</xsl:attribute>Recent Contest Winners</A>
                                 </td>
                             </tr>
 
@@ -827,7 +827,7 @@
                                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                                     </xsl:choose>
                                     </xsl:attribute>
-                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=CompList&amp;pi=112</xsl:attribute>Design Contests</A>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=CompList&amp;pi=112</xsl:attribute>Design Results</A>
                                 </td>
                             </tr>
 
@@ -840,7 +840,7 @@
                                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                                     </xsl:choose>
                                     </xsl:attribute>
-                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=CompList&amp;pi=113</xsl:attribute>Development Contests</A>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=CompList&amp;pi=113</xsl:attribute>Development Results</A>
                                 </td>
                             </tr>
 
@@ -853,7 +853,7 @@
                                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                                     </xsl:choose>
                                     </xsl:attribute>
-                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/SoftwareHost"/>/review</xsl:attribute>Project Submit &amp; Review</A>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/SoftwareHost"/>/review</xsl:attribute>Submit &amp; Review</A>
                                 </td>
                             </tr>
 
@@ -866,7 +866,7 @@
                                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                                     </xsl:choose>
                                     </xsl:attribute>
-                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=comp_archive</xsl:attribute>Project Status</A>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=comp_archive</xsl:attribute>Contest Status</A>
                                 </td>
                             </tr>
 
