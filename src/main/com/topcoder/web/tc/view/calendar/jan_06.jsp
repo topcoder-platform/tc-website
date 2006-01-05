@@ -127,32 +127,35 @@ text-decoration: none;
     </tr>
     
     <tr> 
-        <td id="calendar">15</td>
-        <td id="calendar">16</td>
-        <td id="calendar">17</td>
-        <td id="calendarTCO06">
-            <span id="calendarTCO06Date">18</span><br/>
-            <strong>2006 TopCoder Open Component Competition</strong><br/>
-            Registration Closes & Week 1 Projects Posted: 9:00 AM ET<br/>
-            <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-            <A class="calendarTCO06Link" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_schedule">Details</A>
-            </td>
+        <td id="calendar" rowspan="2">15</td>
+        <td id="calendar" rowspan="2">16</td>
+        <td id="calendar" rowspan="2">17</td>
+        <td id="calendar" rowspan="2">18</td>
         <td id="calendarSRM">
             <span id="calendarSRMDate">19</span><br />
             <strong>Match 283</strong><br />
             Register: 4:00&#160;AM<br />
             Compete: 7:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8080&t=schedule&c=srm">Details</A><br/><br/></td>
-        <td id="calendar">20</td>
-        <td id="calendarSRM">
+            <A href="/?RoundId=8080&t=schedule&c=srm">Details</A><br/><br/>
+            </td>
+        <td id="calendar" rowspan="2">20</td>
+        <td id="calendarSRM" rowspan="2">
             <span id="calendarSRMDate">21</span><br />
             <strong>Match 284</strong><br />
             Register: 9:00&#160;AM<br />
             Compete: 12:00&#160;PM<br />
-            Sponsored by: <br><A href="/tc?module=Static&d1=contracting&d2=msn">MSN</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=8081&t=schedule&c=srm">Details</A><br/><br/></td>
+    </tr>
+    
+    <tr> 
+        <td id="calendarTCO06">
+            <strong>2006 TopCoder Open Component Competition</strong><br/>
+            Registration Closes & Week 1 Projects Posted: 9:00 AM ET<br/>
+            <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+            <A class="calendarTCO06Link" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_schedule">Details</A>
+            </td>
     </tr>
     
     <tr> 
@@ -165,14 +168,14 @@ text-decoration: none;
             Compete: 11:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=8082&t=schedule&c=srm">Details</A><br/><br/></td>
+        <td id="calendar">25</td>
         <td id="calendarTCO06">
-            <span id="calendarTCO06Date">25</span><br/>
+            <span id="calendarTCO06Date">26</span><br/>
             <strong>2006 TopCoder Open Component Competition</strong><br/>
             Week 1 Submission Deadline & Week 2 Projects Posted: 9:00 AM ET<br/>
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
             <A class="calendarTCO06Link" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_schedule">Details</A>
             </td>
-        <td id="calendar">26</td>
         <td id="calendar">27</td>
         <td id="calendar">28</td>
     </tr>
@@ -184,8 +187,7 @@ text-decoration: none;
             <strong>Match 286</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
-            &#160;<br />
-            &#160;<br />
+            Sponsored by: <br><A href="/tc?module=Static&d1=contracting&d2=msn">MSN</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=8083&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">31</td>
