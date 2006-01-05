@@ -169,6 +169,7 @@ public final class TaskDevelopment {
                 }
 
             } else if (command.equals("multiplier_status")) {
+                //todo this is dead, can be removed
                 Request dataRequest = null;
                 ResultSetContainer rsc = null;
                 Map resultMap = null;
