@@ -59,37 +59,34 @@
         </td></tr>
         <tr>
             <td class="cat" nowrap="nowrap">Contest:</td>
-            <td class="stat" align="right" nowrap="nowrap"></td>
+            <td class="stat" align="right" nowrap="nowrap">
+                <rsc:item name="component_name" set="<%=registrants%>"/> <rsc:item name="version_text" set="<%=registrants%>"/>
+            </td>
         </tr>
         <tr>
             <td class="cat" nowrap="nowrap">Component:</td>
             <td class="stat" align="right" nowrap="nowrap">
-<%--
-            <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>">
-                <rsc:item name="component_name" row="<%=resultRow%>"/>
-                <rsc:item name="version_text" row="<%=resultRow%>"/>
+            <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" set="<%=registrants%>"/>">
+                <rsc:item name="component_name" set="<%=registrants%>"/>
             </a>
---%>
             </td>
         </tr>
         <tr>
             <td class="cat" nowrap="nowrap">Catalog:</td>
             <td class="stat" align="right" nowrap="nowrap">
-<%--
-            <% if ("Java".equals(resultRow.getStringItem("catalog_name"))) { %>
+            <% if ("Java".equals(registrants.getStringItem(0, "catalog_name"))) { %>
             <img src="/i/development/smJava.gif"/>
-            <% } else if ("Java Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
+            <% } else if ("Java Custom".equals(registrants.getStringItem(0, "catalog_name"))) { %>
             <img src="/i/development/smJavaCustom.gif"/>
-            <% } else if (".NET".equals(resultRow.getStringItem("catalog_name"))) { %>
+            <% } else if (".NET".equals(registrants.getStringItem(0, "catalog_name"))) { %>
             <img src="/i/development/netSm.gif"/>
-            <% } else if (".NET Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
+            <% } else if (".NET Custom".equals(registrants.getStringItem(0, "catalog_name"))) { %>
             <img src="/i/development/smNetCustom.gif"/>
-            <% } else if ("Flash".equals(resultRow.getStringItem("catalog_name"))) { %>
+            <% } else if ("Flash".equals(registrants.getStringItem(0, "catalog_name"))) { %>
             <img src="/i/development/flashSm.gif"/>
             <% } else { %>
-            <rsc:item name="catalog_name" row="<%=resultRow%>"/>
+            <rsc:item name="catalog_name" set="<%=registrants%>"/>
             <% } %>
---%>
             </td>
         </tr>
     </table>
