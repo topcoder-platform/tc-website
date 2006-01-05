@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>01.05.06<br>2:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=calendar&d2=jan_06">MSN SRM sponsorship date changed</A></span><br><br>
+      MSN's sponsorship of SRM 284 on Jan 21 has changed to SRM 286 on Jan 30.  This means that SRM 286 now involves prize money instead of SRM 284.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=calendar&d2=jan_06">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505883" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>01.05.06<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=508559">TCO06 Component Competition Schedule Changes</A></span><br><br>
       Dates for the TCO06 Component Competition have changed to reflect the new Thursday to Thursday component schedule.
@@ -280,18 +293,6 @@
          <A href="/tc?module=Static&d1=calendar&d2=thisMonth">calendar</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505872" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>12.05.05<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=508140&mc=1#518768">GCC Upgrade</A></span><br><br>
-      We've finished upgrading our C++ compilers to GCC 4.0.2.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=508140&mc=1#518768">discuss this</A>&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
 
