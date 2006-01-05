@@ -11,7 +11,7 @@
 <% ResultSetContainer designContests = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("design_contests");%>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <head>
-    <title>Active Contests</title>
+    <title>TopCoder - Component Active Contests</title>
 
     <jsp:include page="../script.jsp"/>
 
