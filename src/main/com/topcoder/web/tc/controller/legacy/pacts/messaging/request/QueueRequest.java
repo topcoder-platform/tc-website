@@ -56,16 +56,13 @@ public class QueueRequest {
      */
     private void init() {
         boolean successfull = false;
-        InitialContext ctx = null;
         try {
-            //InitialContext ctx = TCContext.getInitial("172.16.210.55:1100");
-            ctx = TCContext.getInitial();
             // keep trying to initialize the queue until it starts
             while (!successfull) {
                 try {
 
 
-                    this.qmr = new QueueMessageReceiver(ApplicationServer.JMS_FACTORY, this.queueType, ctx);
+                    this.qmr = new QueueMessageReceiver(ApplicationServer.JMS_FACTORY, this.queueType);
                     this.qmr.setAutoCommit(true);
                     this.qmr.setTransacted(false);
                     this.qmr.setFaultTolerant(false);
@@ -82,8 +79,6 @@ public class QueueRequest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            TCContext.close(ctx);
         }
 
     }
