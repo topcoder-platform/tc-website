@@ -73,7 +73,7 @@
 					Download and get familiar with some <a href="http://software.topcoder.com/catalog/index.jsp">existing components</a>.</p>
 			
 					<p><span class="bodySubtitle">Step 4 - Choose a component to design</span><br/>
-					On the <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_projects">Component Projects</a> page you will see a list of design projects available.  Click on a particular component, and then read the Project definition.  In addition to reading the project definition read the component requirements specification.  The link to the requirement specifications should exist on the component project definition page.</p>
+					On the <a href="/tc?module=ViewActiveContests">Active Contests</a> page you will see a list of design projects available.  Click on a particular component, and then read the Project definition.  In addition to reading the project definition read the component requirements specification.  The link to the requirement specifications should exist on the component project definition page.</p>
 			
 					<p><span class="bodySubtitle">Step 5 - Register for the component</span><br/>
 					Now that you have found a component you would like to design you must register for the component.  On the component definition page there is a "Register for this Component" link.  Regsiter and agree to the terms.</p>
@@ -111,7 +111,7 @@
 					Download and get familiar with some <a href="http://software.topcoder.com/catalog/index.jsp">existing components</a>.</p>
 					
 					<p><span class="bodySubtitle">Step 4 - Choose a component to develop</span><br/>			
-					On the <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_projects">Component Projects</a> page you will see a list of development projects available.  Click on a particular component, and then read the Project definition.  In addition to reading the project definition read the component requirements specification.  The link to the requirement specifications should exist on the component project definition page.</p>
+					On the <a href="/tc?module=ViewActiveContests">Active Contests</a> page you will see a list of development projects available.  Click on a particular component, and then read the Project definition.  In addition to reading the project definition read the component requirements specification.  The link to the requirement specifications should exist on the component project definition page.</p>
 					
 					<p><span class="bodySubtitle">Step 5 - Register for the component</span><br/>
 					Now that you have found a component you would like to development you must register for the component.  On the component definition page there is a "Register for this Component" link.  Register and agree to the terms.</p>

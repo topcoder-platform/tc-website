@@ -58,7 +58,7 @@
                             <img src="/i/clear.gif" alt="" width="240" height="10" border="0"/>
 
                             <p>There are also
-                                <A href="/index?t=development&amp;c=comp_projects">Component Projects</A> available.
+                                <A href="/tc?module=ViewActiveContests">Active Contests</A> available.
                             </p>
 
                             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">

@@ -405,7 +405,7 @@
                         screening scorecard.  All submissions that pass screening will be entered into the contest. The design submission with the highest review board score 
                         greater than or equal to 75 will be declared the component design winner for that project.</p>
 
- <!--                        <p>Get started today... There are plenty of <a href="index?t=development&amp;c=comp_projects">available projects</a> for you to choose from.</p> -->
+ <!--                        <p>Get started today... There are plenty of <a href="/tc?module=ViewActiveContests">Active Contests</a> for you to choose from.</p> -->
 
                         <p>Not sure what to submit? See our <a href="/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=compDocumentation">sample design solution</a> for ideas.</p>
                         

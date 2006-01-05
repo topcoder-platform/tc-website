@@ -56,9 +56,9 @@
                 
                         
                         <map name="dev_promos">
-                        <area shape="poly" alt="" coords="24,0, 24,46, 435,46, 480,0" href="/?t=development&amp;c=comp_projects" />
+                        <area shape="poly" alt="" coords="24,0, 24,46, 435,46, 480,0" href="/tc?module=ViewActiveContests" />
                         <area shape="poly" alt="" coords="25,148, 25,102, 378,102, 332,148" href="/tc?module=ViewReviewProjects " />
-                        <area shape="poly" alt="" coords="25,96, 25,52, 434,52, 383,96" href="/?t=development&amp;c=comp_projects " />
+                        <area shape="poly" alt="" coords="25,96, 25,52, 434,52, 383,96" href="/tc?module=ViewActiveContests " />
                         <area shape="poly" alt="" coords="358,143, 487,143, 487,28" href="/?t=development&amp;c=getting_started " />
                         </map>                        
                     </td>

@@ -126,7 +126,7 @@
                             
                             <li>Once the project scope has been determined, the PM creates a Requirements Specification for the Design Phase of that component.</li>
                             
-                            <li>The project is <a href="index?t=development&amp;c=comp_projects">posted</a> on the Development Section of 
+                            <li>The project is <a href="/tc?module=ViewActiveContests">posted</a> on the Development Section of 
                             topcoder.com, and an email is sent out notifying members of the new development opportunity.  The posting includes the payment details and 
                             submission deadline for all design submissions.</li>
                             

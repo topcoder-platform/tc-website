@@ -50,7 +50,7 @@
             </table>
 
            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr><td height="22" class="moduleTitle"><A href="?t=development&amp;c=comp_projects"><img src="/i/tcs_contest_promo_bottom.gif" alt="Many projects to choose from" width="244" height="22" border="0" /></A></td></tr>
+                <tr><td height="22" class="moduleTitle"><A href="/tc?module=ViewActiveContests"><img src="/i/tcs_contest_promo_bottom.gif" alt="Many projects to choose from" width="244" height="22" border="0" /></A></td></tr>
             </table> -->
             
             
