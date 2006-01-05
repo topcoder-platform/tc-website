@@ -96,7 +96,7 @@
                 <rsc:item name="total_unrated_inquiries" row="<%=resultRow%>"/>
             </td>
             <td class="projectCells" align="center">
-                <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
+                <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>
             </td>
             <td class="projectCells" align="center">
                 <rsc:item name="total_submissions" row="<%=resultRow%>"/>
@@ -105,7 +105,7 @@
                 <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/></td>
             <td class="projectCells" align="center"><rsc:item name="description" row="<%=resultRow%>"/></td>
             <td class="projectCells" align="center" nowrap="nowrap">
-                <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/></td>
+                <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/></td>
             <td class="projectCells" align="center">
                 <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
                 <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">details</a>
@@ -162,7 +162,7 @@
                 <rsc:item name="total_unrated_inquiries" row="<%=resultRow%>"/>
             </td>
             <td class="projectCells" align="center">
-                <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
+                <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"  timeZone="America/New_York"/>
             </td>
             <td class="projectCells" align="center">
                 <rsc:item name="total_submissions" row="<%=resultRow%>"/>
@@ -171,7 +171,7 @@
                 <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/></td>
             <td class="projectCells" align="center"><rsc:item name="description" row="<%=resultRow%>"/></td>
             <td class="projectCells" align="center" nowrap="nowrap">
-                <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/></td>
+                <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/></td>
             <td class="projectCells" align="center">
                 <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
                 <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">details</a>
