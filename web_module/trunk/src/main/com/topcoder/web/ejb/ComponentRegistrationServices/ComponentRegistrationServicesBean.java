@@ -419,8 +419,8 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
     public ResultSetContainer getAnswers(long questionId) throws EJBException {
         return selectSet("comp_reg_answer",
                 new String[]{"comp_reg_answer_id", "comp_reg_question_id", "answer_text", "sort_order"},
-                new String[]{"com_reg_question_id"},
-                new String[]{String.valueOf(questionId)},
+                new String[]{"com_reg_question_id", "is_active"},
+                new String[]{String.valueOf(questionId), "1"},
                 DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
 
