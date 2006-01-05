@@ -37,7 +37,7 @@ TopCoder members meeting the following eligibility criteria are eligible to comp
 <li>Must currently be eligible for participation in TopCoder Component projects (i.e., not suspended from TopCoder).</li>
 </ul>
 <span class="bodySubtitle">Timeframe</span><br>
-Competitors can participate in design components from December 7, 2005 through March 8, 2006.  Competitors can participate in development components from December 21, 2005 through March 8, 2006.  Any components posted after March 8, 2006 are not eligible for this program.
+Competitors can participate in design components from December 7, 2005 through March 9, 2006.  Competitors can participate in development components from December 21, 2005 through March 9, 2006.  Any components posted after March 9, 2006 are not eligible for this program.
  <br><br>
 <span class="bodySubtitle">Prize Money</span><br>
 During the algorithm tournament, those competitors who have passed review on three (3) development components will receive the following prize money:
