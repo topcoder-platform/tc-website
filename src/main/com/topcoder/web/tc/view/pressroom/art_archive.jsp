@@ -41,6 +41,10 @@
             </table>
 
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
+<!-- 2006  -->
+<tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
+<tr><td class="newsText"><A href="/pdfs/press_room/inc_0106.pdf" target="_blank">Put a hacker to work [PDF]</A> [January 2006 - Inc. Magazine]<br/></td></tr>
+<tr><td ><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
 
 <!-- 2005  -->
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
