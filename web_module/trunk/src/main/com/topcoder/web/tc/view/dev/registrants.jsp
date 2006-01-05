@@ -72,10 +72,10 @@
             </td>
         </tr>
         <tr>
-            <td class="cat" nowrap="nowrap">Catalog:</td>
-            <td class="stat" align="right" nowrap="nowrap">
+            <td class="cat" nowrap="nowrap" style="padding-top: 3px">Catalog:</td>
+            <td class="stat" align="right" nowrap="nowrap" style="padding-top: 3px">
             <% if ("Java".equals(registrants.getStringItem(0, "catalog_name"))) { %>
-            <img src="/i/development/smJava.gif"/>
+            <img src="/i/development/smJava.gif" alt="Java" border="0" />
             <% } else if ("Java Custom".equals(registrants.getStringItem(0, "catalog_name"))) { %>
             <img src="/i/development/smJavaCustom.gif"/>
             <% } else if (".NET".equals(registrants.getStringItem(0, "catalog_name"))) { %>
