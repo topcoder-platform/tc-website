@@ -39,10 +39,10 @@ function arena() {
                 </tr>
 
 <!-- Components begins -->
-                <tr><td id="<%=level2.equals("components")?"leftNavOn":"leftNav"%>"><img src="/images/nav_arrow_<%=level2.equals("components")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/?&t=development&c=comp_projects" class="leftOn">Components</a></td></tr>
+                <tr><td id="<%=level2.equals("components")?"leftNavOn":"leftNav"%>"><img src="/images/nav_arrow_<%=level2.equals("components")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/tc?module=ViewActiveContests" class="leftOn">Components</a></td></tr>
 
         <% if ((level2.equals("components"))) { %>
-                <tr><td id="<%=level3.equals("comp_projects")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=comp_projects" class="leftOn">Projects</a></td></tr>
+                <tr><td id="<%=level3.equals("comp_projects")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/tc?module=ViewActiveContests" class="leftOn">Active Contests</a></td></tr>
                 <tr><td id="<%=level3.equals("reviews")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/tc?module=ViewReviewProjects" class="leftOn">Review Opportunities</a></td></tr>
                 <tr><td id="<%=level3.equals("components")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=components" class="leftOn">Recent Project Winners</a></td></tr>
                 <tr><td id="<%=level3.equals("des_contests")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://www.topcoder.com/tc?module=CompList&pi=112">Design Contests</a></td></tr>
