@@ -180,10 +180,10 @@ margin:0px auto;
             <b>1/10</b> - SRM 282 - 9PM - NSA<br><br>
             <b>1/18</b> - TCO06 Component - Registration closes - 9AM<br><br>
             <b>1/19</b> - SRM 283 - 7AM<br><br>
-            <b>1/21</b> - SRM 284 - 12 noon - MSN<br><br>
+            <b>1/21</b> - SRM 284 - 12 noon<br><br>
             <b>1/24</b> - SRM 285 - 11AM<br><br>
             <b>1/25</b> - TCO06 Component - Week1 submission deadline- 9AM<br><br>
-            <b>1/30</b> - SRM 286 - 9PM<br><br>
+            <b>1/30</b> - SRM 286 - 9PM - MSN<br><br>
             </td>
          </tr>
 <%-- Press Room --%>
