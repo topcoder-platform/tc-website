@@ -41,5 +41,11 @@ public class ProjectBean extends BaseEJB {
         }
 
     }
+    
+    public int getProjectTypeId(long projectId, String dataSource) {
+        log.debug("get project id called for project " + projectId);
+        return selectInt("project", "project_type_id", new String[]{"project_id", "cur_version"},
+                new String[]{String.valueOf(projectId), "1"}, dataSource).intValue();
+    }
 
 }
