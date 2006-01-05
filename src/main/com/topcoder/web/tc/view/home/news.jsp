@@ -9,6 +9,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.05.06<br>4:20 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/inc_0106.pdf">Put a hacker to work [PDF]</A></span><br><br>
+      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/incDOTcom_logo.gif" width="67" height="25" alt="Inc.com" border="0" /></div>
+      "TopCoder has an unusual way of finding talent. It hosts code-writing contests, in which geeks around the world compete for bragging rights and cash."
+      <br><br>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/pdfs/press_room/inc_0106.pdf">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505884" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>01.05.06<br>2:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=calendar&d2=jan_06">MSN SRM sponsorship date changed</A></span><br><br>
       MSN's sponsorship of SRM 284 on Jan 21 has changed to SRM 286 on Jan 30.  This means that SRM 286 now involves prize money instead of SRM 284.
@@ -282,19 +298,6 @@
          <tc-webtag:forumLink forumID="505790" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>12.06.05<br>11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">Event calendar updated for <A href="/tc?module=Static&d1=calendar&d2=feb_06">February</A>, <A href="/tc?module=Static&d1=calendar&d2=mar_06">March</A>, <A href="/tc?module=Static&d1=calendar&d2=apr_06">April</A>, and <A href="/tc?module=Static&d1=calendar&d2=may_06">May</A></span><br><br>
-      We've updated the events calendar with SRM dates and important dates for the TCO06.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=calendar&d2=thisMonth">calendar</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505872" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>

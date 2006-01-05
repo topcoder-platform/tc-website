@@ -194,6 +194,9 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/incDOTcom_logo.gif" width="67" height="25" alt="Inc.com" border="0" /></div>
+            Put a hacker to work [PDF] <A href="/pdfs/press_room/inc_0106.pdf" target="_blank">...more</A><br>[January 2006]<br><br>
+            
             TopCoder Welcomes VeriSign as Return Sponsor of 2006 TopCoder Open in Las Vegas <A href="/tc?module=Static&d1=pressroom&d2=pr_121905">...more</A><br>[December 19]<br><br>
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/forbes_logo.gif" width="67" height="23" alt="Forbes" border="0" /></div>
@@ -207,8 +210,6 @@ margin:0px auto;
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/infoworld_logo.gif" width="67" height="12" alt="InfoWorld" border="0" /></div>
             Google to hold programming competition in China <A href="http://www.infoworld.com/article/05/11/22/HNgooglecompetition_1.html" target="_blank">...more</A><br>[November 22]<br><br>
-
-            TopCoder Payouts to Winners of Design and Development Competitions Surpass $1 Million <A href="/tc?module=Static&d1=pressroom&d2=pr_112105">...more</A><br>[November 21]<br><br>
 
             </td>
          </tr>
