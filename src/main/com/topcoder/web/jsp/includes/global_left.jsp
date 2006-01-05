@@ -263,11 +263,11 @@ if ((navigator.userAgent.indexOf('MSIE') != -1) && (navigator.userAgent.indexOf(
         <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_active_collab.jsp?ft=2" class="<%=level2.equals("forums")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("forums")?"bottom":"right"%>.gif" alt="" border="0"/>TCS
             Developer Forums</a></td></tr>
     <tr><td id="<%=level2.equals("components")?"leftNavOn":"leftNav"%>">
-        <a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=comp_projects" class="<%=level2.equals("components")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("components")?"bottom":"right"%>.gif" alt="" border="0"/>Components</a>
+        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests" class="<%=level2.equals("components")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("components")?"bottom":"right"%>.gif" alt="" border="0"/>Components</a>
     </td></tr>
     <% if (level2.equals("components")) { %>
     <tr><td id="<%=level3.equals("open")?"leftSubnavOn":"leftSubnav"%>">
-        <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=comp_projects">Projects</A>
+        <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests">Active Contests</A>
     </td></tr>
     <tr><td id="<%=level3.equals("reviews")?"leftSubnavOn":"leftSubnav"%>">
         <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewProjects">Review

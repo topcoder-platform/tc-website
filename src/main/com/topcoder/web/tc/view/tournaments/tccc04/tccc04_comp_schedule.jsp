@@ -64,7 +64,7 @@
                         Projects posted
                      </td>
                      <td class="sidebarText">
-                        <a href="/?t=development&c=comp_projects">01.27.04 12:00AM</a>
+                        <a href="/tc?module=ViewActiveContests">01.27.04 12:00AM</a>
                      </td>
                      <td class="sidebarText">
                         02.17.04 9:00AM
