@@ -266,17 +266,16 @@ if ((navigator.userAgent.indexOf('MSIE') != -1) && (navigator.userAgent.indexOf(
         <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests" class="<%=level2.equals("components")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("components")?"bottom":"right"%>.gif" alt="" border="0"/>Components</a>
     </td></tr>
     <% if (level2.equals("components")) { %>
-    <tr><td id="<%=level3.equals("open")?"leftSubnavOn":"leftSubnav"%>">
-        <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests">Active Contests</A>
-    </td></tr>
+    <tr><td id="<%=level3.equals("active_contests")?"leftSubnavOn":"leftSubnav"%>">
+        <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests">Active Contests</A></td></tr>
     <tr><td id="<%=level3.equals("reviews")?"leftSubnavOn":"leftSubnav"%>">
         <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewProjects">Review Opportunities</A></td></tr>
     <tr><td id="<%=level3.equals("winners")?"leftSubnavOn":"leftSubnav"%>">
         <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=components">Recent Contest Winners</A></td></tr>
     <tr><td id="<%=level3.equals("des_contests")?"leftSubnavOn":"leftSubnav"%>">
-        <a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompList&pi=112">Design Contest Results</a></td></tr>
+        <a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompList&pi=112">Design Results</a></td></tr>
     <tr><td id="<%=level3.equals("dev_contests")?"leftSubnavOn":"leftSubnav"%>">
-        <a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompList&pi=113">Development Contest Results</a></td></tr>
+        <a class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompList&pi=113">Development Results</a></td></tr>
     <tr><td id="<%=level3.equals("submit")?"leftSubnavOn":"leftSubnav"%>">
         <A class="leftOn" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Submit & Review</A></td></tr>
     <tr><td id="<%=level3.equals("status")?"leftSubnavOn":"leftSubnav"%>">
