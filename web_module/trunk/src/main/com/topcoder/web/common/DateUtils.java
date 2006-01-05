@@ -53,19 +53,21 @@ public class DateUtils {
      */
     public static int getOffset(Date d, String fromTimeZone, String toTimeZone) {
 
+/*
         TimeZone fromTZ = TimeZone.getTimeZone(fromTimeZone);
         TimeZone toTZ = TimeZone.getTimeZone(toTimeZone);
+*/
         Calendar c = Calendar.getInstance();
         c.setTime(d);
+        int fromOffset = TimeZone.getTimeZone(fromTimeZone).getOffset(d.getTime());
+        int toOffset = TimeZone.getTimeZone(toTimeZone).getOffset(d.getTime());
+        return toOffset-fromOffset;
+/*1.3
         int fromOffset = fromTZ.getOffset(c.get(Calendar.ERA), c.get(Calendar.YEAR), c.get(Calendar.MONTH),
                 c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.DAY_OF_WEEK), c.get(Calendar.MILLISECOND));
         int toOffset = toTZ.getOffset(c.get(Calendar.ERA), c.get(Calendar.YEAR), c.get(Calendar.MONTH),
                 c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.DAY_OF_WEEK), c.get(Calendar.MILLISECOND));
-/*      will work in 1.4+
-        int fromOffset = TimeZone.getTimeZone(fromTimeZone).getOffset(d.getTime());
-        int toOffset = TimeZone.getTimeZone(toTimeZone).getOffset(d.getTime());
 */
-        return toOffset-fromOffset;
     }
 
     /**
