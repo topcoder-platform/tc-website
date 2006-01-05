@@ -13,7 +13,6 @@
       <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/inc_0106.pdf">Put a hacker to work [PDF]</A></span><br><br>
       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/incDOTcom_logo.gif" width="67" height="25" alt="Inc.com" border="0" /></div>
       "TopCoder has an unusual way of finding talent. It hosts code-writing contests, in which geeks around the world compete for bragging rights and cash."
-      <br><br>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
