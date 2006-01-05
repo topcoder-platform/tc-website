@@ -1489,7 +1489,9 @@ if (action != null) {
                                     <select name="selPostingStatus">
                                         <option value="301" <%= (postingStatusId == 301L ? " SELECTED" : "") %>>NEW POST</option>
                                         <option value="302"<%= (postingStatusId == 302L ? " SELECTED" : "") %>>REPOST</option>
+<%--
                                         <option value="303"<%= (postingStatusId == 303L ? " SELECTED" : "") %>>Tournament</option>
+--%>
                                     </select>
                                 </td>
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
