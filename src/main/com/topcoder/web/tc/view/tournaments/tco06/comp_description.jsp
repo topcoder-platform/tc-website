@@ -28,10 +28,10 @@ Begins: January 2, 2006 9:00AM EST<br>
 Ends: February 15, 2006 9:00AM EST
 </li>
 <li><strong>Online Rounds</strong><br>
-January 18, 2006 - February 15, 2006
+January 19, 2006 - February 16, 2006
 </li>
 <li><strong>Online Finals</strong><br>
-March 15, 2006 - April 19, 2006
+March 16, 2006 - April 20, 2006
 </li>
 <li><strong>Onsite Finals</strong><br>
 May 3-5, 2006<br>
