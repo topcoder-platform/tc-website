@@ -11,10 +11,10 @@
 <% ResultSetContainer registrants = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("registrants");%>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <head>
-    <title>Active Contests</title>
+    <title>TopCoder - Component Active Contests</title>
 
     <jsp:include page="../script.jsp"/>
-
+    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 </head>
 
 <body>
@@ -50,19 +50,34 @@
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
 
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
+<tr>
+<td class="divider">
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
+        <tr><td class="tableTitle" colspan="2">
+              <%=registrants.getStringItem(0, "phase")%> Contest Details</td></tr>
+        </td></tr>
+        <tr>
+            <td class="cat" nowrap="nowrap">Contest:</td>
+            <td class="stat" align="right" nowrap="nowrap"></td>
+        </tr>
+
+
+
+
             <table class="formFrame" cellspacing="0" cellpadding="3" width="100%">
                 <tr valign="middle"><td class="projectTitles" colspan="7">
-                    Component <%=registrants.getStringItem(0, "phase")%> Status</td></tr>
+                    <%=registrants.getStringItem(0, "phase")%> Contest Registrants</td></tr>
 
                 <tr valign="middle">
 <%--
                     <td width="35" class="projectHeaders" align="center">Catalog</td>
                     <td width="30%" class="projectHeaders">Component</td>
 --%>
-                    <td class="projectHeaders" align="center">Designer</td>
-                    <td class="projectHeaders" align="center"><%=registrants.getStringItem(0, "phase")%><br/>Rating</td>
-                    <td class="projectHeaders" align="center">Registration<br/>Date</td>
-                    <td class="projectHeaders" align="center">Submission<br/>Date</td>
+                    <td class="projectHeaders">Handle</td>
+                    <td class="projectHeaders" align="center"><%=registrants.getStringItem(0, "phase")%> Rating</td>
+                    <td class="projectHeaders" align="center">Registration Date</td>
+                    <td class="projectHeaders" align="center">Submission Date</td>
                 </tr>
 
 
@@ -91,7 +106,7 @@
                         </a>
                     </td>
 --%>
-                    <td class="projectCells" align="center">
+                    <td class="projectCells">
                         <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='<%=resultRow.getStringItem("phase")%>'/>
                     </td>
                     <td class="projectCells" align="center">
