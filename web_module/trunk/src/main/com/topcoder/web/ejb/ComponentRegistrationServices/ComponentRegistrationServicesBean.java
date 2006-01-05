@@ -379,7 +379,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
         return selectSet("comp_reg_question",
                 new String[]{"comp_reg_question_id", "question_text", "question_style_id"},
                 new String[]{"is_active"},
-                new String[]{"t"},
+                new String[]{"1"},
                 DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
 
@@ -397,7 +397,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             query.append("select a.comp_reg_answer_id, a.comp_reg_question_id, a.answer_text, a.sort_order ");
             query.append("from comp_reg_answer a, comp_reg_question q ");
             query.append("where a.comp_reg_question_id = q.comp_reg_question_id ");
-            query.append("and q.is_active = 't'" );
+            query.append("and q.is_active = 1" );
             query.append("order by comp_reg_question_id, sort_order");
 
             ps = conn.prepareStatement(query.toString());
