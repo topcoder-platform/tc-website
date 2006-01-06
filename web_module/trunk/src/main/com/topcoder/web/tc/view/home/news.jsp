@@ -9,6 +9,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>01.06.06<br>11:15 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm281">SRM 281 - Problem Set & Analysis</A></span><br><br>
+      SRM 281 proved to be very challenging for most competitors and sported low success rates on all but one problem. Congratulations to <tc-webtag:handle coderId="10574855" context="algorithm"/> for coming out on top of division 1,
+      </td>
+      <td class="newsPhoto"><img src="/i/m/lovro_mug.gif" /><br>by <tc-webtag:handle coderId="7390467" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm281">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505795" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.05.06<br>4:20 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/inc_0106.pdf">Put a hacker to work [PDF]</A></span><br><br>
       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/incDOTcom_logo.gif" width="67" height="25" alt="Inc.com" border="0" /></div>
@@ -281,22 +298,6 @@
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>12.09.05<br>11:15 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm276">SRM 276 - Problem Set & Analysis</A></span><br><br>
-      In Division 1, <tc-webtag:handle coderId="8357090" context="algorithm"/> took the lead in the coding phase, with the first correct submission on the 1000, and held that lead all the way through.  <tc-webtag:handle coderId="7421158" context="algorithm"/>, <tc-webtag:handle coderId="9906197" context="algorithm"/>, <tc-webtag:handle coderId="10574855" context="algorithm"/>, and <tc-webtag:handle coderId="7462740" context="algorithm"/> rounded out the top 5.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" /><br>by <tc-webtag:handle coderId="10407399" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm276">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505790" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
 
 </table>
 <br><br>
