@@ -8,7 +8,7 @@
 </head>
 <body bgcolor="#FFF">
 
-<table align="left" cellspacing="0" cellpadding="0" valign="top">
+<table align="left" cellspacing="0" cellpadding="0" valign="top" width="760">
    <tr>
       <td colspan="2" align="right" valign="top" style="padding: 2px 0px 0px 0px;">
 	    <a href="http://www.verisign.com/index.html" class="VStop">US Home</a> &#160;&#160; | &#160;&#160;
@@ -31,213 +31,164 @@
          </div>
       </td>
     </tr>
-</table>
 
 <!-- main content -->
 
-<table align="left" cellspacing="0" cellpadding="0" class="mainContent">
     <tr>
-      <td align="left" valign="top">
-         <span valign=top>
-         <jsp:include page="right.jsp" />
-         </span>
+      <td align="left" valign="top" colspan="2" style="padding: 0px 0px 0px 20px;">
+
+         <span valign=top><jsp:include page="right.jsp" /></span>
          <br/><br/><br/>
+         
          <span class="blkBigHead">Official Rules and Regulations</span>
          <br/><br/>
 
+<span class="redHead">No purchase necessary to enter or win. Void where prohibited.</span>
+<br><br><br>
+<span class="redHead">Overview of the Tournament</span>
+<br><br>
+The 2006 TopCoder Open ("TCO") Sponsor Track Competition will take place between February 13 and March 22, 2006.  This algorithm competition will consist of one (1) online qualification round, three (3) online elimination rounds and one (1) online final round.    
+<br><br>
 
-<span class="redHead">No purchase necessary to enter or win.  The tournament is void where prohibited.</span>
-<br><br>
-<span class="redHead">Summary of the Tournament</span>
-<br><br>
-The VeriSign&#153; Coder Challenge 2006 is being offered by VeriSign Inc. ("VeriSign") and TopCoder, Inc. ("TopCoder").  VeriSign is using the results of the Code Jam 2006 to identify possible employees for their company.  The Code Jam 2006 will take place between Monday, July 25, 2006 and Friday, September 23, 2006.  It begins with a 4-week online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament.  The tournament consists of one (1) qualification round, two (2) online elimination rounds and one (1) onsite final round.  All participants who compete in Round 1 (the first online elimination round) will receive a VeriSign Code Jam 2006 t-shirt.  In addition, VeriSign will award $155,000 in cash prizes to the 100 finalists in the tournament.
-<br><br>
 <b>Eligibility</b><br>
-All individuals who are at least 18 years old by August 22 may register and compete in the VeriSign Code Jam 2006.
-<br><br>
-Registrants who are 18 years of age or older are eligible to win cash prizes, unless otherwise prohibited. The VeriSign Code Jam 2006 is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
-<br><br>
-Full and part-time employees of VeriSign and TopCoder as well as those who are performing internships from July 25 - September 23, 2006 and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
+Employees and interns of all official TCO sponsors who are TopCoder members and are at least 18 years of age as of March 1, 2006 are eligible to compete in the Sponsor Track  Competition.  TCO sponsor employees and interns may register to become a TopCoder member by navigating to www.topcoder.com, clicking on "Developer Center" and then clicking on "Register" in the upper right corner of the screen.
 <br><br>
 
 <b>Registration</b><br>
-Registration will open on Monday, July 25, 2006 at 9:00AM EDT and will close on Friday, August 19 at 5:00PM EDT.  There is no limit to the number of registrants for the competition, however each individual may only register once.
+Registration for the 2006 TopCoder Open Sponsor Track Competition will open 9:00AM EST on Monday, February 13, 2006, and will close at 9:00AM EST on Tuesday, February 28, 2006.  In order to be eligible to compete in the Sponsor Track Competition, competitors must be a registered TopCoder member and must register separately for the Sponsor Track Competition.  There is no limit to the number of registrants in the competition, however each individual may only register once.
 <br><br>
 
-<b>Qualification Round</b><br>
-The Qualification Round will be open for 24 hours from Noon EDT Monday, August 22, 2006 through Noon EDT Tuesday, August 23, 2006.
+<b>Qualification Round &mdash; Noon EST Tuesday, February 28 through Noon EST Wednesday, March 1, 2006</b><br>
+The Qualification Round will be open for 24 hours from Noon EST Tuesday, February 28 through Noon EST Wednesday, March 1, 2006.  Each competitor may participate in the Qualification Round at any time during the 24 hours.  Competitors may only attempt to qualify one time using one account during the 24 hours.
 <br><br>
-
-The Qualification Round will consist of two phases: the Coding Phase and System Testing Phase.
+The Qualification Round will consist of only two phases: the Coding Phase and System Testing Phase. <br> Note: The Qualification Round will not include a Challenge Phase.
 <ul>
-<li>The Qualification Round Coding Phase is a timed event where contestants are presented with one of five possible problem sets.  Each problem set contains two questions representing two levels of complexity and, accordingly, two levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.  Competitors will have 60 minutes to complete either or both of the problems.  The 60 minutes will begin to elapse once the first problem is opened.  The timer in the coding window will count down to the end of the 60 minutes.  A competitor who begins the qualification attempt within the final 60 minutes of the Qualification Round will have less than 60 minutes to attempt qualification.</li>
-<li>The Qualification Round System Testing Phase is applied to all submitted code. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given question.</li>
+<li>The Qualification Round Coding Phase is a timed event where contestants are randomly presented with one of five possible problem sets.  Each problem set contains two questions representing two levels of complexity and, accordingly, two levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.  Competitors will have 60 minutes to complete either or both of the problems.  The 60 minutes will begin to elapse once the first problem is opened.  The timer in the coding window will count down to the end of the 60 minutes.  A competitor who begins the qualification attempt within the final 60 minutes of the Qualification Round will have less than 60 minutes to attempt qualification.</li>
+<li>The Qualification Round System Testing Phase is applied to all submitted code at the conclusion of the Qualification Round. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given question. </li>
 </ul>
 
-The Qualification Round will contain at least ten (10) virtual rooms and five (5) problem sets.  The top 100 scorers from each of the five problem sets presented during the Qualification Round will be eligible to compete in Round 1 of the Code Jam 2006.
+Upon logging in to the TopCoder Arena during the Qualification Round, each competitor who has registered for the Sponsor Track Competition will receive a message indicating which set of problems he/she has been assigned.  The highest 20 positive (i.e., greater than zero) scorers from each of the five problem sets presented during the Qualification Round will be eligible to compete in Online Round #1 of the Sponsor Track Competition.  A maximum of 100 competitors will advance to Online Round #1.  Members will be rated at the conclusion of the Qualification Round based on their performance against others presented with the same problem set.  
 <br><br>
-
-<b>The Competition Field</b><br>
-Up to 500 individuals will qualify to compete in Round 1.  The top 250 scorers from Round 1 will advance to Round 2.  The top 100 scorers from Round 2 will advance to the Championship Round, which will be held onsite at VeriSign's headquarters in Mountain View, CA, USA.
-<br><br>
-The Rounds will be held on the following dates:
-<br><br>
-<table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
-<tr valign="top">
-<td class="sidebarTitle">Round</strong></td>
-<td class="sidebarTitle">Date and Time * (all Eastern Time)</strong></td>
-</tr>
-<tr valign="top">
-<td class="sidebarText" nowrap=nowrap>Round 1</td>
-<td class="sidebarText">Monday, August 29, 2006<br>Sign in: 6:00 PM - 8:55 PM<br>START: 9:00 PM
-</td>
-</tr>
-<tr valign="top">
-<td class="sidebarText" nowrap=nowrap>Round 2</td>
-<td class="sidebarText">Thursday, September 1, 2006<br>START: 9:00 PM
-</td>
-</tr>
-<tr valign="top">
-<td class="sidebarText" nowrap=nowrap>Championship Round</td>
-<td class="sidebarText">Friday, September 23, 2006<br>START: TBD
-</td>
-</tr>
-<tr valign="top">
-<td class="sidebarText" colspan="2">*NOTE: In the event a Round must be cancelled for any reason, the "raindate" will be the following day at the same time.</td>
-</tr>
-</table>
-
-<br><br>
-
-<span class=redHead>About the Tournament</span>
-<br><br>
-<b>Use of Plugins in the Competition Arena</b><br>
-The use of external TopCoder Arena plugins or any modifications to the TopCoder Arena functionality is strictly prohibited.
-<br><br>
-<b>Online Elimination Rounds</b><br>
-Everyone who competes in Round 1 must log in to the TopCoder Competition Arena no later than ten minutes prior to the start of the online round.  All start times will be communicated as Eastern Daylight Time, so contestants in other time zones must adjust accordingly.  If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition.
-<br><br>
-All competitors who have been invited to compete will be randomly assigned to specific rooms, with up to 10 people in each room.  TopCoder will determine all room assignments prior to the start of each online round.
-<br><br>
-<b>Scoring and Advancing</b><br>
-After each round of competition, the top scorers will be identified and will advance to the next round.  Coder advancement in all rounds is determined by comparing the total point values from all three phases of the round for each coder. In order to advance, a coder must finish each round with a positive (i.e., greater-than-zero) point total. The structure of the online rounds is as follows:
-<br><br>
-<div class=indented>
-<b>Round 1 (online)</b>
+<b>NOTE:</b>  In the event of a tie for any advancing position during the Qualification Round, the tie will be resolved in the following manner:
 <ul>
-<li>Up to 500 coders will compete in Round 1 and up to 250 will advance.  The 250 highest scoring competitors will advance to Round 2.  Each coder must have positive points to advance, so if there are less than 250 competitors who score positive points, only those competitors with a positive point total will advance.</li>
-</ul>
-
-<b>Round 2 (online)</b>
-<ul>
-<li>Up to 250 coders will compete and up to 100 will advance.  The 100 highest scoring competitors will advance to the Championship Round.  Each coder must have positive points to advance, so if there are less than 100 competitors who score positive points, only those competitors with a positive point total will advance.</li>
-</ul>
-
-<b>NOTE:</b> In the event of a tie for any advancing position, the tie will be resolved in the following manner:
-<ul>
-<li>Total points acquired (higher is better) during the previous rounds of the tournament, excluding the Qualification Round.</li>
+<li>By rating (higher is better) prior to the Qualification Round.</li>
 <li>If a tie still remains, all tied coders will advance to the next round.</li>
 </ul>
-</div>
+<br>
+<span class="redHead">Online Elimination Rounds</span>
+<br><br>
+Everyone who competes in an online round must login to the TopCoder Competition Arena no later than five (5) minutes prior to the start of the online round. Sponsor employees and interns from around the world may be participating in the online rounds, but all start times will be communicated as Eastern Standard Time (GMT -5), so contestants in different time zones must adjust accordingly. If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition. 
+<br><br>
 
-<b>Competition Round Structure</b><br>
-Each online and onsite round of competition (excluding the Qualification Round) consists of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. The Qualification Round will consist only of the Coding Phase and System Testing Phase.  (See "Qualification Round" above for details regarding the Coding Phase and System Testing Phase of the Qualification Round.)
+All Sponsor Track competitors who have qualified for an online round will be assigned to one specific room for each round of the competition.
+<br><br>
+
+The dates and times of the online rounds of competition are as follows: 
+<br><br>
+
+         <table width="450" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
+            <tr>
+               <td class="sidebarTitle" width="25%">Round</td>
+               <td class="sidebarTitle" width="35%">Date and Time*</td>
+               <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
+               <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
+            </tr>
+            <tr valign="top">
+               <td class="sidebarText">Online Round 1</td>
+               <td class="sidebarText">March 4, 2006<br />Register: 9:00 AM<br />START: 12:00 PM<br /></td>
+               <td class="sidebarText" align="center">100</td>
+               <td class="sidebarText" align="center">50</td>
+            </tr>
+            <tr valign="top">
+               <td class="sidebarText">Online Round 2</td>
+               <td class="sidebarText">March 8, 2006<br />Register: 6:30 PM<br />START: 9:30 PM<br /></td>
+               <td class="sidebarText" align="center">50</td>
+               <td class="sidebarText" align="center">25</td>
+            </tr>
+            <tr valign="top">
+               <td class="sidebarText">Online Round 3</td>
+               <td class="sidebarText">March 15, 2006<br />Register: 6:30 PM<br />START: 9:30 PM<br /></td>
+               <td class="sidebarText" align="center">25</td>
+               <td class="sidebarText" align="center">10</td>
+            </tr>
+            <tr valign="top">
+               <td class="sidebarText" colspan="4">NOTE: All times are Eastern Standard Time. In the event that an online round must be cancelled for any reason, the "raindate" will be the following day at the same time.</td>
+            </tr>
+         </table>
+
+<br><br>
+<span class="redHead">Scoring and Advancing during Online Rounds</span>
+<br><br>
+
+After each round of competition, the highest scorers from across the room will be identified and will advance to the next online round.  Coder advancement in all rounds is determined by comparing the total point values from all three phases of the round for each coder. In order to advance, a coder must finish each round with a positive (i.e., greater-than-zero) point total. The structure of the online rounds is as follows:
+<br><br>
+
+<b>Online Round #1</b><br>
+Up to 100 coders will compete in Round #1 and up to 50 will advance.  The highest 50 scorers from the room will advance to Online Round #2.  
+<br><br>
+
+<b>Online Round #2</b><br>
+Up to 50 coders will compete and up to 25 will advance.  The highest 25 scorers from the room will advance to Online Round #3.  
+<br><br>
+
+<b>Online Round #3</b><br>
+Up to 25 coders will compete and up to 10 will advance.  The highest 10 scorers from the room will advance to Online Round #4.  
+<br><br>
+
+<b>Final Online Round</b><br>
+This round will be the last round of the Sponsor Track Competition.  Up to 10 coders will compete and the coder who finishes with the highest score will be the winner of the Sponsor Track Competition.  
+<br><br>
+
+<b>NOTE:</b>  In the event of a tie for any advancing position during the online rounds, the tie will be resolved in the following manner:
+<ul>
+<li>Total points acquired (higher is better) during the previous online rounds of the tournament (excluding the Qualification Round).</li>
+<li>If a tie still remains, then by rating (higher is better) following the Qualification Round.</li>
+<li>If a tie still remains, all tied coders will advance to the next round.</li>
+</ul>
+<br>
+<span class="redHead">Competition Round Structure</span>
+<br><br>
+
+With the exception of the Qualification Round, each online and onsite round of competition consists of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. (Note: The format of these competition rounds is similar to the format of TopCoder Single Round Matches.  The rules in place for the Single Round Matches as of February 28, 2006 will also apply to the online rounds of the Sponsor Track Competition.)
+<br><br>
 
 <ul>
-<li>The Coding Phase is a timed event where all contestants are presented with the same three questions representing three levels of complexity and, accordingly, three levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.</li>
-<li>The Challenge Phase is a timed event wherein each competitor has a chance to challenge the functionality of other competitors' code. A successful challenge will result in a loss of the original problem submission points by the defendant, and a 50-point reward for the challenger.  Unsuccessful challengers will incur a point reduction of 25 points as a penalty, applied against their total score in that round of competition.</li>
-<li>The System Testing Phase is applied to all submitted code that has not already been successfully challenged. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given problem. All successful challenges from the Challenge Phase will be added to the sets of inputs for the System Testing Phase.</li>
+<li>The Coding Phase is a timed event where all contestants are presented with the same three questions representing three levels of complexity and, accordingly, three levels of point earnings potential. Points for a problem are awarded upon submission of any solution that successfully compiles and are calculated on the total time elapsed from the time the problem was opened until the time it was submitted.  The Coding Phase will last 75 minutes.  </li>
+<li>The Challenge Phase is a timed event wherein each competitor has a chance to challenge the functionality of other competitors' code. A successful challenge will result in a loss of the original problem submission points by the defendant, and a 50-point reward for the challenger.  Unsuccessful challengers will incur a point reduction of 25 points as a penalty, applied against their total score in that round of competition.  The Challenge Phase will last 15 minutes.  </li>
+<li>The System Testing Phase is applied to all submitted code that has not already been successfully challenged. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given problem.  No test cases from the Challenge Phase of the Sponsor Track Competition will be added to the test cases used for the System Testing Phase of the Sponsor Track Competition.</li>
 </ul>
+<br>
+<span class="redHead">Conditions of Participation</span>
+<br><br>
+By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.  
+<br><br>
 
-<b>Onsite Championship Round</b><br>
-The 100 advancers from Round 2 will travel to VeriSign's headquarters to compete in the Championship Round of the tournament being held on Friday, September 23, 2006.  Each finalist must confirm his/her attendance in the Championship Round by September 8, 2006, 5PM EDT. That is, contestants must have acquired any necessary travel visas and know for certain that they can travel to the US by that date and time. If a contestant does not confirm his/her attendance in the Championship Round by said date, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest scorer from Round 2.
+<span class="redHead">Contestants must not cheat. All ideas for any code and/or challenge submitted must be the contestant's alone.</span>
 <br><br>
-VeriSign will provide all travel accommodations for each finalist to attend the Championship Round.  In addition, VeriSign will provide overnight accommodations and all travel arrangements to and from the airport, as well as to and from VeriSign's headquarters.  All other expenses are the responsibility of the contestant.
+All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.
 <br><br>
-The Championship Round will be a single round of 100 coders. Placement in the Championship Round is determined by comparing the total points of each coder, with the highest point value placing first. The winner of the Championship Round will be the coder with the highest point total for the round. In the event of a tie in the Championship Round, the tie will be resolved in the following manner (in order):
-<ul>
-<li>Total points acquired (higher is better) during online Rounds 1 and 2.</li>
-<li>If a tie still remains in the Championship Round, then the prize money will be distributed equally among the tied coders.</li>
-</ul>
+As a condition of participation in the tournament, all information provided by participants in their TopCoder member profiles must be comprehensive, accurate and up-to-date. TopCoder may require participants to complete an additional registration form to register for the tournament. In order to be eligible to participate in the tournament, participants must have completed any and all registration forms required by TopCoder.
+<br><br>
+By participating in the competition, a participant releases and agrees to hold harmless TopCoder, its affiliates, subsidiaries, advertising and promotion agencies, sponsors, and prize suppliers, and all of their respective directors, officers, employees, representatives and agents, from and against any and all liability for any loss, property damage or damage to person, including without limitation, death and injury, due in whole or in part, directly or indirectly, from or arising out of participation in this tournament, or participation in any tournament-related activity, or the receipt, use or misuse of a prize. TopCoder specifically disclaims all liability associated with, and makes no warranties with regard to, any prize given.
+<br><br>
+In addition, any prizewinners agree to cooperate with TopCoder's publicity efforts, without further compensation. This includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, for this or similar future tournaments, and to use the statements made by, or attributed to, the winners relating to TopCoder and any and all rights to said use, without further compensation.
+<br><br>
+TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with competing in this tournament, and to take any other action it deems appropriate, for no reason or any reason whatsoever, including if TopCoder suspects competitors of cheating, tampering with the entry process, the operation of the Web site, or the tournament process, or otherwise being in violation of the rules. TopCoder reserves the right to cancel, terminate or modify the tournament if it is not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.
+<br><br><br>
 
-<span class=redHead>About the Prizes</span>
+<span class="redHead">Other</span>
 <br><br>
-All participants who compete in Round 1 will receive a "VeriSign Code Jam 2006" t-shirt.  In addition, the 100 finalists in the Championship Round will receive cash prizes.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:
-<br><br>
-<table  width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
-<tr valign="top">
-<td class="sidebarTitle">Competitor(s)</td>
-<td class="sidebarTitle" align=right>Prize</td>
-</tr>
-<tr valign="top">
-<td class="sidebarText"><b>1st place finisher* - Tournament Champion</b></td>
-<td class="sidebarText" align=right><b>$10,000</b>
-</td>
-</tr>
-<tr valign="top">
-<td class="sidebarText" nowrap>2nd to 10th place</td>
-<td class="sidebarText" nowrap align=right>$5,000
-</td>
-</tr>
-<tr valign="top">
-<td class="sidebarText" nowrap>11th to 25th place</td>
-<td class="sidebarText" nowrap align=right>$2,500
-</td>
-</tr>
-<tr valign="top">
-<td class="sidebarText" nowrap>26th to 50th place</td>
-<td class="sidebarText" nowrap align=right>$1,000
-</td>
-</tr>
-<tr valign="top">
-<td class="sidebarText" nowrap>51st to 100th place</td>
-<td class="sidebarText" nowrap align=right>$750
-</td>
-</tr>
-<tr valign="top">
-<td class="sidebarText" colspan="2">* Winner must be present at the onsite round to receive prize.</td>
-</tr>
-</table>
 
-<br><br>
-<span class=redHead>Conditions of Participation</span>
-<br><br>
-By participating in the tournament, you agree to be bound by these rules and to all decisions of VeriSign and TopCoder, which are final, binding and conclusive in all matters.  Also, by participating in this tournament, you consent to providing certain information to VeriSign for recruiting purposes.  Such information shall include your registration information and your competition statistics.
-<br><br>
-<span class=redHead>Contestants must not cheat. All ideas for any code and/or challenge submitted must be the contestant's alone.</span>
-<br><br>
-Winners in each round of competition will be those competitors who win the most points in their respective rooms. All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.
-<br><br>
-Prizewinners will be announced upon completion of the Championship Round.  Any prizewinner claiming a cash prize must complete the following documents onsite before claiming the prize (VeriSign will provide the prizewinners with these documents prior to the start of the Championship Round):
-<ul>
-<li>Affidavit of Eligibility and Liability and Publicity Release </li>
-<li>Applicable tax form</li>
-</ul>
-Prizes will be announced onsite upon receipt of the documents identified above.  All t-shirts will be sent after the conclusion of the Championship Round to competitors using the address given during registration, and may take 4-6 weeks to arrive.  Unclaimed or undeliverable prizes will not be awarded.
-<br><br>
-As a condition of participation in the tournament, all information provided by you upon registration must be comprehensive, accurate and up-to-date. VeriSign and/or TopCoder may require you to complete an additional registration form to register for the tournament. In order to be eligible to participate in the tournament, you must have completed any and all registration forms required by VeriSign and TopCoder.
-<br><br>
-As a condition of winning and redeeming a cash prize, winners will be required to complete and provide to VeriSign a completed (i) Affidavit of Eligibility and Liability and Publicity Release (the "Affidavit"), and (ii) IRS Form W-9 or W-8BEN, as appropriate.  In completing the Affidavit, a winner (a) confirms his/her eligibility, (b) represents and warrants that he/she has not cheated; that the idea for the code and/or challenge submitted is his/hers alone, (c) verifies the accuracy of the information submitted in the VeriSign Code Jam 2006 registration process, (d) authorizes TopCoder and VeriSign to publicize the tournament's results, (e) agrees to sign any applicable forms required by tax authorities, (f) licenses to TopCoder and VeriSign rights to all information submitted during the tournament (including rights to source code and other executables), and (g) releases TopCoder and VeriSign from liability arising out of any prize won. VeriSign requires contestants to complete Form W-9 or W-8BEN, as applicable, for tax reporting purposes.
-<br><br>
-If prize notification is returned as undeliverable, or if the winner fails to return the Affidavit or the applicable tax form, the winner will be disqualified and the prize money won by the disqualified winner will be forfeited. Providing false information in the registration process or in the required forms described in this paragraph will disqualify a winner.
-<br><br>
-By participating in a tournament and redeeming a prize, a winner releases and agrees to hold harmless VeriSign and TopCoder, their affiliates, subsidiaries, advertising and promotion agencies, sponsors, and prize suppliers, and all of their respective directors, officers, employees, representatives and agents, from and against any and all liability for any loss, property damage or damage to person, including without limitation, death and injury, due in whole or in part, directly or indirectly, from or arising out of participation in this tournament, or participation in any tournament-related activity, or the receipt, use or misuse of a prize. VeriSign and TopCoder specifically disclaim all liability associated with, and make no warranties with regard to, any prize given.
-<br><br>
-In addition, all prizewinners agree to cooperate with VeriSign's and TopCoder's publicity efforts, without further compensation. This includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, for this or similar future tournaments, and to use the statements made by, or attributed to, the winners relating to VeriSign and TopCoder and any and all rights to said use, without further compensation.
-<br><br>
-VeriSign and TopCoder reserve the right, in their sole discretion, to revoke any and all privileges associated with competing in this tournament, and to take any other action it deems appropriate, for no reason or any reason whatsoever, including if TopCoder suspects competitors of cheating, tampering with the entry process, the operation of the Web site, or the tournament process, or otherwise being in violation of the rules. VeriSign and TopCoder reserve the right to cancel, terminate or modify the tournament if it is not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.
-<br><br>
-<span class=redHead>Other</span>
-<br><br>
 The tournament is void in whole or in part where prohibited by law.
 <br><br>
-This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue, Glastonbury, CT 06033 and VeriSign Inc. (http://www.VeriSign.com) San Mateo, CA.
+A list of tournament winners by coder handles will be available on the web site at <a href="http://www.topcoder.com/tc">http://www.topcoder.com/tc</a>, and will be displayed for at least 3 months after the end of the tournament.
+<br><br>
+This tournament is brought to you by <a href="http://www.topcoder.com/">TopCoder, Inc.</a> 703 Hebron Avenue, Glastonbury, CT 06033.
 
          </div>
       </td>
    <tr><td colspan="2">&#160;</td></tr>
-   <tr>
+   <tr><td colspan="2"><jsp:include page="foot.jsp" /></td></tr>
 </table>
-<jsp:include page="foot.jsp" />
 </body>
 </html>

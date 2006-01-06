@@ -15,7 +15,7 @@
 
 <!-- Schedule tab -->
             <% if (selectedTab.equals("schedule")) {%>
-                 Schedule <img border="0" width="20" src="/i/events/verisign06/spacer.gif" />|<img border="0" width="20" height="1" src="/i/events/verisign06/spacer.gif" />
+                 Schedule<img border="0" width="20" height="1" src="/i/events/verisign06/spacer.gif" />|<img border="0" width="20" height="1" src="/i/events/verisign06/spacer.gif" />
             <% } else { %>
                   <a class="whiteNav" href="/pl/?module=Static&d1=verisign06&d2=schedule">Schedule</a> <img border="0" width="20" height="1" src="/i/events/verisign06/spacer.gif" />|<img border="0" width="20" height="1" src="/i/events/verisign06/spacer.gif" />
             <% } %>

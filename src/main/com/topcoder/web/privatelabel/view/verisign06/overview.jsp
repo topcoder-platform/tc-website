@@ -8,7 +8,7 @@
 </head>
 <body bgcolor="#FFF">
 
-<table align="left" cellspacing="0" cellpadding="0" valign="top">
+<table align="left" cellspacing="0" cellpadding="0" valign="top" width="760">
    <tr>
       <td colspan="2" align="right" valign="top" style="padding: 2px 0px 0px 0px;">
 	    <a href="http://www.verisign.com/index.html" class="VStop">US Home</a> &#160;&#160; | &#160;&#160;
@@ -31,26 +31,20 @@
          </div>
       </td>
     </tr>
-</table>
 
 <!-- main content -->
 
-<table align="left" cellspacing="0" cellpadding="0" class="mainContent">
     <tr>
-      <td align="left" valign="top">
-         <span valign=top>
-         <jsp:include page="right.jsp" />
-         </span>
+      <td align="left" valign="top" colspan="2" style="padding: 0px 0px 0px 20px;">
+
+         <span valign=top><jsp:include page="right.jsp" /></span>
          <br/><br/><br/>
+         
          <span class="blkBigHead">VeriSign&#153; Coder Challenge 2006</span>
          <br/><br/>
          
-It's here!  The VeriSign&#153; Coder Challenge 2006 is now offering the best coders in the world a chance to compete for $155,000!  Have you got what it takes?  Can you take the pressure?  Know how to solve problems? Know algorithms?
-<br><br>
-If you answered yes to one or more of the above, then the VeriSign&#153; Coder Challenge 2006 is right up your alley.  Join coders from around the world in this intense competition that requires all your mind has to offer.
-<br><br>
-Not only will you be in your glory of coding, but there are prizes for it, too! 
-<br><br><br/>
+We're giving employees and interns of the sponsors of the TopCoder Open 2006 a tournament of their own. It's a chance to compete among your peers in the Sponsor Track Competition, open to all employees of companies sponsoring the TCO.  <br><br>
+<br>
 
 <span class="redHead">This is how it works:</span>
 <br><br>
@@ -77,69 +71,104 @@ Here's the line-by-line documentation:
 
 <span class="redHead">Here's what you'll need to know:</span>
 <br><br>
-Registration for the VeriSign&#153; Coder Challenge 2006 is open from Monday, July 25, 2006 to Friday, August 19, 2006.  Registration is unlimited, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the Coder Challenge on August 29th.
+Registration for the VeriSign&#153; Coder Challenge 2006 is open from Monday, February 13, 2006 to Tuesday, February 28, 2006.  Registration is unlimited, but only the top 100 scorers from the Qualification Round will advance to Round 1 of the Coder Challenge on March 4, 2006.
 <br><br>
-<table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
+<table width="600" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
    <tr>
       <td class="sidebarTitle" width="30%">Date</td>
-      <td class="sidebarTitle" width="20%">Time*</td>
-
-      <td class="sidebarTitle" width="50%">Status</td>
+      <td class="sidebarTitle" width="30%" colspan="2">Time*</td>
+      <td class="sidebarTitle" width="40%">Status</td>
    </tr>
    <tr valign="top">
-      <td class="sidebarText">Monday, July 25</td>
-      <td class="sidebarText">9:00 AM</td>
+      <td class="sidebarText">Monday, February 13</td>
+      <td class="sidebarText" colspan="2">9:00 AM</td>
       <td class="sidebarText">Registration Opens</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText" nowrap>Friday, August 19</td>
-      <td class="sidebarText">5:00 PM</td>
+      <td class="sidebarText" nowrap>Tuesday, February 28</td>
+      <td class="sidebarText" colspan="2">9:00 AM</td>
       <td class="sidebarText">Registration Closes</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText">Monday, August 22</td>
-      <td class="sidebarText">12:00 PM (noon)</td>
+      <td class="sidebarText">Tuesday, February 28</td>
+      <td class="sidebarText" colspan="2">12:00 PM (noon)</td>
       <td class="sidebarText">Qualification Round begins</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText">Tuesday, August 23</td>
-      <td class="sidebarText">12:00 PM (noon)</td>
+      <td class="sidebarText">Wednesday, March 1</td>
+      <td class="sidebarText" colspan="2">12:00 PM (noon)</td>
       <td class="sidebarText">Qualification Round ends</td>
    </tr>
-
+   <tr>
+      <td class="sidebarTitle" width="25%">&nbsp;</td>
+      <td class="sidebarTitle" width="15%">Register</td>
+      <td class="sidebarTitle" width="15%">Start</td>
+      <td class="sidebarTitle" width="40%">&nbsp;</td>
+   </tr>
    <tr valign="top">
-      <td class="sidebarText">Monday, August 29</td>
-      <td class="sidebarText">9:00 PM</td>
-      <td class="sidebarText">Round 1 - 500 participants</td>
+      <td class="sidebarText">Saturday, March 4</td>
+      <td class="sidebarText">9:00 - 11:55 AM</td>
+      <td class="sidebarText">12:00 PM (noon)</td>
+      <td class="sidebarText">Round 1 - 100 participants</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText">Thursday, September 1</td>
-      <td class="sidebarText">9:00 PM</td>
-      <td class="sidebarText">Round 2 - 250 participants</td>
+      <td class="sidebarText">Wednesday, March 8</td>
+      <td class="sidebarText">6:30 - 9:25 PM</td>
+      <td class="sidebarText">9:30 PM </td>
+      <td class="sidebarText">Round 2 - 50 participants</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText">Friday, September 23</td>
-      <td class="sidebarText">TBD</td>
-      <td class="sidebarText">Championship Round - 100 participants</td>
+      <td class="sidebarText">Wednesday, March 15</td>
+      <td class="sidebarText">6:30 - 9:25 PM</td>
+      <td class="sidebarText">9:30 PM </td>
+      <td class="sidebarText">Round 3 - 25 participants</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText" colspan="3">*All times are Eastern Daylight Time</td>
+      <td class="sidebarText">Wednesday, March 22</td>
+      <td class="sidebarText">6:30 - 9:25 PM</td>
+      <td class="sidebarText">9:30 PM </td>
+      <td class="sidebarText">Championship Round - 10 participants</td>
+   </tr>
+
+   <tr valign="top">
+      <td class="sidebarText" colspan="4">*All times are Eastern Standard Time. <br>
+      NOTE:  In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.</td>
    </tr>
 </table>
 
 <br><br>
-The competitors with the top 250 scores from Round 1 will advance to Round 2 on September 1st. The top 100 performers in Round 2 will be invited to compete for $155,000 in cash prizes in the Championship Round onsite in San Mateo, CA on September 23rd.
+The competitors with the top 50 scores from Round 1 will advance to Round 2 on March 8th. The top 25 performers in Round 2 will advance to Round 3 on March 15th. Only the top 10 scorers in Round 3 will be invited to compete in the Championship Round on March 22nd.
 <br><br><br/>
 
-<span class="redHead">Prizes</span>
+<span class="redHead">Registration</span>
 <br><br>
-The 500 participants in Round 1 will receive a "VeriSign&#153; Coder Challenge 2006" t-shirt. All 100 finalists that compete in the Championship Round will receive a cash prize as follows:
+Already a TopCoder Member?
+<ul>
+<li>Click <a href="#">here</a> to register for the VeriSign Coder Challenge</li>
+</ul>
+<br>
+
+Not Yet a TopCoder Member?
+<ol>
+<li>Click <a href="http://www.topcoder.com/reg/index.jsp">here</a> to sign up as a TopCoder member</li>
+<li>Check your email and activate your new TopCoder account</li>
+<li>Click <a href="#">here</a> to register for the VeriSign Coder Challenge</li>
+</ol>
+<br>
+The competition is free and you must be a registered TopCoder member who is at least 18 years old to be eligible. 
+<br><br>
+See the official <a href="/pl/?module=Static&d1=verisign06&d2=rules">rules and regulations</a> for more details.
+<br><br><br>
+
+<span class="redHead">Prizes ????</span>
+<br><br>
+The 100 participants in Round 1 will receive a "VeriSign&#153; Coder Challenge 2006" t-shirt. All 10 finalists that compete in the Championship Round will receive a cash prize as follows:
 <br><br>
 <div class=indented>
    <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
@@ -156,7 +185,7 @@ The 500 participants in Round 1 will receive a "VeriSign&#153; Coder Challenge 2
       </td>
    <tr>
    <tr><td colspan="2">&#160;</td></tr>
+   <tr><td colspan="2"><jsp:include page="foot.jsp" /></td></tr>
 </table>
-<jsp:include page="foot.jsp" />
 </body>
 </html>
