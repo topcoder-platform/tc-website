@@ -19,8 +19,15 @@ import java.util.Iterator;
  * of project and initiates the screening logic for each of them. It also provides static access to
  * the query interface as well as a command line interface.
  *
- * @author WishingBone
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * screen method was modified to return a boolean indicating if the screening *process* was successful.
+ * </li>
+ * </ol>
+ *
+ * @author WishingBone, pulky
+ * @version 1.0.1
  */
 public class ScreeningTool {
 
@@ -93,8 +100,11 @@ public class ScreeningTool {
      * @param file the file to screen.
      * @param type the project type of this submission.
      * @param submissionId the submission id of the submission.
+     *
+     * @return true if screening process succedeed.
      */
-    public void screen(Logger log, File file, ProjectType type, long submissionVId) {
+    public boolean screen(Logger log, File file, ProjectType type, long submissionVId) {
+        boolean retVal = true;
         if (log == null) {
             throw new NullPointerException("log should not be null.");
         }
@@ -105,7 +115,7 @@ public class ScreeningTool {
             throw new NullPointerException("type should not be null.");
         }
         if (!this.rules.containsKey(type)) {
-            return;
+            return true;
         }
 
         File root = new File(tempFolder, String.valueOf(submissionVId));
@@ -128,12 +138,15 @@ public class ScreeningTool {
                 logger.log(new SimpleScreeningData(ResponseCode.SUCCESS));
             }
             logger.log(new SimpleScreeningResult(success || this.soft));
+        } catch (DatabaseException ex) {
+            retVal = false;
         } finally {
             try {
                 new TCSFile(root).deleteTree();
             } catch (Exception ex) {
             }
         }
+        return retVal;
     }
 
     /**

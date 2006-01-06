@@ -1,4 +1,4 @@
-<CMConfig>  
+<CMConfig>
   <Config name="com.topcoder.apps.screening.ScreeningJob">
     <Property name="thread_number">
         <Value>1</Value>
@@ -8,6 +8,9 @@
     </Property>
     <Property name="screener_id">
         <Value>1</Value>
+    </Property>
+    <Property name="max_screening_attempts">
+        <Value>3</Value>
     </Property>
   </Config>
 </CMConfig>
