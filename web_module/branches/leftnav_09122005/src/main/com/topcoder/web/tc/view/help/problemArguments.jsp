@@ -5,7 +5,7 @@
 <title>TopCoder - Help</title>
 
 <jsp:include page="../script.jsp" />
-<jsp:include page="../style.jsp">
+<jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_main"/>
 </jsp:include>
 
@@ -21,7 +21,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-         <jsp:include page="../includes/global_left.jsp">
+         <jsp:include page="/includes/global_left.jsp">
             <jsp:param name="node" value="alg_how_to_compete"/>
          </jsp:include>
         </td>

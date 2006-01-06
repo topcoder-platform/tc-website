@@ -5,7 +5,7 @@
 <title>TopCoder - Help</title>
 
 <jsp:include page="../script.jsp" />
-<jsp:include page="../style.jsp">
+<jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_main"/>
 </jsp:include>
 
@@ -33,7 +33,7 @@
 
 <!-- Center Column Begins -->
         <td width="100%" align="left" class="bodyText">
-         <jsp:include page="../page_title.jsp" >
+         <jsp:include page="/page_title.jsp" >
          <jsp:param name="image" value="alg_support_faqs"/>
          <jsp:param name="title" value="How to compete"/>
          </jsp:include>
