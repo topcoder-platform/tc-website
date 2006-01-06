@@ -1,26 +1,27 @@
-
 <html>
-
 <head>
-
-<title>Register for membership in TopCoder</title>
+<title>Registration</title>
 
 <jsp:include page="../script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
-
 <body>
 
-  <jsp:include page="../top.jsp" >
-    <jsp:param name="location" value="competition"/>
-  </jsp:include>
+<jsp:include page="../top.jsp" >
+<jsp:param name="location" value="competition"/>
+</jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 
 <!-- Left Column Begins -->
         <td width="180">
-            <jsp:include page="left.jsp" />
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="competition_reg"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 

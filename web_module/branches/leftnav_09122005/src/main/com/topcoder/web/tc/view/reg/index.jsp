@@ -8,10 +8,10 @@
 
 <head>
 
-<title>Register for membership in TopCoder</title>
+<title>Registration</title>
 
 <jsp:include page="../script.jsp" />
-<jsp:include page="../style.jsp">
+<jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_main"/>
 </jsp:include>
 
@@ -28,8 +28,8 @@
 
 <!-- Left Column Begins -->
         <td width="180">
-         <jsp:include page="../includes/global_left.jsp">
-            <jsp:param name="node" value="competition_registration"/>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="competition_reg"/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->

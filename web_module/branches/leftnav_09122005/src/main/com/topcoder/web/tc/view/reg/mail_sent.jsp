@@ -10,10 +10,10 @@
 
 <title>Registration</title>
 
-<link rel="stylesheet" type="text/css" href="/css/style.css"/>
-<link rel="stylesheet" type="text/css" href="/css/coders.css"/>
-
 <jsp:include page="../script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -28,7 +28,9 @@
 
 <!-- Left Column Begins -->
       <td width="180">
-        <jsp:include page="left.jsp" />
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="competition_reg"/>
+         </jsp:include>
       </td>
 <!-- Left Column Ends -->
 
