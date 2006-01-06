@@ -40,25 +40,27 @@
 <img src="/i/longcontest/intel_banner.jpg" alt="" border="0" usemap="#intel_nav"/>
 </div>
 <br><br>
-TopCoder has created Marathon Matches in an effort to provide a more flexible competition format with an extended timeline that offers different types of problems than what can be offered in a traditional TopCoder algorithm round.  
+<span class="bodySubtitle">Intel&#174; Software Network Multi-threading Competition Series</span><br>
+Intel&#174; Software Network and TopCoder are hosting a 12-month series of world-wide competitions for multi-threading on multi-core microprocessors. You could win cash prizes!  Access the Intel Software Network for all the latest on threading principles, and then put your knowledge to the ultimate test solving coding problems.  
 <br><br>
-<span class="bodySubtitle">Instructions</span>
+Mark your calendars! The first competition will be held Jan. 25, 2006, and will last for two weeks. (A new competition will be held every month following in 2006.) 
 <br><br>
-<strong>Registration</strong><br>
-In order to compete in a Marathon Match one must first register. One may register at any time during the submission phase. The submission phase will last for an extended period of time (a week for example). In order to register, you will need to click Register next to the appropriate Marathon Match within the <A href="/longcontest">Active Contests</A> list, agree to the rules of the event and you may need to answer a survey question.  Once registered, you may view the problem statement for the Marathon Match by clicking the Problem Name from within the Active Contests list.  During the submission phase, problem statements will only be made available to members who are registered for that specific event.
+You could win Monthly Cash Prizes:
 <br><br>
-<strong>Submitting a solution</strong><br>
-Unlike traditional algorithm competitions, the system is not necessarily testing for correctness. In Marathon Matches, the scoring mechanism may be different for each problem. A description of the scoring mechanism will be provided in the problem statement. Competitors will have to understand the scoring mechanism in order to effectively compete.  
+<strong>
+Champion - $2,500<br>
+2nd Place - $1,000<br>
+3rd Place - $750<br>
+4th Place - $500<br>
+5th Place - $250
+</strong>
 <br><br>
-All members registered for a specific Marathon Match will see a Submit option for that event.  Clicking the Submit link will take you to a page that will allow you to paste in a solution, select the proper language, and either submit (for compilation and testing) or save your code.  When the Submit button is selected, the code will be immediately compiled.  Any compilation messages or errors will be shown in the Messages Area.  If the compilation was successful, the submission will then be placed on a queue for automated system testing.  When your submission has been processed, you will receive an email indicating such and your place in the standings will be adjusted accordingly.  During the submission phase, score is the only piece of information that will be made available.
+This unique contest is designed to help teach threading principles to the software developer community. Competitors will face threading challenges based on real-world customer situations.  Each competitor’s solution will be evaluated against a set of criteria for the best threading practices. 
 <br><br>
-In a Marathon Match, all competitors are encouraged to improve their solutions and resubmit iteratively throughout the length of the submission phase.  A given competitor will only be allowed to submit once per hour - other than that there are no restrictions on the number of submissions that each competitor may perform.  The most recent submission is always the one that counts, so if you make a submission that does not score as well as a prior submission, the most recent will still be the one that counts in the standings. Participants may submit code written in one of the following languages: Java, C++, C# .Net, or VB .Net.
+By holding this competition, we hope to raise awareness of threading and the opportunities it presents, so you can create the very best software applications and solutions.  The ultimate goal is to identify, attract and create proficient multi-threading programmers world-wide. Come compete and learn the benefits of threaded code, and how to design and create the optimum threaded code and solutions!  Get a chance to test your competition submissions on state-of-the-art,  cutting-edge, multi-core Intel processors!  In order to participate, you will need to be a registered TopCoder member.  
 <br><br>
-<strong>Viewing match standings</strong><br>
-At any time during a Marathon Match, TopCoder members may view the latest standings of that event.  This will show the current score (for the latest submission) for each member who has registered for that Marathon Match, their rank, and the number of submissions they have performed during the Marathon Match.  Clicking on the submission count will display the date, time, and score of each submission for a given participant.
-<br><br>
-<strong>Match results</strong><br>
-Once the submission phase of a Marathon Match has ended, the final results will become available by clicking the Results link.  Competitors will be able to see the test cases, other competitors' submissions, and results.
+<span class="bodySubtitle">Not Yet a TopCoder Member?</span><br>
+Register <A href="/Registration">here</A>.
 <br><br>
 
    </div>
