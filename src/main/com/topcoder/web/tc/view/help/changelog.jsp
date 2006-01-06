@@ -46,6 +46,7 @@
             <li>make the multiplier status page be a jsp and call it registrants</li>
             <li>some bug fixes/enhancements for the college tour pages</li>
             <li>changed how component registration questions are flaged in db</li>
+            <li>be more particular about birth dates in pacts</li>
         </ul>
 
     </p>
