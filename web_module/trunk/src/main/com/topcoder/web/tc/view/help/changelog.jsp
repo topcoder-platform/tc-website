@@ -44,6 +44,8 @@
             <li>passwords may only contains the ascii characters we allow</li>
             <li>make the comp projects page a jsp, rename it active contests</li>
             <li>make the multiplier status page be a jsp and call it registrants</li>
+            <li>some bug fixes/enhancements for the college tour pages</li>
+            <li>changed how component registration questions are flaged in db</li>
         </ul>
 
     </p>
