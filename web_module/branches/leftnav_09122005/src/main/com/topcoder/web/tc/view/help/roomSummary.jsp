@@ -21,8 +21,8 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-         <jsp:include page="../includes/global_left.jsp">
-            <jsp:param name="node" value="alg_how_to_compete"/>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="algo_how_to_compete"/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->
