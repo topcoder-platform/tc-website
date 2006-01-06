@@ -66,7 +66,7 @@ public class ViewRegistration extends Base {
             projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID));
         }
 
-        ProjectLocal pl = (ProjectLocal) createEJB(getInitialContext(), Project.class);
+        ProjectLocal pl = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
         int phase = 111 + pl.getProjectTypeId(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
 
         int rating;
