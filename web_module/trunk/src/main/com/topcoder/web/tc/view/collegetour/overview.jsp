@@ -67,12 +67,12 @@
                     <span class="bigRed">You must register before <tc-webtag:format object="<%=request.getAttribute("regEnd")%>" format="MM.dd.yyyy"/>.</span><br/>
                     <br/>
 
-                    The event is from <tc-webtag:format object="<%=conf.get(new Integer(Constants.EVENT_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)conf.get(new Integer(Constants.TIMEZONE))%>"/>
-                    until <tc-webtag:format object="<%=conf.get(new Integer(Constants.EVENT_END_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)conf.get(new Integer(Constants.TIMEZONE))%>"/> in
+                    The event is from <tc-webtag:format object="<%=conf.get(new Integer(Constants.EVENT_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)conf.get(Constants.TIMEZONE)%>"/>
+                    until <tc-webtag:format object="<%=conf.get(new Integer(Constants.EVENT_END_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)conf.get(Constants.TIMEZONE)%>"/> in
                     the <%=conf.get(new Integer(Constants.LOCATION_PROP_ID))%>. This event is being run in conjunction
                     with <A href="/?RoundId=<%=request.getAttribute(Constants.ROUND_ID)%>&t=schedule&c=srm"><%=request.getAttribute(Constants.ROUND_NAME)%></A>.
                     In addition to registering with TopCoder, all competitors must register
-                    <A href="/tc?module=CollegeTourReg&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>"><A href="/tc?module=CollegeTourReg&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">here</a> and be onsite for the competition.
+                    <a href="/tc?module=CollegeTourReg&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">here</a> and be onsite for the competition.
                     After the event ends, pizza will be served and a TopCoder representative will be present to discuss
                     TopCoder competitions and employment services.
 
@@ -100,10 +100,10 @@
 
                     The timeline for the day of the event:
                     <ul>
-                        <li><tc-webtag:format object="<%=conf.get(new Integer(Constants.EVENT_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)conf.get(new Integer(Constants.TIMEZONE))%>"/> - Computer lab opens & competitors set up </li>
-                        <li><tc-webtag:format object="<%=conf.get(new Integer(Constants.ROUND_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)conf.get(new Integer(Constants.TIMEZONE))%>"/> - Competition starts </li>
-                        <li><tc-webtag:format object="<%=conf.get(new Integer(Constants.ROUND_END_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)conf.get(new Integer(Constants.TIMEZONE))%>"/> - Competition ends </li>
-                        <li><tc-webtag:format object="<%=conf.get(new Integer(Constants.RESULTS_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)conf.get(new Integer(Constants.TIMEZONE))%>"/> - Pizza, Results, TopCoder presentation </li>
+                        <li><tc-webtag:format object="<%=conf.get(new Integer(Constants.EVENT_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)conf.get(Constants.TIMEZONE)%>"/> - Computer lab opens & competitors set up </li>
+                        <li><tc-webtag:format object="<%=conf.get(new Integer(Constants.ROUND_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)conf.get(Constants.TIMEZONE)%>"/> - Competition starts </li>
+                        <li><tc-webtag:format object="<%=conf.get(new Integer(Constants.ROUND_END_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)conf.get(Constants.TIMEZONE)%>"/> - Competition ends </li>
+                        <li><tc-webtag:format object="<%=conf.get(new Integer(Constants.RESULTS_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)conf.get(Constants.TIMEZONE)%>"/> - Pizza, Results, TopCoder presentation </li>
                     </ul><br/>
 
                     <strong><%=conf.get(new Integer(Constants.RECRUITER_NAME_PROP_ID))%></strong>, a TopCoder representative, will be present to explain the TopCoder
