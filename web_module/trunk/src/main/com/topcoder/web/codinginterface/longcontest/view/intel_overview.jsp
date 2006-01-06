@@ -55,7 +55,7 @@ Champion - $2,500<br>
 5th Place - $250
 </strong>
 <br><br>
-This unique contest is designed to help teach threading principles to the software developer community. Competitors will face threading challenges based on real-world customer situations.  Each competitor’s solution will be evaluated against a set of criteria for the best threading practices. 
+This unique contest is designed to help teach threading principles to the software developer community. Competitors will face threading challenges based on real-world customer situations.  Each competitor's solution will be evaluated against a set of criteria for the best threading practices. 
 <br><br>
 By holding this competition, we hope to raise awareness of threading and the opportunities it presents, so you can create the very best software applications and solutions.  The ultimate goal is to identify, attract and create proficient multi-threading programmers world-wide. Come compete and learn the benefits of threaded code, and how to design and create the optimum threaded code and solutions!  Get a chance to test your competition submissions on state-of-the-art,  cutting-edge, multi-core Intel processors!  In order to participate, you will need to be a registered TopCoder member.  
 <br><br>
