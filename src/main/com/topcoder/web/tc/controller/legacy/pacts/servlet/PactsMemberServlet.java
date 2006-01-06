@@ -682,6 +682,12 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
             return;
         }
 
+        if (birthday.trim().length()!=DATE_FORMAT_STRING.length()) {
+            log.debug("exception parsing the date, the text is:\n" + birthday);
+            forward("/errorPage.jsp?errorMsg=\"birthday is malformed, please use " + DATE_FORMAT_STRING + " format\"", request, response);
+            return;
+        }
+
         // try to extract the birthday and forward to the error page if it is malformed
         SimpleDateFormat dfmt = new SimpleDateFormat(DATE_FORMAT_STRING);
         Date d = null;
