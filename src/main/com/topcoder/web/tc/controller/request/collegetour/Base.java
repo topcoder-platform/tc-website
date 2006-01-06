@@ -96,8 +96,8 @@ abstract public class Base extends BaseProcessor {
             }
 
             long startDelta = Integer.parseInt(((String)map.get(new Integer(Constants.EVENT_START_PROP_ID))));
-            long endDelta = Integer.parseInt(((String)map.get(new Integer(Constants.EVENT_START_PROP_ID))));
-            long resultsDelta = Integer.parseInt(((String)map.get(new Integer(Constants.EVENT_START_PROP_ID))));
+            long endDelta = Integer.parseInt(((String)map.get(new Integer(Constants.EVENT_END_PROP_ID))));
+            long resultsDelta = Integer.parseInt(((String)map.get(new Integer(Constants.RESULTS_PROP_ID))));
 
             map.put(new Integer(Constants.EVENT_START_PROP_ID), new Timestamp(codingStart.getTime()+(startDelta*1000*60)));
             map.put(new Integer(Constants.EVENT_END_PROP_ID), new Timestamp(codingStart.getTime()+(endDelta*1000*60)));
