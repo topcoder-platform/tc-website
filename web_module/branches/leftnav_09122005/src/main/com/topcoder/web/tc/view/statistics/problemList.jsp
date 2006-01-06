@@ -96,7 +96,7 @@
 <HEAD>
 <TITLE>TopCoder Statistics - Problem Archive</TITLE>
 <jsp:include page="../script.jsp" />
-<jsp:include page="../style.jsp">
+<jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 
@@ -106,8 +106,8 @@
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
      <TR>
        <TD WIDTH="180" VALIGN="top">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="node" value="alg_problem_archive"/>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="algo_problem_archive"/>
             </jsp:include>
        </TD>
        <TD WIDTH="10" VALIGN="top"><IMG src="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

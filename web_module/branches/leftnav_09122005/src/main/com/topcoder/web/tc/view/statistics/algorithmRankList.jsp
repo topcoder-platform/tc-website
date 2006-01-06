@@ -7,9 +7,13 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
  <% ResultSetContainer list = (ResultSetContainer)request.getAttribute("list"); %>
 <html>
- <head>
-   <title>TopCoder Statistics - Coder Rankings</title>
-   <jsp:include page="../script.jsp" />
+<head>
+<title>TopCoder Statistics - Coder Rankings</title>
+<jsp:include page="../script.jsp" />
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_stats"/>
+</jsp:include>
+
 <script type="text/javascript">
 function submitEnter(e) {
     var keycode;
@@ -43,10 +47,9 @@ function submitEnter(e) {
    <table width="100%" border="0" cellpadding="0" cellspacing="0">
      <tr>
        <td width="180" valign="top">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="statistics"/>
-                <jsp:param name="level2" value="coder_ratings"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="algo_top_ranked"/>
+         </jsp:include>
        </td>
        <td width="10" valign="top"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
        <td class="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="240" height="1" VSPACE="5" border="0"><BR/>
