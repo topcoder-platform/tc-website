@@ -43,7 +43,7 @@
 					        <strong><bean:write name="projectInfo" property="projectName" />
 					        <bean:message key="prompt.version" />
     				        <bean:write name="projectInfo" property="projectVersion" /></strong>.
-					        We will contact you by email if any changes need to be made to your design in order for you to win this competition.</td>
+					        The automated screening results will be available on the project submit & review page.</td>
 				</tr>
 				<tr>
 					<td class="whiteBkgnd" colspan="2"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
@@ -71,4 +71,3 @@
 </table>
 
 
-			

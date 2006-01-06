@@ -3,6 +3,7 @@
  */
 package com.topcoder.apps.screening;
 
+import com.topcoder.util.config.ConfigManager;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import java.rmi.RemoteException;
@@ -19,11 +20,55 @@ import java.sql.Timestamp;
  * This class is used to log auto-screening results to a database. It logs the results of the screening process
  * steps as well as the final result (success/failure).
  *
- * @author TheCois
- * @author WishingBone
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Added "max_retries", "retry_sleep_time" properties to CM.
+ * </li>
+ * <li>
+ * log(...) methods were modified to retry the execution of the update statment.
+ * </li>
+ * </ol>
+ *
+ * @author TheCois, WishingBone, pulky
+ * @version 1.0.1
  */
 public class ScreeningLogger {
+
+    /**
+     * The namespace for the configuration.
+     *
+     * @since 1.0.1
+     */
+    private static final String SCREENING_LOGGER_NAMESPACE = "com.topcoder.apps.screening.ScreeningLogger";
+
+    /**
+     * The name of the property in the configuration file that contains the number of retries for lock hits.
+     *
+     * @since 1.0.1
+     */
+    private static final String MAX_RETRIES_PROPERTY_NAME = "max_retries";
+
+    /**
+     * The name of the property in the configuration file that contains the sleep time before a retry.
+     *
+     * @since 1.0.1
+     */
+    private static final String RETRY_SLEEP_TIME_PROPERTY_NAME = "retry_sleep_time";
+
+    /**
+     * The default number of retries for lock hits.
+     *
+     * @since 1.0.1
+     */
+    private static final int DEFAULT_MAX_RETRIES = 3;
+
+    /**
+     * The default sleep time before a retry.
+     *
+     * @since 1.0.1
+     */
+    private static final int DEFAULT_RETRY_SLEEP_TIME = 1000;
 
     /**
      * <strong>Purpose</strong>:
@@ -49,9 +94,55 @@ public class ScreeningLogger {
 
     /**
      * <strong>Purpose</strong>:
+     * The number of retries for lock hits.
+     *
+     * @since 1.0.1
+     */
+    private final int maxRetries;
+
+    /**
+     * <strong>Purpose</strong>:
+     * The sleep time before a retry. (milliseconds)
+     *
+     * @since 1.0.1
+     */
+    private final int retrySleepTime;
+
+    /**
+     * <strong>Purpose</strong>:
      * Creates an instance of this class.
      */
     public ScreeningLogger() {
+        int defaultMaxRetries = DEFAULT_MAX_RETRIES;
+        int defaultRetrySleepTime = DEFAULT_RETRY_SLEEP_TIME;
+
+        try {
+            ConfigManager cm = ConfigManager.getInstance();
+
+            String maxRetriesString = cm.getString(SCREENING_LOGGER_NAMESPACE, MAX_RETRIES_PROPERTY_NAME);
+            if (maxRetriesString != null) {
+                try {
+                    defaultMaxRetries = Integer.parseInt(maxRetriesString);
+                } catch (NumberFormatException nfe) {
+                    // uses default
+                }
+            }
+
+            String retrySleepTimeString = cm.getString(SCREENING_LOGGER_NAMESPACE, RETRY_SLEEP_TIME_PROPERTY_NAME);
+            if (retrySleepTimeString != null) {
+                try {
+                    defaultRetrySleepTime = Integer.parseInt(retrySleepTimeString);
+                } catch (NumberFormatException nfe) {
+                    // uses default
+                }
+            }
+        } catch (Exception e) {
+            // uses default
+        }
+
+        maxRetries = defaultMaxRetries;
+        retrySleepTime = defaultRetrySleepTime;
+
         initializeIdGen();
     }
 
@@ -66,9 +157,9 @@ public class ScreeningLogger {
      * @param submissionVId The submission id to log.
      */
     public ScreeningLogger(long userId, long submissionVId) {
+        this();
         this.userId = userId;
         setSubmissionVId(submissionVId);
-        initializeIdGen();
     }
 
     /**
@@ -109,15 +200,18 @@ public class ScreeningLogger {
         try {
             conn = DbHelper.getConnection();
             stmt = conn.prepareStatement("INSERT INTO screening_results" +
-                "(screening_results_id, dynamic_response_text, screening_response_id, create_user, create_date, submission_v_id)" +
-                " VALUES(?, ?, ?, ?, ?, ?)");
+                "(screening_results_id, dynamic_response_text, screening_response_id, create_user, " +
+                " create_date, submission_v_id) VALUES(?, ?, ?, ?, ?, ?)");
             stmt.setLong(1, idGen.nextId());
             stmt.setString(2, message.getResponseText());
             stmt.setLong(3, message.getResponseId());
             stmt.setLong(4, this.userId);
             stmt.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
             stmt.setLong(6, this.submissionVId);
-            stmt.executeUpdate();
+
+            if (!executeUpdate(stmt, maxRetries, retrySleepTime)) {
+                throw new DatabaseException("Log result failed after " + maxRetries + " retries.");
+            }
         } catch (SQLException sqle) {
             throw new DatabaseException("Log result fails.", sqle);
         } catch (RemoteException re) {
@@ -150,7 +244,10 @@ public class ScreeningLogger {
             stmt = conn.prepareStatement("UPDATE submission SET passed_auto_screening = ? WHERE submission_v_id = ?");
             stmt.setBoolean(1, message.isSuccess());
             stmt.setLong(2, this.submissionVId);
-            stmt.executeUpdate();
+
+            if (!executeUpdate(stmt, maxRetries, retrySleepTime)) {
+                throw new DatabaseException("Log result failed after " + maxRetries + " retries.");
+            }
         } catch (SQLException sqle) {
             throw new DatabaseException("Log result fails.", sqle);
         } finally {
@@ -200,4 +297,35 @@ public class ScreeningLogger {
         this.submissionVId = submissionVId;
     }
 
+    /**
+     * <strong>Purpose</strong>:
+     * Executes the update statment and if it fails, retries "maxRetries" times.
+     * Between executions, waits "retrySleepTime" milliseconds.
+     *
+     * @param stmt The update statment to be executed.
+     * @param maxRetries The number of retries if execution fails.
+     * @param retrySleepTime The sleep time between executions.
+     *
+     * @return true if execution succedeed.
+     *
+     * @since 1.0.1
+     */
+    private boolean executeUpdate(PreparedStatement stmt, int maxRetries, int retrySleepTime) {
+        // Update can hit a lock so we'll try to execute it "maxRetries" times.
+        int updResult = 0;
+        for (int retryCnt = 0; retryCnt < maxRetries && updResult != 1; retryCnt++) {
+            try {
+                updResult = stmt.executeUpdate();
+            } catch (SQLException sqle) {
+                if (updResult != 1) {
+                    // hit an optimistic lock, go to sleep ("retrySleepTime" milliseconds)
+                    try {
+                        Thread.sleep(retrySleepTime);
+                    } catch (InterruptedException e) {
+                    }
+                }
+            }
+        }
+        return (updResult == 1);
+    }
 }

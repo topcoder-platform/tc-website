@@ -7,13 +7,21 @@ import com.topcoder.apps.screening.ScreeningRule;
 import com.topcoder.apps.screening.ScreeningLogger;
 import com.topcoder.apps.screening.ResponseCode;
 import com.topcoder.apps.screening.SimpleScreeningData;
+import com.topcoder.apps.screening.DatabaseException;
 
 /**
  * <strong>Purpose</strong>:
  * Checks if java source code and java test source code exist.
  *
- * @author WishingBone
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * DatabaseException is catched and propagated to the ScreeningTool class.
+ * </li>
+ * </ol>
+ *
+ * @author WishingBone, pulky
+ * @version 1.0.1
  */
 public class JavaSourceCodeRule implements ScreeningRule {
 
@@ -25,22 +33,30 @@ public class JavaSourceCodeRule implements ScreeningRule {
      * @param file the file to screen.
      * @param root the root dir of the extracted submission.
      * @param logger the logger to write responses to.
+     *
+     * @return true if the rule succedeed.
+     *
+     * @throws DatabaseException if screening process got DatabaseException.
      */
     public boolean screen(File file, File root, ScreeningLogger logger) {
         boolean success = true;
 
-        File source = new File(new File(new File(root, "src"), "java"), "main");
-        if (!containsJavaFile(source)) {
-            logger.log(new SimpleScreeningData("Does not contain Java source code.", ResponseCode.NO_SOURCE_CODE));
-            success = false;
-        }
+        try {
+            File source = new File(new File(new File(root, "src"), "java"), "main");
+            if (!containsJavaFile(source)) {
+                logger.log(new SimpleScreeningData("Does not contain Java source code.", ResponseCode.NO_SOURCE_CODE));
+                success = false;
+            }
 
-        File test = new File(new File(new File(root, "src"), "java"), "tests");
-        if (!containsJavaFile(test)) {
-            logger.log(new SimpleScreeningData("Does not contain Java test source code.", ResponseCode.NO_TEST_CODE));
-            success = false;
+            File test = new File(new File(new File(root, "src"), "java"), "tests");
+            if (!containsJavaFile(test)) {
+                logger.log(new SimpleScreeningData("Does not contain Java test source code.", ResponseCode.NO_TEST_CODE));
+                success = false;
+            }
+        } catch (DatabaseException dbe) {
+            // propagate database exception so submission would be rescreened.
+            throw dbe;
         }
-
         return success;
     }
 

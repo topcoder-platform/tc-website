@@ -1,13 +1,13 @@
 ALTER TABLE submission
        ADD passed_auto_screening DECIMAL(1,0);
-       
+
 create table 'informix'.response_severity_lu (
     response_severity_id DECIMAL(12,0) not null,
     severity_text VARCHAR(50) not null
 ) extent size 16 next size 16
 lock mode row;
 
-alter table 'informix'.response_severity_lu add constraint primary key 
+alter table 'informix'.response_severity_lu add constraint primary key
 	(response_severity_id)
 	constraint response_severity_pk;
 
@@ -21,16 +21,16 @@ create table 'informix'.screening_response_lu (
 ) extent size 16 next size 16
 lock mode row;
 
-alter table 'informix'.screening_response_lu add constraint primary key 
+alter table 'informix'.screening_response_lu add constraint primary key
 	(screening_response_id)
 	constraint screening_response_pk;
 
-alter table 'informix'.screening_response_lu add constraint foreign key 
+alter table 'informix'.screening_response_lu add constraint foreign key
 	(response_severity_id)
 	references 'informix'.response_severity_lu
-	(response_severity_id) 
+	(response_severity_id)
 	constraint screeningresponse_responseseverity_fk;
-	
+
 create table 'informix'.screening_results (
     screening_results_id DECIMAL(12,0) not null,
     dynamic_response_text TEXT not null,
@@ -41,27 +41,28 @@ create table 'informix'.screening_results (
 )extent size 10000 next size 5000
 lock mode row ;
 
-alter table 'informix'.screening_results add constraint primary key 
+alter table 'informix'.screening_results add constraint primary key
 	(screening_results_id)
 	constraint screening_results_pk;
 
-alter table 'informix'.screening_results add constraint foreign key 
+alter table 'informix'.screening_results add constraint foreign key
 	(submission_v_id)
 	references 'informix'.submission
-	(submission_v_id) 
+	(submission_v_id)
 	constraint screeningresults_submission_fk;
 
-alter table 'informix'.screening_results add constraint foreign key 
+alter table 'informix'.screening_results add constraint foreign key
 	(screening_response_id)
 	references 'informix'.screening_response_lu
-	(screening_response_id) 
+	(screening_response_id)
 	constraint screeningresults_screeningresponse_fk;
-	
+
 create table 'informix'.screening_task (
     submission_v_id INT8 not null,
     submission_path VARCHAR(255) not null,
     screening_project_type_id DECIMAL(5,0) not null,
-    screener_id DECIMAL(2,0)
+    screener_id DECIMAL(2,0),
+    screening_attempts DECIMAL(2,0) not null
 )extent size 1000 next size 500
 lock mode row ;
 
@@ -71,17 +72,17 @@ create table 'informix'.screening_project_type_lu (
 )extent size 16 next size 16
 lock mode row;
 
-alter table 'informix'.screening_project_type_lu add constraint primary key 
+alter table 'informix'.screening_project_type_lu add constraint primary key
 	(screening_project_type_id)
 	constraint pk_screening_project_type;
-	
+
 alter table SCREENING_TASK
    add constraint foreign key (screening_PROJECT_TYPE_id)
       references screening_project_type_lu
       (screening_PROJECT_TYPE_id)
       constraint FK_SRCNG_PRJ_TYPE;
 
-alter table SCREENING_TASK	
+alter table SCREENING_TASK
    add constraint foreign key (SUBMISSION_V_ID)
       references SUBMISSION (SUBMISSION_V_ID)
       constraint FK_SRCNGTSK_SUBID;
@@ -89,9 +90,9 @@ alter table SCREENING_TASK
 insert into response_severity_lu values (1, 'Fatal Error');
 insert into response_severity_lu values (2, 'Warning');
 insert into response_severity_lu values (3, 'Success');
-      
+
 insert into screening_project_type_lu values(1, 'Java Design');
-insert into screening_project_type_lu values(2, 'Java Development'); 
+insert into screening_project_type_lu values(2, 'Java Development');
 insert into screening_project_type_lu values(3, 'C# Design');
 insert into screening_project_type_lu values(4, 'C# Development');
 
