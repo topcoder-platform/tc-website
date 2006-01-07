@@ -162,7 +162,7 @@ public class AutoPilotTimer
                         // if (projs[i].getCurrentPhaseInstance().getEndDate() != null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
                         // timeDiff < 0 early phase change.
 
-                        logger.debug("PLK SELECTED: " + projs[i].getProjectName());
+                        logger.info("PLK SELECTED: " + projs[i].getProjectName());
 
                         Project p = projectTracker.getProject(projs[i], user.getTCSubject());
                         if (!p.getAutoPilot()) continue;
@@ -171,12 +171,20 @@ public class AutoPilotTimer
                         //check if all screenings are done,check to see if something passes
                         boolean passed = false;
                         double minscore = ConfigHelper.getMinimumScore();
+                        ReviewScorecard[] scorecard = null;
+
+                        try {
+                            scorecard = docManager.getReviewScorecard(p, user.getTCSubject());
+                        } catch (RuntimeException re) {
+                            logger.info("AutoPilotTimer: " + re.getMessage());
+                            continue;
+                        }
 
                         int count = 0;
-                        ReviewScorecard[] scorecard = docManager.getReviewScorecard(p, user.getTCSubject());
                         for (int j = 0; j < scorecard.length; j++) {
                             if (!scorecard[j].isCompleted()) {
                                 //nothing to do
+                                logger.info("Unable to move to appeals phase: Uncomplete scorecards ");
                                 passed = false;
                                 continue;
                             }
@@ -232,6 +240,8 @@ public class AutoPilotTimer
                             logger.debug("ERROR " + result.toString());
                         }
 
+                        logger.info("Moved ok!");
+
                         // timeline update
                         long timeDiff = projs[i].getCurrentPhaseInstance().getEndDate().getTime() - System.currentTimeMillis();
                         if (timeDiff != 0) {
@@ -251,6 +261,7 @@ public class AutoPilotTimer
                                 }
                             }
                         }
+                        logger.info("Timeline updated ok!");
                     }
                 }
             } catch (Exception e) {
