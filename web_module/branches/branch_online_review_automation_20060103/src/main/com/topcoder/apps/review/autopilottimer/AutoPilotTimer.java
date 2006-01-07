@@ -173,12 +173,16 @@ public class AutoPilotTimer
                         double minscore = ConfigHelper.getMinimumScore();
                         ReviewScorecard[] scorecard = null;
 
+                        logger.info("1");
+
                         try {
                             scorecard = docManager.getReviewScorecard(p, user.getTCSubject());
                         } catch (RuntimeException re) {
                             logger.info("AutoPilotTimer: " + re.getMessage());
                             continue;
                         }
+
+                        logger.info("2");
 
                         int count = 0;
                         for (int j = 0; j < scorecard.length; j++) {
@@ -196,10 +200,14 @@ public class AutoPilotTimer
                             }
                         }
 
+                        logger.info("3");
+
                         if (!passed) {
                             logger.info("Unable to move to appeals phase: Uncomplete scorecards or no submission passed review");
                             continue;
                         }
+
+                        logger.info("4");
 
                         int sub_count = 0;
                         InitialSubmission[] arr = docManager.getInitialSubmissions(p, false, user.getTCSubject());
@@ -208,11 +216,15 @@ public class AutoPilotTimer
                                 sub_count++;
                         }
 
+                        logger.info("5");
+
                         //get submission count
                         if (count != (sub_count * 3)) {
                             logger.info("Unable to move to appeals phase: Submission count mismatch");
                             continue;
                         }
+
+                        logger.info("6");
 
                         //check test cases
                         TestCase[] testcases = null;
@@ -224,6 +236,8 @@ public class AutoPilotTimer
                         }
                         /* PLK copiado */
 
+                        logger.info("7");
+
                         //move to appeals
                         OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, projs[i]);
                         ProjectForm form = new ProjectForm();
@@ -233,6 +247,8 @@ public class AutoPilotTimer
                         form.setScorecardTemplates(docManager.getScorecardTemplates());
                         form.setCurrentPhase("Appeals");
                         form.setReason("auto pilot advancing to Appeals");
+
+                        logger.info("8");
 
                         ProjectData data = form.toActionData(orpd);
                         ResultData result = new BusinessDelegate().projectAdmin(data);
