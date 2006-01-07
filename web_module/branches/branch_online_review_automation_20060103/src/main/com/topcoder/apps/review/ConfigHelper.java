@@ -112,7 +112,7 @@ public class ConfigHelper implements ConfigManagerInterface {
      * The list of properties.
      */
     private static List props;
-    
+
     private static Logger log = Logger.getLogger(ConfigHelper.class);
 
     /**
@@ -247,7 +247,8 @@ public class ConfigHelper implements ConfigManagerInterface {
      *
      * @throws Exception propagate any exceptions
      */
-    static double getMinimumScore() throws Exception {
+     // PLK - changed to public
+    public static double getMinimumScore() throws Exception {
         return Double.parseDouble(ConfigManager.getInstance().getString(NAMESPACE, MINIMUM_SCORE));
     }
 
