@@ -279,6 +279,7 @@ public class AutoPilotTimer
                                 }
                             }
                         }
+                        projectTracker.saveProject(p, "AutoPilot", user.getTCSubject());
                         logger.info("Timeline updated ok!");
                     }
                 }
