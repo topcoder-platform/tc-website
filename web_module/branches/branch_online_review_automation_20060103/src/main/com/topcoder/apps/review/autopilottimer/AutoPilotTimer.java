@@ -240,7 +240,8 @@ public class AutoPilotTimer
                         logger.info(new Date(System.currentTimeMillis()).toString());
 
                         // timeline update
-                        long timeDiff = projs[i].getCurrentPhaseInstance().getEndDate().getTime() - System.currentTimeMillis();
+                        long timeDiff = System.currentTimeMillis() - projs[i].getCurrentPhaseInstance().getEndDate().getTime();
+                        logger.info("timeDiff: " + timeDiff);
                         if (timeDiff != 0) {
                             boolean startUpdatingPhases = false;
                             PhaseInstance[] timeline = p.getTimeline();
@@ -250,14 +251,14 @@ public class AutoPilotTimer
                                     logger.info("Original end: " + timeline[j].getEndDate().toString());
                                     timeline[j].setStartDate(new Date(timeline[j].getStartDate().getTime() + timeDiff));
                                     timeline[j].setEndDate(new Date(timeline[j].getEndDate().getTime() + timeDiff));
-                                    // The phase ends early. In this case, adjust the duration of the phase to the correct time.
-                                    if (timeDiff < 0) {
-                                        timeline[j-1].setEndDate(new Date(timeline[j-1].getEndDate().getTime() + timeDiff));
-                                    }
                                     logger.info("Changed start: " + timeline[j].getStartDate().toString());
                                     logger.info("Changed end: " + timeline[j].getEndDate().toString());
                                 }
                                 if (timeline[j].getPhase().getId() == projs[i].getCurrentPhaseInstance().getPhase().getId()) {
+                                    // If the phase ends early. In this case, adjust the duration of the phase to the correct time.
+                                    if (timeDiff < 0) {
+                                        timeline[j].setEndDate(new Date(timeline[j].getEndDate().getTime() + timeDiff));
+                                    }
                                     startUpdatingPhases = true;
                                 }
                             }
