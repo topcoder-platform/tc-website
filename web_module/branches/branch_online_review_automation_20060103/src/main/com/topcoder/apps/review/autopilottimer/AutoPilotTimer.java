@@ -243,7 +243,9 @@ public class AutoPilotTimer
                         ProjectForm form = new ProjectForm();
 
                         form.fromProject(p);
-                        form.setSendMail(true);
+
+ //                       form.setSendMail(true); // PLK
+                        form.setSendMail(false); // PLK
                         form.setScorecardTemplates(docManager.getScorecardTemplates());
                         form.setCurrentPhase("Appeals");
                         form.setReason("auto pilot advancing to Appeals");
