@@ -1,5 +1,6 @@
 package com.topcoder.apps.review.autopilottimer;
 
+import com.topcoder.date.workdays.WorkdaysUnitOfTime;
 import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.ConfigHelper;
 import com.topcoder.apps.review.document.ReviewScorecard;
@@ -239,8 +240,17 @@ public class AutoPilotTimer
                         logger.info("7");
                         logger.info(new Date(System.currentTimeMillis()).toString());
 
+                        TCWorkdays workDays = null;
+                        try {
+                            workDays = new TCWorkdays(ConfigHelper.getString(ConfigHelper.WORKDAYS_CONF_FILE), TCWorkdays.XML_FILE_FORMAT);
+                        } catch (Exception e) {
+                            logger.info("Couldn't load the TCWorkdays configuration due to: " + e.getMessage());
+                            continue;
+                        }
+
                         // timeline update
-                        long timeDiff = System.currentTimeMillis() - projs[i].getCurrentPhaseInstance().getEndDate().getTime();
+//                        long timeDiff = System.currentTimeMillis() - projs[i].getCurrentPhaseInstance().getEndDate().getTime();
+                        int timeDiff = (int) ((System.currentTimeMillis() - projs[i].getCurrentPhaseInstance().getEndDate().getTime()) / 60000);
                         logger.info("timeDiff: " + timeDiff);
                         if (timeDiff != 0) {
                             boolean startUpdatingPhases = false;
@@ -249,15 +259,21 @@ public class AutoPilotTimer
                                 if (startUpdatingPhases) {
                                     logger.info("Original start: " + timeline[j].getStartDate().toString());
                                     logger.info("Original end: " + timeline[j].getEndDate().toString());
-                                    timeline[j].setStartDate(new Date(timeline[j].getStartDate().getTime() + timeDiff));
-                                    timeline[j].setEndDate(new Date(timeline[j].getEndDate().getTime() + timeDiff));
+
+                                    timeline[j].setStartDate(workDays.add(timeline[j].getStartDate(), WorkdaysUnitOfTime.MINUTES, timeDiff));
+                                    timeline[j].setEndDate(workDays.add(timeline[j].getEndDate(), WorkdaysUnitOfTime.MINUTES, timeDiff));
+
+                                    //timeline[j].setStartDate(new Date(timeline[j].getStartDate().getTime() + timeDiff));
+                                    //timeline[j].setEndDate(new Date(timeline[j].getEndDate().getTime() + timeDiff));
+
                                     logger.info("Changed start: " + timeline[j].getStartDate().toString());
                                     logger.info("Changed end: " + timeline[j].getEndDate().toString());
                                 }
                                 if (timeline[j].getPhase().getId() == projs[i].getCurrentPhaseInstance().getPhase().getId()) {
                                     // If the phase ends early. In this case, adjust the duration of the phase to the correct time.
                                     if (timeDiff < 0) {
-                                        timeline[j].setEndDate(new Date(timeline[j].getEndDate().getTime() + timeDiff));
+                                        timeline[j].setEndDate(workDays.add(timeline[j].getEndDate(), WorkdaysUnitOfTime.MINUTES, timeDiff));
+//                                        timeline[j].setEndDate(new Date(timeline[j].getEndDate().getTime() + timeDiff));
                                     }
                                     startUpdatingPhases = true;
                                 }
