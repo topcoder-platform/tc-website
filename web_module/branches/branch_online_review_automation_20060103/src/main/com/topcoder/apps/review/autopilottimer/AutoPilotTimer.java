@@ -1,6 +1,11 @@
 package com.topcoder.apps.review.autopilottimer;
 
+import com.topcoder.apps.review.projecttracker.Project;
+import com.topcoder.apps.review.ConfigHelper;
+import com.topcoder.apps.review.document.ReviewScorecard;
 import com.topcoder.apps.review.*;
+import com.topcoder.apps.review.document.InitialSubmission;
+import com.topcoder.apps.review.document.TestCase;
 import com.topcoder.apps.review.document.DocumentManagerLocal;
 import com.topcoder.apps.review.document.ScreeningScorecard;
 import com.topcoder.apps.review.projecttracker.*;
@@ -98,7 +103,6 @@ public class AutoPilotTimer
                             ProjectForm form = new ProjectForm();
 
                             Project p = projectTracker.getProject(projs[i], user.getTCSubject());
-
                             if (!p.getAutoPilot()) continue;
 
                             form.fromProject(p);
@@ -152,66 +156,102 @@ public class AutoPilotTimer
                                 logger.debug("ERROR " + result.toString());
                             }
                         }
-                    }
 // end by cucu
+                    } else if (projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_REVIEW) {
+                        // PLK esto lo voy a usar para ajustar las fechas.
+                        // if (projs[i].getCurrentPhaseInstance().getEndDate() != null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
+                        // timeDiff < 0 early phase change.
 
-/* commented by cucu
-                    // It doesn't make too much sense to have the timer check for appeals to be finished, because this is already checked
-                    // when an appeal is solved.
+                        logger.debug("PLK SELECTED: " + projs[i].getProjectName());
 
-                    } else if(projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS) {
-                        if(projs[i].getCurrentPhaseInstance() != null && projs[i].getCurrentPhaseInstance().getEndDate() !=null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
-                            logger.debug("SELECTED: " + projs[i].getProjectName());
+                        Project p = projectTracker.getProject(projs[i], user.getTCSubject());
+                        if (!p.getAutoPilot()) continue;
 
-                            OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, projs[i]);
-                            ProjectForm form = new ProjectForm();
+                        /* PLK copiado */
+                        //check if all screenings are done,check to see if something passes
+                        boolean passed = false;
+                        double minscore = ConfigHelper.getMinimumScore();
 
-                            Project p = projectTracker.getProject(projs[i], user.getTCSubject());
-
-                            if(!p.getAutoPilot()) continue;
-
-                            //check appeals
-                            boolean good = true;
-                            Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
-                            for(int j = 0; j < appeals.length; j++) {
-                                if(!appeals[j].isResolved()) {
-                                    good = false;
-                                    break;
-                                }
-                            }
-
-                            if(!good) continue;
-
-                            //lookup pm
-                            String email = "";
-                            UserRole[] participants = p.getParticipants();
-                            for(int j = 0; j < participants.length;j++) {
-                                if( participants[j].getRole().getId() == Role.ID_PRODUCT_MANAGER ) {
-                                    email = participants[j].getUser().getEmail();
-                                }
-                            }
-
-                            if(email.equals("")) {
+                        int count = 0;
+                        ReviewScorecard[] scorecard = docManager.getReviewScorecard(p, user.getTCSubject());
+                        for (int j = 0; j < scorecard.length; j++) {
+                            if (!scorecard[j].isCompleted()) {
+                                //nothing to do
+                                passed = false;
                                 continue;
                             }
 
+                            count++;
 
+                            if (scorecard[j].getScore() >= minscore) {
+                                passed = true;
+                            }
+                        }
 
-                            //override, change me
-                            //email = "rfairfax@topcoder.com";
+                        if (!passed) {
+                            logger.info("Unable to move to appeals phase: Uncomplete scorecards or no submission passed review");
+                            continue;
+                        }
 
+                        int sub_count = 0;
+                        InitialSubmission[] arr = docManager.getInitialSubmissions(p, false, user.getTCSubject());
+                        for (int j = 0; j < arr.length; j++) {
+                            if (arr[j].isAdvancedToReview())
+                                sub_count++;
+                        }
 
-                            //check if nothing passed, send email
+                        //get submission count
+                        if (count != (sub_count * 3)) {
+                            logger.info("Unable to move to appeals phase: Submission count mismatch");
+                            continue;
+                        }
 
-                            StringBuffer mail = new StringBuffer();
-                            mail.append("The following project: \n\n");
-                            mail.append(p.getName());
-                            mail.append("\n\nhas completed appeals");
+                        //check test cases
+                        TestCase[] testcases = null;
+                        testcases = docManager.getTestCases(p, -1, user.getTCSubject());
 
-                            //sendMail("autopilot@topcoder.com", email, "AutoPilot: Appeals Notification", mail.toString());
+                        if (testcases.length != 3) {
+                            logger.info("Unable to move to appeals phase: Incorrect number of testcases");
+                            continue;
+                        }
+                        /* PLK copiado */
+
+                        //move to appeals
+                        OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, projs[i]);
+                        ProjectForm form = new ProjectForm();
+
+                        form.fromProject(p);
+                        form.setSendMail(true);
+                        form.setScorecardTemplates(docManager.getScorecardTemplates());
+                        form.setCurrentPhase("Appeals");
+                        form.setReason("auto pilot advancing to Appeals");
+
+                        ProjectData data = form.toActionData(orpd);
+                        ResultData result = new BusinessDelegate().projectAdmin(data);
+                        if (!(result instanceof SuccessResult)) {
+                            logger.debug("ERROR " + result.toString());
+                        }
+
+                        // timeline update
+                        long timeDiff = projs[i].getCurrentPhaseInstance().getEndDate().getTime() - System.currentTimeMillis();
+                        if (timeDiff != 0) {
+                            boolean startUpdatingPhases = false;
+                            PhaseInstance[] timeline = p.getTimeline();
+                            for (int j = 0; j < timeline.length; j++) {
+                                if (startUpdatingPhases) {
+                                    timeline[j].setStartDate(new Date(timeline[j].getStartDate().getTime() + timeDiff));
+                                    timeline[j].setEndDate(new Date(timeline[j].getEndDate().getTime() + timeDiff));
+                                    // The phase ends early. In this case, adjust the duration of the phase to the correct time.
+                                    if (timeDiff < 0) {
+                                        timeline[j-1].setEndDate(new Date(timeline[j-1].getEndDate().getTime() + timeDiff));
+                                    }
+                                }
+                                if (timeline[j].getPhase().getId() == projs[i].getCurrentPhaseInstance().getPhase().getId()) {
+                                    startUpdatingPhases = true;
+                                }
+                            }
                         }
                     }
-                    */
                 }
             } catch (Exception e) {
                 if (!(e instanceof NameNotFoundException))
