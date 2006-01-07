@@ -237,6 +237,7 @@ public class AutoPilotTimer
                         /* PLK copiado */
 
                         logger.info("7");
+                        logger.info(new Date(System.currentTimeMillis()).toString());
 
                         // timeline update
                         long timeDiff = projs[i].getCurrentPhaseInstance().getEndDate().getTime() - System.currentTimeMillis();
@@ -245,12 +246,16 @@ public class AutoPilotTimer
                             PhaseInstance[] timeline = p.getTimeline();
                             for (int j = 0; j < timeline.length; j++) {
                                 if (startUpdatingPhases) {
+                                    logger.info("Original start: " + timeline[j].getStartDate().toString());
+                                    logger.info("Original end: " + timeline[j].getEndDate().toString());
                                     timeline[j].setStartDate(new Date(timeline[j].getStartDate().getTime() + timeDiff));
                                     timeline[j].setEndDate(new Date(timeline[j].getEndDate().getTime() + timeDiff));
                                     // The phase ends early. In this case, adjust the duration of the phase to the correct time.
                                     if (timeDiff < 0) {
                                         timeline[j-1].setEndDate(new Date(timeline[j-1].getEndDate().getTime() + timeDiff));
                                     }
+                                    logger.info("Changed start: " + timeline[j].getStartDate().toString());
+                                    logger.info("Changed end: " + timeline[j].getEndDate().toString());
                                 }
                                 if (timeline[j].getPhase().getId() == projs[i].getCurrentPhaseInstance().getPhase().getId()) {
                                     startUpdatingPhases = true;
