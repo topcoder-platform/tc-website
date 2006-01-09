@@ -6,6 +6,19 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.09.06<br>10:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_010906">NSA Participation in 2006 TopCoder Open in Las Vegas</A></span><br><br>
+      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/nsa_logo.gif" width="67" height="34" alt="NSA" border="0" /></div>
+      "TopCoder&#174;, Inc. today announced additional details of its 2006 TopCoder Open (TCO06) which include the continued support of the National Security Agency as an event patron."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_010906">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505886" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
+   </td></tr>
 
 <%--------------------------------------------------------%>
    <tr>
