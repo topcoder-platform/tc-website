@@ -46,7 +46,7 @@
 <span class="bodySubtitle">Intel&#174; Software Network Multi-threading Competition Series</span><br>
 Intel&#174; Software Network and TopCoder are hosting a 12-month series of world-wide competitions for multi-threading on multi-core microprocessors. You could win cash prizes!  Access the Intel Software Network for all the latest on threading principles, and then put your knowledge to the ultimate test solving coding problems.  
 <br><br>
-Mark your calendars! The first competition will be held Jan. 25, 2006, and will last for two weeks. (A new competition will be held every month following in 2006.) 
+Mark your calendars! The first competition will be held Jan. 25, 2006, and will last for two weeks. (A new competition will be held every month following in 2006.) Stay tuned for details.
 <br><br>
 You could win Monthly Cash Prizes:
 <br><br>
