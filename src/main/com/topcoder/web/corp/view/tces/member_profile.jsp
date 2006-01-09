@@ -92,7 +92,13 @@
             </td>
             <td class="bodyText" width="50%" valign="top">
             <% if (MemberProfileTask.getIsRanked()) { %>
-                <A HREF="/tc?module=MemberProfile&cr=<%=MemberProfileTask.getMemberID()%>" target="blank" class="bodyText">Full TopCoder Profile</a>
+                <% if (MemberInfo.getColumnIndex("tc_user_id")>=0) {
+                    if (MemberInfo.getItem(0, "tc_user_id").getResultData()!=null) {%>
+                        <A HREF="/tc?module=MemberProfile&cr=<%=MemberInfo.getLongItem(0, "tc_user_id")%>" target="blank" class="bodyText">Full TopCoder Profile</a>
+                <%   } 
+                   } else { %>
+                    <A HREF="/tc?module=MemberProfile&cr=<%=MemberProfileTask.getMemberID()%>" target="blank" class="bodyText">Full TopCoder Profile</a>
+                <% } %>
             <br /><br />
             <b>Algorithm Statistics</b><br />
             Current Rating: <%=MemberStats.getItem(0, "rating").toString()%><br />
