@@ -90,4 +90,8 @@ public class SimpleRequest implements TCRequest {
     public Map getParameterMap() {
         return request.getParameterMap();
     }
+
+    public String getHeader(String s) {
+        return request.getHeader(s);
+    }
 }

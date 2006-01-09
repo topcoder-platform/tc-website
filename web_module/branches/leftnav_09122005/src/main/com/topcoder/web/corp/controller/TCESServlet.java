@@ -115,15 +115,15 @@ public class TCESServlet extends HttpServlet {
             request.setAttribute(BaseServlet.SESSION_INFO_KEY, info);
 
             StringBuffer loginfo = new StringBuffer(100);
-            loginfo.append("[**** ");
+            loginfo.append("[* ");
             loginfo.append(info.getHandle());
-            loginfo.append(" **** ");
+            loginfo.append(" * ");
             loginfo.append(request.getRemoteHost());
-            loginfo.append(" **** ");
+            loginfo.append(" * ");
             loginfo.append(request.getMethod());
             loginfo.append(" ");
             loginfo.append(info.getRequestString());
-            loginfo.append(" ****]");
+            loginfo.append(" *]");
             log.info(loginfo);
 
             Resource taskResource = new SimpleResource(taskClassName);
@@ -188,14 +188,13 @@ public class TCESServlet extends HttpServlet {
         } catch (NotAuthorizedException ae) {
             log.debug("TCES Authorization failure! ", ae);
             forwardToErrorPage(request, response, ae, true);
-            return;
         } catch (ClassNotFoundException cnfex) {
             log.debug("Unable to dispatch task! " + cnfex.getMessage());
             forwardToErrorPage(request, response, cnfex, false);
-            return;
         } catch (Exception ex) {
             forwardToErrorPage(request, response, ex, false);
-            return;
+        } finally {
+            BaseProcessor.close(ctx);
         }
     }
 

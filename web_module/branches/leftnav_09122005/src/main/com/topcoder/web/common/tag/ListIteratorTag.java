@@ -15,7 +15,7 @@ public class ListIteratorTag extends IteratorTag {
         this.list = list;
     }
 
-    public void setList(String name) {
+    public void setListKey(String name) {
         this.list = (List) pageContext.findAttribute(name);
     }
 

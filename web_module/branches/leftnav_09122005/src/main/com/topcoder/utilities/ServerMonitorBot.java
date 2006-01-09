@@ -39,7 +39,7 @@ public class ServerMonitorBot {
 
                 System.out.println("STARTING");
                 String[] callAndArgs = {"wget",
-                                        "http://192.168.12.51:8080",
+                                        "http://www.topcoder.com",
                                         "--header=Host: www.topcoder.com",
                                         "--timeout=30",
                                         "-t1",
@@ -59,7 +59,7 @@ public class ServerMonitorBot {
                     if (fiveone) {
                         fiveone = false;
                         System.out.println("FAILED, SENDING MAIL");
-                        addError("connetion to 12.51 failed");
+                        addError("connection to 12.51 failed");
                         sendError();
                     }
                 } else if (ret.indexOf("200 OK") == -1) {
@@ -92,6 +92,8 @@ public class ServerMonitorBot {
                 p.waitFor();
 
                 ret = getData(p.getErrorStream());
+                p.destroy();
+                
                 System.out.println("2:" + ret);
                 System.out.println(p.exitValue());
 
@@ -99,7 +101,7 @@ public class ServerMonitorBot {
                     if (software) {
                         software = false;
                         System.out.println("FAILED, SENDING MAIL");
-                        addError("connetion to 12.151 failed");
+                        addError("connection to 12.151 failed");
                         sendError();
                     }
                 } else if (ret.indexOf("200 OK") == -1) {
@@ -139,7 +141,7 @@ public class ServerMonitorBot {
                     if (fivetwo) {
                         fivetwo = false;
                         System.out.println("FAILED, SENDING MAIL");
-                        addError("connetion to 12.52 failed");
+                        addError("connection to 12.52 failed");
                         sendError();
                     }
                 } else if (ret.indexOf("200 OK") == -1) {

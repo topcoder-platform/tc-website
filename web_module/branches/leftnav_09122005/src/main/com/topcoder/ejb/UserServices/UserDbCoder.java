@@ -36,6 +36,7 @@ final class UserDbCoder {
         log.debug("ejb.User.UserDbCoder:insertCoder() called ...");
         boolean demogError = false;
         PreparedStatement ps = null;
+        InitialContext ctx = null;
 
         ArrayList demographicResponses = null;
 //        ArrayList coderConfirmations = null;
@@ -143,7 +144,7 @@ final class UserDbCoder {
                 insertCoderConfirmation(conn, (CoderConfirmation) coderConfirmations.get(i));
             }
 */
-            InitialContext ctx = new InitialContext();
+            ctx = new InitialContext();
             Address addressEJB = ((AddressHome) ctx.lookup(AddressHome.EJB_REF_NAME)).create();
             Phone phoneEJB = ((PhoneHome) ctx.lookup(PhoneHome.EJB_REF_NAME)).create();
             UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup(UserAddressHome.EJB_REF_NAME)).create();
@@ -191,6 +192,13 @@ final class UserDbCoder {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
+                }
+            }
+            if (ctx!=null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+
                 }
             }
         }
@@ -487,6 +495,7 @@ final class UserDbCoder {
             throws TCException {
         log.debug("ejb.User.UserDbCoder:updateCoder() called...");
         PreparedStatement ps = null;
+        InitialContext ctx = null;
         try {
             if (coder.getModified().equals("A")) {
                 log.debug("insert");
@@ -580,7 +589,7 @@ final class UserDbCoder {
                 updateDemographicResponses(conn, coder.getCoderType().getCoderTypeId(), demographicResponses);
 //                updateCoderConfirmations(conn, coder.getCoderConfirmations());
 
-                InitialContext ctx = new InitialContext();
+                ctx = new InitialContext();
                 Address addressEJB = ((AddressHome) ctx.lookup(AddressHome.EJB_REF_NAME)).create();
                 Phone phoneEJB = ((PhoneHome) ctx.lookup(PhoneHome.EJB_REF_NAME)).create();
                 UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup(UserAddressHome.EJB_REF_NAME)).create();
@@ -624,6 +633,14 @@ final class UserDbCoder {
                 } catch (Exception ignore) {
                 }
             }
+            if (ctx!=null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+
+                }
+            }
+
         }
     }
 

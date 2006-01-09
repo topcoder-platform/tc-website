@@ -87,7 +87,7 @@
                           <td align=left><span class=bodySmallTitle>Problem Statement</span></td>
                           <td align=right>
                           <strong>Choose your language:</strong>
-                          <tc-webtag:listIterator id="language" list="languages" type="com.topcoder.shared.language.Language">
+                          <tc-webtag:listIterator id="language" listKey="languages" type="com.topcoder.shared.language.Language">
                             <tc-webtag:radioButton name="<%=Constants.LANGUAGE_ID%>" value="<%=String.valueOf(language.getId())%>" onClick='<%="JavaScript:doSubmit('"+Constants.RP_SAVE+"')"%>'/>&#160;<jsp:getProperty name="language" property="name"/>&#160;
                           </tc-webtag:listIterator>
                           </td>

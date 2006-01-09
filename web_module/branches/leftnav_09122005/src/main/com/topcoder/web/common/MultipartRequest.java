@@ -6,6 +6,7 @@ import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
@@ -26,7 +27,21 @@ public class MultipartRequest extends SimpleRequest {
     }
 
     public String getParameter(String name) {
-        return file.getParameter(name);
+        try {
+            if (file.getParameter(name)!=null) {
+                if (request.getCharacterEncoding()!=null) {
+                    return new String(file.getParameter(name).getBytes(), request.getCharacterEncoding());
+                } else {
+                    return file.getParameter(name);
+                }
+            } else {
+                return null;
+            }
+
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return file.getParameter(name);
+        }
     }
 
     public Enumeration getParameterNames() {
@@ -52,7 +67,12 @@ public class MultipartRequest extends SimpleRequest {
 
         String[] ret = new String[al.size()];
         for (int i = 0; i < ret.length; i++) {
-            ret[i] = (String) al.get(i);
+            try {
+                ret[i] = new String(((String) al.get(i)).getBytes(), request.getCharacterEncoding());
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                ret[i] =(String) al.get(i);
+            }
         }
 
         return ret;
@@ -67,7 +87,12 @@ public class MultipartRequest extends SimpleRequest {
 
         String[] ret = new String[al.size()];
         for (int i = 0; i < ret.length; i++) {
-            ret[i] = (String) al.get(i);
+            try {
+                ret[i] = new String(((String) al.get(i)).getBytes(), request.getCharacterEncoding());
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                ret[i] =(String) al.get(i);
+            }
         }
 
         return ret;

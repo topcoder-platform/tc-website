@@ -31,6 +31,10 @@ public class Appeal implements Serializable {
     private long appealerSubmissionId;
     private boolean dirtyFlag = false;
     private long versionId;
+    private Evaluation rawEvaluation;
+    private int rawTotalTests;
+    private int rawTotalPass;
+
 
     /**
      * Constructor
@@ -43,7 +47,9 @@ public class Appeal implements Serializable {
                   boolean isResolved, ScorecardQuestion question,
                   User appealer, User submitter, User reviewer,
                   long submissionId, long appealerSubmissionId,
-                  long versionId) {
+                  long versionId, Evaluation rawEvaluation,
+                  int rawTotalTests, int rawTotalPass
+                  ) {
         this.id = id;
         this.appealText = appealText;
         this.appealResponse = appealResponse;
@@ -55,6 +61,9 @@ public class Appeal implements Serializable {
         this.submissionId = submissionId;
         this.appealerSubmissionId = appealerSubmissionId;
         this.versionId = versionId;
+        this.rawEvaluation = rawEvaluation;
+        this.rawTotalTests = rawTotalTests;
+        this.rawTotalPass = rawTotalPass;
         if (id == -1) {
             this.dirtyFlag = true;
         }
@@ -248,6 +257,32 @@ public class Appeal implements Serializable {
      */
     public void setAppealerSubmissionId(long appealerSubmissionId) {
         this.appealerSubmissionId = appealerSubmissionId;
+    }
+
+
+    /**
+     * @return the Evaluation for that appeal before the score can change, or null
+     * if the appeal is for a testcase
+     */
+    public Evaluation getRawEvaluation() {
+        return rawEvaluation;
+    }
+
+
+    /**
+     * @return the number of total tests when the appeal is created, or -1 if the
+     * appeal is not for a test case
+     */
+    public int getRawTotalTests() {
+        return rawTotalTests;
+    }
+
+    /**
+     * @return the number of passed tests when the appeal is created, or -1 if the
+     * appeal is not for a test case
+     */
+    public int getRawTotalPass() {
+        return rawTotalPass;
     }
 
     /* (non-Javadoc)

@@ -1,16 +1,26 @@
 package com.topcoder.web.common.tag;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.util.format.ObjectFormatter;
+import com.topcoder.util.format.ObjectFormatterFactory;
+import com.topcoder.util.format.FormatMethodFactory;
+import com.topcoder.web.common.DateUtils;
+
+import java.util.Date;
+import java.util.Calendar;
+import java.util.TimeZone;
 
 public class TextInputTag extends BaseTag {
     protected static Logger log = Logger.getLogger(TextInputTag.class);
-    private String value;
+    private Object value;
     private int size = -1;
     private int maxlength = -1;
     private boolean passw = false;
     private String styleClass = null;
     private String onKeyPress = null;
     private boolean editable = true;
+    private String format = null;
+    private String timeZone = null;
 
     public int doStartTag() {
         StringBuffer ret = new StringBuffer();
@@ -32,18 +42,18 @@ public class TextInputTag extends BaseTag {
             }
 
             if (value == null) {
-                value = getDefaultValue() == null ? null : getDefaultValue().toString();
+                value = getDefaultValue() == null ? null : getDefaultValue();
             }
             if (value != null) {
-                ret.append("value=\"").append(value).append("\" ");
+                ret.append("value=\"").append(format(value)).append("\" ");
             }
             ret.append("/>");
         } else {
             if (value == null) {
-                value = getDefaultValue() == null ? null : getDefaultValue().toString();
+                value = getDefaultValue() == null ? null : getDefaultValue();
             }
             if (value != null) {
-                ret.append(value);
+                ret.append(format(value));
             }
         }
         try {
@@ -53,6 +63,31 @@ public class TextInputTag extends BaseTag {
         return SKIP_BODY;
     }
 
+    public String format(final Object value) {
+        ObjectFormatter formatter = ObjectFormatterFactory.getEmptyFormatter();
+        Object object = value;
+        if (format != null) {
+            if (object instanceof Number) {
+                formatter.setFormatMethodForClass(Number.class,
+                        new NumberFormatMethod(format), true);
+            } else if (object instanceof Date) {
+                Calendar cal = Calendar.getInstance();
+                if (timeZone!=null) {
+                    object = DateUtils.getConvertedDate((Date)object, timeZone);
+                    cal.setTimeZone(TimeZone.getTimeZone(timeZone));
+                } else {
+                    cal.setTimeZone(TimeZone.getDefault());
+                }
+                cal.setTime((Date)object);
+                object = cal;
+                formatter.setFormatMethodForClass(Calendar.class,
+                        new CalendarDateFormatMethod(format), true);
+            }
+        }
+        formatter.setFormatMethodForClass(new Object().getClass(),
+                    FormatMethodFactory.getDefaultObjectFormatMethod(), true);
+        return formatter.format(object);
+    }
 
     /**
      * Sets the value.
@@ -118,6 +153,14 @@ public class TextInputTag extends BaseTag {
         editable = edit;
     }
 
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
+    }
+
     protected void init() {
         this.value = null;
         this.size = -1;
@@ -126,6 +169,7 @@ public class TextInputTag extends BaseTag {
         this.styleClass = null;
         this.onKeyPress = null;
         this.editable = true;
+        this.format =null;
     }
 
 

@@ -1,6 +1,5 @@
 package com.topcoder.web.admin.controller.request;
 
-import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.shared.dataAccess.Request;
 
 /**

@@ -41,4 +41,6 @@ public interface TCRequest {
     void removeAttribute(java.lang.String name);
 
     Map getParameterMap();
+
+    String getHeader(String s);
 }

@@ -10,11 +10,11 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.model.DemographicAnswer;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.SearchModel;
-import com.topcoder.web.privatelabel.model.DemographicAnswer;
-import com.topcoder.web.privatelabel.model.DemographicQuestion;
+import com.topcoder.web.common.model.DemographicQuestion;
 
 import java.util.*;
 

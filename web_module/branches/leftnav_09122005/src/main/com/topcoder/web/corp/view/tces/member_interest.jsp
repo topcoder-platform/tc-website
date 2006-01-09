@@ -1,7 +1,7 @@
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@  page
   language="java"
   import="java.util.*,
-          com.topcoder.web.corp.common.*,
           com.topcoder.web.corp.controller.request.tces.*,
           com.topcoder.web.corp.common.JSPUtils,
           com.topcoder.web.corp.common.TCESConstants" %>
@@ -15,7 +15,7 @@
   <HEAD>
     <TITLE>TopCoder | Recruiting Reports</TITLE>
     <jsp:include page="script.jsp" />
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   </HEAD>
   <body>
   <jsp:include page="top.jsp" >

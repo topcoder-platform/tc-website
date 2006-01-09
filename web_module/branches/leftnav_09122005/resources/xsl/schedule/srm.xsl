@@ -106,7 +106,7 @@
                               </TR>
                             </TD>
                           </TR>
-
+                          
 
                       <xsl:if test="$roundId='4365'">
                         <TR><TD COLSPAN="3" ALIGN="center" class="bodyText">
@@ -117,9 +117,28 @@
                       <TR>
                         <TD COLSPAN="3" ALIGN="left" class="bodyText">
                             <center><BR/>All times are Eastern Time unless otherwise noted, click <a><xsl:attribute name="HREF">http://www.timeanddate.com/worldclock/fixedtime.html?day=<xsl:value-of select="/TC/SCHEDULE/Round/Details/day"/>&amp;month=<xsl:value-of select="/TC/SCHEDULE/Round/Details/month"/>&amp;year=<xsl:value-of select="/TC/SCHEDULE/Round/Details/year"/>&amp;hour=<xsl:value-of select="/TC/SCHEDULE/Round/Details/hour"/>&amp;min=<xsl:value-of select="/TC/SCHEDULE/Round/Details/minute"/>&amp;sec=0&amp;p1=179</xsl:attribute>here</a>
-                            to see when coding begins in other time zones.<br/><br/></center>
-
+                            to see when coding begins in other time zones.<br/></center>
+                            <xsl:if test="/TC/SCHEDULE/Round/Details/forum_id!=''">
+                                <center><strong><A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/ForumsHost"/>/?module=ThreadList&amp;forumID=<xsl:value-of select="/TC/SCHEDULE/Round/Details/forum_id"/></xsl:attribute>Discuss this match</A></strong><br/><br/></center>
+                            </xsl:if>
                             <xsl:choose>
+                            <xsl:when test="$roundId='8075'">                                
+                                <br/>
+                                TopCoder Employment Services is placing members in the Tampa Bay, FL area.  <A HREF="/tc?module=ContractingPreferences">Click here to register.</A><br/><br/>
+                            </xsl:when>
+                            <xsl:when test="$roundId='8070' or $roundId='8073' or $roundId='8076'">                                
+                                <br/>
+                                <b>If you're a member of <A href="/tc?module=Static&amp;d1=sponsors&amp;d2=sap">SAP Developer Network</A> AND take part in <xsl:value-of select="/TC/SCHEDULE/Round/Details/contest_name"/>, you'll be eligible for a chance to win one 60GB Apple iPod!</b><br/><br/>
+                                <table width="428" border="0" cellpadding="6" cellspacing="2" >
+                                        <tr valign="top">
+                                        <td align="center" valign="middle">
+                                            <img src="http://www.topcoder.com/i/sponsor/sap_ipod.jpg" />
+                                        </td>
+                                    </tr>
+                                    </table>
+                                <br/><br/>
+                                For Official Contest Rules on how to win a 60GB Apple iPod click <A href="javascript:openWin('/tc?module=Static&amp;d1=sponsors&amp;d2=sap_ipod_rules','rules',545,655)">here</A>.<br/><br/>                            
+                            </xsl:when>
                             <xsl:when test="$roundId=4710">
                                 <b>For information on how to win an Intel&#174; Centrino(TM) mobile technology-based notebook computer click <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_intel">here</a></b><br/><br/>
                            </xsl:when>
@@ -258,6 +277,67 @@
                 </TR>
 
                 <xsl:choose>
+                    <xsl:when test="$roundId='8070' or $roundId='8073' or $roundId='8076'">
+                      <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
+                        <font size="3"><b>***TopCoder will be giving away $5,000 per match sponsored by SAP.  There will also be a raffle for an iPod during each match.***</b></font><br/><br/>
+                        <B>Single Round Match Description</B>
+                      <UL>
+                            <li>Competitors with a rating of 1200 or higher at the start of the match will be placed into a division one room. All other competitors, including non-rated competitors, will be placed into a division two room.</li>
+                            <li>Room assignments within each division will performed randomly, with prizes distributed evenly among all rooms in each division.</li>
+                            <li>70% of the total purse will be awarded to division one competitors, and 30% to division two competitors.</li>
+                            <li>Approximately 20 competitors will be assigned to each room.</li>
+                            <li>The first, second, and third place coders in each division one room will receive 50%, 30%, and 20% of the room award, respectively.</li>
+                            <li>The first and second place competitors in each division two room will receive 60% and 40% of the room award, respectively.</li>
+                            <li>In the event of a tie for any prize winning position, the sum of the awards of the tied competitors will be distributed evenly. (For example, if five coders tie for second place in a division one room, each will receive (30%+20%)/5 or 10% of the room award.)</li>
+                            <li>Prizes will only be awarded to competitors who finish with greater than zero scores.</li>
+                            <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18 years of age,  and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
+                            <li><a href="/?t=support&amp;c=ratings_cal">Rating changes</a> go into effect in next participated rated event</li>
+                            <li>For a complete guide to competing in a Single Round Match, read the <a href="/tc?module=Static&amp;d1=help&amp;d2=index">Algorithm Competition Guide</a></li>
+                      </UL>
+                      <B>Eligibility:</B>
+                      <UL>
+                        <li>Any TopCoder member in good standing, who is at least 13 years of age, may compete in this competition.</li>
+                        <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18 years of age,  and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
+                        <li>In the event that any member who is ineligible to receive prizes places in a position in which they would receive a prize, they will be asked to pick a <a href="?&amp;t=support&amp;c=charities">charity</a> to which to donate their prize. In the event that the member does not pick a charity, TopCoder will pick a charity to which the ineligible member's prize will be paid.</li>
+                        <li>Employees of SAP and/or persons living in the same household as such employees are ineligible to win prizes in this competition and are ineligible to donate any prize to charity.  If any such employee finishes in a prize-winning position in the competition, the next-best competitor will either receive the prize or be able to donate the applicable prize to a charity.</li>
+                        <li>You must be a member of the SAP Developer Network to be eligible for the iPod raffle.  Go here to register:  <a href="http://www.topcoder.com/?t=sponsor&amp;c=link&amp;link=http://sdn.sap.com">http://sdn.sap.com</a> and use “TopCoder” as a referral.</li>
+                      </UL>
+                      <BR/><BR/>
+
+                      <A CLASS="bodyText"><xsl:attribute name="HREF">/?t=schedule&amp;c=srm_rules&amp;RoundId=<xsl:value-of select="$roundId"/></xsl:attribute><B>Click here for complete rules &amp; regulations</B></A>
+                      </TD></TR>
+
+                    </xsl:when>
+                    <xsl:when test="$roundId='8069' or $roundId='8074' or $roundId='8081'">
+                      <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
+                        <font size="3"><b>***TopCoder will be giving away $5,000 per match sponsored by MSN***</b></font><br/><br/>
+                        <B>Single Round Match Description</B>
+                      <UL>
+                            <li>Competitors with a rating of 1200 or higher at the start of the match will be placed into a division one room. All other competitors, including non-rated competitors, will be placed into a division two room.</li>
+                            <li>Room assignments within each division will performed randomly, with prizes distributed evenly among all rooms in each division.</li>
+                            <li>70% of the total purse will be awarded to division one competitors, and 30% to division two competitors.</li>
+                            <li>Approximately 20 competitors will be assigned to each room.</li>
+                            <li>The first, second, and third place coders in each division one room will receive 50%, 30%, and 20% of the room award, respectively.</li>
+                            <li>The first and second place competitors in each division two room will receive 60% and 40% of the room award, respectively.</li>
+                            <li>In the event of a tie for any prize winning position, the sum of the awards of the tied competitors will be distributed evenly. (For example, if five coders tie for second place in a division one room, each will receive (30%+20%)/5 or 10% of the room award.)</li>
+                            <li>Prizes will only be awarded to competitors who finish with greater than zero scores.</li>
+                            <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18 years of age,  and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
+                            <li><a href="/?t=support&amp;c=ratings_cal">Rating changes</a> go into effect in next participated rated event</li>
+                            <li>For a complete guide to competing in a Single Round Match, read the <a href="/tc?module=Static&amp;d1=help&amp;d2=index">Algorithm Competition Guide</a></li>
+                      </UL>
+                      <B>Eligibility:</B>
+                      <UL>
+                        <li>Any TopCoder member in good standing, who is at least 13 years of age, may compete in this competition.</li>
+                        <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18 years of age,  and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
+                        <li>In the event that any member who is ineligible to receive prizes places in a position in which they would receive a prize, they will be asked to pick a <a href="?&amp;t=support&amp;c=charities">charity</a> to which to donate their prize. In the event that the member does not pick a charity, TopCoder will pick a charity to which the ineligible member's prize will be paid.</li>
+                        <li>Employees of Microsoft and/or persons living in the same household as such employees are ineligible to win prizes in this competition and are ineligible to donate any prize to charity.  If any such employee finishes in a prize-winning position in the competition, the next-best competitor will either receive the prize or be able to donate the applicable prize to a charity.</li>
+                      </UL>
+                      <BR/><BR/>
+
+                      <A CLASS="bodyText"><xsl:attribute name="HREF">/?t=schedule&amp;c=srm_rules&amp;RoundId=<xsl:value-of select="$roundId"/></xsl:attribute><B>Click here for complete rules &amp; regulations</B></A>
+                      </TD></TR>
+
+                    </xsl:when>
                     <xsl:when test="$roundId='7223' or $roundId='8004' or $roundId='8005' or $roundId='7227' or $roundId='8007'">
                       <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
                         <font size="3"><b>Total Prize Purse of $5,000 !!!</b></font><br/><br/>

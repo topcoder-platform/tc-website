@@ -5,6 +5,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.CodingInterfaceConstants;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.MissingResourceException;
 
 /**
@@ -13,52 +14,76 @@ import java.util.MissingResourceException;
  */
 public class Constants implements CodingInterfaceConstants {
 
-    private static TCResourceBundle bundle = new TCResourceBundle("LongContest");
-    private static boolean isInitialized = false;
-    private static Logger log = Logger.getLogger(Constants.class);
-    /**
-     *  variables that shouldn't be initialized
-     */
-    private static String[] ignoreList = {"log", "isInitialized", "ignoreList", "bundle", "SHORT_CONTENT"};
+    private static final TCResourceBundle bundle = new TCResourceBundle("LongContest");
+    private static final Logger log = Logger.getLogger(Constants.class);
 
-    public static String ROUND_ID;
+        public static String ROUND_TYPE_ID;
     public static String CONTEST_ID;
     public static String CODER_ID;
     public static String TEST_CASE_ID;
-    public static String LONG_CONTEST_INDEX_KEY;
-    public static String LONG_CODE_KEY;
-    public static String LONG_TEST_KEY;
-    public static String LONG_CONTEST_CODER_SUBMISSIONS_KEY;
-    public static String JSP_ADDR;
-    public static String INDEX_JSP;
-    public static String SUBMISSION_JSP;
-    public static String CODER_SUBMISSIONS_JSP;
-    public static String LONG_CODE_JSP;
-    public static String LONG_TEST_JSP;
-    public static String COMPILE_MESSAGE;
-    public static String COMPILE_STATUS;
-    public static String LANGUAGES;
-    public static String SELECTED_LANGUAGE;
+    public static String PROBLEM_ID;
     public static String SUBMISSION_NUMBER;
-    public static int RESULTS_REFRESH;
-    public static String SORT_ORDER;
-    public static String RESULTS_TABLE_JSP;
-    public static String RESULTS;
-    public static String START_ROW;
     public static String START_COL;
     public static String COL_COUNT;
     public static String ROW_COUNT;
+    public static final String KEY_USER_HANDLE = "ha";
+    public static final String KEY_USER_PASS = "pass";
+    public static String ACTION_KEY;
+    public static String QUEUE_LENGTH;
+
+    public static String LONG_CONTEST_INDEX_KEY;
+    public static String PROBLEM_STATEMENT_KEY;
+    public static String LANGUAGES;
+    public static final String CLASS_NAME = "cname";
+    public static final String METHOD_NAME = "methname";
+    public static final String RETURN_TYPE = "rettype";
+    public static final String ARG_TYPES = "argtypes";
+
+    public static String CONTEST_LIST_KEY;
+    public static String ROUND_STANDINGS_LIST_KEY;
+    public static String NUM_REGISTRANTS_KEY;
+    public static final String CONTEST_NAME_KEY = "contestName";
+    public static String PREV_IDX_KEY;
+    public static String NEXT_IDX_KEY;
+    public static String ROUND_TERMS_KEY;
+
+    public static int PROBLEM_REFRESH;
     public static String DEFAULT_COL_COUNT;
     public static String DEFAULT_ROW_COUNT;
-    public static String PRIMARY_COLUMN;
-    public static String PROBLEM_STATEMENT_KEY;
-    public static String PROBLEM_STATEMENT_JSP;
-    public static int PROBLEM_REFRESH;
-    public static String CLASS_NAME;
-    public static String CONTEST_OVER;
-    public static String KEY_USER_HANDLE;
-    public static String KEY_USER_PASS;
+    public static String DEFAULT_SYSTEM_TEST_RESULTS_ROW_COUNT;
+    public static int LONG_PRACTICE_ROUND_TYPE_ID;
+    public static int LONG_ROUND_TYPE_ID;
+    public static int INTEL_LONG_PRACTICE_ROUND_TYPE_ID;
+    public static int INTEL_LONG_ROUND_TYPE_ID;
+
     public static String LOGIN_JSP;
+    public static String PAGE_VIEW_REG;
+    public static String RP_SUBMIT;
+    public static String SUBMISSION_JSP;
+    public static String RP_ACTIVE_CONTESTS;
+    public static String PAGE_ACTIVE_CONTESTS;
+    public static String RP_VIEW_REGISTRANTS;
+    public static String PAGE_VIEW_REGISTRANTS;
+    public static String RP_PROBLEM_STATEMENT;
+    public static String PAGE_PROBLEM_STATEMENT;
+    public static String PAGE_PROBLEM_STATEMENT_CONTENT;
+    public static String RP_VIEW_STANDINGS;
+    public static String PAGE_STANDINGS;
+    public static String RP_SUBMISSION_HISTORY;
+    public static String PAGE_SUBMISSION_HISTORY;
+    public static String RP_PROBLEM_SOLUTION;
+    public static String PAGE_PROBLEM_SOLUTION;
+    public static String RP_VIEW_OVERVIEW;
+    public static String PAGE_VIEW_OVERVIEW;
+    public static String RP_VIEW_SYSTEM_TEST;
+    public static String PAGE_VIEW_SYSTEM_TEST;
+    public static String RP_VIEW_SYSTEM_TEST_RESULTS;
+    public static String PAGE_VIEW_SYSTEM_TEST_RESULTS;
+    public static String RP_VIEW_PRACTICE;
+    public static String PAGE_VIEW_PRACTICE;
+    public static String PAGE_SUBMIT_SUCCESS;
+    public static int SUBMISSION_RATE;
+    public static final String RESULTS_AVAILABLE = "resav";
 
     static {
         initialize();
@@ -69,7 +94,7 @@ public class Constants implements CodingInterfaceConstants {
         Field[] f = Constants.class.getFields();
         for (int i = 0; i < f.length; i++) {
             try {
-                if (!ignore(f[i].getName())) {
+                if (!Modifier.isFinal(f[i].getModifiers())) {
                     if (f[i].getType().getName().equals("int")) {
                         try {
                             f[i].setInt(null, bundle.getIntProperty(f[i].getName().toLowerCase()));
@@ -84,14 +109,9 @@ public class Constants implements CodingInterfaceConstants {
                         throw new Exception("Unrecognized type: " + f[i].getType().getName());
                     }
                 }
-                if (f[i].get(null) == null){
-                    if (f[i].getType().getName().equals("java.lang.String")) {
-                        log.debug("DID NOT LOAD " + f[i].getName() + " constant.  Setting to default");
-                        f[i].set(null, f[i].getName());
-                    }else{
-                        log.error("**DID NOT LOAD** " + f[i].getName() + " constant");
-                    }
-                }else
+                if (f[i].get(null) == null)
+                    log.error("**DID NOT LOAD** " + f[i].getName() + " constant");
+                else
                     log.debug(f[i].getName() + " <== " + f[i].get(null));
 
             } catch (Exception e) {
@@ -99,21 +119,8 @@ public class Constants implements CodingInterfaceConstants {
                 e.printStackTrace();
             }
         }
-        isInitialized = true;
     }
 
-
-    public static boolean isInitialized() {
-        return isInitialized;
-    }
-
-    private static boolean ignore(String name) {
-        boolean found = false;
-        for (int i = 0; i < ignoreList.length && !found; i++) {
-            found |= ignoreList[i].equals(name);
-        }
-        return found;
-    }
 
 
 }

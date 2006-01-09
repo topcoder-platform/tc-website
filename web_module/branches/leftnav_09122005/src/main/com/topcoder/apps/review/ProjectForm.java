@@ -1161,7 +1161,7 @@ public final class ProjectForm extends ReviewForm {
             projectPhases = new com.topcoder.project.phases.Project(project.getTimeline()[0].getStartDate(),
                             new TCWorkdays(ConfigHelper.getString(ConfigHelper.WORKDAYS_CONF_FILE), TCWorkdays.XML_FILE_FORMAT));
         } catch (Exception e) {
-            return new FailureResult("Couldn't load the TCWorkdays configuration due to: " + e);
+            return new FailureResult("Couldn't load the TCWorkdays configuration due to: ", e);
         }
 
         // The first phase can't be adjusted to previous phase and its starting date is equivalent to the project
@@ -1225,7 +1225,7 @@ public final class ProjectForm extends ReviewForm {
             if (i == 0 && startDate.before(projectPhases.getStartDate())) {
                 projectPhases.setStartDate(startDate);
             }
-            
+
             phases[i] = new TCPhase(projectPhases, startDate, phaseMinutes[i]);
 
             if (i > 0) {

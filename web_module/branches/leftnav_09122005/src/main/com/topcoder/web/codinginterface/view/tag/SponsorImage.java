@@ -1,6 +1,6 @@
 package com.topcoder.web.codinginterface.view.tag;
 
-import com.topcoder.web.codinginterface.techassess.model.ImageInfo;
+import com.topcoder.web.common.model.ImageInfo;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -17,6 +17,7 @@ public class SponsorImage extends TagSupport {
     private String alt = null;
     private String vspace = null;
     private String border = null;
+    private String ifNull = null;
 
     public void setImage(ImageInfo image) {
         this.image = image;
@@ -24,7 +25,6 @@ public class SponsorImage extends TagSupport {
 
     public void setImage(String image) {
         this.image = (ImageInfo) pageContext.findAttribute(image);
-        ;
     }
 
     public void setAlt(String alt) {
@@ -39,11 +39,20 @@ public class SponsorImage extends TagSupport {
         this.border = border;
     }
 
+    public void setIfNull(String ifNull) {
+        this.ifNull = ifNull;
+    }
+
 
     public int doStartTag() throws JspException {
 
         if (image!=null) {
-            StringBuffer buffer = new StringBuffer();
+            StringBuffer buffer = new StringBuffer(200);
+            if (image.getLink()!=null) {
+                buffer.append("<a href=\"");
+                buffer.append(image.getLink());
+                buffer.append("\">");
+            }
             buffer.append("<img src=\"");
             buffer.append(image.getSrc() == null ? "" : image.getSrc());
             buffer.append("\"");
@@ -66,6 +75,9 @@ public class SponsorImage extends TagSupport {
             }
 
             buffer.append(" />");
+            if (image.getLink()!=null) {
+                buffer.append("</a>");
+            }
 
             try {
                 pageContext.getOut().println(buffer.toString());
@@ -73,6 +85,14 @@ public class SponsorImage extends TagSupport {
                 throw new JspException(e.getMessage());
             }
 
+        } else {
+            if (ifNull!=null) {
+                try {
+                    pageContext.getOut().println(ifNull);
+                } catch (IOException e) {
+                    throw new JspException(e.getMessage());
+                }
+            }
         }
 
         return EVAL_BODY_INCLUDE;
@@ -83,6 +103,7 @@ public class SponsorImage extends TagSupport {
         this.alt = null;
         this.vspace = null;
         this.border = null;
+        this.ifNull = null;
         return super.doEndTag();
     }
 

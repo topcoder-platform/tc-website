@@ -26,53 +26,41 @@ if (o!=null) {
                 }
         %>
         var PS_EXAMPLE_SET = <%=Constants.EXAMPLE_ID%>;
-
-        //perform clock sync, time below is in milliseconds after epoch
-        var psProblemServerTime = new Date(<%=request.getAttribute(Constants.CURRENT_TIME)%>);
-        var psProblemLocalTime = new Date();
-
-        var psProblemServerOffset = <%=TimeZone.getDefault().getOffset(new Date().getTime())/(60*60*1000)%>
-        var psProblemOffset = psProblemLocalTime.getTimezoneOffset();
-        psProblemOffset = psProblemOffset / 60;
-        psProblemOffset = psProblemOffset * -1
-
-        psProblemServerTime = new Date(psProblemServerTime.getTime() - ((psProblemServerOffset - psProblemOffset) * 60 * 60 * 1000));
-
-        var psProblemSyncedOffset = psProblemLocalTime.getTime() - psProblemServerTime.getTime();
-
-        for (i=0;i<psEndTimes.length; i++) {
-          psEndTimes[i]=psEndTimes[i] - ((psProblemServerOffset - psProblemOffset) * 60 * 60 * 1000);
-        }
+        
+        var psServerTime = new Date(<%=request.getAttribute(Constants.CURRENT_TIME)%>);
+        var psLocalTime = new Date();
+        var psAdjustment = psServerTime.getTime() - psLocalTime.getTime();
 
         function problemSetUpdate() {
-            var d = new Date();
-            var correctedLocalTime = new Date(d.getTime() - psProblemSyncedOffset);
-
-            for (i=0; i<psEndTimes.length;i++) {
-                if (psTypes[i]==PS_EXAMPLE_SET) {
-                    text = "N/A";
-                } else  {
-                    var timeLeft
-                    if (psStartTimes[i]==0) {
-                      timeLeft = psEndTimes[i];
-                    } else {
-                      timeLeft = psEndTimes[i] - correctedLocalTime.getTime();
-                    }
-                    if(timeLeft > 0 ) {
-                        text = convertToTimeString(timeLeft);
-                    } else {
-                        text = "Expired";
-                    }
-                }
-                if (top.mainFrame) {
-                    updateDivOrSpan(top.mainFrame.document, psIds[i], text);
-                }
-
-            }
-
-            setTimeout("problemSetUpdate()", 1000);
+			psLocalTime = (new Date()).getTime() + psAdjustment;
+			
+			for (i = 0; i < psEndTimes.length; i++) {
+				if (psTypes[i] == PS_EXAMPLE_SET) {
+					text = "N/A";
+				}
+				else {
+					if (psStartTimes[i] == 0) {
+						timeLeft = psEndTimes[i];
+					}
+					else {
+						timeLeft = psEndTimes[i] - psLocalTime;
+					}
+					
+					if (timeLeft > 0) {
+						text = convertToTimeString(timeLeft);
+					}
+					else {
+						text = "Expired";
+					}
+				}
+				if (top.mainFrame) {
+					updateDivOrSpan(top.mainFrame.document, psIds[i], text);
+				}
+			}
+			
+			setTimeout("problemSetUpdate()", 1000);
         }
 
-        setTimeout("problemSetUpdate()", 1000);
+        setTimeout("problemSetUpdate()", 200);
 <% } %>
     </script>

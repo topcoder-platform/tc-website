@@ -15,7 +15,6 @@ import java.util.TimeZone;
 
 
 public class FormatTag extends TagSupport {
-    private final static Logger log = Logger.getLogger(FormatTag.class);
     private Object object = null;
     private String format = null;
     private String ifNull = "";

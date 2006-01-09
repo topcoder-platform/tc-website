@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@  page
   language="java"
   import="java.util.*,
@@ -15,7 +16,7 @@
   <HEAD>
     <TITLE>TopCoder | Recruiting Reports</TITLE>
     <jsp:include page="script.jsp" />
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   </HEAD>
   <body>
 <jsp:include page="top.jsp" >
@@ -58,7 +59,7 @@
             <%= MemberInfo.getItem(0, "country_name").toString()%>
             <br />
             <strong>Email:</strong> <A HREF="mailto:<%=MemberInfo.getStringItem(0, "email")%>" class="bodyText"><%= MemberInfo.getStringItem(0, "email")%></A><br />
-            <strong>Phone:</strong> <%= MemberInfo.getStringItem(0, "home_phone")%>
+            <% if (MemberInfo.getStringItem(0, "home_phone")!=null) { %><strong>Phone:</strong> <%= MemberInfo.getStringItem(0, "home_phone")%><% } %>
             <br /><br />
             <B>Member Type:</B> <%=MemberInfo.getItem(0, "coder_type_desc").toString()%> <br />
             <B>TopCoder Member Since:</B> <%=MemberInfo.getItem(0, "member_since_date").toString()%><br />
@@ -107,7 +108,8 @@
             <% } %>
             <br /><br />
 
-            <% if (MemberStats.getStringItem(0, "num_design_ratings")!=null) { %>
+
+            <% if (MemberProfileTask.getIsRanked()&&MemberStats.getStringItem(0, "num_design_ratings")!=null) { %>
                 <b>Component Design Statistics</b><br />
                 Current Rating: <rsc:item name="design_rating" format="#" set="<%=MemberStats%>" ifNull="Not Rated"/> <br />
                 Current Ranking: <rsc:item name="design_rank" format="#" set="<%=MemberStats%>" ifNull="Not Ranked"/><br />
@@ -119,7 +121,7 @@
                 <br />
             <% } %>
 
-            <% if (MemberStats.getStringItem(0, "num_dev_ratings")!=null) { %>
+            <% if (MemberProfileTask.getIsRanked()&&MemberStats.getStringItem(0, "num_dev_ratings")!=null) { %>
                 <b>Component Development Statistics</b><br />
                 Current Rating: <rsc:item name="dev_rating" format="#" set="<%=MemberStats%>" ifNull="Not Rated"/> <br />
                 Current Ranking: <rsc:item name="dev_rank" format="#" set="<%=MemberStats%>" ifNull="Not Ranked"/><br />

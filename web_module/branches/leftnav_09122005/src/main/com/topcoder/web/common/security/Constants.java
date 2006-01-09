@@ -34,12 +34,17 @@ public class Constants {
     public static Object createEJB(Class remoteclass) throws NamingException, Exception {
 
         /* create the context anew each time in case the JNDI provider is restarted. */
-        Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+        Context ctx = null;
+        try {
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+            Class remotehomeclass = Class.forName(remoteclass.getName() + "Home");
+            String refname = (String) remotehomeclass.getField("EJB_REF_NAME").get(null);
+            Object remotehome = ctx.lookup(refname);
+            Method createmethod = remotehome.getClass().getMethod("create", null);
+            return createmethod.invoke(remotehome, null);
+        } finally {
+            TCContext.close(ctx);
+        }
 
-        Class remotehomeclass = Class.forName(remoteclass.getName() + "Home");
-        String refname = (String) remotehomeclass.getField("EJB_REF_NAME").get(null);
-        Object remotehome = ctx.lookup(refname);
-        Method createmethod = remotehome.getClass().getMethod("create", null);
-        return createmethod.invoke(remotehome, null);
     }
 }

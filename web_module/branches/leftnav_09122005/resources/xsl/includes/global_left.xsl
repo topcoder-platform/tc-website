@@ -28,13 +28,14 @@
                             <xsl:otherwise>leftNavOn</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/clear.gif" border="0" />Calendar</A>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth</xsl:attribute><img alt="" width="10" height="10" src="/i/clear.gif" border="0" />Calendar</A>
                     </td>
                 </tr>
 
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="education_row"/>
                 <xsl:call-template name="events_row"/>
+                <xsl:call-template name="marathon_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
             </table>
@@ -139,6 +140,7 @@
 
                 <xsl:call-template name="education_row"/>
                 <xsl:call-template name="events_row"/>
+                <xsl:call-template name="marathon_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
             </table>
@@ -236,11 +238,11 @@
                     <td id="leftSubnav">
                         <xsl:attribute name="id">
                         <xsl:choose>
-      					<xsl:when test="/TC/Task='features'">leftSubnavOn</xsl:when>
+                     <xsl:when test="/TC/Task='features'">leftSubnavOn</xsl:when>
                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=index</xsl:attribute>Features</A>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=features&amp;d2=archive</xsl:attribute>Features</A>
                     </td>
                 </tr>
 
@@ -258,6 +260,7 @@
                 </tr>
 
                 <xsl:call-template name="events_row"/>
+                <xsl:call-template name="marathon_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
             </table>
@@ -313,6 +316,7 @@
                     </td>
                 </tr>
 
+                <xsl:call-template name="marathon_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
             </table>
@@ -333,6 +337,7 @@
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="education_row"/>
                 <xsl:call-template name="events_row"/>
+                <xsl:call-template name="marathon_row"/>
                 <xsl:call-template name="rtables_row"/>
 
                 <tr><td id="leftNavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=help&amp;d2=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Support / FAQs</A></td></tr>
@@ -585,6 +590,7 @@
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="education_row"/>
                 <xsl:call-template name="events_row"/>
+                <xsl:call-template name="marathon_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
             </table>
@@ -607,6 +613,7 @@
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="education_row"/>
                 <xsl:call-template name="events_row"/>
+                <xsl:call-template name="marathon_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
             </table>
@@ -661,7 +668,7 @@
 </xsl:template>
 
 <xsl:template name="sched_row">
-                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=index</xsl:attribute>Calendar</A></td></tr>
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth</xsl:attribute>Calendar</A></td></tr>
 </xsl:template>
 
 <xsl:template name="stats_row">
@@ -694,6 +701,10 @@
 
 <xsl:template name="events_row">
                 <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_index</xsl:attribute>Events</A></td></tr>
+</xsl:template>
+
+<xsl:template name="marathon_row">
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/longcontest/?module=Static&amp;d1=instructions</xsl:attribute>Marathon Matches</A></td></tr>
 </xsl:template>
 
 <xsl:template name="rtables_row">
@@ -804,6 +815,32 @@
                                     </xsl:choose>
                                     </xsl:attribute>
                                     <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=components</xsl:attribute>Recent Project Winners</A>
+                                </td>
+                            </tr>
+
+            <!-- Design Contests -->
+                            <tr>
+                                <td id="leftSubnav">
+                                    <xsl:attribute name="id">
+                                    <xsl:choose>
+                                        <xsl:when test="$level3='des_contests'">leftSubnavOn</xsl:when>
+                                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                                    </xsl:choose>
+                                    </xsl:attribute>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=CompList&amp;pi=112</xsl:attribute>Design Contests</A>
+                                </td>
+                            </tr>
+
+            <!-- Development Contests -->
+                            <tr>
+                                <td id="leftSubnav">
+                                    <xsl:attribute name="id">
+                                    <xsl:choose>
+                                        <xsl:when test="$level3='dev_contests'">leftSubnavOn</xsl:when>
+                                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                                    </xsl:choose>
+                                    </xsl:attribute>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=CompList&amp;pi=113</xsl:attribute>Development Contests</A>
                                 </td>
                             </tr>
 

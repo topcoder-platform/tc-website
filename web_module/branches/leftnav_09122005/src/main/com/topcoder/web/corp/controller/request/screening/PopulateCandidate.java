@@ -16,7 +16,7 @@ import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.preferencelevel.PreferenceLevel;
 import com.topcoder.web.ejb.preferencelevel.NoSuchPreferenceLevelException;
 import com.topcoder.web.ejb.user.Contact;
-import com.topcoder.web.tc.controller.legacy.resume.bean.Resume;
+import com.topcoder.web.tc.model.Resume;
 
 import java.util.Map;
 

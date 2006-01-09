@@ -4,22 +4,32 @@ import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.ConfigManagerException;
 import com.topcoder.util.config.UnknownNamespaceException;
 
+import javax.naming.Context;
 import java.sql.*;
-import java.util.TreeMap;
-
-//import com.topcoder.netCommon.contest.*;
-//import com.topcoder.server.common.*;
+import java.util.Calendar;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ArrayList;
 
 public class ReliabilityRating {
 
     public static final String DRIVER_KEY = "DriverClass";
     public static final String CONNECTION_URL_KEY = "ConnectionURL";
     public static final String HISTORY_LENGTH_KEY = "HistoryLength";
+    public static final int MIN_PASSING_SCORE = 70;
+    public static final int MIN_RELIABLE_SCORE = 70;
+
+    /**
+     * the date when the new rules go into effect
+     */
+    public static final Date START_DATE = getDate(2005, Calendar.OCTOBER, 5, 9, 0);
+    //public static final Date START_DATE = getDate(2004, Calendar.JULY, 1, 9, 0);
+
 
     public static void main(String[] args) {
-        int numArgs = args.length;
-        boolean isFinal = true;
-        boolean runAll = false;
+        long start = System.currentTimeMillis();
         ReliabilityRating tmp = new ReliabilityRating();
 
         //Load our configuration
@@ -62,15 +72,25 @@ public class ReliabilityRating {
             return;
         }
 
-        System.out.println("1");
         Connection c = null;
         try {
             Class.forName(jdbcDriver);
             c = DriverManager.getConnection(connectionURL);
-
-            System.out.println("2");
             c.setAutoCommit(true);
-            tmp.runAllScores(c, historyLength);
+
+            Set developers = tmp.getIncludedUsers(c, 113);
+            Set designers = tmp.getIncludedUsers(c, 112);
+            int newMarked = tmp.markNewReliableResults(c);
+            int oldMarked = tmp.markOldReliableResults(c);
+            int oldUpdated = tmp.updateOldProjectResult(c);
+            int designersUpdated = tmp.updateReliability(c, designers, Integer.parseInt(historyLength), 112);
+            int developersUpdated = tmp.updateReliability(c, developers, Integer.parseInt(historyLength), 113);
+
+            System.out.println(newMarked + " new records marked");
+            System.out.println(oldMarked + " old records marked");
+            System.out.println(oldUpdated + " old project result records updated");
+            System.out.println(designersUpdated + " new project result designer records updated");
+            System.out.println(developersUpdated + " new project result developer records updated");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -80,169 +100,621 @@ public class ReliabilityRating {
                 System.out.println("exception B: " + e1);
             }
         }
+        System.out.println("ran in " + (float)(System.currentTimeMillis()-start)/(float)1000 + " seconds");
     }
 
-    public void runAllScores(Connection conn, String historyLength) {
+    private static final String updateProjectResult =
+            "UPDATE project_result SET old_reliability = ?, new_reliability = ? " +
+            " WHERE project_id = ? and user_id = ? ";
+
+    private static final String updateUserReliability =
+            "update user_reliability set rating = ? where user_id = ? and phase_id = ?";
+
+    private static final String insertUserReliability =
+            "insert into user_reliability (rating, user_id, phase_id) values (?,?,?)";
+
+
+    /**
+     * go through the list of users and do two things.
+     * 1.  update project result with reliability information
+     * 2.  update user_reliability with current data
+     * @param conn
+     * @param users
+     * @return
+     */
+    public int updateReliability(Connection conn, Set users, int historyLength, long phaseId) throws SQLException {
+        //System.out.println("updateReliability(conn, users, " + historyLength + ", " + phaseId + ") called");
+        int ret = 0;
         PreparedStatement ps = null;
-        ResultSet rs = null;
-
         PreparedStatement ps2 = null;
-
-        int i;
+        PreparedStatement insert = null;
+        PreparedStatement update = null;
+        ResultSet rs = null;
 
         try {
 
-            //nullout existing ratings
-            String sqlStr = "update project_result set old_reliability = null, new_reliability = null";
+            ps = conn.prepareStatement(reliabilityData);
+            ps2 = conn.prepareStatement(updateProjectResult);
+            insert = conn.prepareStatement(insertUserReliability);
+            update = conn.prepareStatement(updateUserReliability);
 
-            ps = conn.prepareStatement(sqlStr);
-            ps.execute();
+            long userId = 0;
+            for (Iterator it = users.iterator(); it.hasNext();) {
+                try {
+                    userId = ((Long) it.next()).longValue();
+                    ReliabilityHistory rh = new ReliabilityHistory(conn, userId, phaseId, historyLength);
 
-            ps.close();
-            ps = null;
+                    ReliabilityInstance instance = null;
+                    for (Iterator records = rh.getHistory(); records.hasNext();) {
+                        instance = (ReliabilityInstance) records.next();
+                        //System.out.println(" xxx " + instance.toString());
+                        if (instance.isAfterStart()) {
+                            ps2.clearParameters();
+                            if (instance.isFirst()) {
+                                ps2.setNull(1, Types.DOUBLE);
+                            } else {
+                                ps2.setDouble(1, instance.getRecentOldReliability());
+                            }
+                            ps2.setDouble(2, instance.getRecentNewReliability());
+                            ps2.setLong(3, instance.getProjectId());
+                            ps2.setLong(4, userId);
+                            ret += ps2.executeUpdate();
+                        }
 
-            TreeMap ratings = new TreeMap();
+                    }
+                    //update or create a user_reliability record for everyone that is included
+                    //that would be whether they are included because of the old way, or the new way
+                    if (instance != null) {
+                        update.clearParameters();
+                        update.setDouble(1, instance.getRecentNewReliability());
+                        update.setLong(2, userId);
+                        update.setLong(3, phaseId);
+                        int num = update.executeUpdate();
+                        if (num == 0) {
+                            insert.clearParameters();
+                            insert.setDouble(1, instance.getRecentNewReliability());
+                            insert.setLong(2, userId);
+                            insert.setLong(3, phaseId);
+                            insert.executeUpdate();
+                        }
+                        //System.out.println("reliability for " + userId + " set to " + instance.getRecentNewReliability());
+                    }
 
-            sqlStr = "select pr.project_id, pr.user_id, pr.valid_submission_ind, " +
-                    "case when exists(select end_date from phase_instance " +
-                    "                where project_id = pr.project_id and phase_id = 1 " +
-                    "                and cur_version = 1) " +
-                    "        then (select end_date from phase_instance " +
-                    "                where project_id = pr.project_id and phase_id = 1 " +
-                    "                and cur_version = 1) " +
-                    "        else (select end_date from phase_instance " +
-                    "                where project_id = pr.project_id and phase_id = 8 " +
-                    "                and cur_version = 1) " +
-                    "        end as ProjectDate " +
-                    "from project_result pr, " +
-                    "project p " +
-                    "where p.project_id = pr.project_id " +
-                    "and p.cur_version = 1 " +
-                    "and pr.reliability_ind = 1 " +
-                    "order by 4";
+                } finally {
+                    close(rs);
+                }
+            }
+        } finally {
+            close(rs);
+            close(ps);
+            close(insert);
+            close(update);
+        }
 
-            ps = conn.prepareStatement(sqlStr);
+        return ret;
+    }
+
+    private static final String reliabilityData =
+            " select pr.reliable_submission_ind" +
+            " , ci.create_time" +
+            " , pr.project_id" +
+            " , case when pi.start_date >= ? then 1 else 0 end as after_start_flag" +
+            " from project_result pr" +
+            " , component_inquiry ci" +
+            " , phase_instance pi" +
+            " , project p" +
+            " where ci.project_id = pr.project_id" +
+            " and pr.user_id = ci.user_id" +
+            " and pr.project_id = p.project_id" +
+            " and p.cur_version = 1" +
+            " and pr.user_id = ?" +
+            " and p.project_type_id+111 = ?" +
+            " and pr.project_id = pi.project_id" +
+            " and pi.cur_version = 1" +
+            " and pi.phase_id = 1" +
+            " and pr.reliability_ind = 1" +
+            " and pr.reliable_submission_ind is not null" +
+            " order by ci.create_time asc";
+
+    private class ReliabilityHistory {
+        private List history = new ArrayList();
+
+        private ReliabilityHistory(Connection conn, long userId, long phaseId, int historyLength) throws SQLException {
+
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+
+            try {
+                ps = conn.prepareStatement(reliabilityData);
+                ps.setDate(1, START_DATE);
+                ps.setLong(2, userId);
+                ps.setLong(3, phaseId);
+                rs = ps.executeQuery();
+                while (rs.next()) {
+                    history.add(new ReliabilityInstance(rs.getLong("project_id"),
+                            userId, rs.getInt("reliable_submission_ind") == 1, rs.getInt("after_start_flag") == 1));
+                }
+
+                if (!history.isEmpty()) {
+                    ((ReliabilityInstance) history.get(0)).setFirst(true);
+                }
+
+                //calculate/populate reliabilities for the given history length. that means only incuode historyLength records
+                ReliabilityInstance cur = null;
+                double fullNewRel = 0.0d;
+                int fullReliableCount = 0;
+                for (int i = 0; i < history.size(); i++) {
+                    if (((ReliabilityInstance) history.get(i)).isReliable()) {
+                        fullReliableCount++;
+                    }
+                    fullNewRel = (double) fullReliableCount / (double) (i + 1);
+
+                    double newRel = 0.0d;
+                    int reliableCount = 0;
+                    int projectCount = 0;
+
+//                    System.out.println("i: " + i + " ");
+                    int j = (i - historyLength + 1) < 0 ? 0 : i - historyLength + 1;
+                    for (; j <= i; j++) {
+                        projectCount++;
+                        cur = (ReliabilityInstance) history.get(j);
+                        if (cur.isReliable()) {
+                            reliableCount++;
+                        }
+                        newRel = (double) reliableCount / (double) (projectCount);
+//                        System.out.print("j: " + j + " new " + newRel + " count " + reliableCount + " pcount " + projectCount + "\n");
+                    }
+
+                    if (i > 0) {
+                        ((ReliabilityInstance) history.get(i)).setRecentOldReliability(
+                                ((ReliabilityInstance) history.get(i - 1)).getRecentNewReliability());
+                        ((ReliabilityInstance) history.get(i)).setOldReliability(
+                                ((ReliabilityInstance) history.get(i - 1)).getNewReliability());
+                    }
+                    ((ReliabilityInstance) history.get(i)).setRecentNewReliability(newRel);
+                    ((ReliabilityInstance) history.get(i)).setNewReliability(fullNewRel);
+
+                    //System.out.println(history.get(i).toString());
+                }
+
+            } finally {
+                close(rs);
+                close(ps);
+            }
+
+        }
+
+        Iterator getHistory() {
+            return history.iterator();
+        }
+    }
+
+    private class ReliabilityInstance {
+        private long projectId = 0;
+        private long userId = 0;
+        private boolean reliable = false;
+        private boolean afterStart = false;
+        private double oldReliability = 0.0d;
+        private double newReliability = 0.0d;
+        private double recentOldReliability = 0.0d;
+        private double recentNewReliability = 0.0d;
+        private boolean first = false;
+
+
+        private ReliabilityInstance(long projectId, long userId, boolean reliable, boolean afterStart) {
+            this.projectId = projectId;
+            this.userId = userId;
+            this.reliable = reliable;
+            this.afterStart = afterStart;
+        }
+
+        public long getProjectId() {
+            return projectId;
+        }
+
+        public long getUserId() {
+            return userId;
+        }
+
+        public boolean isReliable() {
+            return reliable;
+        }
+
+        public boolean isAfterStart() {
+            return afterStart;
+        }
+
+        public double getOldReliability() {
+            return oldReliability;
+        }
+
+        public void setOldReliability(double oldReliability) {
+            this.oldReliability = oldReliability;
+        }
+
+        public double getRecentNewReliability() {
+            return recentNewReliability;
+        }
+
+        public void setRecentNewReliability(double recentNewReliability) {
+            this.recentNewReliability = recentNewReliability;
+        }
+
+        public double getNewReliability() {
+            return newReliability;
+        }
+
+        public void setNewReliability(double newReliability) {
+            this.newReliability = newReliability;
+        }
+
+        public double getRecentOldReliability() {
+            return recentOldReliability;
+        }
+
+        public void setRecentOldReliability(double recentOldReliability) {
+            this.recentOldReliability = recentOldReliability;
+        }
+
+        public boolean isFirst() {
+            return first;
+        }
+
+        public void setFirst(boolean first) {
+            this.first = first;
+        }
+
+        public String toString() {
+            StringBuffer buf = new StringBuffer(1000);
+            buf.append(projectId);
+            buf.append(" ");
+            buf.append(userId);
+            buf.append(" ");
+            buf.append(reliable);
+            buf.append(" ");
+            buf.append(afterStart);
+            buf.append(" ");
+            buf.append(oldReliability);
+            buf.append(" ");
+            buf.append(newReliability);
+            buf.append(" ");
+            buf.append(recentOldReliability);
+            buf.append(" ");
+            buf.append(recentNewReliability);
+            buf.append(" ");
+            buf.append(first);
+            return buf.toString();
+
+
+        }
+
+    }
+
+    private static final String oldReliabilityData =
+            " select pr.reliable_submission_ind" +
+            " , ci.create_time" +
+            " , pr.project_id" +
+            " from project_result pr" +
+            " , component_inquiry ci" +
+            " , phase_instance pi" +
+            " where ci.project_id = pr.project_id" +
+            " and pr.user_id = ci.user_id" +
+            " and pr.user_id = ?" +
+            " and pi.phase_id = 1" +
+            " and pi.cur_version = 1" +
+            " and pi.start_date < ?" +
+            " and pi.project_id = pr.project_id" +
+            " and pr.reliability_ind = 1" +
+            " and pr.reliable_submission_ind is not null" +
+            " order by ci.create_time asc";
+
+    private static final String oldReliabilityUsers =
+            " select distinct pr.user_id" +
+            " from project_result pr" +
+            " , phase_instance pi" +
+            " where pi.phase_id = 1" +
+            " and pi.cur_version = 1" +
+            " and pi.start_date < ?" +
+            " and pi.project_id = pr.project_id" +
+            " and pr.reliable_submission_ind is not null" +
+            " and pr.reliability_ind = 1";
+
+    /**
+     * this can be sped up if there is a speed issue.  we'll need to trim what is gettig updated
+     * there is no reason to update all this old data repeatedly.
+     * @param conn
+     * @return
+     * @throws SQLException
+     */
+    public int updateOldProjectResult(Connection conn) throws SQLException {
+        int ret = 0;
+        PreparedStatement ps = null;
+        PreparedStatement ps2 = null;
+        PreparedStatement ps3 = null;
+        ResultSet rs = null;
+        ResultSet rs3 = null;
+
+        try {
+
+            ps = conn.prepareStatement(oldReliabilityData);
+            ps2 = conn.prepareStatement(updateProjectResult);
+            ps3 = conn.prepareStatement(oldReliabilityUsers);
+            ps3.setDate(1, START_DATE);
+            rs3 = ps3.executeQuery();
+            long userId = 0;
+            while (rs3.next()) {
+                try {
+                    userId = rs3.getLong("user_id");
+                    ps.clearParameters();
+                    ps.setLong(1, userId);
+                    ps.setDate(2, START_DATE);
+                    rs = ps.executeQuery();
+                    int projectCount = 0;
+                    int reliableCount = 0;
+                    double oldReliability = 0.0d;
+                    double newReliability = 0.0d;
+                    while (rs.next()) {
+                        projectCount++;
+                        reliableCount += rs.getInt("reliable_submission_ind");
+                        oldReliability = newReliability;
+                        newReliability = (double) reliableCount / (double) projectCount;
+                        ps2.clearParameters();
+                        //if it's their first project,then old is null
+                        if (projectCount > 1) {
+                            ps2.setDouble(1, oldReliability);
+                        } else {
+                            ps2.setNull(1, Types.DOUBLE);
+                        }
+                        ps2.setDouble(2, newReliability);
+                        ps2.setLong(3, rs.getLong("project_id"));
+                        ps2.setLong(4, userId);
+                        ret += ps2.executeUpdate();
+                    }
+                } finally {
+                    close(rs);
+                }
+            }
+        } finally {
+            close(rs3);
+            close(ps);
+            close(ps2);
+            close(ps3);
+        }
+
+        return ret;
+    }
+
+
+    /**
+     * this first query is for projects before our reliability rule change.
+     * in this case, anyone that has made a submission where reliabilty was in effect
+     * will have a reliability rating.  the second query is for the new way.
+     * in this case, anyone that has scored over the minimum review
+     * score will be included.
+     *
+     * this is the list of people that will have a reliability rating in user_reliability
+     * that may not be the same list as the list of people who have a non-empty reliability
+     * history.  if people submitted prior to the new rules and were not successful, those
+     * submissions will count against them the next time they submit.
+     */
+    private static final String includedUsers =
+            " select pr.user_id" +
+            " from project_result pr" +
+            " , phase_instance pi" +
+            " , project p" +
+            " where pr.project_id = pi.project_id" +
+            " and pi.phase_id = 1" +
+            " and pi.cur_version = 1" +
+            " and pi.start_date < ?" +
+            " and pr.reliability_ind = 1" +
+            " and pr.project_id = p.project_id" +
+            " and p.cur_version = 1" +
+            " and p.project_type_id+111=?" +
+            " union" +
+            " select pr.user_id" +
+            " from project_result pr" +
+            " , phase_instance pi" +
+            " , project p" +
+            " where pr.project_id = pi.project_id" +
+            " and pi.phase_id = 1" +
+            " and pi.cur_version = 1" +
+            " and pi.start_date >= ?" +
+            " and pr.reliability_ind = 1" +
+            " and pr.final_score >= ?" +
+            " and pr.project_id = p.project_id" +
+            " and p.cur_version = 1" +
+            " and p.project_type_id+111=?";
+
+    private Set getIncludedUsers(Connection conn, long phaseId) throws SQLException {
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        HashSet ret = new HashSet();
+
+        try {
+
+            ps = conn.prepareStatement(includedUsers);
+            ps.setDate(1, START_DATE);
+            ps.setLong(2, phaseId);
+            ps.setDate(3, START_DATE);
+            ps.setInt(4, MIN_PASSING_SCORE);
+            ps.setLong(5, phaseId);
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                if (!ratings.containsKey("" + rs.getLong("user_id"))) {
-                    rating r = new rating(rs.getLong("user_id"), 0, 0);
-                    ratings.put("" + rs.getLong("user_id"), r);
-                }
-
-                rating r = (rating) ratings.get("" + rs.getLong("user_id"));
-
-                double oldRating = r.reliability();
-
-                if (rs.getLong("valid_submission_ind") == 1) {
-                    r.successful++;
-                }
-                r.num_components++;
-
-                //update record
-                sqlStr = "UPDATE project_result SET old_reliability = ?, new_reliability = ? ";
-                sqlStr += " WHERE project_id = ? and user_id = ? ";
-
-                ps2 = conn.prepareStatement(sqlStr);
-                if (oldRating == -1) {
-                    ps2.setNull(1, Types.DOUBLE);
-                } else
-                    ps2.setDouble(1, oldRating);
-                ps2.setDouble(2, r.reliability());
-                ps2.setLong(3, rs.getLong("project_id"));
-                ps2.setLong(4, rs.getLong("user_id"));
-
-                ps2.execute();
-                ps2.close();
-                ps2 = null;
-
-                //reflect changes
-                ratings.put("" + rs.getLong("user_id"), r);
+                ret.add(new Long(rs.getLong("user_id")));
             }
-
-            rs.close();
-            rs = null;
-            ps.close();
-            ps = null;
-
-            //commit final ratings to DB
-            Object[] vals = ratings.values().toArray();
-            for (i = 0; i < vals.length; i++) {
-                rating r = (rating) vals[i];
-
-                System.out.println("FINAL RELIABILITY FOR " + r.user_id + ": " + r.successful + "/" + r.num_components + " = " + r.reliability());
-
-                sqlStr = "UPDATE user_reliability set rating = ?";
-                sqlStr += " where user_id = ?";
-
-                ps = conn.prepareStatement(sqlStr);
-                ps.setDouble(1, r.reliability());
-                ps.setLong(2, r.user_id);
-
-                int retVal = ps.executeUpdate();
-
-                ps.close();
-                ps = null;
-
-                if (retVal == 0) {
-                    sqlStr = "INSERT INTO user_reliability (user_id, rating, modify_date, create_date) ";
-                    sqlStr += " values (?, ?, CURRENT, CURRENT )";
-                    ps = conn.prepareStatement(sqlStr);
-                    ps.setLong(1, r.user_id);
-                    ps.setDouble(2, r.reliability());
-
-                    ps.execute();
-
-                    ps.close();
-                    ps = null;
-                }
-            }
-        } catch (SQLException sqe) {
-            sqe.printStackTrace();
-        } catch (Exception sqe) {
-            sqe.printStackTrace();
         } finally {
-            if (rs != null)
-                try {
-                    rs.close();
-                } catch (Exception e) {
-                    System.err.println("could not close");
-                }
-            if (ps != null)
-                try {
-                    ps.close();
-                } catch (Exception e) {
-                    System.err.println("could not close");
-                }
-            if (ps2 != null)
-                try {
-                    ps2.close();
-                } catch (Exception e) {
-                    System.err.println("could not close");
-                }
-            ps2 = null;
-            ps = null;
-            rs = null;
+            close(rs);
+            close(ps);
+        }
+        return ret;
+    }
+
+
+    private static final String getNewRecordsToMark =
+            " select pr.user_id" +
+            " , pr.project_id" +
+            " , pr.final_score" +
+            " from project_result pr" +
+            " , phase_instance pi" +
+            " where pr.project_id = pi.project_id" +
+            " and pi.phase_id = 1" +
+            " and pi.cur_version = 1" +
+            " and pi.start_date >= ?" +
+            " and pr.reliability_ind = 1" +
+            " and pr.final_score is not null" +
+            " and pr.reliable_submission_ind is null";
+
+    private static final String updateReliableSubmission =
+            "update project_result set reliable_submission_ind = ?" +
+            "where user_id = ? and project_id = ?";
+
+    /**
+     * mark all the project result records after the change date
+     * as reliable or not reliable as appropriate.
+     *
+     * that means mark everyone that did a project that started
+     * after the change date, that has a final score populated
+     * that is greater than or equal to the min reliability score,
+     * that should be included inthe calc (reliability_ind)
+     * and has reliable_submission_ind flag that is null set the
+     * reliable_submission_ind flag to 1.  if the record
+     * meets three of those criteria but scores less than the min
+     * reliable score, then set to 0.
+     * @return the number of records marked
+     */
+    private int markNewReliableResults(Connection conn) throws SQLException {
+        PreparedStatement ps = null;
+        PreparedStatement ps2 = null;
+        ResultSet rs = null;
+        int ret = 0;
+        try {
+
+            ps = conn.prepareStatement(getNewRecordsToMark);
+            ps2 = conn.prepareStatement(updateReliableSubmission);
+            ps.setDate(1, START_DATE);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                ps2.clearParameters();
+                ps2.setInt(1, Double.compare(rs.getDouble("final_score"), MIN_RELIABLE_SCORE) < 0 ? 0 : 1);
+                ps2.setLong(2, rs.getLong("user_id"));
+                ps2.setLong(3, rs.getLong("project_id"));
+                ret += ps2.executeUpdate();
+            }
+
+        } finally {
+            close(rs);
+            close(ps);
+            close(ps2);
+        }
+        return ret;
+
+    }
+
+    private static final String getOldRecordsToMark =
+            " select pr.user_id" +
+            " , pr.project_id" +
+            " , pr.valid_submission_ind" +
+            " from project_result pr" +
+            " , phase_instance pi" +
+            " where pr.project_id = pi.project_id" +
+            " and pi.phase_id = 1" +
+            " and pi.cur_version = 1" +
+            " and pi.start_date < ?" +
+            " and pr.reliability_ind = 1" +
+            " and pr.reliable_submission_ind is null";
+
+    /**
+     * mark all the project result records before the change date
+     * as reliable or not reliable as appropriate.
+     *
+     * that means mark everyone that did a project that started
+     * before the change date that should be included in the calculation
+     * to 1 if it's a valid submission and 0 if not.
+     * @return the number of records marks
+     * @param conn
+     */
+    private int markOldReliableResults(Connection conn) throws SQLException {
+        PreparedStatement ps = null;
+        PreparedStatement ps2 = null;
+        ResultSet rs = null;
+        int ret = 0;
+        try {
+
+            ps = conn.prepareStatement(getOldRecordsToMark);
+            ps2 = conn.prepareStatement(updateReliableSubmission);
+            ps.setDate(1, START_DATE);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                ps2.clearParameters();
+                ps2.setInt(1, rs.getInt("valid_submission_ind"));
+                ps2.setLong(2, rs.getLong("user_id"));
+                ps2.setLong(3, rs.getLong("project_id"));
+                ret += ps2.executeUpdate();
+            }
+        } finally {
+            close(rs);
+            close(ps);
+            close(ps2);
+        }
+        return ret;
+
+    }
+
+    private static Date getDate(int year, int month, int day, int hour, int minute) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, year);
+        cal.set(Calendar.MONTH, month);
+        cal.set(Calendar.DAY_OF_MONTH, day);
+        cal.set(Calendar.HOUR_OF_DAY, hour);
+        cal.set(Calendar.MINUTE, minute);
+        return new Date(cal.getTime().getTime());
+    }
+
+
+    protected void close(ResultSet rs) {
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (Exception ignore) {
+                ignore.printStackTrace();
+            }
+        }
+    }
+
+    protected void close(Connection conn) {
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (Exception ignore) {
+                ignore.printStackTrace();
+            }
         }
 
     }
 
-    private class rating {
-        public long user_id;
-        public int successful;
-        public int num_components;
-
-        public rating(long user_id, int successful, int num_components) {
-            this.user_id = user_id;
-            this.successful = successful;
-            this.num_components = num_components;
+    protected void close(Context ctx) {
+        if (ctx != null) {
+            try {
+                ctx.close();
+            } catch (Exception ignore) {
+                ignore.printStackTrace();
+            }
         }
 
-        public double reliability() {
-            if (num_components == 0)
-                return -1;
-            else
-                return (double) successful / (double) num_components;
-        }
     }
+
+    protected void close(PreparedStatement ps) {
+        if (ps != null) {
+            try {
+                ps.close();
+            } catch (Exception ignore) {
+                ignore.printStackTrace();
+            }
+        }
+
+    }
+
+
 }

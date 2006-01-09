@@ -52,7 +52,7 @@ public class UpdateSession extends BaseSessionProcessor {
                     return;
                 }
 
-                TestSessionInfo info = getSessionInfo();
+                TestSessionInfo info = getTestSessionInfo();
                 SessionHome sHome = (SessionHome)
                         PortableRemoteObject.narrow(
                                 getInitialContext().lookup(SessionHome.class.getName()),

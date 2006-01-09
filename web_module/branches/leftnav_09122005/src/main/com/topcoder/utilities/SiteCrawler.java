@@ -19,9 +19,8 @@ public class SiteCrawler {
     private static Queue requestQueue = new Queue();
     private static Set visited = Collections.synchronizedSet(new HashSet());
 
-    private static String start = "www.topcoder.com";
+    private static String start = "www.dev.topcoder.com";
 
-    private static final int THREAD_COUNT = 1;
     private static WebConversation client = new WebConversation();
 
     public static void main(String[] args) {
@@ -33,9 +32,7 @@ public class SiteCrawler {
 
         new StatusThread().start();
 
-        for (int i = 0; i < THREAD_COUNT; i++) {
-            new RequestProcessor().start();
-        }
+        new RequestProcessor().start();
     }
 
     private static void addRequest(String link) {
@@ -43,33 +40,19 @@ public class SiteCrawler {
 
         if (!visited.contains(link)
                 && link.startsWith("http://"+start)) {
-            synchronized(requestQueue) {
-                while (true) {
                     if (requestQueue.size()<10000000&&!requestQueue.contains(link)) {
                         requestQueue.add(link);
-                        break;
-                    } else {
-                        try {
-                            requestQueue.wait();
-                        } catch (InterruptedException e) {
-
-                        }
-                    }
                 }
-            }
         }
     }
 
     private static WebRequest popRequest() {
         WebRequest o = null;
-        synchronized(requestQueue) {
             if (!requestQueue.isEmpty()) {
                 String s = (String)requestQueue.pop();
                 //log.debug("pop " + s);
                 o = new GetMethodWebRequest(s);
-                requestQueue.notifyAll();
             }
-        }
         return o;
     }
 
@@ -94,15 +77,13 @@ public class SiteCrawler {
     private static class RequestProcessor extends Thread {
         public void run() {
             WebRequest curr = null;
-            while (!interrupted()) {
+            while (requestQueue.size()>0) {
                 try {
                     curr = popRequest();
                     if (curr != null) {
                         try {
                             WebResponse resp = null;
-                            synchronized(client) {
-                                resp = client.sendRequest(curr);
-                            }
+                            resp = client.sendRequest(curr);
                             if (resp.getContentType().equals("text/html")) {
                                 WebLink[] pageLinks = resp.getLinks();
                                 for (int i = 0; i < pageLinks.length; i++) {
@@ -110,13 +91,11 @@ public class SiteCrawler {
                                 }
                                 pageLinks = null;
                             }
-                            synchronized (visited) {
                                 if (!visited.contains(curr.getURL().toString())) {
                                     visited.add(curr.getURL().toString());
                                 } else {
                                     //log.debug("skip " + curr.getURL().toString());
                                 }
-                            }
                         } catch (HttpException e) {
                             log.error(curr.getURL() + " failed with " + e.getResponseCode());
                         }

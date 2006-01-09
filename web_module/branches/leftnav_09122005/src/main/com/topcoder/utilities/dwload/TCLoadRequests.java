@@ -351,22 +351,35 @@ public class TCLoadRequests extends TCLoad {
     private long getSessionId(String sessionId) throws Exception {
         //log.debug("called getSessionId() " + sessionId);
         long ret = 0;
+
         if (sessionMap.containsKey(sessionId)) {
             ret = ((Long) sessionMap.get(sessionId)).longValue();
         } else {
             //look it up and see if it's in the db
-            InitialContext ctx = TCContext.getInitial();
-            if (!IdGenerator.isInitialized()) {
-                IdGenerator.init(
-                        new SimpleDB(),
-                        (DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME),
-                        "sequence_object",
-                        "name",
-                        "current_value",
-                        9999999999L,
-                        1,
-                        false
-                );
+            InitialContext ctx = null;
+            try {
+                ctx = TCContext.getInitial();
+                if (!IdGenerator.isInitialized()) {
+                    IdGenerator.init(
+                            new SimpleDB(),
+                            (DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME),
+                            "sequence_object",
+                            "name",
+                            "current_value",
+                            9999999999L,
+                            1,
+                            false
+                    );
+                }
+            } finally {
+                if (ctx!=null) {
+                    try {
+                        ctx.close();
+                    } catch (Exception ignore) {
+
+                    }
+                }
+                
             }
             ret = IdGenerator.nextId("HTTP_SESSION_SEQ");
             sessionMap.put(sessionId, new Long(ret));

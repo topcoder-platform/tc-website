@@ -2093,12 +2093,12 @@ public class ProjectTrackerBean implements SessionBean {
             rs = null;
             ps = null;
 
+/*
             ps = conn.prepareStatement(
                     "SELECT rating from user_reliability where user_id = ?");
             ps.setLong(1, userId);
             rs = ps.executeQuery();
 
-            double old_reliability;
             if (rs.next()) {
                 old_reliability = rs.getDouble(1);
             } else {
@@ -2108,6 +2108,7 @@ public class ProjectTrackerBean implements SessionBean {
             Common.close(ps);
             rs = null;
             ps = null;
+*/
 
             ps = conn.prepareStatement(
                     "SELECT rating from user_rating where user_id = ? and phase_id = " +
@@ -2130,8 +2131,8 @@ public class ProjectTrackerBean implements SessionBean {
 
             ps = conn.prepareStatement(
                     "INSERT INTO project_result " +
-                    "(project_id, user_id, rating_ind, valid_submission_ind, reliability_ind, old_reliability, old_rating) " +
-                    "values (?, ?, ?, ?, ?, ?, ?)"
+                    "(project_id, user_id, rating_ind, valid_submission_ind, reliability_ind, old_rating) " +
+                    "values (?, ?, ?, ?, ?, ?)"
             );
 
             ps.setLong(1, projectId);
@@ -2139,8 +2140,7 @@ public class ProjectTrackerBean implements SessionBean {
             ps.setLong(3, 0);
             ps.setLong(4, 0);
             ps.setLong(5, 0);
-            ps.setDouble(6, old_reliability);
-            ps.setDouble(7, old_rating);
+            ps.setDouble(6, old_rating);
 
             ps.execute();
 

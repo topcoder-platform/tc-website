@@ -10,6 +10,7 @@ import com.topcoder.web.common.security.WebAuthentication;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.rmi.PortableRemoteObject;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -140,7 +141,7 @@ public abstract class BaseProcessor implements RequestProcessor {
 
     /**
      * Returns true iff the user has an active logged in session.
-     * @return
+     * @return boolean
      */
     protected boolean userLoggedIn() {
         return !auth.getUser().isAnonymous();
@@ -149,7 +150,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     /**
      * Returns true iff we can identify the user.  Basically, if the user
      * has a cookie, or an active logged in session.
-     * @return
+     * @return boolean
      */
     protected boolean userIdentified() {
         return !auth.getActiveUser().isAnonymous();
@@ -243,8 +244,27 @@ public abstract class BaseProcessor implements RequestProcessor {
      */
     public static Object createEJB(InitialContext ctx, Class remoteclass) throws NamingException, Exception {
         Object remotehome = ctx.lookup(remoteclass.getName() + "Home");
-        Method createmethod = remotehome.getClass().getMethod("create", null);
+        Method createmethod = PortableRemoteObject.narrow(remotehome,
+                remotehome.getClass()).getClass().getMethod("create", null);
         return createmethod.invoke(remotehome, null);
+    }
+
+    /**
+     * Get a local instance of the specified EJB.
+     * Assumes the home class will have the same name plus "Home".
+     *
+     * @param ctx the IntialContext to use on the lookup
+     * @param c The class of the interface which should be returned.
+     * @throws NamingException if we can't find the get context
+     * @throws Exception if something goes wrong when creating or calling
+     * the method on the ejb.
+     *
+     */
+    public static Object createLocalEJB(InitialContext ctx, Class c) throws NamingException, Exception {
+        Object home = ctx.lookup(c.getName() + "LocalHome");
+        Method createmethod = PortableRemoteObject.narrow(home,
+                home.getClass()).getClass().getMethod("create", null);
+        return createmethod.invoke(home, null);
     }
 
     public static void close(Context ctx) {
@@ -255,6 +275,10 @@ public abstract class BaseProcessor implements RequestProcessor {
                 log.error("couldn't close context");
             }
         }
+    }
+
+    protected SessionInfo getSessionInfo() {
+        return (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
     }
 
 

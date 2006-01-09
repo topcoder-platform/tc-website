@@ -64,7 +64,7 @@
                   <td class=tableHeader>Test Status</td>
                   <td class=tableHeader align=right>Time Available</td>
                </tr>
-               <tc-webtag:listIterator id="problem" list="problemSets">
+               <tc-webtag:listIterator id="problem" listKey="problemSets">
                    <tr>
                       <td class=tableTextOdd><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_PROBLEM_SET%>&<%=Constants.PROBLEM_TYPE_ID%>=<jsp:getProperty name="problem" property="typeId"/>" target="_top"><img src="/i/corp/screening/buttonEnter.gif" alt="" /></a></td>
                       <td class=tableTextOdd><jsp:getProperty name="problem" property="name"/></td>

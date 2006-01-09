@@ -149,7 +149,8 @@ public class HandleTag extends TagSupport {
 
             pageContext.getOut().print(output.toString());
         } catch (Exception e) {
-            throw new JspException(e.getMessage());
+            log.error("on coder id " + coderId);
+            throw new JspException(e);
         }
         return SKIP_BODY;
     }
