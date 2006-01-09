@@ -53,8 +53,7 @@
                 </p>
                 <!-- ends -->
 
-                </p>
-                <p align="center">Click <A href="">here</A> to register for the TopCoder College Tour event at your school.</p>
+                <p>Click <A href="">here</A> to register for the TopCoder College Tour event at your school.</p>
 
 
             </div>
