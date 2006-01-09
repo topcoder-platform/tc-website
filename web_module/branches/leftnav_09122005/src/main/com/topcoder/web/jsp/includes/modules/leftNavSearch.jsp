@@ -1,4 +1,6 @@
 <%@ page import="com.topcoder.web.common.WebConstants, com.topcoder.shared.util.ApplicationServer" %>
+
+<div id="navbarSearch">
 <b>Member Search:</b>
 <form name="simpleSearchForm" method="get" action="http://<%=ApplicationServer.SERVER_NAME%>/tc" class="noSpace">
    <input class="noSpace" type="hidden" name="module" value="SimpleSearch" />
@@ -12,3 +14,4 @@
    <br><A href="javascript:void document.simpleSearchForm.submit();">Go</A>&#160;|&#160;
    <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewAdvanced">Advanced Search</A>
 </form>
+</div>

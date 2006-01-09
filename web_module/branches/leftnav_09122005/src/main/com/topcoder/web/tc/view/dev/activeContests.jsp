@@ -11,9 +11,11 @@
 <% ResultSetContainer designContests = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("design_contests");%>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <head>
-    <title>Active Contests</title>
-
-    <jsp:include page="../script.jsp"/>
+<title>Active Contests</title>
+<jsp:include page="../script.jsp"/>
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 </head>
 
@@ -27,11 +29,9 @@
 <tr valign="top">
 <!-- Left Column Begins-->
 <td width="180">
-    <jsp:include page="../includes/global_left.jsp">
-        <jsp:param name="level1" value="development"/>
-        <jsp:param name="level2" value="components"/>
-        <jsp:param name="level3" value="comp_projects"/>
-    </jsp:include>
+   <jsp:include page="/includes/global_left.jsp">
+      <jsp:param name="node" value="component_active_contests"/>
+   </jsp:include>
 </td>
 <!-- Left Column Ends -->
 

@@ -34,7 +34,7 @@
       nav.search("m_competitions").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_comp_competitions')\" class=\"exp\">Component Competitions</a>", "m_comp_competitions"));
          nav.search("m_comp_competitions").addChild(new NavNode("", "Home", "component_home"));
          nav.search("m_comp_competitions").addChild(new NavNode("", "Active Contests", "component_active_contests"));
-         nav.search("m_comp_competitions").addChild(new NavNode("", "Review Submissions", "comp_review"));
+         nav.search("m_comp_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReviewProjects", "Review Contest Submissions", "comp_review"));
          nav.search("m_comp_competitions").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_comp_stats')\" class=\"exp\">Competition Statistics</a>", "m_comp_stats"));
             nav.search("m_comp_stats").addChild(new NavNode("", "Design Contests", "comp_des_contests"));
             nav.search("m_comp_stats").addChild(new NavNode("", "Development Contests", "comp_dev_contests"));
@@ -188,9 +188,9 @@ if ((navigator.userAgent.indexOf('MSIE') != -1) && (navigator.userAgent.indexOf(
 // -->
 </script>
 
-<div id="navbar" style="float: left; clear: left;">
+<div style="float: left; padding: 3px 0px 0px 0px;"><a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img src="/i/topcoder.jpg" alt="TopCoder" border="0" /></a></div>
+<div id="navbar">
 <nav:navBuilder navTree="tree" openClass="OPEN" selectedClass="highlight" selectedNode="<%=request.getParameter("node")%>"/>
-</div>
-
-<div style="float: left; clear: left; padding: 15px 0px 40px 15px;">
 <jsp:include page="../includes/modules/leftNavSearch.jsp"/>
+</div>
+<div style="float: left; padding: 0px 0px 3px 0px;"><img src="/i/interface/leftnav_bottom.gif" alt="" /></div>

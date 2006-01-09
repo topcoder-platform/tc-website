@@ -23,10 +23,10 @@
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
     <tr>
         <td class=homeTopBar>
-		<span class="time">Current Member Count</span>&#160;:&#160;<%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%> -
-		<span class="time"><jsp:include page="date_time.jsp" /></span>
-		<a href="Javascript:tcTime()" class="time">&#160;<strong>[Get Time]</strong></a>
-		</td>
+      <span class="time">Current Member Count</span>&#160;:&#160;<%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%> -
+      <span class="time"><jsp:include page="date_time.jsp" /></span>
+      <a href="Javascript:tcTime()" class="time">&#160;<strong>[Get Time]</strong></a>
+      </td>
 
         <td class=homeTopBar width="100%" align=right valign="bottom">
 <% if ( !sessionInfo.isAnonymous() ) { %>
@@ -51,16 +51,15 @@
 </table>
 
 <!-- Logo Bar Include Begins -->
+
+<%--
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
     <tr>
 <% if (level1.equals("development")) {%>
         <td class=homeLogo><a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img src="/i/logo.gif" border="0"/></a></td>
 <% } else { %>
-		<td class=homeLogo><a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img src="/i/logo_r.gif" border="0"/></a></td>
+      <td class=homeLogo><a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img src="/i/logo_r.gif" border="0"/></a></td>
 <% } %>
     </tr>
 </table>
-
-<jsp:include page="menu.jsp">
-    <jsp:param name="level1" value="<%=level1%>"/>
-</jsp:include>
+--%>
