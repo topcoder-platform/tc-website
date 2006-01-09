@@ -48,7 +48,7 @@
                 <p align="center">
                     Overview&#160;&#160;|&#160;&#160;
                     <A href="/tc?module=CollegeTourInfo&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Instructions</A>&#160;&#160;|&#160;&#160;
-                    <a href="/tc?module=Static&amp;d1=collegetour&amp;d2=confirm&amp;<%=Constants.FORUM_ID%>=<%=request.getAttribute(Constants.FORUM_ID)%>&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Registrations</A>&#160;&#160;|&#160;&#160;
+                    <a href="/tc?module=Static&amp;d1=collegetour&amp;d2=confirm&amp;<%=Constants.FORUM_ID%>=<%=request.getAttribute(Constants.FORUM_ID)%>&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Registration</A>&#160;&#160;|&#160;&#160;
                     <a href="/tc?module=CollegeTourRegistrants&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Registrants</A>&#160;&#160;|&#160;&#160;
                     <% if (request.getAttribute(Constants.FORUM_ID)!=null) {%>
                     <tc-webtag:forumLink forumID="<%=Long.parseLong((String)request.getAttribute(Constants.FORUM_ID))%>" message="Discuss College Tour"/>
