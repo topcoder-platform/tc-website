@@ -3,12 +3,15 @@ package com.topcoder.web.privatelabel.controller.request;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
+import com.topcoder.web.ejb.user.User;
 
 import java.util.StringTokenizer;
+import java.util.Locale;
 
 /**
  * Provides some basic functionality for the different processors
@@ -23,6 +26,7 @@ public abstract class SimpleRegBase extends RegistrationBase {
     protected abstract void setNextPage();
 
     protected void setDefaults(SimpleRegInfo info) {
+        log.debug("setting defaults");
         setDefault(Constants.HANDLE, info.getHandle());
         setDefault(Constants.PASSWORD, info.getPassword());
         setDefault(Constants.PASSWORD_CONFIRM, info.getPasswordConfirm());
@@ -40,6 +44,7 @@ public abstract class SimpleRegBase extends RegistrationBase {
         setDefault(Constants.CITY, info.getCity());
         setDefault(Constants.ZIP, info.getZip());
         setDefault(Constants.PHONE_NUMBER, info.getPhoneNumber());
+        setDefault(Constants.LOCALE, getLocale().getLanguage());
     }
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
@@ -89,7 +94,6 @@ public abstract class SimpleRegBase extends RegistrationBase {
             info.setEventId(Long.parseLong(StringUtils.checkNull(getRequestParameter(Constants.EVENT_ID))));
         if (hasRequestParameter(Constants.PHONE_NUMBER))
             info.setPhoneNumber(StringUtils.checkNull(getRequestParameter(Constants.PHONE_NUMBER)));
-
         return info;
     }
 
@@ -98,16 +102,14 @@ public abstract class SimpleRegBase extends RegistrationBase {
         //check handle
         if (info.getHandle().length() > Constants.MAX_HANDLE_LENGTH ||
                 info.getHandle().length() < Constants.MIN_HANDLE_LENGTH) {
-            addError(Constants.HANDLE, "Your handle must contain between " +
-                    Constants.MIN_HANDLE_LENGTH + " and " + Constants.MAX_HANDLE_LENGTH + " characters.");
+            addError(Constants.HANDLE, getBundle().getProperty("error_handle_length"));
         }
         if (!StringUtils.containsOnly(info.getHandle(), Constants.HANDLE_ALPHABET, false)) {
-            addError(Constants.HANDLE,
-                    "Please limit the characters in your handle to letter, numbers and common punctuation symbols.");
+            addError(Constants.HANDLE, getBundle().getProperty("error_handle_chars"));
         }
         try {
             if (info.isNew() && userExists(info.getHandle())) {
-                addError(Constants.HANDLE, "Please choose another handle.");
+                addError(Constants.HANDLE, getBundle().getProperty("error_dup_handle"));
             }
         } catch (Exception e) {
             throw new TCWebException(e);
@@ -116,43 +118,41 @@ public abstract class SimpleRegBase extends RegistrationBase {
         //check password
         if (info.getPassword().length() > Constants.MAX_PASSWORD_LENGTH ||
                 info.getPassword().length() < Constants.MIN_PASSWORD_LENGTH) {
-            addError(Constants.PASSWORD, "Your password must contain between " +
-                    Constants.MIN_PASSWORD_LENGTH + " and " + Constants.MAX_PASSWORD_LENGTH + " characters.");
+            addError(Constants.PASSWORD, getBundle().getProperty("error_password_length"));
         }
         if (!info.getPassword().equals(info.getPasswordConfirm())) {
-            addError(Constants.PASSWORD_CONFIRM, "Please be sure password and password confirmation match.");
+            addError(Constants.PASSWORD_CONFIRM, getBundle().getProperty("error_password_mismatch"));
         }
 
         //check email
         if (info.getEmail().length() > Constants.MAX_EMAIL_LENGTH) {
-            addError(Constants.EMAIL, "Your email must be between at most " +
-                    Constants.MAX_EMAIL_LENGTH + " characters.");
+            addError(Constants.EMAIL, getBundle().getProperty("error_email_length"));
         }
         StringTokenizer st = new StringTokenizer(info.getEmail(), "@.");
         if (st.countTokens() < 3
                 || !StringUtils.contains(info.getEmail(), '@')
                 || !StringUtils.contains(info.getEmail(), '.')) {
-            addError(Constants.EMAIL, "Please enter a valid email address.");
+            addError(Constants.EMAIL, getBundle().getProperty("error_invalid_email"));
         }
         if (!info.getEmail().equals(info.getEmailConfirm())) {
-            addError(Constants.EMAIL_CONFIRM, "Please be sure email and email confirmation match.");
+            addError(Constants.EMAIL_CONFIRM, getBundle().getProperty("error_email_mismatch"));
         }
 
         //check first name
         if (info.getFirstName().length() < 1) {
-            addError(Constants.FIRST_NAME, "Please enter your first name.");
+            addError(Constants.FIRST_NAME, getBundle().getProperty("error_enter_first_name"));
         }
 
         //nothing for middle name
 
         //check last name
         if (info.getLastName().length() < 1) {
-            addError(Constants.LAST_NAME, "Please enter your last name.");
+            addError(Constants.LAST_NAME, getBundle().getProperty("error_enter_last_name"));
         }
 
         //check address1
         if (info.getAddress1().length() < 1) {
-            addError(Constants.ADDRESS1, "Please enter your address.");
+            addError(Constants.ADDRESS1, getBundle().getProperty("error_enter_address"));
         }
 
         //nothing to check for address2
@@ -161,13 +161,13 @@ public abstract class SimpleRegBase extends RegistrationBase {
 
         //check country code
         if (info.getCountryCode().trim().length() == 0 || findCountry(info.getCountryCode()) == null) {
-            addError(Constants.COUNTRY_CODE, "Please chooose a country from the list.");
+            addError(Constants.COUNTRY_CODE, getBundle().getProperty("error_enter_country"));
         }
 
         //state code
         if (info.getCountryCode().equals("840")) {
             if (info.getStateCode().trim().length() == 0 || findState(info.getStateCode()) == null) {
-                addError(Constants.STATE_CODE, "Please chooose a state from the list.");
+                addError(Constants.STATE_CODE, getBundle().getProperty("error_enter_state"));
             }
         }
 
@@ -175,22 +175,27 @@ public abstract class SimpleRegBase extends RegistrationBase {
 
         //city
         if (info.getCity().length() < 1) {
-            addError(Constants.CITY, "Please enter your city.");
+            addError(Constants.CITY, getBundle().getProperty("error_enter_city"));
         }
         //zip
         if (info.getZip().length() != 0 && info.getZip().length() < 4) {
-            addError(Constants.ZIP, "Please enter your zip code.");
+            addError(Constants.ZIP, getBundle().getProperty("error_enter_zip"));
         }
     }
 
 
     protected boolean userExists(String handle) throws Exception {
+/*
         Request r = new Request();
         r.setContentHandle("user exists");
         r.setProperty("hn", handle);
 
         ResultSetContainer rsc = (ResultSetContainer) getDataAccess(db).getData(r).get("user exists");
-        return !rsc.isEmpty();
+        ResultSetContainer rsc1 = (ResultSetContainer) getDataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).get("user exists");
+        return !rsc.isEmpty() || !rsc1.isEmpty();
+*/
+        User user = (User)createEJB(getInitialContext(), User.class);
+        return user.userExists(handle, db) || user.userExists(handle, DBMS.OLTP_DATASOURCE_NAME);
 
     }
 

@@ -188,13 +188,9 @@ if ((navigator.userAgent.indexOf('MSIE') != -1) && (navigator.userAgent.indexOf(
 // -->
 </script>
 
-
-
-
 <div id="navbar" style="float: left; clear: left;">
 <nav:navBuilder navTree="tree" openClass="OPEN" selectedClass="highlight" selectedNode="<%=request.getParameter("node")%>"/>
 </div>
 
 <div style="float: left; clear: left; padding: 15px 0px 40px 15px;">
 <jsp:include page="../includes/modules/leftNavSearch.jsp"/>
-</div>

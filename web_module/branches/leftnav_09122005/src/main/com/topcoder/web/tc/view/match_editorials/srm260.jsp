@@ -1,10 +1,11 @@
 <%@  page language="java"  %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Statisics</title>
+<title>TopCoder Statistics</title>
 
 <jsp:include page="../script.jsp" />
 <jsp:include page="../style.jsp">
@@ -37,6 +38,10 @@
 <jsp:param name="title" value="Match Editorial"/>
 </jsp:include>
 
+<div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
+<tc-webtag:forumLink forumID="505757" message="Discuss this match" /></div>
+<span class="bodySubtitle">SRM 260</span><br>Saturday, August 27, 2005
+<br><br>
 
 <span class="bigTitle">Match summary</span>
 
@@ -57,7 +62,9 @@ The Problems
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4746&amp;rd=7994" name="4746">IsingModel</a></b>
 </font>
-<A href="Javascript:openProblemRating(4746)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+<A href="Javascript:openProblemRating(4746)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505757" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division Two - Level One: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -111,7 +118,9 @@ Simply loop through each of the elements in the grid and check it against its ri
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4766&amp;rd=7994" name="4766">GridPointsOnCircle</a></b>
 </font>
-<A href="Javascript:openProblemRating(4766)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+<A href="Javascript:openProblemRating(4766)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505757" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -220,7 +229,9 @@ If you don't feel comfortable using floating points on such a problem, then an a
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4749&amp;rd=7994" name="4749">RollingBlock</a></b>
 </font>
-<A href="Javascript:openProblemRating(4749)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+<A href="Javascript:openProblemRating(4749)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505757" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -297,7 +308,9 @@ int dx[3][4]=       {{2,-2,0,0},{1,-1,0,0},{0,0,2,-2}}, <font color="blue">//cha
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4765&amp;rd=7994" name="4765">SlowDigitalClock</a></b>
 </font>
-<A href="Javascript:openProblemRating(4765)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+<A href="Javascript:openProblemRating(4765)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505757" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division One - Level Two: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -366,7 +379,9 @@ Finally, of special note was <b>HardCoder</b>'s performance during the challenge
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4750&amp;rd=7994" name="4750">FrogAndFly</a></b>
 </font>
-<A href="Javascript:openProblemRating(4750)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+<A href="Javascript:openProblemRating(4750)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505757" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division One - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">

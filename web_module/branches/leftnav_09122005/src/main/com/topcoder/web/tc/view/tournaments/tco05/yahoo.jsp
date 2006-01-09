@@ -18,14 +18,14 @@
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
-	<tr valign="top">
-		<td valign="top" align="center">
-		<div class="bodySpacer">
+   <tr valign="top">
+      <td valign="top" align="center">
+      <div class="bodySpacer">
             
 <div align="center"><img src="/i/tournament/tco05/yahoo_logo.gif" alt="Yahoo!" border="0" /></div>
-<p align="center"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_confirm">Apply now</A>
-&#160;&#160;|&#160;&#160;<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=504998&sortField=9&sortOrder=0">Yahoo! Employment Forum</A>
+<p align="center"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=504998&sortField=9&sortOrder=0">Yahoo! Employment Forum</A>
 &#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_chat">SRM 249 Chat Transcript</A>
+&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_chat_100105">SRM 266 Chat Transcript</A>
 </p>
 Yahoo! is excited to sponsor the TopCoder Open and support the drive, intensity and innovative spirit of TopCoder members. We know a lot about you and we’re impressed (to say the least). We hope you’ll get to know a bit about us too.
 <br><br>               
@@ -45,12 +45,10 @@ What started in 1994 as two Stanford Ph. D. students in a trailer, has quickly b
 <span class="bodySubtitle">Where do you fit in to the picture?</span>
 <br><br>
 We’re always looking ahead and need the smartest engineers in the world to drive our future. Relentless innovation, groundbreaking technology and worldwide influence are just a few of the reasons engineers love working at Yahoo!. (The free coffee, game room breaks and jeans-and-t-shirt atmosphere don’t hurt either.)
-<br><br>               
-If you are interested in joining some of the brightest minds on the Web, <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_confirm">apply now</A>.
 
 
         </div>
-		</td>
+      </td>
         
          
 <!-- Right Column-->
@@ -59,12 +57,12 @@ If you are interested in joining some of the brightest minds on the Web, <A href
             <jsp:param name="level1" value="tco05"/>
             </jsp:include>
          </td>
-		
-	</tr>
-	
+      
+   </tr>
+   
 </table>
-	
-	
+   
+   
 
 
 <jsp:include page="../../foot.jsp" />

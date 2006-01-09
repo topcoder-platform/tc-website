@@ -5,11 +5,26 @@
     </tr>
 </table>
 <table width="530" border="0" cellspacing="0" cellpadding="4">   
-   <tr><td class="prHead"><A href="http://www.adtmag.com/article.asp?id=11752" target="_blank">Components for SOAs and Other App Dev Projects</A> [September 6]</td></tr>
-   <tr><td class="prHead"><A href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_082405">TopCoder&#174; Announces 16 Finalists in Component Tournament of TCO05</A> [August 24]</td></tr>
-   <tr><td class="prHead"><A href="http://www.informationweek.com/story/showArticle.jhtml?articleID=166401741" target="_blank">Do Your Homework: Know Your Offshore Options</A> [July 25 - InformationWeek]</td></tr>
-   <tr><td class="prHead"><A href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_060705">Caliper Hires TCS to Enhance Platform & Services</A> [June 7]</td></tr>
-   <tr><td class="prHead"><A href="http://www.roanoke.com/business%5C24837.html" target="_blank">Geeks for Charity holds code to help New River charities</A> [June 4]</td></tr>
-   <tr><td class="prHead"><A href="http://www.topcoder.com/tc?module=Static&d1=news&d2=art_051205">Read the Wall Street Transcript's Interview with Jack Hughes</A> [April 22]</td></tr>
+
+   <tr><td class="prHead">
+         <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/forbes_logo.gif" width="67" height="23" alt="Forbes" border="0" /></div>
+         <A href="http://www.forbes.com/home/work/2005/12/09/silicon-valley-hiring-cx_rr_1212hire.html" target="_blank">Help Wanted In Silicon Valley</A> [December 12]
+   <tr><td class="prHead">
+         <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/bw_cov120205_small.jpg"  width="85" height="82" alt="BusinessWeek" border="0" /></div>
+         <A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm" target="_blank">Rise Of A Powerhouse</A> <br />
+         <b>How the young knowledge workers of Central Europe are pushing the region to a new level.</b> They came from around the world, young men with handles like SnapDragon and Bladerunner attacking computing problems so complex that even experienced coders could only stare at the screen in bewilderment.... [December 2]
+   </td></tr>
+   <tr><td class="prHead"><A href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_112105">TopCoder Payouts to Winners of Design and Development Competitions Surpass $1 Million</A> [November 21]</td></tr>
+   <tr><td class="prHead">
+         <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/ftponline_logo.gif" width="67" height="18" alt="FTPONLINE" border="0" /></div>
+         <A href="http://www.ftponline.com/weblogger/forum.aspx?ID=13&DATE=11/01/2005&blog=#449" target="_blank">Spirited Reusable Component Development</A> [November 1]
+   </td></tr>
+   <tr><td class="prHead">
+         <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/info_week_logo.gif" width="67" height="10" alt="Information Week" border="0" /></div>
+         <A href="http://www.informationweek.com/showArticle.jhtml?articleID=172901456" target="_blank">Winning Design Ways</A> [October 31]
+   </td></tr>
+   <tr><td class="prHead"><A href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_102105">TopCoder Selects Aladdin Resort in Las Vegas for TopCoder Open 2006</A> [October 21]</td></tr>
+
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
+
 </table>

@@ -34,7 +34,32 @@
             <jsp:param name="title" value="Tournaments"/>
         </jsp:include>
 
-<table border=0 cellpadding=2 cellspacing=0 width="100%">
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">12.19.05 1:45 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign">VeriSign returns as TCO06 sponsor</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">12.12.05 2:15 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">NSA returns as TCO06 event patron</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">12.05.05 10:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ccip_description">TCO06 Complete Coder Incentive Program</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">11.30.05 5:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=logo_winner">b21 is the TCO06 Logo Contest Winner!</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">11.23.05 10:00 AM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=213">Vote for the TCO06 logo</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.24.05 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=logo_overview">TCO06 Logo Design Contest</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.21.05 2:00 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_finals">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_finals">Development</A> results for the TCO05 Finals</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.14.05 8:30 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_finals_analysis">Eryx is the new Algorithm Champion</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.14.05 8:30 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_summary">nicka81 is the new Design Champion</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.14.05 8:30 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_summary">visualage is the new Development Champion</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.14.05 1:25 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room1_analysis">John Dethridge wins the WildCard Room</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.14.05 12:15 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room1_analysis">ploh wins Room 1</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.13.05 9:30 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room3_analysis">misof wins Room 3</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.13.05 7:15 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_room2_analysis">Eryx wins Room 2</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.13.05 4:10 PM&#160;-&#160</td><td width="100%">Room 1 Semifinals will be held at 7:00PM PDT</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.12.05 9:00 PM&#160;-&#160</td><td width="100%">Ryan wins the TCO05 Poker Tournament</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.07.05 4:50 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_100505">Sun chat session from SRM 267</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.04.05 5:15 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_100505">Sun chat session scheduled for SRM 267</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.29.05 6:00 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_prize_winners">TCO05 Online Component Contest Prize Winners</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.29.05 11:45 AM&#160;-&#160</td><td width="100%"><A href="/?t=sponsor&c=link&link=/pdfs/tournaments/tco05_program.pdf&refer=slashtc">TCO05 Program</A> [PDF - 10MB]</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.23.05 4:00 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_bracket">TCO05 Algorithm Semifinalists Bracket</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.19.05 5:00 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=nsa">NSA chat session scheduled for SRM 264</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.15.05 2:15 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_091405">Sun chat session from SRM 263</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.13.05 5:00 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun">Sun chat session scheduled for SRM 263</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.13.05 9:35 AM - </td><td width="100%"><A href="/tc?module=SimpleStats&c=tco05_spon_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=spon_adv_overview">AdrianKuegel wins the TCO05 Sponsor Track</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.08.05 11:00 AM - </td><td width="100%"><A href="/tc?module=SimpleStats&c=tco05_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=alg_adv_overview">TCO05 Algorithm Round 4 results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.08.05 10:45 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_090705">Sun chat session from TCO05 Algorithm Round 4</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.07.05 10:00 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_090705">Sun chat session scheduled for TCO05 Algorithm Round 4</A></td></tr>

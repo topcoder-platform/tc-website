@@ -58,13 +58,7 @@ public class CompList extends Base {
                 startRank = "1";
             }
 
-            if (sortCol.equals("")) {
-                sortCol = "3";
-            }
-
             int endRank = Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1;
-
-
 
             r.setContentHandle("comp_list");
             r.setProperty("pi", phaseId);
@@ -72,7 +66,9 @@ public class CompList extends Base {
             Map result = getDataAccess(true).getData(r);
 
             ResultSetContainer rsc = (ResultSetContainer) result.get("comp_list");
-            rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
+            if (!sortCol.equals("")) {
+                rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
+            }
 
             rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank),endRank);
 

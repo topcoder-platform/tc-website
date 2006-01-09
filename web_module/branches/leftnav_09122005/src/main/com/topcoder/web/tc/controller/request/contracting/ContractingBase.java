@@ -14,7 +14,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.MultipartRequest;
@@ -28,9 +27,10 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.ContractingInfo;
 
 import javax.naming.InitialContext;
+import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Iterator;
-import java.io.IOException;
+import java.util.StringTokenizer;
 
 
 /**
@@ -101,7 +101,7 @@ abstract public class ContractingBase extends BaseProcessor {
 
     protected final static String[] contractingPreferences = new String[]{"3", "4", "5", "6"};
     protected final static String[] permanentPreferences = new String[]{"8", "9"};
-    protected final static String[] overallPreferences = new String[]{"10", "11"};
+    protected final static String[] overallPreferences = new String[]{"10", "11", "14", "15", "16", "17", "20", "21", "22", "23"};
 
     protected boolean errorCheck() {
         if (getRequestParameter("previouspage") == null)
@@ -151,6 +151,67 @@ abstract public class ContractingBase extends BaseProcessor {
             } catch (Exception e) {
                 addError("Resume", "A resume is required.");
             }
+
+            // user must select different priorities
+            int[] priority = new int[] {21,22,23};
+            boolean[] error = new boolean[priority.length];
+            int options = 8;
+            for (int i = 0; i < priority.length; i++) {
+            	for (int j = i+1; j < priority.length; j++) {
+            		String p1 = info.getPreference(Integer.toString(priority[i]));
+            		String p2 = info.getPreference(Integer.toString(priority[j]));
+            		if (p1 == null || p2 == null) continue; // missing -- will get 'required' error
+            		int n1 = -1;
+            		int n2 = -1;
+            		try {
+						n1 = Integer.parseInt(p1);
+						n2 = Integer.parseInt(p2);
+					}
+					catch (NumberFormatException e) {
+						continue;
+					}
+            		if (Math.abs(n1-n2) % options == 0 && !error[j]) {
+            			addError(Constants.PREFERENCE_PREFIX + priority[j], "You may not select the same priority twice.");
+            			error[j] = true;
+            		}
+            	}
+            }
+
+            // user must enter a valid date for starting - id=14
+            String date = info.getPreference("14");
+            if (date != null) {
+            	boolean valid = true;
+            	int field = 0;
+            	StringTokenizer tok = new StringTokenizer(date, "/");
+            	if (tok.countTokens() == 3) {
+            		while (tok.hasMoreTokens()) {
+            			String token = tok.nextToken();
+            			try {
+							int value = Integer.parseInt(token);
+							if (field == 0) {
+								if (value < 1 || value > 12) valid = false;
+							}
+							else if (field == 1) {
+								if (value < 1 || value > 31) valid = false;
+							}
+							else if (field == 2) {
+								if (value < 1900 || value > 2100) valid = false;
+							}
+						}
+						catch (NumberFormatException e) {
+							valid = false;
+						}
+						field++;
+            		}
+            	}
+            	else {
+            		valid = false;
+            	}
+            	if (!valid) {
+            		addError(Constants.PREFERENCE_PREFIX + "14", "Please enter a valid date in the format MM/DD/YYYY.");
+            	}
+            }
+
         }
 
         if (hasErrors())
@@ -318,7 +379,7 @@ abstract public class ContractingBase extends BaseProcessor {
 
         info.setUserID(getUser().getId());
 
-        InitialContext ctx = TCContext.getInitial();
+        InitialContext ctx = getInitialContext();
         UserPreference prefbean = (UserPreference) createEJB(ctx, UserPreference.class);
 
         //load pref group list, then preferences in group

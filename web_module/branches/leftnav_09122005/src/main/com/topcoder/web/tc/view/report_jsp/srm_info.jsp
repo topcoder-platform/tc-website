@@ -7,7 +7,6 @@
 		  com.topcoder.shared.dataAccess.*,
 		  com.topcoder.shared.dataAccess.resultSet.*,
 		  com.topcoder.shared.util.TCContext,
-          ,
           com.topcoder.web.common.TCRequest,
           com.topcoder.web.common.HttpObjectFactory,
           com.topcoder.web.common.TCResponse,

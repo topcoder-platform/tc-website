@@ -6,16 +6,20 @@ package com.topcoder.web.forums.controller.request;
 import javax.naming.InitialContext;
 
 import com.jivesoftware.base.JiveConstants;
+import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
+import com.jivesoftware.forum.ForumPermissions;
 import com.jivesoftware.forum.WatchManager;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.messagehistory.MessageHistory;
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.forums.controller.ForumsUtil;
 import com.topcoder.shared.util.DBMS;
 
 /**
@@ -44,7 +48,7 @@ public class PostMessage extends ForumsProcessor {
 		String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags
             (getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
-        String textareaBody = body.replaceAll("&","&amp;");
+        String textareaBody = ForumsUtil.createTextAreaBody(body);
         
         if (postMode.equals("New")) {
             forumID = Long.parseLong(forumIDStr);
@@ -60,10 +64,10 @@ public class PostMessage extends ForumsProcessor {
             addError(ForumConstants.MESSAGE_SUBJECT, ForumConstants.ERR_POST_MODE_UNRECOGNIZED);
         }
         
-		if (subject.equals("")) {
+		if (subject.trim().equals("")) {
 			addError(ForumConstants.MESSAGE_SUBJECT, ForumConstants.ERR_EMPTY_MESSAGE_SUBJECT);
 		}
-		if (body.equals("")) {
+		if (body.trim().equals("")) {
 			addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_EMPTY_MESSAGE_BODY);
 		}
         if (subject.length() > ForumConstants.MESSAGE_SUBJECT_MAX_LENGTH) {
@@ -71,6 +75,12 @@ public class PostMessage extends ForumsProcessor {
         }
         if (body.length() > ForumConstants.MESSAGE_BODY_MAX_LENGTH) {
         	addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_LONG_MESSAGE_BODY);
+        }
+        if (thread == null && !forum.isAuthorized(ForumPermissions.CREATE_THREAD)) {
+            addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_CANNOT_POST_THREAD);
+        }
+        if (!forum.isAuthorized(ForumPermissions.CREATE_MESSAGE)) {
+            addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_CANNOT_POST_MESSAGE);
         }
 		if (hasErrors()) {
 			setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
@@ -104,9 +114,17 @@ public class PostMessage extends ForumsProcessor {
         
         // Add an edit to the revision history only if Jive recognizes that an edit has taken place
         if (postMode.equals("Edit") && message.getModificationDate().getTime() > histModificationDate) {
-            InitialContext ctx = TCContext.getInitial();
-            MessageHistory historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
-            historyBean.addEdit(message.getID(), histSubject, histBody, histModificationDate, DBMS.FORUMS_DATASOURCE_NAME);
+            InitialContext ctx = null;
+            MessageHistory historyBean = null;
+            try {
+                ctx = TCContext.getInitial();
+                historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
+                historyBean.addEdit(message.getID(), histSubject, histBody, histModificationDate, DBMS.FORUMS_DATASOURCE_NAME);
+            } catch (Exception e) {
+                Log.error(e);
+            } finally {
+                BaseProcessor.close(ctx);
+            }
         }
 
         WatchManager watchManager = forumFactory.getWatchManager();

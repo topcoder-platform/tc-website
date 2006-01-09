@@ -11,6 +11,7 @@
                  com.jivesoftware.base.User,
                  com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.ReadTracker,
+                 com.jivesoftware.forum.WatchManager,
                  com.jivesoftware.forum.action.util.Page,
                  com.jivesoftware.forum.action.util.Paginator,
                  java.util.Iterator,
@@ -27,10 +28,50 @@
 <%  User user = (User)request.getAttribute("user"); 
     ResultFilter resultFilter = (ResultFilter)request.getAttribute("resultFilter"); 
     ReadTracker readTracker = forumFactory.getReadTracker(); 
-    String trackerClass = ""; 
+    WatchManager watchManager = forumFactory.getWatchManager();
+    String trackerClass = "";
+    String sortField = (String)request.getAttribute("sortField");
+    String sortOrder = (String)request.getAttribute("sortOrder");
     
     StringBuffer linkBuffer = new StringBuffer("?module=Category");
     linkBuffer.append("&").append(ForumConstants.CATEGORY_ID).append("=").append(forumCategory.getID());
+
+    StringBuffer forumLinkBuffer = new StringBuffer(linkBuffer.toString());
+    StringBuffer dateLinkBuffer = new StringBuffer(linkBuffer.toString());
+    forumLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.FORUM_NAME);
+    dateLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.MODIFICATION_DATE);
+    if (sortField.equals(String.valueOf(JiveConstants.FORUM_NAME))) {
+        if (sortOrder.equals(String.valueOf(ResultFilter.ASCENDING))) {
+            forumLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
+        } else if (sortOrder.equals(String.valueOf(ResultFilter.DESCENDING))) {
+            forumLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+        } else {  // default
+            forumLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+        }
+    } else {  // default
+        forumLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+    }
+    if (sortField.equals(String.valueOf(JiveConstants.MODIFICATION_DATE))) {
+        if (sortOrder.equals(String.valueOf(ResultFilter.ASCENDING))) {
+            dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
+        } else if (sortOrder.equals(String.valueOf(ResultFilter.DESCENDING))) {
+            dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+        } else {  // default
+            dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
+        }
+    } else {  // default
+        dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
+    }
+    String forumLink = forumLinkBuffer.toString();
+    String dateLink = dateLinkBuffer.toString();
+
+    if (!sortField.equals("")) {
+        linkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(sortField);
+    }
+    if (!sortOrder.equals("")) {
+        linkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(sortOrder);
+    }
+    
     linkBuffer.append("&").append(ForumConstants.START_IDX).append("=");
     String link = linkBuffer.toString();
     String prevLink = linkBuffer.toString()+String.valueOf(paginator.getPreviousPageStart());
@@ -94,41 +135,42 @@
         <%  } %> 
     </tc-webtag:iterator>
     </b></td>
-	<% Page[] pages; %>
-	<% if (paginator.getNumPages() > 1) { %>
-	   <td class="rtbc" align="right"><b>
-	      <%  if (paginator.getPreviousPage()) { %>
-	         <A href="<%=prevLink%>" class="rtbcLink">
-	               << PREV</A>&#160;&#160;&#160;
-	        <%  } %> [
-	        <%  pages = paginator.getPages(5);
-	            for (int i=0; i<pages.length; i++) {
-	        %>  <%  if (pages[i] != null) { %>
-	                 <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
-	                       <span class="currentPage"><%= pages[i].getNumber() %></span>
-	                 <%  } else { %>
-	                        <A href="<%=link%><%=pages[i].getStart()%>" class="rtbcLink">
-	                         <%= pages[i].getNumber() %></A>
-	                   <%  } %>
-	            <%  } else { %> ... <%  } %>
-	        <%  } %> ]
-	      <%  if (paginator.getNextPage()) { %>
-	          &#160;&#160;&#160;<A href="<%=nextLink%>" class="rtbcLink">NEXT >></A>
-	      <%  } %>
-	   </b></td></tr>
-	<% } %>
+   <% Page[] pages; %>
+   <% if (paginator.getNumPages() > 1) { %>
+      <td class="rtbc" align="right"><b>
+         <%  if (paginator.getPreviousPage()) { %>
+            <A href="<%=prevLink%>" class="rtbcLink">
+                  << PREV</A>&#160;&#160;&#160;
+           <%  } %> [
+           <%  pages = paginator.getPages(5);
+               for (int i=0; i<pages.length; i++) {
+           %>  <%  if (pages[i] != null) { %>
+                    <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
+                          <span class="currentPage"><%= pages[i].getNumber() %></span>
+                    <%  } else { %>
+                           <A href="<%=link%><%=pages[i].getStart()%>" class="rtbcLink">
+                            <%= pages[i].getNumber() %></A>
+                      <%  } %>
+               <%  } else { %> ... <%  } %>
+           <%  } %> ]
+         <%  if (paginator.getNextPage()) { %>
+             &#160;&#160;&#160;<A href="<%=nextLink%>" class="rtbcLink">NEXT >></A>
+         <%  } %>
+      </b></td></tr>
+   <% } %>
 </tr>
 </table>
 
             <%  if (forumCategory.getForumCount() > 0) { %>
             <table cellpadding="0" cellspacing="0" class="rtTable">
                 <tr>
-                    <td class="rtHeader" width="80%">Forum</td>
+                    <td class="rtHeader" width="80%"><a href="<%=forumLink%>" class="rtbcLink">Forum</a></td>
                     <td class="rtHeader" width="20%">T./M.</td>
-                    <td class="rtHeader" align="center" colspan="2">Last Post</td>
+                    <td class="rtHeader" align="center" colspan="2"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></td>
                 </tr>
                 <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
-                    <%  trackerClass = (user == null || forum.getLatestMessage() == null || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
+                    <%  trackerClass = (user == null || forum.getLatestMessage() == null || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ
+                    || ("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, forum.getLatestMessage().getForumThread()))) ? "rtLinkOld" : "rtLinkBold"; %>
                     <tr>
                         <td class="rtThreadCellWrap">
                         <%  if (user == null) { %>
@@ -168,7 +210,8 @@
                             String leftNavName = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME));
                             trackerClass = (!leftNavName.equals("") && unreadCategories.indexOf(leftNavName) == -1) ? "rtLinkOld" : "rtLinkBold";
                         } else {
-                            trackerClass = (user == null || category.getLatestMessage() == null || readTracker.getReadStatus(user, category.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold";
+                            trackerClass = (user == null || category.getLatestMessage() == null || readTracker.getReadStatus(user, category.getLatestMessage()) == ReadTracker.READ
+                            || ("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, category.getLatestMessage().getForumThread()))) ? "rtLinkOld" : "rtLinkBold";
                         } %>
                     <tr>
                         <td class="rtThreadCellWrap">
@@ -199,9 +242,9 @@
             <table cellpadding="0" cellspacing="0" class="rtbcTable">
                 <tr>
                     <%  if (forumCategory.getID() != 1) { %>
-                    <td>A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.</td>
+                    <td>A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="forumCategory" property="ID"/>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark all as read)</A></td>
                     <%  } else { %>
-                    <td>A category with a <b>bold title</b> in the left navigation indicates it has a forum with new postings.</td>
+                    <td>A category with a <b>bold title</b> in the left navigation indicates it has a forum with new postings. <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="forumCategory" property="ID"/>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark all as read)</A></td>
                     <%  } %>
                     <td align="right"><a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="forumCategory" property="ID"/>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
                 </tr>

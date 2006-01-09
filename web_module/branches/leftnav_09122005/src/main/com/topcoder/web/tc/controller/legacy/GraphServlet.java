@@ -1110,7 +1110,7 @@ public final class GraphServlet extends HttpServlet {
                 int challenged = Integer.parseInt(rsr.getItem("challenged").toString());
                 int passed = Integer.parseInt(rsr.getItem("passed").toString());
                 int failed = Integer.parseInt(rsr.getItem("failed").toString());
-                g.optionSubTitle((opened + challenged + failed) + " out of " + (opened + challenged + failed + passed) + " coders who opened " + problemName + ", received 0 points.");
+                g.optionSubTitle((opened + challenged + failed) + " out of " + (opened + challenged + failed + passed) + " coders who opened " + problemName + " received 0 points.");
             }
             baos = new ByteArrayOutputStream();
             PNGOutput out = new PNGOutput(600, 400, Color.black, baos);

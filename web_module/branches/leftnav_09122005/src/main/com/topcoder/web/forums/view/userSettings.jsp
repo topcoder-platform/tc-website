@@ -1,9 +1,9 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
-                com.topcoder.web.forums.ForumConstants,
+                 com.topcoder.web.forums.ForumConstants,
                  com.jivesoftware.base.JiveGlobals,
-                com.jivesoftware.forum.action.UserSettingsAction,
+                 com.jivesoftware.forum.action.UserSettingsAction,
                  com.topcoder.web.forums.controller.request.Settings,
-                java.util.*"
+                 java.util.*"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -81,17 +81,17 @@
       <td class="rtTextCell100">
       <select size="1" name="forumsPerPage">
       <%  int[] forumCounts = { 10, 15, 25 };
-            int forumRange = ForumConstants.DEFAULT_FORUM_RANGE;
-            try {
-                forumRange = Integer.parseInt(user.getProperty("jiveForumRange"));
-            } catch (Exception ignored) {}
-         for (int i=0; i<forumCounts.length; i++) {
-            if (forumCounts[i] == forumRange) { %>
-               <option value="<%=forumCounts[i]%>" selected><%=forumCounts[i]%></option>
-         <%   } else { %>
-               <option value="<%=forumCounts[i]%>"><%=forumCounts[i]%></option>
-         <%   }
-         } %>
+          int forumRange = ForumConstants.DEFAULT_FORUM_RANGE;
+          try {
+              forumRange = Integer.parseInt(user.getProperty("jiveForumRange"));
+          } catch (Exception ignored) {}
+          for (int i=0; i<forumCounts.length; i++) {
+	          if (forumCounts[i] == forumRange) { %>
+	              <option value="<%=forumCounts[i]%>" selected><%=forumCounts[i]%></option>
+	      <%  } else { %>
+	              <option value="<%=forumCounts[i]%>"><%=forumCounts[i]%></option>
+	      <%  }
+          } %>
       </select>
       </td>
    </tr>
@@ -139,7 +139,7 @@
       <td class="rtTextCell" nowrap="nowrap"><strong>Messages per Post History Page:</strong></td>
       <td class="rtTextCell100">
       <select size="1" name="messagesPerHistoryPage">
-      <%  int[] historyCounts = { 10, 15, 25, 50 };
+      <% int[] historyCounts = { 10, 15, 25, 50 };
          int historyRange = ForumConstants.DEFAULT_HISTORY_RANGE;
          try {
             historyRange = Integer.parseInt(user.getProperty("jiveHistoryRange"));
@@ -205,7 +205,7 @@
       </td>
    </tr>
    <tr>
-      <td class="rtTextCell" nowrap="nowrap"><strong>Display member photo:</strong></td>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Display my member photo:</strong></td>
       <td class="rtTextCell100">
       <input name="displayMemberPhoto" value="true" id="displayMemberPhotoYes" type="radio"
           <%= (user.getProperty("jiveDisplayMemberPhoto") == null || "true".equals(user.getProperty("jiveDisplayMemberPhoto"))) ? "checked" : ""%>>
@@ -214,6 +214,18 @@
       <input name="displayMemberPhoto" value="false" id="displayMemberPhotoNo" type="radio"
           <%= ("false".equals(user.getProperty("jiveDisplayMemberPhoto"))) ? "checked" : ""%>>
       <label for="jiveDisplayMemberPhotoNo">No</label>
+      </td>
+   </tr>
+   <tr>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Display member photos:</strong></td>
+      <td class="rtTextCell100">
+      <input name="displayAllMemberPhotos" value="true" id="displayAllMemberPhotosYes" type="radio"
+          <%= (user.getProperty("jiveDisplayAllMemberPhotos") == null || "true".equals(user.getProperty("jiveDisplayAllMemberPhotos"))) ? "checked" : ""%>>
+      <label for="jiveDisplayAllMemberPhotosYes">Yes</label>
+      &#160;
+      <input name="displayAllMemberPhotos" value="false" id="displayAllMemberPhotosNo" type="radio"
+          <%= ("false".equals(user.getProperty("jiveDisplayAllMemberPhotos"))) ? "checked" : ""%>>
+      <label for="jiveDisplayAllMemberPhotosNo">No</label>
       </td>
    </tr>
    <tr>
@@ -242,6 +254,19 @@
          <%= (user.getProperty("jiveAutoWatchReplies") == null || "false".equals(user.getProperty("jiveAutoWatchReplies"))) ? "checked" : ""%>>
       <label for="autoWatchRepliesNo">No</label>
       </td>
+   </tr>
+   <tr>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Mark watched threads as read:</strong></td>
+      <td class="rtTextCell100">
+      <input name="markWatchesRead" value="true" id="markWatchesReadYes" type="radio"
+         <%= ("true".equals(user.getProperty("markWatchesRead"))) ? "checked" : ""%>>
+      <label for="markWatchesReadYes">Yes</label>
+      &#160;
+      <input name="markWatchesRead" value="false" id="markWatchesReadNo" type="radio"
+         <%= (user.getProperty("markWatchesRead") == null || "false".equals(user.getProperty("markWatchesRead"))) ? "checked" : ""%>>
+      <label for="markWatchesReadNo">No</label>
+      </td>
+   </tr>
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Send watch emails:</strong></td>
       <td class="rtTextCell100">
@@ -259,7 +284,6 @@
          </select>
          (<%= user.getEmail() %>)
       </td>
-   </tr>
    </tr>
 </table>
 <div align="right">

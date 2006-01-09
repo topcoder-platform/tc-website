@@ -11,10 +11,10 @@
 <% ResultSetContainer registrants = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("registrants");%>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <head>
-    <title>TopCoder - Component Active Contests</title>
+    <title>Active Contests</title>
 
     <jsp:include page="../script.jsp"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+
 </head>
 
 <body>
@@ -30,7 +30,7 @@
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="development"/>
                 <jsp:param name="level2" value="components"/>
-                <jsp:param name="level3" value="active_contests"/>
+                <jsp:param name="level3" value="comp_proj_sub"/>
             </jsp:include>
         </td>
         <!-- Left Column Ends -->
@@ -50,72 +50,58 @@
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
 
-<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
-<tr>
-<td class="divider">
-    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-        <tr><td class="tableTitle" colspan="2">
-              <%=registrants.getStringItem(0, "phase")%> Contest Details</td></tr>
-        </td></tr>
-        <tr>
-            <td class="cat" nowrap="nowrap">Contest:</td>
-            <td class="stat" align="right" nowrap="nowrap">
-                <rsc:item name="component_name" set="<%=registrants%>"/> <rsc:item name="version_text" set="<%=registrants%>"/>
-            </td>
-        </tr>
-        <tr>
-            <td class="cat" nowrap="nowrap">Component:</td>
-            <td class="stat" align="right" nowrap="nowrap">
-            <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" set="<%=registrants%>"/>">
-                <rsc:item name="component_name" set="<%=registrants%>"/>
-            </a>
-            </td>
-        </tr>
-        <tr>
-            <td class="cat" nowrap="nowrap" style="padding-top: 3px">Catalog:</td>
-            <td class="stat" align="right" nowrap="nowrap" style="padding-top: 3px">
-            <% if ("Java".equals(registrants.getStringItem(0, "catalog_name"))) { %>
-            <img src="/i/development/smJava.gif" alt="Java" border="0" />
-            <% } else if ("Java Custom".equals(registrants.getStringItem(0, "catalog_name"))) { %>
-            <img src="/i/development/smJavaCustom.gif"/>
-            <% } else if (".NET".equals(registrants.getStringItem(0, "catalog_name"))) { %>
-            <img src="/i/development/netSm.gif"/>
-            <% } else if (".NET Custom".equals(registrants.getStringItem(0, "catalog_name"))) { %>
-            <img src="/i/development/smNetCustom.gif"/>
-            <% } else if ("Flash".equals(registrants.getStringItem(0, "catalog_name"))) { %>
-            <img src="/i/development/flashSm.gif"/>
-            <% } else { %>
-            <rsc:item name="catalog_name" set="<%=registrants%>"/>
-            <% } %>
-            </td>
-        </tr>
-    </table>
-</td>
-<td width="75%" valign="top">
-    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-        <tr><td class="tableTitle" colspan="10">Registrants</td></tr>
-        <tr>
-            <td CLASS="tableHeader">Handle</td>
-            <td CLASS="tableHeader" align="center">Registration Date</td>
-            <td CLASS="tableHeader" align="center">Submission Date</td>
-         </tr>
-          <rsc:iterator list="<%=registrants%>" id="resultRow">
-          <tr>
-              <td class="statDk">
-                  <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='<%=resultRow.getStringItem("phase")%>'/>
-              </td>
-              <td class="statDk" align="center" nowrap="0">
-                  <rsc:item name="inquiry_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>
-              </td>
-              <td class="statDk" align="center" nowrap="0">
-                  <rsc:item name="submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York" ifNull="-"/>
-              </td>
-          </tr>
-          </rsc:iterator>
-      </table>
-      </td>
-   </tr>
-</table>
+            <table class="formFrame" cellspacing="0" cellpadding="3" width="100%">
+                <tr valign="middle"><td class="projectTitles" colspan="7">
+                    Component <%=registrants.getStringItem(0, "phase")%> Status</td></tr>
+
+                <tr valign="middle">
+                    <td width="35" class="projectHeaders" align="center">Catalog</td>
+                    <td width="30%" class="projectHeaders">Component</td>
+                    <td class="projectHeaders" align="center">Designer</td>
+                    <td class="projectHeaders" align="center"><%=registrants.getStringItem(0, "phase")%><br/>Rating</td>
+                    <td class="projectHeaders" align="center">Registration<br/>Date</td>
+                    <td class="projectHeaders" align="center">Submission<br/>Date</td>
+                </tr>
+
+
+                <rsc:iterator list="<%=registrants%>" id="resultRow">
+                <tr>
+                    <td class="projectCells" align="center">
+                        <% if ("Java".equals(resultRow.getStringItem("catalog_name"))) { %>
+                        <img src="/i/development/smJava.gif"/>
+                        <% } else if ("Java Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
+                        <img src="/i/development/smJavaCustom.gif"/>
+                        <% } else if (".NET".equals(resultRow.getStringItem("catalog_name"))) { %>
+                        <img src="/i/development/netSm.gif"/>
+                        <% } else if (".NET Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
+                        <img src="/i/development/smNetCustom.gif"/>
+                        <% } else if ("Flash".equals(resultRow.getStringItem("catalog_name"))) { %>
+                        <img src="/i/development/flashSm.gif"/>
+                        <% } else { %>
+                        <rsc:item name="catalog_name" row="<%=resultRow%>"/>
+                        <% } %>
+                    </td>
+                    <td class="projectCells">
+                        <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>">
+                            <rsc:item name="component_name" row="<%=resultRow%>"/>
+                            <rsc:item name="version_text" row="<%=resultRow%>"/>
+                        </a>
+                    </td>
+                    <td class="projectCells" align="center">
+                        <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='<%=resultRow.getStringItem("phase")%>'/>
+                    </td>
+                    <td class="projectCells" align="center">
+                        <rsc:item name="rating" row="<%=resultRow%>" ifNull="Not Rated"/>
+                    </td>
+                    <td class="projectCells" align="center" nowrap="0">
+                        <rsc:item name="inquiry_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
+                    </td>
+                    <td class="projectCells" align="center" nowrap="0">
+                        <rsc:item name="submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" ifNull="-"/>
+                    </td>
+                </tr>
+                </rsc:iterator>
+            </table>
 
         </td>
         <!-- Center Column Ends -->

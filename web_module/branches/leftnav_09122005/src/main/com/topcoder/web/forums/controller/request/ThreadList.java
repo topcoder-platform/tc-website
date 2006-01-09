@@ -48,6 +48,11 @@ public class ThreadList extends ForumsProcessor {
             sortOrder = String.valueOf(ResultFilter.DESCENDING);
         }
         
+        String markRead = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MARK_READ));
+        if (markRead.equals("t")) {
+            forumFactory.getReadTracker().markRead(user, forum);
+        }
+        
         ResultFilter resultFilter = ResultFilter.createDefaultThreadFilter();
         resultFilter.setSortField(Integer.parseInt(sortField));
         resultFilter.setSortOrder(Integer.parseInt(sortOrder));

@@ -14,7 +14,6 @@ public class Constants implements WebConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("TC");
     private static final Logger log = Logger.getLogger(Constants.class);
 
-    public static String STATIC_PREFIX;
     public static String DEFAULT_PAGE;
     public static String HOME_PAGE;
 
@@ -46,6 +45,7 @@ public class Constants implements WebConstants {
     public static String SCHOOL_NAME;
     public static String SCHOOL_ID;
     public static int TCO05_LOGO_TERMS_ID;
+    public static int TCO06_LOGO_TERMS_ID;
     public static String LOGO;
     public static int TCO05_SPONSOR_TERMS_ID;
 
@@ -66,6 +66,7 @@ public class Constants implements WebConstants {
 
     /* pages */
     public static String SURVEY_RESULTS;
+    public static String SCHULZE_RESULTS;
     public static String SURVEY_VIEW;
     public static String SURVEY_LIST;
     public static String SURVEY_THANKS;
@@ -115,6 +116,7 @@ public class Constants implements WebConstants {
     public static String NOTE_LIST;
     public static String NOTE_EDIT;
     public static String CONTACT_DATE;
+    public static String TCS_SURVEY_RESULTS;
 
     public static String MEMBER_PROFILE;
 
@@ -139,8 +141,11 @@ public class Constants implements WebConstants {
     public static int TCCC05_ALGORITHM_TERMS_OF_USE_ID;
     public static int TCCC05_COMPONENT_TERMS_OF_USE_ID;
     public static int TCO05_EVENT_ID;
+    public static final int TCO06_EVENT_ID = 5;
     public static int TCO05_ALGORITHM_TERMS_OF_USE_ID;
     public static int TCO05_COMPONENT_TERMS_OF_USE_ID;
+    public static final int TCO06_ALGORITHM_TERMS_OF_USE_ID=20383;
+    public static final int TCO06_COMPONENT_TERMS_OF_USE_ID=20384;
     public static final int TCO05_SPONSOR_COMPANY_QUESTION_ID = 30;
     public static int UNLOCK_CARD_PREFERENCE_ID;
     public static int JAVA_CATALOG_ID;
@@ -222,6 +227,21 @@ public class Constants implements WebConstants {
     public static String NOTE_PREFIX;
 
     public static String TCCC05_STUDENT_REPS;
+
+    public static final String COLLEGE_TOUR_EVENT_ID="cteid";
+    public static final String COLLEGE_TOUR_CONFIG_INFO="configInfo";
+    public static final String ROUND_NAME="rdname";
+    public static final int RECRUITER_NAME_PROP_ID = 1;
+    public static final int FIRST_PLACE_PROP_ID = 2;
+    public static final int SECOND_PLACE_PROP_ID = 3;
+    public static final int THIRD_PLACE_PROP_ID = 4;
+    public static final int LOCATION_PROP_ID = 5;
+    public static final int EVENT_START_PROP_ID = 6;
+    public static final int EVENT_END_PROP_ID = 7;
+    public static final int RESULTS_PROP_ID = 8;
+    public static final int ROUND_START_PROP_ID = 9;
+    public static final int ROUND_END_PROP_ID = 10;
+
 
     static {
         initialize();

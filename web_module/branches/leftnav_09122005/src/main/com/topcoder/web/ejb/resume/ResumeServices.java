@@ -1,7 +1,7 @@
 package com.topcoder.web.ejb.resume;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.tc.controller.legacy.resume.bean.Resume;
+import com.topcoder.web.tc.model.Resume;
 
 import javax.ejb.EJBException;
 import javax.ejb.EJBObject;

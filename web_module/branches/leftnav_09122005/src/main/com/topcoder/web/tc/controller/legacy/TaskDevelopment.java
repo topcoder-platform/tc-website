@@ -96,6 +96,7 @@ public final class TaskDevelopment {
 
             if (command.equals("tcs_inquire") || command.equals("tcs_app_inquire")) {
                 if (nav.isLoggedIn()) {
+                    ResultSetContainer rsc = null;
 
                     int phase = Integer.parseInt(request.getParameter("phase"));
                     int version = Integer.parseInt(request.getParameter("version"));
@@ -112,8 +113,22 @@ public final class TaskDevelopment {
                     }
                     devTag.addTag(new ValueTag("projectId", projectId));
 
+                    if (command.equals("tcs_inquire")) {
+                        InitialContext ctx = null;
+                        try {
+                            ctx = TCContext.getInitial();
+                            ComponentRegistrationServices cregBean = (ComponentRegistrationServices) BaseProcessor.createEJB(ctx, ComponentRegistrationServices.class);
+                            rsc = cregBean.getActiveQuestions();
+                            devTag.addTag(rsc.getTag("Questions", "Question"));
+                            devTag.addTag(new ValueTag("numSurveyQs", rsc.getRowCount()));
+                            rsc = cregBean.getActiveAnswers();
+                            devTag.addTag(rsc.getTag("Answers", "Answer"));
+                        } finally {
+                            TCContext.close(ctx);
+                        }
+                    }
+
                     Request dataRequest = null;
-                    ResultSetContainer rsc = null;
                     Map resultMap = null;
                     log.debug("getting dai");
                     dataRequest = new Request();
@@ -286,56 +301,82 @@ public final class TaskDevelopment {
                         }
 
                         //get fancy new ejb
-                        InitialContext ctx = TCContext.getInitial();
-
-                        ComponentRegistrationServices cregBean = (ComponentRegistrationServices) BaseProcessor.createEJB(ctx, ComponentRegistrationServices.class);
+                        InitialContext ctx = null;
+                        ComponentRegistrationServices cregBean = null;
+                        try {
+                            ctx = TCContext.getInitial();
+                            cregBean = (ComponentRegistrationServices) BaseProcessor.createEJB(ctx, ComponentRegistrationServices.class);
+                        } finally {
+                            TCContext.close(ctx);
+                        }
 
                         if (!isSuspended(nav.getSessionInfo().getUserId())) {
                             if (!cregBean.isRegClosed(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME)) {
                                 if (!cregBean.isUserRegistered(projectId, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
                                     if (!cregBean.hasUserReviewedProject(projectId, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
                                         if (!cregBean.isUserWinningDesigner(projectId, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
-                                            //check max rated / unrated
-                                            log.debug("RYAN RATING IS:" + rating);
-                                            if (rating == 0 && cregBean.getUnratedRegistrantCount(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME) >= cregBean.getMaxUnratedRegistrants(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME)) {
-                                                //reg full - unrated
-                                                devTag.addTag(new ValueTag("max_reg", cregBean.getMaxUnratedRegistrants(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME)));
-                                                xsldocURLString = XSL_DIR + "reg_full_unrated.xsl";
-                                            } else if (rating != 0 && cregBean.getRatedRegistrantCount(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME) >= cregBean.getMaxRatedRegistrants(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME)) {
-                                                //reg full - rated
-                                                devTag.addTag(new ValueTag("max_reg", cregBean.getMaxRatedRegistrants(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME)));
-                                                xsldocURLString = XSL_DIR + "reg_full_rated.xsl";
-                                            } else {
+                                            if (cregBean.isUserReliableEnough(phase, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
 
-                                                register(nav.getSessionInfo().getUserId(), componentId, projectId, rating, comment, agreedToTerms, phase, version);
-                                                String activeForumId = String.valueOf(getActiveForumId(componentId));
-                                                devTag.addTag(new ValueTag("forumId", activeForumId));
-
-                                                TCSEmailMessage mail = new TCSEmailMessage();
-                                                log.debug("from: " + from);
-                                                mail.addToAddress(from, TCSEmailMessage.TO);
-                                                mail.setFromAddress(to);
-                                                mail.setSubject(project);
-
-
-                                                xsldocURLString = XSL_DIR + "inquiry_sent_pos.xsl";
-
-                                                if (phase == ComponentVersionInfo.SPECIFICATION) {
-                                                    mail.setBody("Registration Complete. \r\n\r\n" +
-                                                            "Thank you, " + handle + ", for your interest in the " + project + " component. You now have access to the Developer Forum ( http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/forum/c_forum.jsp?f=" + activeForumId + " ) which can be used to obtain design documentation (see the Design Phase Documents thread), as well as to ask questions regarding the component design. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early!\r\n\r\n" +
-                                                            "The deadline for submitting a solution is " + date + " at 9:00 AM ET. Please upload your design using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review.  If you encounter any problems, please contact us at service@topcodersoftware.com.  All late submissions will be ignored.\r\n\r\n" +
-                                                            "If you have any questions please contact service@topcodersoftware.com\r\n\r\n" +
-                                                            "TopCoder Software Team");
-
+                                                //check max rated / unrated
+                                                log.debug("RYAN RATING IS:" + rating);
+                                                if (rating == 0 && cregBean.getUnratedRegistrantCount(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME) >= cregBean.getMaxUnratedRegistrants(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME)) {
+                                                    //reg full - unrated
+                                                    devTag.addTag(new ValueTag("max_reg", cregBean.getMaxUnratedRegistrants(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME)));
+                                                    xsldocURLString = XSL_DIR + "reg_full_unrated.xsl";
+                                                } else if (rating != 0 && cregBean.getRatedRegistrantCount(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME) >= cregBean.getMaxRatedRegistrants(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME)) {
+                                                    //reg full - rated
+                                                    devTag.addTag(new ValueTag("max_reg", cregBean.getMaxRatedRegistrants(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME)));
+                                                    xsldocURLString = XSL_DIR + "reg_full_rated.xsl";
                                                 } else {
+                                                    //reg succeeded - add survey responses
+                                                    ResultSetContainer rscQuestions = cregBean.getActiveQuestions();
+                                                    int rowCount = rscQuestions.getRowCount();
+                                                    for (int i = 0; i < rowCount; i++) {
+                                                        int questionId = rscQuestions.getIntItem(i, "comp_reg_question_id");
+                                                        int questionStyleId = rscQuestions.getIntItem(i, "question_style_id");
+                                                        if (questionStyleId == 1 || questionStyleId == 2) {
+                                                            String[] selectedAnswers = request.getParameterValues("q" + questionId);
+                                                            for (int j = 0; j < selectedAnswers.length; j++) {
+                                                                cregBean.createResponse(projectId, nav.getUserId(), questionId, Integer.parseInt(selectedAnswers[j]));
+                                                            }
+                                                        } else if (questionStyleId == 3 || questionStyleId == 4) {
+                                                            String responseText = request.getParameter("q" + questionId);
+                                                            cregBean.createResponse(projectId, nav.getUserId(), questionId, responseText);
+                                                        }
+                                                    }
 
-                                                    mail.setBody("Registration Complete\r\n\r\n" +
-                                                            "Thank you, " + handle + ", for your interest in the " + project + " component. You now have access to the Developer Forum ( http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/forum/c_forum.jsp?f=" + activeForumId + " ) which can be used to obtain the component design (See \"Development Phase Documents\" thread), as well as to ask questions regarding the development process or the component design. Please post your questions at any time and the component designer will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!\r\n\r\n" +
-                                                            "The deadline for submitting a solution is " + date + " at 9:00 AM ET. Please upload your solution using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review. If you encounter any problems, please contact us at service@topcodersoftware.com.  Any late submissions will be ignored. \r\n\r\n" +
-                                                            "If you have any questions please contact service@topcodersoftware.com\r\n\r\n" +
-                                                            "TopCoder Software Team");
+                                                    register(nav.getSessionInfo().getUserId(), componentId, projectId, rating, comment, agreedToTerms, phase, version);
+                                                    String activeForumId = String.valueOf(getActiveForumId(componentId));
+                                                    devTag.addTag(new ValueTag("forumId", activeForumId));
+
+                                                    TCSEmailMessage mail = new TCSEmailMessage();
+                                                    log.debug("from: " + from);
+                                                    mail.addToAddress(from, TCSEmailMessage.TO);
+                                                    mail.setFromAddress(to);
+                                                    mail.setSubject(project);
+
+
+                                                    xsldocURLString = XSL_DIR + "inquiry_sent_pos.xsl";
+
+                                                    if (phase == ComponentVersionInfo.SPECIFICATION) {
+                                                        mail.setBody("Registration Complete. \r\n\r\n" +
+                                                                "Thank you, " + handle + ", for your interest in the " + project + " component. You now have access to the Developer Forum ( http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/forum/c_forum.jsp?f=" + activeForumId + " ) which can be used to obtain design documentation (see the Design Phase Documents thread), as well as to ask questions regarding the component design. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early!\r\n\r\n" +
+                                                                "The deadline for submitting a solution is " + date + " at 9:00 AM ET. Please upload your design using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review.  If you encounter any problems, please contact us at service@topcodersoftware.com.  All late submissions will be ignored.\r\n\r\n" +
+                                                                "If you have any questions please contact service@topcodersoftware.com\r\n\r\n" +
+                                                                "TopCoder Software Team");
+
+                                                    } else {
+
+                                                        mail.setBody("Registration Complete\r\n\r\n" +
+                                                                "Thank you, " + handle + ", for your interest in the " + project + " component. You now have access to the Developer Forum ( http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/forum/c_forum.jsp?f=" + activeForumId + " ) which can be used to obtain the component design (See \"Development Phase Documents\" thread), as well as to ask questions regarding the development process or the component design. Please post your questions at any time and the component designer will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!\r\n\r\n" +
+                                                                "The deadline for submitting a solution is " + date + " at 9:00 AM ET. Please upload your solution using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review. If you encounter any problems, please contact us at service@topcodersoftware.com.  Any late submissions will be ignored. \r\n\r\n" +
+                                                                "If you have any questions please contact service@topcodersoftware.com\r\n\r\n" +
+                                                                "TopCoder Software Team");
+                                                    }
+                                                    EmailEngine.send(mail);
                                                 }
-                                                EmailEngine.send(mail);
+                                            } else {
+                                                xsldocURLString = XSL_DIR + "unreliable.xsl";
                                             }
                                         } else {
                                             xsldocURLString = XSL_DIR + "winning_designer.xsl";

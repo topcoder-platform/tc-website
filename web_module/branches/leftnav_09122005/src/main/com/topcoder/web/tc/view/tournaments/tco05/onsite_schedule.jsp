@@ -43,7 +43,7 @@
 <tr><td class="formTextEven" nowrap="nowrap">3:00pm - 4:00pm</td><td class="formTextEven">NSA Presentation</td></tr>
 <tr><td class="formTextOdd" nowrap="nowrap">4:00pm - 6:00pm</td><td class="formTextOdd">Algorithm Semifinal Room 3</td></tr>
 <tr><td class="formTextEven" nowrap="nowrap">4:15pm - 4:45pm</td><td class="formTextEven"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=dev_conferences">Developer Conference: TopCoder Solutions - Identity & Access Management</A></td></tr>
-<tr><td class="formTextOdd" nowrap="nowrap">6:30pm - 10:00pm</td><td class="formTextOdd">Sun Microsystems Evening Event</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">7:00pm - 10:00pm</td><td class="formTextOdd">Sun Microsystems Evening Event</td></tr>
 
 <tr><td colspan="2" class="bodyText">&#160;</td></tr>
 

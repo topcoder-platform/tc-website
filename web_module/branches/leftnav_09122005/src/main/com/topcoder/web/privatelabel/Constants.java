@@ -70,8 +70,6 @@ public class Constants {
     public static String GOOGLE_INDIA_05_CREDENTIALS_SENT_PAGE;
 
     public static String DEFAULT_PAGE;
-    public static String RESUME_PAGE;
-    public static String RESUME_THANK_YOU_PAGE;
 
     public static String DC_REG_PAGE;
     public static String DC_REG_DEMOG_PAGE;
@@ -138,6 +136,7 @@ public class Constants {
     public static String REGISTRATION_INFO;
     public static String USER_ID;
     public static String FILE;
+    public static String LOCALE;
 
 
     //rules
@@ -171,6 +170,13 @@ public class Constants {
     public static String GOOGLE05_ACTIVATION;
     public static String GOOGLE05_LOGIN;
     public static String GOOGLE05_CREDENTIALS;
+    public static String GOOGLE_CHINA_05_REG_MAIN;
+    public static String GOOGLE_CHINA_05_REG_DEMOG;
+    public static String GOOGLE_CHINA_05_REG_CONFIRM;
+    public static String GOOGLE_CHINA_05_REG_SUBMIT;
+    public static String GOOGLE_CHINA_05_ACTIVATION;
+    public static String GOOGLE_CHINA_05_LOGIN;
+    public static String GOOGLE_CHINA_05_CREDENTIALS;
     public static String GOOGLE_INDIA_05_REG_MAIN;
     public static String GOOGLE_INDIA_05_REG_DEMOG;
     public static String GOOGLE_INDIA_05_REG_CONFIRM;
@@ -221,6 +227,7 @@ public class Constants {
     public static int MAX_VERIZON_REGISTRATIONS;
 
     public static String VALID_PASS_CHAR_LIST;
+
 
     static {
         initialize();

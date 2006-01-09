@@ -8,14 +8,18 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import java.util.Iterator;
 import java.util.Map;
+import java.util.HashMap;
+import java.util.Locale;
 
 /**
  * Provides some functionality that is basic to all registration
@@ -29,6 +33,8 @@ public abstract class RegistrationBase extends BaseProcessor {
     protected SimpleRegInfo regInfo;
     protected Persistor p;
     protected static final TCSubject CREATE_USER = new TCSubject(100000);
+    private TCResourceBundle bundle = null;
+    private Locale locale = null;
 
     protected void businessProcessing() throws TCWebException {
         try {
@@ -50,6 +56,33 @@ public abstract class RegistrationBase extends BaseProcessor {
         }
     }
 
+    protected TCResourceBundle getBundle() {
+        if (bundle==null) {
+            bundle = new TCResourceBundle("PrivateLabel", getLocale());
+            String loc = StringUtils.checkNull(getRequest().getParameter(Constants.LOCALE));
+            log.debug("create bundle for language " + loc);
+            if ("".equals(loc)) {
+                bundle = new TCResourceBundle("PrivateLabel");
+            } else {
+                bundle = new TCResourceBundle("PrivateLabel", getLocale());
+            }
+        }
+        return bundle;
+    }
+
+    protected Locale getLocale() {
+        if (locale==null) {
+            String loc = StringUtils.checkNull(getRequest().getParameter(Constants.LOCALE));
+            log.debug("create locale for language " + loc);
+            if ("".equals(loc)) {
+                locale = Locale.US;
+            } else {
+                locale = new Locale(loc);
+            }
+        }
+        return locale;
+    }
+
     protected void clearRegInfo() {
         //we'll let this object live for the life of the request at least.
         //perhaps it is still necessary.  it'll die when the request processor dies
@@ -60,7 +93,7 @@ public abstract class RegistrationBase extends BaseProcessor {
     /**
      * makeRegInfo() will be called before registrationProcessing()
      * is called in child classes.
-     * @return
+     * @return SimpleRegInfo
      */
     protected abstract SimpleRegInfo makeRegInfo() throws Exception;
 
@@ -187,6 +220,22 @@ public abstract class RegistrationBase extends BaseProcessor {
         Persistor p = new SessionPersistor(getRequest().getSession(true));
         info = (SimpleRegInfo) p.getObject(Constants.REGISTRATION_INFO);
         return info;
+    }
+
+
+   protected Map getFileTypes(String db) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("file_types");
+        Map qMap = getDataAccess(db, true).getData(r);
+        ResultSetContainer questions = (ResultSetContainer) qMap.get("file_types");
+        ResultSetContainer.ResultSetRow row = null;
+
+        Map ret = new HashMap();
+        for (Iterator it = questions.iterator(); it.hasNext();) {
+            row = (ResultSetContainer.ResultSetRow) it.next();
+            ret.put(row.getStringItem("mime_type"), new Long(row.getLongItem("file_type_id")));
+        }
+        return ret;
     }
 
 }

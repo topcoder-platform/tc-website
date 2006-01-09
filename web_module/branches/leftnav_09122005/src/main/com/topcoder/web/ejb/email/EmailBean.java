@@ -21,17 +21,22 @@ public class EmailBean extends BaseEJB {
 
         long email_id = 0;
 
-        log.debug("into try block");
-        email_id = IdGeneratorClient.getSeqId("EMAIL_SEQ");
-        log.debug("got sequence " + email_id);
-        int rc = insert("email",
-                new String[]{"email_id", "user_id"},
-                new String[]{String.valueOf(email_id), String.valueOf(userId)},
-                dataSource);
-        if (rc != 1) {
-            throw(new EJBException("Wrong number of rows inserted into 'email'. " +
-                    "Inserted " + rc + ", should have inserted 1."));
+        try {
+            //log.debug("into try block");
+            email_id = IdGeneratorClient.getSeqId("EMAIL_SEQ");
+            //log.debug("got sequence " + email_id);
+            int rc = insert("email",
+                    new String[]{"email_id", "user_id"},
+                    new String[]{String.valueOf(email_id), String.valueOf(userId)},
+                    dataSource);
+            if (rc != 1) {
+                throw(new EJBException("Wrong number of rows inserted into 'email'. " +
+                        "Inserted " + rc + ", should have inserted 1."));
+            }
+        } catch (Exception e) {
+            throw new EJBException(e);
         }
+
         return (email_id);
     }
 

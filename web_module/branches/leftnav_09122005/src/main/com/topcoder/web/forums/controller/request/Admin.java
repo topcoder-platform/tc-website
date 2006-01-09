@@ -3,6 +3,7 @@
  */
 package com.topcoder.web.forums.controller.request;
 
+import com.jivesoftware.base.Log;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.PermissionsManager;
 import com.jivesoftware.forum.Forum;
@@ -36,7 +37,7 @@ public class Admin extends ForumsProcessor {
     
     protected void businessProcessing() throws Exception {
         super.businessProcessing();
-        if (isGuest() ) {
+        if (isGuest()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
      
@@ -75,17 +76,23 @@ public class Admin extends ForumsProcessor {
                 }
             }
         } else if (command.equals("Create forum from EJB") && !match.equals("")) {
-            InitialContext ctx = TCContext.getInitial();
-            Forums forums = (Forums)createEJB(ctx, Forums.class);
-            int matchID = Integer.parseInt(match);
-            forums.createMatchForum(matchID);
+            InitialContext ctx = null;
+            try {
+                ctx = TCContext.getInitial();
+                Forums forums = (Forums)createEJB(ctx, Forums.class);
+                int matchID = Integer.parseInt(match);
+                forums.createMatchForum(matchID);
+            } catch (Exception e) {
+                Log.error(e);
+            } finally {
+                BaseProcessor.close(ctx);
+            }
         }
-        /*
-        if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
-        //    log.info(user.getUsername() + " running command: " + command);
-        //    escapeHTML();
-        } else if (command.equals(ForumConstants.ADMIN_COMMAND_ADD_CONTEST)) {
-        } else if (command.equals("Add test forums")) {
+        else if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
+            log.info(user.getUsername() + " running command: " + command);
+            escapeHTML(); 
+        } /* 
+        else if (command.equals("Add test forums")) {
             for (int i=0; i<50; i++) {
                 com.jivesoftware.forum.ForumCategory fc = forumFactory.getForumCategory(8);
                 forumFactory.createForum("Test Forum "+fc.getForumCount(), 
@@ -119,26 +126,35 @@ public class Admin extends ForumsProcessor {
             round.setRoundId(rsc.getIntItem(i, "round_id"));
             round.setRoundName(rsc.getStringItem(i, "short_name"));
             roundList.add(round);
-        }
+        }     
         return roundList;
     }
     
-    // In <pre></pre> blocks in posts before the launch of Jive 4.2.1 (7/17/05), replaces certain 
-    // characters with their HTML escape codes.  
+    // In <pre></pre> blocks in Round Table posts before the launch of Jive 4.2.1 (7/17/05), 
+    // replaces certain characters with their HTML escape codes.  
     private void escapeHTML() {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(2005,6,17);
+        calendar.set(2005,7,17);
         try {
-            Iterator itForums = forumFactory.getForums();
+            Iterator itForums = forumFactory.getForumCategory(13).getForums();
             while (itForums.hasNext()) {
                 Forum f = (Forum)itForums.next();
-                log.info(user.getUsername() + " running escapeHTML() on forum: " + f.getName());
-                ForumMessageIterator itMessages = f.getMessages();
-                while (itMessages.hasNext()) {
-                    ForumMessage m = (ForumMessage)itMessages.next();
-                    if (m.getCreationDate().before(calendar.getTime())) {
-                        m.setBody(parse(m.getUnfilteredBody()));
+                Date forumModDate = f.getModificationDate();
+                if ("true".equals(f.getProperty("Escape HTML"))) {
+                    log.info(user.getUsername() + " running escapeHTML() on forum: " + f.getName());
+                    ForumMessageIterator itMessages = f.getMessages();
+                    while (itMessages.hasNext()) {
+                        ForumMessage m = (ForumMessage)itMessages.next();
+                        if (m.getCreationDate().before(calendar.getTime())) {  
+                            Date msgModDate = m.getModificationDate();
+                            Date threadModDate = m.getForumThread().getModificationDate();
+                            m.setBody(parse(m.getUnfilteredBody()));
+                            m.setModificationDate(msgModDate);
+                            m.getForumThread().setModificationDate(threadModDate);
+                        }
                     }
+                    f.setModificationDate(forumModDate);
+                    f.deleteProperty("Escape HTML");
                 }
             }
         } catch (Exception e) {
@@ -146,6 +162,34 @@ public class Admin extends ForumsProcessor {
             return;
         } 
     }
+    
+    /*
+    // Sets thread modification dates to their correct values.
+    private void repair() {
+        try {
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(2005,7,17);
+            Forum f = forumFactory.getForum(7167);
+            com.jivesoftware.forum.ForumThreadIterator itThreads = f.getThreads();
+            while (itThreads.hasNext()) {
+                com.jivesoftware.forum.ForumThread t = (com.jivesoftware.forum.ForumThread)itThreads.next();
+                if (t.getCreationDate().before(calendar.getTime())) {
+                    Iterator itMessages = t.getMessages();
+                    Date d = ((ForumMessage)itMessages.next()).getCreationDate();
+                    while (itMessages.hasNext()) {
+                        ForumMessage m = (ForumMessage)itMessages.next();
+                        if (m.getCreationDate().after(d))
+                            d = m.getCreationDate();
+                        if (m.getCreationDate().before(calendar.getTime())) {
+                            m.setModificationDate(m.getCreationDate());
+                        }
+                    }
+                    t.setModificationDate(d);
+                }
+            }
+        } catch (Exception e) {}
+    }
+    */
     
     private String parse(String s) {
         if (s == null) return null;

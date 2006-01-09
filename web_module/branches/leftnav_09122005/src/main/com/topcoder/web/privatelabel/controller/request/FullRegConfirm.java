@@ -5,9 +5,9 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
+import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.model.DemographicQuestion;
-import com.topcoder.web.privatelabel.model.DemographicResponse;
+import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
@@ -31,13 +31,12 @@ public abstract class FullRegConfirm extends FullRegBase {
           has already been checked.
         */
         checkRegInfo(regInfo);
-
+        setDefaults(regInfo);
         try {
             if (hasErrors()) {
-                List l = getQuestionList(((FullRegInfo) regInfo).getCoderType());
+                List l = getQuestionList(((FullRegInfo) regInfo).getCoderType(), getLocale());
                 Collections.sort(l);
                 getRequest().setAttribute("questionList", l);
-                setDefaults(regInfo);
             } else {
                 getRequest().setAttribute("responseList", ((FullRegInfo) regInfo).getResponses());
                 getRequest().setAttribute("questionMap", getQuestions());
@@ -72,13 +71,13 @@ public abstract class FullRegConfirm extends FullRegBase {
                 if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
                         q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
                     if (!validResponse(r)) {
-                        addError(Constants.DEMOG_PREFIX + r.getQuestionId(), "Please choose an answer from the list.");
+                        addError(Constants.DEMOG_PREFIX + r.getQuestionId(), getBundle().getProperty("error_choose_answer"));
                     }
                 } else if (q.getAnswerType() == DemographicQuestion.FREE_FORM) {
                     if (r.getText().length() > 255) {
-                        addError(Constants.DEMOG_PREFIX + r.getQuestionId(), "Please enter a shorter answer.");
+                        addError(Constants.DEMOG_PREFIX + r.getQuestionId(), getBundle().getProperty("error_shorter_answer"));
                     } else if (q.isRequired() && r.getText().length() < 1) {
-                        addError(Constants.DEMOG_PREFIX + r.getQuestionId(), "Please enter a valid answer.");
+                        addError(Constants.DEMOG_PREFIX + r.getQuestionId(), getBundle().getProperty("error_invalid_answer"));
                     }
                 }
             }
@@ -126,7 +125,7 @@ public abstract class FullRegConfirm extends FullRegBase {
             String[] values = null;
             DemographicResponse r = null;
             String key = null;
-            List questionList = getQuestionList(info.getCoderType());
+            List questionList = getQuestionList(info.getCoderType(), getLocale());
             //loop through all the questions
             info.clearResponses();
             for (Iterator it = questionList.iterator(); it.hasNext();) {
@@ -135,7 +134,7 @@ public abstract class FullRegConfirm extends FullRegBase {
                 values = getRequest().getParameterValues(key);
                 if (q.isRequired() && !hasRequestParameter(key) && !info.hasResponse(q.getId())) {
                     //this is cheating, cuz really it should be done in the data checking method.
-                    addError(key, "Please enter a valid answer, this question is required.");
+                    addError(key, getBundle().getProperty("error_required_answer"));
                 } else if (values != null) {
                     //if they've responded in this request, replace whatever was there in persitor with this new stuff
                     if (values.length > 0) {
@@ -168,7 +167,7 @@ public abstract class FullRegConfirm extends FullRegBase {
                             /* at this point, we know that the parameter was included in the request, but the value
                              * was empty.  we'll complain to them and ask them to fill in the question
                              */
-                            addError(key, "Please enter a valid answer, this question is required.");
+                            addError(key, getBundle().getProperty("error_required_answer"));
                         }
                     }
                 }

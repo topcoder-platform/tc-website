@@ -1,10 +1,12 @@
 package com.topcoder.web.privatelabel.model;
 
-import com.topcoder.servlet.request.UploadedFile;
 
 public class ResumeRegInfo extends FullRegInfo {
 
-    private UploadedFile file = null;
+    private byte[] resume = null;
+    private String resumeContentType = null;
+    private String resumeFileName = null;
+
 
     public ResumeRegInfo() {
 
@@ -14,22 +16,41 @@ public class ResumeRegInfo extends FullRegInfo {
         super(info);
     }
 
-    public UploadedFile getUploadedFile() {
-        return file;
-    }
-
-    public void setUploadedFile(UploadedFile u) {
-        this.file = u;
-    }
-
     public String getUploadStatus() {
-        if (file == null)
+        if (resume == null)
             return "Not Supplied";
         else
-            return "Attached (" + file.getRemoteFileName() + ")";
+            return "Attached (" + resumeFileName + ")";
     }
 
     public boolean hasResume() {
-        return (file != null);
+        return (resume != null);
     }
+
+
+    public byte[] getResume() {
+        return resume;
+    }
+
+    public String getResumeContentType() {
+        return resumeContentType;
+    }
+
+    public String getResumeFileName() {
+        return resumeFileName;
+    }
+
+    public void setResume(byte[] resume) {
+        this.resume = resume;
+    }
+
+    public void setResumeContentType(String resumeContentType) {
+        this.resumeContentType = resumeContentType;
+    }
+
+    public void setResumeFileName(String resumeFileName) {
+        this.resumeFileName = resumeFileName;
+    }
+
+
 }

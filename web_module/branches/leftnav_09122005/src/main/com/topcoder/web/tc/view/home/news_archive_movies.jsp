@@ -35,6 +35,7 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText" valign="top"><td nowrap="nowrap">10.21.05 11:20 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=movies">Interviews with the TCO05 Champions</A></td></tr>
 <tr class="bodyText" valign="top"><td nowrap="nowrap">08.09.05 6:15 PM&#160;-&#160</td><td width="100%"><A href="/movies/press/cnn_072405.mp4">TopCoder on CNN International</A></td></tr>
 <tr class="bodyText" valign="top"><td nowrap="nowrap">06.01.05 9:00 AM&#160;-&#160</td><td width="100%"><A href="/i/tournament/tccc05/onsite_movies/reviewBoard.mov">The TopCoder Review Board</A></td></tr>
 <tr class="bodyText" valign="top"><td nowrap="nowrap">04.25.05 11:20 AM&#160;-&#160</td><td width="100%"><A href="/i/tournament/tccc05/onsite_movies/JohnDethridge.mov">John Dethridge on the TCCC05</A></td></tr>

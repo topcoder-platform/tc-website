@@ -3,18 +3,19 @@ package com.topcoder.web.privatelabel.controller.request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.demographic.Response;
 import com.topcoder.web.ejb.user.UserAddress;
 import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.model.DemographicQuestion;
-import com.topcoder.web.privatelabel.model.DemographicResponse;
+import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.privatelabel.model.VerizonRegInfo;
 
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Locale;
 
 public class VerizonActivate extends BaseActivate {
     protected void setNextPage() {
@@ -67,7 +68,8 @@ public class VerizonActivate extends BaseActivate {
 
         Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
 
-        Map questions = VerizonReg.getQuestions(transDb, coder.getCoderTypeId(userId, transDb), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)));
+        Map questions = VerizonReg.getQuestions(transDb, coder.getCoderTypeId(userId, transDb),
+                Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)), Locale.US);
         for (Iterator it = responses.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
             question = VerizonReg.findQuestion(row.getLongItem("demographic_question_id"), questions);

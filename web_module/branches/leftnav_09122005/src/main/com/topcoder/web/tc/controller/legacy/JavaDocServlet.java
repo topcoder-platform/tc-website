@@ -47,13 +47,16 @@ public class JavaDocServlet extends HttpServlet {
     }
 
     private void getServices() {
+        InitialContext ctx =null;
         try {
             log.debug("JavaDocServlet getting JavaDocServices...");
-            InitialContext ctx = TCContext.getInitial();
+            ctx = TCContext.getInitial();
             services = (JavaDocServices) BaseProcessor.createEJB(ctx, JavaDocServices.class);
             log.debug("...successful");
         } catch (Exception e) {
             log.error("Error getting JavaDocServices:", e);
+        } finally {
+            TCContext.close(ctx);
         }
     }
 

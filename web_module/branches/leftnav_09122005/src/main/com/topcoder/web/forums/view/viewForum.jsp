@@ -14,6 +14,7 @@
                  com.jivesoftware.forum.ForumMessage,
                  com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.ReadTracker,
+                 com.jivesoftware.forum.WatchManager,
                  com.jivesoftware.forum.action.util.Page,
                  com.jivesoftware.forum.action.util.Paginator,
                  java.util.Iterator,
@@ -32,7 +33,8 @@
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
-<%  ReadTracker readTracker = forumFactory.getReadTracker();
+<%  WatchManager watchManager = forumFactory.getWatchManager();
+    ReadTracker readTracker = forumFactory.getReadTracker();
     User user = (User)request.getAttribute("user");
     String sortField = (String)request.getAttribute("sortField");
     String sortOrder = (String)request.getAttribute("sortOrder");
@@ -166,27 +168,28 @@
 </tr>
 <tc-webtag:iterator id="thread" type="com.jivesoftware.forum.ForumThread" iterator='<%=(Iterator)request.getAttribute("threads")%>'>
     <%  ForumMessage lastPost = ForumsUtil.getLatestMessage(thread); 
-        String trackerClass = (user == null || readTracker.getReadStatus(user, lastPost) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
+        String trackerClass = (user == null || readTracker.getReadStatus(user, lastPost) == ReadTracker.READ ||
+            ("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, thread))) ? "rtLinkOld" : "rtLinkBold"; %>
     <tr>
     <tc-webtag:useBean id="message" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
-   <td class="rtThreadCellWrap">
-      <%   if (((authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat")) || user.getProperty("jiveThreadMode").equals("flat")) { %>
+    <td class="rtThreadCellWrap">
+        <%  if (((authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat")) || user.getProperty("jiveThreadMode").equals("flat")) { %>
             <%  if (!authToken.isAnonymous()) { %>
             <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0" class="<%=trackerClass%>"><%=thread.getRootMessage().getSubject()%></A>
             <%  } else { %>
                 <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
             <%  } %>
-         <%  Paginator threadPaginator;
+         <% Paginator threadPaginator;
             ResultFilter resultFilter = ResultFilter.createDefaultMessageFilter();
             resultFilter.setStartIndex(0);
             int range = JiveGlobals.getJiveIntProperty("skin.default.defaultMessagesPerPage", 
-                    ForumConstants.DEFAULT_MESSAGE_RANGE);
-              if (user != null) {
+                  ForumConstants.DEFAULT_MESSAGE_RANGE);
+            if (user != null) {
                   try {
                       range = Integer.parseInt(user.getProperty("jiveMessageRange"));
                   } catch (Exception ignored) {}
-              }
-              resultFilter.setNumResults(range);
+            }
+            resultFilter.setNumResults(range);
             threadPaginator = new Paginator(new Paging(resultFilter, thread.getMessageCount()));
 
             if (threadPaginator.getNumPages() > 1) { %> [
@@ -229,7 +232,7 @@
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
-        <td>A thread with a <b>bold title</b> indicates it is either a new thread or has new postings.</td>
+        <td>A thread with a <b>bold title</b> indicates it is either a new thread or has new postings. <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark all as read)</A></td>
         <td align="right"><a href="?module=RSS&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
     </tr>
 </table>

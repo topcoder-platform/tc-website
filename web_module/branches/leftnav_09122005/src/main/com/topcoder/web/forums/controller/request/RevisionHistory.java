@@ -5,12 +5,14 @@ package com.topcoder.web.forums.controller.request;
 
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Revision;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.messagehistory.MessageHistory;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.jivesoftware.base.JiveGlobals;
+import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.ForumMessage;
 
 import java.util.ArrayList;
@@ -30,8 +32,16 @@ public class RevisionHistory extends ForumsProcessor {
         long messageID = Long.parseLong(getRequest().getParameter(ForumConstants.MESSAGE_ID));
         ForumMessage message = forumFactory.getMessage(messageID);
         
-        InitialContext ctx = TCContext.getInitial();
-        MessageHistory historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
+        InitialContext ctx = null;
+        MessageHistory historyBean = null;
+        try {
+            ctx = TCContext.getInitial();
+            historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
+        } catch (Exception e) {
+            Log.error(e);
+        } finally {
+            BaseProcessor.close(ctx);
+        }
 
         int range = JiveGlobals.getJiveIntProperty("skin.default.defaultMessagesPerPage", 
                 ForumConstants.DEFAULT_MESSAGE_RANGE);

@@ -51,7 +51,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="demoRegQuestion"><span class="demoErrorText">*</span> First Name</td>
+                            <td class="demoRegQuestion"><span class="demoErrorText">*</span> Given Name</td>
                             <td class="demoRegAnswer"><tc-webtag:textInput name="<%=Constants.FIRST_NAME%>"  size="15" maxlength="50"/></td>
                         </tr>
                         <tr>
@@ -69,7 +69,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="demoRegQuestion"><span class="demoErrorText">*</span> Last Name</td>
+                            <td class="demoRegQuestion"><span class="demoErrorText">*</span> Surname</td>
                             <td class="demoRegAnswer"><tc-webtag:textInput name="<%=Constants.LAST_NAME%>"  size="15" maxlength="50"/></td>
                         </tr>
                         <tr>

@@ -22,7 +22,7 @@ public class ContractingInfo implements Serializable, Cloneable {
     private Hashtable notes = new Hashtable();
     //private UploadedFile resume;
     private byte[] resume = null;
-    private String resumeContentType = null;;
+    private String resumeContentType = null;
     private boolean edit = false;
     private String resumeFileName = null;
 

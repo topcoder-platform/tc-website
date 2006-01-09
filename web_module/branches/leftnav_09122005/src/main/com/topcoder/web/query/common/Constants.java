@@ -178,6 +178,8 @@ public class Constants {
         DB_LIST.add(new DatabaseBean(DBMS.SCREENING_OLTP_DATASOURCE_NAME, "Screening"));
         DB_LIST.add(new DatabaseBean("java:/GOOGLE_OLTP", "Google"));
         DB_LIST.add(new DatabaseBean("java:/GOOGLE_DW", "Google DW"));
+        DB_LIST.add(new DatabaseBean("java:/GOOGLE_CHINA_OLTP", "Google China"));
+        DB_LIST.add(new DatabaseBean("java:/GOOGLE_CHINA_DW", "Google China DW"));
         DB_LIST.add(new DatabaseBean("java:/GOOGLE_INDIA_OLTP", "Google India"));
         DB_LIST.add(new DatabaseBean("java:/GOOGLE_INDIA_DW", "Google India DW"));
     }

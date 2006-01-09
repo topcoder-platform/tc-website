@@ -39,7 +39,6 @@
                   <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=odds_rd4">Round 4</a> 
             <% } %>
 
-<%--
             &nbsp;|&nbsp;
             
 <!-- semifinals -->
@@ -49,6 +48,7 @@
                   <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=odds_semi">Semifinals</a> 
             <% } %>
 
+<%--
             &nbsp;|&nbsp;
             
 <!-- finals -->

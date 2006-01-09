@@ -3,6 +3,8 @@ package com.topcoder.web.ejb.image;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
+import javax.ejb.EJBException;
+
 /**
  * @author  dok
  * @version  $Revision$ $Date$
@@ -12,13 +14,17 @@ public class ImageBean extends BaseEJB {
 
 
     public long createImage(String fileName, int imageTypeId, long pathId, String dataSource)  {
-        long id = IdGeneratorClient.getSeqId("IMAGE_SEQ");
+        try {
+            long id = IdGeneratorClient.getSeqId("IMAGE_SEQ");
+            insert("image",
+                    new String[]{"image_id", "file_name", "image_type_id", "path_id"},
+                    new String[]{String.valueOf(id), fileName, String.valueOf(imageTypeId), String.valueOf(pathId)},
+                    dataSource);
+            return id;
+        } catch (Exception e) {
+            throw new EJBException(e);
+        }
 
-        insert("image",
-                new String[]{"image_id", "file_name", "image_type_id", "path_id"},
-                new String[]{String.valueOf(id), fileName, String.valueOf(imageTypeId), String.valueOf(pathId)},
-                dataSource);
-        return id;
     }
 
     public void setFileName(long imageId, String fileName, String dataSource) {

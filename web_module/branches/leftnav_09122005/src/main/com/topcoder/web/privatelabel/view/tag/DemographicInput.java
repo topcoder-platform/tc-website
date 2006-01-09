@@ -2,9 +2,9 @@ package com.topcoder.web.privatelabel.view.tag;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.tag.BaseTag;
+import com.topcoder.web.common.model.DemographicAnswer;
 import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.model.DemographicAnswer;
-import com.topcoder.web.privatelabel.model.DemographicQuestion;
+import com.topcoder.web.common.model.DemographicQuestion;
 
 import javax.servlet.jsp.JspException;
 import java.io.IOException;
@@ -72,6 +72,7 @@ public class DemographicInput extends BaseTag {
                     break;
             }
             try {
+                log.debug("output: " + output.toString());
                 pageContext.getOut().print(output.toString());
             } catch (IOException e) {
                 throw new JspException(e.getMessage());

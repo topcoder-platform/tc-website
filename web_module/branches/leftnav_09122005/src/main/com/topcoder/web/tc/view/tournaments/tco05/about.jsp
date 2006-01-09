@@ -17,9 +17,9 @@
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
-	<tr valign=top>
-		<td valign=top align=center>
-		<div class="bodySpacer">
+   <tr valign=top>
+      <td valign=top align=center>
+      <div class="bodySpacer">
             
 <span class="bigTitle">2005 TopCoder Open - Overview</span>
 <br><br>
@@ -56,7 +56,7 @@ See some big bucks by winning in the finals, but do well in the online rounds an
 See the official <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_rules">Algorithm</A> and <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_rules">Component</A> rules and regulations for full details.
 
         </div>
-		</td>
+      </td>
         
          
 <!-- Right Column-->
@@ -65,12 +65,12 @@ See the official <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_rules
             <jsp:param name="level1" value="tco05"/>
             </jsp:include>
          </td>
-		
-	</tr>
-	
+      
+   </tr>
+   
 </table>
-	
-	
+   
+   
 
 
 <jsp:include page="../../foot.jsp" />

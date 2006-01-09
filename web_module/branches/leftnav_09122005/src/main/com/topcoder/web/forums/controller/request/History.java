@@ -4,11 +4,13 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveConstants;
+import com.jivesoftware.base.Log;
 import com.jivesoftware.base.User;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.action.util.Paginator;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.messagehistory.MessageHistory;
@@ -71,8 +73,16 @@ public class History extends ForumsProcessor {
         Paginator paginator = new Paginator(paging);
         Iterator itMessages = forumFactory.getUserMessages(historyUser, resultFilter);
         
-        InitialContext ctx = TCContext.getInitial();
-        MessageHistory historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
+        InitialContext ctx = null;
+        MessageHistory historyBean = null;
+        try {
+            ctx = TCContext.getInitial();
+            historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
+        } catch (Exception e) {
+            Log.error(e);
+        } finally {
+            BaseProcessor.close(ctx);
+        }
 
         getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("historyUser", historyUser);

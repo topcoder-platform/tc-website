@@ -52,7 +52,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="demoRegQuestion">First Name</td>
+                            <td class="demoRegQuestion">Given Name</td>
                             <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="firstName"/></td>
                         </tr>
 
@@ -62,7 +62,7 @@
                         </tr>
 
                         <tr>
-                            <td class="demoRegQuestion">Last Name</td>
+                            <td class="demoRegQuestion">Surname</td>
                             <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="lastName"/></td>
                         </tr>
                         <tr>

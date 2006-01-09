@@ -2,6 +2,7 @@ package com.topcoder.web.tc.view.tag;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.tag.BaseTag;
+import com.topcoder.web.common.tag.AnswerInput;
 
 import javax.servlet.jsp.JspException;
 

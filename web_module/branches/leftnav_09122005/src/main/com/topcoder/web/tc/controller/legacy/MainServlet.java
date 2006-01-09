@@ -28,6 +28,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.StringTokenizer;
+import java.util.Enumeration;
 import java.util.zip.GZIPOutputStream;
 
 
@@ -128,18 +129,25 @@ public final class MainServlet extends BaseServlet {
                 handle = Conversion.checkNull(nav.getSessionInfo().getHandle());
             }
             StringBuffer trail = new StringBuffer(1000);
-            trail.append("[**** ");
+            trail.append("[* ");
             trail.append(handle);
-            trail.append(" **** ");
+            trail.append(" * ");
             trail.append(request.getRemoteAddr());
-            trail.append(" **** ");
+            trail.append("  ");
             trail.append(request.getMethod());
-            trail.append(" **** ");
+            trail.append(" * ");
             trail.append(requestTask);
-            trail.append(" **** ");
+            trail.append(" * ");
             trail.append(requestCommand);
-            trail.append(" ****]");
+            trail.append(" *]");
             log.info(trail.toString());
+            if (log.isDebugEnabled()) {
+                String h = null;
+                for (Enumeration e = request.getHeaderNames(); e.hasMoreElements();) {
+                    h = e.nextElement().toString();
+                    log.debug(h + ": " + request.getHeader(h));
+                }
+            }
             User user = nav.getUser();
             if (user == null) {
                 //user must have been transient and we got a navigation object that had been serialized at some point

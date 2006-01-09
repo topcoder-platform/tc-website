@@ -36,6 +36,7 @@ public class Submit extends FullRegSubmit {
 
     //todo wack this crap when we have fixed the regular site to not use the transactional db for contact info
     //don't need to reimplement commit here at that point
+/*
     protected long commit(SimpleRegInfo regInfo) throws TCWebException {
 
         long userId = super.commit(regInfo);
@@ -122,21 +123,8 @@ public class Submit extends FullRegSubmit {
 
         return userId;
     }
+*/
 
-    protected Map getFileTypes(String db) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("file_types");
-        Map qMap = getDataAccess(db, true).getData(r);
-        ResultSetContainer questions = (ResultSetContainer) qMap.get("file_types");
-        ResultSetContainer.ResultSetRow row = null;
-
-        Map ret = new HashMap();
-        for (Iterator it = questions.iterator(); it.hasNext();) {
-            row = (ResultSetContainer.ResultSetRow) it.next();
-            ret.put(row.getStringItem("mime_type"), new Long(row.getLongItem("file_type_id")));
-        }
-        return ret;
-    }
 
     protected void setNextPage() {
         Calendar end = Calendar.getInstance();

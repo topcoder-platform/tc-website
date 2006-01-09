@@ -4,7 +4,6 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveConstants;
-import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.action.util.Paginator;
@@ -26,6 +25,11 @@ public class Category extends ForumsProcessor {
 		super.businessProcessing();
 
         long categoryID = Long.parseLong(getRequest().getParameter(ForumConstants.CATEGORY_ID));
+        if (categoryID == 1) {
+            setNextPage("?module=Main");
+            setIsNextPageInContext(false);
+            return;
+        }
         ForumCategory forumCategory = forumFactory.getForumCategory(categoryID);
         
         int startIdx = 0;
@@ -39,12 +43,26 @@ public class Category extends ForumsProcessor {
             } catch (Exception ignored) {}
         }
         
+        String sortField = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SORT_FIELD));
+        String sortOrder = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SORT_ORDER));
+        if (sortField.equals("")) {
+            sortField = String.valueOf(JiveConstants.MODIFICATION_DATE);
+        }
+        if (sortOrder.equals("")) {
+            sortOrder = String.valueOf(ResultFilter.DESCENDING);
+        }
+        
+        String markRead = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MARK_READ));
+        if (markRead.equals("t")) {
+            forumFactory.getReadTracker().markRead(user, forumCategory);
+        }
+        
         ResultFilter resultFilter = new ResultFilter();
         if ("fixed".equals(forumCategory.getProperty(ForumConstants.PROPERTY_SORT))) {
             resultFilter = ResultFilter.createDefaultForumFilter();
         } else {
-            resultFilter.setSortField(JiveConstants.MODIFICATION_DATE);
-            resultFilter.setSortOrder(ResultFilter.DESCENDING);
+            resultFilter.setSortField(Integer.parseInt(sortField));
+            resultFilter.setSortOrder(Integer.parseInt(sortOrder));
         }
         
         Iterator itCategories = forumCategory.getCategories();
@@ -117,6 +135,8 @@ public class Category extends ForumsProcessor {
         getRequest().setAttribute("categories", itCategories);
         getRequest().setAttribute("resultFilter", resultFilter);
         getRequest().setAttribute("paginator", paginator);
+        getRequest().setAttribute("sortField", sortField);
+        getRequest().setAttribute("sortOrder", sortOrder);
 
 		setNextPage("/viewCategory.jsp");
 		setIsNextPageInContext(true);

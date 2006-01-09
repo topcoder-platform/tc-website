@@ -1,12 +1,14 @@
 <%@ page
   language="java"
-  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
+  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
+          com.topcoder.shared.util.ApplicationServer"
 
 %>
 
 <%@ taglib uri="struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <HTML>
  <HEAD>
@@ -55,6 +57,11 @@ if (resultRow_0 != null) {
 pageContext.setAttribute("rd", currRound);
 pageContext.setAttribute("rm", currRoom);
 
+String forumIDStr = resultRow_0.getItem("forum_id").toString();
+int forumID = -1;
+if (!forumIDStr.equals("")) {
+    forumID = Integer.parseInt(forumIDStr);
+}
 %>
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
      <TR>
@@ -83,7 +90,7 @@ pageContext.setAttribute("rm", currRoom);
              <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
            </TR>
          </TABLE>
-         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
+         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
            <TR>
              <TD VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"><BR/>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
@@ -91,12 +98,11 @@ pageContext.setAttribute("rm", currRoom);
                    <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                  </TR>
 
-
                     <FORM name="">
                 <TR>
                   <TD COLSPAN="4" CLASS="statText">
                     <SPAN CLASS="statTextBig"><B>Please select a round:</B><BR/></SPAN>
-                    <SELECT NAME="Contest" onchange="goTo(this)"><OPTION value="#">Select a Round:</OPTION>
+                    <SELECT CLASS="dropdown" NAME="Contest" onchange="goTo(this)"><OPTION value="#">Select a Round:</OPTION>
                       <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
                         <% if (resultRow.getItem(0).toString().equals(pageContext.getAttribute("rd"))) { %>
                           <OPTION value="/stat?c=room_stats&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>&rm=<bean:write name="resultRow" property='<%= "item[" + 5 /* first room */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round */ + "]" %>'/></OPTION>
@@ -105,12 +111,15 @@ pageContext.setAttribute("rm", currRoom);
                         <% } %>
                       </logic:iterate>
                     </SELECT>
+                    <%  if (forumID != -1) { %>
+                       <br><br><A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumID%>" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br><br>
+                    <%  } %>
                   </TD>
                 </TR>
                 <TR>
                   <TD COLSPAN="4" CLASS="statText">
                      <SPAN CLASS="statTextBig"><B>Please select a room:</B><BR/></SPAN>
-                     <SELECT NAME="Round" onchange="goTo(this)"><OPTION value="#">Select a Room:</OPTION>
+                     <SELECT CLASS="dropdown" NAME="Round" onchange="goTo(this)"><OPTION value="#">Select a Room:</OPTION>
                        <logic:iterate name="resultSetRooms" id="resultRowRoom" type="ResultSetContainer.ResultSetRow">
                          <% if (resultRowRoom.getItem(0).toString().equals(pageContext.getAttribute("rm"))) { %>
                            <OPTION value="/stat?c=room_stats&rd=<%= pageContext.getAttribute("rd") %>&rm=<bean:write name="resultRowRoom" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRowRoom" property='<%= "item[" + 1 /* name */ + "]" %>'/> - <bean:write name="resultRowRoom" property='<%= "item[" + 2 /* division */ + "]" %>'/></OPTION>
@@ -234,7 +243,7 @@ else {
            pageContext.setAttribute("coderHandle", resultRow.getItem(0).toString()); %>
                    <TD WIDTH="10" ><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="4" BORDER="0"></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="left" HEIGHT="13">
-                     <SPAN CLASS="coderBrackets">[&#160;</SPAN><A HREF="/tc?module=MemberProfile&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></A><SPAN CLASS="coderBrackets">&#160;]</SPAN>
+                       <SPAN CLASS="coderBrackets">[&#160;</SPAN><A HREF="/tc?module=MemberProfile&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></A><SPAN CLASS="coderBrackets">&#160;]</SPAN>
                    </TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 6 /* submits */ + "]" %>'/></TD>
@@ -250,9 +259,9 @@ else {
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 13 /* challenge pts */ + "].resultData" %>'/></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right">&#160;&#160;</TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 15 /* pre-rating */ + "]" %>'/></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right"><rsc:item name="old_rating" row="<%=resultRow%>"/></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="5%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 17 /* end-rating */ + "]" %>'/></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right"><rsc:item name="new_rating" row="<%=resultRow%>"/></TD>
                    <TD CLASS="statText" ALIGN="center" VALIGN="middle">
 <% if (resultRow.getIntItem("rating_change")<0) { %>
 <IMG src="/i/arrow_red_down.gif" width="10" height="10" border="0"/>
@@ -265,7 +274,7 @@ else {
          <% } else { %>
                     <TD WIDTH="10"><A HREF="/stat?c=coder_room_stats&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="statText"><IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="4" BORDER="0"></A></TD>
                    <TD CLASS="coderBrackets" ALIGN="left" HEIGHT="13">
-                     <A HREF="/tc?module=MemberProfile&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></A></A>
+                     <A HREF="/tc?module=MemberProfile&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></A>
                    </TD>
                    <TD CLASS="statText" ><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                    <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 6 /* submits */ + "]" %>'/></TD>
@@ -281,9 +290,9 @@ else {
                    <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                    <TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 13 /* challenge pts */ + "].resultData" %>'/></TD>
                    <TD CLASS="statText" ALIGN="right">&#160;&#160;</TD>
-                   <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 15 /* pre-rating */ + "]" %>'/></TD>
+                   <TD CLASS="statText" ALIGN="right"><rsc:item name="old_rating" row="<%=resultRow%>"/></TD>
                    <TD CLASS="statText" WIDTH="5%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 17 /* end-rating */ + "]" %>'/></TD>
+                   <TD CLASS="statText" ALIGN="right"><rsc:item name="new_rating" row="<%=resultRow%>"/></TD>
                    <TD CLASS="statText" ALIGN="center" VALIGN="middle">
 <% if (resultRow.getIntItem("rating_change")<0) { %>
 <IMG src="/i/arrow_red_down.gif" width="10" height="10" border="0"/>

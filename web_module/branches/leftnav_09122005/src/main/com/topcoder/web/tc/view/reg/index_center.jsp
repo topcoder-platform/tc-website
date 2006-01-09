@@ -157,14 +157,14 @@ function checkInputs(){
 
                     <% if (Registration.hasResume()) { %>
 
-                        <a href="JavaScript:void window.open('/Resume?t=ViewUploadTask','Resume_Upload','top=2,left=2,resizable=yes,width=400,height=200,status=0');" class="statTextBig">Upload</a>
+                        <a href="JavaScript:void window.open('/tc?module=ViewResume','Resume_Upload','top=2,left=2,resizable=yes,width=400,height=200,status=0');" class="statTextBig">Upload</a>
                         a new resume.<br/>
 
-                       <a href="/Resume?t=DownloadTask" class="statTextBig">Download</a> your resume.
+                       <a href="/tc?module=ResumeDownload" class="statTextBig">Download</a> your resume.
 
                     <% } else { %>
 
-                        <a href="JavaScript:void window.open('/Resume?t=ViewUploadTask','Resume_Upload','top=2,left=2,resizable=yes,width=400,height=200,status=0');" class="statTextBig">Upload</a>
+                        <a href="JavaScript:void window.open('/tc?module=ViewResume','Resume_Upload','top=2,left=2,resizable=yes,width=400,height=200,status=0');" class="statTextBig">Upload</a>
                         your resume.
 
                     <% } %>
@@ -323,19 +323,19 @@ function checkInputs(){
                     <td class="registerLabel">Handle</td>
                     <td class="statText">
 
-                    <% if (Registration.isValidHandle(Registration.getHandle())
+    <%--                <% if (Registration.isValidHandle(Registration.getHandle())
                            && Registration.getHandle().toLowerCase().indexOf("guest") < 0
                            && Registration.getHandle().length()>1
                            && !Registration.containsAllPunctuation(Registration.getHandle())
                            && Registration.getHandleError().equals("")) {  %>
-
+--%>
                         <jsp:getProperty name="Registration" property="handle" />
-
+<%--
                     <% } else { %>
 
                         <input type="text" name="<%=Registration.HANDLE%>" value ="<jsp:getProperty name="Registration" property="handle" />" size="30" maxlength="15">
 
-                    <% } %>
+                    <% } %>--%>
                     </td>
                 </tr>
 

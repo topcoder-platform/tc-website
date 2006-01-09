@@ -69,7 +69,7 @@
                 <rsc:iterator list="<%=rsc%>" id="resultRow">
                     <tr>
                        <td class="<%=even?"formHandleOdd":"formHandleEven"%>">
-                           <A HREF="/stat?tc?module=MemberProfile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A>
+                           <A HREF="/tc?module=MemberProfile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A>
                        </td>
                        <td class="<%=even?"formHandleOdd":"formHandleEven"%>" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
                    </tr>

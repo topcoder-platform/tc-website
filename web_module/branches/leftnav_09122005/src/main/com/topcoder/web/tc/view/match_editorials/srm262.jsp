@@ -5,7 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Statisics</title>
+<title>TopCoder Statistics</title>
 
 <jsp:include page="../script.jsp" />
 <jsp:include page="../style.jsp">
@@ -49,7 +49,7 @@
 <span class="bigTitle">Match summary</span>
 
 <p>
-Friday's early SRM featured something not seen in quite a while, precomputation.  Petr and marian,
+Friday's early SRM featured something not seen in quite a while, precomputation.  marian and Petr,
 who finished second and third respectively, both submitted precomputed solutions to the Div 1 hard.
 Despite this sturdy opposition, kalinov's precomputation-free solution earned him the first place
 crown.  In Division 2, dynamitehacker and pashka took first and second place with scores over 1350.

@@ -5,7 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Statisics</title>
+<title>TopCoder Statistics</title>
 
 <jsp:include page="../script.jsp" />
 <jsp:include page="../style.jsp">
@@ -39,11 +39,8 @@
 </jsp:include>
 
 <div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
-<%--
-<tc-webtag:forumLink forumID="505003" message="Discuss this match" /></div>
---%>
-<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505388">Discuss this match</A></div>
-<span class="bodySubtitle">TCO05 - Online Round 4</span><br>Wednesday, September 7, 2005
+<tc-webtag:forumLink forumID="505760" message="Discuss this match" /></div>
+<span class="bodySubtitle">2005 TopCoder Open <br> Online Round 4 </span><BR/>Wednesday, September 7, 2005
 <br><br>
 
 <span class="bigTitle">Match summary</span>
@@ -65,8 +62,8 @@ The Problems
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4696&amp;rd=8036" name="4696">CompanyMessages</a></b>
 </font>
-<A href="Javascript:openProblemRating(4696)"><img hspace="10" border="0" height="
-18" width="60" src="/i/rate_it.gif"/></A><br>
+<A href="Javascript:openProblemRating(4696)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505760" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
 
 Used as: Division One - Level One: <blockquote><table cellspacing="2">
   <tr>
@@ -128,8 +125,9 @@ structure necessary for DP/memoization.
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4645&amp;rd=8036" name="4645">TokenGrid</a></b>
 </font>
-<A href="Javascript:openProblemRating(4645)"><img hspace="10" border="0" height="
-18" width="60" src="/i/rate_it.gif"/></A><br>
+<A href="Javascript:openProblemRating(4645)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505760" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division One - Level Two: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -195,8 +193,9 @@ entries are markable by any input case.
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=3053&amp;rd=8036" name="3053">GetSubsequence</a></b>
 </font>
-<A href="Javascript:openProblemRating(3053)"><img hspace="10" border="0" height="
-18" width="60" src="/i/rate_it.gif"/></A><br>
+<A href="Javascript:openProblemRating(3053)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A>
+<A href="http://forums.topcoder.com/?module=ThreadList&forumID=505760" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A><br />
+
 Used as: Division One - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">

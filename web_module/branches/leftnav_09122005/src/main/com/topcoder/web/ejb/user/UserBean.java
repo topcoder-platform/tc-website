@@ -7,6 +7,7 @@ import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +21,15 @@ public class UserBean extends BaseEJB {
     private final static Logger log = Logger.getLogger(UserBean.class);
 
     public long createNewUser(String handle, char status, String dataSource) throws EJBException {
-        long ret = IdGeneratorClient.getSeqId("main_sequence");
+        long ret = 0;
+        try {
+            ret = IdGeneratorClient.getSeqId("main_sequence");
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e);
+        } catch (NamingException e) {
+            throw new EJBException(e);
+        }
         createUser(ret, handle, status, dataSource);
         return ret;
     }
@@ -599,6 +608,41 @@ public class UserBean extends BaseEJB {
         return userExists;
     }
 
+    public boolean userExists(String handle, String dataSource) throws EJBException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+
+        boolean userExists = false;
+
+        InitialContext ctx = null;
+
+        try {
+
+            conn = DBMS.getConnection(dataSource);
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("SELECT 'X' ");
+            query.append("FROM user ");
+            query.append("WHERE lower(handle) = lower(?)");
+
+            ps = conn.prepareStatement(query.toString());
+            ps.setString(1, handle);
+
+            rs = ps.executeQuery();
+            userExists = rs.next();
+        } catch (SQLException _sqle) {
+            DBMS.printSqlException(true, _sqle);
+            throw(new EJBException(_sqle.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+
+        return userExists;
+    }
 
     public void setPassword(long userId, String password, String dataSource) throws EJBException {
         int ret = update("user",

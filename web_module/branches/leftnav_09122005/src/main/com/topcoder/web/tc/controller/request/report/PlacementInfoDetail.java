@@ -3,7 +3,6 @@ package com.topcoder.web.tc.controller.request.report;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.coderskill.CoderSkill;
 import com.topcoder.web.ejb.resume.ResumeServices;
@@ -54,8 +53,17 @@ public class PlacementInfoDetail extends Base {
                     String text = rscPref.getStringItem(j, "preference_desc");
                     int type = rscPref.getIntItem(j, "preference_type_id");
                     int id = rscPref.getIntItem(j, "preference_id");
+                    
+                    if (type == Constants.PREFERENCE_TEXT_ANSWER && info.getPreference(String.valueOf(id)) != null) {
+                    	String answer = info.getPreference(String.valueOf(id));
+                    	
+                    	ContractingResponse rsp = new ContractingResponse();
+                        rsp.setName(text);
+                        rsp.setVal(answer);
 
-                    if (type != Constants.PREFERENCE_SINGLE_ANSWER && info.getPreference(String.valueOf(id)) != null) {
+                        g.addResponse(rsp);
+                    }
+                    else if (type != Constants.PREFERENCE_SINGLE_ANSWER && info.getPreference(String.valueOf(id)) != null) {
                         //look up answer
                         String answer = "";
 
@@ -257,22 +265,37 @@ public class PlacementInfoDetail extends Base {
 
         info.setUserID(userId);
 
-        InitialContext ctx = TCContext.getInitial();
+        InitialContext ctx = getInitialContext();
         UserPreference prefbean = (UserPreference) createEJB(ctx, UserPreference.class);
 
         //load pref group list, then preferences in group
         Request r = new Request();
         r.setContentHandle("preference_groups");
-
+        
         ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("preference_groups");
         for (int i = 0; i < rsc.size(); i++) {
             ResultSetContainer rscPrefs = prefbean.getPreferencesByGroup(userId, rsc.getIntItem(i, "preference_group_id"), DBMS.COMMON_OLTP_DATASOURCE_NAME);
             for (int j = 0; j < rscPrefs.size(); j++) {
                 info.setEdit(true);
-                info.setPreference(rscPrefs.getStringItem(j, "preference_id"), rscPrefs.getStringItem(j, "preference_value_id"));
-                log.debug("SET PREFERENCE " + rscPrefs.getStringItem(j, "preference_id") + " TO " + rscPrefs.getStringItem(j, "preference_value_id"));
+                if (rscPrefs.getIntItem(j, "preference_type_id") == Constants.PREFERENCE_TEXT_ANSWER) {
+                    info.setPreference(rscPrefs.getStringItem(j, "preference_id"), rscPrefs.getStringItem(j, "value"));
+                    log.debug("SET PREFERENCE " + rscPrefs.getStringItem(j, "preference_id") + " TO " + rscPrefs.getStringItem(j, "value"));
+                } else {
+                    info.setPreference(rscPrefs.getStringItem(j, "preference_id"), rscPrefs.getStringItem(j, "preference_value_id"));
+                    log.debug("SET PREFERENCE " + rscPrefs.getStringItem(j, "preference_id") + " TO " + rscPrefs.getStringItem(j, "preference_value_id"));
+                }
             }
         }
+
+//        ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("preference_groups");
+//        for (int i = 0; i < rsc.size(); i++) {
+//            ResultSetContainer rscPrefs = prefbean.getPreferencesByGroup(userId, rsc.getIntItem(i, "preference_group_id"), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+//            for (int j = 0; j < rscPrefs.size(); j++) {
+//                info.setEdit(true);
+//                info.setPreference(rscPrefs.getStringItem(j, "preference_id"), rscPrefs.getStringItem(j, "preference_value_id"));
+//                log.debug("SET PREFERENCE " + rscPrefs.getStringItem(j, "preference_id") + " TO " + rscPrefs.getStringItem(j, "preference_value_id"));
+//            }
+//        }
 
         /*if(!info.isEdit())
             return info;*/

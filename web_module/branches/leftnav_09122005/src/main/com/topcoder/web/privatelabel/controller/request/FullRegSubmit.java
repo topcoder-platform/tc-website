@@ -4,14 +4,14 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.demographic.Response;
 import com.topcoder.web.ejb.jobposting.JobPostingServices;
 import com.topcoder.web.ejb.school.CurrentSchool;
 import com.topcoder.web.ejb.school.School;
 import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.model.DemographicQuestion;
-import com.topcoder.web.privatelabel.model.DemographicResponse;
+import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
@@ -38,7 +38,7 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
 
         try {
             if (regInfo.isNew() && userExists(regInfo.getHandle())) {
-                addError(Constants.HANDLE, "Please choose another handle.");
+                addError(Constants.HANDLE, getBundle().getProperty("error_dup_handle"));
                 getRequest().setAttribute("countryList", getCountryList());
                 getRequest().setAttribute("stateList", getStateList());
                 setDefaults(regInfo);
@@ -61,7 +61,8 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
 
         DemographicResponse r = null;
         DemographicQuestion q = null;
-        Map questions = FullRegBase.getQuestions(transDb, ((FullRegInfo) regInfo).getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)));
+        Map questions = FullRegBase.getQuestions(transDb, ((FullRegInfo) regInfo).getCoderType(),
+                Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)), getLocale());
 
         //remove the current response for questions they have answered
         for (Iterator it = ((FullRegInfo) regInfo).getResponses().iterator(); it.hasNext();) {
@@ -145,7 +146,7 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
 
     /**
      * default is true, subclasses can implement something more interesting
-     * @return
+     * @return whether or not the info provided is eligible
      */
     protected static boolean isEligible(FullRegInfo info) {
         return true;

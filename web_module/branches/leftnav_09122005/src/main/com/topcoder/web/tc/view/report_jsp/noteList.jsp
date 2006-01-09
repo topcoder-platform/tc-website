@@ -1,9 +1,9 @@
 <%@  page
   language="java"
-  import="com.topcoder.common.web.data.report.*,
-          com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+  import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
           com.topcoder.web.common.StringUtils"
 %>
+<%@ page import="com.topcoder.common.web.data.report.Constants"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <% ResultSetContainer note_list = (ResultSetContainer)request.getAttribute("note_list");%>
 
@@ -12,7 +12,7 @@
     <title>TopCoder Reporting</title>
   </head>
   <body>
-    <a href=<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY%>><< back to main menu<a><br/><br/>
+    <a href=<%=Constants.SERVLET_ADDR+"&"+ Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY%>>&lt;&lt; back to main menu</a><br/><br/>
     <center>
     <br/>
     <br/>
@@ -29,6 +29,8 @@
         </td></tr>
         <tr><td colspan=4 align=left><A HREF="/tc?module=EditNote&uid=<%=request.getAttribute(com.topcoder.web.tc.Constants.USER_ID)%>">Add Note</A></td></tr>
         <tr><td colspan=4 align=left><A HREF="/tc?module=ContactDate&uid=<%=request.getAttribute(com.topcoder.web.tc.Constants.USER_ID)%>">Set Contact Date</A></td></tr>
+        <tr><td colspan=4 align=left><A HREF="mailto:<%=request.getAttribute(com.topcoder.web.tc.Constants.EMAIL).toString()%>">Send Email</A>
+        </td></tr>
         <tr>
             <td>Text</td>
             <td>Author</td>

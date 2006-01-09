@@ -45,7 +45,18 @@ margin:0px auto;
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr>
       <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
-      <td class="BIGPromoBox" align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about"><IMG SRC="/i/home/promos/tco05.gif" border="0" ALT="TCO05" /></a></td>
+<%-- TCO06
+--%>
+      <map name="tco06_map">
+      <area shape="rect" alt="" coords="1,1, 265,149" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
+      <area shape="rect" alt="" coords="275,1, 499,149" href="/tc?module=TCO06ComponentTerms" />
+      </map>
+      <td class="BIGPromoBox" align="center"><IMG SRC="/i/home/tco06_comp_registration.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" /></td>
+<%-- $1,000,000
+      <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=pressroom&d2=pr_112105"><IMG SRC="/i/home/milestone_million.gif" border="0" ALT="$1,000,000 in Component Competition Payouts"/></A></td>
+<%-- MSN
+      <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=contracting&d2=msn"><IMG SRC="/i/home/msn_emp_opps.gif" border="0" ALT="MSN is hiring"/></A></td>
+--%>
       <td width="50%" class="homeLogo" align="right">&#160;</td>
    </tr>
 </table>
@@ -140,23 +151,42 @@ margin:0px auto;
 <%-- Right Column --%>
       <td class="homeRightCol">
       <table border="0" cellpadding="0" cellspacing="0">
-         <tr><td class="homeBigPromo"><A href="/movies/press/cnn_072405.mp4"><img src="/i/home/mov_cnn_072405.jpg" alt="TopCoder Movies" border="0" /></A></td></tr>
+         <tr><td class="homeBigPromo">
+<%-- CNN MOVIE
+--%>
+            <A href="/movies/press/cnn_072405.mp4"><img src="/i/home/mov_cnn_072405.jpg" alt="TopCoder Movies" border="0" /></A>
+<%-- SRM SPONSORSHIP
+            <map name="srm_sponsor">
+            <area shape="rect" alt="" coords="1,1, 269,90" href="/?RoundId=8077&t=schedule&c=srm" />
+            <area shape="rect" alt="" coords="1,91, 269,139" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign" />
+            </map>
+            <img src="/i/home/verisign_srm280.gif" alt="VeriSign" border="0" usemap="#srm_sponsor"/>
+--%>
+<%-- GCJC
+            <A href="/gcjc"><img src="/i/home/gcjc.gif" alt="Google Code Jam China" border="0" /></A>
+--%>
+         </td></tr>
       </table>
       <table border="0" cellpadding="0" cellspacing="0">
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
-            <td class="homeTitle"><A href="/?t=schedule&c=index" class="homeTitleLink">September Events:</A></td>
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">January Events:</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-            <b>9/07</b> - TCO05 Alg Round 4 - 930PM<br><br>
-            <b>9/09</b> - SRM 262 - 11AM<br><br>
-            <b>9/14</b> - SRM 263 - 9PM - Sun Microsystems<br><br>
-            <b>9/20</b> - SRM 264 - 9PM - NSA<br><br>
-            <b>9/27</b> - SRM 265 - 9AM - VeriSign<br><br>
+            <b>1/02</b> - TCO06 Component - Registration opens - 9AM<br><br>
+            <b>1/05</b> - SRM 281 - 11AM<br><br>
+            <b>1/10</b> - SRM 282 - 9PM - NSA<br><br>
+            <b>1/18</b> - TCO06 Component - Registration closes - 9AM<br><br>
+            <b>1/19</b> - SRM 283 - 7AM<br><br>
+            <b>1/21</b> - SRM 284 - 12 noon - MSN<br><br>
+            <b>1/24</b> - SRM 285 - 11AM<br><br>
+            <b>1/25</b> - TCO06 Component - Week1 submission deadline- 9AM<br><br>
+            <b>1/30</b> - SRM 286 - 9PM<br><br>
             </td>
          </tr>
+<%-- Press Room --%>
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
             <td class="homeTitle"><A href="/tc?module=Static&d1=pressroom&d2=index" class="homeTitleLink">Press Room Highlights</A></td>
@@ -164,12 +194,22 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-            Poland Leads TopCoder <A href="/tc?module=Static&d1=pressroom&d2=art_091205">...more</A><br>[September 12 - IDG.pl]<br><br>
-            Components for SOAs and Other App Dev Projects <A href="http://www.adtmag.com/article.asp?id=11752" target="_blank">...more</A><br>[September 6 - ADT]<br><br>
-            TopCoder&#174; Announces First Software Developer Conference at 2005 TopCoder Open <A href="/tc?module=Static&d1=pressroom&d2=pr_090205">...more</A><br>[September 2]<br><br>
-            Wanna codejam? May the best techie win <A href="http://timesofindia.indiatimes.com/articleshow/1212895.cms" target="_blank">...more</A><br>[August 29 - Times of India]<br><br>
-            TopCoder&#174; Announces 16 Finalists in Component Tournament of 2005 TopCoder Open <A href="/tc?module=Static&d1=pressroom&d2=pr_082405">...more</A><br>[August 24]<br><br>
-            Registration Opens for Google Code Jam 2005 <A href="http://www.google.com/intl/en/press/pressrel/codejam3.html">...more</A><br>[July 25]<br><br>
+            TopCoder Welcomes VeriSign as Return Sponsor of 2006 TopCoder Open in Las Vegas <A href="/tc?module=Static&d1=pressroom&d2=pr_121905">...more</A><br>[December 19]<br><br>
+
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/forbes_logo.gif" width="67" height="23" alt="Forbes" border="0" /></div>
+            Help Wanted In Silicon Valley<A href="http://www.forbes.com/home/work/2005/12/09/silicon-valley-hiring-cx_rr_1212hire.html" target="_blank">&nbsp;...more</A><br>[December 12]<br><br>
+
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/bw_cov120205_small.jpg" width="85" height="82" alt="BusinessWeek" border="0" /></div>
+            Rise Of A Powerhouse - How the young knowledge workers of Central Europe are pushing the region to a new level<A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm" target="_blank">&nbsp;...more</A><br>[December 2]<br><br>
+
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/usatoday_logo.gif" width="67" height="36" alt="USA Today" border="0" /></div>
+            TopCoder Survey in USA Today [PDF] <A href="/pdfs/press_room/usatoday_113005.pdf" target="_blank">...more</A><br>[November 30]<br><br>
+
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/infoworld_logo.gif" width="67" height="12" alt="InfoWorld" border="0" /></div>
+            Google to hold programming competition in China <A href="http://www.infoworld.com/article/05/11/22/HNgooglecompetition_1.html" target="_blank">...more</A><br>[November 22]<br><br>
+
+            TopCoder Payouts to Winners of Design and Development Competitions Surpass $1 Million <A href="/tc?module=Static&d1=pressroom&d2=pr_112105">...more</A><br>[November 21]<br><br>
+
             </td>
          </tr>
       </table>
@@ -188,8 +228,7 @@ margin:0px auto;
          <br>
             <A href="/tc" class="footerLinks">Developer Center</A>&#160;&#160;|&#160;&#160;
             <A href="/corp/?module=Static&d1=corp&d2=index" class="footerLinks">Corporate Services</A>
-    <tr><td class="copyright"colspan="5">Copyright &#169; 2001-2004, TopCoder, Inc. All rights reserved.</td></tr>
+    <tr><td class="copyright"colspan="5">Copyright &#169; 2001-2005, TopCoder, Inc. All rights reserved.</td></tr>
 </table>
 </body>
 </html>
- 

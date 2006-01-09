@@ -4,6 +4,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <% List questionInfo = (List)request.getAttribute("questionInfo");%>
+<jsp:useBean id="surveyInfo" scope="request" class="com.topcoder.web.tc.model.Survey" />
 
 
 <html>
@@ -104,6 +105,9 @@
                         <p align="right" class="bodyText"><a href="/tc?module=SurveyList">Archive</a></p></td>
                      </tr>
                   </table>
+             <% if (surveyInfo.getText()!=null) { %>
+             <p><jsp:getProperty name="surveyInfo" property="text"/></p>
+             <% } %>
 
                <tc:questionIterator list="<%=questionInfo%>" id="question">
                   <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">

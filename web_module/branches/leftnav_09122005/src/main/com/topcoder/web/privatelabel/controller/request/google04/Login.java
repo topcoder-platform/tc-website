@@ -5,6 +5,7 @@ import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.demographic.Response;
@@ -13,14 +14,14 @@ import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserAddress;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.controller.request.FullLogin;
-import com.topcoder.web.privatelabel.model.DemographicQuestion;
-import com.topcoder.web.privatelabel.model.DemographicResponse;
+import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Locale;
 
 public class Login extends FullLogin {
 
@@ -142,7 +143,8 @@ public class Login extends FullLogin {
             if (responses.getRowCount() > 0) {
                 for (Iterator it = responses.iterator(); it.hasNext();) {
                     row = (ResultSetContainer.ResultSetRow) it.next();
-                    question = findQuestion(row.getLongItem("demographic_question_id"), getQuestions(transDb, Constants.PROFESSIONAL, Integer.parseInt(getRequestParameter(Constants.COMPANY_ID))));
+                    question = findQuestion(row.getLongItem("demographic_question_id"),
+                            getQuestions(transDb, Constants.PROFESSIONAL, Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)), Locale.US));
                     DemographicResponse r = new DemographicResponse();
                     r.setQuestionId(question.getId());
                     r.setSort(row.getIntItem("sort"));
@@ -167,7 +169,8 @@ public class Login extends FullLogin {
                     long tcQuestionId = row.getLongItem("demographic_question_id");
                     //only add the response if we have a mapping for it
                     if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(tcQuestionId))) {
-                        question = findQuestion(((Long) TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(), getQuestions(transDb, Constants.PROFESSIONAL, Integer.parseInt(getRequestParameter(Constants.COMPANY_ID))));
+                        question = findQuestion(((Long) TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(),
+                                getQuestions(transDb, Constants.PROFESSIONAL, Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)), Locale.US));
                         if (question != null) {
                             DemographicResponse r = new DemographicResponse();
                             r.setQuestionId(question.getId());
@@ -209,7 +212,8 @@ public class Login extends FullLogin {
                 long tcQuestionId = row.getLongItem("demographic_question_id");
                 //only add the response if we have a mapping for it
                 if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(tcQuestionId))) {
-                    question = findQuestion(((Long) TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(), getQuestions(transDb, info.getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID))));
+                    question = findQuestion(((Long) TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(),
+                            getQuestions(transDb, info.getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)), getLocale()));
                     if (question != null) {
                         DemographicResponse r = new DemographicResponse();
                         r.setQuestionId(question.getId());

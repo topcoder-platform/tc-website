@@ -36,6 +36,10 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">12.13.05 10:00 AM&#160;-&#160</td><td width="100%"><A href="/longcontest/?module=Static&d1=instructions">Introducing Marathon Matches</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">12.06.05 11:00 AM&#160;-&#160</td><td width="100%">Event calendar updated for <A href="/tc?module=Static&d1=calendar&d2=feb_06">February</A>, <A href="/tc?module=Static&d1=calendar&d2=mar_06">March</A>, <A href="/tc?module=Static&d1=calendar&d2=apr_06">April</A>, and <A href="/tc?module=Static&d1=calendar&d2=may_06">May</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.04.05 2:00 PM&#160;-&#160</td><td width="100%">"Achievements" added to Member Profiles</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.13.05 4:40 PM&#160;-&#160</td><td width="100%">Event calendar updated for <A href="/tc?module=Static&d1=calendar&d2=nov_05">November</A>, <A href="/tc?module=Static&d1=calendar&d2=dec_05">December</A>, and <A href="/tc?module=Static&d1=calendar&d2=jan_06">January</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.30.05 6:30 PM&#160;-&#160</td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=8">"News Discussions" now in the Forums</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.11.05 5:50 PM&#160;-&#160</td><td width="100%">New Rating Distribution Graphs</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.25.05 12:20 PM&#160;-&#160</td><td width="100%">New Rating History Graphs</td></tr>

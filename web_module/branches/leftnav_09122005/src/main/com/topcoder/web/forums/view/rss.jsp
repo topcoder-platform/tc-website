@@ -1,11 +1,11 @@
 <% response.setContentType("text/xml; charset=" + JiveGlobals.getCharacterEncoding()); %><?xml version="1.0" encoding="<%= JiveGlobals.getCharacterEncoding() %>"?>
 
 <%@ page import="com.topcoder.web.common.BaseServlet,
-                com.topcoder.web.forums.ForumConstants,
+                 com.topcoder.web.forums.ForumConstants,
                  com.jivesoftware.base.JiveGlobals,
                  com.jivesoftware.base.action.rss.RSSActionSupport,
                  com.jivesoftware.util.StringUtils,
-                  java.util.*,
+                 java.util.*,
                  java.text.SimpleDateFormat"
          contentType="text/xml"
 %>

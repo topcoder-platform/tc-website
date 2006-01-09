@@ -9,5 +9,4 @@ import javax.ejb.EJBLocalObject;
  */
 public interface ProjectLocal extends EJBLocalObject {
     void updateForLock(long projectId, String dataSource);
-    int getProjectTypeId(long projectId, String dataSource);
 }

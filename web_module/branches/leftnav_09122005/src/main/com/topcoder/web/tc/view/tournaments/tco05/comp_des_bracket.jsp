@@ -20,9 +20,9 @@
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
-	<tr valign=top>
-		<td valign=top align=center>
-		<div class="bodySpacer">
+   <tr valign=top>
+      <td valign=top align=center>
+      <div class="bodySpacer">
 <span class="bigTitle">Design Finalists Bracket</span>
 <br><br>
 The finalists are sorted alphabetically.
@@ -32,7 +32,7 @@ The finalists are sorted alphabetically.
       <td align="right"><img src="/i/tournament/tco05/bracket_TL.gif" alt="" border="0" /></td>
       <td rowspan="3" style="background-color: #000000;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td rowspan="3" valign="middle"><img src="/i/tournament/tco05/bracket_R.gif" alt="" border="0" /></td>
-      <td rowspan="3" valign="middle"><img src="/i/tournament/tco05/champion.gif" alt="" border="0" /></td>
+      <td rowspan="3" valign="middle" align="center"><img src="/i/tournament/tco05/champion.gif" alt="" border="0" /><br><span class="bigTitle"><tc-webtag:handle coderId="293874" context="design"/></span></td>
    </tr>
    <tr>
       <td style="padding: 15px" valign="middle" align="center">
@@ -56,7 +56,7 @@ The finalists are sorted alphabetically.
 
 
         </div>
-		</td>
+      </td>
 
 
 <!-- Right Column-->
@@ -66,7 +66,7 @@ The finalists are sorted alphabetically.
             </jsp:include>
          </td>
 
-	</tr>
+   </tr>
 
 </table>
 

@@ -1,21 +1,7 @@
 package com.topcoder.web.tc.controller.legacy.reg.bean;
 
+import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.util.Cache;
-import com.topcoder.common.web.data.User;
-import com.topcoder.common.web.data.CoderRegistration;
-import com.topcoder.common.web.data.Notify;
-import com.topcoder.common.web.data.DemographicAssignment;
-import com.topcoder.common.web.data.DemographicQuestion;
-import com.topcoder.common.web.data.DemographicResponse;
-import com.topcoder.common.web.data.School;
-import com.topcoder.common.web.data.State;
-import com.topcoder.common.web.data.CoderType;
-import com.topcoder.common.web.data.Language;
-import com.topcoder.common.web.data.Editor;
-import com.topcoder.common.web.data.Country;
-import com.topcoder.common.web.data.GroupUser;
-import com.topcoder.common.web.data.DemographicAnswer;
-import com.topcoder.common.web.data.Authentication;
 import com.topcoder.ejb.AuthenticationServices.AuthenticationServices;
 import com.topcoder.ejb.DataCache.DataCache;
 import com.topcoder.ejb.UserServices.UserServices;
@@ -31,20 +17,19 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.resume.ResumeServices;
-import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.tc.view.reg.tag.Demographic;
 import com.topcoder.web.tc.view.reg.tag.Notification;
 import com.topcoder.web.tc.view.reg.tag.StateSelect;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.transaction.TransactionManager;
-import javax.transaction.Status;
 import javax.rmi.PortableRemoteObject;
+import javax.transaction.Status;
+import javax.transaction.TransactionManager;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.*;
@@ -158,6 +143,9 @@ public class Registration
     public final static String HANDLE_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
             "abcdefghijklmnopqrstuvwxyz" +
             "0123456789" + PUNCTUATION;
+    public final static String PASSWORD_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+            "abcdefghijklmnopqrstuvwxyz" +
+            "0123456789" + PUNCTUATION;
 
     // school ids
     //public static final int OTHER_SCHOOL = 0;
@@ -176,21 +164,21 @@ public class Registration
     //public static final int SUN_CONTEST_ID = 4295;
 
     public static final int[] REFERRAL_ID = {DECLINE_TO_ANSWER,
-                                             CAMPUS_JOB_FAIR_REFERRAL,
-                                             OTHER_REFERRAL,
-                                             NONMEMBER_REFERRAL,
-                                             NEWS_ARTICLE_REFERRAL,
-                                             NEWSLETTER_REFERRAL,
-                                             MEMBER_REFERRAL,
-                                             ANOTHER_WEBSITE_REFERRAL,
-                                             FACULTY_EMAIL_REFERRAL,
-                                             TOPCODER_EMAIL_REFERRAL,
-                                             JAVA_USER_GROUP_REFERRAL,
-                                             SEARCH_ENGINE_REFERRAL,
-                                             CAMPUS_POSTER,
-                                             IRC_CHAT,
-                                             RECRUITER,
-                                             MAGAZINE_ADVERT};
+            CAMPUS_JOB_FAIR_REFERRAL,
+            OTHER_REFERRAL,
+            NONMEMBER_REFERRAL,
+            NEWS_ARTICLE_REFERRAL,
+            NEWSLETTER_REFERRAL,
+            MEMBER_REFERRAL,
+            ANOTHER_WEBSITE_REFERRAL,
+            FACULTY_EMAIL_REFERRAL,
+            TOPCODER_EMAIL_REFERRAL,
+            JAVA_USER_GROUP_REFERRAL,
+            SEARCH_ENGINE_REFERRAL,
+            CAMPUS_POSTER,
+            IRC_CHAT,
+            RECRUITER,
+            MAGAZINE_ADVERT};
 
 
     private static final String DEMOGRAPHIC_QUESTION_EMPLOYER = "15";
@@ -447,18 +435,18 @@ public class Registration
 
             if (isEmpty(this.handle)) {
                 addError(HANDLE, "Please enter your desired handle.");
-            } else if (!isValidHandle(this.handle)) {
+            } else if (isRegister() && !isValidHandle(this.handle)) {
                 addError(HANDLE, "Your handle may contain only letters, numbers, {}[]()-_.");
             } else if
-            (
-            // if handle has the word "guest" in it
+                    (
+                // if handle has the word "guest" in it
                     this.handle.toLowerCase().indexOf("guest") >= 0
-                    //  or new registration and the handle exists
-                    || (isRegister() && handleExists(this.handle))
-                    || (isRegister() && this.handle.trim().length() <= 1)
-                    //  or update registration, the handle changes, and the new handle exists
-                    || (!isRegister() && !this.handle.equalsIgnoreCase(user.getHandle()) && handleExists(this.handle))
-            ) {
+                            //  or new registration and the handle exists
+                            || (isRegister() && handleExists(this.handle))
+                            || (isRegister() && this.handle.trim().length() <= 1)
+                            //  or update registration, the handle changes, and the new handle exists
+                            || (!isRegister() && !this.handle.equalsIgnoreCase(user.getHandle()) && handleExists(this.handle))
+                    ) {
                 addError(HANDLE, "Please choose another handle.");
             }
 
@@ -470,13 +458,18 @@ public class Registration
                 addError(PASSWORD, "Please make sure your password is at most " + PASSWORD_MAX_LENGTH + " characters long.");
             else if (isEmpty(this.confirmPassword))
                 addError(CONFIRM_PASSWORD, "Please re-type your password.");
-            else if (!this.confirmPassword.equals(this.password)) addError(CONFIRM_PASSWORD, "Your re-typed password does not match your password.");
+            else if (!this.confirmPassword.equals(this.password))
+                addError(CONFIRM_PASSWORD, "Your re-typed password does not match your password.");
+            else if (!StringUtils.containsOnly(this.password, PASSWORD_ALPHABET, false)) {
+                addError(PASSWORD, "Your password may contain only letters, numbers, {}[]()-_.");
+            }
 
             if (isEmpty(this.email))
                 addError(EMAIL, "Please enter your email address.");
             else if (isEmpty(this.confirmEmail))
                 addError(CONFIRM_EMAIL, "Please re-type your email address.");
-            else if (!this.confirmEmail.equals(this.email)) addError(CONFIRM_EMAIL, "Your re-typed email does not match your email.");
+            else if (!this.confirmEmail.equals(this.email))
+                addError(CONFIRM_EMAIL, "Your re-typed email does not match your email.");
             //this.notify = (notifyChecked?CHECKBOX_YES:"");
             //notifyChecked = false;
 
@@ -484,18 +477,19 @@ public class Registration
 
             if (
                     !isNumber(this.coderType)
-                    || !(
-                    coderType.equals(CODER_TYPE_STUDENT)
-                    || coderType.equals(CODER_TYPE_PROFESSIONAL)
+                            || !(
+                            coderType.equals(CODER_TYPE_STUDENT)
+                                    || coderType.equals(CODER_TYPE_PROFESSIONAL)
                     )
-            )
+                    )
                 addError(CODER_TYPE, "Please choose one.");
 
             if (isRegister()) {
                 this.schoolState = state;
                 this.referralSchoolState = state;
             } else {
-                if (isEmpty(this.compCountry)) addError(COMP_COUNTRY, "Please fill in the country you would like to represent.");
+                if (isEmpty(this.compCountry))
+                    addError(COMP_COUNTRY, "Please fill in the country you would like to represent.");
             }
 
 
@@ -505,7 +499,8 @@ public class Registration
             clearErrors();
 
             if (isRegister()) {
-                if (this.referralOther.equals(getReferralOtherPrompt()) || referralInterfaceChanged) setReferralOther("");
+                if (this.referralOther.equals(getReferralOtherPrompt()) || referralInterfaceChanged)
+                    setReferralOther("");
 
                 if (!isNumber(this.referral)) addError(REFERRAL, "Please tell us how you learned of TopCoder.");
 
@@ -513,14 +508,18 @@ public class Registration
                     addError(REFERRAL_OTHER, ""); // hack to prevent progression to step 3
                     referralInterfaceChanged = false;
                 } else {
-                    if (this.referral.equals(Integer.toString(OTHER_REFERRAL)) || this.referral.equals(Integer.toString(MEMBER_REFERRAL)) || this.referral.equals(Integer.toString(ANOTHER_WEBSITE_REFERRAL))) {
+                    if (this.referral.equals(Integer.toString(OTHER_REFERRAL)) || this.referral.equals(Integer.toString(MEMBER_REFERRAL)) || this.referral.equals(Integer.toString(ANOTHER_WEBSITE_REFERRAL)))
+                    {
                         if (isEmpty(this.referralOther))
                             addError(REFERRAL_OTHER, "Please enter the " + getReferralOtherDesc());
                         else if (this.referral.equals(Integer.toString(MEMBER_REFERRAL))) {
 
-                            if (!handleExists(this.referralOther)) addError(REFERRAL_OTHER, "There is no member with handle \"" + this.referralOther + "\".");
+                            if (!handleExists(this.referralOther))
+                                addError(REFERRAL_OTHER, "There is no member with handle \"" + this.referralOther + "\".");
                         }
-                    } else if (this.referral.equals(Integer.toString(CAMPUS_JOB_FAIR_REFERRAL)) && referralSchoolStateChanged) {
+                    } else
+                    if (this.referral.equals(Integer.toString(CAMPUS_JOB_FAIR_REFERRAL)) && referralSchoolStateChanged)
+                    {
                         addError(REFERRAL_OTHER, "Please select the school where the job fair was held.");
                         referralSchoolStateChanged = false;
                     }
@@ -561,9 +560,12 @@ public class Registration
                 for (int i = 0; i < answerList.size(); i++) {
                     String strAnswerId = (String) answerList.get(i);
                     log.debug("process school is " + school);
-                    if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_EMPLOYED) && strAnswerId.equals(DEMOGRAPHIC_ANSWER_EMPLOYED_YES)) {
+                    if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_EMPLOYED) && strAnswerId.equals(DEMOGRAPHIC_ANSWER_EMPLOYED_YES))
+                    {
                         employed = true;
-                    } else if ((!isNumber(school) || Integer.parseInt(school) < 1) && strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !strAnswerId.equals("")) {
+                    } else
+                    if ((!isNumber(school) || Integer.parseInt(school) < 1) && strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !strAnswerId.equals(""))
+                    {
                         this.schoolName = strAnswerId;
                         this.school = "-1";
                     }
@@ -578,7 +580,8 @@ public class Registration
                                 } else if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_EMPLOYER)) {
                                     employerBlank = true;
                                     employerQuestionText = question.getDemographicQuestionText();
-                                } else if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !isNumber(this.school)) {
+                                } else
+                                if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !isNumber(this.school)) {
                                     addError(DEMO_PREFIX + strQuestionId, "Please enter your school name.");
                                 }
                                 break;
@@ -592,7 +595,6 @@ public class Registration
             }
         } else if (isStep(STEP_3)) {
             clearErrors();
-
 
             //check yet again
             if (isRegister() && handleExists(handle)) {
@@ -657,6 +659,7 @@ public class Registration
         }
         return allPunctuation;
     }
+
 
     public static boolean isValidHandle(String handle) {
         for (int i = 0; i < handle.length(); i++) {
@@ -729,20 +732,24 @@ public class Registration
     }
 
     public String getHandle(String memberId) {
+        InitialContext ctx = null;
         try {
-            InitialContext ctx = TCContext.getInitial();
+            ctx = TCContext.getInitial();
             com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
 
             return userbean.getHandle(Long.parseLong(memberId), DBMS.OLTP_DATASOURCE_NAME);
         } catch (Exception ignore) {
+        } finally {
+            TCContext.close(ctx);
         }
 
         return "";
     }
 
     public boolean memberExists(String memberId) {
+        InitialContext ctx = null;
         try {
-            InitialContext ctx = TCContext.getInitial();
+            ctx = TCContext.getInitial();
             com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
 
             if (!userbean.userExists(Long.parseLong(memberId), DBMS.OLTP_DATASOURCE_NAME))
@@ -753,6 +760,8 @@ public class Registration
                 return true;
             }
         } catch (Exception ignore) {
+        } finally {
+            TCContext.close(ctx);
         }
 
         return false;
@@ -992,6 +1001,7 @@ public class Registration
     }
 
 // LEFT OFF
+
     public void setDemographic(String questionId, String value) {
         try {
             Integer.parseInt(questionId);
@@ -1716,7 +1726,8 @@ public class Registration
                         response.setDemographicResponseText(answerStr);
                     }
                 }
-                if (responseHash != null && !responseHash.isEmpty() && (selectable.equals("Y") || selectable.equals("M"))) {
+                if (responseHash != null && !responseHash.isEmpty() && (selectable.equals("Y") || selectable.equals("M")))
+                {
                     for (Iterator iterator = responseHash.values().iterator(); iterator.hasNext();) {
                         DemographicResponse removeResponse = (DemographicResponse) iterator.next();
                         log.debug("setting modified to 'D' for question: "
@@ -1751,10 +1762,15 @@ public class Registration
                 } else {
                     log.debug("dunno this school, look it up " + this.schoolName);
                     //lookup school by name
-                    InitialContext ctxSchool = TCContext.getInitial();
-                    com.topcoder.web.ejb.school.School s =
-                            (com.topcoder.web.ejb.school.School) BaseProcessor.createEJB(ctxSchool,
-                                    com.topcoder.web.ejb.school.School.class);
+                    InitialContext ctxSchool = null;
+                    com.topcoder.web.ejb.school.School s = null;
+                    try {
+                        ctxSchool = TCContext.getInitial();
+                        s = (com.topcoder.web.ejb.school.School) BaseProcessor.createEJB(ctxSchool,
+                                        com.topcoder.web.ejb.school.School.class);
+                    } finally {
+                        TCContext.close(ctxSchool);
+                    }
 
                     schoolId = s.getSchoolId(this.schoolName, DBMS.OLTP_DATASOURCE_NAME);
                     if (schoolId == 0) {
@@ -1802,7 +1818,7 @@ public class Registration
                 } else {
                     userServices = userServicesHome.create(user);
                     activationCode = StringUtils.getActivationCode(coder.getCoderId());
-                    coder = (CoderRegistration)user.getUserTypeDetails().get(CODER);
+                    coder = (CoderRegistration) user.getUserTypeDetails().get(CODER);
                     coder.setActivationCode(activationCode);
                     log.debug("activation code set to " + activationCode);
                     coder.setModified("U");
@@ -1818,16 +1834,20 @@ public class Registration
 */
                 tm.commit();
 
-
                 //auto activate
                 if (isRegister() && autoActivate) {
-                    InitialContext ctx = TCContext.getInitial();
-                    com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
-                    doLegacyCrap(coder.getCoderId());
-                    Email email = (Email) BaseProcessor.createEJB(ctx, Email.class);
-                    email.setStatusId(email.getPrimaryEmailId(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME),
-                            1, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    userbean.setStatus(coder.getCoderId(), ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
+                    InitialContext ctx = null;
+                    try {
+                        ctx = TCContext.getInitial();
+                        com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
+                        doLegacyCrap(coder.getCoderId());
+                        Email email = (Email) BaseProcessor.createEJB(ctx, Email.class);
+                        email.setStatusId(email.getPrimaryEmailId(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME),
+                                1, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        userbean.setStatus(coder.getCoderId(), ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
+                    } finally {
+                        TCContext.close(ctx);
+                    }
 
                 }
 
@@ -1866,7 +1886,6 @@ public class Registration
                     SecurityHelper.getUserSubject(user.getUserId(), true);
                 }
 
-
                 /*
                     this create school and activation stuff is not in the transaction either.
                     not for any good reason, once we unite the data into the commmon database
@@ -1880,13 +1899,18 @@ public class Registration
                 }
                 //auto activate
                 if (isRegister() && autoActivate) {
-                    InitialContext ctx = TCContext.getInitial();
-                    com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
-                    doLegacyCrap(coder.getCoderId());
-                    Email email = (Email) BaseProcessor.createEJB(ctx, Email.class);
-                    email.setStatusId(email.getPrimaryEmailId(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME),
-                            1, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    userbean.setStatus(coder.getCoderId(), ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
+                    InitialContext ctx =null;
+                    try {
+                        ctx = TCContext.getInitial();
+                        com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
+                        doLegacyCrap(coder.getCoderId());
+                        Email email = (Email) BaseProcessor.createEJB(ctx, Email.class);
+                        email.setStatusId(email.getPrimaryEmailId(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME),
+                                1, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        userbean.setStatus(coder.getCoderId(), ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
+                    } finally {
+                        TCContext.close(ctx);
+                    }
                 }
 
             } catch (Exception e) {
@@ -1914,118 +1938,85 @@ public class Registration
                 mail.setSubject("TopCoder Activation");
                 StringBuffer msgText = new StringBuffer(3000);
 
+
+                msgText.append("Thank you for registering with TopCoder!\n\n");
+
+                msgText.append("Your TopCoder activation code is ");
+                msgText.append(activationCode).append("\n\n");
+
+                msgText.append("To activate your account, navigate to the following WWW URL:\n");
+                msgText.append(ACTIVATION_URL);
+                msgText.append(activationCode).append("\n\n");
+
+
+                msgText.append("If you cannot click on the web address above, please copy the address ");
+                msgText.append("into your web browser to continue.  If the address spans two lines, ");
+                msgText.append("please make sure you copy and paste both sections without any spaces ");
+                msgText.append("between them.\n\n");
+
+                msgText.append("You may utilize your activated TopCoder handle and password in order to ");
+                msgText.append("access your member home page on TopCoder's web site.  Your handle and ");
+                msgText.append("password will also provide you with access to the TopCoder Competition ");
+                msgText.append("Arena, where you can practice, chat, and compete in rated algorithm ");
+                msgText.append("events.\n\n");
+
+                msgText.append("TOPCODER DESIGN AND DEVELOPMENT COMPETITIONS\n\n");
+
+                msgText.append("Participating in TopCoder rated component competitions (held weekly) ");
+                msgText.append("will allow you to establish a TopCoder design or development rating.  ");
+                msgText.append("Members earn monetary prizes and royalties by creating winning designs ");
+                msgText.append("and implementations - competing in a single rated event is all it takes ");
+                msgText.append("to become a rated member.   Gain valuable real world design and ");
+                msgText.append("development experience, learn best practices, and improve your skills ");
+                msgText.append("through feedback from the TopCoder Peer Review Boards.\n\n");
+
+                msgText.append("You can get started in TopCoder component competitions here: ");
+                msgText.append("http://www.topcoder.com/?t=development&c=getting_started\n\n");
+
+                msgText.append("TOPCODER ALGORITHM COMPETITIONS\n\n");
+
+                msgText.append("Participating in TopCoder algorithm competitions (held weekly) will ");
+                msgText.append("allow you to establish a TopCoder algorithm rating.  Competing in a ");
+                msgText.append("single rated event is all it takes to become a rated member, however ");
+                msgText.append("most major tournaments will require that you have participated in at ");
+                msgText.append("least three rated events.  You can view a schedule of TopCoder events ");
+                msgText.append("here: ");
+                msgText.append("http://www.topcoder.com/tc?module=Static&d1=calendar&d2=thisMonth\n\n");
+
+                msgText.append("We also suggest that you read up on the rules and competition process ");
+                msgText.append("from the FAQs and links that are available here: ");
+                msgText.append("http://www.topcoder.com/?t=support&c=index\n\n\n");
+
+
+                msgText.append("PRACTICING AT TOPCODER\n\n");
+
+                msgText.append("TopCoder provides a number of practice rooms that will allow you to ");
+                msgText.append("become acclimated with our competition environment before you ");
+                msgText.append("participate in your first rated algorithm competition.  Each practice ");
+                msgText.append("room has a problem set that was actually used in a previous rated event.  ");
+                msgText.append("In addition, participating in a practice room is a very similar ");
+                msgText.append("experience to competing in an actual rated event.  The practice rooms ");
+                msgText.append("are always available.\n\n");
+
+                msgText.append("You can download and run the TopCoder Competition Arena Applet from ");
+                msgText.append("here: ");
+                msgText.append("http://www.topcoder.com/?t=schedule&c=practice_room\n\n");
+
+                msgText.append("If you have any questions about how to participate, please email them to ");
+                msgText.append("service@topcoder.com\n\n");
+
+                msgText.append("Thank you again for registering with TopCoder and we look forward to ");
+                msgText.append("seeing you in the arena!");
+
+                mail.setBody(msgText.toString());
+                mail.addToAddress(email, TCSEmailMessage.TO);
+
                 if (autoActivate) {
-
-                    msgText.append("TOPCODER ACCOUNT ACTIVATION INFORMATION\n\n");
-                    msgText.append("Your TopCoder activation code is " + activationCode + "\n\n");
-                    msgText.append("To activate your account, navigate to the following WWW URL:\n");
-                    msgText.append(ACTIVATION_URL);
-                    msgText.append(activationCode);
-                    msgText.append("\n");
-                    msgText.append("If you cannot click on the web address above, please copy");
-                    msgText.append(" the address into your web browser to continue.  If the ");
-                    msgText.append("address spans two lines, please make sure you copy and paste");
-                    msgText.append(" both sections without any spaces between them.\n\n");
-                    msgText.append("You may utilize your activated TopCoder handle and password ");
-                    msgText.append("in order to access your member home page on TopCoder's web site ");
-                    msgText.append("(<http://www.topcoder.com>).  Your handle and");
-                    msgText.append(" password will also provide you with access to the TopCoder ");
-                    msgText.append("Competition Arena, where you can practice, chat, and compete ");
-                    msgText.append("in rated events.\n\n\n");
-                    msgText.append("TOPCODER RATED EVENTS\n\n");
-                    msgText.append("Establishing a TopCoder rating will provide you with a number ");
-                    msgText.append("of benefits, including possible invitations to major tournaments ");
-                    msgText.append("with large cash prizes, TopCoder employment services, and the ");
-                    msgText.append("ability to apply for participation in TopCoder compensated ");
-                    msgText.append("software development projects.\n\n");
-                    msgText.append("Participating in TopCoder rated events (held weekly) will allow ");
-                    msgText.append("you to establish a TopCoder rating.  Competing in a single rated");
-                    msgText.append(" event is all it takes to become a rated member, however most ");
-                    msgText.append("major tournaments will require that you have participated in ");
-                    msgText.append("at least three rated events.  You can view a schedule of TopCoder ");
-                    msgText.append("events here:\n");
-                    msgText.append("<http://www.topcoder.com/?t=schedule&c=index>\n\n");
-                    msgText.append("You may view all current development projects here: ");
-                    msgText.append("<http://www.topcoder.com/?t=development&c=index> (you must login ");
-                    msgText.append("with your TopCoder handle and password).\n\n\n");
-                    msgText.append("PRACTICING TOPCODER\n\n");
-                    msgText.append("TopCoder provides a number of practice rooms that will allow ");
-                    msgText.append("you to become acclimated with our competition environment before ");
-                    msgText.append("you participate in your first rated event.  Each practice room has ");
-                    msgText.append("a problem set that was actually used in a previous rated event.  ");
-                    msgText.append("In addition, participating in a practice room is a very similar ");
-                    msgText.append("experience to competing in an actual rated event.  The practice ");
-                    msgText.append("rooms are always available.\n\n");
-                    msgText.append("You can download and run the TopCoder Competition Arena Applet from here:\n");
-                    msgText.append("http://www.topcoder.com/?t=schedule&c=practice_room\n\n");
-                    msgText.append("We also suggest that you read up on the rules and competition process ");
-                    msgText.append("from the FAQs and links that are available here:\n");
-                    msgText.append("http://www.topcoder.com/?t=support&c=index\n\n");
-                    msgText.append("If you have any questions about how to participate, feel free ");
-                    msgText.append("to email them to service@topcoder.com.\n\n");
-                    msgText.append("Thank you for registering with TopCoder and we look forward ");
-                    msgText.append("to seeing you in the arena!");
-                    mail.setBody(msgText.toString());
-                    mail.addToAddress(email, TCSEmailMessage.TO);
                     mail.setFromAddress("competitions@topcoder.com");
-                    EmailEngine.send(mail);
                 } else {
-
-
-                    msgText.append("TOPCODER ACCOUNT ACTIVATION INFORMATION\n\n");
-                    msgText.append("Your TopCoder activation code is " + activationCode + "\n\n");
-                    msgText.append("To activate your account, navigate to the following WWW URL:\n");
-                    msgText.append(ACTIVATION_URL);
-                    msgText.append(activationCode);
-                    msgText.append("\n");
-                    msgText.append("If you cannot click on the web address above, please copy");
-                    msgText.append(" the address into your web browser to continue.  If the ");
-                    msgText.append("address spans two lines, please make sure you copy and paste");
-                    msgText.append(" both sections without any spaces between them.\n\n");
-                    msgText.append("You may utilize your activated TopCoder handle and password ");
-                    msgText.append("in order to access your member home page on TopCoder's web site ");
-                    msgText.append("(<http://www.topcoder.com>).  Your handle and");
-                    msgText.append(" password will also provide you with access to the TopCoder ");
-                    msgText.append("Competition Arena, where you can practice, chat, and compete ");
-                    msgText.append("in rated events.\n\n\n");
-                    msgText.append("TOPCODER RATED EVENTS\n\n");
-                    msgText.append("Establishing a TopCoder rating will provide you with a number ");
-                    msgText.append("of benefits, including possible invitations to major tournaments ");
-                    msgText.append("with large cash prizes, TopCoder employment services, and the ");
-                    msgText.append("ability to apply for participation in TopCoder compensated ");
-                    msgText.append("software development projects.\n\n");
-                    msgText.append("Participating in TopCoder rated events (held weekly) will allow ");
-                    msgText.append("you to establish a TopCoder rating.  Competing in a single rated");
-                    msgText.append(" event is all it takes to become a rated member, however most ");
-                    msgText.append("major tournaments will require that you have participated in ");
-                    msgText.append("at least three rated events.  You can view a schedule of TopCoder ");
-                    msgText.append("events here:\n");
-                    msgText.append("<http://www.topcoder.com/?t=schedule&c=index>\n\n");
-                    msgText.append("You may view all current development projects here: ");
-                    msgText.append("<http://www.topcoder.com/?t=development&c=index> (you must login ");
-                    msgText.append("with your TopCoder handle and password).\n\n\n");
-                    msgText.append("PRACTICING TOPCODER\n\n");
-                    msgText.append("TopCoder provides a number of practice rooms that will allow ");
-                    msgText.append("you to become acclimated with our competition environment before ");
-                    msgText.append("you participate in your first rated event.  Each practice room has ");
-                    msgText.append("a problem set that was actually used in a previous rated event.  ");
-                    msgText.append("In addition, participating in a practice room is a very similar ");
-                    msgText.append("experience to competing in an actual rated event.  The practice ");
-                    msgText.append("rooms are always available.\n\n");
-                    msgText.append("You can download and run the TopCoder Competition Arena Applet from here:\n");
-                    msgText.append("http://www.topcoder.com/?t=schedule&c=practice_room\n\n");
-                    msgText.append("We also suggest that you read up on the rules and competition process ");
-                    msgText.append("from the FAQs and links that are available here:\n");
-                    msgText.append("http://www.topcoder.com/?t=support&c=index\n\n");
-                    msgText.append("If you have any questions about how to participate, feel free ");
-                    msgText.append("to email them to service@topcoder.com.\n\n");
-                    msgText.append("Thank you for registering with TopCoder and we look forward ");
-                    msgText.append("to seeing you in the arena!");
-                    mail.setBody(msgText.toString());
-                    mail.addToAddress(email, TCSEmailMessage.TO);
                     mail.setFromAddress("service@topcoder.com");
-                    EmailEngine.send(mail);
                 }
+                EmailEngine.send(mail);
             } catch (Exception e) {
                 log.info(e.toString());
                 //throw new TaskException(e);
@@ -2072,7 +2063,8 @@ public class Registration
             if (idhash.length() % 2 != 0) return 0;
             String id = idhash.substring(0, idhash.length() / 2);
             String hash = idhash.substring(idhash.length() / 2);
-            if (new BigInteger(new BigInteger(id).bitLength(), new Random(Long.parseLong(id))).add(new BigInteger("TopCoder", 36)).toString().endsWith(hash)) {
+            if (new BigInteger(new BigInteger(id).bitLength(), new Random(Long.parseLong(id))).add(new BigInteger("TopCoder", 36)).toString().endsWith(hash))
+            {
                 return Integer.parseInt(id);
             } else {
                 return 0;
@@ -2094,7 +2086,8 @@ public class Registration
             context = TCContext.getInitial();
             AuthenticationServices authenticationServices = (AuthenticationServices) BaseProcessor.createEJB(context, AuthenticationServices.class);
             Authentication authentication = authenticationServices.getActivation(coderId);
-            if (authentication.getUserId().intValue() == coderId && authentication.getActivationCode().equalsIgnoreCase(this.code)) {
+            if (authentication.getUserId().intValue() == coderId && authentication.getActivationCode().equalsIgnoreCase(this.code))
+            {
                 if (authentication.getStatus().equals("U")) {
                     UserServicesHome userServicesHome = (UserServicesHome) PortableRemoteObject.narrow(context.lookup(
                             UserServicesHome.class.getName()),

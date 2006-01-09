@@ -6,6 +6,9 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.DemographicAnswer;
+import com.topcoder.web.common.model.DemographicQuestion;
+import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.*;
@@ -60,7 +63,7 @@ public abstract class FullRegBase extends SimpleRegBase {
             if (questions == null) {
                 log.debug("GETTING QUESTIONS");
                 try {
-                    questions = getQuestions(transDb, ((FullRegInfo) info).getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)));
+                    questions = getQuestions(transDb, ((FullRegInfo) info).getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)), getLocale());
                 } catch (Exception e) {
                     log.error("COULD NOT GET QUESTIONS", e);
                 }
@@ -119,6 +122,7 @@ public abstract class FullRegBase extends SimpleRegBase {
         return ret;
     }
 
+
     /**
      * get a map of questions.  key is a Long containing the question id.  value is the
      * DemographicQuestion object.
@@ -126,9 +130,13 @@ public abstract class FullRegBase extends SimpleRegBase {
      * @return
      * @throws Exception
      */
-    protected static Map getQuestions(String db, int coderTypeId, int companyId) throws Exception {
+    protected static Map getQuestions(String db, int coderTypeId, int companyId, Locale locale) throws Exception {
         Request r = new Request();
-        r.setContentHandle("demographic_question_list");
+        if (locale.getLanguage().equals(Locale.US.getLanguage())) {
+            r.setContentHandle("demographic_question_list");
+        } else {
+            r.setContentHandle(locale.getLanguage()+"_demographic_question_list");
+        }
         r.setProperty("ct", String.valueOf(coderTypeId));
         r.setProperty("cm", String.valueOf(companyId));
         Map qMap = getDataAccess(db, true).getData(r);
@@ -139,7 +147,7 @@ public abstract class FullRegBase extends SimpleRegBase {
         DemographicQuestion q = null;
         for (Iterator it = questions.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
-            q = makeQuestion(row, db);
+            q = makeQuestion(row, db, locale);
             ret.put(new Long(q.getId()), q);
         }
         return ret;
@@ -148,7 +156,8 @@ public abstract class FullRegBase extends SimpleRegBase {
     protected Map getQuestions() {
         try {
             if (questions == null)
-                questions = getQuestions(transDb, ((FullRegInfo) regInfo).getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)));
+                questions = getQuestions(transDb,((FullRegInfo) regInfo).getCoderType(),
+                        Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)), getLocale());
         } catch (Exception e) {
 
             throw new RuntimeException("failed to get the questions \n" + e.getMessage());
@@ -157,7 +166,7 @@ public abstract class FullRegBase extends SimpleRegBase {
     }
 
 
-    private static DemographicQuestion makeQuestion(ResultSetContainer.ResultSetRow row, String db) throws Exception {
+    private static DemographicQuestion makeQuestion(ResultSetContainer.ResultSetRow row, String db, Locale locale) throws Exception {
         DemographicQuestion ret = new DemographicQuestion();
         ret.setId(row.getLongItem("demographic_question_id"));
         ret.setDesc(row.getStringItem("demographic_question_desc"));
@@ -168,7 +177,11 @@ public abstract class FullRegBase extends SimpleRegBase {
 
         DataAccessInt dataAccess = getDataAccess(db, true);
         Request r = new Request();
-        r.setContentHandle("demographic_answer_list");
+        if (locale.getLanguage().equals(Locale.US.getLanguage())) {
+            r.setContentHandle("demographic_answer_list");
+        } else {
+            r.setContentHandle(locale.getLanguage()+"_demographic_answer_list");
+        }
         r.setProperty("dq", String.valueOf(ret.getId()));
         r.setProperty("db", String.valueOf(db));
         Map aMap = dataAccess.getData(r);
@@ -193,11 +206,12 @@ public abstract class FullRegBase extends SimpleRegBase {
         return ret;
     }
 
-    protected final List getQuestionList(int coderTypeId) throws Exception {
+    protected final List getQuestionList(int coderTypeId, Locale locale) throws Exception {
         //in case we need the list before we've populated it.  this is most
         //likely to happen in makeRegInfo()
         if (questions == null)
-            questions = getQuestions(transDb, coderTypeId, Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)));
+            questions = getQuestions(transDb, coderTypeId, Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)),
+                    locale);
         List ret = new ArrayList(questions.size());
         DemographicQuestion q = null;
         for (Iterator it = questions.values().iterator(); it.hasNext();) {

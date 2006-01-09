@@ -6,6 +6,7 @@ import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.ejb.Util.Util;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.NavigationException;
 
@@ -54,6 +55,8 @@ public final class TaskSponsor {
             result = TaskStatic.displayStatic(HTMLmaker, request, nav, document);
         } catch (Exception e) {
             throw new NavigationException(e);
+        } finally {
+            TCContext.close(ctx);
         }
         return result;
     }

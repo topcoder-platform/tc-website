@@ -59,6 +59,7 @@ public class Controller
     public void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
+            request.setCharacterEncoding("utf-8");
             String taskName = request.getParameter(EmailConstants.TASK);
             log.debug("Requested task: " + taskName);
 

@@ -81,8 +81,8 @@ the Arena applet.
                   <td class="header" align="center" colspan="3">Design Finals</td>
                <tr>
                   <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="40%"></td>
-                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="30%"><A href="/stat?tc?module=MemberProfile&cr=119676" class="coderTextYellow">Pops</a>&#160;&#160;</td>
-                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="30%"><A href="/stat?tc?module=MemberProfile&cr=152342" class="coderTextYellow">kyky</a>&#160;&#160;</td>
+                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="30%"><A href="/tc?module=MemberProfile&cr=119676" class="coderTextYellow">Pops</a>&#160;&#160;</td>
+                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="30%"><A href="/tc?module=MemberProfile&cr=152342" class="coderTextYellow">kyky</a>&#160;&#160;</td>
                </tr>
                <tr>
                   <td class="formTextOdd" align="left">Member since:</td>
@@ -110,7 +110,7 @@ the Arena applet.
                   <td class="bodyText" align="right" bgcolor="#FFCC00"><b>86.65&#160;&#160;</b></td>
                 </tr>
                <tr>
-                  <td class="statTextLarge" background="/i/graybv_bg.gif"><strong>Live Updates:</td>
+                  <td class="statTextLarge" background="/i/graybv_bg.gif"><strong>Live Updates:</strong></td>
                   <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_final_doc1','pops',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
                   <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=kyky_final_doc1','kyky',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
                </tr>
@@ -125,8 +125,8 @@ the Arena applet.
                </tr>
                <tr>
                   <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="40%"></td>
-                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="30%"><A href="/stat?tc?module=MemberProfile&cr=277356" class="coderTextYellow">aksonov</a>&#160;&#160;</td>
-                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="30%"><A href="/stat?tc?module=MemberProfile&cr=154714" class="coderTextBlue">rnielsen</a>&#160;&#160;</td>
+                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="30%"><A href="/tc?module=MemberProfile&cr=277356" class="coderTextYellow">aksonov</a>&#160;&#160;</td>
+                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="30%"><A href="/tc?module=MemberProfile&cr=154714" class="coderTextBlue">rnielsen</a>&#160;&#160;</td>
                </tr>
                <tr>
                   <td class="formTextOdd" align="left">Member since:</td>
@@ -154,7 +154,7 @@ the Arena applet.
                   <td class="bodyText" align="right" bgcolor="#FFCC00"><b>88.70&#160;&#160;</b></td>
                 </tr>
                <tr>
-                  <td class="statTextLarge" background="/i/graybv_bg.gif"><strong>Live Updates:</td>
+                  <td class="statTextLarge" background="/i/graybv_bg.gif"><strong>Live Updates:</strong></td>
                   <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=aksonov_final_doc1','aksonov',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
                   <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rnielsen_final_doc1','rnielsen',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
                </tr>

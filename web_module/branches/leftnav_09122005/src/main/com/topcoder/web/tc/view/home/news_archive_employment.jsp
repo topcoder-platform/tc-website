@@ -18,12 +18,12 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-		<td width="180">
-			<jsp:include page="../includes/global_left.jsp">
-				<jsp:param name="level1" value=""/>
-				<jsp:param name="level2" value=""/>
-			</jsp:include>
-		</td>
+      <td width="180">
+         <jsp:include page="../includes/global_left.jsp">
+            <jsp:param name="level1" value=""/>
+            <jsp:param name="level2" value=""/>
+         </jsp:include>
+      </td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
@@ -36,6 +36,16 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">12.29.05 11:00 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign_chat_122805">VeriSign chat transcript from SRM 280</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">12.20.05 3:15 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=contracting&d2=tces_chat_121905">TCES chat transcript from SRM 278</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">12.20.05 2:40 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=contracting&d2=msn_chat_121705">MSN chat session from SRM 277</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">12.19.05 4:00 PM&#160;-&#160</td><td width="100%"><A href="/?RoundId=8075&t=schedule&c=srm">Employment Services chat session scheduled for SRM 278</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">11.21.05 11:40 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=contracting&d2=msn_chat_111905">MSN chat session from SRM 272</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">11.18.05 5:10 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=contracting&d2=msn">MSN chat session scheduled for SRM 272</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">11.14.05 12:00 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=contracting&d2=msn">MSN is hiring TopCoders</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.04.05 5:00 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_chat_100105">Yahoo! chat session from SRM 266</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.30.05 5:00 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo">Yahoo! chat session scheduled for SRM 266</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.26.05 5:00 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign">VeriSign chat session scheduled for SRM 265</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.27.05 11:00 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=contracting&d2=tcs_chat_082705">TopCoder Software chat session</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.09.05 3:35 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=contracting&d2=citigroup_chat_080805">Citigroup chat session</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.08.05 9:15 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=contracting&d2=citigroup">Citigroup chat session scheduled for SRM 257</A></td></tr>

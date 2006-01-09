@@ -4,12 +4,12 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
+import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.ejb.survey.Response;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.model.Answer;
-import com.topcoder.web.tc.model.Question;
-import com.topcoder.web.tc.model.SurveyResponse;
-import com.topcoder.web.tc.view.tag.AnswerInput;
+import com.topcoder.web.common.model.Answer;
+import com.topcoder.web.common.model.Question;
+import com.topcoder.web.common.model.SurveyResponse;
 
 import javax.transaction.TransactionManager;
 import javax.transaction.Status;
@@ -25,6 +25,10 @@ public class Submit extends View {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             if (alreadyResponded()) {
                 throw new NavigationException("Sorry, you may only respond to a survey once.");
+            } else if (isSRMSurvey() && !hasSurveyClosed()) {
+                throw new NavigationException("Sorry, you can not answer this survey at this time.");
+            } else if (survey.getEndDate().before(new Date())||survey.getStartDate().after(new Date())) {
+                throw new NavigationException("Sorry, you can not answer this survey at this time.");
             } else {
                 String paramName = null;
                 List responses = new ArrayList(10);
@@ -140,7 +144,20 @@ public class Submit extends View {
                         log.debug("not multiple choice, but there are multiple answers");
                         addError(errorKey, "Invalid answer.");
                     }
-                    if (question.getStyleId() == Question.SINGLE_CHOICE) {
+                    if (question.getTypeId()== Question.SCHULZE_ELECTION_TYPE) {
+                        if (!"".equals(values[i])) {
+                            try {
+                                answerId = Long.parseLong(values[i]);
+                            } catch (NumberFormatException e) {
+                                log.debug("numberformat trying to get answer for single choice");
+                                addError(errorKey, "Invalid answer.");
+                            }
+                            if (findAnswer(answerId, question) == null) {
+                                log.debug("can't find single choice answer");
+                                addError(errorKey, "Invalid answer.");
+                            }
+                        }
+                    } else  if (question.getStyleId() == Question.SINGLE_CHOICE) {
                         try {
                             answerId = Long.parseLong(values[i]);
                         } catch (NumberFormatException e) {
@@ -163,7 +180,9 @@ public class Submit extends View {
                         response.setFreeForm(true);
                         ret.add(response);
                     }
-                } else {
+                } else if (answerId>0) {
+                    //answerId would be -1 in the case of a schulze election where
+                    //the respondant does not rate the candidate
                     response.setAnswerId(answerId);
                     response.setFreeForm(false);
                     ret.add(response);

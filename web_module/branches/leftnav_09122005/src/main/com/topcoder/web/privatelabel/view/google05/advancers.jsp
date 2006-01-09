@@ -61,6 +61,10 @@
          <td class="advancersRound"><a href="/pl/?&module=Static&d1=google05&d2=advRd2" class="topLink">Online Round 2</a></td>
          <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google05&d2=advRd2">100</a></td>
          </tr>
+         <tr valign="top">
+         <td class="advancersRound"><a href="/pl/?&module=Static&d1=google05&d2=advWinners" class="topLink">Final Round</a></td>
+         <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google05&d2=advWinners">Winners</a></td>
+         </tr>
          </table>
 
 
