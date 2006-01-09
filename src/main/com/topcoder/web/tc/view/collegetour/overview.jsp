@@ -49,7 +49,7 @@
                     Overview&#160;&#160;|&#160;&#160;
                     <A href="/tc?module=CollegeTourInfo&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Instructions</A>&#160;&#160;|&#160;&#160;
                     <A href="/tc?module=CollegeTourReg&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Register</A>&#160;&#160;|&#160;&#160;
-                    <A href="/tc?module=CollegeTourRegistrants&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Registrants</A>&#160;&#160;|&#160;&#160;
+                    <a href="/tc?module=Static&amp;d1=collegetour&amp;d2=confirm&amp;<%=Constants.FORUM_ID%>=<%=request.getAttribute(Constants.FORUM_ID)%>&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Registrants</A>&#160;&#160;|&#160;&#160;
                     <% if (request.getAttribute(Constants.FORUM_ID)!=null) {%>
                     <tc-webtag:forumLink forumID="<%=Long.parseLong((String)request.getAttribute(Constants.FORUM_ID))%>" message="Discuss College Tour"/>
                     <% } %>
@@ -72,7 +72,7 @@
                     the <%=conf.get(new Integer(Constants.LOCATION_PROP_ID))%>. This event is being run in conjunction
                     with <A href="/?RoundId=<%=request.getAttribute(Constants.ROUND_ID)%>&t=schedule&c=srm"><%=request.getAttribute(Constants.ROUND_NAME)%></A>.
                     In addition to registering with TopCoder, all competitors must register
-                    <a href="/tc?module=CollegeTourReg&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">here</a> and be onsite for the competition.
+                    <a href="/tc?module=Static&amp;d1=collegetour&amp;d2=confirm&amp;<%=Constants.FORUM_ID%>=<%=request.getAttribute(Constants.FORUM_ID)%>&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">here</a> and be onsite for the competition.
                     After the event ends, pizza will be served and a TopCoder representative will be present to discuss
                     TopCoder competitions and employment services.
 
