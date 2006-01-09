@@ -33,7 +33,7 @@
             nav.search("m_algo_support").addChild(new NavNode("", "Charity Donations", "Charity Donations"));
       nav.search("m_competitions").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_comp_competitions')\" class=\"exp\">Component Competitions</a>", "m_comp_competitions"));
          nav.search("m_comp_competitions").addChild(new NavNode("", "Home", "component_home"));
-         nav.search("m_comp_competitions").addChild(new NavNode("", "Active Contests", "component_active_contests"));
+         nav.search("m_comp_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewActiveContests", "Active Contests", "component_active_contests"));
          nav.search("m_comp_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReviewProjects", "Review Contest Submissions", "comp_review"));
          nav.search("m_comp_competitions").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_comp_stats')\" class=\"exp\">Competition Statistics</a>", "m_comp_stats"));
             nav.search("m_comp_stats").addChild(new NavNode("", "Design Contests", "comp_des_contests"));
