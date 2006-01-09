@@ -37,7 +37,7 @@
                     <jsp:param name="title" value="Overview"/>
                 </jsp:include>
 
-                <div align=center>
+                <div align="center">
                     <tc-webtag:sponsorImage image="image" alt="College Logo" border="0"/>
                 </div>
 
@@ -53,7 +53,7 @@
                 </p>
                 <!-- ends -->
 
-                <p>Click <a href="/tc?module=CollegeTourReg&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getParameter(Constants.COLLEGE_TOUR_EVENT_ID)%>">here</a> to register for the TopCoder College Tour event at your school.</p>
+                <p align="center">Click <a href="/tc?module=CollegeTourReg&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getParameter(Constants.COLLEGE_TOUR_EVENT_ID)%>">here</a> to register for the TopCoder College Tour event at your school.</p>
 
 
             </div>

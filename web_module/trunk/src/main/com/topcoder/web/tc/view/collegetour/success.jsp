@@ -38,7 +38,7 @@
                     <jsp:param name="title" value="Registration"/>
                 </jsp:include>
 
-                <div align=center>
+                <div align="center">
                     <tc-webtag:sponsorImage image="image" alt="College Logo" border="0"/>
                 </div>
 
@@ -53,7 +53,7 @@
                 </p>
 
 
-                <p>
+                <p align="center">
                     Thank you.  You have successfully registered for the event.
                 </p>
 
