@@ -25,10 +25,10 @@ We're inviting the top 16 finalists - 8 designers and 8 developers - to join us 
 <ul>
 <li><strong>Registration</strong><br>
 Begins: January 2, 2006 9:00AM EST<br>
-Ends: February 15, 2006 9:00AM EST
+Ends: February 19, 2006 9:00AM EST
 </li>
 <li><strong>Online Rounds</strong><br>
-January 19, 2006 - February 16, 2006
+January 19, 2006 - February 23, 2006
 </li>
 <li><strong>Online Finals</strong><br>
 March 16, 2006 - April 20, 2006

@@ -27,7 +27,7 @@
       <td class="sidebarText" width="25%">Registration</td>
       <td class="sidebarText" width="75%">
          OPENS: Monday, January 2, 2006 at 9:00 AM EST<br /><br/>
-         CLOSES: Wednesday, February 15, 2006 at 9:00 AM EST
+         CLOSES: Wednesday, February 19, 2006 at 9:00 AM EST
       </td>
    </tr>
 </table>

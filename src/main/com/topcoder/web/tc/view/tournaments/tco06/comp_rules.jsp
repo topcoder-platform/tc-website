@@ -41,11 +41,11 @@ The 2006 TopCoder Open ("TCO") Component Design and Development Competition ("CD
 <br><br>
 TopCoder members meeting the following eligibility criteria are eligible to compete in the CDDC: 
 <ul>
-<li>Must be at least 18 years of age as of February 15, 2006; AND</li>
+<li>Must be at least 18 years of age as of February 19, 2006; AND</li>
 <li>If not a US resident, must be living in, and participating from, your country of residence; AND</li>
 <li>Must currently be eligible for participation in TopCoder Component projects (i.e. not suspended from TopCoder).</li>
 </ul>
-TopCoder members who are 18 years of age or older as of February 15, 2006 are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Open is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
+TopCoder members who are 18 years of age or older as of February 19, 2006 are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Open is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
 <br><br>
 Those members who are eligible to compete in both the Algorithm Competition of the TCO and in the CDDC will be permitted to participate in both, and advance to the finals in both.  In addition, members will be allowed to compete in both the design and development competitions of the TCO.  However, if one member participates in both the design and development competitions AND qualifies as one of the finalists in each, then the member will only be permitted to advance to the Championship round in one of the competitions.  The following criteria will be used to determine to which competition the member will advance:
 <ol>
