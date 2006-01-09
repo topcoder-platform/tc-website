@@ -178,7 +178,6 @@ margin:0px auto;
             <b>1/02</b> - TCO06 Component - Registration opens - 9AM<br><br>
             <b>1/05</b> - SRM 281 - 11AM<br><br>
             <b>1/10</b> - SRM 282 - 9PM - NSA<br><br>
-            <b>1/18</b> - TCO06 Component - Registration closes - 9AM<br><br>
             <b>1/19</b> - SRM 283 - 7AM<br><br>
             <b>1/21</b> - SRM 284 - 12 noon<br><br>
             <b>1/24</b> - SRM 285 - 11AM<br><br>

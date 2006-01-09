@@ -55,7 +55,7 @@ text-decoration: none;
 
 <tr> 
 <td id="calendarMini">15</td>
-<td id="calendarTCO06Mini"><A id="calendarTCO06Date" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=about">16</A></td>
+<td id="calendarMini">16</td>
 <td id="calendarMini">17</td>
 <td id="calendarMini">18</td>
 <td id="calendarSRMMini" align="right"><A id="miniSRMDate" href="/?RoundId=8080&amp;t=schedule&amp;c=srm">1</A></td>
