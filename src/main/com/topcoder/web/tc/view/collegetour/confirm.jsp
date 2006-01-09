@@ -32,31 +32,29 @@
         <!-- Center Column Begins -->
         <td class="cardCell" width="100%" align="center">
             <div class="myTCBody">
-
                 <jsp:include page="../page_title.jsp">
                     <jsp:param name="image" value="college_tour"/>
-                    <jsp:param name="title" value="Registration"/>
+                    <jsp:param name="title" value="Overview"/>
                 </jsp:include>
 
                 <div align=center>
                     <tc-webtag:sponsorImage image="image" alt="College Logo" border="0"/>
                 </div>
 
+                <!-- college tour site subnav -->
                 <p align="center">
-                    <A href="/tc?module=CollegeTourOverview&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Overview</A>&#160;&#160;|&#160;&#160;
+                    Overview&#160;&#160;|&#160;&#160;
                     <A href="/tc?module=CollegeTourInfo&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Instructions</A>&#160;&#160;|&#160;&#160;
-                    Register&#160;&#160;|&#160;&#160;
+                    <A href="/tc?module=CollegeTourReg&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Register</A>&#160;&#160;|&#160;&#160;
                     <A href="/tc?module=CollegeTourRegistrants&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Registrants</A>&#160;&#160;|&#160;&#160;
                     <% if (request.getAttribute(Constants.FORUM_ID)!=null) {%>
                     <tc-webtag:forumLink forumID="<%=Long.parseLong((String)request.getAttribute(Constants.FORUM_ID))%>" message="Discuss College Tour"/>
                     <% } %>
                 </p>
+                <!-- ends -->
 
-
-                <p>
-                    Thank you.  You have successfully registered for the event.
                 </p>
-
+                <p align="center">Click <A href="">here</A> to register for the TopCoder College Tour event at your school.</p>
 
 
             </div>
