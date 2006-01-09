@@ -82,10 +82,11 @@ This member has not yet been rated in a competition.
             <tr><td class="cat" nowrap="nowrap">Total Earnings:</td><td class="stat" align="right"><rsc:item name="overall_earnings" set="<%=rscCoderData%>" format="$#,##0.00"/></td></tr>
             <tr><td class="cat" nowrap="nowrap">Software Royalties:</td><td class="stat" align="right"><rsc:item name="royalties" set="<%=rscCoderData%>" format="$#,##0.00" ifNull="$0.00"/></td></tr>
             <tr><td class="cat" nowrap="nowrap">Member Since:</td><td class="stat" align="right"><rsc:item name="member_since" set="<%=rscCoderData%>" format="MM.dd.yyyy"/></td></tr>
-            <tr><td class="cat">Country:</td><td class="stat" align="right"><rsc:item name="country_name" set="<%=rscCoderData%>"/></td></tr>
+            <tr><td class="cat">Country:</td><td class="stat" align="right"><div style="width: 100px;"><rsc:item name="country_name" set="<%=rscCoderData%>"/></div></td></tr>
             <% if (rscCoderData.getStringItem(0,"school_name")!=null) { %>
             <tr><td class="cat">School:</td><td class="stat" align="right"><rsc:item name="school_name" set="<%=rscCoderData%>"/></td></tr>
             <% }%>
+            <tr><td class="cat" colspan="2">&#160;</td></tr>
              <% if (rscCoderData.getIntItem(0, "has_achievements")>0) { %>
              <tr><td class="cat" colspan="2"><A href="/tc?module=SimpleStats&c=coder_achievements&d1=statistics&d2=coderAchievements&cr=<%=rscCoderData.getStringItem(0, "coder_id")%>">[Achievements]</A></td>
              <% } %>
