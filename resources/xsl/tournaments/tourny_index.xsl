@@ -73,7 +73,7 @@
                 <tr valign="top">
                     <td width="274" rowspan="2" valign="top"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=about"><img src="/i/tournament/tco06Logo.gif" alt="2006 TopCoder Open" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText" colspan="2" valign="top"><font size="3"><strong>2006 TopCoder Open&#153;</strong></font>
+                    <td width="99%" class="bodyText" colspan="2" valign="top"><font size="3"><strong>2006 TopCoder Open(TM)</strong></font>
                      <br /><br />
                         May 3-5<br />
                         Aladdin Resort and Casino<br/>
@@ -100,7 +100,7 @@
                 <tr valign="top">
                     <td width="274" rowspan="2" valign="top"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=about"><img src="/i/tournament/photo_tco05.jpg" alt="2005 TCCC" width="274" height="121" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2005 TopCoder Open&#153; Sponsored by Sun Microsystems</strong></font></td>
+                    <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2005 TopCoder Open(TM) Sponsored by Sun Microsystems</strong></font></td>
                 </tr>
                 <tr valign="top">
                     <td class="bodyText">
