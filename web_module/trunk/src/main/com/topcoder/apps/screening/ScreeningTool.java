@@ -139,6 +139,7 @@ public class ScreeningTool {
             }
             logger.log(new SimpleScreeningResult(success || this.soft));
         } catch (DatabaseException ex) {
+            log.error("Exception thrown while screening: " + ex.getMessage());
             retVal = false;
         } finally {
             try {

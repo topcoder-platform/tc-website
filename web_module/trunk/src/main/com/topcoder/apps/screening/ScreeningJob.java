@@ -546,8 +546,10 @@ public class ScreeningJob extends TimerTask {
             boolean successfullScreen = tool.screen(log, new File(request.getSubmissionPath()),
                 request.getProjectType(), request.getSubmissionVId());
             if (successfullScreen) {
+                log.info("tool.screen completed successfully.");
                 completeRequest(request.getSubmissionVId());
             } else {
+                log.info("tool.screen unsuccessfully.");
                 rollbackRequest(request.getSubmissionVId());
             }
 
