@@ -8,6 +8,19 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>01.09.05<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">NSA chat session scheduled for SRM 282</A></span><br><br>
+      NSA will be in the Arena at 8:00 pm, prior to SRM 282, to discuss working at NSA.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="504999" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.09.06<br>11:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_010906">NSA Participation in 2006 TopCoder Open in Las Vegas</A></span><br><br>
       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/nsa_logo.gif" width="67" height="34" alt="NSA" border="0" /></div>
