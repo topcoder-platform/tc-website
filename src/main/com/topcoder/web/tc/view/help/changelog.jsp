@@ -38,6 +38,15 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
+        4.1.6 - 2006.01.09
+        <ul>
+            <li>some bug fixes/enhancements for the college tour pages</li>
+            <li>changed how component registration questions are flaged in db</li>
+            <li>be more particular about birth dates in pacts</li>
+        </ul>
+
+    </p>
+    <p>
         4.1.5 - 2006.01.04
         <ul>
             <li>allow people to see solutions (other than their own) for practice long contest rounds.</li>
