@@ -8,7 +8,7 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.09.06<br>10:45 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.09.06<br>11:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_010906">NSA Participation in 2006 TopCoder Open in Las Vegas</A></span><br><br>
       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/nsa_logo.gif" width="67" height="34" alt="NSA" border="0" /></div>
       "TopCoder&#174;, Inc. today announced additional details of its 2006 TopCoder Open (TCO06) which include the continued support of the National Security Agency as an event patron."
