@@ -4,7 +4,6 @@
 <head>
 <title>2006 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
-<jsp:include page="../../script.jsp" />
 </head>
 <body>
 
@@ -18,7 +17,7 @@
 <!-- Body-->
 	<tr valign=top>
 		<td valign=top align=center>
-		<div class=bodySpacer>
+		<div class="bodySpacer">
 
 <span class="bigTitle">Competition Arena</span>
 <br><br>
@@ -29,8 +28,10 @@ Click <a href="/contest/arena/ContestAppletSponsor.jnlp" target="_blank">here</a
 Note:  If you wish to install Java Web Start click <a href="http://java.sun.com/products/javawebstart/index.html" target="_blank">here</a>.
 <br/><br/>
 If you experience problems loading or running the Competition Arena please contact  <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
-<br><br><br><br>
+<br><br><br><br><br><br><br><br>
+
 See the official <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_rules">rules and regulations</A> for more details.
+<br><br><br><br><br><br><br><br>
         </div>
 		</td>
 
@@ -38,16 +39,15 @@ See the official <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_rule
 <!-- Right Column-->
 <td width="170" align="right">
 <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
-<img src="/i/tournament/tco06/sun_right.gif" alt="Sun" border="0" /><br />
-<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+<!-- <img src="/i/tournament/tco06/sun_right.gif" alt="Sun" border="0" /><br /> 
+<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />-->
 <img src="/i/tournament/tco06/nsa_right.gif" alt="NSA" border="0" /><br />
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-<img src="/i/tournament/tco06/yahoo_right.gif" alt="Yahoo" border="0" /><br />
-<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+<!-- <img src="/i/tournament/tco06/yahoo_right.gif" alt="Yahoo" border="0" /><br />
+<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />-->
 <img src="/i/tournament/tco06/verisign_right.gif" alt="Verisign" border="0" /><br />
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 <jsp:include page="../../calendar.jsp" />
-<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 </td>
 
 	</tr>
