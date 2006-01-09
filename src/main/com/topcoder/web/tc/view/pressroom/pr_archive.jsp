@@ -42,6 +42,11 @@
 
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
 
+<!-- 2006 -->
+                            <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
+<tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_010906">TopCoder Announces NSA Participation in 2006 TopCoder Open in Las Vegas</A> [January 9]<br/><br/></td></tr>
+
+
 <!-- 2005 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
 

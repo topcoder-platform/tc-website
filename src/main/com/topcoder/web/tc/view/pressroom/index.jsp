@@ -47,6 +47,20 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%--  TCO06 NSA --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_010906"><img src="/i/pressroom/nsa_logo.gif" alt="NSA" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_010906">TopCoder Announces NSA Participation in 2006 TopCoder Open in Las Vegas</A></strong></font><br />
+                        "TopCoder&#174;, Inc. today announced additional details of its 2006 TopCoder Open (TCO06) which include the continued support of the National Security Agency as an event patron."<span class="prHead"> [January 9]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- INC --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -60,8 +74,7 @@
                 </tr>
             </table>
 
-            <hr width="100%" size="1" noshade="noshade" />
-
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
             
 <%-- 2005 --%>
