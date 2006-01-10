@@ -10,6 +10,19 @@
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="codinginterface.tld" prefix="ci" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
+<% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID)==null?Constants.LONG_ROUND_TYPE_ID:((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
+<% String level2 = "topcoder";
+    String image = "long_comps_topcoder";
+     if (roundType==Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
+         level2="topcoder_practice";
+     } else if (roundType ==Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
+         level2="intel_practice";
+         image = "long_comps_intel";
+     } else if (roundType ==Constants.INTEL_LONG_ROUND_TYPE_ID) {
+         level2="intel";
+         image = "long_comps_intel";
+     }
+%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -33,7 +46,7 @@
     <%-- value of level2 is 'topcoder' or 'intel_active_contests' --%>
     <jsp:include page="/includes/global_left.jsp">
         <jsp:param name="level1" value="long_contests"/>
-        <jsp:param name="level2" value="topcoder"/>
+        <jsp:param name="level2" value="<%=level2%>"/>
     </jsp:include>
 </td>
 <%-- Left Column Ends --%>
@@ -43,7 +56,7 @@
 
     <%-- value of image is 'long_comps_topcoder' or 'long_comps_intel' --%>
     <jsp:include page="page_title.jsp">
-        <jsp:param name="image" value="long_comps_topcoder"/>
+        <jsp:param name="image" value="<%=image%>"/>
         <jsp:param name="title" value="Active Contests"/>
     </jsp:include>
 
