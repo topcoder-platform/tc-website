@@ -253,11 +253,13 @@ public class AutoPilotTimer
 
                         Date curDate = new Date(System.currentTimeMillis());
 
+                        logger.info("current date: " + curDate.toString());
+
                         int timeDiff = 0;
                         if (curDate.getTime() > projs[i].getCurrentPhaseInstance().getEndDate().getTime()) {
-                            timeDiff = workDays.getWorkableMinutes(curDate, projs[i].getCurrentPhaseInstance().getEndDate()) * -1;
-                        } else {
                             timeDiff = workDays.getWorkableMinutes(projs[i].getCurrentPhaseInstance().getEndDate(), curDate);
+                        } else {
+                            timeDiff = workDays.getWorkableMinutes(curDate, projs[i].getCurrentPhaseInstance().getEndDate()) * -1;
                         }
 
                         logger.info("timeDiff: " + timeDiff);
@@ -283,7 +285,9 @@ public class AutoPilotTimer
                                 if (timeline[j].getPhase().getId() == projs[i].getCurrentPhaseInstance().getPhase().getId()) {
                                     // If the phase ends early. In this case, adjust the duration of the phase to the correct time.
                                     if (timeDiff < 0) {
+                                        logger.info("Original end: " + timeline[j].getEndDate().toString());
                                         timeline[j].setEndDate(workDays.sub(timeline[j].getEndDate(), WorkdaysUnitOfTime.MINUTES, timeDiff * -1));
+                                        logger.info("Changed end: " + timeline[j].getEndDate().toString());
                                     }
                                     startUpdatingPhases = true;
                                 }
