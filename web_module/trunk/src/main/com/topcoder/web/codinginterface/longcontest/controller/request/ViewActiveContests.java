@@ -35,6 +35,14 @@ public class ViewActiveContests extends Base {
         ArrayList contests = new ArrayList();
 
         try {
+            int type = Constants.LONG_ROUND_TYPE_ID;
+            if (StringUtils.isNumber(getRequest().getParameter(Constants.ROUND_TYPE_ID))) {
+                if (Integer.parseInt(getRequest().getParameter(Constants.ROUND_TYPE_ID))
+                        == Constants.INTEL_LONG_ROUND_TYPE_ID) {
+                    type = Constants.INTEL_LONG_ROUND_TYPE_ID;
+                }
+            }
+            getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(type));
 
             // Data source
             DataAccessInt dai = getDataAccess();
@@ -42,15 +50,7 @@ public class ViewActiveContests extends Base {
             // Prepare a request to get active contest information
             Request r = new Request();
             r.setContentHandle("long_contest_active_contests");
-            //the query will default to a regular long comp type, just set it if it's intel
-            if (StringUtils.isNumber(getRequest().getParameter(Constants.ROUND_TYPE_ID))) {
-                int type = Integer.parseInt(getRequest().getParameter(Constants.ROUND_TYPE_ID));
-                if (type == Constants.INTEL_LONG_ROUND_TYPE_ID) {
-                    r.setProperty(Constants.ROUND_TYPE_ID, String.valueOf(type));
-                    getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(type));
-                } 
-            }
-
+            r.setProperty(Constants.ROUND_TYPE_ID, String.valueOf(type));
 
             // Fetch Data
             Map m = dai.getData(r);
@@ -105,6 +105,8 @@ public class ViewActiveContests extends Base {
                 //todo and then populates a couple fields from transactional to fill out the list
                 Request reqPassContests = new Request();
                 reqPassContests.setContentHandle("long_contest_pass_contests");
+                reqPassContests.setProperty(Constants.ROUND_TYPE_ID, String.valueOf(type));
+
                 Map mapPassContests = dai.getData(reqPassContests);
                 ResultSetContainer rscPassContests = (ResultSetContainer) mapPassContests.get("long_contest_pass_contests");
                 for (int i = 0; i < rscPassContests.getRowCount()&contests.size()<5; i++) {
