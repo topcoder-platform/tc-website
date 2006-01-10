@@ -1084,10 +1084,18 @@ public class TCWorkdays implements Workdays {
 
         if (!this.isNonWorkday(startCal)) {
             // the start date is a workday
-            if (startCal.after(dayEnd)) {
-                timeInMilliSeconds += workdayInMilliSeconds;
-            } else if (startCal.after(dayBegin)) {
-                timeInMilliSeconds += (startCal.getTime().getTime() - dayBegin.getTime().getTime());
+            if (amount > 0) {
+                if (startCal.after(dayEnd)) {
+                    timeInMilliSeconds += workdayInMilliSeconds;
+                } else if (startCal.after(dayBegin)) {
+                    timeInMilliSeconds += (startCal.getTime().getTime() - dayBegin.getTime().getTime());
+                }
+            } else {
+                if (startCal.after(dayEnd)) {
+                    timeInMilliSeconds += workdayInMilliSeconds;
+                } else if (startCal.after(dayBegin)) {
+                    timeInMilliSeconds += (startCal.getTime().getTime() - dayBegin.getTime().getTime());
+                }
             }
         }
 
@@ -1127,6 +1135,161 @@ public class TCWorkdays implements Workdays {
 
         long disToBegin = (((timeInMilliSeconds + workdayInMilliSeconds) - 1) % workdayInMilliSeconds) + 1;
         endDay.setTime(dayBegin.getTime().getTime() + (max * 24 * 60 * 60 * 1000) + disToBegin);
+
+        return endDay;
+    }
+
+    /**
+     * <p>
+     * Method to sub a certain amount of time to a Date. (to calculates the start date of the task)
+     * </p>
+     *
+     * <p>
+     * There are there types of unit time, minutes, hours, and days. Binary search algorithm is used.
+     * </p>
+     *
+     * @param endDate the date to perform the substraction to
+     * @param unitOfTime the unit of time to sub (minutes, hours, days)
+     * @param amount the amount of time to sub
+     *
+     * @return the Date result of substracting the amount of time to the endDate taking into consideration the workdays
+     * definition.
+     *
+     * @throws java.lang.NullPointerException if endDate or unitOfTime is null
+     * @throws java.lang.IllegalArgumentException if amount parameter is negative or the start/end time set incorrectly
+     */
+    public Date sub(Date endDate, WorkdaysUnitOfTime unitOfTime, int amount) {
+        if (endDate == null) {
+            throw new NullPointerException("Parameter endDate is null");
+        }
+
+        if (unitOfTime == null) {
+            throw new NullPointerException("Parameter unitOfTime is null");
+        }
+
+        if (amount < 0) {
+            throw new IllegalArgumentException("Parameter amount is negative");
+        }
+
+        // validate the start/end time.
+        this.timeStateValidation();
+
+        if (amount == 0) {
+            return endDate;
+        }
+
+        Calendar endCal = Calendar.getInstance(this.locale);
+        endCal.setTime(endDate);
+
+        // ignore second and millisecond field of the endDate, otherwise, maybe the answer
+        // is "2005.01.04 09:00:00 100" insteed of "2005.01.03 17:00:00"
+        endCal.set(Calendar.SECOND, 0);
+        endCal.set(Calendar.MILLISECOND, 0);
+
+        // get the day begin time and day end time of the endDate
+        Calendar dayBegin = (Calendar) endCal.clone();
+        Calendar dayEnd = (Calendar) endCal.clone();
+        dayBegin.set(Calendar.HOUR_OF_DAY, this.startTimeHours);
+        dayBegin.set(Calendar.MINUTE, this.startTimeMinutes);
+        dayEnd.set(Calendar.HOUR_OF_DAY, this.endTimeHours);
+        dayEnd.set(Calendar.MINUTE, this.endTimeMinutes);
+
+        // time in detail as milliseconds just for convenience
+        long workdayInMilliSeconds = (long) this.getWorkdayDurationInMinutes() * 60 * 1000;
+        long timeInMilliSeconds = (long) this.getAmountInMinutes(unitOfTime, amount) * 60 * 1000;
+
+        long timeToFreshDay = 0;
+
+        // calculates the time to reach a fresh day.
+        if (!this.isNonWorkday(endCal)) {
+            if (endCal.after(dayBegin)) {
+                if (endCal.before(dayEnd)) {
+                    timeToFreshDay += (endCal.getTime().getTime() - dayBegin.getTime().getTime());
+                } else {
+                    timeToFreshDay += (dayEnd.getTime().getTime() - dayBegin.getTime().getTime());
+                }
+                endCal.set(Calendar.HOUR_OF_DAY, 0);
+                endCal.set(Calendar.MINUTE, 0);
+            }
+        }
+
+        Date endDay = new Date();
+        if (timeInMilliSeconds > timeToFreshDay) {
+            // total days to sub
+            long daysToSub = (timeInMilliSeconds - timeToFreshDay) / workdayInMilliSeconds;
+
+            // minimal days to sub
+            long min = daysToSub;
+
+            // maximal days to sub
+            // (maximal - nonWorkDays.size) * (5 / 7) >= daysToSub
+            long max = (daysToSub * 7) / 5
+                     + this.nonWorkDays.size()
+                     + this.nonWorkSaturdayDays.size()
+                     + this.nonWorkSundayDays.size() + 7;
+
+            // cut the part of endCal's hour, minute and second
+            endCal.set(Calendar.HOUR_OF_DAY, 0);
+            endCal.set(Calendar.MINUTE, 0);
+            endCal.set(Calendar.SECOND, 0);
+
+            // Having the min days to sub and the max days to sub we can binary search
+            // the exact days count.
+            Date startDay = endCal.getTime();
+            long mid = 0;
+            for (mid = (min + max) / 2; min <= max; mid = (min + max) / 2) {
+                endDay.setTime((startDay.getTime() - (mid * 24 * 60 * 60 * 1000)));
+
+                int workdaysCount = this.getWorkdaysCount(endDay, startDay);
+
+                if (workdaysCount == daysToSub)
+                    break;
+
+                if (workdaysCount > daysToSub) {
+                    max = mid - 1;
+                } else {
+                    min = mid + 1;
+                }
+            }
+
+            // completes to the exact hour of the day.
+            long time = endDay.getTime();
+            time -= (timeInMilliSeconds - ((daysToSub) * workdayInMilliSeconds) - timeToFreshDay);
+            endDay.setTime(time);
+        } else {
+            // the timeToFreshDay are sufficient to fulfill the amount of time.
+            endDay.setTime(endDate.getTime() - timeInMilliSeconds);
+        }
+        endCal.setTime(endDay);
+
+        // This is to get the earliest beginning of work.
+        dayBegin = (Calendar) endCal.clone();
+        dayEnd = (Calendar) endCal.clone();
+        dayBegin.set(Calendar.HOUR_OF_DAY, this.startTimeHours);
+        dayBegin.set(Calendar.MINUTE, this.startTimeMinutes);
+        dayEnd.set(Calendar.HOUR_OF_DAY, this.endTimeHours);
+        dayEnd.set(Calendar.MINUTE, this.endTimeMinutes);
+
+        // if the hour is before day start, go to the end of the previous day
+        // if the hour is after day end, go to the end of the current day
+        if (!endCal.after(dayBegin)) {
+            endCal.set(Calendar.HOUR_OF_DAY, this.endTimeHours);
+            endCal.set(Calendar.MINUTE, this.endTimeMinutes);
+            endDay.setTime(endCal.getTime().getTime() - 24 * 60 * 60 * 1000);
+        } else if (endCal.after(dayEnd)) {
+            endCal.set(Calendar.HOUR_OF_DAY, this.endTimeHours);
+            endCal.set(Calendar.MINUTE, this.endTimeMinutes);
+            endDay.setTime(endCal.getTime().getTime());
+        }
+        endCal.setTime(endDay);
+
+        // if we fell into a non workday, advance to a working day.
+        while (this.isNonWorkday(endCal)) {
+            endDay.setTime(endDay.getTime() - 24 * 60 * 60 * 1000);
+            endCal.setTime(endDay);
+
+        }
+        endDay.setTime(endDay.getTime());
 
         return endDay;
     }
