@@ -41,6 +41,7 @@ public class Settings extends ForumsProcessor {
             int messagesPerHistoryPage = Integer.parseInt(getRequest().getParameter("messagesPerHistoryPage"));
             int resultsPerSearchPage = Integer.parseInt(getRequest().getParameter("resultsPerSearchPage"));
             String threadMode = getRequest().getParameter("threadMode");
+            String flatMode = getRequest().getParameter("flatMode");
             String showPrevNextThreads = getRequest().getParameter("showPrevNextThreads");
             String displayMemberPhoto = getRequest().getParameter("displayMemberPhoto");
             String displayAllMemberPhotos = getRequest().getParameter("displayAllMemberPhotos");
@@ -60,6 +61,7 @@ public class Settings extends ForumsProcessor {
             }
 
             user.setProperty(("jiveThreadMode"), threadMode);
+            user.setProperty(("jiveFlatMode"), flatMode);
             user.setProperty(("jiveDisplayMemberPhoto"), displayMemberPhoto);
             user.setProperty(("jiveDisplayAllMemberPhotos"), displayAllMemberPhotos);
             user.setProperty(("jiveShowPrevNextThreads"), showPrevNextThreads);

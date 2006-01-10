@@ -193,6 +193,25 @@
       </td>
    </tr>
    <tr>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Default Flat Page View:</strong></td>
+      <td class="rtTextCell100">
+      <select size="1" name="threadMode">
+      <%  String[][] flatModes = {{"flat","Oldest to newest"},{"flat_new","Newest to oldest)"}};
+          String flatMode = ForumConstants.DEFAULT_FLAT_THREAD_VIEW;
+            try {
+                flatMode = user.getProperty("jiveFlatMode");
+            } catch (Exception ignored) {}
+         for (int i=0; i<flatModes.length; i++) {
+            if (flatModes[i][0].equals(flatMode)) { %>
+               <option value="<%=flatModes[i][0]%>" selected><%=flatModes[i][1]%></option>
+         <%   } else { %>
+               <option value="<%=flatModes[i][0]%>"><%=flatModes[i][1]%></option>
+         <%   }
+         } %>
+      </select>
+      </td>
+   </tr>
+   <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Show previous/next threads:</strong></td>
       <td class="rtTextCell100">
         <input name="showPrevNextThreads" value="true" id="showPrevNextThreadsYes" type="radio"

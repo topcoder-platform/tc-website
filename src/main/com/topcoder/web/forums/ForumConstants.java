@@ -96,6 +96,7 @@ public interface ForumConstants {
     public final static int DEFAULT_FORUM_RANGE = 10;
     public final static int DEFAULT_HISTORY_RANGE = 10;
     public final static String DEFAULT_GUEST_THREAD_VIEW = "flat";
+    public final static String DEFAULT_FLAT_THREAD_VIEW = "flat";
     
     // Maximums
     public final static int MAX_FORUMS_PER_PAGE = 50;
