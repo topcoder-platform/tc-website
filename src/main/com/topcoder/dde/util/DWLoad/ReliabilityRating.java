@@ -120,7 +120,7 @@ public class ReliabilityRating {
      * 2.  update user_reliability with current data
      * @param conn
      * @param users
-     * @return
+     * @return the number of records updated/inserted
      */
     public int updateReliability(Connection conn, Set users, int historyLength, long phaseId) throws SQLException {
         //System.out.println("updateReliability(conn, users, " + historyLength + ", " + phaseId + ") called");
