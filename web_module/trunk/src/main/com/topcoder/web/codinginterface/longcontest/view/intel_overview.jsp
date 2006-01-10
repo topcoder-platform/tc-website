@@ -40,7 +40,7 @@
 </map>
 <img src="/i/longcontest/intel_banner.jpg" alt="" border="0" usemap="#intel_nav"/>
 --%>
-<img src="/i/longcontest/intel_banner_plain.jpg" alt="" border="0"/>
+<img src="/i/longcontest/intel_banner_plain.gif" alt="" border="0"/>
 </div>
 <br><br>
 <span class="bodySubtitle">Intel&#174; Software Network Multi-threading Competition Series</span><br>
