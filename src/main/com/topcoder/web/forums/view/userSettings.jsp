@@ -77,7 +77,7 @@
       <td class="rtHeader" colspan="2">General Settings</td>
    </tr>
    <tr>
-      <td class="rtTextCell" nowrap="nowrap"><strong>Forums per Category Page:</strong></td>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Forums per Category page:</strong></td>
       <td class="rtTextCell100">
       <select size="1" name="forumsPerPage">
       <%  int[] forumCounts = { 10, 15, 25 };
@@ -96,7 +96,7 @@
       </td>
    </tr>
    <tr>
-      <td class="rtTextCell" nowrap="nowrap"><strong>Threads per Forum Page:</strong></td>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Threads per Forum page:</strong></td>
       <td class="rtTextCell100">
       <select size="1" name="threadsPerPage">
       <%  int[] threadCounts = { 10, 15, 25, 50 };
@@ -116,7 +116,7 @@
       </td>
    </tr>
    <tr>
-      <td class="rtTextCell" nowrap="nowrap"><strong>Messages per Thread Page:</strong></td>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Messages per Thread page:</strong></td>
       <td class="rtTextCell100">
       <select size="1" name="messagesPerPage">
       <%  int[] messageCounts = { 10, 15, 25, 50 };
@@ -136,7 +136,7 @@
       </td>
    </tr>
    <tr>
-      <td class="rtTextCell" nowrap="nowrap"><strong>Messages per Post History Page:</strong></td>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Messages per Post History page:</strong></td>
       <td class="rtTextCell100">
       <select size="1" name="messagesPerHistoryPage">
       <% int[] historyCounts = { 10, 15, 25, 50 };
@@ -155,7 +155,7 @@
       </td>
    </tr>
    <tr>
-      <td class="rtTextCell" nowrap="nowrap"><strong>Results per Search Page:</strong></td>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Results per Search page:</strong></td>
       <td class="rtTextCell100">
         <select size="1" name="resultsPerSearchPage">
         <%  int[] searchCounts = { 10, 20, 30, 50 };
@@ -174,7 +174,7 @@
       </td>
    </tr>
    <tr>
-      <td class="rtTextCell" nowrap="nowrap"><strong>Default Thread View:</strong></td>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Default thread page view:</strong></td>
       <td class="rtTextCell100">
       <select size="1" name="threadMode">
       <%  String[][] threadModes = {{"flat","Flat (oldest to newest)"},{"flat_new","Flat (newest to oldest)"},{"threaded","Threaded"},{"tree","Tree"}};
@@ -193,7 +193,7 @@
       </td>
    </tr>
    <tr>
-      <td class="rtTextCell" nowrap="nowrap"><strong>Default Flat View:</strong></td>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Default flat page view:</strong></td>
       <td class="rtTextCell100">
       <select size="1" name="flatMode">
       <%  String[][] flatModes = {{"flat","Oldest to newest&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;"},{"flat_new","Newest to oldest"}};
