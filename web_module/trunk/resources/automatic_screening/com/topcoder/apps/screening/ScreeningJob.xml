@@ -10,7 +10,7 @@
         <Value>1</Value>
     </Property>
     <Property name="max_screening_attempts">
-        <Value>3</Value>
+        <Value>5</Value>
     </Property>
   </Config>
 </CMConfig>
