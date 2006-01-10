@@ -251,7 +251,15 @@ public class AutoPilotTimer
                         // timeline update
 //                        long timeDiff = System.currentTimeMillis() - projs[i].getCurrentPhaseInstance().getEndDate().getTime();
 
-                        int timeDiff = workDays.getWorkableMinutes(new Date(System.currentTimeMillis()), projs[i].getCurrentPhaseInstance().getEndDate());
+                        Date curDate = new Date(System.currentTimeMillis());
+
+                        int timeDiff = 0;
+                        if (curDate.getTime() > projs[i].getCurrentPhaseInstance().getEndDate().getTime()) {
+                            timeDiff = workDays.getWorkableMinutes(curDate, projs[i].getCurrentPhaseInstance().getEndDate()) * -1;
+                        } else {
+                            timeDiff = workDays.getWorkableMinutes(projs[i].getCurrentPhaseInstance().getEndDate(), curDate);
+                        }
+
                         logger.info("timeDiff: " + timeDiff);
                         if (timeDiff != 0) {
                             boolean startUpdatingPhases = false;
