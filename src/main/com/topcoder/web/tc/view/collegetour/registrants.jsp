@@ -65,7 +65,7 @@
                <div align="center">
                   <div style="width: 150px; text-align: left;" class="bodyText">
                   <span class="bodySubtitle">Registrants: <%=registrants.size()%></span><br><br>
-                  <strong>Handle</strong><br>
+                  <% if (!registrants.isEmpty()) {%><strong>Handle</strong><br><% } %>
                   <rsc:iterator list="<%=registrants%>" id="resultRow">
                   <tc-webtag:handle coderId='<%= resultRow.getLongItem("coder_id")%>' context='algorithm'/><br>
                   </rsc:iterator>
