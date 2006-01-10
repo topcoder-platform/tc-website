@@ -174,7 +174,7 @@
       </td>
    </tr>
    <tr>
-      <td class="rtTextCell" nowrap="nowrap"><strong>Thread Page View:</strong></td>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Default Thread View:</strong></td>
       <td class="rtTextCell100">
       <select size="1" name="threadMode">
       <%  String[][] threadModes = {{"flat","Flat (oldest to newest)"},{"flat_new","Flat (newest to oldest)"},{"threaded","Threaded"},{"tree","Tree"}};
@@ -193,7 +193,7 @@
       </td>
    </tr>
    <tr>
-      <td class="rtTextCell" nowrap="nowrap"><strong>Default Flat Page View:</strong></td>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Default Flat View:</strong></td>
       <td class="rtTextCell100">
       <select size="1" name="flatMode">
       <%  String[][] flatModes = {{"flat","Oldest to newest&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;"},{"flat_new","Newest to oldest"}};
