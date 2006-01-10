@@ -18,8 +18,44 @@
     String level1 = request.getParameter("level1")==null?"competition":request.getParameter("level1");
 
 %>
+<STYLE TYPE="text/css">
+.topBar
+{
+width:100%;
+background: #FFFFFF url(/i/interface/top_bg.gif) top center repeat-x;
+vertical-align: top;
+font-size: 10px;
+padding: 3px 0px 28px 5px;
+white-space: nowrap; 
+}
+#outer
+{
+width: 360px;
+position: relative;
+margin: 0px 185px 0px 185px;
+/*border: 1px solid #00FF00;*/
+}
+#inner
+{
+position: absolute;
+left: 0px;
+}
+</STYLE>
 
-<a name="top"/>
+
+<div align="center">
+   <div id="outer">
+      <div id="inner">
+      <img src="/i/interface/topcoder.gif" alt="TopCoder" />
+      </div>
+   </div>
+</div>
+
+<div class="topBar">
+Current Member Count: <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%> - <jsp:include page="date_time.jsp" />
+</div>
+
+<%--
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
     <tr>
         <td class=homeTopBar>
@@ -52,7 +88,6 @@
 
 <!-- Logo Bar Include Begins -->
 
-<%--
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
     <tr>
 <% if (level1.equals("development")) {%>
