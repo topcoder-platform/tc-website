@@ -10,15 +10,16 @@
 
 <table align="left" cellspacing="0" cellpadding="0" valign="top" width="760">
    <tr>
-      <td colspan="2" align="right" valign="top" style="padding: 2px 0px 0px 0px;">
+      <td width="115" height="60" align="left" valign="top" rowspan="2"><a href="http://www.verisign.com/index.html"><img border=0 src="/i/events/verisign06/www_vrsn_logo.gif" alt="VeriSign, Inc.&#0174;"></a></td>
+      <td width="645" align="right" valign="top" style="padding: 2px 0px 0px 0px;">
 	    <a href="http://www.verisign.com/index.html" class="VStop">US Home</a> &#160;&#160; | &#160;&#160;
 		<a href="http://www.verisign.com/verisign-worldwide/index.html" class="VStop">Worldwide Sites</a> &#160;&#160; | &#160;&#160;
-	    <a href="http://www.verisign.com/site-map/index.html" class="VStop">Site Map</a>					
+	    <a href="http://www.verisign.com/site-map/index.html" class="VStop">Site Map</a>
+	    <img border="0" width="1" align="top" height="18" src="/i/events/verisign06/spacer.gif" />
 	  </td>
-   </tr>      
-   <tr>
-      <td align="left" valign="top"><a href="http://www.verisign.com/index.html"><img border=0 src="/i/events/verisign06/www_vrsn_logo.gif" alt="VeriSign, Inc.&#0174;"></a></td>
-      <td align="left" valign="bottom"><img border=0 src="/i/events/verisign06/connectionline.gif" alt=""></td>
+	</tr>
+	<tr>
+      <td width="645" height="40" align="left" valign="top"><img border=0 src="/i/events/verisign06/connectionline.gif" alt=""></td>
    </tr>
    
 <!-- Tab bar links-->
