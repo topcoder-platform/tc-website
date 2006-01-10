@@ -5,9 +5,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
     String nextpage = (String) request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
-    if (nextpage == null) nextpage = request.getParameter(BaseServlet.NEXT_PAGE_KEY);
-    if (nextpage == null) nextpage = request.getHeader("Referer");
-    if (nextpage == null) nextpage = "http://" + request.getServerName();
     String message = (String) request.getAttribute("message");
     if (message == null) message = "";
 %>
