@@ -5,7 +5,6 @@ import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.codinginterface.CodingInterfaceConstants;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.email.Email;
@@ -109,14 +108,16 @@ public class Login extends Base {
 
             /* whatever was wrong with the submission, make sure they are logged out */
             getAuthentication().logout();
+        } else {
+            String nextpage = (String)getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY);
+            if (nextpage == null) nextpage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
+            if (nextpage == null) nextpage = getRequest().getHeader("Referer");
+            if (nextpage == null) nextpage = getSessionInfo().getAbsoluteServletPath();
+            getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, nextpage);
         }
 
         if (loginStatus.equals(STATUS_START)) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
-        }
-
-        if (getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY) == null) {
-            getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)));
         }
 
         setNextPage(Constants.LOGIN_JSP);
