@@ -49,8 +49,8 @@
     } 
     
     String flatMode = "flat";
-    if (user != null && user.getProperty("flatMode") != null) {
-        flatMode = user.getProperty("flatMode");
+    if (user != null && user.getProperty("jiveFlatMode") != null) {
+        flatMode = user.getProperty("jiveFlatMode");
     } %>
 
 <html>

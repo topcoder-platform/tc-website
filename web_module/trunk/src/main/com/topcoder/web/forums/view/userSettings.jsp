@@ -195,8 +195,8 @@
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Default Flat Page View:</strong></td>
       <td class="rtTextCell100">
-      <select size="1" name="threadMode">
-      <%  String[][] flatModes = {{"flat","Oldest to newest"},{"flat_new","Newest to oldest)"}};
+      <select size="1" name="flatMode">
+      <%  String[][] flatModes = {{"flat","Oldest to newest&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;"},{"flat_new","Newest to oldest"}};
           String flatMode = ForumConstants.DEFAULT_FLAT_THREAD_VIEW;
             try {
                 flatMode = user.getProperty("jiveFlatMode");
