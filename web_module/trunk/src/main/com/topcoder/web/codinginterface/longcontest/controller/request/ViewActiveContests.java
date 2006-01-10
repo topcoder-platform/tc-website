@@ -7,14 +7,15 @@ import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.longcontest.model.LongContest;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.ImageInfo;
-import com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
+import com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
-import java.util.Vector;
 
 /**
  * Displays active and a couple of pass contests
@@ -31,15 +32,25 @@ public class ViewActiveContests extends Base {
         User usr = getUser();
 
         // The collection of contests to display
-        Vector contests = new Vector();
+        ArrayList contests = new ArrayList();
 
         try {
+
             // Data source
             DataAccessInt dai = getDataAccess();
 
             // Prepare a request to get active contest information
             Request r = new Request();
             r.setContentHandle("long_contest_active_contests");
+            //the query will default to a regular long comp type, just set it if it's intel
+            if (StringUtils.isNumber(getRequest().getParameter(Constants.ROUND_TYPE_ID))) {
+                int type = Integer.parseInt(getRequest().getParameter(Constants.ROUND_TYPE_ID));
+                if (type == Constants.INTEL_LONG_ROUND_TYPE_ID) {
+                    r.setProperty(Constants.ROUND_TYPE_ID, String.valueOf(type));
+                    getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(type));
+                } 
+            }
+
 
             // Fetch Data
             Map m = dai.getData(r);
