@@ -6,6 +6,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.longcontest.model.LongContest;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 
 import java.util.Date;
@@ -27,6 +28,14 @@ public class ViewPractice extends ViewActiveContests {
             // Prepare data request
             Request r = new Request();
             r.setContentHandle("long_contest_round_view_practice");
+            //the query will default to a regular long comp type, just set it if it's intel
+            if (StringUtils.isNumber(getRequest().getParameter(Constants.ROUND_TYPE_ID))) {
+                int type = Integer.parseInt(getRequest().getParameter(Constants.ROUND_TYPE_ID));
+                if (type == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
+                    r.setProperty(Constants.ROUND_TYPE_ID, String.valueOf(type));
+                    getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(type));
+                } 
+            }
 
             Map m = dai.getData(r);
 
