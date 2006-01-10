@@ -65,13 +65,13 @@ Each match will contain a single problem. The problem statement will indicate bo
 <div align="center">
 <table width="500" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
 <tr>
-   <td class="sidebarTitle" width="20%">
+   <td class="sidebarTitle" width="33%">
    Competition
    </td>
-   <td class="sidebarTitle" width="40%">
+   <td class="sidebarTitle" width="33%">
    Registration
    </td>
-   <td class="sidebarTitle" width="40%">
+   <td class="sidebarTitle" width="33%">
    Deadline
    </td>
 </tr>
@@ -80,10 +80,10 @@ Each match will contain a single problem. The problem statement will indicate bo
    Competition 1
    </td>
    <td class="sidebarText">
-   January 25, 2006 12:00 Noon EST
+   January 25, 2006<br>12:00 Noon EST
    </td>
    <td class="sidebarText">
-   February 8, 2006 12:00 Noon EST
+   February 8, 2006<br>12:00 Noon EST
    </td>
 </tr>
 <tr>
@@ -91,10 +91,10 @@ Each match will contain a single problem. The problem statement will indicate bo
    Competition 2
    </td>
    <td class="sidebarText">
-   February 22, 2006 12:00 Noon EST
+   February 22, 2006<br>12:00 Noon EST
    </td>
    <td class="sidebarText">
-   March 8, 2006 12:00 Noon EST
+   March 8, 2006<br>12:00 Noon EST
    </td>
 </tr>
 <tr>
@@ -102,10 +102,10 @@ Each match will contain a single problem. The problem statement will indicate bo
    Competition 3
    </td>
    <td class="sidebarText">
-   March 22, 2006 12:00 Noon EST
+   March 22, 2006<br>12:00 Noon EST
    </td>
    <td class="sidebarText">
-   April 5, 2006 12:00 Noon EDT
+   April 5, 2006<br>12:00 Noon EDT
    </td>
 </tr>
 <tr>
@@ -113,10 +113,10 @@ Each match will contain a single problem. The problem statement will indicate bo
    Competition 4
    </td>
    <td class="sidebarText">
-   April 19, 2006 12:00 Noon EDT
+   April 19, 2006<br>12:00 Noon EDT
    </td>
    <td class="sidebarText">
-   May 3, 2006 12:00 Noon EDT
+   May 3, 2006<br>12:00 Noon EDT
    </td>
 </tr>
 <tr>
@@ -124,10 +124,10 @@ Each match will contain a single problem. The problem statement will indicate bo
    Competition 5
    </td>
    <td class="sidebarText">
-   May 17, 2006 12:00 Noon EDT
+   May 17, 2006<br>12:00 Noon EDT
    </td>
    <td class="sidebarText">
-   May 31, 2006 12:00 Noon EDT
+   May 31, 2006<br>12:00 Noon EDT
    </td>
 </tr>
 <tr>
@@ -135,10 +135,10 @@ Each match will contain a single problem. The problem statement will indicate bo
    Competition 6
    </td>
    <td class="sidebarText">
-   June 14, 2006 12:00 Noon EDT
+   June 14, 2006<br>12:00 Noon EDT
    </td>
    <td class="sidebarText">
-   June 28, 2006 12:00 Noon EDT
+   June 28, 2006<br>12:00 Noon EDT
    </td>
 </tr>
 <tr>
@@ -146,10 +146,10 @@ Each match will contain a single problem. The problem statement will indicate bo
    Competition 7
    </td>
    <td class="sidebarText">
-   July 19, 2006 12:00 Noon EDT
+   July 19, 2006<br>12:00 Noon EDT
    </td>
    <td class="sidebarText">
-   August 2, 2006 12:00 Noon EDT
+   August 2, 2006<br>12:00 Noon EDT
    </td>
 </tr>
 <tr>
@@ -157,10 +157,10 @@ Each match will contain a single problem. The problem statement will indicate bo
    Competition 8
    </td>
    <td class="sidebarText">
-   August 16, 2006 12:00 Noon EDT
+   August 16, 2006<br>12:00 Noon EDT
    </td>
    <td class="sidebarText">
-   August 30, 2006 12:00 Noon EDT
+   August 30, 2006<br>12:00 Noon EDT
    </td>
 </tr>
 <tr>
@@ -168,10 +168,10 @@ Each match will contain a single problem. The problem statement will indicate bo
    Competition 9
    </td>
    <td class="sidebarText">
-   September 13, 2006 12:00 Noon EDT
+   September 13, 2006<br>12:00 Noon EDT
    </td>
    <td class="sidebarText">
-   September 27, 2006 12:00 Noon EDT
+   September 27, 2006<br>12:00 Noon EDT
    </td>
 </tr>
 <tr>
@@ -179,10 +179,10 @@ Each match will contain a single problem. The problem statement will indicate bo
    Competition 10
    </td>
    <td class="sidebarText">
-   October 18, 2006 12:00 Noon EDT
+   October 18, 2006<br>12:00 Noon EDT
    </td>
    <td class="sidebarText">
-   November 1, 2006 12:00 Noon EST
+   November 1, 2006<br>12:00 Noon EST
    </td>
 </tr>
 <tr>
@@ -190,10 +190,10 @@ Each match will contain a single problem. The problem statement will indicate bo
    Competition 11
    </td>
    <td class="sidebarText">
-   November 15, 2006 12:00 Noon EST
+   November 15, 2006<br>12:00 Noon EST
    </td>
    <td class="sidebarText">
-   November 29, 2006 12:00 Noon EST
+   November 29, 2006<br>12:00 Noon EST
    </td>
 </tr>
 <tr>
@@ -201,10 +201,10 @@ Each match will contain a single problem. The problem statement will indicate bo
    Competition 12
    </td>
    <td class="sidebarText">
-   December 13, 2006 12:00 Noon EST
+   December 13, 2006<br>12:00 Noon EST
    </td>
    <td class="sidebarText">
-   December 27, 2006 12:00 Noon EST
+   December 27, 2006<br>12:00 Noon EST
    </td>
 </tr>
 <tr>
