@@ -18,10 +18,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.messaging.WebQueueResponseManager;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.ImageInfo;
 
 import java.io.IOException;
@@ -59,7 +56,14 @@ public abstract class Base extends BaseProcessor {
                 if (rsc.getItem(0, "forum_id").getResultData()!=null) {
                     getRequest().setAttribute(Constants.FORUM_ID, new Long(rsc.getLongItem(0, "forum_id")));
                 }
-                getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(rsc.getIntItem(0, "round_type_id")));
+                int type = rsc.getIntItem(0, "round_type_id");
+                if (!(type==Constants.LONG_ROUND_TYPE_ID ||
+                        type==Constants.LONG_PRACTICE_ROUND_TYPE_ID || 
+                        type==Constants.INTEL_LONG_ROUND_TYPE_ID ||
+                        type==Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID)) {
+                    throw new NavigationException("Invalid round specified, wrong type");
+                }
+                getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(type));
             }
             getRequest().setAttribute(Constants.RESULTS_AVAILABLE, new Boolean(areResultsAvailable(roundId)));
         }
@@ -277,7 +281,7 @@ public abstract class Base extends BaseProcessor {
         Map m = getDataAccess(true).getData(r);
         return (ResultSetContainer)m.get("long_contest_round_information");
     }
-    
+
     /**
      *
      * @param roundId
