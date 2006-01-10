@@ -46,7 +46,7 @@
    </table>
    
    <br/><br/>
-   
+  
    <table width="100%" border="0" cellspacing="0" cellpadding="3">
    <tr valign="middle"><td class="statTextLarge" bgcolor="#999999" colspan="2"><font size="3">Match Editorial Archive - 2005</font></td></tr>
    
@@ -92,9 +92,9 @@
    <tr><td class="bodyText">08.31.05</td><td class="bodyText" nowrap="0" width="100%">TCO05 - Online Round 3 - <a href="/tc?module=Static&d1=match_editorials&d2=tco05_online_rd_3">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">08.30.05</td><td class="bodyText" nowrap="0" width="100%">SRM 261 - <a href="/tc?module=Static&d1=match_editorials&d2=srm261">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">08.27.05</td><td class="bodyText" nowrap="0" width="100%">SRM 260 - <a href="/tc?module=Static&d1=match_editorials&d2=srm260">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">08.24.05</td><td class="bodyText" nowrap="0" width="100%">TCO05 - Online Round 2 - <a href="/index?t=statistics&c=tco05_online_rd_2">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">08.24.05</td><td class="bodyText" nowrap="0" width="100%">TCO05 - Online Round 2 - <a href="/tc?module=Static&d1=match_editorials&d2=tco05_online_rd_2">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">08.22.05</td><td class="bodyText" nowrap="0" width="100%">SRM 259 - <a href="/tc?module=Static&d1=match_editorials&d2=srm259">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">08.20.05</td><td class="bodyText" nowrap="0" width="100%">TCO05 - Online Round 1 - <a href="/index?t=statistics&c=tco05_online_rd_1">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">08.20.05</td><td class="bodyText" nowrap="0" width="100%">TCO05 - Online Round 1 - <a href="/tc?module=Static&d1=match_editorials&d2=tco05_online_rd_1">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">08.16.05</td><td class="bodyText" nowrap="0" width="100%">TCO05 - Qualification 5 - <a href="/tc?module=Static&d1=match_editorials&d2=tco05_qual5">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">08.16.05</td><td class="bodyText" nowrap="0" width="100%">TCO05 - Qualification 4 - <a href="/tc?module=Static&d1=match_editorials&d2=tco05_qual4">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">08.16.05</td><td class="bodyText" nowrap="0" width="100%">TCO05 - Qualification 3 - <a href="/tc?module=Static&d1=match_editorials&d2=tco05_qual3">Problem Set & Analysis</a></td></tr>
@@ -151,21 +151,21 @@
    <tr><td class="bodyText">02.23.05</td><td class="bodyText" nowrap="0" width="100%">SRM 232 - <a href="/tc?module=Static&d1=match_editorials&d2=srm232">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">02.19.05</td><td class="bodyText" nowrap="0" width="100%">SRM 231 - <a href="/tc?module=Static&d1=match_editorials&d2=srm231">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">02.08.05</td><td class="bodyText" nowrap="0" width="100%">SRM 230 - <a href="/tc?module=Static&d1=match_editorials&d2=srm230">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">02.02.05</td><td class="bodyText" nowrap="0">TCCC05 - Online Round 4 - <a href="/index?t=statistics&c=tccc05_online_rd_4">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">02.02.05</td><td class="bodyText" nowrap="0">TCCC05 - Online Round 4 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc05_online_rd_4">Problem Set & Analysis</a></td></tr>
    
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>January</strong></td></tr>
    <tr><td class="bodyText">01.31.05</td><td class="bodyText" nowrap="0" width="100%">SRM 229 - <a href="/tc?module=Static&d1=match_editorials&d2=srm229">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">01.27.05</td><td class="bodyText" nowrap="0" width="100%">SRM 228 - <a href="/tc?module=Static&d1=match_editorials&d2=srm229">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">01.26.05</td><td class="bodyText" nowrap="0">TCCC05 - Online Round 3 - <a href="/index?t=statistics&c=tccc05_online_rd_3">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">01.26.05</td><td class="bodyText" nowrap="0">TCCC05 - Online Round 3 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc05_online_rd_3">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">01.22.05</td><td class="bodyText" nowrap="0" width="100%">SRM 227 - <a href="/tc?module=Static&d1=match_editorials&d2=srm227">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">01.19.05</td><td class="bodyText" nowrap="0">TCCC05 - Online Round 2 - <a href="/index?t=statistics&c=tccc05_online_rd_2">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">01.15.05</td><td class="bodyText" nowrap="0">TCCC05 - Online Round 1 - <a href="/index?t=statistics&c=tccc05_online_rd_1">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">01.12.05</td><td class="bodyText" nowrap="0">TCCC05 - Qualification 5 - <a href="/index?t=statistics&c=tccc05_qual_5">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">01.12.05</td><td class="bodyText" nowrap="0">TCCC05 - Qualification 4 - <a href="/index?t=statistics&c=tccc05_qual_4">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">01.12.05</td><td class="bodyText" nowrap="0">TCCC05 - Qualification 3 - <a href="/index?t=statistics&c=tccc05_qual_3">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">01.12.05</td><td class="bodyText" nowrap="0">TCCC05 - Qualification 2 - <a href="/index?t=statistics&c=tccc05_qual_2">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">01.12.05</td><td class="bodyText" nowrap="0">TCCC05 - Qualification 1 - <a href="/index?t=statistics&c=tccc05_qual_1">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">01.19.05</td><td class="bodyText" nowrap="0">TCCC05 - Online Round 2 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc05_online_rd_2">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">01.15.05</td><td class="bodyText" nowrap="0">TCCC05 - Online Round 1 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc05_online_rd_1">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">01.12.05</td><td class="bodyText" nowrap="0">TCCC05 - Qualification 5 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc05_qual_5">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">01.12.05</td><td class="bodyText" nowrap="0">TCCC05 - Qualification 4 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc05_qual_4">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">01.12.05</td><td class="bodyText" nowrap="0">TCCC05 - Qualification 3 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc05_qual_3">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">01.12.05</td><td class="bodyText" nowrap="0">TCCC05 - Qualification 2 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc05_qual_2">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">01.12.05</td><td class="bodyText" nowrap="0">TCCC05 - Qualification 1 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc05_qual_1">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">01.05.05</td><td class="bodyText" nowrap="0" width="100%">SRM 226 - <a href="/tc?module=Static&d1=match_editorials&d2=srm226">Problem Set & Analysis</a></td></tr>
    </table>
    
@@ -202,18 +202,18 @@
    
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>September</strong></td></tr>
-   <tr><td class="bodyText">09.29.04</td><td class="bodyText" nowrap="0">TCO04 - Online Round 4 - <a href="/index?t=statistics&c=tco04_online_rd_4">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">09.29.04</td><td class="bodyText" nowrap="0">TCO04 - Online Round 4 - <a href="/tc?module=Static&d1=match_editorials&d2=tco04_online_rd_4">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">09.28.04</td><td class="bodyText" nowrap="0">SRM 213- <a href="/tc?module=Static&d1=match_editorials&d2=srm213">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">09.25.04</td><td class="bodyText" nowrap="0">SRM 212- <a href="/tc?module=Static&d1=match_editorials&d2=srm212">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">09.22.04</td><td class="bodyText" nowrap="0">TCO04 - Online Round 3 - <a href="/index?t=statistics&c=tco04_online_rd_3">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">09.14.04</td><td class="bodyText" nowrap="0">TCO04 - Online Round 2 - <a href="/index?t=statistics&c=tco04_online_rd_2">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">09.22.04</td><td class="bodyText" nowrap="0">TCO04 - Online Round 3 - <a href="/tc?module=Static&d1=match_editorials&d2=tco04_online_rd_3">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">09.14.04</td><td class="bodyText" nowrap="0">TCO04 - Online Round 2 - <a href="/tc?module=Static&d1=match_editorials&d2=tco04_online_rd_2">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">09.14.04</td><td class="bodyText" nowrap="0">SRM 211- <a href="/tc?module=Static&d1=match_editorials&d2=srm211">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">09.11.04</td><td class="bodyText" nowrap="0">TCO04 - Online Round 1 - <a href="/index?t=statistics&c=tco04_online_rd_1">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">09.08.04</td><td class="bodyText" nowrap="0">TCO04 - Qualification 5 - <a href="/index?t=statistics&c=tco04_qual_5">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">09.08.04</td><td class="bodyText" nowrap="0">TCO04 - Qualification 4 - <a href="/index?t=statistics&c=tco04_qual_4">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">09.08.04</td><td class="bodyText" nowrap="0">TCO04 - Qualification 3 - <a href="/index?t=statistics&c=tco04_qual_3">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">09.08.04</td><td class="bodyText" nowrap="0">TCO04 - Qualification 2 - <a href="/index?t=statistics&c=tco04_qual_2">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">09.08.04</td><td class="bodyText" nowrap="0">TCO04 - Qualification 1 - <a href="/index?t=statistics&c=tco04_qual_1">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">09.11.04</td><td class="bodyText" nowrap="0">TCO04 - Online Round 1 - <a href="/tc?module=Static&d1=match_editorials&d2=tco04_online_rd_1">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">09.08.04</td><td class="bodyText" nowrap="0">TCO04 - Qualification 5 - <a href="/tc?module=Static&d1=match_editorials&d2=tco04_qual_5">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">09.08.04</td><td class="bodyText" nowrap="0">TCO04 - Qualification 4 - <a href="/tc?module=Static&d1=match_editorials&d2=tco04_qual_4">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">09.08.04</td><td class="bodyText" nowrap="0">TCO04 - Qualification 3 - <a href="/tc?module=Static&d1=match_editorials&d2=tco04_qual_3">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">09.08.04</td><td class="bodyText" nowrap="0">TCO04 - Qualification 2 - <a href="/tc?module=Static&d1=match_editorials&d2=tco04_qual_2">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">09.08.04</td><td class="bodyText" nowrap="0">TCO04 - Qualification 1 - <a href="/tc?module=Static&d1=match_editorials&d2=tco04_qual_1">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">09.01.04</td><td class="bodyText" nowrap="0">SRM 210- <a href="/tc?module=Static&d1=match_editorials&d2=srm210">Problem Set & Analysis</a></td></tr>
    
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
@@ -260,21 +260,21 @@
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>March</strong></td></tr>
    <tr><td class="bodyText">03.31.04</td><td class="bodyText" nowrap="0">SRM 189 - <a href="/tc?module=Static&d1=match_editorials&d2=srm189">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">03.25.04</td><td class="bodyText" nowrap="0">SRM 188 - <a href="/tc?module=Static&d1=match_editorials&d2=srm188">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">03.17.04</td><td class="bodyText" nowrap="0">TCCC04 - Online Round 4 - <a href="/index?t=statistics&c=tccc04_online_rd_4">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">03.17.04</td><td class="bodyText" nowrap="0">TCCC04 - Online Round 4 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc04_online_rd_4">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">03.16.04</td><td class="bodyText" nowrap="0">SRM 187 - <a href="/tc?module=Static&d1=match_editorials&d2=srm187">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">03.13.04</td><td class="bodyText" nowrap="0">SRM 186 - <a href="/tc?module=Static&d1=match_editorials&d2=srm186">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">03.10.04</td><td class="bodyText" nowrap="0">TCCC04 - Online Round 3 - <a href="/index?t=statistics&c=tccc04_online_rd_3">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">03.03.04</td><td class="bodyText" nowrap="0">TCCC04 - Online Round 2 - <a href="/index?t=statistics&c=tccc04_online_rd_2">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">03.10.04</td><td class="bodyText" nowrap="0">TCCC04 - Online Round 3 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc04_online_rd_3">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">03.03.04</td><td class="bodyText" nowrap="0">TCCC04 - Online Round 2 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc04_online_rd_2">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">03.01.04</td><td class="bodyText" nowrap="0">SRM 185 - <a href="/tc?module=Static&d1=match_editorials&d2=srm185">Problem Set & Analysis</a></td></tr>
    
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>February</strong></td></tr>
-   <tr><td class="bodyText">02.28.04</td><td class="bodyText" nowrap="0">TCCC04 - Online Round 1 - <a href="/index?t=statistics&c=tccc04_online_rd_1">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">02.24.04</td><td class="bodyText" nowrap="0">TCCC04 - Qualification 5 - <a href="/index?t=statistics&c=tccc04_qual_5">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">02.24.04</td><td class="bodyText" nowrap="0">TCCC04 - Qualification 4 - <a href="/index?t=statistics&c=tccc04_qual_4">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">02.24.04</td><td class="bodyText" nowrap="0">TCCC04 - Qualification 3 - <a href="/index?t=statistics&c=tccc04_qual_3">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">02.24.04</td><td class="bodyText" nowrap="0">TCCC04 - Qualification 2 - <a href="/index?t=statistics&c=tccc04_qual_2">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">02.24.04</td><td class="bodyText" nowrap="0">TCCC04 - Qualification 1 - <a href="/index?t=statistics&c=tccc04_qual_1">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">02.28.04</td><td class="bodyText" nowrap="0">TCCC04 - Online Round 1 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc04_online_rd_1">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">02.24.04</td><td class="bodyText" nowrap="0">TCCC04 - Qualification 5 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc04_qual_5">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">02.24.04</td><td class="bodyText" nowrap="0">TCCC04 - Qualification 4 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc04_qual_4">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">02.24.04</td><td class="bodyText" nowrap="0">TCCC04 - Qualification 3 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc04_qual_3">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">02.24.04</td><td class="bodyText" nowrap="0">TCCC04 - Qualification 2 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc04_qual_2">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">02.24.04</td><td class="bodyText" nowrap="0">TCCC04 - Qualification 1 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc04_qual_1">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">02.17.04</td><td class="bodyText" nowrap="0">SRM 184 - <a href="/tc?module=Static&d1=match_editorials&d2=srm184">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">02.11.04</td><td class="bodyText" nowrap="0">SRM 183 - <a href="/tc?module=Static&d1=match_editorials&d2=srm183">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">02.07.04</td><td class="bodyText" nowrap="0">SRM 182 - <a href="/tc?module=Static&d1=match_editorials&d2=srm182">Problem Set & Analysis</a></td></tr>
@@ -306,23 +306,23 @@
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>November</strong></td></tr>
    <tr><td class="bodyText">11.26.03</td><td class="bodyText" nowrap="0">SRM 173 - <a href="/tc?module=Static&d1=match_editorials&d2=srm173">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">11.20.03</td><td class="bodyText" nowrap="0">SRM 172 - <a href="/tc?module=Static&d1=match_editorials&d2=srm172">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">11.17.03</td><td class="bodyText" nowrap="0">CRPF - Finals - <a href="/index?t=statistics&c=crpf_finals_prob">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">11.17.03</td><td class="bodyText" nowrap="0">CRPF - Finals - <a href="/tc?module=Static&d1=match_editorials&d2=crpf_finals">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">11.12.03</td><td class="bodyText" nowrap="0">SRM 171 - <a href="/tc?module=Static&d1=match_editorials&d2=srm171">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">11.11.03</td><td class="bodyText" nowrap="0">CRPF - Round 1 - <a href="/index?t=statistics&c=crpf_rd1_prob">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">11.11.03</td><td class="bodyText" nowrap="0">CRPF - Round 1 - <a href="/tc?module=Static&d1=match_editorials&d2=crpf_rd1">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">11.08.03</td><td class="bodyText" nowrap="0">SRM 170 - <a href="/tc?module=Static&d1=match_editorials&d2=srm170">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">11.05.03</td><td class="bodyText" nowrap="0">TCO - Online Round 4 - <a href="/index?t=statistics&c=tco03_online_rd_4">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">11.05.03</td><td class="bodyText" nowrap="0">TCO - Online Round 4 - <a href="/tc?module=Static&d1=match_editorials&d2=tco03_online_rd_4">Problem Set & Analysis</a></td></tr>
    
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>October</strong></td></tr>
-   <tr><td class="bodyText">10.29.03</td><td class="bodyText" nowrap="0">TCO - Online Round 3 - <a href="/index?t=statistics&c=tco03_online_rd_3">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">10.29.03</td><td class="bodyText" nowrap="0">TCO - Online Round 3 - <a href="/tc?module=Static&d1=match_editorials&d2=tco03_online_rd_3">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">10.28.03</td><td class="bodyText" nowrap="0">SRM 169 - <a href="/tc?module=Static&d1=match_editorials&d2=srm169">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">10.22.03</td><td class="bodyText" nowrap="0">TCO - Online Round 2 - <a href="/index?t=statistics&c=tco03_online_rd_2">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">10.22.03</td><td class="bodyText" nowrap="0">TCO - Online Round 2 - <a href="/tc?module=Static&d1=match_editorials&d2=tco03_online_rd_2">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">10.21.03</td><td class="bodyText" nowrap="0">SRM 168 - <a href="/tc?module=Static&d1=match_editorials&d2=srm168">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">10.15.03</td><td class="bodyText" nowrap="0">TCO - Online Round 1 - <a href="/index?t=statistics&c=tco03_online_rd_1">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">10.15.03</td><td class="bodyText" nowrap="0">TCO - Online Round 1 - <a href="/tc?module=Static&d1=match_editorials&d2=tco03_online_rd_1">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">10.14.03</td><td class="bodyText" nowrap="0">SRM 167 - <a href="/tc?module=Static&d1=match_editorials&d2=srm167">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">10.09.03</td><td class="bodyText" nowrap="0">TCO - Qualification Round 2 - <a href="/index?t=statistics&c=tco03_qual_rd_2">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">10.07.03</td><td class="bodyText" nowrap="0">TCO - Qualification Round 1 - <a href="/index?t=statistics&c=tco03_qual_rd_1">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">10.09.03</td><td class="bodyText" nowrap="0">TCO - Qualification Round 2 - <a href="/tc?module=Static&d1=match_editorials&d2=tco03_qual_rd_2">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">10.07.03</td><td class="bodyText" nowrap="0">TCO - Qualification Round 1 - <a href="/tc?module=Static&d1=match_editorials&d2=tco03_qual_rd_1">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">10.01.03</td><td class="bodyText" nowrap="0">SRM 166 - <a href="/tc?module=Static&d1=match_editorials&d2=srm166">Problem Set & Analysis</a></td></tr>
    
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
@@ -383,19 +383,19 @@
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>March</strong></td></tr>
    <tr><td class="bodyText">03.26.03</td><td class="bodyText" nowrap="0">SRM 140 - <a href="/tc?module=Static&d1=match_editorials&d2=srm140">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">03.18.03</td><td class="bodyText" nowrap="0">SRM 139 - <a href="/tc?module=Static&d1=match_editorials&d2=srm139">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">03.12.03</td><td class="bodyText" nowrap="0">2003 TCCC Regional Finals - <a href="/index?t=statistics&c=tccc03_regfinal_prob">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">03.12.03</td><td class="bodyText" nowrap="0">2003 TCCC Regional Finals - <a href="/tc?module=Static&d1=match_editorials&d2=tccc03_regfinal">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">03.10.03</td><td class="bodyText" nowrap="0">SRM 138 - <a href="/tc?module=Static&d1=match_editorials&d2=srm138">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">03.06.03</td><td class="bodyText" nowrap="0">SRM 137 - <a href="/tc?module=Static&d1=match_editorials&d2=srm137">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">03.05.03</td><td class="bodyText" nowrap="0">2003 TCCC Regional Semi. - <a href="/index?t=statistics&c=tccc03_reg_semi_prob">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">03.05.03</td><td class="bodyText" nowrap="0">2003 TCCC Regional Semi. - <a href="/tc?module=Static&d1=match_editorials&d2=tccc03_reg_semi">Problem Set & Analysis</a></td></tr>
    
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>February</strong></td></tr>
-   <tr><td class="bodyText">02.26.03</td><td class="bodyText" nowrap="0">2003 TCCC Regional Quart. - <a href="/index?t=statistics&c=tccc03_reg_quart_prob">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">02.26.03</td><td class="bodyText" nowrap="0">2003 TCCC Regional Quart. - <a href="/tc?module=Static&d1=match_editorials&d2=tccc03_reg_quart">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">02.25.03</td><td class="bodyText" nowrap="0">SRM 136 - <a href="/tc?module=Static&d1=match_editorials&d2=srm136">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">02.22.03</td><td class="bodyText" nowrap="0">2003 TCCC Round 1 Int. - <a href="/index?t=statistics&c=tccc03_int_prob">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">02.20.03</td><td class="bodyText" nowrap="0">2003 TCCC Round 1 W/MW - <a href="/index?t=statistics&c=tccc03_wmw_prob">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">02.18.03</td><td class="bodyText" nowrap="0">2003 TCCC Round 1 NE/SE - <a href="/index?t=statistics&c=tccc03_nese_prob">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">02.22.03</td><td class="bodyText" nowrap="0">2003 TCCC Round 1 Int. - <a href="/tc?module=Static&d1=match_editorials&d2=tccc03_int">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">02.20.03</td><td class="bodyText" nowrap="0">2003 TCCC Round 1 W/MW - <a href="/tc?module=Static&d1=match_editorials&d2=tccc03_wmw">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">02.18.03</td><td class="bodyText" nowrap="0">2003 TCCC Round 1 NE/SE - <a href="/tc?module=Static&d1=match_editorials&d2=tccc03_nese">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">02.11.03</td><td class="bodyText" nowrap="0">SRM 135 - <a href="/tc?module=Static&d1=match_editorials&d2=srm135">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">02.08.03</td><td class="bodyText" nowrap="0">SRM 134 - <a href="/tc?module=Static&d1=match_editorials&d2=srm134">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">02.05.03</td><td class="bodyText" nowrap="0">SRM 133 - <a href="/tc?module=Static&d1=match_editorials&d2=srm133">Problem Set & Analysis</a></td></tr>
@@ -439,14 +439,14 @@
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>October</strong></td></tr>
-   <tr><td class="bodyText">10.30.02</td><td class="bodyText" nowrap="0">2002 Invitational Round #4 - <a href="/index?t=statistics&c=invit02_r4_prob">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">10.30.02</td><td class="bodyText" nowrap="0">2002 Invitational Round #4 - <a href="/tc?module=Static&d1=match_editorials&d2=invit02_r4">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">10.29.02</td><td class="bodyText" nowrap="0">SRM 118 - <a href="/tc?module=Static&d1=match_editorials&d2=srm118">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">10.23.02</td><td class="bodyText" nowrap="0">2002 Invitational Round #3 - <a href="/index?t=statistics&c=invit02_r3_prob">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">10.23.02</td><td class="bodyText" nowrap="0">2002 Invitational Round #3 - <a href="/tc?module=Static&d1=match_editorials&d2=invit02_r3">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">10.21.02</td><td class="bodyText" nowrap="0">SRM 117 - <a href="/tc?module=Static&d1=match_editorials&d2=srm117">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">10.16.02</td><td class="bodyText" nowrap="0">2002 Invitational Round #2 - <a href="/index?t=statistics&c=invit02_r2_prob">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">10.16.02</td><td class="bodyText" nowrap="0">2002 Invitational Round #2 - <a href="/tc?module=Static&d1=match_editorials&d2=invit02_r2">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">10.15.02</td><td class="bodyText" nowrap="0">SRM 116 - <a href="/tc?module=Static&d1=match_editorials&d2=srm116">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">10.10.02</td><td class="bodyText" nowrap="0">2002 Invitational Round #1 (part 2) - <a href="/index?t=statistics&c=invit02_r1b_prob">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">10.08.02</td><td class="bodyText" nowrap="0">2002 Invitational Round #1 (part 1) - <a href="/index?t=statistics&c=invit02_r1a_prob">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">10.10.02</td><td class="bodyText" nowrap="0">2002 Invitational Round #1 (part 2) - <a href="/tc?module=Static&d1=match_editorials&d2=invit02_r1b">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">10.08.02</td><td class="bodyText" nowrap="0">2002 Invitational Round #1 (part 1) - <a href="/tc?module=Static&d1=match_editorials&d2=invit02_r1a">Problem Set & Analysis</a></td></tr>
    
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    
