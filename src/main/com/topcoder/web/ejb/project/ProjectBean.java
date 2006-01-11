@@ -3,7 +3,6 @@ package com.topcoder.web.ejb.project;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.web.ejb.roomresult.RoomResultBean;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
@@ -18,7 +17,7 @@ import java.sql.SQLException;
  *          Create Date: Dec 21, 2005
  */
 public class ProjectBean extends BaseEJB {
-    private static Logger log = Logger.getLogger(RoomResultBean.class);
+    private static Logger log = Logger.getLogger(ProjectBean.class);
 
     public void updateForLock(long projectId, String dataSource) {
         log.debug("lock called on project " + projectId);
