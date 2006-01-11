@@ -125,7 +125,9 @@ public class SubmitReg extends ViewReg {
                 setNextPage(Constants.PAGE_VIEW_REG);
                 setIsNextPageInContext(true);
             } else { // go to active contest page
-                setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
+                Integer type = (Integer)getRequest().getAttribute(Constants.ROUND_TYPE_ID);
+                setNextPage(buildProcessorRequestString("ViewActiveContests",
+                        new String[] {Constants.ROUND_TYPE_ID}, new String[] {type.toString()}));
                 setIsNextPageInContext(false);
             }
 
