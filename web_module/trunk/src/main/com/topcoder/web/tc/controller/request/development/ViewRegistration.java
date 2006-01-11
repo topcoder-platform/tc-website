@@ -44,7 +44,7 @@ public class ViewRegistration extends Base {
             if (getRequest().getAttribute(Constants.MESSAGE) == null) {
                 getRequest().setAttribute("questionInfo", buildQuestions());
                 setNextPage("/dev/regTerms.jsp");
-                setNextPage("true");
+                setIsNextPageInContext(true);
             } else {
                 setNextPage("/dev/message.jsp");
                 setIsNextPageInContext(true);
