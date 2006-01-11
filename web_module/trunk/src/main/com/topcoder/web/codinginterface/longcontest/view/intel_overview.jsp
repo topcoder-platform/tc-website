@@ -43,6 +43,12 @@
 <img src="/i/longcontest/intel_banner_plain.gif" alt="" border="0"/>
 </div>
 <br><br>
+<div style="float: right; padding: 0px 0px 5px 5px;">
+<A href="">How to compete</A><br>
+<A href="">Rules</A><br>
+<A href="">Active Contests</A><br>
+<A href="">Practice</A><br>
+</div>
 <span class="bodySubtitle">Intel&#174; Software Network Multi-threading Competition Series</span><br>
 Intel&#174; Software Network and TopCoder are hosting a 12-month series of world-wide competitions for multi-threading on multi-core microprocessors. You could win cash prizes!  Access the Intel Software Network for all the latest on threading principles, and then put your knowledge to the ultimate test solving coding problems.  
 <br><br>
