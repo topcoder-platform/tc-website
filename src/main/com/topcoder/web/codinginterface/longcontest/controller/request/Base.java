@@ -151,7 +151,7 @@ public abstract class Base extends BaseProcessor {
         if (keys != null && values != null && keys.length != values.length)
             throw new IllegalArgumentException("the number of parameter keys must be the same as the number of values");
 
-        SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+        SessionInfo info = getSessionInfo();
         StringBuffer ret = new StringBuffer(100);
         //doing this to get rid of https in the case of the login request it would be there
         ret.append(info.getAbsoluteServletPath());
