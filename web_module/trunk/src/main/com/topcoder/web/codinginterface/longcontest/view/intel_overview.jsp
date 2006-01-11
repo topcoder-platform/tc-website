@@ -42,17 +42,7 @@
 --%>
 <img src="/i/longcontest/intel_banner_plain.gif" alt="" border="0"/>
 </div>
-<br><br>
-<%--
-<div style="float: right; padding: 0px 0px 10px 10px; text-align: center;">
-<A href="/longcontest/?module=Static&d1=intel_overview">Overview</A><br>
-<A href="/longcontest/?module=Static&d1=intel_instructions">How to compete</A><br>
-<A href="/longcontest/?module=Static&d1=intel_rules">Rules</A><br>
-<A href="/longcontest/?module=ViewActiveContests&rt=15">Active Contests</A><br>
-<A href="/longcontest/?module=ViewPractice&rt=16">Practice</A><br>
-</div>
 
---%>
 <p align="center">
 <A href="/longcontest/?module=Static&d1=intel_overview">Overview</A>&#160;&#160;|&#160;&#160;
 <A href="/longcontest/?module=Static&d1=intel_instructions">How to compete</A>&#160;&#160;|&#160;&#160;
