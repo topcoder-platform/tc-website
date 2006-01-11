@@ -44,12 +44,10 @@
             <% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result");%>
             <table>
                 <tr><td>Most wins</td></tr>
-                <% Iterator it = rsc.iterator();
-                    while (it.hasNext()) {
-                        ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();%>
-                <tr><td><%=row.getItem(1)%></td>
-                    <td><%=row.getItem(2)%></td></tr>
-                <% } %>
+
+				<rsc:iterator list="<%=rsc%>" id="row">
+					<tr><td><rsc:item name="1"></td><td><rsc:item name="2"></td></tr>
+				</rsc:iterator>
             </table>
 
 
