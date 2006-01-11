@@ -68,11 +68,11 @@
                </td>
                <td class="projectCells" valign="top" align="center">
                01.05.2005<br/>
-               06.08.2005
+               01.11.2006
                </td>
                <td class="projectCells" valign="top" align="right" nowrap="nowrap">
                <A href="/tc?module=Static&d1=dev&d2=support&d3=desScreeningSample">Sample Design Screening Scorecard</A><br/>
-               <A href="/tc?module=Static&d1=dev&d2=support&d3=desReviewSample_060805">Sample Design Review Scorecard</A><br/>
+               <A href="/tc?module=Static&d1=dev&d2=support&d3=desReviewSample">Sample Design Review Scorecard</A><br/>
                </td>
             </tr>
                 <tr>
