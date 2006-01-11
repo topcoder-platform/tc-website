@@ -52,7 +52,7 @@
 </p>
 
 <span class="bodySubtitle">Intel&#174; Software Network Multi-threading Competition Series</span><br>
-Intel&#174; Software Network and TopCoder are hosting a 12-month series of world-wide competitions for multi-threading on multi-core microprocessors. You could win cash prizes!  Access the Intel Software Network for all the latest on threading principles, and then put your knowledge to the ultimate test solving coding problems. Mark your calendars! The first competition will be held Jan. 25, 2006, and will last for two weeks. (A new competition will be held every month following in 2006.) Stay tuned for details.
+Intel&#174; Software Network and TopCoder are hosting a 12-month series of world-wide competitions for multi-threading on multi-core microprocessors. You could win cash prizes!  Access the <A href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/developer/asmo-na/eng/index.htm">Intel Software Network</A> for all the latest on threading principles, and then put your knowledge to the ultimate test solving coding problems. Mark your calendars! The first competition will be held January 25, 2006, and will last for two weeks. (A new competition will be held every month following in 2006.)
 <br><br>
 You could win Monthly Cash Prizes:
 <br><br>
@@ -66,7 +66,9 @@ Champion - $2,500<br>
 <br><br>
 This unique contest is designed to help teach threading principles to the software developer community. Competitors will face threading challenges based on real-world customer situations.  Each competitor's solution will be evaluated against a set of criteria for the best threading practices. 
 <br><br>
-By holding this competition, we hope to raise awareness of threading and the opportunities it presents, so you can create the very best software applications and solutions.  The ultimate goal is to identify, attract and create proficient multi-threading programmers world-wide. Come compete and learn the benefits of threaded code, and how to design and create the optimum threaded code and solutions!  Get a chance to test your competition submissions on state-of-the-art,  cutting-edge, multi-core Intel processors!  In order to participate, you will need to be a registered TopCoder member.  
+By holding this competition, we hope to raise awareness of threading and the opportunities it presents, so you can create the very best software applications and solutions.  The ultimate goal is to identify, attract and create proficient multi-threading programmers world-wide. Compete and learn the benefits of threaded code, and how to design and create the optimum threaded code and solutions!  Get a chance to test your competition submissions on state-of-the-art,  cutting-edge, multi-core Intel processors!  In order to participate, you will need to be a registered TopCoder member.  
+<br><br>
+See the <A href="/longcontest/?module=Static&d1=intel_rules">rules and regulations</A> for more details.
 <br><br>
 <span class="bodySubtitle">Not Yet a TopCoder Member?</span><br>
 Register <A href="/Registration">here</A>.
