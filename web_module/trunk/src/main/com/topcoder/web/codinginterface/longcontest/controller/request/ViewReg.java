@@ -47,8 +47,9 @@ public class ViewReg extends Base {
             long round = Long.parseLong(roundID);
             // Is the coder already registered for the round?
             if (isUserRegistered(getUser().getId(), round)) {
-                // Go to the active contests page if user is already registered.
-                setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
+                Integer type = (Integer)getRequest().getAttribute(Constants.ROUND_TYPE_ID);
+                setNextPage(buildProcessorRequestString("ViewActiveContests",
+                        new String[] {Constants.ROUND_TYPE_ID}, new String[] {type.toString()}));
                 setIsNextPageInContext(false);
             } else if (!isRegistrationOpen(round)) {
                 throw new NavigationException("Registration is not currently open");
