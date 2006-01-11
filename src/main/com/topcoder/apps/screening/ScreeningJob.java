@@ -255,7 +255,8 @@ public class ScreeningJob extends TimerTask {
                     "SELECT submitter_id, screening_task.submission_v_id, submission_path, screening_project_type_id " +
                     "FROM submission, screening_task " +
                     "WHERE submission.submission_v_id = screening_task.submission_v_id AND screener_id IS NULL " +
-                    "and screening_attempts < " + maxScreeningAttempts);
+                    "AND screening_attempts < ?");
+            stmt.setLong(1, maxScreeningAttempts);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
