@@ -3,6 +3,9 @@ package com.topcoder.dde.user;
 import com.topcoder.apps.review.projecttracker.ProjectTracker;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
 import com.topcoder.dde.DDEException;
+import com.topcoder.dde.catalog.ComponentManagerHome;
+import com.topcoder.dde.catalog.ComponentManager;
+import com.topcoder.dde.catalog.Forum;
 import com.topcoder.dde.persistencelayer.interfaces.*;
 import com.topcoder.dde.util.Constants;
 import com.topcoder.file.render.ValueTag;
@@ -1023,6 +1026,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
         ResultSet rs = null;
         ResultSet rs1 = null;
         try {
+            ctx = new InitialContext();
             DataSource datasource = (DataSource) ctx.lookup("java:comp/env/jdbc/DefaultDS");
             conn = datasource.getConnection();
 
@@ -1049,6 +1053,33 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             }
 
             registerInquiry(userId, componentId, rating, userId, comments, true, phase, version, projectId);
+
+
+            Object objTechTypes = ctx.lookup(ComponentManagerHome.EJB_REF_NAME);
+            ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
+            ComponentManager componentMgr = home.create(componentId);
+            Forum activeForum = componentMgr.getActiveForum(Forum.SPECIFICATION);
+
+            if (activeForum == null) throw new EJBException("Could not find forum for component " + componentId);
+
+            String roleName = "ForumUser " + activeForum.getId();
+
+            //add the user to the appropriate role to view the forum
+            Object objPrincipalManager = ctx.lookup("security/PrincipalMgr");
+            PrincipalMgrRemoteHome principalManagerHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objPrincipalManager, PrincipalMgrRemoteHome.class);
+            PrincipalMgrRemote principalMgr = principalManagerHome.create();
+            Collection roles = principalMgr.getRoles(null);
+            RolePrincipal role = null;
+            for (Iterator it = roles.iterator(); it.hasNext();) {
+                role = (RolePrincipal) it.next();
+                if (role.getName().equalsIgnoreCase(roleName)) {
+                    UserPrincipal up = principalMgr.getUser(userId);
+                    try {
+                        principalMgr.assignRole(up, role, null);
+                    } catch (Exception e) {
+                    }
+                }
+            }
 
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
