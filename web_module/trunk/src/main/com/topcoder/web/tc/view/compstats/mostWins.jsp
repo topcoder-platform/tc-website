@@ -22,7 +22,7 @@
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
-<% ResultSetContainer rsc = (ResultSetContainer)request.get("result");%>
+<% ResultSetContainer rsc = (ResultSetContainer)request.getAttribute("result");%>
 <table>
 <tr><td>Most wins</td></tr>
 <% Iterator it = rsc.iterator();
