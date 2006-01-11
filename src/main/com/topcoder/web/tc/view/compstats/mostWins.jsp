@@ -46,7 +46,7 @@
                 <tr><td>Most wins</td></tr>
 
 				<rsc:iterator list="<%=rsc%>" id="row">
-					<tr><td><rsc:item name="1"></td><td><rsc:item name="2"></td></tr>
+					<tr><td><rsc:item name="1"/></td><td><rsc:item name="2"/></td></tr>
 				</rsc:iterator>
             </table>
 
