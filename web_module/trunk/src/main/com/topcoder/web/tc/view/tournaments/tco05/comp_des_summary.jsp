@@ -31,26 +31,24 @@
 <span class="bodyText" align="center"><p align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos">See more photos!</a></p></span>
 <img src="/i/tournament/tco05/onsite_photos/shot_design.jpg" alt="" class="photoFrameBig" /><br/>
 </div>
-<img src="/i/m/ivern_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/>
-<p>by <tc-webtag:handle coderId="156859" context="algorithm"/><br/>
-<em>TopCoder Staff</em><br />
-Friday, October 14, 2005<br/>
+<img src="/i/m/WishingBone_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/>
+<p>by <tc-webtag:handle coderId="286907" context="algorithm"/><br/>
+<em>TopCoder Member</em><br />
+Wednesday, January 11, 2006<br/>
 <br/><br/>
-The 2005 TopCoder Open started with the component competition finals on Wednesday morning.  While the algorithm competitors were enjoying a long game of poker in the Game Room, the component competitors were hard at work on the stage.  Unlike the short algorithm competitions that start and finish within a couple hours, the component competition kept the finalists hard at work for seven grueling hours, with a short 30-minute lunch break.
+
+
+The 2005 TopCoder Open design finalists were asked to produce an usual enhancement design for the Distributed Protocol Factory component. Three separate tasks were presented, from which each designer was required to choose one. Unlike the complexity of the requirement during the online round, the enhancement was geared specifically towards one feature in order to suit the timeframe of the onsite event.
 <br><br>
-The component competition was split into two categories: design and development.  The design competition this year was based around the Distributed Protocol Factory component and the development competition was based around the File Statistics component.  Both of these categories required the finalists to tweak their existing deliverables to support one of three proposed enhancements that extend the functionality of each component.
+The first task required message packets be compressed during transmission. The mechanism needed to be pluggable and the receiving party had to be able to properly restore the compressed message. The second task required certain nodes to bridge more than one group. The bridge node could work in either masked or unmasked mode, (the difference being whether response from the secondary group(s) affects the primary group -where a message initiates). The third task was about peer authentication. A node needed be capable of verifying that a message comes from trusted (authenticated) source.
 <br><br>
-The Distributed Protocol Factory component used in the design portion of the competition allows an application to send messages with guaranteed delivery over a distributed network. The three enhancement options for this component were the following:
-<ul>
-<li>Support for pluggable compression strategies to compress the data going over the network.</li>
-<li>Support for bridging separate node groups into a more complex network.</li>
-<li>Support for authentication to allow the nodes to verify that messages come from an approved peer.</li>
-</ul>
-After the finalists completed their work, the members on the review board were responsible for examining and evaluating the submissions.
+Task one and three have something in common, in that they both ask for a new layer of protocol logic. The difference is that authentication will almost always involve extra message exchange for the handshake, while compression does not need to. There is a(?) certain submission that implements compression method negotiation but it is not mandatory. This makes the first task by far the most popular one. The second task is more interesting since the design(er?) has more freedom in choosing the approach. It can work in either the protocol domain or the application domain, but any of them would require the ability to reject a message exposed from lower layers.
 <br><br>
-Once the review scorecards were completed, the finalists were given an opportunity to review and appeal the decisions of the review board.  Only after those appeals were answered did the scores become final.
+As usual an enhancement design encourages efficiency and flexibility. Efficiency means the solution would reuse the original component as much as possible, and modify existing classes as little as possible. What makes the game more interesting is that the designers work upon their own solutions submitted during the online round. They need to judge which requirement can be integrated into their original architecture with minimum effort, so that they could possibly finish with time in hand to polish their work. Placing flexibility in the context of the protocol component, it's better if they can design a more generic enhancement, that can be layered with any implementation adhering to the protocol interfaces, rather than having to come up with merely an enhanced default implementation.
 <br><br>
-Congratulations to <tc-webtag:handle coderId="293874" context="design"/> for winning the 2005 TopCoder Open Component Design Competition!
+Minus the architectural factors presentation is also important: _ how accurate the diagrams reflect the solution; whether the algorithms are sound and clear, and whether documentation is error-free, etc. These are usually minor issues but a dozen such errors would result in a considerable loss on the scorecard.
+<br><br>
+All the TCO submissions were of relatively good quality. The winning submission implements the first task. Thanks to its original protocol stack based architecture, it effectively decouples each layer and guarantees minimum modification to the old classes. In addition, it provides a way to propagate parameterized codec to remote peers without requiring any further setup, as well as providing the option to send a message without compression. The documentation for the deliverables is fairly accurate and neat. These attributes make it stand out from the majority of the solutions.
         </div>
       </td>
         
