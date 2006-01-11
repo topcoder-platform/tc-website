@@ -8,6 +8,23 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>01.11.06<br>12:10 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm282">SRM 282 - Problem Set & Analysis</A></span><br><br>
+      Match Editorial for SRM 282.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/legakis_mug.gif" /><br>by <tc-webtag:handle coderId="287269" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm282">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505796" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>01.09.05<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">NSA chat session scheduled for SRM 282</A></span><br><br>
       NSA will be in the Arena at 8:00 pm, prior to SRM 282, to discuss working at NSA.
@@ -307,21 +324,6 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">details</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505874" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>12.12.05<br>11:15 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.forbes.com/home/work/2005/12/09/silicon-valley-hiring-cx_rr_1212hire.html">Help Wanted In Silicon Valley</A></span><br><br>
-      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/forbes_logo.gif" width="67" height="23" alt="Forbes" border="0" /></div>
-      "For programmers, happy days are here again. But for their employers, fear is setting in."
-      <br><br>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://www.forbes.com/home/work/2005/12/09/silicon-valley-hiring-cx_rr_1212hire.html">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505873" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
 
