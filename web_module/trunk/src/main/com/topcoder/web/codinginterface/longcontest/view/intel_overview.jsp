@@ -32,14 +32,6 @@
    <div style="width: 500px; text-align: left;">
 
 <div align="center" style="padding-top: 15px;">
-<%--
-<map name="intel_nav">
-<area shape="rect" alt="" coords="20,55,95,150" href="/longcontest/?module=Static&d1=intel_overview" />
-<area shape="rect" alt="" coords="125,55,230,150" href="/longcontest/?module=Static&d1=intel_overview" />
-<area shape="rect" alt="" coords="255,55,335,150" href="/longcontest/?module=Static&d1=intel_overview" />
-</map>
-<img src="/i/longcontest/intel_banner.jpg" alt="" border="0" usemap="#intel_nav"/>
---%>
 <img src="/i/longcontest/intel_banner_plain.gif" alt="" border="0"/>
 </div>
 
