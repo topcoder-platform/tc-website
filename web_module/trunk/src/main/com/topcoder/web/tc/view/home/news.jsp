@@ -8,6 +8,19 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>01.11.06<br>2:25 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=dev&d2=support&d3=desReviewSample">Design Review Scorecard Changes</A></span><br><br>
+      We've made a few changes to the Component Design Review Scorecard.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=dev&d2=support&d3=desReviewSample">details</A>&#160;|&#160;
+       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=508623">discuss this</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>01.11.06<br>12:10 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -311,19 +324,6 @@
          <A href="/longcontest/?module=Static&d1=instructions">details</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505875" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>12.12.05<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">NSA returns as TCO06 event patron</A></span><br><br>
-      TopCoder welcomes back NSA as an event patron for the 2006 TopCoder Open.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505874" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 

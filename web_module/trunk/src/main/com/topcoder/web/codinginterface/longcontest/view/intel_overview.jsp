@@ -43,16 +43,26 @@
 <img src="/i/longcontest/intel_banner_plain.gif" alt="" border="0"/>
 </div>
 <br><br>
-<div style="float: right; padding: 0px 0px 5px 5px;">
-<A href="">How to compete</A><br>
-<A href="">Rules</A><br>
-<A href="">Active Contests</A><br>
-<A href="">Practice</A><br>
+<%--
+<div style="float: right; padding: 0px 0px 10px 10px; text-align: center;">
+<A href="/longcontest/?module=Static&d1=intel_overview">Overview</A><br>
+<A href="/longcontest/?module=Static&d1=intel_instructions">How to compete</A><br>
+<A href="/longcontest/?module=Static&d1=intel_rules">Rules</A><br>
+<A href="/longcontest/?module=ViewActiveContests&rt=15">Active Contests</A><br>
+<A href="/longcontest/?module=ViewPractice&rt=16">Practice</A><br>
 </div>
+
+--%>
+<p align="center">
+<A href="/longcontest/?module=Static&d1=intel_overview">Overview</A>&#160;&#160;|&#160;&#160;
+<A href="/longcontest/?module=Static&d1=intel_instructions">How to compete</A>&#160;&#160;|&#160;&#160;
+<A href="/longcontest/?module=Static&d1=intel_rules">Rules</A>&#160;&#160;|&#160;&#160;
+<A href="/longcontest/?module=ViewActiveContests&rt=15">Active Contests</A>&#160;&#160;|&#160;&#160;
+<A href="/longcontest/?module=ViewPractice&rt=16">Practice</A>
+</p>
+
 <span class="bodySubtitle">Intel&#174; Software Network Multi-threading Competition Series</span><br>
-Intel&#174; Software Network and TopCoder are hosting a 12-month series of world-wide competitions for multi-threading on multi-core microprocessors. You could win cash prizes!  Access the Intel Software Network for all the latest on threading principles, and then put your knowledge to the ultimate test solving coding problems.  
-<br><br>
-Mark your calendars! The first competition will be held Jan. 25, 2006, and will last for two weeks. (A new competition will be held every month following in 2006.) Stay tuned for details.
+Intel&#174; Software Network and TopCoder are hosting a 12-month series of world-wide competitions for multi-threading on multi-core microprocessors. You could win cash prizes!  Access the Intel Software Network for all the latest on threading principles, and then put your knowledge to the ultimate test solving coding problems. Mark your calendars! The first competition will be held Jan. 25, 2006, and will last for two weeks. (A new competition will be held every month following in 2006.) Stay tuned for details.
 <br><br>
 You could win Monthly Cash Prizes:
 <br><br>
