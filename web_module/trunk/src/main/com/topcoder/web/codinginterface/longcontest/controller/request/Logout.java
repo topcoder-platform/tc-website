@@ -33,7 +33,11 @@ public class Logout extends Base {
         getRequest().getSession().invalidate();
 
         // Go to active contests page
-        setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
+        String nextpage = (String)getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY);
+        if (nextpage == null) nextpage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
+        if (nextpage == null) nextpage = getRequest().getHeader("Referer");
+        if (nextpage == null) nextpage = getSessionInfo().getAbsoluteServletPath();
+        setNextPage(nextpage);
         setIsNextPageInContext(false);
     }
 
