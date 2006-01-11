@@ -1,12 +1,6 @@
 package com.topcoder.apps.review.autopilottimer;
 
-import com.topcoder.date.workdays.WorkdaysUnitOfTime;
-import com.topcoder.apps.review.projecttracker.Project;
-import com.topcoder.apps.review.ConfigHelper;
-import com.topcoder.apps.review.document.ReviewScorecard;
 import com.topcoder.apps.review.*;
-import com.topcoder.apps.review.document.InitialSubmission;
-import com.topcoder.apps.review.document.TestCase;
 import com.topcoder.apps.review.document.DocumentManagerLocal;
 import com.topcoder.apps.review.document.ScreeningScorecard;
 import com.topcoder.apps.review.projecttracker.*;
@@ -104,6 +98,7 @@ public class AutoPilotTimer
                             ProjectForm form = new ProjectForm();
 
                             Project p = projectTracker.getProject(projs[i], user.getTCSubject());
+
                             if (!p.getAutoPilot()) continue;
 
                             form.fromProject(p);
@@ -157,165 +152,66 @@ public class AutoPilotTimer
                                 logger.debug("ERROR " + result.toString());
                             }
                         }
+                    }
 // end by cucu
-                    } else if (projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_REVIEW) {
-                        // PLK esto lo voy a usar para ajustar las fechas.
-                        // if (projs[i].getCurrentPhaseInstance().getEndDate() != null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
-                        // timeDiff < 0 early phase change.
 
-                        logger.info("PLK SELECTED: " + projs[i].getProjectName());
+/* commented by cucu
+                    // It doesn't make too much sense to have the timer check for appeals to be finished, because this is already checked
+                    // when an appeal is solved.
 
-                        Project p = projectTracker.getProject(projs[i], user.getTCSubject());
-                        if (!p.getAutoPilot()) continue;
+                    } else if(projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS) {
+                        if(projs[i].getCurrentPhaseInstance() != null && projs[i].getCurrentPhaseInstance().getEndDate() !=null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
+                            logger.debug("SELECTED: " + projs[i].getProjectName());
 
-                        /* PLK copiado */
-                        //check if all screenings are done,check to see if something passes
-                        boolean passed = false;
-                        double minscore = ConfigHelper.getMinimumScore();
-                        ReviewScorecard[] scorecard = null;
+                            OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, projs[i]);
+                            ProjectForm form = new ProjectForm();
 
-                        logger.info("1");
+                            Project p = projectTracker.getProject(projs[i], user.getTCSubject());
 
-                        try {
-                            scorecard = docManager.getReviewScorecard(p, user.getTCSubject());
-                        } catch (RuntimeException re) {
-                            logger.info("AutoPilotTimer: " + re.getMessage());
-                            continue;
-                        }
+                            if(!p.getAutoPilot()) continue;
 
-                        logger.info("2");
+                            //check appeals
+                            boolean good = true;
+                            Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
+                            for(int j = 0; j < appeals.length; j++) {
+                                if(!appeals[j].isResolved()) {
+                                    good = false;
+                                    break;
+                                }
+                            }
 
-                        int count = 0;
-                        for (int j = 0; j < scorecard.length; j++) {
-                            if (!scorecard[j].isCompleted()) {
-                                //nothing to do
-                                logger.info("Unable to move to appeals phase: Uncomplete scorecards ");
-                                passed = false;
+                            if(!good) continue;
+
+                            //lookup pm
+                            String email = "";
+                            UserRole[] participants = p.getParticipants();
+                            for(int j = 0; j < participants.length;j++) {
+                                if( participants[j].getRole().getId() == Role.ID_PRODUCT_MANAGER ) {
+                                    email = participants[j].getUser().getEmail();
+                                }
+                            }
+
+                            if(email.equals("")) {
                                 continue;
                             }
 
-                            count++;
 
-                            if (scorecard[j].getScore() >= minscore) {
-                                passed = true;
-                            }
+
+                            //override, change me
+                            //email = "rfairfax@topcoder.com";
+
+
+                            //check if nothing passed, send email
+
+                            StringBuffer mail = new StringBuffer();
+                            mail.append("The following project: \n\n");
+                            mail.append(p.getName());
+                            mail.append("\n\nhas completed appeals");
+
+                            //sendMail("autopilot@topcoder.com", email, "AutoPilot: Appeals Notification", mail.toString());
                         }
-
-                        logger.info("3");
-
-                        if (!passed) {
-                            logger.info("Unable to move to appeals phase: Uncomplete scorecards or no submission passed review");
-                            continue;
-                        }
-
-                        logger.info("4");
-
-                        int sub_count = 0;
-                        InitialSubmission[] arr = docManager.getInitialSubmissions(p, false, user.getTCSubject());
-                        for (int j = 0; j < arr.length; j++) {
-                            if (arr[j].isAdvancedToReview())
-                                sub_count++;
-                        }
-
-                        logger.info("5");
-
-                        //get submission count
-                        if (count != (sub_count * 3)) {
-                            logger.info("Unable to move to appeals phase: Submission count mismatch");
-                            continue;
-                        }
-
-                        logger.info("6");
-
-                        //check test cases
-                        TestCase[] testcases = null;
-                        testcases = docManager.getTestCases(p, -1, user.getTCSubject());
-
-                        if (testcases.length != 3) {
-                            logger.info("Unable to move to appeals phase: Incorrect number of testcases");
-                            continue;
-                        }
-                        /* PLK copiado */
-
-                        logger.info("7");
-                        logger.info(new Date(System.currentTimeMillis()).toString());
-
-                        TCWorkdays workDays = null;
-                        try {
-                            workDays = new TCWorkdays(ConfigHelper.getString(ConfigHelper.WORKDAYS_CONF_FILE), TCWorkdays.XML_FILE_FORMAT);
-                        } catch (Exception e) {
-                            logger.info("Couldn't load the TCWorkdays configuration due to: " + e.getMessage());
-                            continue;
-                        }
-
-                        // timeline update
-//                        long timeDiff = System.currentTimeMillis() - projs[i].getCurrentPhaseInstance().getEndDate().getTime();
-
-                        Date curDate = new Date(System.currentTimeMillis());
-
-                        logger.info("current date: " + curDate.toString());
-
-                        int timeDiff = 0;
-                        if (curDate.getTime() > projs[i].getCurrentPhaseInstance().getEndDate().getTime()) {
-                            timeDiff = workDays.getWorkableMinutes(projs[i].getCurrentPhaseInstance().getEndDate(), curDate);
-                        } else {
-                            timeDiff = workDays.getWorkableMinutes(curDate, projs[i].getCurrentPhaseInstance().getEndDate()) * -1;
-                        }
-
-                        logger.info("timeDiff: " + timeDiff);
-                        if (timeDiff != 0) {
-                            boolean startUpdatingPhases = false;
-                            PhaseInstance[] timeline = p.getTimeline();
-                            for (int j = 0; j < timeline.length; j++) {
-                                if (startUpdatingPhases) {
-                                    logger.info("Original start: " + timeline[j].getStartDate().toString());
-                                    logger.info("Original end: " + timeline[j].getEndDate().toString());
-
-                                    if (timeDiff > 0) {
-                                        timeline[j].setStartDate(workDays.add(timeline[j].getStartDate(), WorkdaysUnitOfTime.MINUTES, timeDiff));
-                                        timeline[j].setEndDate(workDays.add(timeline[j].getEndDate(), WorkdaysUnitOfTime.MINUTES, timeDiff));
-                                    } else {
-                                        timeline[j].setStartDate(workDays.sub(timeline[j].getStartDate(), WorkdaysUnitOfTime.MINUTES, timeDiff * -1));
-                                        timeline[j].setEndDate(workDays.sub(timeline[j].getEndDate(), WorkdaysUnitOfTime.MINUTES, timeDiff * -1));
-                                    }
-
-                                    logger.info("Changed start: " + timeline[j].getStartDate().toString());
-                                    logger.info("Changed end: " + timeline[j].getEndDate().toString());
-                                }
-                                if (timeline[j].getPhase().getId() == projs[i].getCurrentPhaseInstance().getPhase().getId()) {
-                                    // If the phase ends early. In this case, adjust the duration of the phase to the correct time.
-                                    if (timeDiff < 0) {
-                                        logger.info("Original end: " + timeline[j].getEndDate().toString());
-                                        timeline[j].setEndDate(workDays.sub(timeline[j].getEndDate(), WorkdaysUnitOfTime.MINUTES, timeDiff * -1));
-                                        logger.info("Changed end: " + timeline[j].getEndDate().toString());
-                                    }
-                                    startUpdatingPhases = true;
-                                }
-                            }
-                        }
-
-                        //move to appeals
-                        OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, projs[i]);
-                        ProjectForm form = new ProjectForm();
-
-                        form.fromProject(p);
-
- //                       form.setSendMail(true); // PLK
-                        form.setSendMail(false); // PLK
-                        form.setScorecardTemplates(docManager.getScorecardTemplates());
-                        form.setCurrentPhase("Appeals");
-                        form.setReason("auto pilot advancing to Appeals");
-
-                        logger.info("8");
-
-                        ProjectData data = form.toActionData(orpd);
-                        ResultData result = new BusinessDelegate().projectAdmin(data);
-                        if (!(result instanceof SuccessResult)) {
-                            logger.debug("ERROR " + result.toString());
-                        }
-
-                        logger.info("Moved ok!");
                     }
+                    */
                 }
             } catch (Exception e) {
                 if (!(e instanceof NameNotFoundException))

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2004, TopCoder, Inc. All rights reserved
+ * Copyright (c) 2006, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -35,8 +35,19 @@ import java.util.TreeSet;
  * this couldn't be easily accomplished inheriting from that class.
  * </p>
  *
- * @author TCSDESIGNER, TCSDEVELOPER
- * @version 1.0
+ * <p>
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Added <code>sub</code> to substract an amount of time from a Date. Unfortunatelly, this
+ * functionality wasn't implemented in <code>add</code> method. (this method doesn't accept
+ * negative amounts of time)
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author cucu, pulky
+ * @version 1.0.1
  */
 public class TCWorkdays implements Workdays {
     /**
@@ -161,6 +172,26 @@ public class TCWorkdays implements Workdays {
      * </p>
      */
     private static final String DATE_STYLE_PROPERTY = "dateStyle";
+
+    /**
+     * <p>
+     * Represents the amount of milliseconds contained in a whole day.
+     * 24 hrs * 60 min * 60 secs * 1000 ms.
+     * </p>
+     *
+     * @since 1.0.1
+     */
+    private static final int DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
+
+    /**
+     * <p>
+     * Represents the amount of milliseconds contained in a minute.
+     * 60 secs * 1000 ms.
+     * </p>
+     *
+     * @since 1.0.1
+     */
+    private static final int MINUTE_IN_MILLISECONDS = 60 * 1000;
 
     /**
      * <p>
@@ -1078,9 +1109,9 @@ public class TCWorkdays implements Workdays {
         dayEnd.set(Calendar.MINUTE, this.endTimeMinutes);
 
         // time in detail as milliseconds just for convenience
-        long workdayInMilliSeconds = (long) this.getWorkdayDurationInMinutes() * 60 * 1000;
+        long workdayInMilliSeconds = (long) this.getWorkdayDurationInMinutes() * MINUTE_IN_MILLISECONDS;
 
-        long timeInMilliSeconds = (long) this.getAmountInMinutes(unitOfTime, amount) * 60 * 1000;
+        long timeInMilliSeconds = (long) this.getAmountInMinutes(unitOfTime, amount) * MINUTE_IN_MILLISECONDS;
 
         if (!this.isNonWorkday(startCal)) {
             // the start date is a workday
@@ -1122,7 +1153,7 @@ public class TCWorkdays implements Workdays {
         Date endDay = new Date();
 
         for (long mid = (min + max) / 2; min <= max; mid = (min + max) / 2) {
-            endDay.setTime((startDay.getTime() + (mid * 24 * 60 * 60 * 1000)) - 60000);
+            endDay.setTime((startDay.getTime() + (mid * DAY_IN_MILLISECONDS)) - MINUTE_IN_MILLISECONDS);
 
             int workdaysCount = this.getWorkdaysCount(startDay, endDay);
 
@@ -1134,14 +1165,14 @@ public class TCWorkdays implements Workdays {
         }
 
         long disToBegin = (((timeInMilliSeconds + workdayInMilliSeconds) - 1) % workdayInMilliSeconds) + 1;
-        endDay.setTime(dayBegin.getTime().getTime() + (max * 24 * 60 * 60 * 1000) + disToBegin);
+        endDay.setTime(dayBegin.getTime().getTime() + (max * DAY_IN_MILLISECONDS) + disToBegin);
 
         return endDay;
     }
 
     /**
      * <p>
-     * Method to sub a certain amount of time to a Date. (to calculates the start date of the task)
+     * Method to substract a certain amount of time to a Date. (to calculates the start date of the task)
      * </p>
      *
      * <p>
@@ -1157,6 +1188,8 @@ public class TCWorkdays implements Workdays {
      *
      * @throws java.lang.NullPointerException if endDate or unitOfTime is null
      * @throws java.lang.IllegalArgumentException if amount parameter is negative or the start/end time set incorrectly
+     *
+     * @since 1.0.1
      */
     public Date sub(Date endDate, WorkdaysUnitOfTime unitOfTime, int amount) {
         if (endDate == null) {
@@ -1195,8 +1228,8 @@ public class TCWorkdays implements Workdays {
         dayEnd.set(Calendar.MINUTE, this.endTimeMinutes);
 
         // time in detail as milliseconds just for convenience
-        long workdayInMilliSeconds = (long) this.getWorkdayDurationInMinutes() * 60 * 1000;
-        long timeInMilliSeconds = (long) this.getAmountInMinutes(unitOfTime, amount) * 60 * 1000;
+        long workdayInMilliSeconds = (long) this.getWorkdayDurationInMinutes() * MINUTE_IN_MILLISECONDS;
+        long timeInMilliSeconds = (long) this.getAmountInMinutes(unitOfTime, amount) * MINUTE_IN_MILLISECONDS;
 
         long timeToFreshDay = 0;
 
@@ -1215,14 +1248,15 @@ public class TCWorkdays implements Workdays {
 
         Date endDay = new Date();
         if (timeInMilliSeconds > timeToFreshDay) {
+            // the timeToFreshDay isn't sufficient to fulfill the amount of time.
+
             // total days to sub
             long daysToSub = (timeInMilliSeconds - timeToFreshDay) / workdayInMilliSeconds;
 
             // minimal days to sub
             long min = daysToSub;
 
-            // maximal days to sub
-            // (maximal - nonWorkDays.size) * (5 / 7) >= daysToSub
+            // maximal days to sub: (maximal - nonWorkDays.size) * (5 / 7) >= daysToSub
             long max = (daysToSub * 7) / 5
                      + this.nonWorkDays.size()
                      + this.nonWorkSaturdayDays.size()
@@ -1238,7 +1272,7 @@ public class TCWorkdays implements Workdays {
             Date startDay = endCal.getTime();
             long mid = 0;
             for (mid = (min + max) / 2; min <= max; mid = (min + max) / 2) {
-                endDay.setTime((startDay.getTime() - (mid * 24 * 60 * 60 * 1000)));
+                endDay.setTime((startDay.getTime() - (mid * DAY_IN_MILLISECONDS)));
 
                 int workdaysCount = this.getWorkdaysCount(endDay, startDay);
 
@@ -1257,12 +1291,14 @@ public class TCWorkdays implements Workdays {
             time -= (timeInMilliSeconds - ((daysToSub) * workdayInMilliSeconds) - timeToFreshDay);
             endDay.setTime(time);
         } else {
-            // the timeToFreshDay are sufficient to fulfill the amount of time.
+            // the timeToFreshDay is sufficient to fulfill the amount of time.
             endDay.setTime(endDate.getTime() - timeInMilliSeconds);
         }
         endCal.setTime(endDay);
 
-        // This is to get the earliest beginning of work.
+        // Get the earliest beginning of work.
+        // if the hour is before day start, go to the end of the previous day
+        // if the hour is after day end, go to the end of the current day
         dayBegin = (Calendar) endCal.clone();
         dayEnd = (Calendar) endCal.clone();
         dayBegin.set(Calendar.HOUR_OF_DAY, this.startTimeHours);
@@ -1270,12 +1306,10 @@ public class TCWorkdays implements Workdays {
         dayEnd.set(Calendar.HOUR_OF_DAY, this.endTimeHours);
         dayEnd.set(Calendar.MINUTE, this.endTimeMinutes);
 
-        // if the hour is before day start, go to the end of the previous day
-        // if the hour is after day end, go to the end of the current day
         if (!endCal.after(dayBegin)) {
             endCal.set(Calendar.HOUR_OF_DAY, this.endTimeHours);
             endCal.set(Calendar.MINUTE, this.endTimeMinutes);
-            endDay.setTime(endCal.getTime().getTime() - 24 * 60 * 60 * 1000);
+            endDay.setTime(endCal.getTime().getTime() - DAY_IN_MILLISECONDS);
         } else if (endCal.after(dayEnd)) {
             endCal.set(Calendar.HOUR_OF_DAY, this.endTimeHours);
             endCal.set(Calendar.MINUTE, this.endTimeMinutes);
@@ -1283,9 +1317,9 @@ public class TCWorkdays implements Workdays {
         }
         endCal.setTime(endDay);
 
-        // if we fell into a non workday, advance to a working day.
+        // if we fell into a non workday, move backwards to a working day.
         while (this.isNonWorkday(endCal)) {
-            endDay.setTime(endDay.getTime() - 24 * 60 * 60 * 1000);
+            endDay.setTime(endDay.getTime() - DAY_IN_MILLISECONDS);
             endCal.setTime(endDay);
 
         }
@@ -1440,7 +1474,7 @@ public class TCWorkdays implements Workdays {
         startCal.setTime(startDay);
 
         // total days between startDay and endDay
-        int total = (int) ((endDay.getTime() - startDay.getTime() + 60000) / (24 * 60 * 60 * 1000));
+        int total = (int) ((endDay.getTime() - startDay.getTime() + MINUTE_IN_MILLISECONDS) / (DAY_IN_MILLISECONDS));
 
         // non-workdays in nonWorkdays set, exclude Saturdays and Sundays
         int count = this.nonWorkDays.subSet(startDay, endDay).size();

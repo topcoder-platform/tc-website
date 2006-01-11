@@ -8,10 +8,14 @@ package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.*;
 import com.topcoder.apps.review.projecttracker.*;
+import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.message.email.EmailEngine;
 import com.topcoder.message.email.TCSEmailMessage;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
+import com.topcoder.date.workdays.WorkdaysUnitOfTime;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
@@ -377,6 +381,160 @@ public class AutoPilot {
 
         return new SuccessResult();
     }
+
+    public static ResultData reviewFromTestcase(SolutionData data) {
+        try {
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
+            subject.addPrincipal(new RolePrincipal("Administrator", 1));
+            UserManagerLocal userManager = EJBHelper.getUserManager();
+            SecurityEnabledUser user = userManager.getUser(subject);
+            UserProjectInfo info = data.getProject();
+            ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
+            Project project = projectTracker.getProject(info, user.getTCSubject());
+            return (review(user, project, info));
+        } catch (Exception e) {
+            return new FailureResult(e.toString());
+        }
+    }
+
+    public static ResultData reviewFromScorecard(ReviewData data) {
+        try {
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
+            subject.addPrincipal(new RolePrincipal("Administrator", 1));
+            UserManagerLocal userManager = EJBHelper.getUserManager();
+            return (review(userManager.getUser(subject), data.getReviewScorecard().getProject(), data.getProject()));
+        } catch (Exception e) {
+            return new FailureResult(e.toString());
+        }
+    }
+
+    public static ResultData review(SecurityEnabledUser user, Project project, UserProjectInfo info) {
+        try {
+            //setup user info
+
+            DocumentManagerLocal docManager = EJBHelper.getDocumentManager();
+            ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
+            //SecurityEnabledUser user = userManager.getUser(subject);
+
+            //Project project = data.getReviewScorecard().getProject();
+
+            if (!project.getAutoPilot()) return new SuccessResult();
+
+            //check if all screenings are done,check to see if something passes
+            boolean passed = false;
+            double minscore = ConfigHelper.getMinimumScore();
+
+            int count = 0;
+            ReviewScorecard[] scorecard = docManager.getReviewScorecard(project, user.getTCSubject());
+            for (int i = 0; i < scorecard.length; i++) {
+                if (!scorecard[i].isCompleted()) {
+                    //nothing to do
+                    return new SuccessResult();
+                }
+
+                count++;
+
+                if (scorecard[i].getScore() >= minscore) {
+                    passed = true;
+                }
+            }
+
+            if (!passed)
+                return new SuccessResult();
+
+            int sub_count = 0;
+            InitialSubmission[] arr = docManager.getInitialSubmissions(project, false, user.getTCSubject());
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i].isAdvancedToReview())
+                    sub_count++;
+            }
+
+            //get submission count
+            if (count != (sub_count * 3))
+                return new SuccessResult();
+
+            //check test cases
+            TestCase[] testcases = null;
+            testcases = docManager.getTestCases(project, -1, user.getTCSubject());
+
+            if (testcases.length != 3)
+                return new SuccessResult();
+
+/*            UserProjectInfo[] projs = projectTracker.getProjectInfo(user.getTCSubject());
+            UserProjectInfo info = null;
+            for (int i = 0; i < projs.length; i++) {
+                if (projs[i].getId() == project.getId()) {
+                    info = projs[i];
+                }
+            }
+
+            if (info == null) return new FailureResult("Project not found");
+*/
+
+            TCWorkdays workDays = null;
+            workDays = new TCWorkdays(ConfigHelper.getString(ConfigHelper.WORKDAYS_CONF_FILE), TCWorkdays.XML_FILE_FORMAT);
+
+            Date curDate = new Date(System.currentTimeMillis());
+
+            int timeDiff = 0;
+            Date phaseEndDate = info.getCurrentPhaseInstance().getEndDate();
+            if (curDate.getTime() > phaseEndDate.getTime()) {
+                timeDiff = workDays.getWorkableMinutes(phaseEndDate, curDate);
+            } else {
+                timeDiff = workDays.getWorkableMinutes(curDate, phaseEndDate) * -1;
+            }
+
+            if (timeDiff != 0) {
+                boolean startUpdatingPhases = false;
+                PhaseInstance[] timeline = project.getTimeline();
+                for (int j = 0; j < timeline.length; j++) {
+                    if (startUpdatingPhases) {
+                        if (timeDiff > 0) {
+                            timeline[j].setStartDate(workDays.add(timeline[j].getStartDate(), WorkdaysUnitOfTime.MINUTES, timeDiff));
+                            timeline[j].setEndDate(workDays.add(timeline[j].getEndDate(), WorkdaysUnitOfTime.MINUTES, timeDiff));
+                        } else {
+                            timeline[j].setStartDate(workDays.sub(timeline[j].getStartDate(), WorkdaysUnitOfTime.MINUTES, timeDiff * -1));
+                            timeline[j].setEndDate(workDays.sub(timeline[j].getEndDate(), WorkdaysUnitOfTime.MINUTES, timeDiff * -1));
+                        }
+                    }
+                    if (timeline[j].getPhase().getId() == info.getCurrentPhaseInstance().getPhase().getId()) {
+                        // If the phase ends early. In this case, adjust the duration of the phase to the correct time.
+                        if (timeDiff < 0) {
+                            timeline[j].setEndDate(workDays.sub(timeline[j].getEndDate(), WorkdaysUnitOfTime.MINUTES, timeDiff * -1));
+                        }
+                        startUpdatingPhases = true;
+                    }
+                }
+            }
+
+            //advance to appeals
+            ProjectForm form = new ProjectForm();
+
+            form.fromProject(project);
+
+            form.setSendMail(true);
+
+            form.setScorecardTemplates(docManager.getScorecardTemplates());
+
+            form.setCurrentPhase("Appeals");
+
+            form.setReason("auto pilot advancing to appeals");
+
+            OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, info);
+
+            ProjectData new_data = form.toActionData(orpd);
+            ResultData result = new BusinessDelegate().projectAdmin(new_data);
+            if (!(result instanceof SuccessResult)) {
+                return result;
+            }
+
+        } catch (Exception e) {
+            return new FailureResult(e.toString());
+        }
+
+        return new SuccessResult();
+    }
+
 
     public static ResultData reviewPMReview(ProjectData data) {
         try {
