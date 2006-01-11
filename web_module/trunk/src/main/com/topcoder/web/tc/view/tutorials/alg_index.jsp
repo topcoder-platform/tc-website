@@ -114,7 +114,12 @@
                &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=maxFlow"><strong>Section 1</strong></a><br>
                &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=maxFlow2"><strong>Section 2</strong></a><br>
             </td></tr>
-            
+            <tr valign=top><td class="bodyText">
+               <tc-webtag:handle coderId="8357090" context="algorithm"/>
+               </td><td class="bodyText" nowrap=nowrap><strong>Representation of Integers and Reals</a><br />
+               &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=integersReals"><strong>Section 1</strong></a><br>
+               &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=integersReals2"><strong>Section 2</strong></a><br>
+            </td></tr>
          </table>
         </div>
         <p><br></p>
