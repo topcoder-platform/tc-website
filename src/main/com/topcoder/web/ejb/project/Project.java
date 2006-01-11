@@ -11,4 +11,5 @@ import java.rmi.RemoteException;
 public interface Project extends EJBObject {
     void updateForLock(long projectId, String dataSource) throws RemoteException;
     int getProjectTypeId(long projectId, String dataSource) throws RemoteException;
+    long getComponentId(long projectId, String dataSource) throws RemoteException;
 }
