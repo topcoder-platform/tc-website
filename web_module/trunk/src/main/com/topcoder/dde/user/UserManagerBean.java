@@ -20,6 +20,7 @@ import com.topcoder.util.config.*;
 import com.topcoder.util.idgenerator.bean.IdGen;
 import com.topcoder.util.idgenerator.bean.IdGenException;
 import com.topcoder.util.idgenerator.bean.IdGenHome;
+import com.topcoder.shared.util.DBMS;
 import org.apache.log4j.Logger;
 
 import javax.ejb.*;
@@ -992,6 +993,80 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             throw new DDEException("" + e);
         }
     }
+
+
+
+    private static final String componentInfo =
+            "select cv.component_id " +
+                " , cv.phase_id " +
+               "  , cv.version " +
+            "  from project p " +
+              "   , comp_versions cv " +
+           "  where p.project_id = ? " +
+             "  and p.cur_version = 1 " +
+             "  and p.comp_vers_id = cv.comp_vers_id";
+
+    private static final String getRating =
+            " select rating from user_rating where phase_id = ? and user_id = ?";
+
+    public void registerForProject(long userId, String comments, long projectId)
+            throws RemoteException, DDEException, NoSuchUserException, EJBException {
+        long componentId = 0;
+        int rating = 0;
+        int phase = 0;
+        int version = 0;
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        PreparedStatement ps1 = null;
+        InitialContext ctx = null;
+        ResultSet rs = null;
+        ResultSet rs1 = null;
+        try {
+            DataSource datasource = (DataSource) ctx.lookup("java:comp/env/jdbc/DefaultDS");
+            conn = datasource.getConnection();
+
+            ps = conn.prepareStatement(componentInfo);
+            ps.setLong(1, projectId);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                componentId = rs.getLong("component_id");
+                phase = rs.getInt("phase_id");
+                version = rs.getInt("version");
+            } else {
+                throw new EJBException("Invalid project id specified: " + projectId);
+            }
+
+            ps1 = conn.prepareStatement(getRating);
+            ps.setInt(1, phase);
+            ps.setLong(2, userId);
+
+            if (rs.next()) {
+                rating = rs.getInt("rating");
+            } else {
+                throw new EJBException("Invalid project id specified: " + projectId);
+            }
+
+            registerInquiry(userId, componentId, rating, userId, comments, true, phase, version, projectId);
+
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e.getMessage());
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        } finally {
+            close(rs);
+            close(ps);
+            close(rs1);
+            close(ps1);
+            close(conn);
+            close(ctx);
+        }
+
+
+    }
+
 
 
     public void registerInquiry(long userId, long componentId, long rating, long tcUserId,
