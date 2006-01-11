@@ -28,8 +28,8 @@
 <% Iterator it = rsc.iterator();
 while (it.hasNext()) {
 	ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();%>
-	<tr><td><%=row.getItem(1);%></td>
-	<td><%=row.getItem(2);%></td></tr>
+	<tr><td><%=row.getItem(1)%></td>
+	<td><%=row.getItem(2)%></td></tr>
 <% } %>
 </table>
 
