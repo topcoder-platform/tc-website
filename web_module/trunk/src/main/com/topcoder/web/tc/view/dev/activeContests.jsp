@@ -57,16 +57,15 @@
 <tr>
 <td>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-   <tr><td class="tableTitle" colspan="10">Active Component Design Contests</td></tr>
+   <tr><td class="tableTitle" colspan="9">Active Component Design Contests</td></tr>
    <tr>
-      <td class="tableHeader">Catalog</td>
-      <td class="tableHeader">Component</td>
-      <td class="tableHeader" align="center">Registrants<br/>Rated/Unrated</td>
-      <td class="tableHeader" align="center">Registration Ends</td>
-      <td class="tableHeader" align="center">Submissions</td>
-      <td class="tableHeader" align="right">Payment *</td>
-      <td class="tableHeader" align="center">Complexity</td>
-      <td class="tableHeader" align="center">Submit by</td>
+      <td class="tableHeader"><div style="width: 55px;">Catalog</div></td>
+      <td class="tableHeader" width="100%">Component</td>
+      <td class="tableHeader" align="center"><div style="width: 80px;">Registrants<br/>Rated/Unrated</div></td>
+      <td class="tableHeader" align="center"><div style="width: 110px;">Registration Ends*</div></td>
+      <td class="tableHeader" align="center"><div style="width: 80px;">Submissions</div></td>
+      <td class="tableHeader" align="right"><div style="width: 65px;">Payment***</div></td>
+      <td class="tableHeader" align="center"><div style="width: 110px;">Submit by*</div></td>
    </tr>
    <rsc:iterator list="<%=designContests%>" id="resultRow">
    <tr>
@@ -101,7 +100,7 @@
          <% } %>
       </td>
       <td class="statDk" align="center">
-         <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>
+         <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a" timeZone="America/New_York"/>
       </td>
       <td class="statDk" align="center">
          <rsc:item name="total_submissions" row="<%=resultRow%>"/>
@@ -110,10 +109,7 @@
          <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/>
       </td>
       <td class="statDk" align="center">
-         <rsc:item name="description" row="<%=resultRow%>"/>
-      </td>
-      <td class="statDk" align="center">
-         <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>
+         <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a" timeZone="America/New_York"/>
       </td>
    </tr>
    </rsc:iterator>
@@ -128,16 +124,15 @@
 <tr>
 <td>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-   <tr><td class="tableTitle" colspan="10">Active Component Development Contests</td></tr>
+   <tr><td class="tableTitle" colspan="9">Active Component Development Contests</td></tr>
    <tr>
-      <td class="tableHeader">Catalog</td>
-      <td class="tableHeader">Component</td>
-      <td class="tableHeader" align="center">Registrants<br/>Rated/Unrated</td>
-      <td class="tableHeader" align="center">Registration Ends</td>
-      <td class="tableHeader" align="center">Submissions</td>
-      <td class="tableHeader" align="right">Payment *</td>
-      <td class="tableHeader" align="center">Complexity</td>
-      <td class="tableHeader" align="center">Submit by</td>
+      <td class="tableHeader"><div style="width: 55px;">Catalog</div></td>
+      <td class="tableHeader" width="100%">Component</td>
+      <td class="tableHeader" align="center"><div style="width: 80px;">Registrants<br/>Rated/Unrated</div></td>
+      <td class="tableHeader" align="center"><div style="width: 110px;">Registration Ends*</div></td>
+      <td class="tableHeader" align="center"><div style="width: 80px;">Submissions</div></td>
+      <td class="tableHeader" align="right"><div style="width: 65px;">Payment***</div></td>
+      <td class="tableHeader" align="center"><div style="width: 110px;">Submit by*</div></td>
    </tr>
 
    <rsc:iterator list="<%=devContests%>" id="resultRow">
@@ -173,7 +168,7 @@
          <% } %>
       </td>
       <td class="statDk" align="center">
-         <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"  timeZone="America/New_York"/>
+         <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a"  timeZone="America/New_York"/>
       </td>
       <td class="statDk" align="center">
          <rsc:item name="total_submissions" row="<%=resultRow%>"/>
@@ -182,10 +177,7 @@
          <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/></td>
       </td>
       <td class="statDk" align="center">
-         <rsc:item name="description" row="<%=resultRow%>"/>
-      </td>
-      <td class="statDk" align="center">
-         <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/></td>
+         <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a" timeZone="America/New_York"/></td>
       </td>
    </tr>
 </rsc:iterator>
@@ -196,12 +188,12 @@
 
 <br/>
 
-<p align="left">* And that's before royalty payments. The more Component
+<p align="left">* All times are Eastern Time</p>
+<p align="left">** Only rated members may register for this component</p>
+<p align="left">*** And that's before royalty payments. The more Component
     <A href="http://software.topcoder.com/components/subscriptions.jsp">Subscriptions</A> we sell, the more royalties we
     pay out to our winners! Please note
     that custom components do not get added to the catalog and therefore do not have royalties.</p>
-
-<p align="left">** Only rated members may register for this component</p>
 
 <p><br/></p>
 
