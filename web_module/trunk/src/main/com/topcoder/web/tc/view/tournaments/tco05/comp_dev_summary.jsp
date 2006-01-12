@@ -39,7 +39,7 @@
 <img src="/i/m/MPhk_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/>
 <p>by <tc-webtag:handle coderId="289824" context="algorithm"/><br/>
 <em>TopCoder Member</em><br />
-<br><br>
+<br><br><br>
 
 The 2005 TopCoder Open Component Development Finals gathered seven world-class developers in battle for a $20,000 prize. The competition was expectedly fierce, in the tradition of TopCoder Open Tournaments. The developers worked hard on enhancements for their existing submissions for nearly seven hours. In the end, a perfect implementation of the requirements and attention to every detail allowed <b>visualage</b> to win the competition, followed closely by <b>sindu</b>, <b>oldbig</b> and <b>cnettel</b>, who placed 2nd, 3rd and 4th respectively. <b>matmis</b>, <b>colau</b>, and <b>arylio</b> each put in fine efforts, but they eventually fell behind occupying the 5th, 6th and7th places. 
 <br><br>
