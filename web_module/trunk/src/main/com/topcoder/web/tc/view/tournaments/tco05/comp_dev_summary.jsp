@@ -123,7 +123,7 @@ All submissions had their good and bad parts. Reviewing them was a challenging t
 <br><br>
 After presenting the developers with the reviewer scorecards, competitors had the chance to appeal any item that they felt was unfairly scored. The finalists had a limited 90 minute appeals phase to create and submit these appeals. 
 <br><br>
-When the appeals phase ended, the reviewers went over the scores one final time, reviewing and changing what [developers pointed them with] NOT SURE OF INTENT HERE. Most of the scores were raised, but the hierarchy of the finalists did not change much, only two developers switching places &ndash; <b>oldbig</b> and <b>cnettel</b>. The final score board looked like the following:
+When the appeals phase ended, the reviewers went over the scores one final time, reviewing and making any necessary changes. Most of the scores were raised, but the hierarchy of the finalists did not change much, only two developers switching places &ndash; <b>oldbig</b> and <b>cnettel</b>. The final score board looked like the following:
 <br><br>
 <table class="sidebarBox" width="150" cellpadding="6" cellspacing="2" align="center">
    <tr class="sidebarText" nowrap="nowrap">
