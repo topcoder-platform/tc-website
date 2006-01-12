@@ -111,7 +111,7 @@
 <% if (projectDetail.getIntItem(0, "root_category_id") == Constants.CUSTOM_JAVA_CATALOG_ID || projectDetail.getIntItem(0, "root_category_id") == Constants.CUSTOM_DOT_NET_CATALOG_ID) {%>
                         <p>
                         TopCoder will compensate members with first and second place submissions that have scored at least
-                        70. The initial payment will be distributed in two installments.
+                        75. The initial payment will be distributed in two installments.
                         First Milestone: When the winning solution is submitted and review board suggestions are integrated.
                         Second Milestone: Is marked by the completion of the development project*.</p>
 
@@ -124,7 +124,7 @@
 <% } else { %>
                         <p>
                         TopCoder will compensate members with first and second place submissions that have scored at least
-                        70. First place compensation will consist of both initial payments and royalties on
+                        75. First place compensation will consist of both initial payments and royalties on
                         the sale of the component. The initial payment will be distributed in two installments.
                         First Milestone: When the winning solution is submitted and review board suggestions are integrated.
                         Second Milestone: Is marked by the completion of the development project*.</p>

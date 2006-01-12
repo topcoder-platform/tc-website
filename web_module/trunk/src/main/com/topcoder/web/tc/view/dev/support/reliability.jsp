@@ -42,7 +42,7 @@
 <h3>Reliability Rating</h3>
 <p>Member profiles have been modified to reflect a reliability factor for the last 15 component design and 15 development competitions. 
 The reliability factor is calculated as the percent of the last 15 projects that a member registers for in which that same 
-member presents a timely submission that scores at least a 70 in review.</p>
+member presents a timely submission that scores at least a 75 in review.</p>
 
 <p>Separate reliability ratings will be kept for design and development projects.</p>
 
@@ -53,7 +53,7 @@ member presents a timely submission that scores at least a 70 in review.</p>
 <p>TopCoder will not reset reliability statuses for projects posted prior to October 5th, 2005.  Projects prior to this date 
 will be marked reliable, if the user submitted a solution that passed screening.  Additionally, for those that had never
 submitted prior to October 5th, 2005 they will not be given a reliability rating until they submit a project that scores
-at least a 70 in review.</p>
+at least a 70 in review.  As of January 12th 2006, TopCoder has increased the minium score to 75.</p>
 
     <p>One will not be allow to register for more than 2 projects if their relevant reliability rating is less
         than 70%, or if they don't have a reliability rating.</p>
