@@ -1,7 +1,12 @@
 <%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<% List questionInfo = (List) request.getAttribute("questionInfo");%>
 <html>
-<%@ page import="com.topcoder.web.tc.Constants"%>
+<%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.topcoder.web.common.tag.AnswerInput" %>
 <head>
     <title>TopCoder - Message</title>
     <jsp:include page="../script.jsp"/>
@@ -40,10 +45,42 @@
             </jsp:include>
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
-            <p>
-                terms page baby
-            </p>
+            <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="surveyForm">
+                <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ProjectRegister"/>
+                <tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID%>"/>
 
+                <tc:questionIterator list="<%=questionInfo%>" id="question">
+                    <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
+                        <tr>
+                            <td colspan="2" class="bodySubtitle" valign="top" width="100%">
+                                <jsp:getProperty name="question" property="text"/>
+                                <br/><br/>
+                                <hr width="100%" size="1" noshade/>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="errorText">
+                                <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%>
+                                    <br/></tc-webtag:errorIterator>
+                            </td>
+                        </tr>
+                        <% boolean even = false; %>
+                        <tc:answerInput id="answerInput" question="<%=question%>">
+                            <tr>
+                                <td width="100%">
+                                    <%=answerText%>
+                                </td>
+                                <td align="right">
+                                    <%=answerInput%>
+                                </td>
+                            </tr>
+                        </tc:answerInput>
+                    </table>
+                    <p><br/></p>
+                </tc:questionIterator>
+
+            </form>
         </td>
         <!-- Center Column Ends -->
 
