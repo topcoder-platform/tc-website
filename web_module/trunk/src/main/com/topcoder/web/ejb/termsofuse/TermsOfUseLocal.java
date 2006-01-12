@@ -12,7 +12,7 @@ public interface TermsOfUseLocal extends EJBLocalObject {
 
     long createTermsOfUse(String dataSource, String idDataSource);
 
-    long getTermsOfUseTypeId(long termsOfUseId, String dataSource)
+    long getTermsOfUseTypeId(long termsOfUseId, String dataSource);
 
     void setTermsOfUseTypeId(long termsOfUseId,
                              long termsOfUseTypeId, String dataSource);
