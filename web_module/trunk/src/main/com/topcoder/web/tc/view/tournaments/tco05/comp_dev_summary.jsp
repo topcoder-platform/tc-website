@@ -9,6 +9,11 @@
 <link type="text/css" rel="stylesheet" href="/css/TCO05style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
+
+<style type="text/css">
+.textIndent  {  margin: 0px,0px,0px,40px; }
+</style>
+
 </head>
 <body>
 
@@ -34,7 +39,6 @@
 <img src="/i/m/MPhk_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/>
 <p>by <tc-webtag:handle coderId="289824" context="algorithm"/><br/>
 <em>TopCoder Member</em><br />
-Wednesday, January 11, 2006<br/>
 <br><br>
 
 The 2005 TopCoder Open Component Development Finals gathered seven world-class developers in battle for a $20,000 prize. The competition was expectedly fierce, in the tradition of TopCoder Open Tournaments. The developers worked hard on enhancements for their existing submissions for nearly seven hours. In the end, a perfect implementation of the requirements and attention to every detail allowed <b>visualage</b> to win the competition, followed closely by <b>sindu</b>, <b>oldbig</b> and <b>cnettel</b>, who placed 2nd, 3rd and 4th respectively. <b>matmis</b>, <b>colau</b>, and <b>arylio</b> each put in fine efforts, but they eventually fell behind occupying the 5th, 6th and7th places. 
@@ -67,44 +71,99 @@ Adding <i>the command-line support for plug-ins</i> was straightforward, and the
 
 <span class="bodySubtitle">Reviews</span>
 <br><br>
-After the competition ended, the submissions were sent to the development review board for judging. TheCois (stress), cucu (accuracy) and MPhk (failure) had approximately 36 hours to score the submissions and determine the winner.
+After the competition ended, the submissions were sent to the development review board for judging. <b>TheCois</b> (stress), <b>cucu</b> (accuracy) and <b>MPhk</b> (failure) had approximately 36 hours to score the submissions and determine the winner.
 <br><br>
 In such a fierce competition every detail weighed a lot. Fulfilling the requirements of the enhancements was imperative, and most of the developers lost points in this section. 
 <br><br>
-arylio had some problems with the final fixes in the online round, and ended up with an incomplete set of deliverables in the onsite round of the finals. Repairing his submission instead of implementing the enhancement cost him valuable time, so he was not able to focus properly on developing and adequately testingthe required items. colau managed to implement the enhancement, but did not manage to develop any unit tests and test it properly. The lack of unit tests cost him some important points on the requirements side because of errors that were not identified by the developer, as well as  on the unit testing side. matmis did not properly enhance his state machine implementation, and had a part of the unit tests missing. An incomplete set of deliverables cost him a significant amount of points.
+<b>arylio</b> had some problems with the final fixes in the online round, and ended up with an incomplete set of deliverables in the onsite round of the finals. Repairing his submission instead of implementing the enhancement cost him valuable time, so he was not able to focus properly on developing and adequately testingthe required items. <b>colau</b> managed to implement the enhancement, but did not manage to develop any unit tests and test it properly. The lack of unit tests cost him some important points on the requirements side because of errors that were not identified by the developer, as well as  on the unit testing side. <b>matmis</b> did not properly enhance his state machine implementation, and had a part of the unit tests missing. An incomplete set of deliverables cost him a significant amount of points.
 <br><br>
-The other developers managed to fulfill the requirements of the enhancements at a higher level while also doing well in unit testing and documenting their final submissions. cnettel provided a complete and correct implementation of the requirements, but had problems in fully testing it . Also, his state machine enhancement could have been more clear and straightforward in several places. oldbig put in a good attempt in implementing the somehow more difficult enhancement (ZIP file expansion support), but he did not pay enough attention at recursive iteration of directories and lacked unit tests for minor functionality. sindu provided a correct implementation of the requirements and a good set of unit tests, covering all but one aspect of the component Ð some command line switches in the command line interface of the component. The submission suffered for lack of complete documentation for unit tests. visualage also fulfilled all requirements, properly enhancing  his previous submission with the required functionality. The unit tests coverage on the component was complete, and the documentation was also well done, addressing all required details. The only downside to his submission was that some parts of the implementation could have been written in a simpler manner, but nothing critical. 
+The other developers managed to fulfill the requirements of the enhancements at a higher level while also doing well in unit testing and documenting their final submissions. <b>cnettel</b> provided a complete and correct implementation of the requirements, but had problems in fully testing it . Also, his state machine enhancement could have been more clear and straightforward in several places. <b>oldbig</b> put in a good attempt in implementing the somehow more difficult enhancement (ZIP file expansion support), but he did not pay enough attention at recursive iteration of directories and lacked unit tests for minor functionality. <b>sindu</b> provided a correct implementation of the requirements and a good set of unit tests, covering all but one aspect of the component &ndash; some command line switches in the command line interface of the component. The submission suffered for lack of complete documentation for unit tests. <b>visualage</b> also fulfilled all requirements, properly enhancing  his previous submission with the required functionality. The unit tests coverage on the component was complete, and the documentation was also well done, addressing all required details. The only downside to his submission was that some parts of the implementation could have been written in a simpler manner, but nothing critical. 
 <br><br>
 All submissions had their good and bad parts. Reviewing them was a challenging task. Even the smallest detailed counted a lot, and the smallest mistake could send one of the competitors to the bottom of the hierarchy. At the end of the review phase, the scoreboard looked like the following:
-	1. visualage	87.07 
-	2. sindu		84.71
-	3. cnettel		83.10
-	4. oldbig		82.42
-	5. matmis		80.18
-	6. colau		75.69
-	7. arylio		72.45
+<br><br>
+<table class="sidebarBox" width="150" cellpadding="6" cellspacing="2" align="center">
+   <tr class="sidebarText" nowrap="nowrap">
+      <td align="center">1.</td>
+      <td align="center"><b>visualage</b></td>
+      <td align="center">87.07</td>
+   </tr>
+   <tr class="sidebarText" nowrap="nowrap">
+      <td align="center">2.</td>
+      <td align="center"><b>sindu</b></td>
+      <td align="center">84.71</td>
+   </tr>
+   <tr class="sidebarText" nowrap="nowrap">
+      <td align="center">3.</td>
+      <td align="center"><b>cnettel</b></td>
+      <td align="center">83.10</td>
+   </tr>
+   <tr class="sidebarText" nowrap="nowrap">
+      <td align="center">4.</td>
+      <td align="center"><b>oldbig</b></td>
+      <td align="center">82.42</td>
+   </tr>
+   <tr class="sidebarText" nowrap="nowrap">
+      <td align="center">5.</td>
+      <td align="center"><b>matmis</b></td>
+      <td align="center">80.18</td>
+   </tr>
+   <tr class="sidebarText" nowrap="nowrap">
+      <td align="center">6.</td>
+      <td align="center"><b>colau</b></td>
+      <td align="center">75.69</td>
+   </tr>
+   <tr class="sidebarText" nowrap="nowrap">
+      <td align="center">7.</td>
+      <td align="center"><b>arylio</b></td>
+      <td align="center">72.45</td>
+   </tr>
+</table>
 <br><br>
 <span class="bodySubtitle">Appeals and Appeals Responses</span>
 <br><br>
 After presenting the developers with the reviewer scorecards, competitors had the chance to appeal any item that they felt was unfairly scored. The finalists had a limited 90 minute appeals phase to create and submit these appeals. 
 <br><br>
-When the appeals phase ended, the reviewers went over the scores one final time, reviewing and changing what [developers pointed them with] NOT SURE OF INTENT HERE. Most of the scores were raised, but the hierarchy of the finalists did not change much, only two developers switching places Ð oldbig and cnettel. The final score board looked like the following:
-	1. visualage	89.62 
-	2. sindu		87.73
-	3. oldbig		85.81
-	4. cnettel		84.93
-	5. matmis		81.84
-	6. colau		76.28
-	7. arylio		73.47
+When the appeals phase ended, the reviewers went over the scores one final time, reviewing and changing what [developers pointed them with] NOT SURE OF INTENT HERE. Most of the scores were raised, but the hierarchy of the finalists did not change much, only two developers switching places &ndash; <b>oldbig</b> and <b>cnettel</b>. The final score board looked like the following:
+<br><br>
+<table class="sidebarBox" width="150" cellpadding="6" cellspacing="2" align="center">
+   <tr class="sidebarText" nowrap="nowrap">
+      <td align="center">1.</td>
+      <td align="center"><b>visualage</b></td>
+      <td align="center">89.62</td>
+   </tr>
+   <tr class="sidebarText" nowrap="nowrap">
+      <td align="center">2.</td>
+      <td align="center"><b>sindu</b></td>
+      <td align="center">87.73</td>
+   </tr>
+   <tr class="sidebarText" nowrap="nowrap">
+      <td align="center">3.</td>
+      <td align="center"><b>oldbig</b></td>
+      <td align="center">85.81</td>
+   </tr>
+   <tr class="sidebarText" nowrap="nowrap">
+      <td align="center">4.</td>
+      <td align="center"><b>cnettel</b></td>
+      <td align="center">84.93</td>
+   </tr>
+   <tr class="sidebarText" nowrap="nowrap">
+      <td align="center">5.</td>
+      <td align="center"><b>matmis</b></td>
+      <td align="center">81.84</td>
+   </tr>
+   <tr class="sidebarText" nowrap="nowrap">
+      <td align="center">6.</td>
+      <td align="center"><b>colau</b></td>
+      <td align="center">76.28</td>
+   </tr>
+   <tr class="sidebarText" nowrap="nowrap">
+      <td align="center">7.</td>
+      <td align="center"><b>arylio</b></td>
+      <td align="center">73.47</td>
+   </tr>
+</table>
 <br><br>
 Congratulations to <tc-webtag:handle coderId="299979" context="development"/> for winning the 2005 TopCoder Open Component Development Competition! Congratulations to all developers that participated in this competition and good luck in the upcoming ones!
-
-
-
-
-
-
-
 
         </div>
       </td>

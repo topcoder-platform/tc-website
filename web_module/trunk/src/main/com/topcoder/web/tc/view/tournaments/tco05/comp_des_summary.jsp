@@ -34,9 +34,7 @@
 <img src="/i/m/WishingBone_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/>
 <p>by <tc-webtag:handle coderId="286907" context="algorithm"/><br/>
 <em>TopCoder Member</em><br />
-Wednesday, January 11, 2006<br/>
-<br/><br/>
-
+<br/><br/><br/>
 
 The 2005 TopCoder Open design finalists were asked to produce an usual enhancement design for the Distributed Protocol Factory component. Three separate tasks were presented, from which each designer was required to choose one. Unlike the complexity of the requirement during the online round, the enhancement was geared specifically towards one feature in order to suit the timeframe of the onsite event.
 <br><br>
