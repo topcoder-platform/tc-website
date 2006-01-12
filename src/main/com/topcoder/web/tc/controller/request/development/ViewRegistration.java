@@ -12,9 +12,12 @@ import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
+import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.ejb.project.Project;
+import com.topcoder.web.ejb.termsofuse.TermsOfUse;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseLocal;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.util.TCO06ComponentTerms;
 import com.topcoder.web.tc.model.SoftwareComponent;
@@ -28,7 +31,7 @@ import java.util.*;
  */
 public class ViewRegistration extends Base {
 
-    private ComponentRegistrationServices regServices = null;
+    private ComponentRegistrationServicesLocal regServices = null;
 
     protected void developmentProcessing() throws TCWebException {
         //check if user can do the project (there's like 10 things to check.
@@ -43,6 +46,7 @@ public class ViewRegistration extends Base {
 
             if (getRequest().getAttribute(Constants.MESSAGE) == null) {
                 getRequest().setAttribute("questionInfo", buildQuestions());
+                getRequest().setAttribute(Constants.TERMS, getTerms());
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                 setNextPage("/dev/regTerms.jsp");
                 setIsNextPageInContext(true);
@@ -56,6 +60,12 @@ public class ViewRegistration extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+
+    }
+
+    private String getTerms() throws Exception {
+        TermsOfUseLocal t = (TermsOfUseLocal)createLocalEJB(getInitialContext(), TermsOfUse.class);
+        return t.getText(Constants.PROJECT_TERMS_ID, DBMS.OLTP_DATASOURCE_NAME);
 
     }
 
@@ -144,9 +154,9 @@ public class ViewRegistration extends Base {
 
 //long userId, long componentId, long projectId, int rating, String comment, boolean agreedToTerms, int phase, int version
 
-    protected ComponentRegistrationServices getRegEJB() throws Exception {
+    protected ComponentRegistrationServicesLocal getRegEJB() throws Exception {
         if (regServices == null) {
-            regServices = (ComponentRegistrationServices) createEJB(getInitialContext(),
+            regServices = (ComponentRegistrationServicesLocal) createLocalEJB(getInitialContext(),
                     ComponentRegistrationServices.class);
         }
         return regServices;
