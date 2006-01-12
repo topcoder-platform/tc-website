@@ -507,7 +507,10 @@ public class AutoPilot {
                 Date curDate = new Date(System.currentTimeMillis());
 
                 int timeDiff = 0;
-                Date phaseEndDate = info.getCurrentPhaseInstance().getEndDate();
+
+                Date phaseEndDate = project.getCurrentPhaseInstance().getEndDate();
+
+//                Date phaseEndDate = info.getCurrentPhaseInstance().getEndDate();
                 if (curDate.getTime() > phaseEndDate.getTime()) {
                     timeDiff = workDays.getWorkableMinutes(phaseEndDate, curDate);
                 } else {
@@ -537,7 +540,7 @@ public class AutoPilot {
                 System.out.println("timeline[j].getStartDate() : " + timeline[j].getStartDate().toString());
                 System.out.println("timeline[j].getEndDate() : " + timeline[j].getEndDate().toString());
                         }
-                        if (timeline[j].getPhase().getId() == info.getCurrentPhaseInstance().getPhase().getId()) {
+                        if (timeline[j].getPhase().getId() == project.getCurrentPhaseInstance().getPhase().getId()) {
                             // If the phase ends early. In this case, adjust the duration of the phase to the correct time.
                             if (timeDiff < 0) {
                 System.out.println("timeline[j].getEndDate() first : " + timeline[j].getEndDate().toString());

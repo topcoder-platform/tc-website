@@ -238,6 +238,18 @@ public class Project implements Serializable {
 
     /**
      * <p>
+     * Return the current phase of this project.
+     * </p>
+     *
+     * PLK !!!
+     * @return the current phase of this project.
+     */
+    public PhaseInstance getCurrentPhaseInstance() {
+        return currentPhase;
+    }
+
+    /**
+     * <p>
      * Set the current phase of this project.
      * </p>
      *
