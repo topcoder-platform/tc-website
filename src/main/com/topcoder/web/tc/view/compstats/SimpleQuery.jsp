@@ -37,7 +37,7 @@
         <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 
             <% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result");
-            String pageSubTitle = request.getAttribute("pageSubTitle");%>
+            String pageSubTitle = (String)request.getAttribute("pageSubTitle");%>
 
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="statistics_w"/>
