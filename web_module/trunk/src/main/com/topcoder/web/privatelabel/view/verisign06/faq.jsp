@@ -37,12 +37,10 @@
     <tr>
       <td align="left" valign="top" colspan="2" style="padding: 0px 0px 0px 20px;">
 
-         <span valign=top><jsp:include page="right.jsp" /></span>
-         <br/><br/><br/>
+         <span valign=top><jsp:include page="right.jsp" /></span><br>
          
-         <span class="blkBigHead">FAQ</span>
-         <br/><br/>
-         
+         <p class="blkBigHead">FAQ</p>
+
 <b>Is there a way to practice before the elimination rounds?</b><br>
 You may use your handle and password to login to the competition arena.  Within the arena there is a practice area that mimics the functionality of the real competition.  Nothing that you do in the practice room will count against you in the competition.
 <br><br>

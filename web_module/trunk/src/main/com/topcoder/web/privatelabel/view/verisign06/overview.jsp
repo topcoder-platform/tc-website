@@ -37,17 +37,14 @@
     <tr>
       <td align="left" valign="top" colspan="2" style="padding: 0px 0px 0px 20px;">
 
-         <span valign=top><jsp:include page="right.jsp" /></span>
-         <br/><br/><br/>
+         <span valign=top><jsp:include page="right.jsp" /></span><br>
          
-         <span class="blkBigHead">VeriSign&#153; Coder Challenge 2006</span>
-         <br/><br/>
-         
-We're giving employees and interns of the sponsors of the TopCoder Open 2006 a tournament of their own. It's a chance to compete among your peers in the Sponsor Track Competition, open to all employees of companies sponsoring the TCO.  <br><br>
-<br>
+         <p class="blkBigHead">VeriSign&#153; Coder Challenge 2006</p>
+        
+We're giving employees and interns of the sponsors of the TopCoder Open 2006 a tournament of their own. It's a chance to compete among your peers in the Sponsor Track Competition, open to all employees of companies sponsoring the TCO. 
+<br/><br/><br/>
+<span class="redHead">This is how it works:</span><br/>
 
-<span class="redHead">This is how it works:</span>
-<br><br>
 The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints.
 <br><br>
 The competition is available in four programming languages - Java, C++, C#, and VB.
@@ -67,10 +64,9 @@ Here's the line-by-line documentation:
    <b>System Tests</b><br/>
    Within minutes of the end of the Challenge Phase, the automated, objective system tests determine the accuracy of all submissions and award final points to all competitors. The assessment of your performance and presentation of stats is nearly instantaneous, as is the gratification of knowing how you did against a competitive field.
 </div>
-<br><br><br/>
+<br/><br/><br/>
+<span class="redHead">Here's what you'll need to know:</span><br/>
 
-<span class="redHead">Here's what you'll need to know:</span>
-<br><br>
 Registration for the VeriSign&#153; Coder Challenge 2006 is open from Monday, February 13, 2006 to Tuesday, February 28, 2006.  Registration is unlimited, but only the top 100 scorers from the Qualification Round will advance to Round 1 of the Coder Challenge on March 4, 2006.
 <br><br>
 <table width="600" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
@@ -144,10 +140,9 @@ Registration for the VeriSign&#153; Coder Challenge 2006 is open from Monday, Fe
 
 <br><br>
 The competitors with the top 50 scores from Round 1 will advance to Round 2 on March 8th. The top 25 performers in Round 2 will advance to Round 3 on March 15th. Only the top 10 scorers in Round 3 will be invited to compete in the Championship Round on March 22nd.
-<br><br><br/>
+<br/><br/><br/>
+<span class="redHead">Registration</span><br/>
 
-<span class="redHead">Registration</span>
-<br><br>
 Already a TopCoder Member?
 <ul>
 <li>Click <a href="#">here</a> to register for the VeriSign Coder Challenge</li>
@@ -164,10 +159,8 @@ Not Yet a TopCoder Member?
 The competition is free and you must be a registered TopCoder member who is at least 18 years old to be eligible. 
 <br><br>
 See the official <a href="/pl/?module=Static&d1=verisign06&d2=rules">rules and regulations</a> for more details.
-<br><br><br>
-
-<span class="redHead">Prizes ????</span>
-<br><br>
+<br/><br/><br/>
+<span class="redHead">Prizes ????</span><br>
 The 100 participants in Round 1 will receive a "VeriSign&#153; Coder Challenge 2006" t-shirt. All 10 finalists that compete in the Championship Round will receive a cash prize as follows:
 <br><br>
 <div class=indented>
