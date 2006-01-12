@@ -514,6 +514,7 @@ public class AutoPilot {
                     timeDiff = workDays.getWorkableMinutes(curDate, phaseEndDate) * -1;
                 }
 
+                System.out.println("timeDiff : " + timeDiff);
                 if (timeDiff != 0) {
                     boolean startUpdatingPhases = false;
                     PhaseInstance[] timeline = project.getTimeline();
