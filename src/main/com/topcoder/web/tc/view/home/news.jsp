@@ -8,6 +8,20 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>01.12.06<br>1:20 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">What makes a <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_summary">Design</A> or <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_summary">Development</A> Champion a Champion?</span><br><br>
+      We asked some reviewers from the TCO05 Component Competition Finals to tell us what made the champions' submissions stand out from the others.  Take a look at what they had to say.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_summary">design</A>&#160;|&#160;
+      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_summary">development</A>&#160;|&#160;
+      <tc-webtag:forumLink forumID="505890" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>01.12.06<br>9:10 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -312,34 +326,6 @@
          <A href="/tc?module=Static&d1=collegetour&d2=description">details</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505877" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>12.13.05<br>4:55 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=maxFlow">Maximum Flow Tutorial</A></span><br><br>
-        This article covers a problem that often arises in real life situations and, as expected, in programming contests, with TopCoder being no exception.</td>
-      <td class="newsPhoto"><img src="/i/m/_efer__mug.gif" /><br>by <tc-webtag:handle coderId="8593420" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=maxFlow">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505876" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>12.13.05<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=instructions">Introducing Marathon Matches</A></span><br><br>
-      We're proud to introduce a new type of competition for TopCoder members.  The beta starts this week.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/longcontest/?module=Static&d1=instructions">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505875" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 
