@@ -1,46 +1,61 @@
-
 package com.topcoder.web.tc.controller.request.compstats;
 
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.security.ClassResource;
-import com.topcoder.web.common.PermissionException;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
-import java.util.Iterator;
+import com.topcoder.web.tc.controller.request.Static;
+
 import java.util.Map;
+import java.util.MissingResourceException;
+import java.util.HashMap;
+import java.util.Iterator;
 
-/**
- *
- * @author coachbudka
- */
-public class SimpleQuery extends Base {
-    private static final String COMMAND = "command";
-    private static final String QUERY = "query";
-    private static final String JSP = "jsp";
-    
-    protected void businessProcessing() throws TCWebException {
-        try {
-            String command = StringUtils.checkNull(getRequest().getParameter(COMMAND));
-            String query = StringUtils.checkNull(getRequest().getParameter(QUERY));
-            String jsp = StringUtils.checkNull(getRequest().getParameter(JSP));
-            
-            if (command == null) throw new TCWebException("No \"" + COMMAND + "\" parameter supplied");
-            if (query == null) query = command;
-            if (jsp == null) throw new TCWebException("No \"" + JSP + "\" parameter supplied");
-            
-			ResultSetContainer rsc = queryDB(command, query);
-			getRequest().setAttribute("result", rsc);
-            setNextPage("/compstats/" + jsp + ".jsp");
-            setIsNextPageInContext(true);
+public class SimpleQuery extends Static {
 
-        } catch (TCWebException we) {
-            throw we;
-        } catch (Exception e) {
-            throw new TCWebException(e);
+    private static TCResourceBundle bundle = new TCResourceBundle("RecordBook");
+
+    protected void businessProcessing() throws Exception {
+        Request dataRequest = new Request();
+
+        Map map = getRequest().getParameterMap();
+        HashMap filteredMap = new HashMap();
+        Map.Entry me = null;
+        for (Iterator it = map.entrySet().iterator(); it.hasNext();) {
+            me = (Map.Entry)it.next();
+            if (!me.getKey().equals(Constants.MODULE_KEY)&&
+                    !me.getKey().equals(DataAccessConstants.SORT_COLUMN)&&
+                    !me.getKey().equals(DataAccessConstants.SORT_DIRECTION)) {
+                filteredMap.put(me.getKey(), me.getValue());
+            }
         }
+
+        dataRequest.setProperties(filteredMap);
+        DataAccessInt dai = getDataAccess(DBMS.DW_DATASOURCE_NAME, true);
+        Map result = dai.getData(dataRequest);
+
+        ResultSetContainer rsc = (ResultSetContainer) result.get(dataRequest.getContentHandle());
+        String sortCol = getRequest().getParameter(DataAccessConstants.SORT_COLUMN);
+        String sortDir = getRequest().getParameter(DataAccessConstants.SORT_DIRECTION);
+        if (sortCol != null && sortDir != null && rsc != null)
+            rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
+
+        getRequest().setAttribute("resultMap", result);
+        getRequest().setAttribute("result", rsc);
+
+        try {
+            String nextPage = bundle.getProperty(dataRequest.getContentHandle());
+            setNextPage(nextPage);
+            setIsNextPageInContext(true);
+        } catch (MissingResourceException e) {
+            super.businessProcessing();
+        }
+
+
     }
 
 }
