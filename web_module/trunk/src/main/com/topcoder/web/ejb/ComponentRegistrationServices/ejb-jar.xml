@@ -14,13 +14,11 @@
             <ejb-name>ComponentRegistrationServices</ejb-name>
             <home>com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesHome</home>
             <remote>com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices</remote>
-            <!--
-                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
-                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
-            -->
+            <local-home>com.topcoder.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocalHome</local-home>
+            <local>com.topcoder.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal</local>
             <ejb-class>com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesBean</ejb-class>
-            <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
         </session>
     </enterprise-beans>
     <assembly-descriptor>
