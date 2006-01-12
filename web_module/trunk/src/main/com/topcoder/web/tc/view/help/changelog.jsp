@@ -42,7 +42,6 @@
         <ul>
             <li>some bug fixes/enhancements for the college tour pages</li>
             <li>changed how component registration questions are flaged in db</li>
-            <li>be more particular about birth dates in pacts</li>
         </ul>
 
     </p>
@@ -50,7 +49,7 @@
         4.1.5 - 2006.01.04
         <ul>
             <li>allow people to see solutions (other than their own) for practice long contest rounds.</li>
-            <li>passwords may only contains the ascii characters we allow</li>
+            <li>passwords may only contains the characters we allow</li>
             <li>make the comp projects page a jsp, rename it active contests</li>
             <li>make the multiplier status page be a jsp and call it registrants</li>
             <li>some bug fixes/enhancements for the college tour pages</li>
