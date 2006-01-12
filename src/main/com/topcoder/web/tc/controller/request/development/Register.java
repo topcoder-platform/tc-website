@@ -78,7 +78,7 @@ public class Register extends ViewRegistration {
                 //we're assuming if we got here, we had a valid project id
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                 setNextPage("/dev/regTerms.jsp");
-                setNextPage("true");
+                setIsNextPageInContext(true);
             }
 
         } catch (TCWebException e) {
