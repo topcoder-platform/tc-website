@@ -515,6 +515,8 @@ public class AutoPilot {
                 }
 
                 System.out.println("curDate : " + curDate.toString());
+                System.out.println("phaseEndDate : " + phaseEndDate.toString());
+
                 System.out.println("timeDiff : " + timeDiff);
                 if (timeDiff != 0) {
                     boolean startUpdatingPhases = false;
