@@ -14,8 +14,8 @@
             <ejb-name>ComponentRegistrationServices</ejb-name>
             <home>com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesHome</home>
             <remote>com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices</remote>
-            <local-home>com.topcoder.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocalHome</local-home>
-            <local>com.topcoder.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal</local>
+            <local-home>com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocalHome</local-home>
+            <local>com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal</local>
             <ejb-class>com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesBean</ejb-class>
             <session-type>Stateless</session-type>
             <transaction-type>Bean</transaction-type>
