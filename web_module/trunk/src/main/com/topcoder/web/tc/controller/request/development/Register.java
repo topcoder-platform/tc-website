@@ -74,6 +74,7 @@ public class Register extends ViewRegistration {
                 }
             } else {
                 getRequest().setAttribute("questionInfo", buildQuestions());
+                setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                 setNextPage("/dev/regTerms.jsp");
                 setNextPage("true");
             }
