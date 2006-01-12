@@ -10,7 +10,6 @@ import com.jivesoftware.forum.ForumFactory;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.SimpleResource;
-import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.BaseServlet;
