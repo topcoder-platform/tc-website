@@ -14,13 +14,11 @@
             <ejb-name>TermsOfUse</ejb-name>
             <home>com.topcoder.web.ejb.termsofuse.TermsOfUseHome</home>
             <remote>com.topcoder.web.ejb.termsofuse.TermsOfUse</remote>
-            <!--
-                        <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
-                        <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
-            -->
+            <local-home>com.topcoder.web.ejb.termsofuse.TermsOfUseLocalHome</local-home>
+            <local>com.topcoder.web.ejb.termsofuse.TermsOfUseLocal</local>
             <ejb-class>com.topcoder.web.ejb.termsofuse.TermsOfUseBean</ejb-class>
-            <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
         </session>
     </enterprise-beans>
     <assembly-descriptor>
