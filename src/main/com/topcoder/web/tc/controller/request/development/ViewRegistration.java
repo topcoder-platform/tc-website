@@ -47,6 +47,7 @@ public class ViewRegistration extends Base {
             if (getRequest().getAttribute(Constants.MESSAGE) == null) {
                 getRequest().setAttribute("questionInfo", buildQuestions());
                 setDefault(Constants.TERMS, getTerms());
+                //we're assuming that if we're here, we got a valid project id
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                 setNextPage("/dev/regTerms.jsp");
                 setIsNextPageInContext(true);
