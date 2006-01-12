@@ -25,7 +25,7 @@ width:100%;
 background: #FFFFFF url(/i/interface/top_bg.gif) top center repeat-x;
 vertical-align: top;
 font-size: 10px;
-padding: 3px 0px 28px 5px;
+padding: 5px 0px 28px 3px;
 white-space: nowrap; 
 }
 #outer
@@ -46,7 +46,7 @@ left: 0px;
 <div align="center">
    <div id="outer">
       <div id="inner">
-      <img src="/i/interface/topcoder.gif" alt="TopCoder" />
+      <A href="/"><img src="/i/interface/topcoder.gif" alt="TopCoder" /></A>
       </div>
    </div>
 </div>
