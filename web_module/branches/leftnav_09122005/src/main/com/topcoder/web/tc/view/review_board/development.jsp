@@ -15,6 +15,9 @@
 <title>Development Review Board at TopCoder</title>
 
 <jsp:include page="../script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 </head>
 
@@ -27,10 +30,9 @@
 
 <!-- Left Column Begins -->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="review_board"/>
-                <jsp:param name="level2" value="development"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="comp_dev_review_board"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -40,21 +42,6 @@
 
 <!-- Center Column Begins -->
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
-        <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="review_boards"/>
-           <jsp:param name="image1" value="white"/>
-           <jsp:param name="title" value=""/>
-        </jsp:include>
-
-            <table border="0" cellspacing="10" cellpadding="0" width="100%" align="center">
-                <tr>
-                    <td width="49%"></td>
-<%--         <td height="42"><A href="/tc?module=Static&amp;d1=review_board&amp;d2=competition"  target="_top"><img src="/i/promos/competition_rb_promo.gif" alt="competition" width="175" height="86" border="0" /></A></td>--%>
-                    <td height="42"><A href="/tc?module=ReviewBoard&ph=112"  target="_top"><img src="/i/promos/design_rb_promo.gif" alt="competition" width="175" height="86" border="0" /></A></td>
-                    <td height="42"><A href="/tc?module=ReviewBoard&ph=113"  target="_top"><img src="/i/promos/development_rb_promo.gif" alt="competition" width="175" height="86" border="0" /></A></td>
-                    <td width="49%"></td>
-                </tr>
-            </table>
 
             <table width="100%" border="0" cellpadding="3" cellspacing="0">
                 <tr><td valign="middle" bgcolor="#999999" colspan="3" class="statText"><font size="3"><strong> Development Review Board</strong></font></td></tr>

@@ -41,11 +41,10 @@
 
 <!-- Center Column Begins -->
         <td class="bodyText" width="99%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
-        <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="review_boards"/>
-           <jsp:param name="image1" value="white"/>
-           <jsp:param name="title" value=""/>
-        </jsp:include>
+
+            <table width="100%" border="0" cellpadding="3" cellspacing="0">
+                <tr><td valign="middle" bgcolor="#999999" colspan="3" class="statText"><font size="3"><strong> Design Review Board</strong></font></td></tr>
+            </table>
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
