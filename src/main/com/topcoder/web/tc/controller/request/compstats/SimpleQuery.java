@@ -48,8 +48,9 @@ public class SimpleQuery extends Static {
         getRequest().setAttribute("result", rsc);
 
         try {
-            String nextPage = bundle.getProperty(dataRequest.getContentHandle());
-            setNextPage("/compstats/" + nextPage);
+            String pageTitle = bundle.getProperty(dataRequest.getContentHandle());
+            getRequest().setAttribute("pageSubTitle", pageTitle);
+            setNextPage("/compstats/SimpleQuery.jsp");
             setIsNextPageInContext(true);
         } catch (MissingResourceException e) {
             super.businessProcessing();
