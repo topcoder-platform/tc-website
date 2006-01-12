@@ -755,8 +755,8 @@
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
-    </tag>    
-    
+    </tag>
+
 	<tag>
         <name>answerInput</name>
         <tagclass>com.topcoder.web.common.tag.AnswerInput</tagclass>
