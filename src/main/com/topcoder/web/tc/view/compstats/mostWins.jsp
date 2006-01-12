@@ -41,13 +41,14 @@
                 <jsp:param name="title" value="Component Contest Details"/>
             </jsp:include>
 
-            <% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result");%>
+            <% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result");
+            out.print(rsc);%>
             <table>
                 <tr><td>Most wins</td></tr>
 
-				<rsc:iterator list="<%=rsc%>" id="row">
+				<%--<rsc:iterator list="<%=rsc%>" id="row">
 					<tr><td><rsc:item name="coder"/></td><td><rsc:item name="num_wins"/></td></tr>
-				</rsc:iterator>
+				</rsc:iterator>--%>
             </table>
 
 
