@@ -1,5 +1,4 @@
 <table valign="top" class=rgtBoxTable align=right cellspacing=0 cellpadding=0>
-   <tr><td><img height="8" border="0" width="180" src="/i/events/verisign06/spacer.gif" /></td></tr>
    <tr>
       <td align=center class=boxRedBorder>
       <A href="/"><img align="center" src="/i/events/verisign06/pbtc_logo.gif" alt="Powered by TopCoder" border="0"/></A>
@@ -23,7 +22,7 @@
    <tr><td>&#160;</td></tr>
    <tr>
       <td align=left nowrap=nowrap class=boxTan>
-      <span class=yelSubtitle>$155,000 in Cash Prizes ??</span>
+      <span class=yelSubtitle>$155,000 <br>in Cash Prizes</span>
       <br/><br/>
       <b>1st Place - $10,000</b><br/>
       2nd to 10th Place - $5,000<br/>

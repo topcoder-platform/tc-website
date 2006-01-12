@@ -37,12 +37,11 @@
     <tr>
       <td align="left" valign="top" colspan="2" style="padding: 0px 0px 0px 20px;">
 
-         <span valign=top><jsp:include page="right.jsp" /></span>
-         <br/><br/><br/>
+         <span valign=top><jsp:include page="right.jsp" /></span><br>
          
-         <span class="blkBigHead">Official Rules and Regulations</span>
-         <br/><br/>
-
+         <p class="blkBigHead">Official Rules and Regulations</p>
+         <br/>
+         
 <span class="redHead">No purchase necessary to enter or win. Void where prohibited.</span>
 <br><br><br>
 <span class="redHead">Overview of the Tournament</span>

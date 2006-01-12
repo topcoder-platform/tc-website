@@ -37,11 +37,10 @@
     <tr>
       <td align="left" valign="top" colspan="2" style="padding: 0px 0px 0px 20px;">
 
-         <span valign=top><jsp:include page="right.jsp" /></span>
-         <br/><br/><br/>
+         <span valign=top><jsp:include page="right.jsp" /></span><br>
          
-         <span class="blkBigHead">Advancers</span>
-         <br/><br/>
+         <p class="blkBigHead">Advancers</p>
+         <br/>
 
          <table class="tableFrame" cellpadding="5" cellspacing="2">
          <tr>

@@ -37,11 +37,10 @@
     <tr>
       <td align="left" valign="top" colspan="2" style="padding: 0px 0px 0px 20px;">
 
-         <span valign=top><jsp:include page="right.jsp" /></span>
-         <br/><br/><br/>
+         <span valign=top><jsp:include page="right.jsp" /></span><br>
          
-         <span class="blkBigHead">Tough problems. Intense competition. No pressure.</span>
-         <br/><br/>
+         <p class="blkBigHead">Tough problems. Intense competition. No pressure.</p>
+         <br/>
 
 <span class="redHead">Loading the Competition Arena</span><br>
 Load the application by clicking the Competition Arena link at the top.  You need at least <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version 1.4</A> to run the Arena.  Click <A href="http://java.sun.com/getjava/index.jsp " target="_blank">here</A> if you do not have Java Runtime 1.4 installed.
