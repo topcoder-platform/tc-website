@@ -49,7 +49,7 @@ public class SimpleQuery extends Static {
 
         try {
             String nextPage = bundle.getProperty(dataRequest.getContentHandle());
-            setNextPage(nextPage);
+            setNextPage("/compstats/" + nextPage);
             setIsNextPageInContext(true);
         } catch (MissingResourceException e) {
             super.businessProcessing();
