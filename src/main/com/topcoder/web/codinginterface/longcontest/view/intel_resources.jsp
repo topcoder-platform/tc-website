@@ -37,7 +37,7 @@
 
     <jsp:include page="page_title.jsp">
         <jsp:param name="image" value="long_comps_intel"/>
-        <jsp:param name="title" value="How to Compete"/>
+        <jsp:param name="title" value="Resources"/>
     </jsp:include>
 
 <p align="center">
