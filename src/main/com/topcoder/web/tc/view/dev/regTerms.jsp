@@ -45,7 +45,7 @@
             </jsp:include>
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
-            <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="surveyForm">
+            <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
                 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ProjectRegister"/>
                 <tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID%>"/>
 
@@ -79,6 +79,14 @@
                     </table>
                     <p><br/></p>
                 </tc:questionIterator>
+
+                <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="10" cols="60"/>
+
+                I Agree to the Terms and Conditions stated above&#160;<tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
+
+                <p>
+                    <A href="#" onclick="Javascript:document.regForm.submit();">Register</A>
+                </p>
 
             </form>
         </td>
