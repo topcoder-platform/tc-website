@@ -85,7 +85,7 @@
                 I Agree to the Terms and Conditions stated above&#160;<tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
 
                 <p>
-                    <A href="#" onclick="Javascript:document.regForm.submit();">Register</A>
+                    <A href="Javascript:document.regForm.submit();">Register</A>
                 </p>
 
             </form>
