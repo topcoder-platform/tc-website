@@ -155,6 +155,7 @@
             <%  if (message.getUser() != null && message.getUser().equals(user)) { %>
             | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">Edit</A>
             <%   } %>
+            (<font color="green">+13</font>/0) [+][-]
           </td>
         </tr>
       <tr>
