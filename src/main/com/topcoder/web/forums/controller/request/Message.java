@@ -66,6 +66,6 @@ public class Message extends ForumsProcessor {
      private boolean isSelectedView(String threadView, String view) {
          return (threadView.equals(view) ||
                 (threadView.equals("") && (authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals(view)) ||
-                (threadView.equals("") && user.getProperty("jiveThreadMode").equals(view))); 
+                (threadView.equals("") && user != null && user.getProperty("jiveThreadMode").equals(view))); 
      }
 }
