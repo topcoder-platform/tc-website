@@ -16,7 +16,7 @@
       nav.search("m_competitions").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_algo_competitions')\" class=\"exp\">Algorithm Competitions</a>", "m_algo_competitions"));
          nav.search("m_algo_competitions").addChild(new NavNode("", "Home", "algo_home"));
          nav.search("m_algo_competitions").addChild(new NavNode("Javascript:arena()", "Compete / Launch Arena", "algo_arena"));
-         nav.search("m_algo_competitions").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_algo_stats')\" class=\"exp\">Competition Statistics</a>", "m_algo_stats"));
+         nav.search("m_algo_competitions").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_algo_stats')\" class=\"exp\">Statistics</a>", "m_algo_stats"));
             nav.search("m_algo_stats").addChild(new NavNode("", "Match Archive", "algo_match_archive"));
             nav.search("m_algo_stats").addChild(new NavNode("", "Match Overviews", "algo_match_overviews"));
             nav.search("m_algo_stats").addChild(new NavNode("", "Match Results", "algo_match_results"));
@@ -31,24 +31,37 @@
             nav.search("m_algo_support").addChild(new NavNode("", "Rating System", "algo_rating_system"));
             nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=help&d2=algPayment", "How to Get Paid", "algo_get_paid"));
             nav.search("m_algo_support").addChild(new NavNode("", "Charity Donations", "Charity Donations"));
-      nav.search("m_competitions").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_comp_competitions')\" class=\"exp\">Component Competitions</a>", "m_comp_competitions"));
-         nav.search("m_comp_competitions").addChild(new NavNode("", "Home", "component_home"));
-         nav.search("m_comp_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewActiveContests", "Compete", "component_active_contests"));
-         nav.search("m_comp_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReviewProjects", "Review Submissions", "comp_review"));
-         nav.search("m_comp_competitions").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_comp_stats')\" class=\"exp\">Competition Statistics</a>", "m_comp_stats"));
-            nav.search("m_comp_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&pi=112", "Design Contests", "comp_des_contests"));
-            nav.search("m_comp_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&pi=113", "Development Contests", "comp_dev_contests"));
-         nav.search("m_comp_competitions").addChild(new NavNode("", "Top Ranked Members", "comp_top_ranked"));
-         nav.search("m_comp_competitions").addChild(new NavNode("", "Record Book", "comp_record_book"));
-         nav.search("m_comp_competitions").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_comp_review_board')\" class=\"exp\">Meet the Review Board</a>", "m_comp_review_board"));
-            nav.search("m_comp_review_board").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ReviewBoard&ph=112", "Design", "comp_des_review_board"));
-            nav.search("m_comp_review_board").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ReviewBoard&ph=113", "Development", "comp_dev_review_board"));
-         nav.search("m_comp_competitions").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_comp_support')\" class=\"exp\">Support / Documentation</a>", "m_comp_support"));
-            nav.search("m_comp_support").addChild(new NavNode("", "How to Compete", "comp_how_to_compete"));
-            nav.search("m_comp_support").addChild(new NavNode("", "How to Get Paid", "comp_how_to_get_paid"));
-            nav.search("m_comp_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=support&d3=compDocumentation", "Documentation", "comp_documentation"));
-            nav.search("m_comp_support").addChild(new NavNode("", "Ratings", "comp_ratings"));
-            nav.search("m_comp_support").addChild(new NavNode("", "Reliability Ratings", "comp_reliability_ratings"));
+
+      nav.search("m_competitions").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_des_competitions')\" class=\"exp\">Design Competitions</a>", "m_des_competitions"));
+         nav.search("m_des_competitions").addChild(new NavNode("", "Home", "des_home"));
+         nav.search("m_des_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewActiveContests", "Compete", "des_active_contests"));
+         nav.search("m_des_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReviewProjects", "Review Submissions", "des_review"));
+         nav.search("m_des_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&pi=112", "Statistics", "des_stats"));
+         nav.search("m_des_competitions").addChild(new NavNode("", "Top Ranked Members", "des_top_ranked"));
+         nav.search("m_des_competitions").addChild(new NavNode("", "Record Book", "des_record_book"));
+         nav.search("m_des_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ReviewBoard&ph=112", "Review Board", "des_review_board"));
+         nav.search("m_des_competitions").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_des_support')\" class=\"exp\">Support / Documentation</a>", "m_des_support"));
+            nav.search("m_des_support").addChild(new NavNode("", "How to Compete", "comp_how_to_compete"));
+            nav.search("m_des_support").addChild(new NavNode("", "How to Get Paid", "comp_how_to_get_paid"));
+            nav.search("m_des_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=support&d3=compDocumentation", "Documentation", "comp_documentation"));
+            nav.search("m_des_support").addChild(new NavNode("", "Ratings", "comp_ratings"));
+            nav.search("m_des_support").addChild(new NavNode("", "Reliability Ratings", "comp_reliability_ratings"));
+
+      nav.search("m_competitions").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_dev_competitions')\" class=\"exp\">Development Competitions</a>", "m_dev_competitions"));
+         nav.search("m_dev_competitions").addChild(new NavNode("", "Home", "dev_home"));
+         nav.search("m_dev_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewActiveContests", "Compete", "dev_active_contests"));
+         nav.search("m_dev_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReviewProjects", "Review Submissions", "dev_review"));
+         nav.search("m_dev_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&pi=113", "Statistics", "dev_stats"));
+         nav.search("m_dev_competitions").addChild(new NavNode("", "Top Ranked Members", "dev_top_ranked"));
+         nav.search("m_dev_competitions").addChild(new NavNode("", "Record Book", "dev_record_book"));
+         nav.search("m_dev_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ReviewBoard&ph=113", "Review Board", "dev_review_board"));
+         nav.search("m_dev_competitions").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_dev_support')\" class=\"exp\">Support / Documentation</a>", "m_dev_support"));
+            nav.search("m_dev_support").addChild(new NavNode("", "How to Compete", "comp_how_to_compete"));
+            nav.search("m_dev_support").addChild(new NavNode("", "How to Get Paid", "comp_how_to_get_paid"));
+            nav.search("m_dev_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=support&d3=compDocumentation", "Documentation", "comp_documentation"));
+            nav.search("m_dev_support").addChild(new NavNode("", "Ratings", "comp_ratings"));
+            nav.search("m_dev_support").addChild(new NavNode("", "Reliability Ratings", "comp_reliability_ratings"));
+
       nav.search("m_competitions").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_competitor_stats')\" class=\"exp\">Member Statistics</a>", "m_competitor_stats"));
          nav.search("m_competitor_stats").addChild(new NavNode("", "Find a Competitor", "competitor_find"));
          nav.search("m_competitor_stats").addChild(new NavNode("", "Competitor Profile", "competitor_profile"));
@@ -74,6 +87,28 @@
    request.setAttribute("tree", nav);
 
 %>
+
+<%--
+      nav.search("m_competitions").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_comp_competitions')\" class=\"exp\">Development Competitions</a>", "m_comp_competitions"));
+         nav.search("m_comp_competitions").addChild(new NavNode("", "Home", "development_home"));
+         nav.search("m_comp_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewActiveContests", "Compete", "component_active_contests"));
+         nav.search("m_comp_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReviewProjects", "Review Submissions", "comp_review"));
+         nav.search("m_comp_competitions").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_comp_stats')\" class=\"exp\">Competition Statistics</a>", "m_comp_stats"));
+            nav.search("m_comp_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&pi=112", "Design Contests", "comp_des_contests"));
+            nav.search("m_comp_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&pi=113", "Development Contests", "comp_dev_contests"));
+         nav.search("m_comp_competitions").addChild(new NavNode("", "Top Ranked Members", "comp_top_ranked"));
+         nav.search("m_comp_competitions").addChild(new NavNode("", "Record Book", "comp_record_book"));
+         nav.search("m_comp_competitions").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_comp_review_board')\" class=\"exp\">Meet the Review Board</a>", "m_comp_review_board"));
+            nav.search("m_comp_review_board").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ReviewBoard&ph=112", "Design", "comp_des_review_board"));
+            nav.search("m_comp_review_board").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ReviewBoard&ph=113", "Development", "comp_dev_review_board"));
+         nav.search("m_comp_competitions").addChild(new NavNode("<a href=\"Javascript:toggleMenu('m_comp_support')\" class=\"exp\">Support / Documentation</a>", "m_comp_support"));
+            nav.search("m_comp_support").addChild(new NavNode("", "How to Compete", "comp_how_to_compete"));
+            nav.search("m_comp_support").addChild(new NavNode("", "How to Get Paid", "comp_how_to_get_paid"));
+            nav.search("m_comp_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=support&d3=compDocumentation", "Documentation", "comp_documentation"));
+            nav.search("m_comp_support").addChild(new NavNode("", "Ratings", "comp_ratings"));
+            nav.search("m_comp_support").addChild(new NavNode("", "Reliability Ratings", "comp_reliability_ratings"));
+--%>
+
 
 <script language="javascript" type="text/javascript">
 <!--
