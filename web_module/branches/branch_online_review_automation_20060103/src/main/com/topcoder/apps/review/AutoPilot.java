@@ -8,7 +8,6 @@ package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.*;
 import com.topcoder.apps.review.projecttracker.*;
-import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.message.email.EmailEngine;
 import com.topcoder.message.email.TCSEmailMessage;
 import com.topcoder.security.RolePrincipal;
@@ -200,6 +199,8 @@ public class AutoPilot {
             DocumentManagerLocal docManager = EJBHelper.getDocumentManager();
             ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
 
+            UserProjectInfo info = data.getProject();
+
             SecurityEnabledUser user = userManager.getUser(subject);
 
             Project project = projectTracker.getProject(data.getProject(), user.getTCSubject());
@@ -210,18 +211,46 @@ public class AutoPilot {
             AggregationReview[] aggReviews = docManager.getAggregationReview(project, user.getTCSubject());
 
             int count = 0;
+            boolean rejected = false;
 
             for (int i = 0; i < aggReviews.length; i++) {
                 if (aggReviews[i].isCompleted())
                     count++;
                 else
                     return new SuccessResult();
+
+                if (aggReviews[i].getStatus().getId() == AggregationApproval.ID_REJECTED) {
+                    rejected = true;
+                }
             }
 
             if (count < 2)
                 return new SuccessResult();
 
-            //move to final fixes
+            if (rejected) {
+                // Send mails to the product Manager and reviewers
+                UserRole[] participants = project.getParticipants();
+                for(int i = 0; i < participants.length;i++) {
+                    if( (participants[i].getRole().getId() == Role.ID_PRODUCT_MANAGER) ||
+                        (participants[i].getRole().getId() == Role.ID_REVIEWER) )
+                    {
+                        // PLK: ver si se puede mejorar con un xslt.
+                        StringBuffer mail = new StringBuffer();
+                        mail.append("The following project: \n\n");
+                        mail.append(project.getName());
+                        mail.append("\n\nhas rejected aggregation review. The project will be moved back to Aggregation");
+
+                        MailHelper.sendMail(user, participants[i].getUser(), "Aggregation Review results", mail.toString());
+//                        sendMail("autopilot@topcoder.com", participants[i].getUser().getEmail(), "AutoPilot: Review Notification", mail.toString());
+                    }
+                }
+                // move back to Aggregation
+                return advancePhase("Aggregation", docManager, user, project, info, false);
+            } else {
+                return advancePhase("Final Fixes", docManager, user, project, info, true);
+            }
+
+/*            //move to final fixes
             ProjectForm form = new ProjectForm();
 
             form.fromProject(project);
@@ -250,13 +279,13 @@ public class AutoPilot {
             ResultData result = new BusinessDelegate().projectAdmin(new_data);
             if (!(result instanceof SuccessResult)) {
                 return result;
-            }
+            }*/
 
         } catch (Exception e) {
             return new FailureResult(e.toString());
         }
 
-        return new SuccessResult();
+        /*return new SuccessResult();*/
     }
 
     public static ResultData aggregation(AggregationData data) {
@@ -382,6 +411,7 @@ public class AutoPilot {
         return new SuccessResult();
     }
 
+
     public static ResultData reviewFromTestcase(SolutionData data) {
         try {
             TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
@@ -413,7 +443,7 @@ public class AutoPilot {
             //setup user info
 
             DocumentManagerLocal docManager = EJBHelper.getDocumentManager();
-            ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
+            //ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
             //SecurityEnabledUser user = userManager.getUser(subject);
 
             //Project project = data.getReviewScorecard().getProject();
@@ -460,54 +490,55 @@ public class AutoPilot {
             if (testcases.length != 3)
                 return new SuccessResult();
 
-/*            UserProjectInfo[] projs = projectTracker.getProjectInfo(user.getTCSubject());
-            UserProjectInfo info = null;
-            for (int i = 0; i < projs.length; i++) {
-                if (projs[i].getId() == project.getId()) {
-                    info = projs[i];
+            return advancePhase("Appeals", docManager, user, project, info, true);
+
+        } catch (Exception e) {
+            return new FailureResult(e.toString());
+        }
+    }
+
+
+    public static ResultData advancePhase(String phase, DocumentManagerLocal docManager, SecurityEnabledUser user, Project project, UserProjectInfo info, boolean updateTimeline) {
+        try {
+            if (updateTimeline) {
+                TCWorkdays workDays = null;
+                workDays = new TCWorkdays(ConfigHelper.getString(ConfigHelper.WORKDAYS_CONF_FILE), TCWorkdays.XML_FILE_FORMAT);
+
+                Date curDate = new Date(System.currentTimeMillis());
+
+                int timeDiff = 0;
+                Date phaseEndDate = info.getCurrentPhaseInstance().getEndDate();
+                if (curDate.getTime() > phaseEndDate.getTime()) {
+                    timeDiff = workDays.getWorkableMinutes(phaseEndDate, curDate);
+                } else {
+                    timeDiff = workDays.getWorkableMinutes(curDate, phaseEndDate) * -1;
+                }
+
+                if (timeDiff != 0) {
+                    boolean startUpdatingPhases = false;
+                    PhaseInstance[] timeline = project.getTimeline();
+                    for (int j = 0; j < timeline.length; j++) {
+                        if (startUpdatingPhases) {
+                            if (timeDiff > 0) {
+                                timeline[j].setStartDate(workDays.add(timeline[j].getStartDate(), WorkdaysUnitOfTime.MINUTES, timeDiff));
+                                timeline[j].setEndDate(workDays.add(timeline[j].getEndDate(), WorkdaysUnitOfTime.MINUTES, timeDiff));
+                            } else {
+                                timeline[j].setStartDate(workDays.sub(timeline[j].getStartDate(), WorkdaysUnitOfTime.MINUTES, timeDiff * -1));
+                                timeline[j].setEndDate(workDays.sub(timeline[j].getEndDate(), WorkdaysUnitOfTime.MINUTES, timeDiff * -1));
+                            }
+                        }
+                        if (timeline[j].getPhase().getId() == info.getCurrentPhaseInstance().getPhase().getId()) {
+                            // If the phase ends early. In this case, adjust the duration of the phase to the correct time.
+                            if (timeDiff < 0) {
+                                timeline[j].setEndDate(workDays.sub(timeline[j].getEndDate(), WorkdaysUnitOfTime.MINUTES, timeDiff * -1));
+                            }
+                            startUpdatingPhases = true;
+                        }
+                    }
                 }
             }
 
-            if (info == null) return new FailureResult("Project not found");
-*/
-
-            TCWorkdays workDays = null;
-            workDays = new TCWorkdays(ConfigHelper.getString(ConfigHelper.WORKDAYS_CONF_FILE), TCWorkdays.XML_FILE_FORMAT);
-
-            Date curDate = new Date(System.currentTimeMillis());
-
-            int timeDiff = 0;
-            Date phaseEndDate = info.getCurrentPhaseInstance().getEndDate();
-            if (curDate.getTime() > phaseEndDate.getTime()) {
-                timeDiff = workDays.getWorkableMinutes(phaseEndDate, curDate);
-            } else {
-                timeDiff = workDays.getWorkableMinutes(curDate, phaseEndDate) * -1;
-            }
-
-            if (timeDiff != 0) {
-                boolean startUpdatingPhases = false;
-                PhaseInstance[] timeline = project.getTimeline();
-                for (int j = 0; j < timeline.length; j++) {
-                    if (startUpdatingPhases) {
-                        if (timeDiff > 0) {
-                            timeline[j].setStartDate(workDays.add(timeline[j].getStartDate(), WorkdaysUnitOfTime.MINUTES, timeDiff));
-                            timeline[j].setEndDate(workDays.add(timeline[j].getEndDate(), WorkdaysUnitOfTime.MINUTES, timeDiff));
-                        } else {
-                            timeline[j].setStartDate(workDays.sub(timeline[j].getStartDate(), WorkdaysUnitOfTime.MINUTES, timeDiff * -1));
-                            timeline[j].setEndDate(workDays.sub(timeline[j].getEndDate(), WorkdaysUnitOfTime.MINUTES, timeDiff * -1));
-                        }
-                    }
-                    if (timeline[j].getPhase().getId() == info.getCurrentPhaseInstance().getPhase().getId()) {
-                        // If the phase ends early. In this case, adjust the duration of the phase to the correct time.
-                        if (timeDiff < 0) {
-                            timeline[j].setEndDate(workDays.sub(timeline[j].getEndDate(), WorkdaysUnitOfTime.MINUTES, timeDiff * -1));
-                        }
-                        startUpdatingPhases = true;
-                    }
-                }
-            }
-
-            //advance to appeals
+            //advance phase
             ProjectForm form = new ProjectForm();
 
             form.fromProject(project);
@@ -516,25 +547,28 @@ public class AutoPilot {
 
             form.setScorecardTemplates(docManager.getScorecardTemplates());
 
-            form.setCurrentPhase("Appeals");
+            form.setCurrentPhase(phase);
 
-            form.setReason("auto pilot advancing to appeals");
+            form.setReason("auto pilot advancing to " + phase);
+
+            if (phase.equals("Review")) {
+                //check for screening scorecard template
+                if (form.getReviewTemplateId() == -1) {
+                    String template = docManager.getDefaultScorecardTemplate(project.getProjectType().getId(), ReviewScorecard.SCORECARD_TYPE).getName();
+                    form.setReviewTemplate(template);
+                }
+            }
 
             OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, info);
 
             ProjectData new_data = form.toActionData(orpd);
             ResultData result = new BusinessDelegate().projectAdmin(new_data);
-            if (!(result instanceof SuccessResult)) {
-                return result;
-            }
 
+            return result;
         } catch (Exception e) {
             return new FailureResult(e.toString());
         }
-
-        return new SuccessResult();
     }
-
 
     public static ResultData reviewPMReview(ProjectData data) {
         try {
@@ -811,7 +845,7 @@ public class AutoPilot {
         return new SuccessResult();
     }
 
-    public static ResultData reviewEmail(ReviewData data) {
+/*    public static ResultData reviewEmail(ReviewData data) {
         try {
             //setup user info
             TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
@@ -900,7 +934,7 @@ public class AutoPilot {
         }
 
         return new SuccessResult();
-    }
+    }*/
 
     static void sendMail(String from, String to, String subject, String messageText) throws Exception {
         TCSEmailMessage message = new TCSEmailMessage();

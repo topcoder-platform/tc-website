@@ -64,6 +64,7 @@ public final class SaveTestCasesAction extends ReviewAction {
             data = new SolutionData(orpd, is, name);
 
             result = businessDelegate.submitTestCases(data);
+            AutoPilot.reviewFromTestcase(data);
 
             return result;
         } catch (Exception e) {
