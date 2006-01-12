@@ -1,9 +1,7 @@
 package com.topcoder.web.ejb.ComponentRegistrationServices;
 
-import com.topcoder.web.ejb.termsofuse.TermsOfUseLocal;
-
-import javax.ejb.EJBLocalHome;
 import javax.ejb.CreateException;
+import javax.ejb.EJBLocalHome;
 
 /**
  * @author dok
@@ -13,6 +11,4 @@ import javax.ejb.CreateException;
 public interface ComponentRegistrationServicesLocalHome extends EJBLocalHome {
 
     public ComponentRegistrationServicesLocal create() throws CreateException;
-}
-{
 }

@@ -3,8 +3,6 @@ package com.topcoder.web.ejb.ComponentRegistrationServices;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import javax.ejb.EJBLocalObject;
-import javax.ejb.EJBException;
-import java.rmi.RemoteException;
 
 /**
  * @author dok
@@ -43,5 +41,4 @@ public interface ComponentRegistrationServicesLocal extends EJBLocalObject {
     void createResponse(long projectId, long userId, long questionId, String text);
 
     boolean responseExists(long projectId, long userId, long questionId);
-}
 }
