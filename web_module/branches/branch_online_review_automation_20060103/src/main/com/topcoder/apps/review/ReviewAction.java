@@ -115,6 +115,13 @@ public abstract class ReviewAction extends BaseAction {
                             new ActionError("error.project.notFound"));
                     forward = mapping.findForward(Constants.FAILURE_KEY);
                 } else {
+
+                    // PLK
+
+                        System.out.println(info.getProjectName() + " info sesion : " + info.getCurrentPhaseInstance().getEndDate());
+
+                    // PLK
+
                     ActionForwards forwards = new ActionForwards();
                     ResultData result = null;
                     String[] names = null;
