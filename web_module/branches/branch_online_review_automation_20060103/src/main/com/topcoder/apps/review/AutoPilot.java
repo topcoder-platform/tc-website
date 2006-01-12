@@ -514,35 +514,35 @@ public class AutoPilot {
                     timeDiff = workDays.getWorkableMinutes(curDate, phaseEndDate) * -1;
                 }
 
-                // System.out.println("curDate : " + curDate.toString());
-                // System.out.println("phaseEndDate : " + phaseEndDate.toString());
+                System.out.println("curDate : " + curDate.toString());
+                System.out.println("phaseEndDate : " + phaseEndDate.toString());
 
-                // System.out.println("timeDiff : " + timeDiff);
+                System.out.println("timeDiff : " + timeDiff);
                 if (timeDiff != 0) {
                     boolean startUpdatingPhases = false;
                     PhaseInstance[] timeline = project.getTimeline();
                     for (int j = 0; j < timeline.length; j++) {
                         if (startUpdatingPhases) {
-                // System.out.println("timeline[j].getStartDate() : " + timeline[j].getStartDate().toString());
-                // System.out.println("timeline[j].getEndDate() : " + timeline[j].getEndDate().toString());
+                System.out.println("timeline[j].getStartDate() : " + timeline[j].getStartDate().toString());
+                System.out.println("timeline[j].getEndDate() : " + timeline[j].getEndDate().toString());
                             if (timeDiff > 0) {
-                                // System.out.println("add ");
+                                System.out.println("add ");
                                 timeline[j].setStartDate(workDays.add(timeline[j].getStartDate(), WorkdaysUnitOfTime.MINUTES, timeDiff));
                                 timeline[j].setEndDate(workDays.add(timeline[j].getEndDate(), WorkdaysUnitOfTime.MINUTES, timeDiff));
                             } else {
-                                // System.out.println("sub ");
+                                System.out.println("sub ");
                                 timeline[j].setStartDate(workDays.sub(timeline[j].getStartDate(), WorkdaysUnitOfTime.MINUTES, timeDiff * -1));
                                 timeline[j].setEndDate(workDays.sub(timeline[j].getEndDate(), WorkdaysUnitOfTime.MINUTES, timeDiff * -1));
                             }
-                // System.out.println("timeline[j].getStartDate() : " + timeline[j].getStartDate().toString());
-                // System.out.println("timeline[j].getEndDate() : " + timeline[j].getEndDate().toString());
+                System.out.println("timeline[j].getStartDate() : " + timeline[j].getStartDate().toString());
+                System.out.println("timeline[j].getEndDate() : " + timeline[j].getEndDate().toString());
                         }
                         if (timeline[j].getPhase().getId() == info.getCurrentPhaseInstance().getPhase().getId()) {
                             // If the phase ends early. In this case, adjust the duration of the phase to the correct time.
                             if (timeDiff < 0) {
-                // System.out.println("timeline[j].getEndDate() first : " + timeline[j].getEndDate().toString());
+                System.out.println("timeline[j].getEndDate() first : " + timeline[j].getEndDate().toString());
                                 timeline[j].setEndDate(workDays.sub(timeline[j].getEndDate(), WorkdaysUnitOfTime.MINUTES, timeDiff * -1));
-                // System.out.println("timeline[j].getEndDate() first : " + timeline[j].getEndDate().toString());
+                System.out.println("timeline[j].getEndDate() first : " + timeline[j].getEndDate().toString());
                             }
                             startUpdatingPhases = true;
                         }
