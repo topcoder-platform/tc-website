@@ -47,11 +47,6 @@
            <jsp:param name="title" value=""/>
         </jsp:include>
 
-
-            <table width="100%" border="0" cellpadding="3" cellspacing="0">
-                <tr><td valign="middle" bgcolor="#999999" colspan="3" class="statText"><font size="3"><strong> Design Review Board</strong></font></td></tr>
-            </table>
-
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
                     <td class="bodyText"><img src="/i/clear.gif" width="240" height="1" border="0"><br>
