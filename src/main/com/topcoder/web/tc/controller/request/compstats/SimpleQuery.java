@@ -35,7 +35,7 @@ public class SimpleQuery extends Static {
         }
 
         dataRequest.setProperties(filteredMap);
-        DataAccessInt dai = getDataAccess(DBMS.DW_DATASOURCE_NAME, true);
+        DataAccessInt dai = getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, true);
         Map result = dai.getData(dataRequest);
 
         ResultSetContainer rsc = (ResultSetContainer) result.get(dataRequest.getContentHandle());
