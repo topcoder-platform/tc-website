@@ -42,13 +42,14 @@
             </jsp:include>
 
             <% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result");
-            out.print(rsc);%>
+            //out.print(rsc);
+            %>
             <table>
                 <tr><td>Most wins</td></tr>
 
-				<%--<rsc:iterator list="<%=rsc%>" id="row">
-					<tr><td><rsc:item name="coder"/></td><td><rsc:item name="num_wins"/></td></tr>
-				</rsc:iterator>--%>
+				<rsc:iterator list="<%=rsc%>" id="row">
+					<tr><td><rsc:item name="coder" row=<%=row%>/></td><td><rsc:item name="num_wins" row=<%=row%>/></td></tr>
+				</rsc:iterator>
             </table>
 
 
