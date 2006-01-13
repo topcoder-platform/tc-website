@@ -44,7 +44,7 @@
                 Success!!!
             </p>
             <p>
-                <a href="/tc?module=ViewRegistrants&pj=<%=request.getAttribute(Constants.PROJECT_ID)%>">Check out the competition</a>
+                <a href="/tc?module=ViewRegistrants&amp;pj=<%=request.getAttribute(Constants.PROJECT_ID)%>">Check out the competition</a>
             </p>
 
         </td>
