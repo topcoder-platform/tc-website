@@ -43,7 +43,7 @@
             <p>
                 Are you sure sure sure sure?
 
-                <a href="/tc?module=ProjectRegister&amp;pj=<%=request.getAttribute(Constants.PROJECT_ID)%>&amp;confirm=true">yep</a>
+                <a href="/tc?module=ProjectRegister&amp;pj=<%=request.getAttribute(Constants.PROJECT_ID)%>&amp;confirm=true&amp;<%=Constants.TERMS_AGREE%>=on">yep</a>
             </p>
 
         </td>
