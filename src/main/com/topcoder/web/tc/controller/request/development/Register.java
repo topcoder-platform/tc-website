@@ -52,7 +52,7 @@ public class Register extends ViewRegistration {
 
             boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE));
             List responses = validateSurvey();
-            if (agreed||hasErrors()) {
+            if (agreed && !hasErrors()) {
                 boolean isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
                 if (isEligible) {
                     if (isTournamentTime()) {
