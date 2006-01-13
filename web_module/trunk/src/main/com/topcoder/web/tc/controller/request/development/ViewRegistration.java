@@ -123,11 +123,6 @@ public class ViewRegistration extends Base {
             log.debug("tourny time");
             if (isTournamentProject(projectId) && !isRegisteredForTournament()) {
                 getRequest().setAttribute("notRegistered", "true");
-/*
-                    addError(Constants.TERMS_AGREE, "Please be aware that you are not registered for the tournament.  " +
-                            "If you don't register for the tournament prior to registering for this project, it will not " +
-                            "count for in the tournament standings even if you sign up at a later date.");
-*/
             }
         }
     }
