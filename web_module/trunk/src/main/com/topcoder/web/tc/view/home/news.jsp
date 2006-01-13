@@ -36,6 +36,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.12.06<br>12:12 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://dnaindia.com/report.asp?NewsID=1007225&CatID=2">Contest a coded message for job seekers</A></span><br><br>
+      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/dnaIndia_logo.gif" width="67" height="36" alt="DNA India" border="0" /></div>
+      "Write a software to land that dream job straight out of college. Now Indian technology grads can win jobs and internships at tech majors by competing in coding contests."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://dnaindia.com/report.asp?NewsID=1007225&CatID=2">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505892" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>01.12.06<br>9:10 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
