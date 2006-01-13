@@ -6,7 +6,7 @@
 </jsp:include>
 
 <% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result");
-String type = request.getAttribute("type");%>
+String type = (String)request.getAttribute("type");%>
 <table>
     <rsc:iterator list="<%=rsc%>" id="row">
     <% String coder = row.getStringItem("coder"); %>
