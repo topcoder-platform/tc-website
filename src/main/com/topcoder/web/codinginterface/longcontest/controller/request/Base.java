@@ -115,6 +115,7 @@ public abstract class Base extends BaseProcessor {
         hm.put("socketServerId", new Integer(ApplicationServer.WEB_SERVER_ID));
         hm.put("submitTime", new Long(System.currentTimeMillis()));
         hm.put("language", new Integer(sub.getLanguageID()));
+        hm.put("roundType", getRequest().getAttribute(Constants.ROUND_TYPE_ID));
         sender.sendMessage(hm, sub);
     }
 
