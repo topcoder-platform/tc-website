@@ -6,6 +6,21 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>01.13.05<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tco05/onsite_movies/RuijieWang_English.mov">"Never underestimate your potential..."</A></span><br><br>
+      "If you try to do things, sometimes you make it with good results." A Chinese university student talks about her advancement into the Finals of TCO05.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/i/tournament/tco05/onsite_movies/RuijieWang_English.mov">English version</A>&#160;|&#160;
+         <A href="/i/tournament/tco05/onsite_movies/RuijieWang_Chinese.mov">Chinese version</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.13.06<br>10:20 AM</td>
