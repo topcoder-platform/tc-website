@@ -63,6 +63,7 @@ public class Register extends ViewRegistration {
                                 getRequest().setAttribute("questionInfo", getQuestions());
                                 setDefaults(responses);
                                 setDefault(Constants.TERMS, getTerms());
+                                setDefault(Constants.TERMS_AGREE, String.valueOf(true));
                                 //we're assuming if we got here, we had a valid project id
                                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                                 setNextPage("/dev/regTerms.jsp");
