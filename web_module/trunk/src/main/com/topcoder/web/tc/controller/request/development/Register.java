@@ -280,11 +280,6 @@ public class Register extends ViewRegistration {
                     (UserManagerRemoteHome) PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
             UserManagerRemote userManager = userManagerHome.create();
 
-            //we can assume it's valid, we've done the validation already
-
-
-
-
             TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
 
             try {
