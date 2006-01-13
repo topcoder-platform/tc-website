@@ -37,25 +37,9 @@
         <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 
             <% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result");
-            String pageSubTitle = (String)request.getAttribute("pageSubTitle");%>
+            String includeJsp = (String)request.getAttribute("includeJsp");%>
 
-            <jsp:include page="../page_title.jsp">
-                <jsp:param name="image" value="statistics_w"/>
-                <jsp:param name="title" value="<%=pageSubTitle%>"/>
-            </jsp:include>
-
-            <table>
-                <tr><td>Most wins</td></tr>
-
-				<rsc:iterator list="<%=rsc%>" id="row">
-					<tr>
-					<td><rsc:item name="rank" row="<%=row%>"/></td>
-					<td><rsc:item name="coder" row="<%=row%>"/></td>
-					<td><rsc:item name="data" row="<%=row%>"/></td>
-					</tr>
-				</rsc:iterator>
-            </table>
-
+            <jsp:include page="<%=includeJsp%>"/>
 
         </td>
         <!-- Center Column Ends -->
