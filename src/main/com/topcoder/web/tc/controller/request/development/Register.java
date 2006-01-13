@@ -66,7 +66,7 @@ public class Register extends ViewRegistration {
                                 setNextPage("/dev/regSuccess.jsp");
                                 setIsNextPageInContext(true);
                         } else {
-                            setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
+                            getRequest().setAttribute(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                             setNextPage("/dev/tournamentConfirm.jsp");
                             setIsNextPageInContext(true);
                         }
