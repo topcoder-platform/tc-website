@@ -82,10 +82,9 @@
 
                 <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="10" cols="60"/>
 
-
                 <p>
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>"><%=err%>
-                        <br/></tc-webtag:errorIterator>
+                    <span class="errorText"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>"><%=err%>
+                        <br/></tc-webtag:errorIterator></span>
                 I Agree to the Terms and Conditions stated above&#160;<tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
                 </p>
 
