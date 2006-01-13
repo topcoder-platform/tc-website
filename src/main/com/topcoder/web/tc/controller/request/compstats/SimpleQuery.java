@@ -7,6 +7,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Static;
 
@@ -33,8 +34,13 @@ public class SimpleQuery extends Static {
                 filteredMap.put(me.getKey(), me.getValue());
             }
         }
-
+        
         dataRequest.setProperties(filteredMap);
+        String type = dataRequest.getProperty("type");
+        if (type == null) type = "Component";
+        String inClause = bundle.getProperty(type);
+        dataRequest.setProperty("pi", inClause);
+        
         DataAccessInt dai = getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, true);
         Map result = dai.getData(dataRequest);
 
