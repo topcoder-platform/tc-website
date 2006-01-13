@@ -85,6 +85,12 @@
                 <p>
                     <span class="errorText"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>"><%=err%>
                         <br/></tc-webtag:errorIterator></span>
+                    <% if (request.getAttribute("notRegistered")!=null) { %>
+                     <span class="errorText">Please be aware that you are not registered for the tournament.
+                            If you don't register for the tournament prior to registering for this project, it will not
+                            count for in the tournament standings even if you sign up at a later date.</span>
+                    <% }%>
+
                 I Agree to the Terms and Conditions stated above&#160;<tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
                 </p>
 
