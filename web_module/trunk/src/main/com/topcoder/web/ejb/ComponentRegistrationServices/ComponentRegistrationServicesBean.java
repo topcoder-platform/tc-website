@@ -377,7 +377,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
 
     public ResultSetContainer getActiveQuestions() throws EJBException {
         return selectSet("comp_reg_question",
-                new String[]{"comp_reg_question_id", "question_text", "question_style_id"},
+                new String[]{"comp_reg_question_id", "question_text", "question_style_id", "is_required"},
                 new String[]{"is_active"},
                 new String[]{"1"},
                 DBMS.TCS_OLTP_DATASOURCE_NAME);

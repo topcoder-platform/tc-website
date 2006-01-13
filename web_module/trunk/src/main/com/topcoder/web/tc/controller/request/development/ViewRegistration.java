@@ -187,7 +187,7 @@ public class ViewRegistration extends Base {
         q.setId(row.getLongItem("comp_reg_question_id"));
         q.setStyleId(row.getIntItem("question_style_id"));
         q.setText(row.getStringItem("question_text"));
-        q.setRequired(true);
+        q.setRequired(row.getIntItem("is_required")==1);
         q.setAnswerInfo(makeAnswerInfo(q.getId()));
         return q;
     }
