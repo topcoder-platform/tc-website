@@ -97,7 +97,7 @@ public class Register extends ViewRegistration {
         if (sessionList!=null) {
             return sessionList;
         } else {
-            String paramName = null;
+            String paramName;
             List responses = new ArrayList(10);
             for (Enumeration params = getRequest().getParameterNames(); params.hasMoreElements();) {
                 paramName = (String) params.nextElement();
@@ -114,7 +114,7 @@ public class Register extends ViewRegistration {
     }
 
     private void setDefaults(List responses) throws Exception {
-        SurveyResponse r = null;
+        SurveyResponse r;
         for (Iterator it = responses.iterator(); it.hasNext();) {
             r = (SurveyResponse) it.next();
             if (findQuestion(r.getQuestionId()).getStyleId() == Question.MULTIPLE_CHOICE) {
@@ -131,8 +131,8 @@ public class Register extends ViewRegistration {
 
         Question question = null;
         String[] values = getRequest().getParameterValues(paramName);
-        List ret = null;
-        String errorKey = null;
+        List ret;
+        String errorKey;
         if (values == null) {
             ret = new ArrayList(0);
         } else {
@@ -235,7 +235,7 @@ public class Register extends ViewRegistration {
 
 
     private void checkRequiredQuestions(List responses) throws Exception {
-        Question q = null;
+        Question q;
         for (Iterator it = getQuestions().iterator(); it.hasNext();) {
             q = (Question) it.next();
             if (q.isRequired() && !containsQuestion(responses, q)) {
@@ -246,7 +246,7 @@ public class Register extends ViewRegistration {
     }
 
     private boolean containsQuestion(List responses, Question question) {
-        SurveyResponse r = null;
+        SurveyResponse r;
         boolean found = false;
         for (Iterator it = responses.iterator(); it.hasNext() && !found;) {
             r = (SurveyResponse) it.next();
