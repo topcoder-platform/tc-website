@@ -96,8 +96,8 @@ public class Register extends ViewRegistration {
             long componentId = pl.getComponentId(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
             int phase = 111 + pl.getProjectTypeId(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
 
-            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
-            log.debug("context: " + ctx.toString());
+            ctx = TCContext.getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+            log.debug("context: " + ctx.getEnvironment().toString());
 
             Object objComponentManager = ctx.lookup(ComponentManagerHome.EJB_REF_NAME);
             ComponentManagerHome componentManagerHome =
