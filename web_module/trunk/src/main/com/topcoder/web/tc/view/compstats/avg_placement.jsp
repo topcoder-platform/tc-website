@@ -16,7 +16,7 @@ String type = (String)request.getAttribute("type");%>
         <td><rsc:item name="average" row="<%=row%>"/></td>
         </tr>
     </rsc:iterator>--%>
-<%=request%>
+<%=request.getAttributes()%>
 </table>
 
 </html>
