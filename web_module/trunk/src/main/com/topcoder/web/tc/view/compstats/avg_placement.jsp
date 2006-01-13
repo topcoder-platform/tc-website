@@ -5,15 +5,17 @@
     <jsp:param name="title" value="Best Average Component Project Placement"/>
 </jsp:include>
 
-<% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result");%>
+<% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result");
+String type = request.getAttribute("type");%>
 <table>
-	<rsc:iterator list="<%=rsc%>" id="row">
-		<tr>
-		<td><rsc:item name="rank" row="<%=row%>"/></td>
-		<td><rsc:item name="coder" row="<%=row%>"/></td>
-		<td><rsc:item name="average" row="<%=row%>"/></td>
-		</tr>
-	</rsc:iterator>
+    <rsc:iterator list="<%=rsc%>" id="row">
+    <% String coder = row.getStringItem("coder");
+        <tr>
+        <td><rsc:item name="rank" row="<%=row%>"/></td>
+        <td><tc-webtag:handle coderId='<%=coder%>' context='<%=type%>'/></td>
+        <td><rsc:item name="average" row="<%=row%>"/></td>
+        </tr>
+    </rsc:iterator>
 </table>
 
 </html>
