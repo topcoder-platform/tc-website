@@ -235,23 +235,20 @@ public class ProjectReviewApply extends Base {
             if (primary != (reviewTypeId == 4)) {
                 throw new NavigationException("Sorry, there was an error in the application");
             }
-
-            // If somebody came in by constructing the URL, make sure that there is at least one
-            // primary before we run out of spots.
-            if (!primary && reviewers.size() == 2) {
-                boolean alreadyHasPrimary = false;
-                for (Iterator it = reviewers.iterator(); it.hasNext() && !alreadyHasPrimary;) {
-                    ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();
-                    if (row.getIntItem("primary_ind") == 1) {
-                        alreadyHasPrimary = true;
-                    }
-                }
-                if (!alreadyHasPrimary) {
-                    throw new NavigationException("Sorry, at least one reviewer must be the primary.");
+        }
+        // If somebody came in by constructing the URL, make sure that there is at least one
+        // primary before we run out of spots.
+        if (!primary && reviewers.size() == 2) {
+            boolean alreadyHasPrimary = false;
+            for (Iterator it = reviewers.iterator(); it.hasNext() && !alreadyHasPrimary;) {
+                ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();
+                if (row.getIntItem("primary_ind") == 1) {
+                    alreadyHasPrimary = true;
                 }
             }
+            if (!alreadyHasPrimary) {
+                throw new NavigationException("Sorry, at least one reviewer must be the primary.");
+            }
         }
-
     }
-
 }
