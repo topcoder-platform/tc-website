@@ -1,4 +1,4 @@
-<%@ include file = "includes.jsp">
+<%@ include file = "includes.jsp"%>
 
 <jsp:include page="../page_title.jsp">
     <jsp:param name="image" value="statistics_w"/>
