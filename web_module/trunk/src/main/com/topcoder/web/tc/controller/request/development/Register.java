@@ -91,18 +91,13 @@ public class Register extends ViewRegistration {
     private void register() throws Exception, RemoteException, CreateException {
         InitialContext ctx = null;
         try {
-            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
-            log.debug("creating user: " + UserManagerRemoteHome.EJB_REF_NAME);
-            Object objUserManager = ctx.lookup(UserManagerRemoteHome.EJB_REF_NAME);
-            UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome) PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
-            UserManagerRemote userManager = userManagerHome.create();
-
-            //we can assume it's valid, we've done the validation already
             long projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID));
-
             ProjectLocal pl = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
             long componentId = pl.getComponentId(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
             int phase = 111 + pl.getProjectTypeId(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
+
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+            log.debug("context: " + ctx.toString());
 
             Object objComponentManager = ctx.lookup(ComponentManagerHome.EJB_REF_NAME);
             ComponentManagerHome componentManagerHome =
@@ -111,6 +106,16 @@ public class Register extends ViewRegistration {
             String project = componentManager.getComponentInfo().getName() +
                     (phase==ComponentVersionInfo.SPECIFICATION?"Design":"Development");
             long activeForumId = componentManager.getActiveForum(Forum.SPECIFICATION).getId();
+
+            log.debug("creating user: " + UserManagerRemoteHome.EJB_REF_NAME);
+            Object objUserManager = ctx.lookup(UserManagerRemoteHome.EJB_REF_NAME);
+            UserManagerRemoteHome userManagerHome =
+                    (UserManagerRemoteHome) PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
+            UserManagerRemote userManager = userManagerHome.create();
+
+            //we can assume it's valid, we've done the validation already
+
+
 
 
             TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
