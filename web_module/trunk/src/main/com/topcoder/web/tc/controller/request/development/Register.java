@@ -86,6 +86,7 @@ public class Register extends ViewRegistration {
                     setIsNextPageInContext(true);
                 }
             } else {
+                addError(Constants.TERMS_AGREE, "You must agree to the terms in order to proceed.");
                 getRequest().setAttribute("questionInfo", buildQuestions());
                 setDefault(Constants.TERMS, getTerms());
                 //we're assuming if we got here, we had a valid project id
