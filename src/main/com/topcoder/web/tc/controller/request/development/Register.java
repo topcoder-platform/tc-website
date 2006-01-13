@@ -53,6 +53,7 @@ public class Register extends ViewRegistration {
             boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE));
             List responses = validateSurvey();
             if (agreed && !hasErrors()) {
+                getRequest().getSession().setAttribute("responses", responses);
                 boolean isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
                 if (isEligible) {
                     if (isTournamentTime()) {
@@ -60,9 +61,9 @@ public class Register extends ViewRegistration {
                         boolean isConfirmed = getRequest().getParameter("confirm") != null;
                         if (isRegisteredForTournament || isConfirmed) {
                                 register();
-                                //send email
                                 getRequest().setAttribute(Constants.PROJECT_ID,
                                         getRequest().getParameter(Constants.PROJECT_ID));
+                                getRequest().removeAttribute("responses");
                                 setNextPage("/dev/regSuccess.jsp");
                                 setIsNextPageInContext(true);
                         } else {
@@ -99,19 +100,24 @@ public class Register extends ViewRegistration {
         }
     }
     private List validateSurvey() throws Exception {
-        String paramName = null;
-        List responses = new ArrayList(10);
-        for (Enumeration params = getRequest().getParameterNames(); params.hasMoreElements();) {
-            paramName = (String) params.nextElement();
-            log.debug("param: " + paramName);
-            if (paramName.startsWith(AnswerInput.PREFIX)) {
-                List l = validateAnswer(paramName);
-                if (l != null)
-                    responses.addAll(l);
+        List sessionList = (List)getRequest().getSession().getAttribute("responses");
+        if (sessionList!=null) {
+            return sessionList;
+        } else {
+            String paramName = null;
+            List responses = new ArrayList(10);
+            for (Enumeration params = getRequest().getParameterNames(); params.hasMoreElements();) {
+                paramName = (String) params.nextElement();
+                log.debug("param: " + paramName);
+                if (paramName.startsWith(AnswerInput.PREFIX)) {
+                    List l = validateAnswer(paramName);
+                    if (l != null)
+                        responses.addAll(l);
+                }
             }
+            checkRequiredQuestions(responses);
+            return responses;
         }
-        checkRequiredQuestions(responses);
-        return responses;
     }
 
     private void setDefaults(List responses) throws Exception {
