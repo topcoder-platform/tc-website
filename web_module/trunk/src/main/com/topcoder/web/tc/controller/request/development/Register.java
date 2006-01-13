@@ -51,6 +51,7 @@ public class Register extends ViewRegistration {
             validation();
 
             boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE));
+            List responses = validateSurvey();
             if (agreed) {
                 boolean isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
                 if (isEligible) {
@@ -58,7 +59,7 @@ public class Register extends ViewRegistration {
                         boolean isRegisteredForTournament = getRequest().getAttribute("notRegistered") == null;
                         boolean isConfirmed = getRequest().getParameter("confirm") != null;
                         if (isRegisteredForTournament || isConfirmed) {
-                            List responses = validateSurvey();
+
                             if (hasErrors()) {
                                 getRequest().setAttribute("questionInfo", getQuestions());
                                 setDefaults(responses);
@@ -93,6 +94,7 @@ public class Register extends ViewRegistration {
                 addError(Constants.TERMS_AGREE, "You must agree to the terms in order to proceed.");
                 getRequest().setAttribute("questionInfo", getQuestions());
                 setDefault(Constants.TERMS, getTerms());
+                setDefaults(responses);
                 //we're assuming if we got here, we had a valid project id
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                 setNextPage("/dev/regTerms.jsp");
