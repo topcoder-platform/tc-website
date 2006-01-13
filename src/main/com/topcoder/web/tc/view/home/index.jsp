@@ -195,6 +195,9 @@ margin:0px auto;
             <td class="homeText"><br>
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/businessweek_logo.gif" width="67" height="16" alt="BusinessWeek" border="0" /></div>
             The NSA: Security in Numbers <A href="http://www.businessweek.com/magazine/content/06_04/b3968007.htm" target="_blank">...more</A><br>[January 13]<br><br>
+            
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/dnaIndia_logo.gif" width="67" height="36" alt="DNA India" border="0" /></div>
+            Contest a coded message for job seekers <A href="http://dnaindia.com/report.asp?NewsID=1007225&CatID=2" target="_blank">...more</A><br>[January 12]<br><br>
 
             TopCoder Announces NSA Participation in 2006 TopCoder Open in Las Vegas<A href="/tc?module=Static&d1=pressroom&d2=pr_010906">...more</A><br>[January 9]<br><br>
             
@@ -205,9 +208,6 @@ margin:0px auto;
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/forbes_logo.gif" width="67" height="23" alt="Forbes" border="0" /></div>
             Help Wanted In Silicon Valley<A href="http://www.forbes.com/home/work/2005/12/09/silicon-valley-hiring-cx_rr_1212hire.html" target="_blank">&nbsp;...more</A><br>[December 12]<br><br>
-
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/bw_cov120205_small.jpg" width="85" height="82" alt="BusinessWeek" border="0" /></div>
-            Rise Of A Powerhouse - How the young knowledge workers of Central Europe are pushing the region to a new level<A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm" target="_blank">&nbsp;...more</A><br>[December 2]<br><br>
 
             </td>
          </tr>

@@ -44,6 +44,7 @@
 <!-- 2006  -->
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
 <tr><td class="newsText"><A href="http://www.businessweek.com/magazine/content/06_04/b3968007.htm" target="_blank">The NSA: Security in Numbers</A> [January 13 - BusinessWeek]<br/></td></tr>
+<tr><td class="newsText"><A href="http://dnaindia.com/report.asp?NewsID=1007225&CatID=2" target="_blank">Contest a coded message for job seekers</A> [January 12 - DNA India]<br/></td></tr>
 <tr><td class="newsText"><A href="/pdfs/press_room/inc_0106.pdf" target="_blank">Put a hacker to work [PDF]</A> [January 2006 - Inc. Magazine]<br/></td></tr>
 <tr><td ><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
 

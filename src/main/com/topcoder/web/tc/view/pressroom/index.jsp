@@ -55,8 +55,22 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.businessweek.com/magazine/content/06_04/b3968007.htm" target="_blank">The NSA: Security in Numbers</A> </strong></font><br />
-                        "The techno-spy agency has a greater need than ever for American math talent, but recruiting in the age of Google is a lot tougher."<br />
-                        <span class="prHead"> [January 13]</span></p>                   
+                        "The techno-spy agency has a greater need than ever for American math talent, but recruiting in the age of Google is a lot tougher." <span class="prHead"> [January 13]</span></p>                   
+                        </td>
+                </tr>
+            </table>
+            
+            <hr width="100%" size="1" noshade="noshade" />
+
+<%-- DNA India --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://dnaindia.com/report.asp?NewsID=1007225&CatID=2" target="_blank"><img src="/i/pressroom/dnaIndia_logo.gif" alt="DNA India" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://dnaindia.com/report.asp?NewsID=1007225&CatID=2" target="_blank">Contest a coded message for job seekers</A> </strong></font><br />
+                        "Write a software to land that dream job straight out of college. Now Indian technology grads can win jobs and internships at tech majors by competing in coding contests." <span class="prHead"> [January 12]</span></p>                   
                         </td>
                 </tr>
             </table>
@@ -122,8 +136,7 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.forbes.com/home/work/2005/12/09/silicon-valley-hiring-cx_rr_1212hire.html" target="_blank">Help Wanted In Silicon Valley</A> </strong></font><br />
-                        For programmers, happy days are here again. But for their employers, fear is setting in.<br />
-                        <span class="prHead"> [December 12]</span></p>                   
+                        For programmers, happy days are here again. But for their employers, fear is setting in. <span class="prHead"> [December 12]</span></p>                   
                         </td>
                 </tr>
             </table>
@@ -139,7 +152,7 @@
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm" target="_blank">Rise Of A Powerhouse</A> </strong></font><br />
                         How the young knowledge workers of Central Europe are pushing the region to a new level.<br />
-                        They came from around the world, young men with handles like SnapDragon and Bladerunner attacking computing problems so complex that even experienced coders could only stare at the screen in bewilderment. Only one mastered the final algorithm problem: Eryk Kopczynski, a.k.a. Eryx, a reticent Warsaw University student who wears his long hair in a ponytail and says his life's ambition is to "discover some interesting notion."<br />
+                        They came from around the world, young men with handles like SnapDragon and Bladerunner attacking computing problems so complex that even experienced coders could only stare at the screen in bewilderment. Only one mastered the final algorithm problem: Eryk Kopczynski, a.k.a. Eryx, a reticent Warsaw University student who wears his long hair in a ponytail and says his life's ambition is to "discover some interesting notion." 
                         <span class="prHead"> [December 2]</span></p>                   
                         </td>
                 </tr>
