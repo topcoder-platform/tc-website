@@ -9,7 +9,7 @@
 String type = request.getAttribute("type");%>
 <table>
     <rsc:iterator list="<%=rsc%>" id="row">
-    <% String coder = row.getStringItem("coder");
+    <% String coder = row.getStringItem("coder"); %>
         <tr>
         <td><rsc:item name="rank" row="<%=row%>"/></td>
         <td><tc-webtag:handle coderId='<%=coder%>' context='<%=type%>'/></td>
