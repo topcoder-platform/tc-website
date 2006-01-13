@@ -92,7 +92,7 @@ public class Register extends ViewRegistration {
         InitialContext ctx = null;
         try {
             ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
-            log.debug("creating user");
+            log.debug("creating user: " + UserManagerRemoteHome.EJB_REF_NAME);
             Object objUserManager = ctx.lookup(UserManagerRemoteHome.EJB_REF_NAME);
             UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome) PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
             UserManagerRemote userManager = userManagerHome.create();
