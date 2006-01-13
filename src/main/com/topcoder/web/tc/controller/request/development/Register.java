@@ -52,31 +52,19 @@ public class Register extends ViewRegistration {
 
             boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE));
             List responses = validateSurvey();
-            if (agreed) {
+            if (agreed||hasErrors()) {
                 boolean isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
                 if (isEligible) {
                     if (isTournamentTime()) {
                         boolean isRegisteredForTournament = getRequest().getAttribute("notRegistered") == null;
                         boolean isConfirmed = getRequest().getParameter("confirm") != null;
                         if (isRegisteredForTournament || isConfirmed) {
-
-                            if (hasErrors()) {
-                                getRequest().setAttribute("questionInfo", getQuestions());
-                                setDefaults(responses);
-                                setDefault(Constants.TERMS, getTerms());
-                                setDefault(Constants.TERMS_AGREE, String.valueOf(true));
-                                //we're assuming if we got here, we had a valid project id
-                                setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
-                                setNextPage("/dev/regTerms.jsp");
-                                setIsNextPageInContext(true);
-                            } else {
                                 register();
                                 //send email
                                 getRequest().setAttribute(Constants.PROJECT_ID,
                                         getRequest().getParameter(Constants.PROJECT_ID));
                                 setNextPage("/dev/regSuccess.jsp");
                                 setIsNextPageInContext(true);
-                            }
                         } else {
                             setNextPage("/dev/tournamentConfirm.jsp");
                             setIsNextPageInContext(true);
@@ -91,7 +79,9 @@ public class Register extends ViewRegistration {
                     setIsNextPageInContext(true);
                 }
             } else {
-                addError(Constants.TERMS_AGREE, "You must agree to the terms in order to proceed.");
+                if (!agreed) {
+                    addError(Constants.TERMS_AGREE, "You must agree to the terms in order to proceed.");
+                }
                 getRequest().setAttribute("questionInfo", getQuestions());
                 setDefault(Constants.TERMS, getTerms());
                 setDefaults(responses);
