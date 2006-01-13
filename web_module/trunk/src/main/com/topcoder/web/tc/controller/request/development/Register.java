@@ -58,9 +58,10 @@ public class Register extends ViewRegistration {
                         boolean isRegisteredForTournament = getRequest().getAttribute("notRegistered") == null;
                         boolean isConfirmed = getRequest().getParameter("confirm") != null;
                         if (isRegisteredForTournament || isConfirmed) {
-                            validateSurvey();
+                            List responses = validateSurvey();
                             if (hasErrors()) {
-                                getRequest().setAttribute("questionInfo", buildQuestions());
+                                getRequest().setAttribute("questionInfo", getQuestions());
+                                setDefaults(responses);
                                 setDefault(Constants.TERMS, getTerms());
                                 //we're assuming if we got here, we had a valid project id
                                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
@@ -87,7 +88,7 @@ public class Register extends ViewRegistration {
                 }
             } else {
                 addError(Constants.TERMS_AGREE, "You must agree to the terms in order to proceed.");
-                getRequest().setAttribute("questionInfo", buildQuestions());
+                getRequest().setAttribute("questionInfo", getQuestions());
                 setDefault(Constants.TERMS, getTerms());
                 //we're assuming if we got here, we had a valid project id
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
@@ -101,23 +102,37 @@ public class Register extends ViewRegistration {
             throw new TCWebException(e);
         }
     }
-    private void validateSurvey() throws Exception {
-        List questions = buildQuestions();
+    private List validateSurvey() throws Exception {
         String paramName = null;
         List responses = new ArrayList(10);
         for (Enumeration params = getRequest().getParameterNames(); params.hasMoreElements();) {
             paramName = (String) params.nextElement();
             log.debug("param: " + paramName);
             if (paramName.startsWith(AnswerInput.PREFIX)) {
-                List l = validateAnswer(paramName, questions);
+                List l = validateAnswer(paramName);
                 if (l != null)
                     responses.addAll(l);
             }
         }
-        checkRequiredQuestions(responses,questions);
+        checkRequiredQuestions(responses);
+        return responses;
     }
 
-   private List validateAnswer(String paramName, List questions) {
+    private void setDefaults(List responses) throws Exception {
+        SurveyResponse r = null;
+        for (Iterator it = responses.iterator(); it.hasNext();) {
+            r = (SurveyResponse) it.next();
+            if (findQuestion(r.getQuestionId()).getStyleId() == Question.MULTIPLE_CHOICE) {
+                setDefault(AnswerInput.PREFIX + r.getQuestionId() + "," + r.getAnswerId(), "true");
+            } else if (r.isFreeForm()) {
+                setDefault(AnswerInput.PREFIX + r.getQuestionId(), r.getText());
+            } else {
+                setDefault(AnswerInput.PREFIX + r.getQuestionId(), new Long(r.getAnswerId()));
+            }
+        }
+    }
+
+   private List validateAnswer(String paramName) throws Exception {
 
         Question question = null;
         String[] values = getRequest().getParameterValues(paramName);
@@ -140,7 +155,7 @@ public class Register extends ViewRegistration {
                 }
                 errorKey = AnswerInput.PREFIX + questionId;
                 if (question == null) {
-                    question = findQuestion(questionId, questions);
+                    question = findQuestion(questionId);
                     if (question == null) {
                         addError(errorKey, "Question doesn't exist");
                         return null;  //quit now
@@ -203,10 +218,10 @@ public class Register extends ViewRegistration {
         return ret;
     }
 
-    private Question findQuestion(long questionId, List questions) {
+    private Question findQuestion(long questionId) throws Exception {
         Question q = null;
         boolean found = false;
-        for (Iterator it = questions.iterator(); it.hasNext() && !found;) {
+        for (Iterator it = getQuestions().iterator(); it.hasNext() && !found;) {
             q = (Question) it.next();
             found = (q.getId() == questionId);
         }
@@ -224,9 +239,9 @@ public class Register extends ViewRegistration {
     }
 
 
-    private void checkRequiredQuestions(List responses, List questions) {
+    private void checkRequiredQuestions(List responses) throws Exception {
         Question q = null;
-        for (Iterator it = questions.iterator(); it.hasNext();) {
+        for (Iterator it = getQuestions().iterator(); it.hasNext();) {
             q = (Question) it.next();
             if (q.isRequired() && !containsQuestion(responses, q)) {
                 addError(AnswerInput.PREFIX + q.getId(), "Please respond to this question.");
