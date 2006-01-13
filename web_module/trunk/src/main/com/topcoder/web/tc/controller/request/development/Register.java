@@ -71,6 +71,8 @@ public class Register extends ViewRegistration {
                             } else {
                                 register();
                                 //send email
+                                getRequest().setAttribute(Constants.PROJECT_ID,
+                                        getRequest().getParameter(Constants.PROJECT_ID));
                                 setNextPage("/dev/regSuccess.jsp");
                                 setIsNextPageInContext(true);
                             }
