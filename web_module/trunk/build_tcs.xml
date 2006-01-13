@@ -96,6 +96,8 @@
             classpathref="class.path"
             deprecation="${deprecation}"
             debug="${debug}"
+            source="1.4"
+            target="1.4"
             >
         </javac>
         <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes.dir}"/>
@@ -117,6 +119,8 @@
             classpathref="class.path"
             deprecation="${deprecation}"
             debug="${debug}"
+            source="1.4"
+            target="1.4"
             >
             <include name="com/topcoder/apps/**"/>
             <include name="com/topcoder/dde/**"/>
