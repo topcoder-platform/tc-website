@@ -32,6 +32,7 @@ import java.util.*;
 public class ViewRegistration extends Base {
 
     private ComponentRegistrationServicesLocal regServices = null;
+    private List questions = null;
 
     protected void developmentProcessing() throws TCWebException {
         //check if user can do the project (there's like 10 things to check.
@@ -45,7 +46,7 @@ public class ViewRegistration extends Base {
 
 
             if (getRequest().getAttribute(Constants.MESSAGE) == null) {
-                getRequest().setAttribute("questionInfo", buildQuestions());
+                getRequest().setAttribute("questionInfo", getQuestions());
                 setDefault(Constants.TERMS, getTerms());
                 //we're assuming that if we're here, we got a valid project id
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
@@ -173,13 +174,15 @@ public class ViewRegistration extends Base {
     }
 
 
-    protected List buildQuestions() throws Exception {
-        ResultSetContainer rsc = getRegEJB().getActiveQuestions();
-        List ret = new ArrayList(rsc.size());
-        for (Iterator it = rsc.iterator(); it.hasNext();) {
-            ret.add(makeQuestion((ResultSetContainer.ResultSetRow) it.next()));
+    protected List getQuestions() throws Exception {
+        if (questions == null) {
+            ResultSetContainer rsc = getRegEJB().getActiveQuestions();
+            questions = new ArrayList(rsc.size());
+            for (Iterator it = rsc.iterator(); it.hasNext();) {
+                questions.add(makeQuestion((ResultSetContainer.ResultSetRow) it.next()));
+            }
         }
-        return ret;
+        return questions;
     }
 
     protected Question makeQuestion(ResultSetContainer.ResultSetRow row) throws Exception {
