@@ -48,8 +48,10 @@ public class SimpleQuery extends Static {
         getRequest().setAttribute("result", rsc);
 
         try {
-            String pageTitle = bundle.getProperty(dataRequest.getContentHandle());
-            getRequest().setAttribute("pageSubTitle", pageTitle);
+            String includeJsp 
+                //= bundle.getProperty(dataRequest.getContentHandle());
+                = "/compstats/" + dataRequest.getContentHandle() + ".jsp"; 
+            getRequest().setAttribute("includeJsp", includeJsp);
             setNextPage("/compstats/SimpleQuery.jsp");
             setIsNextPageInContext(true);
         } catch (MissingResourceException e) {
