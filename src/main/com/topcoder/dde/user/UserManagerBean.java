@@ -1043,11 +1043,12 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             }
 
             ps1 = conn.prepareStatement(getRating);
-            ps.setInt(1, phase);
-            ps.setLong(2, userId);
+            ps1.setInt(1, phase);
+            ps1.setLong(2, userId);
 
-            if (rs.next()) {
-                rating = rs.getInt("rating");
+            rs1 = ps1.executeQuery();
+            if (rs1.next()) {
+                rating = rs1.getInt("rating");
             } else {
                 throw new EJBException("Invalid project id specified: " + projectId);
             }
