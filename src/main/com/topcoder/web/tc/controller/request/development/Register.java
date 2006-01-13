@@ -41,13 +41,6 @@ public class Register extends ViewRegistration {
     protected void developmentProcessing() throws TCWebException {
 
         try {
-            //check if user can do the project (there's like 10 things to check.
-            //if they can't, give them error message
-            //if they can, check if they are registered for the tco
-            //if they are not registered,
-            //if they don't have final confirm flag
-            //add a flag to the request and send them to a confirm page
-            //register and go to success page
             validation();
 
             boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE));
