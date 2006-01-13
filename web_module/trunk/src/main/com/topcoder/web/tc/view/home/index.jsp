@@ -193,6 +193,9 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/businessweek_logo.gif" width="67" height="16" alt="BusinessWeek" border="0" /></div>
+            The NSA: Security in Numbers <A href="http://www.businessweek.com/magazine/content/06_04/b3968007.htm" target="_blank">...more</A><br>[January 13]<br><br>
+
             TopCoder Announces NSA Participation in 2006 TopCoder Open in Las Vegas<A href="/tc?module=Static&d1=pressroom&d2=pr_010906">...more</A><br>[January 9]<br><br>
             
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/incDOTcom_logo.gif" width="67" height="25" alt="Inc.com" border="0" /></div>
@@ -205,9 +208,6 @@ margin:0px auto;
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/bw_cov120205_small.jpg" width="85" height="82" alt="BusinessWeek" border="0" /></div>
             Rise Of A Powerhouse - How the young knowledge workers of Central Europe are pushing the region to a new level<A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm" target="_blank">&nbsp;...more</A><br>[December 2]<br><br>
-
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/usatoday_logo.gif" width="67" height="36" alt="USA Today" border="0" /></div>
-            TopCoder Survey in USA Today [PDF] <A href="/pdfs/press_room/usatoday_113005.pdf" target="_blank">...more</A><br>[November 30]<br><br>
 
             </td>
          </tr>

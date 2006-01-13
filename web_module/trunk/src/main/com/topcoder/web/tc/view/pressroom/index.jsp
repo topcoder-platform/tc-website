@@ -47,6 +47,22 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- BusinessWeek --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://www.businessweek.com/magazine/content/06_04/b3968007.htm" target="_blank"><img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.businessweek.com/magazine/content/06_04/b3968007.htm" target="_blank">The NSA: Security in Numbers</A> </strong></font><br />
+                        "The techno-spy agency has a greater need than ever for American math talent, but recruiting in the age of Google is a lot tougher."<br />
+                        <span class="prHead"> [January 13]</span></p>                   
+                        </td>
+                </tr>
+            </table>
+            
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%--  TCO06 NSA --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">

@@ -8,6 +8,20 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.13.06<br>10:20 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.businessweek.com/magazine/content/06_04/b3968007.htm">The NSA: Security in Numbers</A></span><br><br>
+      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/businessweek_logo.gif" width="67" height="16" alt="Business Week" border="0" /></div>
+      "The techno-spy agency has a greater need than ever for American math talent, but recruiting in the age of Google is a lot tougher."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://www.businessweek.com/magazine/content/06_04/b3968007.htm">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505891" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>01.12.06<br>1:20 PM</td>
       <td class="newsTextCell"><span class="newsTitle">What makes a <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_summary">Design</A> or <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_summary">Development</A> Champion a Champion?</span><br><br>
       We asked some reviewers from the TCO05 Component Competition Finals to tell us what made the champions' submissions stand out from the others.  Take a look at what they had to say.
