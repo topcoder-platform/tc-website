@@ -100,7 +100,7 @@
          <% } %>
       </td>
       <td class="statDk" align="center">
-         <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a" timeZone="America/New_York"/>
+         <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>
       </td>
       <td class="statDk" align="center">
          <rsc:item name="total_submissions" row="<%=resultRow%>"/>
@@ -109,7 +109,7 @@
          <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/>
       </td>
       <td class="statDk" align="center">
-         <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a" timeZone="America/New_York"/>
+         <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>
       </td>
    </tr>
    </rsc:iterator>
@@ -168,7 +168,7 @@
          <% } %>
       </td>
       <td class="statDk" align="center">
-         <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a"  timeZone="America/New_York"/>
+         <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"  timeZone="America/New_York"/>
       </td>
       <td class="statDk" align="center">
          <rsc:item name="total_submissions" row="<%=resultRow%>"/>
@@ -177,7 +177,7 @@
          <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/></td>
       </td>
       <td class="statDk" align="center">
-         <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a" timeZone="America/New_York"/></td>
+         <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/></td>
       </td>
    </tr>
 </rsc:iterator>
