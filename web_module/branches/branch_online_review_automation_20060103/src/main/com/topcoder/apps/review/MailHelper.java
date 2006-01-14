@@ -15,6 +15,9 @@ import com.topcoder.file.render.xsl.XSLTransformerWrapperException;
 import com.topcoder.message.email.EmailEngine;
 import com.topcoder.message.email.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.apps.review.document.DocumentManagerLocal;
+import com.topcoder.apps.review.document.AggregationReview;
+import com.topcoder.apps.review.document.AggregationApproval;
 
 import java.io.*;
 import java.util.Calendar;
@@ -55,7 +58,7 @@ class MailHelper {
     static final int PLACE_SCREENING_FAIL = -1;
 
     static private Logger log = Logger.getLogger(MailHelper.class);
-    
+
     /**
      * Constructor (inhibits outside instantiation).
      */
@@ -218,6 +221,44 @@ class MailHelper {
         generateProjectDetail(xmlDocument, proj);
         String bodyText = formatBody(xmlDocument, ConfigHelper.getProjectChangeXSL());
         sendMail(from, to, proj.getName() + " project change", bodyText);
+    }
+
+    /**
+     * Send mail to a user when the project changes.
+     *
+     * @param from the sender (an admin)
+     * @param to the user to send the mail to
+     * @param oldProject the old state of the project (previous)
+     *        not used right now but might be needed in the future
+     * @param newProject the new state of the project (current/new)
+     * @param reason an explanation from the admin
+     * @param changeType the type of the change (combination of the constants defined above)
+     *
+     * @throws Exception propagate any exceptions
+     */
+    static void rejectedAggregationReviewMail(SecurityEnabledUser from, User to, Project project) throws Exception {
+        // PLK
+        XMLDocument xmlDocument = new XMLDocument("MAILDATA");
+        xmlDocument.addTag(new ValueTag("USER_NAME", to.getHandle()));
+        xmlDocument.addTag(new ValueTag("PROJECT_NAME", project.getName()));
+
+        //get all review worksheets
+        DocumentManagerLocal docManager = EJBHelper.getDocumentManager();
+        AggregationReview[] aggReviews = docManager.getAggregationReview(project, from.getTCSubject());
+        for (int i = 0; i < aggReviews.length; i++) {
+            int rejected = 0;
+            if (aggReviews[i].getStatus().getId() == AggregationApproval.ID_REJECTED) {
+                rejected = 1;
+            }
+            RecordTag comp = new RecordTag("REVIEWER");
+            comp.addTag(new ValueTag("REVIEWER_HANDLE", aggReviews[i].getReviewer().getHandle()));
+            comp.addTag(new ValueTag("REVIEWER_AGG_ACCEPTED", rejected));
+            comp.addTag(new ValueTag("REVIEWER_AGG_COMMENT", aggReviews[i].getText()));
+            xmlDocument.addTag(comp);
+        }
+
+        String bodyText = formatBody(xmlDocument, ConfigHelper.getRejectedAggregationReviewXSL());
+        sendMail(from, to, project.getName() + " Aggregation Review results", bodyText);
     }
 
     /**

@@ -68,6 +68,11 @@ public class ConfigHelper implements ConfigManagerInterface {
      */
     private static final String PROJECT_CHANGE_XSL = "project_change_xsl";
 
+    /** PLK
+     * Project change mail xsl file property name.
+     */
+    private static final String REJECTED_AGGREGATION_REVIEW_XSL = "rejected_aggregation_review_xsl";
+
     /**
      * Weekly notifications mail xsl file property name.
      */
@@ -112,7 +117,7 @@ public class ConfigHelper implements ConfigManagerInterface {
      * The list of properties.
      */
     private static List props;
-    
+
     private static Logger log = Logger.getLogger(ConfigHelper.class);
 
     /**
@@ -227,6 +232,17 @@ public class ConfigHelper implements ConfigManagerInterface {
      */
     static String getProjectChangeXSL() throws Exception {
         return ConfigManager.getInstance().getString(NAMESPACE, PROJECT_CHANGE_XSL);
+    }
+
+    /**
+     * Get the xsl mail template file for project changes.
+     *
+     * @return the name of the xsl file
+     * PLK
+     * @throws Exception propagate any exceptions
+     */
+    static String getRejectedAggregationReviewXSL() throws Exception {
+        return ConfigManager.getInstance().getString(NAMESPACE, REJECTED_AGGREGATION_REVIEW_XSL);
     }
 
     /**

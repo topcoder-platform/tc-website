@@ -234,14 +234,15 @@ public class AutoPilot {
                     if( (participants[i].getRole().getId() == Role.ID_PRODUCT_MANAGER) ||
                         (participants[i].getRole().getId() == Role.ID_REVIEWER) )
                     {
+                        MailHelper.rejectedAggregationReviewMail(user, participants[i].getUser(), project);
                         // PLK: ver si se puede mejorar con un xslt.
-                        StringBuffer mail = new StringBuffer();
+/*                        StringBuffer mail = new StringBuffer();
                         mail.append("The following project: \n\n");
                         mail.append(project.getName());
                         mail.append("\n\nhas rejected aggregation review. The project will be moved back to Aggregation");
 
                         MailHelper.sendMail(user, participants[i].getUser(), "Aggregation Review results", mail.toString());
-//                        sendMail("autopilot@topcoder.com", participants[i].getUser().getEmail(), "AutoPilot: Review Notification", mail.toString());
+//                        sendMail("autopilot@topcoder.com", participants[i].getUser().getEmail(), "AutoPilot: Review Notification", mail.toString());*/
                     }
                 }
                 // move back to Aggregation
@@ -521,7 +522,9 @@ public class AutoPilot {
                 System.out.println("phaseEndDate : " + phaseEndDate.toString());
 
                 System.out.println("timeDiff : " + timeDiff);
-                if (timeDiff != 0) {
+                // For now, timeline is updated only for late completion.
+                //if (timeDiff != 0) {
+                if (timeDiff > 0) {
                     boolean startUpdatingPhases = false;
                     PhaseInstance[] timeline = project.getTimeline();
                     for (int j = 0; j < timeline.length; j++) {
