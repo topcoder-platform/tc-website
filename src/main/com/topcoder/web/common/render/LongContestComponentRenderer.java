@@ -1,19 +1,20 @@
 package com.topcoder.web.common.render;
 
-import com.topcoder.shared.language.Language;
 import com.topcoder.shared.problem.*;
+import com.topcoder.shared.language.Language;
 
 /**
- * Handles the display of a <code>com.topcoder.shared.problem.ProblemComponent</code>
- * @author Greg Paul
+ * @author dok
+ * @version $Revision$ Date: 2005/01/01 00:00:00
+ *          Create Date: Jan 15, 2006
  */
-public class ProblemComponentRenderer extends BaseRenderer implements ElementRenderer {
+public class LongContestComponentRenderer extends BaseRenderer implements ElementRenderer {
 
     private String SECTION_HEADER = "h3";
     private ProblemComponent problemComponent;
     private String LEFT_MARGIN = "&#160;&#160;&#160;&#160;";
 
-    public ProblemComponentRenderer() {
+    public LongContestComponentRenderer() {
         this.problemComponent = null;
     }
 
@@ -21,7 +22,7 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
      * Takes the <code>ProblemComponent</code> to be rendered.
      * @param problemComponent
      */
-    public ProblemComponentRenderer(ProblemComponent problemComponent) {
+    public LongContestComponentRenderer(ProblemComponent problemComponent) {
         this.problemComponent = problemComponent;
     }
 
@@ -384,7 +385,7 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
                 buf.append("</td>");
                 buf.append("</tr>");
                 int count = 0;
-                TestCaseRenderer tcr = null;
+                LongContestTestCaseRenderer tcr = null;
                 for (int i = 0; i < testCases.length; i++) {
                     if (testCases[i].isExample()) {
                         buf.append("<tr>");
@@ -423,7 +424,7 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
                             buf.append("\"");
                         }
                         buf.append(">");
-                        tcr = new TestCaseRenderer(testCases[i]);
+                        tcr = new LongContestTestCaseRenderer(testCases[i]);
                         tcr.setTdClass(getTdClass());
                         buf.append(tcr.toHTML(language));
                         buf.append("</td>");
@@ -578,3 +579,4 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
         return super.removeHtmlTags(text.toString());
     }
 }
+
