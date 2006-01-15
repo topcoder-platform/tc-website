@@ -11,16 +11,12 @@
 package com.topcoder.web.tc.controller.request.compstats;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.security.ClassResource;
-import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
-import com.topcoder.web.tc.Constants;
-import java.util.Iterator;
+
 import java.util.Map;
 
 /**
@@ -68,6 +64,8 @@ public class CompList extends Base {
             ResultSetContainer rsc = (ResultSetContainer) result.get("comp_list");
             if (!sortCol.equals("")) {
                 rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
+                setDefault(DataAccessConstants.SORT_COLUMN, sortCol);
+                setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
             }
 
             rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank),endRank);
