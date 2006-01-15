@@ -1,28 +1,23 @@
-/*
- * TCCC05ProjectDetails.java
- *
- * Created on January 5, 2005, 3:24 PM
- */
-
 package com.topcoder.web.tc.controller.request.development;
 
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.model.ProjectDetail;
 
+import java.util.*;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.util.*;
 
 /**
- *
- * @author rfairfax
+ * @author dok
+ * @version $Revision$ Date: 2005/01/01 00:00:00
+ *          Create Date: Jan 15, 2006
  */
-public class TCCC05ProjectDetails extends StatBase {
+public class TCO06ProjectDetails extends StatBase {
 
     String getCommandName() {
-        return "tccc05_project_details";
+        return "tco06_project_details";
     }
 
     String getDataSourceName() {
@@ -30,13 +25,13 @@ public class TCCC05ProjectDetails extends StatBase {
     }
 
     String getPageName() {
-        return "/tournaments/tccc05/project_det.jsp";
+        return "/tournaments/tco06/project_det.jsp";
     }
 
     void statProcessing() throws TCWebException {
         Map result2 = (Map) getRequest().getAttribute("resultMap");
 
-        ResultSetContainer rsc = (ResultSetContainer) result2.get("tccc05_project_results");
+        ResultSetContainer rsc = (ResultSetContainer) result2.get("tco06_project_results");
 
         ArrayList arr = new ArrayList();
 

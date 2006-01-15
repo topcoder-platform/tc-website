@@ -1,32 +1,27 @@
-/*
- * TCCC05ContestDetails.java
- *
- * Created on January 6, 2005, 10:00 AM
- */
-
 package com.topcoder.web.tc.controller.request.development;
 
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.model.UserContestDetail;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Map;
+import java.text.DecimalFormat;
 
 /**
- *
- * @author rfairfax
+ * @author dok
+ * @version $Revision$ Date: 2005/01/01 00:00:00
+ *          Create Date: Jan 15, 2006
  */
-public class TCO05ContestDetails extends StatBase {
+public class TCO06ContestDetails extends StatBase {
 
     String getCommandName() {
-        return "tco05_contest_projects";
+        return "tco06_contest_projects";
     }
 
     String getDataSourceName() {
@@ -34,7 +29,7 @@ public class TCO05ContestDetails extends StatBase {
     }
 
     String getPageName() {
-        return "/tournaments/tco05/contest_det.jsp";
+        return "/tournaments/tco06/contest_det.jsp";
     }
 
     private ArrayList arr = new ArrayList();
@@ -57,7 +52,7 @@ public class TCO05ContestDetails extends StatBase {
             Request dataRequest = new Request();
             Map result;
             try {
-                dataRequest.setContentHandle("tco05_project_results_all");
+                dataRequest.setContentHandle("tco06_project_results_all");
                 dataRequest.setProperty("ct", getRequest().getParameter("ct"));
                 dataRequest.setProperty("pj", String.valueOf(rsc.getIntItem(i, "project_id")));
 
@@ -68,7 +63,7 @@ public class TCO05ContestDetails extends StatBase {
                 throw new TCWebException(e);
             }
 
-            ResultSetContainer rscDetails = (ResultSetContainer) result.get("tco05_project_results_all");
+            ResultSetContainer rscDetails = (ResultSetContainer) result.get("tco06_project_results_all");
             ResultSetContainer rscComplete = (ResultSetContainer) result.get("project_details");
             boolean isComplete = false;
             if (rscComplete.getIntItem(0, "complete_status") == 1) {
@@ -95,7 +90,7 @@ public class TCO05ContestDetails extends StatBase {
         Request dataRequest = new Request();
         Map result;
         try {
-            dataRequest.setContentHandle("tco05_contest_prizes");
+            dataRequest.setContentHandle("tco06_contest_prizes");
             dataRequest.setProperty("ct", getRequest().getParameter("ct"));
 
             DataAccessInt dai = getDataAccess(DBMS.DW_DATASOURCE_NAME, true);
@@ -105,7 +100,7 @@ public class TCO05ContestDetails extends StatBase {
             throw new TCWebException(e);
         }
 
-        ResultSetContainer rscPrizes = (ResultSetContainer) result.get("tco05_contest_prizes");
+        ResultSetContainer rscPrizes = (ResultSetContainer) result.get("tco06_contest_prizes");
 
         for (int i = 0; i < rscPrizes.size(); i++) {
             addPrize(rscPrizes.getIntItem(i, "user_id"), dfmt.format(rscPrizes.getDoubleItem(i, "prize_payment")));
