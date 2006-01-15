@@ -1,9 +1,7 @@
 <%@  page language="java"  %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  java.util.Map,
-                 com.topcoder.shared.dataAccess.DataAccessConstants,
-                 com.topcoder.shared.util.ApplicationServer,
-                 com.topcoder.web.tc.model.TCCC05ContestDetail,
+                 com.topcoder.web.tc.model.UserContestDetail,
                  java.util.List"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -71,7 +69,7 @@ else
                             </tr>
                             <%for(int i = 0; i < lst.size(); i++) { %>
                             <tr>
-                                <% TCCC05ContestDetail result = (TCCC05ContestDetail)lst.get(i); %>
+                                <% UserContestDetail result = (UserContestDetail)lst.get(i); %>
                                 <td class="sidebarText" ><tc-webtag:handle context='<%=tab%>' coderId='<%=result.getUserID()%>' />
                                 <% if(result.getIncomplete() > 0)  {
                                     isComplete = false;%>
