@@ -247,7 +247,7 @@ public class ConfigHelper implements ConfigManagerInterface {
      *
      * @throws Exception propagate any exceptions
      */
-    static double getMinimumScore() throws Exception {
+    public static double getMinimumScore() throws Exception {
         return Double.parseDouble(ConfigManager.getInstance().getString(NAMESPACE, MINIMUM_SCORE));
     }
 
