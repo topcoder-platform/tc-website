@@ -3,7 +3,7 @@
                  java.util.Map,
                  com.topcoder.shared.dataAccess.DataAccessConstants,
                  com.topcoder.shared.util.ApplicationServer,
-                 com.topcoder.web.tc.model.TCCC05ProjectDetail,
+                 com.topcoder.web.tc.model.ProjectDetail,
                  java.util.List"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -73,7 +73,7 @@ else
                             </tr>
                             <%for(int i = 0; i < lst.size(); i++) { %>
                             <tr>
-                                <% TCCC05ProjectDetail result = (TCCC05ProjectDetail)lst.get(i); %>
+                                <% ProjectDetail result = (ProjectDetail)lst.get(i); %>
                                 <td class="sidebarText"><tc-webtag:handle coderId='<%=result.getUserID()%>' context='<%=tab%>'/></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><%=result.getSubmitTimestamp()%></td>
                                 <td class="sidebarText" align=center><%=result.getPlaced()%></td>

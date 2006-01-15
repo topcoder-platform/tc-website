@@ -1,5 +1,5 @@
 /*
- * TCCC05ContestDetail.java
+ * UserContestDetail.java
  *
  * Created on January 6, 2005, 10:05 AM
  */
@@ -14,7 +14,7 @@ import java.util.Collections;
  *
  * @author rfairfax
  */
-public class TCCC05ContestDetail implements Serializable {
+public class UserContestDetail implements Serializable {
 
     private String handle;
     private ArrayList points;
@@ -25,7 +25,7 @@ public class TCCC05ContestDetail implements Serializable {
     private String payment;
 
     /** Creates a new instance of TC04OverallResult */
-    public TCCC05ContestDetail() {
+    public UserContestDetail() {
         handle = "";
         points = new ArrayList();
         complete = 0;
@@ -35,7 +35,7 @@ public class TCCC05ContestDetail implements Serializable {
         payment = "";
     }
 
-    public TCCC05ContestDetail(String h, int u) {
+    public UserContestDetail(String h, int u) {
         handle = h;
         userID = u;
         points = new ArrayList();

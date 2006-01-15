@@ -1,54 +1,72 @@
 /*
- * TCCC05ProjectDetail.java
+ * UserContestResult.java
  *
- * Created on January 5, 2005, 3:43 PM
+ * Created on January 6, 2005, 11:41 AM
  */
 
 package com.topcoder.web.tc.model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
  * @author rfairfax
  */
-public class TCCC05ProjectDetail implements Serializable {
+public class UserContestResult implements Serializable {
 
-    private String handle;
+    private String component;
     private int points;
     private String placed;
     private String score;
-    private int userID;
+    private int compID;
     private String payment;
-    private String submitTimestamp;
+    private Date submitTimestamp;
+    private boolean complete;
+
+    SimpleDateFormat dtfmt = new SimpleDateFormat("MM.dd.yyyy hh:mma");
 
     /** Creates a new instance of TC04OverallResult */
-    public TCCC05ProjectDetail() {
-        handle = "";
+    public UserContestResult() {
+        component = "";
         points = 0;
         placed = "-";
         score = "";
-        userID = 0;
+        compID = 0;
         payment = "";
-        submitTimestamp = "";
+        submitTimestamp = null;
+        complete = false;
     }
 
-    public TCCC05ProjectDetail(String h, int pts, String pl, String sc, int u, String pay, String sub) {
-        handle = h;
+    public UserContestResult(String h, int pts, String pl, String sc, int u, String pay, Date sub, boolean complete) {
+        component = h;
         points = pts;
         placed = pl;
         score = sc;
-        userID = u;
+        compID = u;
         payment = pay;
         submitTimestamp = sub;
+        this.complete = complete;
+    }
+
+    public boolean isComplete() {
+        return complete;
     }
 
     public String getSubmitTimestamp() {
-        return submitTimestamp;
+        if (submitTimestamp == null)
+            return "";
+
+        return dtfmt.format(submitTimestamp);
     }
 
-    public void setSubmitTimestamp(String s) {
+    public void setSubmitTimestamp(Date s) {
         this.submitTimestamp = s;
+    }
+
+    public Date getSubmitTimestampDate() {
+        return submitTimestamp;
     }
 
     public String getPayment() {
@@ -59,20 +77,20 @@ public class TCCC05ProjectDetail implements Serializable {
         payment = s;
     }
 
-    public int getUserID() {
-        return userID;
+    public int getCompID() {
+        return compID;
     }
 
-    public void setUserID(int u) {
-        userID = u;
+    public void setCompID(int u) {
+        compID = u;
     }
 
-    public String getHandle() {
-        return handle;
+    public String getComponent() {
+        return component;
     }
 
-    public void setHandle(String h) {
-        handle = h;
+    public void setComponent(String h) {
+        component = h;
     }
 
     public int getPoints() {
