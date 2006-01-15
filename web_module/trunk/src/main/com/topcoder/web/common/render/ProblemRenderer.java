@@ -18,7 +18,7 @@ public class ProblemRenderer extends BaseRenderer implements ElementRenderer {
     private Color backgroundColor = null;
     private Color foregroundColor = null;
 
-    private static final String LEGAL = "This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2005, TopCoder, Inc.  All rights reserved.  ";
+    private static final String LEGAL = "This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2006, TopCoder, Inc.  All rights reserved.  ";
 
     public ProblemRenderer() {
         this.problem = null;
@@ -49,12 +49,22 @@ public class ProblemRenderer extends BaseRenderer implements ElementRenderer {
             html.append("<hr>");
         }
         ProblemComponent[] problemComponents = problem.getProblemComponents();
-        ProblemComponentRenderer pcr = null;
-        for (int i = 0; i < problemComponents.length && problemComponents[i] != null; i++) {
-            pcr = new ProblemComponentRenderer(problemComponents[i]);
-            pcr.setTdClass(getTdClass());
-            html.append(pcr.toHTML(language));
-            html.append("<hr>");
+        if (problem.getProblemTypeID()==Problem.TYPE_LONG) {
+            LongContestComponentRenderer pcr;
+            for (int i = 0; i < problemComponents.length && problemComponents[i] != null; i++) {
+                pcr = new LongContestComponentRenderer(problemComponents[i]);
+                pcr.setTdClass(getTdClass());
+                html.append(pcr.toHTML(language));
+                html.append("<hr>");
+            }
+        } else {
+            ProblemComponentRenderer pcr;
+            for (int i = 0; i < problemComponents.length && problemComponents[i] != null; i++) {
+                pcr = new ProblemComponentRenderer(problemComponents[i]);
+                pcr.setTdClass(getTdClass());
+                html.append(pcr.toHTML(language));
+                html.append("<hr>");
+            }
         }
         html.append("<p>");
         html.append(LEGAL);
