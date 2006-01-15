@@ -246,16 +246,16 @@ class MailHelper {
         DocumentManagerLocal docManager = EJBHelper.getDocumentManager();
         AggregationReview[] aggReviews = docManager.getAggregationReview(project, from.getTCSubject());
         for (int i = 0; i < aggReviews.length; i++) {
-            int rejected = 0;
+            int accepted = 1;
             if (aggReviews[i].getStatus().getId() == AggregationApproval.ID_REJECTED) {
-                rejected = 1;
+                accepted = 0;
                 System.out.println("rejected! ");
             } else {
                 System.out.println("ok! ");
             }
             RecordTag comp = new RecordTag("REVIEWER");
             comp.addTag(new ValueTag("REVIEWER_HANDLE", aggReviews[i].getReviewer().getHandle()));
-            comp.addTag(new ValueTag("REVIEWER_AGG_ACCEPTED", rejected));
+            comp.addTag(new ValueTag("REVIEWER_AGG_ACCEPTED", accepted));
             comp.addTag(new ValueTag("REVIEWER_AGG_COMMENT", aggReviews[i].getText()));
             xmlDocument.addTag(comp);
         }
