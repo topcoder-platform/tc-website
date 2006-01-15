@@ -1,29 +1,24 @@
-/*
- * TCCC05MemberResults.java
- *
- * Created on January 6, 2005, 11:36 AM
- */
-
 package com.topcoder.web.tc.controller.request.development;
 
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.model.UserContestResult;
 
-import java.text.DecimalFormat;
 import java.util.*;
+import java.text.DecimalFormat;
 
 /**
- *
- * @author rfairfax
+ * @author dok
+ * @version $Revision$ Date: 2005/01/01 00:00:00
+ *          Create Date: Jan 15, 2006
  */
-public class TCO05MemberResults extends StatBase {
+public class TCO06MemberResults extends StatBase {
 
     String getCommandName() {
-        return "tco05_member_projects";
+        return "tco06_member_projects";
     }
 
     String getDataSourceName() {
@@ -31,7 +26,7 @@ public class TCO05MemberResults extends StatBase {
     }
 
     String getPageName() {
-        return "/tournaments/tco05/member_results.jsp";
+        return "/tournaments/tco06/member_results.jsp";
     }
 
     private ArrayList arr = new ArrayList();
@@ -53,7 +48,7 @@ public class TCO05MemberResults extends StatBase {
             Request dataRequest = new Request();
             Map result;
             try {
-                dataRequest.setContentHandle("tco05_project_results_all");
+                dataRequest.setContentHandle("tco06_project_results_all");
                 dataRequest.setProperty("ct", getRequest().getParameter("ct"));
                 dataRequest.setProperty("pj", String.valueOf(rsc.getIntItem(i, "project_id")));
 
@@ -64,7 +59,7 @@ public class TCO05MemberResults extends StatBase {
                 throw new TCWebException(e);
             }
 
-            ResultSetContainer rscDetails = (ResultSetContainer) result.get("tco05_project_results_all");
+            ResultSetContainer rscDetails = (ResultSetContainer) result.get("tco06_project_results_all");
             ResultSetContainer rscComplete = (ResultSetContainer) result.get("project_details");
             boolean bComplete = false;
             if (rscComplete.getIntItem(0, "complete_status") == 1) {

@@ -11,7 +11,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.tc.model.TCCC05MemberResult;
+import com.topcoder.web.tc.model.UserContestResult;
 
 import java.text.DecimalFormat;
 import java.util.*;
@@ -99,7 +99,7 @@ public class TCCC05MemberResults extends StatBase {
                         sub = (Date) rscDetails.getItem(j, "submit_timestamp").getResultData();
                     }
 
-                    arr.add(new TCCC05MemberResult(rsc.getStringItem(i, "component_name"), pts,
+                    arr.add(new UserContestResult(rsc.getStringItem(i, "component_name"), pts,
                             place, score,
                             rsc.getIntItem(i, "component_id"), prz, sub, bComplete));
                 }
@@ -116,8 +116,8 @@ public class TCCC05MemberResults extends StatBase {
     public class myComparator implements Comparator {
 
         public int compare(Object o1, Object o2) {
-            TCCC05MemberResult a1 = (TCCC05MemberResult) o1;
-            TCCC05MemberResult a2 = (TCCC05MemberResult) o2;
+            UserContestResult a1 = (UserContestResult) o1;
+            UserContestResult a2 = (UserContestResult) o2;
 
             if (a1.getSubmitTimestampDate() == null && a2.getSubmitTimestampDate() == null) {
                 return 0;
