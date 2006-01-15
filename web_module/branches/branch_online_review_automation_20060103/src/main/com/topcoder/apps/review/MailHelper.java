@@ -249,6 +249,9 @@ class MailHelper {
             int rejected = 0;
             if (aggReviews[i].getStatus().getId() == AggregationApproval.ID_REJECTED) {
                 rejected = 1;
+                System.out.println("rejected! ");
+            } else {
+                System.out.println("ok! ");
             }
             RecordTag comp = new RecordTag("REVIEWER");
             comp.addTag(new ValueTag("REVIEWER_HANDLE", aggReviews[i].getReviewer().getHandle()));
@@ -256,6 +259,9 @@ class MailHelper {
             comp.addTag(new ValueTag("REVIEWER_AGG_COMMENT", aggReviews[i].getText()));
             xmlDocument.addTag(comp);
         }
+//PLK
+        System.out.println("xml : " + xmlDocument.toString());
+
 
         String bodyText = formatBody(xmlDocument, ConfigHelper.getRejectedAggregationReviewXSL());
         sendMail(from, to, project.getName() + " Aggregation Review results", bodyText);
