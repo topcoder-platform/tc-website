@@ -18,8 +18,8 @@ public class ReliabilityRating {
     public static final String DRIVER_KEY = "DriverClass";
     public static final String CONNECTION_URL_KEY = "ConnectionURL";
     public static final String HISTORY_LENGTH_KEY = "HistoryLength";
-    public static final int MIN_PASSING_SCORE = 70;
-    public static final int MIN_RELIABLE_SCORE = 70;
+    public static final int MIN_PASSING_SCORE = 75;
+    public static final int MIN_RELIABLE_SCORE = 75;
 
     /**
      * the date when the new rules go into effect
