@@ -2910,6 +2910,12 @@ public class ProjectTrackerBean implements SessionBean {
             rsScores = psRetrieveScores.executeQuery();
             psInsertScores = conn.prepareStatement(insertScores);
             int place = 0;
+            double minScore;
+            try {
+                minScore = ConfigHelper.getMinimumScore();
+            } catch (Exception e) {
+                throw new EJBException("Couldn't get min score from config", e);
+            }
             while (rsScores.next()) {
                 double money = rsScores.getLong("price");
                 double score = rsScores.getDouble("score");
@@ -2918,22 +2924,15 @@ public class ProjectTrackerBean implements SessionBean {
                 place = place + 1;
                 if (place == 2) {
                     money = Math.round((money * .5));
-                }
-                //GT Removed this bc we don't pay 3rd anymore!
-                //else if(place == 3)
-                //{
-                //    money = Math.round((money *.25));
-                //}
-                else if (place != 1 || score < 70) {
+                } else if (place != 1 || score < minScore) {
                     money = 0;
                 }
 
                 //score
                 psInsertScores.setDouble(1, score);
 
-                //NEED  TO ADD TO CONFIG
                 //place
-                if (score < 70) {
+                if (score < minScore) {
                     psInsertScores.setNull(2, Types.INTEGER);
                     money = 0;
                 } else {
