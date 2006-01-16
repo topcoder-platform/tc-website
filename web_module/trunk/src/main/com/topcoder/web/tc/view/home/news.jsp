@@ -371,20 +371,6 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>12.15.05<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=collegetour&d2=description">Introducing the U.S. College Tour</A></span><br><br>
-      TopCoder will be touring U.S. universities during 2006.  Is your school on the schedule?
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=collegetour&d2=description">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505877" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-
-
 </table>
 <br><br>
 <table align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" width="525">
