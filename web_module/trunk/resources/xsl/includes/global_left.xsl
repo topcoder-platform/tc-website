@@ -7,6 +7,8 @@
     <xsl:import href="../includes/modules/srm_dates.xsl"/>
     <xsl:template name="global_left">
 
+        <script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
+
     <xsl:param name="level1"></xsl:param>
     <xsl:param name="level2"></xsl:param>
     <xsl:param name="level3"></xsl:param>
@@ -658,7 +660,20 @@
 </xsl:template>
 
 <xsl:template name="applet_row">
-                <tr><td id="leftNavApplet"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A href="Javascript:arena()" class="left">Launch Arena Applet</A></td></tr>
+                <tr><td id="leftNavApplet"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>
+        <script language="JavaScript"><![CDATA[
+            if (canDetectPlugins()) {
+                if (detectJavaWebStart()) {
+                    document.write('<a href="http://www.topcoder.com/contest/arena/ContestAppletProd.jnlp" class="left">');
+                }
+                else {
+                    document.write('<a href="javascript:arena();" class="left">');
+                }
+            }
+            else {
+                document.write('<a href="javascript:arena();" class="left">');
+            }
+        ]]></script>Launch Arena Applet</td></tr>
 </xsl:template>
 
 <xsl:template name="my_home_row">
