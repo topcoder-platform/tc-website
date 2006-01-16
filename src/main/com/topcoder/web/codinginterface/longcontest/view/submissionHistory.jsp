@@ -77,7 +77,7 @@
             <span class="bigHandle">Contest:
                     <A href="?module=ViewStandings&rd=<rsc:item name="round_id" row="<%=infoRow%>"/>" class="bcLink"><rsc:item name="contest_name" row="<%=infoRow%>"/></A>
             </span><br>
-            <span class="bodySubtitle">Problem: <A href=""><rsc:item name="problem_name" row="<%=infoRow%>"/></A></span><br>
+            <span class="bodySubtitle">Problem: <A href="" class="bcLink"><rsc:item name="problem_name" row="<%=infoRow%>"/></A></span><br>
             <span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=request.getParameter(Constants.CODER_ID)%>'/></span>
             <br>
             <span class="bodySubtitle">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></span><br>
