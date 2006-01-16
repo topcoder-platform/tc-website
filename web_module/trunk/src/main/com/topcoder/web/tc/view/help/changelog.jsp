@@ -42,6 +42,9 @@
         <ul>
             <li>Another attempt to improve the ACIDity of the reviewer reg process</li>
             <li>New reg code for component contests</li>
+            <li>moved applet autodetect code to a file</li>
+            <li>fixed bad applet links that didn't do autodetect</li>
+            <li>added example information for marathon matches</li>
         </ul>
 
     </p>
