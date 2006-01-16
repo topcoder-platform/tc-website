@@ -37,10 +37,12 @@
 
 <p align="center">
 Overview&#160;&#160;|&#160;&#160;
-<A href="/longcontest/?module=Static&d1=intel_instructions">How to compete</A>&#160;&#160;|&#160;&#160;
+<A href="/longcontest/?module=Static&d1=intel_instructions">How to Compete</A>&#160;&#160;|&#160;&#160;
 <A href="/longcontest/?module=Static&d1=intel_rules">Rules</A>&#160;&#160;|&#160;&#160;
+<%--
 <A href="/longcontest/?module=ViewActiveContests&rt=15">Active Contests</A>&#160;&#160;|&#160;&#160;
 <A href="/longcontest/?module=ViewPractice&rt=16">Practice</A>&#160;&#160;|&#160;&#160;
+--%>
 <A href="/longcontest/?module=Static&d1=intel_resources">ISN Resources</A>
 </p>
 
