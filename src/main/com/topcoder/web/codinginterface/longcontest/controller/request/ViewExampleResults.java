@@ -27,7 +27,7 @@ public class ViewExampleResults extends Base {
             TCRequest request = getRequest();
             String round = request.getParameter(Constants.ROUND_ID);
             String coder = request.getParameter(Constants.CODER_ID);
-            String component = request.getParameter(Constants.COMPONENT_ID);
+            String problem = request.getParameter(Constants.PROBLEM_ID);
             log.debug("coder: " + coder + " user " + getUser().getId());
             String dataSource = null;
             // they can also see any solution if it's a practice round
@@ -44,7 +44,7 @@ public class ViewExampleResults extends Base {
             r.setContentHandle("long_contest_example_results");
             r.setProperty(Constants.CODER_ID, coder);
             r.setProperty(Constants.ROUND_ID, round);
-            r.setProperty(Constants.COMPONENT_ID, component);
+            r.setProperty(Constants.PROBLEM_ID, problem);
 
             DataAccessInt dataAccess = getDataAccess();
             Map m = dataAccess.getData(r);
