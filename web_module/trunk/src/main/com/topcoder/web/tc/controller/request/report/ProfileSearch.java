@@ -65,7 +65,7 @@ public class ProfileSearch extends Base {
     }
 
     private String buildQuery(TCRequest request, List headers) {
-        boolean cs = "on".equals(request.getParameter("casesensitive"));
+        boolean isCaseSensitive = "on".equals(request.getParameter("casesensitive"));
         ArrayList skillsHeaders = new ArrayList();
         List[] skills = buildSkillsQuery(request, skillsHeaders);
         boolean skill = skills[0].size() > 0;
@@ -76,9 +76,9 @@ public class ProfileSearch extends Base {
         String comp = request.getParameter("company");
         String sch = request.getParameter("school");
         boolean containsDevRating = !"".equals(StringUtils.checkNull(request.getParameter("mindevrating")))
-                ||!"".equals(StringUtils.checkNull(request.getParameter("maxdevrating")));
+                || !"".equals(StringUtils.checkNull(request.getParameter("maxdevrating")));
         boolean containsDesRating = !"".equals(StringUtils.checkNull(request.getParameter("mindesrating")))
-                ||!"".equals(StringUtils.checkNull(request.getParameter("maxdesrating")));
+                || !"".equals(StringUtils.checkNull(request.getParameter("maxdesrating")));
 
         StringBuffer query = new StringBuffer(5000);
         if ("on".equals(request.getParameter("count"))) {
@@ -89,7 +89,8 @@ public class ProfileSearch extends Base {
             headers.add("Rated North America");
             headers.add("Pro North America");
             headers.add("Rated Pro North America");
-            if (comp != null && comp.length() > 0 && !comp.equals("%") || sch != null && sch.length() > 0 && !sch.equals("%")) {
+            if (comp != null && comp.length() > 0 && !comp.equals("%") || sch != null && sch.length() > 0 && !sch.equals("%"))
+            {
                 //query.append("SELECT {+ordered} COUNT(*), 'false'\n");
                 query.append("SELECT {+ordered} COUNT(*)as total_count, \n");
                 query.append("sum(case when r.rating > 0 then 1 else 0 end) as rated_count, \n");
@@ -118,7 +119,8 @@ public class ProfileSearch extends Base {
             }
         } else {
             query.append("SELECT");
-            if (comp != null && comp.length() > 0 && !comp.equals("%") || sch != null && sch.length() > 0 && !sch.equals("%")) {
+            if (comp != null && comp.length() > 0 && !comp.equals("%") || sch != null && sch.length() > 0 && !sch.equals("%"))
+            {
                 query.append(" {+ordered}");
             }
             query.append(" u.handle as Handle\n");
@@ -209,12 +211,12 @@ public class ProfileSearch extends Base {
         if (comp != null && comp.length() > 0) {
             query.append("    AND drc.coder_id = c.coder_id\n");
             query.append("    AND drc.demographic_question_id = 15\n");
-            query.append(stringMatcher(comp, "drc.demographic_response", cs));
+            query.append(stringMatcher(comp, "drc.demographic_response", isCaseSensitive));
         }
         if (sch != null && sch.length() > 0) {
             query.append("    AND cur_sch.coder_id = c.coder_id\n");
             query.append("    AND cur_sch.school_id = sch.school_id\n");
-            query.append(stringMatcher(sch, "sch.name", cs));
+            query.append(stringMatcher(sch, "sch.name", isCaseSensitive));
         }
 
         if ("on".equals(request.getParameter("resume"))) {
@@ -330,9 +332,9 @@ public class ProfileSearch extends Base {
         return new List[]{new ArrayList(tables), constraints, selects};
     }
 
-    private String stringMatcher(String val, String col, boolean cs) {
+    private String stringMatcher(String val, String col, boolean isCaseSensitive) {
         String rc, rv;
-        if (cs) {
+        if (isCaseSensitive) {
             rc = col;
             rv = "'" + val + "'";
         } else if (col.equals("u.handle")) {
@@ -464,8 +466,8 @@ public class ProfileSearch extends Base {
         return query.toString();
     }
 
-    private String isOn(String s, boolean def) {
-        return (def || "on".equals(s)) ? "true" : "false";
+    private String isOn(String s, boolean defaultValue) {
+        return (defaultValue || "on".equals(s)) ? "true" : "false";
     }
 
     private void getProfileSearch(TCRequest request) throws Exception {
@@ -486,7 +488,7 @@ public class ProfileSearch extends Base {
         Map demo = new HashMap();
         String[] textFields = {"handle", "email", "firstname", "lastname", "zipcode", "city", "company", "school", "maxdayssincerating", "minevents", "mindays", "maxdays", "minrating", "maxrating", "mindesrating", "maxdesrating", "mindevrating", "maxdevrating"};
         String[] checkBoxes = {"count", "pro", "stud", "resume", "travel", "auth", "casesensitive"};
-        boolean[] def = {false, true, true, false, false, false, false};
+        boolean[] checkBoxDefaults = {false, true, true, false, false, false, false};
         boolean revise = "on".equals(request.getParameter("revise"));
         for (int i = 0; !revise && i < languages.getRowCount(); i++) {
             ResultSetContainer.ResultSetRow lang = languages.getRow(i);
@@ -496,7 +498,7 @@ public class ProfileSearch extends Base {
             setDefault(textFields[i], request.getParameter(textFields[i]));
         }
         for (int i = 0; i < checkBoxes.length; i++) {
-            setDefault(checkBoxes[i], isOn(request.getParameter(checkBoxes[i]), !revise && def[i]));
+            setDefault(checkBoxes[i], isOn(request.getParameter(checkBoxes[i]), !revise && checkBoxDefaults[i]));
         }
         while (e.hasMoreElements()) {
             String p = e.nextElement().toString();
@@ -511,7 +513,9 @@ public class ProfileSearch extends Base {
                     l.add(new ListSelectTag.Option(v[i], name + " >= " + skillLevel));
                 }
                 skillSetMap.put(p, l);
-            } else if (p.equals("states") || p.equals("country") || p.equals("countryoforigin") || p.equals("notifications")) {//set a few more selections
+            } else
+            if (p.equals("states") || p.equals("country") || p.equals("countryoforigin") || p.equals("notifications"))
+            {//set a few more selections
                 Set s = new HashSet();
                 s.addAll(Arrays.asList(v));
                 sel.put(p, s);
