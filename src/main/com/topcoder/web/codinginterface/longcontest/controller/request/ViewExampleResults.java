@@ -49,6 +49,7 @@ public class ViewExampleResults extends Base {
             DataAccessInt dataAccess = getDataAccess();
             Map m = dataAccess.getData(r);
             request.setAttribute("resultMap", m);
+            request.setAttribute(Constants.CODER_ID, coder);
             setNextPage(Constants.PAGE_VIEW_EXAMPLE_RESULTS);
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
