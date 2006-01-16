@@ -77,7 +77,7 @@
                 <p><%=i%>)</p>
                 <p>
                     Example Case: <br />
-                    <pre><rsc:item name="expected_results" row="<%=resultRow%>"/></pre>
+                    <pre><rsc:item name="expected_result" row="<%=resultRow%>"/></pre>
                 </p>
                 <p>
                     Fatal Errors: <br />
