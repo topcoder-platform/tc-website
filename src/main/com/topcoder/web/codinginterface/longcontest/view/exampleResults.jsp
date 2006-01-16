@@ -60,7 +60,7 @@
 
             <jsp:include page="page_title.jsp">
                 <jsp:param name="image" value="<%=image%>"/>
-                <jsp:param name="title" value="Problem Solution"/>
+                <jsp:param name="title" value="Example Results"/>
             </jsp:include>
 
             <span class="bigHandle">Contest: <rsc:item name="contest_name" set="<%=info%>"/></span><br>
