@@ -131,11 +131,11 @@ If the target value was not present in the sequence, binary search would empty t
 <pre class="code">
 binary_search(A, target):
    lo = 1, hi = size(A)
-   while lo <= hi:
+   while lo &lt;= hi:
       mid = lo + (hi-lo)/2
       if A[mid] == target:
          return mid            
-      else if A[mid] < target: 
+      else if A[mid] &lt; target: 
          lo = mid+1
       else:
          hi = mid-1
@@ -250,7 +250,7 @@ Now we finally get to the code which implements binary search as described in th
 
 <pre class="code">
 binary_search(lo, hi, p):
-   while lo < hi:
+   while lo &lt; hi:
       mid = lo + (hi-lo)/2
       if p(mid) == true:
          hi = mid
@@ -272,7 +272,7 @@ If we wanted to find the last x for which <i>p</i>(x) is false, we would devise 
 <pre class="code">
 // warning: there is a nasty bug in this snippet!
 binary_search(lo, hi, p):
-   while lo < hi:
+   while lo &lt; hi:
       mid = lo + (hi-lo)/2    // note: division truncates
       if p(mid) == true:
          hi = mid-1
@@ -336,12 +336,12 @@ int getMostWork( vector  folders, int workers ) {
    int lo = *max_element( folders.begin(), folders.end() );
    int hi = accumulate( folders.begin(), folders.end(), 0 );
 
-   while ( lo < hi ) {
+   while ( lo &lt; hi ) {
       int x = lo + (hi-lo)/2;
 
       int required = 1, current_load = 0;
-      for ( int i=0; i<n; ++i ) {
-         if ( current_load + folders[i] <= x ) {
+      for ( int i=0; i&lt;n; ++i ) {
+         if ( current_load + folders[i] &lt;= x ) {
             // the current worker can handle it
             current_load += folders[i];
          }
