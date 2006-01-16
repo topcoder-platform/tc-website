@@ -7,11 +7,11 @@
     <xsl:import href="../includes/modules/srm_dates.xsl"/>
     <xsl:template name="global_left">
 
-        <script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
-
     <xsl:param name="level1"></xsl:param>
     <xsl:param name="level2"></xsl:param>
     <xsl:param name="level3"></xsl:param>
+
+    <script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
 
     <xsl:choose>
 <!-- Schedule begins -->
