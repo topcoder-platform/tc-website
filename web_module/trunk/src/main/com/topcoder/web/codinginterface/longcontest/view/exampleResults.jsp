@@ -77,7 +77,11 @@
                 <p><%=i%>)</p>
                 <p>
                     Example Case: <br />
-                    <pre><rsc:item name="expected_result" row="<%=resultRow%>"/></pre>
+                    <pre>
+            <%-- this substring bullshit is because we're storing a string in the db serialized and pretty
+            printer wraps strings in double quotes.  they are getting removed with this substring as they
+            are not appropriate in this case.  the writer is responsible for all formatting --%>
+                <pre><%=resultRow.getStringItem("expected_result").substring(1, resultRow.getStringItem("expected_result").length()-2)%></pre>
                 </p>
                 <p>
                     Fatal Errors: <br />
