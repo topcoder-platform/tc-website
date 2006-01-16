@@ -19,12 +19,6 @@
     return;
   }
 
-
-function arena() {
-  w=window.open("http://www.topcoder.com/tc?module=Static&d1=applet&d2=launch","Launch","top=2,left=2,width=300,height=225,resizable=yes,status=1");
-  return;
-}
-
 function tcTime() {
   w=window.open("/contest/time.html","Time","top=2,left=2,width=250,height=50,resizable=yes,status=1");
   return;
@@ -75,12 +69,7 @@ function openProblemRating(id) {
 
 function goTo(selection) {
   sel = selection.options[selection.selectedIndex].value;
-  if (sel == "arena")
-  {
-    arena();
-  }
-  //quick stats
-  else if (sel == "alltimewin")
+  if (sel == "alltimewin")
   {
     window.location = "/stat?c=all_time_wins";
   }
