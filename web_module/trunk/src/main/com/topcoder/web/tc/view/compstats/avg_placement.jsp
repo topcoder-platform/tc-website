@@ -10,10 +10,9 @@ String type = (String)request.getParameter("type");
 if (type == null) type = "Component";%>
 <table>
     <rsc:iterator list="<%=rsc%>" id="row">
-    <% long coder = row.getLongItem("cid"); %>
         <tr>
         <td><rsc:item name="rank" row="<%=row%>"/></td>
-        <td><tc-webtag:handle coderId='<%=coder%>' context='<%=type%>'/></td>
+        <td><tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=type%>'/></td>
         <td><rsc:item name="average" row="<%=row%>"/></td>
         </tr>
     </rsc:iterator>
