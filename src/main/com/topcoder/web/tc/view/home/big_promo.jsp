@@ -22,15 +22,15 @@
 <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><IMG SRC="/i/home/tco06.gif" border="0" ALT="Introducing the TCO06"/></A>
 --%>
 <%-- TCO06
---%>
 <map name="tco06_map">
 <area shape="rect" alt="" coords="1,1, 265,149" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
 <area shape="rect" alt="" coords="275,1, 499,149" href="/tc?module=TCO06ComponentTerms" />
 </map>
 <IMG SRC="/i/home/tco06_comp_registration.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" />
-<%-- Marathon Matches
-<A href="/longcontest/?module=Static&d1=instructions"><IMG SRC="/i/home/marathon_matches.jpg" border="0" ALT="Marathon Matches"/></A>
 --%>
+<%-- Marathon Matches
+--%>
+<A href="/longcontest/?module=Static&d1=intel_overview"><IMG SRC="/i/home/intel_multi_threading.gif" border="0" ALT="Intel Multi-Threading Competition Series"/></A>
 <%-- College Tour
 <A href="/tc?module=Static&d1=collegetour&d2=description"><IMG SRC="/i/home/college_tour.jpg" border="0" ALT="College Tour"/></A>
 --%>
