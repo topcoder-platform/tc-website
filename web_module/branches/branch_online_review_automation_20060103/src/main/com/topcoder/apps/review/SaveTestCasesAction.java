@@ -1,5 +1,5 @@
-/**
- * Copyright ?2004, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.apps.review;
@@ -20,8 +20,18 @@ import java.io.InputStream;
  * Extends from <strong>ReviewAction</strong> that saves the reviewer's testcases.
  * </p>
  *
- * @author FatClimber
- * @version 1.0
+ * <p>
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * A call to <code>AutoPilot.reviewFromScorecard()</code> was added. It will handle the new automated phase change
+ * and timeline update.
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author FatClimber, pulky
+ * @version 1.0.1
  */
 public final class SaveTestCasesAction extends ReviewAction {
 

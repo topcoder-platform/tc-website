@@ -1,6 +1,7 @@
-/**
- * Copyright � 2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
+
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.Appeal;
@@ -27,8 +28,16 @@ import java.util.GregorianCalendar;
 /**
  * Helper class for sending mails using the Email Engine component.
  *
- * @author adic
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Rejected aggregation review mail was added.
+ * </li>
+ * <code>rejectedAggregationReviewMail()</code> added to send a summary email when an aggregation review is rejected.
+ * </ol>
+ *
+ * @author adic, pulky
+ * @version 1.0.1
  */
 class MailHelper {
 
@@ -162,7 +171,8 @@ class MailHelper {
 
         if (filenameXSL == null) {
             StringBuffer s = new StringBuffer();
-            s.append("\nThe " + ConfigHelper.FINAL_REVIEW_FAIL_XSL + " property doesn't seem to exist in " + ConfigHelper.CONFIG_FILE + '\n');
+            s.append("\nThe " + ConfigHelper.FINAL_REVIEW_FAIL_XSL + " property doesn't seem to exist in " +
+                ConfigHelper.CONFIG_FILE + '\n');
             s.append("The contents of the config file is: \n\n>>> ");
 
             InputStream is = MailHelper.class.getClassLoader().getResourceAsStream(ConfigHelper.CONFIG_FILE);
@@ -205,7 +215,8 @@ class MailHelper {
      */
     static void projectChangeMail(SecurityEnabledUser from, User to, Project proj, String reason) throws Exception {
         // get number of submissions
-        InitialSubmission[] subms = EJBHelper.getDocumentManager().getInitialSubmissions(proj, false, from.getTCSubject());
+        InitialSubmission[] subms = EJBHelper.getDocumentManager().getInitialSubmissions(proj, false,
+            from.getTCSubject());
         int count = 0;
         for (int i = 0; i < subms.length; i++) {
             if (!subms[i].isRemoved()) {
@@ -224,20 +235,16 @@ class MailHelper {
     }
 
     /**
-     * Send mail to a user when the project changes.
+     * Send summary mail to a user if an aggregation review is rejected.
      *
      * @param from the sender (an admin)
      * @param to the user to send the mail to
-     * @param oldProject the old state of the project (previous)
-     *        not used right now but might be needed in the future
-     * @param newProject the new state of the project (current/new)
-     * @param reason an explanation from the admin
-     * @param changeType the type of the change (combination of the constants defined above)
+     * @param project the project in reference
      *
      * @throws Exception propagate any exceptions
+     * @since 1.0.1
      */
     static void rejectedAggregationReviewMail(SecurityEnabledUser from, User to, Project project) throws Exception {
-        // PLK
         XMLDocument xmlDocument = new XMLDocument("MAILDATA");
         xmlDocument.addTag(new ValueTag("USER_NAME", to.getHandle()));
         xmlDocument.addTag(new ValueTag("PROJECT_NAME", project.getName()));
@@ -249,9 +256,7 @@ class MailHelper {
             int accepted = 1;
             if (aggReviews[i].getStatus().getId() == AggregationApproval.ID_REJECTED) {
                 accepted = 0;
-                System.out.println("rejected! ");
             } else {
-                System.out.println("ok! ");
             }
             RecordTag comp = new RecordTag("REVIEWER");
             comp.addTag(new ValueTag("REVIEWER_HANDLE", aggReviews[i].getReviewer().getHandle()));
@@ -259,9 +264,6 @@ class MailHelper {
             comp.addTag(new ValueTag("REVIEWER_AGG_COMMENT", aggReviews[i].getText()));
             xmlDocument.addTag(comp);
         }
-//PLK
-        System.out.println("xml : " + xmlDocument.toString());
-
 
         String bodyText = formatBody(xmlDocument, ConfigHelper.getRejectedAggregationReviewXSL());
         sendMail(from, to, project.getName() + " Aggregation Review results", bodyText);
@@ -425,7 +427,8 @@ class MailHelper {
         int primaryExtraPayment = 0;
         for (int i = 0; i < roles.length; i++) {
             long roleId = roles[i].getRole().getId();
-            if (roleId == Role.ID_PRIMARY_SCREENER || roleId == Role.ID_AGGREGATOR || roleId == Role.ID_FINAL_REVIEWER) {
+            if (roleId == Role.ID_PRIMARY_SCREENER || roleId == Role.ID_AGGREGATOR ||
+                roleId == Role.ID_FINAL_REVIEWER) {
                 primaryExtraPayment += (int) roles[i].getPaymentInfo().getPayment();
             }
         }

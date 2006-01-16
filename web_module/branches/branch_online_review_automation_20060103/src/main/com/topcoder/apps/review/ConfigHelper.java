@@ -1,6 +1,7 @@
-/**
- * Copyright � 2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
+
 package com.topcoder.apps.review;
 
 import com.topcoder.util.config.ConfigManager;
@@ -18,8 +19,15 @@ import java.util.List;
 /**
  * Helper class that handles the communication with the Configuration Manager.
  *
- * @author adic
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Rejected aggregation review mail configuration was added.
+ * </li>
+ * </ol>
+ *
+ * @author adic, pulky
+ * @version 1.0.1
  */
 public class ConfigHelper implements ConfigManagerInterface {
 
@@ -68,8 +76,9 @@ public class ConfigHelper implements ConfigManagerInterface {
      */
     private static final String PROJECT_CHANGE_XSL = "project_change_xsl";
 
-    /** PLK
-     * Project change mail xsl file property name.
+    /**
+     * Rejected aggregation review mail xsl file property name.
+     * @since 1.0.1
      */
     private static final String REJECTED_AGGREGATION_REVIEW_XSL = "rejected_aggregation_review_xsl";
 
@@ -235,11 +244,12 @@ public class ConfigHelper implements ConfigManagerInterface {
     }
 
     /**
-     * Get the xsl mail template file for project changes.
+     * Get the xsl mail template file for rejected aggregation review.
      *
      * @return the name of the xsl file
-     * PLK
+     *
      * @throws Exception propagate any exceptions
+     * @since 1.0.1
      */
     static String getRejectedAggregationReviewXSL() throws Exception {
         return ConfigManager.getInstance().getString(NAMESPACE, REJECTED_AGGREGATION_REVIEW_XSL);

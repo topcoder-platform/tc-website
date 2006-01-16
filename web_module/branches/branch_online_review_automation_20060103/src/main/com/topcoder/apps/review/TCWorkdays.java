@@ -596,7 +596,8 @@ public class TCWorkdays implements Workdays {
      * TCWorkdays instance to the default configuration and clears the set of non workdays.
      * </p>
      *
-     * @throws com.topcoder.date.workdays.ConfigurationFileException if something goes wrong in the process of reloading the configuration file
+     * @throws com.topcoder.date.workdays.ConfigurationFileException if something goes wrong in the process of
+     * reloading the configuration file
      * @throws java.lang.IllegalArgumentException if no configuration file specified
      */
     public void refresh() throws ConfigurationFileException {
@@ -669,7 +670,8 @@ public class TCWorkdays implements Workdays {
      * configuartion manager with the appropriated values and tells the configuration manager to commit the changes.
      * </p>
      *
-     * @throws com.topcoder.date.workdays.ConfigurationFileException if something goes wrong in the process of saving to the configuration file
+     * @throws com.topcoder.date.workdays.ConfigurationFileException if something goes wrong in the process of saving
+     * to the configuration file
      * @throws java.lang.IllegalArgumentException if no configuration file specified
      */
     public void save() throws ConfigurationFileException {
@@ -1115,18 +1117,10 @@ public class TCWorkdays implements Workdays {
 
         if (!this.isNonWorkday(startCal)) {
             // the start date is a workday
-            if (amount > 0) {
-                if (startCal.after(dayEnd)) {
-                    timeInMilliSeconds += workdayInMilliSeconds;
-                } else if (startCal.after(dayBegin)) {
-                    timeInMilliSeconds += (startCal.getTime().getTime() - dayBegin.getTime().getTime());
-                }
-            } else {
-                if (startCal.after(dayEnd)) {
-                    timeInMilliSeconds += workdayInMilliSeconds;
-                } else if (startCal.after(dayBegin)) {
-                    timeInMilliSeconds += (startCal.getTime().getTime() - dayBegin.getTime().getTime());
-                }
+            if (startCal.after(dayEnd)) {
+                timeInMilliSeconds += workdayInMilliSeconds;
+            } else if (startCal.after(dayBegin)) {
+                timeInMilliSeconds += (startCal.getTime().getTime() - dayBegin.getTime().getTime());
             }
         }
 
@@ -1672,8 +1666,8 @@ public class TCWorkdays implements Workdays {
      * start time.
      * </p>
      *
-     * @throws java.lang.IllegalArgumentException if any parameter of them is null or exceeded time limit or the  end time is
-     *         before the start time.
+     * @throws java.lang.IllegalArgumentException if any parameter of them is null or exceeded time limit or the
+     * end time is before the start time.
      */
     private void setTimeByConfigManager() {
         // Set the parameters startTimeHours, startTimeMinutes, endTimeHours, endTimeMinutes
@@ -1761,8 +1755,8 @@ public class TCWorkdays implements Workdays {
      *
      * @return the value of property specified by propertyName
      *
-     * @throws java.lang.IllegalArgumentException if the property does not exist or it is not a  number or it is not between min
-     *         and max
+     * @throws java.lang.IllegalArgumentException if the property does not exist or it is not a  number or it is not
+     * between min and max
      */
     private int getIntValueOfProperty(String propertyName, int min, int max) {
         try {
