@@ -36,6 +36,7 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">01.16.06 9:00 AM&#160;-&#160</td><td width="100%"><A href="/longcontest/?module=Static&d1=intel_overview">Introducing the Intel Multi-Threading Competition Series</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.13.05 10:00 AM&#160;-&#160</td><td width="100%"><A href="/longcontest/?module=Static&d1=instructions">Introducing Marathon Matches</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.06.05 11:00 AM&#160;-&#160</td><td width="100%">Event calendar updated for <A href="/tc?module=Static&d1=calendar&d2=feb_06">February</A>, <A href="/tc?module=Static&d1=calendar&d2=mar_06">March</A>, <A href="/tc?module=Static&d1=calendar&d2=apr_06">April</A>, and <A href="/tc?module=Static&d1=calendar&d2=may_06">May</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.04.05 2:00 PM&#160;-&#160</td><td width="100%">"Achievements" added to Member Profiles</td></tr>

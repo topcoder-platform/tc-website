@@ -10,6 +10,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>01.16.06<br>9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=intel_overview">Introducing the Intel Multi-Threading Competition Series</A></span><br><br>
+      Intel&#174; Software Network and TopCoder are hosting a 12-month series of world-wide competitions for multi-threading on multi-core microprocessors.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/longcontest/?module=Static&d1=intel_overview">details</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505893" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>01.13.05<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tco05/onsite_movies/RuijieWang_English.mov">"Never underestimate your potential..."</A></span><br><br>
       "If you try to do things, sometimes you make it with good results." A Chinese university student talks about her advancement into the Finals of TCO05.
