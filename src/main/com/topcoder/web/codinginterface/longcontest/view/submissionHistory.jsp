@@ -80,7 +80,6 @@
             <span class="bodySubtitle">Problem: <A href="" class="bcLink"><rsc:item name="problem_name" row="<%=infoRow%>"/></A></span><br>
             <span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=request.getParameter(Constants.CODER_ID)%>'/></span>
             <br>
-            <span class="bodySubtitle">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></span><br>
 
             <div style="clear: both;" align="center">
                <div class="pagingBox">
@@ -99,9 +98,9 @@
 
                             <tr>
                                 <% if (over||self) { %>
-                                <td class="tableTitle" colspan="5">Submission History</td>
+                                <td class="tableTitle" colspan="5">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></td>
                                 <% } else { %>
-                                <td class="tableTitle" colspan="4">Submission History</td>
+                                <td class="tableTitle" colspan="4">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></td>
                                 <% } %>
                             </tr>
                             <tr>
