@@ -39,7 +39,7 @@ public class SimpleQuery extends Static {
         String type = dataRequest.getProperty("type");
         if (type == null) type = "Component";
         String inClause = bundle.getProperty(type);
-        dataRequest.setProperty("pi", inClause);
+        dataRequest.setProperty("pis", inClause);
         
         DataAccessInt dai = getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, true);
         Map result = dai.getData(dataRequest);
