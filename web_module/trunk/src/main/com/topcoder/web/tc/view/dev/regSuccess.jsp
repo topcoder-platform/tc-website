@@ -41,10 +41,10 @@
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
             <p>
-                Success!!!
+                You have successfully registered for this contest.
             </p>
             <p>
-                <a href="/tc?module=ViewRegistrants&amp;pj=<%=request.getAttribute(Constants.PROJECT_ID)%>">Check out the competition</a>
+                View current <a href="/tc?module=ViewRegistrants&amp;pj=<%=request.getAttribute(Constants.PROJECT_ID)%>">contest registrants</a>
             </p>
 
         </td>
