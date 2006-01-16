@@ -63,7 +63,7 @@
                 <jsp:param name="title" value="Example Results"/>
             </jsp:include>
 
-            <span class="bigHandle">Contest: <rsc:item name="contest_name" set="<%=info%>"/></span><br>
+            <span class="bigHandle">Contest: <A class="bcLink" href=""><rsc:item name="contest_name" set="<%=info%>"/></A></span><br>
             <span class="bodySubtitle">Problem: <a class="bcLink" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" set="<%=info%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" set="<%=info%>"/>">
                 <rsc:item name="problem_name" set="<%=info%>"/></a></span><br>
             <span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=(String)request.getAttribute(Constants.CODER_ID)%>'/></span><br>
