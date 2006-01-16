@@ -9,10 +9,12 @@ import com.topcoder.dde.user.UserManagerRemoteHome;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.*;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.SurveyResponse;
 import com.topcoder.web.common.model.Answer;
@@ -41,6 +43,10 @@ public class Register extends ViewRegistration {
     protected void developmentProcessing() throws TCWebException {
 
         try {
+            if (!userLoggedIn()) {
+                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            }
+
             validation();
 
             boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE));

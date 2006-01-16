@@ -5,9 +5,11 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.CoderSessionInfo;
@@ -42,6 +44,10 @@ public class ViewRegistration extends Base {
         //forward to terms/questions page
 
         try {
+            if (!userLoggedIn()) {
+                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            }
+            
             validation();
 
 
