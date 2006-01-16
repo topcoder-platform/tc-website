@@ -49,35 +49,39 @@
 ISN Resources
 </p>
 <span class="bodySubtitle">Intel&#174; Software Network Resources</span><br>
-Explore the <A href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/developer/asmo-na/eng/index.htm">The Intel&#174; Software Network's</A> wealth of resources to discover how they can benefit you in the TopCoder competition!
+Explore the <A target="_blank" href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/developer/asmo-na/eng/index.htm">The Intel&#174; Software Network</A>'s wealth of resources to discover how they can benefit you in the Multi-Threading Competition Series!
 <br><br>
-Intel&#174; Software Network is your doorway to the broad range of programs, products, resources and content available to the software community through Intel. Understand new technologies, speed your development cycle, and join the vibrant Intel Software Network community. 
-<br><br>
-<div align="center" class="bodySubtitle"><A href="/?t=sponsor&c=link&link=https://or1cedar.cps.intel.com/isnReg/isnRegpage.aspx?TARGET=http://www.intel.com/cd/ids/developer/asmo-na/eng/index.htm">Click Here to Join Now - it's Free!</A></div>
+<div class="bodySubtitle" align="center">
+<A target="_blank" href="/?t=sponsor&c=link&link=https://or1cedar.cps.intel.com/isnReg/isnRegpage.aspx?TARGET=http://www.intel.com/cd/ids/developer/asmo-na/eng/index.htm">Click Here to Join Now - it's Free!</A>
+</div>
 <br><br>
 Intel&#174; Software Network has the information, tools and education you need. 
-<ul>
-<li>Get <A href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/developer/asmo-na/eng/dc/index.htm">the technical content</A> you need in focused topic areas such as the latest Intel processors, and the technologies relevant to developing and deploying applications on Intel architecture.
-</ul>
-The Intel&#174; Software College offers online and classroom courses on topics including Digital Media, Gaming, Migration, and Multi-core. Check out hundreds of offerings on topics like Multi-threading, Moving to Multi-core, character animation for Gaming, or Enhancing Performance with the Intel&#174; Compiler.
 <br><br>
-Visit our <A href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/developer/asmo-na/eng/dc/threading/index.htm">Threading Developer Center</A>, access an entire site dedicated to content that can help your success in the Intel Top Coder Challenges.
-<br><br>
-Explore Intel Software Network's <A href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/developer/asmo-na/eng/dc/threading/knowledgebase/index.htm">Threading Knowledge Base</A>, for fast access to question/answer scenarios.  Use the knowledge base and get a leg up on the competition!
 <ul>
-<li>Take advantage of Intel's platform expertise in our <A href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/developer/asmo-na/eng/strategy/multicore/index.htm">Multi-Core Processing Developer Center</A>. We can help you harness the combined throughput of multiple cores, and empower you to define the future of computing.</li>
-<li>Check out <A href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/developer/asmo-na/eng/dc/code/index.htm">Code Central</A>, our ever-growing library of code samples.</li>
-<li>Explore our <A href="/?t=sponsor&c=link&link=http://www.intel.com/cd/software/products/asmo-na/eng/index.htm">Software Products</A>, and create applications with development tools built from our knowledge of hardware.</li>
-<li><ul>
+<li>Developer Centers: Get the <A target="_blank" href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/developer/asmo-na/eng/dc/index.htm">technical content</A> you need in focused topic areas such as the latest Intel processors, and the technologies relevant to developing and deploying applications on Intel architecture.</li>
+   <ul>
+   <li>Visit our <A target="_blank" href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/developer/asmo-na/eng/dc/threading/index.htm">Threading Developer Center</A>, access an entire site dedicated to content that can help your success in the Multi-Threading Competition Series.</li>
+   <li>Get Started on Threading:  Here is a sampling of some of the many popular multi-core and threading articles that will get you started and help you bring your best to the competition:</li>
+      <ul>
+      <li><A target="_blank" href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/developer/asmo-na/eng/219575.htm">Nuts and Bolts of Multi-Threaded Programming</A></li>
+      <li><A target="_blank" href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/developer/asmo-na/eng/220999.htm">Multi-Core Primer</A></li>
+      <li><A target="_blank" href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/developer/asmo-na/eng/238663.htm">Multi-Core Technology and Solutions</A> - with excellent flash demo on multi-core!</li>
+      <li><A target="_blank" href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/developer/asmo-na/eng/221188.htm">Intel Multi-Core Processor Architecture: FAQ</A></li>
+      </ul>
+   </ul>
+<li>Intel&#174; Software College: <A target="_blank" href="/?t=sponsor&c=link&link=http://or1cedar.cps.intel.com/softwarecollege/">The Intel&#174; Software College</A> offers online and classroom courses on hundreds of topics including multi-core / threading and more. Check out offerings on <A target="_blank" href="/?t=sponsor&c=link&link=http://or1cedar.cps.intel.com/softwarecollege/CourseDetails.asp?courseID=222">multi-threading</A>, <A target="_blank" href="/?t=sponsor&c=link&link=http://or1cedar.cps.intel.com/softwarecollege/CourseDetails.asp?courseID=1">moving to multi-core</A>, <A target="_blank" href="/?t=sponsor&c=link&link=http://or1cedar.cps.intel.com/softwarecollege/CourseDetails.asp?courseID=58">character animation for gaming</A>, or <A target="_blank" href="/?t=sponsor&c=link&link=http://or1cedar.cps.intel.com/softwarecollege/CourseDetails.asp?courseID=105">enhancing performance with the Intel&#174; Compiler</A> and more.</li>
+<li>Intel&#174; Software Products: Explore our <A target="_blank" href="/?t=sponsor&c=link&link=http://www.intel.com/cd/software/products/asmo-na/eng/index.htm">Software Products</A> and create and thread your applications with development tools built from our knowledge of hardware.</li>
+   <ul>
    <li>Compilers - maximize your application performance on Intel&#174; architecture</li>
-   <li>Performance Libraries - accelerate your application development</li>
-   <li><A href="/?t=sponsor&c=link&link=http://www.intel.com/cd/software/products/asmo-na/eng/threading/219783.htm">Threading Tools</A> - get the essential tools you need, including <A href="/?t=sponsor&c=link&link=http://www.intel.com/support/performancetools/threadchecker">Intel&#174; Thread Checker</A> and <A href="/?t=sponsor&c=link&link=http://www.intel.com/support/performancetools/threadprofiler">Intel&#174; Thread Profiler</A></li>
-</ul></li>
-<li>Subscribe to <A href="/?t=sponsor&c=link&link=http://sdd.intelmktg.com/?pin=AEAFACAFAHAMAA34">The Intel&#174; Software Dispatch</A>, where membership includes quarterly DVDs that provide software tools, in-depth technical content, and industry strategies.</li>
-<li>Join the discussions in our <A href="/?t=sponsor&c=link&link=http://softwareforums.intel.com/ids">Community Forums</A>, including the Intel Tools Forums, and the Platform and Technology discussion areas. Tap into the knowledge of our experts and your peers to meet the challenge of developing powerful OS and application-level threaded apps for server and desktop environments alike.</li>
+   <li>Performance Libraries - accelerate your application development </li>
+   <li><A target="_blank" href="/?t=sponsor&c=link&link=http://www.intel.com/cd/software/products/asmo-na/eng/threading/219783.htm">Threading Tools</A> - get the essential tools you need, including <A target="_blank" href="/?t=sponsor&c=link&link=http://www.intel.com/support/performancetools/threadchecker">Intel&#174; Thread Checker</A> and <A target="_blank" href="/?t=sponsor&c=link&link=http://www.intel.com/support/performancetools/threadprofiler">Intel&#174; Thread Profiler </A></li>
+   <li>VTune&#153; Analyzers - maximize your application performance</li>
+   </ul>
+<li>Community Forums: Join the discussions in our <A target="_blank" href="/?t=sponsor&c=link&link=http://softwareforums.intel.com/ids">Community Forums</A>, including the Intel Tools Forums, and the Platform and Technology discussion areas. Tap into the threading knowledge of our experts and your peers to meet the challenge of developing powerful OS and application-level threaded apps for server and desktop environments alike.</li>
+<li>Downloads: Check out <A target="_blank" href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/developer/asmo-na/eng/dc/code/index.htm">Code Central</A>, our ever-growing library of code samples.</li>
+<li>Intel&#174; Software Dispatch: Subscribe to <A target="_blank" href="/?t=sponsor&c=link&link=http://sdd.intelmktg.com/?pin=AEAFACAFAHAMAA34">The Intel&#174; Software Dispatch</A>, where membership includes quarterly DVDs that provide software tools, in-depth technical content, and industry strategies.</li>
+<li>Multi-core Portal: This is a high-level door-way to a variety of multi-core content for the developer as well as other audiences like marketing, strategists and anyone looking to learn more about multi-core.</li>
 </ul>
-<br><br>
-
    </div>
 </div>
 </td>
