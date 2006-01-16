@@ -40,8 +40,8 @@
             </jsp:include>
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
-            <p>
-                <%=(String)request.getAttribute(Constants.MESSAGE)%>
+            <p style="width: 510px;">
+                <strong><%=(String)request.getAttribute(Constants.MESSAGE)%></strong>
             </p>
 
         </td>
