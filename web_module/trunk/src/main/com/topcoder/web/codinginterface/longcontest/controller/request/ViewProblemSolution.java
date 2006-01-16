@@ -2,6 +2,7 @@ package com.topcoder.web.codinginterface.longcontest.controller.request;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
@@ -24,6 +25,8 @@ public class ViewProblemSolution extends Base {
             TCRequest request = getRequest();
             String round = request.getParameter(Constants.ROUND_ID);
             String coder = request.getParameter(Constants.CODER_ID);
+            String problem = request.getParameter(Constants.PROBLEM_ID);
+            String submissionNumber = request.getParameter(Constants.SUBMISSION_NUMBER);
             log.debug("coder: " + coder + " user " + getUser().getId());
             String dataSource = null;
             // they can also see any solution if it's a practice round
@@ -45,14 +48,16 @@ public class ViewProblemSolution extends Base {
             Request r = new Request();
             r.setContentHandle("long_contest_submission");
             r.setProperty(Constants.CODER_ID, coder);
-            r.setProperty(Constants.PROBLEM_ID, request.getParameter(Constants.PROBLEM_ID));
+            r.setProperty(Constants.PROBLEM_ID, problem);
             r.setProperty(Constants.ROUND_ID, round);
-            r.setProperty(Constants.SUBMISSION_NUMBER, request.getParameter(Constants.SUBMISSION_NUMBER));
+            r.setProperty(Constants.SUBMISSION_NUMBER, submissionNumber);
             //caching this is a little sketchy cuz we could end up caching the transactional version.
             //but they shouldn't be different, so we'll roll the dice
             DataAccessInt dataAccess = getDataAccess(dataSource, true);
             Map m = dataAccess.getData(r);
             request.setAttribute("resultMap", m);
+            request.setAttribute("mostRecent",
+                    String.valueOf(isMostRecentSubmission(round, coder, problem, submissionNumber)));
             setNextPage(Constants.PAGE_PROBLEM_SOLUTION);
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
@@ -60,5 +65,15 @@ public class ViewProblemSolution extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+
+    private boolean isMostRecentSubmission(String round, String coder, String problem, String submissionNumber) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("long_contest_last_submission");
+        r.setProperty(Constants.CODER_ID, coder);
+        r.setProperty(Constants.PROBLEM_ID, problem);
+        r.setProperty(Constants.ROUND_ID, round);
+        r.setProperty(Constants.SUBMISSION_NUMBER, submissionNumber);
+        return !((ResultSetContainer)getDataAccess().getData(r).get("long_contest_last_submission")).isEmpty();
     }
 }
