@@ -22,7 +22,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>01.13.05<br>5:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>01.16.06<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tco05/onsite_movies/RuijieWang_English.mov">"Never underestimate your potential..."</A></span><br><br>
       "If you try to do things, sometimes you make it with good results." A Chinese university student talks about her advancement into the Finals of TCO05.
       </td>
