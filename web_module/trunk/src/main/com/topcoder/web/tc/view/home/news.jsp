@@ -7,6 +7,21 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
 
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>01.16.06<br>2:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=binarySearch">Binary Search Tutorial</A></span><br><br>
+       "Binary search is one of the fundamental algorithms in computer science. In order to explore it, we'll first build up a theoretical backbone, then use that to implement the algorithm properly..."</td>
+      <td class="newsPhoto"><img src="/i/m/lovro_mug.gif" /><br>by <tc-webtag:handle coderId="7390467" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=binarySearch">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505895" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
 
 <%--------------------------------------------------------%>
    <tr>
