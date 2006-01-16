@@ -120,6 +120,10 @@
                &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=integersReals"><strong>Section 1</strong></a><br>
                &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=integersReals2"><strong>Section 2</strong></a><br>
             </td></tr>
+            <tr valign=top><td class="bodyText">
+               <tc-webtag:handle coderId="7390467" context="algorithm"/>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=binarySearch"><strong>Binary Search</strong></a>
+            </td></tr>
          </table>
         </div>
         <p><br></p>
