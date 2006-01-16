@@ -107,7 +107,7 @@
                 document.write('<a href="javascript:arena();" class="left">');
             }
         </script>
-        <img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
+        <img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</td></tr>
     <%-- My Home --%>
     <% if (!info.isAnonymous() || level1.equals("my_home")) { %>
     <tr><td id="<%=level1.equals("my_home")?"leftNavOn":"leftNav"%>">
@@ -142,7 +142,7 @@
             else {
                 document.write('<a href="javascript:arena();" class="left">');
             }
-        </script><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
+        </script><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</td></tr>
     <%-- My Home --%>
     <% if (!info.isAnonymous() || level1.equals("my_home")) { %>
     <tr><td id="<%=level1.equals("my_home")?"leftNavOn":"leftNav"%>">
@@ -249,7 +249,7 @@
             }
         </script>
 
-        <img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
+        <img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</td></tr>
 <%-- My Home --%>
 <% if (!info.isAnonymous() || level1.equals("my_home")) { %>
 <tr><td id="<%=level1.equals("my_home")?"leftNavOn":"leftNav"%>">
