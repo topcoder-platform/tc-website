@@ -68,7 +68,7 @@
                 <rsc:item name="problem_name" set="<%=info%>"/></a></span>
 
             <p>
-                <span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=request.getAttribute(Constants.CODER_ID)%>'/></span>
+                <span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=(String)request.getAttribute(Constants.CODER_ID)%>'/></span>
                 <br>
             </p>
 
