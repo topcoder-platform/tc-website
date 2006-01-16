@@ -1050,7 +1050,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             if (rs1.next()) {
                 rating = rs1.getInt("rating");
             } else {
-                throw new EJBException("Invalid project id specified: " + projectId);
+                rating = 0;
             }
 
             registerInquiry(userId, componentId, rating, userId, comments, true, phase, version, projectId);
