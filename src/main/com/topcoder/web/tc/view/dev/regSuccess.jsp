@@ -41,9 +41,8 @@
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
             <p>
-                You have successfully registered for this contest.
-            </p>
-            <p>
+                <strong>You have successfully registered for this contest.</strong>
+               <br><br>
                 View current <a href="/tc?module=ViewRegistrants&amp;pj=<%=request.getAttribute(Constants.PROJECT_ID)%>">contest registrants</a>
             </p>
 

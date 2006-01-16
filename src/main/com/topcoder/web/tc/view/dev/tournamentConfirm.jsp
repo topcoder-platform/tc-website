@@ -40,10 +40,12 @@
             </jsp:include>
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
-            <p>
-                Are you sure sure sure sure?
-
-                <a href="/tc?module=ProjectRegister&amp;pj=<%=request.getAttribute(Constants.PROJECT_ID)%>&amp;confirm=true&amp;<%=Constants.TERMS_AGREE%>=on">yep</a>
+            <p style="width: 510px;">
+               <strong>Are you sure you want to register for this contest?</strong>
+               <br><br>
+               Please be aware that you are NOT REGISTERED for the tournament, and registering for this contest will not register you for the tournament.  If you don't register for the tournament prior to registering for this contest, it will not count in the tournament standings even if you sign up at a later date.
+               <br><br>
+               <a href="/tc?module=ProjectRegister&amp;pj=<%=request.getAttribute(Constants.PROJECT_ID)%>&amp;confirm=true&amp;<%=Constants.TERMS_AGREE%>=on">Yes, register for this contest anyway</a>
             </p>
 
         </td>
