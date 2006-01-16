@@ -318,7 +318,7 @@ Of course, in computers we use binary numbers, thus the number 5.125 (binary 101
 <br><br>
 Note that any (non-zero) real number <span class="math"><i>x</i></span> can be written in the form <!-- MATH $(-1)^s \times m \times 2^e$ --><span class="math">(- 1)<sup>s</sup> <tt>x</tt> <i>m</i> <tt>x</tt> 2<sup>e</sup></span>, where <!-- MATH $s\in\{0,1\}$ --><span class="math"><i>s</i> &isin; {0, 1}</span> represents the sign, <!-- MATH $m\in [1,2)$ --><span class="math"><i>m</i> &isin; [1, 2)</span> is the normalized number and <span class="math"><i>e</i></span> is the (integer) exponent. This is the general form we are going to use to store real numbers.
 <br><br>
-What exactly d o we need to store? The base is fixed, so the three things to store are the sign bit <span class="math"><i>s</i></span>, the normalized number (known as the <em>mantissa</em>) <span class="math"><i>m</i></span> and the exponent <span class="math"><i>e</i></span>.
+What exactly do we need to store? The base is fixed, so the three things to store are the sign bit <span class="math"><i>s</i></span>, the normalized number (known as the <em>mantissa</em>) <span class="math"><i>m</i></span> and the exponent <span class="math"><i>e</i></span>.
 <br><br>
 The IEEE Standard 754 defines four types of precision when storing floating point numbers. The two most commonly used are <EM>single</EM> and <EM>double precision</EM>. In most programming languages these are also the names of corresponding data types. You may encounter other data types (such as <EM>float</EM>) that are platform dependent and usually map to one of these types. If not sure, stick to these two types. 
 <br><br>
