@@ -1,7 +1,7 @@
 <%@ page language="java"
          import="com.topcoder.shared.dataAccess.resultSet.*" %>
 
-<%@ page import="java.util.Iterator" %>
+<%@ page import="java.util.*" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>

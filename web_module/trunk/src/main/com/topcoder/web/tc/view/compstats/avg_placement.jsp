@@ -16,7 +16,14 @@ String type = (String)request.getAttribute("type");%>
         <td><rsc:item name="average" row="<%=row%>"/></td>
         </tr>
     </rsc:iterator>--%>
-<%=request.getAttributes()%>
+<%
+Enumeration headerNames = request.getHeaderNames();
+  while (headerNames.hasMoreElements()) {
+    String name = (String) headerNames.nextElement();
+    String value = request.getHeader(name);
+    out.println("  " + name + " : " + value);
+  }
+%>
 </table>
 
 </html>
