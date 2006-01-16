@@ -67,14 +67,15 @@
                         </tr>
                         <% boolean even = false; %>
                         <tc:answerInput id="answerInput" question="<%=question%>">
-                            <tr>
+                            <tr class="<%=even?"formTextOdd":"formTextEven"%>">
                                 <td width="100%">
                                     <%=answerText%>
                                 </td>
-                                <td align="right">
+                                <td align="center">
                                     <%=answerInput%>
                                 </td>
                             </tr>
+                        <% even = !even; %>
                         </tc:answerInput>
                     </table>
                     <p><br/></p>
@@ -82,11 +83,11 @@
 
                 <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="10" cols="60"/>
 
-                <p>
+                <p style="width: 510px;">
                     <% if (request.getAttribute("notRegistered")!=null) { %>
-                    <span class="errorText">Please be aware that you are not registered for the tournament.
-                           If you don't register for the tournament prior to registering for this project, it will not
-                           count in the tournament standings even if you sign up at a later date.</span><br /><br />
+                    <span class="errorText">
+                     Please be aware that you are NOT REGISTERED for the tournament, and registering for this contest will not register you for the tournament.  If you don't register for the tournament prior to registering for this contest, it will not count in the tournament standings even if you sign up at a later date.
+                     </span><br><br>
                     <% }%>
                     <span class="errorText"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>"><%=err%>
                         <br/></tc-webtag:errorIterator></span>
@@ -94,10 +95,10 @@
                 I Agree to the Terms and Conditions stated above&#160;<tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
                 </p>
 
-                <p>
+                <p style="width: 510px;">
                     <A href="Javascript:document.regForm.submit();">Register</A>
                 </p>
-
+               <p><br></p>
             </form>
         </td>
         <!-- Center Column Ends -->
