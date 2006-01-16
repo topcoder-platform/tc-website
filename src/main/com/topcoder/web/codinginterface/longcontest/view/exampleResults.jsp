@@ -74,7 +74,7 @@
             are not appropriate in this case.  the writer is responsible for all formatting --%>
             <% int i=0;%>
             <rsc:iterator list="<%=rsc%>" id="resultRow">
-                <p><%=i%>) score: <rsc:item name="score" row="<%=resultRow%>"/></p>
+                <p><%=i%>) score: <rsc:item name="score" row="<%=resultRow%>" format="0.00"/></p>
                 <p>
                     Example Case: <br />
                     <pre><%=resultRow.getStringItem("expected_result").substring(1, resultRow.getStringItem("expected_result").length()-2)%></pre>
