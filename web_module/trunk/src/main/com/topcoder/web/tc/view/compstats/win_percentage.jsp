@@ -5,6 +5,7 @@
     <jsp:param name="title" value="Best component project winning percentage"/>
 </jsp:include>
 
+<% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result");
 String type = (String)request.getParameter("type");
 if (type == null) type = "Component";%>
 <table>
