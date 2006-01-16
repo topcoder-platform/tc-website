@@ -100,6 +100,11 @@
                 <br>
                 <span class="bodySubtitle">Submission: <rsc:item name="submission_number" row="<%=infoRow%>"/></span>
                 <br>
+                <% if (infoRow.getIntItem("final_submission")==1) { %>
+                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewExampleResults&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=infoRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=infoRow%>"/>">Example Results</A>
+                <br>
+                <% } %>
+
 
             <div class="problemText" style="color:black">
                 <%=addSpace(infoRow.getStringItem("submission_text"))%>
