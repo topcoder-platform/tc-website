@@ -67,8 +67,6 @@
             <span class="bodySubtitle">Problem: <a class="bcLink" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" set="<%=info%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" set="<%=info%>"/>">
                 <rsc:item name="problem_name" set="<%=info%>"/></a></span><br>
             <span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=(String)request.getAttribute(Constants.CODER_ID)%>'/></span><br>
-            <span class="bodySubtitle">Submission: <A class="bcLink" href="">1</A></span>
-                <br>
 
             <%-- this substring bullshit is because we're storing a string in the db serialized and pretty
             printer wraps strings in double quotes.  they are getting removed with this substring as they
