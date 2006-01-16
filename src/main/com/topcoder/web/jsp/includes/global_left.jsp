@@ -94,8 +94,20 @@
 <table width="180" cellspacing="0" cellpadding="0" border="0">
     <tr><td id="leftNavTitle">Employment Opportunities:</td></tr>
     <tr><td id="leftNavApplet">
-        <a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch
-            Arena Applet</a></td></tr>
+                <script language="JavaScript">
+            if (canDetectPlugins()) {
+                if (detectJavaWebStart()) {
+                    document.write('<a href="http://www.topcoder.com/contest/arena/ContestAppletProd.jnlp" class="left">');
+                }
+                else {
+                    document.write('<a href="javascript:arena();" class="left">');
+                }
+            }
+            else {
+                document.write('<a href="javascript:arena();" class="left">');
+            }
+        </script>
+        <img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
     <%-- My Home --%>
     <% if (!info.isAnonymous() || level1.equals("my_home")) { %>
     <tr><td id="<%=level1.equals("my_home")?"leftNavOn":"leftNav"%>">
@@ -118,8 +130,19 @@
 <table width="180" cellspacing="0" cellpadding="0" border="0">
     <tr><td id="leftNavTitle">Development:</td></tr>
     <tr><td id="leftNavApplet">
-        <a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch
-            Arena Applet</a></td></tr>
+                <script language="JavaScript">
+            if (canDetectPlugins()) {
+                if (detectJavaWebStart()) {
+                    document.write('<a href="http://www.topcoder.com/contest/arena/ContestAppletProd.jnlp" class="left">');
+                }
+                else {
+                    document.write('<a href="javascript:arena();" class="left">');
+                }
+            }
+            else {
+                document.write('<a href="javascript:arena();" class="left">');
+            }
+        </script><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
     <%-- My Home --%>
     <% if (!info.isAnonymous() || level1.equals("my_home")) { %>
     <tr><td id="<%=level1.equals("my_home")?"leftNavOn":"leftNav"%>">
@@ -225,10 +248,6 @@
                 document.write('<a href="javascript:arena();" class="left">');
             }
         </script>
-
-        <noscript>
-            <a href="javascript:arena();" class="left" />
-        </noscript>
 
         <img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
 <%-- My Home --%>
