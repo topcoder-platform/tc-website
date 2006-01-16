@@ -90,6 +90,7 @@ public class ViewProblemStatement extends Base {
             ProblemComponent pc [] = new ProblemComponent[1];
             pc[0] = new ProblemComponentFactory().buildFromXML(reader, true);
             Problem problem = new Problem();
+            problem.setProblemTypeID(Problem.TYPE_LONG);
             problem.setProblemComponents(pc);
             request.setAttribute(Constants.PROBLEM_STATEMENT_KEY, problem);
             request.setAttribute(Constants.LANGUAGE_ID, BaseLanguage.getLanguage(lid));
