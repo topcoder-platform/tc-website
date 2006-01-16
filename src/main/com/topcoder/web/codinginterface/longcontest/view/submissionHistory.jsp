@@ -99,7 +99,7 @@
 
                             <tr>
                                 <% if (over||self) { %>
-                                <td class="tableTitle" colspan="5">Submission History</td>
+                                <td class="tableTitle" colspan="6">Submission History</td>
                                 <% } else { %>
                                 <td class="tableTitle" colspan="4">Submission History</td>
                                 <% } %>
@@ -114,6 +114,7 @@
                                 <td class="tableHeader" width="20%" align="center">
                                     <A href="<%=sortLinkBase%><tc-webtag:sort column="<%=submissions.getColumnIndex("language_name")%>"/>">Language</A></td>
                                 <% if (over||self) { %>
+                                <td class="tableHeader" width="20%" align="right">&#160;</td>
                                 <td class="tableHeader" width="20%" align="right">&#160;</td>
                                 <% } %>
                             </tr>
@@ -131,6 +132,9 @@
                                     <% if (over||self) { %>
                                     <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;">
                                         <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemSolution&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>">solution</A>
+                                    </td>
+                                    <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;">
+                                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewExampleResults&<%=Constants.PROBLEM_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>">example results</A>
                                     </td>
                                     <% } %>
                                 </tr>
