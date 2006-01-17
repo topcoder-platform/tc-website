@@ -161,7 +161,7 @@ function goTo(selection){
                         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%">
                             <FORM name="coderRankForm" action="javaScript:submitForm();" method="get">
                             <TR>
-                                <TD COLSPAN="18">
+                                <TD COLSPAN="20">
                                     <SPAN CLASS="statTextBig"><B>Please select a round:</B><BR/></SPAN>
                                     <SELECT CLASS="dropdown" NAME="Contest" onchange="goTo(this)">
                                     <OPTION value="#">Select a Round:</OPTION>
@@ -184,7 +184,7 @@ function goTo(selection){
                             </TR>
 
                             <TR>
-                                <TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="leaders"></A></TD>
+                                <TD COLSPAN="20"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="leaders"></A></TD>
                             </TR>
 
                             <TR>
@@ -197,7 +197,7 @@ function goTo(selection){
 
                             </TR>
 
-                            <TR><TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD></TR>
+                            <TR><TD COLSPAN="20"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD></TR>
 
                             <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 
