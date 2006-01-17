@@ -107,6 +107,7 @@
     String rooms[][] = new String[divisions][topN];
     String ratings[][] = new String[divisions][topN];
     String coderIDs[][] = new String[divisions][topN];
+    String placeds[][] = new String[divisions][topN];
     //now go through and put all the coder's data in the arrays
     int lastDivisionID = -1;
     int divisionPtr = -1;
@@ -123,7 +124,9 @@
         String points = currentRow.getItem("final_points").toString();
         String rating = currentRow.getItem("new_rating").toString();
         String coderID = currentRow.getItem("coder_id").toString();
+        String placed = currentRow.getItem("division_placed").toString();
         coders[divisionPtr][ptrs[divisionPtr]]=handle;
+        placeds[divisionPtr][ptrs[divisionPtr]]=placed;
         scores[divisionPtr][ptrs[divisionPtr]]=points;
         ratings[divisionPtr][ptrs[divisionPtr]]=rating;
         coderIDs[divisionPtr][ptrs[divisionPtr]]=coderID;
@@ -220,6 +223,7 @@ function goTo(selection){
                                     <A HREF="/tc?module=MemberProfile&cr=<%= coderIDs[j][i] %>" CLASS="<bean:write name="nameColor" property='<%= "style[" + ratings[j][i] + "]" %>'/>"><%= coders[j][i] %></A>
                                 </TD>
                                 <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="statText" ALIGN="right"><%= scores[j][i] %> &#160;&#160;</TD>
+                                <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="statText" ALIGN="right"><%= placeds[j][i] %> &#160;&#160;</TD>
                                 <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="statText">&#160;<%= rooms[j][i] %></TD>
                             <%  }
 
