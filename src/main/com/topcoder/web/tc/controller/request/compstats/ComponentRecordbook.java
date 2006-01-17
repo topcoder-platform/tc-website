@@ -51,17 +51,12 @@ public class ComponentRecordbook extends Static {
         else
             throw new TCWebException ("Invalid type parameter: " + type);
         
-        dataRequest.setProperty("pis", inClause);
+        dataRequest.setProperty("pis", inClause); // query input parameter
         
         DataAccessInt dai = getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, true);
         Map result = dai.getData(dataRequest);
 
         ResultSetContainer rsc = (ResultSetContainer) result.get(dataRequest.getContentHandle());
-        String sortCol = getRequest().getParameter(DataAccessConstants.SORT_COLUMN);
-        String sortDir = getRequest().getParameter(DataAccessConstants.SORT_DIRECTION);
-        if (sortCol != null && sortDir != null && rsc != null)
-            rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
-
         getRequest().setAttribute("resultMap", result);
         getRequest().setAttribute("result", rsc);
 
@@ -69,7 +64,7 @@ public class ComponentRecordbook extends Static {
             String includeJsp 
                 = "/compstats/" + dataRequest.getContentHandle() + ".jsp"; 
             getRequest().setAttribute("includeJsp", includeJsp);
-            setNextPage("/compstats/SimpleQuery.jsp");
+            setNextPage("/compstats/ComponentRecordbook.jsp");
             setIsNextPageInContext(true);
         } catch (MissingResourceException e) {
             super.businessProcessing();
