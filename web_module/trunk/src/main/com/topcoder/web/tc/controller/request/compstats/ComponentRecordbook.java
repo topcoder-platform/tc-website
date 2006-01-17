@@ -11,6 +11,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Static;
 import com.topcoder.web.tc.model.SoftwareComponent;
+import java.util.Map;
 
 public class ComponentRecordbook extends Static {
 
@@ -55,22 +56,13 @@ public class ComponentRecordbook extends Static {
         
         DataAccessInt dai = getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, true);
         Map result = dai.getData(dataRequest);
-
         ResultSetContainer rsc = (ResultSetContainer) result.get(dataRequest.getContentHandle());
-        getRequest().setAttribute("resultMap", result);
         getRequest().setAttribute("result", rsc);
 
-        try {
-            String includeJsp 
-                = "/compstats/" + dataRequest.getContentHandle() + ".jsp"; 
-            getRequest().setAttribute("includeJsp", includeJsp);
-            setNextPage("/compstats/ComponentRecordbook.jsp");
-            setIsNextPageInContext(true);
-        } catch (MissingResourceException e) {
-            super.businessProcessing();
-        }
-
-
+        String includeJsp 
+            = "/compstats/" + dataRequest.getContentHandle() + ".jsp"; 
+        getRequest().setAttribute("includeJsp", includeJsp);
+        setNextPage("/compstats/ComponentRecordbook.jsp");
+        setIsNextPageInContext(true);
     }
-
 }
