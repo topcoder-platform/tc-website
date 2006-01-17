@@ -35,7 +35,7 @@
 
         <!-- Center Column Begins -->
         <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
-            <jsp:include page="<%=request.getAttribute("includeJsp")%>"/>
+            <jsp:include page="<%=(String)request.getAttribute("includeJsp")%>"/>
         </td>
         <!-- Center Column Ends -->
 
