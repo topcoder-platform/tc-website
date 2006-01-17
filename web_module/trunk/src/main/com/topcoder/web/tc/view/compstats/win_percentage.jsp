@@ -12,16 +12,9 @@ if (type == null) type = HandleTag.COMPONENT; %>
 
 <table>
     <tr><td>Rank</td><td>Coder</td><td>Winning percentage</td></tr>
-    <% int prevRank = -1; %>
     <rsc:iterator list="<%=rsc%>" id="row">
         <tr>
-        <td>
-<%      int rank = row.getIntItem("rank");
-        if (rank != prevRank) { %>
-        <rsc:item name="rank" row="<%=row%>"/>
-<%      } 
-        prevRank = rank; %>
-        </td>
+        <td><rsc:item name="rank" row="<%=row%>"/></td>
         <td><tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=type%>'/></td>
         <td><rsc:item name="percentage" row="<%=row%>" format="0.0%"/></td>
         </tr>

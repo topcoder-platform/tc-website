@@ -5,7 +5,7 @@
 if (type == null) type = HandleTag.COMPONENT;
 type = type.trim().toLowerCase(); %>
 
-<% String jsp = "/tc?module=SimpleQuery&c="  + (String)request.getAttribute("handle"); %>
+<% String jsp = "/tc?module=ComponentRecordbook&c="  + (String)request.getAttribute("handle"); %>
 <% if (type.equals(HandleTag.DESIGN)) { %>
 Design | <a href="<%=jsp + "&type=" + HandleTag.DEVELOPMENT%>">Development</a> | <a href="<%=jsp + "&type=" + HandleTag.COMPONENT%>">Overall</a> <% }
 else if (type.equals(HandleTag.DEVELOPMENT)) { %>
