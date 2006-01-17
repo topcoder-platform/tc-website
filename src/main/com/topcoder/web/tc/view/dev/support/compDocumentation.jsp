@@ -190,7 +190,7 @@
                <strong>TopCoder Software Member Guide</strong><br/>
                The TopCoder Software Member Guide provides details required to design and develop TopCoder Software components. This document includes supported versions of software tools, coding standards and submission deliverables</td>
                <td class="projectCells" valign="top" align="center">12.07.2005</td>
-               <td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/i/development/downloads/TopCoder_Software_Member_Guide.pdf">TopCoder Software Member Guide.pdf</A></td>
+               <td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=dev&d2=support&d3=memberGuide">TopCoder Software Member Guide</A></td>
             </tr>
                 <tr>
                <td class="projectCells" valign="top">
