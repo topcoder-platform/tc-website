@@ -2,6 +2,7 @@
          import="com.topcoder.shared.dataAccess.resultSet.*" %>
 
 <%@ page import="java.util.*" %>
+<%@ page import="com.topcoder.web.common.tag.HandleTag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
