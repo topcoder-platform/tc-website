@@ -778,6 +778,7 @@ public class AutoPilot {
             if (testcases.length != 3)
                 return new SuccessResult();
 
+            System.out.println("6");
             // Advance to Appeals.
             return advancePhase("Appeals", docManager, user, project, info, true);
 
