@@ -4,9 +4,9 @@
 <% String type = ((String)request.getParameter("type")).trim().toLowerCase(); %>
 <% String jsp = (String)request.getAttribute("includeJsp"); %>
 <% if (type.equals(HandleTag.DESIGN)) { %>
-Design | <a href="<%=jsp + "?type=" + HandleTag.DEV%>">Development</a> | <a href="<%=jsp + "?type=" + HandleTag.COMPONENT%>">Overall</a> <% }
-else if (type.equals(HandleTag.DEV)) { %>
+Design | <a href="<%=jsp + "?type=" + HandleTag.DEVELOPMENT%>">Development</a> | <a href="<%=jsp + "?type=" + HandleTag.COMPONENT%>">Overall</a> <% }
+else if (type.equals(HandleTag.DEVELOPMENT)) { %>
 <a href="<%=jsp + "?type=" + HandleTag.DESIGN%>">Design</a> | Development | <a href="<%=jsp + "?type=" + HandleTag.COMPONENT%>">Overall</a> <% }
 else if (type.equals(HandleTag.COMPONENT)) { %>
-<a href="<%=jsp + "?type=" + HandleTag.DESIGN%>">Design</a> | <a href="<%=jsp + "?type=" + HandleTag.DEV%>">Development</a> | Overall <% } %>
+<a href="<%=jsp + "?type=" + HandleTag.DESIGN%>">Design</a> | <a href="<%=jsp + "?type=" + HandleTag.DEVELOPMENT%>">Development</a> | Overall <% } %>
 </html>
