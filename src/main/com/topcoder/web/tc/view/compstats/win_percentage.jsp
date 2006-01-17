@@ -2,14 +2,16 @@
 
 <jsp:include page="../page_title.jsp">
     <jsp:param name="image" value="statistics_w"/>
-    <jsp:param name="title" value="Best component project winning percentage"/>
+    <jsp:param name="title" value="Best Component Project Winning Percentage"/>
 </jsp:include>
 
 <% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result");
 String type = (String)request.getParameter("type");
-if (type == null) type = "Component";%>
+if (type == null) type = HandleTag.COMPONENT; %>
+<jsp:include page="dev_design_links.jsp"/>
+
 <table>
-    <tr><td>Rank</td><td>Coder</td><td>Win percentage</td></tr>
+    <tr><td>Rank</td><td>Coder</td><td>Winning percentage</td></tr>
     <% int prevRank = -1; %>
     <rsc:iterator list="<%=rsc%>" id="row">
         <tr>
@@ -25,19 +27,5 @@ if (type == null) type = "Component";%>
         </tr>
     </rsc:iterator>
 </table>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
