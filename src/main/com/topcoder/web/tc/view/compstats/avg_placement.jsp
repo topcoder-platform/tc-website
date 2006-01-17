@@ -7,19 +7,14 @@
 
 <% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result");
 String type = (String)request.getParameter("type");
-if (type == null) type = "Component";%>
+if (type == null) type = HandleTag.COMPONENT; %>
+<jsp:include page="dev_design_links.jsp">
+
 <table>
     <tr><td>Rank</td><td>Coder</td><td>Average ranking</td></tr>
-    <% int prevRank = -1; %>
     <rsc:iterator list="<%=rsc%>" id="row">
         <tr>
-        <td>
-<%      int rank = row.getIntItem("rank");
-        if (rank != prevRank) { %>
-        <rsc:item name="rank" row="<%=row%>"/>
-<%      } 
-        prevRank = rank; %>
-        </td>
+        <td><rsc:item name="rank" row="<%=row%>"/></td>
         <td><tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=type%>'/></td>
         <td><rsc:item name="average" row="<%=row%>" format="0.00"/></td>
         </tr>
@@ -27,18 +22,3 @@ if (type == null) type = "Component";%>
 </table>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
