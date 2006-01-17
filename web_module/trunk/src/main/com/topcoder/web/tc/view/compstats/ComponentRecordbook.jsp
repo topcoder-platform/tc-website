@@ -35,12 +35,7 @@
 
         <!-- Center Column Begins -->
         <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
-
-            <% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result");
-            String includeJsp = (String)request.getAttribute("includeJsp");%>
-
-            <jsp:include page="<%=includeJsp%>"/>
-
+            <jsp:include page="<%=request.getAttribute("includeJsp")%>"/>
         </td>
         <!-- Center Column Ends -->
 
