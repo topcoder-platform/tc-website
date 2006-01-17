@@ -52,6 +52,7 @@ public class SimpleQuery extends Static {
             !handle.equals("tournament_money") &&
             !handle.equals("win_percentage")
         ) throw new TCWebException("Invalid c parameter: " + handle);
+        getRequest().setAttribute("handle", handle);
         
         // Ensure that the "type" parameter is valid
         // Set up the inClause ("112", "113", or "112,113") along the way
