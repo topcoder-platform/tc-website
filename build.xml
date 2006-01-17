@@ -111,7 +111,9 @@
             classpathref="class.path"
             deprecation="${deprecation}"
             debug="${debug}"
-            >
+            source="1.4"
+            target="1.4"
+        >
         </javac>
         <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
         <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
@@ -126,6 +128,8 @@
             classpathref="class.path"
             deprecation="${deprecation}"
             debug="${debug}"
+            source="1.4"
+            target="1.4"
             >
             <include name="com/topcoder/web/codinginterface/**"/>
             <include name="com/topcoder/web/common/**"/>
@@ -141,6 +145,8 @@
             classpathref="class.path"
             deprecation="${deprecation}"
             debug="${debug}"
+            source="1.4"
+            target="1.4"
             >
             <exclude
                 name="com/topcoder/security/**"
@@ -161,6 +167,8 @@
                  classpathref="class.path"
                  deprecation="${deprecation}"
                  debug="${debug}"
+                 source="1.4"
+                 target="1.4"
                  >
                  <include name="com/topcoder/web/forums/**"/>
                  <include name="com/topcoder/web/common/**"/>
@@ -180,6 +188,8 @@
                       classpathref="class.path"
                       deprecation="${deprecation}"
                       debug="${debug}"
+                      source="1.4"
+                      target="1.4"
                       >
                       <include name="com/topcoder/utilities/forumConvert/**"/>
                   </javac>
@@ -192,6 +202,8 @@
                       classpathref="class.path"
                       deprecation="${deprecation}"
                       debug="${debug}"
+                      source="1.4"
+                      target="1.4"
                       >
                       <include name="com/topcoder/web/forums/model/TCUser.java"/>
                       <include name="com/topcoder/web/forums/model/TCUserManager.java"/>
@@ -205,6 +217,8 @@
                        classpathref="class.path"
                        deprecation="${deprecation}"
                        debug="${debug}"
+                       source="1.4"
+                       target="1.4"
                        >
                        <include name="com/topcoder/web/forums/model/TCAuthFactory.java"/>
                        <include name="com/topcoder/web/forums/model/TCAuthToken.java"/>
@@ -218,6 +232,8 @@
                             classpathref="class.path"
                             deprecation="${deprecation}"
                             debug="${debug}"
+                            source="1.4"
+                            target="1.4"
                             >
                             <include name="com/topcoder/web/forums/util/filter/*.java"/>
                         </javac>
@@ -1207,6 +1223,8 @@
             classpathref="class.path"
             deprecation="${deprecation}"
             debug="${debug}"
+            source="1.4"
+            target="1.4"
             >
             <include name="com/topcoder/security/**"/>
         </javac>
@@ -1235,6 +1253,8 @@
             classpathref="class.path"
             deprecation="${deprecation}"
             debug="${debug}"
+            source="1.4"
+            target="1.4"
             >
             <include name="com/topcoder/util/idgenerator/**"/>
         </javac>
@@ -1577,6 +1597,8 @@
                     classpathref="class.path"
                     deprecation="${deprecation}"
                     debug="${debug}"
+                    source="1.4"
+                    target="1.4"
                     >
                 <include name="com/topcoder/web/codinginterface/**"/>
                 <include name="com/topcoder/web/common/**"/>
