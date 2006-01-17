@@ -770,13 +770,15 @@ public class AutoPilot {
             if (count != (sub_count * 3))
                 return new SuccessResult();
 
-            //check test cases
-            TestCase[] testcases = null;
-            testcases = docManager.getTestCases(project, -1, user.getTCSubject());
-            System.out.println("5");
+            // if development project, check test cases.
+            if (project.getProjectType().getId() == ProjectType.ID_DEVELOPMENT) {
+                TestCase[] testcases = null;
+                testcases = docManager.getTestCases(project, -1, user.getTCSubject());
+                System.out.println("5");
 
-            if (testcases.length != 3)
-                return new SuccessResult();
+                if (testcases.length != 3)
+                    return new SuccessResult();
+            }
 
             System.out.println("6");
             // Advance to Appeals.
