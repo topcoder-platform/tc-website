@@ -7,24 +7,6 @@
 <jsp:include page="../../script.jsp" />
 
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
-<style type="text/css">
-.smallCap
-{
-   font-size: 10px;
-   font-weight: normal;
-}
-.indent
-{
-	padding: 0px 0px 0px 10px;
-	margin: 0px 0px 0px 0px;
-}
-.subsection
-{
-   font-weight: normal;
-   font-style: italic;
-   padding: 0px 0px 0px 30px;
-}
-</style>
 </head>
 
 <body>
@@ -58,35 +40,35 @@
 <div align="center"><h2>Member Guide</h2></div>
 
 <p>
-<a href="#softwareversions"><b>SOFTWARE VERSIONS</b></a><br><br>
-<a href="#documentation"><b>DOCUMENTATION</b></a><br><br>
-<a href="#codingstandards"><b>CODING STANDARDS</b></a><br>
-<span class="indent"><a href="#java">J<font class="smallCap">AVA</font></a></span><br>
-<span class="indent"><a href="#net">.NET</a></span><br><br>
+<span class="bodySubtitle"><a href="#softwareversions">Software Versions</a></span><br>
+<span class="bodySubtitle"><a href="#documentation">Documentation</a></span><br>
+<span class="bodySubtitle"><a href="#codingstandards">Coding Standards</a></span><br>
+<span class="outline1"><a href="#java">Java</a></span><br>
+<span class="outline1"><a href="#net">.NET</a></span><br>
 
-<a href="#databasestandards"><b>DATABASE STANDARDS</b></a><br><br>
+<span class="bodySubtitle"><a href="#databasestandards">Database Standards</a></span><br>
 
-<a href="#projdelivs"><b>COMPONENT PROJECT DELIVERABLES</b></a><br>
-<span class="indent"><a href="#design">D<font class="smallCap">ESIGN</font></a></span><br>
-<span class="subsection"><a href="#desinitsub">Initial Submission Date</a></span><br>
-<span class="subsection"><a href="#desfinsub">Final Submission Date</a></span><br>
-<span class="subsection"><a href="#desdevsupport">Development Support</a></span><br>
-<span class="subsection"><a href="#despost">Post Development Review</a></span><br><br>
+<span class="bodySubtitle"><a href="#projdelivs">Component Project Deliverables</a></span><br>
+<span class="outline1"><a href="#design">Design</a></span><br>
+<span class="outline2"><a href="#desinitsub">Initial Submission Date</a></span><br>
+<span class="outline2"><a href="#desfinsub">Final Submission Date</a></span><br>
+<span class="outline2"><a href="#desdevsupport">Development Support</a></span><br>
+<span class="outline2"><a href="#despost">Post Development Review</a></span><br><br>
 
-<span class="indent"><a href="#development">D<font class="smallCap">EVELOPMENT</font></a></span><br>
-<span class="subsection"><a href="#devinitsub">Initial Submission Date</a></span><br>
-<span class="subsection"><a href="#devfinsub">Final Submission Date</a></span><br>
-<span class="subsection"><a href="#devpost">Post Development Review</a></span><br><br>
+<span class="outline1"><a href="#development">Development</a></span><br>
+<span class="outline2"><a href="#devinitsub">Initial Submission Date</a></span><br>
+<span class="outline2"><a href="#devfinsub">Final Submission Date</a></span><br>
+<span class="outline2"><a href="#devpost">Post Development Review</a></span><br>
 
-<a href="#testframework"><b>TOPCODER TEST FRAMEWORK</b></a><br> 
-<span class="indent"><a href="#testtypes">T<font class="smallCap">EST</font> T<font class="smallCap">YPES</font></a></span><br>
-<span class="subsection"><a href="#unit">Unit</a></span><br>
-<span class="subsection"><a href="#accuracy">Accuracy</a></span><br>
-<span class="subsection"><a href="#failure">Failure</a></span><br>
-<span class="subsection"><a href="#stress">Stress</a></span><br>
+<span class="bodySubtitle"><a href="#testframework">TopCoder Test Framework</a></span><br> 
+<span class="outline1"><a href="#testtypes">Test Types</a></span><br>
+<span class="outline2"><a href="#unit">Unit</a></span><br>
+<span class="outline2"><a href="#accuracy">Accuracy</a></span><br>
+<span class="outline2"><a href="#failure">Failure</a></span><br>
+<span class="outline2"><a href="#stress">Stress</a></span><br>
 
-<span class="indent"><a href="#notes">N<font class="smallCap">OTES</font></a></span><br>
-<span class="subsection"><a href="#config">Configuration</a></span><br><br>
+<span class="outline1"><a href="#notes">Notes</a></span><br>
+<span class="outline2"><a href="#config">Configuration</a></span>
 </p>
 
 
@@ -331,7 +313,7 @@ Developers must submit a solution for the posted component design by the initial
     </ul>
 </li>
 </ul>
-
+
 <i>Test Cases</i>
 <ul>
 <li>Test Case Framework
@@ -433,7 +415,7 @@ Stress tests serve two purposes:
 <br><br>
 <a name="notes"></a>
 <span class=bodySubtitle>Notes</span><br>
-<a name="config">
+<a name="config"></a>
 <i>Configuration</i><br>
 Testing components may require connections to databases, telnet servers, ftp servers, etc.  Any configuration parameters must be configurable.  The best way to achieve this is to set configuration parameters in the build file using the <tt>jvmarg parameter</tt> and retrieving that value through the <tt>System.getProperty</tt> method.<br>
 <br>
