@@ -191,7 +191,7 @@ function goTo(selection){
 
                             <%for(int i = 0; i<divisionNames.size();i++){%>
                                 <TD BACKGROUND="/i/steel_bluebv_bg.gif"></TD>
-                                <TD VALIGN="middle" COLSPAN="2" WIDTH="40%" NOWRAP="0" HEIGHT="18" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="registerNav">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Leaders</B></TD>
+                                <TD VALIGN="middle" COLSPAN="3" WIDTH="40%" NOWRAP="0" HEIGHT="18" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="registerNav">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Leaders</B></TD>
                                 <TD VALIGN="middle" ALIGN="center" WIDTH="10%" NOWRAP="0" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>&amp;dn=<%= divisionIDs.get(i).toString() %>" class="statText">Results</A></TD>
                             <%}%>
 
@@ -207,6 +207,7 @@ function goTo(selection){
                                 <%for(int j = 0; j<divisions;j++){
                                     if(coderIDs[j][i]==null){//puts in blank rows if the coder doesn't exist - happens when you view more coders than there are participants
                                 %>
+                                <TD></TD>
                                 <TD></TD>
                                 <TD></TD>
                                 <TD></TD>
