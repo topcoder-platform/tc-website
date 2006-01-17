@@ -8,7 +8,6 @@
 <% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result");
 String type = (String)request.getParameter("type");
 if (type == null) type = HandleTag.COMPONENT; %>
-<jsp:include page="dev_design_links.jsp"/>
 
 <table>
     <tr><td>Rank</td><td>Coder</td><td>Royalties</td></tr>
