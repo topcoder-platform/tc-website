@@ -69,7 +69,7 @@ text-decoration: none;
 <td id="calendarMini">23</td>
 <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=8082&amp;t=schedule&amp;c=srm">24</A></td>
 <td id="calendarMini">25</td>
-<td id="calendarTCO06Mini" colspan="2"><A id="calendarTCO06Date" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=about">25</A></td>
+<td id="calendarTCO06Mini" colspan="2"><A id="calendarTCO06Date" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=about">26</A></td>
 <td id="calendarMini">27</td>
 <td id="calendarMini">28</td>
 </tr>
