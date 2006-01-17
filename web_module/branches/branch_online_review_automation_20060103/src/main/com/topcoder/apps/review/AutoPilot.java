@@ -464,7 +464,6 @@ public class AutoPilot {
      */
     public static ResultData reviewFromTestcase(SolutionData data) {
         try {
-            System.out.println("FromTestcase");
             TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
             UserManagerLocal userManager = EJBHelper.getUserManager();
@@ -489,7 +488,6 @@ public class AutoPilot {
      */
     public static ResultData reviewFromScorecard(ReviewData data) {
         try {
-            System.out.println("FromScorecard");
             TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
             UserManagerLocal userManager = EJBHelper.getUserManager();
@@ -730,14 +728,11 @@ public class AutoPilot {
         try {
             DocumentManagerLocal docManager = EJBHelper.getDocumentManager();
 
-            System.out.println("1");
-
             if (!project.getAutoPilot()) return new SuccessResult();
 
             //check if all screenings are done,check to see if something passes
             boolean passed = false;
             double minscore = ConfigHelper.getMinimumScore();
-            System.out.println("2");
 
             int count = 0;
             ReviewScorecard[] scorecard = docManager.getReviewScorecard(project, user.getTCSubject());
@@ -753,7 +748,6 @@ public class AutoPilot {
                     passed = true;
                 }
             }
-            System.out.println("3");
 
             if (!passed)
                 return new SuccessResult();
@@ -764,7 +758,6 @@ public class AutoPilot {
                 if (arr[i].isAdvancedToReview())
                     sub_count++;
             }
-            System.out.println("4");
 
             //get submission count
             if (count != (sub_count * 3))
@@ -774,13 +767,11 @@ public class AutoPilot {
             if (project.getProjectType().getId() == ProjectType.ID_DEVELOPMENT) {
                 TestCase[] testcases = null;
                 testcases = docManager.getTestCases(project, -1, user.getTCSubject());
-                System.out.println("5");
 
                 if (testcases.length != 3)
                     return new SuccessResult();
             }
 
-            System.out.println("6");
             // Advance to Appeals.
             return advancePhase("Appeals", docManager, user, project, info, true);
 
