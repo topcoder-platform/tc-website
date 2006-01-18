@@ -51,9 +51,10 @@
          </table>
          <br/>
          
+
 <script language="JavaScript">
-   function submitform(){
-   var frm = document.coderRankform;
+   function submitForm(){
+   var frm = document.coderRankForm;
    frm.action = "/stat";
     if (isNaN(parseInt(frm.er.value)))
       alert(frm.er.value+" is not a valid integer");
@@ -69,13 +70,13 @@
 %>
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 <%
-    Decimalformat df = new Decimalformat("0.00");
-    Decimalformat dfp = new Decimalformat("0.00%");
+    DecimalFormat df = new DecimalFormat("0.00");
+    DecimalFormat dfp = new DecimalFormat("0.00%");
     ResultSetContainer leaders = (ResultSetContainer) queryEntries.get("High_Scorers");
     ResultSetContainer percents = (ResultSetContainer) queryEntries.get("Round_Percentages");
     ResultSetContainer image = (ResultSetContainer) queryEntries.get("Round_Sponsor_Image");
 
-    ResultSetContainer.ResultSetrow currentrow = null;
+    ResultSetContainer.ResultSetRow currentRow = null;
     int topN = 5;
     try{
       topN = Integer.parseInt(srb.getProperty("er","5"));
@@ -84,10 +85,10 @@
 //    if(!lastMatch)lastMatch = request.getAttribute("rd").toString().length()==0;
     if(topN<0)topN = 5;
     if(topN>1000)topN=1000;
-    currentrow = leaders.getrow(0);
-    String contestName = currentrow.getItem("contest_name").toString();
-    int roundID = Integer.parseInt(currentrow.getItem("round_id").toString());
-    String forumIDStr = currentrow.getItem("forum_id").toString();
+    currentRow = leaders.getRow(0);
+    String contestName = currentRow.getItem("contest_name").toString();
+    int roundID = Integer.parseInt(currentRow.getItem("round_id").toString());
+    String forumIDStr = currentRow.getItem("forum_id").toString();
     int forumID = -1;
     if (forumIDStr != "") {
         forumID = Integer.parseInt(forumIDStr);
@@ -99,11 +100,11 @@
     int divisions = 0;
     //first we go through and extract all the division info
     for(int i = 0; i<percents.size();i++){
-        currentrow = percents.getrow(i);
-        String current = currentrow.getItem("division_desc").toString();
+        currentRow = percents.getRow(i);
+        String current = currentRow.getItem("division_desc").toString();
         if(!current.equals(last)){
             divisionNames.add(current);
-            divisionIDs.add(currentrow.getItem("division_id"));
+            divisionIDs.add(currentRow.getItem("division_id"));
             last = current;
             divisions++;
         }
@@ -116,22 +117,22 @@
     String coderIDs[][] = new String[divisions][topN];
     String placeds[][] = new String[divisions][topN];
     //now go through and put all the coder's data in the arrays
-    int lastdivisionID = -1;
+    int lastDivisionID = -1;
     int divisionPtr = -1;
     for(int i = 0; i<leaders.size();i++){
-        currentrow = leaders.getrow(i);
-        int divisionID = Integer.parseInt(currentrow.getItem("division_id").toString());
-        if(divisionID!=lastdivisionID){
-            lastdivisionID = divisionID;
+        currentRow = leaders.getRow(i);
+        int divisionID = Integer.parseInt(currentRow.getItem("division_id").toString());
+        if(divisionID!=lastDivisionID){
+            lastDivisionID = divisionID;
             divisionPtr++;
         }
         if(ptrs[divisionPtr]==topN)continue;
-        String handle = currentrow.getItem("handle").toString();
-        String room_name = currentrow.getItem("room_name").toString();
-        String points = currentrow.getItem("final_points").toString();
-        String rating = currentrow.getItem("new_rating").toString();
-        String coderID = currentrow.getItem("coder_id").toString();
-        String placed = currentrow.getItem("division_placed").toString();
+        String handle = currentRow.getItem("handle").toString();
+        String room_name = currentRow.getItem("room_name").toString();
+        String points = currentRow.getItem("final_points").toString();
+        String rating = currentRow.getItem("new_rating").toString();
+        String coderID = currentRow.getItem("coder_id").toString();
+        String placed = currentRow.getItem("division_placed").toString();
         coders[divisionPtr][ptrs[divisionPtr]]=handle;
         placeds[divisionPtr][ptrs[divisionPtr]]=placed;
         scores[divisionPtr][ptrs[divisionPtr]]=points;
@@ -150,7 +151,7 @@
 <%
 String currRound = roundID+"";
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Rounds_By_Date");
-pageContext.setAttribute("resultSetdates", rsc);
+pageContext.setAttribute("resultSetDates", rsc);
 %>
 <script language="JavaScript">
 <!--
@@ -162,28 +163,27 @@ function goTo(selection){
 }
 // -->
 </script>
-<!--   <A class="statTextBig" href="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>"><B><%= contestName %></B></a><BR/>-->
+<!--   <A class="statTextBig" href="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>"><B><%= contestName %></B></A><BR/>-->
 <!--DATE <BR/>-->
+                            <form name="coderRankForm" action="javaScript:submitForm();" method="get">
+                                    <SPAN CLASS="statTextBig"><B>Please select a round:</B><BR/></SPAN>
+                                    <SELECT CLASS="dropdown" NAME="Contest" onchange="goTo(this)">
+                                    <OPTION value="#">Select a Round:</OPTION>
 
-             <form name="coderRankform" action="javaScript:submitform();" method="get">
-                <span class="statTextBig"><B>Please select a round:</B><BR/></span>
-                <select class="dropdown" name="Contest" onchange="goTo(this)">
-                <option value="#">select a Round:</option>
+                                    <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
 
-                    <logic:iterate name="resultSetdates" id="resultrow" type="ResultSetContainer.ResultSetrow">
+                                    <% if (resultRow.getItem(0).toString().equals(currRound)) { %>
+                                        <OPTION value="/stat?c=round_overview&er=<%= topN %>&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
+                                    <% } else { %>
+                                        <OPTION value="/stat?c=round_overview&er=<%= topN %>&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
+                                    <% } %>
 
-                    <% if (resultrow.getItem(0).toString().equals(currRound)) { %>
-                    <option value="/stat?c=round_overview&er=<%= topN %>&rd=<bean:write name="resultrow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultrow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultrow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></option>
-                    <% } else { %>
-                    <option value="/stat?c=round_overview&er=<%= topN %>&rd=<bean:write name="resultrow" property='<%= "item[" + 0 /* id */ + "]" %>'/>"><bean:write name="resultrow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultrow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></option>
-                    <% } %>
+                                    </logic:iterate>
 
-                    </logic:iterate>
-
-                    </select>
-                    <%  if (forumID != -1) { %>
-                    <br><br><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumID%>" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></a>
-                    <%  } %>
+                                    </SELECT>
+                                    <%  if (forumID != -1) { %>
+                                    <br><br><A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumID%>" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
+                                    <%  } %>
              </td>
            </tr>
            <tr>
@@ -191,43 +191,43 @@ function goTo(selection){
            </tr>
            
            <tr style="padding: 0px,0px,0px,11px" >
-           <%for(int i = 0; i<divisionNames.size();i++){%>
+                            <%for(int i = 0; i<divisionNames.size();i++){%>
              <td width="5%" background="/i/steel_bluebv_bg.gif"></td>
              <td valign="middle" width="35%" nowrap="0" height="18" background="/i/steel_bluebv_bg.gif" class="registerNav">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Leaders</B></td>
              <td valign="middle" width="20%" nowrap="0" height="18" background="/i/steel_bluebv_bg.gif" class="registerNav"><B>Scores</B></td>
              <td valign="middle" width="20%" nowrap="0" height="18" background="/i/steel_bluebv_bg.gif" class="registerNav"><B>Rank</B></td>
              <td valign="middle" align="center" width="20%" nowrap="0" background="/i/steel_bluebv_bg.gif"><a href="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>&amp;dn=<%= divisionIDs.get(i).toString() %>" class="statText">Results</a></td>
-           <%}%>
+                            <%}%>
            </tr>
            
            <tr style="padding: 2px,0px,0px,0px">
-             <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
+                            <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 
-             <% //this part creates the top scorers for the round in each division
-             for(int i = 0; i<topN;i++){%>
-          
-           <%for(int j = 0; j<divisions;j++){
-               if(coderIDs[j][i]==null){//puts in blank rows if the coder doesn't exist - happens when you view more coders than there are participants
-           %>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
+                            <% //this part creates the top scorers for the round in each division
+                            for(int i = 0; i<topN;i++){%>
+                            <tr>
+                                <%for(int j = 0; j<divisions;j++){
+                                    if(coderIDs[j][i]==null){//puts in blank rows if the coder doesn't exist - happens when you view more coders than there are participants
+                                %>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
 
-           <%} else {%>
+                            <%} else {%>
              <td valign="middle" width="5%" class="statText"><a href="/stat?c=coder_room_stats&rd=<%=roundID %>&cr=<%= coderIDs[j][i] %>" class="statText"><img src="/i/coders_icon.gif" ALT="" width="10" height="10" border="0"></a></td>
              <td valign="middle" nowrap="0" width="35%" height="15" class="statText"><a href="/tc?module=MemberProfile&cr=<%= coderIDs[j][i] %>" class="<bean:write name="nameColor" property='<%= "style[" + ratings[j][i] + "]" %>'/>"><%= coders[j][i] %></a></td>
              <td valign="middle" nowrap="0" width="20%" height="15" class="statText" align="right"><%= scores[j][i] %> &#160;&#160;</td>
              <td valign="middle" nowrap="0" width="20%" height="15" class="statText" align="right"><%= placeds[j][i] %> &#160;&#160;</td>
              <td valign="middle" nowrap="0" width="20%" height="15" class="statText">&#160;<%= rooms[j][i] %></td>
-           <%  }
+                            <%  }
 
-           }%>
-           </tr>
-           <%}%>
+                                }%>
+                            </tr>
+                                <%}%>
 
-<%  int currentrowPtr = 0;
+<%  int currentRowPtr = 0;
     for(int i = 0; i<divisions;i++){
 %>
          </table>
@@ -246,17 +246,17 @@ function goTo(selection){
 <%--             <td valign="middle" nowrap="0" width="15%" height="15" class="statText" align="right"></td> --%>
            </tr>
   <%
-      currentrow = percents.getrow(currentrowPtr);
-      int currentdivID = Integer.parseInt(currentrow.getItem("division_id").toString());
-      while(currentrowPtr<percents.size() &&
-              Integer.parseInt((currentrow = percents.getrow(currentrowPtr)).getItem("division_id").toString())==currentdivID){
-        currentrowPtr++;
-        String problemLevel = currentrow.getItem("problem_level").toString();
-        String problemName = currentrow.getItem("problem_name").toString();
-        int submissions =Integer.parseInt(currentrow.getItem("submissions").toString());
-        int correct = Integer.parseInt(currentrow.getItem("successful_submissions").toString());
-        int problemID = Integer.parseInt(currentrow.getItem("problem_id").toString());
-        double total = correct==0?0.0D:Double.parseDouble(currentrow.getItem("total_points").toString())/correct;
+      currentRow = percents.getRow(currentRowPtr);
+      int currentDivID = Integer.parseInt(currentRow.getItem("division_id").toString());
+      while(currentRowPtr<percents.size() &&
+              Integer.parseInt((currentRow = percents.getRow(currentRowPtr)).getItem("division_id").toString())==currentDivID){
+        currentRowPtr++;
+        String problemLevel = currentRow.getItem("problem_level").toString();
+        String problemName = currentRow.getItem("problem_name").toString();
+        int submissions =Integer.parseInt(currentRow.getItem("submissions").toString());
+        int correct = Integer.parseInt(currentRow.getItem("successful_submissions").toString());
+        int problemID = Integer.parseInt(currentRow.getItem("problem_id").toString());
+        double total = correct==0?0.0D:Double.parseDouble(currentRow.getItem("total_points").toString())/correct;
         String perCor = dfp.format(submissions==0?0.0D:(((double)correct)/submissions));
         String avgPoints = df.format(total);
   %>
@@ -270,18 +270,21 @@ function goTo(selection){
              <td valign="middle" nowrap="0" height="15" class="statText" align="right">&#160;<a href="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=<%=roundID%>&pm=<%= problemID %>&dn=<%= currentdivID %>','600','400','distribution')" class="statText">Distribution Graph</a></td>
              <td valign="middle" nowrap="0" height="15" class="statText" align="right">&#160;<a href="Javascript:void openProblemRating(<%= problemID %>)" class="statText"><img border="0" src="/i/rate_it.gif" /></a></td>
            </tr>
-           <%
-           }
-           }%>
+                                <%
+                                    }
+                                }%>
            <tr><td valign="middle" colspan="7" width="100%" nowrap="0" height="16" class="registerNav"  background="/i/steel_bluebv_bg.gif"></td></tr>
 
            <tr>
-             <td colspan="7" align="center" class="statText">
-             <%if(!lastMatch){%>
-             <INPUT TYPE="HIDDEN" NAME="rd" VALUE="<%=roundID%>">
-             <%}%>
-             <INPUT TYPE="HIDDEN" NAME="c" VALUE="round_overview">Viewing top&#160;&#160;
-             <INPUT TYPE="text" NAME="er" MAXLENGTH="4" SIZE="4" value="<%=topN%>">&#160;&#160;<a href="javaScript:submitform();" class="statText">&#160;[ submit ]</a>
+             <td colspan="6" align="center" class="statText">
+                                    <%if(!lastMatch){%>
+                                        <INPUT TYPE="HIDDEN" NAME="rd" VALUE="<%=roundID%>">
+                                    <%}%>
+                                    <INPUT TYPE="HIDDEN" NAME="c" VALUE="round_overview">
+
+                                    Viewing top&#160;&#160;
+                                    <INPUT TYPE="text" NAME="er" MAXLENGTH="4" SIZE="4" value="<%=topN%>">&#160;&#160;
+                                    <A HREF="javaScript:submitForm();" CLASS="statText">&#160;[ submit ]</A>
              </td>
            </tr>
            <tr>
