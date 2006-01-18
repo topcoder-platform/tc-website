@@ -77,7 +77,7 @@
         <pathelement location="${jars.dir}/httpunit.jar"/>
         <pathelement location="${jars.dir}/itext-1.1.jar"/>
 
-        <!-- these are just so we can deploy the tcs ejbs on our side.  we can wack when we don't anymore-->
+<!--
         <pathelement location="${jars.dir}/render.jar"/>
         <pathelement location="${jars.dir}/tcs/forum.jar"/>
         <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
@@ -86,12 +86,19 @@
         <pathelement location="${jars.dir}/tcs/email_engine.jar"/>
         <pathelement location="${jars.dir}/searchengine.jar"/>
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+        <pathelement location="${jars.dir}/tcs/project_phases/1.0/project_phases.jar"/>
+        <pathelement location="${struts.dir}/struts.jar"/>
+-->
+
 
 
         <!-- app side dependencies...get rid of this if possible it's bad long contest design -->
         <pathelement location="${jars.dir}/TestServices.jar"/>
         <pathelement location="${jars.dir}/DBServices.jar"/>
         <pathelement location="${jars.dir}/tc.jar"/>
+
+
+
 
     </path>
 
@@ -242,11 +249,13 @@
     <target name="javadocs">
         <mkdir dir="${build.javadocs}"/>
         <javadoc
-            packagenames="com.*"
+            packagenames="com.topcoder.common.*,com.topcoder.ejb.*,com.topcoder.security.*,com.topcoder.utilities.*,com.topcoder.web.*"
             sourcepath="${java}"
+            classpathref="class.path"
             destdir="${build.javadocs}"
             windowtitle="${Name} API"
             doctitle="${Name} API"
+            maxmemory="256M"
             >
         </javadoc>
     </target>
