@@ -409,16 +409,6 @@
         </init-param>
 
         <init-param>
-            <param-name>task_param</param-name>
-            <param-value>task</param-value>
-        </init-param>
-
-        <init-param>
-            <param-name>step_param</param-name>
-            <param-value>st</param-value>
-        </init-param>
-
-        <init-param>
             <param-name>sort_param</param-name>
             <param-value>sort</param-value>
         </init-param>
