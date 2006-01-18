@@ -86,8 +86,9 @@ public class ProblemStatisticsTask extends BaseTask {
                 TCESConstants.JOB_ID_PARAM + "=" + getJobID() + "&" + TCESConstants.MEMBER_ID_PARAM +
                 "=" + getMemberID(), TCESConstants.MEMBER_PROFILE_NAME));
         setTrail(a);
-        getRequest().setAttribute(this.getClass().getName(), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf('.')+1), this);
         
+
 
     }
 
