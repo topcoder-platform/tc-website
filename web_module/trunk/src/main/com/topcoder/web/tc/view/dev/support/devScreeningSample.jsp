@@ -1,7 +1,7 @@
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<HEAD><TITLE>Sample Design Review Scorecard</TITLE>
+<HEAD><TITLE>Sample Development Review Scorecard</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=windows-1252">
 <META http-equiv=Pragma content=no-cache>
 <META http-equiv=Expires content=-1>
