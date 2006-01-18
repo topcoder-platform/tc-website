@@ -248,6 +248,16 @@
         </init-param>
 
         <init-param>
+            <param-name>search_page</param-name>
+            <param-value>search.jsp</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>search_results_page</param-name>
+            <param-value>searchResults.jsp</param-value>
+        </init-param>
+
+        <init-param>
             <param-name>coder_demographics_page</param-name>
             <param-value>coder_demographics.jsp</param-value>
         </init-param>
