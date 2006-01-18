@@ -4,7 +4,7 @@
   import="com.topcoder.web.corp.controller.request.tces.*" %>
 
 <%@ taglib uri="tces-taglib.tld" prefix="tces"%>
-
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:useBean id="ProblemStatementTask" scope="request" class="com.topcoder.web.corp.controller.request.tces.ProblemStatementTask" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">

@@ -7,7 +7,6 @@
           com.topcoder.web.corp.common.TCESConstants" %>
 
 <%@ taglib uri="tces-taglib.tld" prefix="tces"%>
-
 <SCRIPT LANGUAGE="JavaScript">
 <!-- Begin
 function openWnd(pageUrl) {
@@ -66,7 +65,7 @@ function openWnd(pageUrl) {
 					<tces:trailIterator id="trailItem" trailList="<%=ProblemStatisticsTask.getTrail()%>">
 					<A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
 					</tces:trailIterator>
-					<A HREF="<jsp:getProperty name="ProblemStatisticsTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemStatisticsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemStatisticsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemStatisticsTask.getMemberID()%>" >Problem Submissions</A> &gt;
+					<A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemStatisticsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemStatisticsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemStatisticsTask.getMemberID()%>" >Problem Submissions</A> &gt;
 					<br/>
 					<span class=testHead>Problem Statistics: <jsp:getProperty name="ProblemStatisticsTask" property="handle"/></span>
 					<br/><br/>
