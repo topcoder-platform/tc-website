@@ -3,13 +3,10 @@ package com.topcoder.web.corp.controller.request.tces;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.corp.common.TCESConstants;
 import com.topcoder.web.ejb.user.Contact;
-import com.topcoder.web.common.BaseProcessor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -19,12 +16,12 @@ import java.util.Map;
  *
  */
 
-public class CampaignInterestTask extends BaseTask implements Task, Serializable {
+public class CampaignInterestTask extends BaseTask {
 
     private static Logger log = Logger.getLogger(CampaignInterestTask.class);
 
     /* Holds the ID of this campaign */
-    private int campaignID;
+    private long campaignID;
 
     /* Holds the name of the company to which this campaign belongs */
     private String companyName;
@@ -54,17 +51,6 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
     private String backSortOrder;
 
     private long companyId;
-
-    /* Makes a new CampaignInterestTask */
-    public CampaignInterestTask() {
-        super();
-        setNextPage(TCESConstants.CAMPAIGN_INTEREST_PAGE);
-
-        uid = -1;
-
-        sortBy = "";
-        sortOrder = "";
-    }
 
     /** Setter for property campaignName.
      * @param campaignName New value of property campaignName.
@@ -111,14 +97,14 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
     /** Getter for property campaignID
      * @return Value of property campaignID
      */
-    public int getCampaignID() {
+    public long getCampaignID() {
         return campaignID;
     }
 
     /** Setter for property campaignID.
      * @param campaignID New value of property campaignID.
      */
-    public void setCampaignID(int campaignID) {
+    public void setCampaignID(long campaignID) {
         this.campaignID = campaignID;
     }
 
@@ -144,42 +130,36 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
         this.companyId = companyId;
     }
 
-//    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-//        throws Exception
-//    {
-//
-//        User curUser = getAuthenticityToken().getActiveUser();
-//        uid = curUser.getId();
-//
-//    }
+    protected void businessProcessing() throws Exception {
 
-    public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+            sortBy = getRequest().getParameter(TCESConstants.SORT_PARAM);
+            sortOrder = getRequest().getParameter(TCESConstants.SORT_ORDER_PARAM);
+            backSortBy = getRequest().getParameter(TCESConstants.BACK_SORT_PARAM);
+            backSortOrder = getRequest().getParameter(TCESConstants.BACK_SORT_ORDER_PARAM);
+
+            setCampaignID(Long.parseLong(getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM)));
+
+        viewCampaignInterest();
+        Contact contact = (Contact) BaseProcessor.createEJB(getInitialContext(), Contact.class);
+        setCompanyId(contact.getCompanyId(getUser().getId(), getOltp()));
 
         ArrayList a = new ArrayList();
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
                 "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" +
                 TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
                 "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" +
                 TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_DETAIL_NAME));
         setTrail(a);
-
     }
 
-    public void processStep(String step)
-            throws Exception {
-        viewCampaignInterest();
-        Contact contact = (Contact) BaseProcessor.createEJB(getInitialContext(), Contact.class);
-        setCompanyId(contact.getCompanyId(uid, getOltp()));
-    }
 
     private void viewCampaignInterest() throws Exception {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_campaign_interest");
 
-        dataRequest.setProperty("uid", Long.toString(uid));
-        dataRequest.setProperty("cid", Integer.toString(getCampaignID()));
+        dataRequest.setProperty("uid", String.valueOf(getUser().getId()));
+        dataRequest.setProperty("cid", String.valueOf(getCampaignID()));
         Map resultMap = getDataAccess(getOltp()).getData(dataRequest);
 
         ResultSetContainer rsc = null;
@@ -204,8 +184,8 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Campaign_Access");
         if (rsc.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
-            throw new Exception(" cid=" + Integer.toString(getCampaignID()) +
-                    "does not belong to uid=" + Long.toString(uid));
+            throw new Exception(" cid=" + String.valueOf(getCampaignID()) +
+                    "does not belong to uid=" + String.valueOf(getUser().getId()));
         }
 
         setHitList((ResultSetContainer) resultMap.get("TCES_Campaign_Hit_List"));
@@ -232,22 +212,6 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
 
 
         setNextPage(TCESConstants.CAMPAIGN_INTEREST_PAGE);
-    }
-
-    public void setAttributes(String paramName, String paramValues[]) {
-        String value = paramValues[0];
-        value = (value == null ? "" : value.trim());
-
-        if (paramName.equalsIgnoreCase(TCESConstants.SORT_PARAM))
-            sortBy = value;
-        if (paramName.equalsIgnoreCase(TCESConstants.SORT_ORDER_PARAM))
-            sortOrder = value;
-        if (paramName.equalsIgnoreCase(TCESConstants.BACK_SORT_PARAM))
-            backSortBy = value;
-        if (paramName.equalsIgnoreCase(TCESConstants.BACK_SORT_ORDER_PARAM))
-            backSortOrder = value;
-        if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
-            setCampaignID(Integer.parseInt(value));
     }
 
 }

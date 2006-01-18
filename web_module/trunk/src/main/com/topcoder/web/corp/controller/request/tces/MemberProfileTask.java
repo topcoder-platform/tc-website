@@ -10,9 +10,6 @@ import com.topcoder.web.corp.common.TCESConstants;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.user.Contact;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -23,18 +20,18 @@ import java.util.Map;
  *
  */
 
-public class MemberProfileTask extends BaseTask implements Task, Serializable {
+public class MemberProfileTask extends BaseTask {
 
     private static Logger log = Logger.getLogger(MemberProfileTask.class);
 
     /* Holds the campaign ID of the member that expressed interest */
-    private int campaignID;
+    private long campaignID;
 
     /* Holds the position/job ID in which the member expressed interest */
-    private int jobID;
+    private long jobID;
 
     /* Holds the member ID for which a member profile is being requested */
-    private int memberID;
+    private long memberID;
 
     /* Holds information about the member */
     private ResultSetContainer memberInfo;
@@ -84,19 +81,6 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     private List divIIStatsByLevel;
 
     private long companyId;
-
-    /** Creates new MemberProfileTask */
-    public MemberProfileTask() {
-        super();
-        setNextPage(TCESConstants.MEMBER_PROFILE_PAGE);
-
-        uid = -1;
-
-        setJobID(-1);
-        setCampaignID(-1);
-        setHasMultipleDivILanguage(false);
-        setHasMultipleDivIILanguage(false);
-    }
 
 
     /** Getter for property hasResume.
@@ -158,42 +142,42 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     /** Getter for property campaignID.
      * @return Value of property campaignID
      */
-    public int getCampaignID() {
+    public long getCampaignID() {
         return campaignID;
     }
 
     /** Setter for property campaignID.
      * @param campaignID New value of property campaignID.
      */
-    public void setCampaignID(int campaignID) {
+    public void setCampaignID(long campaignID) {
         this.campaignID = campaignID;
     }
 
     /** Getter for property jobID.
      * @return Value of property jobID
      */
-    public int getJobID() {
+    public long getJobID() {
         return jobID;
     }
 
     /** Setter for property jobID.
      * @param jobID New value of property jobID.
      */
-    public void setJobID(int jobID) {
+    public void setJobID(long jobID) {
         this.jobID = jobID;
     }
 
     /** Getter for property memberID.
      * @return Value of property memberID
      */
-    public int getMemberID() {
+    public long getMemberID() {
         return memberID;
     }
 
     /** Setter for property memberID.
      * @param memberID New value of property memberID.
      */
-    public void setMemberID(int memberID) {
+    public void setMemberID(long memberID) {
         this.memberID = memberID;
     }
 
@@ -266,51 +250,12 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         }
     }
 
-    /** Performs pre-processing for the task.
-     * @param request The servlet request object.
-     * @param response The servlet response object.
-     * @throws java.lang.Exception
-     */
-//    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-//            throws Exception {
-//        HttpSession session = request.getSession(true);
-//
-//        User curUser = getAuthenticityToken().getActiveUser();
-//        uid = curUser.getId();
-//    }
 
-    /** Performs post-processing for the task.
-     * @param request The servlet request object.
-     * @param response The servlet response object.
-     * @throws java.lang.Exception
-     */
-    public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    protected void businessProcessing() throws Exception {
+        setCampaignID(Long.parseLong(getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM)));
+        setJobID(Long.parseLong(getRequest().getParameter(TCESConstants.JOB_ID_PARAM)));
+        setMemberID(Long.parseLong(getRequest().getParameter(TCESConstants.MEMBER_ID_PARAM)));
 
-        ArrayList a = new ArrayList();
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
-                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" +
-                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
-                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" +
-                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_DETAIL_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
-                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_INTEREST_TASK + "&" +
-                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_INTEREST_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
-                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.POSITION_INTEREST_TASK + "&" +
-                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
-                TCESConstants.JOB_ID_PARAM + "=" + getJobID(), TCESConstants.POSITION_INTEREST_NAME));
-        setTrail(a);
-
-    }
-
-    /** Processes the given step or phase of the task.
-     * @param step The step to be processed.
-     * @throws java.lang.Exception
-     */
-    public void processStep(String step)
-            throws Exception {
         viewMemberProfile();
 
         ResumeServices rServices = null;
@@ -318,20 +263,37 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             rServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
             hasResume = rServices.hasResume(memberID, getOltp());
             Contact contact = (Contact) BaseProcessor.createEJB(getInitialContext(), Contact.class);
-            setCompanyId(contact.getCompanyId(uid, getOltp()));
+            setCompanyId(contact.getCompanyId(getUser().getId(), getOltp()));
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");
             e.printStackTrace();
         }
+        ArrayList a = new ArrayList();
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_DETAIL_NAME));
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_INTEREST_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_INTEREST_NAME));
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.POSITION_INTEREST_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
+                TCESConstants.JOB_ID_PARAM + "=" + getJobID(), TCESConstants.POSITION_INTEREST_NAME));
+        setTrail(a);
+        setNextPage(TCESConstants.MEMBER_PROFILE_PAGE);
 
     }
+
 
     private void viewMemberProfile() throws Exception {
 
         // set up Data Warehouse query command.
         Request dwDataRequest = new Request();
         dwDataRequest.setContentHandle("tces_member_profile");
-        dwDataRequest.setProperty("mid", Integer.toString(getMemberID()));
+        dwDataRequest.setProperty("mid", String.valueOf(getMemberID()));
 
         Map dwResultMap = getDataAccess(getDw()).getData(dwDataRequest);
         ResultSetContainer dwRSC = null;
@@ -339,20 +301,20 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         // set up OLTP query command.
         Request oltpDataRequest = new Request();
         oltpDataRequest.setContentHandle("tces_member_profile");
-        oltpDataRequest.setProperty("uid", Long.toString(uid));
-        oltpDataRequest.setProperty("jid", Integer.toString(getJobID()));
-        oltpDataRequest.setProperty("cid", Integer.toString(getCampaignID()));
-        oltpDataRequest.setProperty("mid", Integer.toString(getMemberID()));
+        oltpDataRequest.setProperty("uid", String.valueOf(getUser().getId()));
+        oltpDataRequest.setProperty("jid", String.valueOf(getJobID()));
+        oltpDataRequest.setProperty("cid", String.valueOf(getCampaignID()));
+        oltpDataRequest.setProperty("mid", String.valueOf(getMemberID()));
 
         Map oltpResultMap = getDataAccess(getOltp()).getData(oltpDataRequest);
 
         // verify that campaign/job/tces user have access to this members's info.
         ResultSetContainer oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Verify_Member_Access");
         if (oltpRSC.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
-            throw new NotAuthorizedException(" mid=" + Integer.toString(getMemberID())
-                    + " jid=" + Integer.toString(getJobID())
-                    + " cid=" + Integer.toString(getCampaignID())
-                    + "does not belong to uid=" + Long.toString(uid));
+            throw new NotAuthorizedException(" mid=" + String.valueOf(getMemberID())
+                    + " jid=" + String.valueOf(getJobID())
+                    + " cid=" + String.valueOf(getCampaignID())
+                    + "does not belong to uid=" + String.valueOf(getUser().getId()));
         }
 
         // start packaging data for presentation.
@@ -412,23 +374,6 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             setIsRanked(false);
         }
 
-        setNextPage(TCESConstants.MEMBER_PROFILE_PAGE);
-    }
-
-    /** Sets attributes for the task.
-     * @param paramName The name of the attribute being set.
-     * @param paramValues The values to be associated with the given attribute.
-     */
-    public void setAttributes(String paramName, String paramValues[]) {
-        String value = paramValues[0];
-        value = (value == null ? "" : value.trim());
-
-        if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
-            setCampaignID(Integer.parseInt(value));
-        if (paramName.equalsIgnoreCase(TCESConstants.JOB_ID_PARAM))
-            setJobID(Integer.parseInt(value));
-        if (paramName.equalsIgnoreCase(TCESConstants.MEMBER_ID_PARAM))
-            setMemberID(Integer.parseInt(value));
     }
 
     /** Getter for property divIStats.
