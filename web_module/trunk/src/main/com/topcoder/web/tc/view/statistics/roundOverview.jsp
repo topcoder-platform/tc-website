@@ -4,7 +4,7 @@
           com.topcoder.shared.dataAccess.*,
           com.topcoder.shared.dataAccess.resultSet.*,
           com.topcoder.shared.util.ApplicationServer,
-          java.text.Decimalformat,
+          java.text.DecimalFormat,
           java.util.ArrayList"
 %>
 
@@ -21,13 +21,9 @@
  </head>
 
 <body>
+   <jsp:include page="../top.jsp" />
 
-<jsp:include page="../top.jsp" >
-    <jsp:param name="level1" value=""/>
-</jsp:include>
-
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="1" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
@@ -39,9 +35,9 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-         <td class="bodyText" width="100%" align="center">
+         <td class="bodyText" width="100%" align="center" style="padding: 20px 0px 0px 0px;">
          
-         <table width="100%" border="0" cellpadding="0" cellspacing="0" valign="top">
+         <table width="95%" border="1" cellpadding="0" cellspacing="0" valign="top">
            <tr>
              <td width="11" height="26" align="left" valign="bottom"><img width="11" height="26" border="0" src="/i/steelblue_top_left1.gif"></td>
              <td valign="bottom" width="180" align="left"><img width="180" height="26" border="0" src="/i/header_statistics.gif"></td>
@@ -49,7 +45,6 @@
              <td valign="top" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="26" border="0"></td>
            </tr>
          </table>
-         <br/>
          
 
 <script language="JavaScript">
@@ -144,7 +139,7 @@
     for(int i = 0; i<divisions;i++)topN = Math.max(topN,ptrs[i]);
 
 %>
-         <table width="100%" border="0" cellpadding="10" cellspacing="0" bgcolor="#001B35" valign="top">
+         <table width="95%" border="1" cellpadding="5" cellspacing="0" bgcolor="#001B35" valign="top">
            <tr>
              <td class="bodyText" colspan="5" valign="top" style="padding: 0px,0px,0px,11px">
 
@@ -190,13 +185,13 @@ function goTo(selection){
              <td class="bodyText" height="10" colspan="5" valign="top" style="padding: 0px,0px,0px,11px"><A NAME="leaders"></a></td>
            </tr>
            
-           <tr style="padding: 0px,0px,0px,11px" >
+           <tr>
                             <%for(int i = 0; i<divisionNames.size();i++){%>
              <td width="5%" background="/i/steel_bluebv_bg.gif"></td>
              <td valign="middle" width="35%" nowrap="0" height="18" background="/i/steel_bluebv_bg.gif" class="registerNav">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Leaders</B></td>
-             <td valign="middle" width="20%" nowrap="0" height="18" background="/i/steel_bluebv_bg.gif" class="registerNav"><B>Scores</B></td>
-             <td valign="middle" width="20%" nowrap="0" height="18" background="/i/steel_bluebv_bg.gif" class="registerNav"><B>Rank</B></td>
-             <td valign="middle" align="center" width="20%" nowrap="0" background="/i/steel_bluebv_bg.gif"><a href="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>&amp;dn=<%= divisionIDs.get(i).toString() %>" class="statText">Results</a></td>
+             <td valign="middle" align="right" width="20%" nowrap="0" height="18" background="/i/steel_bluebv_bg.gif" class="registerNav"><B>Scores</B></td>
+             <td valign="middle" align="right" width="20%" nowrap="0" height="18" background="/i/steel_bluebv_bg.gif" class="registerNav"><B>Rank</B></td>
+             <td valign="middle" align="center" width="20%" nowrap="0" background="/i/steel_bluebv_bg.gif"><A HREF="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>&amp;dn=<%= divisionIDs.get(i).toString() %>" class="statText">Results</A></td>
                             <%}%>
            </tr>
            
@@ -216,7 +211,7 @@ function goTo(selection){
                                 <td></td>
 
                             <%} else {%>
-             <td valign="middle" width="5%" class="statText"><a href="/stat?c=coder_room_stats&rd=<%=roundID %>&cr=<%= coderIDs[j][i] %>" class="statText"><img src="/i/coders_icon.gif" ALT="" width="10" height="10" border="0"></a></td>
+             <td valign="middle" width="5%" class="statText"><A HREF="/stat?c=coder_room_stats&rd=<%=roundID %>&cr=<%= coderIDs[j][i] %>" CLASS="statText"><IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"></A></td>
              <td valign="middle" nowrap="0" width="35%" height="15" class="statText"><a href="/tc?module=MemberProfile&cr=<%= coderIDs[j][i] %>" class="<bean:write name="nameColor" property='<%= "style[" + ratings[j][i] + "]" %>'/>"><%= coders[j][i] %></a></td>
              <td valign="middle" nowrap="0" width="20%" height="15" class="statText" align="right"><%= scores[j][i] %> &#160;&#160;</td>
              <td valign="middle" nowrap="0" width="20%" height="15" class="statText" align="right"><%= placeds[j][i] %> &#160;&#160;</td>
@@ -231,10 +226,9 @@ function goTo(selection){
     for(int i = 0; i<divisions;i++){
 %>
          </table>
-         <br/>
          
          <a name="problem_stats"></a>
-         <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#001B35" valign="top">
+         <table width="95%" border="1" cellpadding="0" cellspacing="1" bgcolor="#001B35" valign="top">
            <tr><td valign="middle" colspan="7" width="100%" nowrap="0" height="16" class="registerNav" background="/i/steel_bluebv_bg.gif">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Problem Stats</B></td></tr>
            <tr>
              <td style="padding: 2px,0px,0px,0px" valign="middle" nowrap="0" width="17%" height="15" class="statText">&#160;</td>
@@ -263,11 +257,11 @@ function goTo(selection){
 
            <tr>
              <td valign="middle" nowrap="0" height="15" class="statText">&#160;<%=problemLevel%></td>
-             <td valign="middle" nowrap="0" height="15" class="statText">&#160;&#160;<a href="/stat?c=problem_statement&pm=<%= problemID %>&rd=<%= roundID %>" class="statText"><%=problemName%></a></td>
+             <td valign="middle" nowrap="0" height="15" class="statText">&#160;&#160;<A HREF="/stat?c=problem_statement&pm=<%= problemID %>&rd=<%= roundID %>" class="statText"><%=problemName%></A></td>
              <td valign="middle" nowrap="0" height="15" class="statText" align="right"><%=submissions%> &#160;&#160;</td>
              <td valign="middle" nowrap="0" height="15" class="statText" align="right"><%=perCor%> &#160;&#160;</td>
              <td valign="middle" nowrap="0" height="15" class="statText" align="right"><%=avgPoints%></td>
-             <td valign="middle" nowrap="0" height="15" class="statText" align="right">&#160;<a href="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=<%=roundID%>&pm=<%= problemID %>&dn=<%= currentdivID %>','600','400','distribution')" class="statText">Distribution Graph</a></td>
+             <td valign="middle" nowrap="0" height="15" class="statText" align="right">&#160;<a href="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=<%=roundID%>&pm=<%= problemID %>&dn=<%= currentDivID %>','600','400','distribution')" class="statText">Distribution Graph</a></td>
              <td valign="middle" nowrap="0" height="15" class="statText" align="right">&#160;<a href="Javascript:void openProblemRating(<%= problemID %>)" class="statText"><img border="0" src="/i/rate_it.gif" /></a></td>
            </tr>
                                 <%
