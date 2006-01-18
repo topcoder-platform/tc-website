@@ -2917,6 +2917,7 @@ public class ProjectTrackerBean implements SessionBean {
                 throw new EJBException("Couldn't get min score from config", e);
             }
             while (rsScores.next()) {
+                //todo this code doesn't handle ties.   it should, for both place and money
                 double money = rsScores.getLong("price");
                 double score = rsScores.getDouble("score");
 
