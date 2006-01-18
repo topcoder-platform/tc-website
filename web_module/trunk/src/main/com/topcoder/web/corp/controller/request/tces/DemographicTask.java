@@ -202,8 +202,9 @@ public class DemographicTask extends BaseTask {
         setTrail(a);
         setNextPage(TCESConstants.DEMOGRAPHIC_PAGE);
         setIsNextPageInContext(true);
-        getRequest().setAttribute(this.getClass().getName(), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf('.')+1), this);
         
+
 
     }
 

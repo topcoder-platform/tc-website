@@ -151,7 +151,8 @@ public class CampaignInterestTask extends BaseTask {
                 "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" +
                 TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_DETAIL_NAME));
         setTrail(a);
-        getRequest().setAttribute(this.getClass().getName(), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf('.')+1), this);
+
 
     }
 
