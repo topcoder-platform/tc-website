@@ -6,7 +6,7 @@
           com.topcoder.web.corp.common.TCESConstants" %>
 
 <%@ taglib uri="tces-taglib.tld" prefix="tces"%>
-
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:useBean id="DemographicTask" scope="request" class="com.topcoder.web.corp.controller.request.tces.DemographicTask" />
 
 <%
