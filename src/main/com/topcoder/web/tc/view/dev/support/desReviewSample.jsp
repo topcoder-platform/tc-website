@@ -759,7 +759,11 @@ appropriately not used.
        
        <tr>
         <td class="forumTextOdd" width="80%">
-         <p class="scorecardQuestion">The component presents an easy-to-use API for the application to use.  Class structure and method names make usage of the API apparent to a new user.  Each method has a singular purpose and causes minimal side-effects.  "Convenience Methods" simplify the overall API, they don't make it more confusing.  Methods which depend on a specific object state or need to be called in a specific order are clearly described as such. The design should document the possible states of each class and which methods are disallowed in each state. 
+         <p class="scorecardQuestion">The component presents an easy-to-use API for the application to use.
+Class structure and method names make usage of the API apparent to a new
+user. Each method has a singular purpose and causes minimal
+side-effects. Convenience methods should be carefully chosen to simplify
+the overall API. Excessive use of convenience methods should be avoided. 
 </p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">The reviewer should look at the demo
 section of the component specification to see the designer's vision of
