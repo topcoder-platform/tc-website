@@ -204,6 +204,11 @@
             <description>the processor to execute if non is specified in the request</description>
         </init-param>
         <init-param>
+            <param-name>login_servlet</param-name>
+            <param-value>/</param-value>
+            <description>the processor to execute when we need to direct the user to login</description>
+        </init-param>
+        <init-param>
             <param-name>login_processor</param-name>
             <param-value>Login</param-value>
             <description>the processor to execute when we need to direct the user to login</description>
