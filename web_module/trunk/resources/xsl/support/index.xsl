@@ -219,7 +219,7 @@
 
                         <TR><TD CLASS="bodyText"><A NAME="183"><B>What software does TopCoder use?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
-<P>Linux 2.4.20-8smp, gcc 3.2.2 (Redhat 9), glibc-2.3.2, and libstdc++-3.</P>
+<P>Linux 2.4.20-8smp, gcc 4.0.2 (Redhat 9), glibc-2.3.2, and libstdc++-3.</P>
 <P>
 pointers to appropriate docs for each<BR/>
 <A HREF="http://gcc.gnu.org/onlinedocs/gcc-2.95.3/gcc.html" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/onlinedocs/gcc-2.95.3/gcc.html</A><BR/>
