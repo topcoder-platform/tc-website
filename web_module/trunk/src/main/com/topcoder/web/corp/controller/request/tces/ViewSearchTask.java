@@ -22,6 +22,8 @@ public class ViewSearchTask extends BaseTask {
 
         setCampaignId(Long.parseLong(getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM)));
         setNextPage(TCESConstants.SEARCH_PAGE);
+        setIsNextPageInContext(true);
+        
     }
 
     public long getCampaignId() {

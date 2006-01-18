@@ -192,6 +192,8 @@ public class PositionInterestTask extends BaseTask  {
                 TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_INTEREST_NAME));
         setTrail(a);
         setNextPage(TCESConstants.POSITION_INTEREST_PAGE);
+        setIsNextPageInContext(true);
+        
 
     }
 

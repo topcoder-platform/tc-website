@@ -284,6 +284,8 @@ public class MemberProfileTask extends BaseTask {
                 TCESConstants.JOB_ID_PARAM + "=" + getJobID(), TCESConstants.POSITION_INTEREST_NAME));
         setTrail(a);
         setNextPage(TCESConstants.MEMBER_PROFILE_PAGE);
+        setIsNextPageInContext(true);
+        
 
     }
 

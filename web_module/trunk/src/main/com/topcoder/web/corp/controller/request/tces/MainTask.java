@@ -78,6 +78,8 @@ public class MainTask extends BaseTask  {
     protected void businessProcessing() throws Exception {
         viewMain();
         setNextPage(TCESConstants.MAIN_PAGE);
+        setIsNextPageInContext(true);
+        
     }
 
     private void viewMain() throws Exception {

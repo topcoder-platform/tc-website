@@ -148,6 +148,8 @@ public class CoderDemographicsTask extends BaseTask {
                 getItem(0, "job_desc").toString());
 
         setNextPage(TCESConstants.CODER_DEMOGRAPHICS_PAGE);
+        setIsNextPageInContext(true);
+        
     }
 
     /** Getter for property campaignID.
