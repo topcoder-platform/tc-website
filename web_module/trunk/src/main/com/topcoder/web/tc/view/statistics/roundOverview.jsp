@@ -4,49 +4,58 @@
           com.topcoder.shared.dataAccess.*,
           com.topcoder.shared.dataAccess.resultSet.*,
           com.topcoder.shared.util.ApplicationServer,
-          java.text.DecimalFormat,
+          java.text.Decimalformat,
           java.util.ArrayList"
 %>
 
 <%@ taglib uri="struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<HTML>
- <HEAD>
-   <TITLE>TopCoder Statistics - Round Overview</TITLE>
+<html>
+ <head>
+   <title>TopCoder Statistics - Round Overview</title>
    <jsp:include page="baseHRef.jsp" />
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+   <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+   <link rel="stylesheet" type="text/css" href="/css/coders.css"/>
    <jsp:include page="../script.jsp" />
- </HEAD>
- <BODY>
-   <jsp:include page="../top.jsp" />
-   <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-     <TR>
-       <TD WIDTH="180" VALIGN="top">
+ </head>
+
+<body>
+
+<jsp:include page="../top.jsp" >
+    <jsp:param name="level1" value=""/>
+</jsp:include>
+
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+   <tr valign="top">
+<!-- Left Column Begins-->
+        <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="statistics"/>
                 <jsp:param name="level2" value="round_overview"/>
             </jsp:include>
-       </TD>
-       <TD WIDTH="10" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-       <TD CLASS="bodyText" WIDTH="99%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+        </td>
+<!-- Left Column Ends -->
 
-         <!-- BEGIN BODY -->
-         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-           <TR>
-             <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
-             <TD VALIGN="bottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
-             <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
-               &#160;<SPAN CLASS="bodySubhead">&#160;&#160;<%= "Round Overview"%>&#160;&#160;</SPAN>
-             </TD>
-             <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
-           </TR>
-         </TABLE>
+<!-- Center Column Begins -->
+         <td width="100%" align="center">
 
+         <div class="bodyText">
+         
+         <table width="100%" border="0" cellpadding="0" cellspacing="0" valign="top">
+           <tr>
+             <td width="11" height="26" align="left" valign="bottom"><img width="11" height="26" border="0" src="/i/steelblue_top_left1.gif"></td>
+             <td valign="bottom" width="180" align="left"><img width="180" height="26" border="0" src="/i/header_statistics.gif"></td>
+             <td class="bodyTextBold" valign="middle" width="100%">&#160;<span class="bodySubhead">&#160;&#160;<%= "Round Overview"%>&#160;&#160;</span></td>
+             <td valign="top" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="26" border="0"></td>
+           </tr>
+         </table>
+         <br/>
+         
 <script language="JavaScript">
-   function submitForm(){
-   var frm = document.coderRankForm;
+   function submitform(){
+   var frm = document.coderRankform;
    frm.action = "/stat";
     if (isNaN(parseInt(frm.er.value)))
       alert(frm.er.value+" is not a valid integer");
@@ -62,13 +71,13 @@
 %>
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 <%
-    DecimalFormat df = new DecimalFormat("0.00");
-    DecimalFormat dfp = new DecimalFormat("0.00%");
+    Decimalformat df = new Decimalformat("0.00");
+    Decimalformat dfp = new Decimalformat("0.00%");
     ResultSetContainer leaders = (ResultSetContainer) queryEntries.get("High_Scorers");
     ResultSetContainer percents = (ResultSetContainer) queryEntries.get("Round_Percentages");
     ResultSetContainer image = (ResultSetContainer) queryEntries.get("Round_Sponsor_Image");
 
-    ResultSetContainer.ResultSetRow currentRow = null;
+    ResultSetContainer.ResultSetrow currentrow = null;
     int topN = 5;
     try{
       topN = Integer.parseInt(srb.getProperty("er","5"));
@@ -77,10 +86,10 @@
 //    if(!lastMatch)lastMatch = request.getAttribute("rd").toString().length()==0;
     if(topN<0)topN = 5;
     if(topN>1000)topN=1000;
-    currentRow = leaders.getRow(0);
-    String contestName = currentRow.getItem("contest_name").toString();
-    int roundID = Integer.parseInt(currentRow.getItem("round_id").toString());
-    String forumIDStr = currentRow.getItem("forum_id").toString();
+    currentrow = leaders.getrow(0);
+    String contestName = currentrow.getItem("contest_name").toString();
+    int roundID = Integer.parseInt(currentrow.getItem("round_id").toString());
+    String forumIDStr = currentrow.getItem("forum_id").toString();
     int forumID = -1;
     if (forumIDStr != "") {
         forumID = Integer.parseInt(forumIDStr);
@@ -92,11 +101,11 @@
     int divisions = 0;
     //first we go through and extract all the division info
     for(int i = 0; i<percents.size();i++){
-        currentRow = percents.getRow(i);
-        String current = currentRow.getItem("division_desc").toString();
+        currentrow = percents.getrow(i);
+        String current = currentrow.getItem("division_desc").toString();
         if(!current.equals(last)){
             divisionNames.add(current);
-            divisionIDs.add(currentRow.getItem("division_id"));
+            divisionIDs.add(currentrow.getItem("division_id"));
             last = current;
             divisions++;
         }
@@ -109,22 +118,22 @@
     String coderIDs[][] = new String[divisions][topN];
     String placeds[][] = new String[divisions][topN];
     //now go through and put all the coder's data in the arrays
-    int lastDivisionID = -1;
+    int lastdivisionID = -1;
     int divisionPtr = -1;
     for(int i = 0; i<leaders.size();i++){
-        currentRow = leaders.getRow(i);
-        int divisionID = Integer.parseInt(currentRow.getItem("division_id").toString());
-        if(divisionID!=lastDivisionID){
-            lastDivisionID = divisionID;
+        currentrow = leaders.getrow(i);
+        int divisionID = Integer.parseInt(currentrow.getItem("division_id").toString());
+        if(divisionID!=lastdivisionID){
+            lastdivisionID = divisionID;
             divisionPtr++;
         }
         if(ptrs[divisionPtr]==topN)continue;
-        String handle = currentRow.getItem("handle").toString();
-        String room_name = currentRow.getItem("room_name").toString();
-        String points = currentRow.getItem("final_points").toString();
-        String rating = currentRow.getItem("new_rating").toString();
-        String coderID = currentRow.getItem("coder_id").toString();
-        String placed = currentRow.getItem("division_placed").toString();
+        String handle = currentrow.getItem("handle").toString();
+        String room_name = currentrow.getItem("room_name").toString();
+        String points = currentrow.getItem("final_points").toString();
+        String rating = currentrow.getItem("new_rating").toString();
+        String coderID = currentrow.getItem("coder_id").toString();
+        String placed = currentrow.getItem("division_placed").toString();
         coders[divisionPtr][ptrs[divisionPtr]]=handle;
         placeds[divisionPtr][ptrs[divisionPtr]]=placed;
         scores[divisionPtr][ptrs[divisionPtr]]=points;
@@ -136,15 +145,14 @@
     for(int i = 0; i<divisions;i++)topN = Math.max(topN,ptrs[i]);
 
 %>
-
-            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" width="100%">
-                <TR>
-                    <TD CLASS="bodyText" VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/><br/>
+         <table width="100%" border="0" cellpadding="10" cellspacing="0" bgcolor="#001B35" valign="top">
+           <tr>
+             <td class="bodyText" colspan="5" valign="top" style="padding: 0px,0px,0px,11px">
 
 <%
 String currRound = roundID+"";
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Rounds_By_Date");
-pageContext.setAttribute("resultSetDates", rsc);
+pageContext.setAttribute("resultSetdates", rsc);
 %>
 <script language="JavaScript">
 <!--
@@ -156,175 +164,154 @@ function goTo(selection){
 }
 // -->
 </script>
-<!--   <A class="statTextBig" href="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>"><B><%= contestName %></B></A><BR/>-->
+<!--   <A class="statTextBig" href="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>"><B><%= contestName %></B></a><BR/>-->
 <!--DATE <BR/>-->
-                        <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%">
-                            <FORM name="coderRankForm" action="javaScript:submitForm();" method="get">
-                            <TR>
-                                <TD COLSPAN="20">
-                                    <SPAN CLASS="statTextBig"><B>Please select a round:</B><BR/></SPAN>
-                                    <SELECT CLASS="dropdown" NAME="Contest" onchange="goTo(this)">
-                                    <OPTION value="#">Select a Round:</OPTION>
 
-                                    <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
+             <form name="coderRankform" action="javaScript:submitform();" method="get">
+                <span class="statTextBig"><B>Please select a round:</B><BR/></span>
+                <select class="dropdown" name="Contest" onchange="goTo(this)">
+                <option value="#">select a Round:</option>
 
-                                    <% if (resultRow.getItem(0).toString().equals(currRound)) { %>
-                                        <OPTION value="/stat?c=round_overview&er=<%= topN %>&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
-                                    <% } else { %>
-                                        <OPTION value="/stat?c=round_overview&er=<%= topN %>&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
-                                    <% } %>
+                    <logic:iterate name="resultSetdates" id="resultrow" type="ResultSetContainer.ResultSetrow">
 
-                                    </logic:iterate>
+                    <% if (resultrow.getItem(0).toString().equals(currRound)) { %>
+                    <option value="/stat?c=round_overview&er=<%= topN %>&rd=<bean:write name="resultrow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultrow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultrow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></option>
+                    <% } else { %>
+                    <option value="/stat?c=round_overview&er=<%= topN %>&rd=<bean:write name="resultrow" property='<%= "item[" + 0 /* id */ + "]" %>'/>"><bean:write name="resultrow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultrow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></option>
+                    <% } %>
 
-                                    </SELECT>
-                                    <%  if (forumID != -1) { %>
-                                    <br><br><A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumID%>" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
-                                    <%  } %>
-                                </TD>
-                            </TR>
+                    </logic:iterate>
 
-                            <TR>
-                                <TD COLSPAN="20"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="leaders"></A></TD>
-                            </TR>
+                    </select>
+                    <%  if (forumID != -1) { %>
+                    <br><br><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumID%>" class="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></a>
+                    <%  } %>
+             </td>
+           </tr>
+           <tr>
+             <td class="bodyText" height="10" colspan="5" valign="top" style="padding: 0px,0px,0px,11px"><A NAME="leaders"></a></td>
+           </tr>
+           
+           <tr style="padding: 0px,0px,0px,11px" >
+           <%for(int i = 0; i<divisionNames.size();i++){%>
+             <td width="5%" background="/i/steel_bluebv_bg.gif"></td>
+             <td valign="middle" width="35%" nowrap="0" height="18" background="/i/steel_bluebv_bg.gif" class="registerNav">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Leaders</B></td>
+             <td valign="middle" width="20%" nowrap="0" height="18" background="/i/steel_bluebv_bg.gif" class="registerNav"><B>Scores</B></td>
+             <td valign="middle" width="20%" nowrap="0" height="18" background="/i/steel_bluebv_bg.gif" class="registerNav"><B>Rank</B></td>
+             <td valign="middle" align="center" width="20%" nowrap="0" background="/i/steel_bluebv_bg.gif"><a href="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>&amp;dn=<%= divisionIDs.get(i).toString() %>" class="statText">Results</a></td>
+           <%}%>
+           </tr>
+           
+           <tr style="padding: 2px,0px,0px,0px">
+             <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 
-                            <TR>
+             <% //this part creates the top scorers for the round in each division
+             for(int i = 0; i<topN;i++){%>
+          
+           <%for(int j = 0; j<divisions;j++){
+               if(coderIDs[j][i]==null){//puts in blank rows if the coder doesn't exist - happens when you view more coders than there are participants
+           %>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
 
-                            <%for(int i = 0; i<divisionNames.size();i++){%>
-                                <TD BACKGROUND="/i/steel_bluebv_bg.gif"></TD>
-                                <TD VALIGN="middle" COLSPAN="3" WIDTH="40%" NOWRAP="0" HEIGHT="18" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="registerNav">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Leaders</B></TD>
-                                <TD VALIGN="middle" ALIGN="center" WIDTH="10%" NOWRAP="0" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>&amp;dn=<%= divisionIDs.get(i).toString() %>" class="statText">Results</A></TD>
-                            <%}%>
+           <%} else {%>
+             <td valign="middle" width="5%" class="statText"><a href="/stat?c=coder_room_stats&rd=<%=roundID %>&cr=<%= coderIDs[j][i] %>" class="statText"><img src="/i/coders_icon.gif" ALT="" width="10" height="10" border="0"></a></td>
+             <td valign="middle" nowrap="0" width="35%" height="15" class="statText"><a href="/tc?module=MemberProfile&cr=<%= coderIDs[j][i] %>" class="<bean:write name="nameColor" property='<%= "style[" + ratings[j][i] + "]" %>'/>"><%= coders[j][i] %></a></td>
+             <td valign="middle" nowrap="0" width="20%" height="15" class="statText" align="right"><%= scores[j][i] %> &#160;&#160;</td>
+             <td valign="middle" nowrap="0" width="20%" height="15" class="statText" align="right"><%= placeds[j][i] %> &#160;&#160;</td>
+             <td valign="middle" nowrap="0" width="20%" height="15" class="statText">&#160;<%= rooms[j][i] %></td>
+           <%  }
 
-                            </TR>
+           }%>
+           </tr>
+           <%}%>
 
-                            <TR><TD COLSPAN="20"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD></TR>
-
-                            <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
-
-                            <% //this part creates the top scorers for the round in each division
-                            for(int i = 0; i<topN;i++){%>
-                            <TR>
-                                <%for(int j = 0; j<divisions;j++){
-                                    if(coderIDs[j][i]==null){//puts in blank rows if the coder doesn't exist - happens when you view more coders than there are participants
-                                %>
-                                <TD></TD>
-                                <TD></TD>
-                                <TD></TD>
-                                <TD></TD>
-                                <TD></TD>
-
-                            <%} else {%>
-                                <TD VALIGN="middle" WIDTH="1%" CLASS="statText">
-                                    <A HREF="/stat?c=coder_room_stats&rd=<%=roundID %>&cr=<%= coderIDs[j][i] %>" CLASS="statText">
-                                       <IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0">
-                                    </A>
-                                </TD>
-
-                                <TD VALIGN="middle" NOWRAP="0" WIDTH="30%" HEIGHT="15" CLASS="statText">
-                                    <A HREF="/tc?module=MemberProfile&cr=<%= coderIDs[j][i] %>" CLASS="<bean:write name="nameColor" property='<%= "style[" + ratings[j][i] + "]" %>'/>"><%= coders[j][i] %></A>
-                                </TD>
-                                <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="statText" ALIGN="right"><%= scores[j][i] %> &#160;&#160;</TD>
-                                <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="statText" ALIGN="right"><%= placeds[j][i] %> &#160;&#160;</TD>
-                                <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="statText">&#160;<%= rooms[j][i] %></TD>
-                            <%  }
-
-                                }%>
-                            </TR>
-                                <%}%>
-
-<%  int currentRowPtr = 0;
+<%  int currentrowPtr = 0;
     for(int i = 0; i<divisions;i++){
 %>
-                        </TABLE>
-
-                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="problem_stats"></A>
-
-                        <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#001B35">
-                            <TR><TD VALIGN="middle" COLSPAN="7" WIDTH="100%" NOWRAP="0" HEIGHT="16" CLASS="registerNav" BACKGROUND="/i/steel_bluebv_bg.gif">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Problem Stats</B></TD></TR>
-
-                            <TR><TD COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD></TR>
-
-                            <TR>
-                                <TD VALIGN="middle" NOWRAP="0" WIDTH="17%" HEIGHT="15" CLASS="statText">&#160;</TD>
-                                <TD VALIGN="middle" NOWRAP="0" WIDTH="25%" HEIGHT="15" CLASS="statText">&#160;<B>Problem Name</B></TD>
-                                <TD VALIGN="middle" NOWRAP="0" WIDTH="9%" HEIGHT="15" CLASS="statText" ALIGN="right">&#160;<B>Submissions</B></TD>
-                                <TD VALIGN="middle" NOWRAP="0" WIDTH="17%" HEIGHT="15" CLASS="statText" ALIGN="right">&#160;<B>Correct %&#160;&#160;</B></TD>
-                                <TD VALIGN="middle" NOWRAP="0" WIDTH="17%" HEIGHT="15" CLASS="statText" ALIGN="right"><B>Average Pts.</B></TD>
-                                <TD VALIGN="middle" NOWRAP="0" WIDTH="15%" HEIGHT="15" CLASS="statText" ALIGN="right"></TD>
-<%--                                <TD VALIGN="middle" NOWRAP="0" WIDTH="15%" HEIGHT="15" CLASS="statText" ALIGN="right"></TD> --%>
-                            </TR>
+         </table>
+         <br/>
+         
+         <a name="problem_stats"></a>
+         <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#001B35" valign="top">
+           <tr><td valign="middle" colspan="7" width="100%" nowrap="0" height="16" class="registerNav" background="/i/steel_bluebv_bg.gif">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Problem Stats</B></td></tr>
+           <tr>
+             <td style="padding: 2px,0px,0px,0px" valign="middle" nowrap="0" width="17%" height="15" class="statText">&#160;</td>
+             <td valign="middle" nowrap="0" width="25%" height="15" class="statText">&#160;<B>Problem Name</B></td>
+             <td valign="middle" nowrap="0" width="9%" height="15" class="statText" align="right">&#160;<B>Submissions</B></td>
+             <td valign="middle" nowrap="0" width="17%" height="15" class="statText" align="right">&#160;<B>Correct %&#160;&#160;</B></td>
+             <td valign="middle" nowrap="0" width="17%" height="15" class="statText" align="right"><B>Average Pts.</B></td>
+             <td colspan="2" valign="middle" nowrap="0" width="15%" height="15" class="statText" align="right"></td>
+<%--             <td valign="middle" nowrap="0" width="15%" height="15" class="statText" align="right"></td> --%>
+           </tr>
   <%
-      currentRow = percents.getRow(currentRowPtr);
-      int currentDivID = Integer.parseInt(currentRow.getItem("division_id").toString());
-      while(currentRowPtr<percents.size() &&
-              Integer.parseInt((currentRow = percents.getRow(currentRowPtr)).getItem("division_id").toString())==currentDivID){
-        currentRowPtr++;
-        String problemLevel = currentRow.getItem("problem_level").toString();
-        String problemName = currentRow.getItem("problem_name").toString();
-        int submissions =Integer.parseInt(currentRow.getItem("submissions").toString());
-        int correct = Integer.parseInt(currentRow.getItem("successful_submissions").toString());
-        int problemID = Integer.parseInt(currentRow.getItem("problem_id").toString());
-        double total = correct==0?0.0D:Double.parseDouble(currentRow.getItem("total_points").toString())/correct;
+      currentrow = percents.getrow(currentrowPtr);
+      int currentdivID = Integer.parseInt(currentrow.getItem("division_id").toString());
+      while(currentrowPtr<percents.size() &&
+              Integer.parseInt((currentrow = percents.getrow(currentrowPtr)).getItem("division_id").toString())==currentdivID){
+        currentrowPtr++;
+        String problemLevel = currentrow.getItem("problem_level").toString();
+        String problemName = currentrow.getItem("problem_name").toString();
+        int submissions =Integer.parseInt(currentrow.getItem("submissions").toString());
+        int correct = Integer.parseInt(currentrow.getItem("successful_submissions").toString());
+        int problemID = Integer.parseInt(currentrow.getItem("problem_id").toString());
+        double total = correct==0?0.0D:Double.parseDouble(currentrow.getItem("total_points").toString())/correct;
         String perCor = dfp.format(submissions==0?0.0D:(((double)correct)/submissions));
         String avgPoints = df.format(total);
   %>
 
-                            <TR>
-                                <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText">&#160;<%=problemLevel%></TD>
-                                <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText">&#160;&#160;<A HREF="/stat?c=problem_statement&pm=<%= problemID %>&rd=<%= roundID %>" class="statText"><%=problemName%></A></TD>
-                                <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=submissions%> &#160;&#160;</TD>
-                                <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=perCor%> &#160;&#160;</TD>
-                                <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%=avgPoints%></TD>
-                                <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right">&#160;<A HREF="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=<%=roundID%>&pm=<%= problemID %>&dn=<%= currentDivID %>','600','400','distribution')" class="statText">Distribution Graph</A></TD>
-                                <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right">&#160;<A HREF="Javascript:void openProblemRating(<%= problemID %>)" class="statText"><img border="0" src="/i/rate_it.gif" /></A></TD>
-                            </TR>
-                                <%
-                                    }
-                                }%>
-                            <TR><TD VALIGN="middle" COLSPAN="7" WIDTH="100%" NOWRAP="0" HEIGHT="16" CLASS="registerNav"  BACKGROUND="/i/steel_bluebv_bg.gif"></TD></TR>
+           <tr>
+             <td valign="middle" nowrap="0" height="15" class="statText">&#160;<%=problemLevel%></td>
+             <td valign="middle" nowrap="0" height="15" class="statText">&#160;&#160;<a href="/stat?c=problem_statement&pm=<%= problemID %>&rd=<%= roundID %>" class="statText"><%=problemName%></a></td>
+             <td valign="middle" nowrap="0" height="15" class="statText" align="right"><%=submissions%> &#160;&#160;</td>
+             <td valign="middle" nowrap="0" height="15" class="statText" align="right"><%=perCor%> &#160;&#160;</td>
+             <td valign="middle" nowrap="0" height="15" class="statText" align="right"><%=avgPoints%></td>
+             <td valign="middle" nowrap="0" height="15" class="statText" align="right">&#160;<a href="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=<%=roundID%>&pm=<%= problemID %>&dn=<%= currentdivID %>','600','400','distribution')" class="statText">Distribution Graph</a></td>
+             <td valign="middle" nowrap="0" height="15" class="statText" align="right">&#160;<a href="Javascript:void openProblemRating(<%= problemID %>)" class="statText"><img border="0" src="/i/rate_it.gif" /></a></td>
+           </tr>
+           <%
+           }
+           }%>
+           <tr><td valign="middle" colspan="7" width="100%" nowrap="0" height="16" class="registerNav"  background="/i/steel_bluebv_bg.gif"></td></tr>
 
-                            <TR>
-                                <TD COLSPAN="6" ALIGN="center" CLASS="statText">
-                                    <%if(!lastMatch){%>
-                                        <INPUT TYPE="HIDDEN" NAME="rd" VALUE="<%=roundID%>">
-                                    <%}%>
-                                    <INPUT TYPE="HIDDEN" NAME="c" VALUE="round_overview">
+           <tr>
+             <td colspan="6" align="center" class="statText">
+             <%if(!lastMatch){%>
+             <INPUT TYPE="HIDDEN" NAME="rd" VALUE="<%=roundID%>">
+             <%}%>
+             <INPUT TYPE="HIDDEN" NAME="c" VALUE="round_overview">Viewing top&#160;&#160;
+             <INPUT TYPE="text" NAME="er" MAXLENGTH="4" SIZE="4" value="<%=topN%>">&#160;&#160;<a href="javaScript:submitform();" class="statText">&#160;[ submit ]</a>
+             </td>
+           </tr>
+           <tr>
+             <td colspan="7">&#160;</td>
+           </tr>
+         </table>
+             </form>
 
-                                    Viewing top&#160;&#160;
-                                    <INPUT TYPE="text" NAME="er" MAXLENGTH="4" SIZE="4" value="<%=topN%>">&#160;&#160;
-                                    <A HREF="javaScript:submitForm();" CLASS="statText">&#160;[ submit ]</A>
-                                </TD>
-                            </TR>
-                        </TABLE>
-                    </TD>
-                </TR>
+        <p><br/></p>
+       </div>
+       </td>
+<!-- Center Column Ends -->
 
-                <TR><TD WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
-            </FORM>
-            </TABLE>
-
-            <p><br></p>
-<!-- END BODY -->
-
-        </TD>
-
-       <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-
-       <TD WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" BORDER="0">
-       <rsc:iterator list="<%=image%>" id="resultRow">
-        <CENTER><A HREF="<rsc:item name="link" row="<%=resultRow%>"/>"><img src="<rsc:item name="file" row="<%=resultRow%>"/>" ALT="" WIDTH="<rsc:item name="width" row="<%=resultRow%>"/>" HEIGHT="<rsc:item name="height" row="<%=resultRow%>"/>" BORDER="0"/></A></CENTER>
+<!-- Right Column Begins -->
+       <td width="180" valign="top"><img src="/i/clear.gif" width="180" height="1" border="0">
+       <rsc:iterator list="<%=image%>" id="resultrow">
+        <CENTER><a href="<rsc:item name="link" row="<%=resultrow%>"/>"><img src="<rsc:item name="file" row="<%=resultrow%>"/>" ALT="" width="<rsc:item name="width" row="<%=resultrow%>"/>" height="<rsc:item name="height" row="<%=resultrow%>"/>" border="0"/></a></CENTER>
        </rsc:iterator>
          <jsp:include page="../public_right.jsp" />
-        </TD>
-    <!-- Gutter -->
-    <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-    </TR>
-</TABLE>
+        </td>
+<!-- Right Column Ends -->
 
-   <jsp:include page="../foot.jsp" />
- </BODY>
-</HTML>
+<!-- Gutter -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+   </tr>
+</table>
 
-
-
+<jsp:include page="../foot.jsp" />
+</body>
+</html>
