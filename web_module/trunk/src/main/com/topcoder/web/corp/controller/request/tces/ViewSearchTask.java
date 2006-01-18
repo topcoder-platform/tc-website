@@ -70,7 +70,7 @@ public class ViewSearchTask extends BaseTask {
 
         //setting default values for the rest of the check boxes
         for (int i = 0; i < checkBoxes.length; i++) {
-            setDefault(checkBoxes[i], isOn(request.getParameter(checkBoxes[i]), !revise && checkBoxDefaults[i]));
+            //todo setDefault(checkBoxes[i], isOn(request.getParameter(checkBoxes[i]), !revise && checkBoxDefaults[i]));
         }
 
         while (e.hasMoreElements()) {
@@ -93,7 +93,7 @@ public class ViewSearchTask extends BaseTask {
                 sel.put(p, s);
             } else if (p.startsWith("lang_")) {
                 //language checkboxes
-                setDefault(p, isOn(request.getParameter(p), !revise));
+                //todo setDefault(p, isOn(request.getParameter(p), !revise));
             }
         }
         //build all the demo tables
