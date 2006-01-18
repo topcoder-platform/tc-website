@@ -240,7 +240,7 @@ Note: The thoroughness of the required diagrams and documents weighs heavily in 
 <p>
 <i>Design Submission</i>
 <ul>
-<li>Design submissions must be uploaded to the Online Review application (http://software.topcoder.com/review) by the specified deadline as specified on the project-posting page on <a href="http://www.topcoder.com">www.topcoder.com</a>.</li>
+<li>Design submissions must be uploaded to the Online Review application (<a href="http://software.topcoder.com/review">http://software.topcoder.com/review</a>) by the specified deadline as specified on the project-posting page on <a href="http://www.topcoder.com">www.topcoder.com</a>.</li>
 <li>Java Submissions
     <ul>
     <li>Execute 'ant design_submission' to package the required elements of your solution.</li>
@@ -274,7 +274,7 @@ Note: The thoroughness of the required diagrams and documents weighs heavily in 
 <p>
 <a name="desfinsub"></a>
 <i>Final Submission Date</i><br><br>
-The Final Submission Date serves to provide time for the winning architect to apply design recommendations made by the design review board.  This phase will not always be required and is at the discretion of TopCoder Software and the design review board.  Specific deliverables will be defined when the winning design is announced.
+The Final Submission Date serves to provide time for the winning architect to apply design recommendations made by the design review board.  This phase will not always be required and is at the discretion of TopCoder Software and the Design Review Board.  Specific deliverables will be defined when the winning design is announced.
 <br><br>
 Failing to meet these deliverables by the set deliverable date will result in disqualification.  At this time, the designer with the next highest score will be deemed as the winner.
 <br><br>
@@ -349,7 +349,7 @@ Developers must submit a solution for the posted component design by the initial
 
 <i>Development Submission</i>
 <ul>
-<li>Development submissions must be uploaded to the Online Review application (http://software.topcoder.com/review) by the specified deadline as specified on the project-posting page on <a href="http://www.topcoder.com">www.topcoder.com</a>.</li>
+<li>Development submissions must be uploaded to the Online Review application (<a href="http://software.topcoder.com/review">http://software.topcoder.com/review</a>) by the specified deadline as specified on the project-posting page on <a href="http://www.topcoder.com">www.topcoder.com</a>.</li>
 <li>Execute the 'test' target ('ant test' or 'nant test') to execute test cases and generate the log file in /log.  This directory will be packaged with your submission and must contain the log file.</li>
 <li>Execute the 'dev_submission' target ('ant dev_submission' or 'nant dev_submission') to package the required elements of your solution.</li>
 <li>The internal structure of the jar should be as follows:
