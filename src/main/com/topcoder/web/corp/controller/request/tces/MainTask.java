@@ -7,7 +7,6 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.common.TCData;
 import com.topcoder.web.corp.common.TCESConstants;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
@@ -17,7 +16,7 @@ import java.util.Map;
  *
  */
 
-public class MainTask extends BaseTask implements Task, Serializable {
+public class MainTask extends BaseTask  {
 
     private static Logger log = Logger.getLogger(MainTask.class);
 
@@ -32,14 +31,6 @@ public class MainTask extends BaseTask implements Task, Serializable {
 
     /* Holds whether or not there are multiple different companies in the campaign list */
     private boolean hasManyCompanies;
-
-    /* Creates a new MainTask */
-    public MainTask() {
-        super();
-        setNextPage(TCESConstants.MAIN_PAGE);
-
-        uid = -1;
-    }
 
     /** Setter for property companyName.
      * @param companyName New value of property companyName.
@@ -83,18 +74,10 @@ public class MainTask extends BaseTask implements Task, Serializable {
         return hasManyCompanies;
     }
 
-//    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-//        throws Exception
-//    {
-//
-//        User curUser = getAuthenticityToken().getActiveUser();
-//        uid = curUser.getId();
-//
-//    }
 
-    public void processStep(String step)
-            throws Exception {
+    protected void businessProcessing() throws Exception {
         viewMain();
+        setNextPage(TCESConstants.MAIN_PAGE);
     }
 
     private void viewMain() throws Exception {
@@ -114,14 +97,14 @@ public class MainTask extends BaseTask implements Task, Serializable {
         } else {
             dataRequest.setContentHandle("tces_main");
 
-            log.debug("Database Source: " + DBMS.OLTP_DATASOURCE_NAME + " User ID:" + uid);
+            log.debug("Database Source: " + DBMS.OLTP_DATASOURCE_NAME + " User ID:" + getUser().getId());
 
-            dataRequest.setProperty("uid", Long.toString(uid));
+            dataRequest.setProperty("uid", String.valueOf(getUser().getId()));
             Map resultMap = getDataAccess(getOltp()).getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
 
             if (rsc.getRowCount() == 0) {
-                throw new Exception("No company name found for user id #" + uid);
+                throw new Exception("No company name found for user id #" + getUser().getId());
             }
 
             ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
@@ -136,11 +119,8 @@ public class MainTask extends BaseTask implements Task, Serializable {
 
         }
 
-        setNextPage(TCESConstants.MAIN_PAGE);
     }
 
-    public void setAttributes(String paramName, String paramValues[]) {
-    }
 
 }
 

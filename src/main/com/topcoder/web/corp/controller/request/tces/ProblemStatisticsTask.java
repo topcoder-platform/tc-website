@@ -13,9 +13,6 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.common.JSPUtils;
 import com.topcoder.web.corp.common.TCESConstants;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -23,18 +20,18 @@ import java.util.Map;
 /** Processes the problem statistics task.
  * @author George Dean
  */
-public class ProblemStatisticsTask extends BaseTask implements Task, Serializable {
+public class ProblemStatisticsTask extends BaseTask {
 
     private static Logger log = Logger.getLogger(ProblemStatisticsTask.class);
 
     //private long uid; // moved to BaseTask
-    private int cid;
-    private int jid;
-    private int mid;
+    private long cid;
+    private long jid;
+    private long mid;
     private long roundId;
 
     /** Holds value of property problemID. */
-    private int problemID;
+    private long problemID;
 
     /** Holds value of property handle. */
     private String handle;
@@ -60,37 +57,30 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
         }
     }
 
-    /** Performs pre-processing for the task.
-     * @param request The servlet request object.
-     * @param response The servlet response object.
-     * @throws java.lang.Exception
-     */
-//    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-//        throws Exception
-//    {
-//
-//        User curUser = getAuthenticityToken().getActiveUser();
-//        uid = curUser.getId();
-//    }
 
-    public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    protected void businessProcessing() throws Exception {
+        setCampaignID(Long.parseLong(getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM)));
+        setJobID(Long.parseLong(getRequest().getParameter(TCESConstants.JOB_ID_PARAM)));
+        setMemberID(Long.parseLong(getRequest().getParameter(TCESConstants.MEMBER_ID_PARAM)));
+        setProblemID(Long.parseLong(getRequest().getParameter(TCESConstants.PROBLEM_ID_PARAM)));
+        setRoundId(Long.parseLong(getRequest().getParameter(TCESConstants.ROUND_ID_PARAM)));
 
+        viewProblemStatistics();
         ArrayList a = new ArrayList();
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
                 "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" +
                 TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
                 "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" +
                 TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_DETAIL_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
                 "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_INTEREST_TASK + "&" +
                 TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_INTEREST_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
                 "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.POSITION_INTEREST_TASK + "&" +
                 TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
                 TCESConstants.JOB_ID_PARAM + "=" + getJobID(), TCESConstants.POSITION_INTEREST_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
                 "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MEMBER_PROFILE_TASK + "&" +
                 TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
                 TCESConstants.JOB_ID_PARAM + "=" + getJobID() + "&" + TCESConstants.MEMBER_ID_PARAM +
@@ -99,23 +89,16 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
 
     }
 
-    /** Processes the given step or phase of the task.
-     * @param step The step to be processed.
-     * @throws java.lang.Exception
-     */
-    public void processStep(String step) throws Exception {
-        viewProblemStatistics();
-    }
 
     private void viewProblemStatistics() throws Exception {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_problem_statistics");
 
-        dataRequest.setProperty("uid", Long.toString(uid));
-        dataRequest.setProperty("cid", Integer.toString(getCampaignID()));
-        dataRequest.setProperty("jid", Integer.toString(getJobID()));
-        dataRequest.setProperty("mid", Integer.toString(getMemberID()));
-        dataRequest.setProperty("pm", Integer.toString(getProblemID()));
+        dataRequest.setProperty("uid", String.valueOf(getUser().getId()));
+        dataRequest.setProperty("cid", String.valueOf(getCampaignID()));
+        dataRequest.setProperty("jid", String.valueOf(getJobID()));
+        dataRequest.setProperty("mid", String.valueOf(getMemberID()));
+        dataRequest.setProperty("pm", String.valueOf(getProblemID()));
         dataRequest.setProperty("rd", String.valueOf(getRoundId()));
 
         Map resultMap = getDataAccess(getOltp()).getData(dataRequest);
@@ -129,17 +112,17 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Member_Access");
         if (rsc.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
-            throw new NotAuthorizedException("mid=" + Integer.toString(getMemberID()) +
-                    " jid=" + Integer.toString(getJobID()) +
-                    " cid=" + Integer.toString(getCampaignID()) +
-                    " does not belong to uid=" + Long.toString(uid));
+            throw new NotAuthorizedException("mid=" + String.valueOf(getMemberID()) +
+                    " jid=" + String.valueOf(getJobID()) +
+                    " cid=" + String.valueOf(getCampaignID()) +
+                    " does not belong to uid=" + String.valueOf(getUser().getId()));
         }
 
         if (isRestrictedCampaign(getCampaignID())) {
             if (!getRoundIds(getCampaignID()).contains(new Long(getRoundId()))) {
-                throw new NotAuthorizedException(" cid=" + Integer.toString(getCampaignID()) +
+                throw new NotAuthorizedException(" cid=" + String.valueOf(getCampaignID()) +
                         " rd=" + getRoundId() +
-                        " does not belong to uid=" + Long.toString(uid));
+                        " does not belong to uid=" + String.valueOf(getUser().getId()));
             }
         }
 
@@ -158,87 +141,59 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
         setNextPage(TCESConstants.PROBLEM_STATISTICS_PAGE);
     }
 
-    /** Sets attributes for the task.
-     * @param paramName The name of the attribute being set.
-     * @param paramValues The values to be associated with the given attribute.
-     */
-    public void setAttributes(String paramName, String[] paramValues) {
-        String value = paramValues[0];
-        value = (value == null ? "" : value.trim());
-
-        if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
-            setCampaignID(Integer.parseInt(value));
-        if (paramName.equalsIgnoreCase(TCESConstants.JOB_ID_PARAM))
-            setJobID(Integer.parseInt(value));
-        if (paramName.equalsIgnoreCase(TCESConstants.MEMBER_ID_PARAM))
-            setMemberID(Integer.parseInt(value));
-        if (paramName.equalsIgnoreCase(TCESConstants.PROBLEM_ID_PARAM))
-            setProblemID(Integer.parseInt(value));
-        if (paramName.equalsIgnoreCase(TCESConstants.ROUND_ID_PARAM))
-            setRoundId(Long.parseLong(value));
-    }
-
-    /** Creates new ProblemStatisticsTask */
-    public ProblemStatisticsTask() {
-        super();
-        setNextPage(TCESConstants.PROBLEM_STATISTICS_PAGE);
-
-        uid = -1;
-    }
-
     /** Getter for property campaignID.
      * @return Value of property campaignID.
      */
-    public int getCampaignID() {
+    public long getCampaignID() {
         return cid;
     }
 
     /** Setter for property campaignID.
      * @param campaignID New value of property campaignID.
      */
-    public void setCampaignID(int campaignID) {
+    public void setCampaignID(long campaignID) {
         cid = campaignID;
     }
 
     /** Getter for property jobID.
      * @return Value of property jobID.
      */
-    public int getJobID() {
+    public long getJobID() {
         return jid;
     }
 
     /** Setter for property jobID.
      * @param jobID New value of property jobID.
      */
-    public void setJobID(int jobID) {
+    public void setJobID(long jobID) {
         jid = jobID;
     }
 
     /** Getter for property memberID.
      * @return Value of property memberID.
      */
-    public int getMemberID() {
+    public long getMemberID() {
         return mid;
     }
 
     /** Setter for property memberID.
      * @param memberID New value of property memberID.
      */
-    public void setMemberID(int memberID) {
+    public void setMemberID(long memberID) {
         mid = memberID;
     }
 
     /** Getter for property problemID.
      * @return Value of property problemID.
      */
-    public int getProblemID() {
+    public long getProblemID() {
         return this.problemID;
     }
 
     /** Setter for property problemID.
      * @param problemID New value of property problemID.
      */
-    public void setProblemID(int problemID) {
+    public void setProblemID(long problemID) {
         this.problemID = problemID;
     }
 

@@ -13,9 +13,6 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.corp.common.TCESConstants;
 import com.topcoder.web.ejb.resume.ResumeServices;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,14 +22,14 @@ import java.util.Map;
  *
  * @author  George Dean
  */
-public class CoderDemographicsTask extends BaseTask implements Task, Serializable {
+public class CoderDemographicsTask extends BaseTask {
 
     private static Logger log = Logger.getLogger(CoderDemographicsTask.class);
 
     //private long uid; //movede to BaseTask
-    private int cid;
-    private int jid;
-    private int mid;
+    private long cid;
+    private long jid;
+    private long mid;
 
     /** Holds value of property questionList. */
     private List questionList;
@@ -47,49 +44,13 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
     private String jobName;
     private boolean hasResume;
 
-    /** Creates new CoderDemographicsTask */
-    public CoderDemographicsTask() {
-        super();
-        setNextPage(TCESConstants.CODER_DEMOGRAPHICS_PAGE);
 
-        uid = -1;
-    }
+    protected void businessProcessing() throws Exception {
+        setCampaignID(Long.parseLong(getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM)));
+        setJobID(Long.parseLong(getRequest().getParameter(TCESConstants.JOB_ID_PARAM)));
+        setMemberID(Long.parseLong(getRequest().getParameter(TCESConstants.MEMBER_ID_PARAM)));
 
-//    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-//        throws Exception
-//    {
-//
-//        User curUser = getAuthenticityToken().getActiveUser();
-//        uid = curUser.getId();
-//    }
 
-    public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
-
-        ArrayList a = new ArrayList();
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
-                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" +
-                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
-                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" +
-                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_DETAIL_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
-                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_INTEREST_TASK + "&" +
-                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_INTEREST_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
-                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.POSITION_INTEREST_TASK + "&" +
-                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
-                TCESConstants.JOB_ID_PARAM + "=" + getJobID(), TCESConstants.POSITION_INTEREST_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
-                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MEMBER_PROFILE_TASK + "&" +
-                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
-                TCESConstants.JOB_ID_PARAM + "=" + getJobID() + "&" + TCESConstants.MEMBER_ID_PARAM +
-                "=" + getMemberID(), TCESConstants.MEMBER_PROFILE_NAME));
-        setTrail(a);
-
-    }
-
-    public void processStep(String step) throws Exception {
         viewCoderDemographics();
         ResumeServices rServices = null;
         try {
@@ -99,6 +60,26 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
             log.error("could not determine if user has a resume or not");
             e.printStackTrace();
         }
+        ArrayList a = new ArrayList();
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_DETAIL_NAME));
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_INTEREST_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_INTEREST_NAME));
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.POSITION_INTEREST_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
+                TCESConstants.JOB_ID_PARAM + "=" + getJobID(), TCESConstants.POSITION_INTEREST_NAME));
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MEMBER_PROFILE_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
+                TCESConstants.JOB_ID_PARAM + "=" + getJobID() + "&" + TCESConstants.MEMBER_ID_PARAM +
+                "=" + getMemberID(), TCESConstants.MEMBER_PROFILE_NAME));
+        setTrail(a);
     }
 
     public void viewCoderDemographics() throws Exception {
@@ -109,7 +90,7 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
          */
         Request dwDataRequest = new Request();
         dwDataRequest.setContentHandle("tces_member_profile");
-        dwDataRequest.setProperty("mid", Integer.toString(getMemberID()));
+        dwDataRequest.setProperty("mid", String.valueOf(getMemberID()));
         Map dwResultMap = getDataAccess(getDw()).getData(dwDataRequest);
         ResultSetContainer dwRSC = null;
         dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats");
@@ -123,10 +104,10 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_member_demographics");
 
-        dataRequest.setProperty("uid", Long.toString(uid));
-        dataRequest.setProperty("cid", Integer.toString(getCampaignID()));
-        dataRequest.setProperty("jid", Integer.toString(getJobID()));
-        dataRequest.setProperty("mid", Integer.toString(getMemberID()));
+        dataRequest.setProperty("uid", String.valueOf(getUser().getId()));
+        dataRequest.setProperty("cid", String.valueOf(getCampaignID()));
+        dataRequest.setProperty("jid", String.valueOf(getJobID()));
+        dataRequest.setProperty("mid", String.valueOf(getMemberID()));
 
         Map resultMap = getDataAccess(getOltp()).getData(dataRequest);
 
@@ -139,10 +120,10 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Member_Access");
         if (rsc.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
-            throw new Exception("mid=" + Integer.toString(getMemberID()) +
-                    " jid=" + Integer.toString(getJobID()) +
-                    " cid=" + Integer.toString(getCampaignID()) +
-                    " does not belong to uid=" + Long.toString(uid));
+            throw new Exception("mid=" + String.valueOf(getMemberID()) +
+                    " jid=" + String.valueOf(getJobID()) +
+                    " cid=" + String.valueOf(getCampaignID()) +
+                    " does not belong to uid=" + String.valueOf(getUser().getId()));
         }
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Member_Demographics");
@@ -169,57 +150,45 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
         setNextPage(TCESConstants.CODER_DEMOGRAPHICS_PAGE);
     }
 
-    public void setAttributes(String paramName, String[] paramValues) {
-        String value = paramValues[0];
-        value = (value == null ? "" : value.trim());
-
-        if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
-            setCampaignID(Integer.parseInt(value));
-        if (paramName.equalsIgnoreCase(TCESConstants.JOB_ID_PARAM))
-            setJobID(Integer.parseInt(value));
-        if (paramName.equalsIgnoreCase(TCESConstants.MEMBER_ID_PARAM))
-            setMemberID(Integer.parseInt(value));
-    }
-
     /** Getter for property campaignID.
      * @return Value of property campaignID.
      */
-    public int getCampaignID() {
+    public long getCampaignID() {
         return cid;
     }
 
     /** Setter for property campaignID.
      * @param campaignID New value of property campaignID.
      */
-    public void setCampaignID(int campaignID) {
+    public void setCampaignID(long campaignID) {
         cid = campaignID;
     }
 
     /** Getter for property jobID.
      * @return Value of property jobID.
      */
-    public int getJobID() {
+    public long getJobID() {
         return jid;
     }
 
     /** Setter for property jobID.
      * @param jobID New value of property jobID.
      */
-    public void setJobID(int jobID) {
+    public void setJobID(long jobID) {
         jid = jobID;
     }
 
     /** Getter for property memberID.
      * @return Value of property memberID.
      */
-    public int getMemberID() {
+    public long getMemberID() {
         return mid;
     }
 
     /** Setter for property memberID.
      * @param memberID New value of property memberID.
      */
-    public void setMemberID(int memberID) {
+    public void setMemberID(long memberID) {
         mid = memberID;
     }
 

@@ -5,9 +5,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.common.TCESConstants;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,12 +16,12 @@ import java.util.Map;
  *
  */
 
-public class CampaignDetailTask extends BaseTask implements Task, Serializable {
+public class CampaignDetailTask extends BaseTask {
 
     private static Logger log = Logger.getLogger(CampaignDetailTask.class);
 
     /* Holds the ID of this campaign */
-    private int campaignID;
+    private long campaignID;
 
     /* Holds the name of the company to which this task belongs */
     private String companyName;
@@ -46,15 +43,6 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
 
     /* Holds the ID of the currently logged-in user */
     //private long uid;  // moved to BaseTask
-
-    /* Creates a new CampaignDetailTask */
-    public CampaignDetailTask() {
-        super();
-        setNextPage(TCESConstants.CAMPAIGN_DETAIL_PAGE);
-
-        uid = -1;
-    }
-
 
     /** Setter for property campaignName.
      * @param campaignName New value of property campaignName.
@@ -129,14 +117,14 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
     /** Getter for property campaignID
      * @return Value of property campaignID
      */
-    public int getCampaignID() {
+    public long getCampaignID() {
         return campaignID;
     }
 
     /** Setter for property campaignID.
      * @param campaignID New value of property campaignID.
      */
-    public void setCampaignID(int campaignID) {
+    public void setCampaignID(long campaignID) {
         this.campaignID = campaignID;
     }
 
@@ -155,38 +143,24 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
     }
 
 
-
-//    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-//        throws Exception {
-//
-//        User curUser = getAuthenticityToken().getActiveUser();
-//        uid = curUser.getId();
-//    }
-
-
-    public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
-
+    protected void businessProcessing() throws Exception {
+        setCampaignID(Long.parseLong(getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM)));
+        viewCampaignDetail();
+        setNextPage(TCESConstants.CAMPAIGN_DETAIL_PAGE);
         ArrayList a = new ArrayList();
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
                 "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" +
                 TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
         setTrail(a);
-
-    }
-
-    public void processStep(String step)
-            throws Exception {
-        viewCampaignDetail();
     }
 
     private void viewCampaignDetail() throws Exception {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_campaign_detail");
 
-        dataRequest.setProperty("uid", Long.toString(uid));
-        log.debug("User id set in CampaignDetailTask= " + uid);
-        dataRequest.setProperty("cid", Integer.toString(getCampaignID()));
+        dataRequest.setProperty("uid", String.valueOf(getUser().getId()));
+        log.debug("User id set in CampaignDetailTask= " + getUser().getId());
+        dataRequest.setProperty("cid", String.valueOf(getCampaignID()));
         Map resultMap = getDataAccess(getOltp()).getData(dataRequest);
 
         ResultSetContainer rsc = null;
@@ -217,8 +191,8 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Campaign_Access");
         if (rsc.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
-            throw new Exception(" cid=" + Integer.toString(getCampaignID()) +
-                    "does not belong to uid=" + Long.toString(uid));
+            throw new Exception(" cid=" + String.valueOf(getCampaignID()) +
+                    "does not belong to uid=" + String.valueOf(getUser().getId()));
         }
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Position_List");
@@ -244,16 +218,7 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
         }
         setPositionList(positionList);
 
-        setNextPage(TCESConstants.CAMPAIGN_DETAIL_PAGE);
 
-    }
-
-    public void setAttributes(String paramName, String paramValues[]) {
-        String value = paramValues[0];
-        value = (value == null ? "" : value.trim());
-
-        if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
-            setCampaignID(Integer.parseInt(value));
     }
 
 }

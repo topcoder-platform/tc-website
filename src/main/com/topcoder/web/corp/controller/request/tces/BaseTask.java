@@ -5,15 +5,10 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.BaseProcessor;
 
-import javax.naming.InitialContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 
 
@@ -24,54 +19,14 @@ import java.util.*;
  * @version $Revision$
  */
 
-public abstract class BaseTask implements Task {
+public abstract class BaseTask extends BaseProcessor {
 
     private static Logger log = Logger.getLogger(BaseTask.class);
     private static final int TRANSACTIONAL_DB_TYPE = 2;
     private static final int DW_DB_TYPE = 3;
 
-    /* Holds the InitialContext of a request being processed by this task */
-    private InitialContext ctx;
-
-    /* Holds next page where controller should forward after task processing */
-    private String nextPage;
     private List trail;
-    private String servletPath;
-    private SessionInfo info;
 
-    /* Holds the ID of the currently logged-in user */
-    protected long uid;
-
-    /* Authentication for getting current user or logging in/out a user */
-    private WebAuthentication authToken = null;
-
-
-    /* Makes a new BaseTask */
-    public BaseTask() {
-        setInitialContext(null);
-        setNextPage(null);
-        setTrail(null);
-        setServletPath(null);
-        setSessionInfo(null);
-    }
-
-    public abstract void processStep(String step) throws Exception;
-
-    public void setInitialContext(InitialContext ctx) {
-        this.ctx = ctx;
-    }
-
-    public InitialContext getInitialContext() {
-        return ctx;
-    }
-
-    public void setNextPage(String nextPage) {
-        this.nextPage = nextPage;
-    }
-
-    public String getNextPage() {
-        return nextPage;
-    }
 
     public List getTrail() {
         return trail;
@@ -80,52 +35,6 @@ public abstract class BaseTask implements Task {
     public void setTrail(List trail) {
         this.trail = trail;
     }
-
-    public String getServletPath() {
-        return servletPath;
-    }
-
-    public void setServletPath(String servletPath) {
-        this.servletPath = servletPath;
-    }
-
-    public void servletPreAction(HttpServletRequest request,
-                                 HttpServletResponse response) throws Exception {
-
-        User curUser = getAuthenticityToken().getActiveUser();
-        uid = curUser.getId();
-
-        log.debug("TCES Task = " + this.getClass().getName() +
-                " called with user id = " + uid);
-
-    }
-
-    public void servletPostAction(HttpServletRequest request,
-                                  HttpServletResponse response) throws Exception {
-
-    }
-
-    public abstract void setAttributes(String paramName, String paramValues[]);
-
-
-    /**
-     * For request being proccessed returns user's authenticity token.
-     *
-     * @return WebAuthentication authentication token used in tasks for
-     *         retrieving the current user's Id
-     */
-    protected WebAuthentication getAuthenticityToken() {
-        return authToken;
-    }
-
-    /**
-     * Just stores given authentification object for later use
-     * @param auth WebAuthentication to store in authToken
-     */
-    public void setAuthToken(WebAuthentication auth) {
-        authToken = auth;
-    }
-
 
     /** Retreives and parses a date from a ResultSetRow
      * @param row Row from which the date should be retreived
@@ -156,14 +65,6 @@ public abstract class BaseTask implements Task {
             else
                 return defaultVal;
         }
-    }
-
-    public SessionInfo getSessionInfo() {
-        return info;
-    }
-
-    public void setSessionInfo(SessionInfo info) {
-        this.info = info;
     }
 
     /**
@@ -199,7 +100,7 @@ public abstract class BaseTask implements Task {
     private String getDb(int type) throws Exception {
         Request r = new Request();
         r.setContentHandle("contact_datasource");
-        r.setProperty("uid", String.valueOf(getAuthenticityToken().getActiveUser().getId()));
+        r.setProperty("uid", String.valueOf(getUser().getId()));
         r.setProperty("dstid", String.valueOf(type));
         Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
         ResultSetContainer rsc = (ResultSetContainer) m.get("contact_datasource");
