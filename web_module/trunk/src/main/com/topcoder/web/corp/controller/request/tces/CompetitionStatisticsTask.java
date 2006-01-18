@@ -90,6 +90,8 @@ public class CompetitionStatisticsTask extends BaseTask {
         setTrail(a);
         setNextPage(TCESConstants.COMPETITION_STATISTICS_PAGE);
         setIsNextPageInContext(true);
+        getRequest().setAttribute(this.getClass().getName(), this);
+        
         
     }
 

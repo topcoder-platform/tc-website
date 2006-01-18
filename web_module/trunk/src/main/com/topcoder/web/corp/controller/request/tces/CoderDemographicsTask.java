@@ -80,6 +80,8 @@ public class CoderDemographicsTask extends BaseTask {
                 TCESConstants.JOB_ID_PARAM + "=" + getJobID() + "&" + TCESConstants.MEMBER_ID_PARAM +
                 "=" + getMemberID(), TCESConstants.MEMBER_PROFILE_NAME));
         setTrail(a);
+        getRequest().setAttribute(this.getClass().getName(), this);
+
     }
 
     public void viewCoderDemographics() throws Exception {

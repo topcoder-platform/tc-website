@@ -83,6 +83,8 @@ public class ProblemSubmissionsTask extends BaseTask {
         setTrail(a);
         setNextPage(TCESConstants.PROBLEM_SUBMISSIONS_PAGE);
         setIsNextPageInContext(true);
+        getRequest().setAttribute(this.getClass().getName(), this);
+        
 
     }
 

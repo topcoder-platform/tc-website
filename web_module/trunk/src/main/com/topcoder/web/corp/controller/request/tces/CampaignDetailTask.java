@@ -153,6 +153,7 @@ public class CampaignDetailTask extends BaseTask {
                 "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" +
                 TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
         setTrail(a);
+        getRequest().setAttribute(this.getClass().getName(), this);
     }
 
     private void viewCampaignDetail() throws Exception {
