@@ -28,6 +28,8 @@ public class TCESConstants {
     public static String PROBLEM_STATISTICS_PAGE = null;
     public static String PROBLEM_STATEMENT_PAGE = null;
     public static String MEMBER_INTEREST_PAGE = null;
+    public static String SEARCH_PAGE = null;
+    public static String SEARCH_RESULTS_PAGE = null;
 
     public static String MAIN_NAME = null;
     public static String CAMPAIGN_DETAIL_NAME = null;
@@ -246,6 +248,8 @@ public class TCESConstants {
         PROBLEM_STATISTICS_PAGE = JSP_ROOT + servletConfig.getInitParameter("problem_statistics_page");
         PROBLEM_STATEMENT_PAGE = JSP_ROOT + servletConfig.getInitParameter("problem_statement_page");
         MEMBER_INTEREST_PAGE = JSP_ROOT + servletConfig.getInitParameter("member_interest_page");
+        SEARCH_PAGE = JSP_ROOT + servletConfig.getInitParameter("search_page");
+        SEARCH_RESULTS_PAGE = JSP_ROOT + servletConfig.getInitParameter("search_results_page");
 
         LOGIN_TASK = servletConfig.getInitParameter("login_task");
         LOGIN_TASK_STEP_VIEW = servletConfig.getInitParameter("login_task_step_view");
