@@ -39,9 +39,7 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-         <td width="100%" align="center">
-
-         <div class="bodyText">
+         <td class="bodyText" width="100%" align="center">
          
          <table width="100%" border="0" cellpadding="0" cellspacing="0" valign="top">
            <tr>
@@ -278,7 +276,7 @@ function goTo(selection){
            <tr><td valign="middle" colspan="7" width="100%" nowrap="0" height="16" class="registerNav"  background="/i/steel_bluebv_bg.gif"></td></tr>
 
            <tr>
-             <td colspan="6" align="center" class="statText">
+             <td colspan="7" align="center" class="statText">
              <%if(!lastMatch){%>
              <INPUT TYPE="HIDDEN" NAME="rd" VALUE="<%=roundID%>">
              <%}%>
@@ -293,7 +291,6 @@ function goTo(selection){
              </form>
 
         <p><br/></p>
-       </div>
        </td>
 <!-- Center Column Ends -->
 
