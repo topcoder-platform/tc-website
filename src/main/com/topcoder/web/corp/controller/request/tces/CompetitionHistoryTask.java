@@ -84,6 +84,8 @@ public class CompetitionHistoryTask extends BaseTask  {
         setTrail(a);
 
         setNextPage(TCESConstants.COMPETITION_HISTORY_PAGE);
+        setIsNextPageInContext(true);
+        
     }
 
 

@@ -82,6 +82,8 @@ public class ProblemSubmissionsTask extends BaseTask {
                 "=" + getMemberID(), TCESConstants.MEMBER_PROFILE_NAME));
         setTrail(a);
         setNextPage(TCESConstants.PROBLEM_SUBMISSIONS_PAGE);
+        setIsNextPageInContext(true);
+
     }
 
 

@@ -104,6 +104,8 @@ public class ProblemStatementTask extends BaseTask  {
         setProblemText(pr.toHTML(new CStyleLanguage(Integer.parseInt(problemRow.getItem("language_id").toString()), "")));
 
         setNextPage(TCESConstants.PROBLEM_STATEMENT_PAGE);
+        setIsNextPageInContext(true);
+        
     }
 
 

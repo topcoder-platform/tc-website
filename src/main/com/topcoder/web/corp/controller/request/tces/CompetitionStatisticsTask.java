@@ -89,6 +89,8 @@ public class CompetitionStatisticsTask extends BaseTask {
                 "=" + getMemberID(), TCESConstants.MEMBER_PROFILE_NAME));
         setTrail(a);
         setNextPage(TCESConstants.COMPETITION_STATISTICS_PAGE);
+        setIsNextPageInContext(true);
+        
     }
 
     private void viewCompetitionStatistics() throws Exception {

@@ -69,6 +69,8 @@ public class MemberInterestTask extends BaseTask  {
                 "=" + getMemberID(), TCESConstants.MEMBER_PROFILE_NAME));
         setTrail(a);
         setNextPage(TCESConstants.MEMBER_INTEREST_PAGE);
+        setIsNextPageInContext(true);
+        
 
     }
 

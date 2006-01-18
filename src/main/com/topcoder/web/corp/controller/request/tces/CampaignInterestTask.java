@@ -212,6 +212,8 @@ public class CampaignInterestTask extends BaseTask {
 
 
         setNextPage(TCESConstants.CAMPAIGN_INTEREST_PAGE);
+        setIsNextPageInContext(true);
+
     }
 
 }

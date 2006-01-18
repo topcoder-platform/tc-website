@@ -147,6 +147,7 @@ public class CampaignDetailTask extends BaseTask {
         setCampaignID(Long.parseLong(getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM)));
         viewCampaignDetail();
         setNextPage(TCESConstants.CAMPAIGN_DETAIL_PAGE);
+        setIsNextPageInContext(true);
         ArrayList a = new ArrayList();
         a.add(new TrailItem(getSessionInfo().getServletPath() +
                 "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" +

@@ -139,6 +139,8 @@ public class ProblemStatisticsTask extends BaseTask {
         setProblemStatsByLanguage(rsc);
 
         setNextPage(TCESConstants.PROBLEM_STATISTICS_PAGE);
+        setIsNextPageInContext(true);
+        
     }
 
     /** Getter for property campaignID.

@@ -201,6 +201,8 @@ public class DemographicTask extends BaseTask {
         }
         setTrail(a);
         setNextPage(TCESConstants.DEMOGRAPHIC_PAGE);
+        setIsNextPageInContext(true);
+        
 
     }
 
