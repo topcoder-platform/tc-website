@@ -193,6 +193,8 @@ public class PositionInterestTask extends BaseTask  {
         setTrail(a);
         setNextPage(TCESConstants.POSITION_INTEREST_PAGE);
         setIsNextPageInContext(true);
+        getRequest().setAttribute(this.getClass().getName(), this);
+        
         
 
     }

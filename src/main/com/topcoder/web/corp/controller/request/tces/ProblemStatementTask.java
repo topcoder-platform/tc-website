@@ -58,6 +58,8 @@ public class ProblemStatementTask extends BaseTask  {
 
 
         viewProblemStatement();
+        getRequest().setAttribute(this.getClass().getName(), this);
+        
 
     }
 

@@ -79,6 +79,8 @@ public class MainTask extends BaseTask  {
         viewMain();
         setNextPage(TCESConstants.MAIN_PAGE);
         setIsNextPageInContext(true);
+        getRequest().setAttribute(this.getClass().getName(), this);
+        
         
     }
 
