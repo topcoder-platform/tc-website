@@ -11,7 +11,7 @@
 <%
     Map m = null;
     ResultSetContainer.ResultSetRow p;
-    m = (Map)request.getAttribute(Constants.REPORT_PROFILE_SEARCH_KEY);
+    m = (Map)request.getAttribute("resultMap");
     ResultSetContainer languages = (ResultSetContainer)m.get("languages");
     ResultSetContainer demographic_questions = (ResultSetContainer)m.get("demographics_questions");
     ResultSetContainer skill_types = (ResultSetContainer)m.get("skill_types");
