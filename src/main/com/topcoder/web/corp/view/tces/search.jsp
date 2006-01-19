@@ -165,7 +165,7 @@
                 <rsc:item name="skill_type_desc" row="<%=resultRow%>"/>:<br/>
                 <% int skillType = resultRow.getIntItem("skill_type_id");%>
                 <tc-webtag:listSelect styleClass="multiSel3" name='<%="skilltype"+skillType%>' useTopValue="false" multiple="true" size="12" list="<%=(List)skillMap.get(new Integer(skillType))%>"/>
-                <select size="12" name="skilllevel<rsc:item name=" skill_type_id" row="<%=resultRow%>"/>">
+                <select size="12" name="skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -175,13 +175,12 @@
                 <tc-webtag:listSelect styleClass="multiSel3" name='<%="skillset"+skillType%>' multiple="true" useTopValue="false" multiple="true" size="12" list='<%=(List)skillSetMap.get("skillset"+skillType)%>'/>
             </td>
                 <td>
-                    <a href="JavaScript:itemAdd('skilltype<rsc:item name=" skill_type_id" row="<%=resultRow%>"/>','skilllevel< rsc:item name=" skill_type_id" row="<%=resultRow%>"/>','skillset
-                        <rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Add skill</ a>
+                    <a href="JavaScript:itemAdd('skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skilllevel< rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Add skill</ a>
                         <br/>
-                        <a href="JavaScript:remove('skillset<rsc:item name=" skill_type_id" row="<%=resultRow%>"/>')">Remove
+                        <a href="JavaScript:remove('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Remove
                             skills</a>
                         <br/>
-                        <a href="JavaScript:clear('skillset<rsc:item name=" skill_type_id" row="<%=resultRow%>"/>')">Clear</a>
+                        <a href="JavaScript:clear('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Clear</a>
                 </td>
             </tr>
         </rsc:iterator>
