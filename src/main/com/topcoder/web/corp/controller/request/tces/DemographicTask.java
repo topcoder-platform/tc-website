@@ -195,7 +195,7 @@ public class DemographicTask extends BaseTask {
         a.add(new TrailItem(getSessionInfo().getServletPath() +
                 "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_INTEREST_TASK + "&" +
                 TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_INTEREST_NAME));
-        if (getJobID() >= 0) {
+        if (getJobID() > 0) {
             a.add(new TrailItem(getSessionInfo().getServletPath() +
                     "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.POSITION_INTEREST_TASK + "&" +
                     TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() +
@@ -215,7 +215,7 @@ public class DemographicTask extends BaseTask {
         ResultSetContainer rsc = null;
         Map resultMap = null;
 
-        if (getJobID() >= 0) {
+        if (getJobID() > 0) {
             // Position Demographics
             dataRequest.setContentHandle("tces_position_demographics");
         } else {
@@ -227,7 +227,7 @@ public class DemographicTask extends BaseTask {
                        TCESConstants.STUDENT_CODER_TYPE};
 
         for (int typeI = 0; typeI < types.length; typeI++) {
-            if (getJobID() >= 0) {
+            if (getJobID() > 0) {
                 // Position Demographics
                 dataRequest.setProperty("jid", String.valueOf(getJobID()));
             }
@@ -249,14 +249,14 @@ public class DemographicTask extends BaseTask {
             ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
             setCampaignName(cpgnInfRow.getItem("campaign_name").toString());
 
-            if (getJobID() >= 0) {
+            if (getJobID() > 0) {
                 rsc = (ResultSetContainer) resultMap.get("TCES_Position_Name");
                 ResultSetContainer.ResultSetRow posNameRow = rsc.getRow(0);
                 setPositionName(posNameRow.getItem("job_desc").toString());
             }
 
 
-            rsc = (getJobID() >= 0) ?
+            rsc = (getJobID() > 0) ?
                     (ResultSetContainer) resultMap.get("TCES_Position_Coders_By_Type")
                     : (ResultSetContainer) resultMap.get("TCES_Campaign_Coders_By_Type");
             ResultSetContainer.ResultSetRow coderCountRow = rsc.getRow(0);
@@ -267,7 +267,7 @@ public class DemographicTask extends BaseTask {
 
             HashMap demoInfoMap = new HashMap();
 
-            rsc = (getJobID() >= 0) ?
+            rsc = (getJobID() > 0) ?
                     (ResultSetContainer) resultMap.get("TCES_Position_Referral_Responses")
                     : (ResultSetContainer) resultMap.get("TCES_Campaign_Referral_Responses");
             ResultSetContainer.ResultSetRow refRspRow = null;
@@ -291,7 +291,7 @@ public class DemographicTask extends BaseTask {
             }
             demoInfoMap.put(TCESConstants.DEMOGRAPHIC_REFERRAL_KEY, referralMapList);
 
-            rsc = (getJobID() >= 0) ?
+            rsc = (getJobID() > 0) ?
                     (ResultSetContainer) resultMap.get("TCES_Position_Demographic_Responses")
                     : (ResultSetContainer) resultMap.get("TCES_Campaign_Demographic_Responses");
             ResultSetContainer.ResultSetRow demoInfoRow = null;
@@ -328,7 +328,7 @@ public class DemographicTask extends BaseTask {
                 setProDemoInfo(demoInfoMap);
         }
 
-        if (getJobID() >= 0) {
+        if (getJobID() > 0) {
             // Position Demographics
 
             rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Job_Access");
