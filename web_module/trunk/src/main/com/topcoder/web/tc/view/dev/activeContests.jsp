@@ -62,10 +62,10 @@
       <td class="tableHeader"><div style="width: 55px;">Catalog</div></td>
       <td class="tableHeader" width="100%">Component</td>
       <td class="tableHeader" align="center"><div style="width: 80px;">Registrants<br/>Rated/Unrated</div></td>
-      <td class="tableHeader" align="center"><div style="width: 130px;">Registration Ends*</div></td>
+      <td class="tableHeader" align="center"><div style="width: 130px;">Registration Ends</div></td>
       <td class="tableHeader" align="center"><div style="width: 80px;">Submissions</div></td>
-      <td class="tableHeader" align="right"><div style="width: 65px;">Payment***</div></td>
-      <td class="tableHeader" align="center"><div style="width: 130px;">Submit by*</div></td>
+      <td class="tableHeader" align="right"><div style="width: 65px;">Payment*</div></td>
+      <td class="tableHeader" align="center"><div style="width: 130px;">Submit by</div></td>
    </tr>
    <rsc:iterator list="<%=designContests%>" id="resultRow">
    <tr>
@@ -129,10 +129,10 @@
       <td class="tableHeader"><div style="width: 55px;">Catalog</div></td>
       <td class="tableHeader" width="100%">Component</td>
       <td class="tableHeader" align="center"><div style="width: 80px;">Registrants<br/>Rated/Unrated</div></td>
-      <td class="tableHeader" align="center"><div style="width: 130px;">Registration Ends*</div></td>
+      <td class="tableHeader" align="center"><div style="width: 130px;">Registration Ends</div></td>
       <td class="tableHeader" align="center"><div style="width: 80px;">Submissions</div></td>
-      <td class="tableHeader" align="right"><div style="width: 65px;">Payment***</div></td>
-      <td class="tableHeader" align="center"><div style="width: 130px;">Submit by*</div></td>
+      <td class="tableHeader" align="right"><div style="width: 65px;">Payment*</div></td>
+      <td class="tableHeader" align="center"><div style="width: 130px;">Submit by</div></td>
    </tr>
 
    <rsc:iterator list="<%=devContests%>" id="resultRow">
@@ -188,12 +188,11 @@
 
 <br/>
 
-<p align="left">* All times are Eastern Time</p>
-<p align="left">** Only rated members may register for this component</p>
-<p align="left">*** And that's before royalty payments. The more Component
+<p align="left">* And that's before royalty payments. The more Component
     <A href="http://software.topcoder.com/components/subscriptions.jsp">Subscriptions</A> we sell, the more royalties we
     pay out to our winners! Please note
     that custom components do not get added to the catalog and therefore do not have royalties.</p>
+<p align="left">** Only rated members may register for this component</p>
 
 <p><br/></p>
 
