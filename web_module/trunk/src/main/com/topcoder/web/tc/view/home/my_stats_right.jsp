@@ -13,7 +13,7 @@
 <% if (coderInfo!=null && !coderInfo.isEmpty()) { %>
 <table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
     <tr>
-        <td class="statTextBig" bgcolor="#333333">&#160;Coder: <tc-webtag:handle coderId='<%=coderInfo.getLongItem(0, "coder_id")%>'/></td>
+        <td class="statTextBig" bgcolor="#333333">&#160;Coder: <tc-webtag:handle coderId='<%=coderInfo.getLongItem(0, "coder_id")%>'  darkBG="true"/></td>
     </tr>
 
     <tr>
