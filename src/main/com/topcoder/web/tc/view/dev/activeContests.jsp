@@ -62,10 +62,10 @@
       <td class="tableHeader"><div style="width: 55px;">Catalog</div></td>
       <td class="tableHeader" width="100%">Component</td>
       <td class="tableHeader" align="center"><div style="width: 80px;">Registrants<br/>Rated/Unrated</div></td>
-      <td class="tableHeader" align="center"><div style="width: 110px;">Registration Ends*</div></td>
+      <td class="tableHeader" align="center"><div style="width: 130px;">Registration Ends*</div></td>
       <td class="tableHeader" align="center"><div style="width: 80px;">Submissions</div></td>
       <td class="tableHeader" align="right"><div style="width: 65px;">Payment***</div></td>
-      <td class="tableHeader" align="center"><div style="width: 110px;">Submit by*</div></td>
+      <td class="tableHeader" align="center"><div style="width: 130px;">Submit by*</div></td>
    </tr>
    <rsc:iterator list="<%=designContests%>" id="resultRow">
    <tr>
@@ -129,10 +129,10 @@
       <td class="tableHeader"><div style="width: 55px;">Catalog</div></td>
       <td class="tableHeader" width="100%">Component</td>
       <td class="tableHeader" align="center"><div style="width: 80px;">Registrants<br/>Rated/Unrated</div></td>
-      <td class="tableHeader" align="center"><div style="width: 110px;">Registration Ends*</div></td>
+      <td class="tableHeader" align="center"><div style="width: 130px;">Registration Ends*</div></td>
       <td class="tableHeader" align="center"><div style="width: 80px;">Submissions</div></td>
       <td class="tableHeader" align="right"><div style="width: 65px;">Payment***</div></td>
-      <td class="tableHeader" align="center"><div style="width: 110px;">Submit by*</div></td>
+      <td class="tableHeader" align="center"><div style="width: 130px;">Submit by*</div></td>
    </tr>
 
    <rsc:iterator list="<%=devContests%>" id="resultRow">
