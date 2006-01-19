@@ -91,7 +91,11 @@
          </a>
          <%=resultRow.getItem("max_unrated_registrants").getResultData()!=null && resultRow.getIntItem("max_unrated_registrants") == 0 ? "**" : ""%>
       </td>
-      <td class="statDk"><img src="/i/tournament/tco06/emblem.gif" alt="TCO06 Component Contest" border="0" /></td>
+      <td class="statDk">
+          <% if (resultRow.getIntItem("tourny_project")>0) { %>
+              <img src="/i/tournament/tco06/emblem.gif" alt="TCO06 Component Contest" border="0" />
+          <% } %>
+      </td>
       <td class="statDk" align="center">
          <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
          <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">
@@ -161,7 +165,9 @@
          </a>
          <%=resultRow.getItem("max_unrated_registrants").getResultData()!=null && resultRow.getIntItem("max_unrated_registrants") == 0 ? "**" : ""%>
       </td>
-      <td class="statDk"><img src="/i/tournament/tco06/emblem.gif" alt="TCO06 Component Contest" border="0" /></td>
+          <% if (resultRow.getIntItem("tourny_project")>0) { %>
+       <img src="/i/tournament/tco06/emblem.gif" alt="TCO06 Component Contest" border="0" />
+          <% } %>
       <td class="statDk" align="center">
          <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
          <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">
@@ -198,8 +204,10 @@
     that custom components do not get added to the catalog and therefore do not have royalties.</p>
 <p align="left">** Only rated members may register for this component</p>
 
+<%--
 <div style="float: left; padding-right: 5px;"><img src="/i/tournament/tco06/emblem.gif" alt="TCO06 Component Contest" border="0" /></div>
 <p align="left">This component is eligible for for the 2006 TopCoder Open CDDC</p>
+--%>
 
 <p><br/></p>
 
