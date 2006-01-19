@@ -41,7 +41,7 @@
 
 <!-- Center Column Begins -->
          <td class="bodyText" width="100%" align="center" style="padding: 12px 0px 0px 0px;">
-         
+
          <table width="100%" border="0" cellpadding="0" cellspacing="0" valign="top">
            <tr>
              <td width="11" height="26" align="left" valign="bottom"><img width="11" height="26" border="0" src="/i/steelblue_top_left1.gif"></td>
@@ -50,7 +50,7 @@
              <td valign="top" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="26" border="0"></td>
            </tr>
          </table>
-         
+
 
 <script language="JavaScript">
    function submitForm(){
@@ -187,22 +187,22 @@ function goTo(selection){
              </td>
            </tr>
          </table>
-         
-         <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#001B35" valign="top" style="padding: 0px 10px 0px 10px;">           
+
+         <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#001B35" valign="top" style="padding: 0px 10px 0px 10px;">
            <tr>
              <td class="bodyText" height="10" colspan="5" valign="top"><A NAME="leaders"></a></td>
            </tr>
-           
+
            <tr>
                             <%for(int i = 0; i<divisionNames.size();i++){%>
              <td width="2%" height="16" background="/i/steel_bluebv_bg.gif"></td>
              <td valign="middle" width="19%" nowrap="0" height="16" background="/i/steel_bluebv_bg.gif" class="registerNav">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Leaders</B></td>
-             <td valign="middle" align="right" width="10%" nowrap="0" height="16" background="/i/steel_bluebv_bg.gif" class="registerNav"><B>Scores</B>&#160;</td>
+             <td valign="middle" align="right" width="10%" nowrap="0" height="16" background="/i/steel_bluebv_bg.gif" class="registerNav"><B>Score</B>&#160;</td>
              <td valign="middle" align="right" width="7%" nowrap="0" height="16" background="/i/steel_bluebv_bg.gif" class="registerNav"><B>Rank</B>&#160;</td>
              <td valign="middle" align="center" width="12%" nowrap="0" height="16" background="/i/steel_bluebv_bg.gif"><A HREF="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>&amp;dn=<%= divisionIDs.get(i).toString() %>" class="statText">Results</A></td>
                             <%}%>
            </tr>
-           
+
            <tr>
                             <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 
@@ -234,7 +234,7 @@ function goTo(selection){
     for(int i = 0; i<divisions;i++){
 %>
          </table>
-         
+
          <a name="problem_stats"></a>
          <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#001B35" valign="top" style="padding: 10px 10px 0px 10px;">
            <tr><td valign="middle" colspan="7" width="100%" nowrap="0" height="16" class="registerNav" background="/i/steel_bluebv_bg.gif">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Problem Stats</B></td></tr>
