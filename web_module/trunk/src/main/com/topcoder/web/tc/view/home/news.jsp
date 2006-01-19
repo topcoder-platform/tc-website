@@ -6,7 +6,20 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
-
+   
+<%--------------------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>01.23.06<br>9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tco05/onsite_movies/HiltonLange.mov">"The guys...are just phenomenal."</A></span><br><br>
+      "I've got so much respect for the guys, especially here in the Top 8..." An awe-inspired Johanesburg man talks about his experience competing in TCO05.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/i/tournament/tco05/onsite_movies/HiltonLange.mov">watch movie</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505896" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
+   </td></tr>
+------------------%>
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>01.16.06<br>2:30 PM</td>
