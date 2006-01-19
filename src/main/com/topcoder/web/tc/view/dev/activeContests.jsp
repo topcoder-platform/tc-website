@@ -15,6 +15,48 @@
 
     <jsp:include page="../script.jsp"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+
+<script language="javascript" type="text/javascript">
+<!--
+var objPopUp = null;
+function popUp(event,objectID){
+   objPopTrig = document.getElementById(event);
+   objPopUp = document.getElementById(objectID);
+   xPos = objPopTrig.offsetLeft+10;
+   yPos = objPopTrig.offsetTop + objPopTrig.offsetHeight - 5;
+   if(xPos + objPopUp.offsetWidth > document.body.clientWidth) xPos = xPos - objPopUp.offsetWidth;
+   if(yPos + objPopUp.offsetHeight > document.body.clientHeight) yPos = yPos - objPopUp.offsetHeight - objPopTrig.offsetHeight;
+   objPopUp.style.left = xPos + 'px';
+   objPopUp.style.top = yPos + 'px';
+   objPopUp.style.visibility = 'visible';
+}
+function popHide(){
+   objPopUp.style.visibility = 'hidden';
+   objPopUp = null;
+}
+
+// -->
+</script>
+<STYLE TYPE="text/css">
+.popUp
+{
+width: 140px;
+font-size: 10px;
+text-align: center;
+background-color: #FFFFCC;
+visibility: hidden;
+margin: 10px;
+padding: 3px;
+position: absolute;
+white-space: nowrap;
+border: solid 1px black;
+z-index: 1;
+}
+#container
+{
+position: relative;
+}
+</STYLE>
 </head>
 
 <body>
@@ -93,7 +135,10 @@
       </td>
       <td class="statDk">
           <% if (resultRow.getIntItem("tourny_project")>0) { %>
-              <img src="/i/tournament/tco06/emblem.gif" alt="TCO06 Component Contest" border="0" />
+               <div id="container">
+                  <img src="/i/tournament/tco06/emblem.gif" alt="" border="0" id="pop<rsc:item name="project_id" row="<%=resultRow%>"/>" onmouseover="popUp(this.id,'popUp<rsc:item name="project_id" row="<%=resultRow%>"/>')" onmouseout="popHide()"/>
+                  <div id="popUp<rsc:item name="project_id" row="<%=resultRow%>"/>" class="popUp">Eligible for the TCO06 CDDC</div>
+               </div>
           <% } %>
       </td>
       <td class="statDk" align="center">
@@ -165,9 +210,14 @@
          </a>
          <%=resultRow.getItem("max_unrated_registrants").getResultData()!=null && resultRow.getIntItem("max_unrated_registrants") == 0 ? "**" : ""%>
       </td>
+      <td class="statDk">
           <% if (resultRow.getIntItem("tourny_project")>0) { %>
-       <img src="/i/tournament/tco06/emblem.gif" alt="TCO06 Component Contest" border="0" />
+               <div id="container">
+                  <img src="/i/tournament/tco06/emblem.gif" alt="" border="0" id="pop<rsc:item name="project_id" row="<%=resultRow%>"/>" onmouseover="popUp(this.id,'popUp<rsc:item name="project_id" row="<%=resultRow%>"/>')" onmouseout="popHide()"/>
+                  <div id="popUp<rsc:item name="project_id" row="<%=resultRow%>"/>" class="popUp">Eligible for the TCO06 CDDC</div>
+               </div>
           <% } %>
+      </td>
       <td class="statDk" align="center">
          <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
          <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">
