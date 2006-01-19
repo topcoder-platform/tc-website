@@ -180,7 +180,9 @@ public class DemographicTask extends BaseTask {
 
     protected void businessProcessing() throws Exception {
         setCampaignID(Long.parseLong(getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM)));
-    setJobID(Long.parseLong(getRequest().getParameter(TCESConstants.JOB_ID_PARAM)));
+        if (getRequest().getParameter(TCESConstants.JOB_ID_PARAM)!=null) {
+            setJobID(Long.parseLong(getRequest().getParameter(TCESConstants.JOB_ID_PARAM)));
+        }
 
         viewDemographics();
         ArrayList a = new ArrayList();
