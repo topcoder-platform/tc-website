@@ -189,7 +189,6 @@
     </table>
 </td>
 <tr><td align="center" colspan="3">
-    <A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A> |
     <a href="/tc?module=ProfileSearch&t=profile_search">Start over</a> |
     <a href="JavaScript:submitForm()">Submit</a>
 </td></tr></table>
