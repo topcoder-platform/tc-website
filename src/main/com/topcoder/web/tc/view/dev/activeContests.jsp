@@ -60,8 +60,8 @@
    <tr><td class="tableTitle" colspan="10">Active Component Design Contests</td></tr>
    <tr>
       <td class="tableHeader"><div style="width: 55px;">Catalog</div></td>
-      <td class="tableHeader"></td>
       <td class="tableHeader" width="100%">Component</td>
+      <td class="tableHeader"></td>
       <td class="tableHeader" align="center"><div style="width: 80px;">Registrants<br/>Rated/Unrated</div></td>
       <td class="tableHeader" align="center"><div style="width: 130px;">Registration Ends</div></td>
       <td class="tableHeader" align="center"><div style="width: 80px;">Submissions</div></td>
@@ -85,13 +85,13 @@
          <rsc:item name="catalog_name" row="<%=resultRow%>"/>
          <% } %>
       </td>
-      <td class="statDk"><img src="/i/tournament/tco06/emblem.gif" alt="TCO06 Component Contest" border="0" /></td>
       <td class="statDk">
          <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
          <rsc:item name="component_name" row="<%=resultRow%>"/> <rsc:item name="version_text" row="<%=resultRow%>"/>
          </a>
          <%=resultRow.getItem("max_unrated_registrants").getResultData()!=null && resultRow.getIntItem("max_unrated_registrants") == 0 ? "**" : ""%>
       </td>
+      <td class="statDk"><img src="/i/tournament/tco06/emblem.gif" alt="TCO06 Component Contest" border="0" /></td>
       <td class="statDk" align="center">
          <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
          <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">
@@ -126,10 +126,11 @@
 <tr>
 <td>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-   <tr><td class="tableTitle" colspan="9">Active Component Development Contests</td></tr>
+   <tr><td class="tableTitle" colspan="10">Active Component Development Contests</td></tr>
    <tr>
       <td class="tableHeader"><div style="width: 55px;">Catalog</div></td>
       <td class="tableHeader" width="100%">Component</td>
+      <td class="tableHeader"></td>
       <td class="tableHeader" align="center"><div style="width: 80px;">Registrants<br/>Rated/Unrated</div></td>
       <td class="tableHeader" align="center"><div style="width: 130px;">Registration Ends</div></td>
       <td class="tableHeader" align="center"><div style="width: 80px;">Submissions</div></td>
@@ -160,6 +161,7 @@
          </a>
          <%=resultRow.getItem("max_unrated_registrants").getResultData()!=null && resultRow.getIntItem("max_unrated_registrants") == 0 ? "**" : ""%>
       </td>
+      <td class="statDk"><img src="/i/tournament/tco06/emblem.gif" alt="TCO06 Component Contest" border="0" /></td>
       <td class="statDk" align="center">
          <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
          <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">
@@ -195,6 +197,9 @@
     pay out to our winners! Please note
     that custom components do not get added to the catalog and therefore do not have royalties.</p>
 <p align="left">** Only rated members may register for this component</p>
+
+<div style="float: left; padding-right: 5px;"><img src="/i/tournament/tco06/emblem.gif" alt="TCO06 Component Contest" border="0" /></div>
+<p align="left">This component is eligible for for the 2006 TopCoder Open CDDC</p>
 
 <p><br/></p>
 
