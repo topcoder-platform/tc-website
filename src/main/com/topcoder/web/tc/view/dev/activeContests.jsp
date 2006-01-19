@@ -15,23 +15,6 @@
 
     <jsp:include page="../script.jsp"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-<STYLE TYPE="text/css">
-.tco06TableTitle
-{
-background: #032F6B url(/i/tournament/tco06/comp_header_bg.gif) top center repeat-x;
-text-align: left;
-border-style: hidden;
-border-collapse: collapse;
-border-top: 1px solid #999999; 
-border-bottom: 1px solid #999999; 
-color: #FFFFFF;
-font-size: 12px;
-font-weight: bold;
-text-decoration: none;
-padding: 3px 5px 3px 5px;
-white-space: nowrap;
-}
-</STYLE>
 </head>
 
 <body>
@@ -74,38 +57,10 @@ white-space: nowrap;
 <tr>
 <td>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-   <tr><td class="tco06TableTitle" colspan="9">TCO06 - Active Component Design Contests</td></tr>
+   <tr><td class="tableTitle" colspan="10">Active Component Design Contests</td></tr>
    <tr>
       <td class="tableHeader"><div style="width: 55px;">Catalog</div></td>
-      <td class="tableHeader" width="100%">Component</td>
-      <td class="tableHeader" align="center"><div style="width: 80px;">Registrants<br/>Rated/Unrated</div></td>
-      <td class="tableHeader" align="center"><div style="width: 130px;">Registration Ends</div></td>
-      <td class="tableHeader" align="center"><div style="width: 80px;">Submissions</div></td>
-      <td class="tableHeader" align="right"><div style="width: 65px;">Payment*</div></td>
-      <td class="tableHeader" align="center"><div style="width: 130px;">Submit by</div></td>
-   </tr>
-   <tr>
-      <td class="statDk"></td>
-      <td class="statDk"></td>
-      <td class="statDk" align="center"></td>
-      <td class="statDk" align="center"></td>
-      <td class="statDk" align="right"></td>
-      <td class="statDk" align="center"></td>
-   </tr>
-</table>
-</td>
-</tr>
-</table>
-
-<br><br>
-
-<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
-<tr>
-<td>
-<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-   <tr><td class="tableTitle" colspan="9">Active Component Design Contests</td></tr>
-   <tr>
-      <td class="tableHeader"><div style="width: 55px;">Catalog</div></td>
+      <td class="tableHeader"></td>
       <td class="tableHeader" width="100%">Component</td>
       <td class="tableHeader" align="center"><div style="width: 80px;">Registrants<br/>Rated/Unrated</div></td>
       <td class="tableHeader" align="center"><div style="width: 130px;">Registration Ends</div></td>
@@ -130,6 +85,7 @@ white-space: nowrap;
          <rsc:item name="catalog_name" row="<%=resultRow%>"/>
          <% } %>
       </td>
+      <td class="statDk"><img src="/i/tournament/tco06/emblem.gif" alt="TCO06 Component Contest" border="0" /></td>
       <td class="statDk">
          <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
          <rsc:item name="component_name" row="<%=resultRow%>"/> <rsc:item name="version_text" row="<%=resultRow%>"/>
@@ -159,35 +115,6 @@ white-space: nowrap;
       </td>
    </tr>
    </rsc:iterator>
-</table>
-</td>
-</tr>
-</table>
-
-<br><br>
-
-<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
-<tr>
-<td>
-<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-   <tr><td class="tco06TableTitle" colspan="9">TCO06 - Active Component Development Contests</td></tr>
-   <tr>
-      <td class="tableHeader"><div style="width: 55px;">Catalog</div></td>
-      <td class="tableHeader" width="100%">Component</td>
-      <td class="tableHeader" align="center"><div style="width: 80px;">Registrants<br/>Rated/Unrated</div></td>
-      <td class="tableHeader" align="center"><div style="width: 130px;">Registration Ends</div></td>
-      <td class="tableHeader" align="center"><div style="width: 80px;">Submissions</div></td>
-      <td class="tableHeader" align="right"><div style="width: 65px;">Payment*</div></td>
-      <td class="tableHeader" align="center"><div style="width: 130px;">Submit by</div></td>
-   </tr>
-   <tr>
-      <td class="statDk"></td>
-      <td class="statDk"></td>
-      <td class="statDk" align="center"></td>
-      <td class="statDk" align="center"></td>
-      <td class="statDk" align="right"></td>
-      <td class="statDk" align="center"></td>
-   </tr>
 </table>
 </td>
 </tr>
