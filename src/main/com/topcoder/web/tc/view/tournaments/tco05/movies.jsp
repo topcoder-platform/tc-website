@@ -43,8 +43,9 @@
             <br/><A href="/i/tournament/tco05/onsite_movies/RuijieWang_English.mov">wrjxm interview<br>(3 MB)</A><br/></td>
             <td class="bodyText" align=center valign=top><A href="/i/tournament/tco05/onsite_movies/RuijieWang_Chinese.mov"><img src="/i/tournament/tco05/onsite_movies/RuijieWang_Chinese.jpg" border=0/></A>
             <br/><A href="/i/tournament/tco05/onsite_movies/RuijieWang_Chinese.mov">wrjxm interview<br>(in Chinese 4.4 MB)</A><br/></td>
-            <td class="bodyText" align=center valign=top><A href="/i/tournament/tco05/onsite_movies/HiltonLange.mov"><img src="/i/tournament/tco05/onsite_movies/HiltonLange.jpg" border=0/></A>
-            <br/><A href="/i/tournament/tco05/onsite_movies/HiltonLange.mov">Hilton Lange interview<br>(4.3 MB)</A><br/></td>
+            <td class="bodyText" align=center valign=top>&#160;</td>
+         <!--   <td class="bodyText" align=center valign=top><A href="/i/tournament/tco05/onsite_movies/HiltonLange.mov"><img src="/i/tournament/tco05/onsite_movies/HiltonLange.jpg" border=0/></A>
+            <br/><A href="/i/tournament/tco05/onsite_movies/HiltonLange.mov">Hilton Lange interview<br>(4.3 MB)</A><br/></td> -->
          </tr>
       </table>
         </div>
