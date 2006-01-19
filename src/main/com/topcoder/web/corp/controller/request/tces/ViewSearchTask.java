@@ -20,22 +20,15 @@ public class ViewSearchTask extends BaseTask {
 
     protected void businessProcessing() throws Exception {
 
-        setCampaignId(Long.parseLong(getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM)));
+        getRequest().setAttribute(TCESConstants.CAMPAIGN_ID_PARAM,
+                getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM));
+        loadDefaults(getRequest());
         setNextPage(TCESConstants.SEARCH_PAGE);
         setIsNextPageInContext(true);
         
     }
 
-    public long getCampaignId() {
-        return campaignId;
-    }
-
-    public void setCampaignId(long campaignId) {
-        this.campaignId = campaignId;
-    }
-
-
-    private void getProfileSearch(TCRequest request) throws Exception {
+    private void loadDefaults(TCRequest request) throws Exception {
         Request r = new Request();
         r.setContentHandle("profile_search");
         DataAccessInt dataAccess = getDataAccess(getOltp(), true);
