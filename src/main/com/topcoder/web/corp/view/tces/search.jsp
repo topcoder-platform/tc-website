@@ -150,7 +150,7 @@
         <rsc:iterator list="<%=demographic_questions%>" id="resultRow">
             <tr><td class="left">
                 <rsc:item name="demographic_question_text" row="<%=resultRow%>"/>:<br/>
-                <a href="JavaScript:deselect('demo_<rsc:item name=" demographic_question_id" row="<%=resultRow%>"/>')">Deselect</a>
+                <a href="JavaScript:deselect('demo_<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>')">Deselect</a>
             </td><td class="right">
                 <% int questionId = resultRow.getIntItem("demographic_question_id");%>
                 <tc-webtag:listSelect styleClass="multiSel2" name='<%="demo_"+questionId%>' size="<%=String.valueOf(Math.min(4,((List)demoMap.get(new Integer(questionId))).size()))%>" useTopValue="false" multiple="true" list="<%=(List)demoMap.get(new Integer(questionId))%>"/>
