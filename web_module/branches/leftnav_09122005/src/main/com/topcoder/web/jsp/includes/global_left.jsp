@@ -80,7 +80,7 @@
             nav.search("m_long_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/", "How to Compete", "long_how_to_compete"));
             nav.search("m_long_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/", "Rules", "long_rules"));
 
-   nav.addRoot(new NavNode("<a onfocus='if(this.blur)this.blur();' onClick='if(this.className == \"exp_ed\")this.className = \"exp\";else{this.className = \"exp_ed\"}' href=\"Javascript:toggleMenu('m_forums')\" class=\"exp\">Forums</a>", "m_forums"));
+   nav.addRoot(new NavNode("<a onClick=\"flipMenu(this.id)\" href=\"Javascript:toggleMenu('m_forums')\" class=\"exp\">Forums</a>", "m_forums"));
       nav.search("m_forums").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc", "Round Tables", "forum_round_tables"));
       nav.search("m_forums").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc", "Algorithm Matches", "forum_algo_matches"));
       nav.search("m_forums").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc", "Marathon Matches", "forum_long_contests"));
@@ -105,7 +105,10 @@ function toggleMenu(objectID){
    }
    return;
 }
-
+function flipMenu(myMenuName){
+   var menuName = document.getElementById(myMenuName);
+   menuName.className = 'exp_ed';
+}
 var detectableWithVB = false;
 var pluginFound = false;
 

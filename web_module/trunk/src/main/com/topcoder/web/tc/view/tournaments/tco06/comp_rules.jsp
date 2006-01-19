@@ -77,8 +77,6 @@ The placement points outlined are for both Level One and Level Two components.
 <strong>Penalty points</strong><br>
 All final fixes will be completed according to the component schedule.  If a competitor misses final fixes for a component, they will be docked one (1) placement point per day they are late with final fixes.  The component manager will have final say on all penalties and deadlines. 
 <br><br>
-Also any competitors registering for a component and failing to submit for a component will be penalized two (2) earned points total.
-<br><br>
 <a name="schedule"></a>
 <a href="#top"><img src="/i/interface/back_to_top_dk.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <span class="bodySubtitle">Schedule</span>
