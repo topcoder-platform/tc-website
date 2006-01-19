@@ -74,7 +74,7 @@ white-space: nowrap;
 <tr>
 <td>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-   <tr><td class="tco06TableTitle" colspan="9">2006 TopCoder Open Active Component Design Contests</td></tr>
+   <tr><td class="tco06TableTitle" colspan="9">TCO06 - Active Component Design Contests</td></tr>
    <tr>
       <td class="tableHeader"><div style="width: 55px;">Catalog</div></td>
       <td class="tableHeader" width="100%">Component</td>
@@ -170,7 +170,7 @@ white-space: nowrap;
 <tr>
 <td>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-   <tr><td class="tco06TableTitle" colspan="9">2006 TopCoder Open Active Component Development Contests</td></tr>
+   <tr><td class="tco06TableTitle" colspan="9">TCO06 - Active Component Development Contests</td></tr>
    <tr>
       <td class="tableHeader"><div style="width: 55px;">Catalog</div></td>
       <td class="tableHeader" width="100%">Component</td>
