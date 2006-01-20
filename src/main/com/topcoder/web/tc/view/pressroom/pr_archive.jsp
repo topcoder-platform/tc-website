@@ -44,7 +44,7 @@
 
 <!-- 2006 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
-<tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_012306">TopCoder Names Intel Corporation as First Sponsor of New Marathon Match Series</A> [January 23]<br/></td></tr>
+<!--<tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_012306">TopCoder Names Intel Corporation as First Sponsor of New Marathon Match Series</A> [January 23]<br/></td></tr>-->
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_010906">TopCoder Announces NSA Participation in 2006 TopCoder Open in Las Vegas</A> [January 9]<br/><br/></td></tr>
 
 
