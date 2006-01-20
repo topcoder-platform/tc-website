@@ -65,11 +65,11 @@
 <p>Detecting your level of Java support...</p>
 
 <script language="JavaScript"><!--
-	if (canDetectPlugins()&&detectJava()) { // java but no webstart
-		goURL("/tc?module=Static&d1=applet&d2=partial-support");
+	if (canDetectPlugins()&&detectJavaWebStart()) { // java but no webstart
+		goURL("/tc?module=Static&d1=applet&d2=full-support");
 	}
 	else if (canDetectPlugins()&&detectJava()) { // java and webstart
-		goURL("/tc?module=Static&d1=applet&d2=full-support");
+		goURL("/tc?module=Static&d1=applet&d2=partial-support");
 	}
 	else { // no java or webstart
 		goURL("/tc?module=Static&d1=applet&d2=no-support");
