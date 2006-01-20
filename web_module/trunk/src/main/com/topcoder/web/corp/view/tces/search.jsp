@@ -33,6 +33,74 @@
     <title>TopCoder | Recruiting Reports</title>
     <jsp:include page="script.jsp"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script language="javascript">
+<!--
+    function remove( a ){
+        var i;
+        var j = 0;
+        for(i = 0; i<document.search[a].length; i++){
+            if(document.search[a].options[i].selected){
+                document.search[a].options[i] = null;
+                i--;
+            }
+        }
+    }
+    function itemAdd( a, b, c)
+    {
+        var i;
+        var j = document.search[b].selectedIndex;
+        for(i = 0; i<document.search[a].length; i++){
+            if(document.search[a].options[i].selected){
+                var len = document.search[c].length;
+                var val1 = document.search[a].options[i].value;
+                var text1 = document.search[a].options[i].text;
+                var text2 = document.search[b].options[j].text;
+                op = new Option();
+                op.value = val1+"_"+text2+"_"+text1;
+                op.text = text1+" >= "+text2;
+                document.search[c].options[len] = op;
+            }
+        }
+    }
+    function submitForm(){
+        var list;
+        <rsc:iterator list="<%=skill_types%>" id="resultRow">
+        list = document.search.skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>;
+        for (i=0; i<list.options.length; i++){
+            list.options[i].selected=true;
+        }
+        </rsc:iterator>
+        <rsc:iterator list="<%=skill_types%>" id="resultRow">
+        deselect('skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>');
+        deselect('skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>');
+        </rsc:iterator>
+        document.search.submit();
+    }
+    function deselect( a ){
+        var i;
+        for(i = 0; i<document.search[a].length; i++){
+            document.search[a].options[i].selected = false;
+        }
+    }
+    function clear( a ){
+        var i;
+        for(; document.search[a].length; ){
+            document.search[a].options[0] = null;
+        }
+    }
+    function submitEnter(e) {
+      var keycode;
+      if (window.event) keycode = window.event.keyCode;
+      else if (e) keycode = e.which;
+      else return true;
+      if (keycode == 13) {
+        submitForm();
+        return false;
+      } else return true;
+    }
+
+    -->
+</script>
 </head>
 
 <body>
@@ -81,8 +149,6 @@
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="zipcode" size="5"/></td></tr>
         <tr><td class="left">City: </td><td class="right">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="city" size="15"/></td></tr>
-        <tr><td class="left">Company: </td><td class="right">
-            <tc-webtag:textInput onKeyPress="submitEnter(event)" name="company" size="15"/></td></tr>
         <tr><td class="left">School: </td><td class="right">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="school" size="15"/></td></tr>
         <tr><td class="left">State:<br/><a href="JavaScript:deselect('states')">Deselect</a></td>
@@ -98,7 +164,7 @@
             <tc-webtag:multiRSCSelect styleClass="multiSel1" fieldValue="country_code" fieldText="country_name" name="countryoforigin" multiple="true" size="5" useTopValue="false" list="<%=country%>" selected='<%=(Set)selectedMap.get("countryoforigin")%>'/>
         </td></tr>
         <tr><td class="left">Professional: </td><td class="right"><tc-webtag:chkBox name="pro"/></td></tr>
-        <tr><td class="left"> Student: </td><td class="right"><tc-webtag:chkBox name="stud"/></td></tr>
+        <tr><td class="left">Student: </td><td class="right"><tc-webtag:chkBox name="stud"/></td></tr>
         <tr><td class="left">Languages: </td><td class="right">
             <rsc:iterator list="<%=languages%>" id="resultRow">
                 <rsc:item name="language_name" row="<%=resultRow%>"/>:
