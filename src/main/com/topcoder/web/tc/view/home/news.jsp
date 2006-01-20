@@ -12,7 +12,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.23.06<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_012306">Intel Named First Sponsor of New Marathon Match Series</A></span><br><br>
       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/intel_software_logo.gif" width="67" height="50" alt="Intel Software Network" border="0" /></div>
-      "Multi-Core Processing the Focus as New Format Promoting Optimization in Problem Solving is Added to TopCoder Schedule of Tournaments"
+      "Multi-Core Processing the Focus as New Format Promoting Optimization in Problem Solving is Added to TopCoder Schedule of Tournaments."
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -25,7 +25,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>01.23.06<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tco05/onsite_movies/HiltonLange.mov">"The guys...are just phenomenal."</A></span><br><br>
-      "I've got so much respect for the guys, especially here in the Top 8..." An awe-inspired Johanesburg man talks about his experience competing in TCO05.
+      "I've got so much respect for the guys, especially here in the Top 8...." An awe-inspired Hilton Lange of Johanesburg, South Africa discusses his experience competing in TCO05.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -43,7 +43,7 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-       <A href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3" target="_blank">full story</A>&#160;|&#160;
+       <A href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3" target="_blank">listen</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505899" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
@@ -96,7 +96,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>01.16.06<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tco05/onsite_movies/RuijieWang_English.mov">"Never underestimate your potential..."</A></span><br><br>
-      "If you try to do things, sometimes you make it with good results." A Chinese university student talks about her advancement into the Finals of TCO05.
+      "If you try to do things, sometimes you make it with good results." Ruijie Wang, a Chinese university student, talks about her advancement into the Finals of TCO05.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
