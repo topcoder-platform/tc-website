@@ -61,13 +61,14 @@
 
 <body>
 
+
 <p>Detecting your level of Java support...</p>
 
 <script language="JavaScript"><!--
-	if (support == 1) { // java but no webstart
+	if (canDetectPlugins()&&detectJava()) { // java but no webstart
 		goURL("/tc?module=Static&d1=applet&d2=partial-support");
 	}
-	else if (support == 2) { // java and webstart
+	else if (canDetectPlugins()&&detectJava()) { // java and webstart
 		goURL("/tc?module=Static&d1=applet&d2=full-support");
 	}
 	else { // no java or webstart
