@@ -16,16 +16,18 @@
 
 <%------------------PROBLEM ANALYSIS--------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.04.05<br>11:40 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>01.20.06<br>9:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm236_prob">SRM 236 - Problem Set & Analysis</A></span><br><br>
-      In division 1, tomek squeaked out a win, despite starting 15 minutes late, and hence regained the number 1 ranking.</td>
-      <td class="newsPhoto"><img src="/i/m/lbackstrom_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=159052">lbackstrom</A></td></tr></table>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm283">SRM 283 - Problem Set & Analysis</A></span><br><br>
+      In Division 1, the problemset turned out to be really hard, with nobody being able to solve all 3 problems.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/gevak_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7340263" context="algorithm"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm236_prob">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm283">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505797" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
  
