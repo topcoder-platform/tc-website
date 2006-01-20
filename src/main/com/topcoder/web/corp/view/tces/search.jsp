@@ -7,7 +7,7 @@
 <%@ taglib uri="tces-taglib.tld" prefix="tces" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%
     Map m = null;
     ResultSetContainer.ResultSetRow p;
@@ -23,8 +23,6 @@
     Map skillMap = (Map)request.getAttribute("skillMap");
     Map skillSetMap = (Map)request.getAttribute("skillSetMap");
 %>
-
-<jsp:useBean id="ProblemSubmissionsTask" scope="request" class="com.topcoder.web.corp.controller.request.tces.ProblemSubmissionsTask"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -121,9 +119,8 @@
 <img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
 
 
-<FORM name="search" ACTION="/tc" METHOD="GET">
-<input type="hidden" name="module" value="ProfileSearch"/>
-<input type="hidden" name="t" value=""/>
+<FORM name="search" ACTION="<jsp:getProperty name="sessionInfo" property="servletPath"/>" METHOD="GET">
+<input type="hidden" name="module" value="SearchTask"/>
 <input type="hidden" name="order" value="1"/>
 <input type="hidden" name="sort" value="1"/>
 <table class="search">
