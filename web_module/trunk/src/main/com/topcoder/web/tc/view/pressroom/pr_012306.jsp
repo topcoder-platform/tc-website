@@ -38,7 +38,7 @@
                         <jsp:param name="title" value="Press Release"/>
                     </jsp:include>
                     
-<div align="right"><tc-webtag:forumLink forumID="505886" message="Discuss this press release" /></div>
+<div align="right"><tc-webtag:forumLink forumID="505898" message="Discuss this press release" /></div>
                         
 <div align="center">
 <p><span class="bodyTitle">TopCoder Names Intel Corporation as First Sponsor of<br>New Marathon Match Series</span><br />
