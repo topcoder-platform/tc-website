@@ -101,7 +101,7 @@ function toggleMenu(menuTitle,menuID){
    if(menu.style.display == 'block') menu.className = 'CLOSED';
    else if(menu.className == 'OPEN' && menu.style.display != 'none') menu.className = 'CLOSED';
    else {
-      menu.className = 'OPEN'; 
+      menu.className = 'OPEN';
    }
    if(menuTitle.blur)menuTitle.blur();
    if(menuTitle.className == 'exp') menuTitle.className = 'exp_ed';
@@ -215,7 +215,7 @@ if ((navigator.userAgent.indexOf('MSIE') != -1) && (navigator.userAgent.indexOf(
 
 <div style="float: left; padding: 3px 0px 0px 0px;"><img src="/i/interface/leftnav_top.gif" alt="" /></div>
 <div id="navbar">
-<nav:navBuilder navTree="tree" openClass="OPEN" selectedClass="highlight" selectedNode="<%=request.getParameter("node")%>"/>
+<nav:navBuilder navTree="tree" openClass="OPEN" selectedLeafClass="highlight" selectedParentClass="exp_ed" unSelectedParentClass="exp" selectedNode="<%=request.getParameter("node")%>"/>
 <jsp:include page="../includes/modules/leftNavSearch.jsp"/>
 </div>
 <div style="float: left; padding: 0px 0px 3px 0px;"><img src="/i/interface/leftnav_bottom.gif" alt="" /></div>

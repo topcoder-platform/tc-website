@@ -22,10 +22,13 @@ public class NavBuilder extends TagSupport {
     private NavTree nav = null;
     private String selectedNode = null;
     private String openClass = null;
-    private String selectedClass = null;
+    private String selectedLeafClass = null;
+    private String selectedParentClass = null;
+    private String unSelectedLeafClass = null;
+    private String unSelectedParentClass = null;
 
     public void setNavTree(String navTree) {
-        this.nav = (NavTree)pageContext.findAttribute(navTree);
+        this.nav = (NavTree) pageContext.findAttribute(navTree);
     }
 
     public void setSelectedNode(String selectedNode) {
@@ -36,8 +39,20 @@ public class NavBuilder extends TagSupport {
         this.openClass = openClass;
     }
 
-    public void setSelectedClass(String selectedClass) {
-        this.selectedClass = selectedClass;
+    public void setSelectedLeafClass(String selectedLeafClass) {
+        this.selectedLeafClass = selectedLeafClass;
+    }
+
+    public void setSelectedParentClass(String selectedParentClass) {
+        this.selectedParentClass = selectedParentClass;
+    }
+
+    public void setUnSelectedLeafClass(String unSelectedLeafClass) {
+        this.unSelectedLeafClass = unSelectedLeafClass;
+    }
+
+    public void setUnSelectedParentClass(String unSelectedParentClass) {
+        this.unSelectedParentClass = unSelectedParentClass;
     }
 
     public int doStartTag() throws JspException {
@@ -45,13 +60,13 @@ public class NavBuilder extends TagSupport {
             NavNode root;
             NavNode selectedNode;
             pageContext.getOut().print("\n<ul>");
-            for(Iterator it = nav.getRoots(); it.hasNext();) {
-                root = (NavNode)it.next();
+            for (Iterator it = nav.getRoots(); it.hasNext();) {
+                root = (NavNode) it.next();
                 selectedNode = root.search(this.selectedNode);
 
                 HashSet path = new HashSet(5);
-                if (selectedNode!=null) {
-                    for (NavNode node = selectedNode.getParent(); node!=null; node = node.getParent()) {
+                if (selectedNode != null) {
+                    for (NavNode node = selectedNode.getParent(); node != null; node = node.getParent()) {
                         path.add(node.getKey());
                     }
                 }
@@ -69,22 +84,52 @@ public class NavBuilder extends TagSupport {
     private void printOutput(NavNode node, Set parents) throws IOException {
         JspWriter out = pageContext.getOut();
         out.print("\n<li>");
-        if (node.isLink()&&node.isLeaf()) {
+        if (node.isLink() && node.isLeaf()) {
             out.print("<a href=\"");
             out.print(node.getHref());
             out.print("\"");
-            if (selectedNode!=null && selectedNode.equals(node.getKey())) {
+            if (selectedNode.equals(node.getKey())) {
                 out.print(" class=\"");
-                out.print(selectedClass);
+                out.print(selectedLeafClass);
+                out.print("\"");
+            } else if (unSelectedLeafClass != null) {
+                out.print(" class=\"");
+                out.print(unSelectedLeafClass);
+                out.print("\"");
+            }
+            if (node.getOnClick() != null) {
+                out.print(" \"");
+                out.print(node.getOnClick());
                 out.print("\"");
             }
             out.print(">");
             out.print(node.getContents());
             out.print("</a>");
-        } else {
+        } else if (!node.isLink()) {
             out.print(node.getContents());
-        }
-        if (!node.isLeaf() && !node.getKey().equals(selectedNode)) {
+        } else {
+            //is link and not leaf
+            out.print("<a href=\"");
+            out.print(node.getHref());
+            out.print("\"");
+            if (parents.contains(node.getKey())) {
+                out.print(" class=\"");
+                out.print(selectedParentClass);
+                out.print("\"");
+            } else {
+                out.print(" class=\"");
+                out.print(unSelectedParentClass);
+                out.print("\"");
+            }
+            if (node.getOnClick() != null) {
+                out.print(" \"");
+                out.print(node.getOnClick());
+                out.print("\"");
+            }
+            out.print(">");
+            out.print(node.getContents());
+            out.print("</a>");
+
             out.print("\n<ul id=\"");
             out.print(node.getKey());
             out.print("\"");
@@ -94,14 +139,14 @@ public class NavBuilder extends TagSupport {
                 out.print("\"");
             }
             out.print(">");
-            for (int i=0; i<node.getChildCount(); i++) {
+            for (int i = 0; i < node.getChildCount(); i++) {
                 printOutput(node.getChildAt(i), parents);
             }
             out.print("\n</ul>");
         }
         out.print("</li>");
-
     }
+
 
     /**
      * Because the app server (JBoss) is caching the tag,
@@ -112,7 +157,10 @@ public class NavBuilder extends TagSupport {
         this.nav = null;
         this.selectedNode = null;
         this.openClass = null;
-        this.selectedClass = null;
+        this.selectedLeafClass = null;
+        this.selectedParentClass = null;
+        this.unSelectedLeafClass = null;
+        this.unSelectedParentClass = null;
         return super.doEndTag();
     }
 

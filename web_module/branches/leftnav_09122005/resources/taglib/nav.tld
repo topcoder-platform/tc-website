@@ -25,7 +25,22 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>selectedClass</name>
+            <name>selectedLeafClass</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>unSelectedLeafClass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>selectedParentClass</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>unSelectedParentClass</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
