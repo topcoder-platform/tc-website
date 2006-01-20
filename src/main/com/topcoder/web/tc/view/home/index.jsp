@@ -157,15 +157,15 @@ margin:0px auto;
       <table border="0" cellpadding="0" cellspacing="0">
          <tr><td class="homeBigPromo">
 
-<%-- Hilton Lange MOVIE
+<%-- Hilton Lange MOVIE --%>
 <map name="watch">
 <area shape="rect" coords="5,113,50,130" href="/i/tournament/tco05/onsite_movies/HiltonLange.mov" alt="Hilton Lange movie">
 </map>
 
             <img src="/i/home/mov_hiltonlange_012306.jpg" alt="TopCoder Movies" usemap="#watch" border="0" />
 
- --%>
-<%-- Ruijie Wang MOVIE--%>
+
+<%-- Ruijie Wang MOVIE
 
 <map name="language">
 <area shape="rect" coords="5,114,49,130" href="/i/tournament/tco05/onsite_movies/RuijieWang_English.mov" alt="English version">
@@ -173,7 +173,7 @@ margin:0px auto;
 </map>
 
             <img src="/i/home/mov_ruijiewang_011306.jpg" alt="TopCoder Movies" usemap="#language" border="0" />
-
+--%>
 
 
 <%-- SRM SPONSORSHIP
