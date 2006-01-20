@@ -7,7 +7,7 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
    
-<%--------------------------------------
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>01.23.06<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tco05/onsite_movies/HiltonLange.mov">"The guys...are just phenomenal."</A></span><br><br>
@@ -19,7 +19,7 @@
        <tc-webtag:forumLink forumID="505896" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
-------------------%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>01.20.06<br>9:30 AM</td>
