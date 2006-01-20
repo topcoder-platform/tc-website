@@ -17,6 +17,7 @@ public class NavNode {
     private NavNode parent = null;
     private String href = null;
     private boolean isLink = false;
+    private String onClick = null;
 
     private NavNode() {
         this.children = null;
@@ -35,7 +36,15 @@ public class NavNode {
         this.contents = contents;
         this.key = key;
         this.isLink = true;
+    }
 
+    public NavNode(String href, String onClick, String contents, String key) {
+        this();
+        this.href = href;
+        this.contents = contents;
+        this.key = key;
+        this.isLink = true;
+        this.onClick = onClick;
     }
 
     public NavNode[] getChildren() {
@@ -120,6 +129,10 @@ public class NavNode {
 
     public NavNode getParent() {
         return parent;
+    }
+
+    public String getOnClick() {
+        return onClick;
     }
 
     public boolean equals(Object o) {
