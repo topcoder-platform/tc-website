@@ -7,7 +7,7 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
    
-<%--------------------------------------------------------%>
+<%--------------------------------------
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.23.06<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_012306">Intel Named First Sponsor of New Marathon Match Series</A></span><br><br>
@@ -21,7 +21,7 @@
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
+<%---------------------------------------
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>01.23.06<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tco05/onsite_movies/HiltonLange.mov">"The guys...are just phenomenal."</A></span><br><br>
@@ -33,10 +33,11 @@
        <tc-webtag:forumLink forumID="505896" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
+-----------------%>
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.20.06<br>1:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.20.06<br>4:20 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3" target="_blank">Java Posse - Bill Goggin interview [PODCAST]</A></span><br><br>
       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="67" height="37" alt="The Java Posse" border="0" /></div>
       TopCoder Project Manager Bill Goggin describes the in's and out's of TopCoder, and the company's use of Java.

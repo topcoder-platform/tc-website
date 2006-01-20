@@ -157,15 +157,15 @@ margin:0px auto;
       <table border="0" cellpadding="0" cellspacing="0">
          <tr><td class="homeBigPromo">
 
-<%-- Hilton Lange MOVIE --%>
+<%-- Hilton Lange MOVIE 
 <map name="watch">
 <area shape="rect" coords="5,113,50,130" href="/i/tournament/tco05/onsite_movies/HiltonLange.mov" alt="Hilton Lange movie">
 </map>
 
             <img src="/i/home/mov_hiltonlange_012306.jpg" alt="TopCoder Movies" usemap="#watch" border="0" />
 
-
-<%-- Ruijie Wang MOVIE
+--%>
+<%-- Ruijie Wang MOVIE--%>
 
 <map name="language">
 <area shape="rect" coords="5,114,49,130" href="/i/tournament/tco05/onsite_movies/RuijieWang_English.mov" alt="English version">
@@ -173,7 +173,7 @@ margin:0px auto;
 </map>
 
             <img src="/i/home/mov_ruijiewang_011306.jpg" alt="TopCoder Movies" usemap="#language" border="0" />
---%>
+
 
 
 <%-- SRM SPONSORSHIP
@@ -214,7 +214,7 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-            TopCoder Names Intel Corporation as First Sponsor of New Marathon Match Series <A href="/tc?module=Static&d1=pressroom&d2=pr_012306">...more</A><br>[January 23]<br><br>
+            <!-- TopCoder Names Intel Corporation as First Sponsor of New Marathon Match Series <A href="/tc?module=Static&d1=pressroom&d2=pr_012306">...more</A><br>[January 23]<br><br>-->
             
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="67" height="37" alt="The Java Posse" border="0" /></div>
             Java Posse - Bill Goggin interview [PODCAST] <A href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3" target="_blank">...more</A><br>[January 20]<br><br>
@@ -230,7 +230,7 @@ margin:0px auto;
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/incDOTcom_logo.gif" width="67" height="25" alt="Inc.com" border="0" /></div>
             Put a hacker to work [PDF] <A href="/pdfs/press_room/inc_0106.pdf" target="_blank">...more</A><br>[January 2006]<br><br>
             
-           <!-- TopCoder Welcomes VeriSign as Return Sponsor of 2006 TopCoder Open in Las Vegas <A href="/tc?module=Static&d1=pressroom&d2=pr_121905">...more</A><br>[December 19]<br><br>-->
+           TopCoder Welcomes VeriSign as Return Sponsor of 2006 TopCoder Open in Las Vegas <A href="/tc?module=Static&d1=pressroom&d2=pr_121905">...more</A><br>[December 19]<br><br>
 
             </td>
          </tr>
