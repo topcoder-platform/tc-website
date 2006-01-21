@@ -730,7 +730,7 @@ public class AutoPilot {
 
             if (!project.getAutoPilot()) return new SuccessResult();
 
-            //check if all screenings are done,check to see if something passes
+            //check if all scorecards are done,check to see if something passes
             boolean passed = false;
             double minscore = ConfigHelper.getMinimumScore();
 
@@ -851,15 +851,6 @@ public class AutoPilot {
             form.setScorecardTemplates(docManager.getScorecardTemplates());
             form.setCurrentPhase(phase);
             form.setReason("auto pilot advancing to " + phase);
-
-            if (phase.equals("Review")) {
-                //check for screening scorecard template
-                if (form.getReviewTemplateId() == -1) {
-                    String template = docManager.getDefaultScorecardTemplate(project.getProjectType().getId(),
-                        ReviewScorecard.SCORECARD_TYPE).getName();
-                    form.setReviewTemplate(template);
-                }
-            }
 
             OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, info);
             ProjectData new_data = form.toActionData(orpd);
