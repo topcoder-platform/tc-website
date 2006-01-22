@@ -97,8 +97,7 @@ public final class AppealAction extends ReviewAction {
 */
             long phaseId = orpd.getProject().getCurrentPhaseInstance().getPhase().getId();
             if (appeal.getAppealer().getId() == orpd.getUser().getId() &&
-                    phaseId == Phase.ID_APPEALS) {
-//                    appeal.getId() == -1 && phaseId == Phase.ID_APPEALS) {
+                    appeal.getId() == -1 && phaseId == Phase.ID_APPEALS) {
                 request.setAttribute("appealerEdit", new Boolean(true));
             } else if (appeal.getReviewer().getId() == orpd.getUser().getId() &&
                     !appeal.isResolved() && phaseId == Phase.ID_APPEALS_RESPONSE) {
