@@ -10,7 +10,7 @@
    /* m_name indicates the name of an expandable menu */
 
    NavTree nav = new NavTree();
-   nav.addRoot(new NavNode("<a href=\"javascript:void(0)\" onClick=\"Javascript:toggleMenu(this,'m_competitions')\" class=\"exp\">Competitions</a>", "m_competitions"));
+   nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_competitions')", "Competitions", "m_competitions"));
       nav.search("m_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc", "Home", "competition_home"));
       nav.search("m_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/Registration", "Register to Compete", "competition_reg"));
       nav.search("m_competitions").addChild(new NavNode("<a href=\"javascript:void(0)\" onClick=\"Javascript:toggleMenu(this,'m_algo_competitions')\" class=\"exp\">Algorithm</a>", "m_algo_competitions"));
