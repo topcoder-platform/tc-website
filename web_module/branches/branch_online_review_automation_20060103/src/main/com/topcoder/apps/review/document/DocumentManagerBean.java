@@ -1,8 +1,5 @@
 /*
- * DocumentManagerBean.java
- *
- * Copyright ?2003, TopCoder, Inc. All rights reserved
- *
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.review.document;
 
@@ -30,10 +27,20 @@ import java.util.*;
 
 
 /**
+ * <strong>Purpose</strong>:
  * The DocumentManagerBean handles all the documents for the
  * Online Review project.
  *
- * @author FatClimber
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Changed constraints to save an appeal: now the submitter can save his appeals many times without restrictions
+ * until appeal phase ends.
+ * </li>
+ * </ol>
+ *
+ * @author FatClimber, pulky
+ * @version 1.0.1
  */
 public class DocumentManagerBean implements SessionBean {
     private Logger log = null;
