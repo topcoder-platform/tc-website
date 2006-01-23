@@ -7,6 +7,22 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
    
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>01.23.06<br>4:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm284">SRM 284 - Problem Set & Analysis</A></span><br><br>
+      In Division 1, the problems were much easier compared to SRM 283, making coders vulnerable to any fault. Five targeteers competed in the SRM, with only three of them staying in 3000+ after the event.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm284">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505798" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
 <%-------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.23.06<br>9:00 AM</td>
@@ -204,20 +220,6 @@
          <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">details</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="504999" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.09.06<br>11:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_010906">NSA Participation in 2006 TopCoder Open in Las Vegas</A></span><br><br>
-      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/nsa_logo.gif" width="67" height="34" alt="NSA" border="0" /></div>
-      "TopCoder&#174;, Inc. today announced additional details of its 2006 TopCoder Open (TCO06) which include the continued support of the National Security Agency as an event patron."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_010906">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505886" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
 
