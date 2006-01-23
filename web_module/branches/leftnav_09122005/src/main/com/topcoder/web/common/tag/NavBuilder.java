@@ -85,7 +85,7 @@ public class NavBuilder extends TagSupport {
         JspWriter out = pageContext.getOut();
         out.print("\n<li>");
         if (node.isLink() && node.isLeaf()) {
-            log.debug("leaf link " + node.getKey());
+            //log.debug("leaf link " + node.getKey());
             out.print("<a href=\"");
             out.print(node.getHref());
             out.print("\"");
@@ -107,10 +107,10 @@ public class NavBuilder extends TagSupport {
             out.print(node.getContents());
             out.print("</a>");
         } else if (!node.isLink()) {
-            log.debug("not link " + node.getKey());
+            //log.debug("not link " + node.getKey());
             out.print(node.getContents());
         } else {
-            log.debug("link not leaf " + node.getKey());
+            //log.debug("link not leaf " + node.getKey());
             //is link and not leaf
             out.print("<a href=\"");
             out.print(node.getHref());
@@ -143,7 +143,7 @@ public class NavBuilder extends TagSupport {
             }
             out.print(">");
             for (int i = 0; i < node.getChildCount(); i++) {
-                log.debug("there are " + node.getChildCount() + " childer of " + node.getKey());
+                //log.debug("there are " + node.getChildCount() + " childer of " + node.getKey());
                 printOutput(node.getChildAt(i), parents);
             }
             out.print("\n</ul>");
