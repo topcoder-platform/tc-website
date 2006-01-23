@@ -290,6 +290,8 @@ By participating in the competition round, you agree to be bound by these rules 
 <br><br>
 The winner in each match will be the competitor that scores the most points across all competitors who participate in that match. All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the competition shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects. 
 <br><br>
+TopCoder and Intel are not responsible for entries not received due to lost, failed, delayed or interrupted connections or miscommunications, or other electronic malfunctions, or due to lost, late, mutilated, illegible, incomplete, postage due or misdirected mailed entries. TopCoder and Intel are not responsible for incorrect or inaccurate entry information, whether caused by persons entered at the web site or by any of the equipment or programming associated with or utilized in the competition or by any human error which may occur in the processing of the entries in this competition.
+<br><br>
 By participating in the Intel Software Network Multi-Threading Competition Series, a winner releases and agrees to hold harmless TopCoder, its affiliates, subsidiaries, sponsors, advertising and promotion agencies, and prize suppliers, and all of their respective directors, officers, employees, representatives and agents, from and against any and all liability for any loss, property damage or damage to person, including without limitation, death and injury, due in whole or in part, directly or indirectly, from or arising out of participation in this Competition Series, or participation in any competition-related activity, or the receipt, use or misuse of a prize. 
 <br><br>
 TopCoder, in its sole discretion, reserves the right to disqualify any person tampering with the entry process, the operation of the Web site, the competition process, or is otherwise in violation of the rules. TopCoder reserves the right to cancel, terminate or modify the competition if it is not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort. 
@@ -303,8 +305,13 @@ The competition is void in whole or in part where prohibited by law.
 <br><br>
 A winner's list of coder handles for all competitions will be available on the web site at http://www.topcoder.com displayed for at least 3 months after the end of the competition. 
 <br><br>
-This tournament is brought to you by TopCoder, Inc., 703 Hebron Ave, Glastonbury, CT 06033.
+All federal, state, and local taxes on prize are the sole responsibility of the winner.
 <br><br>
+Acceptance of prize constitutes permission to use winner's name and/or likeness on the web site for advertising/trade purposes without further compensation, except where prohibited. 
+<br><br>
+All federal, state and local laws and regulations apply.
+<br><br>
+This tournament is brought to you by TopCoder, Inc., 703 Hebron Ave, Glastonbury, CT 06033.
 
    </div>
 </div>
