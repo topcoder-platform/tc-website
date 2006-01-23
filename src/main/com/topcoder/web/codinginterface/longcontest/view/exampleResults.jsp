@@ -75,21 +75,21 @@
             are not appropriate in this case.  the writer is responsible for all formatting --%>
             <% int i=0;%>
             <rsc:iterator list="<%=rsc%>" id="resultRow">
-                <p><%=i%>) score: <rsc:item name="score" row="<%=resultRow%>" format="0.00"/> run time(ms): <rsc:item name="processing_time" row="<%=resultRow%>"/></p>
+                <h2><%=i%>) Score: <rsc:item name="score" row="<%=resultRow%>" format="0.00"/> run time(ms): <rsc:item name="processing_time" row="<%=resultRow%>"/></h2>
                 <p>
-                    Example Case: <br />
+                    <span class="bodySubtitle">Example Case: </span><br />
                     <pre><%=resultRow.getStringItem("expected_result").substring(1, resultRow.getStringItem("expected_result").length()-2)%></pre>
                 </p>
                 <p>
-                    Fatal Errors: <br />
+                    <span class="bodySubtitle">Fatal Errors: </span><br />
                     <pre><rsc:item name="received" row="<%=resultRow%>"/></pre>
                 </p>
                 <p>
-                    Standard Out: <br />
+                    <span class="bodySubtitle">Standard Out: </span><br />
                     <pre><rsc:item name="stdout" row="<%=resultRow%>"/></pre>
                 </p>
                 <p>
-                    Standard Error: <br />
+                    <span class="bodySubtitle">Standard Error: </span><br />
                     <pre><rsc:item name="stderr" row="<%=resultRow%>"/></pre>
                 </p>
                 <hr />
