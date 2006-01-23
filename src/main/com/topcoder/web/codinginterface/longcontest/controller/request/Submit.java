@@ -245,7 +245,7 @@ public class Submit extends Base {
                 Request roomRequest = new Request();
                 roomRequest.setContentHandle("long_contest_find_room");
                 roomRequest.setProperty("rd", String.valueOf(rid));
-                long roomId = ((ResultSetContainer)getDataAccess().getData(r).get("long_contest_find_room")).getLongItem(0, "room_id");
+                long roomId = ((ResultSetContainer)getDataAccess().getData(roomRequest).get("long_contest_find_room")).getLongItem(0, "room_id");
 
                 RoomResultLocal roomResult = (RoomResultLocal)createLocalEJB(getInitialContext(), RoomResult.class);
                 if (!roomResult.exists(rid, roomId, getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) {
