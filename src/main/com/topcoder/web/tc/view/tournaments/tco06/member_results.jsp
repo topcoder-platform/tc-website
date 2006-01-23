@@ -54,8 +54,7 @@
                 <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
                     <tr>
                         <td class="usdcTitle" colspan=5 align=left>
-                            <%String module = rscContest.getIntItem(0, "contest_type_id") == 8 ? "TCO06ContestDetails" : "TCO06ContestDetailsOverall";%>
-                            <A href="/tc?module=<%=module%>&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>" class=usdcTitle>
+                            <A href="/tc?module=TCO06ContestDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>" class=usdcTitle>
                                 <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></A> -
                             <tc-webtag:handle context='<%=tab%>' coderId='<%=rscUser.getIntItem(0, "coder_id")%>'/>
                         </td>
