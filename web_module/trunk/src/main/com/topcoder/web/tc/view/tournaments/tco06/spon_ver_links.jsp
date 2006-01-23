@@ -5,7 +5,7 @@
 
 <table width="100%" border="0" cellpadding=0 cellspacing=0>
    <tr>
-      <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_description"><img src="/i/tournament/tco06/tco06_logo_solo.gif" border="0"/></A></td>
+      <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_description"><img src="/i/tournament/tco06/tco06_logo.gif" border="0"/></A></td>
       <td valign=middle align=center rowspan="2"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_description"><img src="/i/tournament/tco06/sponsortrack_ver_logo.gif" alt="Sponsor Track" border="0"/></a></td>
       <td valign=top align=right rowspan="2" width="50%"><a href="/"><img src="/i/tournament/tco06/tc_logo.gif" border="0"/></a></td>
    </tr>
@@ -34,11 +34,13 @@
                <td class="nav"><A href="/tc?module=TCO05AlgRegistrants"><img src="/i/tournament/tco06/tabs/L2_registrantsOff.gif" alt="" border="0" /></A></td>
             <% } %>
 --%>
+<%--
             <% if (tabLev2.equals("advancers")) {%>
                <td class="nav"><A href="/tc?module=SimpleStats&c=tco06_spon_adv_overview&trans=true&d1=tournaments&d2=tco06&d3=spon_ver_adv_overview"><img src="/i/tournament/tco06/tabs/L2_advancersOn.gif" alt="" border="0" /></A></td>
             <% } else { %>
                <td class="nav"><A href="/tc?module=SimpleStats&c=tco06_spon_adv_overview&trans=true&d1=tournaments&d2=tco06&d3=spon_ver_adv_overview"><img src="/i/tournament/tco06/tabs/L2_advancersOff.gif" alt="" border="0" /></A></td>
             <% } %>
+--%>
 <%--
             <% if (tabLev2.equals("summary")) {%>
                <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_finals_analysis"><img src="/i/tournament/tco06/tabs/L2_summaryOn.gif" alt="" border="0" /></A></td>
