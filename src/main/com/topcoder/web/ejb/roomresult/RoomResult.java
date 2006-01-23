@@ -16,6 +16,7 @@ public interface RoomResult extends EJBObject {
 
     double getPointTotal(long roundId, long roomId, long coderId, String dataSource) throws RemoteException;
     boolean getAttended(long roundId, long roomId, long coderId, String dataSource) throws RemoteException;
+    boolean exists(long roundId, long roomId, long coderId, String dataSource) throws RemoteException;
 
 /*
     void setAdvanced(long roundId, long roomId, long coderId, boolean advanced, String dataSource) throws RemoteException;
