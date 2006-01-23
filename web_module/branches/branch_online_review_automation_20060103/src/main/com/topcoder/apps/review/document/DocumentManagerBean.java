@@ -4523,13 +4523,13 @@ public class DocumentManagerBean implements SessionBean {
             // If appeal is resolved and the user isn't admin/pm,
             // then don't allow save!
             // If appeal exists and the user isn't the reviewer
-            // then don't allow save!
+            // allow save only if the project is in Appeals phase!
             // If appeal doesn't exist and the user isn't the appealer
             // then don't allow save!
             if ((appealIsResolved &&
                     !(Common.isAdmin(requestor) ||
                     Common.isRole(project, requestor.getUserId(), Role.ID_PRODUCT_MANAGER))) ||
-                    (appeal.getId() != -1 &&
+                    (appeal.getId() != -1 && !(project.getCurrentPhase().getId() == Phase.ID_APPEALS) &&
                     !(Common.isRole(project, requestor.getUserId(), Role.ID_REVIEWER) &&
                     appeal.getReviewer().getId() == requestor.getUserId())) ||
                     (appeal.getId() == -1 &&

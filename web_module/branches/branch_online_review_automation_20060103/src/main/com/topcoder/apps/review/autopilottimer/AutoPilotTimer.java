@@ -136,35 +136,6 @@ public class AutoPilotTimer
 
                             if (!p.getAutoPilot()) continue;
 
-                            // PLK: if there are no appeals, send email to PM
-                            Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
-                            if (appeals.length == 0) {
-                                //lookup pm
-                                String email = "";
-                                UserRole[] participants = p.getParticipants();
-                                for (int j = 0; j < participants.length; j++) {
-                                    if (participants[j].getRole().getId() == Role.ID_PRODUCT_MANAGER) {
-                                        email = participants[j].getUser().getEmail();
-                                    }
-                                }
-
-                                if (email.equals("")) {
-                                    logger.debug("ERROR: Cannot locate PM for Appeals Response Notification");
-                                    continue;
-                                }
-
-                                StringBuffer mail = new StringBuffer();
-                                mail.append("The following project: \n\n");
-                                mail.append(p.getName());
-                                mail.append("\n\nhas completed appeals response");
-
-                                sendMail("autopilot@topcoder.com", email,
-                                    "AutoPilotTimer: Appeals Response Notification (No Appeals found)",
-                                        mail.toString());
-                            }
-
-                            // fin PLK
-
                             form.fromProject(p);
 
                             form.setSendMail(true);
@@ -180,6 +151,35 @@ public class AutoPilotTimer
                             ResultData result = new BusinessDelegate().projectAdmin(data);
                             if (!(result instanceof SuccessResult)) {
                                 logger.debug("ERROR " + result.toString());
+                            } else {
+                                // PLK: if there are no appeals, send email to PM
+                                Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
+                                if (appeals.length == 0) {
+                                    //lookup pm
+                                    String email = "";
+                                    UserRole[] participants = p.getParticipants();
+                                    for (int j = 0; j < participants.length; j++) {
+                                        if (participants[j].getRole().getId() == Role.ID_PRODUCT_MANAGER) {
+                                            email = participants[j].getUser().getEmail();
+                                        }
+                                    }
+
+                                    if (email.equals("")) {
+                                        logger.debug("ERROR: Cannot locate PM for Appeals Response Notification");
+                                        continue;
+                                    }
+
+                                    StringBuffer mail = new StringBuffer();
+                                    mail.append("The following project: \n\n");
+                                    mail.append(p.getName());
+                                    mail.append("\n\nhas completed appeals response");
+
+                                    sendMail("autopilot@topcoder.com", email,
+                                        "AutoPilotTimer: Appeals Response Notification (No Appeals found)",
+                                            mail.toString());
+                                }
+
+                                // fin PLK
                             }
                         }
                     }
