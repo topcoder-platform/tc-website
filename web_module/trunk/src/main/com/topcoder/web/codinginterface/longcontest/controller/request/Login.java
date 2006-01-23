@@ -108,18 +108,17 @@ public class Login extends Base {
 
             /* whatever was wrong with the submission, make sure they are logged out */
             getAuthentication().logout();
-        } else {
-            String nextpage = (String)getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY);
-            if (nextpage == null) nextpage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
-            if (nextpage == null) nextpage = getRequest().getHeader("Referer");
-            if (nextpage == null) nextpage = getSessionInfo().getAbsoluteServletPath();
-            getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, nextpage);
         }
 
         if (loginStatus.equals(STATUS_START)) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
         }
 
+        String nextpage = (String)getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY);
+        if (nextpage == null) nextpage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
+        if (nextpage == null) nextpage = getRequest().getHeader("Referer");
+        if (nextpage == null) nextpage = getSessionInfo().getAbsoluteServletPath();
+        getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, nextpage);
         setNextPage(Constants.LOGIN_JSP);
         setIsNextPageInContext(true);
     }
