@@ -33,6 +33,15 @@ public class ViewOverview extends Base {
             String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             String sortColStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
+            int type = Constants.LONG_ROUND_TYPE_ID;
+            if (StringUtils.isNumber(getRequest().getParameter(Constants.ROUND_TYPE_ID))) {
+                if (Integer.parseInt(getRequest().getParameter(Constants.ROUND_TYPE_ID))
+                        == Constants.INTEL_LONG_ROUND_TYPE_ID) {
+                    type = Constants.INTEL_LONG_ROUND_TYPE_ID;
+                }
+            }
+            getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(type));
+
             int numRecords = Integer.parseInt(Constants.DEFAULT_ROW_COUNT);
             int startRank = 1, sortCol = 4;
             if (!numRecordsStr.equals("")) {
