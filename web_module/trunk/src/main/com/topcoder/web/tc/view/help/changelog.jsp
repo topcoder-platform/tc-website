@@ -38,7 +38,7 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
-        4.1.8 - 2006.01.xx
+        4.1.8 - 2006.01.23
         <ul>
             <li>tco06 component results site</li>
             <li>some additional tweaks to make intel marathon matches work within the site</li>
