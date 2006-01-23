@@ -82,7 +82,8 @@ public class Submit extends Base {
 
             int roundTypeID = info.getIntItem(0, "round_type_id");
 
-            boolean practiceRound = (roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID);
+            boolean practiceRound = (roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID ||
+                    roundTypeID == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID);
 
             // If the user is not registered s/he cannot submit code, unless this is a practice round.
             if (!practiceRound && !isUserRegistered(uid, rid)) {

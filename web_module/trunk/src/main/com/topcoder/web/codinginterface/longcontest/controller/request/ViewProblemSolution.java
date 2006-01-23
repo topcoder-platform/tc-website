@@ -31,7 +31,7 @@ public class ViewProblemSolution extends Base {
             String dataSource = null;
             // they can also see any solution if it's a practice round
             int roundType = ((Integer)getRequest().getAttribute(Constants.ROUND_TYPE_ID)).intValue();
-            if (roundType==Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
+            if (roundType==Constants.LONG_PRACTICE_ROUND_TYPE_ID||roundType==Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
                 dataSource = DBMS.OLTP_DATASOURCE_NAME;
             } else {
                 //if the results aren't final, they can see their own code, but not anyone else's.

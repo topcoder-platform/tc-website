@@ -57,7 +57,8 @@ public class ViewStandings extends Base {
 
                 Request r = new Request();
 
-                if (roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
+                if (roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID ||
+                        roundTypeID == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
                     r.setContentHandle("long_contest_round_practice_standings");
                     //r.setProperty(DataAccessConstants.SORT_QUERY, "long_contest_round_practice_standings");
                 } else {
