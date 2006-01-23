@@ -198,7 +198,7 @@ function goTo(selection){
              <td width="2%" height="16" background="/i/steel_bluebv_bg.gif"></td>
              <td valign="middle" width="19%" nowrap="0" height="16" background="/i/steel_bluebv_bg.gif" class="registerNav">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Leaders</B></td>
              <td valign="middle" align="right" width="10%" nowrap="0" height="16" background="/i/steel_bluebv_bg.gif" class="registerNav"><B>Score</B>&#160;</td>
-             <td valign="middle" align="right" width="7%" nowrap="0" height="16" background="/i/steel_bluebv_bg.gif" class="registerNav"><B>Rank</B>&#160;</td>
+             <td valign="middle" align="right" width="7%" nowrap="0" height="16" background="/i/steel_bluebv_bg.gif" class="registerNav"><B>Placed</B>&#160;</td>
              <td valign="middle" align="center" width="12%" nowrap="0" height="16" background="/i/steel_bluebv_bg.gif"><A HREF="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>&amp;dn=<%= divisionIDs.get(i).toString() %>" class="statText">Results</A></td>
                             <%}%>
            </tr>
