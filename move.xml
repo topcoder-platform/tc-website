@@ -56,6 +56,7 @@
                 <include name="resources/LongContest.properties"/>
                 <include name="resources/CorpConstants.properties"/>
                 <include name="resources/DataAccess.properties"/>
+                <include name="resources/problem.xsd"/>
                 <include name="move.xml"/>
                 <include name="build.xml"/>
                 <include name="lib/bin/shared.jar"/>
