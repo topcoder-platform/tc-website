@@ -177,12 +177,16 @@ public class AutoPilotTimer
                             if (!(result instanceof SuccessResult)) {
                                 logger.debug("ERROR " + result.toString());
                             } else {
+                                // plk
+                                System.out.println("1");
                                 // If there are no appeals, send email to PM
                                 Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
+                                System.out.println("2");
                                 if (appeals.length == 0) {
                                     //lookup pm
                                     String email = "";
                                     UserRole[] participants = p.getParticipants();
+                                    System.out.println("3");
                                     for (int j = 0; j < participants.length; j++) {
                                         if (participants[j].getRole().getId() == Role.ID_PRODUCT_MANAGER) {
                                             email = participants[j].getUser().getEmail();
@@ -193,16 +197,19 @@ public class AutoPilotTimer
                                         logger.debug("ERROR: Cannot locate PM for Appeals Response Notification");
                                         continue;
                                     }
+                                    System.out.println("4");
 
                                     StringBuffer mail = new StringBuffer();
                                     mail.append("The following project: \n\n");
                                     mail.append(p.getName());
                                     mail.append("\n\nhas completed appeals response and doesn't have");
                                     mail.append(" existing appeals.");
+                                    System.out.println("5");
 
                                     sendMail("autopilot@topcoder.com", email,
                                         "AutoPilotTimer: Appeals Response Notification (No Appeals found)",
                                             mail.toString());
+                                    System.out.println("6");
                                 }
                             }
                         }
