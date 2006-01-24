@@ -160,9 +160,9 @@ public class AutoPilotTimer
 
                             Project p = projectTracker.getProject(projs[i], user.getTCSubject());
                                 System.out.println("2");
-                            Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
+                            //Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
                                 System.out.println("3");
-                            //UserRole[] participants = p.getParticipants();
+                            UserRole[] participants = p.getParticipants();
                                 System.out.println("4");
 //                            Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
   //                          UserRole[] participants = p.getParticipants();
