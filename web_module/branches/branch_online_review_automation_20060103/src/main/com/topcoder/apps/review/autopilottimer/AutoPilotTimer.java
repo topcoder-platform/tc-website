@@ -217,8 +217,8 @@ public class AutoPilotTimer
                                     sendMail("autopilot@topcoder.com", email,
                                         "AutoPilotTimer: Appeals Response Notification (No Appeals found)",
                                             mail.toString());
-                                    System.out.println("6");*/
-                                }
+                                    System.out.println("6");
+                                }*/
                             }
                         }
                     }
