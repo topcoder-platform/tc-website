@@ -50,7 +50,7 @@
                 <br/>
                 <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
                     <tr>
-                        <td class="usdcTitle" colspan=4 align=left>
+                        <td class="pageTitle" colspan=4 align=left>
                             <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/> <a href="/tc?module=TCO06ContestProjects&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">View Projects</a>
                         </td>
                     </tr>
