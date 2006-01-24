@@ -48,7 +48,7 @@ function submitEnter(e) {
      <tr>
        <td width="180" valign="top">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="algo_top_ranked"/>
+            <jsp:param name="node" value="top_rated_algo"/>
          </jsp:include>
        </td>
        <td width="10" valign="top"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
