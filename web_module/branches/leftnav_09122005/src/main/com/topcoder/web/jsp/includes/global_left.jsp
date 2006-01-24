@@ -17,7 +17,7 @@
          nav.search("m_algo_competitions").addChild(new NavNode("", "Compete", "algo_compete"));
          nav.search("m_algo_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_algo_stats')", "Statistics", "m_algo_stats"));
             nav.search("m_algo_stats").addChild(new NavNode("", "Match Archive", "algo_match_archive"));
-            nav.search("m_algo_stats").addChild(new NavNode("", "Match Overviews", "algo_match_overviews"));
+            nav.search("m_algo_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/stat?&c=round_overview", "Match Overviews", "algo_match_overviews"));
             nav.search("m_algo_stats").addChild(new NavNode("", "Match Results", "algo_match_results"));
             nav.search("m_algo_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=match_editorials&d2=archive", "Match Editorials", "algo_match_editorials"));
             nav.search("m_algo_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ProblemArchive", "Problem Archive", "algo_problem_archive"));

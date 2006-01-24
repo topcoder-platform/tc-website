@@ -83,7 +83,7 @@
                 </table>
                <br><br>
                 <%if (!isComplete) {%>
-                  * Contains results from projects still in progress, results subject to
+                  * Contains results from projects still in progress, results subject to change
                <br><br>
                 <% } %>
 
