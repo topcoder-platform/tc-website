@@ -93,7 +93,6 @@
 <tr class="sidebarText"><td>Rocking</td><td align="right">1446.44</td></tr>
 <tr class="sidebarText"><td>Savior</td><td align="right">1664.61</td></tr>
 <tr class="sidebarText"><td>sltz</td><td align="right">1270.90</td></tr>
-<tr class="sidebarText"><td>tangxin</td><td align="right">1814.00</td></tr>
 <tr class="sidebarText"><td>tankbattle</td><td align="right">1163.64</td></tr>
 <tr class="sidebarText"><td>tension</td><td align="right">1250.23</td></tr>
 <tr class="sidebarText"><td>TN_BDFZ</td><td align="right">1425.66</td></tr>
