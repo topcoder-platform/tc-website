@@ -426,7 +426,6 @@
 <tr class="sidebarText"><td>t_tg</td><td nowrap="nowrap">Qualification Groups 2/10/12/16/24</td><td align="right">225.51</td></tr>
 <tr class="sidebarText"><td>tanchgg</td><td nowrap="nowrap">Qualification Groups 4/8/14/18/22</td><td align="right">160.26</td></tr>
 <tr class="sidebarText"><td>tangqiaoboy</td><td nowrap="nowrap">Qualification Groups 5/9/13/20/21</td><td align="right">782.17</td></tr>
-<tr class="sidebarText"><td>tangxin</td><td nowrap="nowrap">Qualification Groups 1/6/11/19/25</td><td align="right">816.07</td></tr>
 <tr class="sidebarText"><td>tankbattle</td><td nowrap="nowrap">Qualification Groups 5/9/13/20/21</td><td align="right">611.20</td></tr>
 <tr class="sidebarText"><td>taokuan</td><td nowrap="nowrap">Qualification Groups 4/8/14/18/22</td><td align="right">191.89</td></tr>
 <tr class="sidebarText"><td>tcma</td><td nowrap="nowrap">Qualification Groups 3/7/15/17/23</td><td align="right">508.22</td></tr>

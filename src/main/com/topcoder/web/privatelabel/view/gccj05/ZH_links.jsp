@@ -73,4 +73,4 @@
             <% } %>
 </font>
 <br><br>
-<span class="bigRed">第二轮比赛已经结束。<A href="/pl/?module=Static&d1=gccj05&d2=ZH_advRound2" class="bigRed">点击这里</A>查看晋级的参赛者！</span>
+<span class="bigRed">现场总决赛已经结束。<A href="/pl/?module=Static&d1=gccj05&d2=ZH_advFinal" class="bigRed">点击这里</A>查看谁是最后的胜利者！</span>
