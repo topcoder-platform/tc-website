@@ -10,6 +10,7 @@
 
 package com.topcoder.web.codinginterface.techassess;
 
+import com.topcoder.shared.util.DBMS;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -389,9 +390,7 @@ public class WebScreeningBot {
     }
     
     private Connection createConnection() throws SQLException{
-        String url = "jdbc:informix-sqli://192.168.14.51:2020/screening_oltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=teacup";
-        IfxDriver.class.getClass();
-        Connection connection = DriverManager.getConnection(url);
+        Connection connection = DBMS.getDirectConnection();
         return connection;
     }
     
