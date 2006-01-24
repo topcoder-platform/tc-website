@@ -62,7 +62,7 @@ By&#160;<tc-webtag:handle coderId="119676" context="design"/><br />
 
 <p>
 <span class="bodySubtitle">Introduction</span><br>
-In a nod to Intel's Multi-Threading Competition series, I've decide to deviate a bit from the design pattern series and explore a few parallel programming patterns.  Similar to design work, parallel programming has a number of patterns that can help a person recognize trends in data processing and to efficiently process those trends in a multi-threaded environment.  The first pattern we will explore is the WaveFront.  This pattern describes a set of strategies to efficiently process data over multiple threads when the flow of processing resembles a 'wave' (more on that later).  This pattern is a good candidate where you have dynamic programming or any divide and conquer type of scheme that can become more efficient when processed over multiple threads.  
+In a nod to the Intel Multi-Threading Competition Series, I've decided to deviate a bit from the design pattern series and explore a few parallel programming patterns.  Similar to design work, parallel programming has a number of patterns that can help a person recognize trends in data processing and to efficiently process those trends in a multi-threaded environment.  The first pattern we will explore is the WaveFront.  This pattern describes a set of strategies to efficiently process data over multiple threads when the flow of processing resembles a 'wave' (more on that later).  This pattern is a good candidate where you have dynamic programming or any divide and conquer type of scheme that can become more efficient when processed over multiple threads.  
 <br><br>
 <span class="bodySubtitle">Levenshtein distance</span><br>
 To understand this pattern, let's look at a common algorithm that involves some dynamic programming:  Levenshtein distance.  This algorithm is used to determine the edit distance between two strings.  An edit distance is defined as the minimal number of character insertions, deletions or substitutions to transform one string (called the source string) into another (called the target string).  Side note: this is also a good data entry algorithm to provide a data entry typist with good alternatives if the item they type is a misspelled value (like vendor or supplier names).
@@ -96,7 +96,7 @@ The flow of information describes how and when each cell can process the informa
 <br><br>
 
 <h2>WaveFront Strategies</h2>
-Now that we have recognized the pattern, let's discuss the strategies that can enable us to take advantage of multiple threads.  Any parallel pattern strategy attempts to minimize the communication between threads (i.e. the synchronization between threads to communicate the data), to minimize the idle time for any given thread (i.e. we want to keep our threads consistently busy) and to provide an even load balancing across each thread (i.e. so each thread does the same amount of work).  If we achieve those three goals, then data was processed in as efficient manner as possible.
+Now that we have recognized the pattern, let's discuss the strategies that can enable us to take advantage of multiple threads.  Any parallel pattern strategy attempts to minimize the communication between threads (i.e. the synchronization between threads to communicate the data), to minimize the idle time for any given thread (i.e. we want to keep our threads consistently busy) and to provide an even load balancing across each thread (i.e. so each thread does the same amount of work).  If we achieve those three goals, then data was processed in as efficient a manner as possible.
 <br><br>
 <span class="bodySubtitle">Fixed Block Based Strategy</span><br>
 This strategy simply divides the rows and columns by the number of threads and allocates each thread that block of information to work on.  If we have 3 threads we will be using, we could divide a 12x9 grid into blocks of 4x3s and assign the threads as shown here:
@@ -123,7 +123,7 @@ If the cost of the communication is extremely low and idle time cost is high, yo
 <br/><br/>
 <div align=center><img src="/i/education/wavefront6.gif" alt="Figure 6"/></div>
 <br/>
-The cyclical block strategy provides a nice balance the cost of communication against the cost of idle time and the programmer can play with the block sizes to provide an optimal combination.
+The cyclical block strategy provides a nice balance between the cost of communication and the cost of idle time while the programmer can play with the block sizes to provide an optimal combination.
 <br><br>
 
 <span class="bodySubtitle">Variable Cyclical Block Based Strategy</span><br>
@@ -146,9 +146,9 @@ This allows us to balance the load over all the calculations yet still gain the 
 <br><br>
 
 <span class="bodySubtitle">Conclusion</span><br>
-The WaveFront pattern is a good introduction to the parallel patterns that is fairly easy to implement, understand and more generally useful (and is one of the more simplistic patterns).  Like all patterns, you need to understand the flow of data and processing, recognize it and then apply the appropriate strategy to deal with it. 
+The WaveFront pattern is a good introduction to the parallel patterns that is fairly easy to implement, understand and is more generally useful (and is one of the more simplistic patterns).  Like all patterns, you need to understand the flow of data and processing, recognize it and then apply the appropriate strategy to deal with it. 
 <br><br>
-As a last word, good luck in the Intel Mult-Threaded Competition competition series!
+As a last word, good luck in the Intel Multi-Threading Competition Series!
 
         </div>
         <p><br/></p>
