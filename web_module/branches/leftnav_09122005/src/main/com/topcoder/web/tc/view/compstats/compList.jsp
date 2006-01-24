@@ -65,7 +65,7 @@ function submitEnter(e) {
 <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="<%="112".equals(phaseId)?"comp_des_contests":"comp_dev_contests"%>"/>
+            <jsp:param name="node" value="<%="112".equals(phaseId)?"des_stats":"dev_stats"%>"/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->

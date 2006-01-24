@@ -31,7 +31,7 @@
 <!-- Left Column Begins -->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="comp_dev_review_board"/>
+            <jsp:param name="node" value="des_review_board"/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->
