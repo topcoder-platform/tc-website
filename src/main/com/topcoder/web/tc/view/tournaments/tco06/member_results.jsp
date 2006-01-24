@@ -48,53 +48,46 @@
 %>
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
     <!-- Body-->
-    <tr valign=top>
-        <td valign=top align=center>
-            <div class=bodySpacer>
-                <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
+    <tr>
+        <td valign="top" align="center">
+            <div class="bodySpacer">
+               <br>
+                <span class="bigTitle"><A href="/tc?module=TCO06ContestDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>" class=usdcTitle>
+                    <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></A> -
+                <tc-webtag:handle context='<%=tab%>' coderId='<%=rscUser.getIntItem(0, "coder_id")%>' darkBG='true'/></span>
+               <br><br
+                <table width="510" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                     <tr>
-                        <td class="usdcTitle" colspan=5 align=left>
-                            <A href="/tc?module=TCO06ContestDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>" class=usdcTitle>
-                                <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></A> -
-                            <tc-webtag:handle context='<%=tab%>' coderId='<%=rscUser.getIntItem(0, "coder_id")%>'/>
-                        </td>
-                    </tr>
-                </table>
-                <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
-                    <tr>
-                        <td class="sidebarTitle" nowrap=nowrap>Component Name</td>
-                        <td class="sidebarTitle" align=center>Submit Date</td>
-                        <td class="sidebarTitle" align=center>Points</td>
-                        <td class="sidebarTitle" align=right>Component Prize</td>
-                        <td class="sidebarTitle" align=center>Placed</td>
-                        <td class="sidebarTitle" align=center>Placement Points</td>
+                        <td class="sidebarTitle" nowrap="nowrap">Component Name</td>
+                        <td class="sidebarTitle" align="center">Submit Date</td>
+                        <td class="sidebarTitle" align="center">Points</td>
+                        <td class="sidebarTitle" align="center">Component Prize</td>
+                        <td class="sidebarTitle" align="center">Placed</td>
+                        <td class="sidebarTitle" align="center">Placement Points</td>
                     </tr>
                     <%for (int i = 0; i < lst.size(); i++) { %>
                     <tr>
                         <% UserContestResult result = (UserContestResult) lst.get(i); %>
-                        <td class="sidebarText">
+                        <td class="sidebarText" nowrap="nowrap">
                             <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=result.getCompID()%>"><%=result.getComponent()%></A>
                             <% if (!result.isComplete()) {
                                 isComplete = false;%>
                             *
                             <% } %>
                         </td>
-                        <td class="sidebarText" align=center nowrap=nowrap><%=result.getSubmitTimestamp()%></td>
-                        <td class="sidebarText" align=center><%=result.getScore()%></td>
+                        <td class="sidebarText" align="center" nowrap=nowrap><%=result.getSubmitTimestamp()%></td>
+                        <td class="sidebarText" align="center"><%=result.getScore()%></td>
                         <td class="sidebarText" align=right><%=result.getPayment()%></td>
-                        <td class="sidebarText" align=center><%=result.getPlaced()%></td>
-                        <td class="sidebarText" align=center><%=result.getPoints()%></td>
+                        <td class="sidebarText" align="center"><%=result.getPlaced()%></td>
+                        <td class="sidebarText" align="center"><%=result.getPoints()%></td>
                     </tr>
                     <% } %>
                 </table>
+                  <br><br>
                 <%if (!isComplete) {%>
-                <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
-                    <tr>
-                        <td class="bodyText">* This project is still in progress, results subject to change</td>
-                    </tr>
-                </table>
+                  * This project is still in progress, results subject to change
+                  <br><br>
                 <% } %>
-                <br/>
 
             </div>
         </td>

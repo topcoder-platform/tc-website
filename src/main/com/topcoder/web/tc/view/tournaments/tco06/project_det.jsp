@@ -50,21 +50,18 @@
 %>
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
     <!-- Body-->
-    <tr valign=top>
-        <td valign=top align=center>
-            <div class=bodySpacer>
-                <br/>
-                <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
-                    <tr>
-                        <td class=usdcTitle>
-                            <A class=usdcTitle href="/tc?module=TCO06ContestDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
-                                <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></A> -
-                            <A class="usdcTitle" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>">
-                                <rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/></A>
-                            <%if (!isComplete) {%>*<%}%></td>
-                    </tr>
-                </table>
-                <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+    <tr valign="top">
+        <td align="center">
+            <div class="bodySpacer">
+               <br>
+               <span class="bigTitle"><A href="/tc?module=TCO06ContestDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
+               <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></A> -
+               <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>">
+               <rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/></A>
+               <%if (!isComplete) {%>*<%}%></span>
+               <br><br>
+               
+                <table width="510" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                     <tr>
                         <td class="sidebarTitle" nowrap=nowrap>Competitor</td>
                         <td class="sidebarTitle" align=center nowrap=nowrap>Submission Date</td>
@@ -77,7 +74,7 @@
                     <tr>
                         <% ProjectDetail result = (ProjectDetail) lst.get(i); %>
                         <td class="sidebarText">
-                            <tc-webtag:handle coderId='<%=result.getUserID()%>' context='<%=tab%>'/></td>
+                            <tc-webtag:handle coderId='<%=result.getUserID()%>' context='<%=tab%>' darkBG='true'/></td>
                         <td class="sidebarText" align=center nowrap=nowrap><%=result.getSubmitTimestamp()%></td>
                         <td class="sidebarText" align=center><%=result.getPlaced()%></td>
                         <td class="sidebarText" align=center><%=result.getPoints()%></td>
@@ -87,13 +84,10 @@
                     <% }%>
                 </table>
                 <%if (!isComplete) {%>
-                <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
-                    <tr>
-                        <td class="bodyText">* This project is still in progress, results subject to change</td>
-                    </tr>
-                </table>
+                  <br><br>
+                  * This project is still in progress, results subject to change
                 <% } %>
-                <br/>
+                  <br><br>
 
 
             </div>
