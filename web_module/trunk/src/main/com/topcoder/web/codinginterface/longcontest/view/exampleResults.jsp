@@ -77,7 +77,7 @@
             <rsc:iterator list="<%=rsc%>" id="resultRow">
                 <h2><%=i%>) Score: <rsc:item name="score" row="<%=resultRow%>" format="0.00"/>
                     <% if (resultRow.getItem("processing_time").getResultData()!=null) { %>
-                    Run Time(ms): <rsc:item name="processing_time" row="<%=resultRow%>"/>
+                    Run Time: <rsc:item name="processing_time" row="<%=resultRow%>"/> ms
                     <% } %>
                 </h2>
                 <p>
