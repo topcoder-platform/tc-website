@@ -69,7 +69,6 @@ public class TCESConstants {
     public static String SORT_ORDER_DES = null;
 
     public static String TASK_PARAM = null;
-    public static String STEP_PARAM = null;
     public static String SORT_PARAM = null;
     public static String SORT_ORDER_PARAM = null;
     public static String BACK_SORT_PARAM = null;

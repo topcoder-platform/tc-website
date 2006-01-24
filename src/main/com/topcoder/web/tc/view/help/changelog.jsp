@@ -38,6 +38,13 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
+        4.1.9 - 2006.01.xx
+        <ul>
+            <li>tco06 component results site - placement points only for those that get over 75</li>
+        </ul>
+
+    </p>
+    <p>
         4.1.8 - 2006.01.23
         <ul>
             <li>tco06 component results site</li>
