@@ -162,7 +162,7 @@ public class AutoPilotTimer
                                 System.out.println("2");
                             //Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
                                 System.out.println("3");
-                            UserRole[] participants = p.getParticipants();
+//                            UserRole[] participants = p.getParticipants();
                                 System.out.println("4");
 //                            Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
   //                          UserRole[] participants = p.getParticipants();
@@ -188,6 +188,7 @@ public class AutoPilotTimer
                             if (!(result instanceof SuccessResult)) {
                                 logger.debug("ERROR " + result.toString());
                             } else {
+                                Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
 /*                                // plk
                                 System.out.println("1");
                                 // If there are no appeals, send email to PM
