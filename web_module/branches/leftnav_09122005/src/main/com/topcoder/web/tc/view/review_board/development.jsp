@@ -31,7 +31,7 @@
 <!-- Left Column Begins -->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="des_review_board"/>
+            <jsp:param name="node" value="dev_review_board"/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -50,9 +50,7 @@
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
                     <td class="bodyText"><img src="/i/clear.gif" width="240" height="1" border="0"><br>
-<!-- Comment out until Dev info is available            <p align="right" >
-               <a href="/?t=features&amp;c=#" class="bodyText"><strong>Go to Development Review Board</strong></a>
-            </p> -->
+                        <p align="right" ><a href="/tc?module=ReviewBoard&ph=112" class="bodyText"><strong>Go to Design Review Board</strong></a></p>
                         <p>TopCoder Software utilizes past component development winners and accomplished TopCoder competitors to staff the Development Review Board.
                         These reviewers verify that each development submission meets the required functionality, coding style, adheres to the component design
                         and contains a suitable test suite.  Furthermore, to certify the component belongs in the TopCoder catalog, the development review board

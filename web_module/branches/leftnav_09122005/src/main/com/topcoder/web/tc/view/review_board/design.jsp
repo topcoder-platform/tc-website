@@ -49,9 +49,7 @@
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
                     <td class="bodyText"><img src="/i/clear.gif" width="240" height="1" border="0"><br>
-<!-- Comment out until Dev info is available            <p align="right" >
-               <a href="/?t=features&amp;c=#" class="bodyText"><strong>Go to Development Review Board</strong></a>
-            </p> -->
+                        <p align="right" ><a href="/tc?module=ReviewBoard&ph=113" class="bodyText"><strong>Go to Development Review Board</strong></a></p>
                         <p>Highly rated and experienced TopCoder members fill the ranks of the Architecture Review Board.  These members screen and review all design
                         submissions to ensure the components meet the functional requirements, are documented properly and contain the appropriate sequence, use case
                         and class diagrams.  Additionally, the Architecture Review Board recommends design enhancements and verifies the design is flexible

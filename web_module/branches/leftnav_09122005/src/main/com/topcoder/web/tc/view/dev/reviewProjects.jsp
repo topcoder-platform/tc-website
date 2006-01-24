@@ -38,8 +38,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
+         <%-- value is either des_review or dev_review --%>
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="comp_review"/>
+            <jsp:param name="node" value="des_review"/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -70,49 +71,6 @@
                 <br/>
             <% } %>
             
-<%--
-
-            <table border="0" cellspacing="0" width="100%" class="formFrame">
-                <tr>
-                    <td class="tccc04SubNav" colspan="8">Open 2004 TopCoder Collegiate Challenge Components</td>
-                </tr>
-                <tr>
-                    <td class="projectHeaders" align="center">Catalog</td>
-                    <td class="projectHeaders">Component Name</td>
-                    <td class="projectHeaders" align="center">Phase</td>
-                    <td class="projectHeaders" align="center">Submissions</td>
-                    <td class="projectHeaders" align="center">Review<br/>Start</td>
-                    <td class="projectHeaders" align="center">Review<br/>End</td>
-                    <td class="projectHeaders" align="center">Positions<br/>Available</td>
-                    <td class="projectHeaders" align="center">Details</td>
-                </tr>
-
-                <rsc:iterator list="<%=tournamentProjectList%>" id="resultRow">
-                    <tr>
-                        <% if ((resultRow.getLongItem("category_id"))==Constants.DOT_NET_CATALOG_ID) { %>
-                            <td class="projectCells" align="center"><img src="/i/development/netSm.gif"/></td>
-                        <% } else if ((resultRow.getLongItem("category_id"))==Constants.JAVA_CATALOG_ID) { %>
-                            <td class="projectCells" align="center"><img src="/i/development/smJava.gif"/></td>
-                        <% } else if ((resultRow.getLongItem("category_id"))==Constants.FLASH_CATALOG_ID) { %>
-                            <td class="projectCells" align="center"><img src="/i/development/flashSm.gif"/></td>
-                        <% } else { %>
-                            <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="catalog"/></td>
-                        <% } %>
-
-                        <td class="projectCells"><rsc:item row="<%=resultRow%>" name="component_name"/></td>
-                        <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="phase_desc"/></td>
-                        <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
-                        <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
-                        <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
-                        <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
-                        <td class="projectCells" align="center"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ReviewProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>&<%=Constants.PHASE_ID%>=<rsc:item row="<%=resultRow%>" name="phase_id"/>">details</a></td>
-                    </tr>
-                </rsc:iterator>
-
-           </table>
-
-            <br/>
---%>
 
 <%
     int devProjectCount = 0;
