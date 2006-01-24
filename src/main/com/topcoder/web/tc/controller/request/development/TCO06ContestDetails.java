@@ -74,7 +74,7 @@ public class TCO06ContestDetails extends StatBase {
                 int pts = 0;
 
                 if (rscDetails.getItem(j, "final_score").getResultData() != null) {
-                    if (rscDetails.getDoubleItem(j, "final_score") >= 70) {
+                    if (rscDetails.getDoubleItem(j, "final_score") >= 75) {
                         if (j < placementPoints.length) {
                             pts = placementPoints[j];
                         }

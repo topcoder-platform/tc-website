@@ -72,7 +72,7 @@ public class TCO06MemberResults extends StatBase {
                     String place = "-";
                     String score = "";
                     if (rscDetails.getItem(j, "final_score").getResultData() != null) {
-                        if (rscDetails.getDoubleItem(j, "final_score") >= 70) {
+                        if (rscDetails.getDoubleItem(j, "final_score") >= 75) {
                             if (j < placementPoints.length) {
                                 pts = placementPoints[j];
                                 place = String.valueOf(j + 1);
