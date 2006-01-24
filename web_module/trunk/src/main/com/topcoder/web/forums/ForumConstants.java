@@ -89,6 +89,11 @@ public interface ForumConstants {
     public final static String WATCHES_SAVE_THREAD = "save";
     public final static String WATCHES_DELETE_THREAD = "delete";
     
+    // Voting
+    public final static String VOTE_VALUE = "vote";
+    public final static String PROPERTY_VOTE_POS = "posVotes";
+    public final static String PROPERTY_VOTE_NEG = "negVotes";
+    
     // Defaults
     public final static int DEFAULT_SEARCH_RANGE = 20;
     public final static int DEFAULT_MESSAGE_RANGE = 15;

@@ -155,7 +155,14 @@
             <%  if (message.getUser() != null && message.getUser().equals(user)) { %>
             | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">Edit</A>
             <%   } %>
-            (<font color="green">+13</font>/0) [+][-]
+            <%  int posVotes = 0, negVotes = 0;
+                try {
+                    posVotes = Integer.parseInt(message.getProperty(ForumConstants.PROPERTY_VOTE_POS));
+                } catch (Exception ignored) {}
+                try {
+                    negVotes = Integer.parseInt(message.getProperty(ForumConstants.PROPERTY_VOTE_NEG));
+                } catch (Exception ignored) {} %>
+            (<font color="green">+<%=posVotes%></font>/<font color="red">-<%=negVotes%></font>) <a href="" class="rtbcLink">[+]</a><a href="" class="rtbcLink">[-]</a>
           </td>
         </tr>
       <tr>
