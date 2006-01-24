@@ -177,7 +177,7 @@ public class AutoPilotTimer
                             if (!(result instanceof SuccessResult)) {
                                 logger.debug("ERROR " + result.toString());
                             } else {
-/*                                // If there are no appeals, send email to PM
+                                // If there are no appeals, send email to PM
                                 Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
                                 if (appeals.length == 0) {
                                     //lookup pm
@@ -203,7 +203,7 @@ public class AutoPilotTimer
                                     sendMail("autopilot@topcoder.com", email,
                                         "AutoPilotTimer: Appeals Response Notification (No Appeals found)",
                                             mail.toString());
-                                }*/
+                                }
                             }
                         }
                     }
