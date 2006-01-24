@@ -46,7 +46,7 @@ public class TCO06ProjectDetails extends StatBase {
             String place = "-";
             String score = "";
             if (rsc.getItem(i, "final_score").getResultData() != null) {
-                if (rsc.getDoubleItem(i, "final_score") >= 70) {
+                if (rsc.getDoubleItem(i, "final_score") >= 75) {
                     if (i < placementPoints.length) {
                         pts = placementPoints[i];
                         place = String.valueOf(i + 1);
