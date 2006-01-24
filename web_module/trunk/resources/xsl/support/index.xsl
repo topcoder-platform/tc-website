@@ -98,7 +98,9 @@
 
                         <TR><TD><A HREF="#184" CLASS="bodyText">What compiler options are used?</A></TD></TR>
 
+<!--
                         <TR><TD><A HREF="#188" CLASS="bodyText">Why doesn't my code compile anymore under gcc 3.x?</A></TD></TR>
+-->
 
                         <TR><TD><A HREF="#185" CLASS="bodyText">What libraries are available?</A></TD></TR>
 
@@ -222,7 +224,7 @@
 <P>Linux 2.4.20-8smp, gcc 4.0.2 (Redhat 9), glibc-2.3.2, and libstdc++-3.</P>
 <P>
 pointers to appropriate docs for each<BR/>
-<A HREF="http://gcc.gnu.org/onlinedocs/gcc-2.95.3/gcc.html" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/onlinedocs/gcc-2.95.3/gcc.html</A><BR/>
+<A HREF="http://gcc.gnu.org/onlinedocs/gcc-4.0.2/gcc/" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/onlinedocs/gcc-4.0.2/gcc/</A><BR/>
 <A HREF="http://www.gnu.org/software/libc/" TARGET="_blank" CLASS="bodyText">http://www.gnu.org/software/libc/</A><BR/>
 <A HREF="http://gcc.gnu.org/onlinedocs/libstdc%2B%2B/documentation.html" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/onlinedocs/libstdc++/documentation.html</A><BR/>
 </P>
@@ -241,6 +243,7 @@ Additional info on gcc 3.1<BR/>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
 
 
+<!--
                         <TR><TD CLASS="bodyText"><A NAME="188"><B>Why doesn't my code compile anymore under gcc 3.x?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
 The upgrade to GCC 3.x may require some changes to C++ submissions to
@@ -283,6 +286,7 @@ longer be available; for details see the library documentation at
                         </TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
 
+-->
 
 
                         <TR><TD CLASS="bodyText"><A NAME="185"><B>What libraries are available?</B></A></TD></TR>
