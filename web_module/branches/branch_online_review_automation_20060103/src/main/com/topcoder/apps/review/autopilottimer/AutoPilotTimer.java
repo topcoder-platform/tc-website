@@ -158,6 +158,8 @@ public class AutoPilotTimer
                             ProjectForm form = new ProjectForm();
 
                             Project p = projectTracker.getProject(projs[i], user.getTCSubject());
+                            Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
+                            UserRole[] participants = p.getParticipants();
 
                             if (!p.getAutoPilot()) continue;
 
@@ -180,12 +182,10 @@ public class AutoPilotTimer
                                 // plk
                                 System.out.println("1");
                                 // If there are no appeals, send email to PM
-                                Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
                                 System.out.println("2");
                                 if (appeals.length == 0) {
                                     //lookup pm
                                     String email = "";
-                                    UserRole[] participants = p.getParticipants();
                                     System.out.println("3");
                                     for (int j = 0; j < participants.length; j++) {
                                         if (participants[j].getRole().getId() == Role.ID_PRODUCT_MANAGER) {
