@@ -72,7 +72,7 @@
                     <tr valign="top">
                         <td class="advancersRound"><a href="/pl/?module=Static&d1=gccj05&d2=ZH_advFinal"
                                                       class="topLink">现场总决赛</a></td>
-                        <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gccj05&d2=ZH_advFinal">Winners</a>
+                        <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gccj05&d2=ZH_advFinal">胜出者</a>
                         </td>
                     </tr>
                 </table>
