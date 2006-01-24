@@ -46,27 +46,25 @@
     <!-- Body-->
     <tr valign=top>
         <td valign=top align=center>
-            <div class=bodySpacer>
+            <div class="bodySpacer">
                 <br/>
-                <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
+                  <span class="bigTitle"><a href="/tc?module=TCO06ContestDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />">
+                  <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></a> - 
+                  Components</span>
+                  <br><br>
+
+                <table width="510" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                     <tr>
-                        <td class="usdcTitle" nowrap=nowrap>
-                            <a href="/tc?module=TCO06ContestDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />">
-                                <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></a> - Components</td>
-                    </tr>
-                </table>
-                <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
-                    <tr>
-                        <td class="sidebarTitle" nowrap=nowrap>Component Name</td>
-                        <td class="sidebarTitle" align=center nowrap=nowrap>Results</td>
-                        <td class="sidebarTitle" align=center>Start Date</td>
-                        <td class="sidebarTitle" align=center>End Date</td>
-                        <td class="sidebarTitle" align=right>1st Place Prize</td>
-                        <td class="sidebarTitle" align=right>2nd Place Prize</td>
+                        <td class="sidebarTitle" nowrap="nowrap">Component Name</td>
+                        <td class="sidebarTitle" align="center" nowrap=nowrap>Results</td>
+                        <td class="sidebarTitle" align="center">Start Date</td>
+                        <td class="sidebarTitle" align="center">End Date</td>
+                        <td class="sidebarTitle" align="right" nowrap="nowrap">1st Place<br>Prize</td>
+                        <td class="sidebarTitle" align="right" nowrap="nowrap">2nd Place<br>Prize</td>
                     </tr>
                     <rsc:iterator list="<%=rsc%>" id="resultRow">
                         <tr>
-                            <td class="sidebarText">
+                            <td class="sidebarText" nowrap="nowrap">
                                 <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>">
                                     <rsc:item name="component_name" row="<%=resultRow%>"/></A>
                                 <% if (resultRow.getIntItem("is_complete") == 0) {
@@ -88,14 +86,11 @@
                         </tr>
                     </rsc:iterator>
                 </table>
+               <br><br>
                 <%if (!isComplete) {%>
-                <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
-                    <tr>
-                        <td class="bodyText">* This project is still in progress, results subject to change</td>
-                    </tr>
-                </table>
+                  * This project is still in progress, results subject to change
+               <br><br>
                 <% } %>
-                <br/>
 
             </div>
         </td>
