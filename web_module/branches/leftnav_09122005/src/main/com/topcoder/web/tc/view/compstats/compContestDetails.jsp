@@ -52,14 +52,13 @@
 
 %>
 
-
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr valign="top">
 <!-- Left Column Begins-->
 <td width="180">
-         <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="<%="112".equals(phase_id)?"des_stats":"dev_stats"%>"/>
-         </jsp:include>
+<jsp:include page="/includes/global_left.jsp">
+   <jsp:param name="node" value='<%="112".equals(projectInfo.getStringItem(0, "phase_id"))?"des_stats":"dev_stats"%>'/>
+</jsp:include>
 </td>
 
 
