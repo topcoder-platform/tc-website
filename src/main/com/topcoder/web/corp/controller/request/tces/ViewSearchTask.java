@@ -120,7 +120,7 @@ public class ViewSearchTask extends BaseTask {
         for (int i = 0, j = 0; i < demographic_questions.getRowCount(); i++) {
             ResultSetContainer.ResultSetRow question = demographic_questions.getRow(i);
             List l = new ArrayList();
-            int questionId = question.getIntItem("demographic_question_id");
+            long questionId = question.getLongItem("demographic_question_id");
             Set s = new HashSet();
             String[] v = request.getParameterValues("demo_" + questionId);
             if (v != null) {
@@ -136,7 +136,7 @@ public class ViewSearchTask extends BaseTask {
                     answer = demographic_answers.getRow(j);
                 }
             }
-            demo.put(new Integer(questionId), l);
+            demo.put(new Long(questionId), l);
         }
 
         //build all the skill tables
