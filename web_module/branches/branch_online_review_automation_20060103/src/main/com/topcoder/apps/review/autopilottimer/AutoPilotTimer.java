@@ -156,16 +156,8 @@ public class AutoPilotTimer
                             //move to appeals response
                             OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, projs[i]);
                             ProjectForm form = new ProjectForm();
-                                System.out.println("1");
 
                             Project p = projectTracker.getProject(projs[i], user.getTCSubject());
-                                System.out.println("2");
-                            //Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
-                                System.out.println("3");
-//                            UserRole[] participants = p.getParticipants();
-                                System.out.println("4");
-//                            Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
-  //                          UserRole[] participants = p.getParticipants();
 
                             if (!p.getAutoPilot()) continue;
 
@@ -179,18 +171,16 @@ public class AutoPilotTimer
 
                             form.setReason("auto pilot advancing to Appeals Response");
 
-                                System.out.println("5");
-
                             ProjectData data = form.toActionData(orpd);
-                                System.out.println("6");
+
                             ResultData result = new BusinessDelegate().projectAdmin(data);
-                                System.out.println("7");
+
                             if (!(result instanceof SuccessResult)) {
                                 logger.debug("ERROR " + result.toString());
                             } else {
                                 Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
                                 UserRole[] participants = projs[i].getUserRoles();
-                                // plk
+/*                                // plk
                                 System.out.println("1");
                                 // If there are no appeals, send email to PM
                                 System.out.println("2");
@@ -220,7 +210,7 @@ public class AutoPilotTimer
                                     sendMail("autopilot@topcoder.com", email,
                                         "AutoPilotTimer: Appeals Response Notification (No Appeals found)",
                                             mail.toString());
-                                    System.out.println("6");
+                                    System.out.println("6");*/
                                 }
                             }
                         }
