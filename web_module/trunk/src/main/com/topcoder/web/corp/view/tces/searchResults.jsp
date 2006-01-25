@@ -110,7 +110,7 @@
                 <%--not indenting to save some space on the download cuz this can be a big loop
                     and the spaces significantly impact the size of the html source
                 --%>
-                <rsc:iterator list="<%=skill_types%>" id="resultRow">
+                <rsc:iterator list="<%=results%>" id="resultRow">
                     <tr>
                         <td><rsc:item name="handle" row="<%=resultRow%>"/></td>
                         <td><rsc:item name="alg_rating" row="<%=resultRow%>"/></td>
