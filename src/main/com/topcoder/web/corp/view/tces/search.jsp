@@ -3,6 +3,8 @@
         language="java"
         import="java.util.*" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
+<%@ page import="com.topcoder.web.corp.common.TCESConstants"%>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants"%>
 
 <%@ taglib uri="tces-taglib.tld" prefix="tces" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -120,9 +122,11 @@
 
 
 <FORM name="search" ACTION="<jsp:getProperty name="sessionInfo" property="servletPath"/>" METHOD="GET">
-<input type="hidden" name="module" value="SearchTask"/>
-<input type="hidden" name="order" value="1"/>
-<input type="hidden" name="sort" value="1"/>
+<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>" value="1"/>
+<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>" value="1"/>
+<tc-webtag:hiddenInput name="<%=TCESConstants.TASK_PARAM%>" value="SearchTask"/>
+<tc-webtag:hiddenInput name="<%=TCESConstants.CAMPAIGN_ID_PARAM%>"/>
+
 <table class="search">
 <tr><td align="center" colspan="3">
     <a href="JavaScript:submitForm()">Submit</a>
