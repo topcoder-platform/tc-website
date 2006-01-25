@@ -161,7 +161,7 @@
     </TABLE>
    <br>
     <% if (roundType ==Constants.INTEL_LONG_ROUND_TYPE_ID) {%>
-   * Due to a communication problem that currently exists between the tester machines and core system, submission are not currently being accepted or processed.  We are actively working to resolve this as quickly as possible.  The submission link will be reactivated when this situation is resolved.  You may check the <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=17">forum discussion</A> for this competition for any updates.
+   * Due to a communication problem that currently exists between the tester machines and core system, submission are not currently being accepted or processed.  We are actively working to resolve this as quickly as possible.  The submission link will be reactivated when this situation is resolved.  You may check the <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505902">forum discussion</A> for this competition for any updates.
     <% } %>
    <br><br>
 </td>
