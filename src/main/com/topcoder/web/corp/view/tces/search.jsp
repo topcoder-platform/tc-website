@@ -15,7 +15,7 @@
     ResultSetContainer.ResultSetRow p;
     m = (Map)request.getAttribute("resultMap");
     ResultSetContainer languages = (ResultSetContainer)m.get("languages");
-    ResultSetContainer demographic_questions = (ResultSetContainer)m.get("tces_demographics_questions");
+    ResultSetContainer demographic_questions = (ResultSetContainer)m.get("tces_demographic_questions");
     ResultSetContainer skill_types = (ResultSetContainer)m.get("skill_types");
     ResultSetContainer states = (ResultSetContainer)m.get("state_list");
     ResultSetContainer country = (ResultSetContainer)m.get("country_list_usa");
