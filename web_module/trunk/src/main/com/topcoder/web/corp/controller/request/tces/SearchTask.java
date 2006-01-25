@@ -91,7 +91,7 @@ public class SearchTask extends ViewSearchTask {
             query.append(" , ct.coder_type_desc\n");
             query.append(" , s.name as school_name\n");
             query.append(" , u.user_id\n");
-            query.append(" , (select max(timestamp) from job_hit jh, campaign_job_xref cjx where cjx.job_id = jh.job_id and jh.user_id = u.user_id and cjx.campaign_id = cam.campaign_id) as most_recent_hit\n");
+            query.append(" , (select max(timestamp) from job_hit jh, campaign_job_xref cjx where cjx.job_id = jh.job_id and jh.user_id = u.user_id and cjx.campaign_id = ").append(campaignId).append(") as most_recent_hit\n");
             query.append(" , case when exists (select 1 from resume where coder_id = c.coder_id) then 'Yes' else 'No' end as has_resume\n");
         }
         query.append("  FROM");
