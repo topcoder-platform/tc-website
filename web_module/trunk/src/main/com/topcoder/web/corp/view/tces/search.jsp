@@ -15,11 +15,10 @@
     ResultSetContainer.ResultSetRow p;
     m = (Map)request.getAttribute("resultMap");
     ResultSetContainer languages = (ResultSetContainer)m.get("languages");
-    ResultSetContainer demographic_questions = (ResultSetContainer)m.get("demographics_questions");
+    ResultSetContainer demographic_questions = (ResultSetContainer)m.get("tces_demographics_questions");
     ResultSetContainer skill_types = (ResultSetContainer)m.get("skill_types");
     ResultSetContainer states = (ResultSetContainer)m.get("state_list");
     ResultSetContainer country = (ResultSetContainer)m.get("country_list_usa");
-    ResultSetContainer notifications = (ResultSetContainer)m.get("notifications");
     Map selectedMap = (Map)request.getAttribute("selected");
     Map demoMap = (Map)request.getAttribute("demoMap");
     Map skillMap = (Map)request.getAttribute("skillMap");
@@ -75,7 +74,7 @@
         deselect('skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>');
         </rsc:iterator>
         document.search.submit();
-    }
+    }F
     function deselect( a ){
         var i;
         for(i = 0; i<document.search[a].length; i++){
@@ -206,10 +205,6 @@
             <tc-webtag:chkBox name="travel"/></td></tr>
         <tr><td class="left">US Authorization:</td><td class="right"><tc-webtag:chkBox name="auth"/></td>
         </tr>
-        <tr><td class="left">Notifications:<br/><a href="JavaScript:deselect('notifications')">Deselect</a>
-        </td><td class="right">
-            <tc-webtag:multiRSCSelect styleClass="multiSel1" fieldValue="notify_id" fieldText="name" name="notifications" size="5" useTopValue="false" list="<%=notifications%>" multiple="true" selected='<%=(Set)selectedMap.get("notifications")%>'/>
-        </td></tr>
     </table>
 </td>
 <td valign="top" class="centertop">
