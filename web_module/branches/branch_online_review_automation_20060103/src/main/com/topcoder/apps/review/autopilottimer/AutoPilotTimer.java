@@ -189,6 +189,7 @@ public class AutoPilotTimer
                                 logger.debug("ERROR " + result.toString());
                             } else {
                                 Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
+                                UserRole[] participants = p.getParticipants();
 /*                                // plk
                                 System.out.println("1");
                                 // If there are no appeals, send email to PM
