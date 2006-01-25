@@ -52,7 +52,9 @@ Active Contests&#160;&#160;|&#160;&#160;
 <A href="/longcontest/?module=Static&d1=intel_resources">ISN Resources</A>
 </p>
 <br><br>
-Due to unforeseen problems with our tester hardware configuration, we are currently unable to accept submissions.  Round registration and the problem statement will be available at the previously posted time.  We're working to resolve our hardware issues and will enable submissions as soon as possible.  We apologize for the inconvenience.
+<span class="bigRed">Due to unforeseen problems with our tester hardware configuration, we are currently unable to accept submissions.  Round registration and the problem statement will be available at the previously posted time.  We're working to resolve our hardware issues and will enable submissions as soon as possible.  We apologize for the inconvenience.</span>
+<br><br>
+<div align="center"><A href="/longcontest/?module=ViewActiveContests&rt=15">view Active Contests</A></div>
    </div>
 </div>
 </td>
