@@ -164,11 +164,11 @@
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=movies"><% if (tabLev3.equals("movies")) {%><img src="/i/tournament/tco06/tabs/L3_moviesOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco06/tabs/L3_moviesOff.gif" border=0 /><% } %></a></td>
                <% } else if (tabLev2.equals("sponsors")) {%>
 <%--
-                  <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=sun"><% if (tabLev3.equals("sun")) {%><img src="/i/tournament/tco06/tabs/L3_sunOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco06/tabs/L3_sunOff.gif" border=0 /><% } %></a></td>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=yahoo"><% if (tabLev3.equals("yahoo")) {%><img src="/i/tournament/tco06/tabs/L3_yahooOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco06/tabs/L3_yahooOff.gif" border=0 /><% } %></a></td>
 --%>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign"><% if (tabLev3.equals("verisign")) {%><img src="/i/tournament/tco06/tabs/L3_verisignOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco06/tabs/L3_verisignOff.gif" border=0 /><% } %></a></td>
-               <% } else if (tabLev2.equals("eventPatrons")) {%>
+                  <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs"><% if (tabLev3.equals("ubs")) {%><img src="/i/tournament/tco06/tabs/L3_ubsOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco06/tabs/L3_ubsOff.gif" border=0 /><% } %></a></td>
+              <% } else if (tabLev2.equals("eventPatrons")) {%>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa"><% if (tabLev3.equals("nsa")) {%><img src="/i/tournament/tco06/tabs/L3_nsaOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco06/tabs/L3_nsaOff.gif" border=0 /><% } %></a></td>
                <% } else {%>
                   <td class="subNavBG"><img src="/i/clear.gif" height="35" width="1" border=0/></td>
