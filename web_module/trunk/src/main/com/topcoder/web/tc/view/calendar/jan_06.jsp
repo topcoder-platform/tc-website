@@ -152,7 +152,7 @@ text-decoration: none;
     <tr> 
         <td id="calendarTCO06">
             <strong>2006 TopCoder Open Component Competition</strong><br/>
-            Registration Closes & Week 1 Projects Posted: 9:00 AM ET<br/>
+            Week 1 Projects Posted: 9:00 AM ET<br/>
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
             <A class="calendarTCO06Link" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_schedule">Details</A>
             </td>
