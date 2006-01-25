@@ -13,7 +13,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=wavefrontPattern">Parallel Patterns: WaveFront Pattern Tutorial</A></span><br><br>
        "In a nod to the Intel Multi-Threading Competition Series, I've decided to deviate a bit from the design pattern series and explore a few parallel programming patterns."</td>
-      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <tc-webtag:handle coderId="119676" context="algorithm"/></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <tc-webtag:handle coderId="119676" context="design"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">

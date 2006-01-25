@@ -111,7 +111,7 @@ Registration for the VeriSign&#153; Internal Competition is open from Monday, Ap
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText" colspan="4">*Times are Eastern Standard Time. &#160;**Times are Eastern Daylight Time.<br/>
+      <td class="sidebarText" colspan="4">*Times are Eastern Standard Time. &#160;**Times are Eastern Daylight Savings Time.<br/>
       NOTE:  In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.</td>
    </tr>
 </table>
