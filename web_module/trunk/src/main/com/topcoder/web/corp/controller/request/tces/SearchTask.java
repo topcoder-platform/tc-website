@@ -16,10 +16,10 @@ import java.util.*;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jan 18, 2006
  */
-public class SearchTask extends BaseTask {
+public class SearchTask extends ViewSearchTask {
     private static Logger log = Logger.getLogger(SearchTask.class);
 
-    protected void businessProcessing() throws TCWebException {
+    protected void searchProcessing() throws TCWebException {
         log.debug("process called....");
         try {
             long time = System.currentTimeMillis();

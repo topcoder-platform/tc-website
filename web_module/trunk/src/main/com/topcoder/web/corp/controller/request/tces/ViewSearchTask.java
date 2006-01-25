@@ -18,17 +18,12 @@ import java.util.*;
  */
 public class ViewSearchTask extends BaseTask {
 
-    private long campaignId;
-
     protected void businessProcessing() throws Exception {
 
         String campaignId = getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM);
         if (StringUtils.isNumber(campaignId)) {
             if (hasAccess(Long.parseLong(campaignId))) {
-                setDefault(TCESConstants.CAMPAIGN_ID_PARAM, campaignId);
-                loadDefaults(getRequest());
-                setNextPage(TCESConstants.SEARCH_PAGE);
-                setIsNextPageInContext(true);
+                searchProcessing();
             } else {
                 throw new Exception(" cid=" + String.valueOf(campaignId) +
                         "does not belong to uid=" + String.valueOf(getUser().getId()));
@@ -38,6 +33,13 @@ public class ViewSearchTask extends BaseTask {
         }
 
 
+    }
+
+    protected void searchProcessing() throws Exception {
+        setDefault(TCESConstants.CAMPAIGN_ID_PARAM, getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM));
+        loadDefaults(getRequest());
+        setNextPage(TCESConstants.SEARCH_PAGE);
+        setIsNextPageInContext(true);
     }
 
     protected boolean hasAccess(long campaignId) throws Exception {
