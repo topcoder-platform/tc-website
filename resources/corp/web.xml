@@ -657,7 +657,7 @@
         <!-- URL Parameter constant names -->
         <init-param>
             <param-name>user_id</param-name>
-            <param-value>userId</param-value>
+            <param-value>uid</param-value>
             <description></description>
         </init-param>
 
