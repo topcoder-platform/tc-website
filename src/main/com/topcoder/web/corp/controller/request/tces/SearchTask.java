@@ -2,6 +2,7 @@ package com.topcoder.web.corp.controller.request.tces;
 
 import com.topcoder.shared.dataAccess.QueryDataAccess;
 import com.topcoder.shared.dataAccess.QueryRequest;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
@@ -152,8 +153,8 @@ public class SearchTask extends ViewSearchTask {
             query.append('\n');
         }
         query.append(buildCoderConstraints(request, skill));
-        int sc = Integer.parseInt(request.getParameter("order"));
-        int so = Integer.parseInt(request.getParameter("sort"));
+        int sc = Integer.parseInt(request.getParameter(DataAccessConstants.SORT_DIRECTION));
+        int so = Integer.parseInt(request.getParameter(DataAccessConstants.SORT_COLUMN));
         query.append("  ORDER BY ");
         query.append(sc);
         if (so == 1 && sc < 7 || so == -1 && sc >= 7) query.append(" ASC\n");
