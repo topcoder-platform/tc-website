@@ -1314,6 +1314,7 @@
                 <include name="privatelabel.tld"/>
                 <include name="tc-taglib.tld"/>
                 <include name="rsc-taglib.tld"/>
+                <include name="nav.tld"/>
             </webinf>
         </war>
         <unwar src="${war.dir}/privatelabel.war" dest="${jboss_deploy}/privatelabel.war/" overwrite="yes"/>
