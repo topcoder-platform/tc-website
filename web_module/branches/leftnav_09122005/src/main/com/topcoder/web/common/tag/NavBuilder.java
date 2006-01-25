@@ -20,7 +20,7 @@ import java.io.IOException;
 public class NavBuilder extends TagSupport {
     private static final Logger log = Logger.getLogger(NavBuilder.class);
     private NavTree nav = null;
-    private String selectedNode = null;
+    private String selectedNode = "";
     private String openClass = null;
     private String selectedLeafClass = null;
     private String selectedParentClass = null;
@@ -159,7 +159,7 @@ public class NavBuilder extends TagSupport {
      */
     public int doEndTag() throws JspException {
         this.nav = null;
-        this.selectedNode = null;
+        this.selectedNode = "";
         this.openClass = null;
         this.selectedLeafClass = null;
         this.selectedParentClass = null;
