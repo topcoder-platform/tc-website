@@ -3,6 +3,8 @@ package com.topcoder.web.corp.controller.request.tces;
 import com.topcoder.web.corp.common.TCESConstants;
 import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -20,22 +22,42 @@ public class ViewSearchTask extends BaseTask {
 
     protected void businessProcessing() throws Exception {
 
-        getRequest().setAttribute(TCESConstants.CAMPAIGN_ID_PARAM,
-                getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM));
-        loadDefaults(getRequest());
-        setNextPage(TCESConstants.SEARCH_PAGE);
-        setIsNextPageInContext(true);
-        
+        String campaignId = getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM);
+        if (StringUtils.isNumber(campaignId)) {
+            if (hasAccess(Long.parseLong(campaignId))) {
+                setDefault(TCESConstants.CAMPAIGN_ID_PARAM, campaignId);
+                loadDefaults(getRequest());
+                setNextPage(TCESConstants.SEARCH_PAGE);
+                setIsNextPageInContext(true);
+            } else {
+                throw new Exception(" cid=" + String.valueOf(campaignId) +
+                        "does not belong to uid=" + String.valueOf(getUser().getId()));
+            }
+        } else {
+            throw new TCWebException("Invalid campaign id specified " + campaignId);
+        }
+
+
+    }
+
+    protected boolean hasAccess(long campaignId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("TCES_Verify_Campaign_Access");
+        r.setProperty(TCESConstants.CAMPAIGN_ID_PARAM, String.valueOf(campaignId));
+        r.setProperty(TCESConstants.USER_ID_PARAM, String.valueOf(getUser().getId()));
+        return !((ResultSetContainer)getDataAccess(getOltp()).getData(r).get("TCES_Verify_Campaign_Access")).isEmpty();
+
+
     }
 
     private void loadDefaults(TCRequest request) throws Exception {
         Request r = new Request();
-        r.setContentHandle("profile_search");
+        r.setContentHandle("tces_profile_search");
         DataAccessInt dataAccess = getDataAccess(getOltp(), true);
         Map m = dataAccess.getData(r);
         request.setAttribute("resultMap", m);
         ResultSetContainer languages = (ResultSetContainer) m.get("languages");
-        ResultSetContainer demographic_questions = (ResultSetContainer) m.get("demographics_questions");
+        ResultSetContainer demographic_questions = (ResultSetContainer) m.get("tces_demographics_questions");
         ResultSetContainer demographic_answers = (ResultSetContainer) m.get("demographics_answers");
         ResultSetContainer skill_types = (ResultSetContainer) m.get("skill_types");
         ResultSetContainer skills = (ResultSetContainer) m.get("skills");
@@ -81,7 +103,7 @@ public class ViewSearchTask extends BaseTask {
                     l.add(new ListSelectTag.Option(v[i], name + " >= " + skillLevel));
                 }
                 skillSetMap.put(p, l);
-            } else if (p.equals("states") || p.equals("country") || p.equals("countryoforigin") || p.equals("notifications")) {
+            } else if (p.equals("states") || p.equals("country") || p.equals("countryoforigin")) {
                 //set a few more selections
                 Set s = new HashSet();
                 s.addAll(Arrays.asList(v));
