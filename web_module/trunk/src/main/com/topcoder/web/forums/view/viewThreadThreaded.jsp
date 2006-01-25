@@ -11,6 +11,8 @@
                 com.jivesoftware.forum.Watch,
                 com.jivesoftware.forum.ForumThread,
                 com.jivesoftware.forum.ReadTracker,
+                com.jivesoftware.forum.RatingManagerFactory,
+                com.jivesoftware.forum.RatingManager,
                 java.util.*,
                 com.topcoder.shared.util.DBMS"
 %>
@@ -28,6 +30,7 @@
 <%  HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
     User user = (User)request.getAttribute("user");
     String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW));
+    RatingManager ratingManager = RatingTrackerFactory.getInstance(authToken);
     ReadTracker readTracker = forumFactory.getReadTracker();
     ForumThread nextThread = (ForumThread)request.getAttribute("nextThread");
     ForumThread prevThread = (ForumThread)request.getAttribute("prevThread");
@@ -67,6 +70,37 @@
 <jsp:include page="top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
+
+<script type="text/javascript">
+<!--
+function toggle(obj) {
+    var el = document.getElementById(obj);
+    if ( el.style.display != "none" ) {
+        el.style.display = 'none';
+    }
+    else {
+        el.style.display = '';
+    }
+}
+
+function displayVotes(posVotes, negVotes) {
+    mdiv = document.getElementById("userIdMessage");
+    mdiv.innerHTML = "+"+posVotes+"/-"+negVotes;
+}
+
+//-->
+</script>
+
+<style type="text/css">
+<!--
+.pointer {
+    cursor: pointer;
+}
+-->
+</style>
+
+<div id="userIdMessage"></div>
+<a class="pointer" onMouseOver="this.style.color='#FF0000'"; onMouseOut="this.style.color='#333'"; onclick="displayVotes(7,3)";>Test</a>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
@@ -140,6 +174,7 @@
 <table cellpadding="0" cellspacing="0" class="rtTable">
       <tr>
           <td class="rtHeader" colspan="2" width="100%">
+            <%  String msgBodyID = "msgBody" + message.getID(); %> 
             <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
                   <%  int editCount = historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME);
                   if (editCount > 0) { %> 
@@ -147,7 +182,7 @@
                   <%  } %>
                <a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="creationDate" format="EEE, MMM d, yyyy 'at' h:mm a z"/></a>
             </div>
-            <jsp:getProperty name="message" property="subject"/>
+            <a class="pointer" onMouseOver="this.style.color='#FF0000'"; onMouseOut="this.style.color='#333'"; onclick="toggle('<%=msgBodyID%>')";><jsp:getProperty name="message" property="subject"/></a>
             <%   if (message.getParentMessage() != null) { %>
                (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
             <%   } %>
@@ -155,17 +190,16 @@
             <%  if (message.getUser() != null && message.getUser().equals(user)) { %>
             | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">Edit</A>
             <%   } %>
-            <%  int posVotes = 0, negVotes = 0;
-                try {
-                    posVotes = Integer.parseInt(message.getProperty(ForumConstants.PROPERTY_VOTE_POS));
-                } catch (Exception ignored) {}
-                try {
-                    negVotes = Integer.parseInt(message.getProperty(ForumConstants.PROPERTY_VOTE_NEG));
-                } catch (Exception ignored) {} %>
-            (<font color="green">+<%=posVotes%></font>/<font color="red">-<%=negVotes%></font>) <a href="" class="rtbcLink">[+]</a><a href="" class="rtbcLink">[-]</a>
+            <%  if (ratingManager.isRatingsEnabled()) { 
+                    double avgRating = ratingManager.getMeanRating(message);
+                    int ratingCount = ratingManager.getRatingCount(message);
+                    int posRatings = (int)(Math.round(avgRating*ratingCount)-ratingCount);
+                    int negRatings = ratingCount - posRatings; %>
+                (+<%=posRatings%>/-<%=negRatings%>) <a href="" class="rtbcLink">[+]</a><a href="" class="rtbcLink">[-]</a>
+            <% } %>
           </td>
-        </tr>
-      <tr>
+      </tr>
+      <tr id="<%=msgBodyID%>">
       <td class="rtPosterCell">
          <div class="rtPosterSpacer">
          <%  if (ForumsUtil.displayMemberPhoto(user, message.getUser())) { %>

@@ -22,6 +22,8 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.common.web.data.Round;
+import com.jivesoftware.forum.RatingManagerFactory;
+import com.jivesoftware.forum.RatingManager;
 
 import java.util.*;
 
@@ -87,11 +89,18 @@ public class Admin extends ForumsProcessor {
             } finally {
                 BaseProcessor.close(ctx);
             }
-        }
-        else if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
+        } else if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
             log.info(user.getUsername() + " running command: " + command);
             escapeHTML(); 
-        } /* 
+        } else if (command.equals(ForumConstants.ADMIN_ENABLE_RATINGS)) {
+            RatingManager ratingManager = RatingManagerFactory.getInstance(authToken);
+            if (!ratingManager.isRatingsEnabled()) {
+                ratingManager.setRatingsEnabled(true);
+                ratingManager.createRating(1, "negative");
+                ratingManager.createRating(2, "positive");
+            }
+        }
+        /* 
         else if (command.equals("Add test forums")) {
             for (int i=0; i<50; i++) {
                 com.jivesoftware.forum.ForumCategory fc = forumFactory.getForumCategory(8);
