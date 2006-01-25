@@ -54,9 +54,9 @@ if ( plugin ) {
             <tr><td class="catNW">Maximum Rating:</td><td class="statRNW"><rsc:item name="highest_rating" set="<%=rscAlgData%>" format="####"/></td></tr>
             <tr><td class="catNW">Minimum Rating:</td><td class="statRNW"><rsc:item name="lowest_rating" set="<%=rscAlgData%>" format="####"/></td></tr>
             <tr><td class="catNW">Default Language:</td><td class="statRNW"><rsc:item name="language_name" set="<%=rscAlgData%>" /></td></tr>
-            <tr><td class="catNW">Competitions:</td><td class="statRNW"><rsc:item name="num_ratings" set="<%=rscAlgData%>" /></td></tr>
+            <tr><td class="catNW">Competitions:</td><td class="statRNW"><A HREF='/stat?c=ratings_history&cr=<%=request.getParameter("cr")%>'><rsc:item name="num_ratings" set="<%=rscAlgData%>" /></A></td></tr>
             <tr><td class="catNW">Most Recent Event:</td><td class="statRNW"><rsc:item name="last_round" set="<%=rscAlgData%>" /><br><rsc:item name="last_round_date" set="<%=rscAlgData%>" format="MM.dd.yy"/></td></tr>
-            <tr><td class="catNW">Earnings:</td><td class="statRNW"><rsc:item name="earnings" set="<%=rscAlgData%>" format="$#,##0.00" ifNull="$0.00"/></td></tr>
+            <tr><td class="catNW">Earnings:</td><td class="statRNW"><A href='/stat?c=earnings_history&cr=<%=request.getParameter("cr")%>'><rsc:item name="earnings" set="<%=rscAlgData%>" format="$#,##0.00" ifNull="$0.00"/></A></td></tr>
             <tr><td class="catNW" colspan="2"><A href='/stat?c=earnings_history&cr=<%=request.getParameter("cr")%>'>[earnings history]</A></td></tr>
          </table>
       </td>

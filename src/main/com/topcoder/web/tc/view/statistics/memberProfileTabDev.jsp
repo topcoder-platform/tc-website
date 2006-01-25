@@ -54,11 +54,11 @@ if ( plugin ) {
                 <tr><td class="catNW">School Rank:</td><td class="statRNW"><rsc:item name="school_rank" set="<%=rscDevData%>" ifNull="not ranked" /><% if (rscDevData.getStringItem(0, "school_rank")!=null) { %> of <rsc:item name="num_school_ranked" set="<%=rscDevData%>"/><% } %></td></tr>
             <% }%>
             <tr><td class="catNW">Volatility:</td><td class="statRNW"><rsc:item name="vol" set="<%=rscDevData%>" format="####" /></td></tr>
-            <tr><td class="catNW">Competitions:</td><td class="statRNW"><rsc:item name="num_ratings" set="<%=rscDevData%>" format="####" /></td></tr>
+            <tr><td class="catNW">Competitions:</td><td class="statRNW"><A href='/stat?c=tcs_ratings_history&pi=113&cr=<%=request.getParameter("cr")%>'><rsc:item name="num_ratings" set="<%=rscDevData%>" format="####" /></A></td></tr>
             <tr><td class="catNW">Reliability:</td><td class="statRNW"><rsc:item name="reliability" set="<%=rscDevData%>" format="#.##%" ifNull="n/a"/></td></tr>
             <tr><td class="catNW">Maximum Rating:</td><td class="statRNW"><rsc:item name="max_rating" set="<%=rscDevData%>" format="####"/></td></tr>
             <tr><td class="catNW">Minimum Rating:</td><td class="statRNW"><rsc:item name="min_rating" set="<%=rscDevData%>" format="####"/></td></tr>
-            <tr><td class="catNW">Earnings:</td><td class="statRNW"><rsc:item name="earnings" set="<%=rscDevData%>" format="$#,##0.00"/></td></tr>
+            <tr><td class="catNW">Earnings:</td><td class="statRNW"><A href='/stat?pi=113&c=component_history&cr=<%=request.getParameter("cr")%>'><rsc:item name="earnings" set="<%=rscDevData%>" format="$#,##0.00"/></A></td></tr>
             <tr><td class="catNW" colspan="2"><A href='/stat?pi=113&c=component_history&cr=<%=request.getParameter("cr")%>'>[earnings history]</A></td></tr>
          </table>
       </td>
