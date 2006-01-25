@@ -9,14 +9,20 @@
       <td align=left nowrap=nowrap class=boxBlue>
       <span class=whtSubtitle>Important Dates</span>
       <br/><br/>
-      <b>Registration Starts</b><br/>
-      Monday, February 13th
+      <b>Registration Opens</b><br/>
+      Monday, April 17
       <br/><br/>
-      <b>Qualification Round</b><br/>
-      Tuesday, February 28th
+      <b>Registration Closes</b><br/>
+      Tuesday, April 25
+      <br/><br/>
+      <b>SRM 1</b><br/>
+      Tuesday, April 25
+      <br/><br/>
+      <b>SRM 2</b><br/>
+      Wednesday, May 17
       <br/><br/>
       <b>Championship Round</b><br/>
-      Wednesday, March 22nd
+      Tuesday, June 13
       </td>
    </tr>
    <tr><td>&#160;</td></tr>
