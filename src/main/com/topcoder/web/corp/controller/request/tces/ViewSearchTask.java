@@ -116,27 +116,27 @@ public class ViewSearchTask extends BaseTask {
             }
         }
         //build all the demo tables
-        ResultSetContainer.ResultSetRow answer = demographic_answers.getRow(0);
+        ResultSetContainer.ResultSetRow row = null;
         for (int i = 0, j = 0; i < demographic_questions.getRowCount(); i++) {
             ResultSetContainer.ResultSetRow question = demographic_questions.getRow(i);
-            List l = new ArrayList();
-            long questionId = question.getLongItem("demographic_question_id");
+            List answers = new ArrayList();
+
             Set s = new HashSet();
+            long questionId = question.getLongItem("demographic_question_id");
             String[] v = request.getParameterValues("demo_" + questionId);
             if (v != null) {
                 s.addAll(Arrays.asList(v));
             }
-            while (answer.getIntItem("demographic_question_id") == questionId) {
-                String text = answer.getStringItem("demographic_answer_text");
-                String answerId = answer.getStringItem("demographic_answer_id");
-                l.add(new ListSelectTag.Option(answerId, text, s.contains(answerId)));
-                if (++j == demographic_answers.getRowCount()) {
-                    break;
-                } else {
-                    answer = demographic_answers.getRow(j);
+
+            for (Iterator it= demographic_answers.iterator(); it.hasNext();) {
+                row = (ResultSetContainer.ResultSetRow)it.next();
+                if (row.getLongItem("demographic_question_id")==questionId) {
+                    answers.add(new ListSelectTag.Option(row.getStringItem("demographic_answer_id"),
+                            row.getStringItem("demographic_answer_text"),
+                            s.contains(row.getStringItem("demographic_answer_id"))));
                 }
             }
-            demo.put(new Long(questionId), l);
+            demo.put(new Long(questionId), answers);
         }
 
         //build all the skill tables
