@@ -60,7 +60,7 @@ public class SearchTask extends ViewSearchTask {
         List tables, constraints;
         (tables = demo[0]).addAll(skills[0]);
         (constraints = demo[1]).addAll(skills[1]);
-        String sch = request.getParameter("school");
+        String school = request.getParameter("school");
         boolean containsDevRating = !"".equals(StringUtils.checkNull(request.getParameter("mindevrating")))
                 || !"".equals(StringUtils.checkNull(request.getParameter("maxdevrating")));
         boolean containsDesRating = !"".equals(StringUtils.checkNull(request.getParameter("mindesrating")))
@@ -69,7 +69,7 @@ public class SearchTask extends ViewSearchTask {
         //type, max hit date
         StringBuffer query = new StringBuffer(5000);
         if ("on".equals(request.getParameter("count"))) {
-            if (sch != null && sch.length() > 0 && !sch.equals("%")) {
+            if (school != null && school.length() > 0 && !school.equals("%")) {
                 query.append("SELECT {+ordered} COUNT(*)as total_count, \n");
             } else {
                 query.append("SELECT COUNT(*)as total_count, \n");
@@ -79,7 +79,7 @@ public class SearchTask extends ViewSearchTask {
             handle, rating, des rating, dev rating, state, country, type, school, recent hit date, resume
             */
             query.append("SELECT");
-            if (!"".equals(StringUtils.checkNull(sch)) && !sch.equals("%")) {
+            if (!"".equals(StringUtils.checkNull(school)) && !school.equals("%")) {
                 query.append(" {+ordered}");
             }
             query.append("   u.handle\n");
@@ -89,13 +89,13 @@ public class SearchTask extends ViewSearchTask {
             query.append(" , c.state_code\n");
             query.append(" , cry.country_name\n");
             query.append(" , ct.coder_type_desc\n");
-            query.append(" , sch.name as school_name\n");
+            query.append(" , s.name as school_name\n");
             query.append(" , u.user_id\n");
             query.append(" , (select max(timestamp) from job_hit jh, campaign_job_xref cjx where cjx.job_id = jh.job_id and jh.user_id = u.user_id and cjx.campaign_id = cam.campaign_id) as most_recent_hit\n");
             query.append(" , case when exists (select 1 from resume where coder_id = c.coder_id) then 'Yes' else 'No' end as has_resume\n");
         }
         query.append("  FROM");
-        query.append("    outer(current_school cur_sch, school sch)\n");
+        query.append("    outer(current_school cs, school s)\n");
         query.append("    ,coder c\n");
         query.append("    ,user u\n");
         query.append("    ,rating r\n");
@@ -116,14 +116,10 @@ public class SearchTask extends ViewSearchTask {
         }
         query.append("    ,country cry\n");
         query.append("  WHERE 1 = 1\n");
-        if (containsDesRating) {
-            query.append("    AND desr.user_id = c.coder_id\n");
-            query.append("    AND desr.phase_id = 112\n");
-        }
-        if (containsDevRating) {
-            query.append("    AND devr.user_id = c.coder_id\n");
-            query.append("    AND devr.phase_id = 113\n");
-        }
+        query.append("    AND desr.user_id = c.coder_id\n");
+        query.append("    AND desr.phase_id = 112\n");
+        query.append("    AND devr.user_id = c.coder_id\n");
+        query.append("    AND devr.phase_id = 113\n");
         query.append("    AND c.coder_type_id = ct.coder_type_id\n");
         query.append("    AND r.coder_id = c.coder_id\n");
         query.append("    AND u.user_id = c.coder_id\n");
@@ -137,10 +133,10 @@ public class SearchTask extends ViewSearchTask {
         query.append(                " where jh.job_id = cjx.job_id\n");
         query.append(                  " and jh.user_id = u.user_id\n");
         query.append(                  " and cjx.campaign_id = ").append(campaignId).append(")\n");
-        if (sch != null && sch.length() > 0) {
-            query.append("    AND cur_sch.coder_id = c.coder_id\n");
-            query.append("    AND cur_sch.school_id = sch.school_id\n");
-            query.append(stringMatcher(sch, "sch.name", isCaseSensitive));
+        query.append("    AND cs.coder_id = c.coder_id\n");
+        query.append("    AND cs.school_id = s.school_id\n");
+        if (school != null && school.length() > 0) {
+            query.append(stringMatcher(school, "s.name", isCaseSensitive));
         }
 
         if ("on".equals(request.getParameter("resume"))) {
