@@ -188,9 +188,9 @@ public class AutoPilotTimer
                             if (!(result instanceof SuccessResult)) {
                                 logger.debug("ERROR " + result.toString());
                             } else {
-                                //Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
-                                UserRole[] participants = p.getParticipants();
-/*                                // plk
+                                Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
+                                UserRole[] participants = projs[i].getUserRoles();
+                                // plk
                                 System.out.println("1");
                                 // If there are no appeals, send email to PM
                                 System.out.println("2");
@@ -221,7 +221,7 @@ public class AutoPilotTimer
                                         "AutoPilotTimer: Appeals Response Notification (No Appeals found)",
                                             mail.toString());
                                     System.out.println("6");
-                                }*/
+                                }
                             }
                         }
                     }
