@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page
         language="java"
         import="com.topcoder.web.codinginterface.longcontest.Constants"
@@ -70,12 +71,12 @@
                     </tr>
                     <tr>
                         <td class="tableHeader">Contest</td>
-                        <td class="tableHeader" colspan="3" nowrap="nowrap">Problem Name</td>
+                        <td class="tableHeader" colspan="3" nowrap="nowrap">Problem</td>
                         <td class="tableHeader" align="center" nowrap="nowrap">Registrants</td>
                         <td class="tableHeader" align="center" nowrap="nowrap">Competitors</td>
                         <td class="tableHeader" align="center" nowrap="nowrap">Submissions</td>
-                        <td class="tableHeader" align="center" nowrap="nowrap">Start time</td>
-                        <td class="tableHeader" align="center" nowrap="nowrap">End time</td>
+                        <td class="tableHeader" align="center" nowrap="nowrap">Start Time</td>
+                        <td class="tableHeader" align="center" nowrap="nowrap">End Time</td>
                         <td class="tableHeader" align="center" nowrap="nowrap">Forum</td>
                     </tr>
 
@@ -110,13 +111,13 @@
                                         <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewReg&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>"
                                            class="statLink">Register</a>
                                     </logic:equal>
-<!--
                                     <logic:notEqual name="contest" property="coderRegistered" value="false">
+<!--
                                         <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>"
                                            class="statLink">Submit</a>
-                                    </logic:notEqual>
 -->
                                     Submit*
+                                    </logic:notEqual>
                                 </logic:equal>
                             </td>
                             <td class="<%=even?"statLt":"statDk"%>">
@@ -158,8 +159,8 @@
             </TD>
         </tr>
     </TABLE>
-   <br><br>   
-   * Due to unforeseen problems with our tester hardware configuration, we are currently unable to accept submissions.  Round registration and the problem statement will be available at the previously posted time.  We're working to resolve our hardware issues and will enable submissions as soon as possible.  We apologize for the inconvenience.
+   <br>  
+   * Due to a communication problem that currently exists between the tester machines and core system, submission are not currently being accepted or processed.  We are actively working to resolve this as quickly as possible.  The submission link will be reactivated when this situation is resolved.  You may check the <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=17">forum discussion</A> for this competition for any updates.
    <br><br>   
 </td>
 

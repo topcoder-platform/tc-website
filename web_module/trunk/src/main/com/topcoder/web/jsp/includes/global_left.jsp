@@ -380,9 +380,8 @@
     <A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest?module=ViewPractice">Practice</A></td>
 </tr>
 <tr><td id="<%=level2.equals("intel_overview")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Static&d1=intel_overview">Intel Multi-threading Series</A></td></tr>
-<tr><td id="<%=level2.equals("intel")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Static&d1=intel_delay">Intel Active Contests</A></td></tr>
-<%--
 <tr><td id="<%=level2.equals("intel")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests&rt=15">Intel Active Contests</A></td></tr>
+<%--
 <tr><td id="<%=level2.equals("intel_practice")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest?module=ViewPractice&rt=16">Intel Practice</A></td></tr>
 --%>
 <tr><td id="<%=level2.equals("topcoder_editorials")?"leftSubnavOn":"leftSubnav"%>">
