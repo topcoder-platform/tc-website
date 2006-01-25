@@ -45,8 +45,8 @@
          nav.search("m_competitor_stats").addChild(new NavNode("", "Record Book", "record_book"));
          nav.search("m_competitor_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=SimpleStats&trans=true&c=com_history&d1=statistics&d2=coderOfMonth", "Coder of the Month", "coder_of_month"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)",  "Javascript:toggleMenu(this,'m_tournaments')", "Tournaments", "m_tournaments"));
-         nav.search("m_tournaments").addChild(new NavNode("", "TopCoder", "topcoder_tournaments"));
-         nav.search("m_tournaments").addChild(new NavNode("", "Powered by TopCoder", "pbtc_tournaments"));
+         nav.search("m_tournaments").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=tournaments&d2=home", "TopCoder", "topcoder_tournaments"));
+         nav.search("m_tournaments").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/pl/", "Powered by TopCoder", "pbtc_tournaments"));
          nav.search("m_tournaments").addChild(new NavNode("", "Charity", "charity_tournaments"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_edu_content')", "Educational Content", "m_edu_content"));
          nav.search("m_edu_content").addChild(new NavNode("", "Algorithm Tutorials", "algo_tutorials"));
