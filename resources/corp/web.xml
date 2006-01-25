@@ -435,7 +435,7 @@
 
         <init-param>
             <param-name>user_id_param</param-name>
-            <param-value>user_id</param-value>
+            <param-value>uid</param-value>
         </init-param>
 
         <init-param>
@@ -657,7 +657,7 @@
         <!-- URL Parameter constant names -->
         <init-param>
             <param-name>user_id</param-name>
-            <param-value>uid</param-value>
+            <param-value>userId</param-value>
             <description></description>
         </init-param>
 
