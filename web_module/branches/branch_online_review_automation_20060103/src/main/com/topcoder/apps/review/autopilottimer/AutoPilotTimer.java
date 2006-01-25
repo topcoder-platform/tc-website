@@ -188,7 +188,7 @@ public class AutoPilotTimer
                             if (!(result instanceof SuccessResult)) {
                                 logger.debug("ERROR " + result.toString());
                             } else {
-                                Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
+                                //Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
                                 UserRole[] participants = p.getParticipants();
 /*                                // plk
                                 System.out.println("1");
