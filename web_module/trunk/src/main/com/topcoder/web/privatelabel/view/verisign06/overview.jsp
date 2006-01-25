@@ -3,7 +3,7 @@
 <html>
 <head>
 <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
-<title>VeriSign Coder Challenge 2006, Powered by TopCoder</title>
+<title>VeriSign Internal Competition, Powered by TopCoder</title>
 <jsp:include page="../script.jsp" />
 </head>
 <body bgcolor="#FFF">
@@ -39,10 +39,9 @@
 
          <span valign=top><jsp:include page="right.jsp" /></span><br>
          
-         <p class="blkBigHead">VeriSign&#153; Coder Challenge 2006</p>
+         <p class="blkBigHead">VeriSign&#153; Internal Competition</p>
         
-We're giving employees and interns of the sponsors of the TopCoder Open 2006 a tournament of their own. It's a chance to compete among your peers in the Sponsor Track Competition, open to all employees of companies sponsoring the TCO. 
-<br/><br/><br/>
+        
 <span class="redHead">This is how it works:</span><br/>
 
 The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints.
@@ -67,7 +66,7 @@ Here's the line-by-line documentation:
 <br/><br/><br/>
 <span class="redHead">Here's what you'll need to know:</span><br/>
 
-Registration for the VeriSign&#153; Coder Challenge 2006 is open from Monday, February 13, 2006 to Tuesday, February 28, 2006.  Registration is unlimited, but only the top 100 scorers from the Qualification Round will advance to Round 1 of the Coder Challenge on March 4, 2006.
+Registration for the VeriSign&#153; Internal Competition is open from Monday, April 17, 2006 at 9AM EST to Tuesday, April 25, 2006 at 6PM EST.
 <br><br>
 <table width="600" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
    <tr>
@@ -76,27 +75,15 @@ Registration for the VeriSign&#153; Coder Challenge 2006 is open from Monday, Fe
       <td class="sidebarTitle" width="40%">Status</td>
    </tr>
    <tr valign="top">
-      <td class="sidebarText">Monday, February 13</td>
-      <td class="sidebarText" colspan="2">9:00 AM</td>
+      <td class="sidebarText">Monday, April 17</td>
+      <td class="sidebarText" colspan="2">9:00 AM*</td>
       <td class="sidebarText">Registration Opens</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText" nowrap>Tuesday, February 28</td>
-      <td class="sidebarText" colspan="2">9:00 AM</td>
+      <td class="sidebarText" nowrap>Tuesday, April 25</td>
+      <td class="sidebarText" colspan="2">6:00 PM*</td>
       <td class="sidebarText">Registration Closes</td>
-   </tr>
-
-   <tr valign="top">
-      <td class="sidebarText">Tuesday, February 28</td>
-      <td class="sidebarText" colspan="2">12:00 PM (noon)</td>
-      <td class="sidebarText">Qualification Round begins</td>
-   </tr>
-
-   <tr valign="top">
-      <td class="sidebarText">Wednesday, March 1</td>
-      <td class="sidebarText" colspan="2">12:00 PM (noon)</td>
-      <td class="sidebarText">Qualification Round ends</td>
    </tr>
    <tr>
       <td class="sidebarTitle" width="25%">&nbsp;</td>
@@ -105,47 +92,38 @@ Registration for the VeriSign&#153; Coder Challenge 2006 is open from Monday, Fe
       <td class="sidebarTitle" width="40%">&nbsp;</td>
    </tr>
    <tr valign="top">
-      <td class="sidebarText">Saturday, March 4</td>
-      <td class="sidebarText">9:00 - 11:55 AM</td>
-      <td class="sidebarText">12:00 PM (noon)</td>
-      <td class="sidebarText">Round 1 - 100 participants</td>
+      <td class="sidebarText">SRM 1, April 25, 2006</td>
+      <td class="sidebarText">7:00 - 9:55 AM*</td>
+      <td class="sidebarText">10:00 AM*</td>
+      <td class="sidebarText">All participants</td>
+   </tr>
+   <tr valign="top">
+      <td class="sidebarText">SRM 2, May 17, 2006</td>
+      <td class="sidebarText">6:00 - 8:55 PM**</td>
+      <td class="sidebarText">9:00 PM**</td>
+      <td class="sidebarText">All participants</td>
+   </tr>
+   <tr valign="top">
+      <td class="sidebarText">Finals, June 13, 2006</td>
+      <td class="sidebarText">&#160;</td>
+      <td class="sidebarText">TBD</td>
+      <td class="sidebarText">Championship Round - 5 participants</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText">Wednesday, March 8</td>
-      <td class="sidebarText">6:30 - 9:25 PM</td>
-      <td class="sidebarText">9:30 PM </td>
-      <td class="sidebarText">Round 2 - 50 participants</td>
-   </tr>
-
-   <tr valign="top">
-      <td class="sidebarText">Wednesday, March 15</td>
-      <td class="sidebarText">6:30 - 9:25 PM</td>
-      <td class="sidebarText">9:30 PM </td>
-      <td class="sidebarText">Round 3 - 25 participants</td>
-   </tr>
-
-   <tr valign="top">
-      <td class="sidebarText">Wednesday, March 22</td>
-      <td class="sidebarText">6:30 - 9:25 PM</td>
-      <td class="sidebarText">9:30 PM </td>
-      <td class="sidebarText">Championship Round - 10 participants</td>
-   </tr>
-
-   <tr valign="top">
-      <td class="sidebarText" colspan="4">*All times are Eastern Standard Time. <br>
+      <td class="sidebarText" colspan="4">*Times are Eastern Standard Time. &#160;**Times are Eastern Daylight Time.<br/>
       NOTE:  In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.</td>
    </tr>
 </table>
 
 <br><br>
-The competitors with the top 50 scores from Round 1 will advance to Round 2 on March 8th. The top 25 performers in Round 2 will advance to Round 3 on March 15th. Only the top 10 scorers in Round 3 will be invited to compete in the Championship Round on March 22nd.
+The top two (2) scores from each SRM will be invited to participate in the Championship round on June 13, 2006.  The winner (highest VeriSign score) from the 2006 TopCoder Open Sponsor Track competition will also be invited to compete in the finals.
 <br/><br/><br/>
 <span class="redHead">Registration</span><br/>
 
 Already a TopCoder Member?
 <ul>
-<li>Click <a href="#">here</a> to register for the VeriSign Coder Challenge</li>
+<li>Click <a href="#">here</a> to register for the VeriSign Internal Competition</li>
 </ul>
 <br>
 
@@ -153,28 +131,20 @@ Not Yet a TopCoder Member?
 <ol>
 <li>Click <a href="http://www.topcoder.com/reg/index.jsp">here</a> to sign up as a TopCoder member</li>
 <li>Check your email and activate your new TopCoder account</li>
-<li>Click <a href="#">here</a> to register for the VeriSign Coder Challenge</li>
+<li>Click <a href="#">here</a> to register for the VeriSign Internal Competition</li>
 </ol>
 <br>
 The competition is free and you must be a registered TopCoder member who is at least 18 years old to be eligible. 
 <br><br>
 See the official <a href="/pl/?module=Static&d1=verisign06&d2=rules">rules and regulations</a> for more details.
 <br/><br/><br/>
-<span class="redHead">Prizes ????</span><br>
-The 100 participants in Round 1 will receive a "VeriSign&#153; Coder Challenge 2006" t-shirt. All 10 finalists that compete in the Championship Round will receive a cash prize as follows:
+<span class="redHead">Prizes</span><br>
+Cash prize are as follows:
 <br><br>
-<div class=indented>
-   <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
-   <tr><td><b>1st place finisher - Tournament Champion</td><td align="right">&#160;&#160;&#160;$10,000</b></td></tr>
-   <tr><td>2nd to 10th place</td><td align="right">$5,000</td></tr>
-   <tr><td>11th to 25th place</td><td align="right">$2,500</td></tr>
-   <tr><td>26th to 50th place</td><td align="right">$1,000</td></tr>
-   <tr><td>51st to 100th place</td><td align="right">$750</td></tr>
-   </table>
-</div>
+<b>1st place finisher - Tournament Champion</b>
 
          <br/><br/>
-         To find out more detailed information about the VeriSign&#153; Coder Challenge 2006, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=verisign06&d2=rules">Terms and Conditions</a>.
+         To find out more detailed information about the VeriSign&#153; Internal Competition, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=verisign06&d2=rules">Terms and Conditions</a>.
       </td>
    <tr>
    <tr><td colspan="2">&#160;</td></tr>
