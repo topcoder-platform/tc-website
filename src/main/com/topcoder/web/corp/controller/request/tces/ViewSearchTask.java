@@ -59,7 +59,7 @@ public class ViewSearchTask extends BaseTask {
         Map m = dataAccess.getData(r);
         request.setAttribute("resultMap", m);
         ResultSetContainer languages = (ResultSetContainer) m.get("languages");
-        ResultSetContainer demographic_questions = (ResultSetContainer) m.get("tces_demographics_questions");
+        ResultSetContainer demographic_questions = (ResultSetContainer) m.get("tces_demographic_questions");
         ResultSetContainer demographic_answers = (ResultSetContainer) m.get("demographics_answers");
         ResultSetContainer skill_types = (ResultSetContainer) m.get("skill_types");
         ResultSetContainer skills = (ResultSetContainer) m.get("skills");
