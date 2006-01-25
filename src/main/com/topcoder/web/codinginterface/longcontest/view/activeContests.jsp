@@ -116,6 +116,7 @@
                                            class="statLink">Submit</a>
                                     </logic:notEqual>
 -->
+                                    Submit*
                                 </logic:equal>
                             </td>
                             <td class="<%=even?"statLt":"statDk"%>">
@@ -157,8 +158,9 @@
             </TD>
         </tr>
     </TABLE>
-
-    <p><br></p>
+   <br><br>   
+   * Due to unforeseen problems with our tester hardware configuration, we are currently unable to accept submissions.  Round registration and the problem statement will be available at the previously posted time.  We're working to resolve our hardware issues and will enable submissions as soon as possible.  We apologize for the inconvenience.
+   <br><br>   
 </td>
 
 <%-- Right Column Begins --%>
