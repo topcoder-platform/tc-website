@@ -14,21 +14,21 @@
       nav.search("m_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc", "Home", "competition_home"));
       nav.search("m_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/Registration", "Register to Compete", "competition_reg"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_algo_competitions')", "Algorithm", "m_algo_competitions"));
-         nav.search("m_algo_competitions").addChild(new NavNode("", "Compete", "algo_compete"));
+         nav.search("m_algo_competitions").addChild(new NavNode("", "Compete (Launch Arena)", "algo_compete"));
          nav.search("m_algo_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_algo_stats')", "Statistics", "m_algo_stats"));
             nav.search("m_algo_stats").addChild(new NavNode("", "Match Archive", "algo_match_archive"));
             nav.search("m_algo_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/stat?&c=round_overview", "Match Overviews", "algo_match_overviews"));
             nav.search("m_algo_stats").addChild(new NavNode("", "Match Results", "algo_match_results"));
             nav.search("m_algo_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=match_editorials&d2=archive", "Match Editorials", "algo_match_editorials"));
             nav.search("m_algo_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ProblemArchive", "Problem Archive", "algo_problem_archive"));
-      nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_des_competitions')", "Design", "m_des_competitions"));
+      nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_des_competitions')", "Component Design", "m_des_competitions"));
          nav.search("m_des_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewActiveContests", "Compete", "des_compete"));
-         nav.search("m_des_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReviewProjects", "Review Submissions", "des_review"));
+         nav.search("m_des_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReviewProjects", "Review Opportunities", "des_review"));
          nav.search("m_des_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&pi=112", "Statistics", "des_stats"));
          nav.search("m_des_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ReviewBoard&ph=112", "Meet the Review Board", "des_review_board"));
-      nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_dev_competitions')", "Development", "m_dev_competitions"));
+      nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_dev_competitions')", "Component Development", "m_dev_competitions"));
          nav.search("m_dev_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewActiveContests", "Compete", "dev_compete"));
-         nav.search("m_dev_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReviewProjects", "Review Submissions", "dev_review"));
+         nav.search("m_dev_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReviewProjects", "Review Opportunities", "dev_review"));
          nav.search("m_dev_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&pi=113", "Statistics", "dev_stats"));
          nav.search("m_dev_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ReviewBoard&ph=113", "Meet the Review Board", "dev_review_board"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_long_contests')", "Marathon Matches", "m_long_contests"));
@@ -36,9 +36,12 @@
          nav.search("m_long_contests").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/", "Practice", "long_practice"));
          nav.search("m_long_contests").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/", "Match Editorials", "long_editorials"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_competitor_stats')",  "Competitor Statistics", "m_competitor_stats"));
-         nav.search("m_competitor_stats").addChild(new NavNode("", "Find a Competitor", "competitor_find"));
+         nav.search("m_competitor_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewAdvanced", "Find a Competitor", "competitor_search"));
          nav.search("m_competitor_stats").addChild(new NavNode("", "Competitor Profile", "competitor_profile"));
-         nav.search("m_competitor_stats").addChild(new NavNode("", "Top Rated", "top_rated"));
+         nav.search("m_competitor_stats").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_top_rated_competitors')",  "Top Rated", "m_top_rated_competitors"));
+            nav.search("m_top_rated_competitors").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=AlgoRank", "Algorithm", "top_rated_algo"));
+            nav.search("m_top_rated_competitors").addChild(new NavNode("", "Component Design", "top_rated_des"));
+            nav.search("m_top_rated_competitors").addChild(new NavNode("", "Component Development", "top_rated_dev"));
          nav.search("m_competitor_stats").addChild(new NavNode("", "Record Book", "record_book"));
          nav.search("m_competitor_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=SimpleStats&trans=true&c=com_history&d1=statistics&d2=coderOfMonth", "Coder of the Month", "coder_of_month"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)",  "Javascript:toggleMenu(this,'m_tournaments')", "Tournaments", "m_tournaments"));
@@ -218,4 +221,4 @@ if ((navigator.userAgent.indexOf('MSIE') != -1) && (navigator.userAgent.indexOf(
 <nav:navBuilder navTree="tree" openClass="OPEN" selectedLeafClass="highlight" selectedParentClass="exp_ed" unSelectedParentClass="exp" selectedNode="<%=request.getParameter("node")%>"/>
 <jsp:include page="../includes/modules/leftNavSearch.jsp"/>
 </div>
-<div style="float: left; padding: 0px 0px 3px 0px;"><img src="/i/interface/leftnav_bottom.gif" alt="" /></div>
+<div style="float: left; padding: 0px 0px 23px 0px;"><img src="/i/interface/leftnav_bottom.gif" alt="" /></div>
