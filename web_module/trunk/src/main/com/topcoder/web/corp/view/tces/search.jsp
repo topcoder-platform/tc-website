@@ -11,9 +11,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%
-    Map m = null;
-    ResultSetContainer.ResultSetRow p;
-    m = (Map)request.getAttribute("resultMap");
+    Map m = (Map)request.getAttribute("resultMap");
     ResultSetContainer languages = (ResultSetContainer)m.get("languages");
     ResultSetContainer demographic_questions = (ResultSetContainer)m.get("tces_demographic_questions");
     ResultSetContainer skill_types = (ResultSetContainer)m.get("skill_types");
@@ -116,7 +114,7 @@
     <jsp:include page="left.jsp"/>
 </td>
 <!-- Center Column Begins -->
-<td class=recruitingBody>
+<td>
 <img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
 
 
