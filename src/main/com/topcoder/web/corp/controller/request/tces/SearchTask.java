@@ -85,7 +85,7 @@ public class SearchTask extends ViewSearchTask {
             query.append("   u.handle\n");
             query.append(" , r.rating as alg_rating\n");
             query.append(" , desr.rating as des_rating\n");
-            query.append(" , devr as dev_rating\n");
+            query.append(" , devr.rating as dev_rating\n");
             query.append(" , c.state_code\n");
             query.append(" , cry.country_name\n");
             query.append(" , ct.coder_type_desc\n");
