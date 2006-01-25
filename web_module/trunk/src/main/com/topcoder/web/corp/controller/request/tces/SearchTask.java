@@ -9,13 +9,7 @@ import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.corp.common.TCESConstants;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author dok
@@ -28,9 +22,8 @@ public class SearchTask extends BaseTask {
     protected void businessProcessing() throws TCWebException {
         log.debug("process called....");
         try {
-            ArrayList headers = new ArrayList();
             long time = System.currentTimeMillis();
-            String query = buildQuery(getRequest(), headers);
+            String query = buildQuery(getRequest(), Long.parseLong(getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM)));
             time = System.currentTimeMillis() - time;
             log.debug("query constructed in " + time);
             getRequest().setAttribute("QUERY", query);
@@ -44,7 +37,6 @@ public class SearchTask extends BaseTask {
                 log.debug("data got in " + time);
 
 
-                getRequest().setAttribute("column_headers", headers);
                 getRequest().setAttribute("resultMap", m);
             }
             setNextPage(TCESConstants.SEARCH_RESULTS_PAGE);
@@ -58,7 +50,7 @@ public class SearchTask extends BaseTask {
 
     }
 
-    private String buildQuery(TCRequest request, List headers) {
+    private String buildQuery(TCRequest request, long campaignId) {
         boolean isCaseSensitive = "on".equals(request.getParameter("casesensitive"));
         ArrayList skillsHeaders = new ArrayList();
         List[] skills = buildSkillsQuery(request, skillsHeaders);
@@ -67,9 +59,6 @@ public class SearchTask extends BaseTask {
         List tables, constraints;
         (tables = demo[0]).addAll(skills[0]);
         (constraints = demo[1]).addAll(skills[1]);
-/*
-        String comp = request.getParameter("company");
-*/
         String sch = request.getParameter("school");
         boolean containsDevRating = !"".equals(StringUtils.checkNull(request.getParameter("mindevrating")))
                 || !"".equals(StringUtils.checkNull(request.getParameter("maxdevrating")));
@@ -79,38 +68,40 @@ public class SearchTask extends BaseTask {
         //type, max hit date
         StringBuffer query = new StringBuffer(5000);
         if ("on".equals(request.getParameter("count"))) {
-            headers.add("Count");
             if (sch != null && sch.length() > 0 && !sch.equals("%")) {
                 query.append("SELECT {+ordered} COUNT(*)as total_count, \n");
             } else {
                 query.append("SELECT COUNT(*)as total_count, \n");
             }
         } else {
+            /*
+            handle, rating, des rating, dev rating, state, country, type, school, recent hit date, resume
+            */
             query.append("SELECT");
-            if (sch != null && sch.length() > 0 && !sch.equals("%")) {
+            if (!"".equals(StringUtils.checkNull(sch)) && !sch.equals("%")) {
                 query.append(" {+ordered}");
             }
-            query.append(" u.handle as Handle\n");
-            query.append("  , st.state_code as State\n");
-            query.append("  , cry.country_name as Country\n");
-            headers.addAll(Arrays.asList(new String[]{"Handle", "First Name", "Last Name", "City", "State", "Country"}));
-            query.append("  , sch.name as School\n");
-            headers.add("School");
-            query.append("  , r.rating as Algorithm_Rating\n");
-            query.append("  , (select ur1.rating from tcs_catalog:user_rating ur1 where ur1.user_id = c.coder_id AND ur1.phase_id = 112) as Design_Rating\n");
-            query.append("  , (select ur2.rating from tcs_catalog:user_rating ur2 where ur2.user_id = c.coder_id AND ur2.phase_id = 113) as Development_Rating\n");
-            query.append("  , (select '<a href=/tc?module=DownloadResume&uid=' || res2.coder_id || '>Resume</a>' from resume res2 where res2.coder_id = c.coder_id)\n");
-            headers.addAll(Arrays.asList(new String[]{"Algorithm Rating", "Design Rating", "Development Rating", "",}));
+            query.append("   u.handle\n");
+            query.append(" , r.rating as alg_rating\n");
+            query.append(" , desr.rating as des_rating\n");
+            query.append(" , devr as dev_rating\n");
+            query.append(" , c.state_code\n");
+            query.append(" , cry.country_name\n");
+            query.append(" , ct.coder_type_desc\n");
+            query.append(" , sch.name as school_name\n");
+            query.append(" , u.user_id\n");
+            query.append(" , (select max(timestamp) from job_hit jh, campaign_job_xref cjx where cjx.job_id = jh.job_id and jh.user_id = u.user_id and cjx.campaign_id = cam.campaign_id) as most_recent_hit\n");
+            query.append(" , case when exists (select 1 from resume where coder_id = c.coder_id) then 'Yes' else 'No' end as has_resume\n");
         }
         query.append("  FROM");
         query.append("    outer(current_school cur_sch, school sch),\n");
         query.append("    coder c,\n");
         query.append("    user u,\n");
         query.append("    rating r,\n");
-        query.append(" outer tcs_catalog:user_rating desr,\n");
-        query.append(" outer tcs_catalog:user_rating devr,\n");
+        query.append("    outer tcs_catalog:user_rating desr,\n");
+        query.append("    outer tcs_catalog:user_rating devr,\n");
         query.append("    email e,\n");
-
+        query.append("    coder_type ct\n");
 
         if ("on".equals(request.getParameter("resume"))) {
             query.append("    resume res,\n");
@@ -123,7 +114,6 @@ public class SearchTask extends BaseTask {
             query.append(", \n");
         }
         query.append("    country cry,\n");
-        query.append("    state st\n");
         query.append("  WHERE 1 = 1\n");
         if (containsDesRating) {
             query.append("    AND desr.user_id = c.coder_id\n");
@@ -133,13 +123,19 @@ public class SearchTask extends BaseTask {
             query.append("    AND devr.user_id = c.coder_id\n");
             query.append("    AND devr.phase_id = 113\n");
         }
+        query.append("    AND c.coder_type_id = ct.coder_type_id\n");
         query.append("    AND r.coder_id = c.coder_id\n");
         query.append("    AND u.user_id = c.coder_id\n");
         query.append("    AND u.status = 'A'\n");
         query.append("    AND cry.country_code = c.country_code\n");
-        query.append("    AND st.state_code = NVL(c.state_code,'')\n");
         query.append("    AND e.user_id = u.user_id\n");
         query.append("    AND e.primary_ind = 1\n");
+        query.append("    AND exists (select 1\n");
+        query.append(                 " from job_hit jh\n");
+        query.append(                    " , campaign_job_xref cjx\n");
+        query.append(                " where jh.job_id = cjx.job_id\n");
+        query.append(                  " and jh.user_id = u.user_id\n");
+        query.append(                  " and cjx.campaign_id = ").append(campaignId).append(")\n");
         if (sch != null && sch.length() > 0) {
             query.append("    AND cur_sch.coder_id = c.coder_id\n");
             query.append("    AND cur_sch.school_id = sch.school_id\n");
@@ -163,7 +159,6 @@ public class SearchTask extends BaseTask {
         if (so == 1 && sc < 7 || so == -1 && sc >= 7) query.append(" ASC\n");
         else
             query.append(" DESC\n");
-        headers.addAll(skillsHeaders);
         return query.toString();
     }
 
