@@ -95,26 +95,26 @@ public class SearchTask extends ViewSearchTask {
             query.append(" , case when exists (select 1 from resume where coder_id = c.coder_id) then 'Yes' else 'No' end as has_resume\n");
         }
         query.append("  FROM");
-        query.append("    outer(current_school cur_sch, school sch),\n");
-        query.append("    coder c,\n");
-        query.append("    user u,\n");
-        query.append("    rating r,\n");
-        query.append("    outer tcs_catalog:user_rating desr,\n");
-        query.append("    outer tcs_catalog:user_rating devr,\n");
-        query.append("    email e,\n");
-        query.append("    coder_type ct\n");
+        query.append("    outer(current_school cur_sch, school sch)\n");
+        query.append("    ,coder c\n");
+        query.append("    ,user u\n");
+        query.append("    ,rating r\n");
+        query.append("    ,outer tcs_catalog:user_rating desr\n");
+        query.append("    ,outer tcs_catalog:user_rating devr\n");
+        query.append("    ,email e\n");
+        query.append("    ,coder_type ct\n");
 
         if ("on".equals(request.getParameter("resume"))) {
-            query.append("    resume res,\n");
+            query.append("    ,resume res\n");
         }
 
         for (int i = 0; i < tables.size(); i++) {
             String tab = (String) tables.get(i);
-            query.append("    ");
+            query.append(" , ");
             query.append(tab);
-            query.append(", \n");
+            query.append(" \n");
         }
-        query.append("    country cry,\n");
+        query.append("    ,country cry\n");
         query.append("  WHERE 1 = 1\n");
         if (containsDesRating) {
             query.append("    AND desr.user_id = c.coder_id\n");
