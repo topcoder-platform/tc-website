@@ -69,7 +69,7 @@ public class ViewSearchTask extends BaseTask {
         Map skillSetMap = new HashMap();
         Map demo = new HashMap();
 
-        String[] textFields = {"handle", "email", "firstname", "lastname", "zipcode", "city", "company", "school",
+        String[] textFields = {"handle", "email", "firstname", "lastname", "zipcode", "city", "school",
                 "maxdayssincerating", "minevents", "mindays", "maxdays", "minrating", "maxrating", "mindesrating",
                 "maxdesrating", "mindevrating", "maxdevrating"};
         String[] checkBoxes = {"count", "pro", "stud", "resume", "travel", "auth", "casesensitive"};
