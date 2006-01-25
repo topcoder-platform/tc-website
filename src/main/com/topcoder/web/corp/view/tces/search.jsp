@@ -215,7 +215,7 @@
                 <a href="JavaScript:deselect('demo_<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>')">Deselect</a>
             </td><td class="right">
                 <% long questionId = resultRow.getIntItem("demographic_question_id");%>
-                <tc-webtag:listSelect styleClass="multiSel2" name='<%="demo_"+questionId%>' size="<%=String.valueOf(Math.min(4,((List)demoMap.get(new Long(questionId))).size()))%>" useTopValue="false" multiple="true" list="<%=(List)demoMap.get(new Integer(questionId))%>"/>
+                <tc-webtag:listSelect styleClass="multiSel2" name='<%="demo_"+questionId%>' size="<%=String.valueOf(Math.min(4,((List)demoMap.get(new Long(questionId))).size()))%>" useTopValue="false" multiple="true" list="<%=(List)demoMap.get(new Long(questionId))%>"/>
             </td></tr>
         </rsc:iterator>
     </table>
