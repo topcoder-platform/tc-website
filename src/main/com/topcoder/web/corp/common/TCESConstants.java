@@ -272,7 +272,6 @@ public class TCESConstants {
         SORT_ORDER_DES = servletConfig.getInitParameter("sort_order_des");
 
         TASK_PARAM = servletConfig.getInitParameter("task_param");
-        STEP_PARAM = servletConfig.getInitParameter("step_param");
         SORT_PARAM = servletConfig.getInitParameter("sort_param");
         SORT_ORDER_PARAM = servletConfig.getInitParameter("sort_order_param");
         BACK_SORT_PARAM = servletConfig.getInitParameter("back_sort_param");
