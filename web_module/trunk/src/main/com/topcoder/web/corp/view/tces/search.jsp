@@ -6,7 +6,6 @@
 <%@ page import="com.topcoder.web.corp.common.TCESConstants"%>
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants"%>
 
-<%@ taglib uri="tces-taglib.tld" prefix="tces" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
