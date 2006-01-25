@@ -110,10 +110,12 @@
                                         <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewReg&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>"
                                            class="statLink">Register</a>
                                     </logic:equal>
+<!--
                                     <logic:notEqual name="contest" property="coderRegistered" value="false">
                                         <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>"
                                            class="statLink">Submit</a>
                                     </logic:notEqual>
+-->
                                 </logic:equal>
                             </td>
                             <td class="<%=even?"statLt":"statDk"%>">
