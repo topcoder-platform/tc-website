@@ -72,20 +72,13 @@ public class SearchTask extends ViewSearchTask {
         //type, max hit date
         StringBuffer query = new StringBuffer(5000);
         if ("on".equals(request.getParameter("count"))) {
-            if (school != null && school.length() > 0 && !school.equals("%")) {
-                query.append("SELECT {+ordered} COUNT(*)as total_count, \n");
-            } else {
-                query.append("SELECT COUNT(*)as total_count, \n");
-            }
+            query.append("SELECT COUNT(*)as total_count, \n");
         } else {
             /*
             handle, rating, des rating, dev rating, state, country, type, school, recent hit date, resume
             */
             query.append("SELECT");
-            if (!"".equals(StringUtils.checkNull(school)) && !school.equals("%")) {
-                query.append(" {+ordered}");
-            }
-            query.append("   u.handle\n");
+            query.append(" distinct u.handle\n");
             query.append(" , r.rating as alg_rating\n");
             query.append(" , desr.rating as des_rating\n");
             query.append(" , devr.rating as dev_rating\n");
@@ -113,6 +106,8 @@ public class SearchTask extends ViewSearchTask {
         query.append("    ,outer tcs_catalog:user_rating devr\n");
         query.append("    ,email e\n");
         query.append("    ,coder_type ct\n");
+        query.append("    ,campaign_job_xref cjx\n");
+        query.append("    ,job_hit jh\n");
 
         if ("on".equals(request.getParameter("resume"))) {
             query.append("    ,resume res\n");
@@ -137,12 +132,9 @@ public class SearchTask extends ViewSearchTask {
         query.append("    AND cry.country_code = c.country_code\n");
         query.append("    AND e.user_id = u.user_id\n");
         query.append("    AND e.primary_ind = 1\n");
-        query.append("    AND exists (select 1\n");
-        query.append(                 " from job_hit jh\n");
-        query.append(                    " , campaign_job_xref cjx\n");
-        query.append(                " where jh.job_id = cjx.job_id\n");
-        query.append(                  " and jh.user_id = u.user_id\n");
-        query.append(                  " and cjx.campaign_id = ").append(campaignId).append(")\n");
+        query.append(   " and jh.job_id = cjx.job_id\n");
+        query.append(   " and jh.user_id = u.user_id\n");
+        query.append(   " and cjx.campaign_id = ").append(campaignId).append(")\n");
         if (hasSchool) {
             query.append("    AND cs.coder_id = c.coder_id\n");
             query.append("    AND cs.school_id = s.school_id\n");
