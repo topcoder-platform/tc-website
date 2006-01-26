@@ -181,7 +181,7 @@ public class AutoPilotTimer
                                 System.out.println("Entro!");
                                 Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
                                 System.out.println("1) - " + appeals.length);
-                                UserRole[] participants = projs[i].getUserRoles();
+                                UserRole[] participants = p.getParticipants();
                                 // If there are no appeals, send email to PM
                                 System.out.println("2) - " + participants.length);
                                 if (appeals.length == 0) {
