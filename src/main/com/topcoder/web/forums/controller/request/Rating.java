@@ -17,7 +17,6 @@ import com.topcoder.web.forums.ForumConstants;
  */
 public class Rating extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
-        log.debug("****************ENTERS THE RATING PROCESSOR*************************");
 		super.businessProcessing();
         if (authToken.isAnonymous()) return;
         RatingManager ratingManager = RatingManagerFactory.getInstance(authToken); 
@@ -35,9 +34,8 @@ public class Rating extends ForumsProcessor {
         
         getHttpResponse().setContentType("text/xml");
         getHttpResponse().setHeader("Cache-Control", "no-cache");
-        getHttpResponse().getWriter().write("<posRatings>"+posRatings+"</posRatings><negRatings>"
+        getHttpResponse().getWriter().println("<posRatings>"+posRatings+"</posRatings><negRatings>"
                 +negRatings+"</negRatings>");
-        getHttpResponse().getWriter().flush();
-        log.debug("****************EXITS THE RATING PROCESSOR*************************");
+        //getHttpResponse().getWriter().flush();
 	}
 }
