@@ -111,9 +111,6 @@ public class AutoPilotTimer
                                     <= System.currentTimeMillis()) {
                             logger.debug("SELECTED: " + projs[i].getProjectName());
 
-                            // plk
-                            //System.out.println("1) SELECTED: " + projs[i].getProjectName());
-
                             //move to screening
                             OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, projs[i]);
                             ProjectForm form = new ProjectForm();
@@ -150,9 +147,6 @@ public class AutoPilotTimer
                             projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
                             logger.debug("SELECTED: " + projs[i].getProjectName());
 
-                            // plk
-                            //System.out.println("2) SELECTED: " + projs[i].getProjectName());
-
                             //move to appeals response
                             OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, projs[i]);
                             ProjectForm form = new ProjectForm();
@@ -178,16 +172,12 @@ public class AutoPilotTimer
                             if (!(result instanceof SuccessResult)) {
                                 logger.debug("ERROR " + result.toString());
                             } else {
-                                //System.out.println("Entro!");
                                 Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
-                                //System.out.println("1) - " + appeals.length);
                                 UserRole[] participants = p.getParticipants();
                                 // If there are no appeals, send email to PM
-                                //System.out.println("2) - " + participants.length);
                                 if (appeals.length == 0) {
                                     //lookup pm
                                     String email = "";
-                                    //System.out.println("3");
                                     for (int j = 0; j < participants.length; j++) {
                                         if (participants[j].getRole().getId() == Role.ID_PRODUCT_MANAGER) {
                                             email = participants[j].getUser().getEmail();
@@ -198,19 +188,18 @@ public class AutoPilotTimer
                                         logger.debug("ERROR: Cannot locate PM for Appeals Response Notification");
                                         continue;
                                     }
-                                    //System.out.println("4");
+
+                                    logger.info("No appeals found, sending mail to PM...");
 
                                     StringBuffer mail = new StringBuffer();
                                     mail.append("The following project: \n\n");
                                     mail.append(p.getName());
                                     mail.append("\n\nhas completed appeals response and doesn't have");
                                     mail.append(" existing appeals.");
-                                    //System.out.println("5");
 
                                     sendMail("autopilot@topcoder.com", email,
                                         "AutoPilotTimer: Appeals Response Notification (No Appeals found)",
                                             mail.toString());
-                                    //System.out.println("6");
                                 }
                             }
                         }
