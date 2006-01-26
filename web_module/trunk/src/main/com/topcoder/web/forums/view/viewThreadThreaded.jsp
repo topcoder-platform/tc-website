@@ -102,9 +102,16 @@ function callback() {
         if (req.status == 200) {
             var posRatings = req.responseXML.getElementsByTagName("posRatings")[0];
             var negRatings = req.responseXML.getElementsByTagName("negRatings")[0];
-            displayVotes(posRatings.firstChild.nodeValue, negRatings.firstChild.nodeValue);
+            displayXML('testXML'+req.responseXML.value);
+            //displayVotes(5,5);
+            //displayVotes(posRatings.firstChild.nodeValue, negRatings.firstChild.nodeValue);
         }
     }
+}
+
+function displayXML(varxml) {
+    mdiv = document.getElementById("userIdMessage");
+    mdiv.innerHTML = varxml;
 }
 
 function displayVotes(posVotes, negVotes) {
