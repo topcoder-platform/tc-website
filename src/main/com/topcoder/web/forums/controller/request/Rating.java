@@ -34,8 +34,15 @@ public class Rating extends ForumsProcessor {
         
         getHttpResponse().setContentType("text/xml");
         getHttpResponse().setHeader("Cache-Control", "no-cache");
-        getHttpResponse().getWriter().println("<posRatings>"+posRatings+"</posRatings><negRatings>"
-                +negRatings+"</negRatings>");
-        //getHttpResponse().getWriter().flush();
+        getHttpResponse().getWriter().println(getXML(posRatings, negRatings));
+        getHttpResponse().getWriter().flush();
+        log.debug("******** COMMITTED: " + getHttpResponse().isCommitted());
 	}
+    
+	private String getXML(int posRatings, int negRatings) {
+	    String xml = "<?xml version=\"1.0\"?>" +
+	        "<posRatings>"+posRatings+"</posRatings>" + 
+            "<negRatings>"+negRatings+"</negRatings>";
+        return xml;
+    }
 }
