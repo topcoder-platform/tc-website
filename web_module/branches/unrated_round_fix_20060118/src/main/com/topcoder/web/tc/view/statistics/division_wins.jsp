@@ -81,7 +81,7 @@ function goTo(selection){
                     <TR VALIGN="middle">
                       <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="10" HEIGHT="18">&nbsp;</TD>
                       <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="20%">
-            <a href="/stat?c=division_wins&sc=0&sd=<%= "0".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Handle</a>
+            <a href="/stat?c=division_wins&sc=0&sd=<%= "0".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Contest</a>
             </TD>
                       <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="15%">
             Division I winner</a>
@@ -102,7 +102,7 @@ function goTo(selection){
 <logic:present name="QUERY_RESPONSE" scope="request">
 <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 <logic:iterate name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map.Entry" scope="request">
-  <logic:equal name="queryEntries" property="key" value="divwins">
+  <logic:equal name="queryEntries" property="key" value="division_wins">
   <logic:present name="queryEntries" property="value">
     <bean:define id="resultSet" name="queryEntries" property="value" type="ResultSetContainer" />
     <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
