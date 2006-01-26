@@ -543,6 +543,10 @@ public class ProjectTrackerBean implements SessionBean {
                     rs = ps.executeQuery();
 
                     if (rs.next()) {
+                        // plk
+                        System.out.println("rs.getLong(1)");
+                        System.out.println("project.getVersionId()");
+                        System.out.println("project.getId()");
                         if (rs.getLong(1) != project.getVersionId()) {
                             String errorMsg = "PT.saveProject(): Concurrent error, projectId: " + project.getId() +
                                     ", projectVersionId: " + project.getVersionId();
