@@ -13,8 +13,6 @@
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics - Room Statistics</TITLE>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 <jsp:include page="baseHRef.jsp" />
    <jsp:include page="../script.jsp" />
 <jsp:include page="/style.jsp">

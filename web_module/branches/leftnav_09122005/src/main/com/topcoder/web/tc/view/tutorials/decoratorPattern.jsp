@@ -36,10 +36,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="education"/>
-                <jsp:param name="level2" value="comp_tutorials"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="comp_tutorials"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
