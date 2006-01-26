@@ -12,10 +12,10 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
+import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.model.CoderSessionInfo;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -28,7 +28,6 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.StringTokenizer;
-import java.util.Enumeration;
 import java.util.zip.GZIPOutputStream;
 
 
@@ -141,6 +140,7 @@ public final class MainServlet extends BaseServlet {
             trail.append(requestCommand);
             trail.append(" *]");
             log.info(trail.toString());
+/*
             if (log.isDebugEnabled()) {
                 String h = null;
                 for (Enumeration e = request.getHeaderNames(); e.hasMoreElements();) {
@@ -148,6 +148,7 @@ public final class MainServlet extends BaseServlet {
                     log.debug(h + ": " + request.getHeader(h));
                 }
             }
+*/
             User user = nav.getUser();
             if (user == null) {
                 //user must have been transient and we got a navigation object that had been serialized at some point
