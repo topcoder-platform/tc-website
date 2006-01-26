@@ -83,6 +83,31 @@ function toggle(obj) {
     }
 }
 
+var req;
+function rate(messageID, voteValue) {
+   var voteValue = document.getElementById("voteValue");
+   var url = "?module=Rating&messageID="+escape(messageID.value)+"&vote="+escape(voteValue.value);
+   if (window.XMLHttpRequest) {
+       req = new XMLHttpRequest();
+   } else if (window.ActiveXObject) {
+       req = new ActiveXObject("Microsoft.XMLHTTP");
+   }
+   req.open("POST", url, true);
+   req.onreadystatechange = callback;
+   req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+   req.send("messageID="+escape(messageID.value)+"&voteValue="+escape(voteValue.value));
+}
+
+function callback() {
+    if (req.readyState == 4) {
+        if (req.status == 200) {
+            var posRatings = req.responseXML.getElementsByTagName("posRatings")[0];
+            var negRatings = req.responseXML.getElementsByTagName("negRatings")[0];
+            displayVotes(posRatings.firstChild.nodeValue, negRatings.firstChild.nodeValue);
+        }
+    }
+}
+
 function displayVotes(posVotes, negVotes) {
     mdiv = document.getElementById("userIdMessage");
     mdiv.innerHTML = "+"+posVotes+"/-"+negVotes;
@@ -121,10 +146,6 @@ function displayVotes(posVotes, negVotes) {
             <jsp:param name="image" value="forums"/>
             <jsp:param name="title" value="&#160;"/>
         </jsp:include>
-
-<%  if (ratingManager.isRatingsEnabled()) { %>
-    ratingsEnabled: <%=ratingManager.getAvailableRatingCount()%>
-<%  } %>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
@@ -199,7 +220,7 @@ function displayVotes(posVotes, negVotes) {
                     int ratingCount = ratingManager.getRatingCount(message);
                     int posRatings = (int)(Math.round(avgRating*ratingCount)-ratingCount);
                     int negRatings = ratingCount - posRatings; %>
-                (+<%=posRatings%>/-<%=negRatings%>) <a href="" class="rtbcLink">[+]</a><a href="" class="rtbcLink">[-]</a>
+                (+<%=posRatings%>/-<%=negRatings%>) <a href="#" onclick="rate('<%=message.getID()%>','2')" class="rtbcLink">[+]</a><a href="#" onclick="rate('<%=message.getID()%>','1')" class="rtbcLink">[-]</a>
             <% } %>
           </td>
       </tr>
