@@ -12,7 +12,7 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm285">SRM 285 - Problem Set & Analysis</A></span><br><br>
-      All problems suggested to coders have at least two fundamentally different solutions, what explains a good success rate even for the harder problems. 
+      Each of the problems presented to the competitors have at least two fundamentally different solutions and this may explain the high success rate even for the harder problems.
       </td>
       <td class="newsPhoto"><img src="/i/m/Andrew_Lazarev_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7485898" context="algorithm"/></td></tr></table>
       </td>
