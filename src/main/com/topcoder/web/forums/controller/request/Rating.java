@@ -36,5 +36,6 @@ public class Rating extends ForumsProcessor {
         getHttpResponse().setHeader("Cache-Control", "no-cache");
         getHttpResponse().getWriter().write("<posRatings>"+posRatings+"</posRatings><negRatings>"
                 +negRatings+"</negRatings>");
+        getHttpResponse().getWriter().flush();
 	}
 }
