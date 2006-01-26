@@ -224,6 +224,7 @@ public class SearchTask extends ViewSearchTask {
         else
             query.append(" DESC\n");
 */
+        query.append(" order by 10 desc"); //most recent hits first
         return query.toString();
     }
 
