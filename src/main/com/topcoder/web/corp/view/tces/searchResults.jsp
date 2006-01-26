@@ -101,9 +101,6 @@
                     <td class="screeningHeader" align=center>
                         Resume
                     </td>
-                    <td class="screeningHeader">
-                        Lang.
-                    </td>
                 </tr>
 
                 <% int i = 0; %>
