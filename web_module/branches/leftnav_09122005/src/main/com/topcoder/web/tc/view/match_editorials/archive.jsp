@@ -6,6 +6,7 @@
 <head>
 <title>TopCoder Statistics</title>
 
+<jsp:include page="../script.jsp" />
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>

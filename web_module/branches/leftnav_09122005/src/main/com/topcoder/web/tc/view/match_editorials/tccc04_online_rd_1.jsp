@@ -10,8 +10,8 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
+<jsp:include page="../script.jsp" />
 </head>
-
 <body>
 
 <jsp:include page="../top.jsp" >
