@@ -31,9 +31,9 @@ At UBS, you'll have access to the resources and expertise of a global firm while
 <br><br>
 Become part of our exciting future at UBS. There are positions for extraordinary coders in our offices all over the world. <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs_confirm">Apply Now</a>
 <br><br>
-<b>You and Us. UBS.</b>
+<b>You &amp; Us. UBS.</b>
 <br><br>
-<a href="http://www.ubs.com">www.ubs.com</a>
+<a href="/?t=sponsor&c=link&link=http://www.ubs.com">www.ubs.com</a>
 <br><br>
 <span class="smallText">* source: AutEx and a leading private industry survey 2005</span>
         </div>

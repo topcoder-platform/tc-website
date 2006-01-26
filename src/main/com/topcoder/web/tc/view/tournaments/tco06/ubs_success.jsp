@@ -25,7 +25,7 @@
 <br/><br/>
 Your application has been received.
 <br><br>
-If you would like to be contacted by UBS, please go to UBS's <a href="http://www.ubs.com/1/e/career_candidates.html">Career Candidates</a> page and apply online to register as an applicant.
+If you would like to be contacted by UBS, please go to UBS's <a href="/?t=sponsor&c=link&link=http://www.ubs.com/1/e/career_candidates.html">Career Candidates</a> page and apply online to register as an applicant.
 <br><br><br><br><br><br>
 
         </div>
