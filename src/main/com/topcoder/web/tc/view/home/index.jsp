@@ -214,6 +214,8 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            TopCoder Software Component Libraries Selected as Finalist for the 16th Annual Jolt Awards <A href="/tc?module=Static&d1=pressroom&d2=pr_012606">...more</A><br>[January 26]<br><br>
+
             TopCoder Names Intel Corporation as First Sponsor of New Marathon Match Series <A href="/tc?module=Static&d1=pressroom&d2=pr_012306">...more</A><br>[January 23]<br><br>
             
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="67" height="37" alt="The Java Posse" border="0" /></div>
@@ -226,9 +228,6 @@ margin:0px auto;
             Contest a coded message for job seekers <A href="http://dnaindia.com/report.asp?NewsID=1007225&CatID=2" target="_blank">...more</A><br>[January 12]<br><br>
 
             TopCoder Announces NSA Participation in 2006 TopCoder Open in Las Vegas<A href="/tc?module=Static&d1=pressroom&d2=pr_010906">...more</A><br>[January 9]<br><br>
-            
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/incDOTcom_logo.gif" width="67" height="25" alt="Inc.com" border="0" /></div>
-            Put a hacker to work [PDF] <A href="/pdfs/press_room/inc_0106.pdf" target="_blank">...more</A><br>[January 2006]<br><br>
             
             </td>
          </tr>
