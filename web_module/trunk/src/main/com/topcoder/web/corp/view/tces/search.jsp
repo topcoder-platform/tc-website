@@ -118,8 +118,6 @@
 
 
 <FORM name="search" ACTION="<jsp:getProperty name="sessionInfo" property="servletPath"/>" METHOD="GET">
-<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>" value="1"/>
-<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>" value="1"/>
 <tc-webtag:hiddenInput name="<%=TCESConstants.TASK_PARAM%>" value="SearchTask"/>
 <tc-webtag:hiddenInput name="<%=TCESConstants.CAMPAIGN_ID_PARAM%>"/>
 
