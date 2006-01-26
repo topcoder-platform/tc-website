@@ -85,8 +85,7 @@ function toggle(obj) {
 
 var req;
 function rate(messageID, voteValue) {
-   var voteValue = document.getElementById("voteValue");
-   var url = "?module=Rating&messageID="+escape(messageID.value)+"&vote="+escape(voteValue.value);
+   var url = "?module=Rating&messageID="+messageID+"&vote="+voteValue;
    if (window.XMLHttpRequest) {
        req = new XMLHttpRequest();
    } else if (window.ActiveXObject) {
@@ -95,7 +94,7 @@ function rate(messageID, voteValue) {
    req.open("POST", url, true);
    req.onreadystatechange = callback;
    req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-   req.send("messageID="+escape(messageID.value)+"&voteValue="+escape(voteValue.value));
+   req.send("messageID="+messageID+"&voteValue="+voteValue);
 }
 
 function callback() {
