@@ -71,34 +71,34 @@
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                 <tr>
                     <td class="screeningHeader">
-                        Handle
+                        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=results.getColumnIndex("handle_lower")%>" includeParams="true"/>" class="statLink">Handle</a>
                     </td>
                     <td class="screeningHeader">
-                        Rating
+                        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=results.getColumnIndex("alg_rating")%>" includeParams="true"/>" class="statLink">Handle</a>
                     </td>
                     <td class="screeningHeader">
-                        Design
-                            <br/>Rating</td>
-                    <td class="screeningHeader">
-                        Development
-                            <br/>Rating</td>
-                    <td class="screeningHeader" align=center>
-                        State
+                        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=results.getColumnIndex("des_rating")%>" includeParams="true"/>" class="statLink">Design<br/>Rating</a>
                     </td>
                     <td class="screeningHeader">
-                        Country
-                    </td>
-                    <td class="screeningHeader">
-                        Type
-                    </td>
-                    <td class="screeningHeader">
-                        School
+                        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=results.getColumnIndex("dev_rating")%>" includeParams="true"/>" class="statLink">Development<br/>Rating</a>
                     </td>
                     <td class="screeningHeader" align=center>
-                        Hit
-                            Date</td>
+                        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=results.getColumnIndex("state_code")%>" includeParams="true"/>" class="statLink">State</a>
+                    </td>
+                    <td class="screeningHeader">
+                        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=results.getColumnIndex("country_name")%>" includeParams="true"/>" class="statLink">Country</a>
+                    </td>
+                    <td class="screeningHeader">
+                        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=results.getColumnIndex("coder_type_desc")%>" includeParams="true"/>" class="statLink">Type</a>
+                    </td>
+                    <td class="screeningHeader">
+                        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=results.getColumnIndex("school_name")%>" includeParams="true"/>" class="statLink">School</a>
+                    </td>
                     <td class="screeningHeader" align=center>
-                        Resume
+                        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=results.getColumnIndex("most_recent_hit")%>" includeParams="true"/>" class="statLink">Most Recent Hit</a>
+                    </td>
+                    <td class="screeningHeader" align=center>
+                        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=results.getColumnIndex("has_resume")%>" includeParams="true"/>" class="statLink">Resume</a>
                     </td>
                 </tr>
 
