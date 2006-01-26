@@ -6,7 +6,9 @@
 <head>
 <title>Algorithm Tutorials</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -19,7 +21,8 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td width="180">         <jsp:include page="/includes/global_left.jsp">
+        <td width="180">
+         <jsp:include page="/includes/global_left.jsp">
             <jsp:param name="node" value="algo_tutorials"/>
          </jsp:include>
 </td>
