@@ -2,12 +2,17 @@ package com.topcoder.web.corp.controller.request.tces;
 
 import com.topcoder.shared.dataAccess.QueryDataAccess;
 import com.topcoder.shared.dataAccess.QueryRequest;
+import com.topcoder.shared.dataAccess.DataRetrieverInt;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.distCache.CacheClient;
+import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.corp.common.TCESConstants;
 
 import java.util.*;
@@ -29,16 +34,66 @@ public class SearchTask extends ViewSearchTask {
             log.debug("query constructed in " + time);
             getRequest().setAttribute("QUERY", query);
             if (!"on".equals(getRequest().getParameter("queryOnly"))) {
-                time = System.currentTimeMillis();
                 QueryDataAccess qda = new QueryDataAccess(DBMS.OLTP_DATASOURCE_NAME);
                 QueryRequest qr = new QueryRequest();
                 qr.addQuery("results", query);
-                Map m = qda.getData(qr);
-                time = System.currentTimeMillis() - time;
-                log.debug("data got in " + time);
+
+                Map map = null;
+                try {
+                    boolean hasCacheConnection = true;
+                    String key = qr.getCacheKey();
+                    DataRetrieverInt dr = null;
+                    CacheClient cc = null;
+                    try {
+                        cc = CacheClientFactory.createCacheClient();
+                        map = (Map) (cc.get(key));
+                    } catch (Exception e) {
+                        log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
+                        hasCacheConnection = false;
+                    }
+                    /* if it was not found in the cache */
+                    if (map == null) {
+                        time = System.currentTimeMillis();
+                        map = qda.getData(qr);
+                        time = System.currentTimeMillis() - time;
+                        log.debug("data got in " + time);
+                        /* attempt to add this object to the cache */
+                        if (hasCacheConnection) {
+                            try {
+                                cc.set(key, map, 10*60*1000);
+                            } catch (Exception e) {
+                                log.error("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    throw e;
+                }
 
 
-                getRequest().setAttribute("resultMap", m);
+                ResultSetContainer results = (ResultSetContainer)map.get("results");
+
+                String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+                String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+
+                if (!(sortCol.equals("") || sortDir.equals(""))) {
+                    results.sortByColumn(Integer.parseInt(sortCol), "asc".equals(sortDir));
+                }
+
+                SortInfo s = new SortInfo();
+                s.addDefault(results.getColumnIndex("handle_lower"), "asc");
+                s.addDefault(results.getColumnIndex("alg_rating"), "desc");
+                s.addDefault(results.getColumnIndex("des_rating"), "desc");
+                s.addDefault(results.getColumnIndex("dev_rating"), "desc");
+                s.addDefault(results.getColumnIndex("state_code"), "asc");
+                s.addDefault(results.getColumnIndex("country_name"), "asc");
+                s.addDefault(results.getColumnIndex("coder_type_desc"), "asc");
+                s.addDefault(results.getColumnIndex("school_name"), "asc");
+                s.addDefault(results.getColumnIndex("most_recent_hit"), "desc");
+                s.addDefault(results.getColumnIndex("has_resume"), "desc");
+                getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+
+                getRequest().setAttribute("results", results);
             }
             setNextPage(TCESConstants.SEARCH_RESULTS_PAGE);
             setIsNextPageInContext(true);
@@ -48,7 +103,6 @@ public class SearchTask extends ViewSearchTask {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-
     }
 
     private String buildQuery(TCRequest request, long campaignId) {
@@ -62,12 +116,10 @@ public class SearchTask extends ViewSearchTask {
         (constraints = demo[1]).addAll(skills[1]);
         String school = request.getParameter("school");
         boolean hasSchool = !"".equals(StringUtils.checkNull(school));
-/*
         boolean containsDevRating = !"".equals(StringUtils.checkNull(request.getParameter("mindevrating")))
                 || !"".equals(StringUtils.checkNull(request.getParameter("maxdevrating")));
         boolean containsDesRating = !"".equals(StringUtils.checkNull(request.getParameter("mindesrating")))
                 || !"".equals(StringUtils.checkNull(request.getParameter("maxdesrating")));
-*/
 
         //type, max hit date
         StringBuffer query = new StringBuffer(5000);
@@ -93,6 +145,7 @@ public class SearchTask extends ViewSearchTask {
             query.append(" , u.user_id\n");
             query.append(" , (select max(timestamp) from job_hit jh, campaign_job_xref cjx where cjx.job_id = jh.job_id and jh.user_id = u.user_id and cjx.campaign_id = ").append(campaignId).append(") as most_recent_hit\n");
             query.append(" , case when exists (select 1 from resume where coder_id = c.coder_id) then 'Yes' else 'No' end as has_resume\n");
+            query.append(" , handle_lower");
         }
         query.append("  FROM");
         query.append("    coder c\n");
@@ -102,8 +155,17 @@ public class SearchTask extends ViewSearchTask {
         }
         query.append("    ,user u\n");
         query.append("    ,rating r\n");
-        query.append("    ,outer tcs_catalog:user_rating desr\n");
-        query.append("    ,outer tcs_catalog:user_rating devr\n");
+        if (containsDesRating) {
+            query.append("    ,tcs_catalog:user_rating desr\n");
+        } else {
+            query.append("    ,outer tcs_catalog:user_rating desr\n");
+
+        }
+        if (containsDevRating) {
+            query.append("    ,tcs_catalog:user_rating devr\n");
+        } else {
+            query.append("    ,outer tcs_catalog:user_rating devr\n");
+        }
         query.append("    ,email e\n");
         query.append("    ,coder_type ct\n");
         query.append("    ,campaign_job_xref cjx\n");
@@ -153,6 +215,7 @@ public class SearchTask extends ViewSearchTask {
             query.append('\n');
         }
         query.append(buildCoderConstraints(request, skill));
+/*
         int sc = Integer.parseInt(request.getParameter(DataAccessConstants.SORT_DIRECTION));
         int so = Integer.parseInt(request.getParameter(DataAccessConstants.SORT_COLUMN));
         query.append("  ORDER BY ");
@@ -160,6 +223,7 @@ public class SearchTask extends ViewSearchTask {
         if (so == 1 && sc < 7 || so == -1 && sc >= 7) query.append(" ASC\n");
         else
             query.append(" DESC\n");
+*/
         return query.toString();
     }
 
