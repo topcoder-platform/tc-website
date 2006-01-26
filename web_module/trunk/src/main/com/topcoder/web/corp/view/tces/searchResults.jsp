@@ -18,8 +18,7 @@
 </head>
 <%
 
-    Map m = (Map)request.getAttribute("resultMap");
-    ResultSetContainer results = (ResultSetContainer)m.get("results");
+    ResultSetContainer results = (ResultSetContainer)request.getAttribute("results");
 
 %>
 
