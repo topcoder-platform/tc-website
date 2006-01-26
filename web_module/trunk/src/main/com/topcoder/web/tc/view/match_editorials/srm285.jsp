@@ -45,16 +45,9 @@
 <span class="bigTitle">Match summary</span>
 
 <p> 
-All problems suggested to coders have at least two fundamentally different solutions, 
-what explains a good success rate even for the harder problems. 
-Division 1 winner is <b>rem</b> with the best score for the hard problem.
-<b>bmerry</b>, <b>wleite</b> and <b>andrewzta</b> got places from second to forth correspondingly. 
-<b>marek.cygan</b> who was the first coder submitted correct solution for the 
-1000th problem got the fifth place.
-
-</p> 
-<p> 
-In Division 2 <b>knuckleslives</b> is the first followed by two newcomers <b>pawko</b> and <b>jackiex</b>.
+Each of the problems presented to the competitors have at least two fundamentally different solutions and this may explain the high success rate even for the harder problems. The Division 1 winner is rem with the highest score for the hard problem. bmerry, wleite and andrewzta placed second to forth correspondingly. marek.cygan who was the first coder to submit a correct solution for the 1000th problem took fifth place.
+<br><br>
+The Division 2 winner is knuckleslives followed by two newcomers pawko and jackiex.
 </p>
  
 
