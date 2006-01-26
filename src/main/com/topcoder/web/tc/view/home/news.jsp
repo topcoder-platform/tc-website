@@ -8,8 +8,8 @@
    </tr>
 <%-------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.26.06<br>10:05 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_012606">TopCoder Software Component Libraries Selected as Finalist for the 16th Annual Jolt Awards</A></span><br><br>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.26.06<br>11:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_012606">TCS Components Finalists in 16th Annual Jolt Awards</A></span><br><br>
       "Software Development Magazine Recognizes CBD Best Practices and Engineering Discipline in TopCoder's Reusable .NET and Java Component Catalogs"
       </td>
    </tr>

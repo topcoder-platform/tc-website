@@ -32,13 +32,8 @@ At UBS, you'll have access to the resources and expertise of a global firm while
 Become part of our exciting future at UBS. There are positions for extraordinary coders in our offices all over the world. <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs_confirm">Apply Now</a>
 <br><br>
 <b>You and Us. UBS.</b>
-<br><br><br>
-
-Use the following links to learn about UBS and our employment opportunities:
 <br><br>
-<a href="http://www.ubs.com">www.ubs.com</a> then click on Investment Banking & Securities
-<br><br>
-<a href="http://www.ubs.com/1/e/career_candidates.html">http://www.ubs.com/1/e/career_candidates.html</a> then click on Investment Bank
+<a href="http://www.ubs.com">www.ubs.com</a>
 <br><br>
 <span class="smallText">* source: AutEx and a leading private industry survey 2005</span>
         </div>
