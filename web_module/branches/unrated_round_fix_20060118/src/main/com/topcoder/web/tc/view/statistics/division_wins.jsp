@@ -108,9 +108,9 @@ function goTo(selection){
     <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
     <tr valign="middle">
         <td><bean:write name="resultRow" property='<%= "item[" + 0 /* contest name */ + "]" %>'/></td>
-        <td><tc-webtag:handle coderId='<%=resultRow.getLongItem("winner1")%>' context='<%=HandleTag.ALGORITHM%>'/></td>
+        <td><tc-webtag:handle coderId='<%=resultRow.getLongItem(1 /* winner1 */)%>' context='<%=HandleTag.ALGORITHM%>'/></td>
         <td><bean:write name="resultRow" property='<%= "item[" + 2 /* #wins 1 */ + "]" %>'/></td>
-        <td><tc-webtag:handle coderId='<%=resultRow.getLongItem("winner2")%>' context='<%=HandleTag.ALGORITHM%>'/></td>
+        <td><tc-webtag:handle coderId='<%=resultRow.getLongItem(3 /* winner2 */)%>' context='<%=HandleTag.ALGORITHM%>'/></td>
         <td><bean:write name="resultRow" property='<%= "item[" + 4 /* #wins 2 */ + "]" %>'/></td>
     </tr>
     </logic:iterate>
