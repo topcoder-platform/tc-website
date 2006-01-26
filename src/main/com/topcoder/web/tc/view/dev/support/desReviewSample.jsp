@@ -1120,23 +1120,12 @@ sub-packages.
        <tr>
         <td class="forumTextOdd" width="80%">
          <p class="scorecardQuestion">Modifiers (final, abstract, synchronized, property, virtual, overrides, etc.) and scope (private, package, public, etc.) are appropriately used in the design in the classes/methods/variables. Attributes are appropriately used for .Net classes/methods/variables.
+<br><br>
+Have internally used classes been defined incorrectly as public? Has a public class improperly exposed protected or private members? Are classes that are intended to be abstract defined as such in the class diagram? Is the Serializable attribute used in lieu of implementing the ISerializable interface for standard serialization of .Net classes? It is strongly advised that variables have a private scope and only be accessible via get/set methods or C#'s property variables. C# reviewers should note that Poseidon does not have the proper choices to fully represent the C# modifiers and therefore should not be marked down if the designer either uses the closest java modifier OR specifies it in the documentation tab. Additionally, the effect of the final, virtual and other similar modifiers on class extendibility should be considered in this question. Each class and method should be designed for extension or marked as final.  This question addresses the logical aspect of providing the modifiers, not the presentation. When there are multiple ways to convey a modifier, not using all of them is considered a presentation issue. An abstract class must have an abstract checkbox on the attributes page, an abstract stereotype and a color of the abstract class. Any of the three methods is sufficient to convey that the class is abstract.
 </p><p class="scorecardQuestion">
-Have internally used classes (to the component) been defined incorrectly as public? Has a public class improperly exposed protected or private members? Are classes that are intended to be abstract defined as such in the class diagram?  Is the Serializable attribute used (rather than implementing the ISerializable interface) for standard serialization of .Net classes? It is strongly advised that variables have a private scope (not even protected) and only be accessible via getter/setter methods (exception would be C#'s property variables). C# reviewers should note that Poseidon does not have the proper choices to fully represent the C# modifiers and therefore should not be marked down if the designer either uses the closest java modifier OR specifies it in the documentation tab. Additionally, the effect of the final, virtual and other similar modifiers on class extendibility should be considered in this question (rather than the future enhancements question). Is each class and method either designed for extension or marked as final?
-</p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">This question addresses the logical
-aspect of providing the modifiers, not the presentation of it. When
-there are multiple ways to convey a modifier, not using all of them is
-considered a presentation issue. For example, an abstract class must
-have an abstract checkbox on the attributes page, an abstract
-stereotype, and a color of the abstract class. Any of the three methods
-is sufficient to convey that the class is abstract for the purposes of
-this question.
-</p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">Rating 1 &#8211; The designer demonstrates
-obvious lack of understanding or ignores modifiers fully. For example,
-variables with accessor methods are declared public, or key methods of
-the API are declared private. </p><p class="scorecardQuestion">Rating 2 &#8211; The design misidentifies a majority (&gt;49%) of the modifiers or scope. 
-</p><p class="scorecardQuestion">Rating 3 &#8211; The designer misidentifies a minority (&lt;49%) of modifiers or scope. 
+</p><p class="scorecardQuestion">Rating 1 &#8211; The design demonstrates obvious lack of understanding or ignores modifiers fully. For example, variables with accessor methods are declared public or key methods of the API are declared private.
+</p><p class="scorecardQuestion">Rating 2 &#8211; The design misidentifies a majority (>49%) of the modifiers or scope. 
+</p><p class="scorecardQuestion">Rating 3 &#8211; The designer misidentifies a minority (<49%) of modifiers or scope. 
 </p><p class="scorecardQuestion">Rating 4 &#8211; The designer identifies the modifiers/scope appropriately.
 </p><p class="scorecardQuestion"></p>
         </td>
@@ -1675,12 +1664,15 @@ not require any additional information from the designer).
        
        <tr>
         <td class="forumTextOdd" width="80%">
-<p class="scorecardQuestion">The method documentation in the 'Documentation' tab of Poseidon provides detailed description of the method's scope, parameters (including what is considered valid or not), return type (range, nulls, etc.) and any exceptions that may be thrown. Properties, delegates, indexers and events of C# are considered methods for the purpose of this question.</p>
-<p class="scorecardQuestion">This documentation is for the component developer, not the component users. It is not API documentation (e.g. javadoc) on how to use the method. It should contain helpful information to the developer on how to write the method and what are its constraints. Examples of argument values are not required. The designer does not have to explicitly say what is considered valid if this information is already contained elsewhere (in the tags or in the free-form text). Duplicating the valid/invalid information and exception information in both the documentation tags and free form text is not required (nor even recommended). Algorithms and complex validation (such as with a regex pattern) should be explained only in the free form text. The reviewer should assume that any variable (null, empty string, int range, etc) is valid/invalid if not specifically denoted as an invalid/valid by the exceptions text or other free form information. Also note that specifying 'raised signals' in Poseidon is not required if the exception has been clearly denoted in the documentation tags or free form text.</p>
-<p class="scorecardQuestion">For C# designs, the reviewer should verify that property setters handle argument validation and throw appropriate exceptions.</p>
-<p class="scorecardQuestion">Rating 1 - Documentation is consistently missing or unhelpful. </p>
-<p class="scorecardQuestion">Rating 2 - Documentation is missing in at least one method's documentation or consistently provides little help to the developer. </p>
-<p class="scorecardQuestion">Rating 3 - Documentation is complete and adequate to develop the component but requires the designer to answer additional questions by the developer. </p>
+<p class="scorecardQuestion">The 'Documentation' tab of Poseidon provides detailed description of each method's scope and parameters including what is considered valid, return type (range, nulls, etc.) and any exceptions that may be thrown. C# Properties, delegates, indexers and events are considered methods for this question.
+<br><br>
+This documentation is for the component developer, not the component users. It should contain information which is helpful to the developer on how to write the method and its constraints. The designer does not have to explicitly say what is considered valid if this information is already contained elsewhere (in the tags or in the free-form text). Duplicating the valid/invalid information and exception information in both the documentation tags and free form text is not recommended. Algorithms and complex validation should be explained only in the free form text. The reviewer should assume that any value is valid/invalid if not specifically denoted as such by the exceptions text or free form information. Also note that specifying 'raised signals’ in Poseidon is not required if the exception has been clearly denoted in the documentation tags or free form text.
+<br><br>
+Algorithms and complex validation should be explained only in the free form text. Note that specifying ‘raised signals’ in Poseidon is not required if the exception has been identified in the documentation tags or free form text. For C# designs, the reviewer should verify that property setters handle argument validation and throw appropriate exceptions.
+</p>
+<p class="scorecardQuestion">Rating 1 - Documentation is consistently missing or unhelpful.</p>
+<p class="scorecardQuestion">Rating 2 - Documentation is missing in at least one method's documentation or consistently provides little help to the developer.</p>
+<p class="scorecardQuestion">Rating 3 - Documentation is complete and adequate to develop the component but requires the designer to answer additional questions by the developer.</p>
 <p class="scorecardQuestion">Rating 4 - Documentation is complete and provides full details to the developer (the developer will likely not require any additional information from the designer).</p>
 </td>
 
