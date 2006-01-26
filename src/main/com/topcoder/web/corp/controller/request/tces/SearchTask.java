@@ -134,7 +134,7 @@ public class SearchTask extends ViewSearchTask {
         query.append("    AND e.primary_ind = 1\n");
         query.append(   " and jh.job_id = cjx.job_id\n");
         query.append(   " and jh.user_id = u.user_id\n");
-        query.append(   " and cjx.campaign_id = ").append(campaignId).append(")\n");
+        query.append(   " and cjx.campaign_id = ").append(campaignId).append("\n");
         if (hasSchool) {
             query.append("    AND cs.coder_id = c.coder_id\n");
             query.append("    AND cs.school_id = s.school_id\n");
