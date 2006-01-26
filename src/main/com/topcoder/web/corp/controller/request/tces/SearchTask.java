@@ -333,7 +333,7 @@ public class SearchTask extends ViewSearchTask {
             query.delete(query.length() - "    AND c.language_id IN ()\n".length(), query.length());
         }
         String[] bounds = {"maxdayssincerating", "mindays", "maxdays", "minevents", "minrating", "maxrating", "mindesrating", "maxdesrating", "mindevrating", "maxdevrating"};
-        String[] value = {"current-r.last_rated_event <= \'", "current-c.member_since >= \'", "current-c.member_since <= \'", "r.num_ratings >= ", "r.rating >= ", "r.rating <= ", "desr.rating >= ", "desr.rating <= ", "devr.rating >= ", "devr.rating <= "};
+        String[] value = {"r.last_rated_event >= current-", "c.member_since <= current - ", "c.member_since>=current - ", "r.num_ratings >= ", "r.rating >= ", "r.rating <= ", "desr.rating >= ", "desr.rating <= ", "devr.rating >= ", "devr.rating <= "};
         for (int i = 0; i < bounds.length; i++) {
             String b = request.getParameter(bounds[i]);
             if (b == null || b.length() == 0) continue;
@@ -341,7 +341,7 @@ public class SearchTask extends ViewSearchTask {
             query.append(value[i]);
             query.append(b);
             if (i < 3) {
-                query.append(" 00:00:00.0'\n");
+                query.append(" units day\n");
             } else {
                 query.append('\n');
             }
