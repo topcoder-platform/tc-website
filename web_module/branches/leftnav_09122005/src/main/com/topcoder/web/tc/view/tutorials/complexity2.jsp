@@ -33,11 +33,10 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="level1" value="education"/>
-                <jsp:param name="level2" value="alg_tutorials"/>
-            </jsp:include>
-        </td>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="algo_tutorials"/>
+         </jsp:include>
+</td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
