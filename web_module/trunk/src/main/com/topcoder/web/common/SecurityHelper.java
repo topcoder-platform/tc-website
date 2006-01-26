@@ -27,7 +27,7 @@ public class SecurityHelper {
 
     public static TCSubject getUserSubject(long l, boolean forceLoadFromDb)
             throws Exception, NoSuchUserException, NamingException {
-        log.debug("get " + l + " from db " + forceLoadFromDb);
+        //log.debug("get " + l + " from db " + forceLoadFromDb);
         TCSubject ret = null;
 
         String key = KEY_PREFIX + String.valueOf(l);
