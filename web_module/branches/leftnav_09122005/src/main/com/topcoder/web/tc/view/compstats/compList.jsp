@@ -75,7 +75,7 @@ function submitEnter(e) {
 
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="statistics_w"/>
-<jsp:param name="title" value="Component Project List"/>
+<jsp:param name="title" value="Component Contest List"/>
 </jsp:include>
 
 

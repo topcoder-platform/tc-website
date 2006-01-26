@@ -122,7 +122,7 @@ function hideAll(){
 <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="<%="112".equals(phase_id)?"des_stats":"dev_stats"%>"/>
+            <jsp:param name="node" value='<%="112".equals(projectInfo.getStringItem(0,"phase_id"))?"des_stats":"dev_stats"%>' />
          </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -258,14 +258,6 @@ function hideAll(){
 
 
       </td>
-
-<!-- Right Column -->
-         <td width="170">
-            <jsp:include page="../public_right.jsp">
-               <jsp:param name="level1" value="privatelabel"/>
-            </jsp:include>
-         </td>
-<!-- Right Column Ends -->
 
 <!-- Gutter -->
          <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
