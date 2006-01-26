@@ -15,7 +15,7 @@ Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 %>
 <html>
 <head>
-   <TITLE>TopCoder Statistics - Consecutive Wins</TITLE>
+   <TITLE>TopCoder Statistics - Division Wins</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <jsp:include page="../script.jsp" />
@@ -107,11 +107,27 @@ function goTo(selection){
     <bean:define id="resultSet" name="queryEntries" property="value" type="ResultSetContainer" />
     <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
     <tr valign="middle">
+        <%
+        Number n1 = (Number)resultRow.getItem(1).getResultData();
+        Number n2 = (Number)resultRow.getItem(3).getResultData();
+        long winner1 = (n1 == null ? -1 : n1.longValue()),
+                winner2 = (n2 == null ? -1 : n2.longValue());
+        %>
         <td><bean:write name="resultRow" property='<%= "item[" + 0 /* contest name */ + "]" %>'/></td>
-        <td><tc-webtag:handle coderId='<%=resultRow.getLongItem(1 /* winner1 */)%>' context='<%=HandleTag.ALGORITHM%>'/></td>
-        <td><bean:write name="resultRow" property='<%= "item[" + 2 /* #wins 1 */ + "]" %>'/></td>
-        <td><tc-webtag:handle coderId='<%=resultRow.getLongItem(3 /* winner2 */)%>' context='<%=HandleTag.ALGORITHM%>'/></td>
-        <td><bean:write name="resultRow" property='<%= "item[" + 4 /* #wins 2 */ + "]" %>'/></td>
+        
+        <% if (winner1 == -1) { %>
+            <td>(none)</td><td></td>
+        <% } else { %>
+            <td><tc-webtag:handle coderId='<%= winner1 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
+            <td><bean:write name="resultRow" property='<%= "item[" + 2 /* #wins 1 */ + "]" %>'/></td>
+        <% } %>
+        
+        <% if (winner2 == -1) { %>
+            <td>(none)</td><td></td>
+        <% } else { %>
+            <td><tc-webtag:handle coderId='<%= winner2 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
+            <td><bean:write name="resultRow" property='<%= "item[" + 4 /* #wins 2 */ + "]" %>'/></td>
+        <% } %>
     </tr>
     </logic:iterate>
   </logic:present>
