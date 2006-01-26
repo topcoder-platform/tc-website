@@ -2861,7 +2861,7 @@ public class ProjectTrackerBean implements SessionBean {
                 "and scorecard.cur_version = 1 and scorecard.scorecard_type = 2) = (select sum(score)/3 from scorecard where scorecard.submission_id = sc.submission_id " +
                 "and scorecard.cur_version = 1 and scorecard.scorecard_type = 2) " +
                 ")) as wincount," +
-                "sum(s.score)/3 as raw_score " +
+                "round(sum(s.score)/3, 2) as raw_score " +
                 "  FROM scorecard s , project p, comp_version_dates cvd," +
                 "       submission sb, phase_instance pi" +
                 " WHERE s.scorecard_type = 2" +
