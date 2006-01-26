@@ -31,7 +31,7 @@ public class SearchTask extends ViewSearchTask {
             long time = System.currentTimeMillis();
             String query = buildQuery(getRequest(), Long.parseLong(getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM)));
             time = System.currentTimeMillis() - time;
-            log.debug("query constructed in " + time);
+            //log.debug("query constructed in " + time);
             getRequest().setAttribute("QUERY", query);
             if (!"on".equals(getRequest().getParameter("queryOnly"))) {
                 QueryDataAccess qda = new QueryDataAccess(DBMS.OLTP_DATASOURCE_NAME);
@@ -53,6 +53,7 @@ public class SearchTask extends ViewSearchTask {
                     }
                     /* if it was not found in the cache */
                     if (map == null) {
+                        log.debug("run the query \n" + query);
                         time = System.currentTimeMillis();
                         map = qda.getData(qr);
                         time = System.currentTimeMillis() - time;
