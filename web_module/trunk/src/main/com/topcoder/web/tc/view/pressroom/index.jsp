@@ -47,6 +47,21 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- Jolt Awards --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_012306"><img src="/i/pressroom/jolt_logo.gif" alt="Jolt Awards" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_012606">TopCoder Software Component Libraries Selected as Finalist for the 16th Annual Jolt Awards</A> </strong></font><br />
+                        "Software Development Magazine Recognizes CBD Best Practices and Engineering Discipline in TopCoder's Reusable .NET and Java Component Catalogs" <span class="prHead"> [January 26]</span></p>                   
+                        </td>
+                </tr>
+            </table>
+            
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- Intel --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
