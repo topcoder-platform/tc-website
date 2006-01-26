@@ -96,7 +96,11 @@ public class Admin extends ForumsProcessor {
             RatingManager ratingManager = RatingManagerFactory.getInstance(authToken);
             if (!ratingManager.isRatingsEnabled()) {
                 ratingManager.setRatingsEnabled(true);
+            }
+            if (ratingManager.getRatingFromScore(1) == null) {
                 ratingManager.createRating(1, "negative");
+            }
+            if (ratingManager.getRatingFromScore(2) == null) {
                 ratingManager.createRating(2, "positive");
             }
         }

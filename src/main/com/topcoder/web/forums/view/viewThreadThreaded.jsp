@@ -30,7 +30,7 @@
 <%  HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
     User user = (User)request.getAttribute("user");
     String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW));
-    RatingManager ratingManager = RatingTrackerFactory.getInstance(authToken);
+    RatingManager ratingManager = RatingManagerFactory.getInstance(authToken);
     ReadTracker readTracker = forumFactory.getReadTracker();
     ForumThread nextThread = (ForumThread)request.getAttribute("nextThread");
     ForumThread prevThread = (ForumThread)request.getAttribute("prevThread");
@@ -121,6 +121,10 @@ function displayVotes(posVotes, negVotes) {
             <jsp:param name="image" value="forums"/>
             <jsp:param name="title" value="&#160;"/>
         </jsp:include>
+
+<%  if (ratingManager.isRatingsEnabled()) { %>
+    ratingsEnabled: <%=ratingManager.getAvailableRatingCount()%>
+<%  } %>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
