@@ -137,7 +137,7 @@
                                         <rsc:item name="language_name" row="<%=resultRow%>"/></td>
                                     <% if (over||self) { %>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
-                                    <% if (resultRow.getIntItem("submission_number")==submissions.size()) { %>
+                                    <% if (resultRow.getIntItem("submission_number")==submissions.size() && resultRow.getIntItem("status_id")!=130) { %>
                                         <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewExampleResults&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>" class="statLink">example results</A>
                                     <% } %>
                                     </td>
