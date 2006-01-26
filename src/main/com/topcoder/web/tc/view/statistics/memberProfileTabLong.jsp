@@ -12,7 +12,7 @@
                     <td class="catNW" colspan="2">
                      <A HREF="/tc?module=SimpleStats&c=long_comp_history&d1=statistics&d2=longHistory&cr=<rsc:item set="<%=rsc%>" name="coder_id"/>">[competition history]</A><br><br></td>
                 </tr>
-                <tr><td class="catNW">Competitions:</td><td class="statRNW"><rsc:item set="<%=rsc%>" name="num_competitions"/></td></tr>
+                <tr><td class="catNW">Competitions:</td><td class="statRNW"><A HREF="/tc?module=SimpleStats&c=long_comp_history&d1=statistics&d2=longHistory&cr=<rsc:item set="<%=rsc%>" name="coder_id"/>"><rsc:item set="<%=rsc%>" name="num_competitions"/></A></td></tr>
                 <tr><td class="catNW">Avg. Rank:</td><td class="statRNW"><rsc:item set="<%=rsc%>" name="avg_rank" ifNull="N/A"/></td></tr>
                 <tr><td class="catNW">Avg. Num. Submissions:</td><td class="statRNW"><rsc:item set="<%=rsc%>" name="avg_submissions" ifNull="N/A"/></td></tr>
             </table>
