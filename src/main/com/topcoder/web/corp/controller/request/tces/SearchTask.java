@@ -95,7 +95,7 @@ public class SearchTask extends ViewSearchTask {
             if (hasSchool) {
                 query.append(" , s.name as school_name\n");
             } else {
-                query.append(" , (select s.name from school s, current_school cs where s.school_id = cs.school_id and cs.coder_id = u.user_id)\n");
+                query.append(" , (select s.name from school s, current_school cs where s.school_id = cs.school_id and cs.coder_id = u.user_id) as school_name\n");
             }
             query.append(" , u.user_id\n");
             query.append(" , (select max(timestamp) from job_hit jh, campaign_job_xref cjx where cjx.job_id = jh.job_id and jh.user_id = u.user_id and cjx.campaign_id = ").append(campaignId).append(") as most_recent_hit\n");
