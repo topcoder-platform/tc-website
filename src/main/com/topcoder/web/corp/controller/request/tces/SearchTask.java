@@ -61,10 +61,13 @@ public class SearchTask extends ViewSearchTask {
         (tables = demo[0]).addAll(skills[0]);
         (constraints = demo[1]).addAll(skills[1]);
         String school = request.getParameter("school");
+        boolean hasSchool = !"".equals(StringUtils.checkNull(school));
+/*
         boolean containsDevRating = !"".equals(StringUtils.checkNull(request.getParameter("mindevrating")))
                 || !"".equals(StringUtils.checkNull(request.getParameter("maxdevrating")));
         boolean containsDesRating = !"".equals(StringUtils.checkNull(request.getParameter("mindesrating")))
                 || !"".equals(StringUtils.checkNull(request.getParameter("maxdesrating")));
+*/
 
         //type, max hit date
         StringBuffer query = new StringBuffer(5000);
@@ -89,14 +92,21 @@ public class SearchTask extends ViewSearchTask {
             query.append(" , c.state_code\n");
             query.append(" , cry.country_name\n");
             query.append(" , ct.coder_type_desc\n");
-            query.append(" , s.name as school_name\n");
+            if (hasSchool) {
+                query.append(" , s.name as school_name\n");
+            } else {
+                query.append(" , (select s.name from school s, current_school cs where s.school_id = cs.school_id and cs.coder_id = u.user_id)\n");
+            }
             query.append(" , u.user_id\n");
             query.append(" , (select max(timestamp) from job_hit jh, campaign_job_xref cjx where cjx.job_id = jh.job_id and jh.user_id = u.user_id and cjx.campaign_id = ").append(campaignId).append(") as most_recent_hit\n");
             query.append(" , case when exists (select 1 from resume where coder_id = c.coder_id) then 'Yes' else 'No' end as has_resume\n");
         }
         query.append("  FROM");
-        query.append("    outer(current_school cs, school s)\n");
-        query.append("    ,coder c\n");
+        query.append("    coder c\n");
+        if (hasSchool) {
+            query.append(" ,current_school cs\n");
+            query.append(" , school s)\n");
+        }
         query.append("    ,user u\n");
         query.append("    ,rating r\n");
         query.append("    ,outer tcs_catalog:user_rating desr\n");
@@ -133,8 +143,10 @@ public class SearchTask extends ViewSearchTask {
         query.append(                " where jh.job_id = cjx.job_id\n");
         query.append(                  " and jh.user_id = u.user_id\n");
         query.append(                  " and cjx.campaign_id = ").append(campaignId).append(")\n");
-        query.append("    AND cs.coder_id = c.coder_id\n");
-        query.append("    AND cs.school_id = s.school_id\n");
+        if (hasSchool) {
+            query.append("    AND cs.coder_id = c.coder_id\n");
+            query.append("    AND cs.school_id = s.school_id\n");
+        }
         if (school != null && school.length() > 0) {
             query.append(stringMatcher(school, "s.name", isCaseSensitive));
         }
