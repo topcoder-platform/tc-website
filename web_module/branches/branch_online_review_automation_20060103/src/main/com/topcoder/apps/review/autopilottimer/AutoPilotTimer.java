@@ -180,10 +180,10 @@ public class AutoPilotTimer
                             } else {
                                 System.out.println("Entro!");
                                 Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
+                                System.out.println("1) - " + appeals.length);
                                 UserRole[] participants = projs[i].getUserRoles();
-                                System.out.println("1");
                                 // If there are no appeals, send email to PM
-                                System.out.println("2");
+                                System.out.println("2) - " + participants.length);
                                 if (appeals.length == 0) {
                                     //lookup pm
                                     String email = "";
