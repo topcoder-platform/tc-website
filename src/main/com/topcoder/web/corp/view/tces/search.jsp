@@ -184,17 +184,6 @@
         <tr><td class="left">Dev. Rating range:</td><td class="right">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="mindevrating" size="5"/> to
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxdevrating" size="5"/></td></tr>
-        <tr><td class="left">Placement Indicator: </td><td class="right"><select name="placement">
-            <option value="none"<%= "none".equals(request.getParameter("placement")) ? " selected" : "" %>>
-                No preference</option>
-            <option value="either"<%= "either".equals(request.getParameter("placement")) ? " selected" : "" %>>
-                Either</option>
-            <option value="contract"<%= "contract".equals(request.getParameter("placement")) ? " selected" : "" %>>
-                Contract</option>
-            <option value="full"<%= "full".equals(request.getParameter("placement")) ? " selected" : "" %>>
-                Full time</option>
-        </select>
-        </td></tr>
         <tr><td class="left">Resume:</td><td class="right"><tc-webtag:chkBox name="resume"/></td></tr>
         <tr><td class="left">Willing to travel/relocate:</td><td class="right">
             <tc-webtag:chkBox name="travel"/></td></tr>
