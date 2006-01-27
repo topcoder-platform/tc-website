@@ -27,7 +27,6 @@ public class Constants implements WebConstants {
     public static String ACTIVATION_CODE;
     public static final String COMPANY_NAME = "compName";
 
-    public static String USER_ID;
     public static String NOTE_ID;
     public static String STATE_CODE;
     public static String COUNTRY_CODE;
@@ -206,23 +205,8 @@ public class Constants implements WebConstants {
     public static String CONTRACTING_CONFIRM_PAGE;
     public static String CONTRACTING_SUCCESS_PAGE;
 
-    public static int PREFERENCE_SINGLE_ANSWER;
-    public static int PREFERENCE_MULTIPLE_ANSWER;
-    public static int PREFERENCE_TEXT_ANSWER;
     public static String PREFERENCE_PREFIX;
 
-    public static int PREFERENCE_CONTRACTING;
-    public static int PREFERENCE_CONTRACTING_TRUE;
-    public static int PREFERENCE_CONTRACTING_FALSE;
-    public static int PREFERENCE_PERMANENT;
-    public static int PREFERENCE_PERMANENT_TRUE;
-    public static int PREFERENCE_PERMANENT_FALSE;
-
-    public static int SKILL_TYPE_LANGUAGES;
-    public static int SKILL_TYPE_TECHNOLOGIES;
-    public static int SKILL_TYPE_OS;
-    public static int SKILL_TYPE_DATABASES;
-    public static int SKILL_TYPE_INDUSTRIES;
     public static String SKILL_PREFIX;
 
     public static String NOTE_PREFIX;
