@@ -94,7 +94,7 @@ Each match will contain a single problem. The problem statement will indicate bo
    January 25, 2006<br>12:00 Noon EST
    </td>
    <td class="sidebarText">
-   February 8, 2006<br>12:00 Noon EST
+   February 15, 2006<br>12:00 Noon EST
    </td>
 </tr>
 <tr>

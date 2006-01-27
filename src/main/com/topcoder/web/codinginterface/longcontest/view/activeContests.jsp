@@ -161,7 +161,7 @@
     </TABLE>
    <br>
     <% if (roundType ==Constants.INTEL_LONG_ROUND_TYPE_ID) {%>
-   * Due to a communication problem that currently exists between the tester machines and core system, submissions are not currently being accepted or processed.  We are actively working to resolve this as quickly as possible.  The submission link will be reactivated when this situation is resolved.  You may check the <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505902">forum discussion</A> for this competition for any updates.
+   * We've encountered a problem with the execution of some of the tests on the hardware that is dedicated for this competition.  Due to this problem, we will not be enabling submissions until Wednesday, Feb. 1 at 12:00 Noon EST.  We sincerely apologize for this delay and hope that any inconvenience that this may cause is minimal.
     <% } %>
    <br><br>
 </td>
