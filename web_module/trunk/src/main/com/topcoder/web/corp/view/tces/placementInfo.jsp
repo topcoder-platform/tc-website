@@ -28,7 +28,8 @@ List langList = (List)request.getAttribute("langSkills");
 List osList = (List)request.getAttribute("osSkills");
 List industryList = (List)request.getAttribute("industrySkills");
     ResultSetContainer info = (ResultSetContainer)((Map)request.getAttribute("memberData")).get("TCES_Member_Profile");
-    ResultSetContainer jobInfo = (ResultSetContainer)((Map)request.getAttribute("memberData")).getTCES_Position_Name");
+    ResultSetContainer jobInfo = (ResultSetContainer)((Map)request.getAttribute("memberData")).get("TCES_Position_Name");
+    ResultSetContainer campaignInfo = (ResultSetContainer)((Map)request.getAttribute("memberData")).get("TCES_Campaign_Name");
 %>
 <body>
 
@@ -57,7 +58,7 @@ List industryList = (List)request.getAttribute("industrySkills");
                             <br/>
                             <span class=testHead>Placement Info <b>(This should be changed to something that is appropriate for clients)</b></span>
                             <br/><br/>
-                            <strong>Campaign:</strong><%=request.getAttribute("campaignName")%>
+                            <strong>Campaign:</strong><rsc:item name="campaign_name" set="<%=campaignInfo%>"/>
                             <br/>
                         </p>
                     </td>
