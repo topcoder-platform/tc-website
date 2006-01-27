@@ -1,6 +1,7 @@
 <%@ page import="java.util.Map"%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ page import="java.util.List"%>
+<%@ page import="com.topcoder.web.corp.common.TCESConstants"%>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page language="java"%>
 <%@ taglib uri="tces-taglib.tld" prefix="tces" %>
@@ -57,7 +58,7 @@
                 </tr>
             </table>
             <p>
-                <a href="<%=request.getAttribute("editURL")%>">Modify Search</a>
+                <a href="<%=request.getAttribute("editURL")%>">Modify Search</a> <a href="<%=sessionInfo.getServletPath()%>?module=ViewSearchTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<rsc:item name="campaign_id" set="<%=results%>"/>">New Search</a>
             </p>
 
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
