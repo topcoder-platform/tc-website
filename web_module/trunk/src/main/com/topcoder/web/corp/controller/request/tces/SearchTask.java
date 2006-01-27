@@ -207,7 +207,7 @@ public class SearchTask extends ViewSearchTask {
         query.append("    AND cry.country_code = c.country_code\n");
         query.append("    AND e.user_id = u.user_id\n");
         query.append("    AND e.primary_ind = 1\n");
-        query.append("    and jh.timestamp = (select max(timestamp) from job_hit where user_id = u.user_id and job_id = jh.job_id)\n");
+        query.append("    and jh.timestamp||'-'||jh.job_id = (select max(timestamp||'-'||jh1.job_id) from job_hit jh1, campaign_job_xref cjx1 where jh1.user_id = u.user_id and jh1.job_id = cjx1.job_id and cjx1.campaign_id = cjx.campaign_id)\n");
         query.append(" and jh.job_id = cjx.job_id\n");
         query.append(" and jh.user_id = u.user_id\n");
         query.append(" and cjx.campaign_id = ").append(campaignId).append("\n");
