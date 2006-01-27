@@ -36,6 +36,7 @@ public class ViewSearchTask extends BaseTask {
                         "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" +
                         TCESConstants.CAMPAIGN_ID_PARAM + "=" + campaignId, TCESConstants.CAMPAIGN_DETAIL_NAME));
                 setTrail(a);
+                getRequest().setAttribute("oltpDb", getOltp());
                 searchProcessing();
             } else {
                 throw new Exception(" cid=" + String.valueOf(campaignId) +
