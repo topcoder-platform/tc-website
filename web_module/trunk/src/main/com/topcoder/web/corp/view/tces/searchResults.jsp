@@ -66,7 +66,7 @@
                         <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=results.getColumnIndex("handle_lower")%>" includeParams="true"/>" class="statLink">Handle</a>
                     </td>
                     <td class="screeningHeader">
-                        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=results.getColumnIndex("alg_rating")%>" includeParams="true"/>" class="statLink">Handle</a>
+                        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=results.getColumnIndex("alg_rating")%>" includeParams="true"/>" class="statLink">Algorithm<br />Rating</a>
                     </td>
                     <td class="screeningHeader">
                         <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=results.getColumnIndex("des_rating")%>" includeParams="true"/>" class="statLink">Design<br/>Rating</a>
