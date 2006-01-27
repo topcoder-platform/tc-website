@@ -109,7 +109,7 @@ public class SearchTask extends ViewSearchTask {
                 "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" +
                 TCESConstants.CAMPAIGN_ID_PARAM + "=" + campaignId, TCESConstants.CAMPAIGN_DETAIL_NAME));
             setTrail(a);
-            
+
 
             setNextPage(TCESConstants.SEARCH_RESULTS_PAGE);
             setIsNextPageInContext(true);
@@ -151,9 +151,6 @@ public class SearchTask extends ViewSearchTask {
 
         //type, max hit date
         StringBuffer query = new StringBuffer(5000);
-        if ("on".equals(request.getParameter("count"))) {
-            query.append("SELECT COUNT(*)as total_count, \n");
-        } else {
             /*
             handle, rating, des rating, dev rating, state, country, type, school, recent hit date, resume
             */
@@ -174,7 +171,6 @@ public class SearchTask extends ViewSearchTask {
             query.append(" , (select max(timestamp) from job_hit jh, campaign_job_xref cjx where cjx.job_id = jh.job_id and jh.user_id = u.user_id and cjx.campaign_id = ").append(campaignId).append(") as most_recent_hit\n");
             query.append(" , case when exists (select 1 from resume where coder_id = c.coder_id) then 'Yes' else 'No' end as has_resume\n");
             query.append(" , handle_lower");
-        }
         query.append("  FROM");
         query.append("    coder c\n");
         if (hasSchool) {
