@@ -48,7 +48,7 @@
         <td valign=top align="center">
             <div class="bodySpacer">
                 <br/>
-                  <span class="bigTitle"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/> - 
+                  <span class="bigTitle"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/> -
                   <a href="/tc?module=TCO06ContestProjects&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">View Components</a></span>
                   <br><br>
                 <table width="510" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
@@ -61,25 +61,19 @@
                         <td class="sidebarTitle" align="center">Contest Prize</td>
                         <td class="sidebarTitle" align="center">Results</td>
                     </tr>
-                    <%for (int i = 0; i < lst.size(); i++) { %>
-                    <tr>
-                        <% UserContestDetail result = (UserContestDetail) lst.get(i); %>
-                        <td class="sidebarText" nowrap="nowrap"><tc-webtag:handle context='<%=tab%>' coderId='<%=result.getUserID()%>' darkBG='true' />
-                            <% if (result.getIncomplete() > 0) {
-                                isComplete = false;%>
-                            *
-                            <% } %>
-                        </td>
-                        <td class="sidebarText" align="center"><%=result.getPoints()%></td>
-                        <td class="sidebarText" align="center"><%=result.getComplete()%></td>
-                        <td class="sidebarText" align="center"><%=result.getIncomplete()%></td>
-                        <td class="sidebarText" align="center"><%=result.getSubmissionCount()%></td>
-                        <td class="sidebarText" align="right"><%=result.getPayment()%></td>
-                        <td class="sidebarText" align="center">
-                            <a href="/tc?module=TCO06MemberResults&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<%=result.getUserID()%>">results</a>
-                        </td>
-                    </tr>
-                    <% }%>
+<%for (int i = 0; i < lst.size(); i++) { %><tr>
+<% UserContestDetail result = (UserContestDetail) lst.get(i); %>
+<td class="sidebarText" nowrap="nowrap"><tc-webtag:handle context='<%=tab%>' coderId='<%=result.getUserID()%>' darkBG='true' />
+<% if (result.getIncomplete() > 0) {isComplete = false;%>*<% } %></td>
+<td class="sidebarText" align="center"><%=result.getPoints()%></td>
+<td class="sidebarText" align="center"><%=result.getComplete()%></td>
+<td class="sidebarText" align="center"><%=result.getIncomplete()%></td>
+<td class="sidebarText" align="center"><%=result.getSubmissionCount()%></td>
+<td class="sidebarText" align="right"><%=result.getPayment()%></td>
+<td class="sidebarText" align="center">
+<a href="/tc?module=TCO06MemberResults&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<%=result.getUserID()%>">results</a>
+</td>
+</tr><% }%>
                 </table>
                <br><br>
                 <%if (!isComplete) {%>
