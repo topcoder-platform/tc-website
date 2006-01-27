@@ -132,12 +132,12 @@
                                        class="statLink">Results</a>
                                 </logic:notEqual>
                             </td>
-                            <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
+                            <td class="<%=even?"statLt":"statDk"%>" align="center">
                                 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">
                                     <tc-webtag:beanWrite name="contest" property="numRegistrants"/></A></td>
-                            <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
+                            <td class="<%=even?"statLt":"statDk"%>" align="center">
                                     <tc-webtag:beanWrite name="contest" property="numCompetitors"/></td>
-                            <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
+                            <td class="<%=even?"statLt":"statDk"%>" align="center">
                                                     <tc-webtag:beanWrite name="contest" property="submissionCount"/></td>
                             <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
                                 <tc-webtag:beanWrite name="contest" property="startTime"
@@ -145,7 +145,7 @@
                             <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
                                 <tc-webtag:beanWrite name="contest" property="endTime"
                                                      format="MM.dd.yyyy HH:mm"/></td>
-                            <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
+                            <td class="<%=even?"statLt":"statDk"%>" align="center">
                                 <logic:notEqual name="contest" property="forumId" value="0">
                                     <tc-webtag:forumLink forumID="<%=((LongContest)contest).getForumId()%>" message="discuss"/>
                                 </logic:notEqual>
