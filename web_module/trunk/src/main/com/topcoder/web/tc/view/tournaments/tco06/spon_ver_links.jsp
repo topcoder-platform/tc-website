@@ -71,6 +71,7 @@
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_description"><% if (tabLev3.equals("description")) {%><img src="/i/tournament/tco06/tabs/L3_descriptionOn.gif" border="0" /><% } else { %><img src="/i/tournament/tco06/tabs/L3_descriptionOff.gif" border="0" /><% } %></a></td>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_schedule"><% if (tabLev3.equals("schedule")) {%><img src="/i/tournament/tco06/tabs/L3_scheduleOn.gif" border="0" /><% } else { %><img src="/i/tournament/tco06/tabs/L3_scheduleOff.gif" border="0" /><% } %></a></td>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_rules"><% if (tabLev3.equals("rules")) {%><img src="/i/tournament/tco06/tabs/L3_rulesOn.gif" border="0" /><% } else { %><img src="/i/tournament/tco06/tabs/L3_rulesOff.gif" border="0" /><% } %></a></td>
+                  <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_instructions"><% if (tabLev3.equals("instructions")) {%><img src="/i/tournament/tco06/tabs/L3_instructionsOn.gif" border="0" /><% } else { %><img src="/i/tournament/tco06/tabs/L3_instructionsOff.gif" border="0" /><% } %></a></td>
                <% } else if (tabLev2.equals("registration")) {%>
                   <td class="subnavBG"><img src="/i/clear.gif" height="35" width="1" border="0"/></td>
                <% } else if (tabLev2.equals("registrants")) {%>
