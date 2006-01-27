@@ -98,19 +98,6 @@ public class SearchTask extends ViewSearchTask {
 
                 getRequest().setAttribute("results", results);
             }
-
-
-
-            ArrayList a = new ArrayList();
-            a.add(new TrailItem(getSessionInfo().getServletPath() +
-                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" +
-                TCESConstants.CAMPAIGN_ID_PARAM + "=" + campaignId, TCESConstants.MAIN_NAME));
-            a.add(new TrailItem(getSessionInfo().getServletPath() +
-                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" +
-                TCESConstants.CAMPAIGN_ID_PARAM + "=" + campaignId, TCESConstants.CAMPAIGN_DETAIL_NAME));
-            setTrail(a);
-
-
             setNextPage(TCESConstants.SEARCH_RESULTS_PAGE);
             setIsNextPageInContext(true);
 
