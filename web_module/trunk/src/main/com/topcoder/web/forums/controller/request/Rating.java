@@ -36,7 +36,6 @@ public class Rating extends ForumsProcessor {
         getHttpResponse().setHeader("Cache-Control", "no-cache");
         getHttpResponse().getWriter().println(getXML(posRatings, negRatings));
         getHttpResponse().getWriter().flush();
-        log.debug("******** COMMITTED: " + getHttpResponse().isCommitted());
 	}
     
 	private String getXML(int posRatings, int negRatings) {
