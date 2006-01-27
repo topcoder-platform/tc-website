@@ -29,7 +29,8 @@ public class SearchTask extends ViewSearchTask {
         log.debug("process called....");
         try {
             long time;
-            String query = buildQuery(getRequest(), Long.parseLong(getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM)));
+            long campaignId = Long.parseLong(getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM));
+            String query = buildQuery(getRequest(), campaignId);
             //time = System.currentTimeMillis() - time;
             //log.debug("query constructed in " + time);
             getRequest().setAttribute("QUERY", query);
@@ -97,6 +98,19 @@ public class SearchTask extends ViewSearchTask {
 
                 getRequest().setAttribute("results", results);
             }
+
+
+
+            ArrayList a = new ArrayList();
+            a.add(new TrailItem(getSessionInfo().getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + campaignId, TCESConstants.MAIN_NAME));
+            a.add(new TrailItem(getSessionInfo().getServletPath() +
+                "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" +
+                TCESConstants.CAMPAIGN_ID_PARAM + "=" + campaignId, TCESConstants.CAMPAIGN_DETAIL_NAME));
+            setTrail(a);
+            
+
             setNextPage(TCESConstants.SEARCH_RESULTS_PAGE);
             setIsNextPageInContext(true);
 

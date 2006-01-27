@@ -36,8 +36,18 @@ public class ViewSearchTask extends BaseTask {
     }
 
     protected void searchProcessing() throws Exception {
-        setDefault(TCESConstants.CAMPAIGN_ID_PARAM, getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM));
+        String campaignId = getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM);
+        setDefault(TCESConstants.CAMPAIGN_ID_PARAM, campaignId);
         loadDefaults(getRequest());
+        ArrayList a = new ArrayList();
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
+            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" +
+            TCESConstants.CAMPAIGN_ID_PARAM + "=" + campaignId, TCESConstants.MAIN_NAME));
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
+            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" +
+            TCESConstants.CAMPAIGN_ID_PARAM + "=" + campaignId, TCESConstants.CAMPAIGN_DETAIL_NAME));
+        setTrail(a);
+
         setNextPage(TCESConstants.SEARCH_PAGE);
         setIsNextPageInContext(true);
     }
