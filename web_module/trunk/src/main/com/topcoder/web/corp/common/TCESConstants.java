@@ -252,6 +252,7 @@ public class TCESConstants implements WebConstants {
         MEMBER_INTEREST_PAGE = JSP_ROOT + servletConfig.getInitParameter("member_interest_page");
         SEARCH_PAGE = JSP_ROOT + servletConfig.getInitParameter("search_page");
         SEARCH_RESULTS_PAGE = JSP_ROOT + servletConfig.getInitParameter("search_results_page");
+        PLACEMENT_INFO_PAGE = JSP_ROOT + servletConfig.getInitParameter("placement_info_page");
 
         LOGIN_TASK = servletConfig.getInitParameter("login_task");
         LOGIN_TASK_STEP_VIEW = servletConfig.getInitParameter("login_task_step_view");
