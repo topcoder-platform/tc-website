@@ -28,11 +28,12 @@ public class SearchTask extends ViewSearchTask {
     protected void searchProcessing() throws TCWebException {
         log.debug("process called....");
         try {
-            long time = System.currentTimeMillis();
+            long time;
             String query = buildQuery(getRequest(), Long.parseLong(getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM)));
-            time = System.currentTimeMillis() - time;
+            //time = System.currentTimeMillis() - time;
             //log.debug("query constructed in " + time);
             getRequest().setAttribute("QUERY", query);
+            getRequest().setAttribute("editURL", getEditURL());
             if (!"on".equals(getRequest().getParameter("queryOnly"))) {
                 QueryDataAccess qda = new QueryDataAccess(DBMS.OLTP_DATASOURCE_NAME);
                 QueryRequest qr = new QueryRequest();
@@ -104,6 +105,18 @@ public class SearchTask extends ViewSearchTask {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+
+    /**
+     * Creats a string (url) that will allow us to link to the seach page with all
+     * the fields appropriately populated.
+     * @return the url
+     */
+    private String getEditURL() {
+        StringBuffer s = new StringBuffer(getSessionInfo().getRequestString());
+        s.insert(s.indexOf("SearchTask"), "View");
+        return s.toString();
+
     }
 
     private String buildQuery(TCRequest request, long campaignId) {

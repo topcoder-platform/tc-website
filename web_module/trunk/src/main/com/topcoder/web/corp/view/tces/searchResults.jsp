@@ -67,6 +67,9 @@
                     </td>
                 </tr>
             </table>
+            <p>
+                <a href="<%=request.getAttribute("editURL")%>">Modify Search</a>
+            </p>
 
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                 <tr>
