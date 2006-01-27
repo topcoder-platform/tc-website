@@ -27,7 +27,15 @@ public class ViewSearchTask extends BaseTask {
                 r.setContentHandle("TCES_Campaign_Info");
                 r.setProperty(TCESConstants.CAMPAIGN_ID_PARAM, campaignId);
                 getRequest().setAttribute("campaignName",
-                        ((ResultSetContainer)getDataAccess(getOltp()).getData(r).get("TCES_Campaign_Info")).getStringItem(0, "campaign_name"));
+                        ((ResultSetContainer) getDataAccess(getOltp()).getData(r).get("TCES_Campaign_Info")).getStringItem(0, "campaign_name"));
+                ArrayList a = new ArrayList();
+                a.add(new TrailItem(getSessionInfo().getServletPath() +
+                        "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" +
+                        TCESConstants.CAMPAIGN_ID_PARAM + "=" + campaignId, TCESConstants.MAIN_NAME));
+                a.add(new TrailItem(getSessionInfo().getServletPath() +
+                        "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" +
+                        TCESConstants.CAMPAIGN_ID_PARAM + "=" + campaignId, TCESConstants.CAMPAIGN_DETAIL_NAME));
+                setTrail(a);
                 searchProcessing();
             } else {
                 throw new Exception(" cid=" + String.valueOf(campaignId) +
@@ -44,15 +52,6 @@ public class ViewSearchTask extends BaseTask {
         String campaignId = getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM);
         setDefault(TCESConstants.CAMPAIGN_ID_PARAM, campaignId);
         loadDefaults(getRequest());
-        ArrayList a = new ArrayList();
-        a.add(new TrailItem(getSessionInfo().getServletPath() +
-            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" +
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + campaignId, TCESConstants.MAIN_NAME));
-        a.add(new TrailItem(getSessionInfo().getServletPath() +
-            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" +
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + campaignId, TCESConstants.CAMPAIGN_DETAIL_NAME));
-        setTrail(a);
-
         setNextPage(TCESConstants.SEARCH_PAGE);
         setIsNextPageInContext(true);
     }
@@ -62,7 +61,7 @@ public class ViewSearchTask extends BaseTask {
         r.setContentHandle("TCES_Verify_Campaign_Access");
         r.setProperty(TCESConstants.CAMPAIGN_ID_PARAM, String.valueOf(campaignId));
         r.setProperty(TCESConstants.USER_ID_PARAM, String.valueOf(getUser().getId()));
-        return !((ResultSetContainer)getDataAccess(getOltp()).getData(r).get("TCES_Verify_Campaign_Access")).isEmpty();
+        return !((ResultSetContainer) getDataAccess(getOltp()).getData(r).get("TCES_Verify_Campaign_Access")).isEmpty();
 
 
     }
@@ -143,9 +142,9 @@ public class ViewSearchTask extends BaseTask {
                 s.addAll(Arrays.asList(v));
             }
 
-            for (Iterator it= demographic_answers.iterator(); it.hasNext();) {
-                row = (ResultSetContainer.ResultSetRow)it.next();
-                if (row.getLongItem("demographic_question_id")==questionId) {
+            for (Iterator it = demographic_answers.iterator(); it.hasNext();) {
+                row = (ResultSetContainer.ResultSetRow) it.next();
+                if (row.getLongItem("demographic_question_id") == questionId) {
                     answers.add(new ListSelectTag.Option(row.getStringItem("demographic_answer_id"),
                             row.getStringItem("demographic_answer_text"),
                             s.contains(row.getStringItem("demographic_answer_id"))));
