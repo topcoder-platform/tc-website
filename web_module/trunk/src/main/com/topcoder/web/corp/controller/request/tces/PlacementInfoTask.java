@@ -39,7 +39,7 @@ public class PlacementInfoTask extends BaseTask {
             getRequest().setAttribute(TCESConstants.MEMBER_ID_PARAM, String.valueOf(memberId));
 
             Map memberData = getInfo(memberId, campaignId, jobId);
-            if (((ResultSetContainer)memberData.get(" TCES_Verify_Member_Access")).isEmpty()) {
+            if (((ResultSetContainer)memberData.get("TCES_Verify_Member_Access")).isEmpty()) {
                 throw new NotAuthorizedException(" mid=" + memberId
                         + " jid=" + jobId
                         + " cid=" + campaignId
