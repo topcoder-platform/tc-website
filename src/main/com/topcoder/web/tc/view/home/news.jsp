@@ -8,13 +8,13 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>01.27.06<br>2:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>01.27.06<br>3:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/longcontest/?module=ViewActiveContests&rt=15">Intel Multi-Threading Competition 1 Extended</A></span><br><br>
       We will start taking submissions for Competition 1 on Wednesday, Feb. 1 at 12:00 Noon EST.  We've also extended the competition by a week, now ending on Feb 15 at 12 noon EST.
    </tr>
    <tr><td class="newsLinksCell">
       <A href="/longcontest/?module=ViewActiveContests&rt=15">details</A>&#160;|&#160;
-      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">discuss this</A>&#160;|&#160;
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=508897&mc=1#524634">discuss this</A>&#160;|&#160;
       <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
