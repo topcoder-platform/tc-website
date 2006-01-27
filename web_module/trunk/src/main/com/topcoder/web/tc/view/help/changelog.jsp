@@ -41,6 +41,7 @@
         4.1.9 - 2006.01.xx
         <ul>
             <li>tco06 component results site - placement points only for those that get over 75</li>
+            <li>add search to reporting site</li>
         </ul>
 
     </p>
