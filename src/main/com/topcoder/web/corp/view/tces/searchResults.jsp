@@ -98,20 +98,20 @@
                 <%--not indenting to save some space on the download cuz this can be a big loop
                     and the spaces significantly impact the size of the html source
                 --%>
-                <rsc:iterator list="<%=results%>" id="resultRow">
-                    <tr>
-                        <td><rsc:item name="handle" row="<%=resultRow%>"/></td>
-                        <td><rsc:item name="alg_rating" row="<%=resultRow%>"/></td>
-                        <td><rsc:item name="des_rating" row="<%=resultRow%>"/></td>
-                        <td><rsc:item name="dev_rating" row="<%=resultRow%>"/></td>
-                        <td><rsc:item name="state_code" row="<%=resultRow%>"/></td>
-                        <td><rsc:item name="country_name" row="<%=resultRow%>"/></td>
-                        <td><rsc:item name="coder_type_desc" row="<%=resultRow%>"/></td>
-                        <td><rsc:item name="school_name" row="<%=resultRow%>"/></td>
-                        <td><rsc:item name="most_recent_hit" row="<%=resultRow%>"/></td>
-                        <td><rsc:item name="has_resume" row="<%=resultRow%>"/></td>
-                    </tr>
-                </rsc:iterator>
+<rsc:iterator list="<%=results%>" id="resultRow"><tr>
+<td>
+    <tces:handle campaignId="<%=resultRow.getLongItem("campaign_id")%>" db="<%=(String)request.getAttribute("oltpDb")%>"jobId='<%=resultRow.getLongItem("job_id")%>' coderId='<%=resultRow.getLongItem("user_id")%>' />
+    <rsc:item name="handle" row="<%=resultRow%>"/></td>
+<td><rsc:item name="alg_rating" row="<%=resultRow%>"/></td>
+<td><rsc:item name="des_rating" row="<%=resultRow%>"/></td>
+<td><rsc:item name="dev_rating" row="<%=resultRow%>"/></td>
+<td><rsc:item name="state_code" row="<%=resultRow%>"/></td>
+<td><rsc:item name="country_name" row="<%=resultRow%>"/></td>
+<td><rsc:item name="coder_type_desc" row="<%=resultRow%>"/></td>
+<td><rsc:item name="school_name" row="<%=resultRow%>"/></td>
+<td><rsc:item name="most_recent_hit" row="<%=resultRow%>"/></td>
+<td><rsc:item name="has_resume" row="<%=resultRow%>"/></td>
+</tr></rsc:iterator>
             </table>
 
             <p><br></p>

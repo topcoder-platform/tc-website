@@ -78,11 +78,6 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>companyId</name>
-            <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-        <attribute>
             <name>campaignId</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
