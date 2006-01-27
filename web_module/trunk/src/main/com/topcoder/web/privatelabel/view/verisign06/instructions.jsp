@@ -5,6 +5,20 @@
 <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
 <title>VeriSign Coder Challenge 2006, Powered by TopCoder</title>
 <jsp:include page="../script.jsp" />
+<style type="text/css">
+.code
+{
+   width: 580;
+   padding: 10px;
+   margin: 20px;
+   color: #333;
+   font-size: 11px;
+   font-weight: normal;
+   line-height: 14px;
+   background-color: #EEEEEE;
+   border: 1px solid #999;
+}
+</style>
 </head>
 <body bgcolor="#FFF">
 
@@ -109,8 +123,10 @@ The VeriSign Coder Challenge allows coders to utilize Java, C++, C# or Visual Ba
 <strong>Creating a Solution</strong><br>
 The solution class you create and all of its members must be defined as public in order for the TopCoder servers to have access to your class members and invoke the appropriate methods. Below you will find code templates for Java, C++, C#, and Visual Basic:
 <br><br>
-<b>Java Code Template</b><br>
-<pre>import &lt;necessary classes&gt;
+
+<b>Java Code Template</b><br><br>
+<pre class="code">
+import &lt;necessary classes&gt;
 
 public class &lt;class-name&gt; {
     public &lt;return-type&gt; &lt;method-name&gt;(&lt;argument-type&gt; arg1) {
@@ -119,9 +135,11 @@ public class &lt;class-name&gt; {
     }
 }
 </pre>
+<br><br>
 
-<b>C++ Code Template</b><br>
-<pre>#include &lt;necessary classes&gt;
+<b>C++ Code Template</b><br><br>
+<pre class="code">
+#include &lt;necessary classes&gt;
 
 using namespace std; //Required for TopCoder gcc compiler
 
@@ -135,9 +153,11 @@ class &lt;class-name&gt;
     };
 };
 </pre>
+<br><br>
 
-<b>C# Code Template</b><br>
-<pre>using &lt;necessary classes&gt;;
+<b>C# Code Template</b><br><br>
+<pre class="code">
+using &lt;necessary classes&gt;;
 
 public class &lt;class-name&gt; {
     public &lt;return-type&gt; &lt;method-name&gt;(&lt;argument-type&gt; arg1) {
@@ -146,10 +166,10 @@ public class &lt;class-name&gt; {
     }
 }
 </pre>
+<br><br>
 
-
-<b>Visual Basic Code Template</b><br>
-<pre>
+<b>Visual Basic Code Template</b><br><br>
+<pre class="code">
 Imports &lt;necessary classes&gt;;
 
 Public Class &lt;class-name&gt;
@@ -160,8 +180,7 @@ Public Class &lt;class-name&gt;
     End Function
 End Class
 </pre>
-
-<br>
+<br><br>
 
 <strong>Compiling</strong><br>
 Code compilations from within the coding window will take place on TopCoder servers. The language that is chosen in the coding window at the time of the compilation will dictate to which language compiler the compilation request is sent. A compilation request will send the code that is currently in the coding window to the TopCoder compiler. If a compilation is successful, you will be notified of such. If the compilation is not successful, the errors that are returned by the compiler will be displayed to you in the compilation results window. Once a successful compilation is accomplished, the resultant compiled object will be stored on TopCoder's server. Any user test or code submission will always utilize the most recent successfully compiled code.  The following is an example of an unsuccessful Java compilation attempt:
