@@ -264,6 +264,11 @@
         </init-param>
 
         <init-param>
+            <param-name>placement_info_page</param-name>
+            <param-value>placementInfo.jsp</param-value>
+        </init-param>
+
+        <init-param>
             <param-name>position_interest_page</param-name>
             <param-value>position_interest.jsp</param-value>
         </init-param>
