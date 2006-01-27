@@ -11,7 +11,6 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
-<jsp:useBean id="PositionInterestTask" scope="request" class="com.topcoder.web.corp.controller.request.tces.PositionInterestTask"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -29,6 +28,7 @@ List langList = (List)request.getAttribute("langSkills");
 List osList = (List)request.getAttribute("osSkills");
 List industryList = (List)request.getAttribute("industrySkills");
     ResultSetContainer info = (ResultSetContainer)((Map)request.getAttribute("memberData")).get("TCES_Member_Profile");
+    ResultSetContainer jobInfo = (ResultSetContainer)((Map)request.getAttribute("memberData")).getTCES_Position_Name");
 %>
 <body>
 
@@ -81,7 +81,7 @@ List industryList = (List)request.getAttribute("industrySkills");
               <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=request.getAttribute(TCESConstants.CAMPAIGN_ID_PARAM)%>&amp;<%=TCESConstants.JOB_ID_PARAM%>=<%=request.getAttribute(TCESConstants.JOB_ID_PARAM)%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=request.getAttribute(TCESConstants.MEMBER_ID_PARAM)%>" class="bodyText"><B>Resume</B></a>
                         <% } %>
             <br/><br/>
-            <strong>Interested in:</strong> <jsp:getProperty name="CoderDemographicsTask" property="jobName"/>
+            <strong>Interested in:</strong> <rsc:item name="job_desc" set="<%=jobInfo%>"/>
             <br/><br/>
 <% if (String.valueOf(Boolean.TRUE).equals(request.getAttribute("is_ranked"))) { %>
             Coder Demographic Info
@@ -102,29 +102,29 @@ List industryList = (List)request.getAttribute("industrySkills");
                     <td align=right width="65%"><b>Preferences</b></td>
                     <td width="35%"></td>
                 </tr>
-                <tc:listIterator id="prefGroup" list="<%=prefList%>">
+                <tc-webtag:listIterator id="prefGroup" list="<%=prefList%>">
                     <tr>
                         <td align=right><b><%=((ContractingResponseGroup)prefGroup).getName()%></b></td>
                         <td valign=top>&#160;</td>
                      </tr>
-                    <tc:listIterator id="pref" list="<%=((ContractingResponseGroup)prefGroup).getResponses()%>">
+                    <tc-webtag:listIterator id="pref" list="<%=((ContractingResponseGroup)prefGroup).getResponses()%>">
                         <tr>
                             <td align=right><%=((ContractingResponse)pref).getName()%>:</td>
                             <td valign=top><%=((ContractingResponse)pref).getVal()%></td>
                         </tr>
-                    </tc:listIterator>
+                    </tc-webtag:listIterator>
                     <tr><td>&#160;</td></tr>
-                </tc:listIterator>
+                </tc-webtag:listIterator>
                 <tr>
                     <td align=right><b>Technology Skills</b></td>
                     <td></td>
                 </tr>
-                <tc:listIterator id="tech" list="<%=techList%>">
+                <tc-webtag:listIterator id="tech" list="<%=techList%>">
                     <tr>
                         <td align=right><%=((ContractingResponse)tech).getName()%>:</td>
                         <td valign=top><%=((ContractingResponse)tech).getVal()%></td>
                     </tr>
-                </tc:listIterator>
+                </tc-webtag:listIterator>
                 <tr><td align=right>Comment:</td><td></td></tr>
                 <tr><td align=center colspan=2><table cellpadding=3 cellspacing=5><tr><td bgcolor="#eeeeee"><%=StringUtils.htmlEncode((String)request.getAttribute("techNote"))%></td></tr></table></td></tr>
 
@@ -134,12 +134,12 @@ List industryList = (List)request.getAttribute("industrySkills");
                     <td align=right><b>Databases</b></td>
                     <td valign=top></td>
                 </tr>
-                <tc:listIterator id="db" list="<%=dbList%>">
+                <tc-webtag:listIterator id="db" list="<%=dbList%>">
                     <tr>
                         <td align=right><%=((ContractingResponse)db).getName()%>:</td>
                         <td valign=top><%=((ContractingResponse)db).getVal()%></td>
                     </tr>
-                </tc:listIterator>
+                </tc-webtag:listIterator>
                 <tr><td align=right>Comment:</td><td></td></tr>
                 <tr><td align=center colspan=2><table cellpadding=3 cellspacing=5><tr><td bgcolor="#eeeeee"><%=StringUtils.htmlEncode((String)request.getAttribute("dbNote"))%></td></tr></table></td></tr>
             </table>
@@ -150,12 +150,12 @@ List industryList = (List)request.getAttribute("industrySkills");
         <td align=right width="65%"><b>Language Skills</b></td>
         <td valign=top width="35%"></td>
     </tr>
-    <tc:listIterator id="lang" list="<%=langList%>">
+    <tc-webtag:listIterator id="lang" list="<%=langList%>">
       <tr>
         <td align=right><%=((ContractingResponse)lang).getName()%>:</td>
         <td valign=top><%=((ContractingResponse)lang).getVal()%></td>
     </tr>
-    </tc:listIterator>
+    </tc-webtag:listIterator>
     <tr><td align=right>Comment:</td><td></td></tr>
     <tr><td align=center colspan=2><table cellpadding=3 cellspacing=5><tr><td bgcolor="#eeeeee"><%=StringUtils.htmlEncode((String)request.getAttribute("langNote"))%></td></tr></table></td></tr>
 
@@ -165,12 +165,12 @@ List industryList = (List)request.getAttribute("industrySkills");
         <td align=right><b>Operating Systems</b></td>
         <td valign=top></td>
     </tr>
-    <tc:listIterator id="os" list="<%=osList%>">
+    <tc-webtag:listIterator id="os" list="<%=osList%>">
       <tr>
         <td align=right><%=((ContractingResponse)os).getName()%>:</td>
         <td valign=top><%=((ContractingResponse)os).getVal()%></td>
     </tr>
-    </tc:listIterator>
+    </tc-webtag:listIterator>
     <tr><td align=right>Comment:</td><td></td></tr>
     <tr><td align=center colspan=2><table cellpadding=3 cellspacing=5><tr><td bgcolor="#eeeeee"><%=StringUtils.htmlEncode((String)request.getAttribute("osNote"))%></td></tr></table></td></tr>
     <tr><td>&#160;</td></tr>
@@ -179,12 +179,12 @@ List industryList = (List)request.getAttribute("industrySkills");
         <td align=right><b>Industries</b></td>
         <td valign=top></td>
     </tr>
-    <tc:listIterator id="industry" list="<%=industryList%>">
+    <tc-webtag:listIterator id="industry" list="<%=industryList%>">
       <tr>
         <td align=right><%=((ContractingResponse)industry).getName()%>:</td>
         <td valign=top><%=((ContractingResponse)industry).getVal()%></td>
     </tr>
-    </tc:listIterator>
+    </tc-webtag:listIterator>
     <tr><td align=right>Comment:</td><td></td></tr>
     <tr><td align=center colspan=2><table cellpadding=3 cellspacing=5><tr><td bgcolor="#eeeeee"><%=StringUtils.htmlEncode((String)request.getAttribute("industryNote"))%></td></tr></table></td></tr>
 </table>
