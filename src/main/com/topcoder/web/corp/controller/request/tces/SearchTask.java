@@ -63,7 +63,7 @@ public class SearchTask extends ViewSearchTask {
                         /* attempt to add this object to the cache */
                         if (hasCacheConnection) {
                             try {
-                                cc.set(key, map, 10*60*1000);
+                                cc.set(key, map, 10 * 60 * 1000);
                             } catch (Exception e) {
                                 log.error("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
                             }
@@ -74,7 +74,7 @@ public class SearchTask extends ViewSearchTask {
                 }
 
 
-                ResultSetContainer results = (ResultSetContainer)map.get("results");
+                ResultSetContainer results = (ResultSetContainer) map.get("results");
 
                 String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
                 String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
@@ -111,6 +111,7 @@ public class SearchTask extends ViewSearchTask {
     /**
      * Creats a string (url) that will allow us to link to the seach page with all
      * the fields appropriately populated.
+     *
      * @return the url
      */
     private String getEditURL() {
@@ -138,26 +139,27 @@ public class SearchTask extends ViewSearchTask {
 
         //type, max hit date
         StringBuffer query = new StringBuffer(5000);
-            /*
-            handle, rating, des rating, dev rating, state, country, type, school, recent hit date, resume
-            */
-            query.append("SELECT");
-            query.append(" distinct u.handle\n");
-            query.append(" , r.rating as alg_rating\n");
-            query.append(" , desr.rating as des_rating\n");
-            query.append(" , devr.rating as dev_rating\n");
-            query.append(" , c.state_code\n");
-            query.append(" , cry.country_name\n");
-            query.append(" , ct.coder_type_desc\n");
-            if (hasSchool) {
-                query.append(" , s.name as school_name\n");
-            } else {
-                query.append(" , (select s.name from school s, current_school cs where s.school_id = cs.school_id and cs.coder_id = u.user_id) as school_name\n");
-            }
-            query.append(" , u.user_id\n");
-            query.append(" , (select max(timestamp) from job_hit jh, campaign_job_xref cjx where cjx.job_id = jh.job_id and jh.user_id = u.user_id and cjx.campaign_id = ").append(campaignId).append(") as most_recent_hit\n");
-            query.append(" , case when exists (select 1 from resume where coder_id = c.coder_id) then 'Yes' else 'No' end as has_resume\n");
-            query.append(" , handle_lower");
+        /*
+        handle, rating, des rating, dev rating, state, country, type, school, recent hit date, resume
+        */
+        query.append("SELECT");
+        query.append("  u.handle\n");
+        query.append(" , r.rating as alg_rating\n");
+        query.append(" , desr.rating as des_rating\n");
+        query.append(" , devr.rating as dev_rating\n");
+        query.append(" , c.state_code\n");
+        query.append(" , cry.country_name\n");
+        query.append(" , ct.coder_type_desc\n");
+        if (hasSchool) {
+            query.append(" , s.name as school_name\n");
+        } else {
+            query.append(" , (select s.name from school s, current_school cs where s.school_id = cs.school_id and cs.coder_id = u.user_id) as school_name\n");
+        }
+        query.append(" , u.user_id\n");
+        query.append(" , jh.timestamp as most_recent_hit\n");
+        query.append(" , case when exists (select 1 from resume where coder_id = c.coder_id) then 'Yes' else 'No' end as has_resume\n");
+        query.append(" , handle_lower");
+        query.append(" , jh.job_id");
         query.append("  FROM");
         query.append("    coder c\n");
         if (hasSchool) {
@@ -205,9 +207,10 @@ public class SearchTask extends ViewSearchTask {
         query.append("    AND cry.country_code = c.country_code\n");
         query.append("    AND e.user_id = u.user_id\n");
         query.append("    AND e.primary_ind = 1\n");
-        query.append(   " and jh.job_id = cjx.job_id\n");
-        query.append(   " and jh.user_id = u.user_id\n");
-        query.append(   " and cjx.campaign_id = ").append(campaignId).append("\n");
+        query.append("    and jh.timestamp = (select max(timestamp) from job_hit where user_id = u.user_id and job_id = jh.job_id)\n");
+        query.append(" and jh.job_id = cjx.job_id\n");
+        query.append(" and jh.user_id = u.user_id\n");
+        query.append(" and cjx.campaign_id = ").append(campaignId).append("\n");
         if (hasSchool) {
             query.append("    AND cs.coder_id = c.coder_id\n");
             query.append("    AND cs.school_id = s.school_id\n");
@@ -447,7 +450,7 @@ public class SearchTask extends ViewSearchTask {
                 query.append("    AND c.coder_id IN (select up2.user_id FROM user_preference up2 WHERE up2.preference_value_id = 17)\n");
             } else {
 */
-                query.append("    AND c.coder_id IN (select up2.user_id FROM user_preference up2 WHERE up2.preference_value_id IN (17,26))\n");
+            query.append("    AND c.coder_id IN (select up2.user_id FROM user_preference up2 WHERE up2.preference_value_id IN (17,26))\n");
 /*
             }
 */
