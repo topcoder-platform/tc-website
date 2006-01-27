@@ -239,7 +239,7 @@ If you have a question during the competition about the problem statement or abo
 <br><br>
 An administrator will respond to your question in the chat area.
 <br><br>
-If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to <A href="service@topcoder.com?subject=Question regarding VeriSign Sponsor Track">service@topcoder.com</A> . Please include a detailed description of the problem that you are having.
+If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to <A href="mailto:service@topcoder.com">service@topcoder.com</A> . Please include a detailed description of the problem that you are having.
         </div>
 		</td>
         
