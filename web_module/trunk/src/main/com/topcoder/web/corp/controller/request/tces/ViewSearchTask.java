@@ -23,6 +23,11 @@ public class ViewSearchTask extends BaseTask {
         String campaignId = getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM);
         if (StringUtils.isNumber(campaignId)) {
             if (hasAccess(Long.parseLong(campaignId))) {
+                Request r = new Request();
+                r.setContentHandle("TCES_Campaign_Info");
+                r.setProperty(TCESConstants.CAMPAIGN_ID_PARAM, campaignId);
+                getRequest().setAttribute("campaignName",
+                        ((ResultSetContainer)getDataAccess(getOltp()).getData(r).get("TCES_Campaign_Info")).getStringItem(0, "campaign_name"));
                 searchProcessing();
             } else {
                 throw new Exception(" cid=" + String.valueOf(campaignId) +

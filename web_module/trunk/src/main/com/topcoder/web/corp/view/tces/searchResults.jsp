@@ -1,5 +1,6 @@
 <%@ page import="java.util.Map"%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
+<%@ page import="java.util.List"%>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page language="java"%>
 <%@ taglib uri="tces-taglib.tld" prefix="tces" %>
@@ -43,26 +44,14 @@
                 <tr valign="top">
                     <td class=bodyText>
                         <p>
-<%--
-<tces:trailIterator id="trailItem" trailList="<%=PositionInterestTask.getTrail()%>">
-                                <a href="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText">
-                                    <jsp:getProperty name="trailItem" property="name"/>
-                                </a> &gt;
+                            <tces:trailIterator id="trailItem" trailList="<%=(List)request.getAttribute("trail")%>">
+                                <a href="<jsp:getProperty name="trailItem" property="href" />" class="bodyText"><jsp:getProperty name="trailItem" property="name" /></a> &gt;
                             </tces:trailIterator>
---%>
                             <br/>
                             <span class=testHead>Search Results</span>
                             <br/><br/>
-<%--
-                            <strong>Campaign:</strong>
-                            <jsp:getProperty name="PositionInterestTask" property="campaignName"/>
+                            <strong>Campaign:</strong><%=request.getAttribute("campaignName")%>
                             <br/>
-                            <strong>Position:</strong>
-                            <jsp:getProperty name="PositionInterestTask" property="positionName"/>
-                            <br>
-                            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.DEMOGRAPHIC_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=PositionInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=PositionInterestTask.getJobID()%>" class="bodyText">View
-                                collective demographic info</a><br>
---%>
                         </p>
                     </td>
                 </tr>

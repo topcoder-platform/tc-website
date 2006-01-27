@@ -116,6 +116,15 @@
 <td>
 <img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
 
+<p>
+    <tces:trailIterator id="trailItem" trailList="<%=(List)request.getAttribute("trail")%>">
+        <a href="<jsp:getProperty name="trailItem" property="href" />" class="bodyText"><jsp:getProperty name="trailItem" property="name" /></a> &gt;
+    </tces:trailIterator>
+</p>
+<p>
+    <strong>Campaign:</strong><%=request.getAttribute("campaignName")%>
+    
+</p>
 
 <FORM name="search" ACTION="<jsp:getProperty name="sessionInfo" property="servletPath"/>" METHOD="GET">
 <tc-webtag:hiddenInput name="<%=TCESConstants.TASK_PARAM%>" value="SearchTask"/>
@@ -128,8 +137,6 @@
 <tr>
 <td valign="top" class="lefttop">
     <table class="search">
-        <tr><td class="left">Show count only:</td><td class="right"><tc-webtag:chkBox name="count"/>
-        </td></tr>
         <tr><td class="left">Case Sensitive:</td><td class="right">
             <tc-webtag:chkBox name="casesensitive"/></td></tr>
         <tr><td class="left">Handle: </td><td class="right">
