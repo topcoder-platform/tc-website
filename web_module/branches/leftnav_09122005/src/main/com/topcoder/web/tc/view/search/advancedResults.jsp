@@ -14,6 +14,9 @@
 <title>Member Search Results at TopCoder</title>
 
 <jsp:include page="../script.jsp"/>
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 <script language="JavaScript"><!--
   function next() {
@@ -42,10 +45,9 @@
 
 <!-- Left Column Begins -->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="statistics"/>
-                <jsp:param name="level2" value="search"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="competitor_search"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -66,6 +68,7 @@
                           <br/>
                           <jsp:include page="results.jsp"/>
                       </form>
+         <br><br>
         </td>
 
 

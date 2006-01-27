@@ -16,7 +16,7 @@
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_algo_competitions')", "Algorithm", "m_algo_competitions"));
          nav.search("m_algo_competitions").addChild(new NavNode("", "Compete (Launch Arena)", "algo_compete"));
          nav.search("m_algo_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_algo_stats')", "Statistics", "m_algo_stats"));
-            nav.search("m_algo_stats").addChild(new NavNode("", "Match Archive", "algo_match_archive"));
+            nav.search("m_algo_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=statistics&d2=matchArchive", "Match Archive", "algo_match_archive"));
             nav.search("m_algo_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/stat?&c=round_overview", "Match Overviews", "algo_match_overviews"));
             nav.search("m_algo_stats").addChild(new NavNode("", "Match Results", "algo_match_results"));
             nav.search("m_algo_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=match_editorials&d2=archive", "Match Editorials", "algo_match_editorials"));
@@ -49,8 +49,8 @@
          nav.search("m_tournaments").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/pl/", "Powered by TopCoder", "pbtc_tournaments"));
          nav.search("m_tournaments").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CRPFStatic&d1=crpf&d2=crpf_overview", "Charity", "charity_tournaments"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_edu_content')", "Educational Content", "m_edu_content"));
-         nav.search("m_edu_content").addChild(new NavNode("", "Algorithm Tutorials", "algo_tutorials"));
-         nav.search("m_edu_content").addChild(new NavNode("", "Component Tutorials", "comp_tutorials"));
+         nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=tutorials&d2=alg_index", "Algorithm Tutorials", "algo_tutorials"));
+         nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=tutorials&d2=comp_index", "Component Tutorials", "comp_tutorials"));
          nav.search("m_edu_content").addChild(new NavNode("", "Features", "features"));
          nav.search("m_edu_content").addChild(new NavNode("", "Tutor Transcripts", "tutor_trans"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_my_tc')", "My TopCoder", "m_my_tc"));

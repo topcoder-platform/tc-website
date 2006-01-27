@@ -6,6 +6,18 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>01.27.06<br>2:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/longcontest/?module=ViewActiveContests&rt=15">Intel Multi-Threading Competition 1 Extended</A></span><br><br>
+      We will start taking submissions for Competition 1 on Wednesday, Feb. 1 at 12:00 Noon EST.  We've also extended the competition by a week, now ending on Feb 15 at 12 noon EST.
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="/longcontest/?module=ViewActiveContests&rt=15">details</A>&#160;|&#160;
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">discuss this</A>&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
 <%-------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.26.06<br>11:45 AM</td>
@@ -220,22 +232,6 @@
        <A href="http://dnaindia.com/report.asp?NewsID=1007225&CatID=2">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505892" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>01.12.06<br>9:10 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=integersReals">Representation of Integers and Reals Tutorial</A></span><br><br>
-        Choosing the correct data type for your variables can often be the only difference between a faulty solution and a correct one.</td>
-      <td class="newsPhoto"><img src="/i/m/misof_mug.gif" /><br>by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=integersReals">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505889" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
 
 

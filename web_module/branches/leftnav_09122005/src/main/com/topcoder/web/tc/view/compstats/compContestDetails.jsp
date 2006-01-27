@@ -284,6 +284,11 @@
 
 </td>
 <!-- Center Column Ends -->
+<td width="170">
+   <jsp:include page="../public_right.jsp">
+      <jsp:param name="level1" value="default"/>
+   </jsp:include>
+</td>
 
 <!-- Gutter -->
 <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>

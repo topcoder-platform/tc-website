@@ -14,6 +14,9 @@
 <title>Member Search Results at TopCoder</title>
 
 <jsp:include page="../script.jsp"/>
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
@@ -29,10 +32,9 @@
 
 <!-- Left Column Begins -->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="statistics"/>
-                <jsp:param name="level2" value="search"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="competitor_search"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -52,6 +54,7 @@
                 <jsp:include page="searchForm.jsp"/>
             </form>
 
+         <br><br>
         </td>
 
 
