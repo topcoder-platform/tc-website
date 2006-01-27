@@ -160,6 +160,7 @@ public class SearchTask extends ViewSearchTask {
         query.append(" , case when exists (select 1 from resume where coder_id = c.coder_id) then 'Yes' else 'No' end as has_resume\n");
         query.append(" , handle_lower");
         query.append(" , jh.job_id");
+        query.append(" , cjx.campaign_id");
         query.append("  FROM");
         query.append("    coder c\n");
         if (hasSchool) {
