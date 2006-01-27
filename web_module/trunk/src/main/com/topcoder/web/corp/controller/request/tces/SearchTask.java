@@ -434,22 +434,26 @@ public class SearchTask extends ViewSearchTask {
                 query.append("    AND c.coder_type_id = 1\n");
             }//really should unclick both boxes, so ignore
         }
-        String place = request.getParameter("placement");
+/*        String place = request.getParameter("placement");
         if (place.equals("either") || place.equals("none") && skill) {
             query.append("    AND c.coder_id IN (select up1.user_id FROM user_preference up1 WHERE up1.preference_value_id IN (32, 34))\n");
         } else if (place.equals("contract")) {
             query.append("    AND c.coder_id IN (select up1.user_id FROM user_preference up1 WHERE up1.preference_value_id = 32)\n");
         } else if (place.equals("full")) {
             query.append("    AND c.coder_id IN (select up1.user_id FROM user_preference up1 WHERE up1.preference_value_id = 34)\n");
-        }
+        }*/
         if ("on".equals(request.getParameter("travel"))) {
+/*
             if (place.equals("full")) {
                 query.append("    AND c.coder_id IN (select up2.user_id FROM user_preference up2 WHERE up2.preference_value_id = 26)\n");
             } else if (place.equals("contract")) {
                 query.append("    AND c.coder_id IN (select up2.user_id FROM user_preference up2 WHERE up2.preference_value_id = 17)\n");
             } else {
+*/
                 query.append("    AND c.coder_id IN (select up2.user_id FROM user_preference up2 WHERE up2.preference_value_id IN (17,26))\n");
+/*
             }
+*/
         }
         if ("on".equals(request.getParameter("auth"))) {
             query.append("    AND c.coder_id IN (select up3.user_id FROM user_preference up3 WHERE up3.preference_value_id = 28)\n");
