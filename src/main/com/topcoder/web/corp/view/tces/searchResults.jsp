@@ -99,9 +99,7 @@
                     and the spaces significantly impact the size of the html source
                 --%>
 <rsc:iterator list="<%=results%>" id="resultRow"><tr>
-<td>
-    <tces:handle campaignId="<%=resultRow.getLongItem("campaign_id")%>" db="<%=(String)request.getAttribute("oltpDb")%>"jobId='<%=resultRow.getLongItem("job_id")%>' coderId='<%=resultRow.getLongItem("user_id")%>' />
-    <rsc:item name="handle" row="<%=resultRow%>"/></td>
+<td><tces:handle campaignId="<%=resultRow.getLongItem("campaign_id")%>" db="<%=(String)request.getAttribute("oltpDb")%>"jobId='<%=resultRow.getLongItem("job_id")%>' coderId='<%=resultRow.getLongItem("user_id")%>' /></td>
 <td><rsc:item name="alg_rating" row="<%=resultRow%>"/></td>
 <td><rsc:item name="des_rating" row="<%=resultRow%>"/></td>
 <td><rsc:item name="dev_rating" row="<%=resultRow%>"/></td>
