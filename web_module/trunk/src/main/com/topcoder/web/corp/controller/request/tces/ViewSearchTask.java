@@ -58,11 +58,15 @@ public class ViewSearchTask extends BaseTask {
     }
 
     protected boolean hasAccess(long campaignId) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("TCES_Verify_Campaign_Access");
-        r.setProperty(TCESConstants.CAMPAIGN_ID_PARAM, String.valueOf(campaignId));
-        r.setProperty(TCESConstants.USER_ID_PARAM, String.valueOf(getUser().getId()));
-        return !((ResultSetContainer) getDataAccess(getOltp()).getData(r).get("TCES_Verify_Campaign_Access")).isEmpty();
+        if (getSessionInfo().isAdmin()) {
+            return true;
+        } else {
+            Request r = new Request();
+            r.setContentHandle("TCES_Verify_Campaign_Access");
+            r.setProperty(TCESConstants.CAMPAIGN_ID_PARAM, String.valueOf(campaignId));
+            r.setProperty(TCESConstants.USER_ID_PARAM, String.valueOf(getUser().getId()));
+            return !((ResultSetContainer) getDataAccess(getOltp()).getData(r).get("TCES_Verify_Campaign_Access")).isEmpty();
+        }
 
 
     }
