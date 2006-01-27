@@ -8,6 +8,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.security.NotAuthorizedException;
 
 import java.util.*;
 
@@ -39,7 +40,7 @@ public class ViewSearchTask extends BaseTask {
                 getRequest().setAttribute("oltpDb", getOltp());
                 searchProcessing();
             } else {
-                throw new Exception(" cid=" + String.valueOf(campaignId) +
+                throw new NotAuthorizedException(" cid=" + String.valueOf(campaignId) +
                         "does not belong to uid=" + String.valueOf(getUser().getId()));
             }
         } else {
