@@ -58,7 +58,7 @@
                 </tr>
             </table>
             <p>
-                <a href="<%=request.getAttribute("editURL")%>">Modify Search</a> <a href="<%=sessionInfo.getServletPath()%>?module=ViewSearchTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<rsc:item name="campaign_id" set="<%=results%>"/>">New Search</a>
+                <a href="<%=request.getAttribute("editURL")%>">Modify Search</a> <a href="<%=sessionInfo.getServletPath()%>?module=ViewSearchTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=request.getAttribute(TCESConstants.CAMPAIGN_ID_PARAM)%>">New Search</a>
             </p>
 
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
