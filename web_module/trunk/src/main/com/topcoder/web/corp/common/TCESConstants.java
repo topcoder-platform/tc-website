@@ -1,5 +1,7 @@
 package com.topcoder.web.corp.common;
 
+import com.topcoder.web.common.WebConstants;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import java.text.DateFormat;
@@ -7,7 +9,7 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 
-public class TCESConstants {
+public class TCESConstants implements WebConstants {
 
     // jsp-related
     public static String JSP_ROOT = null;
@@ -30,6 +32,7 @@ public class TCESConstants {
     public static String MEMBER_INTEREST_PAGE = null;
     public static String SEARCH_PAGE = null;
     public static String SEARCH_RESULTS_PAGE = null;
+    public static String PLACEMENT_INFO_PAGE = null;
 
     public static String MAIN_NAME = null;
     public static String CAMPAIGN_DETAIL_NAME = null;
