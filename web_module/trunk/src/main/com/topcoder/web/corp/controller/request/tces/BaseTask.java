@@ -33,6 +33,7 @@ public abstract class BaseTask extends BaseProcessor {
     }
 
     public void setTrail(List trail) {
+        getRequest().setAttribute("trail", trail);
         this.trail = trail;
     }
 
