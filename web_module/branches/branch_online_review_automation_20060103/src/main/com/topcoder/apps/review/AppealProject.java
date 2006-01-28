@@ -83,7 +83,7 @@ public class AppealProject implements Model {
 
             if (appealData.getAppeals() == null) {
                 //plk
-                System.out.writeln("hola");
+                System.out.println("hola");
                 // get the Appeals for the front-end
                 Appeal[] appeals = documentManager.getAppeals(project,
                         appealData.getAppealerId(),
@@ -98,14 +98,14 @@ public class AppealProject implements Model {
                 }
             } else {
                 //plk
-                System.out.writeln("hola 2");
+                System.out.println("hola 2");
                 // Save the Appeal
                 if (appealData.getAppeals().length != 1) {
                     return new FailureResult("Error saving appeal(no appeal to save)");
                 }
                 Appeal appeal = appealData.getAppeals()[0];
 
-                System.out.writeln("1) appeal.getReviewer().getHandle() - " + appeal.getReviewer().getHandle());
+                System.out.println("1) appeal.getReviewer().getHandle() - " + appeal.getReviewer().getHandle());
 
                 // check permission
 /*
@@ -152,10 +152,10 @@ public class AppealProject implements Model {
                 try {
                     ut.begin();
 
-                    System.out.writeln("2) appeal.getReviewer().getHandle() - " + appeal.getReviewer().getHandle());
+                    System.out.println("2) appeal.getReviewer().getHandle() - " + appeal.getReviewer().getHandle());
                     // Save appeal (and modified question)
                     documentManager.saveAppeal(appeal, project, user.getTCSubject());
-                    System.out.writeln("3) appeal.getReviewer().getHandle() - " + appeal.getReviewer().getHandle());
+                    System.out.println("3) appeal.getReviewer().getHandle() - " + appeal.getReviewer().getHandle());
 
                     // Mail changes to appealer/reviewer
                     if (appeal.isResolved()) {
