@@ -105,7 +105,13 @@ public class AppealProject implements Model {
                 }
                 Appeal appeal = appealData.getAppeals()[0];
 
+                System.out.println("appealData.getAppealerId() - " + appealData.getAppealerId());
+                System.out.println("appealData.getQuestionId() - " + appealData.getQuestionId());
+                //System.out.println("appeal.getVersionId() - " + appeal.getVersionId());
+                System.out.println("appeal.getId() - " + appeal.getId());
+                System.out.println("appeal.getAppealText() - " + appeal.getAppealText());
                 System.out.println("1) appeal.getReviewer().getHandle() - " + appeal.getReviewer().getHandle());
+
 
                 // check permission
 /*
