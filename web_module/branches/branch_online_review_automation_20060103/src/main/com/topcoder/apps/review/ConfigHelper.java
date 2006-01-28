@@ -17,12 +17,19 @@ import java.util.Enumeration;
 import java.util.List;
 
 /**
+ * <strong>Purpose</strong>:
  * Helper class that handles the communication with the Configuration Manager.
  *
  * Version 1.0.1 Change notes:
  * <ol>
  * <li>
  * Rejected aggregation review mail configuration was added.
+ * </li>
+ * <li>
+ * Max number of passing scores for screening configuration was added.
+ * </li>
+ * <li>
+ * Edited appeal mail configuration was added.
  * </li>
  * </ol>
  *
@@ -93,6 +100,18 @@ public class ConfigHelper implements ConfigManagerInterface {
     private static final String MINIMUM_SCORE = "minimum_score";
 
     /**
+     * The maximum number of passing scores.
+     * @since 1.0.1
+     */
+    private static final String MAX_NUMBER_PASSING_SCORES = "max_number_passing_scores";
+
+    /**
+     * The default maximum number of passing scores.
+     * @since 1.0.1
+     */
+    public static final int MAX_NUMBER_PASSING_SCORES_DEFAULT = 1000;
+
+    /**
      * The path where the mail templates are stored.
      */
     private static final String MAIL_TEMPLATE_PATH = "mail_template_path";
@@ -106,6 +125,13 @@ public class ConfigHelper implements ConfigManagerInterface {
      * Appeal creation mail xsl file property name.
      */
     private static final String APPEAL_CREATED_XSL = "appeal_created_xsl";
+
+    /**
+     * Appeal edited mail xsl file property name.
+     * @since 1.0.1
+     */
+    private static final String APPEAL_EDITED_XSL = "appeal_edited_xsl";
+
     /**
      * Appeal resolved mail xsl file property name.
      */
@@ -277,6 +303,18 @@ public class ConfigHelper implements ConfigManagerInterface {
         return Double.parseDouble(ConfigManager.getInstance().getString(NAMESPACE, MINIMUM_SCORE));
     }
 
+    /**
+     * Get the maximum number of passing scores.
+     *
+     * @return the maximum number of passing scores.
+     *
+     * @throws Exception propagate any exceptions
+     * @since 1.0.1
+     */
+    static int getMaxNumberPassingScores() throws Exception {
+        return Integer.parseInt(ConfigManager.getInstance().getString(NAMESPACE, MAX_NUMBER_PASSING_SCORES));
+    }
+
     public static String getXSL(String xsl) throws Exception {
         return ConfigManager.getInstance().getString(NAMESPACE, xsl);
     }
@@ -320,6 +358,16 @@ public class ConfigHelper implements ConfigManagerInterface {
      */
     public static String getAppealCreatedXSL() throws UnknownNamespaceException {
         return ConfigManager.getInstance().getString(NAMESPACE, APPEAL_CREATED_XSL);
+    }
+
+    /**
+     * Get the xsl mail template file for appeal edition.
+     *
+     * @return the name of the xsl file
+     * @since 1.0.1
+     */
+    public static String getAppealEditedXSL() throws UnknownNamespaceException {
+        return ConfigManager.getInstance().getString(NAMESPACE, APPEAL_EDITED_XSL);
     }
 
     /**

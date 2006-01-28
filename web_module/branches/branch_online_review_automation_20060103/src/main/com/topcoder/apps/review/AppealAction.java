@@ -1,5 +1,5 @@
-/**
- * Copyright ?2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.apps.review;
@@ -16,13 +16,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * <p>
+ * <strong>Purpose</strong>:
  * Extends from <strong>ReviewAction</strong> that let the user appeal
  * a quesiton in a scorecard.
- * </p>
  *
- * @author FatClimber
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Changed constraint to permit appeals edition in appeals phase.
+ * </li>
+ * </ol>
+ *
+ * @author FatClimber, pulky
+ * @version 1.0.1
  */
 public final class AppealAction extends ReviewAction {
 

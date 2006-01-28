@@ -31,9 +31,11 @@ import java.util.GregorianCalendar;
  * Version 1.0.1 Change notes:
  * <ol>
  * <li>
- * Rejected aggregation review mail was added.
- * </li>
  * <code>rejectedAggregationReviewMail()</code> added to send a summary email when an aggregation review is rejected.
+ * </li>
+ * <li>
+ * <code>appealEdited()</code> added to send diferent notifications for new created appeals and edited appeals.
+ * </li>
  * </ol>
  *
  * @author adic, pulky
@@ -318,6 +320,29 @@ class MailHelper {
                 question.getSequenceLocation()));
         String bodyText = formatBody(xmlDocument, ConfigHelper.getAppealCreatedXSL());
         sendMail(project.getProjectManager(), appeal.getReviewer(), "Appeal created", bodyText);
+    }
+
+    /**
+     * Send mail to a reviewer to inform him that an appeal has been edited.
+     *
+     * @param project the project.
+     * @param appeal the appeal.
+     *
+     * @throws Exception propagate any exceptions
+     * @since 1.0.1
+     */
+    static void appealEdited(Project project, Appeal appeal) throws Exception {
+        XMLDocument xmlDocument = new XMLDocument("MAILDATA");
+        ScorecardQuestion question = appeal.getQuestion();
+        xmlDocument.addTag(new ValueTag("PROJECT_NAME", project.getName()));
+        xmlDocument.addTag(new ValueTag("QUESTION_TEXT", question.getQuestionText()));
+        xmlDocument.addTag(new ValueTag("APPEAL_TEXT", appeal.getAppealText()));
+        xmlDocument.addTag(new ValueTag("QUESTION_NUMBER",
+                question.getScorecardSection().getSectionGroup().getSequenceLocation() + "." +
+                question.getScorecardSection().getSequenceLocation() + "." +
+                question.getSequenceLocation()));
+        String bodyText = formatBody(xmlDocument, ConfigHelper.getAppealEditedXSL());
+        sendMail(project.getProjectManager(), appeal.getReviewer(), "Appeal edited", bodyText);
     }
 
     /**
