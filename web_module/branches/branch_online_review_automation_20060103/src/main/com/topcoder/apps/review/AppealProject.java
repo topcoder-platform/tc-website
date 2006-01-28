@@ -82,6 +82,8 @@ public class AppealProject implements Model {
             Project project = projectTracker.getProject(userProjectInfo, user.getTCSubject());
 
             if (appealData.getAppeals() == null) {
+                //plk
+                System.out.writeln("hola");
                 // get the Appeals for the front-end
                 Appeal[] appeals = documentManager.getAppeals(project,
                         appealData.getAppealerId(),
@@ -95,11 +97,16 @@ public class AppealProject implements Model {
                     //return new FailureResult("Cannot get the appeals");
                 }
             } else {
+                //plk
+                System.out.writeln("hola 2");
                 // Save the Appeal
                 if (appealData.getAppeals().length != 1) {
                     return new FailureResult("Error saving appeal(no appeal to save)");
                 }
                 Appeal appeal = appealData.getAppeals()[0];
+
+                System.out.writeln("1) appeal.getReviewer().getHandle() - " + appeal.getReviewer().getHandle());
+
                 // check permission
 /*
 // by cucu
@@ -145,8 +152,10 @@ public class AppealProject implements Model {
                 try {
                     ut.begin();
 
+                    System.out.writeln("2) appeal.getReviewer().getHandle() - " + appeal.getReviewer().getHandle());
                     // Save appeal (and modified question)
                     documentManager.saveAppeal(appeal, project, user.getTCSubject());
+                    System.out.writeln("3) appeal.getReviewer().getHandle() - " + appeal.getReviewer().getHandle());
 
                     // Mail changes to appealer/reviewer
                     if (appeal.isResolved()) {
