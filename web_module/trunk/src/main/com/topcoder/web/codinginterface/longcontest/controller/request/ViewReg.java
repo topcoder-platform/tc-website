@@ -57,8 +57,8 @@ public class ViewReg extends Base {
                 // Get the round terms.
                 DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
                 boolean res = loadRoundTerms(dai, roundID);
-                if (res == false) { // the round terms were not in the DB
-                    throw new NavigationException("Could not find specified round terms.");
+                if (!res) { // the round terms were not in the DB
+                    throw new TCWebException("Could not find specified round terms.");
                 }
                 // Get the round questions.
                 loadQuestionInfo(dai, roundID);
