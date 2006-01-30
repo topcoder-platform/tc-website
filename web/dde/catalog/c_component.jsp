@@ -348,10 +348,6 @@
                                  </div>
                                  <font class="small">Designer(s):</font>
                               </div>
-
-<%--
-                              <font class="small">Designer(s): | <A href="">contest details</A></font><hr width="100%" size="1" noshade="noshade" />
---%>
                                                 <%boolean first = true;%>
                                  <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 5) { if(first) { first = false; } else {%><br><%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="design"/><%  }  }  %>
                               <br><br>
