@@ -170,11 +170,11 @@
 <td class="rtHeader" width="10%" align="right">Views</td>
 <td class="rtHeader" align="center" colspan="2"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></td>
 </tr>
-<%  if (isDefaultView()) { %>
+<%  if (isDefaultView) { %>
 <tc-webtag:iterator id="announcement" type="com.jivesoftware.forum.Announcement" iterator='<%=(Iterator)request.getAttribute("announcements")%>'>
     <tr>
     <td class="rtThreadCellWrap">
-        <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtLinkNew"><%=announcement.getSubject()%></A>
+        <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtLinkBold"><%=announcement.getSubject()%></A>
     </td>
     <td class="rtThreadCell"><tc-webtag:handle coderId="<%=announcement.getUser().getID()%>"/></td>
     <td class="rtThreadCell"></td>

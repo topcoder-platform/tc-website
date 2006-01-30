@@ -43,6 +43,7 @@ public class RevisionHistory extends ForumsProcessor {
             BaseProcessor.close(ctx);
         }
 
+        // useful if revision history needs to be paged in the future
         int range = JiveGlobals.getJiveIntProperty("skin.default.defaultMessagesPerPage", 
                 ForumConstants.DEFAULT_MESSAGE_RANGE);
         if (user != null) {

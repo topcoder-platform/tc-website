@@ -1,0 +1,107 @@
+<%@ page import="com.topcoder.web.common.BaseServlet,
+                com.topcoder.web.common.BaseProcessor,
+                com.topcoder.web.forums.ForumConstants,
+                com.topcoder.web.forums.controller.ForumsUtil,
+                com.topcoder.web.common.StringUtils,
+                com.jivesoftware.base.User,
+                com.jivesoftware.forum.Forum,
+                com.jivesoftware.forum.ForumCategory,
+                java.util.*"
+%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
+<tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
+<tc-webtag:useBean id="announcement" name="announcement" type="com.jivesoftware.forum.Announcement" toScope="request"/>
+<tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
+
+<%  Forum forum = (Forum)request.getAttribute("forum");
+    User user = (User)request.getAttribute("user"); %>
+
+<html>
+<head>
+<title>TopCoder Forums</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+<link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
+<jsp:include page="script.jsp" />
+
+</head>
+
+<body>
+
+<jsp:include page="top.jsp" >
+    <jsp:param name="level1" value=""/>
+</jsp:include>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+   <tr valign="top">
+<!-- Left Column Begins-->
+      <td width="180">
+         <jsp:include page="includes/global_left.jsp">
+            <jsp:param name="level1" value="forums"/>
+            <jsp:param name="level2" value="<% if (forumCategory != null) { %><%=forumCategory.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME)%><% } %>"/>
+            <jsp:param name="unreadCategories" value="<%=unreadCategories%>"/>
+         </jsp:include>
+      </td>
+<!-- Left Column Ends -->
+
+<!-- Center Column Begins -->
+         <td width="100%" class="rtBody">
+
+        <jsp:include page="page_title.jsp" >
+            <jsp:param name="image" value="forums"/>
+            <jsp:param name="title" value="Announcement"/>
+        </jsp:include>
+
+<table cellpadding="0" cellspacing="0" class="rtbcTable">
+<tr>
+   <td valign="top">
+   <span class="rtbc">
+	    <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
+	        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >>  
+	    </tc-webtag:iterator>
+        <%  if (forum != null) { %>
+            <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A> >> 
+        <%  } %>
+        Announcement: <%=announcement.getSubject()%>
+        </span><br><br>
+   </td>
+</tr>
+</table>
+
+<%-------------POSTS---------------%>
+<table cellpadding="0" cellspacing="0" class="rtTable">
+   <tr>
+      <td class="rtHeader" colspan="2">
+         <a name=<jsp:getProperty name="announcement" property="ID"/>><tc-webtag:beanWrite name="announcement" property="startDate" format="MMM d, yyyy 'at' h:mm a z"/> | Announcement: <jsp:getProperty name="announcement" property="subject"/></a>
+      </td>
+   </tr>
+   <tr>
+      <td class="rtPosterCell">
+         <div class="rtPosterSpacer">
+            <%  if (ForumsUtil.displayMemberPhoto(user, announcement.getUser())) { %>
+                <img src="<%=announcement.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
+            <%  } %>
+             <span class="bodyText"><%if (announcement.getUser() != null) {%><tc-webtag:handle coderId="<%=announcement.getUser().getID()%>"/><%}%></span><br/><%if (announcement.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=announcement.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(announcement.getUser()), "post")%></A><%}%>
+         </div>
+      </td>
+      <td class="rtTextCell" width="100%"><jsp:getProperty name="announcement" property="body"/>
+      </td>
+   </tr>
+</table>
+<%-------------POSTS END---------------%>
+
+        <p><br/></p>
+        </td>
+
+<!-- Center Column Ends -->
+
+    </tr>
+</table>
+
+<jsp:include page="foot.jsp" />
+
+</body>
+
+</html>
