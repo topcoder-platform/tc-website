@@ -92,7 +92,7 @@ Let's take a look at an example &ndash; the .NET Password Validator component.  
 As you see in Figure 1 below, the designer created an adapter class called DataValidationAdapterRule that implements the IRule interface.  The adapter class's constructor takes an instance of the IValidator interface (either directly or through a configuration option) and stores it to an instance variable.  When calls are made to the Validate method of IRule interface, the class 'converts' those calls to the IsValid method of the IValidator interface.  This allows the component to utilize the functionality in another component that wasn't specifically designed for this component.
 <br><br>
 <div align=center><b>Figure 1</b><br><br>
-<A href="/i/education/adapter1_lg.gif"><img src="/i/education/adapter1.gif" alt="Figure 1"/></a></div>
+<A href="/i/education/adapter1_lg.gif"><img src="/i/education/adapter1.gif" alt="Figure 1" border="0" /></A></div>
 <br><br>
 <span class="bodySubtitle">Bibliography</span><br>
 
