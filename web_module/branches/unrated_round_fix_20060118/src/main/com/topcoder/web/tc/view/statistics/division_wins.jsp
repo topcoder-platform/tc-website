@@ -12,10 +12,12 @@
 
 <% //common code that pulls out the request bean.
 Request srb = (Request) request.getAttribute("REQUEST_BEAN");
+ResultSetContainer rsc = (ResultSetContainer) ((Map) request.getAttribute("QUERY_RESPONSE")).get("division_wins");
+boolean div1 = StringUtils.checkNull(request.getParameter("dn")).equals("1");
 %>
 <html>
 <head>
-   <TITLE>TopCoder Statistics - Division Wins by SRM</TITLE>
+   <TITLE>TopCoder Statistics - Most Division Wins</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <jsp:include page="../script.jsp" />
@@ -61,8 +63,8 @@ function goTo(selection){
               <TR>
                 <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
                   <P CLASS="statText">
-                    This chart shows the division winners of Division I and Division II for each SRM, as well as their 
-                    total number of division wins until that match.
+                    This chart shows the coders with the most Division <%= div1 ? "I" : "II" %> wins.
+                    <a href="/tc/stat?c=division_wins&dn=<%= div1 ? "2" : "1" %>">See Division <%= div1 ? "II" : "I" %> wins</a>
                   </P>
                   
                   <!-- Stats Intro Begins -->
@@ -70,70 +72,28 @@ function goTo(selection){
 
           <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                     <TR>
-                      <TD COLSPAN="5" CLASS="smallFoot"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"></TD>
+                      <TD COLSPAN="3" CLASS="smallFoot"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"></TD>
                     </TR>
                     <TR>
-                      <TD background="/i/steel_gray_bg.gif" COLSPAN="5" CLASS="statTextBig" VALIGN="middle" HEIGHT="18">&nbsp;Division Wins by SRM</TD>
+                      <TD background="/i/steel_gray_bg.gif" COLSPAN="3" CLASS="statTextBig" VALIGN="middle" HEIGHT="18">&nbsp;Division Wins by SRM</TD>
                     </TR>
                     <TR>
-                      <TD COLSPAN="5" CLASS="smallFoot" WIDTH="1"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+                      <TD COLSPAN="3" CLASS="smallFoot" WIDTH="1"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                     </TR>
                     <TR VALIGN="middle">
-                      <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center">
-            <a href="/stat?c=srm_division_wins&sc=0&sd=<%= "0".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Contest</a>
-            </TD>
-                      <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center">
-            Division I winner
-            </TD>
-                      <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center">
-            (Div I wins)
-            </TD>
-                      <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center">
-            Division II winner
-            </TD>
-                      <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center">
-            (Div II wins)
-            </TD>
+                        <TD>&nbsp;</TD><TD>Handle</TD><TD>Wins</TD>
                     </TR>
-          <TR>
-                      <TD COLSPAN="7" CLASS="smallFoot" WIDTH="1"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+                    <TR>
+                      <TD COLSPAN="3" CLASS="smallFoot" WIDTH="1"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                     </TR>
-<logic:present name="QUERY_RESPONSE" scope="request">
-<bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
-<logic:iterate name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map.Entry" scope="request">
-  <logic:equal name="queryEntries" property="key" value="srm_division_wins">
-  <logic:present name="queryEntries" property="value">
-    <bean:define id="resultSet" name="queryEntries" property="value" type="ResultSetContainer" />
-    <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
-    <tr valign="middle">
-        <%
-        Number n1 = (Number)resultRow.getItem(1).getResultData();
-        Number n2 = (Number)resultRow.getItem(3).getResultData();
-        long winner1 = (n1 == null ? -1 : n1.longValue()),
-                winner2 = (n2 == null ? -1 : n2.longValue());
-        %>
-        <td><bean:write name="resultRow" property='<%= "item[" + 0 /* contest name */ + "]" %>'/></td>
-        
-        <% if (winner1 == -1) { %>
-            <td>(none)</td><td></td>
-        <% } else { %>
-            <td><tc-webtag:handle coderId='<%= winner1 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
-            <td><bean:write name="resultRow" property='<%= "item[" + 2 /* #wins 1 */ + "]" %>'/></td>
-        <% } %>
-        
-        <% if (winner2 == -1) { %>
-            <td>(none)</td><td></td>
-        <% } else { %>
-            <td><tc-webtag:handle coderId='<%= winner2 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
-            <td><bean:write name="resultRow" property='<%= "item[" + 4 /* #wins 2 */ + "]" %>'/></td>
-        <% } %>
-    </tr>
-    </logic:iterate>
-  </logic:present>
-  </logic:equal>
-</logic:iterate>
-</logic:present>
-<TR>
+                    <rsc:iterator list="<%=rsc%>" id="row">
+                        <tr>
+                        <td><rsc:item name="rank" row="<%=row%>"/></td>
+                        <td><tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=HandleTag.ALGORITHM%>'/></td>
+                        <td><rsc:item name="wins" row="<%=row%>"/></td>
+                        </tr>
+                    </rsc:iterator>                                                            
+                    <TR>
                       <TD background="/i/steel_blue_bg.gif" CLASS="statText" COLSPAN="7"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                     </TR>
                     <TR>
