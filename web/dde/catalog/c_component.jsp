@@ -344,7 +344,7 @@
                             <td width="50%" style="padding-right: 10px">
                               <div class="authorsHeader">
                                  <div style="float: right;">
-                                    <A href="" class="small">contest details</A>
+                                    <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompContestDetails&amp;compid=<%=componentInfo.getId()%>&amp;vr=<%=versionInfo.getVersion()%>&amp;pi=<%=ComponentVersionInfo.SPECIFICATION%>" class="small">contest details</A>
                                  </div>
                                  <font class="small">Designer(s):</font>
                               </div>
@@ -367,7 +367,7 @@
                                <td style="padding-right: 10px">
                               <div class="authorsHeader">
                                  <div style="float: right;">
-                                    <A href="" class="small">contest details</A>
+                                    <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompContestDetails&amp;compid=<%=componentInfo.getId()%>&amp;vr=<%=versionInfo.getVersion()%>&amp;pi=<%=ComponentVersionInfo.DEVELOPMENT%>" class="small">contest details</A>
                                  </div>
                                  <font class="small">Developer(s):</font>
                               </div>
