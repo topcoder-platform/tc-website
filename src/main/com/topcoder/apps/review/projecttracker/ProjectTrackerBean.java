@@ -2121,7 +2121,7 @@ public class ProjectTrackerBean implements SessionBean {
             if (rs.next()) {
                 old_rating = rs.getDouble(1);
             } else {
-                old_rating = 1200;
+                old_rating = 0;
             }
             Common.close(rs);
             Common.close(ps);
@@ -2140,7 +2140,11 @@ public class ProjectTrackerBean implements SessionBean {
             ps.setLong(3, 0);
             ps.setLong(4, 0);
             ps.setLong(5, 0);
-            ps.setDouble(6, old_rating);
+            if (old_rating==0) {
+                ps.setNull(6, Types.DOUBLE);
+            } else {
+                ps.setDouble(6, old_rating);
+            }
 
             ps.execute();
 
