@@ -186,7 +186,7 @@ public class Contest {
             query.append(" AND cc.component_id = c.component_id");
             query.append(" AND co.component_state_id = s.component_state_id");
             //include our writer/tester solutions.  to make this better, it should strip out checkData
-            query.append("union");
+            query.append(" union ");
             query.append(" select s.coder_id ");
             query.append(" , scf.class_file ");
             query.append(" , u.handle ");
