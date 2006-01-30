@@ -137,6 +137,8 @@ public class Contest {
     private static List getSubmissions(String dataSourceName, long roundId, long componentId) throws Exception {
         ResultSet rs = null;
         PreparedStatement ps = null;
+        PreparedStatement ps1 = null;
+        ResultSet rs1 = null;
         Connection conn = null;
         Submission s = null;
         List ret = null;
@@ -185,43 +187,14 @@ public class Contest {
             query.append(" AND scf.sort_order = 1");    //hoke it to be the first if there are multiple classes
             query.append(" AND cc.component_id = c.component_id");
             query.append(" AND co.component_state_id = s.component_state_id");
-            //include our writer/tester solutions.  to make this better, it should strip out checkData
-            query.append(" union ");
-            query.append(" select s.coder_id ");
-            query.append(" , scf.class_file ");
-            query.append(" , u.handle ");
-            query.append(" , s.solution_text ");
-            query.append(" , s.language_id ");
-            query.append(" , 0 ");
-            query.append(" , 0 ");
-            query.append(" , 0 ");
-            query.append(" , rc.component_id ");
-            query.append(" , c.problem_id ");
-            query.append(" , c.class_name ");
-            query.append(" , c.method_name ");
-            query.append(" from solution s ");
-            query.append(" , solution_class_file scf ");
-            query.append(" , component_solution_xref csx ");
-            query.append(" , round_component rc ");
-            query.append(" , user u ");
-            query.append(" , component c ");
-            query.append(" where s.solution_id = scf.solution_id ");
-            query.append(" and scf.sort_order = 1 ");
-            query.append(" and rc.component_id = c.component_id ");
-            query.append(" and s.coder_id = u.user_id ");
-            query.append(" and csx.solution_id = s.solution_id ");
-            query.append(" and rc.round_id = ? ");
-            query.append(" and rc.component_id = ? ");
-            query.append(" and rc.component_id = csx.component_id ");
-
-
-
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, roundId);
             ps.setLong(2, roundId);
             ps.setLong(3, componentId);
+/*
             ps.setLong(4, roundId);
             ps.setLong(5, componentId);
+*/
 
             CommentStripper cs = new CommentStripper();
             ret = new ArrayList();
@@ -241,6 +214,61 @@ public class Contest {
                 s.setMethodName(rs.getString("method_name"));
                 s.setIncluded(true);
             }
+
+            StringBuffer solQuery = new StringBuffer(1000);
+            //include our writer/tester solutions.  to make this better, it should strip out checkData
+            solQuery.append(" select s.coder_id ");
+            solQuery.append(" , scf.class_file ");
+            solQuery.append(" , u.handle ");
+            solQuery.append(" , s.solution_text ");
+            solQuery.append(" , s.language_id ");
+/*
+            solQuery.append(" , 0 ");
+            solQuery.append(" , 0 ");
+            solQuery.append(" , 0 ");
+*/
+            solQuery.append(" , rc.component_id ");
+            solQuery.append(" , c.problem_id ");
+            solQuery.append(" , c.class_name ");
+            solQuery.append(" , c.method_name ");
+            solQuery.append(" from solution s ");
+            solQuery.append(" , solution_class_file scf ");
+            solQuery.append(" , component_solution_xref csx ");
+            solQuery.append(" , round_component rc ");
+            solQuery.append(" , user u ");
+            solQuery.append(" , component c ");
+            solQuery.append(" where s.solution_id = scf.solution_id ");
+            solQuery.append(" and scf.sort_order = 1 ");
+            solQuery.append(" and rc.component_id = c.component_id ");
+            solQuery.append(" and s.coder_id = u.user_id ");
+            solQuery.append(" and csx.solution_id = s.solution_id ");
+            solQuery.append(" and rc.round_id = ? ");
+            solQuery.append(" and rc.component_id = ? ");
+            solQuery.append(" and rc.component_id = csx.component_id ");
+
+            ps = conn.prepareStatement(solQuery.toString());
+            ps.setLong(1, roundId);
+            ps.setLong(2, componentId);
+
+            for (rs1 = ps.executeQuery(); rs1.next(); ret.add(s)) {
+                s = new Submission();
+                s.setHandle(rs.getString("handle"));
+                s.setCoderId(rs.getInt("coder_id"));
+                s.setClassFile(rs.getBytes("class_file"));
+                s.setSource(cs.stripComments(DBMS.getTextString(rs, 4)));
+                s.setLanguageId(rs.getInt("language_id"));
+/*
+                s.setOpenTime(rs.getLong("open_time"));
+                s.setSubmitTime(rs.getLong("submit_time"));
+                s.setPoints(rs.getFloat("submission_points"));
+*/
+                s.setProblemId(rs.getLong("problem_id"));
+                s.setComponentId(rs.getLong("component_id"));
+                s.setClassName(rs.getString("class_name"));
+                s.setMethodName(rs.getString("method_name"));
+                s.setIncluded(true);
+            }
+
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
             throw e;
@@ -256,6 +284,21 @@ public class Contest {
             if (ps != null) {
                 try {
                     ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (rs1 != null) {
+                try {
+                    rs1.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
+                }
+            }
+
+            if (ps1 != null) {
+                try {
+                    ps1.close();
                 } catch (Exception ignore) {
                     log.error("FAILED to close PreparedStatement");
                 }
