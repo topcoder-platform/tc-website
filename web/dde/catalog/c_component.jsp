@@ -187,6 +187,7 @@
 .statusIconOff, .statusIconOn{ width: 25%; text-align: center; }
 .statusIconOff{ border-bottom:  1px solid #000000; }
 .statusIconOn{ border:  1px solid #000000; }
+.authorsHeader{ border-bottom:  1px solid #000000; margin-bottom: 3px; padding-bottom: 3px; float: left; width: 100% }
 </STYLE>
 
 </head>
@@ -263,15 +264,15 @@
                 </tr>
 <!-- Status Bar -->
                 <tr valign="top">
-					<td class="display" colspan="2"><strong>Status: </strong><br /><br />
-					<table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+               <td class="display" colspan="2"><strong>Status: </strong><br /><br />
+               <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
                <td class="<%=(versionInfo.getPhase() == ComponentVersionInfo.COLLABORATION ? "statusIconOn" : "statusIconOff" )%>"><img src="/images/catalog/catpg_status_spec.gif" alt="Specification" border="0"/></td>
                <td class="<%=(versionInfo.getPhase() == ComponentVersionInfo.SPECIFICATION ? "statusIconOn" : "statusIconOff" )%>"><img src="/images/catalog/catpg_status_desarch.gif" alt="Design & Architecture" />
                <td class="<%=(versionInfo.getPhase() == ComponentVersionInfo.DEVELOPMENT ? "statusIconOn" : "statusIconOff" )%>"><img src="/images/catalog/catpg_status_devtest.gif" alt="Development & Testing" />
                <td class="<%=(versionInfo.getPhase() == ComponentVersionInfo.COMPLETED  ? "statusIconOn" : "statusIconOff" )%>"><img src="/images/catalog/catpg_status_complete.gif" alt="Complete" /><br />
                </tr></table>
-					</td>
-				</tr>
+               </td>
+            </tr>
 <!-- Overview, Functionality -->
                 <tr valign="top">
                     <td width="50%" class="display" style="padding-right: 15px">
@@ -339,37 +340,58 @@
 
                         <strong>Authors</strong>
                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
-                   		<tr valign="top">
-                   			<td width="50%" style="padding-right: 10px">
-		                        <font class="small">Designer(s):</font><hr width="100%" size="1" noshade="noshade" />
+                         <tr valign="top">
+                            <td width="50%" style="padding-right: 10px">
+                              <div class="authorsHeader">
+                                 <div style="float: right;">
+                                    <A href="" class="small">contest details</A>
+                                 </div>
+                                 <font class="small">Designer(s):</font>
+                              </div>
+
+<%--
+                              <font class="small">Designer(s): | <A href="">contest details</A></font><hr width="100%" size="1" noshade="noshade" />
+--%>
                                                 <%boolean first = true;%>
-			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 5) { if(first) { first = false; } else {%><br><%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="design"/><%  }  }  %>
+                                 <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 5) { if(first) { first = false; } else {%><br><%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="design"/><%  }  }  %>
                               <br><br>
-	                   		</td>
-	                   		<td width="50%">
-                       			<font class="small">Design Review Board:</font><hr width="100%" size="1" noshade="noshade" />
-                       			<% first = true;%>
-			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 6) { if(first) { first = false; } else {%><br><%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="design"/><%  }  }  %>
-                       			</font>
+                            </td>
+                            <td width="50%">
+                              <div class="authorsHeader">
+                                 <font class="small">Design Review Board:</font>
+                              </div>
+
+                                <% first = true;%>
+                                 <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 6) { if(first) { first = false; } else {%><br><%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="design"/><%  }  }  %>
+                                </font>
                               <br><br>
-                   	   		</td>
-                   	   	</tr>
-                   	   	<tr valign="top">
-                   	   		<td style="padding-right: 10px">
-                   	   			<font class="small">Developer(s):</font><hr width="100%" size="1" noshade="noshade" />
-                   	   			<% first = true;%>
-			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 7) { if(first) { first = false; } else {%><br><%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="development"/><%  }  }  %>
-                   	   			</font>
+                               </td>
+                            </tr>
+                            <tr valign="top">
+                               <td style="padding-right: 10px">
+                              <div class="authorsHeader">
+                                 <div style="float: right;">
+                                    <A href="" class="small">contest details</A>
+                                 </div>
+                                 <font class="small">Developer(s):</font>
+                              </div>
+
+
+                                  <% first = true;%>
+                                 <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 7) { if(first) { first = false; } else {%><br><%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="development"/><%  }  }  %>
+                                  </font>
                               <br><br>
-                   	   		</td>
-                   	   		<td>
-                   	   			<font class="small">Development Review Board:</font><hr width="100%" size="1" noshade="noshade" />
-                   	   			<% first = true;%>
-			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 8) { if(first) { first = false; } else {%><br><%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="development"/><%  }  }  %>
-                   	   			</font>
+                               </td>
+                               <td>
+                              <div class="authorsHeader">
+                                 <font class="small">Development Review Board:</font>
+                              </div>
+                                  <% first = true;%>
+                                 <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 8) { if(first) { first = false; } else {%><br><%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="development"/><%  }  }  %>
+                                  </font>
                               <br><br>
-                   	   		</td>
-                   	   	</tr>
+                               </td>
+                            </tr>
                    </table>
                         <%  }  %>
                         <p><strong>Availability</strong><br />
@@ -400,14 +422,14 @@
                     </td>
                 </tr>
 
-            	<tr>
+               <tr>
 <!-- Documentation-->
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 15px">
                 <tr><td><img src="/images/catalog/catpg_document.gif" alt="Documentation" width="116" height="13" border="0" />
-                		<font class="small"><a href="http://www.adobe.com/products/acrobat/readstep.html" target="_blank">Adobe Acrobat</a> is required to view TopCoder Software specification documentation.<br />
-						<hr width="100%" size="1" noshade="noshade" />
-					</td>
-				</tr>
+                      <font class="small"><a href="http://www.adobe.com/products/acrobat/readstep.html" target="_blank">Adobe Acrobat</a> is required to view TopCoder Software specification documentation.<br />
+                  <hr width="100%" size="1" noshade="noshade" />
+               </td>
+            </tr>
                 <tr>
                     <td>
                       <table border="0" cellpadding="10" cellspacing="0" width="100%">
@@ -553,8 +575,8 @@
 <!-- Component Dependencies -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 15px">
                 <tr><td><img src="/images/catalog/catpg_compdep.gif" alt="Component Hierarchy" width="187" height="17" border="0" /><br />
-                		<hr width="100%" size="1" noshade="noshade" />
-                	</td>
+                      <hr width="100%" size="1" noshade="noshade" />
+                   </td>
                 </tr>
                 <tr>
                     <td>
@@ -588,8 +610,8 @@
 <!-- Enhancements -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 15px">
                 <tr><td><img src="/images/catalog/catpg_enhance.gif" alt="Enhancements" width="113" height="13" border="0" /><br />
-                		<hr width="100%" size="1" noshade="noshade" />
-                	</td>
+                      <hr width="100%" size="1" noshade="noshade" />
+                   </td>
                 </tr>
                 <tr>
                     <td>
@@ -606,8 +628,8 @@
            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 15px">
 <!-- Current Forums begin -->
                 <tr><td><img src="/images/catalog/catpg_cforums.gif" alt="Current Forums" width="121" height="13" border="0" />
-                		<font class="small">Participation in current forums requires user login and may require authorization</font><br />
-						<hr width="100%" size="1" noshade="noshade" />
+                      <font class="small">Participation in current forums requires user login and may require authorization</font><br />
+                  <hr width="100%" size="1" noshade="noshade" />
 
                         <table border="0" cellspacing="0" cellpadding="0" width="100%">
 <%  if (activeCollab != null) { %>
@@ -632,10 +654,10 @@
 <!-- Previous Forums begin -->
 <%  if (hasPreviousForums) { %>
                 <tr><td><img src="/images/catalog/catpg_pforums.gif" alt="Previous Forums" width="129" height="13" border="0" />
-                		<font class="small">Previous forums are read only</font><br />
-						<hr width="100%" size="1" noshade="noshade" />
-					</td>
-				</tr>
+                      <font class="small">Previous forums are read only</font><br />
+                  <hr width="100%" size="1" noshade="noshade" />
+               </td>
+            </tr>
                 <tr>
                     <td width="100%">
                         <table border="0" cellspacing="0" cellpadding="0" width="100%">
@@ -669,10 +691,10 @@
                 <tr><td>
                 <jsp:include page="/includes/topDownloads.jsp" />
                 <jsp:include page="/includes/newReleases.jsp" />
-        		<jsp:include page="/includes/right.jsp" >
-            		<jsp:param name="level1" value="index"/>
-        		</jsp:include>
-        		</td></tr>
+              <jsp:include page="/includes/right.jsp" >
+                  <jsp:param name="level1" value="index"/>
+              </jsp:include>
+              </td></tr>
             </table>
         </td>
 <!--Right Column ends -->
