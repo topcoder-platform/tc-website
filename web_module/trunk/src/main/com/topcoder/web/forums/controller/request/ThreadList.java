@@ -76,6 +76,7 @@ public class ThreadList extends ForumsProcessor {
 		getRequest().setAttribute("paginator", paginator);
         getRequest().setAttribute("sortField", sortField);
         getRequest().setAttribute("sortOrder", sortOrder);
+        getRequest().setAttribute("startIdx", String.valueOf(startIdx));
         getRequest().setAttribute("announcements", itAnnounce);
 
 		setNextPage("/viewForum.jsp");

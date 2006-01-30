@@ -38,6 +38,10 @@
     User user = (User)request.getAttribute("user");
     String sortField = (String)request.getAttribute("sortField");
     String sortOrder = (String)request.getAttribute("sortOrder");
+    String startIdx = (String)request.getAttribute("startIdx");
+    boolean isDefaultView = (sortField.equals(String.valueOf(JiveConstants.MODIFICATION_DATE))
+        && sortOrder.equals(String.valueOf(ResultFilter.DESCENDING))
+        && startIdx.equals("0"));
 
     StringBuffer linkBuffer = new StringBuffer("?module=ThreadList");
     linkBuffer.append("&").append(ForumConstants.FORUM_ID).append("=").append(forum.getID());
@@ -116,6 +120,10 @@
             <jsp:param name="title" value="&#160;"/>
         </jsp:include>
 
+sortField: <%=sortField%>
+sortOrder: <%=sortOrder%>
+startIdx: <%=startIdx%>
+
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr valign="top">
 	<td nowrap="nowrap" valign="top">
@@ -166,10 +174,11 @@
 <td class="rtHeader" width="10%" align="right">Views</td>
 <td class="rtHeader" align="center" colspan="2"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></td>
 </tr>
+<%  if (sortField.equals("") && sortOrder.equals("")) { %>
 <tc-webtag:iterator id="announcement" type="com.jivesoftware.forum.Announcement" iterator='<%=(Iterator)request.getAttribute("announcements")%>'>
     <tr>
     <td class="rtThreadCellWrap">
-        <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtLinkNew">announcement.getSubject()</A>
+        <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtLinkNew"><%=announcement.getSubject()%></A>
     </td>
     <td class="rtThreadCell"><tc-webtag:handle coderId="<%=announcement.getUser().getID()%>"/></td>
     <td class="rtThreadCell"></td>
@@ -178,6 +187,7 @@
     <td class="rtThreadCell"><tc-webtag:handle coderId="<%=announcement.getUser().getID()%>"/></td>
     </tr>
 </tc-webtag:iterator>
+<%  } %>
 <tc-webtag:iterator id="thread" type="com.jivesoftware.forum.ForumThread" iterator='<%=(Iterator)request.getAttribute("threads")%>'>
     <%  ForumMessage lastPost = ForumsUtil.getLatestMessage(thread); 
         String trackerClass = (user == null || readTracker.getReadStatus(user, lastPost) == ReadTracker.READ ||
