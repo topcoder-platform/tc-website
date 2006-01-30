@@ -156,26 +156,8 @@ margin:0px auto;
       <td class="homeRightCol">
       <table border="0" cellpadding="0" cellspacing="0">
          <tr><td class="homeBigPromo">
-
-<%-- Hilton Lange MOVIE --%>
-<map name="watch">
-<area shape="rect" coords="5,113,50,130" href="/i/tournament/tco05/onsite_movies/HiltonLange.mov" alt="Hilton Lange movie">
-</map>
-
-            <img src="/i/home/mov_hiltonlange_012306.jpg" alt="TopCoder Movies" usemap="#watch" border="0" />
-
-
-<%-- Ruijie Wang MOVIE
-
-<map name="language">
-<area shape="rect" coords="5,114,49,130" href="/i/tournament/tco05/onsite_movies/RuijieWang_English.mov" alt="English version">
-<area shape="rect" coords="58,114,106,130" href="/i/tournament/tco05/onsite_movies/RuijieWang_Chinese.mov" alt="Chinese version">
-</map>
-
-            <img src="/i/home/mov_ruijiewang_011306.jpg" alt="TopCoder Movies" usemap="#language" border="0" />
---%>
-
-
+<%-- CNN --%>
+            <A href="/movies/press/cnn_072405.mp4"><img src="/i/home/mov_cnn_072405.jpg" alt="TopCoder Movies" border="0" /></A>
 <%-- SRM SPONSORSHIP
             <map name="srm_sponsor">
             <area shape="rect" alt="" coords="1,1, 269,90" href="/?RoundId=8077&t=schedule&c=srm" />
