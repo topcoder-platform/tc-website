@@ -83,7 +83,7 @@
                     <%boolean even = true;%>
                     <logic:iterate name="<%=Constants.CONTEST_LIST_KEY%>" id="contest">
                         <tr>
-                            <td class="<%=even?"statLt":"statDk"%>"><b><tc-webtag:beanWrite name="contest" property="contestName"/></b>
+                            <td class="<%=even?"statLt":"statDk"%>"><b><tc-webtag:beanWrite name="contest" property="contestName"/> - <tc-webtag:beanWrite name="contest" property="roundName"/></b>
                                 <% pageContext.setAttribute("sponsorImage", ((LongContest)contest).getSponsorImage());%>
                                 <div style="float: left;"><ci:sponsorImage image="sponsorImage" alt="Sponsor" border="0" ifNull=""/></div>
                             </td>
