@@ -120,10 +120,6 @@
             <jsp:param name="title" value="&#160;"/>
         </jsp:include>
 
-sortField: <%=sortField%>
-sortOrder: <%=sortOrder%>
-startIdx: <%=startIdx%>
-
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr valign="top">
 	<td nowrap="nowrap" valign="top">
@@ -174,7 +170,7 @@ startIdx: <%=startIdx%>
 <td class="rtHeader" width="10%" align="right">Views</td>
 <td class="rtHeader" align="center" colspan="2"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></td>
 </tr>
-<%  if (sortField.equals("") && sortOrder.equals("")) { %>
+<%  if (isDefaultView()) { %>
 <tc-webtag:iterator id="announcement" type="com.jivesoftware.forum.Announcement" iterator='<%=(Iterator)request.getAttribute("announcements")%>'>
     <tr>
     <td class="rtThreadCellWrap">
