@@ -75,7 +75,7 @@ function goTo(selection){
                       <TD COLSPAN="3" CLASS="smallFoot"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"></TD>
                     </TR>
                     <TR>
-                      <TD background="/i/steel_gray_bg.gif" COLSPAN="3" CLASS="statTextBig" VALIGN="middle" HEIGHT="18">&nbsp;Division Wins by SRM</TD>
+                      <TD background="/i/steel_gray_bg.gif" COLSPAN="3" CLASS="statTextBig" VALIGN="middle" HEIGHT="18">&nbsp;Division <%=div1 ? "I" : "II"%> Wins</TD>
                     </TR>
                     <TR>
                       <TD COLSPAN="3" CLASS="smallFoot" WIDTH="1"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
