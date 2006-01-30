@@ -5,13 +5,13 @@
                 com.topcoder.web.common.StringUtils,
                 com.jivesoftware.base.User,
                 com.jivesoftware.forum.Forum,
-                com.jivesoftware.forum.ForumCategory,
                 java.util.*"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
+<tc-webtag:useBean id="forumCategory" name="forumCategory" type="com.jivesoftware.forum.ForumCategory" toScope="request"/>
 <tc-webtag:useBean id="announcement" name="announcement" type="com.jivesoftware.forum.Announcement" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
@@ -74,7 +74,7 @@
 <table cellpadding="0" cellspacing="0" class="rtTable">
    <tr>
       <td class="rtHeader" colspan="2">
-         <a name=<jsp:getProperty name="announcement" property="ID"/>><tc-webtag:beanWrite name="announcement" property="startDate" format="MMM d, yyyy 'at' h:mm a z"/> | Announcement: <jsp:getProperty name="announcement" property="subject"/></a>
+         <a name=<jsp:getProperty name="announcement" property="ID"/>><tc-webtag:beanWrite name="announcement" property="startDate" format="MMM d, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="announcement" property="subject"/></a>
       </td>
    </tr>
    <tr>
