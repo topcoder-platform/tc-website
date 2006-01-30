@@ -8,6 +8,7 @@ import com.jivesoftware.base.FilterManager;
 import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.base.Log;
+import com.jivesoftware.base.Permissions;
 import com.jivesoftware.base.User;
 import com.jivesoftware.base.filter.Profanity;
 import com.jivesoftware.forum.ForumCategory;
@@ -19,7 +20,6 @@ import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.database.DbForumFactory;
 import com.jivesoftware.forum.database.DbForumMessage;
 import com.jivesoftware.util.StringUtils;
-import com.topcoder.shared.util.StringUtil;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 
@@ -286,5 +286,10 @@ public class ForumsUtil {
         body = StringUtils.escapeHTMLTags(body);
         body = StringUtils.replace(body, "\"", "&quot;");
         return body;
+    }
+    
+    public static boolean isAdmin(User user) {
+        if (user == null) return false;
+        return user.isAuthorized(Permissions.SYSTEM_ADMIN);
     }
 }
