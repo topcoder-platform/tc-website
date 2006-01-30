@@ -1,6 +1,6 @@
 <%@ page
   language="java"
-  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
+  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,java.util.Map, com.topcoder.shared.util.StringUtil;"
 
 %>
 <%@ page import="com.topcoder.web.common.tag.HandleTag" %>
@@ -13,7 +13,7 @@
 <% //common code that pulls out the request bean.
 Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 ResultSetContainer rsc = (ResultSetContainer) ((Map) request.getAttribute("QUERY_RESPONSE")).get("division_wins");
-boolean div1 = StringUtils.checkNull(request.getParameter("dn")).equals("1");
+boolean div1 = StringUtil.checkNull(request.getParameter("dn")).equals("1");
 %>
 <html>
 <head>
