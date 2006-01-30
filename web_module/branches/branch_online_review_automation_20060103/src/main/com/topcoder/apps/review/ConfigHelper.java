@@ -26,7 +26,7 @@ import java.util.List;
  * Rejected aggregation review mail configuration was added.
  * </li>
  * <li>
- * Max number of passing scores for screening configuration was added.
+ * Max number of passing scores configuration for screening was added.
  * </li>
  * <li>
  * Edited appeal mail configuration was added.

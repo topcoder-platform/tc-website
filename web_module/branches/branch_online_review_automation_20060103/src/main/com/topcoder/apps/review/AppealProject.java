@@ -82,8 +82,6 @@ public class AppealProject implements Model {
             Project project = projectTracker.getProject(userProjectInfo, user.getTCSubject());
 
             if (appealData.getAppeals() == null) {
-                //plk
-                System.out.println("hola");
                 // get the Appeals for the front-end
                 Appeal[] appeals = documentManager.getAppeals(project,
                         appealData.getAppealerId(),
@@ -97,21 +95,11 @@ public class AppealProject implements Model {
                     //return new FailureResult("Cannot get the appeals");
                 }
             } else {
-                //plk
-                System.out.println("hola 2");
                 // Save the Appeal
                 if (appealData.getAppeals().length != 1) {
                     return new FailureResult("Error saving appeal(no appeal to save)");
                 }
                 Appeal appeal = appealData.getAppeals()[0];
-
-                System.out.println("appealData.getAppealerId() - " + appealData.getAppealerId());
-                System.out.println("appealData.getQuestionId() - " + appealData.getQuestionId());
-                //System.out.println("appeal.getVersionId() - " + appeal.getVersionId());
-                System.out.println("appeal.getId() - " + appeal.getId());
-                System.out.println("appeal.getAppealText() - " + appeal.getAppealText());
-                System.out.println("1) appeal.getReviewer().getHandle() - " + appeal.getReviewer().getHandle());
-
 
                 // check permission
 /*
@@ -147,7 +135,6 @@ public class AppealProject implements Model {
                     appeal.setResolved(true);
                 }
 
-                // plk
                 boolean newAppeal = false;
                 if (appeal.getId() == -1) {
                     newAppeal = true;
@@ -158,10 +145,8 @@ public class AppealProject implements Model {
                 try {
                     ut.begin();
 
-                    System.out.println("2) appeal.getReviewer().getHandle() - " + appeal.getReviewer().getHandle());
                     // Save appeal (and modified question)
                     documentManager.saveAppeal(appeal, project, user.getTCSubject());
-                    System.out.println("3) appeal.getReviewer().getHandle() - " + appeal.getReviewer().getHandle());
 
                     // Mail changes to appealer/reviewer
                     if (appeal.isResolved()) {

@@ -24,7 +24,7 @@ import java.io.InputStream;
  * Version 1.0.1 Change notes:
  * <ol>
  * <li>
- * A call to <code>AutoPilot.reviewFromScorecard()</code> was added. It will handle the new automated phase change
+ * A call to <code>AutoPilot.reviewFromTestcase()</code> was added. It will handle the new automated phase change
  * and timeline update.
  * </li>
  * </ol>
