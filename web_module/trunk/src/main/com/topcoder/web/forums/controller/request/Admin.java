@@ -4,7 +4,6 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.Log;
-import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.PermissionsManager;
 import com.jivesoftware.base.PermissionType;
 import com.jivesoftware.base.UserManager;
@@ -25,6 +24,7 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.forums.controller.ForumsUtil;
 import com.topcoder.common.web.data.Round;
 import com.jivesoftware.forum.RatingManagerFactory;
 import com.jivesoftware.forum.RatingManager;
@@ -47,9 +47,10 @@ public class Admin extends ForumsProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
      
-        try {
-            PermissionsManager permManager = forumFactory.getPermissionsManager();
-        } catch (UnauthorizedException uae) {
+        //try {
+        //    PermissionsManager permManager = forumFactory.getPermissionsManager();
+        //} catch (UnauthorizedException uae) {
+        if (!ForumsUtil.isAdmin(user)) {
             setNextPage("?module=ForumList");
             setIsNextPageInContext(false);
             return;
