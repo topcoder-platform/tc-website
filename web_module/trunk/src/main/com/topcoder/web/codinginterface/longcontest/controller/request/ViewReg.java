@@ -100,6 +100,7 @@ public class ViewReg extends Base {
         } else {
             getRequest().setAttribute(Constants.ROUND_TERMS_KEY, rsc.getStringItem(0, "terms_content"));
             getRequest().setAttribute(Constants.CONTEST_NAME_KEY, rsc.getStringItem(0, "contest_name"));
+            getRequest().setAttribute(Constants.ROUND_NAME_KEY, rsc.getStringItem(0, "round_name"));
             return true;
         }
     }
