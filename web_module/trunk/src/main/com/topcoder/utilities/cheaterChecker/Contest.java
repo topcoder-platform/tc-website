@@ -220,6 +220,8 @@ public class Contest {
             ps.setLong(1, roundId);
             ps.setLong(2, roundId);
             ps.setLong(3, componentId);
+            ps.setLong(4, roundId);
+            ps.setLong(5, componentId);
 
             CommentStripper cs = new CommentStripper();
             ret = new ArrayList();
