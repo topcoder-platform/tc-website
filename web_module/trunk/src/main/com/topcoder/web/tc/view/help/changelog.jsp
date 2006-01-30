@@ -59,6 +59,7 @@
             <li>tco06 component results site</li>
             <li>some additional tweaks to make intel marathon matches work within the site</li>
             <li>added example information for marathon matches</li>
+            <li>do a pseudo registration for practice rooms so that counts show correctly (room_result)</li>
         </ul>
 
     </p>
