@@ -394,7 +394,11 @@ public class RatingQubits {
                     sqlStr.append(" WHERE project_id = ? and user_id = ? ");
 
                     ps = conn.prepareStatement(sqlStr.toString());
-                    ps.setDouble(1, r.rating);
+                    if (r.num_ratings==0) {
+                        ps.setNull(1, Types.DOUBLE);
+                    } else {
+                        ps.setDouble(1, r.rating);
+                    }
                     ps.setInt(2, newrating);
                     ps.setInt(3, rs.getInt("project_id"));
                     ps.setInt(4, coder);
