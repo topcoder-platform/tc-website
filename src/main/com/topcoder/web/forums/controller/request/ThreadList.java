@@ -10,9 +10,12 @@ import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.action.util.Paginator;
 import com.jivesoftware.forum.ForumThreadIterator;
 import com.jivesoftware.forum.stats.ViewCountManager;
+import com.jivesoftware.forum.AnnouncementManager;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
+
+import java.util.Iterator;
 
 /**
  * @author mtong
@@ -63,6 +66,9 @@ public class ThreadList extends ForumsProcessor {
         Paging paging = new Paging(resultFilter, totalItemCount);
         Paginator paginator = new Paginator(paging);
         ForumThreadIterator itThreads = forum.getThreads(resultFilter);
+        
+        AnnouncementManager announcementManager = forumFactory.getAnnouncementManager();
+        Iterator itAnnounce = announcementManager.getAnnouncements(forum);
 
         getRequest().setAttribute("forumFactory", forumFactory);
 		getRequest().setAttribute("forum", forum);
@@ -70,6 +76,7 @@ public class ThreadList extends ForumsProcessor {
 		getRequest().setAttribute("paginator", paginator);
         getRequest().setAttribute("sortField", sortField);
         getRequest().setAttribute("sortOrder", sortOrder);
+        getRequest().setAttribute("announcements", itAnnounce);
 
 		setNextPage("/viewForum.jsp");
 		setIsNextPageInContext(true);
