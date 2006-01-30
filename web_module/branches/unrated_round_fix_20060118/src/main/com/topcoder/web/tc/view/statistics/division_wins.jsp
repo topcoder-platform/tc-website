@@ -81,16 +81,16 @@ function goTo(selection){
                       <TD COLSPAN="3" CLASS="smallFoot" WIDTH="1"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                     </TR>
                     <TR VALIGN="middle">
-                        <TD>&nbsp;</TD><TD>Handle</TD><TD>Wins</TD>
+                        <TD class="statText">&nbsp;</TD><TD class="statText">Handle</TD><TD class="statText">Wins</TD>
                     </TR>
                     <TR>
                       <TD COLSPAN="3" CLASS="smallFoot" WIDTH="1"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                     </TR>
                     <rsc:iterator list="<%=rsc%>" id="row">
                         <tr>
-                        <td><rsc:item name="rank" row="<%=row%>"/></td>
-                        <td><tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=HandleTag.ALGORITHM%>'/></td>
-                        <td><rsc:item name="wins" row="<%=row%>"/></td>
+                        <td class="statText"><rsc:item name="rank" row="<%=row%>"/></td>
+                        <td class="statText"><tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=HandleTag.ALGORITHM%>'/></td>
+                        <td class="statText"><rsc:item name="wins" row="<%=row%>"/></td>
                         </tr>
                     </rsc:iterator>                                                            
                     <TR>
