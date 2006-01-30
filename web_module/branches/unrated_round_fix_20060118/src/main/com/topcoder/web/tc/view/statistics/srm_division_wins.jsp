@@ -112,20 +112,20 @@ function goTo(selection){
         long winner1 = (n1 == null ? -1 : n1.longValue()),
                 winner2 = (n2 == null ? -1 : n2.longValue());
         %>
-        <td><bean:write name="resultRow" property='<%= "item[" + 0 /* contest name */ + "]" %>'/></td>
+        <td class="statText"><bean:write name="resultRow" property='<%= "item[" + 0 /* contest name */ + "]" %>'/></td>
         
         <% if (winner1 == -1) { %>
-            <td>(none)</td><td></td>
+            <td class="statText">(none)</td><td class="statText"></td>
         <% } else { %>
-            <td><tc-webtag:handle coderId='<%= winner1 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
-            <td><bean:write name="resultRow" property='<%= "item[" + 2 /* #wins 1 */ + "]" %>'/></td>
+            <td class="statText"><tc-webtag:handle coderId='<%= winner1 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
+            <td class="statText"><bean:write name="resultRow" property='<%= "item[" + 2 /* #wins 1 */ + "]" %>'/></td>
         <% } %>
         
         <% if (winner2 == -1) { %>
-            <td>(none)</td><td></td>
+            <td class="statText">(none)</td><td></td>
         <% } else { %>
-            <td><tc-webtag:handle coderId='<%= winner2 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
-            <td><bean:write name="resultRow" property='<%= "item[" + 4 /* #wins 2 */ + "]" %>'/></td>
+            <td class="statText"><tc-webtag:handle coderId='<%= winner2 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
+            <td class="statText"><bean:write name="resultRow" property='<%= "item[" + 4 /* #wins 2 */ + "]" %>'/></td>
         <% } %>
     </tr>
     </logic:iterate>
