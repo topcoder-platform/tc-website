@@ -179,14 +179,41 @@ public class Contest {
             query.append(" AND rr.round_id = cc.round_id ");
             query.append(" AND u.user_id = cc.coder_id ");
             query.append(" AND u.user_id = rr.coder_id ");
-//            query.append(" AND cc.submission_number = s.submission_number ");
             query.append(" AND scf.submission_number = s.submission_number ");
             query.append(" AND scf.component_state_id = s.component_state_id ");
-//            query.append(" AND scf.submission_number = cc.submission_number ");
             query.append(" AND scf.component_state_id = cc.component_state_id ");
             query.append(" AND scf.sort_order = 1");    //hoke it to be the first if there are multiple classes
             query.append(" AND cc.component_id = c.component_id");
             query.append(" AND co.component_state_id = s.component_state_id");
+            //include our writer/tester solutions.  to make this better, it should strip out checkData
+            query.append("union");
+            query.append(" select s.coder_id ");
+            query.append(" , scf.class_file ");
+            query.append(" , u.handle ");
+            query.append(" , s.solution_text ");
+            query.append(" , s.language_id ");
+            query.append(" , 0 ");
+            query.append(" , 0 ");
+            query.append(" , 0 ");
+            query.append(" , rc.component_id ");
+            query.append(" , c.problem_id ");
+            query.append(" , c.class_name ");
+            query.append(" , c.method_name ");
+            query.append(" from solution s ");
+            query.append(" , solution_class_file scf ");
+            query.append(" , component_solution_xref csx ");
+            query.append(" , round_component rc ");
+            query.append(" , user u ");
+            query.append(" , component c ");
+            query.append(" where s.solution_id = scf.solution_id ");
+            query.append(" and scf.sort_order = 1 ");
+            query.append(" and rc.component_id = c.component_id ");
+            query.append(" and s.coder_id = u.user_id ");
+            query.append(" and csx.solution_id = s.solution_id ");
+            query.append(" and rc.round_id = ? ");
+            query.append(" and rc.component_id = ? ");
+            query.append(" and rc.component_id = csx.component_id ");
+
 
 
             ps = conn.prepareStatement(query.toString());
@@ -220,7 +247,7 @@ public class Contest {
                 try {
                     rs.close();
                 } catch (Exception ignore) {
-                    log.error("FAILED to close ResultSet in getAddress2");
+                    log.error("FAILED to close ResultSet");
                 }
             }
 
@@ -228,8 +255,7 @@ public class Contest {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "getAddress2");
+                    log.error("FAILED to close PreparedStatement");
                 }
             }
 
@@ -237,7 +263,7 @@ public class Contest {
                 try {
                     conn.close();
                 } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in getAddress2");
+                    log.error("FAILED to close Connection");
                 }
             }
 
