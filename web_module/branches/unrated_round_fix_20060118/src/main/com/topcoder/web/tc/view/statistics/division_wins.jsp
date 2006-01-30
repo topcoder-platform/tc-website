@@ -13,7 +13,7 @@
 <% //common code that pulls out the request bean.
 Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 ResultSetContainer rsc = (ResultSetContainer) ((Map) request.getAttribute("QUERY_RESPONSE")).get("division_wins");
-boolean div1 = StringUtils.checkNull(request.getParameter("dn")).equals("1");
+boolean div1 = !StringUtils.checkNull(request.getParameter("dn")).equals("2");
 %>
 <html>
 <head>
