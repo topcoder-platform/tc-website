@@ -37,7 +37,7 @@
    <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
-<div style="float: right;"><tc-webtag:forumLink forumID="505901" message="Discuss this article" /></div>
+<div style="float: right;"><tc-webtag:forumLink forumID="505904" message="Discuss this article" /></div>
 <span class="bodyTitle">Adapter Pattern</span>
 
 <p>
@@ -48,7 +48,7 @@ By&#160;<tc-webtag:handle coderId="119676" context="design"/><br />
 
 <p>
 <span class="bodySubtitle">Description</span><br>
-"Convert the interface of a class into another interface clients expect."[GoF]  In other words, you define an API to use locally and then create implementations of that API that will convert the calls to another class's API.  The main benefit of the adapter pattern is that it allows you to use classes that were not originally designed for your purposes.   Please note that I use the wording "API" rather than "interface" (as GoF does) since the adapter pattern does not depend on an actual interface implementation (as used in Java/C#).  What GoF meant by 'interface' is the method signatures that make up the interactions with some class (ie it's programming interface).  
+"Convert the interface of a class into another interface clients expect." [GoF]  In other words, you define an API to use locally and then create implementations of that API that will convert the calls to another class's API.  The main benefit of the adapter pattern is that it allows you to use classes that were not originally designed for your purposes.   Please note that I use the wording "API" rather than "interface" (as GoF does) since the adapter pattern does not depend on an actual interface implementation (as used in Java/C#).  What GoF meant by 'interface' is the method signatures that make up the interactions with some class (ie it's programming interface).  
 <br><br>
 
 <span class="bodySubtitle">When and when not to use</span><br>
@@ -64,7 +64,7 @@ The biggest consideration when using the adapter pattern is in identifying the p
 <br><br>
 Another consideration is when the adapting class is no longer an adapting class but a complex or composite class.  Adapter classes can range from simple, one to one translation, to complex translation functionality.  The complexity of the adapter class largely depends on how similar the two APIs are to each other.  However, as more functionality and state information is added to an adapter class, the less like an adapter it is and the more like a complex class (that happens to use the other API as part of it's operations) it becomes.  Like the first consideration, it all comes back to intent of the class.  If the complexity is due solely to enable API-to-API translation, then the class can still be counted as an adapter.  However, if the complexity starts to add functionality beyond the other's API, the more like a complex class the adapter becomes.  
 <br><br>
-Lastly, an adapter class should only adapt a single API.  From the wording in Gof &ndash; "Convert the interface of a class…".  If the adapter translates some of the API to one class's API and the rest of the API to a different class's API, the class is more like a composite class than an adapter class.  This doesn't mean that you can't use more than one class in the translation process.  What it means is that the source of the API should come for a specific class API.
+Lastly, an adapter class should only adapt a single API.  From the wording in GoF &ndash; "Convert the interface of a class&#8230;."  If the adapter translates some of the API to one class's API and the rest of the API to a different class's API, the class is more like a composite class than an adapter class.  This doesn't mean that you can't use more than one class in the translation process.  What it means is that the source of the API should come for a specific class API.
 <br><br>
 
 <span class="bodySubtitle">Implementation details</span><br>
@@ -91,8 +91,8 @@ Let's take a look at an example &ndash; the .NET Password Validator component.  
 <br><br>
 As you see in Figure 1 below, the designer created an adapter class called DataValidationAdapterRule that implements the IRule interface.  The adapter class's constructor takes an instance of the IValidator interface (either directly or through a configuration option) and stores it to an instance variable.  When calls are made to the Validate method of IRule interface, the class 'converts' those calls to the IsValid method of the IValidator interface.  This allows the component to utilize the functionality in another component that wasn't specifically designed for this component.
 <br><br>
- <div align=center><b>Figure 1</b><br><br>
- <img src="/i/education/adapter1.gif" alt="Figure 1"/></div>
+<div align=center><b>Figure 1</b><br><br>
+<A href="/i/education/adapter1_lg.gif"><img src="/i/education/adapter1.gif" alt="Figure 1"/></a></div>
 <br><br>
 <span class="bodySubtitle">Bibliography</span><br>
 

@@ -5,7 +5,23 @@
 <table border="0" cellspacing="0" cellpadding="0" width="525">
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>01.30.06<br>1:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=adapterPattern">Adapter Pattern Tutorial</A></span><br><br>
+       "Convert the interface of a class into another interface clients expect." [GoF] In other words, you define an API to use locally and then create implementations of that API that will convert the calls to another class's API. </td>
+      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <tc-webtag:handle coderId="119676" context="design"/></td></tr></table>
+      </td>
    </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=adapterPattern">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505904" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>01.27.06<br>3:30 PM</td>
