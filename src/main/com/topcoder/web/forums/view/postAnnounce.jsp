@@ -18,7 +18,7 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%  Announcement announcement = (Announcement)request.getAttribute("announcement");
-    ForumCategory forumCategory = (ForumCategory)request.getAttribute(ForumConstants.CATEGORY_ID);
+    ForumCategory forumCategory = (ForumCategory)request.getAttribute("category");
     Forum forum = (Forum)request.getAttribute("forum");
     HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
 
