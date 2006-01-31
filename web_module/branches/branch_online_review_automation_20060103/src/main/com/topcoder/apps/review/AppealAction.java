@@ -23,7 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  * Version 1.0.1 Change notes:
  * <ol>
  * <li>
- * Changed constraint to permit appeals edition in appeals phase.
+ * Changed constraint to permit appeals edition in appeals phase. (this is ruled by a
+ * configuration that allows or deny the edition)
  * </li>
  * </ol>
  *
@@ -101,10 +102,17 @@ public final class AppealAction extends ReviewAction {
                 request.setAttribute("reviewerEdit", new Boolean(true));
             }
 */
+            // configured functionality to permit edition during appeals phase.
+            boolean permitEditDuringAppeals;
+            try {
+                permitEditDuringAppeals = ConfigHelper.getAllowAppealsEdition();
+            } catch (Exception e) {
+                permitEditDuringAppeals = ConfigHelper.ALLOW_APPEALS_EDITION_DEFAULT;
+            }
+
             long phaseId = orpd.getProject().getCurrentPhaseInstance().getPhase().getId();
             if (appeal.getAppealer().getId() == orpd.getUser().getId() &&
-                    phaseId == Phase.ID_APPEALS) {
-//                    appeal.getId() == -1 && phaseId == Phase.ID_APPEALS) {
+                    (appeal.getId() == -1 || permitEditDuringAppeals) && phaseId == Phase.ID_APPEALS) {
                 request.setAttribute("appealerEdit", new Boolean(true));
             } else if (appeal.getReviewer().getId() == orpd.getUser().getId() &&
                     !appeal.isResolved() && phaseId == Phase.ID_APPEALS_RESPONSE) {

@@ -103,10 +103,14 @@ public class ReviewProject implements Model {
                 if (scorecard.isCompleted() && scorecard.getQuestions() != null) {
                     try {
                         double score = new ScoringHelper().calculateScore(scorecard).getWeightedScore();
+                        if (!scorecard.isPMReviewed()) {
+                            System.out.println("Primera");
+                            scorecard.setRawScore(score);
+                            scorecard.setPMReviewed(true);
+                            scorecard.setPMReviewTimestamp(new java.sql.Timestamp(System.currentTimeMillis()));
+                        }
+                        System.out.println("Segunda");
                         scorecard.setScore(score);
-                        scorecard.setRawScore(score);
-                        scorecard.setPMReviewed(true);
-                        scorecard.setPMReviewTimestamp(new java.sql.Timestamp(System.currentTimeMillis()));
                     } catch (ArithmeticException e) {
                         return new FailureResult("Error while calculating the score: ", e);
                     }
