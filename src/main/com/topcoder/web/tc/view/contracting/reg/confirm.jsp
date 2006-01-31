@@ -1,9 +1,5 @@
 <%@  page language="java"  %>
-<%@ page import="com.topcoder.web.tc.Constants,
-                 java.util.HashMap,
-                 com.topcoder.web.tc.model.ContractingResponse,
-                 com.topcoder.web.common.model.ContractingResponseGroup,
-                 java.util.Iterator,
+<%@ page import="com.topcoder.web.common.model.ContractingResponseGroup,
                  com.topcoder.web.common.StringUtils,
                  java.util.List" %>
 <%@ page import="com.topcoder.web.common.model.ContractingResponse"%>
