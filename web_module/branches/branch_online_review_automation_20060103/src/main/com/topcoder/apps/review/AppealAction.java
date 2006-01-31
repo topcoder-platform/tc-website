@@ -112,6 +112,8 @@ public final class AppealAction extends ReviewAction {
                 permitEditDuringAppeals = ConfigHelper.ALLOW_APPEALS_EDITION_DEFAULT;
             }
 
+            System.out.println(permitEditDuringAppeals ? "TRUE" : "FALSE");
+
             long phaseId = orpd.getProject().getCurrentPhaseInstance().getPhase().getId();
             if (appeal.getAppealer().getId() == orpd.getUser().getId() &&
                     (appeal.getId() == -1 || permitEditDuringAppeals) && phaseId == Phase.ID_APPEALS) {
