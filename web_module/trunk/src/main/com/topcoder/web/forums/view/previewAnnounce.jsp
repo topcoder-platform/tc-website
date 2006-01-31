@@ -18,8 +18,8 @@
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
-<%  ForumCategory forumCategory = (ForumCategory)request.getAttribute(ForumConstants.CATEGORY_ID);
-    Forum forum = (Forum)request.getAttribute(ForumConstants.FORUM_ID);
+<%  ForumCategory forumCategory = (ForumCategory)request.getAttribute("category");
+    Forum forum = (Forum)request.getAttribute("forum");
     HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
 
 <script type="text/javascript">
