@@ -16,7 +16,12 @@
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
 <%  Forum forum = (Forum)request.getAttribute("forum");
-    User user = (User)request.getAttribute("user"); %>
+    User user = (User)request.getAttribute("user"); 
+    
+    String level2val = "";
+    if (forumCategory != null) {
+        level2val = forumCategory.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME);
+    }   %>
 
 <html>
 <head>
@@ -40,7 +45,7 @@
       <td width="180">
          <jsp:include page="includes/global_left.jsp">
             <jsp:param name="level1" value="forums"/>
-            <jsp:param name="level2" value="<% if (forumCategory != null) { %><%=forumCategory.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME)%><% } %>"/>
+            <jsp:param name="level2" value="<%=level2val%>"/>
             <jsp:param name="unreadCategories" value="<%=unreadCategories%>"/>
          </jsp:include>
       </td>
@@ -67,6 +72,17 @@
         Announcement: <%=announcement.getSubject()%>
         </span><br><br>
    </td>
+   <%   if (ForumsUtil.isAdmin(user)) { %>
+   <td align="right" nowrap="nowrap" valign="top">
+        <%  Date now = Calendar.getInstance(TimeZone.getTimeZone("EST")).getTime();
+            if (announcement.getEndDate().after(now)) { %> 
+            <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Expire" class="rtbcLink">Expire</A>&#160; |
+        <%  } else { %>
+            <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Activate" class="rtbcLink">Activate</A>&#160; |
+        <%  } %> 
+        &#160;<A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Delete" class="rtbcLink">Delete</A><br/>   
+   </td>
+   <%   } %>
 </tr>
 </table>
 
