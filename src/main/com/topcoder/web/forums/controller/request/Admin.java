@@ -47,9 +47,6 @@ public class Admin extends ForumsProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
      
-        //try {
-        //    PermissionsManager permManager = forumFactory.getPermissionsManager();
-        //} catch (UnauthorizedException uae) {
         if (!ForumsUtil.isAdmin(user)) {
             setNextPage("?module=ForumList");
             setIsNextPageInContext(false);

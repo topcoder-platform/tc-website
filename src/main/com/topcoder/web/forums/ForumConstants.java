@@ -26,6 +26,9 @@ public interface ForumConstants {
     public final static int MESSAGE_SUBJECT_MAX_LENGTH = 800;
     public final static int MESSAGE_BODY_MAX_LENGTH = 8000;
     public final static String MESSAGE_COUNT = "mc";
+    
+    public final static String ANNOUNCEMENT_SUBJECT = "subject";
+    public final static String ANNOUNCEMENT_BODY = "body";
 	
 	public final static String START_IDX = "start";
     
@@ -118,6 +121,8 @@ public interface ForumConstants {
         "You do not have permission to post a new thread in this forum.";
     public final static String ERR_CANNOT_POST_MESSAGE =
         "You do not have permission to post a new message in this forum.";
+    public final static String ERR_CANNOT_POST_ANNOUNCEMENT =
+        "You do not have permission to post a new announcement.";
     public final static String ERR_LONG_MESSAGE_SUBJECT =
         "Error: Message body exceeds " + MESSAGE_SUBJECT_MAX_LENGTH + " characters.";
     public final static String ERR_LONG_MESSAGE_BODY =

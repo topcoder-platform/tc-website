@@ -126,6 +126,9 @@
 	   <jsp:include page="searchHeader.jsp" ></jsp:include>
 	</td>
 	<td align="right" nowrap="nowrap" valign="top">
+       <%   if (ForumsUtil.isAdmin(user)) { %>
+                <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.CATEGORY_ID%>=<%=forum.getForumCategory().getID()%>&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post Announcement</A>
+       <%   } %>
 	   <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post New Thread</A>&#160;&#160;|&#160;&#160;<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
 	</td>
 </tr>
