@@ -113,18 +113,9 @@ public final class AppealAction extends ReviewAction {
             }
 
             long phaseId = orpd.getProject().getCurrentPhaseInstance().getPhase().getId();
-
-            System.out.println("permitEditDuringAppeals : " + permitEditDuringAppeals);
-            System.out.println("phaseId : " + phaseId);
-            System.out.println("Phase.ID_APPEALS : " + Phase.ID_APPEALS);
-            System.out.println("appeal.getAppealer().getId() : " + appeal.getAppealer().getId());
-            System.out.println("orpd.getUser().getId() : " + orpd.getUser().getId());
-            System.out.println("appeal.getId() : " + appeal.getId());
-
             if (appeal.getAppealer().getId() == orpd.getUser().getId() &&
                     (appeal.getId() == -1 || permitEditDuringAppeals) && phaseId == Phase.ID_APPEALS) {
                 request.setAttribute("appealerEdit", new Boolean(true));
-                System.out.println("entro");
             } else if (appeal.getReviewer().getId() == orpd.getUser().getId() &&
                     !appeal.isResolved() && phaseId == Phase.ID_APPEALS_RESPONSE) {
                 request.setAttribute("reviewerEdit", new Boolean(true));
