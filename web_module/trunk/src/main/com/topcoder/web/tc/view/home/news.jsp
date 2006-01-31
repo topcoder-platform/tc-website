@@ -7,6 +7,19 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 
 <%--------------------------------------------------------%>
+   </tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>01.31.05<br>4:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=msn_chat_013006">MSN chat session from SRM 286</A></span><br><br>
+      MSN recently held a chat session just prior to SRM 286 to discuss working at MSN.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="/tc?module=Static&d1=contracting&d2=msn_chat_013006">full story</A>&#160;|&#160;
+      <tc-webtag:forumLink forumID="505906" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>01.31.06<br>3:50 PM</td>
       <td class="newsTextCell">
@@ -236,20 +249,6 @@
        <A href="http://www.businessweek.com/magazine/content/06_04/b3968007.htm">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505891" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>01.12.06<br>1:20 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">What makes a <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_summary">Design</A> or <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_summary">Development</A> Champion a Champion?</span><br><br>
-      We asked some reviewers from the TCO05 Component Competition Finals to tell us what made the champions' submissions stand out from the others.  Take a look at what they had to say.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_summary">design</A>&#160;|&#160;
-      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_summary">development</A>&#160;|&#160;
-      <tc-webtag:forumLink forumID="505890" message="discuss this" />&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 
