@@ -79,7 +79,7 @@ public class PreviewAnnouncement extends ForumsProcessor {
         }
         
         getRequest().setAttribute("forumFactory", forumFactory);
-        getRequest().setAttribute("forumCategory", category);
+        getRequest().setAttribute("category", category);
         getRequest().setAttribute("forum", forum);
         getRequest().setAttribute("postMode", postMode);
         

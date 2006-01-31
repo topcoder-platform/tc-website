@@ -81,7 +81,7 @@ public class PostAnnounce extends ForumsProcessor {
         }
         
         ForumCategory category = forumFactory.getForumCategory(categoryID);
-        getRequest().setAttribute("forumCategory", category);
+        getRequest().setAttribute("category", category);
         try {
             Forum forum = forumFactory.getForum(forumID);
             getRequest().setAttribute("forum", forum);
