@@ -8,6 +8,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>01.31.06<br>3:50 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm286">SRM 286 - Problem Set & Analysis</A></span><br><br>
+      Single Round Match 286 presented a problems set headed by hard 1000-pointers, which decided most part of match standings and were solved by few coders in each division.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/ged_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10505830" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm286">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505800" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>01.30.06<br>1:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -234,20 +250,6 @@
       <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_summary">development</A>&#160;|&#160;
       <tc-webtag:forumLink forumID="505890" message="discuss this" />&#160;|&#160;
       <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.12.06<br>12:12 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://dnaindia.com/report.asp?NewsID=1007225&CatID=2">Contest a coded message for job seekers</A></span><br><br>
-      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/dnaIndia_logo.gif" width="67" height="36" alt="DNA India" border="0" /></div>
-      "Write a software to land that dream job straight out of college. Now Indian technology grads can win jobs and internships at tech majors by competing in coding contests."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://dnaindia.com/report.asp?NewsID=1007225&CatID=2">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505892" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
 
