@@ -29,6 +29,7 @@ public interface ForumConstants {
     
     public final static String ANNOUNCEMENT_SUBJECT = "subject";
     public final static String ANNOUNCEMENT_BODY = "body";
+    public final static String ANNOUNCEMENT_COMMAND = "cmd";
 	
 	public final static String START_IDX = "start";
     

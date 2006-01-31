@@ -20,7 +20,12 @@
 <%  Announcement announcement = (Announcement)request.getAttribute("announcement");
     ForumCategory forumCategory = (ForumCategory)request.getAttribute("category");
     Forum forum = (Forum)request.getAttribute("forum");
-    HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
+    HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); 
+    
+    String level2val = "";
+    if (forumCategory != null) {
+        level2val = forumCategory.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME);
+    }   %>
 
 <script type="text/javascript">
 function noenter(e)
@@ -81,7 +86,7 @@ function AllowTabCharacter() {
       <td width="180">
          <jsp:include page="includes/global_left.jsp">
             <jsp:param name="level1" value="forums"/>
-            <jsp:param name="level2" value="<% if (forumCategory != null) { %><%=forumCategory.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME)%><% } %>"/>
+            <jsp:param name="level2" value="<%=level2val%>"/>
             <jsp:param name="unreadCategories" value="<%=unreadCategories%>"/>
          </jsp:include>
       </td>
