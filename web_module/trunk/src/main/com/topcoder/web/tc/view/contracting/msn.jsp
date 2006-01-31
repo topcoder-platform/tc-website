@@ -41,6 +41,7 @@
 <a href="/tc?module=JobHit&jid=324&jt=4">Apply now</A>
 &#160;|&#160;<A href="/tc?module=Static&d1=contracting&d2=msn_chat_111905">SRM 272 Chat Transcript</A>
 &#160;|&#160;<A href="/tc?module=Static&d1=contracting&d2=msn_chat_121705">SRM 277 Chat Transcript</A>
+&#160;|&#160;<A href="/tc?module=Static&d1=contracting&d2=msn_chat_013006">SRM 286 Chat Transcript</A>
 </p>
 
 <p>
