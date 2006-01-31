@@ -23,7 +23,9 @@ public class Register extends Base {
             TransactionManager tm = null;
             try {
                 Timestamp now = new Timestamp(System.currentTimeMillis());
+                log.debug("now: " + now + " start: " + getRegStart() + " end: " + getRegEnd());
                 if (now.before(getRegEnd()) && now.after(getRegStart())) {
+
                     tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                     tm.begin();
                     RegistrationLocal reg = (RegistrationLocal)createLocalEJB(getInitialContext(), Registration.class);
@@ -38,6 +40,7 @@ public class Register extends Base {
                 if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
                     tm.rollback();
                 }
+                throw e;
             }
             setNextPage("/collegetour/success.jsp");
             setIsNextPageInContext(true);
