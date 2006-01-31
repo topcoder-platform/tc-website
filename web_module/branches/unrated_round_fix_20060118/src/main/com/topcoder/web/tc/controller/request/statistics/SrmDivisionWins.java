@@ -27,7 +27,7 @@ public class SrmDivisionWins extends Base {
             String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
-
+            if ("".equals(divisionId)) divisionId = "1";
             if (!"1".equals(divisionId) && !"2".equals(divisionId)) {
                 throw new TCWebException("Invalid division_id (dn parameter)");
             }
