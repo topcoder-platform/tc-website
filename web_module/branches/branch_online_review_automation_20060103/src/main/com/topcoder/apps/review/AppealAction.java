@@ -108,7 +108,7 @@ public final class AppealAction extends ReviewAction {
                 permitEditDuringAppeals = ConfigHelper.getAllowAppealsEdition();
             } catch (Exception e) {
                 log(Level.INFO, "Couldn't retrieve configuration for permission to edit appeals, using default: "
-                        + ConfigHelper.ALLOW_APPEALS_EDITION_DEFAULT ? "true" : "false" + " reason: " + e.getMessage());
+                    + (ConfigHelper.ALLOW_APPEALS_EDITION_DEFAULT ? "true" : "false") + " reason: " + e.getMessage());
                 permitEditDuringAppeals = ConfigHelper.ALLOW_APPEALS_EDITION_DEFAULT;
             }
 

@@ -4558,6 +4558,8 @@ public class DocumentManagerBean implements SessionBean {
             try {
                 permitEditDuringAppeals = ConfigHelper.getAllowAppealsEdition();
             } catch (Exception e) {
+                log.info("Couldn't retrieve configuration for permission to edit appeals, using default: "
+                    + (ConfigHelper.ALLOW_APPEALS_EDITION_DEFAULT ? "true" : "false") + " reason: " + e.getMessage());
                 permitEditDuringAppeals = ConfigHelper.ALLOW_APPEALS_EDITION_DEFAULT;
             }
 
