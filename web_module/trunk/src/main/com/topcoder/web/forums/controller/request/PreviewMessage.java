@@ -10,7 +10,6 @@ import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.StringUtil;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;

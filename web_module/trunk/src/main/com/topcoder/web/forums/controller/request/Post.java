@@ -46,12 +46,8 @@ public class Post extends ForumsProcessor {
         if (!messageIDStr.equals("")) {
             ForumMessage message = forumFactory.getMessage(Long.parseLong(messageIDStr));
             String replySubject = message.getSubject();
-            String editSubject = message.getSubject();
             if (!replySubject.startsWith("Re: ")) {
                 replySubject = "Re: " + replySubject;
-            }
-            if (!editSubject.startsWith("Edit: ")) {
-                editSubject = "Edit: " + editSubject;
             }
 
             if (postMode.equals("Reply")) {
