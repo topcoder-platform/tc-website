@@ -12,7 +12,7 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm286">SRM 286 - Problem Set & Analysis</A></span><br><br>
-      Single Round Match 286 presented a problems set headed by hard 1000-pointers, which decided most part of match standings and were solved by few coders in each division.
+      Single Round Match 286 presented a problem set headed by hard 1000-pointers, which decided most part of match standings and were solved by few coders in each division.
       </td>
       <td class="newsPhoto"><img src="/i/m/ged_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10505830" context="algorithm"/></td></tr></table>
       </td>
