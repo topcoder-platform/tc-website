@@ -22,15 +22,8 @@ public class SrmDivisionWins extends Base {
             String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
 
             String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
-            String divisionId = StringUtils.checkNull(getRequest().getParameter("dn"));
-
             String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
-
-            if ("".equals(divisionId)) divisionId = "1";
-            if (!"1".equals(divisionId) && !"2".equals(divisionId)) {
-                throw new TCWebException("Invalid division_id (dn parameter)");
-            }
 
             if ("".equals(numRecords)) {
                 numRecords = "50";
@@ -47,7 +40,6 @@ public class SrmDivisionWins extends Base {
             int endRank = Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1;
 
             r.setContentHandle("srm_division_wins");
-            r.setProperty("dn", divisionId);
 
             Map result = getDataAccess(true).getData(r);
 
@@ -71,7 +63,6 @@ public class SrmDivisionWins extends Base {
 
 
             getRequest().setAttribute("resultMap", result);
-            getRequest().setAttribute("divisionId", divisionId);
 
             setNextPage("/compstats/srm_division_wins.jsp");
             setIsNextPageInContext(true);

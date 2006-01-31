@@ -57,7 +57,6 @@
 
         <%
         ResultSetContainer list = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("srm_division_wins");
-        String divisionId = (String) request.getAttribute("divisionId");
         %>
 
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -79,19 +78,9 @@
                     <jsp:param name="title" value="SRM Division Winners"/>
                 </jsp:include>
 
-
-                <span class="bodySubtitle">
-                <% if ("1".equals(divisionId)) { %>
-                Division I</span><br>
-                <% } else { %>
-                Division II</span><br>
-                <% } %>
-
-
                 <form name="srmDivisionWinsForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
 
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SrmDivisionWins"/>
-                <tc-webtag:hiddenInput name="dn" value="<%=divisionId%>"/>
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
