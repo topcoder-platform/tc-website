@@ -87,7 +87,7 @@
     <br><br>
 
 
-    <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/> - <rsc:item name="round_name" row="<%=infoRow%>"/></span><br>
+    <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/> &gt; <rsc:item name="round_name" row="<%=infoRow%>"/></span><br>
 <span class="bodySubtitle">Categories:
 <% if (categories.isEmpty()) { %> None <% } %>
 <%boolean first = true;%>
