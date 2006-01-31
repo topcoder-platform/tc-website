@@ -83,7 +83,7 @@
 <%if (request.getAttribute(Constants.MESSAGE) != null) {%>
 <span class="errorText"><%=request.getAttribute(Constants.MESSAGE)%></span><br>
 <%}%>
-<span class="bigHandle">Contest: <rsc:item name="contest_name" set="<%=roundInfo%>"/> - <rsc:item name="round_name" set="<%=roundInfo%>"/></span><br>
+<span class="bigHandle">Contest: <rsc:item name="contest_name" set="<%=roundInfo%>"/> &gt; <rsc:item name="round_name" set="<%=roundInfo%>"/></span><br>
     <% if(roundInfo.getIntItem(0, "round_type_id")!=Constants.LONG_PRACTICE_ROUND_TYPE_ID&&roundInfo.getIntItem(0, "round_type_id")!=Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) { %>
 <span class="bodySubtitle">Registrants: <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>" class="bcLink">
     <rsc:item name="num_registrants" set="<%=roundInfo%>"/></A></span>
