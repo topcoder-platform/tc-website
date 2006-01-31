@@ -45,7 +45,7 @@
 <span class="bigTitle">Match summary</span>
 
 <p>
-Single Round Match 286 presented a problems set headed by hard 1000-pointers, which decided most part of match standings and were solved by few coders in each division.
+Single Round Match 286 presented a problem set headed by hard 1000-pointers, which decided most part of match standings and were solved by few coders in each division.
 </p>
 <p>
 Division 1 was a land of challenges and failed solutions. Only six coders passed their solutions for the hard problem, out of 85 submissions. <b>Petr</b>, with the fastest correct submission for that problem, won by over 300 points over the second position, with three successful challenges for his record. <b>kalinov</b> followed, and 130 points later came marian, <b>Eryx</b> and <b>tomek</b> in a close group.

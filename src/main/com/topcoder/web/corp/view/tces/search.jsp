@@ -214,15 +214,17 @@
 <td valign="top" class="bodyText" width="1%">&#160;&#160;&#160;&#160;&#160;</td>
 
 <td valign="top" class="bodyText" width="29%">
-   <table cellspacing="0" cellpadding="2" class="screeningFrameNB">
+   <table cellspacing="0" cellpadding="2" class="screeningFrame">
+        <%boolean even = true;%>
         <rsc:iterator list="<%=demographic_questions%>" id="resultRow">
-            <tr><td class="bodyText">
+            <tr><td class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
                 <rsc:item name="demographic_question_text" row="<%=resultRow%>"/>:<br/>
                 <a href="JavaScript:deselect('demo_<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>')">Deselect</a>
-            </td><td class="bodyText">
+                <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
                 <% long questionId = resultRow.getIntItem("demographic_question_id");%>
                 <tc-webtag:listSelect styleClass="multiSel2" name='<%="demo_"+questionId%>' size="<%=String.valueOf(Math.min(4,((List)demoMap.get(new Long(questionId))).size()))%>" useTopValue="false" multiple="true" list="<%=(List)demoMap.get(new Long(questionId))%>"/>
             </td></tr>
+        <%even=!even;%>
         </rsc:iterator>
     </table>
 </td>
@@ -230,14 +232,15 @@
 <td valign="top" class="bodyText" width="1%">&#160;&#160;&#160;&#160;&#160;</td>
 
 <td valign="top" width="40%">
-   <table cellspacing="0" cellpadding="2" class="screeningFrameNB">
+   <table cellspacing="0" cellpadding="2" class="screeningFrame">
+        <%even = true;%>
         <rsc:iterator list="<%=skill_types%>" id="resultRow">
-            <tr><td nowrap class="bodyText">
+            <tr><td class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
                 <rsc:item name="skill_type_desc" row="<%=resultRow%>"/>:<br/>
                 <% int skillType = resultRow.getIntItem("skill_type_id");%>
                 <tc-webtag:listSelect styleClass="multiSel3" name='<%="skilltype"+skillType%>' useTopValue="false" multiple="true" size="12" list="<%=(List)skillMap.get(new Integer(skillType))%>"/>
                 </td>
-                <td nowrap class="bodyText">
+                <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>" nowrap="nowrap">
                 <select size="12" name="skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
                     <option>1</option>
                     <option>2</option>
@@ -247,7 +250,7 @@
                 </select>
                 <tc-webtag:listSelect styleClass="multiSel3" name='<%="skillset"+skillType%>' multiple="true" useTopValue="false" multiple="true" size="12" list='<%=(List)skillSetMap.get("skillset"+skillType)%>'/>
                 </td>
-                <td class="bodyText">
+                <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
                     <a href="JavaScript:itemAdd('skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skilllevel< rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Add skill</ a>
                         <br/>
                         <a href="JavaScript:remove('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Remove
@@ -256,6 +259,7 @@
                         <a href="JavaScript:clear('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Clear</a>
                 </td>
             </tr>
+        <%even=!even;%>
         </rsc:iterator>
         <tr><td></td></tr>
     </table>
