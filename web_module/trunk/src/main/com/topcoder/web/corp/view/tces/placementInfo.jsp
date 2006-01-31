@@ -39,17 +39,17 @@ List industryList = (List)request.getAttribute("industrySkills");
 <!-- Header Ends -->
 
 
-<table width=100% border=0 cellpadding=0 cellspacing=0 align=center>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
     <TR valign="top">
-        <td width="50%">
+        <td>
             <jsp:include page="left.jsp"/>
         </td>
         <!-- Center Column Begins -->
-        <td class=recruitingBody>
+        <td style="padding: 0px 0px 0px 30px;">
             <img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
-                    <td class=bodyText>
+                    <td class="bodyText">
                         <p>
                             <tces:trailIterator id="trailItem" trailList="<%=(List)request.getAttribute("trail")%>">
                                 <a href="<jsp:getProperty name="trailItem" property="href" />" class="bodyText"><jsp:getProperty name="trailItem" property="name" /></a> &gt;
@@ -62,7 +62,7 @@ List industryList = (List)request.getAttribute("industrySkills");
                 </tr>
             </table>
 
-        <p>
+        <p class="bodyText">
             <strong>Name:</strong> <rsc:item name="first_name" set="<%=info%>"/> <rsc:item name="middle_name" set="<%=info%>"/> <rsc:item name="last_name" set="<%=info%>"/><br />
             <strong>Address:</strong><br/>
                         <rsc:item name="address1" set="<%=info%>"/><br/>
@@ -92,102 +92,112 @@ List industryList = (List)request.getAttribute("industrySkills");
         </p>
 
 
-<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding: 0px 30px 0px 0px;">
     <tr>
-        <td valign=top width="50%">
-            <table width="100%" cellpadding="0" cellspacing="5" align="center">
+        <td valign="top" width="30%">
+            <table border="0" width="100%" cellpadding="0" cellspacing="5" align="left">
                 <tr>
-                    <td align=right width="65%"><b>Preferences</b></td>
-                    <td width="35%"></td>
+                    <td align="right" class="bodyText"><b>Preferences</b></td>
+                    <td class="bodyText"></td>
                 </tr>
                 <tc-webtag:listIterator id="prefGroup" list="<%=prefList%>">
                     <tr>
-                        <td align=right><b><%=((ContractingResponseGroup)prefGroup).getName()%></b></td>
-                        <td valign=top>&#160;</td>
+                        <td align="right" class="bodyText"><b><%=((ContractingResponseGroup)prefGroup).getName()%></b></td>
+                        <td valign="top" class="bodyText">&#160;</td>
                      </tr>
                     <tc-webtag:listIterator id="pref" list="<%=((ContractingResponseGroup)prefGroup).getResponses()%>">
                         <tr>
-                            <td align=right><%=((ContractingResponse)pref).getName()%>:</td>
-                            <td valign=top><%=((ContractingResponse)pref).getVal()%></td>
+                            <td align="right" class="bodyText"><%=((ContractingResponse)pref).getName()%>:</td>
+                            <td valign="top" class="bodyText"><%=((ContractingResponse)pref).getVal()%></td>
                         </tr>
                     </tc-webtag:listIterator>
                     <tr><td>&#160;</td></tr>
                 </tc-webtag:listIterator>
                 <tr>
-                    <td align=right><b>Technology Skills</b></td>
+                    <td align="right" class="bodyText"><b>Technology Skills</b></td>
                     <td></td>
                 </tr>
                 <tc-webtag:listIterator id="tech" list="<%=techList%>">
                     <tr>
-                        <td align=right><%=((ContractingResponse)tech).getName()%>:</td>
-                        <td valign=top><%=((ContractingResponse)tech).getVal()%></td>
+                        <td align="right" class="bodyText"><%=((ContractingResponse)tech).getName()%>:</td>
+                        <td valign="top" class="bodyText"><%=((ContractingResponse)tech).getVal()%></td>
                     </tr>
                 </tc-webtag:listIterator>
-                <tr><td align=right>Comment:</td><td></td></tr>
-                <tr><td align=center colspan=2><table cellpadding=3 cellspacing=5><tr><td bgcolor="#eeeeee"><%=StringUtils.htmlEncode((String)request.getAttribute("techNote"))%></td></tr></table></td></tr>
+                <tr><td align="right" class="bodyText">Comment:</td><td></td></tr>
+                <tr><td align="center" colspan="2" class="bodyText"><table cellpadding=3 cellspacing=5><tr><td bgcolor="#eeeeee"><%=StringUtils.htmlEncode((String)request.getAttribute("techNote"))%></td></tr></table></td></tr>
 
                 <tr><td>&#160;</td></tr>
 
                 <tr>
-                    <td align=right><b>Databases</b></td>
-                    <td valign=top></td>
+                    <td align="right" class="bodyText"><b>Databases</b></td>
+                    <td valign="top" class="bodyText"></td>
                 </tr>
                 <tc-webtag:listIterator id="db" list="<%=dbList%>">
                     <tr>
-                        <td align=right><%=((ContractingResponse)db).getName()%>:</td>
-                        <td valign=top><%=((ContractingResponse)db).getVal()%></td>
+                        <td align="right" class="bodyText"><%=((ContractingResponse)db).getName()%>:</td>
+                        <td valign="top" class="bodyText"><%=((ContractingResponse)db).getVal()%></td>
                     </tr>
                 </tc-webtag:listIterator>
-                <tr><td align=right>Comment:</td><td></td></tr>
-                <tr><td align=center colspan=2><table cellpadding=3 cellspacing=5><tr><td bgcolor="#eeeeee"><%=StringUtils.htmlEncode((String)request.getAttribute("dbNote"))%></td></tr></table></td></tr>
+                <tr><td align="right" class="bodyText">Comment:</td><td></td></tr>
+                <tr><td align="center" colspan="2" class="bodyText"><table cellpadding=3 cellspacing=5><tr><td bgcolor="#eeeeee"><%=StringUtils.htmlEncode((String)request.getAttribute("dbNote"))%></td></tr></table></td></tr>
             </table>
         </td>
-<td valign=top width="50%">
-<table width="100%" cellpadding="0" cellspacing="5" align="center" >
+        
+<td valign="top" width="5%">&#160;</td>
+
+<td valign="top" width="30%">
+<table border="0" width="100%" cellpadding="0" cellspacing="5" align="left">
     <tr>
-        <td align=right width="65%"><b>Language Skills</b></td>
-        <td valign=top width="35%"></td>
+        <td align="right" class="bodyText"><b>Language Skills</b></td>
+        <td valign="top" class="bodyText"></td>
     </tr>
     <tc-webtag:listIterator id="lang" list="<%=langList%>">
       <tr>
-        <td align=right><%=((ContractingResponse)lang).getName()%>:</td>
-        <td valign=top><%=((ContractingResponse)lang).getVal()%></td>
+        <td align="right" class="bodyText"><%=((ContractingResponse)lang).getName()%>:</td>
+        <td valign="top" class="bodyText"><%=((ContractingResponse)lang).getVal()%></td>
     </tr>
     </tc-webtag:listIterator>
-    <tr><td align=right>Comment:</td><td></td></tr>
-    <tr><td align=center colspan=2><table cellpadding=3 cellspacing=5><tr><td bgcolor="#eeeeee"><%=StringUtils.htmlEncode((String)request.getAttribute("langNote"))%></td></tr></table></td></tr>
+    <tr><td align="right" class="bodyText">Comment:</td><td></td></tr>
+    <tr><td align="center" colspan="2" class="bodyText"><table cellpadding=3 cellspacing=5><tr><td bgcolor="#eeeeee"><%=StringUtils.htmlEncode((String)request.getAttribute("langNote"))%></td></tr></table></td></tr>
 
     <tr><td>&#160;</td></tr>
 
     <tr>
-        <td align=right><b>Operating Systems</b></td>
-        <td valign=top></td>
+        <td align="right" class="bodyText"><b>Operating Systems</b></td>
+        <td valign="top" class="bodyText"></td>
     </tr>
     <tc-webtag:listIterator id="os" list="<%=osList%>">
       <tr>
-        <td align=right><%=((ContractingResponse)os).getName()%>:</td>
-        <td valign=top><%=((ContractingResponse)os).getVal()%></td>
+        <td align="right" class="bodyText"><%=((ContractingResponse)os).getName()%>:</td>
+        <td valign="top" class="bodyText"><%=((ContractingResponse)os).getVal()%></td>
     </tr>
     </tc-webtag:listIterator>
-    <tr><td align=right>Comment:</td><td></td></tr>
-    <tr><td align=center colspan=2><table cellpadding=3 cellspacing=5><tr><td bgcolor="#eeeeee"><%=StringUtils.htmlEncode((String)request.getAttribute("osNote"))%></td></tr></table></td></tr>
+    <tr><td align="right" class="bodyText">Comment:</td><td></td></tr>
+    <tr><td align="center" colspan="2" class="bodyText"><table cellpadding=3 cellspacing=5><tr><td bgcolor="#eeeeee"><%=StringUtils.htmlEncode((String)request.getAttribute("osNote"))%></td></tr></table></td></tr>
     <tr><td>&#160;</td></tr>
 
     <tr>
-        <td align=right><b>Industries</b></td>
-        <td valign=top></td>
+        <td align="right" class="bodyText"><b>Industries</b></td>
+        <td valign="top" class="bodyText"></td>
     </tr>
     <tc-webtag:listIterator id="industry" list="<%=industryList%>">
       <tr>
-        <td align=right><%=((ContractingResponse)industry).getName()%>:</td>
-        <td valign=top><%=((ContractingResponse)industry).getVal()%></td>
+        <td align="right" class="bodyText"><%=((ContractingResponse)industry).getName()%>:</td>
+        <td valign="top" class="bodyText"><%=((ContractingResponse)industry).getVal()%></td>
     </tr>
     </tc-webtag:listIterator>
-    <tr><td align=right>Comment:</td><td></td></tr>
-    <tr><td align=center colspan=2><table cellpadding=3 cellspacing=5><tr><td bgcolor="#eeeeee"><%=StringUtils.htmlEncode((String)request.getAttribute("industryNote"))%></td></tr></table></td></tr>
+    <tr><td align="right" class="bodyText">Comment:</td><td></td></tr>
+    <tr><td align="center" colspan="2" class="bodyText"><table cellpadding="3" cellspacing="5"><tr><td bgcolor="#eeeeee"><%=StringUtils.htmlEncode((String)request.getAttribute("industryNote"))%></td></tr></table></td></tr>
 </table>
+</td>
 
+<td valign="top" width="35%">&#160;</td>
 
+</tr>
+</table>
+</td>
+</tr>
+</table>
 
         <!-- Footer begins -->
         <jsp:include page="../foot.jsp"/>
