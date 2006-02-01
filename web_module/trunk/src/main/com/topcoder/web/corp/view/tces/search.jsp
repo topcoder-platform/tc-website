@@ -273,7 +273,6 @@
             </tr>
         <%even=!even;%>
         </rsc:iterator>
-        <tr><td></td></tr>
     </table>
 </td>
 <tr><td align="center" colspan="5" class="bodyText">
