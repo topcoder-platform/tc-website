@@ -100,11 +100,11 @@ function rate(messageID, voteValue) {
 function callback() {
     if (req.readyState == 4) {
         if (req.status == 200) {
-            var posRatings = req.responseXML.getElementsByTagName("posRatings")[0];
-            var negRatings = req.responseXML.getElementsByTagName("negRatings")[0];
-            displayXML('testXML'+req.responseXML.value);
+            response = req.responseXML.documentElement;
+            var posRatings = response.getElementsByTagName('posRatings')[0].firstChild.data;
+            var negRatings = response.getElementsByTagName('negRatings')[0].firstChild.data;
             //displayVotes(5,5);
-            //displayVotes(posRatings.firstChild.nodeValue, negRatings.firstChild.nodeValue);
+            displayVotes(posRatings.firstChild.nodeValue, negRatings.firstChild.nodeValue);
         }
     }
 }
