@@ -64,7 +64,7 @@ public class SrmDivisionWins extends Base {
 
             getRequest().setAttribute("resultMap", result);
 
-            setNextPage("/compstats/srm_division_wins.jsp");
+            setNextPage("/statistics/srm_division_wins.jsp");
             setIsNextPageInContext(true);
 
         } catch (TCWebException we) {
