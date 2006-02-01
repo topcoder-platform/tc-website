@@ -108,14 +108,14 @@
                             %>
                             <td><rsc:item name="name" row="<%=resultRow%>"/></td>
                             <% if (winner1 == -1) { %>
-                                <td>(none)</td><td></td>
+                                <td>N/A</td><td></td>
                             <% } else { %>
                                 <td><tc-webtag:handle coderId='<%= winner1 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
                                 <td><rsc:item name="wins1" row="<%=resultRow%>"/></td>
                             <% } %>
 
                             <% if (winner2 == -1) { %>
-                                <td>(none)</td><td></td>
+                                <td>N/A</td><td></td>
                             <% } else { %>
                                 <td><tc-webtag:handle coderId='<%= winner2 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
                                 <td><rsc:item name="wins2" row="<%=resultRow%>"/></td>
