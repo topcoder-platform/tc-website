@@ -114,6 +114,7 @@ public class PostAnnouncement extends ForumsProcessor {
 			return;
 		}
 
+        boolean isNewAnnouncement = false;
         if (announcement == null) {
             if (forum != null) {
                 announcement = announcementManager.createAnnouncement(user, forum);
@@ -122,10 +123,13 @@ public class PostAnnouncement extends ForumsProcessor {
             } else {
                 announcement = announcementManager.createAnnouncement(user);
             }
+            isNewAnnouncement = true;
 		}
 		announcement.setSubject(subject);
 		announcement.setBody(body);
-		announcementManager.addAnnouncement(announcement);
+        if (isNewAnnouncement) {
+            announcementManager.addAnnouncement(announcement);
+        }
         
 		setNextPage("?module=Announcement&" + ForumConstants.ANNOUNCEMENT_ID + "=" + announcement.getID());
 		setIsNextPageInContext(false);
