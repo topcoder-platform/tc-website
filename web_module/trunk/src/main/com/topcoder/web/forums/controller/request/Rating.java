@@ -23,7 +23,7 @@ public class Rating extends ForumsProcessor {
         if (!ratingManager.isRatingsEnabled()) return;
         
         long messageID = Long.parseLong(getRequest().getParameter(ForumConstants.MESSAGE_ID));
-        int voteValue = Integer.parseInt(getRequest().getParameter("vote"));
+        int voteValue = Integer.parseInt(getRequest().getParameter("voteValue"));
         ForumMessage message = forumFactory.getMessage(messageID);
         
         ratingManager.addRating(user, message, ratingManager.getRatingFromScore(voteValue));
