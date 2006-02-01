@@ -112,11 +112,8 @@
                                            class="statLink">Register</a>
                                     </logic:equal>
                                     <logic:notEqual name="contest" property="coderRegistered" value="false">
-<!--
                                         <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>"
                                            class="statLink">Submit</a>
--->
-                                    Submit*
                                     </logic:notEqual>
                                 </logic:equal>
                             </td>
@@ -160,9 +157,6 @@
         </tr>
     </TABLE>
    <br>
-    <% if (roundType ==Constants.INTEL_LONG_ROUND_TYPE_ID) {%>
-   * We've encountered a problem with the execution of some of the tests on the hardware that is dedicated for this competition.  Due to this problem, we will not be enabling submissions until Wednesday, Feb. 1 at 12:00 Noon EST.  We sincerely apologize for this delay and hope that any inconvenience that this may cause is minimal.
-    <% } %>
    <br><br>
 </td>
 
