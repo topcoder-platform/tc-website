@@ -85,7 +85,7 @@ function toggle(obj) {
 
 var req;
 function rate(messageID, voteValue) {
-   var url = "?module=Rating&messageID="+messageID+"&vote="+voteValue;
+   var url = "?module=Rating";
    if (window.XMLHttpRequest) {
        req = new XMLHttpRequest();
    } else if (window.ActiveXObject) {
@@ -100,11 +100,14 @@ function rate(messageID, voteValue) {
 function callback() {
     if (req.readyState == 4) {
         if (req.status == 200) {
-            var response = req.responseXML.documentElement;
+            //var response = req.responseXML.documentElement;
+            var message = req.responseXML.getElementsByTagName("message")[0];           
+            //displayXML(response);
+            displayXML(message);
             var posRatings = response.getElementsByTagName('posRatings')[0].firstChild.data;
             var negRatings = response.getElementsByTagName('negRatings')[0].firstChild.data;
             //displayVotes(5,5);
-            displayVotes(posRatings.firstChild.nodeValue, negRatings.firstChild.nodeValue);
+            //displayVotes(posRatings, negRatings);
         }
     }
 }
