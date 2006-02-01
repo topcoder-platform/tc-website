@@ -173,20 +173,25 @@ margin:0px auto;
       <table border="0" cellpadding="0" cellspacing="0">
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">January Events:</A></td>
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">February Events:</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-            <b>1/02</b> - TCO06 Component - Registration opens - 9AM<br><br>
-            <b>1/05</b> - SRM 281 - 11AM<br><br>
-            <b>1/10</b> - SRM 282 - 9PM - NSA<br><br>
-            <b>1/19</b> - SRM 283 - 7AM<br><br>
-            <b>1/21</b> - SRM 284 - 12 noon<br><br>
-            <b>1/24</b> - SRM 285 - 11AM<br><br>
-            <b>1/25</b> - Intel Multi-Threading Competition 1 Start - 12 noon<br><br>
-            <b>1/26</b> - TCO06 Component - Week1 submission deadline- 9AM<br><br>
-            <b>1/30</b> - SRM 286 - 9PM - MSN<br><br>
+            <b>02/02</b> - TCO06 Component - Week2 submission deadline - 9AM<br><br>
+            <b>02/04</b> - SRM 287 - 12noon<br><br>
+            <b>02/08</b> - SRM 288 - 9PM - NSA<br><br>
+            <b>02/09</b> - TCO06 Component - Week3 submission deadline - 9AM<br><br>
+            <b>02/14</b> - TCO06 Algorithm - Registration opens - 9AM<br><br>
+            <b>02/14</b> - SRM 289 - 7AM<br><br>
+            <b>02/16</b> - SRM 290 - 9PM - UBS<br><br>
+            <b>02/16</b> - TCO06 Component - Week4 submission deadline - 9AM<br><br>
+            <b>02/19</b> - TCO06 Component - Registration closes - 9AM<br><br>
+            <b>02/21</b> - SRM 291 - 11AM - MSN<br><br>
+            <b>02/22</b> - Intel Multi-Threading Competition 2 Start - 12 noon<br><br>
+            <b>02/23</b> - TCO06 Component - Week5 submission deadline - 9AM<br><br>
+            <b>02/28</b> - TCO06 Algorithm - Registration closes - 9AM<br><br>
+            <b>02/28</b> - TCO06 Algorithm - Qualification begins - 12noon<br><br>
             </td>
          </tr>
 <%-- Press Room --%>
