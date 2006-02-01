@@ -118,7 +118,7 @@
                                 <td>(none)</td><td></td>
                             <% } else { %>
                                 <td><tc-webtag:handle coderId='<%= winner2 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
-                                <td><rsc:item name="wins1" row="<%=resultRow%>"/></td>
+                                <td><rsc:item name="wins2" row="<%=resultRow%>"/></td>
                             <% } %>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
                         </TR>
                     </rsc:iterator>
