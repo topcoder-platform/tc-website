@@ -69,7 +69,7 @@
         <%  if (forum != null) { %>
             <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A> >> 
         <%  } %>
-        Announcement: <%=announcement.getSubject()%>
+        <img src="/i/interface/announcement.gif" alt="" border="0" /> Announcement: <%=announcement.getSubject()%>
         </span><br><br>
    </td>
    <%   if (ForumsUtil.isAdmin(user)) { %>

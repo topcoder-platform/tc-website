@@ -177,7 +177,7 @@
 <tc-webtag:iterator id="announcement" type="com.jivesoftware.forum.Announcement" iterator='<%=(Iterator)request.getAttribute("announcements")%>'>
     <tr>
     <td class="rtThreadCellWrap">
-        <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtLinkBold">Announcement: <%=announcement.getSubject()%></A>
+        <div><A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtLinkBold"><img src="/i/interface/announcement.gif" alt="" border="0" /> Announcement: <%=announcement.getSubject()%></A></div>
     </td>
     <td class="rtThreadCell"><tc-webtag:handle coderId="<%=announcement.getUser().getID()%>"/></td>
     <td class="rtThreadCell"></td>
