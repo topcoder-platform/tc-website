@@ -101,8 +101,20 @@
 .multiChoice
 {
    width: 130px;
-   white-space: nowrap; 
-   overflow: scroll; 
+   color: #000;
+   font-size: 11px;
+   font-weight: normal;
+}
+.multiChoice2
+{
+   width: 180px;
+   color: #000;
+   font-size: 11px;
+   font-weight: normal;
+}
+.multiChoice3
+{
+   width: 250px;
    color: #000;
    font-size: 11px;
    font-weight: normal;
@@ -222,7 +234,7 @@
                 <a href="JavaScript:deselect('demo_<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>')">Deselect</a>
                 <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
                 <% long questionId = resultRow.getIntItem("demographic_question_id");%>
-                <tc-webtag:listSelect styleClass="multiSel2" name='<%="demo_"+questionId%>' size="<%=String.valueOf(Math.min(4,((List)demoMap.get(new Long(questionId))).size()))%>" useTopValue="false" multiple="true" list="<%=(List)demoMap.get(new Long(questionId))%>"/>
+                <tc-webtag:listSelect styleClass="multiChoice2" name='<%="demo_"+questionId%>' size="<%=String.valueOf(Math.min(4,((List)demoMap.get(new Long(questionId))).size()))%>" useTopValue="false" multiple="true" list="<%=(List)demoMap.get(new Long(questionId))%>"/>
             </td></tr>
         <%even=!even;%>
         </rsc:iterator>
@@ -238,17 +250,17 @@
             <tr><td class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
                 <rsc:item name="skill_type_desc" row="<%=resultRow%>"/>:<br/>
                 <% int skillType = resultRow.getIntItem("skill_type_id");%>
-                <tc-webtag:listSelect styleClass="multiSel3" name='<%="skilltype"+skillType%>' useTopValue="false" multiple="true" size="12" list="<%=(List)skillMap.get(new Integer(skillType))%>"/>
+                <tc-webtag:listSelect styleClass="multiChoice3" name='<%="skilltype"+skillType%>' useTopValue="false" multiple="true" size="7" list="<%=(List)skillMap.get(new Integer(skillType))%>"/>
                 </td>
                 <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>" nowrap="nowrap">
-                <select size="12" name="skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
+                <select size="5" name="skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
                     <option>5</option>
                 </select>
-                <tc-webtag:listSelect styleClass="multiSel3" name='<%="skillset"+skillType%>' multiple="true" useTopValue="false" multiple="true" size="12" list='<%=(List)skillSetMap.get("skillset"+skillType)%>'/>
+                <tc-webtag:listSelect styleClass="multiSel3" name='<%="skillset"+skillType%>' multiple="true" useTopValue="false" multiple="true" size="5" list='<%=(List)skillSetMap.get("skillset"+skillType)%>'/>
                 </td>
                 <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
                     <a href="JavaScript:itemAdd('skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skilllevel< rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Add skill</ a>
