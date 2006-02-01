@@ -93,6 +93,7 @@
                 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                     <tr>
                         <TD><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true" excludeParams="sr" />" class="statLink">Contest</a></td>
+                        <TD>Contest name</td>
                         <TD>Division I winner</td>
                         <TD>Wins</td>
                         <TD>Division II winner</td>
@@ -106,6 +107,7 @@
                             long winner1 = (n1 == null ? -1 : n1.longValue()),
                                     winner2 = (n2 == null ? -1 : n2.longValue());
                             %>
+                            <td><rsc:item name="name" row="<%=resultRow%>"/></td>
                             <% if (winner1 == -1) { %>
                                 <td>(none)</td><td></td>
                             <% } else { %>
