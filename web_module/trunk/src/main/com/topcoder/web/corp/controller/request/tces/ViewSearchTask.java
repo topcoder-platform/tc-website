@@ -27,6 +27,7 @@ public class ViewSearchTask extends BaseTask {
                 Request r = new Request();
                 r.setContentHandle("TCES_Campaign_Info");
                 r.setProperty(TCESConstants.CAMPAIGN_ID_PARAM, campaignId);
+                getRequest().setAttribute(TCESConstants.CAMPAIGN_ID_PARAM, campaignId);
                 getRequest().setAttribute("campaignName",
                         ((ResultSetContainer) getDataAccess(getOltp()).getData(r).get("TCES_Campaign_Info")).getStringItem(0, "campaign_name"));
                 ArrayList a = new ArrayList();
