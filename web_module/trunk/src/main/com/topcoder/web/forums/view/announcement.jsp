@@ -75,14 +75,14 @@
    <%   if (ForumsUtil.isAdmin(user)) { %>
    <td align="right" nowrap="nowrap" valign="top">
         <%  Date now = Calendar.getInstance(TimeZone.getTimeZone("EST")).getTime();
-            if (announcement.getEndDate().after(now)) { %> 
+            if (announcement.getEndDate() == null || announcement.getEndDate().after(now)) { %> 
             <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Expire" class="rtbcLink">Expire</A>&#160; |
         <%  } else { %>
             <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Activate" class="rtbcLink">Activate</A>&#160; |
         <%  } %> 
         &#160;<A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Delete" class="rtbcLink">Delete</A><br/>   
    </td>
-   <%   } %>
+   <%   } %> 
 </tr>
 </table>
 
