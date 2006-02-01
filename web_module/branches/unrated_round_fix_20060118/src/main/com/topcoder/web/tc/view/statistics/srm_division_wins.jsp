@@ -102,8 +102,8 @@
                     <rsc:iterator list="<%=list%>" id="resultRow">
                         <TR>
                             <%
-                            Number n1 = (Number)resultRow.getItem(1).getResultData();
-                            Number n2 = (Number)resultRow.getItem(3).getResultData();
+                            Number n1 = (Number)resultRow.getItem("winner1").getResultData();
+                            Number n2 = (Number)resultRow.getItem("winner2").getResultData();
                             long winner1 = (n1 == null ? -1 : n1.longValue()),
                                     winner2 = (n2 == null ? -1 : n2.longValue());
                             %>
