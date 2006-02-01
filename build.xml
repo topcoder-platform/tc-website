@@ -685,7 +685,7 @@
          JBoss EJBs
          ========== -->
 
-    <target name="package-EJB-MessageHistoryBean" depends="compile">
+    <target name="package-EJB-MessageHistoryBean" depends="compile_forums">
         <jar jarfile="${ejb_jars}/messagehistory.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
@@ -694,7 +694,7 @@
         </jar>
     </target>
 
-    <target name="package-EJB-ForumsBean" depends="compile">
+    <target name="package-EJB-ForumsBean" depends="compile_forums">
              <jar jarfile="${ejb_jars}/forums.jar">
                  <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
                  <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
@@ -1508,7 +1508,7 @@
         <antcall target="package-EJB-ForumsBean"/>
     </target>
 
-    <target name="war-forums" depends="compile">
+    <target name="war-forums" depends="compile_forums">
                 <war warfile="${war.dir}/forums.war" webxml="${resources}/forums/web.xml">
                     <fileset dir="${java}/com/topcoder/web/forums/view">
                         <include name="*.*"/>
