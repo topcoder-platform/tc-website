@@ -100,25 +100,31 @@
 <style type="text/css">
 .multiChoice
 {
-   width: 130px;
    color: #000;
    font-size: 11px;
    font-weight: normal;
 }
 .multiChoice2
 {
-   width: 180px;
    color: #000;
    font-size: 11px;
    font-weight: normal;
 }
 .multiChoice3
 {
-   width: 250px;
+   width: 350px;
    color: #000;
    font-size: 11px;
    font-weight: normal;
 }
+.select1, .select2, .select3
+{
+color: #000;
+font-size: 10px;
+font-weight: normal;
+}
+.select1{ width: 300px; }
+.select3{ width: 320px; }
 </style>
 </head>
 
@@ -154,79 +160,76 @@
     <a href="JavaScript:submitForm()"><strong>Submit</strong></a>
 </td></tr>
 <tr class="bodyText">
-<td valign="top" width="29%">
-   <table cellspacing="0" cellpadding="2" class="screeningFrame">
-        <tr class="screeningCellEven"><td class="bodyText">Case Sensitive:</td><td >
+<td valign="top" width="33%">
+   <table cellspacing="0" cellpadding="0" class="screeningFrame" width="100%">
+        <tr><td class="screeningCellEven" width="50%">Case Sensitive:</td><td class="screeningCellEven" width="50%">
             <tc-webtag:chkBox name="casesensitive"/></td></tr>
-        <tr class="screeningCellOdd"><td class="bodyText">Handle: </td><td >
+        <tr><td class="screeningCellOdd">Handle: </td><td class="screeningCellOdd">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="handle" size="15"/></td></tr>
-        <tr class="screeningCellEven"><td class="bodyText">E-Mail: </td><td >
+        <tr><td class="screeningCellEven">E-Mail: </td><td class="screeningCellEven">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="email" size="15"/></td></tr>
-        <tr class="screeningCellOdd"><td class="bodyText">First Name: </td><td >
+        <tr><td class="screeningCellOdd">First Name: </td><td class="screeningCellOdd">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="firstname" size="15"/></td></tr>
-        <tr class="screeningCellEven"><td class="bodyText">Last Name: </td><td >
+        <tr><td class="screeningCellEven">Last Name: </td><td class="screeningCellEven">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="lastname" size="15"/></td></tr>
-        <tr class="screeningCellOdd"><td class="bodyText">Zipcode: </td><td >
+        <tr><td class="screeningCellOdd">Zipcode: </td><td class="screeningCellOdd">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="zipcode" size="5"/></td></tr>
-        <tr class="screeningCellEven"><td class="bodyText">City: </td><td >
+        <tr><td class="screeningCellEven">City: </td><td class="screeningCellEven">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="city" size="15"/></td></tr>
-        <tr class="screeningCellOdd"><td class="bodyText">School: </td><td >
+        <tr><td class="screeningCellOdd">School: </td><td class="screeningCellOdd">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="school" size="15"/></td></tr>
-        <tr class="screeningCellEven"><td class="bodyText">State:<br/><a href="JavaScript:deselect('states')">Deselect</a></td>
-            <td class="bodyText" >
+        <tr><td class="screeningCellEven">State:<br/><a href="JavaScript:deselect('states')">Deselect</a></td>
+            <td class="screeningCellEven">
                 <tc-webtag:multiRSCSelect styleClass="multiChoice" fieldValue="state_code" fieldText="state_name" name="states" multiple="true" size="5" useTopValue="false" list="<%=states%>" selected='<%=(Set)selectedMap.get("states")%>'/>
             </td></tr>
-        <tr class="screeningCellOdd"><td class="bodyText">Country:<br/><a href="JavaScript:deselect('country')">Deselect</a></td>
-            <td>
+        <tr><td class="screeningCellOdd">Country:<br/><a href="JavaScript:deselect('country')">Deselect</a></td>
+            <td class="screeningCellOdd">
                 <tc-webtag:multiRSCSelect styleClass="multiChoice" fieldValue="country_code" fieldText="country_name" name="country" multiple="true" size="5" useTopValue="false" list="<%=country%>" selected='<%=(Set)selectedMap.get("country")%>'/>
             </td></tr>
-        <tr class="screeningCellEven"><td class="bodyText">Country of origin:<br/><a href="JavaScript:deselect('countryoforigin')">Deselect</a>
-        </td><td class="bodyText">
+        <tr><td class="screeningCellEven">Country of origin:<br/><a href="JavaScript:deselect('countryoforigin')">Deselect</a>
+        </td><td class="screeningCellEven">
             <tc-webtag:multiRSCSelect styleClass="multiChoice" fieldValue="country_code" fieldText="country_name" name="countryoforigin" multiple="true" size="5" useTopValue="false" list="<%=country%>" selected='<%=(Set)selectedMap.get("countryoforigin")%>'/>
         </td></tr>
-        <tr class="screeningCellOdd"><td class="bodyText">Professional: </td><td class="bodyText" ><tc-webtag:chkBox name="pro"/></td></tr>
-        <tr class="screeningCellEven"><td class="bodyText">Student: </td><td class="bodyText" ><tc-webtag:chkBox name="stud"/></td></tr>
-        <tr class="screeningCellOdd"><td class="bodyText">Languages: </td>
-            <td class="bodyText">
+        <tr><td class="screeningCellOdd">Professional: </td><td class="screeningCellOdd"><tc-webtag:chkBox name="pro"/></td></tr>
+        <tr><td class="screeningCellEven">Student: </td><td class="screeningCellEven"><tc-webtag:chkBox name="stud"/></td></tr>
+        <tr><td class="screeningCellOdd">Languages: </td>
+            <td class="screeningCellOdd">
             <rsc:iterator list="<%=languages%>" id="resultRow">
                 <rsc:item name="language_name" row="<%=resultRow%>"/>:
                 <tc-webtag:chkBox name='<%="lang_"+resultRow.getIntItem("language_id")%>'/>
                 <br/>
             </rsc:iterator>
         </td></tr>
-        <tr class="screeningCellEven"><td class="bodyText" style="padding: 2px 0px 3px 0px;">Max days since last rating:</td><td class="bodyText" >
+        <tr><td class="screeningCellEven">Max days since last rating:</td><td class="screeningCellEven">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxdayssincerating" size="5"/></td>
         </tr>
-        <tr class="screeningCellOdd"><td class="bodyText" style="padding: 3px 0px 3px 0px;">Min events:</td><td class="bodyText" >
+        <tr><td class="screeningCellOdd">Min events:</td><td class="screeningCellOdd">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="minevents" size="5"/></td></tr>
-        <tr class="screeningCellEven"><td class="bodyText" style="padding: 3px 0px 3px 0px;">Days since registration:</td>
-            <td class="bodyText" >
+        <tr><td class="screeningCellEven">Days since registration:</td>
+            <td class="screeningCellEven">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="mindays" size="5"/> to
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxdays" size="5"/></td></tr>
-        <tr class="screeningCellOdd"><td class="bodyText" style="padding: 3px 0px 3px 0px;">Algorithm Rating range:</td>
-            <td class="bodyText" >
+        <tr><td class="screeningCellOdd">Algorithm Rating range:</td>
+            <td class="screeningCellOdd">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="minrating" size="5"/> to
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxrating" size="5"/></td></tr>
-        <tr class="screeningCellEven"><td class="bodyText" style="padding: 3px 0px 3px 0px;">Design Rating range:</td>
-            <td class="bodyText" >
+        <tr><td class="screeningCellEven">Design Rating range:</td>
+            <td class="screeningCellEven">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="mindesrating" size="5"/> to
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxdesrating" size="5"/></td></tr>
-        <tr class="screeningCellOdd"><td class="bodyText" style="padding: 3px 0px 3px 0px;">Dev. Rating range:</td>
-            <td class="bodyText" >
+        <tr><td class="screeningCellOdd">Dev. Rating range:</td>
+            <td class="screeningCellOdd">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="mindevrating" size="5"/> to
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxdevrating" size="5"/></td></tr>
-        <tr class="screeningCellEven"><td class="bodyText" style="padding: 3px 0px 3px 0px;">Resume:</td><td ><tc-webtag:chkBox name="resume"/></td></tr>
-        <tr class="screeningCellOdd"><td class="bodyText" style="padding: 3px 0px 3px 0px;">Willing to travel/relocate:</td><td >
+        <tr><td class="screeningCellEven">Resume:</td><td class="screeningCellEven"><tc-webtag:chkBox name="resume"/></td></tr>
+        <tr><td class="screeningCellOdd">Willing to travel/relocate:</td><td class="screeningCellOdd">
             <tc-webtag:chkBox name="travel"/></td></tr>
-        <tr class="screeningCellEven"><td class="bodyText" style="padding: 3px 0px 3px 0px;">US Authorization:</td><td ><tc-webtag:chkBox name="auth"/></td>
+        <tr><td class="screeningCellEven">US Authorization:</td><td class="screeningCellEven"><tc-webtag:chkBox name="auth"/></td>
         </tr>
     </table>
 </td>
-
-<td valign="top" class="bodyText" width="1%">&#160;&#160;&#160;&#160;&#160;</td>
-
-<td valign="top" class="bodyText" width="29%">
-   <table cellspacing="0" cellpadding="2" class="screeningFrame">
+<td valign="top" class="bodyText" width="33%" style="padding: 0px 15px 0px 15px;">
+   <table cellspacing="0" cellpadding="0" class="screeningFrame" width="100%">
         <%boolean even = true;%>
         <rsc:iterator list="<%=demographic_questions%>" id="resultRow">
             <tr><td class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
@@ -239,36 +242,42 @@
         <%even=!even;%>
         </rsc:iterator>
     </table>
+    </div>
 </td>
-
-<td valign="top" class="bodyText" width="1%">&#160;&#160;&#160;&#160;&#160;</td>
-
-<td valign="top" width="40%">
-   <table cellspacing="0" cellpadding="2" class="screeningFrame">
+<td valign="top" width="33%">
+   <table cellspacing="0" cellpadding="0" class="screeningFrame" width="100%">
         <%even = true;%>
         <rsc:iterator list="<%=skill_types%>" id="resultRow">
-            <tr><td class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
-                <rsc:item name="skill_type_desc" row="<%=resultRow%>"/>:<br/>
+            <tr><td class="<%=even?"screeningCellEven":"screeningCellOdd"%>" colspan="2">
+               <strong><rsc:item name="skill_type_desc" row="<%=resultRow%>"/>:</strong>
+            </td></tr>
+            <tr valign="top">
+                <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
                 <% int skillType = resultRow.getIntItem("skill_type_id");%>
-                <tc-webtag:listSelect styleClass="multiChoice3" name='<%="skilltype"+skillType%>' useTopValue="false" multiple="true" size="7" list="<%=(List)skillMap.get(new Integer(skillType))%>"/>
+                <tc-webtag:listSelect styleClass="select1" name='<%="skilltype"+skillType%>' useTopValue="false" multiple="true" size="7" list="<%=(List)skillMap.get(new Integer(skillType))%>"/>
                 </td>
-                <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>" nowrap="nowrap">
-                <select size="5" name="skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
+                <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>" nowrap="nowrap" align="center">
+                <span class="smallText">Min<br>Level</span><br>
+                <select class="select2" size="5" name="skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
                     <option>5</option>
                 </select>
-                <tc-webtag:listSelect styleClass="multiSel3" name='<%="skillset"+skillType%>' multiple="true" useTopValue="false" multiple="true" size="5" list='<%=(List)skillSetMap.get("skillset"+skillType)%>'/>
                 </td>
-                <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
-                    <a href="JavaScript:itemAdd('skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skilllevel< rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Add skill</ a>
-                        <br/>
-                        <a href="JavaScript:remove('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Remove
-                            skills</a>
-                        <br/>
-                        <a href="JavaScript:clear('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Clear</a>
+            </tr>
+            <tr>
+                <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>" colspan="2" align="center">
+                  <span class="smallText">Your criteria:</span><br>
+                <tc-webtag:listSelect styleClass="select3" name='<%="skillset"+skillType%>' multiple="true" useTopValue="false" multiple="true" size="3" list='<%=(List)skillSetMap.get("skillset"+skillType)%>'/>
+                </td>
+            </tr>
+            <tr>
+                <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>" colspan="2" align="center" valign="top">
+                    <a href="JavaScript:itemAdd('skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skilllevel< rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Add skill</a>&#160;|&#160;
+                    <a href="JavaScript:remove('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Remove selected skill(s)</a>&#160;|&#160;
+                    <a href="JavaScript:clear('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Clear all</a>
                 </td>
             </tr>
         <%even=!even;%>
