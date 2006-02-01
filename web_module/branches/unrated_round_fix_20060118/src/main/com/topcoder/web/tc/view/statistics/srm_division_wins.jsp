@@ -92,7 +92,7 @@
 
                 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                     <tr>
-                        <TD><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true" excludeParams="sr" />" class="statLink">Contest</a></td>
+                        <TD><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />" class="statLink">Contest</a></td>
                         <TD>Contest name</td>
                         <TD>Division I winner</td>
                         <TD>Wins</td>
