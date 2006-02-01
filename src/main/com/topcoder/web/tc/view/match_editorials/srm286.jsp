@@ -48,10 +48,10 @@
 Single Round Match 286 presented a problem set headed by hard 1000-pointers, which decided most part of match standings and were solved by few coders in each division.
 </p>
 <p>
-Division 1 was a land of challenges and failed solutions. Only six coders passed their solutions for the hard problem, out of 85 submissions. <b>Petr</b>, with the fastest correct submission for that problem, won by over 300 points over the second position, with three successful challenges for his record. <b>kalinov</b> followed, and 130 points later came marian, <b>Eryx</b> and <b>tomek</b> in a close group.
+Division 1 was a land of challenges and failed solutions. Only six coders passed their solutions for the hard problem, out of 85 submissions. <b>Petr</b>, with the fastest correct submission for that problem, won by over 300 points over the second position, with three successful challenges for his record. <b>kalinov</b> followed, and 130 points later came <b>marian</b>, <b>Eryx</b> and <b>tomek</b> in a close group.
 </p>
 <p>
-In Division 2 only three coders scored above over 1000 points. <b>Newcomers</b> lapsedbird and <b>NauCoder</b> lead, very close each other, with 130 points over the next group: <b>butler</b>, <b>mitnickcbc</b> and <b>Knith</b>.
+In Division 2 only three coders scored above over 1000 points. Newcomers <b>lapsedbird</b> and <b>NauCoder</b> lead, very close each other, with 130 points over the next group: <b>butler</b>, <b>mitnickcbc</b> and <b>Knith</b>.
 </p>
 
 <H1>
@@ -252,7 +252,7 @@ We need to know what patterns have already been paid at the end of the game; and
       if (missing == 1)
         maxpayout += prizes[i];
     }
-    return (double)payout / (75.0-balls.length);
+    return (double)maxpayout / (75.0-balls.length);
   }
 </pre>
 </p>
