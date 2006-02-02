@@ -33,7 +33,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <SCRIPT type="text/javascript">
         function submit(module) {
-            document.adminForm.<%=Constants.MODULE%>=module;
+            document.adminForm.<%=Constants.MODULE%>.value=module;
             document.adminForm.submit();
         }
     </SCRIPT>
