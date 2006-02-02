@@ -64,6 +64,11 @@ public class Submit extends Base {
             String code = getParameter(request, Constants.CODE);
             String message = getParameter(request, Constants.MESSAGE);
 
+            if (!acceptingSubmissions(cid)) {
+                throw new NavigationException("Sorry, we are currently not accepting submissions.");
+            }
+
+
             // Clear session of temp variables
             cleanSession();
 
@@ -390,6 +395,13 @@ public class Submit extends Base {
         ret.add(VBLanguage.VB_LANGUAGE);
         ret.add(CSharpLanguage.CSHARP_LANGUAGE);
         return ret;
+    }
+
+    private boolean acceptingSubmissions(long componentId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("long_contest_accept_submissions");
+        r.setProperty(Constants.COMPONENT_ID, String.valueOf(componentId));
+        return !((ResultSetContainer)getDataAccess().getData(r).get("long_contest_accept_submissions")).isEmpty();
     }
 
 }
