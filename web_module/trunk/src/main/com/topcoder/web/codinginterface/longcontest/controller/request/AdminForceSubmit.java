@@ -36,7 +36,7 @@ public class AdminForceSubmit extends Base {
                 name = (String)enum.nextElement();
                 log.debug(name);
                 if (name.startsWith(Constants.SUBMISSION_PREFIX) && "on".equals(getRequest().getParameter(name))) {
-                    String[] ids = name.substring(Constants.SUBMISSION_PREFIX.length()-1).split(",");
+                    String[] ids = name.substring(Constants.SUBMISSION_PREFIX.length()).split(",");
                     long coderId = Long.parseLong(ids[0]);
                     long componentId = Long.parseLong(ids[1]);
                     long roundId = Long.parseLong(ids[2]);
