@@ -15,7 +15,7 @@ public class ViewAdminForceSubmit extends Base {
 
     protected void longContestProcessing() throws Exception {
         //get a list of the submissions and put them in the request for display
-        if (getSessionInfo().isAdmin()) {
+        if (!getSessionInfo().isAdmin()) {
             throw new NavigationException("Shame on you, you're no admin.");
         } else {
             Request r = new Request();
