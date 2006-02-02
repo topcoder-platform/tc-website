@@ -36,7 +36,7 @@
             document.adminForm.<%=Constants.MODULE%>=module;
             document.adminForm.submit();
         }
-        function checkAll(check) {
+        function checkall(check) {
             var elements = document.thislist.elements;
             for (i=0; i<document.thislist.elements.length; i++) {
               if (document.thislist.elements[i].type=="checkbox") {
