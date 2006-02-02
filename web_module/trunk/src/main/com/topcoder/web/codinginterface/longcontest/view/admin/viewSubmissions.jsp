@@ -37,10 +37,9 @@
             document.adminForm.submit();
         }
         function checkall(check) {
-            var elements = document.thislist.elements;
-            for (i=0; i<document.thislist.elements.length; i++) {
-              if (document.thislist.elements[i].type=="checkbox") {
-                document.thislist.elements[i].checked = (check==true);
+            for (i=0; i<document.adminForm.elements.length; i++) {
+              if (document.adminForm.elements[i].type=="checkbox") {
+                document.adminForm.elements[i].checked = (check==true);
               }
             }
         }
