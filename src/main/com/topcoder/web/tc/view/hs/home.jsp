@@ -30,12 +30,30 @@
         <!-- Left Column Ends -->
 
         <!-- Center Column Begins -->
-        <td class="cardCell" width="100%" align="center" style="padding: 10px,0px,0px,0px;">
+        <td class="cardCell" width="100%" align="center" style="padding: 0px 0px 0px 0px;">
             <div class="myTCBody">
 
+              <!--  <div align=center>
+                    <img src="/i/hs/hs_banner_stepup.jpg" alt="Step up to the challenge" border=0 clear="all">
+                </div> -->
                 <div align=center>
-                    <img src="/i/hs/hs_banner.gif" alt="High School" border=0 clear="all">
+                    <img src="/i/hs/hs_banner_easy.jpg" alt="And you thought school was easy" border=0 clear="all">
                 </div>
+             <!--   <div align=center>
+                    <img src="/i/hs/hs_banner_fun.jpg" alt="High school just got alot more fun" border=0 clear="all">
+                </div> -->
+             <!--   <div align=center>
+                    <img src="/i/hs/hs_banner_kidstuff.jpg" alt="This ain't no kid stuff" border=0 clear="all">
+                </div> -->
+             <!--   <div align=center>
+                    <img src="/i/hs/hs_banner_trophy.jpg" alt="Everything else is kid stuff" border=0 clear="all">
+                </div> -->
+             <!--   <div align=center>
+                    <img src="/i/hs/hs_banner_letters.jpg" alt="Letters worth going for" border=0 clear="all">
+                </div> -->
+             <!--   <div align=center>
+                    <img src="/i/hs/hs_banner_grad.jpg" alt="Graduation is not your only goal" border=0 clear="all">
+                </div> -->
                 <p>
                 <h2>TopCoder High School</h2>
 
@@ -56,7 +74,7 @@ TopCoder does NOT intend to make a profit on its high-school offerings. Any proc
 As we firm up the structure of the tournament, we will post changes to the TopCoder web site and will contact those interested by email. So, start practicing and, as always, good luck in the arena!
 <br/><br/>
 
-<div style="float: left;"><tc-webtag:forumLink forumID="505904" message="Discuss TopCoder High School" /></div>
+<a href="http://forums.topcoder.com/?module=Thread&threadID=509013&mc=1#525461">Discuss TopCoder High School</a>
 <br/><br/>
                 </p>
 
