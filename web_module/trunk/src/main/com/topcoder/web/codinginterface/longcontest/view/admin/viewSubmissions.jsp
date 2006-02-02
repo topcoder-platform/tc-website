@@ -83,11 +83,11 @@
                         <tr><td class="statLt" colspan="6"><a href="javascript:checkall(true);">check all</a> | <a href="javascript:checkall(false);">uncheck all</a></td></tr>
                         <tr>
                             <td class="tableHeader" width="25%"></td>
-                            <td class="tableHeader" width="25%"><A href="<tc-webtag:sort column="<%=submissions.getColumnIndex("handle_lower")%>"/>">Handle</A></td>
-                            <td class="tableHeader" width="25%"><A href="<tc-webtag:sort column="<%=submissions.getColumnIndex("language_name")%>"/>">Language</A></td>
-                            <td class="tableHeader" width="25%"><A href="<tc-webtag:sort column="<%=submissions.getColumnIndex("submission_number")%>"/>">Submission Number</A></td>
-                            <td class="tableHeader" width="25%"><A href="<tc-webtag:sort column="<%=submissions.getColumnIndex("submission_points")%>"/>">Points</A></td>
-                            <td class="tableHeader" width="25%"><A href="<tc-webtag:sort column="<%=submissions.getColumnIndex("status_desc")%>"/>">Status</A></td>
+                            <td class="tableHeader" width="25%"><A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewAdminForceSubmit<tc-webtag:sort column="<%=submissions.getColumnIndex("handle_lower")%>"/>">Handle</A></td>
+                            <td class="tableHeader" width="25%"><A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewAdminForceSubmit<tc-webtag:sort column="<%=submissions.getColumnIndex("language_name")%>"/>">Language</A></td>
+                            <td class="tableHeader" width="25%"><A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewAdminForceSubmit<tc-webtag:sort column="<%=submissions.getColumnIndex("submission_number")%>"/>">Submission Number</A></td>
+                            <td class="tableHeader" width="25%"><A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewAdminForceSubmit<tc-webtag:sort column="<%=submissions.getColumnIndex("submission_points")%>"/>">Points</A></td>
+                            <td class="tableHeader" width="25%"><A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewAdminForceSubmit<tc-webtag:sort column="<%=submissions.getColumnIndex("status_desc")%>"/>">Status</A></td>
                         </tr>
                     <%boolean even = true;%>
 
