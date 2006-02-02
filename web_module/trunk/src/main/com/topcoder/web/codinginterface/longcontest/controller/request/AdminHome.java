@@ -11,7 +11,7 @@ import com.topcoder.shared.dataAccess.Request;
 public class AdminHome extends Base {
 
     protected void longContestProcessing() throws Exception {
-        if (getSessionInfo().isAdmin()) {
+        if (!getSessionInfo().isAdmin()) {
             throw new NavigationException("Shame on you, you're no admin.");
         } else {
             //get round list and put it in the request

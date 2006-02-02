@@ -25,7 +25,7 @@ public class AdminForceSubmit extends Base {
         //need to have: user id, component id, round_id, contest_id, language_id
         //then lookup the code, and submit it
 
-        if (getSessionInfo().isAdmin()) {
+        if (!getSessionInfo().isAdmin()) {
             throw new NavigationException("Shame on you, you're no admin.");
         } else {
             String name;
