@@ -47,6 +47,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String PREV_IDX_KEY;
     public static String NEXT_IDX_KEY;
     public static String ROUND_TERMS_KEY;
+    public static final String SUBMISSION_PREFIX = "sub_";
 
     public static int PROBLEM_REFRESH;
     public static String DEFAULT_COL_COUNT;

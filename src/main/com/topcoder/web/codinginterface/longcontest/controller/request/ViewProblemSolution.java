@@ -36,7 +36,7 @@ public class ViewProblemSolution extends Base {
             } else {
                 //if the results aren't final, they can see their own code, but not anyone else's.
                 if (!areResultsAvailable(Long.parseLong(round))) {
-                    if (getUser().getId()==Long.parseLong(coder)) {
+                    if (getUser().getId()==Long.parseLong(coder) || getSessionInfo().isAdmin()) {
                         dataSource = DBMS.OLTP_DATASOURCE_NAME;
                     } else {
                         throw new PermissionException(getUser(), new ClassResource(this.getClass()));
