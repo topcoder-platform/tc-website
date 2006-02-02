@@ -28,7 +28,7 @@
 <html>
 <head>
     <title>TopCoder</title>
-    <jsp:include page="script.jsp" />
+    <jsp:include page="../script.jsp" />
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <SCRIPT type="text/javascript">
@@ -49,7 +49,7 @@
 
 <body>
 
-<jsp:include page="top.jsp">
+<jsp:include page="../top.jsp">
     <jsp:param name="level1" value="long"/>
 </jsp:include>
 
@@ -69,7 +69,7 @@
 <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 
     <%-- value of image is 'long_comps_topcoder' or 'long_comps_intel' --%>
-    <jsp:include page="page_title.jsp">
+    <jsp:include page="../page_title.jsp">
         <jsp:param name="image" value="<%=image%>"/>
         <jsp:param name="title" value="Admin Home"/>
     </jsp:include>
@@ -144,7 +144,7 @@
 
 <%-- Right Column Begins --%>
 <td width="170">
-    <jsp:include page="public_right.jsp">
+    <jsp:include page="../public_right.jsp">
         <jsp:param name="level1" value="privatelabel"/>
     </jsp:include>
 </td>
@@ -154,6 +154,6 @@
 </tr>
 </table>
 
-<jsp:include page="foot.jsp"/>
+<jsp:include page="../foot.jsp"/>
 </body>
 </html>
