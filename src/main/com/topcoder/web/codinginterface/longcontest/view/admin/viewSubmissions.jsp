@@ -75,7 +75,7 @@
     </jsp:include>
 
     <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="adminForm">
-        <tc:webtag:hiddenInput name="<%=Constants.MODULE%>" value="AdminForceSubmit"/>
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE%>" value="AdminForceSubmit"/>
         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
             <tr>
                 <td>
