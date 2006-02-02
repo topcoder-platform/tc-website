@@ -183,6 +183,7 @@
                   <include name="com/topcoder/common/web/data/**"/>
                   <include name="com/topcoder/web/tc/**"/>
                   <include name="com/topcoder/web/ejb/forums/**"/>
+                 <include name="com/topcoder/web/ejb/messagehistory/**"/>
              </javac>
          </target>
 
