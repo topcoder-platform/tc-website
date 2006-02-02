@@ -47,12 +47,12 @@ public class SrmDivisionWins extends Base {
                 // List the highest div 1 winners first; list their won SRM's in order
                 rsc.sortByColumn("calendar_id", true);
                 rsc.sortByColumn("winnerhandle1", true);
-                rsc.sortByColumn("totalwins1", true);
+                rsc.sortByColumn("totalwins1", false);
             } else if (sortCol.equals("9")) {  // Division 2 total wins
                 // List the highest div 2 winners first; list their won SRM's in order
                 rsc.sortByColumn("calendar_id", true);
                 rsc.sortByColumn("winnerhandle2", true);
-                rsc.sortByColumn("totalwins2", true);
+                rsc.sortByColumn("totalwins2", false);
             } else if (sortCol.equals("3")) {  // Division 1 handle
                 // Sort coders alphabetically; list won SRM's in order
                 rsc.sortByColumn("calendar_id", true);
