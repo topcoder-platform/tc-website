@@ -80,7 +80,7 @@
             <tr>
                 <td>
                     <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-                        <tr><td class="statLt" colspan="6"><a href="javascript:checkall(true);">check all</a> | <a href="javascript:checkall(false);">uncheck all</a></td></tr>
+                        <tr><td class="statLt" colspan="6"><a href="javascript:checkall(true);">check all</a> | <a href="javascript:checkall(false);">uncheck all</a> | <a href="javascript:document.adminForm.submit();">submit</a></td></tr>
                         <tr>
                             <td class="tableHeader" width="5%"></td>
                             <td class="tableHeader" width="15%"><A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewAdminForceSubmit<tc-webtag:sort column="<%=submissions.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="<%=Constants.MODULE%>"/>">Handle</A></td>
@@ -129,6 +129,7 @@
                         </tr>
                         <%even = !even;%>
                         </rsc:iterator>
+                        <tr><td class="statLt" colspan="6"><a href="javascript:checkall(true);">check all</a> | <a href="javascript:checkall(false);">uncheck all</a> | <a href="javascript:document.adminForm.submit();">submit</a></td></tr>
 
                     </table>
                 </TD>
