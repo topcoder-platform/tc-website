@@ -64,6 +64,7 @@
         <jsp:param name="title" value="Admin Home"/>
     </jsp:include>
 
+        <p><a href="?<%=Constants.MODULE%>=AdminHome">Back to the Long Contest Admin Home</a></p>
         <p>
             <pre>
                 <%=request.getAttribute(Constants.MESSAGE)%>

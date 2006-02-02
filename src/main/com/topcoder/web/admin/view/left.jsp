@@ -7,6 +7,7 @@
         <li><a href="/report">TopCoder Reporting</a></li>
         <li><a href="/email/emailServlet">Mass Email System</a></li>
         <li><a href="/query/query">Query Tool</a></li>
+        <li><a href="/longcontest/?module=AdminHome">Long Contest Admin</a></li>
         <li><a href="/admin/?module=Static&d1=info">HELP!</a></li>
     </ul>
 </div>

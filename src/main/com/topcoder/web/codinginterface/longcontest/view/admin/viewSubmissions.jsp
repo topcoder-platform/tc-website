@@ -74,9 +74,13 @@
         <jsp:param name="title" value="Admin Home"/>
     </jsp:include>
 
+
     <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="adminForm">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE%>" value="AdminForceSubmit"/>
         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
+
+            <tr><td><a href="?<%=Constants.MODULE%>=AdminHome">Back to the Long Contest Admin Home</a></td></tr>
+
             <tr>
                 <td>
                     <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
