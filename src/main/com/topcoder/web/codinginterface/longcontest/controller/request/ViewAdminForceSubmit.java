@@ -1,6 +1,7 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.codinginterface.longcontest.Constants;
@@ -20,6 +21,7 @@ public class ViewAdminForceSubmit extends Base {
             Request r = new Request();
             r.setContentHandle("long_contest_submissions");
             r.setProperties(getRequest().getParameterMap());
+            r.setProperty(DataAccessConstants.SORT_QUERY, "long_contest_submissions");
             getRequest().setAttribute("submissions", getDataAccess().getData(r).get("long_contest_submissions"));
 
             setDefault(Constants.ROUND_ID, getRequest().getParameter(Constants.ROUND_ID));
@@ -30,7 +32,7 @@ public class ViewAdminForceSubmit extends Base {
             setNextPage("/admin/viewSubmissions.jsp");
             setIsNextPageInContext(true);
 
-            
+
         }
     }
 }
