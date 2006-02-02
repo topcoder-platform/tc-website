@@ -20,7 +20,6 @@ public class SrmDivisionWins extends Base {
             Request r = new Request();
 
             String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
-
             String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
             String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
@@ -44,24 +43,34 @@ public class SrmDivisionWins extends Base {
             Map result = getDataAccess(true).getData(r);
 
             ResultSetContainer rsc = (ResultSetContainer) result.get("srm_division_wins");
-            if (!sortCol.equals("")) {
+            if (sortCol.equals("5")) {  // Division 1 total wins
+                // List the highest div 1 winners first; list their won SRM's in order
+                rsc.sortByColumn("calendar_id", true);
+                rsc.sortByColumn("winnerhandle1", true);
+                rsc.sortByColumn("totalwins1", true);
+            } else if (sortCol.equals("9")) {  // Division 2 total wins
+                // List the highest div 2 winners first; list their won SRM's in order
+                rsc.sortByColumn("calendar_id", true);
+                rsc.sortByColumn("winnerhandle2", true);
+                rsc.sortByColumn("totalwins2", true);
+            } else if (sortCol.equals("3")) {  // Division 1 handle
+                // Sort coders alphabetically; list won SRM's in order
+                rsc.sortByColumn("calendar_id", true);
+                rsc.sortByColumn("winnerhandle1", true);                
+            } else if (sortCol.equals("7")) {  // Division 2 handle
+                // Sort coders alphabetically; list won SRM's in order
+                rsc.sortByColumn("calendar_id", true);
+                rsc.sortByColumn("winnerhandle2", true);                
+            } else if (!sortCol.equals("")) {
                 rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
                 setDefault(DataAccessConstants.SORT_COLUMN, sortCol);
                 setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
             }
 
-            rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank),endRank);
-
-            result.put("srm_division_wins", rsc);
-
-            SortInfo s = new SortInfo();
-            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+            result.put("srm_division_wins", (ResultSetContainer)rsc.subList(Integer.parseInt(startRank), endRank));
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
-
             setDefault(DataAccessConstants.START_RANK, startRank);
-
-
             getRequest().setAttribute("resultMap", result);
 
             setNextPage("/statistics/srm_division_wins.jsp");

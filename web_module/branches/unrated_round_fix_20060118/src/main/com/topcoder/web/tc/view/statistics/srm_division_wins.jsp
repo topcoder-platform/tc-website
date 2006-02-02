@@ -93,10 +93,10 @@
                 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                     <tr>
                         <TD><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr" />" class="statLink">Contest</a></td>
-                        <TD>Division I winner</td>
-                        <TD>Wins</td>
-                        <TD>Division II winner</td>
-                        <TD>Wins</td>
+                        <TD><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />" class="statLink">Division I winner</td>
+                        <TD><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true" excludeParams="sr" />" class="statLink">Wins</td>
+                        <TD><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />" class="statLink">Division II winner</td>
+                        <TD><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="9" includeParams="true" excludeParams="sr" />" class="statLink">Wins</td>
                     </tr>
                     <rsc:iterator list="<%=list%>" id="resultRow">
                         <TR>
