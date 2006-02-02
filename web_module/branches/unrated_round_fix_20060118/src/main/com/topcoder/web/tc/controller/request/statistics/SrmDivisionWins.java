@@ -44,23 +44,23 @@ public class SrmDivisionWins extends Base {
 
             ResultSetContainer rsc = (ResultSetContainer) result.get("srm_division_wins");
             if (sortCol.equals("5")) {  // Division 1 total wins
-                // List the highest div 1 winners first; list their won SRM's in order
-                rsc.sortByColumn("calendar_id", true);
+                // List the highest div 1 winners first; list their won SRM's in asc/desc order
+                rsc.sortByColumn("calendar_id", !"desc".equals(sortDir));
                 rsc.sortByColumn("winnerhandle1", true);
                 rsc.sortByColumn("totalwins1", false);
             } else if (sortCol.equals("9")) {  // Division 2 total wins
-                // List the highest div 2 winners first; list their won SRM's in order
-                rsc.sortByColumn("calendar_id", true);
+                // List the highest div 2 winners first; list their won SRM's in asc/desc order
+                rsc.sortByColumn("calendar_id", !"desc".equals(sortDir));
                 rsc.sortByColumn("winnerhandle2", true);
                 rsc.sortByColumn("totalwins2", false);
             } else if (sortCol.equals("3")) {  // Division 1 handle
-                // Sort coders alphabetically; list won SRM's in order
+                // Sort coders alphabetically (asc/desc); list won SRM's in order
                 rsc.sortByColumn("calendar_id", true);
-                rsc.sortByColumn("winnerhandle1", true);                
+                rsc.sortByColumn("winnerhandle1", !"desc".equals(sortDir));                
             } else if (sortCol.equals("7")) {  // Division 2 handle
-                // Sort coders alphabetically; list won SRM's in order
+                // Sort coders alphabetically (asc/desc); list won SRM's in order
                 rsc.sortByColumn("calendar_id", true);
-                rsc.sortByColumn("winnerhandle2", true);                
+                rsc.sortByColumn("winnerhandle2", !"desc".equals(sortDir));                
             } else if (!sortCol.equals("")) {
                 rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
                 setDefault(DataAccessConstants.SORT_COLUMN, sortCol);
