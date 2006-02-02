@@ -67,7 +67,7 @@ public class SrmDivisionWins extends Base {
                 setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
             }
 
-            result.put("srm_division_wins", (ResultSetContainer)rsc.subList(Integer.parseInt(startRank), endRank));
+            result.put("srm_division_wins", (ResultSetContainer)rsc.subList(Integer.parseInt(startRank)-1, endRank));
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
             setDefault(DataAccessConstants.START_RANK, startRank);
