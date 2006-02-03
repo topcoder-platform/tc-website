@@ -77,7 +77,7 @@
     <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="adminForm">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE%>" value="AdminForceSubmit"/>
         <%if (!submissions.isEmpty()) { %>
-            <tc-webtag:hiddenInput name="<%=Constants.ROUND_ID%>" value="<%=submissions.getIntItem(0, "round_type_id")%>"/>
+            <tc-webtag:hiddenInput name="<%=Constants.ROUND_ID%>" value="<%=submissions.getStringItem(0, "round_type_id")%>"/>
         <% } %>
         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
 
