@@ -90,7 +90,10 @@
 <table cellpadding="0" cellspacing="0" class="rtTable">
    <tr>
       <td class="rtHeader" colspan="2">
-         <a name=<jsp:getProperty name="announcement" property="ID"/>><tc-webtag:beanWrite name="announcement" property="startDate" format="MMM d, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="announcement" property="subject"/></a>
+         <div style="float: right; padding-left: 5px; white-space: nowrap;">
+            <a name=<jsp:getProperty name="announcement" property="ID"/>><tc-webtag:beanWrite name="announcement" property="startDate" format="MMM d, yyyy 'at' h:mm a z"/> 
+         </div>
+         <jsp:getProperty name="announcement" property="subject"/></a>
          <%  if (announcement.getUser() != null && announcement.getUser().equals(user)) { %>
              &#160;>>&#160; <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtbcLink">Edit</A>
          <%  } %>
