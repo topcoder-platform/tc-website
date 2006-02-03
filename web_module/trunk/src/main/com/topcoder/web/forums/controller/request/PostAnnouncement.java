@@ -14,6 +14,9 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
 
+import java.util.Calendar;
+import java.util.TimeZone;
+
 /**
  * @author mtong
  *
@@ -127,6 +130,7 @@ public class PostAnnouncement extends ForumsProcessor {
 		}
 		announcement.setSubject(subject);
 		announcement.setBody(body);
+        announcement.setStartDate(Calendar.getInstance(TimeZone.getTimeZone("EST")).getTime());
         if (isNewAnnouncement) {
             announcementManager.addAnnouncement(announcement);
         }
