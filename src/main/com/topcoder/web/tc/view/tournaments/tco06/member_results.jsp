@@ -74,6 +74,8 @@
                                 isComplete = false;%>
                             *
                             <% } %>
+                           <br>
+                           <A href="details">contest details</A>
                         </td>
                         <td class="sidebarText" align="center" nowrap=nowrap><%=result.getSubmitTimestamp()%></td>
                         <td class="sidebarText" align="center"><%=result.getScore()%></td>
