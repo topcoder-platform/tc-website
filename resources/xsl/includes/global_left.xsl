@@ -434,6 +434,19 @@
                         <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=sample_problems</xsl:attribute>Sample Problem Statements</A>
                     </td>
                 </tr>
+            
+<!-- How to Get Paid -->
+                <tr>
+                    <td id="leftSubnav">
+                        <xsl:attribute name="id">
+                        <xsl:choose>
+                        <xsl:when test="/TC/Command='alg_payment'">leftSubnavOn</xsl:when>
+                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=help&amp;d2=algPayment</xsl:attribute>How to Get Paid</A>
+                    </td>
+                </tr>
             </table>
 
             <xsl:call-template name="simple_search"/>
