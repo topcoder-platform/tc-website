@@ -55,8 +55,7 @@
 
                 <table width="510" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                     <tr>
-                        <td class="sidebarTitle" nowrap="nowrap">Component Name</td>
-                        <td class="sidebarTitle" align="center" nowrap=nowrap>Results</td>
+                        <td class="sidebarTitle" nowrap="nowrap">Component</td>
                         <td class="sidebarTitle" align="center">Start Date</td>
                         <td class="sidebarTitle" align="center">End Date</td>
                         <td class="sidebarTitle" align="right" nowrap="nowrap">1st Place<br>Prize</td>
@@ -71,9 +70,9 @@
                                     isComplete = false;%>
                                 *
                                 <% } %>
-                            </td>
-                            <td class="sidebarText" align=center>
-                                <A href="/tc?module=TCO06ProjectDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">results</A>
+                                 <br>
+                                 <A href="/tc?module=TCO06ProjectDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">results</A> | 
+                                 <A href="details">contest details</A>
                             </td>
                             <td class="sidebarText" align=center nowrap=nowrap>
                                 <rsc:item name="start_date" format="MM.dd.yyyy" row="<%=resultRow%>"/> 9:00AM</td>

@@ -59,6 +59,8 @@
                <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>">
                <rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/></A>
                <%if (!isComplete) {%>*<%}%></span>
+               <br>
+               <A href="details">Contest details</A>
                <br><br>
                
                 <table width="510" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
