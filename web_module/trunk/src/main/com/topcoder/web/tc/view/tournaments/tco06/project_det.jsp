@@ -60,9 +60,12 @@
                <rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/></A>
                <%if (!isComplete) {%>*<%}%></span>
                <br>
-               <A href="details">Contest details</A>
+                                <% if (isComplete) { %>
+                <A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">contest details</A>
+                                <% } %>
+
                <br><br>
-               
+
                 <table width="510" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                     <tr>
                         <td class="sidebarTitle" nowrap=nowrap>Competitor</td>
