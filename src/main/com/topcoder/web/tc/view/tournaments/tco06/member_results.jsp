@@ -75,11 +75,9 @@
                             *
                             <% } %>
                            <br>
-<%--
                                 <% if (isComplete) { %>
-                            <A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">contest details</A>
+                            <A href="/tc?module=CompContestDetails&pj=<%=result.getProjectId()%>">contest details</A>
                                 <% } %>
---%>
 
                         </td>
                         <td class="sidebarText" align="center" nowrap=nowrap><%=result.getSubmitTimestamp()%></td>
