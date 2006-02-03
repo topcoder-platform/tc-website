@@ -24,6 +24,7 @@ public class UserContestResult implements Serializable {
     private String payment;
     private Date submitTimestamp;
     private boolean complete;
+    private long projectId;
 
     SimpleDateFormat dtfmt = new SimpleDateFormat("MM.dd.yyyy hh:mma");
 
@@ -37,9 +38,10 @@ public class UserContestResult implements Serializable {
         payment = "";
         submitTimestamp = null;
         complete = false;
+        projectId = 0;
     }
 
-    public UserContestResult(String h, int pts, String pl, String sc, int u, String pay, Date sub, boolean complete) {
+    public UserContestResult(String h, int pts, String pl, String sc, int u, String pay, Date sub, boolean complete, long projectId) {
         component = h;
         points = pts;
         placed = pl;
@@ -48,6 +50,7 @@ public class UserContestResult implements Serializable {
         payment = pay;
         submitTimestamp = sub;
         this.complete = complete;
+        this.projectId = projectId;
     }
 
     public boolean isComplete() {
@@ -123,5 +126,14 @@ public class UserContestResult implements Serializable {
     public void setPlaced(String s) {
         placed = s;
     }
+
+    public long getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(long projectId) {
+        this.projectId = projectId;
+    }
+
 
 }
