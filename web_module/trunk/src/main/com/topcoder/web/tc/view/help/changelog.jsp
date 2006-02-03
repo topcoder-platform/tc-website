@@ -42,6 +42,7 @@
         <ul>
             <li>add search to recruiting reporting site</li>
             <li>add placement information to recruiting reporting site</li>
+            <li>add contest details links to the tco06 component results pages</li>
         </ul>
 --%>
         4.1.9 - 2006.01.30
