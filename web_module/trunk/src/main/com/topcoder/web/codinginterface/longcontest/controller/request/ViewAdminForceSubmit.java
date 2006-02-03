@@ -2,7 +2,9 @@ package com.topcoder.web.codinginterface.longcontest.controller.request;
 
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 
@@ -15,7 +17,9 @@ public class ViewAdminForceSubmit extends Base {
 
     protected void longContestProcessing() throws Exception {
         //get a list of the submissions and put them in the request for display
-        if (!getSessionInfo().isAdmin()) {
+        if (getUser().isAnonymous()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        } else if (!getSessionInfo().isAdmin()) {
             throw new NavigationException("Shame on you, you're no admin.");
         } else {
             Request r = new Request();
