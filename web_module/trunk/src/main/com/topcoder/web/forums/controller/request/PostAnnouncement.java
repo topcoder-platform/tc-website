@@ -127,10 +127,11 @@ public class PostAnnouncement extends ForumsProcessor {
                 announcement = announcementManager.createAnnouncement(user);
             }
             isNewAnnouncement = true;
-		}
+		} else {
+            announcement.setStartDate(Calendar.getInstance(TimeZone.getTimeZone("EST")).getTime());      
+        }
 		announcement.setSubject(subject);
 		announcement.setBody(body);
-        announcement.setStartDate(Calendar.getInstance(TimeZone.getTimeZone("EST")).getTime());
         if (isNewAnnouncement) {
             announcementManager.addAnnouncement(announcement);
         }
