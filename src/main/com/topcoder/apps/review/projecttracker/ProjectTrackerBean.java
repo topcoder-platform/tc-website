@@ -74,7 +74,6 @@ public class ProjectTrackerBean implements SessionBean {
      *
      * @param projectInfo
      * @param requestor
-     *
      * @return Project
      */
     public Project getProject(UserProjectInfo projectInfo, TCSubject requestor) {
@@ -86,9 +85,7 @@ public class ProjectTrackerBean implements SessionBean {
      *
      * @param projectId
      * @param requestor
-     *
      * @return Project
-     *
      * @throws RuntimeException DOCUMENT ME!
      */
     public Project getProjectById(long projectId, TCSubject requestor) {
@@ -108,25 +105,25 @@ public class ProjectTrackerBean implements SessionBean {
             // Find project with projectId
             ps = conn.prepareStatement(
                     "SELECT p.phase_instance_id, p.winner_id, " +
-                    "p.overview, p.notes, " +
-                    "p.project_type_id, p.project_stat_id, p.notification_sent, " +
-                    "cc.component_name, cv.version_text, " +
-                    "cv.component_id, " +
-                    "p.project_v_id, " +
-                    "cv.comp_vers_id, " +
-                    "pcat.category_name catalog_name," +
-                    "p.level_id, " +
-                    "p.autopilot_ind  " +
-                    "FROM project p, comp_versions cv, " +
-                    "comp_catalog cc, " +
-                    "comp_categories ccat, categories cat, categories pcat " +
-                    "WHERE p.cur_version = 1 AND " +
-                    "p.project_id = ? AND " +
-                    "p.comp_vers_id = cv.comp_vers_id AND " +
-                    "cv.component_id = cc.component_id AND " +
-                    "ccat.component_id = cc.component_id AND " +
-                    "cat.category_id = ccat.category_id AND " +
-                    "pcat.category_id = cat.parent_category_id");
+                            "p.overview, p.notes, " +
+                            "p.project_type_id, p.project_stat_id, p.notification_sent, " +
+                            "cc.component_name, cv.version_text, " +
+                            "cv.component_id, " +
+                            "p.project_v_id, " +
+                            "cv.comp_vers_id, " +
+                            "pcat.category_name catalog_name," +
+                            "p.level_id, " +
+                            "p.autopilot_ind  " +
+                            "FROM project p, comp_versions cv, " +
+                            "comp_catalog cc, " +
+                            "comp_categories ccat, categories cat, categories pcat " +
+                            "WHERE p.cur_version = 1 AND " +
+                            "p.project_id = ? AND " +
+                            "p.comp_vers_id = cv.comp_vers_id AND " +
+                            "cv.component_id = cc.component_id AND " +
+                            "ccat.component_id = cc.component_id AND " +
+                            "cat.category_id = ccat.category_id AND " +
+                            "pcat.category_id = cat.parent_category_id");
 
             ps.setLong(1, projectId);
             rs = ps.executeQuery();
@@ -201,11 +198,11 @@ public class ProjectTrackerBean implements SessionBean {
                 // Get forum id with custom sql
                 psForum = conn.prepareStatement(
                         "SELECT fm.forum_id " +
-                        "FROM forum_master fm, comp_forum_xref cfx " +
-                        "WHERE fm.forum_id = cfx.forum_id AND " +
-                        "cfx.comp_vers_id = ? AND " +
-                        "cfx.forum_type = 2 AND " + // TODO Hardcoded specification type
-                        "fm.status_id = 1");
+                                "FROM forum_master fm, comp_forum_xref cfx " +
+                                "WHERE fm.forum_id = cfx.forum_id AND " +
+                                "cfx.comp_vers_id = ? AND " +
+                                "cfx.forum_type = 2 AND " + // TODO Hardcoded specification type
+                                "fm.status_id = 1");
 
                 psForum.setLong(1, compVersId);
                 rsForum = psForum.executeQuery();
@@ -237,16 +234,16 @@ public class ProjectTrackerBean implements SessionBean {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-                /*
-                 catch (NamingException e) {
-                    throw new RuntimeException(e);
-                } catch (RemoteException e) {
-                    throw new RuntimeException(e);
-                } catch (CreateException e) {
-                    throw new RuntimeException(e);
-                } catch (CatalogException e) {
-                    throw new RuntimeException(e);
-                }*/
+        /*
+         catch (NamingException e) {
+            throw new RuntimeException(e);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        } catch (CreateException e) {
+            throw new RuntimeException(e);
+        } catch (CatalogException e) {
+            throw new RuntimeException(e);
+        }*/
         finally {
             Common.close(rsForum);
             Common.close(psForum);
@@ -258,7 +255,8 @@ public class ProjectTrackerBean implements SessionBean {
 
     /**
      * Retrieves the id of a project based on the component version id of a component and the project type
-     * @param compVersId the component's component version id
+     *
+     * @param compVersId  the component's component version id
      * @param projectType the project type (design or development)
      * @return the project id, -1 if no project exists
      */
@@ -304,9 +302,7 @@ public class ProjectTrackerBean implements SessionBean {
      * Get an array of UserProjectInfo describing the different projects that the given user is involved in.
      *
      * @param user
-     *
      * @return UserProjectInfo[]
-     *
      * @throws RuntimeException DOCUMENT ME!
      */
     public UserProjectInfo[] getProjectInfo(TCSubject user) {
@@ -338,72 +334,71 @@ public class ProjectTrackerBean implements SessionBean {
                 // Find all open projects
                 ps = conn.prepareStatement(
                         "SELECT p.project_id, p.project_type_id, " +
-                        "cc.component_name, cv.version_text, p.winner_id, " +
-                        "p.project_stat_id, " +
-                        "pi.phase_instance_id, pi.phase_id, " +
-                        "pi.start_date, pi.end_date, pi.phase_inst_v_id, " +
-                        "pcat.category_name catalog_name, " +
-                        "rur.r_user_role_id, rur.r_role_id, " +
-                        "rur.payment_info_id, " +
-                        "rur.r_resp_id, rur.login_id, " +
-                        "rur.r_user_role_v_id, " +
-                        "pinf.payment, pinf.payment_stat_id, " +
-                        "pinf.payment_info_v_id " +
-                        "FROM project p, phase_instance pi, " +
-                        "comp_catalog cc, comp_versions cv, " +
-                        "comp_categories ccat, categories cat, categories pcat, " +
-                        "OUTER (r_user_role rur, OUTER payment_info pinf) " +
-                        "WHERE p.cur_version = 1 AND " +
-                        "pi.cur_version = 1 AND " +
-                        "rur.cur_version = 1 AND " +
-                        "p.phase_instance_id = pi.phase_instance_id AND " +
-                        "rur.login_id = ? AND " +
-                        "p.project_id = rur.project_id AND " +
-                        "p.comp_vers_id = cv.comp_vers_id AND " +
-                        "cv.component_id = cc.component_id AND " +
-                        "p.project_stat_id in (1,3) AND " + // do not get terminated projects - BB
-                        "ccat.component_id = cc.component_id AND " +
-                        "cat.category_id = ccat.category_id AND " +
-                        "pcat.category_id = cat.parent_category_id AND " +
-                        "pinf.cur_version = 1 AND " +
-                        "pinf.payment_info_id = rur.payment_info_id " +
-                        "ORDER BY p.project_type_id, cc.component_name, rur.r_user_role_v_id");
+                                "cc.component_name, cv.version_text, p.winner_id, " +
+                                "p.project_stat_id, " +
+                                "pi.phase_instance_id, pi.phase_id, " +
+                                "pi.start_date, pi.end_date, pi.phase_inst_v_id, " +
+                                "pcat.category_name catalog_name, " +
+                                "rur.r_user_role_id, rur.r_role_id, " +
+                                "rur.payment_info_id, " +
+                                "rur.r_resp_id, rur.login_id, " +
+                                "rur.r_user_role_v_id, " +
+                                "pinf.payment, pinf.payment_stat_id, " +
+                                "pinf.payment_info_v_id " +
+                                "FROM project p, phase_instance pi, " +
+                                "comp_catalog cc, comp_versions cv, " +
+                                "comp_categories ccat, categories cat, categories pcat, " +
+                                "OUTER (r_user_role rur, OUTER payment_info pinf) " +
+                                "WHERE p.cur_version = 1 AND " +
+                                "pi.cur_version = 1 AND " +
+                                "rur.cur_version = 1 AND " +
+                                "p.phase_instance_id = pi.phase_instance_id AND " +
+                                "rur.login_id = ? AND " +
+                                "p.project_id = rur.project_id AND " +
+                                "p.comp_vers_id = cv.comp_vers_id AND " +
+                                "cv.component_id = cc.component_id AND " +
+                                "p.project_stat_id in (1,3) AND " + // do not get terminated projects - BB
+                                "ccat.component_id = cc.component_id AND " +
+                                "cat.category_id = ccat.category_id AND " +
+                                "pcat.category_id = cat.parent_category_id AND " +
+                                "pinf.cur_version = 1 AND " +
+                                "pinf.payment_info_id = rur.payment_info_id " +
+                                "ORDER BY p.project_type_id, cc.component_name, rur.r_user_role_v_id");
                 ps.setLong(1, user.getUserId());
             } else {
                 // Find the projects that the user is involved in
                 ps = conn.prepareStatement(
                         "SELECT p.project_id, p.project_type_id, " +
-                        "cc.component_name, cv.version_text, p.winner_id, " +
-                        "p.project_stat_id, " +
-                        "pi.phase_instance_id, pi.phase_id, " +
-                        "pi.start_date, pi.end_date, pi.phase_inst_v_id, " +
-                        "pcat.category_name catalog_name, " +
-                        "rur.r_user_role_id, rur.r_role_id, " +
-                        "rur.payment_info_id, " +
-                        "rur.r_resp_id, rur.login_id, " +
-                        "rur.r_user_role_v_id, " +
-                        "pinf.payment, pinf.payment_stat_id, " +
-                        "pinf.payment_info_v_id " +
-                        "FROM project p, phase_instance pi, " +
-                        "r_user_role rur, " +
-                        "comp_catalog cc, comp_versions cv, " +
-                        "comp_categories ccat, categories cat, categories pcat, " +
-                        "OUTER payment_info pinf " +
-                        "WHERE p.cur_version = 1 AND " +
-                        "pi.cur_version = 1 AND " +
-                        "rur.cur_version = 1 AND " +
-                        "p.phase_instance_id = pi.phase_instance_id AND " +
-                        "rur.login_id = ? AND " +
-                        "p.project_id = rur.project_id AND " +
-                        "p.comp_vers_id = cv.comp_vers_id AND " +
-                        "cv.component_id = cc.component_id AND " +
-                        "p.project_stat_id in (1,3) AND " + // do not get terminated projects - BB
-                        "ccat.component_id = cc.component_id AND " +
-                        "cat.category_id = ccat.category_id AND " +
-                        "pcat.category_id = cat.parent_category_id AND " +
-                        "pinf.cur_version = 1 AND " +
-                        "pinf.payment_info_id = rur.payment_info_id " +
-                        "ORDER BY p.project_type_id, cc.component_name, rur.r_user_role_v_id");
+                                "cc.component_name, cv.version_text, p.winner_id, " +
+                                "p.project_stat_id,  " +
+                                "pi.phase_instance_id, pi.phase_id,  " +
+                                "pi.start_date, pi.end_date, pi.phase_inst_v_id, " +
+                                "(select distinct pcat.category_name from comp_categories ccat, categories cat, categories pcat " +
+                                "where ccat.component_id = cc.component_id " +
+                                " and cat.category_id = ccat.category_id " +
+                                " and cat.parent_category_id = pcat.category_id) as catalog_name, " +
+                                "rur.r_user_role_id, rur.r_role_id,  " +
+                                "rur.payment_info_id,  " +
+                                "rur.r_resp_id, rur.login_id, " +
+                                "rur.r_user_role_v_id,  " +
+                                "pinf.payment, pinf.payment_stat_id, " +
+                                "pinf.payment_info_v_id " +
+                                "FROM project p, phase_instance pi, " +
+                                "r_user_role rur,  " +
+                                "comp_catalog cc, comp_versions cv, " +
+                                "OUTER payment_info pinf  " +
+                                "WHERE p.cur_version = 1 AND  " +
+                                "pi.cur_version = 1 AND  " +
+                                "rur.cur_version = 1 AND  " +
+                                "vp.phase_instance_id = pi.phase_instance_id AND " +
+                                "rur.login_id = ? AND  " +
+                                "p.project_id = rur.project_id AND  " +
+                                "p.comp_vers_id = cv.comp_vers_id AND  " +
+                                "cv.component_id = cc.component_id AND " +
+                                "p.project_stat_id in (1,3) AND " +
+                                "pinf.cur_version = 1 AND " +
+                                "pinf.payment_info_id = rur.payment_info_id " +
+                                "ORDER BY p.project_type_id, cc.component_name, rur.r_user_role_v_id");
                 ps.setLong(1, user.getUserId());
             }
             rs = ps.executeQuery();
@@ -509,7 +504,6 @@ public class ProjectTrackerBean implements SessionBean {
      *
      * @param project
      * @param reason
-     *
      * @throws InvalidEditException
      * @throws GeneralSecurityException
      */
@@ -534,11 +528,11 @@ public class ProjectTrackerBean implements SessionBean {
                 try {
                     ps = conn.prepareStatement(
                             "SELECT p.project_v_id, pi.phase_id, p.project_stat_id " +
-                            "FROM project p, phase_instance pi " +
-                            "WHERE p.project_id = ? AND " +
-                            "p.phase_instance_id = pi.phase_instance_id AND " +
-                            "p.cur_version = 1 AND " +
-                            "pi.cur_version = 1");
+                                    "FROM project p, phase_instance pi " +
+                                    "WHERE p.project_id = ? AND " +
+                                    "p.phase_instance_id = pi.phase_instance_id AND " +
+                                    "p.cur_version = 1 AND " +
+                                    "pi.cur_version = 1");
                     ps.setLong(1, project.getId());
                     rs = ps.executeQuery();
 
@@ -567,8 +561,8 @@ public class ProjectTrackerBean implements SessionBean {
                 try {
                     ps = conn.prepareStatement(
                             "UPDATE project " +
-                            "SET cur_version = 0 " +
-                            "WHERE project_id = ?");
+                                    "SET cur_version = 0 " +
+                                    "WHERE project_id = ?");
                     ps.setLong(1, project.getId());
 
                     int nr = ps.executeUpdate();
@@ -590,12 +584,12 @@ public class ProjectTrackerBean implements SessionBean {
                 try {
                     ps = conn.prepareStatement(
                             "INSERT INTO project " +
-                            "(project_v_id, project_id, comp_vers_id, phase_instance_id, " +
-                            "winner_id, overview, " +
-                            "notes, project_type_id, project_stat_id, notification_sent, " +
-                            "modify_user, modify_reason, level_id, autopilot_ind, " +
-                            "cur_version) VALUES " +
-                            "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
+                                    "(project_v_id, project_id, comp_vers_id, phase_instance_id, " +
+                                    "winner_id, overview, " +
+                                    "notes, project_type_id, project_stat_id, notification_sent, " +
+                                    "modify_user, modify_reason, level_id, autopilot_ind, " +
+                                    "cur_version) VALUES " +
+                                    "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
 
                     PhaseInstance[] piArr = project.getTimeline();
                     currentPhase = project.getCurrentPhase();
@@ -691,9 +685,9 @@ public class ProjectTrackerBean implements SessionBean {
                         try {
                             ps = conn.prepareStatement(
                                     "SELECT pt.template_id " +
-                                    "FROM project_template pt " +
-                                    "WHERE pt.project_id = ? AND " +
-                                    "pt.scorecard_type = ? ");
+                                            "FROM project_template pt " +
+                                            "WHERE pt.project_id = ? AND " +
+                                            "pt.scorecard_type = ? ");
                             ps.setLong(1, project.getId());
                             ps.setInt(2, scorecardType);
                             rs = ps.executeQuery();
@@ -728,8 +722,8 @@ public class ProjectTrackerBean implements SessionBean {
                                     }
                                     ps1 = conn.prepareStatement(
                                             "INSERT INTO project_template " +
-                                            "(project_id, scorecard_type, template_id) " +
-                                            "VALUES (?,?,?)");
+                                                    "(project_id, scorecard_type, template_id) " +
+                                                    "VALUES (?,?,?)");
                                     ps1.setLong(1, project.getId());
                                     ps1.setInt(2, scorecardType);
                                     ps1.setLong(3, scorecardTemplateId);
@@ -756,9 +750,9 @@ public class ProjectTrackerBean implements SessionBean {
                     try {
                         ps = conn.prepareStatement(
                                 "update project_result " +
-                                "set valid_submission_ind = 0, reliability_ind = 1 " +
-                                "where not exists(select * from submission where project_id = project_result.project_id and submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1) " +
-                                "and project_id = ?");
+                                        "set valid_submission_ind = 0, reliability_ind = 1 " +
+                                        "where not exists(select * from submission where project_id = project_result.project_id and submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1) " +
+                                        "and project_id = ?");
 
                         ps.setLong(1, project.getId());
                         ps.execute();
@@ -769,9 +763,9 @@ public class ProjectTrackerBean implements SessionBean {
                     try {
                         ps = conn.prepareStatement(
                                 "update project_result " +
-                                "set valid_submission_ind = 0, reliability_ind = 1 " +
-                                "where exists(select * from submission where project_id = project_result.project_id and submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1 and passed_screening = 0) " +
-                                "and project_id = ?");
+                                        "set valid_submission_ind = 0, reliability_ind = 1 " +
+                                        "where exists(select * from submission where project_id = project_result.project_id and submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1 and passed_screening = 0) " +
+                                        "and project_id = ?");
 
                         ps.setLong(1, project.getId());
                         ps.execute();
@@ -782,9 +776,9 @@ public class ProjectTrackerBean implements SessionBean {
                     try {
                         ps = conn.prepareStatement(
                                 "update project_result " +
-                                "set valid_submission_ind = 1, reliability_ind = 1 " +
-                                "where exists(select * from submission where project_id = project_result.project_id and submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1 and passed_screening = 1) " +
-                                "and project_id = ?");
+                                        "set valid_submission_ind = 1, reliability_ind = 1 " +
+                                        "where exists(select * from submission where project_id = project_result.project_id and submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1 and passed_screening = 1) " +
+                                        "and project_id = ?");
 
                         ps.setLong(1, project.getId());
                         ps.execute();
@@ -795,11 +789,11 @@ public class ProjectTrackerBean implements SessionBean {
                     try {
                         ps = conn.prepareStatement(
                                 "update project_result " +
-                                "set raw_score = (select ROUND(sum(s.raw_score)/3,2) from scorecard s where s.project_id = project_id and s.scorecard_type = 2" +
-                                "   AND s.cur_version = 1 and" +
-                                " s.submission_id = (select submission_id from submission where project_id = project_result.project_id and " +
-                                " submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1) )" +
-                                "where project_id = ?");
+                                        "set raw_score = (select ROUND(sum(s.raw_score)/3,2) from scorecard s where s.project_id = project_id and s.scorecard_type = 2" +
+                                        "   AND s.cur_version = 1 and" +
+                                        " s.submission_id = (select submission_id from submission where project_id = project_result.project_id and " +
+                                        " submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1) )" +
+                                        "where project_id = ?");
 
                         ps.setLong(1, project.getId());
                         ps.execute();
@@ -813,12 +807,12 @@ public class ProjectTrackerBean implements SessionBean {
                     try {
                         ps = conn.prepareStatement(
                                 "UPDATE final_review " +
-                                "SET is_completed = 0 " +
-                                "WHERE cur_version = 1 " +
-                                "AND agg_worksheet_id = (SELECT agg_worksheet_id " +
-                                "FROM agg_worksheet " +
-                                "WHERE cur_version = 1 " +
-                                "AND project_id = ?)");
+                                        "SET is_completed = 0 " +
+                                        "WHERE cur_version = 1 " +
+                                        "AND agg_worksheet_id = (SELECT agg_worksheet_id " +
+                                        "FROM agg_worksheet " +
+                                        "WHERE cur_version = 1 " +
+                                        "AND project_id = ?)");
                         ps.setLong(1, project.getId());
                         ps.execute();
                     } finally {
@@ -827,7 +821,8 @@ public class ProjectTrackerBean implements SessionBean {
                 }
 
                 //aggregate scores for stats
-                if (currentPhase.getId() == Phase.ID_FINAL_FIXES || currentPhase.getId() == Phase.ID_FINAL_REVIEW || currentPhase.getId() == Phase.ID_COMPONENT_PREPARATION) {
+                if (currentPhase.getId() == Phase.ID_FINAL_FIXES || currentPhase.getId() == Phase.ID_FINAL_REVIEW || currentPhase.getId() == Phase.ID_COMPONENT_PREPARATION)
+                {
                     try {
                         finalizeScores(project.getId());
                     } catch (Exception e) {
@@ -838,8 +833,8 @@ public class ProjectTrackerBean implements SessionBean {
 
                 if (oldStatusId != project.getProjectStatus().getId() && (
                         project.getProjectStatus().getId() == ProjectStatus.ID_TERMINATED ||
-                        project.getProjectStatus().getId() == ProjectStatus.ID_COMPLETED ||
-                        project.getProjectStatus().getId() == ProjectStatus.ID_ALL_FAILED_REVIEW)) {
+                                project.getProjectStatus().getId() == ProjectStatus.ID_COMPLETED ||
+                                project.getProjectStatus().getId() == ProjectStatus.ID_ALL_FAILED_REVIEW)) {
                     //save score
                     try {
                         finalizeScores(project.getId());
@@ -862,9 +857,9 @@ public class ProjectTrackerBean implements SessionBean {
                     try {
                         ps = conn.prepareStatement(
                                 "SELECT phase_inst_v_id " +
-                                "FROM phase_instance " +
-                                "WHERE phase_instance_id = ? AND " +
-                                "cur_version = 1");
+                                        "FROM phase_instance " +
+                                        "WHERE phase_instance_id = ? AND " +
+                                        "cur_version = 1");
                         ps.setLong(1, phaseInstance[i].getId());
                         rs = ps.executeQuery();
 
@@ -892,8 +887,8 @@ public class ProjectTrackerBean implements SessionBean {
                     try {
                         ps = conn.prepareStatement(
                                 "UPDATE phase_instance " +
-                                "SET cur_version = 0 " +
-                                "WHERE phase_instance_id = ?");
+                                        "SET cur_version = 0 " +
+                                        "WHERE phase_instance_id = ?");
                         ps.setLong(1, phaseInstance[i].getId());
 
                         int nr = ps.executeUpdate();
@@ -914,11 +909,11 @@ public class ProjectTrackerBean implements SessionBean {
                     try {
                         ps = conn.prepareStatement(
                                 "INSERT INTO phase_instance " +
-                                "(phase_inst_v_id, phase_instance_id, " +
-                                "start_date, end_date, " +
-                                "phase_id, project_id, " +
-                                "modify_user, cur_version) VALUES " +
-                                "(0, ?, ?, ?, ?, ?, ?, 1)");
+                                        "(phase_inst_v_id, phase_instance_id, " +
+                                        "start_date, end_date, " +
+                                        "phase_id, project_id, " +
+                                        "modify_user, cur_version) VALUES " +
+                                        "(0, ?, ?, ?, ?, ?, ?, 1)");
                         ps.setLong(1, phaseInstance[i].getId());
                         if (phaseInstance[i].getStartDate() == null) {
                             ps.setDate(2, null);
@@ -981,9 +976,9 @@ public class ProjectTrackerBean implements SessionBean {
                         try {
                             ps = conn.prepareStatement(
                                     "SELECT r_user_role_v_id " +
-                                    "FROM r_user_role " +
-                                    "WHERE r_user_role_id = ? AND " +
-                                    "cur_version = 1");
+                                            "FROM r_user_role " +
+                                            "WHERE r_user_role_id = ? AND " +
+                                            "cur_version = 1");
                             ps.setLong(1, userRole[i].getId());
                             rs = ps.executeQuery();
 
@@ -1011,8 +1006,8 @@ public class ProjectTrackerBean implements SessionBean {
                         try {
                             ps = conn.prepareStatement(
                                     "UPDATE r_user_role " +
-                                    "SET cur_version = 0 " +
-                                    "WHERE r_user_role_id = ?");
+                                            "SET cur_version = 0 " +
+                                            "WHERE r_user_role_id = ?");
                             ps.setLong(1, userRole[i].getId());
 
                             int nr = ps.executeUpdate();
@@ -1041,10 +1036,10 @@ public class ProjectTrackerBean implements SessionBean {
                     try {
                         ps = conn.prepareStatement(
                                 "INSERT INTO r_user_role " +
-                                "(r_user_role_v_id, r_user_role_id, r_role_id, project_id, " +
-                                "login_id, payment_info_id, r_resp_id, " +
-                                "modify_user, cur_version) VALUES " +
-                                "(0, ?, ?, ?, ?, ?, ?, ?, 1)");
+                                        "(r_user_role_v_id, r_user_role_id, r_role_id, project_id, " +
+                                        "login_id, payment_info_id, r_resp_id, " +
+                                        "modify_user, cur_version) VALUES " +
+                                        "(0, ?, ?, ?, ?, ?, ?, ?, 1)");
                         ps.setLong(1, userRole[i].getId());
                         ps.setLong(2, userRole[i].getRole().getId());
                         ps.setLong(3, project.getId());
@@ -1091,9 +1086,9 @@ public class ProjectTrackerBean implements SessionBean {
                     try {
                         ps = conn.prepareStatement(
                                 "SELECT payment_info_v_id " +
-                                "FROM payment_info " +
-                                "WHERE payment_info_id = ? AND " +
-                                "cur_version = 1");
+                                        "FROM payment_info " +
+                                        "WHERE payment_info_id = ? AND " +
+                                        "cur_version = 1");
                         ps.setLong(1, paymentInfo.getId());
                         rs = ps.executeQuery();
 
@@ -1120,8 +1115,8 @@ public class ProjectTrackerBean implements SessionBean {
                     try {
                         ps = conn.prepareStatement(
                                 "UPDATE payment_info " +
-                                "SET cur_version = 0 " +
-                                "WHERE payment_info_id = ?");
+                                        "SET cur_version = 0 " +
+                                        "WHERE payment_info_id = ?");
                         ps.setLong(1, paymentInfo.getId());
 
                         int nr = ps.executeUpdate();
@@ -1140,9 +1135,9 @@ public class ProjectTrackerBean implements SessionBean {
                     try {
                         ps = conn.prepareStatement(
                                 "INSERT INTO payment_info " +
-                                "(payment_info_v_id, payment_info_id, payment, payment_stat_id, " +
-                                "modify_user, cur_version) VALUES " +
-                                "(0, ?, ?, ?, ?, 1)");
+                                        "(payment_info_v_id, payment_info_id, payment, payment_stat_id, " +
+                                        "modify_user, cur_version) VALUES " +
+                                        "(0, ?, ?, ?, ?, 1)");
                         ps.setLong(1, paymentInfo.getId());
                         ps.setFloat(2, paymentInfo.getPayment());
                         if (paymentInfo.getPaymentStatus() == null) {
@@ -1175,10 +1170,10 @@ public class ProjectTrackerBean implements SessionBean {
             if (userRole.length != 0) {
                 sqlString = new StringBuffer(
                         "UPDATE r_user_role " +
-                        "SET cur_version = 0 " +
-                        "WHERE cur_version = 1 AND " +
-                        "project_id = ? AND " +
-                        "r_user_role_id NOT IN (");
+                                "SET cur_version = 0 " +
+                                "WHERE cur_version = 1 AND " +
+                                "project_id = ? AND " +
+                                "r_user_role_id NOT IN (");
 
                 for (int i = 0; i < userRole.length; i++) {
                     if (i != 0) {
@@ -1190,9 +1185,9 @@ public class ProjectTrackerBean implements SessionBean {
             } else {
                 sqlString = new StringBuffer(
                         "UPDATE r_user_role " +
-                        "SET cur_version = 0 " +
-                        "WHERE cur_version = 1 AND " +
-                        "project_id = ?");
+                                "SET cur_version = 0 " +
+                                "WHERE cur_version = 1 AND " +
+                                "project_id = ?");
             }
 
             try {
@@ -1230,13 +1225,13 @@ public class ProjectTrackerBean implements SessionBean {
 
             ps = conn.prepareStatement(
                     "SELECT pi.phase_instance_id, pi.start_date, " +
-                    "pi.end_date, pi.phase_id, pi.phase_inst_v_id, " +
-                    "rp.phase_order " +
-                    "FROM phase_instance pi, review_phase rp " +
-                    "WHERE pi.cur_version = 1 AND " +
-                    "pi.phase_id = rp.review_phase_id AND " +
-                    "pi.project_id = ? " +
-                    "ORDER BY rp.phase_order");
+                            "pi.end_date, pi.phase_id, pi.phase_inst_v_id, " +
+                            "rp.phase_order " +
+                            "FROM phase_instance pi, review_phase rp " +
+                            "WHERE pi.cur_version = 1 AND " +
+                            "pi.phase_id = rp.review_phase_id AND " +
+                            "pi.project_id = ? " +
+                            "ORDER BY rp.phase_order");
             ps.setLong(1, projectId);
             rs = ps.executeQuery();
 
@@ -1275,7 +1270,6 @@ public class ProjectTrackerBean implements SessionBean {
      * Gets all the userroles for a project.
      *
      * @param projectId
-     *
      * @return UserRole[]
      */
     private UserRole[] getUserRoles(long projectId) {
@@ -1288,9 +1282,7 @@ public class ProjectTrackerBean implements SessionBean {
      *
      * @param projectId
      * @param user
-     *
      * @return UserRole[]
-     *
      * @throws RuntimeException DOCUMENT ME!
      */
     private UserRole[] getUserRoles(long projectId, User user) {
@@ -1308,40 +1300,40 @@ public class ProjectTrackerBean implements SessionBean {
             if (user == null) {
                 ps = conn.prepareStatement(
                         "SELECT rur.r_user_role_id, rur.r_role_id, " +
-                        "rur.payment_info_id, " +
-                        "rur.r_resp_id, rur.login_id, " +
-                        "rur.r_user_role_v_id, " +
-                        "pi.payment, pi.payment_stat_id, " +
-                        "pi.payment_info_v_id, " +
-                        "su.user_id, " +
-                        "u.first_name, u.last_name, e.address " +
-                        "FROM r_user_role rur, " +
-                        "OUTER (security_user su, user u, email e), " +
-                        "OUTER payment_info pi " +
-                        "WHERE rur.cur_version = 1 AND " +
-                        "pi.cur_version = 1 AND " +
-                        "pi.payment_info_id = rur.payment_info_id AND " +
-                        "rur.project_id = ? AND " +
-                        "su.login_id = rur.login_id AND " +
-                        "su.login_id = u.user_id AND " +
-                        "su.login_id = e.user_id AND " +
-                        "e.primary_ind = 1 " +
-                        "ORDER BY rur.r_role_id, rur.r_resp_id");
+                                "rur.payment_info_id, " +
+                                "rur.r_resp_id, rur.login_id, " +
+                                "rur.r_user_role_v_id, " +
+                                "pi.payment, pi.payment_stat_id, " +
+                                "pi.payment_info_v_id, " +
+                                "su.user_id, " +
+                                "u.first_name, u.last_name, e.address " +
+                                "FROM r_user_role rur, " +
+                                "OUTER (security_user su, user u, email e), " +
+                                "OUTER payment_info pi " +
+                                "WHERE rur.cur_version = 1 AND " +
+                                "pi.cur_version = 1 AND " +
+                                "pi.payment_info_id = rur.payment_info_id AND " +
+                                "rur.project_id = ? AND " +
+                                "su.login_id = rur.login_id AND " +
+                                "su.login_id = u.user_id AND " +
+                                "su.login_id = e.user_id AND " +
+                                "e.primary_ind = 1 " +
+                                "ORDER BY rur.r_role_id, rur.r_resp_id");
             } else {
                 ps = conn.prepareStatement(
                         "SELECT rur.r_user_role_id, rur.r_role_id, " +
-                        "rur.payment_info_id, " +
-                        "rur.r_resp_id, rur.login_id, " +
-                        "rur.r_user_role_v_id, " +
-                        "pi.payment, pi.payment_stat_id, " +
-                        "pi.payment_info_v_id " +
-                        "FROM r_user_role rur, OUTER payment_info pi " +
-                        "WHERE rur.cur_version = 1 AND " +
-                        "pi.cur_version = 1 AND " +
-                        "pi.payment_info_id = rur.payment_info_id AND " +
-                        "rur.project_id = ? AND " +
-                        "rur.login_id = ? " +
-                        "ORDER BY rur.r_role_id, rur.r_resp_id");
+                                "rur.payment_info_id, " +
+                                "rur.r_resp_id, rur.login_id, " +
+                                "rur.r_user_role_v_id, " +
+                                "pi.payment, pi.payment_stat_id, " +
+                                "pi.payment_info_v_id " +
+                                "FROM r_user_role rur, OUTER payment_info pi " +
+                                "WHERE rur.cur_version = 1 AND " +
+                                "pi.cur_version = 1 AND " +
+                                "pi.payment_info_id = rur.payment_info_id AND " +
+                                "rur.project_id = ? AND " +
+                                "rur.login_id = ? " +
+                                "ORDER BY rur.r_role_id, rur.r_resp_id");
             }
 
             ps.setLong(1, projectId);
@@ -1413,7 +1405,6 @@ public class ProjectTrackerBean implements SessionBean {
      * Gets the PM for the project, or returns null if no PM is found.
      *
      * @param projectId the id of the project whose PM will be retrieved.
-     *
      * @return the User for the PM
      */
     public User getPM(long projectId) {
@@ -1548,10 +1539,10 @@ public class ProjectTrackerBean implements SessionBean {
     /**
      * Creates a new Online Review Project.
      *
-     * @param projectName - the name of the project.
+     * @param projectName    - the name of the project.
      * @param projectVersion - the version(text) for the project.
-     * @param compVersId - the component version id for the project(from comp_versions.comp_vers_id).
-     * @param projectTypeId - 1 for design-project, 2 for development-project
+     * @param compVersId     - the component version id for the project(from comp_versions.comp_vers_id).
+     * @param projectTypeId  - 1 for design-project, 2 for development-project
      * @param overview
      * @param requestor
      * @return long - the projectId for the newly created project.
@@ -1577,13 +1568,13 @@ public class ProjectTrackerBean implements SessionBean {
 
             ps = conn.prepareStatement(
                     "SELECT p.project_id " +
-                    "FROM comp_versions cv, project p " +
-                    "WHERE p.cur_version = 1 AND " +
-                    "p.comp_vers_id = cv.comp_vers_id AND " +
-                    "p.comp_vers_id = ? AND " +
-                    "cv.version_text = ? AND " +
-                    "p.project_type_id = ? AND " +
-                    "p.project_stat_id IN (1,3,4)");
+                            "FROM comp_versions cv, project p " +
+                            "WHERE p.cur_version = 1 AND " +
+                            "p.comp_vers_id = cv.comp_vers_id AND " +
+                            "p.comp_vers_id = ? AND " +
+                            "cv.version_text = ? AND " +
+                            "p.project_type_id = ? AND " +
+                            "p.project_stat_id IN (1,3,4)");
             ps.setLong(1, compVersId);
             ps.setString(2, projectVersion);
             ps.setLong(3, projectTypeId);
@@ -1604,14 +1595,14 @@ public class ProjectTrackerBean implements SessionBean {
             // Create project
             ps = conn.prepareStatement(
                     "INSERT INTO project "
-                    + "(project_v_id, project_id, "
-                    + "comp_vers_id, phase_instance_id, "
-                    + "winner_id, overview, "
-                    + "notes, project_type_id, "
-                    + "project_stat_id, notification_sent, "
-                    + "modify_user, modify_reason, level_id, autopilot_ind,  "
-                    + "cur_version) VALUES "
-                    + "(0, ?, ?, ?, null, ?, ?, ?, ?, 0, ?, 'Created', ?, 1, 1)");
+                            + "(project_v_id, project_id, "
+                            + "comp_vers_id, phase_instance_id, "
+                            + "winner_id, overview, "
+                            + "notes, project_type_id, "
+                            + "project_stat_id, notification_sent, "
+                            + "modify_user, modify_reason, level_id, autopilot_ind,  "
+                            + "cur_version) VALUES "
+                            + "(0, ?, ?, ?, null, ?, ?, ?, ?, 0, ?, 'Created', ?, 1, 1)");
 
             String notes = "";
             long projectStatId = ProjectStatus.ID_PENDING_START;
@@ -1662,11 +1653,11 @@ public class ProjectTrackerBean implements SessionBean {
                 }
                 ps = conn.prepareStatement(
                         "INSERT INTO phase_instance "
-                        + "(phase_inst_v_id, phase_instance_id, "
-                        + "start_date, end_date, "
-                        + "phase_id, project_id, "
-                        + "modify_user, cur_version) VALUES "
-                        + "(0, ?, ?, ?, ?, ?, ?, 1)");
+                                + "(phase_inst_v_id, phase_instance_id, "
+                                + "start_date, end_date, "
+                                + "phase_id, project_id, "
+                                + "modify_user, cur_version) VALUES "
+                                + "(0, ?, ?, ?, ?, ?, ?, 1)");
                 long phaseInstanceId;
                 if (phaseArr[i].getId() == Phase.ID_SUBMISSION) {
                     phaseInstanceId = firstPhaseInstanceId;
@@ -1691,15 +1682,14 @@ public class ProjectTrackerBean implements SessionBean {
             long[] roleIdArr = new long[]{2, 3, 3, 3, 4, 5, 6};
             long[] paymentInfoIdArr = new long[roleIdArr.length];
 
-
             // Create payment infos?
             log.debug("Creating payment infos");
             ps = conn.prepareStatement(
                     "INSERT INTO payment_info "
-                    + "(payment_info_v_id, payment_info_id, "
-                    + "payment, payment_stat_id, "
-                    + "modify_user, cur_version) VALUES "
-                    + "(0, ?, ?, ?, ?, 1)");
+                            + "(payment_info_v_id, payment_info_id, "
+                            + "payment, payment_stat_id, "
+                            + "modify_user, cur_version) VALUES "
+                            + "(0, ?, ?, ?, ?, 1)");
             for (int i = 0; i < paymentInfoIdArr.length; i++) {
                 if (roleIdArr[i] != Role.ID_PRODUCT_MANAGER) {
                     paymentInfoIdArr[i] = idGen.nextId();
@@ -1723,12 +1713,12 @@ public class ProjectTrackerBean implements SessionBean {
             // TODO Change to references
             ps = conn.prepareStatement(
                     "INSERT INTO r_user_role "
-                    + "(r_user_role_v_id, r_user_role_id, "
-                    + "r_role_id, project_id, "
-                    + "login_id, payment_info_id, "
-                    + "r_resp_id, modify_user, "
-                    + "cur_version) VALUES "
-                    + "(0, ?, ?, ?, ?, ?, ?, ?, 1)");
+                            + "(r_user_role_v_id, r_user_role_id, "
+                            + "r_role_id, project_id, "
+                            + "login_id, payment_info_id, "
+                            + "r_resp_id, modify_user, "
+                            + "cur_version) VALUES "
+                            + "(0, ?, ?, ?, ?, ?, ?, ?, 1)");
             for (int i = 0; i < roleIdArr.length; i++) {
                 long userRoleId = idGen.nextId();
                 ps.setLong(1, userRoleId);
@@ -1759,8 +1749,8 @@ public class ProjectTrackerBean implements SessionBean {
             long templateId = documentManager.getDefaultScorecardTemplate(projectTypeId, ScreeningScorecard.SCORECARD_TYPE).getId();
             ps = conn.prepareStatement(
                     "INSERT INTO project_template " +
-                    "(project_id, scorecard_type, template_id) " +
-                    "VALUES (?,?,?)");
+                            "(project_id, scorecard_type, template_id) " +
+                            "VALUES (?,?,?)");
             ps.setLong(1, projectId);
             ps.setInt(2, ScreeningScorecard.SCORECARD_TYPE);
             ps.setLong(3, templateId);
@@ -1771,8 +1761,8 @@ public class ProjectTrackerBean implements SessionBean {
             templateId = documentManager.getDefaultScorecardTemplate(projectTypeId, ReviewScorecard.SCORECARD_TYPE).getId();
             ps = conn.prepareStatement(
                     "INSERT INTO project_template " +
-                    "(project_id, scorecard_type, template_id) " +
-                    "VALUES (?,?,?)");
+                            "(project_id, scorecard_type, template_id) " +
+                            "VALUES (?,?,?)");
             ps.setLong(1, projectId);
             ps.setInt(2, ReviewScorecard.SCORECARD_TYPE);
             ps.setLong(3, templateId);
@@ -1835,7 +1825,7 @@ public class ProjectTrackerBean implements SessionBean {
                 // Assign View Project to pm
                 principalMgr.assignRole(userPrincipal, rp, requestor);
 
-                roleName = prefix + "Submit "  + projectId;
+                roleName = prefix + "Submit " + projectId;
                 roleId = getRoleId(roleName);
                 if (roleId != -1) {
                     rp = principalMgr.getRole(roleId);
@@ -1846,7 +1836,7 @@ public class ProjectTrackerBean implements SessionBean {
                 pc.addPermission(new SubmitPermission(projectId));
                 policyMgr.addPermissions(rp, pc, requestor);
 
-                roleName = prefix + "Screen "  + projectId;
+                roleName = prefix + "Screen " + projectId;
                 roleId = getRoleId(roleName);
                 if (roleId != -1) {
                     rp = principalMgr.getRole(roleId);
@@ -1936,10 +1926,9 @@ public class ProjectTrackerBean implements SessionBean {
      * Calculate the dates for the phases of a project.
      * If any error occurs, it is logged and null is returned, so empty dates will be used.
      *
-     *
      * @return the start dates of each phase and the end date of the last phase.
      */
-    private Date[] calcDates(long projectTypeId, Phase[] phaseArr ) {
+    private Date[] calcDates(long projectTypeId, Phase[] phaseArr) {
 
         try {
             int n = phaseArr.length;
@@ -1951,26 +1940,24 @@ public class ProjectTrackerBean implements SessionBean {
 
             // create a project to handle the phases
             com.topcoder.project.phases.Project project = new com.topcoder.project.phases.Project(startDate,
-                        new TCWorkdays(ConfigHelper.getString(ConfigHelper.WORKDAYS_CONF_FILE), TCWorkdays.XML_FILE_FORMAT));
-
+                    new TCWorkdays(ConfigHelper.getString(ConfigHelper.WORKDAYS_CONF_FILE), TCWorkdays.XML_FILE_FORMAT));
 
             // create the phases so that each one depends on the previous phase.
             TCPhase[] phases = new TCPhase[n];
-            for (int i=0; i < n; i++) {
+            for (int i = 0; i < n; i++) {
                 phases[i] = new TCPhase(project, startDate, phaseArr[i].getDefaultDuration());
                 if (i > 0) {
-                    phases [i].addDependency(phases[i - 1]);
+                    phases[i].addDependency(phases[i - 1]);
                 }
             }
-
 
             // get the start dates and the end date.
             Date[] result = new Date [n + 1];
 
-            for (int i=0; i < n; i++) {
-                result [i] = new Date(phases[i].getStartDate().getTime());
+            for (int i = 0; i < n; i++) {
+                result[i] = new Date(phases[i].getStartDate().getTime());
             }
-            result[n] = new Date (phases [n - 1].calcEndDate().getTime());
+            result[n] = new Date(phases[n - 1].calcEndDate().getTime());
 
             return result;
         } catch (Exception e) {
@@ -2056,11 +2043,9 @@ public class ProjectTrackerBean implements SessionBean {
         }
     }
 */
-
-
     public void userInquiry(long userId, long projectId)
             throws TCException {
-       log.debug("PT.userInquiry; userId: " + userId +
+        log.debug("PT.userInquiry; userId: " + userId +
                 " ,projectId: " + projectId);
 
         Connection conn = null;
@@ -2073,10 +2058,10 @@ public class ProjectTrackerBean implements SessionBean {
             // Create payment info
             ps = conn.prepareStatement(
                     "INSERT INTO payment_info "
-                    + "(payment_info_v_id, payment_info_id, "
-                    + "payment, payment_stat_id, "
-                    + "modify_user, cur_version) VALUES "
-                    + "(0, ?, ?, ?, ?, 1)");
+                            + "(payment_info_v_id, payment_info_id, "
+                            + "payment, payment_stat_id, "
+                            + "modify_user, cur_version) VALUES "
+                            + "(0, ?, ?, ?, ?, 1)");
             long paymentInfoId = idGen.nextId();
             ps.setLong(1, paymentInfoId);
             ps.setFloat(2, 0);
@@ -2112,7 +2097,7 @@ public class ProjectTrackerBean implements SessionBean {
 
             ps = conn.prepareStatement(
                     "SELECT rating from user_rating where user_id = ? and phase_id = " +
-                    "(select 111+project_type_id from project where project_id = ? and cur_version = 1)");
+                            "(select 111+project_type_id from project where project_id = ? and cur_version = 1)");
             ps.setLong(1, userId);
             ps.setLong(2, projectId);
             rs = ps.executeQuery();
@@ -2131,8 +2116,8 @@ public class ProjectTrackerBean implements SessionBean {
 
             ps = conn.prepareStatement(
                     "INSERT INTO project_result " +
-                    "(project_id, user_id, rating_ind, valid_submission_ind, reliability_ind, old_rating) " +
-                    "values (?, ?, ?, ?, ?, ?)"
+                            "(project_id, user_id, rating_ind, valid_submission_ind, reliability_ind, old_rating) " +
+                            "values (?, ?, ?, ?, ?, ?)"
             );
 
             ps.setLong(1, projectId);
@@ -2140,7 +2125,7 @@ public class ProjectTrackerBean implements SessionBean {
             ps.setLong(3, 0);
             ps.setLong(4, 0);
             ps.setLong(5, 0);
-            if (old_rating==0) {
+            if (old_rating == 0) {
                 ps.setNull(6, Types.DOUBLE);
             } else {
                 ps.setDouble(6, old_rating);
@@ -2153,12 +2138,12 @@ public class ProjectTrackerBean implements SessionBean {
 
             ps = conn.prepareStatement(
                     "INSERT INTO r_user_role " +
-                    "(r_user_role_v_id, r_user_role_id, " +
-                    "r_role_id, project_id, " +
-                    "login_id, payment_info_id, " +
-                    "r_resp_id, modify_user, " +
-                    "cur_version) VALUES " +
-                    "(0, ?, ?, ?, ?, ?, null, ?, 1)");
+                            "(r_user_role_v_id, r_user_role_id, " +
+                            "r_role_id, project_id, " +
+                            "login_id, payment_info_id, " +
+                            "r_resp_id, modify_user, " +
+                            "cur_version) VALUES " +
+                            "(0, ?, ?, ?, ?, ?, null, ?, 1)");
             long userRoleId = idGen.nextId();
             ps.setLong(1, userRoleId);
             ps.setLong(2, Role.ID_DESIGNER_DEVELOPER);
@@ -2194,12 +2179,12 @@ public class ProjectTrackerBean implements SessionBean {
 
             ps = conn.prepareStatement(
                     "SELECT cc.component_name, cv.version_text, p.project_type_id " +
-                    "FROM comp_catalog cc, comp_versions cv, project p " +
-                    "WHERE p.cur_version = 1 AND " +
-                    "p.comp_vers_id = cv.comp_vers_id AND " +
-                    "cc.component_id = cv.component_id AND " +
-                    "p.project_id = ? AND " +
-                    "p.project_stat_id IN (1,3)");
+                            "FROM comp_catalog cc, comp_versions cv, project p " +
+                            "WHERE p.cur_version = 1 AND " +
+                            "p.comp_vers_id = cv.comp_vers_id AND " +
+                            "cc.component_id = cv.component_id AND " +
+                            "p.project_id = ? AND " +
+                            "p.project_stat_id IN (1,3)");
             ps.setLong(1, projectId);
             rs = ps.executeQuery();
 
@@ -2277,8 +2262,8 @@ public class ProjectTrackerBean implements SessionBean {
             conn = dataSource.getConnection();
             ps = conn.prepareStatement(
                     "SELECT role_id " +
-                    "FROM security_roles " +
-                    "WHERE description = ?");
+                            "FROM security_roles " +
+                            "WHERE description = ?");
             ps.setString(1, roleName);
             rs = ps.executeQuery();
             if (rs.next()) {
@@ -2316,8 +2301,8 @@ public class ProjectTrackerBean implements SessionBean {
             conn = dataSource.getConnection();
             ps = conn.prepareStatement(
                     "SELECT pt.template_id, pt.scorecard_type " +
-                    "FROM project_template pt " +
-                    "WHERE pt.project_id = ?");
+                            "FROM project_template pt " +
+                            "WHERE pt.project_id = ?");
             ps.setLong(1, projectId);
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -2535,7 +2520,6 @@ public class ProjectTrackerBean implements SessionBean {
         return projectId;
     }
 */
-
     public void versionRename(long compVersId, String oldVersion, String newVersion) {
         ddeRename(-1, compVersId, null, null, oldVersion, newVersion);
     }
@@ -2565,10 +2549,10 @@ public class ProjectTrackerBean implements SessionBean {
                 // given componentId
                 ps = conn.prepareStatement(
                         "SELECT p.comp_vers_id, cv.version_text, p.project_type_id " +
-                        "FROM project p, comp_versions cv " +
-                        "WHERE p.cur_version = 1 AND " +
-                        "p.comp_vers_id = cv.comp_vers_id AND " +
-                        "cv.component_id = ?");
+                                "FROM project p, comp_versions cv " +
+                                "WHERE p.cur_version = 1 AND " +
+                                "p.comp_vers_id = cv.comp_vers_id AND " +
+                                "cv.component_id = ?");
                 ps.setLong(1, componentId);
                 rs = ps.executeQuery();
                 while (rs.next()) {
@@ -2597,15 +2581,15 @@ public class ProjectTrackerBean implements SessionBean {
                         //"p.comp_vers_id = ?");
 
                         "SELECT p.project_type_id, cc.component_name, p.comp_vers_id " +
-                        "FROM project p, comp_catalog cc, comp_versions cv " +
-                        "WHERE p.cur_version = 1 " +
-                        "AND cc.component_id = cv.component_id " +
-                        "AND cv.comp_vers_id = p.comp_vers_id " +
-                        "AND cv.component_id in ( " +
-                        "   select component_id " +
-                        "   from comp_versions cv " +
-                        "   where cv.comp_vers_id = ? " +
-                        "   ) ");
+                                "FROM project p, comp_catalog cc, comp_versions cv " +
+                                "WHERE p.cur_version = 1 " +
+                                "AND cc.component_id = cv.component_id " +
+                                "AND cv.comp_vers_id = p.comp_vers_id " +
+                                "AND cv.component_id in ( " +
+                                "   select component_id " +
+                                "   from comp_versions cv " +
+                                "   where cv.comp_vers_id = ? " +
+                                "   ) ");
 
                 ps.setLong(1, compVersId);
                 rs = ps.executeQuery();
@@ -2617,13 +2601,13 @@ public class ProjectTrackerBean implements SessionBean {
                 } else {
                     ps = conn.prepareStatement(
                             "SELECT 1, cc.component_name " +
-                            "FROM comp_catalog cc, comp_versions cv " +
-                            "WHERE cc.component_id = cv.component_id " +
-                            "AND cv.component_id in ( " +
-                            "    select component_id " +
-                            "    from comp_versions cv " +
-                            "    where cv.comp_vers_id = ? " +
-                            "    ) ");
+                                    "FROM comp_catalog cc, comp_versions cv " +
+                                    "WHERE cc.component_id = cv.component_id " +
+                                    "AND cv.component_id in ( " +
+                                    "    select component_id " +
+                                    "    from comp_versions cv " +
+                                    "    where cv.comp_vers_id = ? " +
+                                    "    ) ");
 
                     ps.setLong(1, compVersId);
                     rs = ps.executeQuery();
@@ -2669,8 +2653,8 @@ public class ProjectTrackerBean implements SessionBean {
                 // TODO Add method to security manager instead of using custom sql
                 psRoles = conn.prepareStatement(
                         "UPDATE security_roles " +
-                        "SET description = ? " +
-                        "WHERE description = ?");
+                                "SET description = ? " +
+                                "WHERE description = ?");
 
                 String newRoleName = prefixNew + "View Project";
                 String oldRoleName = prefixOld + "View Project";
@@ -2837,64 +2821,64 @@ public class ProjectTrackerBean implements SessionBean {
     public void finalizeScores(long projectId) throws EJBException {
         final String retrieveScores =
                 " SELECT cvd.phase_id ," +
-                "        cvd.level_id," +
-                "        p.comp_vers_id," +
-                "        DECODE(p.project_type_id, 1, 112, 2, 113) phase," +
-                "        price, " +
-                "        sb.submitter_id," +
-                "        pi.end_date," +
-                "        p.project_id, " +
-                "       ROUND(sum(s.score)/3,2) score," +
-                "(select count(*) from scorecard sc, submission sb1 where sc.scorecard_type = 2 " +
-                "and sc.cur_version = 1 and sc.submission_id = sb1.submission_id " +
-                "and sb1.submission_type = 1 " +
-                "and sb1.cur_version = 1 " +
-                "and sb1.is_removed = 0 " +
-                "and sb1.project_id = p.project_id " +
-                "and sb1.submitter_id = sb.submitter_id " +
-                "and not exists (select '1' from scorecard sc2, submission sb2 where sc2.scorecard_type = 2 " +
-                "and sc2.cur_version = 1 and sc2.submission_id = sb2.submission_id " +
-                "and sb2.submission_type = 1 " +
-                "and sb2.cur_version = 1 " +
-                "and sb2.is_removed = 0 " +
-                "and sb2.project_id = p.project_id " +
-                "and sb2.submitter_id <> sb.submitter_id " +
-                "and sc2.author_id = sc.author_id " +
-                "and sc2.score > sc.score " +
-                "and (select sum(score)/3 from scorecard where scorecard.submission_id = sc2.submission_id " +
-                "and scorecard.cur_version = 1 and scorecard.scorecard_type = 2) = (select sum(score)/3 from scorecard where scorecard.submission_id = sc.submission_id " +
-                "and scorecard.cur_version = 1 and scorecard.scorecard_type = 2) " +
-                ")) as wincount," +
-                "round(sum(s.score)/3, 2) as raw_score " +
-                "  FROM scorecard s , project p, comp_version_dates cvd," +
-                "       submission sb, phase_instance pi" +
-                " WHERE s.scorecard_type = 2" +
-                "   AND s.cur_version = 1" +
-                "   AND p.cur_version = 1" +
-                "   AND sb.cur_version = 1" +
-                "   AND sb.submission_type = 1" +
-                "   AND sb.is_removed = 0" +
-                "   AND pi.cur_version = 1" +
-                "   AND sb.project_id = p.project_id" +
-                "   AND sb.submission_id = s.submission_id" +
-                "   AND p.project_id = s.project_id" +
-                "   AND ((p.project_type_id = 1 AND cvd.phase_id = 112) " +
-                "       OR (p.project_type_id = 2 AND cvd.phase_id = 113))" +
-                "   AND cvd.comp_vers_id = p.comp_vers_id" +
-                "   AND is_completed = 1" +
-                "   AND p.project_id = pi.project_id" +
-                "   AND p.project_id = ?" +
-                "   AND pi.phase_id = 1" +
-                " GROUP BY cvd.phase_id, " +
-                "          cvd.level_id, " +
-                "          p.comp_vers_id," +
-                "          4," +
-                "          price," +
-                "          sb.submitter_id, " +
-                "          pi.end_date," +
-                "          p.project_id," +
-                "          10 " +
-                " ORDER BY 11 desc, 10 desc";
+                        "        cvd.level_id," +
+                        "        p.comp_vers_id," +
+                        "        DECODE(p.project_type_id, 1, 112, 2, 113) phase," +
+                        "        price, " +
+                        "        sb.submitter_id," +
+                        "        pi.end_date," +
+                        "        p.project_id, " +
+                        "       ROUND(sum(s.score)/3,2) score," +
+                        "(select count(*) from scorecard sc, submission sb1 where sc.scorecard_type = 2 " +
+                        "and sc.cur_version = 1 and sc.submission_id = sb1.submission_id " +
+                        "and sb1.submission_type = 1 " +
+                        "and sb1.cur_version = 1 " +
+                        "and sb1.is_removed = 0 " +
+                        "and sb1.project_id = p.project_id " +
+                        "and sb1.submitter_id = sb.submitter_id " +
+                        "and not exists (select '1' from scorecard sc2, submission sb2 where sc2.scorecard_type = 2 " +
+                        "and sc2.cur_version = 1 and sc2.submission_id = sb2.submission_id " +
+                        "and sb2.submission_type = 1 " +
+                        "and sb2.cur_version = 1 " +
+                        "and sb2.is_removed = 0 " +
+                        "and sb2.project_id = p.project_id " +
+                        "and sb2.submitter_id <> sb.submitter_id " +
+                        "and sc2.author_id = sc.author_id " +
+                        "and sc2.score > sc.score " +
+                        "and (select sum(score)/3 from scorecard where scorecard.submission_id = sc2.submission_id " +
+                        "and scorecard.cur_version = 1 and scorecard.scorecard_type = 2) = (select sum(score)/3 from scorecard where scorecard.submission_id = sc.submission_id " +
+                        "and scorecard.cur_version = 1 and scorecard.scorecard_type = 2) " +
+                        ")) as wincount," +
+                        "round(sum(s.score)/3, 2) as raw_score " +
+                        "  FROM scorecard s , project p, comp_version_dates cvd," +
+                        "       submission sb, phase_instance pi" +
+                        " WHERE s.scorecard_type = 2" +
+                        "   AND s.cur_version = 1" +
+                        "   AND p.cur_version = 1" +
+                        "   AND sb.cur_version = 1" +
+                        "   AND sb.submission_type = 1" +
+                        "   AND sb.is_removed = 0" +
+                        "   AND pi.cur_version = 1" +
+                        "   AND sb.project_id = p.project_id" +
+                        "   AND sb.submission_id = s.submission_id" +
+                        "   AND p.project_id = s.project_id" +
+                        "   AND ((p.project_type_id = 1 AND cvd.phase_id = 112) " +
+                        "       OR (p.project_type_id = 2 AND cvd.phase_id = 113))" +
+                        "   AND cvd.comp_vers_id = p.comp_vers_id" +
+                        "   AND is_completed = 1" +
+                        "   AND p.project_id = pi.project_id" +
+                        "   AND p.project_id = ?" +
+                        "   AND pi.phase_id = 1" +
+                        " GROUP BY cvd.phase_id, " +
+                        "          cvd.level_id, " +
+                        "          p.comp_vers_id," +
+                        "          4," +
+                        "          price," +
+                        "          sb.submitter_id, " +
+                        "          pi.end_date," +
+                        "          p.project_id," +
+                        "          10 " +
+                        " ORDER BY 11 desc, 10 desc";
         final String insertScores = "update project_result set " +
                 "            final_score = ?," +
                 "            placed = ?," +
