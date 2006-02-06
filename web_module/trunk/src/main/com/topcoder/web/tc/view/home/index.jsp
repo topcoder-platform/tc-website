@@ -52,15 +52,15 @@ margin:0px auto;
       </map>
       <td class="BIGPromoBox" align="center"><IMG SRC="/i/home/tco06_comp_registration.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" /></td>
 --%>
-<%-- $1,000,000
-      <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=pressroom&d2=pr_112105"><IMG SRC="/i/home/milestone_million.gif" border="0" ALT="$1,000,000 in Component Competition Payouts"/></A></td>
+<%-- high school
 --%>
+      <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=hs&d2=home"><IMG SRC="/i/home/high_school.jpg" border="0" ALT="TopCoder High School"/></A></td>
 <%-- MSN
       <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=contracting&d2=msn"><IMG SRC="/i/home/msn_emp_opps.gif" border="0" ALT="MSN is hiring"/></A></td>
 --%>
 <%-- Intel
---%>
       <td class="BIGPromoBox" align="center"><A href="/longcontest/?module=Static&d1=intel_overview"><IMG SRC="/i/home/intel_multi_threading.gif" border="0" ALT="Intel Multi-Threading Competition Series"/></A></td>
+--%>
       <td width="50%" class="homeLogo" align="right">&#160;</td>
    </tr>
 </table>
