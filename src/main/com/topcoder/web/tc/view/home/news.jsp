@@ -7,6 +7,19 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 
 <%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>02.06.06<br>10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=home">TopCoder High School</A></span><br><br>
+      In the spirit of all other TopCoder competitions, TopCoder High School seeks to be the premier computer programming tournament for high school-aged math and science students enrolled in secondary schools or equivalent programs world-wide.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="/tc?module=Static&d1=hs&d2=home">details</A>&#160;|&#160;
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=509013">discuss this</A>&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
    </tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>01.31.05<br>4:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=msn_chat_013006">MSN chat session from SRM 286</A></span><br><br>
@@ -210,47 +223,6 @@
          <tc-webtag:forumLink forumID="505895" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>01.16.06<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=intel_overview">Introducing the Intel Multi-Threading Competition Series</A></span><br><br>
-      Intel&#174; Software Network and TopCoder are hosting a 12-month series of world-wide competitions for multi-threading on multi-core microprocessors.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/longcontest/?module=Static&d1=intel_overview">details</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505893" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>01.16.06<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tco05/onsite_movies/RuijieWang_English.mov">"Never underestimate your potential..."</A></span><br><br>
-      "If you try to do things, sometimes you make it with good results." Ruijie Wang, a Chinese university student, talks about her advancement into the Finals of TCO05.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/i/tournament/tco05/onsite_movies/RuijieWang_English.mov">English version</A>&#160;|&#160;
-         <A href="/i/tournament/tco05/onsite_movies/RuijieWang_Chinese.mov">Chinese version</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505894" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.13.06<br>10:20 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.businessweek.com/magazine/content/06_04/b3968007.htm">The NSA: Security in Numbers</A></span><br><br>
-      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/businessweek_logo.gif" width="67" height="16" alt="Business Week" border="0" /></div>
-      "The techno-spy agency has a greater need than ever for American math talent, but recruiting in the age of Google is a lot tougher."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://www.businessweek.com/magazine/content/06_04/b3968007.htm">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505891" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>
