@@ -48,9 +48,9 @@
 In Division 1 we saw a match dominated by coders from Poland. During the coding phase
 monsoon took the lead with the fastest submission on the hard problem. However, 
 his solution to the easy problem was successfully challenged and in the end of the
-challenge phase kedaidz was on the top of the division summary. But the system tests
-changed the results once again when kedaidz lost his easy problem too. In the end
-monsoon won the match, with marek.cygan in second and kedaidz in third. Thanks to
+challenge phase kedaizd was on the top of the division summary. But the system tests
+changed the results once again when kedaizd lost his easy problem too. In the end
+monsoon won the match, with marek.cygan in second and kedaizd in third. Thanks to
 twelve successful challenges natori was able to take the fourth place without solving
 the hard problem.
 </p> 
