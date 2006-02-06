@@ -98,6 +98,7 @@ function rate(messageID, voteValue) {
 }
 
 function callback() {
+    req.setContentType("text/xml");
     if (req.readyState == 4) {
         if (req.status == 200) {
             var response = req.responseXML.documentElement;
