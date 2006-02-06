@@ -146,6 +146,8 @@ public class Constants implements WebConstants {
     public static final int TCO06_ALGORITHM_TERMS_OF_USE_ID=20383;
     public static final int TCO06_COMPONENT_TERMS_OF_USE_ID=20384;
     public static final int TCO05_SPONSOR_COMPANY_QUESTION_ID = 30;
+    public static final int TCO06_SPONSOR_COMPANY_QUESTION_ID = 31;
+    public static final int TCO06_SPONSOR_TERMS_ID = 20388;
     public static int UNLOCK_CARD_PREFERENCE_ID;
     public static int JAVA_CATALOG_ID;
     public static int DOT_NET_CATALOG_ID;
