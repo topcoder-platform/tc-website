@@ -35,7 +35,9 @@ public class Rating extends ForumsProcessor {
         getResponse().setContentType("text/xml");
         getResponse().addHeader("Cache-Control", "no-cache");
         //getResponse().getWriter().write("test");
-        getResponse().getWriter().write(getXML(posRatings, negRatings));
+        //getResponse().getWriter().write(getXML(posRatings, negRatings));
+        getResponse().getOutputStream().write(asciiGetBytes(getXML(posRatings, negRatings)));
+        getResponse().flushBuffer();
         //getResponse().getOutputStream().print(getXML(posRatings, negRatings));
     }
     
@@ -46,5 +48,14 @@ public class Rating extends ForumsProcessor {
                 "<negRatings>"+negRatings+"</negRatings>\n" +
             "</response>";
         return xml;
+    }
+    
+    private byte[] asciiGetBytes(String s) {
+        int size = s.length();
+        byte[] result = new byte[size];
+        for (int i = 0; i < size; i++) {
+            result[i] = (byte) s.charAt(i);
+        }
+        return result;
     }
 }
