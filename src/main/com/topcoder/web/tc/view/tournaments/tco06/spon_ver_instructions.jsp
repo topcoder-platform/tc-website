@@ -27,13 +27,13 @@ Load the application by clicking the Competition Arena link at the top.  You nee
 Once the Competition Arena launches, you will be presented with a login screen.
 
 <br><br>
-<div align="center"><img src="/i/tournament/tco06/arena1.gif" alt="" border="0" /></div>
+<div align="center"><img src="/i/tournament/tco06/arena1_ver.gif" alt="" border="0" /></div>
 <br><br>
 
 From here, you need simply type in your handle and the password that you chose during the registration process. Once you log in, you will initially be placed in the main chat lobby.
 
 <br><br>
-<div align="center"><img src="/i/tournament/tco06/arena2.gif" alt="" border="0" /></div>
+<div align="center"><img src="/i/tournament/tco06/arena2_ver.gif" alt="" border="0" /></div>
 <br><br>
 
 Move to your assigned competition room as follows:
@@ -47,7 +47,7 @@ Move to your assigned competition room as follows:
 From within the competition room, you will access the problem statements that you will attempt to solve during the Coding Phase.
 
 <br><br>
-<div align="center"><img src="/i/tournament/tco06/arena3.gif" alt="" border="0" /></div>
+<div align="center"><img src="/i/tournament/tco06/arena3_ver.gif" alt="" border="0" /></div>
 <br><br><br>
 
 <span class="bodySubtitle">Coding Phase</span><br>
@@ -74,7 +74,7 @@ During the Coding Phase, the timer in the competition room window and the coding
 The coding window is the most important part of the Competition Arena. It is in the coding window that the problem statement is shown, and the solutions are coded, compiled, tested, and submitted.
 
 <br><br>
-<div align="center"><img src="/i/tournament/tco06/arena4.gif" alt="" border="0" /></div>
+<div align="center"><img src="/i/tournament/tco06/arena4_ver.gif" alt="" border="0" /></div>
 <br><br>
 
 <blockquote>
