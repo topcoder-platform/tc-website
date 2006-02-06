@@ -115,10 +115,10 @@ public class ConfigHelper implements ConfigManagerInterface {
     public static final int MAX_NUMBER_PASSING_SCORES_DEFAULT = 1000;
 
     /**
-     * The flag to allow or deny appeals edition during appeals phase.
+     * The flag to allow or deny appeals editing during appeals phase.
      * @since 1.0.1
      */
-    private static final String ALLOW_APPEALS_EDITION = "allow_appeals_edition";
+    private static final String ALLOW_APPEALS_EDITION = "allow_appeals_editing";
 
     /**
      * The default value to allow or deny appeals edition during appeals phase.

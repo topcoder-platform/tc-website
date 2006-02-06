@@ -1,8 +1,12 @@
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
 package com.topcoder.apps.review.autopilottimer;
 
 import com.topcoder.apps.review.*;
 import com.topcoder.apps.review.document.DocumentManagerLocal;
 import com.topcoder.apps.review.document.ScreeningScorecard;
+import com.topcoder.apps.review.document.Appeal;
 import com.topcoder.apps.review.projecttracker.*;
 import com.topcoder.message.email.EmailEngine;
 import com.topcoder.message.email.TCSEmailMessage;
@@ -17,12 +21,21 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
-/********************************************************************
+/**
+ * <strong>Purpose</strong>:
  * This class creates a timer that will perform auto pilot logic.
  * This functionality is implemented as a JBoss-specific MBean.
  *
- * @author rfairfax
- *******************************************************************/
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Added mail notification to PM for the Appeals - Appeals response phase change if there weren't existing appeals.
+ * </li>
+ * </ol>
+ *
+ * @author rfairfax, pulky
+ * @version 1.0.1
+ */
 public class AutoPilotTimer
         extends ServiceMBeanSupport
         implements AutoPilotTimerMBean {
@@ -57,11 +70,12 @@ public class AutoPilotTimer
     /* (non-Javadoc)
      * @see com.topcoder.apps.review.cacherefresher.CacheRefresherMBean#isInitialised()
      */
-/*
+
+    /*
     public String isInitialized() {
         return isInitialized;
     }
-*/
+    */
 
     /* (non-Javadoc)
      * @see com.topcoder.apps.review.cacherefresher.CacheRefresherMBean#getInitStatus()
@@ -91,8 +105,12 @@ public class AutoPilotTimer
 
                 for (int i = 0; i < projs.length; i++) {
                     if (projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_SUBMISSION) {
-                        if (projs[i].getCurrentPhaseInstance() != null && projs[i].getCurrentPhaseInstance().getEndDate() != null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
+                        if (projs[i].getCurrentPhaseInstance() != null &&
+                            projs[i].getCurrentPhaseInstance().getEndDate() != null &&
+                                projs[i].getCurrentPhaseInstance().getEndDate().getTime()
+                                    <= System.currentTimeMillis()) {
                             logger.debug("SELECTED: " + projs[i].getProjectName());
+
                             //move to screening
                             OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, projs[i]);
                             ProjectForm form = new ProjectForm();
@@ -111,7 +129,8 @@ public class AutoPilotTimer
 
                             //check for screening scorecard template
                             if (form.getScreeningTemplateId() == -1) {
-                                String template = docManager.getDefaultScorecardTemplate(p.getProjectType().getId(), ScreeningScorecard.SCORECARD_TYPE).getName();
+                                String template = docManager.getDefaultScorecardTemplate(p.getProjectType().getId(),
+                                    ScreeningScorecard.SCORECARD_TYPE).getName();
                                 form.setScreeningTemplate(template);
                             }
 
@@ -121,10 +140,11 @@ public class AutoPilotTimer
                                 logger.debug("ERROR " + result.toString());
                             }
                         }
-// by cucu
+                        // by cucu
                         // if in appeals phase and it ended, move to appeals response
                     } else if (projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS) {
-                        if (projs[i].getCurrentPhaseInstance().getEndDate() != null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
+                        if (projs[i].getCurrentPhaseInstance().getEndDate() != null &&
+                            projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
                             logger.debug("SELECTED: " + projs[i].getProjectName());
 
                             //move to appeals response
@@ -145,22 +165,56 @@ public class AutoPilotTimer
 
                             form.setReason("auto pilot advancing to Appeals Response");
 
-
                             ProjectData data = form.toActionData(orpd);
+
                             ResultData result = new BusinessDelegate().projectAdmin(data);
+
                             if (!(result instanceof SuccessResult)) {
                                 logger.debug("ERROR " + result.toString());
+                            } else {
+                                Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
+                                UserRole[] participants = p.getParticipants();
+                                // If there are no appeals, send email to PM
+                                if (appeals.length == 0) {
+                                    //lookup pm
+                                    String email = "";
+                                    for (int j = 0; j < participants.length; j++) {
+                                        if (participants[j].getRole().getId() == Role.ID_PRODUCT_MANAGER) {
+                                            email = participants[j].getUser().getEmail();
+                                        }
+                                    }
+
+                                    if (email.equals("")) {
+                                        logger.debug("ERROR: Cannot locate PM for Appeals Response Notification");
+                                        continue;
+                                    }
+
+                                    logger.info("No appeals found, sending mail to PM...");
+
+                                    StringBuffer mail = new StringBuffer();
+                                    mail.append("The following project: \n\n");
+                                    mail.append(p.getName());
+                                    mail.append("\n\nhas completed appeals response and doesn't have");
+                                    mail.append(" existing appeals.");
+
+                                    sendMail("autopilot@topcoder.com", email,
+                                        "AutoPilotTimer: Appeals Response Notification (No Appeals found)",
+                                            mail.toString());
+                                }
                             }
                         }
                     }
-// end by cucu
+                    // end by cucu
 
-/* commented by cucu
-                    // It doesn't make too much sense to have the timer check for appeals to be finished, because this is already checked
-                    // when an appeal is solved.
+                    /* commented by cucu
+                    // It doesn't make too much sense to have the timer check for appeals to be finished, because this
+                    // is already checked when an appeal is solved.
 
                     } else if(projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS) {
-                        if(projs[i].getCurrentPhaseInstance() != null && projs[i].getCurrentPhaseInstance().getEndDate() !=null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
+                        if(projs[i].getCurrentPhaseInstance() != null &&
+                            projs[i].getCurrentPhaseInstance().getEndDate() !=null &&
+                                projs[i].getCurrentPhaseInstance().getEndDate().getTime()
+                                    <= System.currentTimeMillis()) {
                             logger.debug("SELECTED: " + projs[i].getProjectName());
 
                             OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, projs[i]);
@@ -208,7 +262,8 @@ public class AutoPilotTimer
                             mail.append(p.getName());
                             mail.append("\n\nhas completed appeals");
 
-                            //sendMail("autopilot@topcoder.com", email, "AutoPilot: Appeals Notification", mail.toString());
+                            //sendMail("autopilot@topcoder.com", email, "AutoPilot: Appeals Notification",
+                                mail.toString());
                         }
                     }
                     */
