@@ -41,6 +41,10 @@
    <tr valign="middle"><td class="statTextLarge" bgcolor="#999999" colspan="2"><font size="3">Match Editorial Archive - 2006</font></td></tr>
    
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+   <tr><td valign="middle" class="bodyText" colspan="2"><strong>February</strong></td></tr>
+   <tr><td class="bodyText">02.04.06</td><td class="bodyText" nowrap="0" width="100%">SRM 287 - <a href="/tc?module=Static&d1=match_editorials&d2=srm287">Problem Set & Analysis</a></td></tr>
+
+   <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>January</strong></td></tr>
    <tr><td class="bodyText">01.30.06</td><td class="bodyText" nowrap="0" width="100%">SRM 286 - <a href="/tc?module=Static&d1=match_editorials&d2=srm286">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">01.24.06</td><td class="bodyText" nowrap="0" width="100%">SRM 285 - <a href="/tc?module=Static&d1=match_editorials&d2=srm285">Problem Set & Analysis</a></td></tr>
