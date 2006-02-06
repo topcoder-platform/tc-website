@@ -232,7 +232,8 @@
 			</table>
 			<table border="0" cellpadding="0" cellspacing="1" class="forumBkgd" width="100%">
 				<tr>
-					<td colspan="6" class="forumTextEven"><strong><bean:message key="prompt.reviewAdmin" /></strong></td>
+					<!-- Review PM review is no longer needed. td colspan="6" class="forumTextEven"><strong><bean:message key="prompt.reviewAdmin" /></strong></td-->
+					<td colspan="5" class="forumTextEven"><strong><bean:message key="prompt.reviewAdmin" /></strong></td>
 				</tr>
 				<tr>
 					<td class="forumTitleCenter"><bean:message key="prompt.submission" /></td>
@@ -243,7 +244,7 @@
 						<bean:message key="prompt.reviewer" /> (<bean:write name="project" property='<%="user["+pIdx+"]"%>' />)</td>
 		</logic:notEqual>
 	</logic:iterate>
-					<td class="forumTitleCenter"><bean:message key="prompt.pmReview" /></td>
+					<!-- Review PM review is no longer needed. td class="forumTitleCenter"><bean:message key="prompt.pmReview" /></td-->
 				</tr>
 	<logic:iterate id="adminBean" indexId="aIdx" name="reviews" >
 		<% String rowClass3=(aIdx.intValue()%2==0)?"forumTextCenterOdd":"forumTextCenterEven"; %>
@@ -279,7 +280,7 @@
 					</td>
 
 		</logic:iterate>
-					<td class="<%=rowClass3%>">
+					<!-- Review PM review is no longer needed. td class="<%=rowClass3%>">
 		<logic:equal name="adminBean" property="avgScoreReady" value="true">
 						<review:linkSubmission page="/projectManagerReview.do" name="adminBean" property="submission">
 			<logic:equal name="adminBean" property="isPMReviewed" value="true">
@@ -293,7 +294,7 @@
 		<logic:equal name="adminBean" property="avgScoreReady" value="false">
 						<bean:message key="prompt.nonAvailable" />
 		</logic:equal>
-					</td>
+					</td-->
 				</tr>
 	</logic:iterate>
 			</table>

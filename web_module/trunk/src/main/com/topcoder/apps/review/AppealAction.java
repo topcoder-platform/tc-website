@@ -1,5 +1,5 @@
-/**
- * Copyright ?2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.apps.review;
@@ -16,13 +16,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * <p>
+ * <strong>Purpose</strong>:
  * Extends from <strong>ReviewAction</strong> that let the user appeal
  * a quesiton in a scorecard.
- * </p>
  *
- * @author FatClimber
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Changed constraint to permit appeals edition in appeals phase. (this is ruled by a
+ * configuration that allows or deny the edition)
+ * </li>
+ * </ol>
+ *
+ * @author FatClimber, pulky
+ * @version 1.0.1
  */
 public final class AppealAction extends ReviewAction {
 
@@ -95,9 +102,19 @@ public final class AppealAction extends ReviewAction {
                 request.setAttribute("reviewerEdit", new Boolean(true));
             }
 */
+            // configured functionality to permit edition during appeals phase.
+            boolean permitEditDuringAppeals;
+            try {
+                permitEditDuringAppeals = ConfigHelper.getAllowAppealEditing();
+            } catch (Exception e) {
+                log(Level.INFO, "Couldn't retrieve configuration for permission to edit appeals, using default: "
+                    + (ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT ? "true" : "false") + " reason: " + e.getMessage());
+                permitEditDuringAppeals = ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT;
+            }
+
             long phaseId = orpd.getProject().getCurrentPhaseInstance().getPhase().getId();
             if (appeal.getAppealer().getId() == orpd.getUser().getId() &&
-                    appeal.getId() == -1 && phaseId == Phase.ID_APPEALS) {
+                    (appeal.getId() == -1 || permitEditDuringAppeals) && phaseId == Phase.ID_APPEALS) {
                 request.setAttribute("appealerEdit", new Boolean(true));
             } else if (appeal.getReviewer().getId() == orpd.getUser().getId() &&
                     !appeal.isResolved() && phaseId == Phase.ID_APPEALS_RESPONSE) {
