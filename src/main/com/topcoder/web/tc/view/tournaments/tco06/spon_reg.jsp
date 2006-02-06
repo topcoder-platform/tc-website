@@ -25,7 +25,7 @@
 <span class="bigTitle">Registration</span>
 <br /><br />
 <%--
-Registration is not currently open, the registration period is from August 1, 2006 9:00 AM EDT to August 16, 2006 9:00 AM EDT.
+Registration is not currently open, the registration period is from February 13, 2006 9:00 AM EST to February 28, 2006 9:00 AM EST.
 --%>
 <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCO05SponsorTermsAgree"/>
@@ -47,12 +47,12 @@ Registration is not currently open, the registration period is from August 1, 20
 <!-- Right Column-->
 <td width="170" align="right">
 <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
-<img src="/i/tournament/tco06/sun_right.gif" alt="Sun" border="0" /><br />
-<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+<!-- <img src="/i/tournament/tco06/sun_right.gif" alt="Sun" border="0" /><br /> 
+<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />-->
 <img src="/i/tournament/tco06/nsa_right.gif" alt="NSA" border="0" /><br />
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-<img src="/i/tournament/tco06/yahoo_right.gif" alt="Yahoo" border="0" /><br />
-<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+<!-- <img src="/i/tournament/tco06/yahoo_right.gif" alt="Yahoo" border="0" /><br />
+<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />-->
 <img src="/i/tournament/tco06/verisign_right.gif" alt="Verisign" border="0" /><br />
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 <jsp:include page="../../calendar.jsp" />
