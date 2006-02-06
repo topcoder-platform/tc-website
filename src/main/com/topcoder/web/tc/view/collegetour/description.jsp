@@ -40,6 +40,8 @@
                 <p>
                     <h2 align="center">2006 TopCoder U.S. College Tour</h2>
 
+                    <p align="center"><a href="#schools">Participating schools</a></p>
+
                     <h3>Is your school on the schedule?</h3>
 
                     TopCoder will be touring the U.S. during 2006 to promote TopCoder programs and to grow membership.
@@ -83,6 +85,20 @@
                     <tc-webtag:forumLink forumID="<%=Long.parseLong((String)request.getAttribute(Constants.FORUM_ID))%>" message="Discuss College Tour"/>
                     <% } %>
                 </p>
+
+               <a name="schools"></a>
+               <div align="center" style="padding: 10px;">
+               <img src="/i/collegetour/logo_johns_hopkins_u.jpg" alt="Johns Hopkins University" border="0" />
+               </div>
+               <div align="center" style="padding: 10px;">
+               <img src="/i/collegetour/logo_u_new_mexico.jpg" alt="Johns Hopkins University" border="0" />
+               </div>
+               <div align="center" style="padding: 10px;">
+               <img src="/i/collegetour/logo_mercer_u.jpg" alt="Johns Hopkins University" border="0" />
+               </div>
+               <div align="center" style="padding: 10px;">
+               <img src="/i/collegetour/logo_u_north_texas.jpg" alt="Johns Hopkins University" border="0" />
+               </div>
 
 
             </div>
