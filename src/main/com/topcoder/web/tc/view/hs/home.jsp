@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.web.tc.Constants"%>
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -36,8 +37,8 @@
               <!--  <div align=center>
                     <img src="/i/hs/hs_banner_stepup.jpg" alt="Step up to the challenge" border=0 clear="all">
                 </div> -->
-                <div align="center">
-                    <img src="/i/hs/banner.jpg" alt="TopCoder High School" border=0 clear="all">
+                <div align="center" style="margin-top: 15px;">
+                    <img src="/i/hs/banner.jpg" alt="TopCoder High School" border="0">
                 </div>
                 <p>
                 <h2>TopCoder High School</h2>
@@ -59,7 +60,7 @@ TopCoder does NOT intend to make a profit on its high school offerings. Any proc
 As we firm up the structure of the tournament, we will post changes to the TopCoder web site and will contact those interested by email. So, start practicing and, as always, good luck to you in the arena!
 <br/><br/>
 
-<a href="http://forums.topcoder.com/?module=Thread&threadID=509013&mc=1#525461">Discuss TopCoder High School</a>
+<a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=509013">Discuss TopCoder High School</a>
 <br/><br/>
                 </p>
 
