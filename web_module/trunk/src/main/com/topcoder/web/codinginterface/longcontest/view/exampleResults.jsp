@@ -82,7 +82,7 @@
                 </h2>
                 <p>
                     <span class="bodySubtitle">Example Case: </span><br />
-                    <pre><%=resultRow.getStringItem("expected_result").substring(1, resultRow.getStringItem("expected_result").length()-2)%></pre>
+                    <%=resultRow.getStringItem("expected_result").substring(1, resultRow.getStringItem("expected_result").length()-2)%>
                 </p>
                 <p>
                     <span class="bodySubtitle">Fatal Errors: </span><br />
