@@ -32,11 +32,11 @@ public class Rating extends ForumsProcessor {
         int posRatings = (int)(Math.round(avgRating*ratingCount)-ratingCount);
         int negRatings = ratingCount - posRatings;
         
-        getHttpResponse().setContentType("text/xml");
-        getHttpResponse().setHeader("Cache-Control", "no-cache");
-        //getHttpResponse().getWriter().write("test");
-        getHttpResponse().getWriter().write(getXML(posRatings, negRatings));
-        //getHttpResponse().getOutputStream().print(getXML(posRatings, negRatings));
+        getResponse().setContentType("text/xml");
+        getResponse().addHeader("Cache-Control", "no-cache");
+        //getResponse().getWriter().write("test");
+        getResponse().getWriter().write(getXML(posRatings, negRatings));
+        //getResponse().getOutputStream().print(getXML(posRatings, negRatings));
     }
     
     private String getXML(int posRatings, int negRatings) {

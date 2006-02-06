@@ -98,14 +98,14 @@ function rate(messageID, voteValue) {
 }
 
 function callback() {
-    req.setContentType("text/xml");
     if (req.readyState == 4) {
         if (req.status == 200) {
-            var resp = req.responseXML.documentElement;
+            //var resp = req.responseXML.getElementsByTagName("response")[0];
+            alert(req.responseXML.hasChildNodes());
             //var message = req.responseXML.getElementsByTagName("message")[0];           
-            displayXML(resp);
-            var posRatings = resp.getElementsByTagName('posRatings')[0].firstChild.data;
-            var negRatings = resp.getElementsByTagName('negRatings')[0].firstChild.data;
+            //displayXML(req.responseText);
+            //var posRatings = resp.getElementsByTagName('posRatings')[0].nodeValue;
+            //var negRatings = resp.getElementsByTagName('negRatings')[0].nodeValue;
             //displayVotes(5,5);
             //displayVotes(posRatings, negRatings);
         }
