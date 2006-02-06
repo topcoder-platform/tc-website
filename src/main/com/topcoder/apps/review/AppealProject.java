@@ -1,5 +1,5 @@
-/**
- * Copyright � 2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.review;
 
@@ -14,15 +14,24 @@ import javax.naming.InitialContext;
 import javax.transaction.UserTransaction;
 
 /**
+ * <strong>Purpose</strong>:
  * This Model provides business logic through which users appeal projects.
  *
- * @author FatClimber
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Changed constraint to permit appeals edition in appeals phase.
+ * Sends different emails notifications for creation and edition.
+ * </li>
+ * </ol>
+ *
+ * @author FatClimber, pulky
+ * @version 1.0.1
  */
 public class AppealProject implements Model {
 
     private static Logger log = Logger.getLogger(AppealProject.class);
-    
+
     /**
      * Allows an admin or a reviewer to retrieve the review scorecard and allows an admin or reviewer to
      * submit the review scorecard for a project.
@@ -126,6 +135,11 @@ public class AppealProject implements Model {
                     appeal.setResolved(true);
                 }
 
+                boolean newAppeal = false;
+                if (appeal.getId() == -1) {
+                    newAppeal = true;
+                }
+
                 Context initial = new InitialContext();
                 UserTransaction ut = (UserTransaction) initial.lookup("java:comp/UserTransaction");
                 try {
@@ -148,7 +162,11 @@ public class AppealProject implements Model {
                         documentManager.saveReviewScorecard(scorecard, user.getTCSubject());
                         MailHelper.appealResolved(project, appeal);
                     } else {
-                        MailHelper.appealCreated(project, appeal);
+                        if (newAppeal) {
+                            MailHelper.appealCreated(project, appeal);
+                        } else {
+                            MailHelper.appealEdited(project, appeal);
+                        }
                     }
                     if (ut != null) {
                         ut.commit();

@@ -1,8 +1,5 @@
 /*
- * DocumentManagerBean.java
- *
- * Copyright ?2003, TopCoder, Inc. All rights reserved
- *
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.review.document;
 
@@ -15,6 +12,7 @@ import com.topcoder.security.TCSubject;
 import com.topcoder.util.idgenerator.bean.IdGen;
 import com.topcoder.util.idgenerator.bean.IdGenHome;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.apps.review.ConfigHelper;
 
 import javax.ejb.CreateException;
 import javax.ejb.SessionBean;
@@ -30,10 +28,20 @@ import java.util.*;
 
 
 /**
+ * <strong>Purpose</strong>:
  * The DocumentManagerBean handles all the documents for the
  * Online Review project.
  *
- * @author FatClimber
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Changed constraints to save an appeal: now the submitter can save his appeals many times without restrictions
+ * until appeal phase ends. (this is ruled by a configuration that allows or deny the edition)
+ * </li>
+ * </ol>
+ *
+ * @author FatClimber, pulky
+ * @version 1.0.1
  */
 public class DocumentManagerBean implements SessionBean {
     private Logger log = null;
@@ -64,7 +72,8 @@ public class DocumentManagerBean implements SessionBean {
         log.debug("DM.getScreeningScorecard(), projectId: " + project.getId() + ", requestorId: " +
                 requestor.getUserId());
 
-        AbstractScorecard[] absScore = getScorecards(project, requestor, ScreeningScorecard.SCORECARD_TYPE, -1, -1, false);
+        AbstractScorecard[] absScore = getScorecards(project, requestor, ScreeningScorecard.SCORECARD_TYPE, -1, -1,
+            false);
 
         log.debug("DM.getScreeningScorecard(), nrScorecards: " + absScore.length);
         return (ScreeningScorecard[]) absScore;
@@ -88,7 +97,8 @@ public class DocumentManagerBean implements SessionBean {
         log.debug("DM.getScreeningScorecardFull(), projectId: " + project.getId() + ", requestorId: " +
                 requestor.getUserId());
 
-        AbstractScorecard[] absScore = getScorecards(project, requestor, ScreeningScorecard.SCORECARD_TYPE, -1, -1, true);
+        AbstractScorecard[] absScore = getScorecards(project, requestor, ScreeningScorecard.SCORECARD_TYPE, -1, -1,
+            true);
 
         log.debug("DM.getScreeningScorecard(), nrScorecards: " + absScore.length);
         return (ScreeningScorecard[]) absScore;
@@ -145,7 +155,8 @@ public class DocumentManagerBean implements SessionBean {
                 ", submitterId: " + submitterId +
                 ", requestorId: " + requestor.getUserId());
 
-        AbstractScorecard[] absScore = getScorecards(project, requestor, ReviewScorecard.SCORECARD_TYPE, submitterId, reviewerId, true);
+        AbstractScorecard[] absScore = getScorecards(project, requestor, ReviewScorecard.SCORECARD_TYPE, submitterId,
+            reviewerId, true);
         if (absScore.length != 1) {
             log.error("DM.getReviewScorecard(), can't find scorecard!");
             return null;
@@ -315,11 +326,13 @@ public class DocumentManagerBean implements SessionBean {
                 if (scorecardType == ScreeningScorecard.SCORECARD_TYPE) {
                     boolean passed = getPassedScreening(scorecardId);
                     scorecard = new ScreeningScorecard(scorecardId, isCompleted, isPMReviewed, scorecardQuestion,
-                            author, project, submission, score, requestor.getUserId(), scorecardVersionId, raw_score, pm_review_timestamp);
+                            author, project, submission, score, requestor.getUserId(), scorecardVersionId, raw_score,
+                                pm_review_timestamp);
                     ((ScreeningScorecard) scorecard).setPassed(passed);
                 } else {
                     scorecard = new ReviewScorecard(scorecardId, isCompleted, isPMReviewed, scorecardQuestion,
-                            author, project, submission, score, requestor.getUserId(), scorecardVersionId, raw_score, pm_review_timestamp);
+                            author, project, submission, score, requestor.getUserId(), scorecardVersionId, raw_score,
+                                pm_review_timestamp);
                 }
 
                 scorecardList.add(scorecard);
@@ -341,9 +354,11 @@ public class DocumentManagerBean implements SessionBean {
             List createdScorecardList;
             try {
                 if (submitterId > 0) {
-                    createdScorecardList = createScorecards(project, reviewerId, submitterId, scorecardList, retrieveQuestions);
+                    createdScorecardList = createScorecards(project, reviewerId, submitterId, scorecardList,
+                        retrieveQuestions);
                 } else {
-                    createdScorecardList = createScorecards(project, requestor.getUserId(), -1, scorecardList, retrieveQuestions);
+                    createdScorecardList = createScorecards(project, requestor.getUserId(), -1, scorecardList,
+                        retrieveQuestions);
                 }
             } catch (InvalidEditException e1) {
                 throw new RuntimeException(e1);
@@ -762,14 +777,15 @@ public class DocumentManagerBean implements SessionBean {
                     // the get-method.
                     if (scorecardVID != -1) {
                         if (scorecardVID != scorecard.getVersionId()) {
-                            String errorMsg = "DM.saveScorecard(), Concurrent error, scorecardId: " + scorecard.getId() +
-                                    ", scorecardVersionId: " + scorecard.getVersionId();
+                            String errorMsg = "DM.saveScorecard(), Concurrent error, scorecardId: " +
+                                scorecard.getId() + ", scorecardVersionId: " + scorecard.getVersionId();
                             log.error(errorMsg);
                             ejbContext.setRollbackOnly();
                             throw new ConcurrentModificationException(errorMsg);
                         }
                     } else {
-                        String errorMsg = "DM.saveScorecard(): Trying to save non-existing scorecard, scorecardId: " + scorecard.getId();
+                        String errorMsg = "DM.saveScorecard(): Trying to save non-existing scorecard, scorecardId: " +
+                            scorecard.getId();
                         log.error(errorMsg);
                         ejbContext.setRollbackOnly();
                         throw new InvalidEditException(errorMsg);
@@ -784,7 +800,8 @@ public class DocumentManagerBean implements SessionBean {
                     int nr = ps.executeUpdate();
 
                     if (nr == 0) {
-                        log.error("DM.saveScorecard(): Trying to save non-existing scorecard, scorecardId: " + scorecard.getId());
+                        log.error("DM.saveScorecard(): Trying to save non-existing scorecard, scorecardId: " +
+                            scorecard.getId());
                         ejbContext.setRollbackOnly();
                         throw new InvalidEditException("Trying to save non-existing scorecard!");
                     }
@@ -813,8 +830,9 @@ public class DocumentManagerBean implements SessionBean {
                         ps.setLong(3, scorecard.submission.getId());
                         rs = ps.executeQuery();
                         if (rs.next()) {
-                            String errorMsg = "DM.saveScorecard(), Concurrent error(saving new scorecard), scorecardId: " + scorecard.getId() +
-                                    ", scorecardVersionId: " + scorecard.getVersionId();
+                            String errorMsg =
+                                "DM.saveScorecard(), Concurrent error(saving new scorecard), scorecardId: " +
+                                    scorecard.getId() + ", scorecardVersionId: " + scorecard.getVersionId();
                             log.error(errorMsg);
                             ejbContext.setRollbackOnly();
                             throw new ConcurrentModificationException(errorMsg);
@@ -822,7 +840,8 @@ public class DocumentManagerBean implements SessionBean {
                         scorecard.setId(idGen.nextId());
                     } catch (RemoteException e1) {
                         log.error("DM.saveScorecard(), RemoteException trying to use id-generator:\n" + e1.toString());
-                        throw new RuntimeException("DM.saveScorecard(), RemoteException trying to use id-generator:\n" + e1.toString());
+                        throw new RuntimeException("DM.saveScorecard(), RemoteException trying to use id-generator:\n"
+                            + e1.toString());
                     } finally {
                         //close the PreparedStatement so it can be reused later - bblais
                         Common.close(rs);
@@ -1094,7 +1113,8 @@ public class DocumentManagerBean implements SessionBean {
                                 throw new ConcurrentModificationException(errorMsg);
                             }
                         } else {
-                            String errorMsg = "DM.saveSubjectiveResponses(): Trying to save non-existing SubjectiveResponse, " +
+                            String errorMsg =
+                                "DM.saveSubjectiveResponses(): Trying to save non-existing SubjectiveResponse, " +
                                     "subjectiveResponseId: " + (subjResp[j]).getId();
                             log.error(errorMsg);
                             ejbContext.setRollbackOnly();
@@ -1117,7 +1137,8 @@ public class DocumentManagerBean implements SessionBean {
                         int nr = ps.executeUpdate();
 
                         if (nr == 0) {
-                            String errorMsg = "DM.saveSubjectiveResponses(): Trying to save non-existing SubjectiveResponse, " +
+                            String errorMsg =
+                                "DM.saveSubjectiveResponses(): Trying to save non-existing SubjectiveResponse, " +
                                     "subjectiveResponseId: " + (subjResp[j]).getId();
                             log.error(errorMsg);
                             ejbContext.setRollbackOnly();
@@ -1239,7 +1260,8 @@ public class DocumentManagerBean implements SessionBean {
         log.debug("DM.getInitialSubmission(), projectId: " + project.getId() + ", requestorId: " +
                 requestor.getUserId());
 
-        AbstractSubmission[] submissions = getSubmissions(project, requestor, InitialSubmission.SUBMISSION_TYPE, -1, -1, retrieveRemoved, true);
+        AbstractSubmission[] submissions = getSubmissions(project, requestor, InitialSubmission.SUBMISSION_TYPE, -1,
+            -1, retrieveRemoved, true);
 
         if (submissions == null || submissions.length == 0) {
             // No initial submission has been submitted for this project
@@ -1267,7 +1289,8 @@ public class DocumentManagerBean implements SessionBean {
      * @return InitialSubmission
      */
     public InitialSubmission getInitialSubmission(Project project, long subId, TCSubject requestor) {
-        AbstractSubmission sub[] = getSubmissions(project, requestor, InitialSubmission.SUBMISSION_TYPE, subId, -1, false, true);
+        AbstractSubmission sub[] = getSubmissions(project, requestor, InitialSubmission.SUBMISSION_TYPE, subId, -1,
+            false, true);
         if (sub.length == 1) {
             return (InitialSubmission) sub[0];
         } else
@@ -1284,7 +1307,8 @@ public class DocumentManagerBean implements SessionBean {
      * @return AbstractSubmission
      */
     public AbstractSubmission getSubmissionByVersion(Project project, long versionId, TCSubject requestor) {
-        AbstractSubmission sub[] = getSubmissions(project, requestor, InitialSubmission.SUBMISSION_TYPE, -1, versionId, false, true);
+        AbstractSubmission sub[] = getSubmissions(project, requestor, InitialSubmission.SUBMISSION_TYPE, -1,
+            versionId, false, true);
         if (sub.length == 1) {
             return sub[0];
         } else {
@@ -1305,7 +1329,8 @@ public class DocumentManagerBean implements SessionBean {
                 requestor.getUserId());
         FinalFixSubmission ffSubmission = null;
 
-        AbstractSubmission[] submissions = getSubmissions(project, requestor, FinalFixSubmission.SUBMISSION_TYPE, -1, -1, false, false);
+        AbstractSubmission[] submissions = getSubmissions(project, requestor, FinalFixSubmission.SUBMISSION_TYPE,
+            -1, -1, false, false);
         if (submissions == null || submissions.length == 0) {
             // No final fix submission has been submitted for this project
             if (project.getCurrentPhase().getId() == Phase.ID_FINAL_FIXES) {
@@ -1368,7 +1393,8 @@ public class DocumentManagerBean implements SessionBean {
      * @throws RuntimeException DOCUMENT ME!
      */
     private AbstractSubmission[] getSubmissions(Project project, TCSubject requestor, int submissionType,
-                                                long givenSubmissionId, long givenVersionId, boolean retrieveRemoved, boolean fixScoring) {
+                                                long givenSubmissionId, long givenVersionId, boolean retrieveRemoved,
+                                                    boolean fixScoring) {
 
         List submissionList = new LinkedList();
 
@@ -1453,7 +1479,8 @@ public class DocumentManagerBean implements SessionBean {
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
             } else {
                 if (isAdmin || allSubs) {
-                    log.debug("DM.getSubmissions(): all submission for project: " + project.getId() + ", submissionType: " + submissionType);
+                    log.debug("DM.getSubmissions(): all submission for project: " + project.getId() +
+                        ", submissionType: " + submissionType);
                     if (retrieveRemoved) {
                         ps = conn.prepareStatement(SQLAdminRemoved);
                     } else {
@@ -1514,7 +1541,8 @@ public class DocumentManagerBean implements SessionBean {
                 if (submissionType == InitialSubmission.SUBMISSION_TYPE) {
                     PhaseManager phaseManager = (PhaseManager) Common.getFromCache("PhaseManager");
                     if (fixScoring == true && placement == 0 &&
-                            project.getCurrentPhase().getOrder() >= phaseManager.getPhase(Phase.ID_AGGREGATION).getOrder()) {
+                            project.getCurrentPhase().getOrder() >=
+                                phaseManager.getPhase(Phase.ID_AGGREGATION).getOrder()) {
                         // get Product Manager as a "fake" TCSubject
                         // without permissions(for use as requestor to getSubmissions() and getReviewScorecard())
                         UserRole[] userRoleArr = project.getParticipants();
@@ -1532,7 +1560,8 @@ public class DocumentManagerBean implements SessionBean {
                         }
 
                         //InitialSubmission[] submissions = getInitialSubmissions(project, false, fakeSubject);
-                        InitialSubmission[] submissions = (InitialSubmission[]) getSubmissions(project, fakeSubject, InitialSubmission.SUBMISSION_TYPE, -1, -1, false, false);
+                        InitialSubmission[] submissions = (InitialSubmission[]) getSubmissions(project, fakeSubject,
+                            InitialSubmission.SUBMISSION_TYPE, -1, -1, false, false);
                         final ReviewScorecard[] scorecards = getReviewScorecard(project, fakeSubject);
                         //Item[] items = new Item[submissions.length];
                         for (int i = 0; i < submissions.length; i++) {
@@ -1541,7 +1570,8 @@ public class DocumentManagerBean implements SessionBean {
                                 double sum = 0.0;
                                 int count = 0;
                                 for (int j = 0; j < scorecards.length; j++) {
-                                    if (scorecards[j].getSubmission().equals(submissions[i]) && scorecards[j].isCompleted()) {
+                                    if (scorecards[j].getSubmission().equals(submissions[i]) &&
+                                        scorecards[j].isCompleted()) {
                                         count++;
                                         sum += scorecards[j].getScore();
                                     }
@@ -1566,9 +1596,12 @@ public class DocumentManagerBean implements SessionBean {
                                             double scr = scorecards[y].getScore();
                                             boolean good = true;
                                             for (int z = 0; z < scorecards.length; z++) {
-                                                if ((!scorecards[z].getSubmission().equals(obj1)) && scorecards[z].isCompleted()
-                                                        && scorecards[z].getAuthor().getId() == scorecards[y].getAuthor().getId() && (scr - scorecards[z].getScore()) < EPS
-                                                        && scorecards[z].getSubmission().getSubmitter().getId() == ((InitialSubmission) obj2).getSubmitter().getId()) {
+                                                if ((!scorecards[z].getSubmission().equals(obj1)) &&
+                                                    scorecards[z].isCompleted() && scorecards[z].getAuthor().getId() ==
+                                                        scorecards[y].getAuthor().getId() &&
+                                                            (scr - scorecards[z].getScore()) < EPS &&
+                                                                scorecards[z].getSubmission().getSubmitter().getId() ==
+                                                                    ((InitialSubmission) obj2).getSubmitter().getId()) {
                                                     good = false;
                                                 }
                                             }
@@ -4520,16 +4553,27 @@ public class DocumentManagerBean implements SessionBean {
                 Common.close(null, ps, rs);
             }
 
+            // configured functionality to permit edition during appelas phase.
+            boolean permitEditDuringAppeals;
+            try {
+                permitEditDuringAppeals = ConfigHelper.getAllowAppealEditing();
+            } catch (Exception e) {
+                log.info("Couldn't retrieve configuration for permission to edit appeals, using default: "
+                    + (ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT ? "true" : "false") + " reason: " + e.getMessage());
+                permitEditDuringAppeals = ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT;
+            }
+
             // If appeal is resolved and the user isn't admin/pm,
             // then don't allow save!
             // If appeal exists and the user isn't the reviewer
-            // then don't allow save!
+            // allow save only if the project is in Appeals phase and the app
+            // is configured to accept edition during this phase!
             // If appeal doesn't exist and the user isn't the appealer
             // then don't allow save!
             if ((appealIsResolved &&
                     !(Common.isAdmin(requestor) ||
-                    Common.isRole(project, requestor.getUserId(), Role.ID_PRODUCT_MANAGER))) ||
-                    (appeal.getId() != -1 &&
+                    Common.isRole(project, requestor.getUserId(), Role.ID_PRODUCT_MANAGER))) || (appeal.getId() != -1
+                    && (!(project.getCurrentPhase().getId() == Phase.ID_APPEALS) || !permitEditDuringAppeals) &&
                     !(Common.isRole(project, requestor.getUserId(), Role.ID_REVIEWER) &&
                     appeal.getReviewer().getId() == requestor.getUserId())) ||
                     (appeal.getId() == -1 &&

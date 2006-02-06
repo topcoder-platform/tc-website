@@ -1,6 +1,7 @@
-/**
- * Copyright � 2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
+
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.DocumentManagerLocal;
@@ -14,13 +15,21 @@ import com.topcoder.shared.util.logging.Logger;
 /**
  * This Model provides business logic through which users view review projects.
  *
- * @author adic
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Since review PM review was taken out of the process, code was added to save
+ * default data to raw_score, isReviewed and reviewTimestamp. (for compatibility issues)
+ * </li>
+ * </ol>
+ *
+ * @author adic, pulky
+ * @version 1.0.1
  */
 public class ReviewProject implements Model {
 
     private static Logger log = Logger.getLogger(ReviewProject.class);
-    
+
     /**
      * Allows an admin or a reviewer to retrieve the review scorecard and allows an admin or reviewer to
      * submit the review scorecard for a project.
@@ -93,7 +102,13 @@ public class ReviewProject implements Model {
                 ReviewScorecard scorecard = reviewData.getReviewScorecard();
                 if (scorecard.isCompleted() && scorecard.getQuestions() != null) {
                     try {
-                        scorecard.setScore(new ScoringHelper().calculateScore(scorecard).getWeightedScore());
+                        double score = new ScoringHelper().calculateScore(scorecard).getWeightedScore();
+                        if (!scorecard.isPMReviewed()) {
+                            scorecard.setRawScore(score);
+                            scorecard.setPMReviewed(true);
+                            scorecard.setPMReviewTimestamp(new java.sql.Timestamp(System.currentTimeMillis()));
+                        }
+                        scorecard.setScore(score);
                     } catch (ArithmeticException e) {
                         return new FailureResult("Error while calculating the score: ", e);
                     }

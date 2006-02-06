@@ -1,6 +1,7 @@
-/**
- * Copyright � 2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
+
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.Appeal;
@@ -15,6 +16,9 @@ import com.topcoder.file.render.xsl.XSLTransformerWrapperException;
 import com.topcoder.message.email.EmailEngine;
 import com.topcoder.message.email.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.apps.review.document.DocumentManagerLocal;
+import com.topcoder.apps.review.document.AggregationReview;
+import com.topcoder.apps.review.document.AggregationApproval;
 
 import java.io.*;
 import java.util.Calendar;
@@ -24,8 +28,18 @@ import java.util.GregorianCalendar;
 /**
  * Helper class for sending mails using the Email Engine component.
  *
- * @author adic
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * <code>rejectedAggregationReviewMail()</code> added to send a summary email when an aggregation review is rejected.
+ * </li>
+ * <li>
+ * <code>appealEdited()</code> added to send diferent notifications for new created appeals and edited appeals.
+ * </li>
+ * </ol>
+ *
+ * @author adic, pulky
+ * @version 1.0.1
  */
 class MailHelper {
 
@@ -55,7 +69,7 @@ class MailHelper {
     static final int PLACE_SCREENING_FAIL = -1;
 
     static private Logger log = Logger.getLogger(MailHelper.class);
-    
+
     /**
      * Constructor (inhibits outside instantiation).
      */
@@ -159,7 +173,8 @@ class MailHelper {
 
         if (filenameXSL == null) {
             StringBuffer s = new StringBuffer();
-            s.append("\nThe " + ConfigHelper.FINAL_REVIEW_FAIL_XSL + " property doesn't seem to exist in " + ConfigHelper.CONFIG_FILE + '\n');
+            s.append("\nThe " + ConfigHelper.FINAL_REVIEW_FAIL_XSL + " property doesn't seem to exist in " +
+                ConfigHelper.CONFIG_FILE + '\n');
             s.append("The contents of the config file is: \n\n>>> ");
 
             InputStream is = MailHelper.class.getClassLoader().getResourceAsStream(ConfigHelper.CONFIG_FILE);
@@ -202,7 +217,8 @@ class MailHelper {
      */
     static void projectChangeMail(SecurityEnabledUser from, User to, Project proj, String reason) throws Exception {
         // get number of submissions
-        InitialSubmission[] subms = EJBHelper.getDocumentManager().getInitialSubmissions(proj, false, from.getTCSubject());
+        InitialSubmission[] subms = EJBHelper.getDocumentManager().getInitialSubmissions(proj, false,
+            from.getTCSubject());
         int count = 0;
         for (int i = 0; i < subms.length; i++) {
             if (!subms[i].isRemoved()) {
@@ -218,6 +234,41 @@ class MailHelper {
         generateProjectDetail(xmlDocument, proj);
         String bodyText = formatBody(xmlDocument, ConfigHelper.getProjectChangeXSL());
         sendMail(from, to, proj.getName() + " project change", bodyText);
+    }
+
+    /**
+     * Send summary mail to a user if an aggregation review is rejected.
+     *
+     * @param from the sender (an admin)
+     * @param to the user to send the mail to
+     * @param project the project in reference
+     *
+     * @throws Exception propagate any exceptions
+     * @since 1.0.1
+     */
+    static void rejectedAggregationReviewMail(SecurityEnabledUser from, User to, Project project) throws Exception {
+        XMLDocument xmlDocument = new XMLDocument("MAILDATA");
+        xmlDocument.addTag(new ValueTag("USER_NAME", to.getHandle()));
+        xmlDocument.addTag(new ValueTag("PROJECT_NAME", project.getName()));
+
+        //get all review worksheets
+        DocumentManagerLocal docManager = EJBHelper.getDocumentManager();
+        AggregationReview[] aggReviews = docManager.getAggregationReview(project, from.getTCSubject());
+        for (int i = 0; i < aggReviews.length; i++) {
+            int accepted = 1;
+            if (aggReviews[i].getStatus().getId() == AggregationApproval.ID_REJECTED) {
+                accepted = 0;
+            } else {
+            }
+            RecordTag comp = new RecordTag("REVIEWER");
+            comp.addTag(new ValueTag("REVIEWER_HANDLE", aggReviews[i].getReviewer().getHandle()));
+            comp.addTag(new ValueTag("REVIEWER_AGG_ACCEPTED", accepted));
+            comp.addTag(new ValueTag("REVIEWER_AGG_COMMENT", aggReviews[i].getText()));
+            xmlDocument.addTag(comp);
+        }
+
+        String bodyText = formatBody(xmlDocument, ConfigHelper.getRejectedAggregationReviewXSL());
+        sendMail(from, to, project.getName() + " Aggregation Review results", bodyText);
     }
 
     /**
@@ -269,6 +320,29 @@ class MailHelper {
                 question.getSequenceLocation()));
         String bodyText = formatBody(xmlDocument, ConfigHelper.getAppealCreatedXSL());
         sendMail(project.getProjectManager(), appeal.getReviewer(), "Appeal created", bodyText);
+    }
+
+    /**
+     * Send mail to a reviewer to inform him that an appeal has been edited.
+     *
+     * @param project the project.
+     * @param appeal the appeal.
+     *
+     * @throws Exception propagate any exceptions
+     * @since 1.0.1
+     */
+    static void appealEdited(Project project, Appeal appeal) throws Exception {
+        XMLDocument xmlDocument = new XMLDocument("MAILDATA");
+        ScorecardQuestion question = appeal.getQuestion();
+        xmlDocument.addTag(new ValueTag("PROJECT_NAME", project.getName()));
+        xmlDocument.addTag(new ValueTag("QUESTION_TEXT", question.getQuestionText()));
+        xmlDocument.addTag(new ValueTag("APPEAL_TEXT", appeal.getAppealText()));
+        xmlDocument.addTag(new ValueTag("QUESTION_NUMBER",
+                question.getScorecardSection().getSectionGroup().getSequenceLocation() + "." +
+                question.getScorecardSection().getSequenceLocation() + "." +
+                question.getSequenceLocation()));
+        String bodyText = formatBody(xmlDocument, ConfigHelper.getAppealEditedXSL());
+        sendMail(project.getProjectManager(), appeal.getReviewer(), "Appeal edited", bodyText);
     }
 
     /**
@@ -378,7 +452,8 @@ class MailHelper {
         int primaryExtraPayment = 0;
         for (int i = 0; i < roles.length; i++) {
             long roleId = roles[i].getRole().getId();
-            if (roleId == Role.ID_PRIMARY_SCREENER || roleId == Role.ID_AGGREGATOR || roleId == Role.ID_FINAL_REVIEWER) {
+            if (roleId == Role.ID_PRIMARY_SCREENER || roleId == Role.ID_AGGREGATOR ||
+                roleId == Role.ID_FINAL_REVIEWER) {
                 primaryExtraPayment += (int) roles[i].getPaymentInfo().getPayment();
             }
         }

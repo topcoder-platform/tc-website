@@ -1,5 +1,5 @@
-/**
- * Copyright ?2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.apps.review;
@@ -18,8 +18,18 @@ import javax.servlet.http.HttpServletResponse;
  * Extends from <strong>ReviewAction</strong> that saves the review scorecard.
  * </p>
  *
- * @author TCSDEVELOPER
- * @version 1.0
+ * <p>
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * The call to <code>AutoPilot.reviewEmail()</code> was commented and instead <code>AutoPilot.reviewFromScorecard()
+ * </code> was added. It will handle the new automated phase change and timeline update.
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER, pulky
+ * @version 1.0.1
  */
 public final class SaveReviewScorecardAction extends ReviewAction {
 
@@ -79,7 +89,8 @@ public final class SaveReviewScorecardAction extends ReviewAction {
             data = rsForm.toReviewData(orpd);
             result = new BusinessDelegate().reviewScorecard(data);
 
-            AutoPilot.reviewEmail(data);
+            //AutoPilot.reviewEmail(data);
+            AutoPilot.reviewFromScorecard(data);
 
             if (result instanceof SuccessResult) {
                 request.getSession().removeAttribute(mapping.getAttribute());

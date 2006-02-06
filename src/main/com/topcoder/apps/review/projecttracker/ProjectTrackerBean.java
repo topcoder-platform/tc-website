@@ -390,7 +390,7 @@ public class ProjectTrackerBean implements SessionBean {
                                 "WHERE p.cur_version = 1 AND  " +
                                 "pi.cur_version = 1 AND  " +
                                 "rur.cur_version = 1 AND  " +
-                                "vp.phase_instance_id = pi.phase_instance_id AND " +
+                                "p.phase_instance_id = pi.phase_instance_id AND " +
                                 "rur.login_id = ? AND  " +
                                 "p.project_id = rur.project_id AND  " +
                                 "p.comp_vers_id = cv.comp_vers_id AND  " +

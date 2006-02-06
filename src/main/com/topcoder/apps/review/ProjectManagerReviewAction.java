@@ -1,5 +1,5 @@
-/**
- * Copyright ?2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.apps.review;
@@ -20,13 +20,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * <p>
+ * <strong>Purpose</strong>:
  * Extends from <strong>ReviewAction</strong> that let the admin review the
  * submission.
- * </p>
  *
- * @author TCSDEVELOPER
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Added configurable max number of scores for marking screening as passed. (was hardcoded with 5)
+ * </li>
+ * </ol>
+ *
+ * @author TCSDEVELOPER, pulky
+ * @version 1.0.1
  */
 public final class ProjectManagerReviewAction extends ReviewAction {
 
@@ -92,7 +98,7 @@ public final class ProjectManagerReviewAction extends ReviewAction {
                 //set advanced flag if screening
                 if (((SubmissionForm) form).getIsScreening()) {
                     //build scores array
-                    //get top 5 scores first
+                    //get top "maxNumberPassingScores" scores first
                     ArrayList scores = new ArrayList();
 
                     AbstractScorecard[] scorecards = pr.getScorecards();
@@ -104,13 +110,21 @@ public final class ProjectManagerReviewAction extends ReviewAction {
                         minscore = 75;
                     }
 
+                    int maxNumberPassingScores;
+                    try {
+                        maxNumberPassingScores = ConfigHelper.getMaxNumberPassingScores();
+                    } catch (Exception e) {
+                        maxNumberPassingScores = ConfigHelper.MAX_NUMBER_PASSING_SCORES_DEFAULT;
+                    }
 
                     for (int i = 0; i < pr.getSubmissions().length; i++) {
                         if (!pr.getSubmissions()[i].isRemoved()) {
                             for (int j = 0; j < scorecards.length; j++) {
-                                if (scorecards[j].getSubmission().equals(pr.getSubmissions()[i]) && scorecards[j].isCompleted()) {
+                                if (scorecards[j].getSubmission().equals(pr.getSubmissions()[i]) &&
+                                    scorecards[j].isCompleted()) {
                                     if (scorecards[j] instanceof ScreeningScorecard) {
-                                        if (((ScreeningScorecard) scorecards[j]).getPassed() && scorecards[j].getScore() >= minscore) {
+                                        if (((ScreeningScorecard) scorecards[j]).getPassed() &&
+                                            scorecards[j].getScore() >= minscore) {
                                             scores.add(new Double(scorecards[j].getScore()));
                                         }
                                     }
@@ -122,9 +136,10 @@ public final class ProjectManagerReviewAction extends ReviewAction {
                     //sort list
                     Collections.sort(scores);
                     Collections.reverse(scores);
-                    //remove all but top five scores.  No need to check ties, this will gaurentee they advance
-                    while (scores.size() > 5) {
-                        scores.remove(5);
+                    //remove all but top "maxNumberPassingScores" scores.  No need to check ties,
+                    //this will gaurentee they advance
+                    while (scores.size() > maxNumberPassingScores) {
+                        scores.remove(maxNumberPassingScores);
                     }
 
                     for (int i = 0; i < ((SubmissionForm) form).getScorecards().length; i++) {
@@ -137,7 +152,8 @@ public final class ProjectManagerReviewAction extends ReviewAction {
                                     ((SubmissionForm) form).setAdvanced(false);
                                 }
                             } else {
-                                ((SubmissionForm) form).setAdvanced(((InitialSubmission) scorecard.getSubmission()).isAdvancedToReview());
+                                ((SubmissionForm) form).setAdvanced(
+                                    ((InitialSubmission) scorecard.getSubmission()).isAdvancedToReview());
                             }
 
                         }

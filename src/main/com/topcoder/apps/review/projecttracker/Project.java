@@ -1,9 +1,7 @@
 /*
- * Project.java
- *
- * Copyright ? 2003, TopCoder, Inc. All rights reserved
- *
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
+
 package com.topcoder.apps.review.projecttracker;
 
 import com.topcoder.apps.review.persistence.Common;
@@ -16,8 +14,17 @@ import java.net.URL;
  * The Project represents and provides access, as necessary, to the data
  * representing a project tracked by the system.
  *
- * @author FatClimber
- * @version 1.0
+ * <p>
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * <code>getCurrentPhaseInstance()</code> was added to retrieve the Current phase instance.
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author FatClimber, pulky
+ * @version 1.0.1
  */
 public class Project implements Serializable {
     private long id;
@@ -64,11 +71,10 @@ public class Project implements Serializable {
      * @param versionId DOCUMENT ME!
      */
     public Project(long id, long componentId, long forumId, long compVersId, String name, String version,
-                   User projectManager, User winner,
-                   PhaseInstance[] timeline, PhaseInstance currentPhase, UserRole[] userRole, String notes, String overView,
-                   ProjectType projectType, ProjectStatus projectStatus, boolean notificationSent,
-                   long screeningTemplateId, long reviewTemplateId,
-                   long requestorId, long versionId, long levelId, boolean autopilot) {
+        User projectManager, User winner, PhaseInstance[] timeline, PhaseInstance currentPhase, UserRole[] userRole,
+            String notes, String overView, ProjectType projectType, ProjectStatus projectStatus,
+                boolean notificationSent, long screeningTemplateId, long reviewTemplateId, long requestorId,
+                    long versionId, long levelId, boolean autopilot) {
         this.id = id;
         this.componentId = componentId;
         this.forumId = forumId;
@@ -234,6 +240,18 @@ public class Project implements Serializable {
      */
     public Phase getCurrentPhase() {
         return currentPhase.getPhase();
+    }
+
+    /**
+     * <p>
+     * Return the current phase of this project.
+     * </p>
+     *
+     * @return the current phase of this project.
+     * @since 1.0.1
+     */
+    public PhaseInstance getCurrentPhaseInstance() {
+        return currentPhase;
     }
 
     /**

@@ -1,6 +1,7 @@
-/**
- * Copyright � 2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
+
 package com.topcoder.apps.review;
 
 import com.topcoder.util.config.ConfigManager;
@@ -16,10 +17,27 @@ import java.util.Enumeration;
 import java.util.List;
 
 /**
+ * <strong>Purpose</strong>:
  * Helper class that handles the communication with the Configuration Manager.
  *
- * @author adic
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Rejected aggregation review mail configuration was added.
+ * </li>
+ * <li>
+ * Max number of passing scores for screening configuration was added.
+ * </li>
+ * <li>
+ * Edited appeal mail configuration was added.
+ * </li>
+ * <li>
+ * Flag to allow or deny appeals edition during appeals phase configuration was added.
+ * </li>
+ * </ol>
+ *
+ * @author adic, pulky
+ * @version 1.0.1
  */
 public class ConfigHelper implements ConfigManagerInterface {
 
@@ -69,6 +87,12 @@ public class ConfigHelper implements ConfigManagerInterface {
     private static final String PROJECT_CHANGE_XSL = "project_change_xsl";
 
     /**
+     * Rejected aggregation review mail xsl file property name.
+     * @since 1.0.1
+     */
+    private static final String REJECTED_AGGREGATION_REVIEW_XSL = "rejected_aggregation_review_xsl";
+
+    /**
      * Weekly notifications mail xsl file property name.
      */
     private static final String WEEKLY_NOTIFICATION_XSL = "weekly_notification_xsl";
@@ -77,6 +101,30 @@ public class ConfigHelper implements ConfigManagerInterface {
      * The minimum score required for a winning submission.
      */
     private static final String MINIMUM_SCORE = "minimum_score";
+
+    /**
+     * The maximum number of passing scores.
+     * @since 1.0.1
+     */
+    private static final String MAX_NUMBER_PASSING_SCORES = "max_number_passing_scores";
+
+    /**
+     * The default maximum number of passing scores.
+     * @since 1.0.1
+     */
+    public static final int MAX_NUMBER_PASSING_SCORES_DEFAULT = 1000;
+
+    /**
+     * The flag to allow or deny appeal editing during appeals phase.
+     * @since 1.0.1
+     */
+    private static final String ALLOW_APPEAL_EDITING = "allow_appeal_editing";
+
+    /**
+     * The default value to allow or deny appeal editing during appeals phase.
+     * @since 1.0.1
+     */
+    public static final boolean ALLOW_APPEAL_EDITING_DEFAULT = false;
 
     /**
      * The path where the mail templates are stored.
@@ -92,6 +140,13 @@ public class ConfigHelper implements ConfigManagerInterface {
      * Appeal creation mail xsl file property name.
      */
     private static final String APPEAL_CREATED_XSL = "appeal_created_xsl";
+
+    /**
+     * Appeal edited mail xsl file property name.
+     * @since 1.0.1
+     */
+    private static final String APPEAL_EDITED_XSL = "appeal_edited_xsl";
+
     /**
      * Appeal resolved mail xsl file property name.
      */
@@ -112,7 +167,7 @@ public class ConfigHelper implements ConfigManagerInterface {
      * The list of properties.
      */
     private static List props;
-    
+
     private static Logger log = Logger.getLogger(ConfigHelper.class);
 
     /**
@@ -230,6 +285,18 @@ public class ConfigHelper implements ConfigManagerInterface {
     }
 
     /**
+     * Get the xsl mail template file for rejected aggregation review.
+     *
+     * @return the name of the xsl file
+     *
+     * @throws Exception propagate any exceptions
+     * @since 1.0.1
+     */
+    static String getRejectedAggregationReviewXSL() throws Exception {
+        return ConfigManager.getInstance().getString(NAMESPACE, REJECTED_AGGREGATION_REVIEW_XSL);
+    }
+
+    /**
      * Get the xsl mail template file for weekly notifications.
      *
      * @return the name of the xsl file
@@ -249,6 +316,30 @@ public class ConfigHelper implements ConfigManagerInterface {
      */
     public static double getMinimumScore() throws Exception {
         return Double.parseDouble(ConfigManager.getInstance().getString(NAMESPACE, MINIMUM_SCORE));
+    }
+
+    /**
+     * Get the maximum number of passing scores.
+     *
+     * @return the maximum number of passing scores.
+     *
+     * @throws Exception propagate any exceptions
+     * @since 1.0.1
+     */
+    static int getMaxNumberPassingScores() throws Exception {
+        return Integer.parseInt(ConfigManager.getInstance().getString(NAMESPACE, MAX_NUMBER_PASSING_SCORES));
+    }
+
+    /**
+     * Get the flag to allow or deny appeal editing during appeals phase.
+     *
+     * @return true if appeal editing is allowed during appeals phase.
+     *
+     * @throws Exception propagate any exceptions
+     * @since 1.0.1
+     */
+    public static boolean getAllowAppealEditing() throws Exception {
+        return Boolean.parseBoolean(ConfigManager.getInstance().getString(NAMESPACE, ALLOW_APPEAL_EDITING));
     }
 
     public static String getXSL(String xsl) throws Exception {
@@ -294,6 +385,16 @@ public class ConfigHelper implements ConfigManagerInterface {
      */
     public static String getAppealCreatedXSL() throws UnknownNamespaceException {
         return ConfigManager.getInstance().getString(NAMESPACE, APPEAL_CREATED_XSL);
+    }
+
+    /**
+     * Get the xsl mail template file for appeal edition.
+     *
+     * @return the name of the xsl file
+     * @since 1.0.1
+     */
+    public static String getAppealEditedXSL() throws UnknownNamespaceException {
+        return ConfigManager.getInstance().getString(NAMESPACE, APPEAL_EDITED_XSL);
     }
 
     /**
