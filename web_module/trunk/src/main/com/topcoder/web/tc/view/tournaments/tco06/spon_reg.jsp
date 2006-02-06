@@ -28,7 +28,7 @@
 Registration is not currently open, the registration period is from February 13, 2006 9:00 AM EST to February 28, 2006 9:00 AM EST.
 --%>
 <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCO05SponsorTermsAgree"/>
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCO06SponsorTermsAgree"/>
     <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.COMPANY_NAME%>"><%=err%><br /></tc-webtag:errorIterator><br /></span>
     <b>Company name:</b>&#160;&#160;
     <br />
