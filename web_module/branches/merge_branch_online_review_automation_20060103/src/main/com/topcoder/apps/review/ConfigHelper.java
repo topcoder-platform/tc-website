@@ -115,16 +115,16 @@ public class ConfigHelper implements ConfigManagerInterface {
     public static final int MAX_NUMBER_PASSING_SCORES_DEFAULT = 1000;
 
     /**
-     * The flag to allow or deny appeals editing during appeals phase.
+     * The flag to allow or deny appeal editing during appeals phase.
      * @since 1.0.1
      */
-    private static final String ALLOW_APPEALS_EDITION = "allow_appeals_editing";
+    private static final String ALLOW_APPEAL_EDITING = "allow_appeal_editing";
 
     /**
-     * The default value to allow or deny appeals edition during appeals phase.
+     * The default value to allow or deny appeal editing during appeals phase.
      * @since 1.0.1
      */
-    public static final boolean ALLOW_APPEALS_EDITION_DEFAULT = false;
+    public static final boolean ALLOW_APPEAL_EDITING_DEFAULT = false;
 
     /**
      * The path where the mail templates are stored.
@@ -331,15 +331,15 @@ public class ConfigHelper implements ConfigManagerInterface {
     }
 
     /**
-     * Get the flag to allow or deny appeals edition during appeals phase.
+     * Get the flag to allow or deny appeal editing during appeals phase.
      *
-     * @return true if appeals edition is allowed during appeals phase.
+     * @return true if appeal editing is allowed during appeals phase.
      *
      * @throws Exception propagate any exceptions
      * @since 1.0.1
      */
-    public static boolean getAllowAppealsEdition() throws Exception {
-        return Boolean.parseBoolean(ConfigManager.getInstance().getString(NAMESPACE, ALLOW_APPEALS_EDITION));
+    public static boolean getAllowAppealEditing() throws Exception {
+        return Boolean.parseBoolean(ConfigManager.getInstance().getString(NAMESPACE, ALLOW_APPEAL_EDITING));
     }
 
     public static String getXSL(String xsl) throws Exception {

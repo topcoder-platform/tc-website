@@ -105,11 +105,11 @@ public final class AppealAction extends ReviewAction {
             // configured functionality to permit edition during appeals phase.
             boolean permitEditDuringAppeals;
             try {
-                permitEditDuringAppeals = ConfigHelper.getAllowAppealsEdition();
+                permitEditDuringAppeals = ConfigHelper.getAllowAppealEditing();
             } catch (Exception e) {
                 log(Level.INFO, "Couldn't retrieve configuration for permission to edit appeals, using default: "
-                    + (ConfigHelper.ALLOW_APPEALS_EDITION_DEFAULT ? "true" : "false") + " reason: " + e.getMessage());
-                permitEditDuringAppeals = ConfigHelper.ALLOW_APPEALS_EDITION_DEFAULT;
+                    + (ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT ? "true" : "false") + " reason: " + e.getMessage());
+                permitEditDuringAppeals = ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT;
             }
 
             long phaseId = orpd.getProject().getCurrentPhaseInstance().getPhase().getId();

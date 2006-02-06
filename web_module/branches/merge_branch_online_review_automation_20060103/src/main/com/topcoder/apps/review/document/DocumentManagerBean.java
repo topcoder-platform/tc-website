@@ -4556,11 +4556,11 @@ public class DocumentManagerBean implements SessionBean {
             // configured functionality to permit edition during appelas phase.
             boolean permitEditDuringAppeals;
             try {
-                permitEditDuringAppeals = ConfigHelper.getAllowAppealsEdition();
+                permitEditDuringAppeals = ConfigHelper.getAllowAppealEditing();
             } catch (Exception e) {
                 log.info("Couldn't retrieve configuration for permission to edit appeals, using default: "
-                    + (ConfigHelper.ALLOW_APPEALS_EDITION_DEFAULT ? "true" : "false") + " reason: " + e.getMessage());
-                permitEditDuringAppeals = ConfigHelper.ALLOW_APPEALS_EDITION_DEFAULT;
+                    + (ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT ? "true" : "false") + " reason: " + e.getMessage());
+                permitEditDuringAppeals = ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT;
             }
 
             // If appeal is resolved and the user isn't admin/pm,
