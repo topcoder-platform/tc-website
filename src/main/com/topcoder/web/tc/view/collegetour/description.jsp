@@ -87,16 +87,16 @@
                 </p>
 
                <a name="schools"></a>
-               <div align="center" style="padding: 10px;">
+               <div align="center" style="padding: 20px;">
                <img src="/i/collegetour/logo_johns_hopkins_u.jpg" alt="Johns Hopkins University" border="0" />
                </div>
-               <div align="center" style="padding: 10px;">
+               <div align="center" style="padding: 20px;">
                <img src="/i/collegetour/logo_u_new_mexico.jpg" alt="Johns Hopkins University" border="0" />
                </div>
-               <div align="center" style="padding: 10px;">
+               <div align="center" style="padding: 20px;">
                <img src="/i/collegetour/logo_mercer_u.jpg" alt="Johns Hopkins University" border="0" />
                </div>
-               <div align="center" style="padding: 10px;">
+               <div align="center" style="padding: 20px;">
                <img src="/i/collegetour/logo_u_north_texas.jpg" alt="Johns Hopkins University" border="0" />
                </div>
 
