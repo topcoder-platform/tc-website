@@ -14,10 +14,10 @@
 <jsp:param name="tabLev3" value=""/>
 </jsp:include>
 
-<table width="100%" border=0 cellpadding=0 cellspacing=0>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
 <!-- Body-->
-	<tr valign=top>
-		<td valign=top align=center>
+	<tr valign="top">
+		<td valign="top" align="center">
 		<div class="bodySpacer">
             
 <span class="bigTitle">Registration</span>

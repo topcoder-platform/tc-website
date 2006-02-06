@@ -3,17 +3,17 @@
     String tabLev3 = request.getParameter("tabLev3")==null?"":request.getParameter("tabLev3");
 %>
 
-<table width="100%" border="0" cellpadding=0 cellspacing=0>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr>
       <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_description"><img src="/i/tournament/tco06/tco06_logo.gif" border="0"/></A></td>
-      <td valign=middle align=center rowspan="2"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_description"><img src="/i/tournament/tco06/sponsortrack_logo.gif" alt="Sponsor Track" border="0"/></a></td>
-      <td valign=top align=right rowspan="2" width="50%"><a href="/"><img src="/i/tournament/tco06/tc_logo.gif" border="0"/></a></td>
+      <td valign="middle" align="center" rowspan="2"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_description"><img src="/i/tournament/tco06/sponsortrack_logo.gif" alt="Sponsor Track" border="0"/></a></td>
+      <td valign="top" align="right" rowspan="2" width="50%"><a href="/"><img src="/i/tournament/tco06/tc_logo.gif" border="0"/></a></td>
    </tr>
    <tr><td><br></td></tr>
 <!-- LEVEL 2 TABS -->
    <tr>
-      <td colspan=3>
-      <table border="0" cellspacing=0 cellpadding=0 width="100%">
+      <td colspan="3">
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
           <tr>
               <td class="nav">&#160;&#160;&#160;</td>
               <td class="nav" align=right><img src="/i/tournament/tco06/tabs/L2_sideDK.gif" border="0" /></td>
@@ -51,7 +51,7 @@
             <% } else { %>
                <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_arena"><img src="/i/tournament/tco06/tabs/L2_competitionArenaOff.gif" alt="" border="0" /></A></td>
             <% } %>
-              <td class="nav" align=left><img src="/i/tournament/tco06/tabs/L2_sideLT.gif" border="0" /></td>
+              <td class="nav" align="left"><img src="/i/tournament/tco06/tabs/L2_sideLT.gif" border="0" /></td>
               <td class="nav" width="100%">&#160;</td>
          </tr>
       </table>
@@ -59,10 +59,10 @@
    </tr>
 
 <!-- LEVEL 3 TABS -->
-   <tr><td class=tabL3Top colspan=3><img src="/i/clear.gif" width=1 height=7 border="0"/></td></tr>
+   <tr><td class="tabL3Top" colspan="3"><img src="/i/clear.gif" width="1" height="7" border="0"/></td></tr>
    <tr>
-      <td colspan=3>
-      <table width="100%" border="0" cellspacing=0 cellpadding=0 class="subNav">
+      <td colspan="3">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="subNav">
          <tr>
             <td class="subnavBG">&#160;&#160;&#160;</td>
                <% if (tabLev2.equals("details")) {%>
