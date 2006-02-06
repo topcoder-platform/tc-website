@@ -43,16 +43,13 @@ public class SrmDivisionWins extends Base {
             Map result = getDataAccess(true).getData(r);
 
             ResultSetContainer rsc = (ResultSetContainer) result.get("srm_division_wins");
-            if (sortCol.equals("5")) {  // Division 1 total wins
-                // List the highest div 1 winners first; list their won SRM's in asc/desc order
-                rsc.sortByColumn("calendar_id", !"desc".equals(sortDir));
-                rsc.sortByColumn("winnerhandle1", true);
-                rsc.sortByColumn("totalwins1", false);
+            if (sortCol.equals("4")) {  // Division 1 wins, desc default
+                rsc.sortByColumn("winnerhandle1", "desc".equals(sortDir));
+                rsc.sortByColumn("wins1", !"desc".equals(sortDir));
             } else if (sortCol.equals("9")) {  // Division 2 total wins
                 // List the highest div 2 winners first; list their won SRM's in asc/desc order
-                rsc.sortByColumn("calendar_id", !"desc".equals(sortDir));
-                rsc.sortByColumn("winnerhandle2", true);
-                rsc.sortByColumn("totalwins2", false);
+                rsc.sortByColumn("winnerhandle2", "desc".equals(sortDir));
+                rsc.sortByColumn("wins2", !"desc".equals(sortDir));
             } else if (sortCol.equals("3")) {  // Division 1 handle
                 // Sort coders alphabetically (asc/desc); list won SRM's in order
                 rsc.sortByColumn("calendar_id", true);
@@ -68,6 +65,11 @@ public class SrmDivisionWins extends Base {
             }
 
             result.put("srm_division_wins", (ResultSetContainer)rsc.subList(Integer.parseInt(startRank)-1, endRank));
+
+            SortInfo s = new SortInfo();
+            s.addDefault(4, "desc");
+            s.addDefault(8, "desc");
+            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
             setDefault(DataAccessConstants.START_RANK, startRank);
