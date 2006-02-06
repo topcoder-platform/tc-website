@@ -34,9 +34,6 @@
         <td class="cardCell" width="100%" align="center" style="padding: 0px 0px 0px 0px;">
             <div class="myTCBody">
 
-              <!--  <div align=center>
-                    <img src="/i/hs/hs_banner_stepup.jpg" alt="Step up to the challenge" border=0 clear="all">
-                </div> -->
                 <div align="center" style="margin-top: 15px;">
                     <img src="/i/hs/banner.jpg" alt="TopCoder High School" border="0">
                 </div>
