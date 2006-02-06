@@ -101,11 +101,11 @@ function callback() {
     req.setContentType("text/xml");
     if (req.readyState == 4) {
         if (req.status == 200) {
-            //var response = req.responseXML.documentElement;
+            var resp = req.responseXML.documentElement;
             //var message = req.responseXML.getElementsByTagName("message")[0];           
-            displayXML(req.responseText);
-            var posRatings = response.getElementsByTagName('posRatings')[0].firstChild.data;
-            var negRatings = response.getElementsByTagName('negRatings')[0].firstChild.data;
+            displayXML(resp);
+            var posRatings = resp.getElementsByTagName('posRatings')[0].firstChild.data;
+            var negRatings = resp.getElementsByTagName('negRatings')[0].firstChild.data;
             //displayVotes(5,5);
             //displayVotes(posRatings, negRatings);
         }
