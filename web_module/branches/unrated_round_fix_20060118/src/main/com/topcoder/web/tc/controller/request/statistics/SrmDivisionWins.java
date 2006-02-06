@@ -46,7 +46,7 @@ public class SrmDivisionWins extends Base {
             if (sortCol.equals("4")) {  // Division 1 wins, desc default
                 rsc.sortByColumn("winnerhandle1", "desc".equals(sortDir));
                 rsc.sortByColumn("wins1", !"desc".equals(sortDir));
-            } else if (sortCol.equals("9")) {  // Division 2 total wins
+            } else if (sortCol.equals("8")) {  // Division 2 total wins
                 // List the highest div 2 winners first; list their won SRM's in asc/desc order
                 rsc.sortByColumn("winnerhandle2", "desc".equals(sortDir));
                 rsc.sortByColumn("wins2", !"desc".equals(sortDir));
