@@ -36,24 +36,9 @@
               <!--  <div align=center>
                     <img src="/i/hs/hs_banner_stepup.jpg" alt="Step up to the challenge" border=0 clear="all">
                 </div> -->
-                <div align=center>
-                    <img src="/i/hs/hs_banner_easy.jpg" alt="And you thought school was easy" border=0 clear="all">
+                <div align="center">
+                    <img src="/i/hs/banner.jpg" alt="TopCoder High School" border=0 clear="all">
                 </div>
-             <!--   <div align=center>
-                    <img src="/i/hs/hs_banner_fun.jpg" alt="High school just got alot more fun" border=0 clear="all">
-                </div> -->
-             <!--   <div align=center>
-                    <img src="/i/hs/hs_banner_kidstuff.jpg" alt="This ain't no kid stuff" border=0 clear="all">
-                </div> -->
-             <!--   <div align=center>
-                    <img src="/i/hs/hs_banner_trophy.jpg" alt="Everything else is kid stuff" border=0 clear="all">
-                </div> -->
-             <!--   <div align=center>
-                    <img src="/i/hs/hs_banner_letters.jpg" alt="Letters worth going for" border=0 clear="all">
-                </div> -->
-             <!--   <div align=center>
-                    <img src="/i/hs/hs_banner_grad.jpg" alt="Graduation is not your only goal" border=0 clear="all">
-                </div> -->
                 <p>
                 <h2>TopCoder High School</h2>
 

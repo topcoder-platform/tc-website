@@ -29,8 +29,8 @@
 <IMG SRC="/i/home/tco06_comp_registration.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" />
 --%>
 <%-- Marathon Matches
---%>
 <A href="/longcontest/?module=Static&d1=intel_overview"><IMG SRC="/i/home/intel_multi_threading.gif" border="0" ALT="Intel Multi-Threading Competition Series"/></A>
-<%-- College Tour
-<A href="/tc?module=Static&d1=collegetour&d2=description"><IMG SRC="/i/home/college_tour.jpg" border="0" ALT="College Tour"/></A>
 --%>
+<%-- High School
+--%>
+<A href="/tc?module=Static&d1=hs&d2=home"><IMG SRC="/i/home/high_school.jpg" border="0" ALT="TopCoder High School"/></A>
