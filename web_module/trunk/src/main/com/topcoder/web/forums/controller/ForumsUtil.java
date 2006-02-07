@@ -292,4 +292,13 @@ public class ForumsUtil {
         if (user == null) return false;
         return user.isAuthorized(Permissions.SYSTEM_ADMIN);
     }
+    
+    public static byte[] asciiGetBytes(String s) {
+        int size = s.length();
+        byte[] result = new byte[size];
+        for (int i = 0; i < size; i++) {
+            result[i] = (byte) s.charAt(i);
+        }
+        return result;
+    }
 }

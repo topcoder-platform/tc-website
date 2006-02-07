@@ -100,25 +100,23 @@ function rate(messageID, voteValue) {
 function callback() {
     if (req.readyState == 4) {
         if (req.status == 200) {
-            //var resp = req.responseXML.getElementsByTagName("response")[0];
-            alert(req.responseXML.hasChildNodes());
-            //var message = req.responseXML.getElementsByTagName("message")[0];           
-            //displayXML(req.responseText);
-            //var posRatings = resp.getElementsByTagName('posRatings')[0].nodeValue;
-            //var negRatings = resp.getElementsByTagName('negRatings')[0].nodeValue;
-            //displayVotes(5,5);
-            //displayVotes(posRatings, negRatings);
+            var resp = req.responseXML.getElementsByTagName("response")[0];
+            var messageID = req.responseXML.getElementsByTagName("messageID")[0].firstChild.nodeValue;
+            var posRatings = req.responseXML.getElementsByTagName("posRatings")[0].firstChild.nodeValue;
+            var negRatings = req.responseXML.getElementsByTagName("negRatings")[0].firstChild.nodeValue;
+            //var i;
+            //for (i=0; i<resp.childNodes.length; i++) {
+            //    alert(resp.childNodes[i].nodeName);
+            //    alert(resp.childNodes[i].firstChild.nodeValue);
+            //}
+            //alert(resp.childNodes.length);
+            displayVotes(messageID, posRatings, negRatings);
         }
     }
 }
 
-function displayXML(varxml) {
-    mdiv = document.getElementById("userIdMessage");
-    mdiv.innerHTML = varxml;
-}
-
-function displayVotes(posVotes, negVotes) {
-    mdiv = document.getElementById("userIdMessage");
+function displayVotes(messageID, posVotes, negVotes) {
+    mdiv = document.getElementById("msgBody"+messageID);
     mdiv.innerHTML = "+"+posVotes+"/-"+negVotes;
 }
 
@@ -132,9 +130,6 @@ function displayVotes(posVotes, negVotes) {
 }
 -->
 </style>
-
-<div id="userIdMessage"></div>
-<a class="pointer" onMouseOver="this.style.color='#FF0000'"; onMouseOut="this.style.color='#333'"; onclick="displayVotes(7,3)";>Test</a>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
