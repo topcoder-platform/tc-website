@@ -19,7 +19,7 @@ public class List extends BaseProcessor {
         r.setContentHandle("college_tour_school_list");
         Map m = new CachedDataAccess(1000*60*60, DBMS.OLTP_DATASOURCE_NAME).getData(r);
         getRequest().setAttribute("list", m.get("college_tour_school_list"));
-        setNextPage("/collegetour/list.jsp");
+        setNextPage("/collegetour/description.jsp");
         setIsNextPageInContext(true);
     }
 
