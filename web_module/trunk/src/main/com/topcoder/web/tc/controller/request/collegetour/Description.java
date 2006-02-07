@@ -12,7 +12,7 @@ import java.util.Map;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Feb 7, 2006
  */
-public class List extends BaseProcessor {
+public class Description extends BaseProcessor {
 
     protected void businessProcessing() throws Exception {
         Request r = new Request();
