@@ -10,7 +10,8 @@
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 </head>
 
-<body onload="initDropMenu()">
+<body>
+
 
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
