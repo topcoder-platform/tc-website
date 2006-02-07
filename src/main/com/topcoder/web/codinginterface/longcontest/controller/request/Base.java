@@ -10,7 +10,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.language.BaseLanguage;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.messaging.TimeOutException;
-import com.topcoder.shared.messaging.messages.LongCompileRequest;
+import com.topcoder.shared.messaging.messages.BaseLongContestRequest;
 import com.topcoder.shared.messaging.messages.LongCompileResponse;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
@@ -18,7 +18,10 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.messaging.WebQueueResponseManager;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.ImageInfo;
 
 import java.io.IOException;
@@ -105,16 +108,18 @@ public abstract class Base extends BaseProcessor {
         this.sender = sender;
     }
 
-    protected void send(LongCompileRequest sub) throws TCWebException, ServerBusyException {
+    protected void send(BaseLongContestRequest sub, int language) throws TCWebException, ServerBusyException {
         // This is a synchronous message
-        lock();
+        if (sub.isSynchronous()) {
+            lock();
+        }
 
         HashMap hm = new HashMap();
         hm.put("pendingAction", new Integer(ServicesConstants.LONG_COMPILE_ACTION));
         hm.put("appletServerId", new Integer(ApplicationServer.WEB_SERVER_ID));
         hm.put("socketServerId", new Integer(ApplicationServer.WEB_SERVER_ID));
         hm.put("submitTime", new Long(System.currentTimeMillis()));
-        hm.put("language", new Integer(sub.getLanguageID()));
+        hm.put("language", new Integer(language));
         hm.put("roundType", getRequest().getAttribute(Constants.ROUND_TYPE_ID));
         sender.sendMessage(hm, sub);
     }
