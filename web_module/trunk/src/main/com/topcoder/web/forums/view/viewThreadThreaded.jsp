@@ -116,8 +116,8 @@ function callback() {
 }
 
 function displayVotes(messageID, posVotes, negVotes) {
-    mdiv = document.getElementById("msgBody"+messageID);
-    mdiv.innerHTML = "+"+posVotes+"/-"+negVotes;
+    mspan = document.getElementById("ratings"+messageID);
+    mspan.innerHTML = "(+"+posVotes+"/-"+negVotes+")";
 }
 
 //-->
@@ -203,7 +203,8 @@ function displayVotes(messageID, posVotes, negVotes) {
 <table cellpadding="0" cellspacing="0" class="rtTable">
       <tr>
           <td class="rtHeader" colspan="2" width="100%">
-            <%  String msgBodyID = "msgBody" + message.getID(); %> 
+            <%  String msgBodyID = "msgBody" + message.getID(); 
+                String ratingsID = "ratings" + message.getID(); %> 
             <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
                   <%  int editCount = historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME);
                   if (editCount > 0) { %> 
@@ -224,7 +225,7 @@ function displayVotes(messageID, posVotes, negVotes) {
                     int ratingCount = ratingManager.getRatingCount(message);
                     int posRatings = (int)(Math.round(avgRating*ratingCount)-ratingCount);
                     int negRatings = ratingCount - posRatings; %>
-                (+<%=posRatings%>/-<%=negRatings%>) <a href="#" onclick="rate('<%=message.getID()%>','2')" class="rtbcLink">[+]</a><a href="#" onclick="rate('<%=message.getID()%>','1')" class="rtbcLink">[-]</a>
+                <span id="<%=ratingsID%>">(+<%=posRatings%>/-<%=negRatings%>)</span> <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','2')" class="rtbcLink">[+]</a><a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','1')" class="rtbcLink">[-]</a>
             <% } %>
           </td>
       </tr>
