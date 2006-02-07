@@ -104,12 +104,6 @@ function callback() {
             var messageID = req.responseXML.getElementsByTagName("messageID")[0].firstChild.nodeValue;
             var posRatings = req.responseXML.getElementsByTagName("posRatings")[0].firstChild.nodeValue;
             var negRatings = req.responseXML.getElementsByTagName("negRatings")[0].firstChild.nodeValue;
-            //var i;
-            //for (i=0; i<resp.childNodes.length; i++) {
-            //    alert(resp.childNodes[i].nodeName);
-            //    alert(resp.childNodes[i].firstChild.nodeValue);
-            //}
-            //alert(resp.childNodes.length);
             displayVotes(messageID, posRatings, negRatings);
         }
     }
