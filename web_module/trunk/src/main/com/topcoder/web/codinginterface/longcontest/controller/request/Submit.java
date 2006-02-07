@@ -260,7 +260,7 @@ public class Submit extends Base {
 
                 try {
                     // Send the request!
-                    send(lcr);
+                    send(lcr, language);
                 } catch (ServerBusyException sbe) {
                     throw new NavigationException("A submit request is already being processed.");
                 }

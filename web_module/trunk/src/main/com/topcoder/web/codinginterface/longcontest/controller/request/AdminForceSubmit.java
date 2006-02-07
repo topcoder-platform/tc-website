@@ -3,14 +3,13 @@ package com.topcoder.web.codinginterface.longcontest.controller.request;
 import com.topcoder.shared.common.ApplicationServer;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.messaging.TimeOutException;
-import com.topcoder.shared.messaging.messages.LongCompileRequest;
+import com.topcoder.shared.messaging.messages.AdminSubmitRequest;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.TCWebException;
 
 import java.util.Enumeration;
 
@@ -81,21 +80,16 @@ public class AdminForceSubmit extends Base {
 
     private void submit(long coderId, long componentId, long roundId, long contestId, int languageId, String code) throws TCWebException {
         log.debug("submit: " + coderId + " " + componentId + " " + roundId + " " + contestId + " " + languageId);
-        LongCompileRequest lcr = new LongCompileRequest((int) coderId, (int)componentId, (int)roundId, (int)contestId,
+        AdminSubmitRequest lcr = new AdminSubmitRequest(coderId, componentId, roundId, contestId,
         languageId, ApplicationServer.WEB_SERVER_ID, code);
 
         try {
-            send(lcr);
+            send(lcr, languageId);
         } catch (ServerBusyException sbe) {
             throw new NavigationException("A submit request is already being processed.");
         }
 
-        try {
-            receive(0, coderId, componentId);
-        } catch (TimeOutException e) {
-            //ignore...this is supposed to happen.  we don't care about the response, we just
-            //want to load up the queue
-        }
+        //this request doesn't have a response, so no need to receive anything
 
     }
 }
