@@ -40,7 +40,7 @@
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
 <tr class="bodyText"><td nowrap="nowrap">02.06.06 10:00 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=hs&d2=home">TopCoder High School</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.05.06 2:45 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=calendar&d2=jan_06">MSN SRM sponsorship date changed</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">12.15.05 9:00 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=collegetour&d2=description">Introducing the U.S. College Tour</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">12.15.05 9:00 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=CollegeTourDescription">Introducing the U.S. College Tour</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.05.05 5:00 PM&#160;-&#160</td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=508140&mc=1#518768">GCC Upgrade</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.17.05 6:00 PM&#160;-&#160</td><td width="100%">$5,000 prize purse and iPod raffle per match for SRMs <A href="/?RoundId=8070&t=schedule&c=srm">273</A>, <A href="/?RoundId=8073&t=schedule&c=srm">276</A>, <A href="/?RoundId=8076&t=schedule&c=srm">279</A>, sponsored by <A href="/tc?module=Static&d1=sponsors&d2=sap">SAP</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.14.05 3:20 PM&#160;-&#160</td><td width="100%">$5,000 prize purse per match for SRMs <A href="/?RoundId=8069&t=schedule&c=srm">272</A>, <A href="/?RoundId=8074&t=schedule&c=srm">277</A>, <A href="/?RoundId=8081&t=schedule&c=srm">284</A>, sponsored by <A href="/tc?module=Static&d1=contracting&d2=msn">MSN</A></td></tr>
