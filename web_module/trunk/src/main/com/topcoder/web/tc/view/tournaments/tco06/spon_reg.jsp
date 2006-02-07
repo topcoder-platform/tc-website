@@ -18,9 +18,9 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <!-- Body-->
-	<tr valign="top">
-		<td valign="top" align="center">
-		<div class="bodySpacer">
+   <tr valign="top">
+      <td valign="top" align="center">
+      <div class="bodySpacer">
 
 <span class="bigTitle">Registration</span>
 <br /><br />
@@ -41,7 +41,7 @@ Registration is not currently open, the registration period is from February 13,
     <br /><br />
 </form>
         </div>
-		</td>
+      </td>
 
 
 <!-- Right Column-->
@@ -58,7 +58,7 @@ Registration is not currently open, the registration period is from February 13,
 <jsp:include page="../../calendar.jsp" />
 </td>
 
-	</tr>
+   </tr>
 
 </table>
 

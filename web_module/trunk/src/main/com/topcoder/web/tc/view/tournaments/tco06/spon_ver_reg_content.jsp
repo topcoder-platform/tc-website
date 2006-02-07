@@ -6,11 +6,19 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <html>
 <head>
-<title>Registration</title>
+<title>2006 TopCoder Open Sponsor Track - Registration</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
-<link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
+<STYLE TYPE="text/css">
+html.termsHTML, body.termsBody
+{
+color: #FFFFFF;
+background: #032F6B;
+padding: 0px;
+margin: 0px;
+}
+</STYLE>
 </head>
-<body>
+<body class="termsBody">
 
     <%
         URL termsURL = new URL(sessionInfo.getAbsoluteServletPath()+"?module=Terms&"+Constants.TERMS_OF_USE_ID+"="+Constants.TCO06_SPONSOR_TERMS_ID);
