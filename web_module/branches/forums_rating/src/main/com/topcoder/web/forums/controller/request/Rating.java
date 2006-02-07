@@ -13,8 +13,8 @@ import com.topcoder.web.forums.controller.ForumsUtil;
  * @author mtong
  *
  * Provides processing related to the rating of messages. As of version 4.*, Jive's rating system
- * only supports positive integers as rating scores. Thus, we temporarily assign 1 point to each 
- * negative rating and 2 points to each positive rating, and modify calculations accordingly.
+ * only supports positive integers as rating scores. Thus, we assign 1 point to each negative rating 
+ * and 2 points to each positive rating, modifying calculations accordingly.
  */
 public class Rating extends ForumsProcessor {
     protected void businessProcessing() throws Exception {
@@ -27,7 +27,10 @@ public class Rating extends ForumsProcessor {
         int voteValue = Integer.parseInt(getRequest().getParameter("voteValue"));
         ForumMessage message = forumFactory.getMessage(messageID);
         
-        ratingManager.addRating(user, message, ratingManager.getRatingFromScore(voteValue));
+        // users cannot rate their own posts
+        if (!user.equals(message.getUser())) {
+            ratingManager.addRating(user, message, ratingManager.getRatingFromScore(voteValue));   
+        }
         double avgRating = ratingManager.getMeanRating(message);
         int ratingCount = ratingManager.getRatingCount(message);
         int posRatings = (int)(Math.round(avgRating*ratingCount)-ratingCount);

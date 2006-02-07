@@ -62,6 +62,7 @@
 <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <jsp:include page="script.jsp" />
+<script language="JavaScript" type="text/javascript" src="forums.js"></script>
 
 </head>
 
@@ -70,52 +71,6 @@
 <jsp:include page="top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
-
-<script type="text/javascript">
-<!--
-function toggle(obj) {
-    var el = document.getElementById(obj);
-    if ( el.style.display != "none" ) {
-        el.style.display = 'none';
-    }
-    else {
-        el.style.display = '';
-    }
-}
-
-var req;
-function rate(messageID, voteValue) {
-   var url = "?module=Rating";
-   if (window.XMLHttpRequest) {
-       req = new XMLHttpRequest();
-   } else if (window.ActiveXObject) {
-       req = new ActiveXObject("Microsoft.XMLHTTP");
-   }
-   req.open("POST", url, true);
-   req.onreadystatechange = callback;
-   req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-   req.send("messageID="+messageID+"&voteValue="+voteValue);
-}
-
-function callback() {
-    if (req.readyState == 4) {
-        if (req.status == 200) {
-            var resp = req.responseXML.getElementsByTagName("response")[0];
-            var messageID = req.responseXML.getElementsByTagName("messageID")[0].firstChild.nodeValue;
-            var posRatings = req.responseXML.getElementsByTagName("posRatings")[0].firstChild.nodeValue;
-            var negRatings = req.responseXML.getElementsByTagName("negRatings")[0].firstChild.nodeValue;
-            displayVotes(messageID, posRatings, negRatings);
-        }
-    }
-}
-
-function displayVotes(messageID, posVotes, negVotes) {
-    mspan = document.getElementById("ratings"+messageID);
-    mspan.innerHTML = "(+"+posVotes+"/-"+negVotes+")";
-}
-
-//-->
-</script>
 
 <style type="text/css">
 <!--
@@ -206,7 +161,11 @@ function displayVotes(messageID, posVotes, negVotes) {
                   <%  } %>
                <a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="creationDate" format="EEE, MMM d, yyyy 'at' h:mm a z"/></a>
             </div>
-            <a class="pointer" onMouseOver="this.style.color='#FF0000'"; onMouseOut="this.style.color='#333'"; onclick="toggle('<%=msgBodyID%>')";><jsp:getProperty name="message" property="subject"/></a>
+            <%  if (ratingManager.isRatingsEnabled() && user != null) { %>
+                <a class="pointer" onMouseOver="this.style.color='#FF0000'"; onMouseOut="this.style.color='#333'"; onclick="toggle('<%=msgBodyID%>')";><jsp:getProperty name="message" property="subject"/></a>
+            <%  } else { %>
+                <jsp:getProperty name="message" property="subject"/>
+            <%  } %>
             <%   if (message.getParentMessage() != null) { %>
                (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
             <%   } %>
@@ -214,13 +173,13 @@ function displayVotes(messageID, posVotes, negVotes) {
             <%  if (message.getUser() != null && message.getUser().equals(user)) { %>
             | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">Edit</A>
             <%   } %>
-            <%  if (ratingManager.isRatingsEnabled()) { 
+            <%  if (ratingManager.isRatingsEnabled() && user != null) { 
                     double avgRating = ratingManager.getMeanRating(message);
                     int ratingCount = ratingManager.getRatingCount(message);
                     int posRatings = (int)(Math.round(avgRating*ratingCount)-ratingCount);
                     int negRatings = ratingCount - posRatings; %>
                 <span id="<%=ratingsID%>">(+<%=posRatings%>/-<%=negRatings%>)</span> <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','2')" class="rtbcLink">[+]</a><a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','1')" class="rtbcLink">[-]</a>
-            <% } %>
+            <%  } %>
           </td>
       </tr>
       <tr id="<%=msgBodyID%>">
