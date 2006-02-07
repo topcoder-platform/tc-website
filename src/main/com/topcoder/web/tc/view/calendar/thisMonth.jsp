@@ -150,7 +150,15 @@ text-decoration: none;
             Compete: 7:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=9810&t=schedule&c=srm">Details</A><br/><br/></td>
-        <td id="calendar" rowspan="2">15</td>
+        <td id="calChat" rowspan="2">
+            <span id="calChatDate">15</span><br/>
+            <strong>Chat Session<br/>Hosted by TopCoder Software</strong><br/>
+            Subject: Full-time Employment Opportunities at TopCoder Software<br/>
+            Begin: 7:00 PM<br/>
+            End: 8:00 PM<br/>
+            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+            <A class="calChatLink" href="/tc?module=Static&d1=about&d2=jobs">Details</A><br /><br />
+            </td>  
         <td id="calendarSRM">
             <span id="calendarSRMDate">16</span><br />
             <strong>Match 290</strong><br />
