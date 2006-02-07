@@ -7,6 +7,7 @@ import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.RatingManager;
 import com.jivesoftware.forum.RatingManagerFactory;
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.forums.controller.ForumsUtil;
 
 /**
  * @author mtong
@@ -34,28 +35,18 @@ public class Rating extends ForumsProcessor {
         
         getResponse().setContentType("text/xml");
         getResponse().addHeader("Cache-Control", "no-cache");
-        //getResponse().getWriter().write("test");
-        //getResponse().getWriter().write(getXML(posRatings, negRatings));
-        getResponse().getOutputStream().write(asciiGetBytes(getXML(posRatings, negRatings)));
+        getResponse().getOutputStream().write(ForumsUtil.asciiGetBytes
+                (getXML(messageID, posRatings, negRatings)));
         getResponse().flushBuffer();
-        //getResponse().getOutputStream().print(getXML(posRatings, negRatings));
     }
     
-    private String getXML(int posRatings, int negRatings) {
+    private String getXML(long messageID, int posRatings, int negRatings) {
         String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n" +
             "<response>\n" +
+                "<messageID>"+messageID+"</messageID>\n" +
                 "<posRatings>"+posRatings+"</posRatings>\n" + 
                 "<negRatings>"+negRatings+"</negRatings>\n" +
             "</response>";
         return xml;
-    }
-    
-    private byte[] asciiGetBytes(String s) {
-        int size = s.length();
-        byte[] result = new byte[size];
-        for (int i = 0; i < size; i++) {
-            result[i] = (byte) s.charAt(i);
-        }
-        return result;
     }
 }
