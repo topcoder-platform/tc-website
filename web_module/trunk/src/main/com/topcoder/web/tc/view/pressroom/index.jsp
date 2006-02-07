@@ -47,6 +47,21 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- TCHS Global Tourney --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_020806"><img src="/i/pressroom/tchs.gif" alt="TopCoder High School - Competition, evolved." border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_020806">TopCoder High School Launches Global Programming Tournament in June</A> </strong></font><br />
+                        "Worldwide Contest From TopCoder Will Promote Problem Solving Skills in Math and Science Among High School-Age Students" <span class="prHead"> [February 8]</span></p>                   
+                        </td>
+                </tr>
+            </table>
+            
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- Jolt Awards --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
