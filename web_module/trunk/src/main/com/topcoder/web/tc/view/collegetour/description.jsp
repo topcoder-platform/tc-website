@@ -1,7 +1,10 @@
 <%@ page import="com.topcoder.web.tc.Constants"%>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<% ResultSetContainer list = (ResultSetContainer)request.getAttribute("list"); %>
 <html>
 <head>
     <title>TopCoder College Tour</title>
@@ -87,20 +90,11 @@
                 </p>
 
                <a name="schools"></a>
-               <div align="center" style="padding: 20px;">
-               <img src="/i/collegetour/logo_johns_hopkins_u.jpg" alt="Johns Hopkins University" border="0" />
-               </div>
-               <div align="center" style="padding: 20px;">
-               <img src="/i/collegetour/logo_u_new_mexico.jpg" alt="Johns Hopkins University" border="0" />
-               </div>
-               <div align="center" style="padding: 20px;">
-               <img src="/i/collegetour/logo_mercer_u.jpg" alt="Johns Hopkins University" border="0" />
-               </div>
-               <div align="center" style="padding: 20px;">
-               <img src="/i/collegetour/logo_u_north_texas.jpg" alt="Johns Hopkins University" border="0" />
-               </div>
-
-
+                <rsc:iterator list="<%=list%>" id="resultRow">
+                    <div align="center" style="padding: 20px;">
+                    <img src="<rsc:item name="image_path" row="<%=resultRow%>"/>" alt="<rsc:item name="event_name" row="<%=resultRow%>"/>" border="0" />
+                    </div>
+                </rsc:iterator>
             </div>
 
         </td>
