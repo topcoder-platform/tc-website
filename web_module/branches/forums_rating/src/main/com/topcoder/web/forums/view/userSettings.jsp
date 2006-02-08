@@ -61,7 +61,7 @@ function toggleTabs(id) {
     for (i=1; i<=5; i++) {
         document.getElementById('bodyWatch'+i).style.display = watchStyle;
     }
-    for (i=1; i<=1; i++) {
+    for (i=1; i<=2; i++) {
         document.getElementById('bodyRate'+i).style.display = rateStyle;
     }
 }
