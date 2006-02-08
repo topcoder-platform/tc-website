@@ -1,9 +1,14 @@
+<%@ page import="java.util.Collection"%>
+<%@ page import="java.util.Iterator"%>
+<%@ page import="com.topcoder.dde.catalog.Download"%>
+<%@ page import="com.topcoder.dde.util.Constants"%>
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
 
 <jsp:useBean id="componentInfo" class="com.topcoder.dde.catalog.ComponentInfo" scope="request" />
 <jsp:useBean id="versionInfo" class="com.topcoder.dde.catalog.ComponentVersionInfo" scope="request" />
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<% Collection downloads = (Collection)request.getAttribute("downloads");%>
 
 <html>
 
@@ -78,6 +83,7 @@
 <!--
     END FORM HEADER
 -->
+    <textarea name="terms" rows="20" cols="80" readonly ><%=request.getAttribute(Constants.TERMS)%></textarea>
 
 <!-- Download Package Instructions -->
                             <tr valign="middle">
@@ -97,17 +103,20 @@
                             </tr>
 
 <!-- Download Package -->
-<%--<%  for (int i=0; i < downloads.length; i++) { %>
+<% Download d;
+int i = 0;
+for (Iterator it = downloads.iterator(); it.hasNext();) {
+  d = (Download)it.next();%>
         <!-- LOOP CONTENT BEGIN -->
                             <tr valign="middle">
                                 <td><img src="/images/clear.gif" width="5" height="1" border="0"/></td>
                                 <td class="registerText"></td>
-                                <td class="registerText" nowrap><input type="RADIO" name="id" value="<%=downloads[i].getId()%>" <%=(i==0)?"checked":""%>>&nbsp;<%=downloads[i].getDescription()%></td>
+                                <td class="registerText" nowrap><input type="RADIO" name="id" value="<%=d.getId()%>" <%=(i==0)?"checked":""%>>&nbsp;<%=d.getDescription()%></td>
                                 <td class="registerText"></td>
                                 <td><img src="/images/clear.gif" width="5" height="1" border="0"/></td>
                             </tr>
         <!-- LOOP CONTENT END -->
-<% } %>--%>
+<% i++;} %>
                             <tr><td height="15" colspan="5"><img src="/images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
 
                             <tr valign="middle">
