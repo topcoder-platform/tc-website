@@ -202,6 +202,8 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            TopCoder High School Launches Global Programming Tournament in June <A href="/tc?module=Static&d1=pressroom&d2=pr_020806">...more</A><br>[February 8]<br><br>
+
             TopCoder Software Component Libraries Selected as Finalist for the 16th Annual Jolt Awards <A href="/tc?module=Static&d1=pressroom&d2=pr_012606">...more</A><br>[January 26]<br><br>
 
             TopCoder Names Intel Corporation as First Sponsor of New Marathon Match Series <A href="/tc?module=Static&d1=pressroom&d2=pr_012306">...more</A><br>[January 23]<br><br>
@@ -214,8 +216,6 @@ margin:0px auto;
             
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/dnaIndia_logo.gif" width="67" height="36" alt="DNA India" border="0" /></div>
             Contest a coded message for job seekers <A href="http://dnaindia.com/report.asp?NewsID=1007225&CatID=2" target="_blank">...more</A><br>[January 12]<br><br>
-
-            TopCoder Announces NSA Participation in 2006 TopCoder Open in Las Vegas<A href="/tc?module=Static&d1=pressroom&d2=pr_010906">...more</A><br>[January 9]<br><br>
             
             </td>
          </tr>
