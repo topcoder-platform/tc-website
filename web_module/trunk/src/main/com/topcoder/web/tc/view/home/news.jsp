@@ -23,7 +23,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>02.08.06<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/wsj_020806.pdf" target="_blank">World's Top Geeks Battle Over Coding [PDF]</A></span><br><br>
-      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wsjo.gif" width="88" height="33" alt="Wall Street Journal Online" border="0" /></div>
+      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wsj_logo.gif" width="108" height="12" alt="Wall Street Journal" border="0" /></div>
       "Imagine a reality TV show that combines the performance-under-time-pressure of 'Iron Chef' with the scheming and psych-outs of 'Survivor,' then adds the soaring braininess of -- well, that's the problem, really: There isn't anything this smart on TV."
       </td>
    </tr>
@@ -220,37 +220,6 @@
          <A href="/i/tournament/tco05/onsite_movies/HiltonLange.mov">watch movie</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505896" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.20.06<br>4:20 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3" target="_blank">Java Posse - Bill Goggin interview [PODCAST]</A></span><br><br>
-      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="67" height="37" alt="The Java Posse" border="0" /></div>
-      TopCoder Project Manager Bill Goggin describes the in's and out's of TopCoder, and the company's use of Java.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3" target="_blank">listen</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505899" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>01.20.06<br>9:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm283">SRM 283 - Problem Set & Analysis</A></span><br><br>
-      In Division 1, the problemset turned out to be really hard, with nobody being able to solve all 3 problems.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/gevak_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7340263" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm283">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505797" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 </table>

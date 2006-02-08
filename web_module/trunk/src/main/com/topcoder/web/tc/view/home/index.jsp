@@ -204,7 +204,7 @@ margin:0px auto;
             <td class="homeText"><br>
             TopCoder High School Launches Global Programming Tournament in June <A href="/tc?module=Static&d1=pressroom&d2=pr_020806">...more</A><br>[February 8]<br><br>
 
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wsjo.gif" width="88" height="33" alt="Wall Street Journal Online" border="0" /></div>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wsj_logo.gif" width="88" height="10" alt="Wall Street Journal" border="0" /></div>
             Programming Contest Pits World's Top Geeks In Battles Over Coding [PDF] <A href="/pdfs/press_room/wsj_020806.pdf" target="_blank">...more</A><br>[February 8]<br><br>
 
             TopCoder Software Component Libraries Selected as Finalist for the 16th Annual Jolt Awards <A href="/tc?module=Static&d1=pressroom&d2=pr_012606">...more</A><br>[January 26]<br><br>
