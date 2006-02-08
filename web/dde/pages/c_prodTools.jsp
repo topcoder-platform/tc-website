@@ -327,7 +327,7 @@
                             break;
                         default:
                         case (int)ComponentVersionInfo.COMPLETED:
-                            strAvailability = "<strong><a href=\"c_component_download.jsp?comp=" + componentInfo.getId() + "&ver=" + versionInfo.getVersion() + "\">Download Now*</a></strong>";
+                            strAvailability = "<strong><a href=\"/tcs?module=ViewComponentTerms&comp=" + componentInfo.getId() + "&ver=" + versionInfo.getVersion() + "\">Download Now*</a></strong>";
                             break;
                         }
                         %>
