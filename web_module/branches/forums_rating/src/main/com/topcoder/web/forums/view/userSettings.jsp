@@ -14,6 +14,9 @@
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
+<%  String section = (String)request.getParameter(ForumConstants.SETTINGS_SECTION);    
+    if (section == null) { section = "gen"; } %>
+
 <html>
 <head>
 <title>TopCoder Forums</title>
@@ -22,10 +25,9 @@
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <link type="text/css" rel="stylesheet" href="/css/stats.css"/>
 <jsp:include page="script.jsp" />
-
 </head>
 
-<body onload="toggleTabs('gen')">
+<body onload="toggleTabs('<%=section%>')">
 
 <jsp:include page="top.jsp" >
     <jsp:param name="level1" value=""/>
@@ -44,6 +46,7 @@ function toggle(obj) {
 }
 
 function toggleTabs(id) { 
+    document.form1.<%=ForumConstants.SETTINGS_SECTION%>.value = id;
     var genStyle = (id=="gen")?'':'none';
     var watchStyle = (id=="watch")?'':'none';
     var rateStyle = (id=="rate")?'':'none';

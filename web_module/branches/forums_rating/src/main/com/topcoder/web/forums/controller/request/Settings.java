@@ -98,6 +98,8 @@ public class Settings extends ForumsProcessor {
 
         getRequest().setAttribute("status", status);
         getRequest().setAttribute("selectedWatchFrequency", new Integer(watchFrequency));
+        getRequest().setAttribute(ForumConstants.SETTINGS_SECTION, 
+                getRequest().getParameter(ForumConstants.SETTINGS_SECTION));
 
 		setNextPage("/userSettings.jsp");
 		setIsNextPageInContext(true);
