@@ -17,6 +17,7 @@ import javax.rmi.PortableRemoteObject;
  * Create Date: February 7, 2006
  * this class is not currently used, but is pretty much ready
  * to go if we ever want to swith to MVC for this page
+ * we should probably remove the terms though
  */
 public class ViewDownload extends BaseProcessor {
 
