@@ -257,7 +257,7 @@
                     <td class="forumText<%=oddeven%>"><%= summary.getShortDescription() %><a class="more" href="c_component.jsp?comp=<%= summary.getComponentId() %>">::&nbsp;more</a></td>
                     <td class="forumTextCenter<%=oddeven%>">
 <%            if (summary.getPhase() == ComponentVersionInfo.COMPLETED) {%>
-                                    <a href="c_component_download.jsp?comp=<%= summary.getComponentId() %>&ver=<%= summary.getVersion() %>"><img src="/images/iconDownloadSm.gif" alt="Download" width="19" height="17" border="0"></a>
+                                    <a href="/tcs?module=ViewComponentTerms&comp=<%= summary.getComponentId() %>&ver=<%= summary.getVersion() %>"><img src="/images/iconDownloadSm.gif" alt="Download" width="19" height="17" border="0"></a>
 <%            }%>
                     </td>
                 </tr>
