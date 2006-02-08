@@ -43,6 +43,7 @@
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
 <!-- 2006  -->
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
+<tr><td class="newsText"><A href="/pdfs/press_room/wsj_020806.pdf" target="_blank">Programming Contest Pits World's Top Geeks In Battles Over Coding [PDF]</A> [February 8 - Wall Street Journal]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3" target="_blank">Java Posse - Bill Goggin interview [PODCAST]</A> [January 20 - Java Posse]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.businessweek.com/magazine/content/06_04/b3968007.htm" target="_blank">The NSA: Security in Numbers</A> [January 13 - BusinessWeek]<br/></td></tr>
 <tr><td class="newsText"><A href="http://dnaindia.com/report.asp?NewsID=1007225&CatID=2" target="_blank">Contest a coded message for job seekers</A> [January 12 - DNA India]<br/></td></tr>
