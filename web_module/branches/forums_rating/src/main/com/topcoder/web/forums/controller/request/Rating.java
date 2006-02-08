@@ -29,14 +29,7 @@ public class Rating extends ForumsProcessor {
         
         // users cannot rate their own posts
         if (!user.equals(message.getUser())) {
-            com.jivesoftware.forum.Rating currRating = ratingManager.getRating(user, message);
-            if (currRating != null && 
-                    ((currRating.getScore() == 2 && voteValue == 1) ||
-                     (currRating.getScore() == 1 && voteValue == 2))) {
-                ratingManager.removeRating(currRating);
-            } else {
-                ratingManager.addRating(user, message, ratingManager.getRatingFromScore(voteValue)); 
-            }
+            ratingManager.addRating(user, message, ratingManager.getRatingFromScore(voteValue)); 
         }
         
         double avgRating = ratingManager.getMeanRating(message);
