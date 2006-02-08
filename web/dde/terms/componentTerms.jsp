@@ -5,6 +5,17 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
+<%
+    StringBuffer url = new StringBuffer(20);
+    if (request.getAttribute("comp")!=null) {
+        url.append("&comp=");
+        url.append(request.getAttribute("comp"));
+    }
+    if (request.getAttribute("ver")!=null) {
+        url.append("&ver=");
+        url.append(request.getAttribute("ver"));
+    }
+%>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -45,7 +56,7 @@
                         <textarea name="terms" rows="20" cols="80" readonly ><%=request.getAttribute(Constants.TERMS)%></textarea>
                         <br />
                         <br />
-                        <center><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ComponentTermsAgree">I agree</a> to these terms.</center>
+                        <center><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ComponentTermsAgree<%=url.toString()%>">I agree</a> to these terms.</center>
                     </td>
                 </tr>
 
