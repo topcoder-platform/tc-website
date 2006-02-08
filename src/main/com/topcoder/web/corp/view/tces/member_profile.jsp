@@ -37,7 +37,9 @@
       <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
          <tr valign="top">
             <td class="bodyText" colspan="2">
-            <p>
+                     <div style="float:right;">
+                        <A href="#">Search candidates</A>
+                     </div>
             <tces:trailIterator id="trailItem" trailList="<%=MemberProfileTask.getTrail()%>">
             <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
             </tces:trailIterator>

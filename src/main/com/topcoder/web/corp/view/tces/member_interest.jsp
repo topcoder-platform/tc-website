@@ -22,38 +22,40 @@
     <jsp:param name="level1" value="employment_services"/>
 </jsp:include>
 <table width=100% border=0 cellpadding=0 cellspacing=0 align=center>
-	<TR valign="top">
-		<td width="50%"><jsp:include page="left.jsp" /></td>
+   <TR valign="top">
+      <td width="50%"><jsp:include page="left.jsp" /></td>
 <!-- Center Column Begins -->
         <td class=recruitingBody>
-			<img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
+         <img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class=bodyText colspan=2>
-					<p>
-	                <tces:trailIterator id="trailItem" trailList="<%=MemberInterestTask.getTrail()%>">
-	                  <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
-	                </tces:trailIterator>
-					<br/>
-					<span class=testHead>Member Interest: <jsp:getProperty name="MemberInterestTask" property="handle"/></span>
-					<br/><br/>
+                     <div style="float:right;">
+                        <A href="#">Search candidates</A>
+                     </div>
+                   <tces:trailIterator id="trailItem" trailList="<%=MemberInterestTask.getTrail()%>">
+                     <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
+                   </tces:trailIterator>
+               <br/>
+               <span class=testHead>Member Interest: <jsp:getProperty name="MemberInterestTask" property="handle"/></span>
+               <br/><br/>
                     <strong>Campaign:</strong> <%=MemberInterestTask.getCampaignName()%>
-					<br/><br/>
-					</td>
-				</tr>
-				<tr>
-					<td class=bodyText>
-					<A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">Coder Demographic Info</A>
-					<br/>
-					<% if (MemberInterestTask.isRanked()) { %>
-					<A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">Coder Competition History</A>
-					<br/>
-					<A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">Coder Problem Submissions</A>
-					<% } %>
-					<br/><br/>
-					</td>
-				</tr>
-			</table>
+               <br/><br/>
+               </td>
+            </tr>
+            <tr>
+               <td class=bodyText>
+               <A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">Coder Demographic Info</A>
+               <br/>
+               <% if (MemberInterestTask.isRanked()) { %>
+               <A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">Coder Competition History</A>
+               <br/>
+               <A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">Coder Problem Submissions</A>
+               <% } %>
+               <br/><br/>
+               </td>
+            </tr>
+         </table>
 
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                 <tr>
@@ -75,10 +77,10 @@
 
               </table>
             <p><br></p>
-			</td>
+         </td>
 <!-- Center Column Ends -->
-		<td class=homeRightPromos width="50%"><jsp:include page="right.jsp" /></td>
-	</tr>
+      <td class=homeRightPromos width="50%"><jsp:include page="right.jsp" /></td>
+   </tr>
 </table>
 
 <!-- Footer begins -->
