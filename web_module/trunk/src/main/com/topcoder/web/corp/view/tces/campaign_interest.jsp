@@ -29,21 +29,23 @@
 </jsp:include><!-- Top ends -->
 
 <table width=100% border=0 cellpadding=0 cellspacing=0 align=center>
-	<TR valign="top">
-		<td width="50%"><jsp:include page="left.jsp" /></td>
+   <TR valign="top">
+      <td width="50%"><jsp:include page="left.jsp" /></td>
 <!-- Center Column Begins -->
         <td class=recruitingBody>
-			<img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
+         <img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class=bodyText>
-                        <p>
+                     <div style="float:right;">
+                        <A href="#">Search candidates</A>
+                     </div>
                         <tces:trailIterator id="trailItem" trailList="<%=CampaignInterestTask.getTrail()%>">
                             <a href="<jsp:getProperty name="trailItem" property="href" />" class="bodyText"><jsp:getProperty name="trailItem" property="name" /></a> &gt;
                         </tces:trailIterator>
-						<br/>
-						<span class=testHead>Campaign Interest</span>
-						<br/><br/>
+                  <br/>
+                  <span class=testHead>Campaign Interest</span>
+                  <br/><br/>
                         <strong>Campaign:</strong> <%=CampaignInterestTask.getCampaignName()%><br/>
                         <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.DEMOGRAPHIC_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignInterestTask.getCampaignID()%>" class="bodyText">View collective demographic info</a><br/>
                         </p>
@@ -72,7 +74,7 @@
                     and the spaces significantly impact the size of the html source
                 --%>
                 <tces:rowIterator id="hit" rowList="<%=CampaignInterestTask.getHitList()%>"><% i++; %>
-				<tr valign=middle>
+            <tr valign=middle>
 <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><tces:handle campaignId="<%=CampaignInterestTask.getCampaignID()%>" db="<%=CampaignInterestTask.getOltp()%>"jobId='<%=hit.getLongItem("job_id")%>' coderId='<%=hit.getLongItem("coder_id")%>' /></td>
 <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><%= hit.getItem("rating").toString() %></td>
 <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><rsc:item name="design_rating" format="#" row="<%=hit%>" ifNull="Not Rated"/></td>
@@ -85,8 +87,8 @@
 <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><%= hit.getItem("hit_date").toString() %></td>
 <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align="center"><%=hit.getItem("has_resume").toString().equals("1")?"Yes":"No"%></td>
 <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><%=hit.getItem("language_name").toString()%></td>
-				</tr>
-				</tces:rowIterator>
+            </tr>
+            </tces:rowIterator>
 
                 <% if(CampaignInterestTask.getHitList().isEmpty()){ %>
 
@@ -101,7 +103,7 @@
             <p><br/></p>
         </td>
 <!-- Center Column Ends -->
-		<td class=homeRightPromos width="50%"><jsp:include page="right.jsp" /></td>
+      <td class=homeRightPromos width="50%"><jsp:include page="right.jsp" /></td>
     </tr>
 </table>
 

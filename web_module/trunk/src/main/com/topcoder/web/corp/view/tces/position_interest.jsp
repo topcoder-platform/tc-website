@@ -28,21 +28,23 @@
 
 
 <table width=100% border=0 cellpadding=0 cellspacing=0 align=center>
-	<TR valign="top">
-		<td width="50%"><jsp:include page="left.jsp" /></td>
+   <TR valign="top">
+      <td width="50%"><jsp:include page="left.jsp" /></td>
 <!-- Center Column Begins -->
         <td class=recruitingBody>
-			<img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
+         <img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class=bodyText>
-                        <p>
+                     <div style="float:right;">
+                        <A href="#">Search candidates</A>
+                     </div>
                         <tces:trailIterator id="trailItem" trailList="<%=PositionInterestTask.getTrail()%>">
                             <a href="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></a> &gt;
                         </tces:trailIterator>
-						<br/>
-						<span class=testHead>Position Interest</span>
-						<br/><br/>
+                  <br/>
+                  <span class=testHead>Position Interest</span>
+                  <br/><br/>
                         <strong>Campaign:</strong> <jsp:getProperty name="PositionInterestTask" property="campaignName"/><br/>
                         <strong>Position:</strong> <jsp:getProperty name="PositionInterestTask" property="positionName"/><br>
                         <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.DEMOGRAPHIC_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=PositionInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=PositionInterestTask.getJobID()%>" class="bodyText">View collective demographic info</a><br>
@@ -99,7 +101,7 @@
             <p><br></p>
         </td>
 <!-- Center Column Ends -->
-		<td class=homeRightPromos width="50%"><jsp:include page="right.jsp" /></td>
+      <td class=homeRightPromos width="50%"><jsp:include page="right.jsp" /></td>
     </tr>
 </table>
 

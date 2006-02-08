@@ -34,21 +34,23 @@
     <jsp:param name="level1" value="employment_services"/>
 </jsp:include>
 <table width=100% border=0 cellpadding=0 cellspacing=0 align=center>
-	<TR valign="top">
-		<td width="50%"><jsp:include page="left.jsp" /></td>
+   <TR valign="top">
+      <td width="50%"><jsp:include page="left.jsp" /></td>
 <!-- Center Column Begins -->
         <td class=recruitingBody>
-			<img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
+         <img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class=bodyText>
-                        <p>
-		                <tces:trailIterator id="trailItem" trailList="<%=DemographicTask.getTrail()%>">
-		                  <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
-		                </tces:trailIterator>
-						<br/>
-						<span class=testHead>Campaign Demographic Info</span>
-						<br/><br/>
+                     <div style="float:right;">
+                        <A href="#">Search candidates</A>
+                     </div>
+                      <tces:trailIterator id="trailItem" trailList="<%=DemographicTask.getTrail()%>">
+                        <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
+                      </tces:trailIterator>
+                  <br/>
+                  <span class=testHead>Campaign Demographic Info</span>
+                  <br/><br/>
                         <strong>Campaign:</strong> <jsp:getProperty name="DemographicTask" property="campaignName"/><br/>
                         </p>
                     </td>
@@ -60,7 +62,7 @@
                 <TD width='50%'>
                   <% if (DemographicTask.getStudentCoderCount() > 0) { %>
 
-            		<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
+                  <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                         <TR>
                           <TD class="screeningTitle" COLSPAN="3"><b>Student (<jsp:getProperty name="DemographicTask" property="studentCoderCount"/>)</b></TD>
                         </TR>
@@ -85,13 +87,13 @@
                                 <% odd = !odd; %>
                             </tces:mapIterator>
                         <% } %>
-					</table>
+               </table>
                         <%
                           while (StudentQuestionIterator.hasNext()) {
                             String question = (String)StudentQuestionIterator.next();
                             List StudentResponsesList = (List)StudentQuestionMap.get(question);
                         %>
-            		<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
+                  <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 
                         <TR>
                           <TD class="screeningHeader"COLSPAN="3"><%=question%></TD>
@@ -113,7 +115,7 @@
                             </TR>
                             <% odd = !odd; %>
                         </tces:mapIterator>
-					</table>
+               </table>
                         <%
                           }
                         %>
@@ -141,7 +143,7 @@
 
                   <% if (DemographicTask.getProCoderCount() > 0) { %>
 
-            		<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
+                  <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                         <TR>
                           <TD class="screeningTitle" COLSPAN="3">Professional (<jsp:getProperty name="DemographicTask" property="proCoderCount"/>)</TD>
                         </TR>
@@ -167,14 +169,14 @@
                             <% odd = !odd;; %>
                             </tces:mapIterator>
                         <% } %>
-					</table>
+               </table>
 
                         <%
                           while (ProQuestionIterator.hasNext()) {
                             String question = (String)ProQuestionIterator.next();
                             List ProResponsesList = (List)ProQuestionMap.get(question);
                         %>
-            		<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
+                  <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 
                         <TR>
                           <TD class="screeningHeader" COLSPAN="3"><B><%=question%></B></TD>
@@ -196,14 +198,14 @@
                         <% odd = !odd; %>
                         </tces:mapIterator>
 
-					</table>
+               </table>
                         <%
                           }
                         %>
 
 
                    <% }else{ %>
-            		<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
+                  <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                         <TR>
                           <TD class="screeningTitle" COLSPAN="3">Professional (0)</TD>
                         </TR>
@@ -223,9 +225,9 @@
               </TABLE>
 
               <P><BR></P>
-	    </TD>
+       </TD>
   <!-- Center Column Ends -->
-		<td class=homeRightPromos width="50%"><jsp:include page="right.jsp" /></td>
+      <td class=homeRightPromos width="50%"><jsp:include page="right.jsp" /></td>
     </TR>
 </TABLE>
 
