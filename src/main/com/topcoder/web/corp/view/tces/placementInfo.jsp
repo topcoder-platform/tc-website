@@ -53,7 +53,7 @@ List industryList = (List)request.getAttribute("industrySkills");
                                 <a href="<jsp:getProperty name="trailItem" property="href" />" class="bodyText"><jsp:getProperty name="trailItem" property="name" /></a> &gt;
                             </tces:trailIterator>
                             <br>
-                            <span class="testHead">Skill Set: handle</span>
+                            <span class="testHead">Coder Skill Set: handle</span>
                             <br><br>
                         </p>
                     </td>
@@ -88,6 +88,17 @@ List industryList = (List)request.getAttribute("industrySkills");
             Coder Skill Set
             <br><br>
 <% } %>
+               </td>
+            </tr>
+
+                <tr>
+                    <td class="bodyText" align="right">
+                   
+                   <A HREF="" class="bodyText">Rating History Graph</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+                   
+                   <A HREF="" class="bodyText">Overall Rating Distribution Graph</a>
+                    </td>
+                </tr>
             </table>
 
 

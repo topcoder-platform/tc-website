@@ -74,9 +74,7 @@
             </tr>
                 <tr>
                     <td class="bodyText" align="right">
-                   <% if (!ProblemSubmissionsTask.isRestrictedCampaign()) {%>
                    <A HREF="" class="bodyText">Rating History Graph</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-                   <% } %>
                    <A HREF="" class="bodyText">Overall Rating Distribution Graph</a>
                     </td>
                 </tr>
