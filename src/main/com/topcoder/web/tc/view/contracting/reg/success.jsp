@@ -30,9 +30,9 @@
         <td width="100%" align="center">
         <div class="myTCBody">
 
-        <jsp:include page="../../page_title.jsp" >
-                <jsp:param name="level1" value="employment"/>
-                <jsp:param name="level2" value="registration"/>
+        <jsp:include page="/page_title.jsp" >
+            <jsp:param name="image" value="employmentOpps"/>
+            <jsp:param name="title" value="Registration"/>
         </jsp:include>
 
 <!-- Breadcrumb-->
@@ -44,26 +44,26 @@
         }
     </script>
 
-		<FORM ACTION="/tc" METHOD=POST onSubmit="" name="frmSuccess">
-		<input type="hidden" name="module" value="ContractingLanguages"/>
-		<input type="hidden" name="previouspage" value="success" />
-		</form>
+      <FORM ACTION="/tc" METHOD=POST onSubmit="" name="frmSuccess">
+      <input type="hidden" name="module" value="ContractingLanguages"/>
+      <input type="hidden" name="previouspage" value="success" />
+      </form>
         <table border=0 cellpadding=0 cellspacing=0 width="100%" class=bodyText>
-			<tr>
-				<td class=oppDesc width="100%" valign=top>
-				<span class=bodySubtitle>Registration done</span>
-				<br/><br/>
-				Thank you for registering!
-				<br/><br/>
-				We will contact you should an opportunity come up that we feel you are qualified for.
-				</td>
-				<td valign=top>
-				<jsp:include page="breadcrumb.jsp" >
-				<jsp:param name="phase" value="success"/>
-				</jsp:include>
-				</td>
-			</tr>
-		</table>
+         <tr>
+            <td class=oppDesc width="100%" valign=top>
+            <span class=bodySubtitle>Registration done</span>
+            <br/><br/>
+            Thank you for registering!
+            <br/><br/>
+            We will contact you should an opportunity come up that we feel you are qualified for.
+            </td>
+            <td valign=top>
+            <jsp:include page="breadcrumb.jsp" >
+            <jsp:param name="phase" value="success"/>
+            </jsp:include>
+            </td>
+         </tr>
+      </table>
 
 
         </div>
