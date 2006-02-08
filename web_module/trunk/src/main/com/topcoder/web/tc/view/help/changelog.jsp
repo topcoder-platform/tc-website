@@ -45,7 +45,7 @@
             <li>add contest details links to the tco06 component results pages</li>
             <li>fix bug that would not allow practice rooms to work for intel</li>
             <li>add marathon match admin site</li>
-            <li></li>
+            <li>changed component download process to always require viewing of terms</li>
         </ul>
 --%>
         4.1.9 - 2006.01.30
