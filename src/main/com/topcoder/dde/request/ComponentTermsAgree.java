@@ -35,7 +35,21 @@ public class ComponentTermsAgree extends BaseProcessor {
             //reload the subject object so that their new role is available
             getRequest().getSession().setAttribute("TCSUBJECT", principalMgr.getUserSubject(getUser().getId()));
 
-            setNextPage("/catalog/index.jsp");
+
+            String componentId = getRequest().getParameter("comp");
+            String version = getRequest().getParameter("ver")==null?"":getRequest().getParameter("ver");
+
+            if (componentId!=null) {
+                StringBuffer buf = new StringBuffer(40);
+                buf.append("/catalog/c_component_download.jsp?comp=");
+                buf.append(componentId);
+                if (!"".equals(version)) {
+                    buf.append("&ver=").append(version);
+                }
+                setNextPage(buf.toString());
+            } else {
+                setNextPage("/catalog/index.jsp");
+            }
             setIsNextPageInContext(false);
         }
     }
