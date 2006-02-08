@@ -103,8 +103,8 @@
 <rsc:iterator list="<%=results%>" id="resultRow"><tr valign="top">
 <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><tces:handle campaignId="<%=resultRow.getLongItem("campaign_id")%>" db="<%=(String)request.getAttribute("oltpDb")%>"jobId='<%=resultRow.getLongItem("job_id")%>' coderId='<%=resultRow.getLongItem("user_id")%>' /></td>
 <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>" align="right"><rsc:item name="alg_rating" row="<%=resultRow%>"/></td>
-<td class="<%=even?"screeningCellEven":"screeningCellOdd"%>" align="right"><rsc:item name="des_rating" row="<%=resultRow%>"/></td>
-<td class="<%=even?"screeningCellEven":"screeningCellOdd"%>" align="right"><rsc:item name="dev_rating" row="<%=resultRow%>"/></td>
+<td class="<%=even?"screeningCellEven":"screeningCellOdd"%>" align="right"><rsc:item name="des_rating" row="<%=resultRow%>" format="#"/></td>
+<td class="<%=even?"screeningCellEven":"screeningCellOdd"%>" align="right"><rsc:item name="dev_rating" row="<%=resultRow%>" format="#"/></td>
 <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>" align="center"><rsc:item name="state_code" row="<%=resultRow%>"/></td>
 <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item name="country_name" row="<%=resultRow%>"/></td>
 <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item name="coder_type_desc" row="<%=resultRow%>"/></td>
