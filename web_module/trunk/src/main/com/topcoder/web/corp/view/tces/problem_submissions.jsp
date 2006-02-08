@@ -26,21 +26,21 @@
 </jsp:include><!-- Header Ends -->
 
 <table width=100% border=0 cellpadding=0 cellspacing=0 align=center>
-	<TR valign="top">
-		<td width="50%"><jsp:include page="left.jsp" /></td>
+   <TR valign="top">
+      <td width="50%"><jsp:include page="left.jsp" /></td>
 <!-- Center Column Begins -->
         <td class=recruitingBody>
-			<img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
+         <img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class=bodyText>
-					<p>
+               <p>
                         <tces:trailIterator id="trailItem" trailList="<%=ProblemSubmissionsTask.getTrail()%>">
                             <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
                         </tces:trailIterator>
-					<br/>
-					<span class=testHead>Coder Problem Submissions: <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "handle").toString()%></span>
-					<br/><br/>
+               <br/>
+               <span class=testHead>Coder Problem Submissions: <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "handle").toString()%></span>
+               <br/><br/>
 
                     <strong>Name:</strong> <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "first_name").toString()%> <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "middle_name").toString()%> <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "last_name").toString()%><br/>
                     <strong>Address:</strong><br/>
@@ -57,23 +57,25 @@
                     <% if (ProblemSubmissionsTask.hasResume()) { %>
                     <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="ProblemSubmissionsTask" property="campaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="ProblemSubmissionsTask" property="jobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="ProblemSubmissionsTask" property="memberID"/>" class="bodyText"><B>Resume</B></a>
                     <% } %>
-					<br/><br/>
+               <br/><br/>
                     <strong>Interested in:</strong> <jsp:getProperty name="ProblemSubmissionsTask" property="jobName"/>
-					<br/><br/>
+               <br/><br/>
 
                     <A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemSubmissionsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemSubmissionsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemSubmissionsTask.getMemberID()%>" class="bodyText">Coder Demographic Info</A>
-					<br/>
+               <br/>
                     <A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemSubmissionsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemSubmissionsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemSubmissionsTask.getMemberID()%>" class="bodyText">Coder Competition History</A>
-					<br/>
+               <br/>
                     Coder Problem Submissions
+                  <br>
+                  <A href="" class="bodyText">Coder Skill Set</A>
                     </td>
                 </tr>
                 <tr>
                     <td class="bodyText" align="right">
-	                <% if (!ProblemSubmissionsTask.isRestrictedCampaign()) {%>
-	                <A HREF="JavaScript:getGraph('/corp/graph?c=rating_history_graph&cr=<jsp:getProperty name="ProblemSubmissionsTask" property="memberID"/>&cm=<jsp:getProperty name="ProblemSubmissionsTask" property="companyId"/>','800','600','history')" class="bodyText">Rating History Graph</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-	                <% } %>
-	                <A HREF="JavaScript:getGraph('/corp/graph?c=rating_distribution_graph&cm=<jsp:getProperty name="ProblemSubmissionsTask" property="companyId"/>','600','400','distribution')" class="bodyText">Overall Rating Distribution Graph</a>
+                   <% if (!ProblemSubmissionsTask.isRestrictedCampaign()) {%>
+                   <A HREF="JavaScript:getGraph('/corp/graph?c=rating_history_graph&cr=<jsp:getProperty name="ProblemSubmissionsTask" property="memberID"/>&cm=<jsp:getProperty name="ProblemSubmissionsTask" property="companyId"/>','800','600','history')" class="bodyText">Rating History Graph</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+                   <% } %>
+                   <A HREF="JavaScript:getGraph('/corp/graph?c=rating_distribution_graph&cm=<jsp:getProperty name="ProblemSubmissionsTask" property="companyId"/>','600','400','distribution')" class="bodyText">Overall Rating Distribution Graph</a>
                     </td>
                 </tr>
             </table>
@@ -109,7 +111,7 @@
             <p><br></p>
         </td>
 <!-- Center Column Ends -->
-		<td class=homeRightPromos width="50%"><jsp:include page="right.jsp" /></td>
+      <td class=homeRightPromos width="50%"><jsp:include page="right.jsp" /></td>
     </tr>
 </table>
 

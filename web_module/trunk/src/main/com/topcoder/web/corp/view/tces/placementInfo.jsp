@@ -53,7 +53,7 @@ List industryList = (List)request.getAttribute("industrySkills");
                                 <a href="<jsp:getProperty name="trailItem" property="href" />" class="bodyText"><jsp:getProperty name="trailItem" property="name" /></a> &gt;
                             </tces:trailIterator>
                             <br>
-                            <span class="testHead">Skill Set</span>
+                            <span class="testHead">Skill Set: handle</span>
                             <br><br>
                         </p>
                     </td>
@@ -79,11 +79,13 @@ List industryList = (List)request.getAttribute("industrySkills");
             <strong>Interested in:</strong> <rsc:item name="job_desc" set="<%=jobInfo%>"/>
             <br><br>
 <% if (String.valueOf(Boolean.TRUE).equals(request.getAttribute("is_ranked"))) { %>
-            Coder Demographic Info
+            <A HREF="" class="bodyText">Coder Demographic Info</A>
             <br>
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=request.getAttribute(TCESConstants.CAMPAIGN_ID_PARAM)%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=request.getAttribute(TCESConstants.JOB_ID_PARAM)%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=request.getAttribute(TCESConstants.MEMBER_ID_PARAM)%>" class="bodyText">Coder Competition History</A>
             <br>
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=request.getAttribute(TCESConstants.CAMPAIGN_ID_PARAM)%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=request.getAttribute(TCESConstants.JOB_ID_PARAM)%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=request.getAttribute(TCESConstants.MEMBER_ID_PARAM)%>" class="bodyText">Coder Problem Submissions</A>
+            <br>
+            Coder Skill Set
             <br><br>
 <% } %>
             </table>
