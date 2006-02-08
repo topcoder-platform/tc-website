@@ -45,6 +45,7 @@ public class ViewDownload extends BaseProcessor {
 
             getRequest().setAttribute("downloads", compManager.getDownloads());
             getRequest().setAttribute("componentInfo", compManager.getComponentInfo());
+            getRequest().setAttribute("versionInfo", compManager.getVersionInfo());
 
             setNextPage("/catalog/download.jsp");
             setIsNextPageInContext(true);
