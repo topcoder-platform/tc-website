@@ -13,12 +13,9 @@ package com.topcoder.web.tc.controller.request.compstats;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.security.ClassResource;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.tc.Constants;
-import java.util.Iterator;
+
 import java.util.Map;
 
 /**
@@ -104,7 +101,7 @@ public class CompContestDetails extends Base {
             if ((projectInfo.getIntItem(0, "status_id") != 4) &&
                 (projectInfo.getIntItem(0, "status_id") != 5) &&
                 (projectInfo.getIntItem(0, "status_id") != 6)) {
-                 throw new TCWebException("The project is not finished");
+                 throw new NavigationException("Sorry, we're still preparing the results for this project.  Please check back another time.");
 
             }
 
