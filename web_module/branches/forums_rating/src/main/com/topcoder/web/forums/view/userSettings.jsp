@@ -35,18 +35,9 @@
 
 <script type="text/javascript">
 <!--
-function toggle(obj) {
-    var el = document.getElementById(obj);
-    if ( el.style.display != "none" ) {
-        el.style.display = 'none';
-    }
-    else {
-        el.style.display = '';
-    }
-}
-
-function toggleTabs(id) { 
-    document.form1.<%=ForumConstants.SETTINGS_SECTION%>.value = id;
+var section;
+function toggleTabs(id) {
+    section = id;
     var genStyle = (id=="gen")?'':'none';
     var watchStyle = (id=="watch")?'':'none';
     var rateStyle = (id=="rate")?'':'none';
@@ -140,6 +131,7 @@ function toggleTabs(id) {
 
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
 <tc-webtag:hiddenInput name="module" value="Settings"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.SETTINGS_SECTION%>" value="gen"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.SETTINGS_STATUS%>" value="save"/>
 <table cellpadding="0" cellspacing="0" class="rtTable">
    <tr id="bodyGen1">
@@ -390,7 +382,7 @@ function toggleTabs(id) {
    </tr>
 </table>
 <div align="right">
-<input type="image" src="/i/roundTables/save.gif" alt="Save" />
+<input type="image" src="/i/roundTables/save.gif" alt="Save"/>
 </div></form>
 
 <p><br/></p>
