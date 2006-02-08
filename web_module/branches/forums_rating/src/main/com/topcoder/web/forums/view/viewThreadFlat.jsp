@@ -223,7 +223,7 @@ function displayVotes(messageID, posVotes, negVotes) {
             <%  } %>
             <a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="creationDate" format="EEE, MMM d, yyyy 'at' h:mm a z"/></a>
          </div>
-         <%  if (ratingManager.isRatingsEnabled() && user != null) { %>
+         <%  if (ratingManager.isRatingsEnabled() && user != null && "true".equals(user.getProperty("showRatings"))) { %>
              <a class="pointer" onMouseOver="this.style.color='#FF0000'"; onMouseOut="this.style.color='#333'"; onclick="toggle('<%=msgBodyID%>')";><jsp:getProperty name="message" property="subject"/></a>
          <%  } else { %>
              <jsp:getProperty name="message" property="subject"/>
@@ -232,7 +232,7 @@ function displayVotes(messageID, posVotes, negVotes) {
          (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
          <%  } %>
          &#160;>>&#160; <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">Reply</A>
-         <%  if (message.getUser() != null && message.getUser().equals(user)) { %>
+         <%  if (message.getUser() != null && message.getUser().equals(user) && "true".equals(user.getProperty("showRatings"))) { %>
          | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">Edit</A>
          <%  } %>
          <%  if (ratingManager.isRatingsEnabled() && user != null) { 

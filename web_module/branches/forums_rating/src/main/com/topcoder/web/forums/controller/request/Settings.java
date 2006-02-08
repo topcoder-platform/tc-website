@@ -49,6 +49,7 @@ public class Settings extends ForumsProcessor {
             String autoWatchReplies = getRequest().getParameter("autoWatchReplies");
             String markWatchesRead = getRequest().getParameter("markWatchesRead");
             watchFrequency = Integer.parseInt(getRequest().getParameter("watchFrequency"));
+            String showRatings = getRequest().getParameter("showRatings");
 
             checkMax(forumsPerPage, ForumConstants.maxForumsPerPage, "jiveForumRange", ForumConstants.ERR_FORUM_RANGE_EXCEEDED);
             checkMax(threadsPerPage, ForumConstants.maxThreadsPerPage, "jiveThreadRange", ForumConstants.ERR_THREAD_RANGE_EXCEEDED);
@@ -68,6 +69,7 @@ public class Settings extends ForumsProcessor {
             user.setProperty(("jiveAutoWatchNewTopics"), autoWatchNewTopics);
             user.setProperty(("jiveAutoWatchReplies"), autoWatchReplies);
             user.setProperty(("markWatchesRead"), markWatchesRead);
+            user.setProperty(("showRatings"), showRatings);
 
             CronTimer current = forumFactory.getWatchManager().getBatchTimer(user);
             if (current == null && watchFrequency != UserSettingsAction.FREQUENCY_IMMEDIATELY) {
