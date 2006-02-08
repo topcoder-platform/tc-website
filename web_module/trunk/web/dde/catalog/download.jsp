@@ -73,7 +73,7 @@
     Note: The begin and end form tag has to wrap BOTH license loop and download loops
 -->
 <form name="frmDownload" action="/catalog/download" method="POST">
-<input type="HIDDEN" name="comp" value="<jsp:getProperty name="componentInfo" property="Id"/>"/>
+<input type="HIDDEN" name="comp" value="<jsp:getProperty name="componentInfo" property="id"/>"/>
 <input type="HIDDEN" name="ver" value="<jsp:getProperty name="versionInfo" property="versionId"/>"/>
 <!--
     END FORM HEADER
