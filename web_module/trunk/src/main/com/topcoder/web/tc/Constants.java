@@ -156,11 +156,11 @@ public class Constants implements WebConstants {
     public static int FLASH_CATALOG_ID;
     public static int APPLICATIONS_CATALOG_ID;
     public static int INTERNAL_NOTE_TYPE_ID;
-    public static int LANGUAGE_NOTE_TYPE_ID;
-    public static int TECH_NOTE_TYPE_ID;
-    public static int OS_NOTE_TYPE_ID;
-    public static int DB_NOTE_TYPE_ID;
-    public static int INDUSTRY_NOTE_TYPE_ID;
+    //public static int LANGUAGE_NOTE_TYPE_ID;
+    //public static int TECH_NOTE_TYPE_ID;
+    //public static int OS_NOTE_TYPE_ID;
+    //public static int DB_NOTE_TYPE_ID;
+    //public static int INDUSTRY_NOTE_TYPE_ID;
     public static int MAX_RATED_INQUIRIES;
     public static int MAX_UNRATED_INQUIRIES;
     public static int REVIEWER_TERMS_ID;
