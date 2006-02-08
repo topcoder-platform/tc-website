@@ -19,6 +19,10 @@ public class ViewComponentTerms extends BaseProcessor {
 
     protected void businessProcessing() throws Exception {
 
+        getRequest().setAttribute("comp", getRequest().getParameter("comp"));
+        if (getRequest().getParameter("ver")!=null) {
+            getRequest().setAttribute("ver", getRequest().getParameter("ver"));
+        }
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
