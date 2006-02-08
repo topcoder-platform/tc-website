@@ -4,6 +4,7 @@
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
           java.util.Map,com.topcoder.web.tc.controller.legacy.stat.common.JSPUtils"
 %>
+<%@ page import="com.topcoder.shared.util.DBMS"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -136,7 +137,7 @@ H3 { font-size: 125%; }
 
 com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
 dataRequest.setContentHandle("showdown_scoreboard");
-DataAccessInt dai = new DataAccess("OLTP");
+DataAccessInt dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
 Map dataMap = null;
 dataMap = dai.getData(dataRequest);
 ResultSetContainer rscTopA = (ResultSetContainer)dataMap.get("showdown_top_set_a");
