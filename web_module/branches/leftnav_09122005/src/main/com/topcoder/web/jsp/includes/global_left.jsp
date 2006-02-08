@@ -54,7 +54,7 @@
          nav.search("m_edu_content").addChild(new NavNode("", "Features", "features"));
          nav.search("m_edu_content").addChild(new NavNode("", "Tutor Transcripts", "tutor_trans"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_my_tc')", "My TopCoder", "m_my_tc"));
-         nav.search("m_my_tc").addChild(new NavNode("", "Update My Profile", "competitor_update_profile"));
+         nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/Registration?update=true", "Update My Profile", "competitor_update_profile"));
          nav.search("m_my_tc").addChild(new NavNode("", "Members I've Referred", "referrals"));
          nav.search("m_my_tc").addChild(new NavNode("", "Affidavits", "affidavits"));
          nav.search("m_my_tc").addChild(new NavNode("", "Cards / Badges", "cards_badges"));

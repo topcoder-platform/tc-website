@@ -4,18 +4,16 @@ import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.data.User;
 import com.topcoder.common.web.util.Data;
 import com.topcoder.security.TCSubject;
-import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
+import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.controller.legacy.reg.bean.Task;
 import com.topcoder.web.tc.controller.legacy.reg.bean.TaskException;
-import com.topcoder.web.common.model.CoderSessionInfo;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -63,14 +61,17 @@ public class Controller
             WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()),
                     tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
             RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
-            PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             TCSubject user = SecurityHelper.getUserSubject(authentication.getActiveUser().getId());
             CoderSessionInfo info = new CoderSessionInfo(tcRequest, authentication, user.getPrincipals());
             nav.setCoderSessionInfo(info);
             request.setAttribute(BaseServlet.SESSION_INFO_KEY, info);
 
-            if (nav.isIdentified() && !nav.isLoggedIn())
+            if (nav.isIdentified() && !nav.isLoggedIn()) {
                 throw new PermissionException(new SimpleUser(nav.getUserId(), "", ""), new ClassResource(this.getClass()));
+            }
+            if ("true".equals(tcRequest.getParameter("update"))&&!nav.isLoggedIn()) {
+                throw new PermissionException(new SimpleUser(nav.getUserId(), "", ""), new ClassResource(this.getClass()));
+            }
 
 
             if (request.getContentType() == null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0) {
