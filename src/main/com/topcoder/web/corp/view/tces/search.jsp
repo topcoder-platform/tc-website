@@ -157,6 +157,7 @@ font-weight: normal;
 
 <table cellspacing="0" cellpadding="0" border="0" width="100%">
 <tr><td align="center" colspan="5" class="bodyText" style="padding: 0px 0px 10px 0px;">
+    <a href="<%=sessionInfo.getServletPath()%>?module=ViewSearchTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=request.getAttribute(TCESConstants.CAMPAIGN_ID_PARAM)%>"><strong>Start Over</strong></a> |
     <a href="JavaScript:submitForm()"><strong>Submit</strong></a>
 </td></tr>
 <tr class="bodyText">
@@ -253,11 +254,12 @@ font-weight: normal;
             </td></tr>
             <tr valign="top">
                 <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
+                <span class="smallText">Skill</span><br>
                 <% int skillType = resultRow.getIntItem("skill_type_id");%>
-                <tc-webtag:listSelect styleClass="select1" name='<%="skilltype"+skillType%>' useTopValue="false" multiple="true" size="7" list="<%=(List)skillMap.get(new Integer(skillType))%>"/>
+                <tc-webtag:listSelect styleClass="select1" name='<%="skilltype"+skillType%>' useTopValue="false" multiple="true" size="5" list="<%=(List)skillMap.get(new Integer(skillType))%>"/>
                 </td>
                 <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>" nowrap="nowrap" align="center">
-                <span class="smallText">Min<br>Level</span><br>
+                <span class="smallText">Min Level</span><br>
                 <select class="select2" size="5" name="skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
                     <option>1</option>
                     <option>2</option>
