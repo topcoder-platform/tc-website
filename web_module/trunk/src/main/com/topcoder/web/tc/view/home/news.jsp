@@ -15,8 +15,22 @@
    </tr>
    <tr><td class="newsLinksCell">
        <A href="/tc?module=Static&d1=pressroom&d2=pr_020806">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505910" message="discuss this" />&#160;|&#160;
+       <A href="http://forums.topcoder.com/?module=Thread&threadID=509013&mc=1#525461">discuss this</a>&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
+   </td></tr>
+
+<%-------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>02.08.06<br>9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/wsj_020806.pdf" target="_blank">World's Top Geeks Battle Over Coding [PDF]</A></span><br><br>
+      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wsjo.gif" width="88" height="33" alt="Wall Street Journal Online" border="0" /></div>
+      "Imagine a reality TV show that combines the performance-under-time-pressure of 'Iron Chef' with the scheming and psych-outs of 'Survivor,' then adds the soaring braininess of -- well, that's the problem, really: There isn't anything this smart on TV."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/pdfs/press_room/wsj_020806.pdf" target="_blank">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505911" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
