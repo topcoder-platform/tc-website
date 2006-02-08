@@ -78,15 +78,29 @@
                         <a href="/applications/index.jsp"><img src="/images/promos/promo_home_2.jpg" alt="" width="247" height="175" border="0" /></a>
                     </td>
                 </tr>
+                <tr>
+                    <td valign="top" align="left" colspan="2">
+                    <map name="morris_promo">
+                    <area shape="rect" alt="Application Development Methodology" coords="63,240,77,52" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_1.mp4" />
+                    <area shape="rect" alt="Requirements and Specifications" coords="79,240,92,52" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_2.mp4" />
+                    <area shape="rect" alt="Specification Phase" coords="93,240,105,52" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_3.mp4" />
+                    <area shape="rect" alt="Specification Phase - QA Plan" coords="107,240,120,52" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_4.mp4" />
+                    <area shape="rect" alt="Application Architecture Phase" coords="121,240,134,52" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_5.mp4" />
+                    <area shape="rect" alt="Manufacturing Discipline" coords="135,240,148,52" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_6.mp4" />
+                    <area shape="rect" alt="Using Competition to Build Software I" coords="149,240,163,52" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_7.mp4" />
+                    <area shape="rect" alt="Using Competition to Build Software II" coords="164,240,176,52" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_8.mp4" />      
+                    </map>
+                    <img src="/images/promos/promo_morris.jpg" alt="Mike Morris Promo" border="0" usemap="#morris_promo"/>
+                    </td>
+                </tr>
 
             </table>
 
-			<jsp:include page="/includes/customers_featured.jsp" flush="true" />
+		<!--	<jsp:include page="/includes/customers_featured.jsp" flush="true" />-->
          <jsp:include page="/includes/press_highlights.jsp" flush="true" />
             <p><br></p>
 
         </td>
-
 
         <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
         <td width="170">
