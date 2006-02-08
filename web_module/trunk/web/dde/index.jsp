@@ -82,14 +82,14 @@
                 <tr>
                     <td valign="top" align="left" colspan="2">
                     <map name="morris_promo">
-                    <area shape="rect" alt="Application Development Methodology" coords="63,240,77,52" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_1.mp4" />
-                    <area shape="rect" alt="Requirements and Specifications" coords="79,240,92,52" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_2.mp4" />
-                    <area shape="rect" alt="Specification Phase" coords="93,240,105,52" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_3.mp4" />
-                    <area shape="rect" alt="Specification Phase - QA Plan" coords="107,240,120,52" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_4.mp4" />
-                    <area shape="rect" alt="Application Architecture Phase" coords="121,240,134,52" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_5.mp4" />
-                    <area shape="rect" alt="Manufacturing Discipline" coords="135,240,148,52" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_6.mp4" />
-                    <area shape="rect" alt="Using Competition to Build Software I" coords="149,240,163,52" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_7.mp4" />
-                    <area shape="rect" alt="Using Competition to Build Software II" coords="164,240,176,52" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_8.mp4" />      
+                    <area shape="rect" alt="Application Development Methodology" coords="53,64,238,78" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_1.mp4" />
+                    <area shape="rect" alt="Requirements and Specifications" coords="53,79,238,92" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_2.mp4" />
+                    <area shape="rect" alt="Specification Phase" coords="53,93,238,106" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_3.mp4" />
+                    <area shape="rect" alt="Specification Phase - QA Plan" coords="53,107,238,121" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_4.mp4" />
+                    <area shape="rect" alt="Application Architecture Phase" coords="53,122,238,135" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_5.mp4" />
+                    <area shape="rect" alt="Manufacturing Discipline" coords="53,136,238,148" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_6.mp4" />
+                    <area shape="rect" alt="Using Competition to Build Software I" coords="53,149,238,162" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_7.mp4" />
+                    <area shape="rect" alt="Using Competition to Build Software II" coords="53,163,238,176" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_8.mp4" />      
                     </map>
                     <img src="/images/promos/promo_morris.jpg" alt="Mike Morris Promo" border="0" usemap="#morris_promo"/>
                     </td>
