@@ -55,6 +55,9 @@ public class ComponentInfo implements java.io.Serializable {
     private String keywords;
     private long status;
 
+    public ComponentInfo() {
+
+    }
 
     ComponentInfo(long id, long currentVersion, String name,
                   String shortDescription, String description,

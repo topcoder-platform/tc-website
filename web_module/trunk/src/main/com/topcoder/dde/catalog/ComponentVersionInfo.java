@@ -47,6 +47,9 @@ public class ComponentVersionInfo implements java.io.Serializable {
     private double price;
     private boolean publicForum = false;
 
+    public ComponentVersionInfo() {
+        
+    }
 
     ComponentVersionInfo(long versionId, long version, String versionLabel,
                          String comments, long phase, Date phaseDate, double price) {
