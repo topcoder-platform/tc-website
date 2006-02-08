@@ -41,12 +41,10 @@ List industryList = (List)request.getAttribute("industrySkills");
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
     <TR valign="top">
-        <td>
-            <jsp:include page="left.jsp"/>
-        </td>
+        <td width="50%"><jsp:include page="left.jsp" /></td>
         <!-- Center Column Begins -->
-        <td style="padding: 0px 0px 0px 30px;">
-            <img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
+      <td class="recruitingBody">
+            <img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class="bodyText">
@@ -54,42 +52,41 @@ List industryList = (List)request.getAttribute("industrySkills");
                             <tces:trailIterator id="trailItem" trailList="<%=(List)request.getAttribute("trail")%>">
                                 <a href="<jsp:getProperty name="trailItem" property="href" />" class="bodyText"><jsp:getProperty name="trailItem" property="name" /></a> &gt;
                             </tces:trailIterator>
-                            <br/>
-                            <span class=testHead>Placement Info <b>(This should be changed to something that is appropriate for clients)</b></span>
-                            <br/><br/>
+                            <br>
+                            <span class="testHead">Skill Set</span>
+                            <br><br>
                         </p>
                     </td>
                 </tr>
-            </table>
-
-        <p class="bodyText">
+         <tr>
+            <td class="bodyText" width="50%" valign="top">
             <strong>Name:</strong> <rsc:item name="first_name" set="<%=info%>"/> <rsc:item name="middle_name" set="<%=info%>"/> <rsc:item name="last_name" set="<%=info%>"/><br />
-            <strong>Address:</strong><br/>
-                        <rsc:item name="address1" set="<%=info%>"/><br/>
-                        <%= info.getItem(0, "address2").toString().length()==0?"":info.getStringItem(0, "address2")+"<br/>"%>
-                        <%= info.getItem(0, "address3").toString().length()==0?"":info.getStringItem(0, "address3")+"<br/>"%>
+            <strong>Address:</strong><br>
+                        <rsc:item name="address1" set="<%=info%>"/><br>
+                        <%= info.getItem(0, "address2").toString().length()==0?"":info.getStringItem(0, "address2")+"<br>"%>
+                        <%= info.getItem(0, "address3").toString().length()==0?"":info.getStringItem(0, "address3")+"<br>"%>
                         <%= info.getItem(0, "province").toString()%>
                         <%= info.getItem(0, "city").toString()%>,
                         <%= info.getItem(0, "state_code").toString()%>
                         <%= info.getItem(0, "zip").toString()%>
-                        <%= info.getItem(0, "country_name").toString()%><br/>
-            <strong>Email:</strong> <a href="mailto:<%=info.getItem(0, "email").toString() %>" class="bodyText"><%= info.getItem(0, "email").toString() %></A><br/>
-            <strong>Phone:</strong> <%= info.getItem(0, "home_phone").toString()%><br/>
+                        <%= info.getItem(0, "country_name").toString()%><br>
+            <strong>Email:</strong> <a href="mailto:<%=info.getItem(0, "email").toString() %>" class="bodyText"><%= info.getItem(0, "email").toString() %></A><br>
+            <strong>Phone:</strong> <%= info.getItem(0, "home_phone").toString()%><br>
                         <% if (String.valueOf(Boolean.TRUE).equals(request.getAttribute("has_resume"))) { %>
               <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=request.getAttribute(TCESConstants.CAMPAIGN_ID_PARAM)%>&amp;<%=TCESConstants.JOB_ID_PARAM%>=<%=request.getAttribute(TCESConstants.JOB_ID_PARAM)%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=request.getAttribute(TCESConstants.MEMBER_ID_PARAM)%>" class="bodyText"><B>Resume</B></a>
                         <% } %>
-            <br/><br/>
+            <br><br>
             <strong>Interested in:</strong> <rsc:item name="job_desc" set="<%=jobInfo%>"/>
-            <br/><br/>
+            <br><br>
 <% if (String.valueOf(Boolean.TRUE).equals(request.getAttribute("is_ranked"))) { %>
             Coder Demographic Info
-            <br/>
+            <br>
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=request.getAttribute(TCESConstants.CAMPAIGN_ID_PARAM)%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=request.getAttribute(TCESConstants.JOB_ID_PARAM)%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=request.getAttribute(TCESConstants.MEMBER_ID_PARAM)%>" class="bodyText">Coder Competition History</A>
-            <br/>
+            <br>
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=request.getAttribute(TCESConstants.CAMPAIGN_ID_PARAM)%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=request.getAttribute(TCESConstants.JOB_ID_PARAM)%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=request.getAttribute(TCESConstants.MEMBER_ID_PARAM)%>" class="bodyText">Coder Problem Submissions</A>
-            <br/><br/>
+            <br><br>
 <% } %>
-        </p>
+            </table>
 
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding: 0px 30px 0px 0px;">
@@ -190,8 +187,10 @@ List industryList = (List)request.getAttribute("industrySkills");
     <tr><td align="center" colspan="2" class="bodyText"><table cellpadding="3" cellspacing="5"><tr><td bgcolor="#eeeeee"><%=StringUtils.htmlEncode((String)request.getAttribute("industryNote"))%></td></tr></table></td></tr>
 </table>
 </td>
-
-<td valign="top" width="35%">&#160;</td>
+</tr>
+</table>
+</td>
+      <td class=homeRightPromos width="50%"><jsp:include page="right.jsp" /></td>
 
 </tr>
 </table>
@@ -199,9 +198,9 @@ List industryList = (List)request.getAttribute("industrySkills");
 </tr>
 </table>
 
-        <!-- Footer begins -->
-        <jsp:include page="../foot.jsp"/>
-        <!-- Footer ends -->
+<!-- Footer begins -->
+<jsp:include page="../foot.jsp"/>
+<!-- Footer ends -->
 
-        </body>
-        </html>
+</body>
+</html>
