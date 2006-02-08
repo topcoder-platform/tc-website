@@ -1,8 +1,13 @@
+<%@ page import="com.topcoder.common.web.data.Navigation"%>
 <%@  page
   language="java"
   errorPage="/errorPage.jsp" %>
 <%@ page session="true" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+    <%
+        Navigation n = (Navigation) session.getAttribute("navigation");
+    %>
+
 
 <html>
 
@@ -29,7 +34,7 @@
 <!-- Left Column Begins -->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="competition_reg"/>
+            <jsp:param name="node" value="<%=n.getSessionInfo().isAnonymous()?"competition_reg":"competitor_update_profile"%>"/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->

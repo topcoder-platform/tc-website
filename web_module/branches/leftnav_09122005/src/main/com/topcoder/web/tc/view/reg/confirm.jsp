@@ -1,6 +1,10 @@
+<%@ page import="com.topcoder.common.web.data.Navigation"%>
 <html>
 <head>
 <title>Registration</title>
+    <%
+      Navigation n = (Navigation) session.getAttribute("navigation");
+    %>
 
 <jsp:include page="../script.jsp" />
 <jsp:include page="/style.jsp">
@@ -20,7 +24,7 @@
 <!-- Left Column Begins -->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="competition_reg"/>
+            <jsp:param name="node" value="<%=n.getSessionInfo().isAnonymous()?"competition_reg":"competitor_update_profile"%>"/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->
