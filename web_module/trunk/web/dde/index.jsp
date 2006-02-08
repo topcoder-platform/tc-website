@@ -1,4 +1,5 @@
-<%@ page import="javax.naming.*" %>
+<%@ page import="javax.naming.*,
+                 com.topcoder.dde.util.ApplicationServer" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
