@@ -28,11 +28,11 @@
 <% ResultSetContainer MemberInfo = MemberProfileTask.getMemberInfo(); %>
 <% ResultSetContainer MemberStats = MemberProfileTask.getMemberStats(); %>
 
-<table width=100% border="0" cellpadding="0" cellspacing="0" align="center">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
    <TR valign="top">
       <td width="50%"><jsp:include page="left.jsp" /></td>
       <!-- Center Column Begins -->
-      <td class=recruitingBody>
+      <td class="recruitingBody">
       <img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br />
       <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
          <tr valign="top">
@@ -80,6 +80,8 @@
             <A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="bodyText">Coder Competition History</A>
             <br />
             <A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="bodyText">Coder Problem Submissions</A>
+            <br />
+            <A HREF="" class="bodyText">Coder Skill Set</A>
             <br /><br />
             <% if (MemberProfileTask.hasResume()) { %>
             <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="campaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="jobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="memberID"/>" class="bodyText"><B>Resume</B></a>
