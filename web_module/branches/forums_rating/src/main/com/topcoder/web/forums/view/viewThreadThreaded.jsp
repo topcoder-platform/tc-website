@@ -246,7 +246,12 @@ function displayVotes(messageID, posVotes, negVotes) {
          <span class="bodyText"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></span><br><%if (message.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(message.getUser()), "post")%></A><%}%>
          </div>
       </td>
-      <td class="rtTextCell" width="100%"><jsp:getProperty name="message" property="body"/></td></tr>
+      <%   if (user != null && posRatings >= Integer.parseInt(user.getProperty("ratingHighlightThreshold"))*Integer.parseInt(user.getProperty("ratingHighlightMinCount"))/100) { %>
+      <td class="rtTextCellHlt" width="100%"><jsp:getProperty name="message" property="body"/></td>
+      <%   } else { %>
+      <td class="rtTextCell" width="100%"><jsp:getProperty name="message" property="body"/></td>
+      <%   } %>}
+      </tr>
 </table>
 </div>
 </tc-webtag:iterator>

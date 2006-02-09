@@ -202,7 +202,9 @@ function displayVotes(messageID, posVotes, negVotes) {
    <tr>
       <td class="rtHeader" colspan="2">
       <%  String msgBodyID = "msgBody" + activeMessage.getID(); 
-          String ratingsID = "ratings" + activeMessage.getID(); %> 
+          String ratingsID = "ratings" + activeMessage.getID(); 
+          int posRatings = -1;
+          int negRatings = -1; %> 
          <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
             <%  int editCount = historyBean.getEditCount(activeMessage.getID(), DBMS.FORUMS_DATASOURCE_NAME);
             if (editCount > 0) { %> 
@@ -222,8 +224,8 @@ function displayVotes(messageID, posVotes, negVotes) {
          <%  if (ratingManager.isRatingsEnabled() && user != null && "true".equals(user.getProperty("showRatings"))) { 
                 double avgRating = ratingManager.getMeanRating(activeMessage);
                 int ratingCount = ratingManager.getRatingCount(activeMessage);
-                int posRatings = (int)(Math.round(avgRating*ratingCount)-ratingCount);
-                int negRatings = ratingCount - posRatings; %>
+                posRatings = (int)(Math.round(avgRating*ratingCount)-ratingCount);
+                negRatings = ratingCount - posRatings; %>
             <span id="<%=ratingsID%>">(+<%=posRatings%>/-<%=negRatings%>)</span> <a href="javascript:void(0)" onclick="rate('<%=activeMessage.getID()%>','2')" class="rtbcLink">[+]</a><a href="javascript:void(0)" onclick="rate('<%=activeMessage.getID()%>','1')" class="rtbcLink">[-]</a>
         <%  } %>
       </td>
@@ -236,8 +238,13 @@ function displayVotes(messageID, posVotes, negVotes) {
          <%  } %>
          <span class="bodyText"><%if (activeMessage.getUser() != null) {%><tc-webtag:handle coderId="<%=activeMessage.getUser().getID()%>"/><%}%></span><br><%if (activeMessage.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=activeMessage.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(activeMessage.getUser()), "post")%></A><%}%>
       </div>
-   </td>
-   <td class="rtTextCell" width="100%"><jsp:getProperty name="activeMessage" property="body"/></td></tr>
+   </td>5>
+   <%   if (user != null && posRatings >= Integer.parseInt(user.getProperty("ratingHighlightThreshold"))*Integer.parseInt(user.getProperty("ratingHighlightMinCount"))/100) { %> 
+   <td class="rtTextCellHlt" width="100%"><jsp:getProperty name="activeMessage" property="body"/></td>
+   <%   } else { %>
+   <td class="rtTextCell" width="100%"><jsp:getProperty name="activeMessage" property="body"/></td>
+   <%   } %>
+   </tr>
 </table>
 <%-------------ACTIVE POST ENDS----------%>
 
@@ -291,7 +298,7 @@ function displayVotes(messageID, posVotes, negVotes) {
         <% } %>
    <%   }   %>
    </td>
-    <td align="right"><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
+   <td align="right"><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
 </table>
 
         <p><br></p>
