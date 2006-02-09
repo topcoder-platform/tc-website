@@ -1,9 +1,10 @@
 <%@  page language="java"  %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Feature Articles</title>
+<title>Algorithm Tutorials</title>
 
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
@@ -37,10 +38,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="education"/>
-                <jsp:param name="level2" value="features"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="algo_tutorials"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -352,7 +352,7 @@ public class CheatCode {
 <!-- Right Column Begins -->
          <td width="170">
             <jsp:include page="../public_right.jsp">
-               <jsp:param name="level1" value="privatelabel"/>
+               <jsp:param name="level1" value="default"/>
             </jsp:include>
          </td>
 <!-- Right Column Ends -->
