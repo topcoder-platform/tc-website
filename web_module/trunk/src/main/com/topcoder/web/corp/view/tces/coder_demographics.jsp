@@ -69,7 +69,7 @@
                   <br>
                   <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CoderDemographicsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CoderDemographicsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CoderDemographicsTask.getMemberID()%>" class="bodyText">Coder Problem Submissions</A>
                   <br>
-                  <A href="" class="bodyText">Coder Skill Set</A>
+                  <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=PlacementInfoTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CoderDemographicsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CoderDemographicsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CoderDemographicsTask.getMemberID()%>" class="bodyText">Coder Skill Set</A>
                   <br><br>
 <% } %>
                </td>
