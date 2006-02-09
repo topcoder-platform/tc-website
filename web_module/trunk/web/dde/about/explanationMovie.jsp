@@ -65,36 +65,36 @@
 <br /><br /></td></tr>
 
 <tr>
-<td align="center" valign="top" width="170" style="padding:10px"><A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_1.mp4"><img src="/images/tcsmorris_1b.jpg" alt="" border="0" /></A></td>
-<td class="bodyText" valign="middle" style="padding:10px"><b>Part 1:</b> <A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_1.mp4">Application Development Methodology</A><br>(10.1 MB)</td>
+<td align="center" valign="top" width="170" style="padding:10px"><A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/applDevMethod.mp4"><img src="/images/tcsmorris_1b.jpg" alt="" border="0" /></A></td>
+<td class="bodyText" valign="middle" style="padding:10px"><b>Part 1:</b> <A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/applDevMethod.mp4">Application Development Methodology</A><br>(10.1 MB)</td>
 </tr>
 <tr>
-<td align="center" valign="top" style="padding:10px"><A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_2.mp4"><img src="/images/tcsmorris_2a.jpg" alt="" border="0" /></A></td>
-<td class="bodyText" valign="middle" style="padding:10px"><b>Part 2:</b> <A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_2.mp4">Requirements and Specifications</A><br>(5.4 MB)</td>
+<td align="center" valign="top" style="padding:10px"><A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/reqSpecs.mp4"><img src="/images/tcsmorris_2a.jpg" alt="" border="0" /></A></td>
+<td class="bodyText" valign="middle" style="padding:10px"><b>Part 2:</b> <A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/reqSpecs.mp4">Requirements and Specifications</A><br>(5.4 MB)</td>
 </tr>
 <tr>
-<td align="center" valign="top" width="170" style="padding:10px"><A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_3.mp4"><img src="/images/tcsmorris_3c.jpg" alt="" border="0" /></A></td>
-<td class="bodyText" valign="middle" style="padding:10px"><b>Part 3:</b> <A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_3.mp4">Specification Phase</A><br>(18.4 MB)</td>
+<td align="center" valign="top" width="170" style="padding:10px"><A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/specPhase.mp4"><img src="/images/tcsmorris_3c.jpg" alt="" border="0" /></A></td>
+<td class="bodyText" valign="middle" style="padding:10px"><b>Part 3:</b> <A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/specPhase.mp4">Specification Phase</A><br>(18.4 MB)</td>
 </tr>
 <tr>
-<td align="center" valign="top" width="170" style="padding:10px"><A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_4.mp4"><img src="/images/tcsmorris_4a.jpg" alt="" border="0" /></A></td>
-<td class="bodyText" valign="middle" style="padding:10px"><b>Part 4:</b> <A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_4.mp4">Specification Phase - QA Plan</A><br>(8.1 MB)</td>
+<td align="center" valign="top" width="170" style="padding:10px"><A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/specPhaseQA.mp4"><img src="/images/tcsmorris_4a.jpg" alt="" border="0" /></A></td>
+<td class="bodyText" valign="middle" style="padding:10px"><b>Part 4:</b> <A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/specPhaseQA.mp4">Specification Phase - QA Plan</A><br>(8.1 MB)</td>
 </tr>
 <tr>
-<td align="center" valign="top" width="170" style="padding:10px"><A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_5.mp4"><img src="/images/tcsmorris_5a.jpg" alt="" border="0" /></A></td>
-<td class="bodyText" valign="middle" style="padding:10px"><b>Part 5:</b> <A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_5.mp4">Application Architecture Phase -<br>Custom Applications Using Component Building Blocks</A><br>(11.7 MB)</td>
+<td align="center" valign="top" width="170" style="padding:10px"><A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/applArchPhase.mp4"><img src="/images/tcsmorris_5a.jpg" alt="" border="0" /></A></td>
+<td class="bodyText" valign="middle" style="padding:10px"><b>Part 5:</b> <A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/applArchPhase.mp4">Application Architecture Phase -<br>Custom Applications Using Component Building Blocks</A><br>(11.7 MB)</td>
 </tr>
 <tr>
-<td align="center" valign="top" width="170" style="padding:10px"><A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_6.mp4"><img src="/images/tcsmorris_6a.jpg" alt="" border="0" /></A></td>
-<td class="bodyText" valign="middle" style="padding:10px"><b>Part 6:</b> <A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_6.mp4">Manufacturing Discipline</A><br>(28 MB)</td>
+<td align="center" valign="top" width="170" style="padding:10px"><A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/manuDiscipline.mp4"><img src="/images/tcsmorris_6a.jpg" alt="" border="0" /></A></td>
+<td class="bodyText" valign="middle" style="padding:10px"><b>Part 6:</b> <A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/manuDiscipline.mp4">Manufacturing Discipline</A><br>(28 MB)</td>
 </tr>
 <tr>
-<td align="center" valign="top" width="170" style="padding:10px"><A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_7.mp4"><img src="/images/tcsmorris_7b.jpg" alt="" border="0" /></A></td>
-<td class="bodyText" valign="middle" style="padding:10px"><b>Part 7:</b> <A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_7.mp4">Using Competition to Build Software I</A><br>(15.3 MB)</td>
+<td align="center" valign="top" width="170" style="padding:10px"><A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/usingCompetitionI.mp4"><img src="/images/tcsmorris_7b.jpg" alt="" border="0" /></A></td>
+<td class="bodyText" valign="middle" style="padding:10px"><b>Part 7:</b> <A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/usingCompetitionI.mp4">Using Competition to Build Software I</A><br>(15.3 MB)</td>
 </tr>
 <tr>
-<td align="center" valign="top" width="170" style="padding:10px"><A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_8.mp4"><img src="/images/tcsmorris_8.jpg" alt="" border="0" /></A></td>
-<td class="bodyText" valign="middle" style="padding:10px"><b>Part 8:</b> <A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/tcs_morris_8.mp4">Using Competition to Build Software II</A><br>(14 MB)</td>
+<td align="center" valign="top" width="170" style="padding:10px"><A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/usingCompetitionII.mp4"><img src="/images/tcsmorris_8.jpg" alt="" border="0" /></A></td>
+<td class="bodyText" valign="middle" style="padding:10px"><b>Part 8:</b> <A href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/usingCompetitionII.mp4">Using Competition to Build Software II</A><br>(14 MB)</td>
 </tr>
 <tr><td colspan="2">&#160;</td></tr>
 </table>
