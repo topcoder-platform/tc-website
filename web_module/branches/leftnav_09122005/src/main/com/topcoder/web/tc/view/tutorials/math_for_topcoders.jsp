@@ -52,7 +52,7 @@
    <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
-<div style="float: right;"><tc-webtag:forumLink forumID="505848" message="Discuss this article" /></div>
+<div style="float: right;"><tc-webtag:forumLink forumID="505913" message="Discuss this article" /></div>
 <span class="bodyTitle">Mathematics for TopCoders</span>
 
 <p>

@@ -43,7 +43,7 @@
             <tr valign=top><td class="bodyText"><b>Author</b></td><td class="bodyText" nowrap=nowrap width="100%"><b>Title</b></td></tr>
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="159052" context="algorithm"/>
-               </td><td class="bodyText" nowrap=nowrap><a href="/index?t=features&c=feat_100404b"><strong>The Importance of Algorithms</strong></a>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=importance_of_algorithms"><strong>The Importance of Algorithms</strong></a>
             </td></tr>
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="275071" context="algorithm"/>
