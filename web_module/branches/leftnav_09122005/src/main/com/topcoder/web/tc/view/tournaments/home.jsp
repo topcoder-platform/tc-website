@@ -132,7 +132,7 @@
          <td width="100%">
          <span class="bodySubtitle">2003 TopCoder Open&#153; sponsored by Intel&#174;</span>
          <br><br>
-         <div style="float: right;"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about"><img src="/i/tournament/logo_tco03.gif" alt="" border="0" /></A></div>
+         <div style="float: right;"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_overview"><img src="/i/tournament/logo_tco03.gif" alt="" border="0" /></A></div>
          December 4-5<br />
          Mohegan Sun Casino<br />
          Uncasville, Connecticut<br />
