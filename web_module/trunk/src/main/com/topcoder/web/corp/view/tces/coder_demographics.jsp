@@ -35,7 +35,7 @@
                 <tr valign="top">
                     <td class=bodyText>
                      <div style="float:right;">
-                        <A href="#">Search candidates</A>
+                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=ViewSearchTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CoderDemographicsTask" property="campaignID" />">Search candidates</A>
                      </div>
                         <tces:trailIterator id="trailItem" trailList="<%=CoderDemographicsTask.getTrail()%>">
                             <a href="<jsp:getProperty name="trailItem" property="href" />" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></a> &gt;
