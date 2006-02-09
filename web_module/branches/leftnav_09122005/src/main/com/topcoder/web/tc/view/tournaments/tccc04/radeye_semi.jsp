@@ -4,7 +4,11 @@
 <head>
 <title>2004 TopCoder Collegiate Challenge - Computer Programming Tournament - Advancers</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
+
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
 </head>
 

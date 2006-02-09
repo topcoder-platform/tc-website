@@ -21,7 +21,8 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td width="180">            <jsp:include page="/includes/global_left.jsp">
+        <td width="180">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="topcoder_tournaments"/>
             </jsp:include>
         </td>
