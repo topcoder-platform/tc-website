@@ -53,14 +53,14 @@ margin:0px auto;
       <td class="BIGPromoBox" align="center"><IMG SRC="/i/home/tco06_comp_registration.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" /></td>
 --%>
 <%-- high school
---%>
       <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=hs&d2=home"><IMG SRC="/i/home/high_school.jpg" border="0" ALT="TopCoder High School"/></A></td>
+--%>
 <%-- MSN
       <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=contracting&d2=msn"><IMG SRC="/i/home/msn_emp_opps.gif" border="0" ALT="MSN is hiring"/></A></td>
 --%>
 <%-- Intel
-      <td class="BIGPromoBox" align="center"><A href="/longcontest/?module=Static&d1=intel_overview"><IMG SRC="/i/home/intel_multi_threading.gif" border="0" ALT="Intel Multi-Threading Competition Series"/></A></td>
 --%>
+      <td class="BIGPromoBox" align="center"><A href="/longcontest/?module=Static&d1=intel_overview"><IMG SRC="/i/home/intel_mtcs_banner.gif" border="0" ALT="Intel Multi-Threading Competition Series"/></A></td>
       <td width="50%" class="homeLogo" align="right">&#160;</td>
    </tr>
 </table>
@@ -79,7 +79,7 @@ margin:0px auto;
 <%-- Left Column --%>
       <td class="homeLeftCol">
       <table border="0" cellpadding="0" cellspacing="0">
-         <tr><td class="homeBigPromo"><A href="/tc"><img src="/i/home/promos/developercenter.gif" alt="Developer Center" border="0" /></A></td></tr>
+         <tr><td class="homeBigPromo"><A href="/tc?module=Static&d1=hs&d2=home"><img src="/i/home/tchs_sm.jpg" alt="TopCoder High School Competitions" border="0" /></A></td></tr>
       </table>
       <table border="0" cellpadding="0" cellspacing="0">
          <tr>
@@ -156,8 +156,12 @@ margin:0px auto;
       <td class="homeRightCol">
       <table border="0" cellpadding="0" cellspacing="0">
          <tr><td class="homeBigPromo">
-<%-- CNN --%>
+<%-- CNN 
             <A href="/movies/press/cnn_072405.mp4"><img src="/i/home/mov_cnn_072405.jpg" alt="TopCoder Movies" border="0" /></A>
+--%>
+<%-- WSJ 
+--%>
+            <A href="http://webreprints.djreprints.com/1404341094425.html" target="_blank"><img src="/i/home/wsj_020806_sm.gif" alt="The Wall Street Journal" border="0" /></A>
 <%-- SRM SPONSORSHIP
             <map name="srm_sponsor">
             <area shape="rect" alt="" coords="1,1, 269,90" href="/?RoundId=8077&t=schedule&c=srm" />
@@ -165,8 +169,8 @@ margin:0px auto;
             </map>
             <img src="/i/home/verisign_srm280.gif" alt="VeriSign" border="0" usemap="#srm_sponsor"/>
 --%>
-<%-- GCJC
-            <A href="/gcjc"><img src="/i/home/gcjc.gif" alt="Google Code Jam China" border="0" /></A>
+<%-- Intel MTCS 
+            <A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0" /></A>
 --%>
          </td></tr>
       </table>
