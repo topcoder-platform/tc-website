@@ -341,6 +341,13 @@ public class PlacementInfoTask extends BaseTask {
             }
         }
 
+        if (info.getPreference(String.valueOf(TCESConstants.PREFERENCE_CONTRACTING))==null
+                &&info.getPreference(String.valueOf(TCESConstants.PREFERENCE_PERMANENT))==null) {
+            getRequest().setAttribute("hasInfo", String.valueOf(false));
+        } else {
+            getRequest().setAttribute("hasInfo", String.valueOf(true));
+        }
+
         //load skills
         CoderSkill skillbean = (CoderSkill) createEJB(ctx, CoderSkill.class);
 
