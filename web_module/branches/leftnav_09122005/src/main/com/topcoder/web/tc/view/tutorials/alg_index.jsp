@@ -61,7 +61,7 @@
             </td></tr>
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="276230" context="algorithm"/>
-               </td><td class="bodyText" nowrap=nowrap><a href="/index?t=features&c=feat_010505"><strong>Mathematics for TopCoders</strong></a>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=math_for_topcoders"><strong>Mathematics for TopCoders</strong></a>
             </td></tr>
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="159052" context="algorithm"/>
