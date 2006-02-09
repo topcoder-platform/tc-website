@@ -244,7 +244,7 @@ public class Submit extends Base {
                     log.debug("********************* code is null ***********************");
                 }
                 //todo bad, those should all be long
-                LongCompileRequest lcr = new LongCompileRequest((int) uid, (int)cid, (int)rid, (int)cd,
+                LongCompileRequest lcr = new LongCompileRequest(uid, cid, rid, cd,
                         language, ApplicationServer.WEB_SERVER_ID, code);
 
                 Request roomRequest = new Request();
