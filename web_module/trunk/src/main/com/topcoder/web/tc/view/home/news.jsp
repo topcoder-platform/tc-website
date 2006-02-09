@@ -5,6 +5,19 @@
 <table border="0" cellspacing="0" cellpadding="0" width="525">
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>02.09.06<br>11:20 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://software.topcoder.com/about/explanationMovie.jsp">How engineering meets manufacturing at TopCoder Software</A></span><br><br>
+      TopCoder uses competition to engage a global workforce of the best software development talent. TopCoder Vice President Mike Morris explains the TopCoder Software Development Methodology that is used to deliver high quality software applications to our customers.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://software.topcoder.com/about/explanationMovie.jsp">watch movies</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505912" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
+   </td></tr>
       
 <%-------------------------------------------------------%>
    <tr>
