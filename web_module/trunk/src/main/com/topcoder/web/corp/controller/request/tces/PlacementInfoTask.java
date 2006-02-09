@@ -5,17 +5,16 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.corp.common.TCESConstants;
-import com.topcoder.web.ejb.coderskill.CoderSkill;
-import com.topcoder.web.ejb.user.UserPreference;
-import com.topcoder.web.ejb.user.Contact;
-import com.topcoder.web.ejb.user.User;
-import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.ContractingInfo;
 import com.topcoder.web.common.model.ContractingResponse;
 import com.topcoder.web.common.model.ContractingResponseGroup;
+import com.topcoder.web.corp.common.TCESConstants;
+import com.topcoder.web.ejb.coderskill.CoderSkill;
+import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.ejb.user.Contact;
+import com.topcoder.web.ejb.user.UserPreference;
 
 import javax.naming.InitialContext;
 import java.util.ArrayList;
@@ -44,9 +43,6 @@ public class PlacementInfoTask extends BaseTask {
 
             Contact contact = (Contact) BaseProcessor.createEJB(getInitialContext(), Contact.class);
             getRequest().setAttribute(TCESConstants.COMPANY_ID, new Long(contact.getCompanyId(getUser().getId(), getOltp())));
-
-            User u = (User)BaseProcessor.createEJB(getInitialContext(), User.class);
-            getRequest().setAttribute(TCESConstants.HANDLE, u.getHandle(getUser().getId(), getOltp()));
 
             Map memberData = getInfo(memberId, campaignId, jobId);
             if (!getSessionInfo().isAdmin() && ((ResultSetContainer)memberData.get("TCES_Verify_Member_Access")).isEmpty()) {
