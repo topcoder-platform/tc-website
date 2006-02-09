@@ -49,7 +49,7 @@
             </td></tr>
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="296145" context="development"/>
-               </td><td class="bodyText" nowrap=nowrap><a href="/index?t=features&c=feat_031703"><strong>Component-Based Development: TopCoder Style</strong></a>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=comp_dev_tc_style"><strong>Component-Based Development: TopCoder Style</strong></a>
             </td></tr>
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="119676" context="design"/>
