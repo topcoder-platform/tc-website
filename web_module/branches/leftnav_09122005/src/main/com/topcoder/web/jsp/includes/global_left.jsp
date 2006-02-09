@@ -6,7 +6,6 @@
 <%@ taglib uri="nav.tld" prefix="nav" %>
 
 <%
-
    /* m_name indicates the name of an expandable menu */
 
    NavTree nav = new NavTree();
