@@ -41,6 +41,11 @@
                 <tr><td id="<%=level1.equals("customers")?"leftNavSelect":"leftNav"%>"><a href="/customers/index.jsp" class="<%=level1.equals("customers")?"leftOn":"left"%>"><img src="/images/<%=level1.equals("customers")?"clear":"nav_arrow_right"%>.gif" width="10" height="10" alt="" border="0">Customers</a></td></tr>
 <!-- Customers ends -->
 
+<!-- About begins-->
+                <tr><td id="<%=level1.equals("about")?"leftNavSelect":"leftNav"%>"><a href="/about/explanationMovie.jsp" class="<%=level1.equals("about")?"leftOn":"left"%>"><img src="/images/<%=level1.equals("about")?"clear":"nav_arrow_right"%>.gif" width="10" height="10" alt="" border="0">About</a></td></tr>
+<!-- About ends -->
+
+
 <!-- Forum begins-->
                 <tr><td id="<%=level1.equals("forum")?"leftNavOn":"leftNav"%>"><a href="/forum/c_active_collab.jsp" target="_parent" class="<%=level1.equals("forum")?"leftOn":"left"%>"><img src="/images/nav_arrow_<%=level1.equals("forum")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0">Forums</a></td></tr>
             
