@@ -69,7 +69,7 @@
                <br/>
                     Coder Problem Submissions
                   <br>
-                  <A href="" class="bodyText">Coder Skill Set</A>
+                  <A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=PlacementInfoTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemSubmissionsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemSubmissionsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemSubmissionsTask.getMemberID()%>" class="bodyText">Coder Skill Set</A>
                     </td>
                 </tr>
                 <tr>
