@@ -1,6 +1,8 @@
 <%@ page import="java.net.URL,
                  com.topcoder.web.tc.Constants,
                  java.io.InputStream"%>
+<%@ page import="java.io.BufferedReader"%>
+<%@ page import="java.io.InputStreamReader"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
@@ -21,13 +23,14 @@ margin: 0px;
 <body class="termsBody">
 
     <%
-        URL termsURL = new URL(sessionInfo.getAbsoluteServletPath()+"?module=Terms&"+Constants.TERMS_OF_USE_ID+"="+Constants.TCO06_SPONSOR_TERMS_ID);
-        InputStream is = termsURL.openStream();
-        int count = is.available();
-        for (int i=0; i<count; i++) {
-            out.write(is.read());
+        URL termsURL = new URL(sessionInfo.getAbsoluteServletPath()+"?module=Terms&"+ Constants.TERMS_OF_USE_ID+"="+Constants.TCO06_SPONSOR_TERMS_ID));
+        BufferedReader ir = new BufferedReader(new InputStreamReader(termsURL.openStream()));
+        while (ir.ready()) {
+            out.write(ir.readLine());
+            out.write("\n");
         }
-        is.close();
+        ir.close();
+
     %>
 
 </body>
