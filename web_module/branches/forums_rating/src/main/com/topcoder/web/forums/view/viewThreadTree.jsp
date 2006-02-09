@@ -123,6 +123,15 @@ function displayVotes(messageID, posVotes, negVotes) {
 .pointer {
     cursor: pointer;
 }
+
+.rtTextCellHlt
+{
+    background-color: #FFFF99;
+    padding: 10px 15px 10px 15px;
+    color: #333;
+    font-size: 12px;
+    vertical-align: top;
+}
 -->
 </style>
 

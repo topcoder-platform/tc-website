@@ -110,10 +110,9 @@ function callback() {
 }
 
 function displayVotes(messageID, posVotes, negVotes) {
-    mspan = document.getElementById("ratings"+messageID);
+    var mspan = document.getElementById("ratings"+messageID);
     mspan.innerHTML = "(+"+posVotes+"/-"+negVotes+")";
 }
-
 //-->
 </script>
 
@@ -121,6 +120,15 @@ function displayVotes(messageID, posVotes, negVotes) {
 <!--
 .pointer {
     cursor: pointer;
+}
+
+.rtTextCellHlt
+{
+    background-color: #FFFF99;
+    padding: 10px 15px 10px 15px;
+    color: #333;
+    font-size: 12px;
+    vertical-align: top;
 }
 -->
 </style>
@@ -197,8 +205,10 @@ function displayVotes(messageID, posVotes, negVotes) {
 <table cellpadding="0" cellspacing="0" class="rtTable">
       <tr>
           <td class="rtHeader" colspan="2" width="100%">
-            <%  String msgBodyID = "msgBody" + message.getID(); 
-                String ratingsID = "ratings" + message.getID(); %> 
+            <%  String msgBodyID = "msgBody" + message.getID();
+                String ratingsID = "ratings" + message.getID(); 
+                int posRatings = -1; 
+                int negRatings = -1; %> 
             <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
                   <%  int editCount = historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME);
                   if (editCount > 0) { %> 
@@ -221,8 +231,8 @@ function displayVotes(messageID, posVotes, negVotes) {
             <%  if (ratingManager.isRatingsEnabled() && user != null && "true".equals(user.getProperty("showRatings"))) { 
                     double avgRating = ratingManager.getMeanRating(message);
                     int ratingCount = ratingManager.getRatingCount(message);
-                    int posRatings = (int)(Math.round(avgRating*ratingCount)-ratingCount);
-                    int negRatings = ratingCount - posRatings; %>
+                    posRatings = (int)(Math.round(avgRating*ratingCount)-ratingCount);
+                    negRatings = ratingCount - posRatings; %>
                 <span id="<%=ratingsID%>">(+<%=posRatings%>/-<%=negRatings%>)</span> <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','2')" class="rtbcLink">[+]</a><a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','1')" class="rtbcLink">[-]</a>
             <%  } %>
           </td>

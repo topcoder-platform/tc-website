@@ -102,7 +102,7 @@ function toggleTabs(id) {
 
 <table cellpadding="0" cellspacing="0" border="0" class="tabTable">
   <tr>
-      <td id="tabGen1" width="1%" class="tabLeftOn">&#160;</td>
+      <td id="tabGen1" width="0%" class="tabLeftOn">&#160;</td>
       <td id="tabGen2" width="20%" class="tabTextOn"><A href="javascript:void(0)" onclick="toggleTabs('gen')" class="tabLink">General Settings</A></td>    
       <td id="tabGen3" width="1%" valign="top"><img src="/i/stats/tabs/midOnOff.gif" alt="" border="0" /></td>
       <td id="tabGen4" width="20%" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('watch')" class="tabLink">Watch Preferences</A></td>     
@@ -110,23 +110,23 @@ function toggleTabs(id) {
       <td id="tabGen6" width="20%" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('rate')" class="tabLink">Rating Preferences</A></td>
       <td id="tabGen7" width="1%" valign="top"><img src="/i/stats/tabs/rightOff.gif" alt="" border="0" /></td>
 
-      <td id="tabWatch1" width="1%" style="display:none" class="tabLeftOff">&#160;</td>
-      <td id="tabWatch2" width="20%" style="display:none" width="25%" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('gen')" class="tabLink">General Settings</A></td>    
+      <td id="tabWatch1" width="0%" style="display:none" class="tabLeftOff">&#160;</td>
+      <td id="tabWatch2" width="20%" style="display:none" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('gen')" class="tabLink">General Settings</A></td>    
       <td id="tabWatch3" width="1%" style="display:none" valign="top"><img src="/i/stats/tabs/midOffOn.gif" alt="" border="0" /></td>
-      <td id="tabWatch4" width="20%" style="display:none" width="25%" class="tabTextOn"><A href="javascript:void(0)" onclick="toggleTabs('watch')" class="tabLink">Watch Preferences</A></td>     
+      <td id="tabWatch4" width="20%" style="display:none" class="tabTextOn"><A href="javascript:void(0)" onclick="toggleTabs('watch')" class="tabLink">Watch Preferences</A></td>     
       <td id="tabWatch5" width="1%" style="display:none" valign="top"><img src="/i/stats/tabs/midOnOff.gif" alt="" border="0" /></td>      
-      <td id="tabWatch6" width="20%" style="display:none" width="25%" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('rate')" class="tabLink">Rating Preferences</A></td>
+      <td id="tabWatch6" width="20%" style="display:none" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('rate')" class="tabLink">Rating Preferences</A></td>
       <td id="tabWatch7" width="1%" style="display:none" valign="top"><img src="/i/stats/tabs/rightOff.gif" alt="" border="0" /></td>
 
-      <td id="tabRate1" width="1%" style="display:none" class="tabLeftOff">&#160;</td>
-      <td id="tabRate2" width="20%" style="display:none" width="25%" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('gen')" class="tabLink">General Settings</A></td>    
+      <td id="tabRate1" width="0%" style="display:none" class="tabLeftOff">&#160;</td>
+      <td id="tabRate2" width="20%" style="display:none" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('gen')" class="tabLink">General Settings</A></td>    
       <td id="tabRate3" width="1%" style="display:none" valign="top"><img src="/i/stats/tabs/midOffOff.gif" alt="" border="0" /></td>
-      <td id="tabRate4" width="20%" style="display:none" width="25%" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('watch')" class="tabLink">Watch Preferences</A></td>     
+      <td id="tabRate4" width="20%" style="display:none" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('watch')" class="tabLink">Watch Preferences</A></td>     
       <td id="tabRate5" width="1%" style="display:none" valign="top"><img src="/i/stats/tabs/midOffOn.gif" alt="" border="0" /></td>      
-      <td id="tabRate6" width="20%" style="display:none" width="25%" class="tabTextOn"><A href="javascript:void(0)" onclick="toggleTabs('rate')" class="tabLink">Rating Preferences</A></td>
+      <td id="tabRate6" width="20%" style="display:none" class="tabTextOn"><A href="javascript:void(0)" onclick="toggleTabs('rate')" class="tabLink">Rating Preferences</A></td>
       <td id="tabRate7" width="1%" style="display:none" valign="top"><img src="/i/stats/tabs/rightOn.gif" alt="" border="0" /></td>
       
-      <td width="36%"></td>
+      <td width="37%"></td>
   </tr>
 
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
@@ -378,6 +378,43 @@ function toggleTabs(id) {
       <input name="showRatings" value="false" id="showRatingsNo" type="radio"
          <%= (user.getProperty("showRatings") == null || "false".equals(user.getProperty("showRatings"))) ? "checked" : ""%>>
       <label for="showRatingsNo">No</label>
+      </td>
+   </tr>
+   <tr id="bodyRate3">
+      <td class="rtTextCell" nowrap="nowrap"><strong>Highlighting:</strong></td>
+      <td class="rtTextCell100">
+      <select size="1" name="ratingHighlightThreshold">
+      Posts with &gt;=
+      <%  int[] ratingHltPcts = { 50, 60, 70, 80, 90, 100 };
+          int ratingHltPct = ForumConstants.DEFAULT_RATING_HIGHLIGHT_THRESHOLD;
+          try {
+              ratingHltPct = Integer.parseInt(user.getProperty("ratingHighlightThreshold"));
+          } catch (Exception ignored) {}
+          for (int i=0; i<ratingHltPcts.length; i++) {
+            if (ratingHltPcts[i] == ratingHltPct) { %>
+               <option value="<%=ratingHltPcts[i]%>" selected><%=ratingHltPcts[i]%></option>
+         <%   } else { %>
+               <option value="<%=ratingHltPcts[i]%>"><%=ratingHltPcts[i]%></option>
+         <%   }
+         } %>
+      </select>
+      % rating with &gt;=
+      <select size="1" name="ratingHighlightMinCount">
+      Posts with &gt;=
+      <%  int[] ratingHltCnts = { 0, 5, 10, 20, 50, 100 };
+          int ratingHltCnt = ForumConstants.DEFAULT_RATING_HIGHLIGHT_MIN_COUNT;
+          try {
+              ratingHltCnt = Integer.parseInt(user.getProperty("ratingHighlightMinCount"));
+          } catch (Exception ignored) {}
+          for (int i=0; i<ratingHltCnts.length; i++) {
+            if (ratingHltCnts[i] == ratingHltCnt) { %>
+               <option value="<%=ratingHltCnts[i]%>" selected><%=ratingHltCnts[i]%></option>
+         <%   } else { %>
+               <option value="<%=ratingHltCnts[i]%>"><%=ratingHltCnts[i]%></option>
+         <%   }
+         } %>
+      </select>
+      votes
       </td>
    </tr>
 </table>

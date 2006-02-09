@@ -50,6 +50,8 @@ public class Settings extends ForumsProcessor {
             String markWatchesRead = getRequest().getParameter("markWatchesRead");
             watchFrequency = Integer.parseInt(getRequest().getParameter("watchFrequency"));
             String showRatings = getRequest().getParameter("showRatings");
+            String ratingHighlightThreshold = getRequest().getParameter("ratingHighlightThreshold");
+            String ratingHighlightMinCount = getRequest().getParameter("ratingHighlightMinCount");
 
             checkMax(forumsPerPage, ForumConstants.maxForumsPerPage, "jiveForumRange", ForumConstants.ERR_FORUM_RANGE_EXCEEDED);
             checkMax(threadsPerPage, ForumConstants.maxThreadsPerPage, "jiveThreadRange", ForumConstants.ERR_THREAD_RANGE_EXCEEDED);
@@ -61,15 +63,17 @@ public class Settings extends ForumsProcessor {
                 status = "error";
             }
 
-            user.setProperty(("jiveThreadMode"), threadMode);
-            user.setProperty(("jiveFlatMode"), flatMode);
-            user.setProperty(("jiveDisplayMemberPhoto"), displayMemberPhoto);
-            user.setProperty(("jiveDisplayAllMemberPhotos"), displayAllMemberPhotos);
-            user.setProperty(("jiveShowPrevNextThreads"), showPrevNextThreads);
-            user.setProperty(("jiveAutoWatchNewTopics"), autoWatchNewTopics);
-            user.setProperty(("jiveAutoWatchReplies"), autoWatchReplies);
-            user.setProperty(("markWatchesRead"), markWatchesRead);
-            user.setProperty(("showRatings"), showRatings);
+            user.setProperty("jiveThreadMode", threadMode);
+            user.setProperty("jiveFlatMode", flatMode);
+            user.setProperty("jiveDisplayMemberPhoto", displayMemberPhoto);
+            user.setProperty("jiveDisplayAllMemberPhotos", displayAllMemberPhotos);
+            user.setProperty("jiveShowPrevNextThreads", showPrevNextThreads);
+            user.setProperty("jiveAutoWatchNewTopics", autoWatchNewTopics);
+            user.setProperty("jiveAutoWatchReplies", autoWatchReplies);
+            user.setProperty("markWatchesRead", markWatchesRead);
+            user.setProperty("showRatings", showRatings);
+            user.setProperty("ratingHighlightThreshold", ratingHighlightThreshold);
+            user.setProperty("ratingHighlightMinCount", ratingHighlightMinCount);
 
             CronTimer current = forumFactory.getWatchManager().getBatchTimer(user);
             if (current == null && watchFrequency != UserSettingsAction.FREQUENCY_IMMEDIATELY) {
