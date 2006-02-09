@@ -4,7 +4,10 @@
 <head>
 <title>2003 TopCoder Open sponsored by Intel&#174;  - Computer Programming Tournament - Advancers</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 <SCRIPT LANGUAGE="JavaScript">
 <!--
 var MM_contentVersion = 6;

@@ -4,8 +4,10 @@
 <head>
 <title>2003 TopCoder Open sponsored by Intel&#174;  - Computer Programming Tournament - Overview</title>
 
-<jsp:include page="../../script.jsp" />
-
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 </head>
 
 <body>
