@@ -93,7 +93,7 @@ List industryList = (List)request.getAttribute("industrySkills");
 
                 <tr>
                     <td class="bodyText" align="right">
-                   <% if (String.valueOf(true).equals(request.getAttribute("isRestrictedCampaign"))) {%>
+                   <% if (String.valueOf(false).equals(request.getAttribute("isRestrictedCampaign"))) {%>
                         <A HREF="JavaScript:getGraph('/corp/graph?c=rating_history_graph&cr=<%=request.getAttribute(TCESConstants.MEMBER_ID_PARAM)%>&<%=TCESConstants.COMPANY_ID%>=<%=request.getAttribute(TCESConstants.COMPANY_ID)%>','800','600','history')" class="bodyText">Rating History Graph</a> &nbsp;&nbsp;|&nbsp;&nbsp;
                    <% } %>
                         <A HREF="JavaScript:getGraph('/corp/graph?c=rating_distribution_graph&<%=TCESConstants.COMPANY_ID%>=<%=request.getAttribute(TCESConstants.COMPANY_ID)%>','600','400','distribution')" class="bodyText">Overall Rating Distribution Graph</a>
