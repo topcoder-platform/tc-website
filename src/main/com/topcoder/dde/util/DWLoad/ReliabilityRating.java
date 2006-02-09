@@ -675,7 +675,7 @@ public class ReliabilityRating {
                "and reliability_ind is null";
 
     private final static String setReliability =
-            "update project_result set reliability_ind = ? where project_id ? and user_id = ?";
+            "update project_result set reliability_ind = ? where project_id = ? and user_id = ?";
 
     /**
      * mark all the records that should be included in the reliability calculations
