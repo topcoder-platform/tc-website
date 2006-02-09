@@ -53,7 +53,7 @@ List industryList = (List)request.getAttribute("industrySkills");
                                 <a href="<jsp:getProperty name="trailItem" property="href" />" class="bodyText"><jsp:getProperty name="trailItem" property="name" /></a> &gt;
                             </tces:trailIterator>
                             <br>
-                            <span class="testHead">Coder Skill Set: handle</span>
+                            <span class="testHead">Coder Skill Set: <rsc:item name="handle" set="<%=info%>"/></span>
                             <br><br>
                         </p>
                     </td>
@@ -79,7 +79,7 @@ List industryList = (List)request.getAttribute("industrySkills");
             <strong>Interested in:</strong> <rsc:item name="job_desc" set="<%=jobInfo%>"/>
             <br><br>
 <% if (String.valueOf(Boolean.TRUE).equals(request.getAttribute("is_ranked"))) { %>
-            <A HREF="" class="bodyText">Coder Demographic Info</A>
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=request.getAttribute(TCESConstants.CAMPAIGN_ID_PARAM)%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=request.getAttribute(TCESConstants.JOB_ID_PARAM)%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=request.getAttribute(TCESConstants.MEMBER_ID_PARAM)%>" class="bodyText">Coder Demographic Info</A>
             <br>
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=request.getAttribute(TCESConstants.CAMPAIGN_ID_PARAM)%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=request.getAttribute(TCESConstants.JOB_ID_PARAM)%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=request.getAttribute(TCESConstants.MEMBER_ID_PARAM)%>" class="bodyText">Coder Competition History</A>
             <br>
@@ -93,10 +93,10 @@ List industryList = (List)request.getAttribute("industrySkills");
 
                 <tr>
                     <td class="bodyText" align="right">
-                   
-                   <A HREF="" class="bodyText">Rating History Graph</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-                   
-                   <A HREF="" class="bodyText">Overall Rating Distribution Graph</a>
+                   <% if (request.getAttribute("isRestrictedCampaign")==null) {%>
+                        <A HREF="JavaScript:getGraph('/corp/graph?c=rating_history_graph&cr=<%=request.getAttribute(TCESConstants.MEMBER_ID_PARAM)%>&<%=TCESConstants.COMPANY_ID%>=<%=request.getAttribute(TCESConstants.COMPANY_ID)%>','800','600','history')" class="bodyText">Rating History Graph</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+                   <% } %>
+                        <A HREF="JavaScript:getGraph('/corp/graph?c=rating_distribution_graph&<%=TCESConstants.COMPANY_ID%>=<%=request.getAttribute(TCESConstants.COMPANY_ID)%>','600','400','distribution')" class="bodyText">Overall Rating Distribution Graph</a>
                     </td>
                 </tr>
             </table>
