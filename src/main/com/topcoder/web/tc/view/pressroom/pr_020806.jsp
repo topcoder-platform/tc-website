@@ -38,7 +38,7 @@
                         <jsp:param name="title" value="Press Release"/>
                     </jsp:include>
                     
-<div align="right"><tc-webtag:forumLink forumID="505910" message="Discuss this press release" /></div>
+<div align="right"><A href="http://forums.topcoder.com/?module=Thread&threadID=509013&mc=1#525461">Discuss this press release</a></div>
                         
 <div align="center">
 <p><span class="bodyTitle">TopCoder High School Launches Global <br>Programming Tournament in June</span><br />
