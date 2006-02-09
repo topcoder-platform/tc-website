@@ -4,7 +4,10 @@
 <head>
 <title>Tutor Transcripts</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -18,10 +21,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="education"/>
-                <jsp:param name="level2" value="tutor_transcripts"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="tutor_trans"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -32,8 +34,8 @@
 
             <h2>SRM 208 Tutor Transcript</h2>
 
-			<table width="100%" border="0" cellspacing="0" class=bodyText>
-				<tr><td class=tutorHeader>Handle</td><td width="100%" class=tutorHeader>Comment</td></tr>
+         <table width="100%" border="0" cellspacing="0" class=bodyText>
+            <tr><td class=tutorHeader>Handle</td><td width="100%" class=tutorHeader>Comment</td></tr>
 <tr><td class=tutorOdd><b>vorthys</b></td><td class=tutorOdd>howdy folks</td></tr>
 <tr><td class=tutorEven><b>vorthys</b></td><td class=tutorEven>I don't have any real format planned here.  If anybody has any questions or comments, shoot.</td></tr>
 <tr><td class=tutorOdd><b>mike</b></td><td class=tutorOdd>lively crowd</td></tr>
@@ -193,7 +195,7 @@
 <tr><td class=tutorOdd><b>marian</b></td><td class=tutorOdd>http://www.topcoder.com/rtables/viewThread.jsp?forum=7167&thread=340760&mc=3</td></tr>
 <tr><td class=tutorEven><b>lars2520</b></td><td class=tutorEven>I wonder if you could develop a system to judge code based on elegance</td></tr>
 <tr><td class=tutorOdd><b>radeye</b></td><td class=tutorOdd>absolutely</td></tr>
-<tr><td class=tutorEven><b>Nagi</b></td><td class=tutorEven>Nahas	marian: But isn't correct that the "modified BFS" actually performs the same relaxations as BellmanFord</td></tr>
+<tr><td class=tutorEven><b>Nagi</b></td><td class=tutorEven>Nahas   marian: But isn't correct that the "modified BFS" actually performs the same relaxations as BellmanFord</td></tr>
 <tr><td class=tutorOdd><b>radeye</b></td><td class=tutorOdd>just define elegance any way you want :-)</td></tr>
 <tr><td class=tutorEven><b>lars2520</b></td><td class=tutorEven>they grade test essay's automatically these days</td></tr>
 <tr><td class=tutorOdd><b>marian</b></td><td class=tutorOdd>nagi Nahas: i couln't prove it</td></tr>
@@ -209,7 +211,7 @@
 <tr><td class=tutorOdd><b>Cosmin.ro</b></td><td class=tutorOdd>penalize coding library in code</td></tr>
 <tr><td class=tutorEven><b>radeye</b></td><td class=tutorEven>not seductive if you've programmed for a while</td></tr>
 <tr><td class=tutorOdd><b>nicka81</b></td><td class=tutorOdd>radeye: I don't use macros very often in real life</td></tr>
-<tr><td class=tutorEven><b>Nagi</b></td><td class=tutorEven>Nahas	marian: Yes, I am trying to come up with one.</td></tr>
+<tr><td class=tutorEven><b>Nagi</b></td><td class=tutorEven>Nahas   marian: Yes, I am trying to come up with one.</td></tr>
 <tr><td class=tutorOdd><b>nicka81</b></td><td class=tutorOdd>radeye: but for TC they do so good</td></tr>
 <tr><td class=tutorEven><b>Cosmin.ro</b></td><td class=tutorEven>what do you people say about this?</td></tr>
 <tr><td class=tutorOdd><b>Cosmin.ro</b></td><td class=tutorOdd>http://www.topcoder.com/rtables/viewThread.jsp?forum=7166&thread=340694&mc=3</td></tr>
@@ -217,7 +219,7 @@
 <tr><td class=tutorOdd><b>vorthys</b></td><td class=tutorOdd>lars2520: the only systems I've been able to come up with involve competitors rating some sampling of other people's code, but that's obviously open to abuse if points are involved</td></tr>
 <tr><td class=tutorEven><b>Cosmin.ro</b></td><td class=tutorEven>the us would have a more or less constant rating history graph</td></tr>
 <tr><td class=tutorOdd><b>Cosmin.ro</b></td><td class=tutorOdd>US</td></tr>
-<tr><td class=tutorEven><b>Nagi</b></td><td class=tutorEven>Nahas	marian: I am thinking along the lines of getting an explicit correspodence between each relaxation in the modified algo and BF</td></tr>
+<tr><td class=tutorEven><b>Nagi</b></td><td class=tutorEven>Nahas   marian: I am thinking along the lines of getting an explicit correspodence between each relaxation in the modified algo and BF</td></tr>
 <tr><td class=tutorOdd><b>marian</b></td><td class=tutorOdd>Cosmin.ro: my country is not even on list :)</td></tr>
 <tr><td class=tutorEven><b>Cosmin.ro</b></td><td class=tutorEven>but for the rest I think it would be interessting :)</td></tr>
 <tr><td class=tutorOdd><b>Cosmin.ro</b></td><td class=tutorOdd>marian: get your team mates to participate</td></tr>
@@ -247,7 +249,7 @@
 
 
 
-			</table>
+         </table>
 
         </div>
         <p><br/></p>
