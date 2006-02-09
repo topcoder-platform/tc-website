@@ -8,6 +8,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.09.06<br>4:50 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm288">SRM 288 - Problem Set & Analysis</A></span><br><br>
+      In Division 1, coders were faced with a fairly easy set, with 30 individuals solving the hard correctly. Unfortunately, precision issues on the easy caused several of the 250s to fail.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm288">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505854" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>02.09.06<br>11:20 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://software.topcoder.com/about/explanationMovie.jsp">How engineering meets manufacturing at TopCoder Software</A></span><br><br>
       TopCoder uses competition to engage a global workforce of the best software development talent. TopCoder Vice President Mike Morris explains the TopCoder Software Development Methodology that is used to deliver high quality software applications to our customers.
@@ -163,77 +180,6 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm285">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505799" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>01.24.06<br>6:10 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=wavefrontPattern">Parallel Patterns: WaveFront Pattern Tutorial</A></span><br><br>
-       "In a nod to the Intel Multi-Threading Competition Series, I've decided to deviate a bit from the design pattern series and explore a few parallel programming patterns."</td>
-      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <tc-webtag:handle coderId="119676" context="design"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=wavefrontPattern">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505901" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>01.24.06<br>10:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">TCO06 <A href="/tc?module=TCO06ContestDetails&ct=236">Design</A> or <A href="/tc?module=TCO06ContestDetails&ct=237">Development</A> Results pages</span><br><br>
-      Track the progress of the TCO06 Component Competition.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="/tc?module=TCO06ContestDetails&ct=236">design</A>&#160;|&#160;
-      <A href="/tc?module=TCO06ContestDetails&ct=237">development</A>&#160;|&#160;
-      <tc-webtag:forumLink forumID="505900" message="discuss this" />&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>01.23.06<br>4:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm284">SRM 284 - Problem Set & Analysis</A></span><br><br>
-      In Division 1, the problems were much easier compared to SRM 283, making coders vulnerable to any fault. Five targeteers competed in the SRM, with only three of them staying in 3000+ after the event.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm284">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505798" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-<%-------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.23.06<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_012306">Intel Named First Sponsor of New Marathon Match Series</A></span><br><br>
-      "Multi-Core Processing the Focus as New Format Promoting Optimization in Problem Solving is Added to TopCoder Schedule of Tournaments."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_012306">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505898" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>01.23.06<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tco05/onsite_movies/HiltonLange.mov">"The guys...are just phenomenal."</A></span><br><br>
-      "I've got so much respect for the guys, especially here in the Top 8...." An awe-inspired Hilton Lange of Johanesburg, South Africa discusses his experience competing in TCO05.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/i/tournament/tco05/onsite_movies/HiltonLange.mov">watch movie</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505896" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
 
 </table>
