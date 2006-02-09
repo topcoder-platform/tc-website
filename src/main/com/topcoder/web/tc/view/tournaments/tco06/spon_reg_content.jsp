@@ -23,7 +23,7 @@ margin: 0px;
 <body class="termsBody">
 
     <%
-        URL termsURL = new URL(sessionInfo.getAbsoluteServletPath()+"?module=Terms&"+ Constants.TERMS_OF_USE_ID+"="+Constants.TCO06_SPONSOR_TERMS_ID));
+        URL termsURL = new URL(sessionInfo.getAbsoluteServletPath()+"?module=Terms&"+ Constants.TERMS_OF_USE_ID+"="+Constants.TCO06_SPONSOR_TERMS_ID);
         BufferedReader ir = new BufferedReader(new InputStreamReader(termsURL.openStream()));
         while (ir.ready()) {
             out.write(ir.readLine());
