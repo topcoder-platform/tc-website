@@ -669,7 +669,7 @@ public class ReliabilityRating {
 
     private final static String getUnmarked =
             "select pr.user_id, pr.project_id, p.project_type_id " +
-             " from project_result " +
+             " from project_result pr " +
                 " , project p " +
              "where pr.final_score is not null " +
                "and pr.final_score < ? " +
