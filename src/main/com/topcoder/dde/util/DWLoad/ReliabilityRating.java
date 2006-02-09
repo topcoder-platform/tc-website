@@ -668,11 +668,14 @@ public class ReliabilityRating {
                "and final_score >= ?";
 
     private final static String getUnmarked =
-            "select user_id, project_id " +
+            "select pr.user_id, pr.project_id, p.project_type_id " +
              " from project_result " +
-             "where final_score is not null " +
-               "and final_score < ? " +
-               "and reliability_ind is null";
+                " , project p " +
+             "where pr.final_score is not null " +
+               "and pr.final_score < ? " +
+               "and pr.reliability_ind is null  " +
+               "and pr.project_id = p.project_id " +
+               "and p.cur_version = 1";
 
     private final static String setReliability =
             "update project_result set reliability_ind = ? where project_id = ? and user_id = ?";
@@ -719,7 +722,7 @@ public class ReliabilityRating {
                 ps3.clearParameters();
                 ps3.setLong(2, rs.getLong("project_id"));
                 ps3.setLong(3, rs.getLong("user_id"));
-                int[] info = getPriorProjects(conn, rs.getLong("user_id"), rs.getLong("project_id"));
+                int[] info = getPriorProjects(conn, rs.getLong("user_id"), rs.getLong("project_id"), rs.getInt("project_type_id"));
                 if (info[RELIABLE_COUNT_IDX]>0) {
                     ps3.setInt(1, 1);
                     ret+=ps3.executeUpdate();
@@ -745,8 +748,12 @@ public class ReliabilityRating {
         "select pr.reliability_ind, pr.project_id, pr.user_id "+
           "from component_inquiry ci "+
              ", project_result pr "+
+             ", project p " +
          "where ci.user_id = ? "+
+           "and p.project_id = pr.projet_id " +
+           "and p.cur_version = 1 "+
            "and pr.user_id = ci.user_id " +
+           "and p.project_type_id = ? " +
            "and pr.project_id = ci.project_id "+
           "and ci.create_time < (select create_time "+
                                   "from component_inquiry "+
@@ -756,7 +763,7 @@ public class ReliabilityRating {
     private static final int RELIABLE_COUNT_IDX = 0;
     private static final int PROJECT_COUNT_IDX = 1;
     private static final int MARKED_COUNT_IDX = 2;
-    private int[] getPriorProjects(Connection conn, long userId, long projectId) throws SQLException {
+    private int[] getPriorProjects(Connection conn, long userId, long projectId, int projectTypeId) throws SQLException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         int[] ret = new int[3];
@@ -765,7 +772,8 @@ public class ReliabilityRating {
 
             ps = conn.prepareStatement(priorProjects);
             ps.setLong(1, userId);
-            ps.setLong(2, projectId);
+            ps.setInt(2, projectTypeId);
+            ps.setLong(3, projectId);
             rs = ps.executeQuery();
             while (rs.next()) {
                 ret[PROJECT_COUNT_IDX]++;
