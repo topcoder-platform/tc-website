@@ -750,7 +750,7 @@ public class ReliabilityRating {
              ", project_result pr "+
              ", project p " +
          "where ci.user_id = ? "+
-           "and p.project_id = pr.projet_id " +
+           "and p.project_id = pr.project_id " +
            "and p.cur_version = 1 "+
            "and pr.user_id = ci.user_id " +
            "and p.project_type_id = ? " +
