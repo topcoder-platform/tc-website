@@ -10,6 +10,7 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.corp.common.TCESConstants;
 import com.topcoder.web.ejb.coderskill.CoderSkill;
 import com.topcoder.web.ejb.user.UserPreference;
+import com.topcoder.web.ejb.user.Contact;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.common.model.ContractingInfo;
 import com.topcoder.web.common.model.ContractingResponse;
@@ -37,6 +38,12 @@ public class PlacementInfoTask extends BaseTask {
             long campaignId = Long.parseLong(getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM));
             long jobId = Long.parseLong(getRequest().getParameter(TCESConstants.JOB_ID_PARAM));
             getRequest().setAttribute(TCESConstants.MEMBER_ID_PARAM, String.valueOf(memberId));
+
+            getRequest().setAttribute("isRestrictedCampaign", String.valueOf(isRestrictedCampaign(campaignId)));
+
+            Contact contact = (Contact) BaseProcessor.createEJB(getInitialContext(), Contact.class);
+            getRequest().setAttribute(TCESConstants.COMPANY_ID, new Long(contact.getCompanyId(getUser().getId(), getOltp())));
+
 
             Map memberData = getInfo(memberId, campaignId, jobId);
             if (!getSessionInfo().isAdmin() && ((ResultSetContainer)memberData.get("TCES_Verify_Member_Access")).isEmpty()) {
