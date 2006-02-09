@@ -6,12 +6,8 @@ import com.topcoder.util.config.UnknownNamespaceException;
 
 import javax.naming.Context;
 import java.sql.*;
-import java.util.Calendar;
-import java.util.Set;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ArrayList;
+import java.sql.Date;
+import java.util.*;
 
 public class ReliabilityRating {
 
@@ -76,8 +72,8 @@ public class ReliabilityRating {
         try {
             Class.forName(jdbcDriver);
             c = DriverManager.getConnection(connectionURL);
-            c.setAutoCommit(true);
 
+            int incExMarked = tmp.markForInclusionAndExclusion(c);
             Set developers = tmp.getIncludedUsers(c, 113);
             Set designers = tmp.getIncludedUsers(c, 112);
             int newMarked = tmp.markNewReliableResults(c);
@@ -86,6 +82,7 @@ public class ReliabilityRating {
             int designersUpdated = tmp.updateReliability(c, designers, Integer.parseInt(historyLength), 112);
             int developersUpdated = tmp.updateReliability(c, developers, Integer.parseInt(historyLength), 113);
 
+            System.out.println(incExMarked + " records marked for inclusion/exclusion");
             System.out.println(newMarked + " new records marked");
             System.out.println(oldMarked + " old records marked");
             System.out.println(oldUpdated + " old project result records updated");
@@ -138,7 +135,7 @@ public class ReliabilityRating {
             insert = conn.prepareStatement(insertUserReliability);
             update = conn.prepareStatement(updateUserReliability);
 
-            long userId = 0;
+            long userId;
             for (Iterator it = users.iterator(); it.hasNext();) {
                 try {
                     userId = ((Long) it.next()).longValue();
@@ -187,6 +184,7 @@ public class ReliabilityRating {
         } finally {
             close(rs);
             close(ps);
+            close(ps2);
             close(insert);
             close(update);
         }
@@ -240,8 +238,8 @@ public class ReliabilityRating {
                 }
 
                 //calculate/populate reliabilities for the given history length. that means only incuode historyLength records
-                ReliabilityInstance cur = null;
-                double fullNewRel = 0.0d;
+                ReliabilityInstance cur;
+                double fullNewRel;
                 int fullReliableCount = 0;
                 for (int i = 0; i < history.size(); i++) {
                     if (((ReliabilityInstance) history.get(i)).isReliable()) {
@@ -441,7 +439,7 @@ public class ReliabilityRating {
             ps3 = conn.prepareStatement(oldReliabilityUsers);
             ps3.setDate(1, START_DATE);
             rs3 = ps3.executeQuery();
-            long userId = 0;
+            long userId;
             while (rs3.next()) {
                 try {
                     userId = rs3.getLong("user_id");
@@ -451,7 +449,7 @@ public class ReliabilityRating {
                     rs = ps.executeQuery();
                     int projectCount = 0;
                     int reliableCount = 0;
-                    double oldReliability = 0.0d;
+                    double oldReliability;
                     double newReliability = 0.0d;
                     while (rs.next()) {
                         projectCount++;
@@ -660,6 +658,125 @@ public class ReliabilityRating {
         }
         return ret;
 
+    }
+
+
+    private final static String markIncluded =
+            "update project_result " +
+               "set reliability_ind = 1 " +
+             "where reliability_ind is null " +
+               "and final_score >= ?";
+
+    private final static String getUnmarked =
+            "select user_id, project_id " +
+             " from project_result " +
+             "where final_score is not null " +
+               "and final_score < ? " +
+               "and reliability_ind is null";
+
+    private final static String setReliability =
+            "update project_result set reliability_ind = ? where project_id ? and user_id = ?";
+
+    /**
+     * mark all the records that should be included in the reliability calculations
+     *
+     * NOTE:  nothing will be marked if it is not currently unmarked, meaning
+     * it is unmarked if reliability_ind = null
+     *
+     * the simple case is when they score at least the min passing score.  in this
+     * case, they get marked for inclusion.
+     *
+     * it gets trickier for those that have not reached the min passing score.  in
+     * that case, if they have a prior project that is included, then this project
+     * will also be included.  however, if all prior projects (based on register date)
+     * have not been included this this one should not be included either.
+     *
+     * @param conn
+     * @return how many records we marked
+     */
+    private int markForInclusionAndExclusion(Connection conn) throws SQLException {
+
+
+        PreparedStatement ps = null;
+        PreparedStatement ps2 = null;
+        PreparedStatement ps3 = null;
+        ResultSet rs = null;
+        int ret = 0;
+        try {
+
+            //mark the easy ones..people that scored over the min
+            ps = conn.prepareStatement(markIncluded);
+            ps.setInt(1, MIN_PASSING_SCORE);
+            ret = ps.executeUpdate();
+
+
+            ps2 = conn.prepareStatement(getUnmarked);
+            ps2.setInt(1, MIN_PASSING_SCORE);
+            rs = ps2.executeQuery();
+
+            ps3 = conn.prepareStatement(setReliability);
+            while (rs.next()) {
+                ps3.clearParameters();
+                ps3.setLong(2, rs.getLong("project_id"));
+                ps3.setLong(3, rs.getLong("user_id"));
+                int[] info = getPriorProjects(conn, rs.getLong("user_id"), rs.getLong("project_id"));
+                if (info[RELIABLE_COUNT_IDX]>0) {
+                    ps3.setInt(1, 1);
+                    ret+=ps3.executeUpdate();
+                } else if (info[PROJECT_COUNT_IDX]==info[MARKED_COUNT_IDX]) {
+                    ps3.setInt(1, 0);
+                    ret+=ps3.executeUpdate();
+                }
+            }
+        } finally {
+            close(rs);
+            close(ps);
+            close(ps2);
+            close(ps3);
+        }
+        return ret;
+
+
+
+
+    }
+
+    private static final String priorProjects =
+        "select pr.reliability_ind, pr.project_id, pr.user_id "+
+          "from component_inquiry ci "+
+             ", project_result pr "+
+         "where ci.user_id = ? "+
+           "and pr.user_id = ci.user_id " +
+           "and pr.project_id = ci.project_id "+
+          "and ci.create_time < (select create_time "+
+                                  "from component_inquiry "+
+                                 "where user_id = ci.user_id "+
+                                   "and project_id = ?)";
+
+    private static final int RELIABLE_COUNT_IDX = 0;
+    private static final int PROJECT_COUNT_IDX = 1;
+    private static final int MARKED_COUNT_IDX = 2;
+    private int[] getPriorProjects(Connection conn, long userId, long projectId) throws SQLException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int[] ret = new int[3];
+        Arrays.fill(ret, 0);
+        try {
+
+            ps = conn.prepareStatement(priorProjects);
+            ps.setLong(1, userId);
+            ps.setLong(2, projectId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                ret[PROJECT_COUNT_IDX]++;
+                ret[RELIABLE_COUNT_IDX]+=rs.getInt("reliability_ind");
+                ret[MARKED_COUNT_IDX]+=rs.getInt("reliability_ind");
+            }
+        } finally {
+            close(rs);
+            close(ps);
+        }
+        return ret;
     }
 
     private static Date getDate(int year, int month, int day, int hour, int minute) {
