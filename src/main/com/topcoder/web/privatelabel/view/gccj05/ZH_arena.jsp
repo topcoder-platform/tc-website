@@ -56,31 +56,7 @@
          </span>
 
                 <br><br>
-                <A href="/pl/?module=GoogleChina05Credentials&cid=15857&<%=Constants.LOCALE%>=<%=Locale.CHINA.getLanguage()%>">忘了密码？</A>
-                <br><br>
-                你需要至少<A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version 5.0</A>来运行平台。点击<A
-                    href="http://java.sun.com/getjava/index.jsp " target="_blank">这里</A>如果你还没有安装Java Runtime 5.0。
-                <br><br>
-                使用代理服务器？点击<A href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">这里</A>阅读如何<A
-                    href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">配置Java</A>。
-                <br><br>
-                点击<A href="/pl/?module=Static&d1=gccj05&d2=ZH_instructions">这里</A>阅读<A
-                    href="/pl/?module=Static&d1=gccj05&d2=ZH_instructions">竞赛规则</A>。
-                <br><br>
-                点击<a href="/contest/arena/ContestAppletGoogleChina.jnlp" target="_blank">这里</A>运行竞技场，以<a
-                    href="/contest/arena/ContestAppletGoogleChina.jnlp" target="_blank">Java Web Start Application</A>的方式启动竞技场。
-                <br><br>
-                注意：如果你想安装Java Web Start，点击<a href="http://java.sun.com/products/javawebstart/index.html"
-                                             target="_blank">这里</A>。
-                <br><br>
-		点击<a href="Javascript:openWin('?module=Static&d1=gccj05&d2=ZH_quick_launch','comp',300,275);">这里</A>运行竞技场，以<a
-                    href="Javascript:openWin('?module=Static&d1=gccj05&d2=ZH_quick_launch','comp',300,275);">Java
-                Applet</A>的方式启动竞技场。
-                <br><br>
-                如果你在运行竞技场时遇到任何问题，请及时电邮联系 <A
-                    href="mailto:gcjc@topcoder.com?subject=Question regarding Google Code Jam China">gcjc@topcoder.com</A>.
-				<br><br>
-				<b>注意：</b>如使用英文电邮，将会得到更快的回覆。谢谢合作。
+The Google&#153; Code Jam China Arena is no longer available. 
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
                 <br><br>
