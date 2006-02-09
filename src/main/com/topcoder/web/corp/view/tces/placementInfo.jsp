@@ -100,8 +100,9 @@ List industryList = (List)request.getAttribute("industrySkills");
                     </td>
                 </tr>
             </table>
-
-
+<% if (String.valueOf(false).equals(request.getAttribute("hasInfo"))) {%>
+            <p>Sorry, this candidate has not provided their skill set information.</p>
+            <% } else { %>
 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding: 0px 30px 0px 0px;">
     <tr>
         <td valign="top" width="30%">
@@ -202,6 +203,7 @@ List industryList = (List)request.getAttribute("industrySkills");
 </td>
 </tr>
 </table>
+      <% } %>
 </td>
       <td class=homeRightPromos width="50%"><jsp:include page="right.jsp" /></td>
 
