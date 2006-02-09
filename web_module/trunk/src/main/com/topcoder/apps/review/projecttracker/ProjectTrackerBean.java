@@ -750,7 +750,7 @@ public class ProjectTrackerBean implements SessionBean {
                     try {
                         ps = conn.prepareStatement(
                                 "update project_result " +
-                                        "set valid_submission_ind = 0, reliability_ind = 1 " +
+                                        "set valid_submission_ind = 0 " +
                                         "where not exists(select * from submission where project_id = project_result.project_id and submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1) " +
                                         "and project_id = ?");
 
@@ -763,7 +763,7 @@ public class ProjectTrackerBean implements SessionBean {
                     try {
                         ps = conn.prepareStatement(
                                 "update project_result " +
-                                        "set valid_submission_ind = 0, reliability_ind = 1 " +
+                                        "set valid_submission_ind = 0 " +
                                         "where exists(select * from submission where project_id = project_result.project_id and submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1 and passed_screening = 0) " +
                                         "and project_id = ?");
 
@@ -776,7 +776,7 @@ public class ProjectTrackerBean implements SessionBean {
                     try {
                         ps = conn.prepareStatement(
                                 "update project_result " +
-                                        "set valid_submission_ind = 1, reliability_ind = 1 " +
+                                        "set valid_submission_ind = 1 " +
                                         "where exists(select * from submission where project_id = project_result.project_id and submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1 and passed_screening = 1) " +
                                         "and project_id = ?");
 
@@ -2116,19 +2116,18 @@ public class ProjectTrackerBean implements SessionBean {
 
             ps = conn.prepareStatement(
                     "INSERT INTO project_result " +
-                            "(project_id, user_id, rating_ind, valid_submission_ind, reliability_ind, old_rating) " +
-                            "values (?, ?, ?, ?, ?, ?)"
+                            "(project_id, user_id, rating_ind, valid_submission_ind, old_rating) " +
+                            "values (?, ?, ?, ?, ?)"
             );
 
             ps.setLong(1, projectId);
             ps.setLong(2, userId);
             ps.setLong(3, 0);
             ps.setLong(4, 0);
-            ps.setLong(5, 0);
             if (old_rating == 0) {
-                ps.setNull(6, Types.DOUBLE);
+                ps.setNull(5, Types.DOUBLE);
             } else {
-                ps.setDouble(6, old_rating);
+                ps.setDouble(5, old_rating);
             }
 
             ps.execute();
