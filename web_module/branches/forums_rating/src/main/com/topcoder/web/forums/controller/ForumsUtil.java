@@ -301,4 +301,12 @@ public class ForumsUtil {
         }
         return result;
     }
+    
+    public static boolean highlightPost(User user, double pct, double ratingCount) {
+        return (user != null && 
+                user.getProperty("ratingHighlightThreshold") != null &&
+                user.getProperty("ratingHighlightMinCount") != null &&
+                pct >= Integer.parseInt(user.getProperty("ratingHighlightThreshold")) && 
+                ratingCount >= Integer.parseInt(user.getProperty("ratingHighlightMinCount")));
+    }
 }

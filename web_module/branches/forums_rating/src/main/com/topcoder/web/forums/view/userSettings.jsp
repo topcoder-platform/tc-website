@@ -55,7 +55,7 @@ function toggleTabs(id) {
     for (i=1; i<=5; i++) {
         document.getElementById('bodyWatch'+i).style.display = watchStyle;
     }
-    for (i=1; i<=2; i++) {
+    for (i=1; i<=3; i++) {
         document.getElementById('bodyRate'+i).style.display = rateStyle;
     }
 }
@@ -381,10 +381,9 @@ function toggleTabs(id) {
       </td>
    </tr>
    <tr id="bodyRate3">
-      <td class="rtTextCell" nowrap="nowrap"><strong>Highlighting:</strong></td>
-      <td class="rtTextCell100">
+      <td class="rtTextCell" nowrap="nowrap"><strong>Highlight posts:</strong></td>
+      <td class="rtTextCell100" valign="top">
       <select size="1" name="ratingHighlightThreshold">
-      Posts with &gt;=
       <%  int[] ratingHltPcts = { 50, 60, 70, 80, 90, 100 };
           int ratingHltPct = ForumConstants.DEFAULT_RATING_HIGHLIGHT_THRESHOLD;
           try {
@@ -398,10 +397,9 @@ function toggleTabs(id) {
          <%   }
          } %>
       </select>
-      % rating with &gt;=
+      % or higher rating with
       <select size="1" name="ratingHighlightMinCount">
-      Posts with &gt;=
-      <%  int[] ratingHltCnts = { 0, 5, 10, 20, 50, 100 };
+      <%  int[] ratingHltCnts = { 1, 5, 10, 20, 50, 100 };
           int ratingHltCnt = ForumConstants.DEFAULT_RATING_HIGHLIGHT_MIN_COUNT;
           try {
               ratingHltCnt = Integer.parseInt(user.getProperty("ratingHighlightMinCount"));
@@ -414,7 +412,7 @@ function toggleTabs(id) {
          <%   }
          } %>
       </select>
-      votes
+      or more votes
       </td>
    </tr>
 </table>

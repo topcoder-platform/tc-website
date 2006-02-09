@@ -200,13 +200,14 @@ function displayVotes(messageID, posVotes, negVotes) {
   <%  int depth=thread.getTreeWalker().getMessageDepth(message);
       int width=Math.round(Math.min(500,500-((depth-50)*(depth-50))/5));
       if (depth > 0) { %>
-<div style="padding:0px 0px 0px <%=width%>px;">
-<%   }   %>
+           <div style="padding:0px 0px 0px <%=width%>px;">
+      <%   }   %>
 <table cellpadding="0" cellspacing="0" class="rtTable">
       <tr>
           <td class="rtHeader" colspan="2" width="100%">
             <%  String msgBodyID = "msgBody" + message.getID();
                 String ratingsID = "ratings" + message.getID(); 
+                int ratingCount = -1;
                 int posRatings = -1; 
                 int negRatings = -1; %> 
             <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
@@ -230,7 +231,7 @@ function displayVotes(messageID, posVotes, negVotes) {
             <%   } %>
             <%  if (ratingManager.isRatingsEnabled() && user != null && "true".equals(user.getProperty("showRatings"))) { 
                     double avgRating = ratingManager.getMeanRating(message);
-                    int ratingCount = ratingManager.getRatingCount(message);
+                    ratingCount = ratingManager.getRatingCount(message);
                     posRatings = (int)(Math.round(avgRating*ratingCount)-ratingCount);
                     negRatings = ratingCount - posRatings; %>
                 <span id="<%=ratingsID%>">(+<%=posRatings%>/-<%=negRatings%>)</span> <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','2')" class="rtbcLink">[+]</a><a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','1')" class="rtbcLink">[-]</a>
@@ -246,11 +247,12 @@ function displayVotes(messageID, posVotes, negVotes) {
          <span class="bodyText"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></span><br><%if (message.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(message.getUser()), "post")%></A><%}%>
          </div>
       </td>
-      <%   if (user != null && posRatings >= Integer.parseInt(user.getProperty("ratingHighlightThreshold"))*Integer.parseInt(user.getProperty("ratingHighlightMinCount"))/100) { %>
+      <%   double pct = 100*(double)(posRatings)/(double)(ratingCount); %>
+      <%   if (ForumsUtil.highlightPost(user, pct, ratingCount)) { %>
       <td class="rtTextCellHlt" width="100%"><jsp:getProperty name="message" property="body"/></td>
       <%   } else { %>
       <td class="rtTextCell" width="100%"><jsp:getProperty name="message" property="body"/></td>
-      <%   } %>}
+      <%   } %>
       </tr>
 </table>
 </div>
