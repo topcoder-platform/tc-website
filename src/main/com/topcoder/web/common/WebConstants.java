@@ -12,6 +12,8 @@ public interface WebConstants {
     public static final String STATIC_PREFIX = "d";
     public static final String TIMEZONE = "tz";
     public static final String USER_ID = "uid";
+    public static final String COMPANY_ID = "cm";
+
 
 
     public static final int PREFERENCE_TEXT_ANSWER = 3;
