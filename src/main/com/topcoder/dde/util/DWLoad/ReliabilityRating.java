@@ -668,10 +668,10 @@ public class ReliabilityRating {
                "and final_score >= ?";
 
     private final static String getUnmarked =
-            "select pr.user_id, pr.project_id, p.project_type_id " +
+            "select pr.user_id, pr.project_id, p.project_type_id, ci.create_time " +
              " from project_result pr " +
                 " , project p " +
-                " , component_inquiry ci " + 
+                " , component_inquiry ci " +
              "where pr.final_score is not null " +
                "and pr.final_score < ? " +
                "and pr.reliability_ind is null  " +
