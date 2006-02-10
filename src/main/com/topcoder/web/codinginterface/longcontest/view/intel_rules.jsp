@@ -253,7 +253,7 @@ Each competition will award five (5) cash prizes to the top scorers.
    2nd Place
    </td>
    <td class="sidebarText" align="right">
-   $1,500
+   $1,000
    </td>
 </tr>
 <tr>
