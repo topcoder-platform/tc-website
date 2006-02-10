@@ -730,6 +730,8 @@ public class ReliabilityRating {
                     //if all are not included in reliability, this one shouldn't either
                     ps3.setInt(1, 0);
                     ret+=ps3.executeUpdate();
+                } else {
+                    System.out.println("got " + info[RELIABLE_COUNT_IDX] + " " + info[PROJECT_COUNT_IDX] + " " + info[MARKED_COUNT_IDX] + " " + rs.getLong("user_id") + " " + rs.getLong("project_id"));
                 }
             }
         } finally {
