@@ -24,7 +24,7 @@
 
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="about"/>
                 <jsp:param name="level2" value="jobs"/>
             </jsp:include>
@@ -57,51 +57,59 @@
                 <tr valign="top">
                     <td class="bodyText" width="100%"><br/>
 
-                       <h3>Project Manager</h3>
+<h3>Application Architect</h3>
 
+<b>Job Description:</b>
+<ul>
+<li>Work closely with TopCoder Software project managers to break applications down into functional areas for concurrent development.</li>
+<li>Break down customer applications into components using the TopCoder Component Catalog for existing components and the TopCoder Component Development Methodology for new components.</li>
+<li>Complete the Architecture phase of the TopCoder Software Application Development Methodology with the aid of the Project Manager and other Architects. This entails creating:
+<ul>
+<li>Sequence Diagrams</li>
+<li>Class Diagrams</li>
+<li>Physical ERD Diagrams</li>
+<li>Identifying Components</li>
+<li>Component Requirements Specifications</li>
+<li>Application Design Document</li>
+</ul>
+</li>
+<li>Manage and work with some of the best coders in the world designing components specified during Architecture.</li>
+<li>Support the development and delivery of software applications.</li>
+<li>Drive the direction of and improve the quality and usability of the TopCoder Component Catalog.</li>
+</ul>
 
-						<b>Job Description:</b>
-						<ul>
-						<li>Work closely with TopCoder Software customers to identify business needs.</li>
-						<li>Manage all phases of the TopCoder Software Application Development Methodology to deliver high quality software applications that add significant business value to our customers.</li>
-						<li>Complete the Specification phase of the TopCoder Software Application Development Methodology with the aid of the customer and Creative resources. This entails creating:</li>							<ul>
-						    <li>Use Cases</li>
-						    <li>Activity Diagrams</li>
-						    <li>Requirements Specifications</li>
-						    <li>Quality Assurance Plan</li>
-						    <li>User Interface Prototype (HTML, CSS, Javascript)/li>
-						    <li>Project Plan</li>
-							</ul>
-						<li>Verify the quality of the software application and the adherence to the specification deliverables, including the execution of the test plan.</li>
-						<li>Manage and ensure the successful deployment of the application for the customer.</li>
-						</ul>
+<b>Additional Responsibilities:</b>
+<ul>
+<li>May work with multiple customers simultaneously.</li>
+<li>Must be willing to travel. Travel will be minor, estimated at 20% - 30% of the time.</li>
+</ul>
 
-						<b>Additional Responsibilities:</b>
-						<ul>
-						<li>May work with multiple customers simultaneously.</li>
-						<li>Must be willing to travel.</li>
-						</ul>
+<b>Technical Skills:</b>
+<ul>
+<li>Strong grasp of Object Oriented design principles with a focus on component based software development.</li>
+<li>Demonstrated experience in software application design and UML, including participation in a TopCoder Component Design Competition.</li>
+<li>Broad range of technical experience.</li>
+<li>Technical experience in relevant project technologies. For example, a given project may require familiarity with the following technologies:
+<ul>
+<li>J2EE, .NET</li>
+<li>Strong relational database design (Microsoft SQL Server or Oracle)</li>
+<li>Unit Testing frameworks (NUnit, JUnit, Cactus, HTTP Unit, etc)</li>
+<li>Knowledge of design patterns</li>
+<li>Knowledge of clustering, network architecture and performance tuning</li>
+</ul>
+</li>
+</ul>
 
-						<b>Technical Skills:</b>
-						<ul>
-						<li>Strong grasp of Object Oriented design principles with a focus on component based software development.</li>
-						<li>Demonstrated experience in software application design and UML creation.</li>
-						<li>Technical experience in relevant project technologies. For example, a given project may require familiarity with the following technologies:</li>
-							<ul>
-						    <li>J2EE, .NET</li>
-						    <li>Relational database design (Microsoft SQL Server or Oracle)</li>
-							</ul>
-						<li>Experience managing software development projects.</li>
-						</ul>
-
-						<b>Professional Skills:</b>
-						<ul>
-						<li>Excellent communication skills.</li>
-						<li>Proven leadership experience.</li>
-						<li>Team player.</li>
-						</ul>
-                        <p>
-                        <a href="/tc?module=JobHit&jid=318&jt=4">Apply for this job.<a/>
+<b>Professional Skills:</b>
+<ul>
+<li>Demonstrated desire to learn new technologies.</li>
+<li>Excellent communication skills.</li>
+<li>Team player.</li>
+<li>Able to work from home.</li>
+<li>Ability to perform detailed and critical reviews of work product.</li>
+</ul>
+                                                    <p>
+                        <a href="/tc?module=JobHit&jid=321&jt=4">Apply for this job.<a/>
                         </p>
                         <p><br /></p>
                     </td>
