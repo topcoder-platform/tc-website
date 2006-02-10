@@ -102,7 +102,7 @@ public final class AppealAction extends ReviewAction {
                 request.setAttribute("reviewerEdit", new Boolean(true));
             }
 */
-            // configured functionality to permit edition during appeals phase.
+            // configured functionality to permit appeal editing during appeals phase.
             boolean permitEditDuringAppeals;
             try {
                 permitEditDuringAppeals = ConfigHelper.getAllowAppealEditing();
