@@ -315,7 +315,7 @@ public class ForumsUtil {
                 user.getProperty("ratingCollapseThreshold") != null &&
                 user.getProperty("ratingCollapseMinCount") != null &&
                 user.getProperty("ratingCollapseMinMessages") != null &&
-                pct >= Integer.parseInt(user.getProperty("ratingCollapseThreshold")) && 
+                pct <= Integer.parseInt(user.getProperty("ratingCollapseThreshold")) && 
                 ratingCount >= Integer.parseInt(user.getProperty("ratingCollapseMinCount")) &&
                 messageCount >= Integer.parseInt(user.getProperty("ratingCollapseMinMessages")));
     }
