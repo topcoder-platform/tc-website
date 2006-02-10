@@ -38,7 +38,6 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
-<%--
         <ul>
             <li>add search to recruiting reporting site</li>
             <li>add placement information to recruiting reporting site</li>
@@ -47,7 +46,8 @@
             <li>add marathon match admin site</li>
             <li>changed component download process to always require viewing of terms</li>
         </ul>
---%>
+    </p>
+    <p>
         4.1.9 - 2006.01.30
         <ul>
             <li>tco06 component results site - placement points only for those that get over 75</li>
