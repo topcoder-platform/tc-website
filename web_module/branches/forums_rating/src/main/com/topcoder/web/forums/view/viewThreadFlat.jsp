@@ -247,7 +247,7 @@ function displayVotes(messageID, posVotes, negVotes) {
          <%  if (message.getUser() != null && message.getUser().equals(user) && "true".equals(user.getProperty("showRatings"))) { %>
          | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">Edit</A>
          <%  } %>
-         <%  if (ratingManager.isRatingsEnabled() && user != null) { 
+         <%  if (ratingManager.isRatingsEnabled() && user != null && "true".equals(user.getProperty("showRatings"))) { 
                 double avgRating = ratingManager.getMeanRating(message);
                 ratingCount = ratingManager.getRatingCount(message);
                 posRatings = (int)(Math.round(avgRating*ratingCount)-ratingCount);
