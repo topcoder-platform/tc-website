@@ -727,6 +727,7 @@ public class ReliabilityRating {
                     ps3.setInt(1, 1);
                     ret+=ps3.executeUpdate();
                 } else if (info[PROJECT_COUNT_IDX]==info[MARKED_COUNT_IDX]) {
+                    //if all are not included in reliability, this one shouldn't either
                     ps3.setInt(1, 0);
                     ret+=ps3.executeUpdate();
                 }
@@ -778,7 +779,9 @@ public class ReliabilityRating {
             while (rs.next()) {
                 ret[PROJECT_COUNT_IDX]++;
                 ret[RELIABLE_COUNT_IDX]+=rs.getInt("reliability_ind");
-                ret[MARKED_COUNT_IDX]+=rs.getInt("reliability_ind");
+                if (rs.getString("reliability_ind")!=null) {
+                    ret[MARKED_COUNT_IDX]++;
+                }
             }
         } finally {
             close(rs);
