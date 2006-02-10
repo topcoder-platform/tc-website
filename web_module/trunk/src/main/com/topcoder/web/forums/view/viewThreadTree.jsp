@@ -11,6 +11,8 @@
                 com.jivesoftware.forum.Watch,
                 com.jivesoftware.forum.ForumThread,
                 com.jivesoftware.forum.ReadTracker,
+                com.jivesoftware.forum.RatingManagerFactory,
+                com.jivesoftware.forum.RatingManager,
                 java.util.*,
                 com.topcoder.shared.util.DBMS"
 %>
@@ -29,6 +31,7 @@
 <%  HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
     User user = (User)request.getAttribute("user");
     String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW));
+    RatingManager ratingManager = RatingManagerFactory.getInstance(authToken);
     ReadTracker readTracker = forumFactory.getReadTracker();
     ForumThread nextThread = (ForumThread)request.getAttribute("nextThread");
     ForumThread prevThread = (ForumThread)request.getAttribute("prevThread");
@@ -68,6 +71,69 @@
 <jsp:include page="top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
+
+<script type="text/javascript">
+<!--
+function toggle(obj) {
+    var el = document.getElementById(obj);
+    if ( el.style.display != "none" ) {
+        el.style.display = 'none';
+    }
+    else {
+        el.style.display = '';
+    }
+}
+
+var req;
+function rate(messageID, voteValue) {
+   var url = "?module=Rating";
+   if (window.XMLHttpRequest) {
+       req = new XMLHttpRequest();
+   } else if (window.ActiveXObject) {
+       req = new ActiveXObject("Microsoft.XMLHTTP");
+   }
+   req.open("POST", url, true);
+   req.onreadystatechange = callback;
+   req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+   req.send("messageID="+messageID+"&voteValue="+voteValue);
+}
+
+function callback() {
+    if (req.readyState == 4) {
+        if (req.status == 200) {
+            var resp = req.responseXML.getElementsByTagName("response")[0];
+            var messageID = req.responseXML.getElementsByTagName("messageID")[0].firstChild.nodeValue;
+            var posRatings = req.responseXML.getElementsByTagName("posRatings")[0].firstChild.nodeValue;
+            var negRatings = req.responseXML.getElementsByTagName("negRatings")[0].firstChild.nodeValue;
+            displayVotes(messageID, posRatings, negRatings);
+        }
+    }
+}
+
+function displayVotes(messageID, posVotes, negVotes) {
+    mspan = document.getElementById("ratings"+messageID);
+    mspan.innerHTML = "(+"+posVotes+"/-"+negVotes+")";
+}
+
+//-->
+</script>
+
+<style type="text/css">
+<!--
+.pointer {
+    cursor: pointer;
+}
+
+.rtTextCellHlt
+{
+    background-color: #FFFF99;
+    padding: 10px 15px 10px 15px;
+    color: #333;
+    font-size: 12px;
+    vertical-align: top;
+}
+-->
+</style>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
@@ -135,6 +201,11 @@
 <table cellpadding="0" cellspacing="0" class="rtTable">
    <tr>
       <td class="rtHeader" colspan="2">
+      <%  String msgBodyID = "msgBody" + activeMessage.getID(); 
+          String ratingsID = "ratings" + activeMessage.getID(); 
+          int ratingCount = -1;
+          int posRatings = -1;
+          int negRatings = -1; %> 
          <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
             <%  int editCount = historyBean.getEditCount(activeMessage.getID(), DBMS.FORUMS_DATASOURCE_NAME);
             if (editCount > 0) { %> 
@@ -151,9 +222,16 @@
          <%  if (activeMessage.getUser() != null && activeMessage.getUser().equals(user)) { %>
          | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink">Edit</A>
          <%  } %>
+         <%  if (ratingManager.isRatingsEnabled() && user != null && "true".equals(user.getProperty("showRatings"))) { 
+                double avgRating = ratingManager.getMeanRating(activeMessage);
+                ratingCount = ratingManager.getRatingCount(activeMessage);
+                posRatings = (int)(Math.round(avgRating*ratingCount)-ratingCount);
+                negRatings = ratingCount - posRatings; %>
+            <span id="<%=ratingsID%>">(+<%=posRatings%>/-<%=negRatings%>)</span> <a href="javascript:void(0)" onclick="rate('<%=activeMessage.getID()%>','2')" class="rtbcLink">[+]</a><a href="javascript:void(0)" onclick="rate('<%=activeMessage.getID()%>','1')" class="rtbcLink">[-]</a>
+        <%  } %>
       </td>
    </tr>
-   <tr>
+   <tr id="<%=msgBodyID%>">
    <td class="rtPosterCell">
       <div class="rtPosterSpacer">
          <%  if (ForumsUtil.displayMemberPhoto(user, activeMessage.getUser())) { %>
@@ -162,7 +240,13 @@
          <span class="bodyText"><%if (activeMessage.getUser() != null) {%><tc-webtag:handle coderId="<%=activeMessage.getUser().getID()%>"/><%}%></span><br><%if (activeMessage.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=activeMessage.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(activeMessage.getUser()), "post")%></A><%}%>
       </div>
    </td>
-   <td class="rtTextCell" width="100%"><jsp:getProperty name="activeMessage" property="body"/></td></tr>
+   <%   double pct = ratingCount<=0 ? 0 : 100*(double)(posRatings)/(double)(ratingCount);  %>
+   <%   if (ForumsUtil.highlightPost(user, pct, ratingCount)) { %> 
+   <td class="rtTextCellHlt" width="100%"><jsp:getProperty name="activeMessage" property="body"/></td>
+   <%   } else { %>
+   <td class="rtTextCell" width="100%"><jsp:getProperty name="activeMessage" property="body"/></td>
+   <%   } %>
+   </tr>
 </table>
 <%-------------ACTIVE POST ENDS----------%>
 
@@ -216,7 +300,7 @@
         <% } %>
    <%   }   %>
    </td>
-    <td align="right"><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
+   <td align="right"><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
 </table>
 
         <p><br></p>

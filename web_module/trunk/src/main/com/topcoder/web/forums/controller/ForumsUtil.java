@@ -301,4 +301,22 @@ public class ForumsUtil {
         }
         return result;
     }
+    
+    public static boolean highlightPost(User user, double pct, double ratingCount) {
+        return (user != null && 
+                user.getProperty("ratingHighlightThreshold") != null &&
+                user.getProperty("ratingHighlightMinCount") != null &&
+                pct >= Integer.parseInt(user.getProperty("ratingHighlightThreshold")) && 
+                ratingCount >= Integer.parseInt(user.getProperty("ratingHighlightMinCount")));
+    }
+    
+    public static boolean collapsePost(User user, double pct, double ratingCount, double messageCount) {
+        return (user != null && 
+                user.getProperty("ratingCollapseThreshold") != null &&
+                user.getProperty("ratingCollapseMinCount") != null &&
+                user.getProperty("ratingCollapseMinMessages") != null &&
+                pct <= Integer.parseInt(user.getProperty("ratingCollapseThreshold")) && 
+                ratingCount >= Integer.parseInt(user.getProperty("ratingCollapseMinCount")) &&
+                messageCount >= Integer.parseInt(user.getProperty("ratingCollapseMinMessages")));
+    }
 }
