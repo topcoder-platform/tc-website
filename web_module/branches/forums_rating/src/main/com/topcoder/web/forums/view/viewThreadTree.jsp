@@ -240,7 +240,7 @@ function displayVotes(messageID, posVotes, negVotes) {
          <span class="bodyText"><%if (activeMessage.getUser() != null) {%><tc-webtag:handle coderId="<%=activeMessage.getUser().getID()%>"/><%}%></span><br><%if (activeMessage.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=activeMessage.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(activeMessage.getUser()), "post")%></A><%}%>
       </div>
    </td>
-   <%   double pct = 100*(double)(posRatings)/(double)(ratingCount); %>
+   <%   double pct = ratingCount<=0 ? 0 : 100*(double)(posRatings)/(double)(ratingCount);  %>
    <%   if (ForumsUtil.highlightPost(user, pct, ratingCount)) { %> 
    <td class="rtTextCellHlt" width="100%"><jsp:getProperty name="activeMessage" property="body"/></td>
    <%   } else { %>

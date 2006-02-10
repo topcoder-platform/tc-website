@@ -238,7 +238,7 @@ function displayVotes(messageID, posVotes, negVotes) {
             <%  } %>
           </td>
       </tr>
-      <%   double pct = 100*(double)(posRatings)/(double)(ratingCount); 
+      <%   double pct = ratingCount<=0 ? 0 : 100*(double)(posRatings)/(double)(ratingCount); 
            String msgBodyDisplay = ForumsUtil.collapsePost(user, pct, ratingCount, thread.getMessageCount())?"display:none":"";
       %>
       <tr id="<%=msgBodyID%>" style="<%=msgBodyDisplay%>">
