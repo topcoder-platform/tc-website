@@ -3,6 +3,7 @@
 <html>
 <head>
 <title>2006 TopCoder Open - Computer Programming Tournament</title>
+<jsp:include page="/script.jsp" />
 <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
 </head>
 <body>
@@ -15,9 +16,9 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <!-- Body-->
-	<tr valign="top">
-		<td valign="top" align="center">
-		<div class="bodySpacer">
+   <tr valign="top">
+      <td valign="top" align="center">
+      <div class="bodySpacer">
 
 <span class="bigTitle">Competition Arena</span>
 <br><br>
@@ -31,7 +32,7 @@ If you experience problems loading or running the Competition Arena please conta
 See the official <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_rules">rules and regulations</A> for more details.
 <br><br><br><br><br><br><br><br>
         </div>
-		</td>
+      </td>
 
 
 <!-- Right Column-->
@@ -42,7 +43,7 @@ See the official <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_
 <jsp:include page="../../calendar.jsp" />
 </td>
 
-	</tr>
+   </tr>
 
 </table>
 
