@@ -53,12 +53,12 @@ The competition is free and you must be 18 years or older to be eligible.
 <span class="bigTitle">How to Register for the Algorithm Competition</span>
 <br><br>
 <strong>Already a TopCoder Member?</strong><br>
-Click <A href=" /tc?module=TCO06AlgorithmTerms">here</A> to register for the TCO Algorithm Competition.
+Click <A href="/tc?module=TCO06AlgorithmTerms">here</A> to register for the TCO Algorithm Competition.
 <br><br>
 <strong>Not Yet a TopCoder Member?</strong><br>
 Click <A href="/Registration">here</A> to register as a TopCoder member.<br>
 Check your email and activate your new TopCoder account.<br>
-Click <A href=" /tc?module=TCO06AlgorithmTerms">here</A> to register for the TCO Algorithm Competition
+Click <A href="/tc?module=TCO06AlgorithmTerms">here</A> to register for the TCO Algorithm Competition
 <br><br>
 --%>
 *Soon to be Planet Hollywood Resort and Casino
