@@ -15,7 +15,7 @@ Application Dates: Screening <xsl:value-of select="SCREENING_DATE"/>, Review <xs
 Component: <xsl:value-of select="PROJECT_NAME"/><xsl:text>
 </xsl:text>
 <xsl:for-each select="REVIEWER">
-<xsl:value-of select="REVIEWER_ROLE"/>: <xsl:value-of select="REVIEWER_HANDLE"/> $<xsl:value-of select="REVIEWER_PAYMENT"/><xsl:text> 
+<xsl:value-of select="REVIEWER_ROLE"/>: <xsl:value-of select="REVIEWER_HANDLE"/><xsl:text> 
 </xsl:text>
 </xsl:for-each>
 <xsl:text>Product Manager: </xsl:text><xsl:value-of select="PM_HANDLE"/>
