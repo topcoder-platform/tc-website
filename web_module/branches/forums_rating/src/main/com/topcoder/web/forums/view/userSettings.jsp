@@ -58,6 +58,7 @@ function toggleTabs(id) {
     for (i=1; i<=4; i++) {
         document.getElementById('bodyRate'+i).style.display = rateStyle;
     }
+    document.getElementById('infoRate').style.display = rateStyle;
 }
 //-->
 </script>
@@ -466,6 +467,8 @@ function toggleTabs(id) {
       </td>
    </tr>
 </table>
+<span id="infoRate">Use the [+] and [-] options in a post's header to rate the post positively or negatively. 
+When ratings are enabled, you may click on a post's subject to expand or collapse the post.</span>
 <div align="right">
 <input type="image" src="/i/roundTables/save.gif" alt="Save"/>
 </div></form>
