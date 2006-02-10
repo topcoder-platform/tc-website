@@ -14,6 +14,9 @@
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
+<%  String section = (String)request.getParameter(ForumConstants.SETTINGS_SECTION);    
+    if (section == null) { section = "gen"; } %>
+
 <html>
 <head>
 <title>TopCoder Forums</title>
@@ -22,14 +25,43 @@
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <link type="text/css" rel="stylesheet" href="/css/stats.css"/>
 <jsp:include page="script.jsp" />
-
 </head>
 
-<body>
+<body onload="toggleTabs('<%=section%>')">
 
 <jsp:include page="top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
+
+<script type="text/javascript">
+<!--
+var section;
+function toggleTabs(id) {
+    section = id;
+    var genStyle = (id=="gen")?'':'none';
+    var watchStyle = (id=="watch")?'':'none';
+    var rateStyle = (id=="rate")?'':'none';
+
+    var i;
+    for (i=1; i<=7; i++) {
+        document.getElementById('tabGen'+i).style.display = genStyle;
+        document.getElementById('tabWatch'+i).style.display = watchStyle;
+        document.getElementById('tabRate'+i).style.display = rateStyle;
+    }
+    
+    for (i=1; i<=11; i++) {
+        document.getElementById('bodyGen'+i).style.display = genStyle;
+    }
+    for (i=1; i<=5; i++) {
+        document.getElementById('bodyWatch'+i).style.display = watchStyle;
+    }
+    for (i=1; i<=4; i++) {
+        document.getElementById('bodyRate'+i).style.display = rateStyle;
+    }
+    document.getElementById('infoRate').style.display = rateStyle;
+}
+//-->
+</script>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
@@ -69,14 +101,44 @@
 <tc-webtag:errorIterator id="errSettings" name="<%=ForumConstants.SETTINGS_STATUS%>"><%=errSettings%></tc-webtag:errorIterator><br/><br/>
 <%  } %>
 
+<table cellpadding="0" cellspacing="0" border="0" class="tabTable">
+  <tr>
+      <td id="tabGen1" width="0%" class="tabLeftOn">&#160;</td>
+      <td id="tabGen2" width="20%" class="tabTextOn"><A href="javascript:void(0)" onclick="toggleTabs('gen')" class="tabLink">General Settings</A></td>    
+      <td id="tabGen3" width="1%" valign="top"><img src="/i/stats/tabs/midOnOff.gif" alt="" border="0" /></td>
+      <td id="tabGen4" width="20%" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('watch')" class="tabLink">Watch Preferences</A></td>     
+      <td id="tabGen5" width="1%" valign="top"><img src="/i/stats/tabs/midOffOff.gif" alt="" border="0" /></td>      
+      <td id="tabGen6" width="20%" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('rate')" class="tabLink">Rating Preferences</A></td>
+      <td id="tabGen7" width="1%" valign="top"><img src="/i/stats/tabs/rightOff.gif" alt="" border="0" /></td>
+
+      <td id="tabWatch1" width="0%" style="display:none" class="tabLeftOff">&#160;</td>
+      <td id="tabWatch2" width="20%" style="display:none" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('gen')" class="tabLink">General Settings</A></td>    
+      <td id="tabWatch3" width="1%" style="display:none" valign="top"><img src="/i/stats/tabs/midOffOn.gif" alt="" border="0" /></td>
+      <td id="tabWatch4" width="20%" style="display:none" class="tabTextOn"><A href="javascript:void(0)" onclick="toggleTabs('watch')" class="tabLink">Watch Preferences</A></td>     
+      <td id="tabWatch5" width="1%" style="display:none" valign="top"><img src="/i/stats/tabs/midOnOff.gif" alt="" border="0" /></td>      
+      <td id="tabWatch6" width="20%" style="display:none" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('rate')" class="tabLink">Rating Preferences</A></td>
+      <td id="tabWatch7" width="1%" style="display:none" valign="top"><img src="/i/stats/tabs/rightOff.gif" alt="" border="0" /></td>
+
+      <td id="tabRate1" width="0%" style="display:none" class="tabLeftOff">&#160;</td>
+      <td id="tabRate2" width="20%" style="display:none" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('gen')" class="tabLink">General Settings</A></td>    
+      <td id="tabRate3" width="1%" style="display:none" valign="top"><img src="/i/stats/tabs/midOffOff.gif" alt="" border="0" /></td>
+      <td id="tabRate4" width="20%" style="display:none" class="tabTextOff"><A href="javascript:void(0)" onclick="toggleTabs('watch')" class="tabLink">Watch Preferences</A></td>     
+      <td id="tabRate5" width="1%" style="display:none" valign="top"><img src="/i/stats/tabs/midOffOn.gif" alt="" border="0" /></td>      
+      <td id="tabRate6" width="20%" style="display:none" class="tabTextOn"><A href="javascript:void(0)" onclick="toggleTabs('rate')" class="tabLink">Rating Preferences</A></td>
+      <td id="tabRate7" width="1%" style="display:none" valign="top"><img src="/i/stats/tabs/rightOn.gif" alt="" border="0" /></td>
+      
+      <td width="37%"></td>
+  </tr>
+
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
 <tc-webtag:hiddenInput name="module" value="Settings"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.SETTINGS_SECTION%>" value="gen"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.SETTINGS_STATUS%>" value="save"/>
 <table cellpadding="0" cellspacing="0" class="rtTable">
-   <tr>
-      <td class="rtHeader" colspan="2">General Settings</td>
+   <tr id="bodyGen1">
+        <td class="rtHeader" colspan="2">General Settings</td>
    </tr>
-   <tr>
+   <tr id="bodyGen2">
       <td class="rtTextCell" nowrap="nowrap"><strong>Forums per Category page:</strong></td>
       <td class="rtTextCell100">
       <select size="1" name="forumsPerPage">
@@ -95,7 +157,7 @@
       </select>
       </td>
    </tr>
-   <tr>
+   <tr id="bodyGen3">
       <td class="rtTextCell" nowrap="nowrap"><strong>Threads per Forum page:</strong></td>
       <td class="rtTextCell100">
       <select size="1" name="threadsPerPage">
@@ -115,7 +177,7 @@
       </select>
       </td>
    </tr>
-   <tr>
+   <tr id="bodyGen4">
       <td class="rtTextCell" nowrap="nowrap"><strong>Messages per Thread page:</strong></td>
       <td class="rtTextCell100">
       <select size="1" name="messagesPerPage">
@@ -135,7 +197,7 @@
       </select>
       </td>
    </tr>
-   <tr>
+   <tr id="bodyGen5"> 
       <td class="rtTextCell" nowrap="nowrap"><strong>Messages per Post History page:</strong></td>
       <td class="rtTextCell100">
       <select size="1" name="messagesPerHistoryPage">
@@ -154,7 +216,7 @@
       </select>
       </td>
    </tr>
-   <tr>
+   <tr id="bodyGen6">
       <td class="rtTextCell" nowrap="nowrap"><strong>Results per Search page:</strong></td>
       <td class="rtTextCell100">
         <select size="1" name="resultsPerSearchPage">
@@ -173,7 +235,7 @@
         </select>
       </td>
    </tr>
-   <tr>
+   <tr id="bodyGen7">
       <td class="rtTextCell" nowrap="nowrap"><strong>Default thread page view:</strong></td>
       <td class="rtTextCell100">
       <select size="1" name="threadMode">
@@ -192,7 +254,7 @@
       </select>
       </td>
    </tr>
-   <tr>
+   <tr id="bodyGen8">
       <td class="rtTextCell" nowrap="nowrap"><strong>Default flat page view:</strong></td>
       <td class="rtTextCell100">
       <select size="1" name="flatMode">
@@ -211,7 +273,7 @@
       </select>
       </td>
    </tr>
-   <tr>
+   <tr id="bodyGen9">
       <td class="rtTextCell" nowrap="nowrap"><strong>Show previous/next threads:</strong></td>
       <td class="rtTextCell100">
         <input name="showPrevNextThreads" value="true" id="showPrevNextThreadsYes" type="radio"
@@ -223,7 +285,7 @@
         <label for="jiveShowPrevNextThreadsNo">No</label>
       </td>
    </tr>
-   <tr>
+   <tr id="bodyGen10">
       <td class="rtTextCell" nowrap="nowrap"><strong>Display my member photo:</strong></td>
       <td class="rtTextCell100">
       <input name="displayMemberPhoto" value="true" id="displayMemberPhotoYes" type="radio"
@@ -235,7 +297,7 @@
       <label for="jiveDisplayMemberPhotoNo">No</label>
       </td>
    </tr>
-   <tr>
+   <tr id="bodyGen11">
       <td class="rtTextCell" nowrap="nowrap"><strong>Display member photos:</strong></td>
       <td class="rtTextCell100">
       <input name="displayAllMemberPhotos" value="true" id="displayAllMemberPhotosYes" type="radio"
@@ -247,10 +309,10 @@
       <label for="jiveDisplayAllMemberPhotosNo">No</label>
       </td>
    </tr>
-   <tr>
+   <tr id="bodyWatch1">
       <td class="rtHeader" colspan="2">Watch Preferences</td>
    </tr>
-   <tr>
+   <tr id="bodyWatch2">
       <td class="rtTextCell" nowrap="nowrap"><strong>Always watch threads I create:</strong></td>
       <td class="rtTextCell100">
       <input name="autoWatchNewTopics" value="true" id="autoWatchNewTopicsYes" type="radio"
@@ -262,7 +324,7 @@
       <label for="autoWatchNewTopicsNo">No</label>
       </td>
    </tr>
-   <tr>
+   <tr id="bodyWatch3">
       <td class="rtTextCell" nowrap="nowrap"><strong>Always watch threads I reply to:</strong></td>
       <td class="rtTextCell100">
       <input name="autoWatchReplies" value="true" id="autoWatchRepliesYes" type="radio"
@@ -274,7 +336,7 @@
       <label for="autoWatchRepliesNo">No</label>
       </td>
    </tr>
-   <tr>
+   <tr id="bodyWatch4">
       <td class="rtTextCell" nowrap="nowrap"><strong>Mark watched threads as read:</strong></td>
       <td class="rtTextCell100">
       <input name="markWatchesRead" value="true" id="markWatchesReadYes" type="radio"
@@ -286,7 +348,7 @@
       <label for="markWatchesReadNo">No</label>
       </td>
    </tr>
-   <tr>
+   <tr id="bodyWatch5">
       <td class="rtTextCell" nowrap="nowrap"><strong>Send watch emails:</strong></td>
       <td class="rtTextCell100">
          <select size=1 name="watchFrequency">
@@ -304,9 +366,111 @@
          (<%= user.getEmail() %>)
       </td>
    </tr>
+   <tr id="bodyRate1">
+        <td class="rtHeader" colspan="2">Rating Preferences</td>
+   </tr>
+   <tr id="bodyRate2">
+      <td class="rtTextCell" nowrap="nowrap"><strong>Show ratings:</strong></td>
+      <td class="rtTextCell100">
+      <input name="showRatings" value="true" id="showRatingsYes" type="radio"
+         <%= ("true".equals(user.getProperty("showRatings"))) ? "checked" : ""%>>
+      <label for="showRatingsYes">Yes</label>
+      &#160;
+      <input name="showRatings" value="false" id="showRatingsNo" type="radio"
+         <%= (user.getProperty("showRatings") == null || "false".equals(user.getProperty("showRatings"))) ? "checked" : ""%>>
+      <label for="showRatingsNo">No</label>
+      </td>
+   </tr>
+   <tr id="bodyRate3">
+      <td class="rtTextCell" nowrap="nowrap"><strong>Highlight posts:</strong></td>
+      <td class="rtTextCell100" valign="top">
+      <select size="1" name="ratingHighlightThreshold">
+      <%  int[] ratingHltPcts = { 50, 60, 70, 80, 90, 100 };
+          int ratingHltPct = ForumConstants.DEFAULT_RATING_HIGHLIGHT_THRESHOLD;
+          try {
+              ratingHltPct = Integer.parseInt(user.getProperty("ratingHighlightThreshold"));
+          } catch (Exception ignored) {}
+          for (int i=0; i<ratingHltPcts.length; i++) {
+            if (ratingHltPcts[i] == ratingHltPct) { %>
+               <option value="<%=ratingHltPcts[i]%>" selected><%=ratingHltPcts[i]%></option>
+         <%   } else { %>
+               <option value="<%=ratingHltPcts[i]%>"><%=ratingHltPcts[i]%></option>
+         <%   }
+         } %>
+      </select>
+      % or higher rating with
+      <select size="1" name="ratingHighlightMinCount">
+      <%  int[] ratingHltCnts = { 1, 5, 10, 20, 50, 100 };
+          int ratingHltCnt = ForumConstants.DEFAULT_RATING_HIGHLIGHT_MIN_COUNT;
+          try {
+              ratingHltCnt = Integer.parseInt(user.getProperty("ratingHighlightMinCount"));
+          } catch (Exception ignored) {}
+          for (int i=0; i<ratingHltCnts.length; i++) {
+            if (ratingHltCnts[i] == ratingHltCnt) { %>
+               <option value="<%=ratingHltCnts[i]%>" selected><%=ratingHltCnts[i]%></option>
+         <%   } else { %>
+               <option value="<%=ratingHltCnts[i]%>"><%=ratingHltCnts[i]%></option>
+         <%   }
+         } %>
+      </select>
+      or more votes
+      </td>
+   </tr>
+   <tr id="bodyRate4">
+      <td class="rtTextCell" nowrap="nowrap"><strong>Collapse posts:</strong></td>
+      <td class="rtTextCell100" valign="top">
+      <select size="1" name="ratingCollapseThreshold">
+      <%  int[] ratingCollapsePcts = { 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+          int ratingCollapsePct = ForumConstants.DEFAULT_RATING_COLLAPSE_THRESHOLD;
+          try {
+              ratingCollapsePct = Integer.parseInt(user.getProperty("ratingCollapseThreshold"));
+          } catch (Exception ignored) {}
+          for (int i=0; i<ratingCollapsePcts.length; i++) {
+            if (ratingCollapsePcts[i] == ratingCollapsePct) { %>
+               <option value="<%=ratingCollapsePcts[i]%>" selected><%=ratingCollapsePcts[i]%></option>
+         <%   } else { %>
+               <option value="<%=ratingCollapsePcts[i]%>"><%=ratingCollapsePcts[i]%></option>
+         <%   }
+         } %>
+      </select>
+      % or lower rating with
+      <select size="1" name="ratingCollapseMinCount">
+      <%  int[] ratingCollapseCnts = { 0, 1, 5, 10, 20, 50, 100 };
+          int ratingCollapseCnt = ForumConstants.DEFAULT_RATING_COLLAPSE_MIN_COUNT;
+          try {
+              ratingCollapseCnt = Integer.parseInt(user.getProperty("ratingCollapseMinCount"));
+          } catch (Exception ignored) {}
+          for (int i=0; i<ratingCollapseCnts.length; i++) {
+            if (ratingCollapseCnts[i] == ratingCollapseCnt) { %>
+               <option value="<%=ratingCollapseCnts[i]%>" selected><%=ratingCollapseCnts[i]%></option>
+         <%   } else { %>
+               <option value="<%=ratingCollapseCnts[i]%>"><%=ratingCollapseCnts[i]%></option>
+         <%   }
+         } %>
+      </select>
+      or more votes in threads with
+      <select size="1" name="ratingCollapseMinMessages">
+      <%  int[] ratingCollapseMsgs = { 1, 5, 10, 25, 50, 100 };
+          int ratingCollapseMsg = ForumConstants.DEFAULT_RATING_COLLAPSE_MIN_MESSAGES;
+          try {
+              ratingCollapseMsg = Integer.parseInt(user.getProperty("ratingCollapseMinMessages"));
+          } catch (Exception ignored) {}
+          for (int i=0; i<ratingCollapseMsgs.length; i++) {
+            if (ratingCollapseMsgs[i] == ratingCollapseMsg) { %>
+               <option value="<%=ratingCollapseMsgs[i]%>" selected><%=ratingCollapseMsgs[i]%></option>
+         <%   } else { %>
+               <option value="<%=ratingCollapseMsgs[i]%>"><%=ratingCollapseMsgs[i]%></option>
+         <%   }
+         } %>
+      </select>
+      or more messages
+      </td>
+   </tr>
 </table>
+<span id="infoRate">Use the [+] and [-] options in a post's header to rate the post positively or negatively. 
+When ratings are enabled, you may click on a post's subject to expand or collapse the post.</span>
 <div align="right">
-<input type="image" src="/i/roundTables/save.gif" alt="Save" />
+<input type="image" src="/i/roundTables/save.gif" alt="Save"/>
 </div></form>
 
 <p><br/></p>
