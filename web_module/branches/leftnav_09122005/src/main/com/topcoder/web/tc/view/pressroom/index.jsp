@@ -4,8 +4,8 @@
 <head>
 <title>TopCoder Press Room</title>
 
-<jsp:include page="../script.jsp" />
-<jsp:include page="../style.jsp">
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_main"/>
 </jsp:include>
 </head>

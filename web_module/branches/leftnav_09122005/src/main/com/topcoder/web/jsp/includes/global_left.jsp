@@ -91,6 +91,8 @@
       nav.search("m_forums").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc", "News Discussions", "forum_news"));
       nav.search("m_forums").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc", "Sponsor Discussions", "forum_sponsors"));
 
+   nav.addRoot(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=pressroom&d2=index", "Press Room", "press_room"));
+
 
 
    request.setAttribute("tree", nav);
