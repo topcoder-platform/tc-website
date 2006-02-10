@@ -672,8 +672,9 @@ public class ReliabilityRating {
              " from project_result pr " +
                 " , project p " +
                 " , component_inquiry ci " +
-             "where pr.final_score is not null " +
-               "and pr.final_score < ? " +
+             "where ((pr.final_score is not null " +
+               "and pr.final_score < ?) " +
+                "or (pr.final_score is null and p.project_stat_id in (2,4,5,6,7))) "+
                "and pr.reliability_ind is null  " +
                "and pr.project_id = p.project_id " +
                "and ci.project_id = pr.project_id " +
