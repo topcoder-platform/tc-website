@@ -256,7 +256,10 @@ function displayVotes(messageID, posVotes, negVotes) {
         <%  } %>
       </td>
    </tr>
-   <tr id="<%=msgBodyID%>">
+   <%   double pct = 100*(double)(posRatings)/(double)(ratingCount); 
+        String msgBodyDisplay = ForumsUtil.collapsePost(user, pct, ratingCount, thread.getMessageCount())?"display:none":"";
+   %>
+   <tr id="<%=msgBodyID%>" style="<%=msgBodyDisplay%>">
       <td class="rtPosterCell">
          <div class="rtPosterSpacer">
             <%  if (ForumsUtil.displayMemberPhoto(user, message.getUser())) { %>
@@ -265,7 +268,6 @@ function displayVotes(messageID, posVotes, negVotes) {
             <span class="bodyText"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></span><br><%if (message.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(message.getUser()), "post")%></A><%}%>
          </div>
       </td>
-      <%   double pct = 100*(double)(posRatings)/(double)(ratingCount); %>
       <%   if (ForumsUtil.highlightPost(user, pct, ratingCount)) { %>
       <td class="rtTextCellHlt" width="100%"><jsp:getProperty name="message" property="body"/></td>
       <%   } else { %>

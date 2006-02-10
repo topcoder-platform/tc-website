@@ -52,6 +52,9 @@ public class Settings extends ForumsProcessor {
             String showRatings = getRequest().getParameter("showRatings");
             String ratingHighlightThreshold = getRequest().getParameter("ratingHighlightThreshold");
             String ratingHighlightMinCount = getRequest().getParameter("ratingHighlightMinCount");
+            String ratingCollapseThreshold = getRequest().getParameter("ratingCollapseThreshold");
+            String ratingCollapseMinCount = getRequest().getParameter("ratingCollapseMinCount");
+            String ratingCollapseMinMessages = getRequest().getParameter("ratingCollapseMinMessages");
 
             checkMax(forumsPerPage, ForumConstants.maxForumsPerPage, "jiveForumRange", ForumConstants.ERR_FORUM_RANGE_EXCEEDED);
             checkMax(threadsPerPage, ForumConstants.maxThreadsPerPage, "jiveThreadRange", ForumConstants.ERR_THREAD_RANGE_EXCEEDED);
@@ -74,6 +77,9 @@ public class Settings extends ForumsProcessor {
             user.setProperty("showRatings", showRatings);
             user.setProperty("ratingHighlightThreshold", ratingHighlightThreshold);
             user.setProperty("ratingHighlightMinCount", ratingHighlightMinCount);
+            user.setProperty("ratingCollapseThreshold", ratingCollapseThreshold);
+            user.setProperty("ratingCollapseMinCount", ratingCollapseMinCount);
+            user.setProperty("ratingCollapseMinMessages", ratingCollapseMinMessages);
 
             CronTimer current = forumFactory.getWatchManager().getBatchTimer(user);
             if (current == null && watchFrequency != UserSettingsAction.FREQUENCY_IMMEDIATELY) {

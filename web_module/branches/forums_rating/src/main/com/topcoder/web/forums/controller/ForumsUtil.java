@@ -309,4 +309,14 @@ public class ForumsUtil {
                 pct >= Integer.parseInt(user.getProperty("ratingHighlightThreshold")) && 
                 ratingCount >= Integer.parseInt(user.getProperty("ratingHighlightMinCount")));
     }
+    
+    public static boolean collapsePost(User user, double pct, double ratingCount, double messageCount) {
+        return (user != null && 
+                user.getProperty("ratingCollapseThreshold") != null &&
+                user.getProperty("ratingCollapseMinCount") != null &&
+                user.getProperty("ratingCollapseMinMessages") != null &&
+                pct >= Integer.parseInt(user.getProperty("ratingCollapseThreshold")) && 
+                ratingCount >= Integer.parseInt(user.getProperty("ratingCollapseMinCount")) &&
+                messageCount >= Integer.parseInt(user.getProperty("ratingCollapseMinMessages")));
+    }
 }

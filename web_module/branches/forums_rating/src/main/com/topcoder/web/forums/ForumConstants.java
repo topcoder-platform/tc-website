@@ -106,7 +106,10 @@ public interface ForumConstants {
     public final static String DEFAULT_GUEST_THREAD_VIEW = "flat";
     public final static String DEFAULT_FLAT_THREAD_VIEW = "flat";
     public final static int DEFAULT_RATING_HIGHLIGHT_THRESHOLD = 80;
-    public final static int DEFAULT_RATING_HIGHLIGHT_MIN_COUNT = 10; 
+    public final static int DEFAULT_RATING_HIGHLIGHT_MIN_COUNT = 10;
+    public final static int DEFAULT_RATING_COLLAPSE_THRESHOLD = 40;
+    public final static int DEFAULT_RATING_COLLAPSE_MIN_COUNT = 10; 
+    public final static int DEFAULT_RATING_COLLAPSE_MIN_MESSAGES = 50;
     
     // Maximums
     public final static int MAX_FORUMS_PER_PAGE = 50;

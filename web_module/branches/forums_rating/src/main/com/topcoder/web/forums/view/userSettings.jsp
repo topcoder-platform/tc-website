@@ -55,7 +55,7 @@ function toggleTabs(id) {
     for (i=1; i<=5; i++) {
         document.getElementById('bodyWatch'+i).style.display = watchStyle;
     }
-    for (i=1; i<=3; i++) {
+    for (i=1; i<=4; i++) {
         document.getElementById('bodyRate'+i).style.display = rateStyle;
     }
 }
@@ -413,6 +413,56 @@ function toggleTabs(id) {
          } %>
       </select>
       or more votes
+      </td>
+   </tr>
+   <tr id="bodyRate4">
+      <td class="rtTextCell" nowrap="nowrap"><strong>Collapse posts:</strong></td>
+      <td class="rtTextCell100" valign="top">
+      <select size="1" name="ratingCollapseThreshold">
+      <%  int[] ratingCollapsePcts = { 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+          int ratingCollapsePct = ForumConstants.DEFAULT_RATING_COLLAPSE_THRESHOLD;
+          try {
+              ratingCollapsePct = Integer.parseInt(user.getProperty("ratingCollapseThreshold"));
+          } catch (Exception ignored) {}
+          for (int i=0; i<ratingCollapsePcts.length; i++) {
+            if (ratingCollapsePcts[i] == ratingCollapsePct) { %>
+               <option value="<%=ratingCollapsePcts[i]%>" selected><%=ratingCollapsePcts[i]%></option>
+         <%   } else { %>
+               <option value="<%=ratingCollapsePcts[i]%>"><%=ratingCollapsePcts[i]%></option>
+         <%   }
+         } %>
+      </select>
+      % or lower rating with
+      <select size="1" name="ratingCollapseMinCount">
+      <%  int[] ratingCollapseCnts = { 0, 1, 5, 10, 20, 50, 100 };
+          int ratingCollapseCnt = ForumConstants.DEFAULT_RATING_COLLAPSE_MIN_COUNT;
+          try {
+              ratingCollapseCnt = Integer.parseInt(user.getProperty("ratingCollapseMinCount"));
+          } catch (Exception ignored) {}
+          for (int i=0; i<ratingCollapseCnts.length; i++) {
+            if (ratingCollapseCnts[i] == ratingCollapseCnt) { %>
+               <option value="<%=ratingCollapseCnts[i]%>" selected><%=ratingCollapseCnts[i]%></option>
+         <%   } else { %>
+               <option value="<%=ratingCollapseCnts[i]%>"><%=ratingCollapseCnts[i]%></option>
+         <%   }
+         } %>
+      </select>
+      or more votes in threads with
+      <select size="1" name="ratingCollapseMinMessages">
+      <%  int[] ratingCollapseMsgs = { 1, 5, 10, 25, 50, 100 };
+          int ratingCollapseMsg = ForumConstants.DEFAULT_RATING_COLLAPSE_MIN_MESSAGES;
+          try {
+              ratingCollapseMsg = Integer.parseInt(user.getProperty("ratingCollapseMinMessages"));
+          } catch (Exception ignored) {}
+          for (int i=0; i<ratingCollapseMsgs.length; i++) {
+            if (ratingCollapseMsgs[i] == ratingCollapseMsg) { %>
+               <option value="<%=ratingCollapseMsgs[i]%>" selected><%=ratingCollapseMsgs[i]%></option>
+         <%   } else { %>
+               <option value="<%=ratingCollapseMsgs[i]%>"><%=ratingCollapseMsgs[i]%></option>
+         <%   }
+         } %>
+      </select>
+      or more messages
       </td>
    </tr>
 </table>
