@@ -41,6 +41,18 @@ For more details on the Sponsor Track, see the <a href="/tc?module=Static&d1=tou
 VeriSign Human Resources, VSS, VIS, O&I, and the CAF team are sponsoring the Sponsor Track competition.
 <br/><br/> 
 Best of luck and let the coding begin! 
+<%--
+<br><br>
+<span class="bigTitle">How to Register for the Sponsor Track Competition</span>
+<br><br>
+<strong>Already a TopCoder Member?</strong><br>
+Click <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_reg">here</A> to register for the Sponsor Track Competition.
+<br><br>
+<strong>Not Yet a TopCoder Member?</strong><br>
+Click <A href="/Registration">here</A> to register as a TopCoder member.<br>
+Check your email and activate your new TopCoder account.<br>
+Click <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_reg">here</A> to register for the Sponsor Track Competition
+--%>
 <br/><br/><br/>
 * <i>The Common Application Framework (CAF) is a set of reusable infrastructure components and best practices for building transaction-oriented applications in Java/J2EE. Learn more about CAF components, reference applications, and documentation by accessing:  <a href="http://portal.vrsn.com/sites/cafinfo/default.aspx">CAF SharePoint site</a> or contact <a href="mailto:%20afinan@verisign.com">Angelique Finan</a<.</i>
 <br/><br/>
