@@ -69,7 +69,7 @@
                     <td width="274"><A href="http://webreprints.djreprints.com/1404341094425.html" target="_blank"><img src="/i/pressroom/wsj_logo.gif" alt="Wall Street Journal" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="http://webreprints.djreprints.com/1404341094425.html" target="_blank">Programming Contest Pits World's Top Geeks In Battles Over Coding</A></strong></font>  &#160; <A href="/pdfs/press_room/wsj_020806.pdf" target="_blank">view PDF</a><br />
+                        <p><font size="3"><strong><A href="http://webreprints.djreprints.com/1404341094425.html" target="_blank">Programming Contest Pits World's Top Geeks In Battles Over Coding</A></strong></font><br />
 "Imagine a reality TV show that combines the performance-under-time-pressure of 'Iron Chef' with the scheming and psych-outs of 'Survivor,' then adds the soaring braininess of -- well, that's the problem, really: There isn't anything this smart on TV."<span class="prHead"> [February 8]</span></p>
                     </td>
                 </tr>
