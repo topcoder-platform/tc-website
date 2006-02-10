@@ -671,11 +671,15 @@ public class ReliabilityRating {
             "select pr.user_id, pr.project_id, p.project_type_id " +
              " from project_result pr " +
                 " , project p " +
+                " , component_inquiry ci " + 
              "where pr.final_score is not null " +
                "and pr.final_score < ? " +
                "and pr.reliability_ind is null  " +
                "and pr.project_id = p.project_id " +
-               "and p.cur_version = 1";
+               "and ci.project_id = pr.project_id " +
+               "and ci.user_id = pr.user_id " +
+               "and p.cur_version = 1 " +
+            " order by ci.create_time";
 
     private final static String setReliability =
             "update project_result set reliability_ind = ? where project_id = ? and user_id = ?";
