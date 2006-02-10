@@ -268,7 +268,7 @@ The prizes for each of the 12 monthly events will have the following structure:
    2nd Place
    </td>
    <td class="sidebarText" align="right">
-   $1,500
+   $1,000
    </td>
 </tr>
 <tr>
