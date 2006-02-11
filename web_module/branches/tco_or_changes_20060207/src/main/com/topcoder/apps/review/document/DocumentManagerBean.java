@@ -4563,6 +4563,9 @@ public class DocumentManagerBean implements SessionBean {
                 permitEditDuringAppeals = ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT;
             }
 
+            // if project allows appeals responses during appeal phase, appeals can't be edited.
+            permitEditDuringAppeals = permitEditDuringAppeals && !project.getResponseDuringAppeals();
+
             // If appeal is resolved and the user isn't admin/pm,
             // then don't allow save!
             // If appeal exists and the user isn't the reviewer
