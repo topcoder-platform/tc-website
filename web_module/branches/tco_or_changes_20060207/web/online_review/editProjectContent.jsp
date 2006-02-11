@@ -264,6 +264,7 @@ function editTimeline()
                     </td>
                 </tr>
             </table>
+
             <table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" class="forumBkgd">
                 <tr>
                     <td width="100%" class="forumTextEven">
