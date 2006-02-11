@@ -113,7 +113,7 @@ public class ProjectTrackerBean implements SessionBean {
                             "cv.comp_vers_id, " +
                             "pcat.category_name catalog_name," +
                             "p.level_id, " +
-                            "p.autopilot_ind  " +
+                            "p.autopilot_ind, " +
                             "p.response_during_appeals_ind  " +
                             "FROM project p, comp_versions cv, " +
                             "comp_catalog cc, " +
