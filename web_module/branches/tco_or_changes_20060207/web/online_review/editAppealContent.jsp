@@ -66,7 +66,7 @@ The following items can NOT be appealed:
             </td>
             <td class="forumTextOdd" colspan="3">
                 <strong>
-                In this project, reviewers are allowed to respond appeals immediately. Please be aware that you will not be able to edit this appeal.
+                Note: In this project, reviewers are allowed to respond appeals immediately. Please be aware that you will not be able to edit this appeal.
                 </strong>
             </td>
           </tr>
