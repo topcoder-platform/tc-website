@@ -1,17 +1,7 @@
 /*
- * ProjectTrackerBean.java
- *
- * Copyright ?2003, TopCoder, Inc. All rights reserved
- *
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.review.projecttracker;
-
-/*
-import com.topcoder.dde.catalog.CatalogException;
-import com.topcoder.dde.catalog.ComponentManagerHome;
-import com.topcoder.dde.catalog.ComponentManager;
-import com.topcoder.dde.catalog.Forum;
-*/
 
 import com.topcoder.apps.review.ConcurrentModificationException;
 import com.topcoder.apps.review.GeneralSecurityException;
@@ -59,7 +49,17 @@ import java.util.List;
 /**
  * This is the concrete implementation of the ProjectTracker interface.
  *
- * @author TCSDeveloper
+ * <p>
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * Class updated due to the addition of <code>response_during_appeals_ind</code> to the project table.
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author TCSDeveloper, pulky
+ * @version 1.0.2
  */
 public class ProjectTrackerBean implements SessionBean {
     private Logger log;
@@ -114,6 +114,7 @@ public class ProjectTrackerBean implements SessionBean {
                             "pcat.category_name catalog_name," +
                             "p.level_id, " +
                             "p.autopilot_ind  " +
+                            "p.response_during_appeals_ind  " +
                             "FROM project p, comp_versions cv, " +
                             "comp_catalog cc, " +
                             "comp_categories ccat, categories cat, categories pcat " +
@@ -144,6 +145,7 @@ public class ProjectTrackerBean implements SessionBean {
                 String catalogName = rs.getString(13);
                 long levelId = rs.getLong(14);
                 boolean autopilot = rs.getBoolean(15);
+                boolean responseDuringAppeals = rs.getBoolean(16);
 
                 ProjectTypeManager projectTypeManager = (ProjectTypeManager) Common.getFromCache("ProjectTypeManager");
                 ProjectType projectType = projectTypeManager.getProjectType(projectTypeId);
@@ -219,17 +221,9 @@ public class ProjectTrackerBean implements SessionBean {
                         currentPhaseInstance, userRole, notes, overview, projectType,
                         projectStatus, notificationSent,
                         templateId[0], templateId[1],
-                        requestor.getUserId(), projectVersionId, levelId, autopilot);
+                        requestor.getUserId(), projectVersionId, levelId, autopilot,
+                        responseDuringAppeals);
                 project.setCatalog(catalogName);
-/*
-// Old project ( no forumId )
-                   project = new Project(projectId, componentId,
-                        compVersId, name, version,
-                        projectmanager, winner, timeline,
-                        currentPhaseInstance, userRole, notes, overview, projectType,
-                        projectStatus, notificationSent, requestor.getUserId(),
-                        projectVersionId);
-*/
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -588,8 +582,8 @@ public class ProjectTrackerBean implements SessionBean {
                                     "winner_id, overview, " +
                                     "notes, project_type_id, project_stat_id, notification_sent, " +
                                     "modify_user, modify_reason, level_id, autopilot_ind, " +
-                                    "cur_version) VALUES " +
-                                    "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
+                                    "response_during_appeals_ind, cur_version) VALUES " +
+                                    "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
 
                     PhaseInstance[] piArr = project.getTimeline();
                     currentPhase = project.getCurrentPhase();
@@ -647,6 +641,7 @@ public class ProjectTrackerBean implements SessionBean {
                     ps.setString(11, reason);
                     ps.setLong(12, project.getLevelId());
                     ps.setBoolean(13, project.getAutoPilot());
+                    ps.setBoolean(14, project.getResponseDuringAppeals());
                     int nr = ps.executeUpdate();
 
                     Common.close(ps);
@@ -1600,9 +1595,9 @@ public class ProjectTrackerBean implements SessionBean {
                             + "winner_id, overview, "
                             + "notes, project_type_id, "
                             + "project_stat_id, notification_sent, "
-                            + "modify_user, modify_reason, level_id, autopilot_ind,  "
-                            + "cur_version) VALUES "
-                            + "(0, ?, ?, ?, null, ?, ?, ?, ?, 0, ?, 'Created', ?, 1, 1)");
+                            + "modify_user, modify_reason, level_id, autopilot_ind, "
+                            + "response_during_appeals_ind, cur_version) VALUES "
+                            + "(0, ?, ?, ?, null, ?, ?, ?, ?, 0, ?, 'Created', ?, 1, 0, 1)");
 
             String notes = "";
             long projectStatId = ProjectStatus.ID_PENDING_START;

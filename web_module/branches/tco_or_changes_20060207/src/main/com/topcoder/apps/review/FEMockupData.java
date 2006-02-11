@@ -1,7 +1,6 @@
-/**
- * Copyright ?2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
-
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.*;
@@ -17,8 +16,17 @@ import java.util.GregorianCalendar;
  * The mockup data for the testing of FE layer.
  * </p>
  *
- * @author TCSDEVELOPER
- * @version 1.0
+ * <p>
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * Class updated due to the addition of <code>responseDuringAppeals</code> attribute to the <code>Project</code> class.
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER, pulky
+ * @version 1.0.2
  */
 public final class FEMockupData {
 
@@ -476,7 +484,7 @@ public final class FEMockupData {
                                 "notes notes notes",
                                 "overview overview overview",
                                 userProjectInfos[i].getProjectType(),
-                                projectStatuses[0], true, -1, -1, 1, 1, 100, false);
+                                projectStatuses[0], true, -1, -1, 1, 1, 100, false, false);
             }
 
             // Test case reviews
