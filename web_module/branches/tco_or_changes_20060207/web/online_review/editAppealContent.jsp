@@ -61,6 +61,14 @@ The following items can NOT be appealed:
 </ul>
 </strong>
             </td>
+<logic:present name="permitAppealsResponse">
+            <td class="forumTextOdd" colspan="3">
+                <strong>
+                In this project, reviewers are allowed to response appeals immediately. Please be aware that you will not be able to edit this appeal.
+                </strong>
+            </td>
+</logic:present>
+
           </tr>
           <tr>
             <td class="whiteBkgnd" colspan="3"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
