@@ -12,7 +12,7 @@ import java.io.PrintWriter;
  */
 public class SimpleResponse implements TCResponse {
 
-    private HttpServletResponse response = null;
+    protected HttpServletResponse response = null;
 
     public SimpleResponse(HttpServletResponse response) {
         this.response = response;
