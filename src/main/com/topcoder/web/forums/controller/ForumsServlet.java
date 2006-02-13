@@ -59,7 +59,7 @@ public class ForumsServlet extends BaseServlet {
             TCSubject user = null;
 
             TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+            TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
 
             //set up security objects and session info
             authentication = createAuthentication(tcRequest, tcResponse);
