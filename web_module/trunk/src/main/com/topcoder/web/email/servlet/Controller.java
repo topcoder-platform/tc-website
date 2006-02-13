@@ -1,11 +1,9 @@
 package com.topcoder.web.email.servlet;
 
 import com.topcoder.security.TCSubject;
-import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.email.bean.Task;
@@ -75,7 +73,7 @@ public class Controller
             TCRequest tcRequest = HttpObjectFactory.createRequest(request);
             TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
             WebAuthentication auth = new BasicAuthentication(new SessionPersistor(tcRequest.getSession(true)), tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
-            PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
+            //PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             //todo perhaps find a better way to do this.  maybe we can beat min one ejb call per request
             TCSubject user = SecurityHelper.getUserSubject(auth.getActiveUser().getId());
             SessionInfo info = new SessionInfo(tcRequest, auth, user.getPrincipals());
