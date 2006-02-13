@@ -37,6 +37,7 @@
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
 <!--<tr class="bodyText"><td nowrap="nowrap">01.30.06 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs">UBS first TCO sponsor from financial services industry</A></td></tr>-->
+<tr class="bodyText"><td nowrap="nowrap">02.13.06 9:00 AM - </td><td width="100%"><A href="/tc?module=TCO06AlgorithmTerms">TCO06 Algorithm Competition Registration is now open</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.24.06 10:30 AM - </td><td width="100%">TCO06 <A href="/tc?module=TCO06ContestDetails&ct=236">Design</A> or <A href="/tc?module=TCO06ContestDetails&ct=237">Development</A> Results pages</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.12.06 1:25 PM - </td><td width="100%">What makes a <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_summary">Design</A> or <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_summary">Development</A> Champion a Champion?</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.05.06 10:00 AM - </td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=508559">TCO06 Component Competition Schedule Changes</A></td></tr>
