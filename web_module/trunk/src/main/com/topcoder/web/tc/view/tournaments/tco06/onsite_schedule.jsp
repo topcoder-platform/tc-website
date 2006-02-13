@@ -41,16 +41,19 @@
 
 <tr><td colspan="2" class="sidebarTitle">Thursday, May 4, 2006</td></tr>
 <tr><td class="formTextEven" nowrap="nowrap">9:00am - 11:00pm</td><td class="formTextEven">Algorithm Semifinal Room 3</td></tr>
-<tr><td class="formTextOdd" nowrap="nowrap">12:00pm - 1:00pm</td><td class="formTextOdd">Lunch</td></tr>
-<tr><td class="formTextEven" nowrap="nowrap">1:00pm - 3:00pm</td><td class="formTextEven">Component Design & Development 2</td></tr>
-<tr><td class="formTextOdd" nowrap="nowrap">4:00pm - 6:00pm</td><td class="formTextOdd">Algorithm Wildcard Round</td></tr>
-<tr><td class="formTextEven" nowrap="nowrap">6:30pm - 10:00pm</td><td class="formTextEven">Title Sponsor Evening Event</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">10:00am - 10:45am</td><td class="formTextOdd">Secondhand Shopping: Efficient Component Reuse</td></tr>
+<tr><td class="formTextEven" nowrap="nowrap">12:00pm - 1:00pm</td><td class="formTextEven">Lunch</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">1:00pm - 3:00pm</td><td class="formTextOdd">Component Design & Development 2</td></tr>
+<tr><td class="formTextEven" nowrap="nowrap">4:00pm - 6:00pm</td><td class="formTextEven">Algorithm Wildcard Round</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">6:30pm - 10:00pm</td><td class="formTextOdd">Title Sponsor Evening Event</td></tr>
 
 <tr><td colspan="2" class="bodyText">&#160;</td></tr>
 
 <tr><td colspan="2" class="sidebarTitle">Friday, May 5, 2006</td></tr>
 <tr><td class="formTextEven" nowrap="nowrap">9:00am - 11:00am</td><td class="formTextEven">Component Design & Development Appeals Final</td></tr>
-<tr><td class="formTextOdd" nowrap="nowrap">12:00pm - 1:00pm</td><td class="formTextOdd">Lunch</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">11:00am - 11:45am</td><td class="formTextOdd">Bringing It All Together Using SOA Architectures</td></tr>
+<tr><td class="formTextEven" nowrap="nowrap">12:00pm - 1:00pm</td><td class="formTextEven">Lunch</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">2:00pm - 2:45pm</td><td class="formTextOdd">Next Generation Development Round Table Discussion</td></tr>
 <tr><td class="formTextEven" nowrap="nowrap">2:30pm - 4:30pm</td><td class="formTextEven">Algorithm Championship Round</td></tr>
 <tr><td class="formTextOdd" nowrap="nowrap">4:30pm - 5:00pm</td><td class="formTextOdd">All Champion Announcements</td></tr>
 <tr><td class="formTextEven" nowrap="nowrap">5:00pm - 6:00pm</td><td class="formTextEven">Media Hour / Press Conference</td></tr>
