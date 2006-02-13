@@ -24,6 +24,11 @@
 <%@ include file="/includes/componentCategories.jsp" %>
 <% // PAGE SPECIFIC DECLARATIONS %>
 <%@ page import="com.topcoder.dde.catalog.*" %>
+<%@ page import="com.topcoder.shared.dataAccess.Request"%>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessInt"%>
+<%@ page import="com.topcoder.shared.dataAccess.CachedDataAccess"%>
+<%@ page import="com.topcoder.shared.util.DBMS"%>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ include file="/includes/clsCategoryNode.jsp" %>
 <%
   // PHASES
@@ -172,6 +177,22 @@
         } catch (CatalogException ce) {
         }
     } finally {}
+%>
+
+<%!
+    boolean exists(long componentId, long versionId, long phaseId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("find_projects");
+
+        // Find all the projects that match with the component id, version and phase
+        r.setProperty("compid", String.valueOf(componentId));
+        r.setProperty("vr", String.valueOf(versionId));
+        r.setProperty("pi", String.valueOf(phaseId));
+
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+        Map result = dai.getData(r);
+        return !((ResultSetContainer) result.get("find_projects")).isEmpty();
+    }
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -344,7 +365,11 @@
                             <td width="50%" style="padding-right: 10px">
                               <div class="authorsHeader">
                                  <div style="float: right;">
-                                    <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompContestDetails&amp;compid=<%=componentInfo.getId()%>&amp;vr=<%=versionInfo.getVersion()%>&amp;pi=<%=ComponentVersionInfo.SPECIFICATION%>" class="small">contest details</A>
+                                    <% if (exists(componentInfo.getId(), versionInfo.getVersion(), ComponentVersionInfo.SPECIFICATION)) { %>
+                                        <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompContestDetails&amp;compid=<%=componentInfo.getId()%>&amp;vr=<%=versionInfo.getVersion()%>&amp;pi=<%=ComponentVersionInfo.SPECIFICATION%>" class="small">contest details</A>
+                                    <% } else { %>
+                                        &#160;
+                                     <% } %>
                                  </div>
                                  <font class="small">Designer(s):</font>
                               </div>
@@ -367,7 +392,11 @@
                                <td style="padding-right: 10px">
                               <div class="authorsHeader">
                                  <div style="float: right;">
-                                    <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompContestDetails&amp;compid=<%=componentInfo.getId()%>&amp;vr=<%=versionInfo.getVersion()%>&amp;pi=<%=ComponentVersionInfo.DEVELOPMENT%>" class="small">contest details</A>
+                                    <% if (exists(componentInfo.getId(), versionInfo.getVersion(), ComponentVersionInfo.DEVELOPMENT)) { %>
+                                     <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompContestDetails&amp;compid=<%=componentInfo.getId()%>&amp;vr=<%=versionInfo.getVersion()%>&amp;pi=<%=ComponentVersionInfo.DEVELOPMENT%>" class="small">contest details</A>
+                                    <% } else { %>
+                                     &#160;
+                                     <% } %>
                                  </div>
                                  <font class="small">Developer(s):</font>
                               </div>
