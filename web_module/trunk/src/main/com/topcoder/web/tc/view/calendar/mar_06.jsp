@@ -263,7 +263,7 @@
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=9816&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendarTCO06">
-            <span id="calendarTCO06Date">23</span><br/>
+            <span id="calendarTCO06Date">30</span><br/>
             <strong>2006 TopCoder Open Component Competition</strong><br/>
             Online Championship Round #2 Projects Posted: 9:00 AM ET
             &#160;<br />
