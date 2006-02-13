@@ -38,6 +38,12 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
+        4.1.11 - 2006.02.xx
+        <ul>
+            <li>set headers throughout site so that proxies won't cache pages</li>
+        </ul>
+    </p>
+    <p>
         4.1.10 - 2006.02.09
         <ul>
             <li>add search to recruiting reporting site</li>
