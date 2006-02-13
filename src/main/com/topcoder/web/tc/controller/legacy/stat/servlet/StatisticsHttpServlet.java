@@ -149,7 +149,7 @@ public class StatisticsHttpServlet extends HttpServlet {
                 WebAuthentication authentication = new BasicAuthentication(
                         new SessionPersistor(session),
                         tcRequest,
-                        HttpObjectFactory.createResponse(response),
+                        HttpObjectFactory.createUnCachedResponse(response),
                         BasicAuthentication.MAIN_SITE);
                 SessionInfo info = new SessionInfo(tcRequest, authentication, Collections.EMPTY_SET);
                 RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);

@@ -136,7 +136,7 @@ public class TransactionServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         TCRequest tcRequest = HttpObjectFactory.createRequest(req);
-        TCResponse tcResponse = HttpObjectFactory.createResponse(resp);
+        TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(resp);
         String op = req.getParameter(KEY_OPERATION);
         req.setAttribute(Constants.KEY_LINK_PREFIX, Util.appRootPage());
         WebAuthentication auth = null;
@@ -228,7 +228,7 @@ public class TransactionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-        TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+        TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
         String op = request.getParameter(KEY_OPERATION);
         request.setAttribute(Constants.KEY_LINK_PREFIX, Util.appRootPage());
         WebAuthentication auth = null;

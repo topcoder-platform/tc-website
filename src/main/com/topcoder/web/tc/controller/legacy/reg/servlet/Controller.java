@@ -59,7 +59,7 @@ public class Controller
              * request cuz it's stored in the session from some old request.
              */
             TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+            TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
             WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()),
                     tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
             RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
@@ -248,8 +248,6 @@ public class Controller
                 navigation = new Navigation();
                 session.setAttribute(NAVIGATION, navigation);
             }
-            log.debug("navigation is serializable: " + ((Navigation) navigation).userIsSerializable());
-//                ((Navigation) navigation).makeUserSerializable();
                 Data.loadUser(navigation);
                 User user = (navigation).getUser();
                 log.debug("loaded user " + user.getUserId());

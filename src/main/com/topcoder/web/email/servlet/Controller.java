@@ -73,7 +73,7 @@ public class Controller
             log.debug("Task bean: " + taskClassName);
 
             TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+            TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
             WebAuthentication auth = new BasicAuthentication(new SessionPersistor(tcRequest.getSession(true)), tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             //todo perhaps find a better way to do this.  maybe we can beat min one ejb call per request

@@ -87,7 +87,7 @@ public final class GraphServlet extends HttpServlet {
             dataRequest = new Request(request.getParameterMap());
 
             TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+            TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
             WebAuthentication authentication = new BasicAuthentication(
                     new SessionPersistor(tcRequest.getSession()), tcRequest, tcResponse, BasicAuthentication.CORP_SITE);
             RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
