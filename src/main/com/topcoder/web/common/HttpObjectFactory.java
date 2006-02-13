@@ -36,4 +36,9 @@ public class HttpObjectFactory {
     public static TCResponse createResponse(HttpServletResponse r) {
         return new SimpleResponse(r);
     }
+
+    public static TCResponse createUnCachedResponse(HttpServletResponse r) {
+        return new UnCachedResponse(r);
+    }
+
 }
