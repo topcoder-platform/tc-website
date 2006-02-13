@@ -41,6 +41,7 @@
         4.1.11 - 2006.02.xx
         <ul>
             <li>set headers throughout site so that proxies won't cache pages</li>
+            <li>put logic behind the contest details links on the component page in the catalog</li>
         </ul>
     </p>
     <p>
