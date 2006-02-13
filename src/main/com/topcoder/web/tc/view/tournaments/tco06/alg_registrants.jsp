@@ -37,7 +37,7 @@
    </tr>
     <tr class="advHeader">
        <td align="left" width="50%"><a href="/tc?module=TCO06AlgRegistrants<tc-webtag:sort column="1"/>">Handle</a></td>
-       <td align="right" width="50%"><a href="/tc?module=TCO065AlgRegistrants<tc-webtag:sort column="2"/>">Rating</a></td>
+       <td align="right" width="50%"><a href="/tc?module=TCO06AlgRegistrants<tc-webtag:sort column="2"/>">Rating</a></td>
     </tr>
 <%boolean even = false;%>
 <rsc:iterator list='<%=rsc%>' id="resultRow">
