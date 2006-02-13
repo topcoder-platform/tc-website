@@ -20,14 +20,11 @@
 --%>
 <%-- TCO06
 --%>
-<A href="/tc?module=TCO06AlgorithmTerms"><IMG SRC="/i/home/tco06_algo_reg.gif" border="0" ALT="Algorithm Competition Registration now OPEN"/></A>
-<%-- TCO06
 <map name="tco06_map">
 <area shape="rect" alt="" coords="1,1, 265,149" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
-<area shape="rect" alt="" coords="275,1, 499,149" href="/tc?module=TCO06ComponentTerms" />
+<area shape="rect" alt="" coords="275,1, 499,149" href="/tc?module=TCO06AlgorithmTerms" />
 </map>
-<IMG SRC="/i/home/tco06_comp_registration.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" />
---%>
+<IMG SRC="/i/home/tco06_algo_reg.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" />
 <%-- Marathon Matches
 <A href="/longcontest/?module=Static&d1=intel_overview"><IMG SRC="/i/home/intel_mtcs_banner.gif" border="0" ALT="Intel Multi-Threading Competition Series"/></A>
 --%>

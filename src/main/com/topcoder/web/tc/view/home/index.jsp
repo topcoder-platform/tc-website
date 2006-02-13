@@ -46,12 +46,12 @@ margin:0px auto;
    <tr>
       <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
 <%-- TCO06
+--%>
       <map name="tco06_map">
       <area shape="rect" alt="" coords="1,1, 265,149" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
-      <area shape="rect" alt="" coords="275,1, 499,149" href="/tc?module=TCO06ComponentTerms" />
+      <area shape="rect" alt="" coords="275,1, 499,149" href="/tc?module=TCO06AlgorithmTerms" />
       </map>
-      <td class="BIGPromoBox" align="center"><IMG SRC="/i/home/tco06_comp_registration.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" /></td>
---%>
+      <td class="BIGPromoBox" align="center"><IMG SRC="/i/home/tco06_algo_reg.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" /></td>
 <%-- high school
       <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=hs&d2=home"><IMG SRC="/i/home/high_school.jpg" border="0" ALT="TopCoder High School"/></A></td>
 --%>
@@ -59,8 +59,8 @@ margin:0px auto;
       <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=contracting&d2=msn"><IMG SRC="/i/home/msn_emp_opps.gif" border="0" ALT="MSN is hiring"/></A></td>
 --%>
 <%-- Intel
---%>
       <td class="BIGPromoBox" align="center"><A href="/longcontest/?module=Static&d1=intel_overview"><IMG SRC="/i/home/intel_mtcs_banner.gif" border="0" ALT="Intel Multi-Threading Competition Series"/></A></td>
+--%>
       <td width="50%" class="homeLogo" align="right">&#160;</td>
    </tr>
 </table>
@@ -79,7 +79,7 @@ margin:0px auto;
 <%-- Left Column --%>
       <td class="homeLeftCol">
       <table border="0" cellpadding="0" cellspacing="0">
-         <tr><td class="homeBigPromo"><A href="/tc?module=Static&d1=hs&d2=home"><img src="/i/home/tchs_sm.jpg" alt="TopCoder High School Competitions" border="0" /></A></td></tr>
+         <tr><td class="homeBigPromo"><A href="/longcontest/?module=Static&d1=intel_overview"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0" /></A></td></tr>
       </table>
       <table border="0" cellpadding="0" cellspacing="0">
          <tr>
