@@ -1,8 +1,10 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%
     String tabLev2 = request.getParameter("tabLev2")==null?"":request.getParameter("tabLev2");
     String tabLev3 = request.getParameter("tabLev3")==null?"":request.getParameter("tabLev3");
 %>
 
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr>
       <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_description"><img src="/i/tournament/tco06/tco06_logo.gif" border="0"/></A></td>
@@ -23,9 +25,21 @@
                <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_description"><img src="/i/tournament/tco06/tabs/L2_detailsOff.gif" alt="" border="0" /></A></td>
             <% } %>
             <% if (tabLev2.equals("registration")) {%>
-               <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_reg"><img src="/i/tournament/tco06/tabs/L2_registrationOn.gif" alt="" border="0" /></A></td>
+               <td class="nav">
+            <% if (sessionInfo.isAnonymous()) { %>
+                   <A href="/tc?module=Login&nextpage=http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=spon_ver_reg"><img src="/i/tournament/tco06/tabs/L2_registrationOn.gif" alt="" border="0" /></A>
             <% } else { %>
-               <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_reg"><img src="/i/tournament/tco06/tabs/L2_registrationOff.gif" alt="" border="0" /></A></td>
+                           <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=spon_ver_reg"><img src="/i/tournament/tco06/tabs/L2_registrationOn.gif" alt="" border="0" /></A>
+            <% } %>
+                   </td>
+            <% } else { %>
+               <td class="nav">
+            <% if (sessionInfo.isAnonymous()) { %>
+                   <A href="/tc?module=Login&nextpage=http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=spon_ver_reg"><img src="/i/tournament/tco06/tabs/L2_registrationOff.gif" alt="" border="0" /></A>
+            <% } else { %>
+                           <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=spon_ver_reg"><img src="/i/tournament/tco06/tabs/L2_registrationOff.gif" alt="" border="0" /></A>
+            <% } %>
+            </td>
             <% } %>
  <%--
            <% if (tabLev2.equals("registrants")) {%>
