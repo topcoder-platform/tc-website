@@ -101,8 +101,9 @@ public final class MainServlet extends BaseServlet {
             //log.debug("session gotten");
 
             TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
             document = new XMLDocument("TC");
-            nav = getNav(tcRequest, response);
+            nav = getNav(tcRequest, tcResponse);
 
             addURLTags(nav, request, response, document);
             // NEED THE TASK TO SEE WHAT THE USER WANTS
@@ -113,7 +114,7 @@ public final class MainServlet extends BaseServlet {
                 WebAuthentication authentication = new BasicAuthentication(
                         new SessionPersistor(session),
                         tcRequest,
-                        HttpObjectFactory.createResponse(response),
+                        tcResponse,
                         BasicAuthentication.MAIN_SITE);
 
                 RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
@@ -343,13 +344,13 @@ public final class MainServlet extends BaseServlet {
     }
 
 
-    private Navigation getNav(TCRequest request, HttpServletResponse response) throws Exception {
+    private Navigation getNav(TCRequest request, TCResponse response) throws Exception {
         Navigation nav = (Navigation) request.getSession(true).getAttribute("navigation");
         if (nav == null) {
             nav = new Navigation(request, response);
         }
-        TCResponse tcResponse = HttpObjectFactory.createResponse(response);
-        WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, tcResponse, BasicAuthentication.MAIN_SITE);
+        //TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+        WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response, BasicAuthentication.MAIN_SITE);
         TCSubject user = SecurityHelper.getUserSubject(authentication.getActiveUser().getId());
         CoderSessionInfo info = new CoderSessionInfo(request, authentication, user.getPrincipals());
         nav.setCoderSessionInfo(info);

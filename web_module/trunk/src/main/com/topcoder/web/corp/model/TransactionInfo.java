@@ -83,7 +83,7 @@ public class TransactionInfo implements Serializable {
         // find out purchase parameters
         SessionPersistor store = new SessionPersistor(req.getSession(true));
         TCRequest tcRequest = HttpObjectFactory.createRequest(req);
-        TCResponse tcResponse = HttpObjectFactory.createResponse(resp);
+        TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(resp);
         User user = new BasicAuthentication(store, tcRequest, tcResponse, BasicAuthentication.CORP_SITE).getUser();
         if (user.isAnonymous()) {
             throw new NotAuthorizedException("User not logged in: " + user.getId());

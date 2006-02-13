@@ -48,7 +48,7 @@ public class TCAuthFactory extends AuthFactory {
        WebAuthentication auth = null;
        try {
            auth = new BasicAuthentication(new SessionPersistor(httpServletRequest.getSession()),
-                   HttpObjectFactory.createRequest(httpServletRequest), HttpObjectFactory.createResponse(httpServletResponse));
+                   HttpObjectFactory.createRequest(httpServletRequest), HttpObjectFactory.createUnCachedResponse(httpServletResponse));
        } catch (Exception e) {
            log.error(e);
        }
