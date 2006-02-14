@@ -36,12 +36,14 @@
       <td class="advTitle" colspan="2" width="100%">Registrants</td>
    </tr>
     <tr class="advHeader">
-       <td align="left" width="50%"><a href="/tc?module=TCO06AlgRegistrants<tc-webtag:sort column="1"/>">Handle</a></td>
-       <td align="right" width="50%"><a href="/tc?module=TCO06AlgRegistrants<tc-webtag:sort column="2"/>">Rating</a></td>
+       <td align="left" width="50%"><a href="/tc?module=TCO06AlgRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("rank")%>"/>">Rank</a></td>
+       <td align="left" width="50%"><a href="/tc?module=TCO06AlgRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a></td>
+       <td align="right" width="50%"><a href="/tc?module=TCO06AlgRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a></td>
     </tr>
 <%boolean even = false;%>
 <rsc:iterator list='<%=rsc%>' id="resultRow">
 <tr>
+<td class="<%=(even ? "advanceDk" : "advanceLt")%>"><rsc:item name="rank" row='<%=resultRow%>' /></td>
 <td class="<%=(even ? "advanceDk" : "advanceLt")%>"><tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="algorithm" darkBG="true"/></td>
 <td class="<%=(even ? "advanceDk" : "advanceLt")%>" align="right"><rsc:item format="###0" ifNull="Unrated" name="rating" row='<%=resultRow%>' /></td>
 </tr>
