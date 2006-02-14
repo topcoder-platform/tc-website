@@ -166,7 +166,7 @@
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>January</strong></td></tr>
    <tr><td class="bodyText">01.31.05</td><td class="bodyText" nowrap="0" width="100%">SRM 229 - <a href="/tc?module=Static&d1=match_editorials&d2=srm229">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">01.27.05</td><td class="bodyText" nowrap="0" width="100%">SRM 228 - <a href="/tc?module=Static&d1=match_editorials&d2=srm229">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">01.27.05</td><td class="bodyText" nowrap="0" width="100%">SRM 228 - <a href="/tc?module=Static&d1=match_editorials&d2=srm228">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">01.26.05</td><td class="bodyText" nowrap="0">TCCC05 - Online Round 3 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc05_online_rd_3">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">01.22.05</td><td class="bodyText" nowrap="0" width="100%">SRM 227 - <a href="/tc?module=Static&d1=match_editorials&d2=srm227">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">01.19.05</td><td class="bodyText" nowrap="0">TCCC05 - Online Round 2 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc05_online_rd_2">Problem Set & Analysis</a></td></tr>

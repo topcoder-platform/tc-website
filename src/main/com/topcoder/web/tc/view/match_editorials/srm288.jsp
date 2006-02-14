@@ -44,7 +44,7 @@
 
 <span class="bigTitle">Match summary</span>
 
-p>In Division 1, coders were faced with a fairly easy set, with 30 individuals solving the hard correctly.
+<p>In Division 1, coders were faced with a fairly easy set, with 30 individuals solving the hard correctly.
 Unfortunately, precision issues on the easy caused several of the 250s to fail.  In the end, <b>misof</b>,
 <b>ploh</b>, <b>AdrianKuegel</b>, <b>tjq</b>, and <b>John Dethridge</b> took the top five spots.</p>
 
@@ -223,76 +223,47 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
 
 <p>
 When you see a problem that involves area of triangles, the first thought is usually "Heron's formula", and in 
-general, this is a good line of thinking.  However, floating point precision typically becomes an issue.  First,
+general, this is a good line of thinking.  However, floating point precision becomes an issue here.  First,
 we recall Heron's formula (which comes in many slight variations):<br />
 A = 1/4 * Sqrt((<i>a</i> + <i>b</i> + <i>c</i>) * (<i>a</i> + <i>b</i> - <i>c</i>) * (<i>a</i> + <i>c</i> - <i>b</i>) * (<i>b</i> + <i>c</i> - <i>a</i>))</p>
 
-<p>For this particular problem, one of the worst cases to deal with is when all three points are colinear.
-Now, in a perfectly precise world, a triangle formed by three colinear points will have
-<i>a</i> + <i>b</i> = <i>c</i>, and thus <i>a</i> + <i>b</i> - <i>c</i> = 0, and the formula will evaluate to 0.</p>
-
-<p>Sadly, without some careful planning, such an assumption was doomed to failure.  For larger distances, the
-expression <i>a</i> + <i>b</i> - <i>c</i> returned either a value just slightly above, or just slightly below 0.
-The result was either that the three colinear points appeared to form a triangle with a small positive area, or
-the expression inside the square root was negative, and caused a NaN result.</p>
+<p>For this particular problem, one of the easiest cases to catch the bug is when all three points are colinear.
+A triangle formed by three colinear points has the area of zero, 
+but double imprecision may make your solution to return non-zero values.</p>
 
 <p>One way to avoid this is to check for colinear points before even considering them as a potential largest
-triangle.  A downside is that this requires a moderate amount of coding.  Another option, although admittedly
-not pretty looking, is to wrap a safety function around any of the terms that could potentially be a miscalculated
-zero, as illustrated in the solution shown below.</p>
+triangle.  A downside is that this requires a moderate amount of coding.  
+Another (and much safer) option, is to use more precise formula.
+As shown <a href="http://mathworld.wolfram.com/TriangleArea.html">here</a>, 
+the area of a triangle can be computed as a cross-product of its two sides divided by 2. 
+To compute the cross-product, find the vectors representing two sides of the triangle and use <a href="http://mathworld.wolfram.com/CrossProduct.html">this</a> formula
+</p>
 
 <p>The only other thing to deal with here was making sure that the points were all the same color, or all different.
-There's any number of ways to do this.  Here, I've given each color a point value of 1, 4, or 16.  Summing up the
-point values of the three points gives us something to go with... if the sum is 3, 12, 48 or 21, we're all set.</p>
+There's any number of ways to do this.  Here, I've given each color a point value of 0, 1 and 2.  Summing up the
+point values of the three points gives us something to go with... If the sum is divisible by 3, we are all set.</p>
 
 <pre>
-public double safeVal(double x) {
-  if (x < 0 && x > -1e-12)
-    return 0;
-  if (x > 0 && x < 1e-12)
-    return 0;
-  return x;
-}
-
-public double heronsFormula (double a, double b, double c) {
-  double p = (a + b + c) * safeVal(a + b - c) * safeVal(a + c - b) * safeVal(b + c - a);
-  double ret = 0.25 * Math.sqrt(p);
-  return ret;
-}
-
-public double largestArea(String[] points) {
-  int[] color = new int[points.length];
-  int[] x = new int[points.length];
-  int[] y = new int[points.length];
-  int[] z = new int[points.length];
-  double best = 0;
-  for (int i = 0; i < points.length; i++) {
-    String[] s = points[i].split(" ");
-    color[i] = "XRXXGXXXXXXXXXXXB".indexOf(s[0]);
-    x[i] = Integer.parseInt(s[1]);
-    y[i] = Integer.parseInt(s[2]);
-    z[i] = Integer.parseInt(s[3]);
+/// Parse the input first, saving coordinates to x, y and z, and saving the color to c.
+  long best = 0;
+  for (int i = 0; i < x.length; i++) 
+   for (int j = 0; j < i; j++) 
+     for (int k = 0; k < j; k++) 
+       if ((c[i] + c[j] + c[k]) % 3 == 0) {
+         long dx1 = x[i] - x[j];
+         long dy1 = y[i] - y[j];
+         long dz1 = z[i] - z[j];
+         long dx2 = x[k] - x[j];
+         long dy2 = y[k] - y[j];
+         long dz2 = z[k] - z[j];            
+         long len = (dx1 * dy2 - dx2 * dy1) * (dx1 * dy2 - dx2 * dy1);
+         len += (dx1 * dz2 - dx2 * dz1) * (dx1 * dz2 - dx2 * dz1);
+         len += (dz1 * dy2 - dz2 * dy1) * (dz1 * dy2 - dz2 * dy1);
+         best = Math.max(best, len);
   }
-  double[][] d = new double[points.length][points.length];
-  for (int i = 0; i < points.length; i++)
-    for (int j = i + 1; j < points.length; j++) {
-      double dx = x[i] - x[j];
-      double dy = y[i] - y[j];
-      double dz = z[i] - z[j];
-      d[i][j] = Math.sqrt(dx * dx + dy * dy + dz * dz);
-      d[j][i] = d[i][j];
-    }
-  for (int i = 0; i < points.length; i++)
-    for (int j = i + 1; j < points.length; j++)
-      for (int k = j + 1; k < points.length; k++) {
-        int ptc = color[i] + color[j] + color[k];
-        if (ptc == 21 || ptc == 48 || ptc == 12 || ptc == 3)
-          best = Math.max(best, heronsFormula(d[i][j], d[i][k], d[j][k]));
-      }
-  return best;
-}
-</pre>
+  return Math.sqrt((double)best) / 2.;
 
+</pre>
 
 <font size="+2"> 
 <b><a href="/stat?c=problem_statement&amp;pm=6030&amp;rd=9809" name="6030">TurnOffLights</a></b> 
