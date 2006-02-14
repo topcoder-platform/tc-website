@@ -44,7 +44,7 @@
 <h2>Getting Started in Development Competitions</h2>
 
 <p><br/><span class="bodySubtitle">Step 1 - Read the TopCoder Component Development Tutorial</span><br/>
-The <a href="/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=devTutorial" target="_blank">TopCoder Component Development Tutorial</a> provides detailed information on developing components using the TopCoder Software process. This tutorial was written by review board member AdamSelene.</p>
+The <a href="/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=devTutorial">TopCoder Component Development Tutorial</a> provides detailed information on developing components using the TopCoder Software process. This tutorial was written by review board member AdamSelene.</p>
 
 <p><span class="bodySubtitle">Step 2 - Install the necessary Software</span><br/>
 In order to view designs you will need to have a UML tool installed.  TopCoder members currently use the free version of <a href="http://www.gentleware.com/">Poseidon</a>.</p>

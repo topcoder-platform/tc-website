@@ -27,7 +27,7 @@
 <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="dev_documentation"/>
+            <jsp:param name="node" value="dev_getting_started"/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->
