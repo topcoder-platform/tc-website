@@ -33,7 +33,7 @@
 <br><br>
 <table class="formFrame" border="0" cellpadding="6" cellspacing="0" width="300">
     <tbody><tr>
-      <td class="advTitle" colspan="3" width="100%">Registrants</td>
+      <td class="advTitle" colspan="3" width="100%">Registrants (<%=rsc.size()%>)</td>
    </tr>
     <tr class="advHeader">
        <td align="left" width="50%"><a href="/tc?module=TCO06AlgRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("rank")%>"/>">Rank</a></td>
