@@ -28,7 +28,7 @@ Three reasons to join us at the Aladdin Resort and Casino for the 2006 TopCoder 
 <br><br>
 <b>10:00AM - 10:45AM<br>
 Secondhand Shopping:  Efficient Component Reuse</b><br>
-Component based software engineering only works if the components developed are reused on a regular basis.  When a library grows very large and diverse it becomes increasingly difficult for designers and developers to locate relevant components.  If it becomes too difficult they are likely to decide to redesign / redevelop the functionality themselves, or duplicate it in a similar component, thus negating the advantages of component based software engineering and reuse.  The search feature then becomes key, and raises the question: what to search on?  Utilizing reuse metric information by tracking who is downloading what components in what applications will provide access to hardened assets to improve quality and time to mark.
+Component based software engineering only works if the components developed are reused on a regular basis.  When a library grows very large and diverse it becomes increasingly difficult for designers and developers to locate relevant components.  If it becomes too difficult they are likely to decide to redesign / redevelop the functionality themselves, or duplicate it in a similar component, thus negating the advantages of component based software engineering and reuse.  The search feature then becomes key, and raises the question: what to search on?  Utilizing reuse metric information by tracking who is downloading what components in what applications will provide access to hardened assets to improve quality and time to market.
 <br><br>
 <span class="bodySubtitle">Friday, May 5th</span>
 <br><br>
