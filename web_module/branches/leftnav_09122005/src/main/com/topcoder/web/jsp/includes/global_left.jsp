@@ -70,13 +70,13 @@
          nav.search("m_support").addChild(new NavNode("javascript:void(0)",  "Javascript:toggleMenu(this,'m_des_support')", "Design", "m_des_support"));
             nav.search("m_des_support").addChild(new NavNode("", "How to Compete", "comp_how_to_compete"));
             nav.search("m_des_support").addChild(new NavNode("", "How to Get Paid", "comp_how_to_get_paid"));
-            nav.search("m_des_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=support&d3=compDocumentation", "Documentation", "comp_documentation"));
+            nav.search("m_des_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=support&d3=desDocumentation", "Documentation", "des_documentation"));
             nav.search("m_des_support").addChild(new NavNode("", "Ratings", "comp_ratings"));
             nav.search("m_des_support").addChild(new NavNode("", "Reliability Ratings", "comp_reliability_ratings"));
          nav.search("m_support").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_dev_support')", "Development", "m_dev_support"));
             nav.search("m_dev_support").addChild(new NavNode("", "How to Compete", "comp_how_to_compete"));
             nav.search("m_dev_support").addChild(new NavNode("", "How to Get Paid", "comp_how_to_get_paid"));
-            nav.search("m_dev_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=support&d3=compDocumentation", "Documentation", "comp_documentation"));
+            nav.search("m_dev_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=support&d3=devDocumentation", "Documentation", "dev_documentation"));
             nav.search("m_dev_support").addChild(new NavNode("", "Ratings", "comp_ratings"));
             nav.search("m_dev_support").addChild(new NavNode("", "Reliability Ratings", "comp_reliability_ratings"));
          nav.search("m_support").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_long_support')", "Marathon Match", "m_long_support"));
