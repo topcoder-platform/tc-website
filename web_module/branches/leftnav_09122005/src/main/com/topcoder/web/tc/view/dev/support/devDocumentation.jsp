@@ -5,7 +5,7 @@
 <head>
 <title>Development FAQ</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
@@ -14,7 +14,7 @@
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="/top.jsp" >
     <jsp:param name="level1" value="development"/>
 </jsp:include>
 
@@ -109,7 +109,7 @@
                <strong>Reviewer Guidelines</strong><br/>
                These guidelines are a must-read for all reviewers, and can provide designers and developers with valuable insight into how the review process works.</td>
                <td class="projectCells" valign="top" align="center">09.14.2004</td>
-               <td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=dev&d2=support&d3=reviewerGuide">Reviewer Guidelines</A></td>
+               <td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=dev&d2=support&d3=devReviewerGuide">Reviewer Guidelines</A></td>
             </tr>
          </table>
 
@@ -134,7 +134,7 @@
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="/foot.jsp" />
 
 </body>
 
