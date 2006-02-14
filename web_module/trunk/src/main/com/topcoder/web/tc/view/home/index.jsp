@@ -122,7 +122,7 @@ margin:0px auto;
 <%-- Center Column --%>
       <td class="homeCentCol">
       <table border="0" cellpadding="0" cellspacing="0">
-         <tr><td class="homeBigPromo"><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/home/promos/placement.gif" alt="Corporate Services" border="0" /></A></td></tr>
+         <tr><td class="homeBigPromo"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>"><img src="/i/home/tcs.jpg" alt="TopCoder Software" border="0" /></A></td></tr>
       </table>
       <table border="0" cellpadding="0" cellspacing="0">
          <tr>
