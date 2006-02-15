@@ -149,7 +149,6 @@
             <strong>Match 301</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
-            Sponsored by: <br><A href="/tc?module=Static&d1=contracting&d2=msn">MSN</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=9822&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">10</td>

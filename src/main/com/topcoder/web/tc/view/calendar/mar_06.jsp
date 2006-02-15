@@ -238,7 +238,6 @@
             <strong>Match 294</strong><br />
             Register: 9:00&#160;AM<br />
             Compete: 12:00&#160;PM<br />
-            Sponsored by: <br><A href="/tc?module=Static&d1=contracting&d2=msn">MSN</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=9815&t=schedule&c=srm">Details</A><br/><br/></td>
     </tr>
@@ -259,7 +258,6 @@
             <strong>Match 295</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
-            Sponsored by: <br><A href="/tc?module=Static&d1=contracting&d2=msn">MSN</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=9816&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendarTCO06">
