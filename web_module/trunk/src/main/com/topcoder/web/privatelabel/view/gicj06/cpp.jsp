@@ -19,7 +19,7 @@
         <table border="0" width=100% cellpadding=0 cellspacing=0>
             <tr>
                 <td width="49%"></td>
-                <td valign="bottom" align="center"><img border="0" src="/i/events/gcji06/logo_CodeJam.gif" alt="Google Code Jam India logo"></td>
+                <td valign="bottom" align="center"><img border="0" src="/i/events/gicj06/logo_CodeJam.gif" alt="Google Code Jam India logo"></td>
                 <td width="49%"></td>
             </tr>
         </table>
@@ -229,7 +229,7 @@ STL:<br>
 
 <br><br>
 To find out more detailed information about the Google&#153; Code Jam India, including a list of the prizes, please read the
-<a href="/pl/?module=Static&d1=gcji06&d2=rules">Terms and Conditions</a>.
+<a href="/pl/?module=Static&d1=gicj06&d2=rules">Terms and Conditions</a>.
 </div>
 </td>
 <td width="49%">&#160;</td>
