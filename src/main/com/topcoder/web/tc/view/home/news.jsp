@@ -7,6 +7,19 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 
 <%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.15.06<br>10:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=dev_forums">TCO06 Developer Forums Announced</A></span><br><br>
+      Check out the Developer Forums to be held during the TCO06 Tournament.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=dev_forums">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505920" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
    </tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>02.15.06<br>9:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=about&d2=jobs">TopCoder Software Chat Scheduled for Feb 15</A></span><br><br>
