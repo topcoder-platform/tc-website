@@ -21,6 +21,13 @@ public class LoginBean extends BaseEJB {
     private static final Logger logger = Logger.getLogger(LoginBean.class);
     private static final String DATA_SOURCE = "java:comp/env/jdbc/DefaultDS";
 
+
+    public TCSubject login(String username, String password)
+            throws AuthenticationException, GeneralSecurityException {
+        return login(username, password, DATA_SOURCE);
+    }
+
+
     /**
      * Logs users into a system.  Checks username and password, returns a
      * TCSubject representation of the user that includes the user's roles.
@@ -33,7 +40,7 @@ public class LoginBean extends BaseEJB {
      *                                 combination does not exist in the db.
      * @throws GeneralSecurityException Thrown when SLQExcpetion occurs.
      */
-    public TCSubject login(String username, String password)
+    public TCSubject login(String username, String password, String dataSource)
             throws AuthenticationException, GeneralSecurityException {
 
         logger.debug("LoginBean.login: " + username);
@@ -59,7 +66,7 @@ public class LoginBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            conn = Util.getConnection(ctx, DATA_SOURCE);
+            conn = Util.getConnection(ctx, dataSource);
             ps1 = conn.prepareStatement(query);
             ps1.setString(1, username);
             ps1.setString(2, encPassword);

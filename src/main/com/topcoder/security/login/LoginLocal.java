@@ -7,5 +7,7 @@ public interface LoginLocal extends javax.ejb.EJBLocalObject {
 
     public TCSubject login(String username, String password)
             throws GeneralSecurityException;
+    public TCSubject login(String username, String password, String dataSource)
+            throws GeneralSecurityException;
 
 }
