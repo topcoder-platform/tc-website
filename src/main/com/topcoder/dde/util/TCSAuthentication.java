@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * An authentication implementation for the TCS site.  It doesn't provide actual login facilities
+ * but makes it possible to emulate the regular MVC architecture on the TCS site.
  * @author  dok
  * @version  $Revision$ $Date$
  * Create Date: Feb 4, 2005
