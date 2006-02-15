@@ -171,7 +171,7 @@
         <td id="calendarIntel">
             <span id="calendarIntelDate">17</span><br />
             <strong>Intel Multi-threading Competition 5</strong><br />
-            Registration Opens: 12:00 PM<br />
+            Registration Opens: 12:00 Noon<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A id="calendarIntelLink" href="/longcontest/?module=Static&d1=intel_rules">Details</A><br/><br/></td>
         <td id="calendarSRM">
