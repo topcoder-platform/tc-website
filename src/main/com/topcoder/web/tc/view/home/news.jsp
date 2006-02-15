@@ -7,6 +7,19 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 
 <%--------------------------------------------------------%>
+   </tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>02.15.06<br>9:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=about&d2=jobs">TopCoder Software Chat Scheduled for Feb 15</A></span><br><br>
+      TopCoder Software will be in the arena at 7:00 PM to discuss full-time employment opportunities at TopCoder Software.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="/tc?module=Static&d1=about&d2=jobs">details</A>&#160;|&#160;
+      <tc-webtag:forumLink forumID="505919" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.13.06<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=TCO06AlgorithmTerms">TCO06 Algorithm Competition Registration is now open</A></span><br><br>
@@ -108,7 +121,7 @@
 
 <%--------------------------------------------------------%>
    </tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>01.31.05<br>4:45 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>01.31.06<br>4:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=msn_chat_013006">MSN chat session from SRM 286</A></span><br><br>
       MSN recently held a chat session just prior to SRM 286 to discuss working at MSN.
       </td>
@@ -162,19 +175,6 @@
       <A href="/longcontest/?module=ViewActiveContests&rt=15">details</A>&#160;|&#160;
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=508897&mc=1#524634">discuss this</A>&#160;|&#160;
       <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%-------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.26.06<br>11:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_012606">TCS Components Finalists in 16th Annual Jolt Awards</A></span><br><br>
-      "Software Development Magazine Recognizes CBD Best Practices and Engineering Discipline in TopCoder's Reusable .NET and Java Component Catalogs"
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_012606">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505903" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
 
