@@ -8,17 +8,22 @@
 <% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result");
 String type = (String)request.getParameter("type");
 if (type == null) type = HandleTag.COMPONENT; %>
-<jsp:include page="dev_design_links.jsp"/>
 
-<table>
-    <tr><td>Rank</td><td>Coder</td><td>Earnings</td></tr>
+<div align="center">
+<jsp:include page="dev_design_links.jsp"/>
+<br><br>
+<table class="stat" cellpadding="0" cellspacing="0" width="350" style="margin-right: 15px; margin-bottom: 15px;">
+    <tr><td class="title" colspan="3">Highest Component Project Prize Earners</td></tr>
+    <tr><td class="headerC">Rank</td><td class="header" width="100%">Coder</td><td class="headerR">Earnings</td></tr>
+    <% boolean even = false; %>
     <rsc:iterator list="<%=rsc%>" id="row">
-        <tr>
-        <td><rsc:item name="rank" row="<%=row%>"/></td>
-        <td><tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=type%>'/></td>
-        <td><rsc:item name="money" row="<%=row%>" format="$0.00"/></td>
+        <tr class="<%=even?"dark":"light"%>">
+        <td class="valueC"><rsc:item name="rank" row="<%=row%>"/></td>
+        <td class="value"><tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=type%>'/></td>
+        <td class="valueR"><rsc:item name="money" row="<%=row%>" format="$0.00"/></td>
         </tr>
+    <% even = !even;%>
     </rsc:iterator>
 </table>
-
+</div>
 </html>
