@@ -16,7 +16,7 @@
         <table border="0" width=100% cellpadding=0 cellspacing=0>
             <tr>
                 <td width="49%"></td>
-                <td valign="bottom" align="center"><img border="0" src="/i/events/gcji06/gcji_logo.gif" alt="Google Code Jam India logo"></td>
+                <td valign="bottom" align="center"><img border="0" src="/i/events/gcji06/logo_CodeJam.gif" alt="Google Code Jam India logo"></td>
                 <td width="49%"></td>
             </tr>
         </table>
@@ -85,7 +85,7 @@ Here's the line-by-line documentation:
 <br><br>
 Registration for the Google&#153; Code Jam India is open from Monday, February 27, 2006 at 9:00AM IST to March 20 at 9:00AM IST. There is no limit to the number of registrants for the competition, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the Code Jam on March 24. 
 <br><br>
-The competitors with the top 50 scores from Round 1 will be invited to compete for XXX in prizes at the onsite Championship Round in India.
+The competitors with the top 50 scores from Round 1 will be invited to compete for $30,000 in prizes at the onsite Championship Round in India.
 <br><br>
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
     <tr>
@@ -143,33 +143,41 @@ The competitors with the top 50 scores from Round 1 will be invited to compete f
 The 500 participants in Round 1 will receive a "Google&#153; Code Jam India" t-shirt. All 50 finalists that compete in the Championship Round will receive prizes as follows:
 <br><br>
 
-<table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
+<table width="250" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
 <tr valign="top">
 <td class="sidebarTitle">Competitor(s)</td>
-<td class="sidebarTitle">Prize(s)</td>
+<td class="sidebarTitle">Prize</td>
 </tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap"><b>First Prize</b></td>
 <td class="sidebarText">
-<b>&#160;</b>
+<b>$2500</b>
 </td></tr>
-<tr valign="top"><td class="sidebarText" nowrap="nowrap">2nd - 4th Place 
+<tr valign="top"><td class="sidebarText" nowrap="nowrap">2nd - 5th Place 
 </td><td class="sidebarText">
-&#160;
+$1000
 </td></tr>
-<tr valign="top"><td class="sidebarText" nowrap="nowrap">5th – 10th</td>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap">6th – 10th</td>
 <td class="sidebarText">
-&#160;
+$750
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">11th – 20th</td>
 <td class="sidebarText">
-&#160;
+$500
 </td></tr>
-<tr valign="top"><td class="sidebarText" nowrap="nowrap">21st – 50th</td>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap">21st – 25th</td>
 <td class="sidebarText">
-&#160;
+$250
+</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap">26th – 50th</td>
+<td class="sidebarText">
+$150
 </td></tr>
 </table>
-<br><br>
+<ul>
+<li>All finalists will receive iPod Nano's (estimated 200 USD)</li>
+<li>Places 21-50 will receive cash prizes on site</li>
+<li>Places 1-20 will receive checks either that day or 3 weeks from the finals</li>
+</ul>
 To find out more detailed information about the Google&#153; Code Jam India, including a list of the prizes, please read the
 <a href="/pl/?module=Static&d1=gcji06&d2=rules">Terms and Conditions</a>.
 </div>

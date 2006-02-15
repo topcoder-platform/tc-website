@@ -19,7 +19,7 @@
             <table border="0" width=100% cellpadding=0 cellspacing=0>
                 <tr>
                     <td width="49%"></td>
-                    <td valign="bottom" align="center"><img border="0" src="/i/events/gcji06/gcji_logo.gif" alt="Google Code Jam India logo"></td>
+                    <td valign="bottom" align="center"><img border="0" src="/i/events/gcji06/logo_CodeJam.gif" alt="Google Code Jam India logo"></td>
                     <td width="49%"></td>
                 </tr>
             </table>
@@ -49,7 +49,7 @@
 <span class="bigRed">No purchase necessary to enter or win.  The tournament is void where prohibited.</span>
 <br><br>
 <span class="greenSubtitle">Summary of the Tournament</span><br>
-The Google™ Code Jam India is being offered by Google, Inc. ("Google") and TopCoder, Inc. ("TopCoder"). Google always focuses on creating innovative technologies that could benefit ordinary people’s life. The goal of this contest is to encourage and reward the top talents in computer science in India. The Code Jam India will take place between February 27, 2006 and April 21, 2006. It begins with an online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament. The tournament consists of one (1) online qualification round, one (1) online elimination round and one (1) onsite final round. All participants who compete in Round 1 will receive a Google Code Jam India t-shirt. In addition, Google will award XXX in prizes to the 50 finalists in the tournament.
+The Google™ Code Jam India is being offered by Google, Inc. ("Google") and TopCoder, Inc. ("TopCoder"). Google always focuses on creating innovative technologies that could benefit ordinary people’s life. The goal of this contest is to encourage and reward the top talents in computer science in India. The Code Jam India will take place between February 27, 2006 and April 21, 2006. It begins with an online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament. The tournament consists of one (1) online qualification round, one (1) online elimination round and one (1) onsite final round. All participants who compete in Round 1 will receive a Google Code Jam India t-shirt. In addition, Google will award $30,000 in prizes to the 50 finalists in the tournament.
 <br><br>
 <b>Eligibility</b><br>
 All individuals who are residents of India, Indonesia, Malaysia, Maldives, Myanmar, Nepal, Singapore and Thailand may register and compete in the Google India Code Jam 2006, provided they reside in that country during the dates of the competition, February 27 and April 21, 2006.
@@ -187,33 +187,43 @@ All participants who compete in Round 1 will receive a "Google Code Jam India" t
 the Championship Round will receive prizes. Any and all applicable taxes on prizes are the sole responsibility of
 the prizewinner. Prizes will be distributed as follows:
 <br><br>
-<table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
+<table width="250" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
 <tr valign="top">
 <td class="sidebarTitle">Competitor(s)</td>
-<td class="sidebarTitle">Prize(s)</td>
+<td class="sidebarTitle">Prize</td>
 </tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap"><b>First Prize</b></td>
 <td class="sidebarText">
-<b>&#160;</b>
+<b>$2500</b>
 </td></tr>
-<tr valign="top"><td class="sidebarText" nowrap="nowrap">2nd - 4th Place  
+<tr valign="top"><td class="sidebarText" nowrap="nowrap">2nd - 5th Place 
 </td><td class="sidebarText">
-&#160;
+$1000
 </td></tr>
-<tr valign="top"><td class="sidebarText" nowrap="nowrap">5th – 10th </td>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap">6th – 10th</td>
 <td class="sidebarText">
-&#160;
+$750
 </td></tr>
-<tr valign="top"><td class="sidebarText" nowrap="nowrap">11th – 20th </td>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap">11th – 20th</td>
 <td class="sidebarText">
-&#160;
+$500
 </td></tr>
-<tr valign="top"><td class="sidebarText" nowrap="nowrap">21st – 50th </td>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap">21st – 25th</td>
 <td class="sidebarText">
-&#160;
+$250
+</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap">26th – 50th</td>
+<td class="sidebarText">
+$150
 </td></tr>
 </table>
-<br><br>
+
+<ul>
+<li>All finalists will receive iPod Nano's (estimated 200 USD)</li>
+<li>Places 21-50 will receive cash prizes on site</li>
+<li>Places 1-20 will receive checks either that day or 3 weeks from the finals</li>
+</ul>
+
 <span class="greenSubtitle">Conditions of Participation</span><br>
 By participating in the tournament, you agree to be bound by these rules and to all decisions of Google and TopCoder,
 which are final, binding and conclusive in all matters. Also, by participating in this tournament, you consent to
