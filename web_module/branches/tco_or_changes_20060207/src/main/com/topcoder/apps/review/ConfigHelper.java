@@ -339,7 +339,12 @@ public class ConfigHelper implements ConfigManagerInterface {
      * @since 1.0.1
      */
     public static boolean getAllowAppealEditing() throws Exception {
-        return (new Boolean(ConfigManager.getInstance().getString(NAMESPACE, ALLOW_APPEAL_EDITING))).booleanValue();
+        //plk
+        System.out.println(ConfigManager.getInstance().getString(NAMESPACE, ALLOW_APPEAL_EDITING));
+        System.out.println(new Boolean(ConfigManager.getInstance().getString(NAMESPACE, ALLOW_APPEAL_EDITING)));
+        System.out.println(new Boolean(ConfigManager.getInstance().getString(NAMESPACE, ALLOW_APPEAL_EDITING)).booleanValue());
+
+        return (new Boolean(ConfigManager.getInstance().getString(NAMESPACE, ALLOW_APPEAL_EDITING)).booleanValue());
     }
 
     public static String getXSL(String xsl) throws Exception {

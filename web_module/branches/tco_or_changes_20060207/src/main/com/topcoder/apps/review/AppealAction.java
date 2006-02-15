@@ -113,6 +113,7 @@ public final class AppealAction extends ReviewAction {
             }
 */
             // configured functionality to permit edition during appeals phase.
+
             boolean permitEditDuringAppeals;
             try {
                 permitEditDuringAppeals = ConfigHelper.getAllowAppealEditing();
