@@ -16,7 +16,7 @@
         <table border="0" width=100% cellpadding=0 cellspacing=0>
             <tr>
                 <td width="49%"></td>
-                <td valign="bottom" align="center"><img border="0" src="/i/events/gcji06/logo_CodeJam.gif" alt="Google Code Jam India logo"></td>
+                <td valign="bottom" align="center"><img border="0" src="/i/events/gicj06/logo_CodeJam.gif" alt="Google Code Jam India logo"></td>
                 <td width="49%"></td>
             </tr>
         </table>
@@ -52,7 +52,7 @@ constraints.
 <br><br>
 The competition is available in four programming languages - Java, C++, C#, and VB.
 <br><br>
-A wizard with C but rusty with C++? Don't worry! We've got it covered. Check out the <A href="/pl/?module=Static&d1=gcji06&d2=cpp">C++ for C Programmers page</A> that shows you the basics of learning C++ for the competition. Also, be sure to spend time in the Practice Rooms by clicking on the Competition Arena link above.
+A wizard with C but rusty with C++? Don't worry! We've got it covered. Check out the <A href="/pl/?module=Static&d1=gicj06&d2=cpp">C++ for C Programmers page</A> that shows you the basics of learning C++ for the competition. Also, be sure to spend time in the Practice Rooms by clicking on the Competition Arena link above.
 <br><br>
 Here's the line-by-line documentation:
 <br><br>
@@ -179,7 +179,7 @@ $150
 <li>Places 1-20 will receive checks either that day or 3 weeks from the finals</li>
 </ul>
 To find out more detailed information about the Google&#153; Code Jam India, including a list of the prizes, please read the
-<a href="/pl/?module=Static&d1=gcji06&d2=rules">Terms and Conditions</a>.
+<a href="/pl/?module=Static&d1=gicj06&d2=rules">Terms and Conditions</a>.
 </div>
 </td>
 <td width="49%">&#160;</td>

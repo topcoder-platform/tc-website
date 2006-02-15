@@ -28,7 +28,7 @@
             <table border="0" width=100% cellpadding=0 cellspacing=0>
                 <tr>
                     <td width="49%"></td>
-                    <td valign="bottom" align="center"><img border="0" src="/i/events/gcji06/logo_CodeJam.gif" alt="Google Code Jam India logo"></td>
+                    <td valign="bottom" align="center"><img border="0" src="/i/events/gicj06/logo_CodeJam.gif" alt="Google Code Jam India logo"></td>
                     <td width="49%"></td>
                 </tr>
             </table>
@@ -66,8 +66,8 @@
                                                target="_blank">here</A> to read how to <A
                     href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">configure Java</A>.
                 <br><br>
-                Click <A href="/pl/?module=Static&d1=gcji06&d2=EN_instructions">here</A> to read to the <A
-                    href="/pl/?module=Static&d1=gcji06&d2=instructions">competition instructions</A>.
+                Click <A href="/pl/?module=Static&d1=gicj06&d2=EN_instructions">here</A> to read to the <A
+                    href="/pl/?module=Static&d1=gicj06&d2=instructions">competition instructions</A>.
                 <br><br>
                 Click <a href="/contest/arena/ContestAppletGoogleChina.jnlp" target="_blank">here</a> to run the
                 Competition Arena as a <a href="/contest/arena/ContestAppletGoogleChina.jnlp" target="_blank">Java Web
@@ -76,18 +76,18 @@
                 Note: If you wish to install Java Web Start click <a
                     href="http://java.sun.com/products/javawebstart/index.html" target="_blank">here</a>.
                 <br><br>
-                Click <a href="Javascript:openWin('?module=Static&d1=gcji06&d2=EN_quick_launch','comp',300,275);">here</a>
+                Click <a href="Javascript:openWin('?module=Static&d1=gicj06&d2=EN_quick_launch','comp',300,275);">here</a>
                 to run the Competition Arena as a <a
-                    href="Javascript:openWin('?module=Static&d1=gcji06&d2=EN_quick_launch','comp',300,275);">Java
+                    href="Javascript:openWin('?module=Static&d1=gicj06&d2=EN_quick_launch','comp',300,275);">Java
                 Applet</A>.
                 <br><br>
                 If you experience problems loading or running the Competition Arena please contact 
-				<A href="gcji06@topcoder.com?subject=Question regarding Google Code Jam India">gcji06@topcoder.com</A>.
+				<A href="gicj06@topcoder.com?subject=Question regarding Google Code Jam India">gicj06@topcoder.com</A>.
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
                 <br><br>
 To find out more detailed information about the Google&#153; Code Jam China, including a list of the prizes, please read the
-<a href="/pl/?module=Static&d1=gcji06&d2=rules">Terms and Conditions</a>.
+<a href="/pl/?module=Static&d1=gicj06&d2=rules">Terms and Conditions</a>.
             </div>
         </td>
         <td width="49%">&#160;</td>
