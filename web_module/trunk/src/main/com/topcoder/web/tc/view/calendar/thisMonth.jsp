@@ -196,7 +196,6 @@ text-decoration: none;
             <strong>Match 291</strong><br />
             Register: 8:00&#160;AM<br />
             Compete: 11:00&#160;AM<br />
-            Sponsored by: <br><A href="/tc?module=Static&d1=contracting&d2=msn">MSN</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=9812&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendarIntel">
