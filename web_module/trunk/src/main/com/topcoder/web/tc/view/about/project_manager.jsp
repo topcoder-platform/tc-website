@@ -84,14 +84,9 @@
 
 						<b>Technical Skills:</b>
 						<ul>
-						<li>Strong grasp of Object Oriented design principles with a focus on component based software development.</li>
-						<li>Demonstrated experience in software application design and UML creation.</li>
-						<li>Technical experience in relevant project technologies. For example, a given project may require familiarity with the following technologies:</li>
-							<ul>
-						    <li>J2EE, .NET</li>
-						    <li>Relational database design (Microsoft SQL Server or Oracle)</li>
-							</ul>
-						<li>Experience managing software development projects.</li>
+						<li>Experience managing software development projects</li>
+						<li>Working knowledge of Object Oriented design principles and component based software development.</li>
+						<li>Demonstrated experience in UML modeling, project scope development, and requirements gathering techniques.</li>
 						</ul>
 
 						<b>Professional Skills:</b>
