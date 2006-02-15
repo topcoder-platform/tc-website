@@ -8,10 +8,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-    <title>TopCoder Statistics</title>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<title>TopCoder Statistics</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
 </head>
 
 <body>
