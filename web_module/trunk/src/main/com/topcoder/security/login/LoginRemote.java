@@ -9,5 +9,7 @@ public interface LoginRemote extends javax.ejb.EJBObject {
 
     public TCSubject login(String username, String password)
             throws RemoteException, GeneralSecurityException;
+    public TCSubject login(String username, String password, String dataSource)
+            throws RemoteException, GeneralSecurityException;
 
 }
