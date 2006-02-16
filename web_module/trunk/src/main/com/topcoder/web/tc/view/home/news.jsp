@@ -6,6 +6,23 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.16.06<br>4:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm289">SRM 289 - Problem Set & Analysis</A></span><br><br>
+      In both Division 1 and 2, coders faced tricky problems. At the end of the coding phase, Division 1 ended with <tc-webtag:handle coderId="251074" context="algorithm"/> at first place followed by <tc-webtag:handle coderId="270505" context="algorithm"/>
+      </td>
+      <td class="newsPhoto"><%--<img src="/i/m/timmac_big.jpg" alt="" width="55" height="61"/>--%><br>by <tc-webtag:handle coderId="10505845" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm289">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505855" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
 <%-------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>02.16.06<br>12:55 PM</td>
@@ -190,18 +207,6 @@
          <A href="/tc?module=Static&d1=tutorials&d2=adapterPattern">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505904" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>01.27.06<br>3:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/longcontest/?module=ViewActiveContests&rt=15">Intel Multi-Threading Competition 1 Extended</A></span><br><br>
-      We will start taking submissions for Competition 1 on Wednesday, Febuary 1 at 12:00 Noon EST.  We've also extended the competition by a week, now ending on Febuary 15 at 12 noon EST.
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="/longcontest/?module=ViewActiveContests&rt=15">details</A>&#160;|&#160;
-      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=508897&mc=1#524634">discuss this</A>&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 
