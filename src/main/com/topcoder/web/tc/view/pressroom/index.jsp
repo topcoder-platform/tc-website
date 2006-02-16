@@ -47,6 +47,21 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- Spartan Daily --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://www.thespartandaily.com/media/paper852/news/2006/02/16/News/Sjsu-Codes.A.Win-1616451.shtml?norewrite&sourcedomain=www.thespartandaily.com" target="_blank"><img src="/i/pressroom/spartanDaily_logo.gif" alt="Spartan Daily logo" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.thespartandaily.com/media/paper852/news/2006/02/16/News/Sjsu-Codes.A.Win-1616451.shtml?norewrite&sourcedomain=www.thespartandaily.com" target="_blank">SJSU codes a win</A> </strong></font><br />
+                         "San Jose State University's computer science department has earned a world ranking in a prestigious online computer programming competition called Topcoder." <span class="prHead"> [February 16]</span></p>                   
+                        </td>
+                </tr>
+            </table>
+            
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- TCHS Global Tourney --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -170,11 +185,11 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="/pdfs/press_room/inc_0106.pdf" target="_blank"><img src="/i/pressroom/incDOTcom_logo.gif" alt="Inc.com" border="0" /></A></td>
+                    <td width="274"><A href="http://www.inc.com/magazine/20060101/handson-global.html" target="_blank"><img src="/i/pressroom/incDOTcom_logo.gif" alt="Inc.com" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/pdfs/press_room/inc_0106.pdf" target="_blank">Put a hacker to work [PDF]</A> </strong></font><br />
-"Software developer TopCoder's brilliant strategy to find - and register- the world's best programmers"<span class="prHead"> [January 2006]</span></p>
+                        <p><font size="3"><strong><A href="http://www.inc.com/magazine/20060101/handson-global.html" target="_blank">Put a hacker to work</A> </strong></font><br />
+                        "Software developer TopCoder's brilliant strategy to find - and register - the world's best programmers"<span class="prHead"> [January 2006]</span></p>
                     </td>
                 </tr>
             </table>

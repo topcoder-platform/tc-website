@@ -49,14 +49,14 @@
 <span class="bigRed">No purchase necessary to enter or win.  The tournament is void where prohibited.</span>
 <br><br>
 <span class="greenSubtitle">Summary of the Tournament</span><br>
-The Google™ Code Jam India is being offered by Google, Inc. ("Google") and TopCoder, Inc. ("TopCoder"). Google always focuses on creating innovative technologies that could benefit ordinary people’s life. The goal of this contest is to encourage and reward the top talents in computer science in India. The Code Jam India will take place between February 27, 2006 and April 21, 2006. It begins with an online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament. The tournament consists of one (1) online qualification round, one (1) online elimination round and one (1) onsite final round. All participants who compete in Round 1 will receive a Google Code Jam India t-shirt. In addition, Google will award $30,000 in prizes to the 50 finalists in the tournament.
+The Google™ Code Jam India is being offered by Google, Inc. ("Google") and TopCoder, Inc. ("TopCoder"). Google always focuses on creating innovative technologies that could benefit ordinary people’s life. The goal of this contest is to encourage and reward the top talents in computer science in India. The Code Jam India will take place between February 27, 2006 and April 7, 2006. It begins with an online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament. The tournament consists of one (1) online qualification round, one (1) online elimination round and one (1) onsite final round. The top 250 scores from Round 1 will receive a Google Code Jam India t-shirt. In addition, Google will award Rs. 1,550,000 in cash and prizes to the 50 finalists in the tournament.
 <br><br>
 <b>Eligibility</b><br>
-All individuals who are residents of India, Indonesia, Malaysia, Maldives, Myanmar, Nepal, Singapore and Thailand may register and compete in the Google India Code Jam 2006, provided they reside in that country during the dates of the competition, February 27 and April 21, 2006.
+All individuals who are residents of India, Bangladesh, Indonesia, Malaysia, Maldives, Myanmar, Nepal, Singapore and Thailand may register and compete in the Google India Code Jam 2006, provided they reside in that country during the dates of the competition, February 27 and April 7, 2006.
 <br><br>
 Registrants who are 18 years of age or older as of March 20, 2006, are eligible to win cash prizes, unless otherwise prohibited. The Google India Code Jam 2006 is void where prohibited by applicable law.
 <br><br>
-Full and part-time employees of Google and TopCoder as well as those who are performing internships from February 27, 2006 - April 21, 2006 and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament. 
+Full and part-time employees of Google and TopCoder as well as those who are performing internships from February 27, 2006 - April 7, 2006 and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament. 
 <br><br>
 <b>Registration</b><br>
 Registration will open on Monday, February 27, 2006 at 9:00AM IST and will close on Monday, March 20, 2006 at 9:00AM IST. There is no limit to the number of registrants for the competition, however each individual may only register once. 
@@ -102,7 +102,7 @@ Up to 500 individuals will qualify to compete in Round 1. The top 50 scorers fro
 </tr>
 <tr valign="top">
 <td class="sidebarText" nowrap=nowrap>Championship Round</td>
-<td class="sidebarText">Friday, April 21, 2006<br>START: TBD
+<td class="sidebarText">Friday, April 7, 2006<br>START: TBD
 </td>
 </tr>
 <tr valign="top">
@@ -136,11 +136,8 @@ coder. In order to advance, a coder must finish each round with a positive (i.e.
 structure of the online rounds is as follows:
 <br><br>
 <b>Round 1 (online)</b><br>
-<ul>
-<li>Up to 500 coders will compete in Round 1.</li>
-<li>The 50 highest scoring competitors will advance to the Championship Round. Each coder must have positive points to advance, so if there are less than 50 competitors
-who score positive points, only those competitors with a positive point total will advance.</li>
-</ul>
+Up to 500 coders will compete in Round 1. The 50 highest scoring competitors will advance to the Championship Round. Each coder must have positive points to advance, so if there are less than 50 competitors who score positive points, only those competitors with a positive point total will advance.
+<br><br>
 <b>NOTE:</b> In the event of a tie for any advancing position (Positive points only), all tied coders will advance to the Championship Round. 
 <br><br>
 
@@ -168,7 +165,7 @@ added to the sets of inputs for the System Testing Phase.</li>
 </ul>
 
 <b>Onsite Championship Round</b><br>
-Up to 50 advancers from Round 1 will compete in the onsite Championship Round of the tournament being held on Friday, April 21, 2006. Google will contact all finalists for travel information.
+Up to 50 advancers from Round 1 will compete in the onsite Championship Round of the tournament being held on Friday, April 7, 2006. Google will contact all finalists for travel information.
 <br><br>
 Google will provide all travel accommodations for each finalist to attend the Championship Round. In addition, Google will provide overnight accommodations and all travel arrangements to and from the airport, as well as to and from the onsite round facility. All other expenses are the responsibility of the contestant.
 <br><br>
@@ -183,7 +180,7 @@ tied coders.</li>
 </ul>
 
 <span class="greenSubtitle">About the Prizes</span><br>
-All participants who compete in Round 1 will receive a "Google Code Jam India" t-shirt. In addition, the 50 finalists in
+The top 250 scores from Round 1 will receive a "Google Code Jam India" t-shirt. In addition, the 50 finalists in
 the Championship Round will receive prizes. Any and all applicable taxes on prizes are the sole responsibility of
 the prizewinner. Prizes will be distributed as follows:
 <br><br>
@@ -194,35 +191,31 @@ the prizewinner. Prizes will be distributed as follows:
 </tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap"><b>First Prize</b></td>
 <td class="sidebarText">
-<b>$2500</b>
+<b>Rs. 110,000</b>
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">2nd - 5th Place 
 </td><td class="sidebarText">
-$1000
+Rs. 44,000
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">6th – 10th</td>
 <td class="sidebarText">
-$750
+Rs. 33,000
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">11th – 20th</td>
 <td class="sidebarText">
-$500
+Rs. 22,000
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">21st – 25th</td>
 <td class="sidebarText">
-$250
+Rs. 11,000
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">26th – 50th</td>
 <td class="sidebarText">
-$150
+Rs. 6,600
 </td></tr>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap" colspan="2">All finalists will receive an iPod Nano (estimated Rs. 8,850)</td></tr>
 </table>
-
-<ul>
-<li>All finalists will receive iPod Nano's (estimated 200 USD)</li>
-<li>Places 21-50 will receive cash prizes on site</li>
-<li>Places 1-20 will receive checks either that day or 3 weeks from the finals</li>
-</ul>
+<br>
 
 <span class="greenSubtitle">Conditions of Participation</span><br>
 By participating in the tournament, you agree to be bound by these rules and to all decisions of Google and TopCoder,

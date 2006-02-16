@@ -69,8 +69,8 @@
             </table>
 
             <br><br>
-            <span class="greenSubtitle">Online Elimination Rounds</span><br>
-            Everyone who advances to an online round must log in to the TopCoder Competition Arena no later than ten
+            <span class="greenSubtitle">Online Elimination Round</span><br>
+            Everyone who advances to the online round must log in to the TopCoder Competition Arena no later than ten
             minutes prior to the start of the round. All start times will be communicated as IST. If a coder does not
             participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic
             loss in that round of competition.
@@ -109,7 +109,7 @@
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText" nowrap="nowrap">Championship Round</td>
-                    <td class="sidebarText">April 21, 2006<br>Time TBD</td>
+                    <td class="sidebarText">April 7, 2006<br>Time TBD</td>
                     <td class="sidebarText" align="center">50</td>
                 </tr>
                 <tr valign="top">

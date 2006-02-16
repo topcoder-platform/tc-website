@@ -37,13 +37,11 @@
 
 <br><br>
 
-<span class="bigTitle">The Google&#153; Code Jam India</span>
 <span valign=top>
 <jsp:include page="right.jsp"/>
 </span>
 
-<br><br>
-Get ready! Google is on its way to India again and they are looking for the best. Don't miss out on this exciting contest where you can show off your coding talent for great prizes.
+Get ready! Google&#153; is on its way to India again and they are looking for the best. Don't miss out on the Google Code Jam India. This exciting contest gives you the chance to show off your coding talent for Rs. 1,550,000 in cash and prizes!
 <br><br>
 <span class="greenSubtitle">The Competition:</span>
 <br><br>
@@ -85,7 +83,7 @@ Here's the line-by-line documentation:
 <br><br>
 Registration for the Google&#153; Code Jam India is open from Monday, February 27, 2006 at 9:00AM IST to March 20 at 9:00AM IST. There is no limit to the number of registrants for the competition, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the Code Jam on March 24. 
 <br><br>
-The competitors with the top 50 scores from Round 1 will be invited to compete for $30,000 in prizes at the onsite Championship Round in India.
+The competitors with the top 50 scores from Round 1 will be invited to compete for Rs. 1,550,000 in cash and prizes at the onsite Championship Round in India.
 <br><br>
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
     <tr>
@@ -125,7 +123,7 @@ The competitors with the top 50 scores from Round 1 will be invited to compete f
     </tr>
 
     <tr valign="top">
-        <td class="sidebarText">Friday, April 21</td>
+        <td class="sidebarText">Friday, April 7</td>
         <td class="sidebarText">TBD</td>
         <td class="sidebarText">Championship Round - 50 participants</td>
     </tr>
@@ -140,7 +138,7 @@ The competitors with the top 50 scores from Round 1 will be invited to compete f
 <br><br>
 <span class="greenSubtitle">Prizes</span>
 <br><br>
-The 500 participants in Round 1 will receive a "Google&#153; Code Jam India" t-shirt. All 50 finalists that compete in the Championship Round will receive prizes as follows:
+The top 250 scores of Round 1 will receive a "Google&#153; Code Jam India" t-shirt. All 50 finalists that compete in the Championship Round will receive prizes as follows:
 <br><br>
 
 <table width="250" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
@@ -150,34 +148,31 @@ The 500 participants in Round 1 will receive a "Google&#153; Code Jam India" t-s
 </tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap"><b>First Prize</b></td>
 <td class="sidebarText">
-<b>$2500</b>
+<b>Rs. 110,000</b>
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">2nd - 5th Place 
 </td><td class="sidebarText">
-$1000
+Rs. 44,000
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">6th – 10th</td>
 <td class="sidebarText">
-$750
+Rs. 33,000
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">11th – 20th</td>
 <td class="sidebarText">
-$500
+Rs. 22,000
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">21st – 25th</td>
 <td class="sidebarText">
-$250
+Rs. 11,000
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">26th – 50th</td>
 <td class="sidebarText">
-$150
+Rs. 6,600
 </td></tr>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap" colspan="2">All finalists will receive an iPod Nano (estimated Rs. 8,850)</td></tr>
 </table>
-<ul>
-<li>All finalists will receive iPod Nano's (estimated 200 USD)</li>
-<li>Places 21-50 will receive cash prizes on site</li>
-<li>Places 1-20 will receive checks either that day or 3 weeks from the finals</li>
-</ul>
+<br>
 To find out more detailed information about the Google&#153; Code Jam India, including a list of the prizes, please read the
 <a href="/pl/?module=Static&d1=gicj06&d2=rules">Terms and Conditions</a>.
 </div>
