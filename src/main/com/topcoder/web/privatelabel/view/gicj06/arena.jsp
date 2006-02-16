@@ -5,7 +5,7 @@
 <html>
 <head>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
-    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gccj05.css"/>
+    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gicj06.css"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Google Code Jam India, Powered by TopCoder</title>
@@ -20,12 +20,11 @@
 
 <body>
 
-
-<table border="0" width=100% cellpadding=0 cellspacing=0>
-    <tr>
-        <td width="49%">&#160;</td>
-        <td align="center">
-            <table border="0" width=100% cellpadding=0 cellspacing=0>
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+<tr>
+    <td width="49%">&#160;</td>
+    <td align="center">
+        <table border="0" width="100%" cellpadding="0" cellspacing="0">
                 <tr>
                     <td width="49%"></td>
                     <td valign="bottom" align="center"><img border="0" src="/i/events/gicj06/logo_CodeJam.gif" alt="Google Code Jam India logo"></td>
@@ -38,7 +37,7 @@
     <tr>
         <td width="49%">&#160;</td>
         <td>
-            <div class=greenBigBox>
+            <div class="greenBigBox">
 
                 <!-- Tab bar links-->
                 <div align="center">
@@ -50,7 +49,7 @@
                 <br><br>
 
                 <span class="bigTitle">Competition Arena</span>
-                <span valign=top>
+                <span valign="top">
          <jsp:include page="right.jsp"/>
          </span>
 
@@ -86,7 +85,7 @@
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
                 <br><br>
-To find out more detailed information about the Google&#153; Code Jam China, including a list of the prizes, please read the
+To find out more detailed information about the Google&#153; Code Jam India, including a list of the prizes, please read the
 <a href="/pl/?module=Static&d1=gicj06&d2=rules">Terms and Conditions</a>.
             </div>
         </td>
