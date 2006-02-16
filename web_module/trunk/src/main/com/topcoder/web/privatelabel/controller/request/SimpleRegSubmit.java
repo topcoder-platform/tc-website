@@ -87,10 +87,12 @@ public class SimpleRegSubmit extends SimpleRegBase {
         UserAddress userAddress = (UserAddress) createEJB(getInitialContext(), UserAddress.class);
 
         long userId = regInfo.getUserId();
-        if (userId>0) {
-            user.createUser(regInfo.getUserId(), regInfo.getHandle(), getNewUserStatus(), transDb);
-        } else {
-            userId = user.createNewUser(regInfo.getHandle(), getNewUserStatus(), transDb);
+        if (regInfo.isNew()) {
+            if (userId>0) {
+                user.createUser(regInfo.getUserId(), regInfo.getHandle(), getNewUserStatus(), transDb);
+            } else {
+                userId = user.createNewUser(regInfo.getHandle(), getNewUserStatus(), transDb);
+            }
         }
         user.setFirstName(userId, regInfo.getFirstName(), transDb);
         user.setMiddleName(userId, regInfo.getMiddleName(), transDb);
@@ -155,7 +157,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
         Rating rating = (Rating) createEJB(getInitialContext(), Rating.class);
 
         //create coder
-        if (!coder.exists(userId, transDb)) { // check if the user exists in registration database already as a coder
+        if (regInfo.isNew()) {
             coder.createCoder(userId, transDb);
             rating.createRating(userId, transDb);
         }
