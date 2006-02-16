@@ -1,19 +1,19 @@
 package com.topcoder.web.privatelabel.controller.request;
 
-import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.common.model.DemographicResponse;
-import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.demographic.Response;
-import com.topcoder.web.ejb.address.Address;
-import com.topcoder.web.ejb.user.UserAddress;
-import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.ejb.user.UserAddress;
+import com.topcoder.web.ejb.school.CurrentSchool;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
@@ -40,7 +40,7 @@ public abstract class FullLogin extends FullReg {
         Arrays.sort(ACTIVE_STATI);
     }
 
-    protected boolean hasTopCoderAccount() throws Exception {
+/*    protected boolean hasTopCoderAccount() throws Exception {
         String handle = getRequestParameter(Constants.HANDLE);
         String password = getRequestParameter(Constants.PASSWORD);
 
@@ -57,7 +57,7 @@ public abstract class FullLogin extends FullReg {
         if (coder.exists(userId, DBMS.OLTP_DATASOURCE_NAME)) {
             log.debug(handle + " exists in the tc db");
             char status = getStatus(userId);
-            if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
+            if (Arrays.binarySearch(ACTIVE_STATI, status) >= 0) {
                 ret = true;
             } else {
                 addError(Constants.HANDLE, getBundle().getProperty("error_account_not_active"));
@@ -70,20 +70,16 @@ public abstract class FullLogin extends FullReg {
             }
         }
         return ret;
-    }
+    }*/
 
-    /**
-     * @param userId
-     * @return
-     * @throws Exception if user doesn't exist or some other ejb problem
-     */
-    private char getStatus(long userId) throws Exception {
+
+/*    private char getStatus(long userId) throws Exception {
         char result;
         com.topcoder.web.ejb.user.User user = (com.topcoder.web.ejb.user.User) createEJB(getInitialContext(), com.topcoder.web.ejb.user.User.class);
         result = user.getStatus(userId, DBMS.OLTP_DATASOURCE_NAME);
         return result;
 
-    }
+    }*/
 
 /*
     private long getUserId(String handle) throws Exception {
@@ -98,7 +94,7 @@ public abstract class FullLogin extends FullReg {
     }
 */
 
-    protected boolean hasEventAccount() throws Exception {
+/*    protected boolean hasEventAccount() throws Exception {
         String handle = getRequestParameter(Constants.HANDLE);
         String password = getRequestParameter(Constants.PASSWORD);
 
@@ -109,67 +105,122 @@ public abstract class FullLogin extends FullReg {
 
         ResultSetContainer rsc = (ResultSetContainer) getDataAccess(db).getData(r).get("event_account");
         return !rsc.isEmpty();
-    }
+    }*/
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
         Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
-        FullRegInfo info = new FullRegInfo();
-        User user = (User)createEJB(getInitialContext(), User.class);
+        FullRegInfo info = null;
+        User user = (User) createEJB(getInitialContext(), User.class);
+        String handle = getRequestParameter(Constants.HANDLE);
+        String password = getRequestParameter(Constants.PASSWORD);
 
-       if (hasEventAccount()) {
-            addError(Constants.HANDLE, getBundle().getProperty("error_event_account_exists"));
-            return null;
-       } else if (user.userExists(getRequestParameter(Constants.HANDLE), db)) {
-           addError(Constants.HANDLE, getBundle().getProperty("error_event_account_exists"));
-           return null;
-        } else {
-            if (!hasErrors()&&hasTopCoderAccount()) {
-                //this must be done after the account checks, cuz that's where they get logged in...confusing?  yes
-                long userId = getAuthentication().getActiveUser().getId();
-                info = getCommonInfo(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                info.setUserId(userId);
-
-                info.setCoderType(coder.getCoderTypeId(userId, DBMS.OLTP_DATASOURCE_NAME));
-                log.error(info.getCoderType() + "");
-
-                //load up the demographic information
-                Response response = (Response) createEJB(getInitialContext(), Response.class);
-                ResultSetContainer responses = response.getResponses(userId, DBMS.OLTP_DATASOURCE_NAME);
-
-                log.debug(responses.toString());
-
-                ResultSetContainer.ResultSetRow row = null;
-                DemographicQuestion question = null;
-
-                for (Iterator it = responses.iterator(); it.hasNext();) {
-                    row = (ResultSetContainer.ResultSetRow) it.next();
-                    long tcQuestionId = row.getLongItem("demographic_question_id");
-                    //only add the response if we have a mapping for it
-                    if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(tcQuestionId))) {
-                        question = findQuestion(((Long) TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(),
-                                getQuestions(transDb, info.getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)),getLocale()));
-                        if (question != null) {
-                            DemographicResponse r = new DemographicResponse();
-                            r.setQuestionId(question.getId());
-                            r.setSort(row.getIntItem("sort"));
-                            if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
-                                    question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
-                                long answerId = row.getLongItem("demographic_answer_id");
-                                //check if we have a mapping for the answer, if so, add the response
-                                if (TC_TO_PL_ANSWER_MAP.containsKey(new Long(answerId))) {
-                                    r.setAnswerId(((Long) TC_TO_PL_ANSWER_MAP.get(new Long(answerId))).longValue());
-                                    info.addResponse(r);
-                                }
-                            } else {
-                                r.setText(row.getStringItem("demographic_response"));
-                                info.addResponse(r);
-                            }
-                        }
+        boolean hasTCAccount = false;
+        boolean hasEventAccount = false;
+        try {
+            getAuthentication().login(new SimpleUser(0, handle, password), false, db);
+            char status = user.getStatus(getUser().getId(), db);
+            if (Arrays.binarySearch(ACTIVE_STATI, status) >= 0) {
+                hasEventAccount = true;
+            } else {
+                if (!hasError(Constants.HANDLE)) {
+                    addError(Constants.HANDLE, getBundle().getProperty("error_account_not_active"));
+                }
+            }
+        } catch (LoginException l) {
+            try {
+                getAuthentication().login(new SimpleUser(0, handle, password), false);
+                char status = user.getStatus(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
+                if (Arrays.binarySearch(ACTIVE_STATI, status) >= 0) {
+                    hasTCAccount = true;
+                } else {
+                    if (!hasError(Constants.HANDLE)) {
+                        addError(Constants.HANDLE, getBundle().getProperty("error_account_not_active"));
                     }
+                }
+            } catch (LoginException l1) {
+                if (!hasError(Constants.HANDLE)) {
+                    addError(Constants.HANDLE, getBundle().getProperty("error_invalid_login"));
                 }
             }
         }
 
+        if (hasTCAccount) {
+            info = getCommonInfo(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            info.setUserId(getUser().getId());
+
+            info.setCoderType(coder.getCoderTypeId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME));
+
+            //load up the demographic information
+            Response response = (Response) createEJB(getInitialContext(), Response.class);
+            ResultSetContainer responses = response.getResponses(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
+
+            log.debug(responses.toString());
+
+            ResultSetContainer.ResultSetRow row;
+            DemographicQuestion question;
+
+            for (Iterator it = responses.iterator(); it.hasNext();) {
+                row = (ResultSetContainer.ResultSetRow) it.next();
+                long tcQuestionId = row.getLongItem("demographic_question_id");
+                //only add the response if we have a mapping for it
+                if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(tcQuestionId))) {
+                    question = findQuestion(((Long) TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(),
+                            getQuestions(transDb, info.getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)), getLocale()));
+                    if (question != null) {
+                        DemographicResponse r = new DemographicResponse();
+                        r.setQuestionId(question.getId());
+                        r.setSort(row.getIntItem("sort"));
+                        if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
+                                question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
+                            long answerId = row.getLongItem("demographic_answer_id");
+                            //check if we have a mapping for the answer, if so, add the response
+                            if (TC_TO_PL_ANSWER_MAP.containsKey(new Long(answerId))) {
+                                r.setAnswerId(((Long) TC_TO_PL_ANSWER_MAP.get(new Long(answerId))).longValue());
+                                info.addResponse(r);
+                            }
+                        } else {
+                            r.setText(row.getStringItem("demographic_response"));
+                            info.addResponse(r);
+                        }
+                    }
+                }
+            }
+
+        } else if (hasEventAccount) {
+            info = getCommonInfo(getUser().getId(), db);
+            info.setNew(false);
+            info.setUserId(getUser().getId());
+
+            info.setCoderType(coder.getCoderTypeId(getUser().getId(), db));
+
+            //load up the demographic information
+            Response response = (Response) createEJB(getInitialContext(), Response.class);
+            ResultSetContainer responses = response.getResponses(getUser().getId(), db);
+
+            log.debug(responses.toString());
+
+            ResultSetContainer.ResultSetRow row = null;
+
+            for (Iterator it = responses.iterator(); it.hasNext();) {
+                row = (ResultSetContainer.ResultSetRow) it.next();
+                DemographicResponse r = new DemographicResponse();
+                r.setQuestionId(row.getLongItem("demographic_question_id"));
+                r.setSort(row.getIntItem("sort"));
+                if (row.getItem("demographic_answer_id").getResultData() != null) {
+                    r.setAnswerId(row.getLongItem("demographic_answer_id"));
+                } else {
+                    r.setText(row.getStringItem("demographic_response"));
+                }
+                info.addResponse(r);
+
+            }
+            CurrentSchool cs = (CurrentSchool) createEJB(getInitialContext(), CurrentSchool.class);
+            if (cs.exists(getUser().getId(), db)) {
+                info.setSchoolId(cs.getSchoolId(getUser().getId(), db));
+            }
+
+
+        }
         return info;
 
     }
@@ -177,7 +228,6 @@ public abstract class FullLogin extends FullReg {
     private FullRegInfo getCommonInfo(long userId, String db) throws Exception {
         log.debug("getCommonInfo(" + userId + "," + db + ")");
         FullRegInfo info = new FullRegInfo();
-        info.setNew(false);
         User user = (User) createEJB(getInitialContext(), User.class);
         Address address = (Address) createEJB(getInitialContext(), Address.class);
         Email email = (Email) createEJB(getInitialContext(), Email.class);
