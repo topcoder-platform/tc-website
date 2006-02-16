@@ -185,8 +185,7 @@ public class AutoPilotTimer
                                 StringBuffer mail = null;
                                 String emailSubject = "";
                                 // If there are no appeals, send email to PM
-// plk                                if (appeals.length == 0) {
-                                if (true) {
+                                if (appeals.length == 0) {
                                     mail = new StringBuffer();
                                     mail.append("The following project: \n\n");
                                     mail.append(p.getName());
@@ -209,7 +208,8 @@ public class AutoPilotTimer
                                             mail.append("\n\nhas completed appeals phase with all");
                                             mail.append(" appeals responded.");
                                             logger.info("All appeals resolved, sending mail to PM...");
-                                            emailSubject = "AutoPilotTimer: Appeals Notification (All Appeals responded)";
+                                            emailSubject =
+                                                "AutoPilotTimer: Appeals Notification (All Appeals responded)";
                                         }
                                     }
                                 }

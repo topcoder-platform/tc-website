@@ -145,7 +145,8 @@ public final class AppealAction extends ReviewAction {
                 request.setAttribute("appealerEdit", new Boolean(true));
             } else if (appeal.getReviewer().getId() == orpd.getUser().getId() &&
                 // if project is marked as allow responses during appeals phase, permit the edition.
-                    !appeal.isResolved() && (phaseId == Phase.ID_APPEALS_RESPONSE || (phaseId == Phase.ID_APPEALS && responseDuringAppeals))) {
+                !appeal.isResolved() && (phaseId == Phase.ID_APPEALS_RESPONSE || (phaseId == Phase.ID_APPEALS &&
+                    responseDuringAppeals))) {
                 request.setAttribute("reviewerEdit", new Boolean(true));
             }
 

@@ -169,7 +169,7 @@ public class AppealProject implements Model {
                     if (appeal.isResolved()) {
                         // compute score and save the ReviewScorecard
                         ReviewScorecard scorecard = documentManager.getReviewScorecard(
-                                project, appeal.getReviewer().getId(), appeal.getSubmitter().getId(), user.getTCSubject());
+                            project, appeal.getReviewer().getId(), appeal.getSubmitter().getId(), user.getTCSubject());
                         try {
                             scorecard.setScore(new ScoringHelper().calculateScore(scorecard).getWeightedScore());
                         } catch (ArithmeticException e) {
