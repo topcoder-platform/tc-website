@@ -7,6 +7,19 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 
 <%--------------------------------------------------------%>
+   </tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>02.16.06<br>6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=tcs_chat_021506">TopCoder Software Chat from Feb 15</A></span><br><br>
+      TopCoder Software recently spoke in the arena about full-time employment opportunities.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="/tc?module=Static&d1=contracting&d2=tcs_chat_021506">details</A>&#160;|&#160;
+      <tc-webtag:forumLink forumID="505919" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.16.06<br>4:30 PM</td>
       <td class="newsTextCell">
@@ -191,22 +204,6 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=srm286">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505800" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>01.30.06<br>1:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=adapterPattern">Adapter Pattern Tutorial</A></span><br><br>
-       "Convert the interface of a class into another interface clients expect." [GoF] In other words, you define an API to use locally and then create implementations of that API that will convert the calls to another class's API. </td>
-      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <tc-webtag:handle coderId="119676" context="design"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=adapterPattern">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505904" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
    </td></tr>
 
 
