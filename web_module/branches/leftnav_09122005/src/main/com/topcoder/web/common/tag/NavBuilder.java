@@ -32,7 +32,9 @@ public class NavBuilder extends TagSupport {
     }
 
     public void setSelectedNode(String selectedNode) {
-        this.selectedNode = selectedNode;
+        if (selectedNode!=null) {
+            this.selectedNode = selectedNode;
+        }
     }
 
     public void setOpenClass(String openClass) {
