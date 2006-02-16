@@ -114,7 +114,7 @@ public class GoogleLogin extends FullLogin {
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
 
-        boolean hasTCAccount = hasTopCoderAccount();
+        boolean hasTCAccount = false; //hack to make it compile.  if copying, fix this
         boolean hasCompanyAccount = hasCommonAccount();
 
         FullRegInfo info = null;
