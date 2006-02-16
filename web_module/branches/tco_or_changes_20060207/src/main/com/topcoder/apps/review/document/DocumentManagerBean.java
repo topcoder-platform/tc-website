@@ -4564,7 +4564,8 @@ public class DocumentManagerBean implements SessionBean {
             }
 
             // if project allows appeals responses during appeal phase, appeals can't be edited.
-            permitEditDuringAppeals = permitEditDuringAppeals && !project.getResponseDuringAppeals();
+            boolean responseDuringAppeals = project.getResponseDuringAppeals();
+            permitEditDuringAppeals = permitEditDuringAppeals && !responseDuringAppeals;
 
             // If appeal is resolved and the user isn't admin/pm,
             // then don't allow save!
@@ -4573,14 +4574,21 @@ public class DocumentManagerBean implements SessionBean {
             // is configured to accept edition during this phase!
             // If appeal doesn't exist and the user isn't the appealer
             // then don't allow save!
-            if ((appealIsResolved &&
-                    !(Common.isAdmin(requestor) ||
-                    Common.isRole(project, requestor.getUserId(), Role.ID_PRODUCT_MANAGER))) || (appeal.getId() != -1
-                    && (!(project.getCurrentPhase().getId() == Phase.ID_APPEALS) || !permitEditDuringAppeals) &&
-                    !(Common.isRole(project, requestor.getUserId(), Role.ID_REVIEWER) &&
-                    appeal.getReviewer().getId() == requestor.getUserId())) ||
-                    (appeal.getId() == -1 &&
-                    !(appeal.getAppealer().getId() == requestor.getUserId()))) {
+
+            boolean b1 =(appealIsResolved && !(Common.isAdmin(requestor) || Common.isRole(project, requestor.getUserId(), Role.ID_PRODUCT_MANAGER)));
+            boolean b2 =(appeal.getId() != -1 && (!(project.getCurrentPhase().getId() == Phase.ID_APPEALS) || !permitEditDuringAppeals) &&
+                    !(Common.isRole(project, requestor.getUserId(), Role.ID_REVIEWER) && appeal.getReviewer().getId() == requestor.getUserId()));
+            boolean b3 = (appeal.getId() == -1 && !(appeal.getAppealer().getId() == requestor.getUserId()));
+
+            System.out.println("b1 :" + b1);
+            System.out.println("b2 :" + b2);
+            System.out.println("b3 :" + b3);
+
+
+            if ((appealIsResolved && !(Common.isAdmin(requestor) || Common.isRole(project, requestor.getUserId(), Role.ID_PRODUCT_MANAGER)))
+                || (appeal.getId() != -1 && (!(project.getCurrentPhase().getId() == Phase.ID_APPEALS) || !permitEditDuringAppeals) &&
+                    !(Common.isRole(project, requestor.getUserId(), Role.ID_REVIEWER) && appeal.getReviewer().getId() == requestor.getUserId()))
+                || (appeal.getId() == -1 && !(appeal.getAppealer().getId() == requestor.getUserId()))) {
                 String errorMsg = "DM.saveAppeal():\n" +
                         "appealId: " + appeal.getId() + "\n" +
                         "Appeal is already completed!";
