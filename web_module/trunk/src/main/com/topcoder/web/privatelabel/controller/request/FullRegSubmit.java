@@ -84,7 +84,7 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
             if (q.getId() == Constants.SCHOOL_QUESTION && ((FullRegInfo) regInfo).isStudent()) {
                 CurrentSchool cs = (CurrentSchool) createEJB(getInitialContext(), CurrentSchool.class);
                 School s = (School) createEJB(getInitialContext(), School.class);
-                long schoolId = s.createSchool(transDb, db);
+
                 String schoolName = null;
                 if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
                         q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
@@ -92,54 +92,50 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
                 } else {
                     schoolName = r.getText();
                 }
-                s.setFullName(schoolId, schoolName, transDb);
-                if (!cs.exists(userId, transDb)) {
-                    cs.createCurrentSchool(userId, transDb);
+
+
+                long schoolId=0;
+                if (((FullRegInfo)regInfo).getSchoolId()>0&&!regInfo.isNew()) {
+                    //we're only going to add a new scholl if they actually changed their school
+                    if (!s.getFullName(((FullRegInfo)regInfo).getSchoolId(), transDb).equals(schoolName)) {
+                        schoolId = s.createSchool(transDb, db);
+                    }
+                } else {
+                    schoolId = s.createSchool(transDb, db);
                 }
-                cs.setSchoolId(userId, schoolId, transDb);
-                cs.setSchoolName(userId, schoolName, transDb);
+                if (schoolId>0) {
+                    s.setFullName(schoolId, schoolName, transDb);
+                    if (!cs.exists(userId, transDb)) {
+                        cs.createCurrentSchool(userId, transDb);
+                    }
+                    cs.setSchoolId(userId, schoolId, transDb);
+                    cs.setSchoolName(userId, schoolName, transDb);
+                }
             }
         }
 
-//        if (isEligible()) {
-        long jobId = getJobId();
-        if (jobId > 0) {
-            JobPostingServices jp = (JobPostingServices) createEJB(getInitialContext(), JobPostingServices.class);
-            if (jp.jobExists(jobId, transDb)) {
-                jp.addJobHit(userId, jobId, HIT_TYPE, transDb);
-            } else {
-                throw new Exception("Invalid or inactive job " + jobId);
+        if (regInfo.isNew()) {
+            long jobId = getJobId();
+            if (jobId > 0) {
+                JobPostingServices jp = (JobPostingServices) createEJB(getInitialContext(), JobPostingServices.class);
+                if (jp.jobExists(jobId, transDb)) {
+                    jp.addJobHit(userId, jobId, HIT_TYPE, transDb);
+                } else {
+                    throw new Exception("Invalid or inactive job " + jobId);
+                }
             }
         }
-        //put their user id in the session so that they can upload a resume
-//        } else {
-//            User user = (User) createEJB(getInitialContext(), User.class);
-        //they're not eligible so override whatever we had set their status to be private label ineligible
-//            user.setStatus(ret.getId(), '3', transDb);
-//        }
-
     }
 
     protected void setCoderType(long coderId, int coderType) throws Exception {
         Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
-
         coder.setCoderTypeId(coderId, coderType, transDb);
-
-        return;
     }
 
     protected long store(SimpleRegInfo regInfo) throws Exception {
         long userId = super.store(regInfo);
-        Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
-
-        coder.setCoderTypeId(userId, ((FullRegInfo) regInfo).getCoderType(), transDb);
-
+        setCoderType(userId, ((FullRegInfo) regInfo).getCoderType());
         this.storeQuestions(regInfo, userId);
-
-        //put their user id in the session so that they can upload a resume
-/*
-        getRequest().getSession(true).setAttribute(Constants.USER_ID, new Long(ret.getId()));
-*/
         return userId;
 
     }
