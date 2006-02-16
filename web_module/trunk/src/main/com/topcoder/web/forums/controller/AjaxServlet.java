@@ -1,7 +1,12 @@
 package com.topcoder.web.forums.controller;
 
+import com.jivesoftware.base.AuthFactory;
+import com.jivesoftware.base.AuthToken;
+import com.jivesoftware.base.User;
+import com.jivesoftware.forum.ForumFactory;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
+import com.topcoder.web.forums.controller.request.ForumsProcessor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,6 +17,7 @@ import java.io.PrintWriter;
  * just a simple servlet to response to ajax requests.  i've removed
  * all security because i'm assuming anyone can make these kinds of requests.
  * i really wanted this to be speedy, so i stripped it down a bit.
+ *
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Feb 16, 2006
@@ -21,49 +27,41 @@ public class AjaxServlet extends BaseServlet {
 
     protected void process(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        RequestProcessor rp;
+
+        RequestProcessor rp = null;
 
         try {
+
+            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
+            AuthToken auth = AuthFactory.getAnonymousAuthToken();
+            ForumFactory forumFactory = ForumFactory.getInstance(auth);
             try {
-
-                request.setCharacterEncoding("utf-8");
-                TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-                TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
-
                 String cmd = StringUtils.checkNull((String) tcRequest.getAttribute(MODULE));
-                log.debug("got module attribute " + cmd);
-                if (cmd.equals("")) {
+                if (cmd.equals(""))
                     cmd = StringUtils.checkNull(tcRequest.getParameter(MODULE));
-                }
 
-                if (cmd.equals("")) {
+                if (cmd.equals(""))
                     cmd = DEFAULT_PROCESSOR;
-                }
-                if (!isLegalCommand(cmd)) {
+                if (!isLegalCommand(cmd))
                     throw new NavigationException();
-                }
 
                 String processorName = PATH + (PATH.endsWith(".") ? "" : ".") + getProcessor(cmd);
 
                 log.debug("creating request processor for " + processorName);
-                try {
-                    rp = callProcess(processorName, tcRequest, tcResponse);
-                } catch (ClassNotFoundException e) {
-                    throw new NavigationException("Invalid request", e);
-                }
+                rp = callProcess(processorName, request, response, tcRequest, tcResponse, null, auth, forumFactory);
                 if (!response.isCommitted()) {
                     fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
                 }
-                //todo perhaps catch Throwable here instead
             } catch (Exception e) {
                 handleException(request, response, e);
             }
 
             /* things are extremely broken, or perhaps some of the response
-             * buffer had already been flushed when an error was thrown,
-             * and the forward to error page failed.  in any event, make
-             * one last attempt to get an error message to the browser
-             */
+                * buffer had already been flushed when an error was thrown,
+                * and the forward to error page failed.  in any event, make
+                * one last attempt to get an error message to the browser
+                */
         } catch (Exception e) {
             log.fatal("forwarding to error page failed", e);
             e.printStackTrace();
@@ -77,15 +75,23 @@ public class AjaxServlet extends BaseServlet {
         }
     }
 
-    protected RequestProcessor callProcess(String processorName, TCRequest request, TCResponse response) throws Exception {
-        RequestProcessor rp;
+    protected RequestProcessor callProcess(String processorName, HttpServletRequest httpRequest,
+                                           HttpServletResponse httpResponse, TCRequest request, TCResponse response,
+                                           User user, AuthToken authToken, ForumFactory factory) throws Exception {
+        ForumsProcessor rp = null;
 
-        rp = (RequestProcessor) Class.forName(processorName).newInstance();
+        rp = (ForumsProcessor) Class.forName(processorName).newInstance();
+        rp.setHttpRequest(httpRequest);
+        rp.setHttpResponse(httpResponse);
         rp.setRequest(request);
         rp.setResponse(response);
+        rp.setAuthToken(authToken);
+        rp.setUser(user);
+        rp.setForumFactory(factory);
         rp.process();
         return rp;
     }
+
 
 
 }
