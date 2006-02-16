@@ -42,28 +42,28 @@
 </jsp:include>
 
 <div align="center">
-Best Average Component Project Placement<br>
+Best Average Component Contest Placement<br>
 <A href="/tc?module=ComponentRecordbook&c=avg_placement&type=design">design</A> | 
 <A href="/tc?module=ComponentRecordbook&c=avg_placement&type=development">development</A> | 
 <A href="/tc?module=ComponentRecordbook&c=avg_placement&type=component">overall</A>
 
 <br><br>
 
-Highest Component Project Prize Earners<br>
+Highest Component Contest Prize Earners<br>
 <A href="/tc?module=ComponentRecordbook&c=component_money&type=design">design</A> | 
 <A href="/tc?module=ComponentRecordbook&c=component_money&type=development">development</A> | 
 <A href="/tc?module=ComponentRecordbook&c=component_money&type=component">overall</A>
 
 <br><br>
 
-Highest Component Project Scores<br>
+Highest Component Contest Scores<br>
 <A href="/tc?module=ComponentRecordbook&c=high_scores&type=design">design</A> | 
 <A href="/tc?module=ComponentRecordbook&c=high_scores&type=development">development</A> | 
 <A href="/tc?module=ComponentRecordbook&c=high_scores&type=component">overall</A>
 
 <br><br>
 
-Largest Component Project Prizes<br>
+Largest Component Contest Prizes<br>
 <A href="/tc?module=ComponentRecordbook&c=largest_comp_prize&type=design">design</A> | 
 <A href="/tc?module=ComponentRecordbook&c=largest_comp_prize&type=development">development</A> | 
 <A href="/tc?module=ComponentRecordbook&c=largest_comp_prize&type=component">overall</A>
@@ -84,7 +84,7 @@ Most Component Contest Submissions<br>
 
 <br><br>
 
-Most Component Project Wins<br>
+Most Component Contest Wins<br>
 <A href="/tc?module=ComponentRecordbook&c=most_wins&type=design">design</A> | 
 <A href="/tc?module=ComponentRecordbook&c=most_wins&type=development">development</A> | 
 <A href="/tc?module=ComponentRecordbook&c=most_wins&type=component">overall</A>
@@ -108,7 +108,7 @@ Highest Component Tournament Winnings<br>
 
 <br><br>
 
-Best Component Project Winning Percentage<br>
+Best Component Contest Winning Percentage<br>
 <A href="/tc?module=ComponentRecordbook&c=win_percentage&type=design">design</A> | 
 <A href="/tc?module=ComponentRecordbook&c=win_percentage&type=development">development</A> | 
 <A href="/tc?module=ComponentRecordbook&c=win_percentage&type=component">overall</A>
