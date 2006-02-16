@@ -36,85 +36,96 @@
 
         <!-- Center Column Begins -->
         <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+
+<div class="fixedWidthBody">
+
 <jsp:include page="../page_title.jsp">
     <jsp:param name="image" value="statistics_w"/>
     <jsp:param name="title" value="Component Competition Record Book"/>
 </jsp:include>
 
-<div align="center">
-Best Average Component Contest Placement<br>
+
+<table cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width="50%" style="padding-right:10px;">
+
+<strong>Best Component Contest Winning Percentage</strong><br>
+<A href="/tc?module=ComponentRecordbook&c=win_percentage&type=design">design</A> | 
+<A href="/tc?module=ComponentRecordbook&c=win_percentage&type=development">development</A> | 
+<A href="/tc?module=ComponentRecordbook&c=win_percentage&type=component">overall</A>
+
+<br><br>
+
+<strong>Best Average Component Contest Placement</strong><br>
 <A href="/tc?module=ComponentRecordbook&c=avg_placement&type=design">design</A> | 
 <A href="/tc?module=ComponentRecordbook&c=avg_placement&type=development">development</A> | 
 <A href="/tc?module=ComponentRecordbook&c=avg_placement&type=component">overall</A>
 
 <br><br>
 
-Highest Component Contest Prize Earners<br>
-<A href="/tc?module=ComponentRecordbook&c=component_money&type=design">design</A> | 
-<A href="/tc?module=ComponentRecordbook&c=component_money&type=development">development</A> | 
-<A href="/tc?module=ComponentRecordbook&c=component_money&type=component">overall</A>
-
-<br><br>
-
-Highest Component Contest Scores<br>
-<A href="/tc?module=ComponentRecordbook&c=high_scores&type=design">design</A> | 
-<A href="/tc?module=ComponentRecordbook&c=high_scores&type=development">development</A> | 
-<A href="/tc?module=ComponentRecordbook&c=high_scores&type=component">overall</A>
-
-<br><br>
-
-Largest Component Contest Prizes<br>
-<A href="/tc?module=ComponentRecordbook&c=largest_comp_prize&type=design">design</A> | 
-<A href="/tc?module=ComponentRecordbook&c=largest_comp_prize&type=development">development</A> | 
-<A href="/tc?module=ComponentRecordbook&c=largest_comp_prize&type=component">overall</A>
-
-<br><br>
-
-Most Component Reviews<br>
-<A href="/tc?module=ComponentRecordbook&c=most_reviews&type=design">design</A> | 
-<A href="/tc?module=ComponentRecordbook&c=most_reviews&type=development">development</A> | 
-<A href="/tc?module=ComponentRecordbook&c=most_reviews&type=component">overall</A>
-
-<br><br>
-
-Most Component Contest Submissions<br>
-<A href="/tc?module=ComponentRecordbook&c=most_submissions&type=design">design</A> | 
-<A href="/tc?module=ComponentRecordbook&c=most_submissions&type=development">development</A> | 
-<A href="/tc?module=ComponentRecordbook&c=most_submissions&type=component">overall</A>
-
-<br><br>
-
-Most Component Contest Wins<br>
+<strong>Most Component Contest Wins</strong><br>
 <A href="/tc?module=ComponentRecordbook&c=most_wins&type=design">design</A> | 
 <A href="/tc?module=ComponentRecordbook&c=most_wins&type=development">development</A> | 
 <A href="/tc?module=ComponentRecordbook&c=most_wins&type=component">overall</A>
 
 <br><br>
 
-Highest Component Contest Overall Earners<br>
+<strong>Highest Component Contest Scores</strong><br>
+<A href="/tc?module=ComponentRecordbook&c=high_scores&type=design">design</A> | 
+<A href="/tc?module=ComponentRecordbook&c=high_scores&type=development">development</A> | 
+<A href="/tc?module=ComponentRecordbook&c=high_scores&type=component">overall</A>
+
+<br><br>
+
+<strong>Most Component Contest Submissions</strong><br>
+<A href="/tc?module=ComponentRecordbook&c=most_submissions&type=design">design</A> | 
+<A href="/tc?module=ComponentRecordbook&c=most_submissions&type=development">development</A> | 
+<A href="/tc?module=ComponentRecordbook&c=most_submissions&type=component">overall</A>
+
+<br><br>
+
+<strong>Most Component Reviews</strong><br>
+<A href="/tc?module=ComponentRecordbook&c=most_reviews&type=design">design</A> | 
+<A href="/tc?module=ComponentRecordbook&c=most_reviews&type=development">development</A> | 
+<A href="/tc?module=ComponentRecordbook&c=most_reviews&type=component">overall</A>
+
+</td>
+<td width="50%" style="padding-left:10px;">
+
+<strong>Highest Component Contest Overall Earners</strong><br>
 <A href="/tc?module=ComponentRecordbook&c=overall_money">overall</A>
 
 <br><br>
 
-Highest Component Contest Royalty Earners<br>
+<strong>Highest Component Contest Prize Earners</strong><br>
+<A href="/tc?module=ComponentRecordbook&c=component_money&type=design">design</A> | 
+<A href="/tc?module=ComponentRecordbook&c=component_money&type=development">development</A> | 
+<A href="/tc?module=ComponentRecordbook&c=component_money&type=component">overall</A>
+
+<br><br>
+
+<strong>Highest Component Contest Royalty Earners</strong><br>
 <A href="/tc?module=ComponentRecordbook&c=royalties">overall</A>
 
 <br><br>
 
-Highest Component Tournament Winnings<br>
+<strong>Largest Single Component Contest Prizes</strong><br>
+<A href="/tc?module=ComponentRecordbook&c=largest_comp_prize&type=design">design</A> | 
+<A href="/tc?module=ComponentRecordbook&c=largest_comp_prize&type=development">development</A> | 
+<A href="/tc?module=ComponentRecordbook&c=largest_comp_prize&type=component">overall</A>
+
+<br><br>
+
+<strong>Highest Component Tournament Winnings</strong><br>
 <A href="/tc?module=ComponentRecordbook&c=tournament_money&type=design">design</A> | 
 <A href="/tc?module=ComponentRecordbook&c=tournament_money&type=development">development</A> | 
 <A href="/tc?module=ComponentRecordbook&c=tournament_money&type=component">overall</A>
 
-<br><br>
-
-Best Component Contest Winning Percentage<br>
-<A href="/tc?module=ComponentRecordbook&c=win_percentage&type=design">design</A> | 
-<A href="/tc?module=ComponentRecordbook&c=win_percentage&type=development">development</A> | 
-<A href="/tc?module=ComponentRecordbook&c=win_percentage&type=component">overall</A>
+</td>
+</tr>
+</table>
 
 </div>
-
         </td>
         <!-- Center Column Ends -->
 
