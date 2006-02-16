@@ -81,61 +81,65 @@ public class ResumeServicesBean extends BaseEJB {
             " SELECT resume_id " +
             " FROM resume " +
             " WHERE coder_id = ? ";
+    public void putResume(long userId, int fileType, String fileName, byte[] file, String dataSource, String iDataSource)
+        throws EJBException {
+    log.debug("ejb:ResumeServices:putResume(" + userId + "," + fileType + "," + fileName + "," + file.length + ") called...");
+    Connection conn = null;
+    PreparedStatement psSel = null;
+    PreparedStatement psUpd = null;
+    PreparedStatement psIns = null;
+    ResultSet rs = null;
+    InitialContext ctx = null;
+    try {
+        if (file == null || file.length == 0) throw new EJBException("invalid file, it was either null or empty");
+        conn = DBMS.getConnection(dataSource);
+        psSel = conn.prepareStatement(GET_RESUME_ID);
+        psSel.setLong(1, userId);
+        rs = psSel.executeQuery();
 
-    public void putResume(long userId, int fileType, String fileName, byte[] file, String dataSource)
-            throws EJBException {
-        log.debug("ejb:ResumeServices:putResume(" + userId + "," + fileType + "," + fileName + "," + file.length + ") called...");
-        Connection conn = null;
-        PreparedStatement psSel = null;
-        PreparedStatement psUpd = null;
-        PreparedStatement psIns = null;
-        ResultSet rs = null;
-        InitialContext ctx = null;
-        try {
-            if (file == null || file.length == 0) throw new EJBException("invalid file, it was either null or empty");
-            conn = DBMS.getConnection(dataSource);
-            psSel = conn.prepareStatement(GET_RESUME_ID);
-            psSel.setLong(1, userId);
-            rs = psSel.executeQuery();
-
-            int numUpdated = 0;
-            if (rs.next()) {
-                psUpd = conn.prepareStatement(UPDATE_RESUME_QUERY);
-                psUpd.setString(1, fileName);
-                psUpd.setInt(2, fileType);
-                psUpd.setBytes(3, file);
-                psUpd.setInt(4, rs.getInt("resume_id"));
-                numUpdated = psUpd.executeUpdate();
-            } else {
-                psIns = conn.prepareStatement(INSERT_RESUME_QUERY);
-                psIns.setLong(1, IdGeneratorClient.getSeqId("RESUME_SEQ"));
-                psIns.setLong(2, userId);
-                psIns.setString(3, fileName);
-                psIns.setInt(4, fileType);
-                psIns.setBytes(5, file);
-                numUpdated = psIns.executeUpdate();
-            }
-
-
-            if (numUpdated != 1) {
-                throw new Exception(numUpdated + " columns where changed, when 1 was expected.");
-            }
-
-
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException(sqe.getMessage());
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new EJBException(e.getMessage());
-        } finally {
-            close(psSel);
-            close(psUpd);
-            close(psIns);
-            close(rs);
-            close(conn);
-            close(ctx);
+        int numUpdated = 0;
+        if (rs.next()) {
+            psUpd = conn.prepareStatement(UPDATE_RESUME_QUERY);
+            psUpd.setString(1, fileName);
+            psUpd.setInt(2, fileType);
+            psUpd.setBytes(3, file);
+            psUpd.setInt(4, rs.getInt("resume_id"));
+            numUpdated = psUpd.executeUpdate();
+        } else {
+            psIns = conn.prepareStatement(INSERT_RESUME_QUERY);
+            psIns.setLong(1, IdGeneratorClient.getSeqId("RESUME_SEQ", iDataSource));
+            psIns.setLong(2, userId);
+            psIns.setString(3, fileName);
+            psIns.setInt(4, fileType);
+            psIns.setBytes(5, file);
+            numUpdated = psIns.executeUpdate();
         }
+
+
+        if (numUpdated != 1) {
+            throw new Exception(numUpdated + " columns where changed, when 1 was expected.");
+        }
+
+
+    } catch (SQLException sqe) {
+        DBMS.printSqlException(true, sqe);
+        throw new EJBException(sqe.getMessage());
+    } catch (Exception e) {
+        e.printStackTrace();
+        throw new EJBException(e.getMessage());
+    } finally {
+        close(psSel);
+        close(psUpd);
+        close(psIns);
+        close(rs);
+        close(conn);
+        close(ctx);
+    }
+
+    }
+
+    public void putResume(long userId, int fileType, String fileName, byte[] file, String dataSource) throws EJBException {
+        putResume(userId, fileType, fileName, file, dataSource, DBMS.COMMON_OLTP_DATASOURCE_NAME);
     }
 
     private static final String GET_FILE_TYPES_QUERY =
