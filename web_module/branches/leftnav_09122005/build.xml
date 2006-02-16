@@ -797,6 +797,7 @@
                 <include name="idgenerator.jar"/>
                 <include name="upload.jar"/>
                 <include name="tcsUtil.jar"/>
+                <include name="taconite.jar"/>
                 <include name="fileconvert.jar"/>
                 <include name="httpunit.jar"/>
                 <include name="itext-1.1.jar"/>
