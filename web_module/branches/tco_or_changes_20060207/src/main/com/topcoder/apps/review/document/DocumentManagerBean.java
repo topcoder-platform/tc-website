@@ -40,8 +40,16 @@ import java.util.*;
  * </li>
  * </ol>
  *
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * Changed constraint to permit appeals edition in appeals phase only when project is
+ * marked as not allowing appeals responses during appeals phase.
+ * </li>
+ * </ol>
+ *
  * @author FatClimber, pulky
- * @version 1.0.1
+ * @version 1.0.2
  */
 public class DocumentManagerBean implements SessionBean {
     private Logger log = null;
@@ -749,6 +757,7 @@ public class DocumentManagerBean implements SessionBean {
 
             // If scorecard is completed and the user isn't admin/pm,
             // or reviewer in appeals-phase
+            // or reviewer in appeal phase with project marked as allowing appelas response during appealse
             // then don't allow save!
             if (scorecardIsCompleted &&
                     !(Common.isAdmin(requestor) ||
@@ -757,8 +766,11 @@ public class DocumentManagerBean implements SessionBean {
             if (!(Common.isRole(scorecard.getProject(), requestorId, Role.ID_REVIEWER) &&
                         scorecard.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS)) {
 */
+                boolean responseDuringAppeals = scorecard.getProject().getResponseDuringAppeals();
                 if (!(Common.isRole(scorecard.getProject(), requestorId, Role.ID_REVIEWER) &&
-                        scorecard.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS_RESPONSE)) {
+                        (scorecard.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS_RESPONSE ||
+                            scorecard.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS &&
+                                responseDuringAppeals))) {
 
                     String infoMsg = "DM.saveScorecard():\n" +
                             "scorecard_id: " + scorecard.getId() + "\n" +
@@ -4575,6 +4587,7 @@ public class DocumentManagerBean implements SessionBean {
             // If appeal doesn't exist and the user isn't the appealer
             // then don't allow save!
 
+            // plk
             boolean b1 =(appealIsResolved && !(Common.isAdmin(requestor) || Common.isRole(project, requestor.getUserId(), Role.ID_PRODUCT_MANAGER)));
             boolean b2 =(appeal.getId() != -1 && (!(project.getCurrentPhase().getId() == Phase.ID_APPEALS) || !permitEditDuringAppeals) &&
                     !(Common.isRole(project, requestor.getUserId(), Role.ID_REVIEWER) && appeal.getReviewer().getId() == requestor.getUserId()));
