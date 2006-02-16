@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
+ * just a simple servlet to response to ajax requests.  i've removed
+ * all security because i'm assuming anyone can make these kinds of requests.
+ * i really wanted this to be speedy, so i stripped it down a bit.
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Feb 16, 2006
