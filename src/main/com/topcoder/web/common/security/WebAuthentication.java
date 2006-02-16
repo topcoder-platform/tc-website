@@ -20,10 +20,23 @@ public interface WebAuthentication extends Authentication {
      * Attempt to log in with the given user.
      * @param u
      * @param rememberUser whether or not the user
-     * should be recognized the next time they log in (getActiveUser())
+     * should be recognized the next time attempt to use the site
+     * basically we're setting a cookie to remember them (getActiveUser())
      * @throws LoginException
      */
     void login(User u, boolean rememberUser) throws LoginException;
+
+    /**
+     * Attempt to login with the given user.
+     * @param u
+     * @param rememberUser whether or not the user
+     * should be recognized the next time attempt to use the site
+     * basically we're setting a cookie to remember them (getActiveUser())
+     * @param dataSource this is the dataSource name that will be used
+     * to validate the given credentials
+     * @throws LoginException
+     */
+    void login(User u, boolean rememberUser, String dataSource) throws LoginException;
 
 
 }
