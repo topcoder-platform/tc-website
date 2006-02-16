@@ -2,6 +2,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<jsp:include page="/script.jsp" />
+
 <title>2006 TopCoder Open - Computer Programming Tournament</title>
 <jsp:include page="/script.jsp" />
 <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>

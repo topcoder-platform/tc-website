@@ -7,6 +7,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html class="termsHTML">
 <head>
+<jsp:include page="/script.jsp" />
+
 <title>2006 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
 <STYLE TYPE="text/css">

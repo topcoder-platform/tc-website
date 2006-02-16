@@ -8,6 +8,8 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <html>
 <head>
+<jsp:include page="/script.jsp" />
+
 <title>2006 TopCoder Open Sponsor Track - Registration</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
 <STYLE TYPE="text/css">
