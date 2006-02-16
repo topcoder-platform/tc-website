@@ -79,6 +79,27 @@ public class BasicAuthentication implements WebAuthentication {
         login(u, true);
     }
 
+    public void login(User u, boolean rememberUser, String dataSource) throws LoginException {
+        log.info("attempting login as " + u.getUserName() + " path: " + defaultCookiePath.getName() + " remember " + rememberUser);
+        try {
+            LoginRemote login = (LoginRemote) Constants.createEJB(LoginRemote.class);
+            TCSubject sub = login.login(u.getUserName(), u.getPassword(), dataSource);
+            long uid = sub.getUserId();
+            setCookie(uid, rememberUser);
+            setUserInPersistor(makeUser(uid));
+            log.info("login succeeded");
+
+        } catch (Exception e) {
+            log.info("login failed", e);
+            //not necessarily accurate, but gotta say something...
+            throw new LoginException("Handle or password incorrect.");
+        }
+    }
+
+    public void login(User u, String dataSource) throws LoginException {
+        login(u, true, dataSource);
+    }
+
     /**
      * Use the security component to log the supplied user in.
      * If login succeeds, set a cookie if rememberUser is true, and record status in the persistor.
