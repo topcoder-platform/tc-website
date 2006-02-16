@@ -116,7 +116,7 @@ public class Login extends FullLogin {
         if (!getAuthentication().getUser().isAnonymous()) {
             User user = (User) createEJB(getInitialContext(), User.class);
             char status = user.getStatus(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
-            ret = Arrays.binarySearch(ACTIVE_STATI, status) > 0;
+            ret = Arrays.binarySearch(ACTIVE_STATI, status) >= 0;
         }
         return ret;
 
@@ -145,7 +145,7 @@ public class Login extends FullLogin {
             addError(Constants.HANDLE, "You have already created an account for this event.");
             return null;
         } else {
-            boolean hasTCAccount = hasTopCoderAccount();
+            boolean hasTCAccount = false;//hack to make it work.  if copying this, fix it
             boolean hasCompanyAccount = hasCommonAccount();
             if (hasErrors()) {
                 return null;
