@@ -28,7 +28,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-TopCoder reserves the title of Coder of the Month for any competitor who has had an outstanding month. Some months, this means that we choose the algorithm competitor with an exceptionally high rating increase for the month.  Other times TopCoder may select a Coder of the Month based on exceptional performance in Component Competitions for a given period of time. Perhaps even a member who has earned a large amount of winnings or has had an impressive winning streak.
+<strong>Record:</strong> TopCoder reserves the title of Coder of the Month for any competitor who has had an outstanding month. Some months, this means that we choose the algorithm competitor with an exceptionally high rating increase for the month.  Other times TopCoder may select a Coder of the Month based on exceptional performance in Component Competitions for a given period of time. Perhaps even a member who has earned a large amount of winnings or has had an impressive winning streak.
 </span>
 </div>
 </html>
