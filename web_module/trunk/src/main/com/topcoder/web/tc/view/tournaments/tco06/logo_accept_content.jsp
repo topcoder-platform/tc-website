@@ -6,6 +6,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<jsp:include page="/script.jsp" />
+
 <title>2006 TopCoder Open - Logo Design Contest</title>
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
