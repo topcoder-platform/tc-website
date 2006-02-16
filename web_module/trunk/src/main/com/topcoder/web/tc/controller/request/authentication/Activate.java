@@ -4,7 +4,6 @@ import com.topcoder.ejb.UserServices.UserServices;
 import com.topcoder.ejb.UserServices.UserServicesHome;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -14,10 +13,9 @@ import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 
-import javax.naming.Context;
+import javax.rmi.PortableRemoteObject;
 import javax.transaction.Status;
 import javax.transaction.TransactionManager;
-import javax.rmi.PortableRemoteObject;
 import java.util.Arrays;
 
 public class Activate extends Base {
@@ -51,7 +49,7 @@ public class Activate extends Base {
                 //activate account
                 User user = (User) createEJB(getInitialContext(), User.class);
                 char status = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                if (Arrays.binarySearch(UNACTIVE_STATI, status) > 0) {
+                if (Arrays.binarySearch(UNACTIVE_STATI, status) >= 0) {
                     doLegacyCrap((int) userId);
                     Email email = (Email) createEJB(getInitialContext(), Email.class);
                     email.setStatusId(email.getPrimaryEmailId(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME),
@@ -59,7 +57,7 @@ public class Activate extends Base {
                     user.setStatus(userId, ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
                     setNextPage(Constants.ACTIVATE);
                     setIsNextPageInContext(true);
-                } else if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
+                } else if (Arrays.binarySearch(ACTIVE_STATI, status) >= 0) {
                     //just send them to the home page
                     setIsNextPageInContext(false);
                 } else {

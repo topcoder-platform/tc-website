@@ -58,7 +58,7 @@ public class Login extends Base {
                         }
                         char status = getStatus(sub.getUserId());
                         log.debug("status: " + status);
-                        if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
+                        if (Arrays.binarySearch(ACTIVE_STATI, status) >= 0) {
                             //check if they have an active email address
                             if (getEmailStatus(sub.getUserId()) != ACTIVE_STATUS) {
                                 getAuthentication().logout();
@@ -82,11 +82,11 @@ public class Login extends Base {
                             }
                         } else {
                             getAuthentication().logout();
-                            if (Arrays.binarySearch(INACTIVE_STATI, status) > 0) {
+                            if (Arrays.binarySearch(INACTIVE_STATI, status) >= 0) {
                                 log.debug("user inactive");
                                 throw new LoginException("Sorry, your account is not active.  " +
                                         "If you believe this is an error, please contact TopCoder.");
-                            } else if (Arrays.binarySearch(UNACTIVE_STATI, status) > 0) {
+                            } else if (Arrays.binarySearch(UNACTIVE_STATI, status) >= 0) {
                                 log.debug("user unactive");
                                 getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "Your account is not active.  " +
                                         "Please review the activation email that was sent to you after registration.");
