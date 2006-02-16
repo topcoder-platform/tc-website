@@ -37,7 +37,6 @@
         <!-- Center Column Begins -->
         <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
             <jsp:include page="<%=(String)request.getAttribute("includeJsp")%>"/>
-            <p style="float:right;"><A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">back to table of contents</p>
         </td>
         <!-- Center Column Ends -->
 
