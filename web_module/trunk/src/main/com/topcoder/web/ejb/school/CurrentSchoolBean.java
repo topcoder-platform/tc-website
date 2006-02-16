@@ -144,5 +144,10 @@ public class CurrentSchoolBean extends BaseEJB {
 
     }
 
+    public long getSchoolId(long coderId, String dataSource) throws EJBException {
+        return selectLong("current_school", "school_id", new String[] {"coder_id"},
+                new String[]{String.valueOf(coderId)}, dataSource).longValue();
+    }
+
 
 }
