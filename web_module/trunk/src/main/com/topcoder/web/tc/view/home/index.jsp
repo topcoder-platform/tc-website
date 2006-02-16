@@ -206,6 +206,9 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/spartanDaily_logo.gif" width="88" height="10" alt="Spartan Daily" border="0" /></div>
+            SJSU codes a win <A href="http://www.thespartandaily.com/media/paper852/news/2006/02/16/News/Sjsu-Codes.A.Win-1616451.shtml?norewrite&sourcedomain=www.thespartandaily.com" target="_blank">...more</A><br>[February 16]<br><br>
+            
             TopCoder High School Launches Global Programming Tournament in June <A href="/tc?module=Static&d1=pressroom&d2=pr_020806">...more</A><br>[February 8]<br><br>
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wsj_logo.gif" width="88" height="10" alt="Wall Street Journal" border="0" /></div>
@@ -217,10 +220,7 @@ margin:0px auto;
             
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="67" height="37" alt="The Java Posse" border="0" /></div>
             Java Posse - Bill Goggin interview [PODCAST] <A href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3" target="_blank">...more</A><br>[January 20]<br><br>
-            
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/businessweek_logo.gif" width="67" height="16" alt="BusinessWeek" border="0" /></div>
-            The NSA: Security in Numbers <A href="http://www.businessweek.com/magazine/content/06_04/b3968007.htm" target="_blank">...more</A><br>[January 13]<br><br>
-                        
+                            
             </td>
          </tr>
       </table>

@@ -9,7 +9,7 @@
    <tr><td class="prHead"><A href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_012606">TopCoder Software Component Libraries Selected as Finalist for the 16th Annual Jolt Awards</A> [January 26]</td></tr>
    <tr><td class="prHead">
          <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/incDOTcom_logo.gif" width="67" height="25" alt="Inc.com" border="0" /></div>
-          <A href="/pdfs/press_room/inc_0106.pdf" target="_blank">Put a hacker to work [PDF]</A> [January 2006]
+          <A href="http://www.inc.com/magazine/20060101/handson-global.html" target="_blank">Put a hacker to work</A> [January 2006]
    </td></tr>
    <tr><td class="prHead">
          <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/bw_cov120205_small.jpg"  width="85" height="82" alt="BusinessWeek" border="0" /></div>

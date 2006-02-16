@@ -6,6 +6,20 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 
+<%-------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>02.16.06<br>12:55 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.thespartandaily.com/media/paper852/news/2006/02/16/News/Sjsu-Codes.A.Win-1616451.shtml?norewrite&sourcedomain=www.thespartandaily.com" target="_blank">SJSU codes a win</A></span><br><br>
+      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/spartanDaily_logo.gif" width="108" height="12" alt="Spartan Daily" border="0" /></div>
+      "San Jose State University's computer science department has earned a world ranking in a prestigious online computer programming competition called Topcoder."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://www.thespartandaily.com/media/paper852/news/2006/02/16/News/Sjsu-Codes.A.Win-1616451.shtml?norewrite&sourcedomain=www.thespartandaily.com" target="_blank">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505921" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.15.06<br>10:45 AM</td>
