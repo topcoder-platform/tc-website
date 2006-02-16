@@ -3,17 +3,17 @@
 <html>
 <head>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
-    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gccj05.css"/>
+    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gicj06.css"/>
     <title>Google Code Jam India, Powered by TopCoder</title>
 </head>
 
 <body>
 
-<table border="0" width=100% cellpadding=0 cellspacing=0>
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
 <tr>
     <td width="49%">&#160;</td>
     <td align="center">
-        <table border="0" width=100% cellpadding=0 cellspacing=0>
+        <table border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                 <td width="49%"></td>
                 <td valign="bottom" align="center"><img border="0" src="/i/events/gicj06/logo_CodeJam.gif" alt="Google Code Jam India logo"></td>
@@ -37,10 +37,10 @@
 
 <br><br>
 
-<span valign=top>
+<span valign="top">
 <jsp:include page="right.jsp"/>
 </span>
-
+<br>
 Get ready! Google&#153; is on its way to India again and they are looking for the best. Don't miss out on the Google Code Jam India. This exciting contest gives you the chance to show off your coding talent for Rs. 1,550,000 in cash and prizes!
 <br><br>
 <span class="greenSubtitle">The Competition:</span>
