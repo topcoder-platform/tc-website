@@ -177,7 +177,8 @@ public class AppealProject implements Model {
                             return new FailureResult("Error while calculating the score: ", e);
                         }
                         documentManager.saveReviewScorecard(scorecard, user.getTCSubject());
-                        MailHelper.appealResolved(project, appeal);
+                        // plk
+                        //MailHelper.appealResolved(project, appeal);
                     } else {
                         if (newAppeal) {
                             MailHelper.appealCreated(project, appeal);
