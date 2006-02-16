@@ -89,6 +89,13 @@ public class TCSAuthentication implements WebAuthentication {
     public void login(User u) throws LoginException {
         throw new RuntimeException("Not implemented");
     }
+    public void login(User u, boolean rememberUser, String dataSource) throws LoginException {
+        throw new RuntimeException("Not implemented");
+    }
+
+    public void login(User u, String dataSource) throws LoginException {
+        throw new RuntimeException("Not implemented");
+    }
 
     /** Log out, if currently considered logged in. */
     public void logout() {
