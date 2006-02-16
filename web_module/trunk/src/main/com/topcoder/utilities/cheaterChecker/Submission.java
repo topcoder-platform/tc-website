@@ -3,7 +3,7 @@ package com.topcoder.utilities.cheaterChecker;
 public class Submission {
     private String handle;
     private long coderId;
-    private byte[] classFile;
+    //private byte[] classFile;
     private String source;
     private int languageId;
     private long openTime;
@@ -18,7 +18,9 @@ public class Submission {
     public Submission() {
         setHandle(null);
         setCoderId(0);
+/*
         setClassFile(null);
+*/
         setSource(null);
         setLanguageId(0);
         setOpenTime(0);
@@ -47,6 +49,7 @@ public class Submission {
         this.coderId = coderId;
     }
 
+/*
     public byte[] getClassFile() {
         return classFile;
     }
@@ -54,6 +57,7 @@ public class Submission {
     public void setClassFile(byte[] classFile) {
         this.classFile = classFile;
     }
+*/
 
     public String getSource() {
         return source;

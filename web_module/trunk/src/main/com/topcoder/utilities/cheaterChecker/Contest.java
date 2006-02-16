@@ -202,7 +202,7 @@ public class Contest {
                 s = new Submission();
                 s.setHandle(rs.getString("handle"));
                 s.setCoderId(rs.getInt("coder_id"));
-                s.setClassFile(rs.getBytes("class_file"));
+                //s.setClassFile(rs.getBytes("class_file"));
                 s.setSource(cs.stripComments(DBMS.getTextString(rs, 4)));
                 s.setLanguageId(rs.getInt("language_id"));
                 s.setOpenTime(rs.getLong("open_time"));
@@ -254,7 +254,7 @@ public class Contest {
                 s = new Submission();
                 s.setHandle(rs.getString("handle"));
                 s.setCoderId(rs.getInt("coder_id"));
-                s.setClassFile(rs.getBytes("class_file"));
+                //s.setClassFile(rs.getBytes("class_file"));
                 s.setSource(cs.stripComments(DBMS.getTextString(rs, 4)));
                 s.setLanguageId(rs.getInt("language_id"));
                 s.setOpenTime(0);
