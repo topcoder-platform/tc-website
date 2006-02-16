@@ -1,16 +1,19 @@
 <%@ include file = "includes.jsp"%>
 
+<div class="fixedWidthBody">
+
 <jsp:include page="../page_title.jsp">
     <jsp:param name="image" value="statistics_w"/>
-    <jsp:param name="title" value="Highest Component Contest Royalty Earners"/>
+    <jsp:param name="title" value="Component Competition Record Book"/>
 </jsp:include>
 
 <% ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("result");
 String type = (String)request.getParameter("type");
 if (type == null) type = HandleTag.COMPONENT; %>
 
-<div align="center">
-<table class="stat" cellpadding="0" cellspacing="0" width="350" style="margin-right: 15px; margin-bottom: 15px;">
+<div style="float:right;"><A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">back to table of contents</A></div>
+<br><br>
+<table class="stat" cellpadding="0" cellspacing="0" width="270" style="float: left; margin-right: 15px; margin-bottom: 15px;">
     <tr><td class="title" colspan="3">Highest Component Contest Royalty Earners</td></tr>
     <tr><td class="headerC">Rank</td><td class="header" width="100%">Coder</td><td class="headerR">Ryoalties</td></tr>
     <% boolean even = false; %>
@@ -23,5 +26,8 @@ if (type == null) type = HandleTag.COMPONENT; %>
     <% even = !even;%>
     </rsc:iterator>
 </table>
+<span class="bodyText">
+TopCoder reserves the title of Coder of the Month for any competitor who has had an outstanding month. Some months, this means that we choose the algorithm competitor with an exceptionally high rating increase for the month.  Other times TopCoder may select a Coder of the Month based on exceptional performance in Component Competitions for a given period of time. Perhaps even a member who has earned a large amount of winnings or has had an impressive winning streak.
+</span>
 </div>
 </html>
