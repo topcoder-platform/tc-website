@@ -4,6 +4,7 @@
 <head>
 <title>2006 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
+<jsp:include page="/script.jsp" />
 </head>
 <body>
 
