@@ -4587,17 +4587,6 @@ public class DocumentManagerBean implements SessionBean {
             // If appeal doesn't exist and the user isn't the appealer
             // then don't allow save!
 
-            // plk
-            boolean b1 =(appealIsResolved && !(Common.isAdmin(requestor) || Common.isRole(project, requestor.getUserId(), Role.ID_PRODUCT_MANAGER)));
-            boolean b2 =(appeal.getId() != -1 && (!(project.getCurrentPhase().getId() == Phase.ID_APPEALS) || !permitEditDuringAppeals) &&
-                    !(Common.isRole(project, requestor.getUserId(), Role.ID_REVIEWER) && appeal.getReviewer().getId() == requestor.getUserId()));
-            boolean b3 = (appeal.getId() == -1 && !(appeal.getAppealer().getId() == requestor.getUserId()));
-
-            System.out.println("b1 :" + b1);
-            System.out.println("b2 :" + b2);
-            System.out.println("b3 :" + b3);
-
-
             if ((appealIsResolved && !(Common.isAdmin(requestor) || Common.isRole(project, requestor.getUserId(), Role.ID_PRODUCT_MANAGER)))
                 || (appeal.getId() != -1 && (!(project.getCurrentPhase().getId() == Phase.ID_APPEALS) || !permitEditDuringAppeals) &&
                     !(Common.isRole(project, requestor.getUserId(), Role.ID_REVIEWER) && appeal.getReviewer().getId() == requestor.getUserId()))

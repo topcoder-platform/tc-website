@@ -185,7 +185,8 @@ public class AutoPilotTimer
                                 StringBuffer mail = null;
                                 String emailSubject = "";
                                 // If there are no appeals, send email to PM
-                                if (appeals.length == 0) {
+// plk                                if (appeals.length == 0) {
+                                if (true) {
                                     mail = new StringBuffer();
                                     mail.append("The following project: \n\n");
                                     mail.append(p.getName());
