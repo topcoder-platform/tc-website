@@ -97,7 +97,8 @@
    request.setAttribute("tree", nav);
 
 %>
-
+<script language="JavaScript" type="text/javascript" src="/js/taconite-client.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/taconite-parser.js"></script>
 
 <script language="javascript" type="text/javascript">
 <!--
@@ -111,6 +112,10 @@ function toggleMenu(menuTitle,menuID){
    if(menuTitle.blur)menuTitle.blur();
    if(menuTitle.className == 'exp') menuTitle.className = 'exp_ed';
    else menuTitle.className = 'exp';
+   if (menuId=='m_forums') {
+     var ajaxRequest = new AjaxRequest('http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=NavList');
+     ajaxRequest.sendRequest();
+   }
    return;
 }
 function flipMenu(myMenuName){
