@@ -175,11 +175,9 @@ tie will be resolved in the following manner (in order):
 <li>If a tie still remains in the Championship Round, then the prize money will be distributed equally among the
 tied coders.</li>
 </ul>
-
+<a name="prizes"></a>
 <span class="greenSubtitle">About the Prizes</span><br>
-The top 250 scores from Round 1 will receive a "Google Code Jam India" t-shirt. In addition, the 50 finalists in
-the Championship Round will receive prizes. Any and all applicable taxes on prizes are the sole responsibility of
-the prizewinner. Prizes will be distributed as follows:
+The top 250 scores from Round 1 will receive a "Google Code Jam India" t-shirt. In addition, the 50 finalists in the Championship Round will receive prizes. As required by Indian law, Google India will deduct income-tax at source from all prize money, at the rate of 30% + surcharge + educational cess. Prizes will be distributed as follows:
 <br><br>
 <table width="250" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
 <tr valign="top">
@@ -210,7 +208,7 @@ Rs. 11,000
 <td class="sidebarText">
 Rs. 6,600
 </td></tr>
-<tr valign="top"><td class="sidebarText" nowrap="nowrap" colspan="2">All finalists will receive an iPod Nano (estimated Rs. 8,850)</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap" colspan="2">* Winner must be present at the onsite round to receive prize. <br>All finalists will receive an iPod Nano (estimated Rs. 8,850)</td></tr>
 </table>
 <br>
 

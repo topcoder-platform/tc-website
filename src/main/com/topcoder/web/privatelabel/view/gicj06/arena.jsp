@@ -52,7 +52,9 @@
                 <span valign="top">
          <jsp:include page="right.jsp"/>
          </span>
-
+         <br><br>
+         The Competition Arena will open on Febuary 27.
+<!--
                 <br><br>
                 <A href="/pl/?module=GoogleChina05Credentials&cid=15857&<%=Constants.LOCALE%>=<%=Locale.US.getLanguage()%>">Forgot your password?</A>
                 <br><br>
@@ -82,9 +84,9 @@
                 <br><br>
                 If you experience problems loading or running the Competition Arena please contact 
 				<A href="gicj06@topcoder.com?subject=Question regarding Google Code Jam India">gicj06@topcoder.com</A>.
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-                <br><br>
+-->
+<br><br><br><br><br><br><br><br><br><br><br
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 To find out more detailed information about the Google&#153; Code Jam India, including a list of the prizes, please read the
 <a href="/pl/?module=Static&d1=gicj06&d2=rules">Terms and Conditions</a>.
             </div>

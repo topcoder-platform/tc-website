@@ -37,10 +37,13 @@
 
 <br><br>
 
+
+<span class="bigTitle">Google&#153; Code Jam India</span>
 <span valign="top">
-<jsp:include page="right.jsp"/>
-</span>
-<br>
+         <jsp:include page="right.jsp"/>
+         </span>
+
+<br><br>
 Get ready! Google&#153; is on its way to India again and they are looking for the best. Don't miss out on the Google Code Jam India. This exciting contest gives you the chance to show off your coding talent for Rs. 1,550,000 in cash and prizes!
 <br><br>
 <span class="greenSubtitle">The Competition:</span>
@@ -48,7 +51,7 @@ Get ready! Google&#153; is on its way to India again and they are looking for th
 The tournament is a timed contest where all participants compete online to solve the same problems under the same time
 constraints.
 <br><br>
-The competition is available in four programming languages - Java, C++, C#, and VB.
+The competition is available in two programming languages - Java and C++.
 <br><br>
 A wizard with C but rusty with C++? Don't worry! We've got it covered. Check out the <A href="/pl/?module=Static&d1=gicj06&d2=cpp">C++ for C Programmers page</A> that shows you the basics of learning C++ for the competition. Also, be sure to spend time in the Practice Rooms by clicking on the Competition Arena link above.
 <br><br>
@@ -138,7 +141,7 @@ The competitors with the top 50 scores from Round 1 will be invited to compete f
 <br><br>
 <span class="greenSubtitle">Prizes</span>
 <br><br>
-The top 250 scores of Round 1 will receive a "Google&#153; Code Jam India" t-shirt. All 50 finalists that compete in the Championship Round will receive prizes as follows:
+The top 250 scores of Round 1 will receive a "Google&#153; Code Jam India" t-shirt. As required by Indian law, Google India will deduct income-tax at source from all prize money, at the rate of 30% + surcharge + educational cess. All 50 finalists that compete in the Championship Round will receive prizes as follows:
 <br><br>
 
 <table width="250" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
@@ -170,7 +173,7 @@ Rs. 11,000
 <td class="sidebarText">
 Rs. 6,600
 </td></tr>
-<tr valign="top"><td class="sidebarText" nowrap="nowrap" colspan="2">All finalists will receive an iPod Nano (estimated Rs. 8,850)</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap" colspan="2">* Winner must be present at the onsite round to receive prize. <br>All finalists will receive an iPod Nano (estimated Rs. 8,850)</td></tr>
 </table>
 <br>
 To find out more detailed information about the Google&#153; Code Jam India, including a list of the prizes, please read the
