@@ -94,7 +94,7 @@
 
                 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                     <tr>
-                        <TD>Contest</td>
+                        <TD>Match</td>
                         <TD><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr" />" class="statLink">Participants</td>
                         <TD><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true" excludeParams="sr" />" class="statLink">Division I winner</td>
                         <TD><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />" class="statLink">Division II winner</td>
