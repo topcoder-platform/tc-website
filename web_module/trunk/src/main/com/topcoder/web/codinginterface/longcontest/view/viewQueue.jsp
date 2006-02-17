@@ -77,6 +77,9 @@
                                 <td class="tableHeader" width="20%">
                                     Handle
                                 </td>
+                                <td class="tableHeader" width="20%">
+                                    Contest
+                                </td>
                                 <td class="tableHeader" width="20%" align="center">
                                     Queue Date
                                 </td>
@@ -92,6 +95,9 @@
                                 <tr>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
                                         <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>'/>
+                                    </td>
+                                    <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
+                                        <rsc:item name="contest_name" row="<%=resultRow%>"/> &gt; <rsc:item name="round_name" row="<%=resultRow%>"/>
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="right">
                                         <rsc:item name="queue_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm:ss"/>
