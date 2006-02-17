@@ -14,6 +14,7 @@ public class Submission {
     private String className;
     private String methodName;
     private boolean included;
+    private int submissionNumber;
 
     public Submission() {
         setHandle(null);
@@ -131,6 +132,14 @@ public class Submission {
         this.methodName = methodName;
     }
 
+    public int getSubmissionNumber() {
+        return submissionNumber;
+    }
+
+    public void setSubmissionNumber(int submissionNumber) {
+        this.submissionNumber = submissionNumber;
+    }
+
     public boolean isIncluded() {
         return included;
     }
@@ -138,5 +147,6 @@ public class Submission {
     public void setIncluded(boolean included) {
         this.included = included;
     }
+
 
 }

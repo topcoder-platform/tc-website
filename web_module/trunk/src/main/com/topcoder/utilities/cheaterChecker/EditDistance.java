@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class EditDistance implements Fraud {
+public class EditDistance extends FraudBase {
     private static Logger log = Logger.getLogger(EditDistance.class);
     private StringBuffer report = null;
     private List tokens = null;

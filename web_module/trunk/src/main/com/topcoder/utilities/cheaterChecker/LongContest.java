@@ -51,6 +51,7 @@ public class LongContest {
                 }
 
                 fraud = new SimilarHistogram(nonNormalizedSource, submissions, Fraud.MAX_REPORT);
+                fraud.setReportSize(200);
                 log.info("****************** SIMILAR HISTOGRAM **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
@@ -58,6 +59,7 @@ public class LongContest {
                 allPotentialViolators.addAll(fraud.getPotentialViolators());
 
                 fraud = new Similar(nonNormalizedSource, submissions, Fraud.MAX_REPORT);
+                fraud.setReportSize(200);
                 log.info("****************** SIMILAR SOURCE **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
@@ -65,13 +67,14 @@ public class LongContest {
                 allPotentialViolators.addAll(fraud.getPotentialViolators());
 
                 fraud = new Same(normalizedSource, submissions, Fraud.MAX_REPORT);
+                fraud.setReportSize(200);
                 log.info("****************** SAME NORMALIZED SOURCE**************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
                 allPotentialViolators.addAll(fraud.getPotentialViolators());
 
-                fraud = new SimilarSourceSubsequences(normalizedSource, submissions, Fraud.MAX_REPORT);
+/*                fraud = new SimilarSourceSubsequences(normalizedSource, submissions, Fraud.MAX_REPORT);
                 log.info("****************** SIMILAR SUBSEQUENCES **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
@@ -83,7 +86,7 @@ public class LongContest {
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
-                allPotentialViolators.addAll(fraud.getPotentialViolators());
+                allPotentialViolators.addAll(fraud.getPotentialViolators());*/
 
 
 
@@ -144,6 +147,7 @@ public class LongContest {
             query.append(" , c.problem_id");
             query.append(" , c.class_name");
             query.append(" , c.method_name");
+            query.append(" , s.submission_number");
             query.append(" FROM component_state cc ");
             query.append(" , submission s ");
             query.append(" , room r ");
@@ -196,6 +200,7 @@ public class LongContest {
                 s.setComponentId(rs.getLong("component_id"));
                 s.setClassName(rs.getString("class_name"));
                 s.setMethodName(rs.getString("method_name"));
+                s.setSubmissionNumber(rs.getInt("submission_number"));
                 s.setIncluded(true);
             }
 
