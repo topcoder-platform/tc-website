@@ -28,7 +28,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-<strong>Record:</strong> Competitors with the most career wins.
+<strong>Record:</strong> Most career wins.
 </span>
 </div>
 </html>
