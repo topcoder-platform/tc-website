@@ -7,6 +7,18 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 
 <%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>02.17.06<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/longcontest/?module=ViewOverview&rd=9881">Intel Multi-Threading Competition 1 Results</A></span><br><br>
+      Congratulations to <tc-webtag:handle coderId="7504863" context="algorithm"/> for winning the first Intel Multi-Threading Competition.
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="/longcontest/?module=ViewOverview&rd=9881">results</A>&#160;|&#160;
+      <tc-webtag:forumLink forumID="505902" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
    </tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>02.16.06<br>6:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=tcs_chat_021506">TopCoder Software Chat from Feb 15</A></span><br><br>
@@ -187,23 +199,6 @@
       <A href="/tc?module=Static&d1=contracting&d2=msn_chat_013006">full story</A>&#160;|&#160;
       <tc-webtag:forumLink forumID="505906" message="discuss this" />&#160;|&#160;
       <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>01.31.06<br>3:50 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm286">SRM 286 - Problem Set & Analysis</A></span><br><br>
-      Single Round Match 286 presented a problem set headed by hard 1000-pointers, which decided most part of match standings and were solved by few coders in each division.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/ged_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10505830" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm286">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505800" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 
