@@ -43,6 +43,13 @@ public class SrmList extends Base {
             Map result = getDataAccess(true).getData(r);
 
             ResultSetContainer rsc = (ResultSetContainer) result.get("srm_list");
+
+            if (!sortCol.equals("")) {
+                rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
+                setDefault(DataAccessConstants.SORT_COLUMN, sortCol);
+                setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
+            }
+            
             result.put("srm_list", (ResultSetContainer)rsc.subList(Integer.parseInt(startRank)-1, endRank));
 
             SortInfo s = new SortInfo();
