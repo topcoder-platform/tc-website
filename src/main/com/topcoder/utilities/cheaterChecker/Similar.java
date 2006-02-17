@@ -93,7 +93,7 @@ public class Similar extends FraudBase {
                     report.append("\n");
                     potentialViolators.add(new User(s1.getCoderId(), s1.getHandle()));
                     potentialViolators.add(new User(s2.getCoderId(), s2.getHandle()));
-                    violateSet.add(s1.getCoderId()+" "+s1.getCoderId()));
+                    violateSet.add(s1.getCoderId()+" "+s1.getCoderId());
                 }
             } else {
                 break;
