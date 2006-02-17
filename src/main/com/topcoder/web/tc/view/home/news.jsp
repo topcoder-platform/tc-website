@@ -27,7 +27,7 @@
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm289">SRM 289 - Problem Set & Analysis</A></span><br><br>
       In both Division 1 and 2, coders faced tricky problems. At the end of the coding phase, Division 1 ended with <tc-webtag:handle coderId="251074" context="algorithm"/> at first place followed by <tc-webtag:handle coderId="270505" context="algorithm"/>
       </td>
-      <td class="newsPhoto"><%--<img src="/i/m/timmac_big.jpg" alt="" width="55" height="61"/>--%><br>by <tc-webtag:handle coderId="10505845" context="algorithm"/></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/esteban_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10505845" context="algorithm"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
