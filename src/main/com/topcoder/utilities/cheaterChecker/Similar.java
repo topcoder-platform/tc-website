@@ -5,6 +5,7 @@ import com.topcoder.shared.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.HashSet;
 
 /**
  * This fraud detection module takes the given list of tokenized
@@ -64,31 +65,36 @@ public class Similar extends FraudBase {
         Collections.sort(results);
         double suspicious = avg + STD_DEV_THRESHHOLD * stddev;
         ComparisonResult r = null;
+        HashSet violateSet = new HashSet();
         for (int i = results.size() - 1, k = 0; i > -1 && k < reportCount; i--, k++) {
             r = (ComparisonResult) results.get(i);
             if (r.getValue() > suspicious) {
                 s1 = (Submission) submissions.get(r.getIndex1());
                 s2 = (Submission) submissions.get(r.getIndex2());
-                report.append(r.getValue());
-                report.append("  ");
-                report.append(s1.getHandle());
-                report.append("(");
-                report.append(s1.getCoderId());
-                report.append(")");
-                report.append(" ");
-                report.append("s");
-                report.append(s1.getSubmissionNumber());
-                report.append(" ");
-                report.append(s2.getHandle());
-                report.append("(");
-                report.append(s2.getCoderId());
-                report.append(")");
-                report.append(" ");
-                report.append("s");
-                report.append(s2.getSubmissionNumber());
-                report.append("\n");
-                potentialViolators.add(new User(s1.getCoderId(), s1.getHandle()));
-                potentialViolators.add(new User(s2.getCoderId(), s2.getHandle()));
+                //only add them if they're not already in there
+                if (!violateSet.contains(s1.getCoderId()+" "+s1.getCoderId())) {
+                    report.append(r.getValue());
+                    report.append("  ");
+                    report.append(s1.getHandle());
+                    report.append("(");
+                    report.append(s1.getCoderId());
+                    report.append(")");
+                    report.append(" ");
+                    report.append("s");
+                    report.append(s1.getSubmissionNumber());
+                    report.append(" ");
+                    report.append(s2.getHandle());
+                    report.append("(");
+                    report.append(s2.getCoderId());
+                    report.append(")");
+                    report.append(" ");
+                    report.append("s");
+                    report.append(s2.getSubmissionNumber());
+                    report.append("\n");
+                    potentialViolators.add(new User(s1.getCoderId(), s1.getHandle()));
+                    potentialViolators.add(new User(s2.getCoderId(), s2.getHandle()));
+                    violateSet.add(s1.getCoderId()+" "+s1.getCoderId()));
+                }
             } else {
                 break;
             }
