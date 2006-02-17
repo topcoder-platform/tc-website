@@ -15,7 +15,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
 <jsp:include page="dev_design_links.jsp"/>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="270" style="float: left; margin-right: 15px; margin-bottom: 15px;">
-    <tr><td class="title" colspan="3">Most Component Reviews</td></tr>
+    <tr><td class="title" colspan="3">Most Contests Reviewed</td></tr>
     <tr><td class="headerC">Rank</td><td class="header" width="100%">Coder</td><td class="headerR">Reviews</td></tr>
     <% boolean even = false; %>
     <rsc:iterator list="<%=rsc%>" id="row">
@@ -28,7 +28,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-<strong>Record:</strong> TopCoder reserves the title of Coder of the Month for any competitor who has had an outstanding month. Some months, this means that we choose the algorithm competitor with an exceptionally high rating increase for the month.  Other times TopCoder may select a Coder of the Month based on exceptional performance in Component Competitions for a given period of time. Perhaps even a member who has earned a large amount of winnings or has had an impressive winning streak.
+<strong>Record:</strong> Most contests reviewed by a member of the Review Board.
 </span>
 </div>
 </html>
