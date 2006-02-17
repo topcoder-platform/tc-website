@@ -84,6 +84,9 @@
                                     # Tests Remaining
                                 </td>
                             </tr>
+                            <% if (queue.isEmpty()) { %>
+                            <tr><td colspan="3">There are currently no submissions in the queue.</td></tr>
+                            <% } %>
                             <%boolean even = true;%>
                             <rsc:iterator list="<%=queue%>" id="resultRow">
                                 <tr>
