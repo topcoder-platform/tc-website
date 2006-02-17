@@ -43,73 +43,10 @@
 Earnings History
 </span>
 
-<bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
-<bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
-
-<%
-Request srb = (Request) request.getAttribute("REQUEST_BEAN");
-pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
-ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Basic_Coder_Information");
-boolean bEmpty = (rsc == null || rsc.size()!=1);
-if (!bEmpty) {
-  ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
-  pageContext.setAttribute("resultRow", rsr);
-%>
-
-    <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>
-<% 
-} //end if not empty
-ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("Earnings_History");
-pageContext.setAttribute("resultSet", rsc2);
-
-//calculate scrolling information
-//1. pick apart parms
-String sStartRow=srb.getProperty("sr","1");
-pageContext.setAttribute("sr", sStartRow);
-String sEndRow = srb.getProperty("er",Integer.toString(rsc2.size()));
-pageContext.setAttribute("er", sEndRow);
-String sNumRow = srb.getProperty("nr",Integer.toString(rsc2.size()));
-pageContext.setAttribute("nr", sNumRow);
-
-//2. calculate next scroll
-int iTemp = Integer.parseInt(sEndRow)+1;
-pageContext.setAttribute("next_sr", Integer.toString(iTemp));
-iTemp += Integer.parseInt(sNumRow)-1;
-pageContext.setAttribute("next_er", Integer.toString(iTemp));
-
-//3. now calculate previous scroll
-iTemp = Math.max(1,Integer.parseInt(sStartRow)-1);
-pageContext.setAttribute("prev_er", Integer.toString(iTemp));
-iTemp = Math.max(1,(iTemp-Integer.parseInt(sNumRow)+1));
-pageContext.setAttribute("prev_sr", Integer.toString(iTemp));
-
-String sortString = "";
-if (srb.getProperty("sq")!=null){
-  sortString="&sq=" + srb.getProperty("sq");
-  sortString+="&sc=" + srb.getProperty("sc");
-  sortString+="&sd=" + srb.getProperty("sd", "desc");  
-}
-String sSortUrl = "/stat?c=earnings_history&cr="+srb.getProperty("cr")+"&sq=Earnings_History";
-%>
-
-<% if (!bEmpty) { %>  
-   <% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
    <div class="pagingBox">
-      <% if (rsc2.croppedDataBefore()) { %>
-      <a href="/stat?c=earnings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">&lt;&lt; previous</a>   
-      <% } else { %>
-      &lt;&lt; previous  
-      <% } %>
-      &nbsp;|&nbsp;
-      <% if (rsc2.croppedDataAfter()) { %>
-          <a href="/stat?c=earnings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("next_sr").toString() %>&er=<%=pageContext.getAttribute("next_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">next &gt;&gt;</a>
-      <% } else { %>
-           next &gt;&gt;           
-      <% } %>
+      <a href="#" class="bcLink">&lt;&lt; previous</a>   
+      <a href="#" class="bcLink">next &gt;&gt;</a>
    </div>
-   <% } else { %>
-   <div class="pagingBox">&#160;</div>
-   <% } %>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
