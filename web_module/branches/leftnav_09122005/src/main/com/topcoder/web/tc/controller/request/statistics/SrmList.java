@@ -52,7 +52,7 @@ public class SrmList extends Base {
             setDefault(DataAccessConstants.START_RANK, startRank);
             getRequest().setAttribute("resultMap", result);
 
-            setNextPage("/statistics/srm_list.jsp");
+            setNextPage("/statistics/srmList.jsp");
             setIsNextPageInContext(true);
 
         } catch (TCWebException we) {
