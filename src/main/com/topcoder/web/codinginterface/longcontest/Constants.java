@@ -88,6 +88,8 @@ public class Constants implements CodingInterfaceConstants {
     public static String RP_VIEW_EXAMPLE_RESULTS;
     public static String RP_EXAMPLE_HISTORY;
     public static String PAGE_EXAMPLE_HISTORY;
+    public static String RP_QUEUE_STATUS;
+    public static String PAGE_QUEUE_STATUS;
     public static int SUBMISSION_RATE;
     public static final String RESULTS_AVAILABLE = "resav";
 
