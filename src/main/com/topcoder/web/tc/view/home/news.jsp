@@ -52,7 +52,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>02.16.06<br>12:55 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.thespartandaily.com/media/paper852/news/2006/02/16/News/Sjsu-Codes.A.Win-1616451.shtml?norewrite&sourcedomain=www.thespartandaily.com" target="_blank">SJSU codes a win</A></span><br><br>
-      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/spartanDaily_logo.gif" width="108" height="12" alt="Spartan Daily" border="0" /></div>
+      <div style="float: right; padding-left: 5px; padding-bottom: 10px;"><img src="/i/pressroom/spartanDaily_logo.gif" width="108" height="12" alt="Spartan Daily" border="0" /></div>
       "San Jose State University's computer science department has earned a world ranking in a prestigious online computer programming competition called Topcoder."
       </td>
    </tr>
