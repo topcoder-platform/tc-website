@@ -27,7 +27,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-<strong>Record:</strong> The top earners for all Design and Development Contests.
+<strong>Record:</strong> The top earners for all Design and Development contest prizes.
 </span>
 </div>
 </html>
