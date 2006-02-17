@@ -246,12 +246,11 @@ If you have a problem logging into the Arena or cannot access the chat interface
 		</td>
         
          
+         
 <!-- Right Column-->
-<td width="170" align="right">
-<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-<img src="/i/tournament/tco06/verisign_right.gif" alt="Verisign" border="0" /><br />
-<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-<jsp:include page="../../calendar.jsp" />
+<td width="180" align="right" style="padding: 0px 15px 0px 0px;">
+<jsp:include page="right_ver.jsp" />
+
 </td>
 		
 	</tr>

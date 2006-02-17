@@ -41,7 +41,7 @@
 <jsp:include page="right.jsp"/>
 </span>
                 <br><br>
-
+<!--
                 <table class="tableFrame" cellpadding="5" cellspacing="2" border="0" width="400">
                     <tr>
                         <td class="advancersTitle">Round</td>
@@ -66,8 +66,8 @@
                         </td>
                     </tr>
                 </table>
-
-
+-->
+<br><br><br><br><br><br><br><br><br><br><br
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 To find out more detailed information about the Google&#153; Code Jam India, including a list of the prizes, please read the
 <a href="/pl/?module=Static&d1=gicj06&d2=rules">Terms and Conditions</a>.

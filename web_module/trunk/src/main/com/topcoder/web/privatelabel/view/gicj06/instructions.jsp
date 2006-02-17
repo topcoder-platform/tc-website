@@ -133,7 +133,7 @@ clarify the statement.
 <span class="bigRed">NOTE: All problem statements will be presented in English.</span>
 <br><br>
 <strong>Choosing a Language</strong><br>
-The Google Code Jam India allows coders to utilize Java, C++, C# or Visual Basic as a competition programming language.
+The Google Code Jam India allows coders to utilize Java or C++ as a competition programming language.
 You have the option to choose a programming language on a problem-by-problem basis. It is legal for you to use any
 programming languages to solve each of the problems in a single competition. For this reason, you have the option of
 choosing the programming language from within the coding window. You can find the language selection area in the upper
@@ -142,8 +142,7 @@ attempt to compile your code. Strange compilation results can be a symptom of ha
 <br><br>
 <strong>Creating a Solution</strong><br>
 The solution class you create and all of its members must be defined as public in order for the TopCoder servers to have
-access to your class members and invoke the appropriate methods. Below you will find code templates for Java, C++, C#,
-and Visual Basic:
+access to your class members and invoke the appropriate methods. Below you will find code templates for Java or C++:
 <br><br>
 <b>Java Code Template</b><br>
 <pre>import &lt;necessary classes&gt;
@@ -170,31 +169,6 @@ and Visual Basic:
     return &lt;result&gt;;
     };
     };
-</pre>
-
-<b>C# Code Template</b><br>
-<pre>using &lt;necessary classes&gt;;
-
-    public class &lt;class-name&gt; {
-    public &lt;return-type&gt; &lt;method-name&gt;(&lt;argument-type&gt; arg1) {
-    //your source here
-    return &lt;result&gt;;
-    }
-    }
-</pre>
-
-
-<b>Visual Basic Code Template</b><br>
-<pre>
-    Imports &lt;necessary classes&gt;;
-
-    Public Class &lt;class-name&gt;
-    Public Function &lt;method-name&gt;(ByVal arg1 As &lt;argument-type&gt;) As &lt;return-type&gt;
-
-    //your source here
-    Return &lt;result&gt;
-    End Function
-    End Class
 </pre>
 
 <br>
