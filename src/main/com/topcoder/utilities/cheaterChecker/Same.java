@@ -5,7 +5,7 @@ import com.topcoder.shared.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Same implements Fraud {
+public class Same extends FraudBase {
     private static Logger log = Logger.getLogger(Same.class);
     private StringBuffer report = null;
     private List tokens = null;
@@ -38,11 +38,17 @@ public class Same implements Fraud {
                         report.append("(");
                         report.append(s1.getCoderId());
                         report.append(")");
+                        report.append(" ");
+                        report.append("s");
+                        report.append(s1.getSubmissionNumber());
                         report.append(" is the same as ");
                         report.append(s2.getHandle());
                         report.append("(");
                         report.append(s2.getCoderId());
                         report.append(")");
+                        report.append(" ");
+                        report.append("s");
+                        report.append(s2.getSubmissionNumber());
                         report.append("\n");
                         potentialViolators.add(new User(s1.getCoderId(), s1.getHandle()));
                         potentialViolators.add(new User(s2.getCoderId(), s2.getHandle()));

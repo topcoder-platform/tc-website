@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class SimilarSourceSubstrings implements Fraud {
+public class SimilarSourceSubstrings extends FraudBase {
     private static Logger log = Logger.getLogger(SimilarSourceSubstrings.class);
     private StringBuffer report = null;
     private List tokens = null;

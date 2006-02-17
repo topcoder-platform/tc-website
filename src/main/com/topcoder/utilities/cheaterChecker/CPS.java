@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class CPS implements Fraud {
+public class CPS extends FraudBase {
     private static Logger log = Logger.getLogger(CPS.class);
     private StringBuffer report = null;
     private List submissions = null;

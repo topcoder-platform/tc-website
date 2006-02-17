@@ -10,4 +10,8 @@ public interface Fraud {
     void execute() throws Exception;
 
     List getPotentialViolators();
+
+    int getReportSize();
+
+    void setReportSize(int reportSize);
 }

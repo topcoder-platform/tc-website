@@ -160,6 +160,7 @@ public class Contest {
             query.append(" , c.problem_id");
             query.append(" , c.class_name");
             query.append(" , c.method_name");
+            query.append(" , s.submission_number");
             query.append(" FROM component_state cc ");
             query.append(" , submission s ");
             query.append(" , room r ");
@@ -212,6 +213,7 @@ public class Contest {
                 s.setComponentId(rs.getLong("component_id"));
                 s.setClassName(rs.getString("class_name"));
                 s.setMethodName(rs.getString("method_name"));
+                s.setSubmissionNumber(rs.getInt("submission_number"));
                 s.setIncluded(true);
             }
 
