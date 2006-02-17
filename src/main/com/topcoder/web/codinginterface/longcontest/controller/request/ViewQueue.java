@@ -1,6 +1,6 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
@@ -24,8 +24,13 @@ public class ViewQueue extends Base {
                 Request r = new Request();
 
                 r.setContentHandle("long_contest_queue_status");
+/*
+                if it become a problem, cache it. but things aren't going to line up between the
+                standings page and the queue page
                 CachedDataAccess dataAccess = (CachedDataAccess)getDataAccess(true);
                 dataAccess.setExpireTime(1000*60*10);
+*/
+                DataAccessInt dataAccess = getDataAccess(false);
 
                 Map result = dataAccess.getData(r);
                 request.setAttribute("resultMap", result);
