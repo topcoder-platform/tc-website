@@ -30,5 +30,6 @@ if (type == null) type = HandleTag.COMPONENT; %>
 <span class="bodyText">
 <strong>Record:</strong> Most contests reviewed by a member of the Review Board.
 </span>
+
 </div>
 </html>
