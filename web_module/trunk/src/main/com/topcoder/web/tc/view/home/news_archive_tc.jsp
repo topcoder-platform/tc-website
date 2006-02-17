@@ -36,7 +36,7 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
-<tr class="bodyText"><td nowrap="nowrap">01.27.06 3:30 PM&#160;-&#160</td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=9881">Intel Multi-Threading Competition 1 Results</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">02.17.06 5:00 PM&#160;-&#160</td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=9881">Intel Multi-Threading Competition 1 Results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.27.06 3:30 PM&#160;-&#160</td><td width="100%"><A href="/longcontest/?module=ViewActiveContests&rt=15">Intel Multi-Threading Competition 1 Extended</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.16.06 9:00 AM&#160;-&#160</td><td width="100%"><A href="/longcontest/?module=Static&d1=intel_overview">Introducing the Intel Multi-Threading Competition Series</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.13.05 10:00 AM&#160;-&#160</td><td width="100%"><A href="/longcontest/?module=Static&d1=instructions">Introducing Marathon Matches</A></td></tr>
