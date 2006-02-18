@@ -64,10 +64,11 @@ The following items can NOT be appealed:
 <logic:present name="permitAppealsResponse">
           <tr>
             </td>
-            <td class="forumTextOdd" colspan="3">
-                <strong>
+            <td class="appealWarningNote" colspan="3">
+            <!--td class="forumTextOdd" colspan="3"-->
+                <!--strong>
                 Note: In this project, reviewers are allowed to respond appeals immediately. Please be aware that you will not be able to edit this appeal.
-                </strong>
+                </strong-->
             </td>
           </tr>
 </logic:present>
