@@ -16,7 +16,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
         <tr>
         <td><rsc:item name="rank" row="<%=row%>"/></td>
         <td><tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=type%>'/></td>
-        <td><rsc:item name="money" row="<%=row%>" format="$0.00"/></td>
+        <td><rsc:item name="money" row="<%=row%>" format="$0,000,000.00"/></td>
         </tr>
     </rsc:iterator>
 </table>
