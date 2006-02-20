@@ -7,7 +7,7 @@
 <jsp:include page="/script.jsp" />
 
 <title>2006 TopCoder Open - Computer Programming Tournament</title>
-<link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
+<link type="text/css" rel="stylesheet" href="/css/TCO06style_ver.css"/>
 </head>
 <body>
 
