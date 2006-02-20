@@ -8,6 +8,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>02.20.06<br>3:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=022006">GCC Hacks: Abusing C++ Extensions for Fun and Profit</A></span><br><br>
+       GCC provides a number of extensions to the C++ language and standard library....Several of these extensions can be put to use in a TopCoder round.</td>
+      <td class="newsPhoto"><img src="/i/m/bmerry_mug.gif" /><br>by <tc-webtag:handle coderId="251074" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=022006">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505922" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.20.06<br>9:15 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -161,50 +177,6 @@ outplaying the second (<tc-webtag:handle coderId="8357090" context="algorithm"/>
        <A href="/tc?module=Static&d1=pressroom&d2=pr_020806">full story</A>&#160;|&#160;
        <A href="http://forums.topcoder.com/?module=Thread&threadID=509013&mc=1#525461">discuss this</a>&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
-   </td></tr>
-
-<%-------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>02.08.06<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://webreprints.djreprints.com/1404341094425.html" target="blank">World's Top Geeks Battle Over Coding</A></span><br><br>
-      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wsj_logo.gif" width="108" height="12" alt="Wall Street Journal" border="0" /></div>
-      "Imagine a reality TV show that combines the performance-under-time-pressure of 'Iron Chef' with the scheming and psych-outs of 'Survivor,' then adds the soaring braininess of -- well, that's the problem, really: There isn't anything this smart on TV."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://webreprints.djreprints.com/1404341094425.html" target="blank">full story</a>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505911" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.06.06<br>1:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm287">SRM 287 - Problem Set & Analysis</A></span><br><br>
-      In Division 1 we saw a match dominated by coders from Poland. During the coding phase <tc-webtag:handle coderId="7502813" context="algorithm"/> took the lead with the fastest submission on the hard problem.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm287">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505853" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>02.06.06<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=home">TopCoder High School</A></span><br><br>
-      In the spirit of all other TopCoder competitions, TopCoder High School seeks to be the premier computer programming tournament for high school-aged math and science students enrolled in secondary schools or equivalent programs world-wide.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="/tc?module=Static&d1=hs&d2=home">details</A>&#160;|&#160;
-      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=509013">discuss this</A>&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
 

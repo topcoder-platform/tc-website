@@ -49,7 +49,7 @@
 
       <p>
       <img src="/i/m/bmerry_mug.gif" alt="" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-      By&#160;<tc-webtag:handle coderId="251074"/><br>
+      By&#160;<tc-webtag:handle coderId="251074" /><br>
       <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
       </p>
 
