@@ -60,7 +60,7 @@ public class Submit extends Base {
             long cid = Long.parseLong(getParameter(request, Constants.COMPONENT_ID));
             long rid = Long.parseLong(getParameter(request, Constants.ROUND_ID));
             long cd = Long.parseLong(getParameter(request, Constants.CONTEST_ID));
-            boolean examplesOnly = "on".equals(getParameter(request, Constants.EXAMPLES_ONLY));
+            boolean examplesOnly = "true".equals(getParameter(request, Constants.EXAMPLES_ONLY));
             String action = getParameter(request, Constants.ACTION_KEY);
             String code = getParameter(request, Constants.CODE);
             String message = getParameter(request, Constants.MESSAGE);
