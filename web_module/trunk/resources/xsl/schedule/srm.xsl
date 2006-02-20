@@ -308,7 +308,7 @@
                       </TD></TR>
 
                     </xsl:when>
-                    <xsl:when test="$roundId='8069' or $roundId='8074' or $roundId='8083' or $roundId='9812' or $roundId='9815' or $roundId='9816' or $roundId='9820' or $roundId='9822'">
+                    <xsl:when test="$roundId='8069' or $roundId='8074' or $roundId='8083'">
                       <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
                         <font size="3"><b>***TopCoder will be giving away $5,000 per match sponsored by MSN***</b></font><br/><br/>
                         <B>Single Round Match Description</B>
@@ -338,7 +338,7 @@
                       </TD></TR>
 
                     </xsl:when>
-                    <xsl:when test="$roundId='7223' or $roundId='8004' or $roundId='8005' or $roundId='7227' or $roundId='8007' or $roundId='8080'">
+                    <xsl:when test="$roundId='7223' or $roundId='8004' or $roundId='8005' or $roundId='7227' or $roundId='8007' or $roundId='8080' or $roundId='9812' or $roundId='9815' or $roundId='9816' or $roundId='9820' or $roundId='9822'">
                       <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
                         <font size="3"><b>Total Prize Purse of $5,000 !!!</b></font><br/><br/>
                         <B>Single Round Match Description</B>
