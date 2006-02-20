@@ -45,7 +45,7 @@
 
          <div class="tutorBodyFull">
 
-            <h2>GCC hacks: abusing C++ extensions for fun and profit</h2>
+            <h2>GCC Hacks: Abusing C++ Extensions for Fun and Profit</h2>
 
       <p>
       <img src="/i/m/bmerry_mug.gif" alt="" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
