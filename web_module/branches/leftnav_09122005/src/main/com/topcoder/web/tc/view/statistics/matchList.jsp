@@ -91,7 +91,7 @@ myForm.submit();
 <table class="stat" cellpadding="0" cellspacing="0" width="100%" style="">
    <tr><td class="title" colspan="5">Most Component Contest Wins</td></tr>
    <tr>
-      <td class="header" width="20%"></td>
+      <td class="header" width="20%">Match</td>
       <td class="header" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Division I winner</td>
       <td class="header" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true" excludeParams="sr" />">Division II winner</td>
       <td class="headerR" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr" />">Participants</td>
