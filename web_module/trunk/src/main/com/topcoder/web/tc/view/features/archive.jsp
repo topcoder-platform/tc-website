@@ -65,7 +65,7 @@
           <tr>
               <td class="statDk">February 20</td>
               <td class="statDk"><tc-webtag:handle coderId="251074"/></td>
-              <td class="statDk"><A href="/tc?module=Static&amp;d1=features&amp;d2=022006">GCC hacks: abusing C++ extensions for fun and profit</A></td>
+              <td class="statDk"><A href="/tc?module=Static&amp;d1=features&amp;d2=022006">GCC Hacks: Abusing C++ Extensions for Fun and Profit</A></td>
           </tr>
       </table>
 
