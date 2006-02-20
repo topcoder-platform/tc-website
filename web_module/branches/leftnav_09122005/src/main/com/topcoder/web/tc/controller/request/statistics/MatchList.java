@@ -13,7 +13,7 @@ import java.util.Map;
  *
  * @author coachbudka
  */
-public class SrmList extends Base {
+public class MatchList extends Base {
 
     protected void businessProcessing() throws TCWebException {
         try {
@@ -42,7 +42,7 @@ public class SrmList extends Base {
 
             Map result = getDataAccess(true).getData(r);
 
-            ResultSetContainer rsc = (ResultSetContainer) result.get("srm_list");
+            ResultSetContainer rsc = (ResultSetContainer) result.get("match_list");
 
             if (!sortCol.equals("")) {
                 rsc.sortByColumn(Integer.parseInt(sortCol), !"desc".equals(sortDir));
@@ -50,7 +50,7 @@ public class SrmList extends Base {
                 setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
             }
             
-            result.put("srm_list", (ResultSetContainer)rsc.subList(Integer.parseInt(startRank)-1, endRank));
+            result.put("match_list", (ResultSetContainer)rsc.subList(Integer.parseInt(startRank)-1, endRank));
 
             SortInfo s = new SortInfo();
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
@@ -59,7 +59,7 @@ public class SrmList extends Base {
             setDefault(DataAccessConstants.START_RANK, startRank);
             getRequest().setAttribute("resultMap", result);
 
-            setNextPage("/statistics/srmList.jsp");
+            setNextPage("/statistics/matchList.jsp");
             setIsNextPageInContext(true);
 
         } catch (TCWebException we) {
