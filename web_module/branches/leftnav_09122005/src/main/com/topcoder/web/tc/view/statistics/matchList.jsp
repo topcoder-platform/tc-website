@@ -25,19 +25,19 @@
             else if (e) keycode = e.which;
             else return true;
             if (keycode == 13) {
-            document.srmListForm.submit();
+            document.matchListForm.submit();
             return false;
             } else return true;
             }
             function next() {
-            var myForm = document.srmListForm;
+            var myForm = document.matchListForm;
             myForm.<%=DataAccessConstants.START_RANK%>.value=parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value)+parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
             myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
             myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
             myForm.submit();
             }
             function previous() {
-            var myForm = document.srmListForm;
+            var myForm = document.matchListForm;
             myForm.<%=DataAccessConstants.START_RANK%>.value=parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value)-parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
             myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
             myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
@@ -57,7 +57,7 @@
 
 
         <%
-        ResultSetContainer list = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("srm_list");
+        ResultSetContainer list = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("match_list");
         %>
 
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -81,9 +81,9 @@
                     <jsp:param name="title" value="Single Round Match list"/>
                 </jsp:include>
 
-                <form name="srmListForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
+                <form name="matchListForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
 
-                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SrmList"/>
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="MatchList"/>
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
                 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
@@ -136,7 +136,7 @@
                         <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
                         &#160;at a time starting with &#160;
                         <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
-                        <a href="javascript:document.srmListForm.submit();" class="bcLink">&#160;[ submit ]</a>
+                        <a href="javascript:document.matchListForm.submit();" class="bcLink">&#160;[ submit ]</a>
                     </div>
 
                     </form>
