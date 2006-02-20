@@ -43,7 +43,9 @@
                 <p>
                     <h2 align="center">2006 TopCoder U.S. College Tour</h2>
 
+<%--
                     <p align="center"><a href="#schools">Participating schools</a></p>
+--%>
 
                     <h3>Is your school on the schedule?</h3>
 
