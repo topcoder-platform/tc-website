@@ -9,6 +9,8 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <% ResultSetContainer devContests = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("dev_contests");%>
 <% ResultSetContainer designContests = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("design_contests");%>
+<% boolean design = ((Boolean)request.getAttribute("phase_id_is_design")).booleanValue(); %>
+
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <head>
 <title>Active Contests</title>
@@ -30,7 +32,7 @@
 <!-- Left Column Begins-->
 <td width="180">
    <jsp:include page="/includes/global_left.jsp">
-      <jsp:param name="node" value="component_active_contests"/>
+      <jsp:param name="node" value="<% design ? "des_compete" : "dev_compete"%>"/>
    </jsp:include>
 </td>
 <!-- Left Column Ends -->
@@ -49,6 +51,7 @@
 </jsp:include>
 <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<% if (design) { %>
 <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
     <tr>
         <td class="projectTitles" colspan="9">Component Design Contests</td>
@@ -114,8 +117,7 @@
     </rsc:iterator>
 </table>
 <br/>
-
-
+<%  } else {   // Development %>
 <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
     <tr>
         <td class="projectTitles" colspan="9">Component Development Contests</td>
@@ -180,8 +182,8 @@
 
     </rsc:iterator>
 </table>
-
 <br/>
+<% } %>
 
 <p align="left">* And that's before royalty payments. The more Component
     <A href="http://software.topcoder.com/components/subscriptions.jsp">Subscriptions</A> we sell, the more royalties we
