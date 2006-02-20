@@ -60,6 +60,7 @@ public class Submit extends Base {
             long cid = Long.parseLong(getParameter(request, Constants.COMPONENT_ID));
             long rid = Long.parseLong(getParameter(request, Constants.ROUND_ID));
             long cd = Long.parseLong(getParameter(request, Constants.CONTEST_ID));
+            boolean examplesOnly = "true".equals(getParameter(request, Constants.EXAMPLES_ONLY));
             String action = getParameter(request, Constants.ACTION_KEY);
             String code = getParameter(request, Constants.CODE);
             String message = getParameter(request, Constants.MESSAGE);
@@ -202,8 +203,9 @@ public class Submit extends Base {
                     long lastSubmit = lastCompilation.getItem(0, "submit_time").getResultData()==null?0:lastCompilation.getLongItem(0, "submit_time");
                     long now = System.currentTimeMillis();
                     long nextSubmit = lastSubmit +Constants.SUBMISSION_RATE*60*1000;
+                    long nextExampleSubmit = lastSubmit +Constants.EXAMPLE_SUBMISSION_RATE*60*1000;
                     log.debug("now " + now + " last: " + lastSubmit + " diff: " + (now-lastSubmit));
-                    if (now<nextSubmit) {
+                    if ((!examplesOnly && now<nextSubmit) || (examplesOnly && now<nextExampleSubmit)) {
                         long minutes = (nextSubmit-now)/(60*1000);
                         long seconds = (nextSubmit-now-(minutes*60*1000))/1000;
                         StringBuffer buf = new StringBuffer(100);
@@ -245,7 +247,7 @@ public class Submit extends Base {
                 }
                 //todo bad, those should all be long
                 LongCompileRequest lcr = new LongCompileRequest(uid, cid, rid, cd,
-                        language, ApplicationServer.WEB_SERVER_ID, code);
+                        language, ApplicationServer.WEB_SERVER_ID, code, examplesOnly);
 
                 Request roomRequest = new Request();
                 roomRequest.setContentHandle("long_contest_find_room");
