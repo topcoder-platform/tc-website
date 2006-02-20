@@ -1596,6 +1596,13 @@
             <metainf dir="${java}/com/topcoder/web/ejb/roomresult" includes="*.xml"/>
         </jar>
     </target>
+    <target name="package-EJB-LongCompResultBean" depends="compile">
+        <jar jarfile="${ejb_jars}/LongCompResult.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/longcompresult/*.class"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/longcompresult" includes="*.xml"/>
+        </jar>
+    </target>
 
 
 
@@ -1658,7 +1665,7 @@
 
         <target name="deploy-longcontest" depends="war-longcontest">
             <antcall target="package-EJB-RoundRegistrationBean"/>
-            <antcall target="package-EJB-RoomResultBean"/>
+            <antcall target="package-EJB-LongCompResultBean"/>
             <antcall target="expand-longcontest"/>
         </target>
 
@@ -1666,7 +1673,7 @@
             <copy todir="${jboss_deploy}">
                 <fileset dir="${ejb_jars}">
                     <include name="RoundRegistration.jar"/>
-                    <include name="RoomResult.jar"/>
+                    <include name="LongCompResult.jar"/>
                 </fileset>
             </copy>
             <unwar src="${war.dir}/longcontest.war" dest="${jboss_home}/server/all/deploy/longcontest.war/"
