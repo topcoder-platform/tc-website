@@ -38,6 +38,7 @@ public class Constants implements CodingInterfaceConstants {
     public static final String METHOD_NAME = "methname";
     public static final String RETURN_TYPE = "rettype";
     public static final String ARG_TYPES = "argtypes";
+    public static final String EXAMPLES_ONLY = "exOn";
 
     public static String CONTEST_LIST_KEY;
     public static String ROUND_STANDINGS_LIST_KEY;
