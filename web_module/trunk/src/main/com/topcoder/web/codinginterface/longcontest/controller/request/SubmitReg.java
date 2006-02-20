@@ -14,10 +14,10 @@ import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.SurveyResponse;
 import com.topcoder.web.common.tag.AnswerInput;
-import com.topcoder.web.ejb.roomresult.RoomResult;
-import com.topcoder.web.ejb.roomresult.RoomResultLocal;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 import com.topcoder.web.ejb.survey.Response;
+import com.topcoder.web.ejb.longcompresult.LongCompResultLocal;
+import com.topcoder.web.ejb.longcompresult.LongCompResult;
 
 import javax.transaction.Status;
 import javax.transaction.TransactionManager;
@@ -148,10 +148,10 @@ public class SubmitReg extends ViewReg {
     protected void registerUser(long userID, long roundID, long roomID) throws Exception {
         try {
             RoundRegistration reg = (RoundRegistration) createEJB(getInitialContext(), RoundRegistration.class);
-            RoomResultLocal roomResult = (RoomResultLocal)createLocalEJB(getInitialContext(), RoomResult.class);
+            LongCompResultLocal longCompResult = (LongCompResultLocal)createLocalEJB(getInitialContext(), LongCompResult.class);
             reg.createRoundRegistration(userID, roundID);
-            roomResult.createRoomResult(roundID, roomID, userID, DBMS.JTS_OLTP_DATASOURCE_NAME);
-            roomResult.setAttended(roundID, roomID, userID, false, DBMS.JTS_OLTP_DATASOURCE_NAME);
+            longCompResult.createLongCompResult(roundID, userID, DBMS.JTS_OLTP_DATASOURCE_NAME);
+            longCompResult.setAttended(roundID, userID, false, DBMS.JTS_OLTP_DATASOURCE_NAME);
         } catch (Exception e) {
             log.error("Error registerating user: " + userID + " for round: " + roundID, e);
             throw e;
