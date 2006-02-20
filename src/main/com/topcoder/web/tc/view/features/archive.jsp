@@ -55,6 +55,21 @@
    <tr>
       <td>               
       <table width="100%" border="0" cellpadding="0" cellspacing="0" class="statTable">
+          <tr><td colspan="3" class="tableTitle">2006 Features</td></tr>
+      
+          <tr>
+              <td width="20%" class="tableHeader">Date</td>
+              <td width="20%" class="tableHeader">Author</td>
+              <td width="60%" class="tableHeader">Feature</td>
+          </tr>
+          <tr>
+              <td class="statDk">February 20</td>
+              <td class="statDk"><tc-webtag:handle coderId="251074"/></td>
+              <td class="statDk"><A href="/tc?module=Static&amp;d1=features&amp;d2=022006">GCC hacks: abusing C++ extensions for fun and profit</A></td>
+          </tr>
+      </table>
+
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" class="statTable">
           <tr><td colspan="3" class="tableTitle">2005 Features</td></tr>
       
           <tr>
