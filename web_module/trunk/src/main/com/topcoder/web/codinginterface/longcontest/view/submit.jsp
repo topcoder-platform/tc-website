@@ -57,6 +57,11 @@ color: FF0000;
         document.codingForm.<%=Constants.ACTION_KEY%>.value = "submit";
         document.codingForm.submit();
     }
+    function exampleSubmit() {
+        document.codingForm.<%=Constants.ACTION_KEY%>.value = "submit";
+        document.codingForm.<%=Constants.EXAMPLES_ONLY%>.value = "<%=String.valueOf(true)%>";
+        document.codingForm.submit();
+    }
     function save() {
         document.codingForm.<%=Constants.ACTION_KEY%>.value = "save";
         document.codingForm.submit();
@@ -102,6 +107,7 @@ color: FF0000;
         <input type="hidden" name="<%=Constants.CONTEST_ID%>" value="<%=request.getParameter(Constants.CONTEST_ID)%>">
         <input type="hidden" name="<%=Constants.COMPONENT_ID%>" value="<%=request.getParameter(Constants.COMPONENT_ID)%>">
         <input type="hidden" name="<%=Constants.ACTION_KEY%>" value="">
+        <input type="hidden" name="<%=Constants.EXAMPLES_ONLY%>" value="">
 
       <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
          <tr>
@@ -167,9 +173,8 @@ Arg Types: <%=StringUtils.htmlEncode((String)paramTypes.get(i))%>
               <div style="float:right; padding: 5px 0px 0px 5px;">
                   <A href="javascript: save();"><img src="/i/interface/btn_save.gif" alt="Save" border="0"/></A>
               </div>
-
                 <div style="float:right; padding: 5px 0px 0px 5px;">
-                    <tc-webtag:chkBox name="<%=Constants.EXAMPLES_ONLY%>"/>
+                    <A href="javascript: exampleSubmit();">Test Examples</A>
                 </div>
 
             </td>
