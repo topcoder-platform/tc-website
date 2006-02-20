@@ -26,8 +26,8 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.render.DataTypeRenderer;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 import com.topcoder.web.ejb.coder.Coder;
-import com.topcoder.web.ejb.roomresult.RoomResultLocal;
-import com.topcoder.web.ejb.roomresult.RoomResult;
+import com.topcoder.web.ejb.longcompresult.LongCompResultLocal;
+import com.topcoder.web.ejb.longcompresult.LongCompResult;
 
 import javax.naming.InitialContext;
 import java.io.StringReader;
@@ -254,10 +254,10 @@ public class Submit extends Base {
                 roomRequest.setProperty("rd", String.valueOf(rid));
                 long roomId = ((ResultSetContainer)getDataAccess().getData(roomRequest).get("long_contest_find_room")).getLongItem(0, "room_id");
 
-                RoomResultLocal roomResult = (RoomResultLocal)createLocalEJB(getInitialContext(), RoomResult.class);
-                if (!roomResult.exists(rid, roomId, getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) {
-                    roomResult.createRoomResult(rid, roomId, getUser().getId(), DBMS.JTS_OLTP_DATASOURCE_NAME);
-                    roomResult.setAttended(rid, roomId, getUser().getId(), true, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                LongCompResultLocal longCompResult = (LongCompResultLocal)createLocalEJB(getInitialContext(), LongCompResult.class);
+                if (!longCompResult.exists(rid, getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) {
+                    longCompResult.createLongCompResult(rid, getUser().getId(), DBMS.JTS_OLTP_DATASOURCE_NAME);
+                    longCompResult.setAttended(rid, getUser().getId(), true, DBMS.JTS_OLTP_DATASOURCE_NAME);
                 }
 
                 try {
