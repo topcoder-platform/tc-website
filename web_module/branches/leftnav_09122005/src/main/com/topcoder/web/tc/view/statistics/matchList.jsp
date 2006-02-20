@@ -64,12 +64,9 @@
             <tr valign="top">
                 <!-- Left Column Begins-->
                 <td width="180">
-                    <%--
                     <jsp:include page="../includes/global_left.jsp">
-                        <jsp:param name="level1" value="statistics"/>
-                        <jsp:param name="level2" value="quick_stats"/>
+                        <jsp:param name="node" value="algo_match_archive"/>
                     </jsp:include>
-                    --%>
                 </td>
                 <!-- Left Column Ends -->
 
