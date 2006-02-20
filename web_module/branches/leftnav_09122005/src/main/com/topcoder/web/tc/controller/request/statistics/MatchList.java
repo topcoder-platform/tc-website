@@ -38,7 +38,7 @@ public class MatchList extends Base {
 
             int endRank = Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1;
 
-            r.setContentHandle("srm_list");
+            r.setContentHandle("match_list");
 
             Map result = getDataAccess(true).getData(r);
 
