@@ -7,6 +7,7 @@
                 java.util.Date"
 
         %>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
@@ -17,11 +18,11 @@
 <jsp:useBean id="prevPageLink" class="java.lang.String" scope="request"/>
 <jsp:useBean id="nextPageLink" class="java.lang.String" scope="request"/>
 <%
-    ResultSetContainer submissions = (ResultSetContainer) resultMap.get("long_coder_submissions");
+    ResultSetContainer examples = (ResultSetContainer) resultMap.get("long_coder_examples");
     ResultSetContainer tmp = (ResultSetContainer) resultMap.get("long_contest_over");
     boolean over = tmp.getBooleanItem(0, 0);
-    boolean self = !submissions.isEmpty() && submissions.getLongItem(0, "coder_id")==sessionInfo.getUserId();
-    tmp = (ResultSetContainer) resultMap.get("long_contest_coder_submissions_info");
+    boolean self = !examples.isEmpty() && examples.getLongItem(0, "coder_id")==sessionInfo.getUserId();
+    tmp = (ResultSetContainer) resultMap.get("long_contest_coder_examples_info");
     ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow) tmp.get(0);
 %>
 <% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID)==null?Constants.LONG_ROUND_TYPE_ID:((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
@@ -44,6 +45,23 @@
     <jsp:include page="script.jsp" />
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+            <script type="text/javascript">
+            function next() {
+            var myForm = document.exampleForm;
+            myForm.<%=DataAccessConstants.START_RANK%>.value=parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value)+parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.submit();
+            }
+            function previous() {
+            var myForm = document.exampleForm;
+            myForm.<%=DataAccessConstants.START_RANK%>.value=parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value)-parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+
+            myForm.submit();
+            }
+        </script>
 </head>
 
 <body>
@@ -68,7 +86,7 @@
 
             <jsp:include page="page_title.jsp">
                 <jsp:param name="image" value="<%=image%>"/>
-                <jsp:param name="title" value="Submission History"/>
+                <jsp:param name="title" value="Example History"/>
             </jsp:include>
 
             <div style="float:right; padding: 0px 0px 0px 5px;">
@@ -84,11 +102,8 @@
 
             <div style="clear: both;" align="center">
                <div class="pagingBox">
-                   <logic:notEmpty name="prevPageLink"><a href="<%=prevPageLink%>" class="bcLink">
-                   </logic:notEmpty>&lt;&lt; prev<logic:notEmpty name="prevPageLink"></a></logic:notEmpty>
-                   &nbsp;|&nbsp;
-                   <logic:notEmpty name="nextPageLink"><a href="<%=nextPageLink%>" class="bcLink">
-                   </logic:notEmpty>next &gt;&gt;<logic:notEmpty name="nextPageLink"></a></logic:notEmpty>
+                    <%=(examples.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                   | <%=(examples.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
                </div>
             </div>
 
@@ -99,9 +114,9 @@
 
                             <tr>
                                 <% if (over||self) { %>
-                                <td class="tableTitle" colspan="4">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></td>
+                                <td class="tableTitle" colspan="5">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></td>
                                 <% } else { %>
-                                <td class="tableTitle" colspan="3">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></td>
+                                <td class="tableTitle" colspan="4">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></td>
                                 <% } %>
                             </tr>
                             <tr>
@@ -112,15 +127,13 @@
                                 <td class="tableHeader" width="20%" align="right">
                                     <A href="<%=sortLinkBase%><tc-webtag:sort column="6"/>">Score</A></td>
                                 <td class="tableHeader" width="20%" align="center">
-                                    <A href="<%=sortLinkBase%><tc-webtag:sort column="<%=submissions.getColumnIndex("language_name")%>"/>">Language</A></td>
-<%--
+                                    <A href="<%=sortLinkBase%><tc-webtag:sort column="<%=examples.getColumnIndex("language_name")%>"/>">Language</A></td>
                                 <% if (over||self) { %>
                                 <td class="tableHeader" width="20%" align="right">&#160;</td>
                                 <% } %>
---%>
                             </tr>
                             <%boolean even = true;%>
-                            <rsc:iterator list="<%=submissions%>" id="resultRow">
+                            <rsc:iterator list="<%=examples%>" id="resultRow">
                                 <tr>
                                     <td class="<%=even?"statLt":"statDk"%>">
                                     <% if (over||self) { %>
@@ -137,15 +150,13 @@
                                         <rsc:item name="submission_points" row="<%=resultRow%>" format="0.00"/><%=resultRow.getIntItem("status_id")==130?"*":""%></td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center">
                                         <rsc:item name="language_name" row="<%=resultRow%>"/></td>
-<%--
                                     <% if (over||self) { %>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
-                                    <% if (resultRow.getIntItem("submission_number")==submissions.size() && resultRow.getIntItem("status_id")==150) { %>
+                                    <% if (resultRow.getIntItem("submission_number")==examples.size() && resultRow.getIntItem("status_id")==150) { %>
                                         <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewExampleResults&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>" class="statLink">example results</A>
                                     <% } %>
                                     </td>
                                     <% } %>
---%>
                                 </tr>
                                 <%even = !even;%>
                             </rsc:iterator>
@@ -156,11 +167,8 @@
             <p>* Indicates that this submission has not yet been scored</p>
 
             <div class="pagingBox">
-                <logic:notEmpty name="prevPageLink"><a href="<%=prevPageLink%>" class="bcLink">
-                </logic:notEmpty>&lt;&lt; prev<logic:notEmpty name="prevPageLink"></a></logic:notEmpty>
-                &nbsp;|&nbsp;
-                <logic:notEmpty name="nextPageLink"><a href="<%=nextPageLink%>" class="bcLink">
-                </logic:notEmpty>next &gt;&gt;<logic:notEmpty name="nextPageLink"></a></logic:notEmpty>
+                    <%=(examples.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                | <%=(examples.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
             </div>
 
         </td>
