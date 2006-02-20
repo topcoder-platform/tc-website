@@ -8,6 +8,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.20.06<br>9:15 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm290">SRM 290 - Problem Set & Analysis</A></span><br><br>
+      Division 1 coders faced a pretty balanced set of 3 completely different problems. 
+<tc-webtag:handle coderId="10574855" context="algorithm"/> showed a tremendous performance, 
+outplaying the second (<tc-webtag:handle coderId="8357090" context="algorithm"/>) and third (<tc-webtag:handle coderId="11829284" context="algorithm"/>) finishers by almost 500 points.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm290">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505856" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>02.17.06<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/longcontest/?module=ViewOverview&rd=9881">Intel Multi-Threading Competition 1 Results</A></span><br><br>
       Congratulations to <tc-webtag:handle coderId="7504863" context="algorithm"/> for winning the first Intel Multi-Threading Competition.
@@ -186,19 +205,6 @@
       <A href="/tc?module=Static&d1=hs&d2=home">details</A>&#160;|&#160;
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=509013">discuss this</A>&#160;|&#160;
       <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   </tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>01.31.06<br>4:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=msn_chat_013006">MSN chat session from SRM 286</A></span><br><br>
-      MSN recently held a chat session just prior to SRM 286 to discuss working at MSN.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="/tc?module=Static&d1=contracting&d2=msn_chat_013006">full story</A>&#160;|&#160;
-      <tc-webtag:forumLink forumID="505906" message="discuss this" />&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
 
