@@ -102,6 +102,7 @@ color: FF0000;
         <input type="hidden" name="<%=Constants.CONTEST_ID%>" value="<%=request.getParameter(Constants.CONTEST_ID)%>">
         <input type="hidden" name="<%=Constants.COMPONENT_ID%>" value="<%=request.getParameter(Constants.COMPONENT_ID)%>">
         <input type="hidden" name="<%=Constants.ACTION_KEY%>" value="">
+
       <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
          <tr>
             <td valign="top">
@@ -166,6 +167,11 @@ Arg Types: <%=StringUtils.htmlEncode((String)paramTypes.get(i))%>
               <div style="float:right; padding: 5px 0px 0px 5px;">
                   <A href="javascript: save();"><img src="/i/interface/btn_save.gif" alt="Save" border="0"/></A>
               </div>
+
+                <div style="float:right; padding: 5px 0px 0px 5px;">
+                    <tc-webtag:chkBox name="<%=Constants.EXAMPLES_ONLY%>"/>
+                </div>
+
             </td>
          </tr>
       </table>
