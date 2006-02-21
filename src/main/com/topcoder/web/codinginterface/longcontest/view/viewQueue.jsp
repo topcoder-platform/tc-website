@@ -74,7 +74,7 @@
                                     Language
                                 </td>
                                 <td class="tableHeader" width="20%" align="center">
-                                    Queue Date
+                                    Entered Queue
                                 </td>
                                 <td class="tableHeader" width="20%" align="right">
                                     Tests Remaining
