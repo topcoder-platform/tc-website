@@ -37,6 +37,7 @@
     </jsp:include>
 
 <table class="bodyText" cellpadding="3" cellspacing="0" border="0">
+<tr><td>02.21.2005</td><td><strong>Intel Multi-Threading Competion 1</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_1">Analysis</A></td></tr>
 <tr><td>12.22.2005</td><td><strong>Beta</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=beta">Analysis</A></td></tr>
 </table>
 
