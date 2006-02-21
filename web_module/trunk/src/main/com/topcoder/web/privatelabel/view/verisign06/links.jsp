@@ -23,11 +23,11 @@
             <% } %>
             <% if (tabLev2.equals("registration")) {%>
                <td class="nav">
-               <A href="/tc?module=Login&nextpage=http://<%=ApplicationServer.SERVER_NAME%>/pl/?module=Static&d1=verisign06&d2=reg"><img src="/i/events/verisign06/tabs/ver_L2_registrationOn.gif" alt="" border="0" /></A>
+               <A href="/"><img src="/i/events/verisign06/tabs/ver_L2_registrationOn.gif" alt="" border="0" /></A>
                </td>
             <% } else { %>
                <td class="nav">
-                   <A href="/tc?module=Login&nextpage=http://<%=ApplicationServer.SERVER_NAME%>/pl/?module=Static&d1=verisign06&d2=reg"><img src="/i/events/verisign06/tabs/ver_L2_registrationOff.gif" alt="" border="0" /></A>
+                   <A href="/"><img src="/i/events/verisign06/tabs/ver_L2_registrationOff.gif" alt="" border="0" /></A>
                </td>
             <% } %>
  <%--
