@@ -90,7 +90,7 @@
                                         <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>'/>
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
-                                        <rsc:item name="contest_name" row="<%=resultRow%>"/> &gt; <rsc:item name="round_name" row="<%=resultRow%>"/>
+                                        <A href="?module=ViewStandings&rd=<rsc:item name="round_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/> &gt; <rsc:item name="round_name" row="<%=resultRow%>"/></A>
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
                                         <rsc:item name="language_name" row="<%=resultRow%>"/>
