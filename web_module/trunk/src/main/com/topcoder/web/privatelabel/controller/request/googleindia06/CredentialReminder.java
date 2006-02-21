@@ -1,6 +1,7 @@
 package com.topcoder.web.privatelabel.controller.request.googleindia06;
 
 import com.topcoder.web.privatelabel.controller.request.BaseCredentialReminder;
+import com.topcoder.web.privatelabel.Constants;
 
 /**
  * @author dok
@@ -10,10 +11,10 @@ import com.topcoder.web.privatelabel.controller.request.BaseCredentialReminder;
 public class CredentialReminder extends BaseCredentialReminder {
 
     protected String getStartPage() {
-        return getBundle().getProperty("google_india_06_credentials_page");
+        return Constants.GOOGLE_INDIA_06_CREDENTIALS_PAGE;
     }
 
     protected String getSuccessPage() {
-        return getBundle().getProperty("google_india_06_credentials_sent_page");
+        return Constants.GOOGLE_INDIA_06_CREDENTIALS_SENT_PAGE;
     }
 }

@@ -29,13 +29,13 @@ public class Demog extends FullRegDemog {
         now.setTime(new Date());
 
         if (now.before(beginning) || now.after(end)) {
-            setNextPage(getBundle().getProperty("google_india_06_reg_closed_page"));
+            setNextPage(Constants.GOOGLE_INDIA_06_REG_CLOSED_PAGE);
             setIsNextPageInContext(true);
         } else {
             if (hasErrors()) {
-                setNextPage(getBundle().getProperty("google_india_06_reg_page"));
+                setNextPage(Constants.GOOGLE_INDIA_06_REG_PAGE);
             } else {
-                setNextPage(getBundle().getProperty("google_india_06_reg_demog_page"));
+                setNextPage(Constants.GOOGLE_INDIA_06_REG_DEMOG_PAGE);
             }
             setIsNextPageInContext(true);
         }

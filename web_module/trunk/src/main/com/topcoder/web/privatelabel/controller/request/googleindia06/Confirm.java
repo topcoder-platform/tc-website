@@ -1,6 +1,7 @@
 package com.topcoder.web.privatelabel.controller.request.googleindia06;
 
 import com.topcoder.web.privatelabel.controller.request.ResumeRegConfirm;
+import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.Request;
@@ -26,13 +27,13 @@ public class Confirm extends ResumeRegConfirm {
         now.setTime(new Date());
 
         if (now.before(beginning) || now.after(end)) {
-            setNextPage(getBundle().getProperty("google_india_06_reg_closed_page"));
+            setNextPage(Constants.GOOGLE_INDIA_06_REG_CLOSED_PAGE);
             setIsNextPageInContext(true);
         } else {
             if (hasErrors()) {
-                setNextPage(getBundle().getProperty("google_india_06_reg_demog_page"));
+                setNextPage(Constants.GOOGLE_INDIA_06_REG_DEMOG_PAGE);
             } else {
-                setNextPage(getBundle().getProperty("google_india_06_reg_confirm_page"));
+                setNextPage(Constants.GOOGLE_INDIA_06_REG_CONFIRM_PAGE);
             }
             setIsNextPageInContext(true);
         }
