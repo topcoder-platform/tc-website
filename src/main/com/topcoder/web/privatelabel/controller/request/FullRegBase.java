@@ -33,6 +33,9 @@ public abstract class FullRegBase extends SimpleRegBase {
         try {
             p = new SessionPersistor(getRequest().getSession(true));
             //gotta do first just in case makeRegInfo() needs the database
+            if (getRequestParameter(Constants.COMPANY_ID)==null) {
+                throw new TCWebException("company id missing");
+            }
             long companyId = Long.parseLong(getRequestParameter(Constants.COMPANY_ID));
             transDb = getCompanyDb(companyId, Constants.JTS_TRANSACTIONAL);
             db = getCompanyDb(companyId, Constants.TRANSACTIONAL);
