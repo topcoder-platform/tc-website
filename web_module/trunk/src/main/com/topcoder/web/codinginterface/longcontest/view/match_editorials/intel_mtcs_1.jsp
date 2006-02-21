@@ -137,7 +137,9 @@ solution.
 
 <br><br>
 
-<span class="bodySubtitle"> battyone's Multi-Threaded Algorithm (by battyone)</span><br>
+<span class="bodySubtitle"> battyone's Multi-Threaded Algorithm</span><br>
+by <tc-webtag:handle coderId="7504863" />
+<br><br>
 My first submission was a greedy algorithm that, for each packet in
 turn, found the fastest way that packet could reach its destination,
 using classic bread first search and keeping track of which edges were
@@ -232,7 +234,9 @@ or algorithm each thread is working on.
 
 <br><br>
 
-<span class="bodySubtitle">haha's solution (by lbacktrom)</span><br>
+<span class="bodySubtitle">haha's solution</span><br>
+by <tc-webtag:handle coderId="159052" />
+<br><br>
 Unfortunately, haha was unable to provide a full writeup explaining
 all the different heuristics he used.  This is too bad, since he
 clearly had a very strong grasp of the problem, and I think we were
@@ -327,7 +331,9 @@ wonder if speed was what did him in.
 
 <br><br>
 
-<span class="bodySubtitle">Summary (by lbacktrom)</span><br>
+<span class="bodySubtitle">Summary</span<br>
+by <tc-webtag:handle coderId="159052" />
+<br><br>
 While two submissions is not a very big sample size, they are similar in a
 surprising number of ways (and round table discussions suggest that many other
 top submissions used similar approaches).  The hallmark of top submissions
