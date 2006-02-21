@@ -3,12 +3,12 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Member Card</title>
+<title>TopCoder Referrals</title>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<jsp:include page="../script.jsp" />
-<jsp:include page="../style.jsp">
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_main"/>
 </jsp:include>
 <% ResultSetContainer referralList = (ResultSetContainer)request.getAttribute("referralList");%>
@@ -25,7 +25,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-         <jsp:include page="../includes/global_left.jsp">
+         <jsp:include page="/includes/global_left.jsp">
             <jsp:param name="node" value="referrals"/>
          </jsp:include>
         </td>
