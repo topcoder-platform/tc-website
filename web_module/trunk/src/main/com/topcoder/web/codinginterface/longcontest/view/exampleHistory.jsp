@@ -120,20 +120,20 @@
                                 <% } %>
                             </tr>
                             <tr>
-                                <td class="tableHeader" width="20%">
+                                <td class="tableHeader" align="center" nowrap="nowrap">
                                     <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=examples.getColumnIndex("submission_number")%>" includeParams="true" excludeParams="sr;nr"/>">Example Test</A></td>
-                                <td class="tableHeader" width="20%" align="center">
+                                <td class="tableHeader" width="100%" align="center">
                                     <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=examples.getColumnIndex("submit_time")%>" includeParams="true" excludeParams="sr;nr"/>">Time</A></td>
-                                <td class="tableHeader" width="20%" align="center">
+                                <td class="tableHeader" align="center" nowrap="nowrap">
                                     <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=examples.getColumnIndex("language_name")%>" includeParams="true" excludeParams="sr;nr"/>">Language</A></td>
                                 <% if (over||self) { %>
-                                <td class="tableHeader" width="20%" align="right">&#160;</td>
+                                <td class="tableHeader" align="right">&#160;</td>
                                 <% } %>
                             </tr>
                             <%boolean even = true;%>
                             <rsc:iterator list="<%=examples%>" id="resultRow">
                                 <tr>
-                                    <td class="<%=even?"statLt":"statDk"%>">
+                                    <td class="<%=even?"statLt":"statDk"%>" align="center">
                                     <% if (over||self) { %>
                                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemSolution&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>" class="statLink">
                                     <% } %>
