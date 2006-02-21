@@ -38,7 +38,7 @@ public class Submit extends ResumeRegSubmit {
         now.setTime(new Date());
 
         if (now.before(beginning) || now.after(end)) {
-            setNextPage(getBundle().getProperty("google_india_06_reg_closed_page"));
+            setNextPage(Constants.GOOGLE_INDIA_06_REG_CLOSED_PAGE);
             setIsNextPageInContext(true);
         } else {
             if (isEligible((FullRegInfo) regInfo)) {

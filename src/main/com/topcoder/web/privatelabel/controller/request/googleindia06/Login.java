@@ -1,6 +1,7 @@
 package com.topcoder.web.privatelabel.controller.request.googleindia06;
 
 import com.topcoder.web.privatelabel.controller.request.FullLogin;
+import com.topcoder.web.privatelabel.Constants;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -23,14 +24,14 @@ public class Login extends FullLogin {
         now.setTime(new Date());
 
         if (now.before(beginning) || now.after(end)) {
-            setNextPage(getBundle().getProperty("google_india_06_reg_closed_page"));
+            setNextPage(Constants.GOOGLE_INDIA_06_REG_CLOSED_PAGE);
             setIsNextPageInContext(true);
         } else {
             if (hasErrors()) {
-                setNextPage(getBundle().getProperty("google_india_06_login_page"));
+                setNextPage(Constants.GOOGLE_INDIA_06_LOGIN_PAGE);
                 setIsNextPageInContext(true);
             } else {
-                setNextPage(getBundle().getProperty("google_india_06_reg_page"));
+                setNextPage(Constants.GOOGLE_INDIA_06_REG_PAGE);
                 setIsNextPageInContext(true);
             }
         }
