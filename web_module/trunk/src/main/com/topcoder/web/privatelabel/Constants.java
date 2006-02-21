@@ -64,15 +64,16 @@ public class Constants {
     public static String GOOGLE_INDIA_05_CREDENTIALS_PAGE;
     public static String GOOGLE_INDIA_05_CREDENTIALS_SENT_PAGE;
 
-    public static String GOOGLE_INDIA_06_LOGIN_PAGE;
-    public static String GOOGLE_INDIA_06_REG_PAGE;
-    public static String GOOGLE_INDIA_06_REG_DEMOG_PAGE;
-    public static String GOOGLE_INDIA_06_REG_CONFIRM_PAGE;
-    public static String GOOGLE_INDIA_06_REG_SUCCESS_PAGE;
-    public static String GOOGLE_INDIA_06_ACTIVATION_PAGE;
-    public static String GOOGLE_INDIA_06_REG_CLOSED_PAGE;
-    public static String GOOGLE_INDIA_06_CREDENTIALS_PAGE;
-    public static String GOOGLE_INDIA_06_CREDENTIALS_SENT_PAGE;
+    public static final String GOOGLE_INDIA_06_LOGIN_PAGE="/gicj06/login.jsp";
+    public static final String GOOGLE_INDIA_06_REG_PAGE="/gicj06/reg.jsp";
+    public static final String GOOGLE_INDIA_06_REG_DEMOG_PAGE="/gicj06/demog.jsp";
+    public static final String GOOGLE_INDIA_06_REG_CONFIRM_PAGE="/gicj06/confirm.jsp";
+    public static final String GOOGLE_INDIA_06_REG_SUCCESS_PAGE="&d1=gicj06&d2=regsuccess";
+    public static final String GOOGLE_INDIA_06_ACTIVATION_PAGE="/gicj06/activation.jsp";
+    public static final String GOOGLE_INDIA_06_REG_CLOSED_PAGE="/gicj06/reg_closed.jsp";
+    public static final String GOOGLE_INDIA_06_CREDENTIALS_PAGE="/gicj06/credentials.jsp";
+    public static final String GOOGLE_INDIA_06_CREDENTIALS_SENT_PAGE="/gicj06/credentialsSent.jsp";
+
 
     public static String DEFAULT_PAGE;
 
@@ -188,13 +189,14 @@ public class Constants {
     public static String GOOGLE_INDIA_05_REG_SUBMIT;
     public static String GOOGLE_INDIA_05_ACTIVATION;
     public static String GOOGLE_INDIA_05_CREDENTIALS;
-    public static String GOOGLE_INDIA_06_REG_MAIN;
-    public static String GOOGLE_INDIA_06_REG_DEMOG;
-    public static String GOOGLE_INDIA_06_REG_CONFIRM;
-    public static String GOOGLE_INDIA_06_REG_SUBMIT;
-    public static String GOOGLE_INDIA_06_ACTIVATION;
-    public static String GOOGLE_INDIA_06_CREDENTIALS;
-    public static String GOOGLE_INDIA_06_LOGIN;
+    public static final String GOOGLE_INDIA_06_REG_MAIN="GoogleIndia06Reg";
+    public static final String GOOGLE_INDIA_06_REG_DEMOG="GoogleIndia06Demog";
+    public static final String GOOGLE_INDIA_06_REG_CONFIRM="GoogleIndia06Confirm";
+    public static final String GOOGLE_INDIA_06_REG_SUBMIT="GoogleIndia06Submit";
+    public static final String GOOGLE_INDIA_06_ACTIVATION="GoogleIndia06Activate";
+    public static final String GOOGLE_INDIA_06_CREDENTIALS="GoogleIndia06Credentials";
+    public static final String GOOGLE_INDIA_06_LOGIN="GoogleIndia06Login";
+
     public static String VERIZON_REG_MAIN;
     public static String VERIZON_REG_DEMOG;
     public static String VERIZON_REG_CONFIRM;
