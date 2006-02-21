@@ -98,11 +98,7 @@
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
                             <tr>
-                                <% if (over||self) { %>
                                 <td class="tableTitle" colspan="4">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></td>
-                                <% } else { %>
-                                <td class="tableTitle" colspan="3">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></td>
-                                <% } %>
                             </tr>
                             <tr>
                                 <td class="tableHeader" width="20%">
