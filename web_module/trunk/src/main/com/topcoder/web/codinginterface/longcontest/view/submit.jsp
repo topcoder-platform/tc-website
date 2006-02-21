@@ -170,12 +170,13 @@ Arg Types: <%=StringUtils.htmlEncode((String)paramTypes.get(i))%>
                   <A href="javascript: submit();"><img src="/i/interface/btn_submit.gif" alt="Submit" border="0"/></A>
               </div>
 
+                <div style="float:right; padding: 5px 0px 0px 5px;">
+                    <A href="javascript: exampleSubmit();"><img src="/i/interface/btn_test_examples.gif" alt="Save" border="0"/></A>
+                </div>
+
               <div style="float:right; padding: 5px 0px 0px 5px;">
                   <A href="javascript: save();"><img src="/i/interface/btn_save.gif" alt="Save" border="0"/></A>
               </div>
-                <div style="float:right; padding: 5px 0px 0px 5px;">
-                    <A href="javascript: exampleSubmit();">Test Examples</A>
-                </div>
 
             </td>
          </tr>
