@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=utf-8" %>
 <%
     String tabLev2 = request.getParameter("tabLev2")==null?"":request.getParameter("tabLev2");
     String tabLev3 = request.getParameter("tabLev3")==null?"":request.getParameter("tabLev3");
@@ -22,20 +23,12 @@
             <% } %>
             <% if (tabLev2.equals("registration")) {%>
                <td class="nav">
-            <% if (sessionInfo.isAnonymous()) { %>
-                   <A href="/tc?module=Login&nextpage=http://<%=ApplicationServer.SERVER_NAME%>/pl/?module=Static&d1=verisign06&d2=reg"><img src="/i/events/verisign06/tabs/ver_L2_registrationOn.gif" alt="" border="0" /></A>
-            <% } else { %>
-                           <A href="/pl/?module=Static&d1=verisign06&d2=reg"><img src="/i/events/verisign06/tabs/ver_L2_registrationOn.gif" alt="" border="0" /></A>
-            <% } %>
-                   </td>
+               <A href="/tc?module=Login&nextpage=http://<%=ApplicationServer.SERVER_NAME%>/pl/?module=Static&d1=verisign06&d2=reg"><img src="/i/events/verisign06/tabs/ver_L2_registrationOn.gif" alt="" border="0" /></A>
+               </td>
             <% } else { %>
                <td class="nav">
-            <% if (sessionInfo.isAnonymous()) { %>
                    <A href="/tc?module=Login&nextpage=http://<%=ApplicationServer.SERVER_NAME%>/pl/?module=Static&d1=verisign06&d2=reg"><img src="/i/events/verisign06/tabs/ver_L2_registrationOff.gif" alt="" border="0" /></A>
-            <% } else { %>
-                           <A href="/pl/?module=Static&d1=verisign06&d2=reg"><img src="/i/events/verisign06/tabs/ver_L2_registrationOff.gif" alt="" border="0" /></A>
-            <% } %>
-            </td>
+               </td>
             <% } %>
  <%--
            <% if (tabLev2.equals("registrants")) {%>
