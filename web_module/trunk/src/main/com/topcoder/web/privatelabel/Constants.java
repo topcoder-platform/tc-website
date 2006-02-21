@@ -69,6 +69,7 @@ public class Constants {
     public static String GOOGLE_INDIA_05_CREDENTIALS_PAGE;
     public static String GOOGLE_INDIA_05_CREDENTIALS_SENT_PAGE;
 
+    public static String GOOGLE_INDIA_06_LOGIN_PAGE;
     public static String GOOGLE_INDIA_06_REG_PAGE;
     public static String GOOGLE_INDIA_06_REG_DEMOG_PAGE;
     public static String GOOGLE_INDIA_06_REG_CONFIRM_PAGE;
@@ -198,6 +199,7 @@ public class Constants {
     public static String GOOGLE_INDIA_06_REG_SUBMIT;
     public static String GOOGLE_INDIA_06_ACTIVATION;
     public static String GOOGLE_INDIA_06_CREDENTIALS;
+    public static String GOOGLE_INDIA_06_LOGIN;
     public static String VERIZON_REG_MAIN;
     public static String VERIZON_REG_DEMOG;
     public static String VERIZON_REG_CONFIRM;
