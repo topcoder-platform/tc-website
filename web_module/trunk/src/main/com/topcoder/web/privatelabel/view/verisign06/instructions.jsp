@@ -1,75 +1,41 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" %>
+<%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<jsp:include page="/script.jsp" />
+
+<title>VeriSign Internal SRMs, Powered by TopCoder</title>
 <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
-<title>VeriSign Coder Challenge 2006, Powered by TopCoder</title>
-<jsp:include page="../script.jsp" />
-<style type="text/css">
-.code
-{
-   width: 580;
-   padding: 10px;
-   margin: 20px;
-   color: #333;
-   font-size: 11px;
-   font-weight: normal;
-   line-height: 14px;
-   background-color: #EEEEEE;
-   border: 1px solid #999;
-}
-</style>
 </head>
-<body bgcolor="#FFF">
+<body>
 
-<table align="left" cellspacing="0" cellpadding="0" valign="top" width="760">
-   <tr>
-      <td width="115" height="60" align="left" valign="top" rowspan="2"><a href="http://www.verisign.com/index.html"><img border=0 src="/i/events/verisign06/www_vrsn_logo.gif" alt="VeriSign, Inc.&#0174;"></a></td>
-      <td width="645" height="20" align="right" valign="top" style="padding: 1px 0px 0px 0px;">
-	    <a href="http://www.verisign.com/index.html" class="VStop">US Home</a> &#160;&#160; | &#160;&#160;
-		<a href="http://www.verisign.com/verisign-worldwide/index.html" class="VStop">Worldwide Sites</a> &#160;&#160; | &#160;&#160;
-	    <a href="http://www.verisign.com/site-map/index.html" class="VStop">Site Map</a>
-	  </td>
-	</tr>
-	<tr>
-      <td width="645" height="40" align="left" valign="top"><img border=0 src="/i/events/verisign06/connectionline.gif" alt=""></td>
-   </tr>
-   
-<!-- Tab bar links-->
-   <tr>
-      <td colspan="2">
-         <div align="left">
-         <jsp:include page="links.jsp" >
-         <jsp:param name="selectedTab" value="instructions"/>
-         </jsp:include>
-         </div>
-      </td>
-    </tr>
+<!-- Tab barlinks-->
+<jsp:include page="links.jsp" >
+<jsp:param name="tabLev2" value="details"/>
+<jsp:param name="tabLev3" value="instructions"/>
+</jsp:include>
 
-<!-- main content -->
-
-    <tr>
-      <td align="left" valign="top" colspan="2" style="padding: 0px 0px 0px 20px;">
-
-         <span valign=top><jsp:include page="right.jsp" /></span><br>
-         
-         <p class="blkBigHead">Tough problems. Intense competition. No pressure.</p>
-         <br/>
-
-<span class="redHead">Loading the Competition Arena</span><br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<!-- Body-->
+	<tr valign="top">
+		<td valign="top" align="center">
+		<div class="bodySpacer">
+            
+<span class="bigTitle">Instructions</span><br><br>
+<span class="bodySubtitle">Loading the Competition Arena</span><br>
 Load the application by clicking the Competition Arena link at the top.  You need at least <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version 1.4</A> to run the Arena.  Click <A href="http://java.sun.com/getjava/index.jsp " target="_blank">here</A> if you do not have Java Runtime 1.4 installed.
 <br><br><br>
-<span class="redHead">Logging in to the Competition Arena</span><br>
+<span class="bodySubtitle">Logging in to the Competition Arena</span><br>
 Once the Competition Arena launches, you will be presented with a login screen.
 
 <br><br>
-<div align="center"><img src="/i/events/verisign06/arena1.gif" alt="" border="0" /></div>
+<div align="center"><img src="/i/events/verisign06/arena1_ver.gif" alt="" border="0" /></div>
 <br><br>
 
 From here, you need simply type in your handle and the password that you chose during the registration process. Once you log in, you will initially be placed in the main chat lobby.
 
 <br><br>
-<div align="center"><img src="/i/events/verisign06/arena2.gif" alt="" border="0" /></div>
+<div align="center"><img src="/i/events/verisign06/arena2_ver.gif" alt="" border="0" /></div>
 <br><br>
 
 Move to your assigned competition room as follows:
@@ -79,19 +45,19 @@ Move to your assigned competition room as follows:
 <li>Select "Enter"</li>
 </ul>
 <br>
-<span class="redHead">The Competition Room</span><br>
+<span class="bodySubtitle">The Competition Room</span><br>
 From within the competition room, you will access the problem statements that you will attempt to solve during the Coding Phase.
 
 <br><br>
-<div align="center"><img src="/i/events/verisign06/arena3.gif" alt="" border="0" /></div>
+<div align="center"><img src="/i/events/verisign06/arena3_ver.gif" alt="" border="0" /></div>
 <br><br><br>
 
-<span class="redHead">Coding Phase</span><br>
+<span class="bodySubtitle">Coding Phase</span><br>
 The Coding Phase is the period during which each contestant attempts to create solutions to three problem statements. The amount of time you will be given will vary depending on the round of competition:
 <ul>
 <li>In the Qualification Round, the Coding Phase will last 60 minutes from the time that the first problem is opened and the contestants will be given two problems to solve.</li>
-<li>In the Online Rounds of the VeriSign Coder Challenge, the Coding Phase will last 75 minutes and the contestants will be given three problems to solve.</li>
-<li>In the Onsite Final Round of the VeriSign Coder Challenge, the coding phase will last 75 minutes and the contestants will be given three problems to solve.</li>
+<li>In the Online Rounds of the Sponsor Track Competiton, the Coding Phase will last 75 minutes and the contestants will be given three problems to solve.</li>
+<li>In the Online Final Round of the Sponsor Track Competiton, the coding phase will last 75 minutes and the contestants will be given three problems to solve.</li>
 </ul>
 
 When the competition begins, you may view the problem statements as follows:
@@ -106,11 +72,11 @@ The Coding Phase will allow you to submit a problem more than once. If you've al
 <br><br>
 During the Coding Phase, the timer in the competition room window and the coding window will represent the amount of time left in the Coding Phase.
 <br><br><br>
-<span class="redHead">The Coding Window</span><br>
+<span class="bodySubtitle">The Coding Window</span><br>
 The coding window is the most important part of the Competition Arena. It is in the coding window that the problem statement is shown, and the solutions are coded, compiled, tested, and submitted.
 
 <br><br>
-<div align="center"><img src="/i/events/verisign06/arena4.gif" alt="" border="0" /></div>
+<div align="center"><img src="/i/events/verisign06/arena4_ver.gif" alt="" border="0" /></div>
 <br><br>
 
 <blockquote>
@@ -118,15 +84,16 @@ The coding window is the most important part of the Competition Arena. It is in 
 The top pane of the coding window contains the problem statement in its entirety. The problem statement explains exactly what it is that you are attempting to accomplish. It includes an explanation of the task, the class and method definitions that your solution must adhere to, all of the constraints for any input parameters, and examples to help clarify the statement.
 <br><br>
 <strong>Choosing a Language</strong><br>
-The VeriSign Coder Challenge allows coders to utilize Java, C++, C# or Visual Basic as a competition programming language. You have the option to choose a programming language on a problem-by-problem basis. It is legal for you to use any programming languages to solve each of the problems in a single competition. For this reason, you have the option of choosing the programming language from within the coding window. You can find the language selection area in the upper right area of the coding window - under "Choose your language". Remember to select the appropriate language before you attempt to compile your code. Strange compilation results can be a symptom of having the wrong language selected.
+The Sponsor Track Competiton allows coders to utilize Java, C++, C# or Visual Basic as a competition programming language. You have the option to choose a programming language on a problem-by-problem basis. It is legal for you to use any programming languages to solve each of the problems in a single competition. For this reason, you have the option of choosing the programming language from within the coding window. You can find the language selection area in the upper right area of the coding window - under "Choose your language". Remember to select the appropriate language before you attempt to compile your code. Strange compilation results can be a symptom of having the wrong language selected.
 <br><br>
 <strong>Creating a Solution</strong><br>
 The solution class you create and all of its members must be defined as public in order for the TopCoder servers to have access to your class members and invoke the appropriate methods. Below you will find code templates for Java, C++, C#, and Visual Basic:
 <br><br>
 
 <b>Java Code Template</b><br><br>
-<pre class="code">
-import &lt;necessary classes&gt;
+<table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+<tr><td class="sidebarText">
+<pre>import &lt;necessary classes&gt;
 
 public class &lt;class-name&gt; {
     public &lt;return-type&gt; &lt;method-name&gt;(&lt;argument-type&gt; arg1) {
@@ -135,11 +102,14 @@ public class &lt;class-name&gt; {
     }
 }
 </pre>
+</td></tr>
+</table>
 <br><br>
 
 <b>C++ Code Template</b><br><br>
-<pre class="code">
-#include &lt;necessary classes&gt;
+<table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+<tr><td class="sidebarText">
+<pre>#include &lt;necessary classes&gt;
 
 using namespace std; //Required for TopCoder gcc compiler
 
@@ -153,11 +123,14 @@ class &lt;class-name&gt;
     };
 };
 </pre>
+</td></tr>
+</table>
 <br><br>
 
 <b>C# Code Template</b><br><br>
-<pre class="code">
-using &lt;necessary classes&gt;;
+<table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+<tr><td class="sidebarText">
+<pre>using &lt;necessary classes&gt;;
 
 public class &lt;class-name&gt; {
     public &lt;return-type&gt; &lt;method-name&gt;(&lt;argument-type&gt; arg1) {
@@ -166,10 +139,14 @@ public class &lt;class-name&gt; {
     }
 }
 </pre>
+</td></tr>
+</table>
 <br><br>
 
 <b>Visual Basic Code Template</b><br><br>
-<pre class="code">
+<table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+<tr><td class="sidebarText">
+<pre>
 Imports &lt;necessary classes&gt;;
 
 Public Class &lt;class-name&gt;
@@ -180,6 +157,8 @@ Public Class &lt;class-name&gt;
     End Function
 End Class
 </pre>
+</td></tr>
+</table>
 <br><br>
 
 <strong>Compiling</strong><br>
@@ -222,16 +201,16 @@ You do have the option of submitting a problem multiple times. If you've already
 <br><br>
 </blockquote>
 <br>
-<span class="redHead">Saving</span><br>
+<span class="bodySubtitle">Saving</span><br>
 At any time while coding, you may save your code. Clicking the "Save" button will place the current version of your code on the TopCoder server. It is good to save every-so-often to ensure that a recent version of your code will be available in the event that something happens to your session (i.e., you lose your Internet connection). Compiling your code also has the effect of saving it.
 <br><br><br>
-<span class="redHead">Clearing the Code</span><br>
+<span class="bodySubtitle">Clearing the Code</span><br>
 Using the "Clear" button, you can quickly clear out the coding window. Use this option only if you wish to start over on a particular problem. Warning: Once you clear your code, there is no way to retrieve it!
 <br><br><br>
-<span class="redHead">The Timer</span><br>
+<span class="bodySubtitle">The Timer</span><br>
 The timer in the coding window will be counting down to the end of the current competition phase. In the case of the qualification round, it will indicate how much time you have left in your hour-long qualification session (assuming you have opened a problem).  Remember that there is variable latency between your computer and our servers. For that reason, it is ALWAYS best to perform any submissions with at least 30 seconds left on the timer.
 <br><br><br>
-<span class="redHead">The Challenge Phase</span><br>
+<span class="bodySubtitle">The Challenge Phase</span><br>
 (Note: The qualification round does NOT include a challenge phase)
 <br><br>
 The Challenge Phase will begin five minutes after the end of the Coding Phase (the period in between is an intermission), and will last for 15 minutes.
@@ -248,28 +227,37 @@ Double click on any of the point values (shown in green) to view the source code
 <br><br>
 You may only submit a challenge if you have at least zero points at the time of the challenge. A given submission may only be successfully challenged once. If any competitor has already successfully challenged a submission, it may not be further challenged.
 <br><br><br>
-<span class="redHead">System Testing Phase</span><br>
+<span class="bodySubtitle">System Testing Phase</span><br>
 After the Challenge Phase, all submissions will be run through a series of test cases.  In the case of the qualification round, the system tests will be run following the entire length of the qualification period.  These test cases will compare an expected result against a received result to determine if the code submission works for each test case. 
 <br><br>
 <i>Any submission that fails any test case will be deemed incorrect, and will result in a loss of all points for that submission. In addition, any submission that runs longer than two (2) seconds for any test case will be deemed incorrect, and will result in a loss of all points</i>.
 <br><br>
 If your submission passes all of the test cases, you will keep the points that were assigned to you when you submitted the problem. Your final score for each round will cumulate the points remaining from the System Testing Phase and any points gained or lost during the Challenge Phase.
 <br><br><br>
-<span class="redHead">If You Have Any Questions</span><br>
+<span class="bodySubtitle">If You Have Any Questions</span><br>
 If you have a question during the competition about the problem statement or about the functionality of the Arena, please utilize the chat interface in the Arena to present your question to the competition administrators. To do so, simply type the following in the white chat line at the bottom of the applet:
 <br><br>
 <strong><i>admins: [YOUR QUESTION]</i></strong>
 <br><br>
 An administrator will respond to your question in the chat area.
 <br><br>
-If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to <A href="verisign06@topcoder.com?subject=Question regarding VeriSign Coder Challenge 2006">verisign06@topcoder.com</A> . Please include a detailed description of the problem that you are having.
+If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to <A href="mailto:service@topcoder.com">service@topcoder.com</A> . Please include a detailed description of the problem that you are having.
+        </div>
+		</td>
+        
+         
+<!-- Right Column-->
+<td width="180" align="right" style="padding: 0px 15px 0px 0px;">
+<jsp:include page="right.jsp" />
 
-         <br/><br/>
-         To find out more detailed information about the VeriSign&#153; Coder Challenge 2006, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=verisign06&d2=rules">Terms and Conditions</a>.
-      </td>
-   <tr>
-   <tr><td colspan="2">&#160;</td></tr>
-   <tr><td colspan="2"><jsp:include page="foot.jsp" /></td></tr>
+</td>
+      
+   </tr>
+   
 </table>
+
+<jsp:include page="/foot.jsp" />
+
 </body>
+
 </html>

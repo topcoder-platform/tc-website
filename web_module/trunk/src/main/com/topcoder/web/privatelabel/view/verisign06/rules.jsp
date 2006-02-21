@@ -1,62 +1,57 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" %>
+<%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<jsp:include page="/script.jsp" />
+
+<title>VeriSign Internal SRMs, Powered by TopCoder</title>
 <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
-<title>VeriSign Coder Challenge 2006, Powered by TopCoder</title>
-<jsp:include page="../script.jsp" />
 </head>
-<body bgcolor="#FFF">
+<body>
 
-<table align="left" cellspacing="0" cellpadding="0" valign="top" width="760">
-   <tr>
-      <td width="115" height="60" align="left" valign="top" rowspan="2"><a href="http://www.verisign.com/index.html"><img border=0 src="/i/events/verisign06/www_vrsn_logo.gif" alt="VeriSign, Inc.&#0174;"></a></td>
-      <td width="645" height="20" align="right" valign="top" style="padding: 1px 0px 0px 0px;">
-	    <a href="http://www.verisign.com/index.html" class="VStop">US Home</a> &#160;&#160; | &#160;&#160;
-		<a href="http://www.verisign.com/verisign-worldwide/index.html" class="VStop">Worldwide Sites</a> &#160;&#160; | &#160;&#160;
-	    <a href="http://www.verisign.com/site-map/index.html" class="VStop">Site Map</a>
-	  </td>
-	</tr>
-	<tr>
-      <td width="645" height="40" align="left" valign="top"><img border=0 src="/i/events/verisign06/connectionline.gif" alt=""></td>
-   </tr>
-   
-<!-- Tab bar links-->
-   <tr>
-      <td colspan="2">
-         <div align="left">
-         <jsp:include page="links.jsp" >
-         <jsp:param name="selectedTab" value="rules"/>
-         </jsp:include>
-         </div>
-      </td>
-    </tr>
+<!-- Tab barlinks-->
+<jsp:include page="links.jsp" >
+<jsp:param name="tabLev2" value="details"/>
+<jsp:param name="tabLev3" value="rules"/>
+</jsp:include>
 
-<!-- main content -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<!-- Body-->
+	<tr valign="top">
+		<td valign="top" align="center">
+		<div class="bodySpacer">
 
-    <tr>
-      <td align="left" valign="top" colspan="2" style="padding: 0px 0px 0px 20px;">
+		
+<span class="bigTitle">Official Rules and Regulations</span>
+<br><br>
+<a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="#registration">Registration</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="#qualification">Qualification Round</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="#structure">Round Structure</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="#conditions">Conditions&nbsp;of&nbsp;Participation</a>
+<br><br>
 
-         <span valign=top><jsp:include page="right.jsp" /></span><br>
-         
-         <p class="blkBigHead">Official Rules and Regulations</p>
-         <br/>
-         
-<span class="redHead">No purchase necessary to enter or win. Void where prohibited.</span>
-<br><br><br>
-<span class="redHead">Overview of the Tournament</span>
+<span class="bigRed">No purchase necessary to enter or win. Void where prohibited.</span>
+<br><br>
+<span class="bodySubtitle">Overview of the Tournament</span>
 <br><br>
 The 2006 TopCoder Open ("TCO") Sponsor Track Competition will take place between February 13 and March 22, 2006.  This algorithm competition will consist of one (1) online qualification round, three (3) online elimination rounds and one (1) online final round.    
 <br><br>
 
+<a name="eligibility"></a>
+<a href="#top"><img src="/i/interface/back_to_top_dk.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <b>Eligibility</b><br>
-Employees and interns of all official TCO sponsors who are TopCoder members and are at least 18 years of age as of March 1, 2006 are eligible to compete in the Sponsor Track  Competition.  TCO sponsor employees and interns may register to become a TopCoder member by navigating to www.topcoder.com, clicking on "Developer Center" and then clicking on "Register" in the upper right corner of the screen.
+Employees and interns of all official TCO sponsors who are TopCoder members and are at least 18 years of age as of February 28, 2006 are eligible to compete in the Sponsor Track Competition. TCO sponsor employees and interns may register to become a TopCoder member by going <a href="http://www.topcoder.com/reg/index.jsp">here</a>.
 <br><br>
 
+<a name="registration"></a>
+<a href="#top"><img src="/i/interface/back_to_top_dk.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <b>Registration</b><br>
 Registration for the 2006 TopCoder Open Sponsor Track Competition will open 9:00AM EST on Monday, February 13, 2006, and will close at 9:00AM EST on Tuesday, February 28, 2006.  In order to be eligible to compete in the Sponsor Track Competition, competitors must be a registered TopCoder member and must register separately for the Sponsor Track Competition.  There is no limit to the number of registrants in the competition, however each individual may only register once.
 <br><br>
 
+<a name="qualification"></a>
+<a href="#top"><img src="/i/interface/back_to_top_dk.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <b>Qualification Round &mdash; Noon EST Tuesday, February 28 through Noon EST Wednesday, March 1, 2006</b><br>
 The Qualification Round will be open for 24 hours from Noon EST Tuesday, February 28 through Noon EST Wednesday, March 1, 2006.  Each competitor may participate in the Qualification Round at any time during the 24 hours.  Competitors may only attempt to qualify one time using one account during the 24 hours.
 <br><br>
@@ -74,7 +69,10 @@ Upon logging in to the TopCoder Arena during the Qualification Round, each compe
 <li>If a tie still remains, all tied coders will advance to the next round.</li>
 </ul>
 <br>
-<span class="redHead">Online Elimination Rounds</span>
+
+<a href="#top"><img src="/i/interface/back_to_top_dk.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
+<a name="structure"></a>
+<span class="bodySubtitle">Online Elimination Rounds</span>
 <br><br>
 Everyone who competes in an online round must login to the TopCoder Competition Arena no later than five (5) minutes prior to the start of the online round. Sponsor employees and interns from around the world may be participating in the online rounds, but all start times will be communicated as Eastern Standard Time (GMT -5), so contestants in different time zones must adjust accordingly. If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition. 
 <br><br>
@@ -85,7 +83,7 @@ All Sponsor Track competitors who have qualified for an online round will be ass
 The dates and times of the online rounds of competition are as follows: 
 <br><br>
 
-         <table width="450" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
+         <table width="400" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
             <tr>
                <td class="sidebarTitle" width="25%">Round</td>
                <td class="sidebarTitle" width="35%">Date and Time*</td>
@@ -94,7 +92,7 @@ The dates and times of the online rounds of competition are as follows:
             </tr>
             <tr valign="top">
                <td class="sidebarText">Online Round 1</td>
-               <td class="sidebarText">March 4, 2006<br />Register: 9:00 AM<br />START: 12:00 PM<br /></td>
+               <td class="sidebarText">March 4, 2006<br />Register: 9:00 AM<br />START: 12:00 PM (Noon)<br /></td>
                <td class="sidebarText" align="center">100</td>
                <td class="sidebarText" align="center">50</td>
             </tr>
@@ -116,10 +114,10 @@ The dates and times of the online rounds of competition are as follows:
          </table>
 
 <br><br>
-<span class="redHead">Scoring and Advancing during Online Rounds</span>
+<span class="bodySubtitle">Scoring and Advancing during Online Rounds</span>
 <br><br>
 
-After each round of competition, the highest scorers from across the room will be identified and will advance to the next online round.  Coder advancement in all rounds is determined by comparing the total point values from all three phases of the round for each coder. In order to advance, a coder must finish each round with a positive (i.e., greater-than-zero) point total. The structure of the online rounds is as follows:
+After each round of competition, the highest scorers from across the room will be identified and will advance to the next online round. Coder advancement in all rounds is determined by comparing the total point values from all three phases of the round for each coder. In order to advance, a coder must finish each round with a positive (i.e., greater-than-zero) point total. The structure of the online rounds is as follows:
 <br><br>
 
 <b>Online Round #1</b><br>
@@ -145,7 +143,7 @@ This round will be the last round of the Sponsor Track Competition.  Up to 10 co
 <li>If a tie still remains, all tied coders will advance to the next round.</li>
 </ul>
 <br>
-<span class="redHead">Competition Round Structure</span>
+<span class="bodySubtitle">Competition Round Structure</span>
 <br><br>
 
 With the exception of the Qualification Round, each online and onsite round of competition consists of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. (Note: The format of these competition rounds is similar to the format of TopCoder Single Round Matches.  The rules in place for the Single Round Matches as of February 28, 2006 will also apply to the online rounds of the Sponsor Track Competition.)
@@ -157,12 +155,15 @@ With the exception of the Qualification Round, each online and onsite round of c
 <li>The System Testing Phase is applied to all submitted code that has not already been successfully challenged. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given problem.  No test cases from the Challenge Phase of the Sponsor Track Competition will be added to the test cases used for the System Testing Phase of the Sponsor Track Competition.</li>
 </ul>
 <br>
-<span class="redHead">Conditions of Participation</span>
+
+<a name="conditions"></a>
+<a href="#top"><img src="/i/interface/back_to_top_dk.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
+<span class="bodySubtitle">Conditions of Participation</span>
 <br><br>
 By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.  
 <br><br>
 
-<span class="redHead">Contestants must not cheat. All ideas for any code and/or challenge submitted must be the contestant's alone.</span>
+<span class="bigRed">Contestants must not cheat. All ideas for any code and/or challenge submitted must be the contestant's alone.</span>
 <br><br>
 All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.
 <br><br>
@@ -175,7 +176,7 @@ In addition, any prizewinners agree to cooperate with TopCoder's publicity effor
 TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with competing in this tournament, and to take any other action it deems appropriate, for no reason or any reason whatsoever, including if TopCoder suspects competitors of cheating, tampering with the entry process, the operation of the Web site, or the tournament process, or otherwise being in violation of the rules. TopCoder reserves the right to cancel, terminate or modify the tournament if it is not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.
 <br><br><br>
 
-<span class="redHead">Other</span>
+<span class="bodySubtitle">Other</span>
 <br><br>
 
 The tournament is void in whole or in part where prohibited by law.
@@ -183,11 +184,23 @@ The tournament is void in whole or in part where prohibited by law.
 A list of tournament winners by coder handles will be available on the web site at <a href="http://www.topcoder.com/tc">http://www.topcoder.com/tc</a>, and will be displayed for at least 3 months after the end of the tournament.
 <br><br>
 This tournament is brought to you by <a href="http://www.topcoder.com/">TopCoder, Inc.</a> 703 Hebron Avenue, Glastonbury, CT 06033.
+        </div>
+		</td>
+ 
 
-         </div>
-      </td>
-   <tr><td colspan="2">&#160;</td></tr>
-   <tr><td colspan="2"><jsp:include page="foot.jsp" /></td></tr>
+         
+<!-- Right Column-->
+<td width="180" align="right" style="padding: 0px 15px 0px 0px;">
+<jsp:include page="right.jsp" />
+
+</td>
+      
+   </tr>
+   
 </table>
+
+<jsp:include page="/foot.jsp" />
+
 </body>
+
 </html>
