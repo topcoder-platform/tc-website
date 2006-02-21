@@ -364,7 +364,7 @@ public class Submit extends Base {
 
 
         if (!dbs.isLongComponentOpened((int)uid, (int)rid, (int)cid)) { // Is there a record of the user opening the problem?
-            dbs.isLongComponentOpened((int)uid, (int)rid, (int)cid);
+            dbs.coderOpenLongComponent((int)uid, (int)cd, (int)rid, (int)cid);
         }
 
         // Find the TestServices bean so we could save the code.
