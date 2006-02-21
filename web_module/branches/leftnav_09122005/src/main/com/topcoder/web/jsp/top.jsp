@@ -19,13 +19,15 @@
 
 %>
 <STYLE TYPE="text/css">
-.topBar
+div.topBar, div.topBar div
 {
-width:100%;
+font-size: 10px;
+}
+div.topBar
+{
 background: #FFFFFF url(/i/interface/top_bg.gif) top center repeat-x;
 vertical-align: top;
-font-size: 10px;
-padding: 5px 0px 28px 3px;
+padding: 5px 3px 50px 3px;
 white-space: nowrap; 
 }
 #outer
@@ -54,7 +56,7 @@ left: 0px;
 <div class="topBar">
    <div style="float: right;">
    <% if ( !sessionInfo.isAnonymous() ) { %>
-       <strong>Hello,</strong>&#160;<tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' />
+       Hello,&#160;<tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' />
       <% if (level1.equals("long")) { %>
                &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Logout">Logout</a>
       <% } else { %>
@@ -71,7 +73,8 @@ left: 0px;
    <%}%>
                &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/">Home</a>
    </div>
-Current Member Count: <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%> - <jsp:include page="date_time.jsp" />
+Current Member Count: <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%> - <jsp:include page="/date_time.jsp" />
+&#160;<a href="Javascript:tcTime()">[Get Time]</a>
 </div>
 
 
