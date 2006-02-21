@@ -147,8 +147,8 @@
 <rsc:item name="points" row="<%=resultRow%>" format="0.00"/><%=resultRow.getIntItem("status_id")==130?"*":""%></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center">
 <rsc:item name="rank" row="<%=resultRow%>"/></td>
-<td class="<%=even?"statLt":"statDk"%>" align="center">
-<tc-webtag:format object="<%=new Date(resultRow.getLongItem("submit_time"))%>" format="MM.dd.yyyy HH:mm:ss" ifNull="-"/></td></td>
+<td class="<%=even?"statLt":"statDk"%>" align="center"><%if (resultRow.getItem("submit_time").getResultData()==null) { %>--<% } else { %>
+<tc-webtag:format object="<%=new Date(resultRow.getLongItem("submit_time"))%>" format="MM.dd.yyyy HH:mm:ss"/><% } %></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center">
 <tc-webtag:format object="<%=resultRow.getStringItem("language_name")%>"/></td></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center">
