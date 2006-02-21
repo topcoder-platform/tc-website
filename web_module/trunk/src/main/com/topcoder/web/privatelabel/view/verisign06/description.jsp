@@ -57,7 +57,7 @@ Within minutes of the end of the Challenge Phase, the automated, objective syste
 The next two (2) events for VeriSign are 2 SRMs that are part of the Internal Competition.  
 <br/><br/>
 
-         <table width="400" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
+         <table width="500" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
             <tr>
                <td class="sidebarTitle" width="33%"><b>Date</b></td>
                <td class="sidebarTitle" width="33%" colspan="2"><b>Time</b></td>
@@ -94,52 +94,52 @@ The next two (2) events for VeriSign are 2 SRMs that are part of the Internal Co
                <td class="sidebarText" colspan="4">*All times are Eastern Standard Time. <br>**All times are Eastern Daylight Time. <br>NOTE: In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.</td>
             </tr>
          </table>
-
+<br/><br/>
 The top two (2) scores from each SRM will be invited to participate in the Championship round on June 13, 2006. The highest VeriSign score from the 2006 TopCoder Open Sponsor Track competition will also be invited to compete in the finals.
-
+<br/><br/>
 <span class="bodySubtitle">SRM Prizes</span><br/>
 Cash prizes are as follows for each SRM: 
 <br/><br/>
 
-         <table width="250" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
+         <table width="300" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
             <tr>
-               <td class="sidebarTitle"><b>1st Place Finisher</b></td>
-               <td class="sidebarTitle">$1,500 and a trip to the VTS finals</td>
+               <td class="sidebarText"><b>1st Place Finisher</b></td>
+               <td class="sidebarText">$1,500 and a trip to the VTS finals</td>
             </tr>
             <tr>
-               <td class="sidebarTitle">2nd Place Finisher</td>
-               <td class="sidebarTitle">$750 and a trip to the VTS finals</td>
+               <td class="sidebarText">2nd Place Finisher</td>
+               <td class="sidebarText">$750 and a trip to the VTS finals</td>
             </tr>
             <tr>
-               <td class="sidebarTitle">3rd Place Finisher</td>
-               <td class="sidebarTitle">$500</td>
+               <td class="sidebarText">3rd Place Finisher</td>
+               <td class="sidebarText">$500</td>
             </tr>
          </table>
 <br/><br/>
 
-The Finals will be held at the VTS, June 11 Ð 13, 2006 in Williamsburg, Virginia.  Winners from the Sponsor Track and the two (2) SRMs will compete on-site for the following great prizes:
+The Finals will be held at the VTS, June 11 - 13, 2006 in Williamsburg, Virginia.  Winners from the Sponsor Track and the two (2) SRMs will compete on-site for the following great prizes:
 <br/><br/>
 
-         <table width="250" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
+         <table width="300" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
             <tr>
-               <td class="sidebarTitle"><b>1st Place Finisher</b></td>
-               <td class="sidebarTitle"><b>$5,000</b></td>
+               <td class="sidebarText"><b>1st Place Finisher</b></td>
+               <td class="sidebarText"><b>$5,000</b></td>
             </tr>
             <tr>
-               <td class="sidebarTitle">2nd Place Finisher</td>
-               <td class="sidebarTitle">$3,500</td>
+               <td class="sidebarText">2nd Place Finisher</td>
+               <td class="sidebarText">$3,500</td>
             </tr>
             <tr>
-               <td class="sidebarTitle">3rd Place Finisher</td>
-               <td class="sidebarTitle">$2,000</td>
+               <td class="sidebarText">3rd Place Finisher</td>
+               <td class="sidebarText">$2,000</td>
             </tr>
             <tr>
-               <td class="sidebarTitle">4th Place Finisher</td>
-               <td class="sidebarTitle">$500</td>
+               <td class="sidebarText">4th Place Finisher</td>
+               <td class="sidebarText">$500</td>
             </tr>
             <tr>
-               <td class="sidebarTitle">5th Place Finisher</td>
-               <td class="sidebarTitle">$500</td>
+               <td class="sidebarText">5th Place Finisher</td>
+               <td class="sidebarText">$500</td>
             </tr>
          </table>
 <br/><br/>
