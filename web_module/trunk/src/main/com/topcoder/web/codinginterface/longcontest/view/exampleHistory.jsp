@@ -114,20 +114,18 @@
 
                             <tr>
                                 <% if (over||self) { %>
-                                <td class="tableTitle" colspan="5">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></td>
-                                <% } else { %>
                                 <td class="tableTitle" colspan="4">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></td>
+                                <% } else { %>
+                                <td class="tableTitle" colspan="3">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></td>
                                 <% } %>
                             </tr>
                             <tr>
                                 <td class="tableHeader" width="20%">
-                                    <A href="<%=sortLinkBase%><tc-webtag:sort column="4"/>">Submission</A></td>
+                                    <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=examples.getColumnIndex("submission_number")%>" includeParams="true" excludeParams="sr;nr"/>">Submission</A></td>
                                 <td class="tableHeader" width="20%" align="center">
-                                    <A href="<%=sortLinkBase%><tc-webtag:sort column="5"/>">Time</A></td>
-                                <td class="tableHeader" width="20%" align="right">
-                                    <A href="<%=sortLinkBase%><tc-webtag:sort column="6"/>">Score</A></td>
+                                    <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=examples.getColumnIndex("submit_time")%>" includeParams="true" excludeParams="sr;nr"/>">Time</A></td>
                                 <td class="tableHeader" width="20%" align="center">
-                                    <A href="<%=sortLinkBase%><tc-webtag:sort column="<%=examples.getColumnIndex("language_name")%>"/>">Language</A></td>
+                                    <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=examples.getColumnIndex("language_name")%>" includeParams="true" excludeParams="sr;nr"/>">Language</A></td>
                                 <% if (over||self) { %>
                                 <td class="tableHeader" width="20%" align="right">&#160;</td>
                                 <% } %>
@@ -145,9 +143,7 @@
                                     <% } %>
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
-                                        <tc-webtag:format object="<%=new Date(resultRow.getLongItem("submit_time"))%>" format="MM.dd.yyyy HH:mm:ss"/></td>
-                                    <td class="<%=even?"statLt":"statDk"%>" align="right">
-                                        <rsc:item name="submission_points" row="<%=resultRow%>" format="0.00"/><%=resultRow.getIntItem("status_id")==130?"*":""%></td>
+                                        <tc-webtag:format object="<%=new Date(resultRow.getLongItem("submit_time"))%>" format="MM.dd.yyyy HH:mm:ss"/><%=resultRow.getIntItem("status_id")==130?"*":""%></td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center">
                                         <rsc:item name="language_name" row="<%=resultRow%>"/></td>
                                     <% if (over||self) { %>
