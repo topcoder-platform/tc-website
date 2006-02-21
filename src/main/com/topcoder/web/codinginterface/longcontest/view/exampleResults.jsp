@@ -86,7 +86,7 @@
                 </p>
                 <p>
                     <span class="bodySubtitle">Fatal Errors: </span><br />
-                    <pre><rsc:item name="received" row="<%=resultRow%>"/></pre>
+                    <pre><rsc:item name="fatal_errors" row="<%=resultRow%>"/></pre>
                 </p>
                 <p>
                     <span class="bodySubtitle">Standard Out: </span><br />
