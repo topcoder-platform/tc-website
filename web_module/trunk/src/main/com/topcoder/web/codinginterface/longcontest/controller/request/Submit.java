@@ -361,8 +361,9 @@ public class Submit extends Base {
         DBServicesHome dbsHome = (DBServicesHome) ctx.lookup(ApplicationServer.DB_SERVICES);
         DBServices dbs = dbsHome.create();
 
-        if (!dbs.isComponentOpened((int)uid, (int)rid, (int)cid)) { // Is there a record of the user opening the problem?
-            dbs.coderOpenComponent((int)uid, (int)cd, (int)rid, 0, (int)cid);
+
+        if (!dbs.isLongComponentOpened((int)uid, (int)rid, (int)cid)) { // Is there a record of the user opening the problem?
+            dbs.isLongComponentOpened((int)uid, (int)rid, (int)cid);
         }
 
         // Find the TestServices bean so we could save the code.
@@ -370,7 +371,7 @@ public class Submit extends Base {
         TestServices ts = t.create();
 
         // Save the code!
-        return ts.saveComponent((int)cd, (int)rid, (int)cid, (int)uid, code, lang).isSuccess();
+        return ts.saveLongComponent((int)cd, (int)rid, (int)cid, (int)uid, code, lang).isSuccess();
 
     }
 
