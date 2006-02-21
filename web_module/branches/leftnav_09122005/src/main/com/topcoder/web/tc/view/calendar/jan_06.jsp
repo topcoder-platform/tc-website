@@ -5,10 +5,10 @@
 <html>
 <head>
 <title>TopCoder Events Calendar</title>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 <STYLE TYPE="text/css">
 #calendarTCO06
 {
@@ -57,10 +57,9 @@ text-decoration: none;
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="calendar"/>
-                <jsp:param name="level2" value=""/>
-            </jsp:include>
-        </td>
+   <jsp:param name="node" value="competition_calendar"/>
+</jsp:include>
+</td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
