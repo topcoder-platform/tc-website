@@ -96,19 +96,19 @@
                             <%boolean even = true;%>
                             <rsc:iterator list="<%=queue%>" id="resultRow">
                                 <tr>
-                                    <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
+                                    <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
                                         <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>'/>
                                     </td>
-                                    <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
+                                    <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
                                         <rsc:item name="contest_name" row="<%=resultRow%>"/> &gt; <rsc:item name="round_name" row="<%=resultRow%>"/>
                                     </td>
-                                    <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
+                                    <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
                                         <rsc:item name="language_name" row="<%=resultRow%>"/>
                                     </td>
-                                    <td class="<%=even?"statLt":"statDk"%>" align="right">
+                                    <td class="<%=even?"statLt":"statDk"%>" align="center">
                                         <rsc:item name="queue_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm:ss"/>
                                     </td>
-                                    <td class="<%=even?"statLt":"statDk"%>" align="center">
+                                    <td class="<%=even?"statLt":"statDk"%>" align="right">
                                         <rsc:item name="tests" row="<%=resultRow%>"/>
                                     </td>
                                 </tr>
