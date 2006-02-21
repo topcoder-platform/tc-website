@@ -112,7 +112,7 @@
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
                 <tr>
-                    <td class="tableTitle" colspan="6">Standings</td>
+                    <td class="tableTitle" colspan="7">Standings</td>
                 </tr>
                 <tr>
                     <td class="tableHeader" width="20">
@@ -152,13 +152,14 @@
 <td class="<%=even?"statLt":"statDk"%>" align="center">
 <tc-webtag:format object="<%=resultRow.getStringItem("language_name")%>"/></td></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center">
+<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_EXAMPLE_HISTORY%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>" class="statLink">
+<rsc:item name="test_number" row="<%=resultRow%>"/>
+</A></td>
+<td class="<%=even?"statLt":"statDk"%>" align="center">
 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_SUBMISSION_HISTORY%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>" class="statLink">
 <rsc:item name="submission_number" row="<%=resultRow%>"/>
 </A></td>
-<td class="<%=even?"statLt":"statDk"%>" align="center">
-<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_EXAMPLE_HISTORY%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>" class="statLink">
-<rsc:item name="test_number" row="<%=resultRow%>"/>
-</A></td></tr><%even = !even;%></rsc:iterator>
+</tr><%even = !even;%></rsc:iterator>
                 <%-- END ITERATOR --%>
             </table>
         </td>
