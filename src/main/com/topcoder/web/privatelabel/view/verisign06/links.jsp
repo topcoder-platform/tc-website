@@ -63,7 +63,7 @@
       </td>
    </tr>
 
-<!-- LEVEL 3 TABS -->
+<!-- LEVEL 3 TABS-->
    <tr><td class="tabL3Top" colspan="2"><img src="/i/clear.gif" width="1" height="7" border="0"/></td></tr>
    <tr>
       <td colspan="2">
@@ -77,8 +77,8 @@
                   <td class="subnav"><a href="/pl/?module=Static&d1=verisign06&d2=instructions"><% if (tabLev3.equals("instructions")) {%><img src="/i/events/verisign06/tabs/ver_L3_instructionsOn.gif" border="0" /><% } else { %><img src="/i/events/verisign06/tabs/ver_L3_instructionsOff.gif" border="0" /><% } %></a></td>
                <% } else if (tabLev2.equals("registration")) {%>
                   <td class="subnavBG"><img src="/i/clear.gif" height="35" width="1" border="0"/></td>
-            <!--   <% } else if (tabLev2.equals("registrants")) {%>
-                  <td class="subnavBG"><img src="/i/clear.gif" height="35" width="1" border="0"/></td> -->
+               <% } else if (tabLev2.equals("registrants")) {%>
+                  <td class="subnavBG"><img src="/i/clear.gif" height="35" width="1" border="0"/></td>
                <% } else if (tabLev2.equals("competitionArena")) {%>
                   <td class="subnavBG"><img src="/i/clear.gif" height="35" width="1" border="0"/></td>
             <!--   <% } else if (tabLev2.equals("advancers")) {%>
