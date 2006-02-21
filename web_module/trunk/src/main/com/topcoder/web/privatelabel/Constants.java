@@ -4,6 +4,8 @@ import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.MissingResourceException;
 
 /**
  * Contains constants for the private label web application.
@@ -11,15 +13,8 @@ import java.lang.reflect.Field;
  */
 public class Constants {
 
-    private static Logger log = Logger.getLogger(Constants.class);
-    private static TCResourceBundle bundle = new TCResourceBundle("PrivateLabel");
-    private static final String INT_NOT_FOUND = "******NOT FOUND******";
-    private static boolean isInitialized = false;
-
-    /**
-     *  variables that shouldn't be initialized
-     */
-    private static String[] ignoreList = {"log", "isInitialized", "ignoreList", "bundle", "INT_NOT_FOUND"};
+    private static final Logger log = Logger.getLogger(Constants.class);
+    private static final TCResourceBundle bundle = new TCResourceBundle("PrivateLabel");
 
     //pages
     public static String SIMPLE_REG_PAGE;
@@ -256,17 +251,19 @@ public class Constants {
     public static void initialize() {
 
         Field[] f = Constants.class.getFields();
-        String value;
         for (int i = 0; i < f.length; i++) {
             try {
-                if (!ignore(f[i].getName())) {
+                if (!Modifier.isFinal(f[i].getModifiers())) {
                     if (f[i].getType().getName().equals("int")) {
-                        value = bundle.getProperty(f[i].getName().toLowerCase(), INT_NOT_FOUND);
-                        if (!value.equals(INT_NOT_FOUND)) {
-                            f[i].setInt(null, Integer.parseInt(value));
+                        try {
+                            f[i].setInt(null, bundle.getIntProperty(f[i].getName().toLowerCase()));
+                        } catch (MissingResourceException ignore) {
                         }
                     } else if (f[i].getType().getName().equals("java.lang.String")) {
-                        f[i].set(null, bundle.getProperty(f[i].getName().toLowerCase(), null));
+                        try {
+                            f[i].set(null, bundle.getProperty(f[i].getName().toLowerCase()));
+                        } catch (MissingResourceException ignore) {
+                        }
                     } else {
                         throw new Exception("Unrecognized type: " + f[i].getType().getName());
                     }
@@ -275,24 +272,12 @@ public class Constants {
                     log.error("**DID NOT LOAD** " + f[i].getName() + " constant");
                 else
                     log.debug(f[i].getName() + " <== " + f[i].get(null));
+
             } catch (Exception e) {
                 /* probably harmless, could just be a type or modifier mismatch */
                 e.printStackTrace();
             }
         }
-        isInitialized = true;
-    }
-
-    public static boolean isInitialized() {
-        return isInitialized;
-    }
-
-    private static boolean ignore(String name) {
-        boolean found = false;
-        for (int i = 0; i < ignoreList.length && !found; i++) {
-            found |= ignoreList[i].equals(name);
-        }
-        return found;
     }
 
 
