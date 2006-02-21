@@ -142,9 +142,9 @@
                 <%--control whitespace to reduce html size --%>
                 <rsc:iterator list="<%=standings%>" id="resultRow"><tr>
 <td class="<%=even?"statLt":"statDk"%>">
-<tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>"/></td>
+<%=resultRow.getIntItem("status_id")==130?"*":""%><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>"/></td>
 <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;">
-<rsc:item name="points" row="<%=resultRow%>" format="0.00"/><%=resultRow.getIntItem("status_id")==130?"*":""%></td>
+<rsc:item name="points" row="<%=resultRow%>" format="0.00"/></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center">
 <% if (resultRow.getItem("points").getResultData()!=null){ %><rsc:item name="rank" row="<%=resultRow%>"/><% } %></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center"><%if (resultRow.getItem("submit_time").getResultData()!=null) { %>
@@ -165,7 +165,7 @@
         </td>
     </tr>
 </TABLE>
-    <p>* Indicates that this competitor's most recent submission has not yet been scored</p>
+    <p>* Indicates that this competitor's most recent test or submission has not yet been processed</p>
 
 <div class="pagingBox">
 <%=(standings.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
