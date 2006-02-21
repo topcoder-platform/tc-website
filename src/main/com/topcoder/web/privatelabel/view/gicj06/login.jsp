@@ -7,7 +7,7 @@
 <html>
 <head>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/google05.css"/>
-<title>Google Code Jam 2005, Powered by TopCoder</title>
+<title>Google Code Jam India 2006, Powered by TopCoder</title>
 <jsp:include page="../script.jsp" />
 </head>
 <body>
@@ -62,7 +62,7 @@ function submitEnter(e) {
          <br><br>
                         Registration will close on Monday, March 20 at 8:00 AM IST.<br/><br/>
                         If you are <A href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_INDIA_06_REG_MAIN%>&<%=Constants.COMPANY_ID%>=8039&<%=Constants.EVENT_ID%>=5" class="bigRed">not currently a TopCoder member</A>
-                        or do not want to use an existing account, please click <a href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=8039&<%=Constants.EVENT_ID%>=5" class="bigRed">here</a>.
+                        or do not want to use an existing account, please click <a href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_INDIA_06_REG_MAIN%>&<%=Constants.COMPANY_ID%>=8039&<%=Constants.EVENT_ID%>=5" class="bigRed">here</a>.
                         <br><br>
                         If you are currently a TopCoder member and would like to convert your account for use in the Google Code Jam India 2006
                         or you have an existing Google Code Jame India 2006 account and need to change some of your registration information
