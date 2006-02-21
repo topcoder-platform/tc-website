@@ -114,14 +114,14 @@
 
                             <tr>
                                 <% if (over||self) { %>
-                                <td class="tableTitle" colspan="4">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></td>
+                                <td class="tableTitle" colspan="4">Example Tests: <rsc:item name="num_submissions" row="<%=infoRow%>"/></td>
                                 <% } else { %>
-                                <td class="tableTitle" colspan="3">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></td>
+                                <td class="tableTitle" colspan="3">Example Tests: <rsc:item name="num_submissions" row="<%=infoRow%>"/></td>
                                 <% } %>
                             </tr>
                             <tr>
                                 <td class="tableHeader" width="20%">
-                                    <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=examples.getColumnIndex("submission_number")%>" includeParams="true" excludeParams="sr;nr"/>">Submission</A></td>
+                                    <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=examples.getColumnIndex("submission_number")%>" includeParams="true" excludeParams="sr;nr"/>">Example Test</A></td>
                                 <td class="tableHeader" width="20%" align="center">
                                     <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=examples.getColumnIndex("submit_time")%>" includeParams="true" excludeParams="sr;nr"/>">Time</A></td>
                                 <td class="tableHeader" width="20%" align="center">
