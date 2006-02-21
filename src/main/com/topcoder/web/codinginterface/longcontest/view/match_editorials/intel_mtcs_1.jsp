@@ -39,18 +39,18 @@
     </jsp:include>
 
 <div style="float: right;" align="right"><A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
-<tc-webtag:forumLink forumID="505878" message="Discuss this match" />
+<tc-webtag:forumLink forumID="505902" message="Discuss this match" />
 </div>
 
 <span class="bodySubtitle">Intel Multi-Threading Competition 1</span><br>01.25.2005 - 02.15.2005
 <br><br>
 
-<img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/><br>
+<img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/><br>
 By&#160;<tc-webtag:handle coderId="159052" context="algorithm"/><br>
 <span class="smallText"><em>TopCoder Member</em></span>
 
 <br><br><br>
-The second TopCoder Marathon match came to an exciting close last week
+The first event in the Intel Multi-Threading Competition Series came to an exciting close last week
 with a photo finish ending.  On Wednesday morning, it seemed almost
 certain that haha would wind up walking away with the $2500.  His
 submission had stood well above the pack for 4 days.  However, a
@@ -138,8 +138,10 @@ solution.
 <br><br>
 
 <span class="bodySubtitle"> battyone's Multi-Threaded Algorithm</span><br>
-by <tc-webtag:handle coderId="7504863" />
-<br><br>
+<img src="/i/m/battyone_big.jpg" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/><br>
+By&#160;<tc-webtag:handle coderId="7504863" context="algorithm"/><br>
+<span class="smallText"><em>TopCoder Member</em></span>
+<br><br><br>
 My first submission was a greedy algorithm that, for each packet in
 turn, found the fastest way that packet could reach its destination,
 using classic bread first search and keeping track of which edges were
@@ -331,7 +333,7 @@ wonder if speed was what did him in.
 
 <br><br>
 
-<span class="bodySubtitle">Summary</span<br>
+<span class="bodySubtitle">Summary</span><br>
 by <tc-webtag:handle coderId="159052" />
 <br><br>
 While two submissions is not a very big sample size, they are similar in a
@@ -392,7 +394,6 @@ Finally, it is quite interesting to note that of the 8 test cases (9, 11, 14,
 how strong the field was and what a wide variety there was among solutions.
 
 <br><br>
-<%--
 For images of the rest of the test cases, download an SVG viewer, and navigate
 to the following links:<br>
 <a href="/images/longcontest/match_editorials/intel_mtcs_1/1.svg">1</a>
@@ -496,7 +497,6 @@ to the following links:<br>
 <a href="/images/longcontest/match_editorials/intel_mtcs_1/99.svg">99</a>
 <a href="/images/longcontest/match_editorials/intel_mtcs_1/100.svg">100</a>
 <br><br>
---%>
    </div>
 </div>
 </td>
