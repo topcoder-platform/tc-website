@@ -148,7 +148,7 @@
 <td class="<%=even?"statLt":"statDk"%>" align="center">
 <rsc:item name="rank" row="<%=resultRow%>"/></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center">
-<tc-webtag:format object="<%=new Date(resultRow.getLongItem("submit_time"))%>" format="MM.dd.yyyy HH:mm:ss"/></td></td>
+<tc-webtag:format object="<%=new Date(resultRow.getLongItem("submit_time"))%>" format="MM.dd.yyyy HH:mm:ss" ifNull="-"/></td></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center">
 <tc-webtag:format object="<%=resultRow.getStringItem("language_name")%>"/></td></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center">
