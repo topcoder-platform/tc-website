@@ -372,7 +372,7 @@ public class Submit extends Base {
         TestServices ts = t.create();
 
         // Save the code!
-        return ts.saveLongComponent((int)cd, (int)rid, (int)cid, (int)uid, code, lang).isSuccess();
+        return ts.saveLongComponent(cd, rid, cid, uid, code, lang).isSuccess();
 
     }
 
