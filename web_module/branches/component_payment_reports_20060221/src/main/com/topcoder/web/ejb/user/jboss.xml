@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss>
+  <enterprise-beans>
+    <session>
+      <ejb-name>User</ejb-name>
+      <jndi-name>com.topcoder.web.ejb.user.UserHome</jndi-name>
+    </session>
+      <session>
+        <ejb-name>UserTermsOfUse</ejb-name>
+        <jndi-name>com.topcoder.web.ejb.user.UserTermsOfUseHome</jndi-name>
+      </session>
+      <session>
+        <ejb-name>UserSchool</ejb-name>
+        <jndi-name>com.topcoder.web.ejb.user.UserSchoolHome</jndi-name>
+      </session>
+      <session>
+        <ejb-name>Contact</ejb-name>
+        <jndi-name>com.topcoder.web.ejb.user.ContactHome</jndi-name>
+      </session>
+      <session>
+        <ejb-name>UserAddress</ejb-name>
+        <jndi-name>com.topcoder.web.ejb.user.UserAddressHome</jndi-name>
+      </session>
+      <session>
+        <ejb-name>UserNote</ejb-name>
+        <jndi-name>com.topcoder.web.ejb.user.UserNoteHome</jndi-name>
+      </session>
+      <session>
+        <ejb-name>UserPreference</ejb-name>
+        <jndi-name>com.topcoder.web.ejb.user.UserPreferenceHome</jndi-name>
+      </session>
+      <session>
+        <ejb-name>UserEvent</ejb-name>
+        <jndi-name>com.topcoder.web.ejb.user.UserEventHome</jndi-name>
+      </session>
+  </enterprise-beans>
+</jboss>
+
