@@ -114,6 +114,13 @@
         </td>
     </tr>
     <tr>
+      <td colspan="3">
+        <center>
+          <a href="http://www.topcoder.com/tc?module=LegacyReport&t=new_report&c=member_payments&uid=<rsc:item name="user_id" row="<%=p%>"/>&db=java:TCS_CATALOG">Component Payment History</a>
+        </center>
+      </td>
+    </tr>
+    <tr>
       <td><br/></td>
     </tr>
     <tr>
