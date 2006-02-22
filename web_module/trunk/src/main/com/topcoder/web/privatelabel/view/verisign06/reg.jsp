@@ -11,7 +11,7 @@
 
 <!-- Tab barlinks-->
 <jsp:include page="links.jsp" >
-<jsp:param name="tabLev2" value="competitionArena"/>
+<jsp:param name="tabLev2" value="registration"/>
 <jsp:param name="tabLev3" value=""/>
 </jsp:include>
 
@@ -21,15 +21,19 @@
       <td valign="top" align="center">
       <div class="bodySpacer">
             
-<span class="bigTitle">Competition Arena</span>
+<span class="bigTitle">Registration</span>
 <br/><br/>
 
 
-          The VeriSign Internal SRM Arena is not yet available.
+         Registration for the VeriSign Internal SRM is not yet open.
          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
          <br/><br/>
-      </td>
+
+		</td>
+
+
+         
          
 <!-- Right Column-->
 <td width="180" align="right" style="padding: 0px 15px 0px 0px;">

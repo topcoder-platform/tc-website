@@ -39,19 +39,19 @@ The 2006 TopCoder Open ("TCO") Sponsor Track Competition will take place between
 <br><br>
 
 <a name="eligibility"></a>
-<a href="#top"><img src="/i/interface/back_to_top_dk.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
+<a href="#top"><img src="/i/events/verisign06/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <b>Eligibility</b><br>
 Employees and interns of all official TCO sponsors who are TopCoder members and are at least 18 years of age as of February 28, 2006 are eligible to compete in the Sponsor Track Competition. TCO sponsor employees and interns may register to become a TopCoder member by going <a href="http://www.topcoder.com/reg/index.jsp">here</a>.
 <br><br>
 
 <a name="registration"></a>
-<a href="#top"><img src="/i/interface/back_to_top_dk.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
+<a href="#top"><img src="/i/events/verisign06/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <b>Registration</b><br>
 Registration for the 2006 TopCoder Open Sponsor Track Competition will open 9:00AM EST on Monday, February 13, 2006, and will close at 9:00AM EST on Tuesday, February 28, 2006.  In order to be eligible to compete in the Sponsor Track Competition, competitors must be a registered TopCoder member and must register separately for the Sponsor Track Competition.  There is no limit to the number of registrants in the competition, however each individual may only register once.
 <br><br>
 
 <a name="qualification"></a>
-<a href="#top"><img src="/i/interface/back_to_top_dk.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
+<a href="#top"><img src="/i/events/verisign06/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <b>Qualification Round &mdash; Noon EST Tuesday, February 28 through Noon EST Wednesday, March 1, 2006</b><br>
 The Qualification Round will be open for 24 hours from Noon EST Tuesday, February 28 through Noon EST Wednesday, March 1, 2006.  Each competitor may participate in the Qualification Round at any time during the 24 hours.  Competitors may only attempt to qualify one time using one account during the 24 hours.
 <br><br>
@@ -70,7 +70,7 @@ Upon logging in to the TopCoder Arena during the Qualification Round, each compe
 </ul>
 <br>
 
-<a href="#top"><img src="/i/interface/back_to_top_dk.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
+<a href="#top"><img src="/i/events/verisign06/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <a name="structure"></a>
 <span class="bodySubtitle">Online Elimination Rounds</span>
 <br><br>
@@ -157,7 +157,7 @@ With the exception of the Qualification Round, each online and onsite round of c
 <br>
 
 <a name="conditions"></a>
-<a href="#top"><img src="/i/interface/back_to_top_dk.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
+<a href="#top"><img src="/i/events/verisign06/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <span class="bodySubtitle">Conditions of Participation</span>
 <br><br>
 By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.  
