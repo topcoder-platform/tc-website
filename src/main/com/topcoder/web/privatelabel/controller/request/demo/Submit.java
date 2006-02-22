@@ -1,7 +1,5 @@
 package com.topcoder.web.privatelabel.controller.request.demo;
 
-import com.topcoder.security.UserPrincipal;
-import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -67,6 +65,7 @@ public class Submit extends ResumeRegSubmit {
 
 
 
+/*
     protected long commit(SimpleRegInfo regInfo) throws TCWebException {
 
         UserPrincipal newUser = null;
@@ -93,6 +92,7 @@ public class Submit extends ResumeRegSubmit {
 
         return userId;
     }
+*/
 
 
 
