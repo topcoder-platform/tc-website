@@ -8,6 +8,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.21.06<br>5:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_1">Intel Multi-Threading Competition 1 - Analysis</A></span><br><br>
+      The first event in the Intel Multi-Threading Competition Series came to an exciting close last week with a photo finish ending.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61"/><br><tc-webtag:handle coderId="159052"/></td>
+      <td class="newsPhoto"><img src="/i/m/battyone_big.jpg" alt="" width="55" height="61"/><br><tc-webtag:handle coderId="7504863"/></td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_1">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505902" message="discuss this" />&#160;|&#160;
+         <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>02.20.06<br>3:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -166,20 +185,6 @@ outplaying the second (<tc-webtag:handle coderId="8357090" context="algorithm"/>
          <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
       
-<%-------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>02.08.06<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_020806">TopCoder High School Launches Global Tournament</A></span><br><br>
-      "Worldwide Contest From TopCoder Will Promote Problem Solving Skills in Math and Science Among High School-Age Students"
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_020806">full story</A>&#160;|&#160;
-       <A href="http://forums.topcoder.com/?module=Thread&threadID=509013&mc=1#525461">discuss this</a>&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
-   </td></tr>
-
-
 </table>
 <br><br>
 <table align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" width="525">
