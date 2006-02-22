@@ -23,7 +23,7 @@ public class Login extends FullLogin {
         Calendar now = Calendar.getInstance();
         now.setTime(new Date());
 
-        if (now.before(beginning) || now.after(end)) {
+        if (regInfo.isNew() && (now.before(beginning) || now.after(end))) {
             setNextPage(Constants.GOOGLE_INDIA_06_REG_CLOSED_PAGE);
             setIsNextPageInContext(true);
         } else {
