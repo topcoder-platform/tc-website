@@ -53,7 +53,7 @@ public class Submit extends ResumeRegSubmit {
                     buf.append(Constants.MODULE_KEY);
                     buf.append("=");
                     buf.append(Constants.STATIC);
-                    buf.append(getBundle().getProperty("google_india_06_reg_success_page"));
+                    buf.append(Constants.GOOGLE_INDIA_06_REG_SUCCESS_PAGE);
                     setNextPage(buf.toString());
                     setIsNextPageInContext(false);
                 }
