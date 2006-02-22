@@ -33,6 +33,9 @@ public interface PrincipalMgrRemote extends EJBObject {
     public abstract UserPrincipal createUser(long userId, String username, String password, TCSubject requestor)
             throws RemoteException, GeneralSecurityException;
 
+    public abstract UserPrincipal createUser(long userId, String username, String password, TCSubject requestor, String dataSource)
+            throws RemoteException, GeneralSecurityException;
+
     public abstract void removeUser(UserPrincipal userprincipal, TCSubject tcsubject)
             throws RemoteException, GeneralSecurityException;
 
