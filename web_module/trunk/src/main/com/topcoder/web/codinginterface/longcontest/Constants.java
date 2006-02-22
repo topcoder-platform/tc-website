@@ -28,6 +28,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String ROW_COUNT;
     public static final String KEY_USER_HANDLE = "ha";
     public static final String KEY_USER_PASS = "pass";
+    public static final String EXAMPLE_FLAG = "ex";
     public static String ACTION_KEY;
     public static String QUEUE_LENGTH;
 
