@@ -13,18 +13,10 @@ abstract public class Base implements Serializable, Cloneable {
 
     protected static Logger log = Logger.getLogger(Base.class);
 
-    /**
-     * when true, this means that the person registering does not currently have an acccount for this event
-     * in the past it meant something a little different, however, the past is the past and we're moving
-     * forward.  since we don't ever execute the old code, i've chosen not to back-port this
-     * change in meaning.
-     */
     private boolean isNew;
-    private boolean isAccountConversion;
 
     public Base() {
         isNew = true;
-        isAccountConversion = false;
     }
 
     public boolean isNew() {
@@ -34,15 +26,6 @@ abstract public class Base implements Serializable, Cloneable {
     public void setNew(boolean isNew) {
         this.isNew = isNew;
     }
-
-    public boolean isAccountConversion() {
-        return isAccountConversion;
-    }
-
-    public void setAccountConversion(boolean accountConversion) {
-        isAccountConversion = accountConversion;
-    }
-
 
     public String toString() {
         Method[] m = getClass().getMethods();
