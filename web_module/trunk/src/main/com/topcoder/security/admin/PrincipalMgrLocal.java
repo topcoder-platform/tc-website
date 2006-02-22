@@ -28,6 +28,9 @@ public interface PrincipalMgrLocal extends javax.ejb.EJBLocalObject {
     public abstract UserPrincipal createUser(String username, String password, TCSubject requestor)
             throws GeneralSecurityException;
 
+    public abstract UserPrincipal createUser(long userId, String username, String password, TCSubject requestor)
+            throws GeneralSecurityException;
+
     public abstract void removeUser(UserPrincipal userprincipal, TCSubject tcsubject)
             throws GeneralSecurityException;
 

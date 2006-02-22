@@ -196,6 +196,45 @@ public class PrincipalMgrBean extends BaseEJB {
         }
     }
 
+
+
+    public UserPrincipal createUser(long userId, String username, String password, TCSubject requestor)
+            throws GeneralSecurityException {
+        logger.debug(requestor + " is creating user " + username);
+        checkLength(username, 50);
+        checkLength(password, 31);
+        String encPassword = Util.encodePassword(password, "users");
+        logger.debug("*********password into db: " + encPassword);
+        InitialContext ctx = null;
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        try {
+            ctx = new InitialContext();
+            LocalIdGenHome idGenHome = (LocalIdGenHome) ctx.lookup(LocalIdGenHome.EJB_REF_NAME);
+            logger.debug("new login_id = " + userId);
+            String query = "INSERT INTO security_user (login_id, user_id, password) VALUES (?, ?, ?)";
+            conn = Util.getConnection(ctx, DATA_SOURCE);
+            ps = conn.prepareStatement(query);
+            ps.setEscapeProcessing(true);
+            ps.setLong(1, userId);
+            ps.setString(2, username);
+            ps.setString(3, encPassword);
+            ps.executeUpdate();
+            UserPrincipal up = new UserPrincipal(username, userId);
+            return up;
+        } catch (SQLException e) {
+            throw new GeneralSecurityException(e);
+        } catch (NamingException e) {
+            throw new GeneralSecurityException(e);
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+    }
+
     public UserPrincipal createUser(String username, String password, TCSubject requestor)
             throws GeneralSecurityException {
         logger.debug(requestor + " is creating user " + username);
