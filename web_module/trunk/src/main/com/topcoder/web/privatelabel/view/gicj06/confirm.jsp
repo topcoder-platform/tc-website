@@ -80,8 +80,8 @@ function submitEnter(e) {
          <table width="100%" cellpadding="0" cellspacing="5" class="bodyText" align="center" >
            <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_INDIA_06_REG_SUBMIT%>"/>
-            <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
-            <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
+            <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="companyId"/>"/>
+            <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="eventId"/>"/>
 
             <tr>
                  <td align="right" width="50%"><b>Personal</b></td>
@@ -103,7 +103,7 @@ function submitEnter(e) {
                     Given Name
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="FirstName"/>
+                    <jsp:getProperty name="regInfo" property="firstName"/>
                 </td>
             </tr>
 
@@ -112,7 +112,7 @@ function submitEnter(e) {
                     Surname
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="LastName"/>
+                    <jsp:getProperty name="regInfo" property="lastName"/>
                 </td>
             </tr>
 
@@ -121,7 +121,7 @@ function submitEnter(e) {
                     Email Address
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="Email"/>
+                    <jsp:getProperty name="regInfo" property="email"/>
                 </td>
             </tr>
 
@@ -130,7 +130,7 @@ function submitEnter(e) {
                     Confirm Email Address
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="EmailConfirm"/>
+                    <jsp:getProperty name="regInfo" property="emailConfirm"/>
                 </td>
             </tr>
 
@@ -139,7 +139,7 @@ function submitEnter(e) {
                     Address 1
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="Address1"/>
+                    <jsp:getProperty name="regInfo" property="address1"/>
                 </td>
             </tr>
 
@@ -148,7 +148,7 @@ function submitEnter(e) {
                     Address 2
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="Address2"/>
+                    <jsp:getProperty name="regInfo" property="address2"/>
                 </td>
             </tr>
 
@@ -157,7 +157,7 @@ function submitEnter(e) {
                     Address 3
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="Address3"/>
+                    <jsp:getProperty name="regInfo" property="address3"/>
                 </td>
             </tr>
 
@@ -166,7 +166,7 @@ function submitEnter(e) {
                     City
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="City"/>
+                    <jsp:getProperty name="regInfo" property="city"/>
                 </td>
             </tr>
 
@@ -175,7 +175,7 @@ function submitEnter(e) {
                     Province
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="Province"/>
+                    <jsp:getProperty name="regInfo" property="province"/>
                 </td>
             </tr>
 
@@ -184,7 +184,7 @@ function submitEnter(e) {
                     Postal Code
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="Zip"/>
+                    <jsp:getProperty name="regInfo" property="zip"/>
                 </td>
             </tr>
 
@@ -193,14 +193,14 @@ function submitEnter(e) {
                     Country
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="regInfo" property="CountryName"/>
+                    <jsp:getProperty name="regInfo" property="countryName"/>
                 </td>
             </tr>
             <tr>
                 <td align="right"><b>Demographics</b>
                 </td>
                 <td align="left">
-                    <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_INDIA_06_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit</a>
+                    <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_INDIA_06_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="companyId"/>">edit</a>
                 </td>
             </tr>
             <tr>
@@ -231,7 +231,7 @@ function submitEnter(e) {
 
             <tr>
                             <td align="right" nowrap>Resume</td>
-                            <td align="left"><jsp:getProperty name="regInfo" property="UploadStatus"/></td>
+                            <td align="left"><jsp:getProperty name="regInfo" property="uploadStatus"/></td>
                         </tr>
             <tr>
                <td colspan="2" align="center">
