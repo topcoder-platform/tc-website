@@ -239,7 +239,7 @@ public class PrincipalMgrBean extends BaseEJB {
         return createUser(userId, username, password, requestor, DATA_SOURCE);
     }
 
-    public UserPrincipal createUser(String username, String password, TCSubject requestor)
+    public UserPrincipal createUser(String username, String password, TCSubject requestor, String dataSource)
             throws GeneralSecurityException {
         logger.debug(requestor + " is creating user " + username);
         checkLength(username, 50);
@@ -256,7 +256,7 @@ public class PrincipalMgrBean extends BaseEJB {
             long userId = idGenHome.create().nextId();
             logger.debug("new login_id = " + userId);
             String query = "INSERT INTO security_user (login_id, user_id, password) VALUES (?, ?, ?)";
-            conn = Util.getConnection(ctx, DATA_SOURCE);
+            conn = Util.getConnection(ctx, dataSource);
             ps = conn.prepareStatement(query);
             ps.setEscapeProcessing(true);
             ps.setLong(1, userId);
@@ -279,6 +279,12 @@ public class PrincipalMgrBean extends BaseEJB {
             close(conn);
             close(ctx);
         }
+    }
+
+
+    public UserPrincipal createUser(String username, String password, TCSubject requestor)
+            throws GeneralSecurityException {
+        return createUser(username, password, requestor, DATA_SOURCE);
     }
 
     public void removeUser(UserPrincipal user, TCSubject requestor)
