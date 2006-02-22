@@ -62,7 +62,6 @@ public class SimpleRegSubmit extends SimpleRegBase {
     protected long commit(SimpleRegInfo regInfo) throws TCWebException {
 
         UserPrincipal newUser = null;
-        long userId = 0;
         TransactionManager tm = null;
         try {
 
@@ -92,7 +91,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-        return userId;
+        return regInfo.getUserId();
     }
 
     public long storeWithoutCoder(SimpleRegInfo regInfo) throws Exception {
