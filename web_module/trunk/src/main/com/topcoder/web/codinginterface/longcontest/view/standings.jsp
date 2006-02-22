@@ -152,13 +152,23 @@
 <td class="<%=even?"statLt":"statDk"%>" align="center">
 <tc-webtag:format object="<%=resultRow.getStringItem("language_name")%>"/></td></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center">
+<% if (resultRow.getIntItem("test_number")>0) { %>
 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_EXAMPLE_HISTORY%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>" class="statLink">
 <rsc:item name="test_number" row="<%=resultRow%>"/>
-</A></td>
+</A>
+<% } else { %>
+<rsc:item name="test_number" row="<%=resultRow%>"/>
+<% } %>
+</td>
 <td class="<%=even?"statLt":"statDk"%>" align="center">
+<% if (resultRow.getIntItem("submission_number")>0) { %>
 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_SUBMISSION_HISTORY%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>" class="statLink">
 <rsc:item name="submission_number" row="<%=resultRow%>"/>
-</A></td>
+</A>
+<% } else { %>
+<rsc:item name="submission_number" row="<%=resultRow%>"/>
+<% } %>
+</td>
 </tr><%even = !even;%></rsc:iterator>
                 <%-- END ITERATOR --%>
             </table>
