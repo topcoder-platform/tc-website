@@ -69,10 +69,13 @@
     
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
-    <td nowrap="nowrap" valign="top">
+   <td class="categoriesBox"> 
+      <jsp:include page="categoriesHeader.jsp" />
+   </td>
+    <td nowrap="nowrap" valign="top" width="50%">
         <jsp:include page="searchHeader.jsp" ></jsp:include>
     </td>
-    <td align="right" nowrap="nowrap" valign="top">
+    <td align="right" nowrap="nowrap" valign="top" width="50%">
         <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
     </td>
 </tr>
@@ -183,7 +186,7 @@
                             if (((Forum)itForums.next()).getMessageCount() > 0) numActiveForums++;
                         }
                         if (numActiveForums > 0) { %>
-                        <br><table cellpadding="0" cellspacing="0" class="rtTable">
+                        <table cellpadding="0" cellspacing="0" class="rtTable">
                                 <tr>
                                    <td class="rtHeader">
                                         <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A>
