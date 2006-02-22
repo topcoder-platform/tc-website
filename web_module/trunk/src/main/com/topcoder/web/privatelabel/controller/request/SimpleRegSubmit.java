@@ -68,8 +68,14 @@ public class SimpleRegSubmit extends SimpleRegBase {
 
             try {
                 PrincipalMgrRemote mgr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
-                newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
-                regInfo.setUserId(newUser.getId());
+                if (regInfo.isNew()) {
+                    if (regInfo.getUserId()>0) {
+                        newUser = mgr.createUser(regInfo.getUserId(), regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
+                    } else {
+                        newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
+                        regInfo.setUserId(newUser.getId());
+                    }
+                }
                 tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 tm.begin();
                 store(regInfo);
