@@ -63,7 +63,7 @@ public class ViewProblemSolution extends Base {
             Map m = dataAccess.getData(r);
             request.setAttribute("resultMap", m);
             request.setAttribute("mostRecent",
-                    String.valueOf(isMostRecentSubmission(round, coder, problem, submissionNumber,example)));
+                    String.valueOf(isMostRecentSubmission(round, coder, problem, submissionNumber)));
             setNextPage(Constants.PAGE_PROBLEM_SOLUTION);
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
@@ -73,14 +73,13 @@ public class ViewProblemSolution extends Base {
         }
     }
 
-    private boolean isMostRecentSubmission(String round, String coder, String problem, String submissionNumber, String example) throws Exception {
+    private boolean isMostRecentSubmission(String round, String coder, String problem, String submissionNumber) throws Exception {
         Request r = new Request();
         r.setContentHandle("long_contest_last_submission");
         r.setProperty(Constants.CODER_ID, coder);
         r.setProperty(Constants.PROBLEM_ID, problem);
         r.setProperty(Constants.ROUND_ID, round);
         r.setProperty(Constants.SUBMISSION_NUMBER, submissionNumber);
-        r.setProperty(Constants.EXAMPLE_FLAG, example);
         return !((ResultSetContainer)getDataAccess().getData(r).get("long_contest_last_submission")).isEmpty();
     }
 }
