@@ -153,6 +153,7 @@ public abstract class FullLogin extends FullReg {
         if (hasTCAccount) {
             info = getCommonInfo(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
             info.setUserId(getUser().getId());
+            info.setAccountConversion(true);
 
             info.setCoderType(coder.getCoderTypeId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME));
 
