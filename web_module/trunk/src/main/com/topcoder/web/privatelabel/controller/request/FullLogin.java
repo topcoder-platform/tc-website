@@ -120,24 +120,30 @@ public abstract class FullLogin extends FullReg {
             getAuthentication().login(new SimpleUser(0, handle, password), false, db);
             char status = user.getStatus(getUser().getId(), db);
             if (Arrays.binarySearch(ACTIVE_STATI, status) >= 0) {
+                log.debug("yep, they have an event account");
                 hasEventAccount = true;
             } else {
+                log.debug("have an inactive event account");
                 if (!hasError(Constants.HANDLE)) {
                     addError(Constants.HANDLE, getBundle().getProperty("error_account_not_active"));
                 }
             }
         } catch (LoginException l) {
+            log.debug("no event account");
             try {
                 getAuthentication().login(new SimpleUser(0, handle, password), false);
                 char status = user.getStatus(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
                 if (Arrays.binarySearch(ACTIVE_STATI, status) >= 0) {
+                    log.debug("yep, they have a tc account");
                     hasTCAccount = true;
                 } else {
+                    log.debug("have an inactive tc account");
                     if (!hasError(Constants.HANDLE)) {
                         addError(Constants.HANDLE, getBundle().getProperty("error_account_not_active"));
                     }
                 }
             } catch (LoginException l1) {
+                log.debug("no tc account");
                 if (!hasError(Constants.HANDLE)) {
                     addError(Constants.HANDLE, getBundle().getProperty("error_invalid_login"));
                 }
