@@ -59,9 +59,9 @@ The next two (2) events for VeriSign are 2 SRMs that are part of the Internal Co
 
          <table width="500" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
             <tr>
-               <td class="sidebarTitle" width="33%"><b>Date</b></td>
-               <td class="sidebarTitle" width="33%" colspan="2"><b>Time</b></td>
-               <td class="sidebarTitle" width="34%"><b>Status</b></td>
+               <td class="sidebarTitle" width="25%"><b>Date</b></td>
+               <td class="sidebarTitle" width="40%" colspan="2"><b>Time</b></td>
+               <td class="sidebarTitle" width="35%"><b>Status</b></td>
             </tr>
             <tr valign="top">
                <td class="sidebarText">&#160;</td>
@@ -70,25 +70,25 @@ The next two (2) events for VeriSign are 2 SRMs that are part of the Internal Co
                <td class="sidebarText">&#160;</td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText">SRM 1, April 25, 2006</td>
+               <td class="sidebarText">SRM 1 <br>April 25, 2006</td>
                <td class="sidebarText">7:00 - 9:55 AM*</td>
-               <td class="sidebarText">START: 10:00 AM*</td>
+               <td class="sidebarText">10:00 AM*</td>
                <td class="sidebarText">All participants</td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText">SRM 2, May 17, 2006</td>
+               <td class="sidebarText">SRM 2 <br>May 17, 2006</td>
                <td class="sidebarText">6:00 - 8:55 PM**</td>
-               <td class="sidebarText">START: 9:00 PM**</td>
+               <td class="sidebarText">9:00 PM**</td>
                <td class="sidebarText">All participants</td>
             </tr>
             <tr>
                <td class="sidebarText" colspan="4">&#160;</td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText">Finals, June 13, 2006</td>
+               <td class="sidebarText">Finals <br>June 13, 2006</td>
                <td class="sidebarText">&#160;</td>
                <td class="sidebarText">TBD</td>
-               <td class="sidebarText">Championship Round - 5 participants</td>
+               <td class="sidebarText">Championship Round <br>5 participants</td>
             </tr>
             <tr valign="top">
                <td class="sidebarText" colspan="4">*All times are Eastern Standard Time. <br>**All times are Eastern Daylight Time. <br>NOTE: In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.</td>
@@ -97,6 +97,8 @@ The next two (2) events for VeriSign are 2 SRMs that are part of the Internal Co
 <br/><br/>
 The top two (2) scores from each SRM will be invited to participate in the Championship round on June 13, 2006. The highest VeriSign score from the 2006 TopCoder Open Sponsor Track competition will also be invited to compete in the finals.
 <br/><br/>
+
+<a name="prizes"></a>
 <span class="bodySubtitle">SRM Prizes</span><br/>
 Cash prizes are as follows for each SRM: 
 <br/><br/>
