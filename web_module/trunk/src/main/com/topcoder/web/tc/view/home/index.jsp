@@ -55,9 +55,6 @@ margin:0px auto;
 <%-- high school
       <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=hs&d2=home"><IMG SRC="/i/home/high_school.jpg" border="0" ALT="TopCoder High School"/></A></td>
 --%>
-<%-- MSN
-      <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=contracting&d2=msn"><IMG SRC="/i/home/msn_emp_opps.gif" border="0" ALT="MSN is hiring"/></A></td>
---%>
 <%-- Intel
       <td class="BIGPromoBox" align="center"><A href="/longcontest/?module=Static&d1=intel_overview"><IMG SRC="/i/home/intel_mtcs_banner.gif" border="0" ALT="Intel Multi-Threading Competition Series"/></A></td>
 --%>
@@ -191,7 +188,7 @@ margin:0px auto;
             <b>02/16</b> - SRM 290 - 9PM - UBS<br><br>
             <b>02/16</b> - TCO06 Component - Week4 submission deadline - 9AM<br><br>
             <b>02/19</b> - TCO06 Component - Registration closes - 9AM<br><br>
-            <b>02/21</b> - SRM 291 - 11AM - MSN<br><br>
+            <b>02/21</b> - SRM 291 - 11AM<br><br>
             <b>02/22</b> - Intel Multi-Threading Competition 2 Start - 12 noon<br><br>
             <b>02/23</b> - TCO06 Component - Week5 submission deadline - 9AM<br><br>
             <b>02/28</b> - TCO06 Algorithm - Registration closes - 9AM<br><br>
