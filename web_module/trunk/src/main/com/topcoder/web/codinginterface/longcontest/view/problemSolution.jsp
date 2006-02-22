@@ -100,7 +100,7 @@
                 <br>
                 <span class="bodySubtitle">Submission: <rsc:item name="submission_number" row="<%=infoRow%>"/></span>
                 <br>
-                <% if (String.valueOf(true).equals(request.getAttribute("mostRecent"))) { %>
+                <% if (String.valueOf(true).equals(request.getAttribute("mostRecent"))&&String.valueOf(true).equals(request.getAttribute(Constants.EXAMPLE_FLAG))) { %>
                 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewExampleResults&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=infoRow%>"/>">Example Results</A>
                 <br>
                 <% } %>
