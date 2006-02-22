@@ -31,6 +31,8 @@ public class SimpleRegInfo extends Base {
 /*
     private Locale locale;
 */
+    private boolean isAccountConversion;
+
 
     private long companyId;
     private long eventId;
@@ -58,6 +60,7 @@ public class SimpleRegInfo extends Base {
         companyId = 0;
         eventId = 0;
         phonenumber = "";
+        isAccountConversion = false;
 /*
         locale = Locale.US;
 */
@@ -86,11 +89,20 @@ public class SimpleRegInfo extends Base {
         setCompanyId(info.getCompanyId());
         setEventId(info.getEventId());
         setPhoneNumber(info.getPhoneNumber());
+        setAccountConversion(info.isAccountConversion());
 /*
         setLocale(info.getLocale());
 */
 
         setNew(info.isNew());
+    }
+
+    public boolean isAccountConversion() {
+        return isAccountConversion;
+    }
+
+    public void setAccountConversion(boolean accountConversion) {
+        isAccountConversion = accountConversion;
     }
 
     public String getPhoneNumber() {
