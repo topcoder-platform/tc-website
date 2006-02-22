@@ -103,6 +103,9 @@ Cash prizes are as follows for each SRM:
 
          <table width="300" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
             <tr>
+               <td class="sidebarTitle" colspan="2">SRM Prizes</td>
+            </tr>
+            <tr>
                <td class="sidebarText"><b>1st Place Finisher</b></td>
                <td class="sidebarText">$1,500 and a trip to the VTS finals</td>
             </tr>
@@ -121,6 +124,9 @@ The Finals will be held at the VTS, June 11 - 13, 2006 in Williamsburg, Virginia
 <br/><br/>
 
          <table width="300" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
+            <tr>
+               <td class="sidebarTitle" colspan="2">Finals Prizes</td>
+            </tr>
             <tr>
                <td class="sidebarText"><b>1st Place Finisher</b></td>
                <td class="sidebarText"><b>$5,000</b></td>
