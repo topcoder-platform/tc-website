@@ -8,6 +8,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.22.06<br>4:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm291">SRM 291 - Problem Set & Analysis</A></span><br><br>
+In division 1 easy and medium problems have a pretty high success rate, but only 6 participants successfully solved the hard.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/Andrew_Lazarev_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7485898" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm291">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505857" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.21.06<br>5:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -172,19 +189,6 @@ outplaying the second (<tc-webtag:handle coderId="8357090" context="algorithm"/>
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>02.09.06<br>11:20 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://software.topcoder.com/about/explanationMovie.jsp">How engineering meets manufacturing at TopCoder Software</A></span><br><br>
-      TopCoder uses competition to engage a global workforce of the best software development talent. TopCoder Vice President Mike Morris explains the TopCoder Software Development Methodology that is used to deliver high quality software applications to our customers.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://software.topcoder.com/about/explanationMovie.jsp">watch movies</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505912" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
-   </td></tr>
-      
 </table>
 <br><br>
 <table align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" width="525">
