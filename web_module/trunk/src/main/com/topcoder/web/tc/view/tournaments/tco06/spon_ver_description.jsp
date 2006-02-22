@@ -7,7 +7,7 @@
 <jsp:include page="/script.jsp" />
 
 <title>2006 TopCoder Open - Computer Programming Tournament</title>
-<link type="text/css" rel="stylesheet" href="/css/TCO06style_ver.css"/>
+<link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
 </head>
 <body>
 
@@ -23,9 +23,9 @@
 		<td valign="top" align="center">
 		<div class="bodySpacer">
             
-<span class="bigTitle">Description of the VeriSign Internal Competition</span>
+<span class="bigTitle">Description of the Sponsor Track Competition</span>
 <br><br>
-Welcome to the 2006 VeriSign Internal Competition--one of many opportunities you will have this year to participate in coding competitions, demonstrate your technology talents, and network with other engineers throughout the company worldwide.
+Welcome to the 2006 TopCoder Open VeriSign Sponsor Track competition--one of many opportunities you will have this year to participate in coding competitions, demonstrate your technology talents, and network with other engineers throughout the company worldwide.
 <br/><br/> 
 This year, we hope to strengthen our engineering community by finding ways for us to connect with each other, such as: 
 <ul>
@@ -76,9 +76,11 @@ Click             <% if (sessionInfo.isAnonymous()) { %>
         
          
 <!-- Right Column-->
-<td width="180" align="right" style="padding: 0px 15px 0px 0px;">
-<jsp:include page="right_ver.jsp" />
-
+<td width="170" align="right">
+<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+<img src="/i/tournament/tco06/verisign_right.gif" alt="Verisign" border="0" /><br />
+<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+<jsp:include page="../../calendar.jsp" />
 </td>
 		
 	</tr>
