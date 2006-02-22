@@ -69,7 +69,7 @@ the gold.
 <span class="bodySubtitle">Overview of the Problem</span><br> In general,
 routing problems are hard.  Numerous academic papers have been devoted
 to the subject, and it is still an area of very active research.  This
-particular problem was motived by another hot topic: sensor networks.
+particular problem was motivated by another hot topic: sensor networks.
 Imagine that we have a bunch of small wireless devices, and the
 devices need to simultaneously send large amounts of data between each
 other.  Typically, however, routing is done in a decentralized fashion
