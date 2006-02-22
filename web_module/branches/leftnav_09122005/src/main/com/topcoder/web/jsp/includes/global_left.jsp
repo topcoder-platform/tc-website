@@ -23,7 +23,7 @@
             nav.search("m_recordbook").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=compstats&d2=comp_recordbook_home", "Component", "comp_recordbook"));
          nav.search("m_competitor_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=SimpleStats&trans=true&c=com_history&d1=statistics&d2=coderOfMonth", "Coder of the Month", "coder_of_month"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_algo_competitions')", "Algorithm", "m_algo_competitions"));
-         nav.search("m_algo_competitions").addChild(new NavNode("", "Compete (Launch Arena)", "algo_compete"));
+         nav.search("m_algo_competitions").addChild(new NavNode("", "Compete<br>(Launch Arena)", "algo_compete"));
          nav.search("m_algo_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_algo_stats')", "Statistics", "m_algo_stats"));
             nav.search("m_algo_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=statistics&d2=matchArchive", "Match Archive", "algo_match_archive"));
             nav.search("m_algo_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/stat?&c=round_overview", "Match Overviews", "algo_match_overviews"));
