@@ -217,7 +217,9 @@ public class Submit extends Base {
                     }
                     if (minutes>0||seconds>0) {
                         StringBuffer buf = new StringBuffer(100);
-                        buf.append("Sorry, you may not submit again for another");
+                        buf.append("Sorry, you may not ");
+                        buf.append(examplesOnly?"test":"submit");
+                        buf.append(" again for another");
                         if (minutes > 1) {
                             buf.append(" ");
                             buf.append(minutes);
