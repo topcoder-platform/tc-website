@@ -205,10 +205,17 @@ public class Submit extends Base {
                     long now = System.currentTimeMillis();
                     long nextSubmit = lastSubmit +Constants.SUBMISSION_RATE*60*1000;
                     long nextExampleSubmit = lastSubmit +Constants.EXAMPLE_SUBMISSION_RATE*60*1000;
-                    log.debug("now " + now + " last: " + lastSubmit + " diff: " + (now-lastSubmit));
-                    if ((!examplesOnly && now<nextSubmit) || (examplesOnly && now<nextExampleSubmit)) {
-                        long minutes = (nextSubmit-now)/(60*1000);
-                        long seconds = (nextSubmit-now-(minutes*60*1000))/1000;
+                    log.debug("now " + now + " last: " + lastSubmit + " diff: " + (now-lastSubmit) + " examplesonly " + examplesOnly);
+                    long minutes = 0;
+                    long seconds = 0;
+                    if (!examplesOnly && now<nextSubmit) {
+                        minutes = (nextSubmit-now)/(60*1000);
+                        seconds = (nextSubmit-now-(minutes*60*1000))/1000;
+                    } else if (examplesOnly && now<nextExampleSubmit) {
+                        minutes = (nextExampleSubmit-now)/(60*1000);
+                        seconds = (nextExampleSubmit-now-(minutes*60*1000))/1000;
+                    }
+                    if (minutes>0||seconds>0) {
                         StringBuffer buf = new StringBuffer(100);
                         buf.append("Sorry, you may not submit again for another");
                         if (minutes > 1) {
