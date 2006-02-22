@@ -15,15 +15,15 @@ public class Login extends FullLogin {
 
     protected void setNextPage() {
         Calendar end = Calendar.getInstance();
-        end.set(2006, Calendar.FEBRUARY, 14, 22, 30);
         Calendar beginning = Calendar.getInstance();
+        beginning.set(2006, Calendar.FEBRUARY, 14, 22, 30);
         //beginning.set(2005, Calendar.JULY, 25, 9, 0);
-        beginning.set(2006, Calendar.MARCH, 19, 22, 30);
+        end.set(2006, Calendar.MARCH, 19, 22, 30);
 
         Calendar now = Calendar.getInstance();
         now.setTime(new Date());
 
-        log.debug("new: " + regInfo.isNew() + " now " + now + " beginning " + beginning + " end " + end);
+        //log.debug("new: " + regInfo.isNew() + " now " + now + " beginning " + beginning + " end " + end);
         if (regInfo.isNew() && (now.before(beginning) || now.after(end))) {
             setNextPage(Constants.GOOGLE_INDIA_06_REG_CLOSED_PAGE);
             setIsNextPageInContext(true);
