@@ -1,5 +1,7 @@
 package com.topcoder.web.privatelabel.controller.request;
 
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
@@ -15,7 +17,6 @@ import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import javax.transaction.TransactionManager;
-import javax.transaction.Status;
 
 
 /**
@@ -59,25 +60,33 @@ public class SimpleRegSubmit extends SimpleRegBase {
     }
 
     protected long commit(SimpleRegInfo regInfo) throws TCWebException {
-        TransactionManager tm = null;
-        long ret = 0;
-        try {
-            tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
-            tm.begin();
 
-            ret = store(regInfo);
-            tm.commit();
-        } catch (Exception e) {
+        UserPrincipal newUser = null;
+        long userId = 0;
+        TransactionManager tm = null;
+        try {
+
             try {
-                if (tm != null && tm.getStatus()==Status.STATUS_ACTIVE) {
-                    tm.rollback();
+                PrincipalMgrRemote mgr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+                newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
+                regInfo.setUserId(newUser.getId());
+                tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+                tm.begin();
+                store(regInfo);
+                tm.commit();
+            } catch (Exception e) {
+                if (newUser != null && newUser.getId() > 0 && regInfo.isNew()) {
+                    PrincipalMgrRemote mgr = (PrincipalMgrRemote)
+                            com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+                    mgr.removeUser(newUser, CREATE_USER);
                 }
-            } catch (Exception x) {
-                throw new TCWebException(e);
             }
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
             throw new TCWebException(e);
         }
-        return ret;
+        return userId;
     }
 
     public long storeWithoutCoder(SimpleRegInfo regInfo) throws Exception {
