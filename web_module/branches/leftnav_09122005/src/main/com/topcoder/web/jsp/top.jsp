@@ -21,6 +21,7 @@
 <STYLE TYPE="text/css">
 div.topBar, div.topBar div
 {
+color: #FFFFFF;
 font-size: 10px;
 }
 div.topBar
