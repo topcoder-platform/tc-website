@@ -37,7 +37,7 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
          */
 
         try {
-            if (regInfo.isNew() && userExists(regInfo.getHandle())) {
+            if (regInfo.isNew() && !regInfo.isAccountConversion() && userExists(regInfo.getHandle())) {
                 addError(Constants.HANDLE, getBundle().getProperty("error_dup_handle"));
                 getRequest().setAttribute("countryList", getCountryList());
                 getRequest().setAttribute("stateList", getStateList());

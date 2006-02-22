@@ -20,9 +20,11 @@ abstract public class Base implements Serializable, Cloneable {
      * change in meaning.
      */
     private boolean isNew;
+    private boolean isAccountConversion;
 
     public Base() {
         isNew = true;
+        isAccountConversion = false;
     }
 
     public boolean isNew() {
@@ -32,6 +34,15 @@ abstract public class Base implements Serializable, Cloneable {
     public void setNew(boolean isNew) {
         this.isNew = isNew;
     }
+
+    public boolean isAccountConversion() {
+        return isAccountConversion;
+    }
+
+    public void setAccountConversion(boolean accountConversion) {
+        isAccountConversion = accountConversion;
+    }
+
 
     public String toString() {
         Method[] m = getClass().getMethods();
