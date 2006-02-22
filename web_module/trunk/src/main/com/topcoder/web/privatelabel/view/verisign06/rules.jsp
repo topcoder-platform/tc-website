@@ -83,33 +83,41 @@ All Sponsor Track competitors who have qualified for an online round will be ass
 The dates and times of the online rounds of competition are as follows: 
 <br><br>
 
-         <table width="400" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
+         <table width="500" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
             <tr>
-               <td class="sidebarTitle" width="25%">Round</td>
-               <td class="sidebarTitle" width="35%">Date and Time*</td>
-               <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
-               <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
+               <td class="sidebarTitle" width="25%"><b>Date</b></td>
+               <td class="sidebarTitle" width="40%" colspan="2"><b>Time</b></td>
+               <td class="sidebarTitle" width="35%"><b>Status</b></td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText">Online Round 1</td>
-               <td class="sidebarText">March 4, 2006<br />Register: 9:00 AM<br />START: 12:00 PM (Noon)<br /></td>
-               <td class="sidebarText" align="center">100</td>
-               <td class="sidebarText" align="center">50</td>
+               <td class="sidebarText">&#160;</td>
+               <td class="sidebarText"><b>Register</b></td>
+               <td class="sidebarText"><b>Start</b></td>
+               <td class="sidebarText">&#160;</td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText">Online Round 2</td>
-               <td class="sidebarText">March 8, 2006<br />Register: 6:30 PM<br />START: 9:30 PM<br /></td>
-               <td class="sidebarText" align="center">50</td>
-               <td class="sidebarText" align="center">25</td>
+               <td class="sidebarText">SRM 1 <br>April 25, 2006</td>
+               <td class="sidebarText">7:00 - 9:55 AM*</td>
+               <td class="sidebarText">10:00 AM*</td>
+               <td class="sidebarText">All participants</td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText">Online Round 3</td>
-               <td class="sidebarText">March 15, 2006<br />Register: 6:30 PM<br />START: 9:30 PM<br /></td>
-               <td class="sidebarText" align="center">25</td>
-               <td class="sidebarText" align="center">10</td>
+               <td class="sidebarText">SRM 2 <br>May 17, 2006</td>
+               <td class="sidebarText">6:00 - 8:55 PM**</td>
+               <td class="sidebarText">9:00 PM**</td>
+               <td class="sidebarText">All participants</td>
+            </tr>
+            <tr>
+               <td class="sidebarText" colspan="4">&#160;</td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText" colspan="4">NOTE: All times are Eastern Standard Time. In the event that an online round must be cancelled for any reason, the "raindate" will be the following day at the same time.</td>
+               <td class="sidebarText">Finals <br>June 13, 2006</td>
+               <td class="sidebarText">&#160;</td>
+               <td class="sidebarText">TBD</td>
+               <td class="sidebarText">Championship Round <br>5 participants</td>
+            </tr>
+            <tr valign="top">
+               <td class="sidebarText" colspan="4">*All times are Eastern Standard Time. <br>**All times are Eastern Daylight Time. <br>NOTE: In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.</td>
             </tr>
          </table>
 

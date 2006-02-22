@@ -21,70 +21,46 @@
 		<td valign="top" align="center">
 		<div class="bodySpacer">
             
-<span class="bigTitle">Schedule of Online Competitions</span>
+<span class="bigTitle">Schedule</span>
 <br><br>
-<table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
-   <tr>
-      <td class="sidebarTitle" width="20%">Round</td>
-      <td class="sidebarTitle" width="40%">Date and Time* <br> (all Eastern Standard Time)</td>
-      <td class="sidebarTitle" width="20%"># of Competitors</td>
-      <td class="sidebarTitle" width="20%"># of Advancers</td>
-   </tr>
-   <tr valign="top">
-      <td class="sidebarText">Qualification Round</td>
-      <td class="sidebarText">
-      START: Tuesday, February 28, 2006<br>
-      12:00 PM (noon)
-      <br><br>
-      END: Wednesday, March 1, 2006<br>
-      12:00PM (noon)
-      </td>
-      <td class="sidebarText">All eligible registered competitors</td>
-      <td class="sidebarText">Top 100 scorers</td>
-   </tr>
-   <tr valign="top">
-      <td class="sidebarText">Online Round #1</td>
-      <td class="sidebarText">
-      Saturday, March 4, 2006<br>   
-      Register 9:00 - 11:55 AM<br>
-      START: 12:00 PM (noon)
-      </td>
-      <td class="sidebarText">100</td>
-      <td class="sidebarText">50</td>
-   </tr>
-   <tr valign="top">
-      <td class="sidebarText">Online Round #2</td>
-      <td class="sidebarText">
-      Wednesday, March 8, 2006<br>   
-      Register 6:30 - 9:25 PM<br>
-      START: 9:30 PM
-      </td>
-      <td class="sidebarText">50</td>
-      <td class="sidebarText">25</td>
-   </tr>
-   <tr valign="top">
-      <td class="sidebarText">Online Round #3</td>
-      <td class="sidebarText">
-      Wednesday, March 15, 2006<br>   
-      Register 6:30 - 9:25 PM<br>
-      START: 9:30 PM
-      </td>
-      <td class="sidebarText">25</td>
-      <td class="sidebarText">10</td>
-   </tr>
-   <tr valign="top">
-      <td class="sidebarText">Online Championship Round</td>
-      <td class="sidebarText">
-      Wednesday, March 22, 2006<br>   
-      Register 6:30 - 9:25 PM<br>
-      START: 9:30 PM
-      </td>
-      <td class="sidebarText">10</td>
-      <td class="sidebarText">1 - Champion</td>
-   </tr>
-   <tr><td class="sidebarText" colspan="4">*NOTE:  In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.</td></tr>
-</table>
-<br><br>
+         <table width="500" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
+            <tr>
+               <td class="sidebarTitle" width="25%"><b>Date</b></td>
+               <td class="sidebarTitle" width="40%" colspan="2"><b>Time</b></td>
+               <td class="sidebarTitle" width="35%"><b>Status</b></td>
+            </tr>
+            <tr valign="top">
+               <td class="sidebarText">&#160;</td>
+               <td class="sidebarText"><b>Register</b></td>
+               <td class="sidebarText"><b>Start</b></td>
+               <td class="sidebarText">&#160;</td>
+            </tr>
+            <tr valign="top">
+               <td class="sidebarText">SRM 1 <br>April 25, 2006</td>
+               <td class="sidebarText">7:00 - 9:55 AM*</td>
+               <td class="sidebarText">10:00 AM*</td>
+               <td class="sidebarText">All participants</td>
+            </tr>
+            <tr valign="top">
+               <td class="sidebarText">SRM 2 <br>May 17, 2006</td>
+               <td class="sidebarText">6:00 - 8:55 PM**</td>
+               <td class="sidebarText">9:00 PM**</td>
+               <td class="sidebarText">All participants</td>
+            </tr>
+            <tr>
+               <td class="sidebarText" colspan="4">&#160;</td>
+            </tr>
+            <tr valign="top">
+               <td class="sidebarText">Finals <br>June 13, 2006</td>
+               <td class="sidebarText">&#160;</td>
+               <td class="sidebarText">TBD</td>
+               <td class="sidebarText">Championship Round <br>5 participants</td>
+            </tr>
+            <tr valign="top">
+               <td class="sidebarText" colspan="4">*All times are Eastern Standard Time. <br>**All times are Eastern Daylight Time. <br>NOTE: In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.</td>
+            </tr>
+         </table>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
 See the official <A href="/pl/?module=Static&d1=verisign06&d2=rules">rules and regulations</A> for more details.
         </div>
 		</td>
