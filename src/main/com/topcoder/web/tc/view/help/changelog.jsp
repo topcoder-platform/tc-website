@@ -38,13 +38,15 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
-        4.1.11 - 2006.02.xx
-        <ul>
-            <li>set headers throughout site so that proxies won't cache pages</li>
-            <li>Add college images to the college tour description page</li>
 <%--
             <li>put logic behind the contest details links on the component page in the catalog</li>
 --%>
+        4.1.11 - 2006.02.21
+        <ul>
+            <li>set headers throughout site so that proxies won't cache pages</li>
+            <li>Add college images to the college tour description page</li>
+            <li>Add example testing to the marathon matches site</li>
+            <li>Add google coder jam india 2006 registration</li>
         </ul>
     </p>
     <p>
