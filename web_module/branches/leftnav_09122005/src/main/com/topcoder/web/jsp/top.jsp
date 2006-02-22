@@ -28,14 +28,14 @@ div.topBar
 {
 background: #FFFFFF url(/i/interface/top_bg.gif) top center repeat-x;
 vertical-align: top;
-padding: 5px 3px 50px 3px;
+padding: 5px 10px 50px 3px;
 white-space: nowrap; 
 }
 #outer
 {
 width: 360px;
 position: relative;
-margin: 0px 185px 0px 185px;
+margin: 0px 300px 0px 300px;
 /*border: 1px solid #00FF00;*/
 }
 #inner
@@ -74,7 +74,7 @@ left: 0px;
    <%}%>
                &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/">Home</a>
    </div>
-Current Member Count: <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%> - <jsp:include page="/date_time.jsp" />
+Member Count: <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%> - <jsp:include page="/date_time.jsp" />
 &#160;<a href="Javascript:tcTime()">[Get Time]</a>
 </div>
 
