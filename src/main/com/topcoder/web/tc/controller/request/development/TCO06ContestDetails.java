@@ -35,7 +35,7 @@ public class TCO06ContestDetails extends StatBase {
     private ArrayList arr = new ArrayList();
 
     int getMax() {
-        return Integer.MAX_VALUE;
+        return 4;
     }
 
     void statProcessing() throws com.topcoder.web.common.TCWebException {
