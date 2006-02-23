@@ -5,17 +5,17 @@
 <%@ page import="com.topcoder.web.common.StringUtils" %>
 <% 
 String contest_name = (String)request.getAttribute("contest_name");
-int round_id = ((Integer)request.getAttribute("round_id")).integerValue();
+int round_id = ((Integer)request.getAttribute("round_id")).intValue();
 String path = StringUtils.checkNull((String)request.getAttribute("path"));
 String link = StringUtils.checkNull((String)request.getAttribute("link"));
-int width = ((Integer)request.getAttribute("width")).integerValue();
-int height = ((Integer)request.getAttribute("height")).integerValue();
+int width = ((Integer)request.getAttribute("width")).intValue();
+int height = ((Integer)request.getAttribute("height")).intValue();
 String date = StringUtils.checkNull((String)request.getAttribute("date"));
 String time = StringUtils.checkNull((String)request.getAttribute("time"));
 String reg_begin = StringUtils.checkNull((String)request.getAttribute("reg_begin"));
 String reg_end = StringUtils.checkNull((String)request.getAttribute("reg_end"));
 String coding_begin = StringUtils.checkNull((String)request.getAttribute("coding_begin"));
-int forum_id = ((Integer)request.getAttribute("forum_id")).integerValue();
+int forum_id = ((Integer)request.getAttribute("forum_id")).intValue();
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -106,13 +106,13 @@ int forum_id = ((Integer)request.getAttribute("forum_id")).integerValue();
                                         <TD COLSPAN="3" ALIGN="left" class="bodyText">
                                             <center><BR/>All times are Eastern Time unless otherwise noted, click <a HREF="<%="http://www.timeanddate.com/worldclock/fixedtime.html?" + time%>">here</a>
                                             to see when coding begins in other time zones.<br/></center>
-                                            <% if (!forum_id.equals("")) { %>
+                                            <% if (forum_id != 0) { %>
                                             <center><strong><A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=<%=forum_id%>">Discuss this match</A></strong><br/><br/></center>
                                             <% } %>
                                             <% if (round_id == 8075) { %>
                                             <br/>
                                             TopCoder Employment Services is placing members in the Tampa Bay, FL area.  <A HREF="/tc?module=ContractingPreferences">Click here to register.</A><br/><br/>
-                                            <% } else if (round_id == 8070 || round_id == 8073 || roundId == 8076) { %>
+                                            <% } else if (round_id == 8070 || round_id == 8073 || round_id == 8076) { %>
                                             <br/>
                                             <b>If you're a member of <A href="/tc?module=Static&amp;d1=sponsors&amp;d2=sap">SAP Developer Network</A> AND take part in <%=contest_name%>, you'll be eligible for a chance to win one 60GB Apple iPod!</b><br/><br/>
                                             <table width="428" border="0" cellpadding="6" cellspacing="2" >

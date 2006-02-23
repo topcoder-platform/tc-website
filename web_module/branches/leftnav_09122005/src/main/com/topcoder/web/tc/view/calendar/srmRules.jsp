@@ -6,13 +6,13 @@
 
 <%
 String contest_name = (String)request.getAttribute("contest_name");
-int round_id = ((Integer)request.getAttribute("round_id")).integerValue();
+int round_id = ((Integer)request.getAttribute("round_id")).intValue();
 //String date = StringUtils.checkNull((String)request.getAttribute("date"));
 String reg_begin = StringUtils.checkNull((String)request.getAttribute("reg_begin"));
 String reg_end = StringUtils.checkNull((String)request.getAttribute("reg_end"));
 String coding_begin = StringUtils.checkNull((String)request.getAttribute("coding_begin"));
 String reg_date = StringUtils.checkNull((String)request.getAttribute("reg_date"));
-//int forum_id = ((Integer)request.getAttribute("forum_id")).integerValue();
+//int forum_id = ((Integer)request.getAttribute("forum_id")).intValue();
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
