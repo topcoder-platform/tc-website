@@ -213,7 +213,7 @@ public abstract class FullLogin extends FullReg {
                 DemographicResponse r = new DemographicResponse();
                 r.setQuestionId(row.getLongItem("demographic_question_id"));
                 r.setSort(row.getIntItem("sort"));
-                if (row.getItem("demographic_answer_id").getResultData() != null) {
+                if (row.getItem("demographic_answer_id").getResultData() != null && row.getLongItem("demographic_answer_id")>0) {
                     r.setAnswerId(row.getLongItem("demographic_answer_id"));
                 } else {
                     r.setText(row.getStringItem("demographic_response"));
