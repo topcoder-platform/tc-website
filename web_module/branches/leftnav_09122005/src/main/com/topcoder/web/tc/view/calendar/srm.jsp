@@ -36,6 +36,7 @@ int forum_id = ((Integer)request.getAttribute("forum_id")).integerValue();
                 <!-- Left Column Begins -->
                 <TD WIDTH="180" VALIGN="top">
                     <jsp:include page="../includes/global_left.jsp">
+                        <jsp:param name="node" value="competition_home"/>
                     </jsp:include>        
                 </TD>
                 <!-- Left Column Ends -->
