@@ -39,9 +39,9 @@ return false;
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="node" value="employment_opps"/>
-            </jsp:include>
+<jsp:include page="../includes/global_left.jsp">
+ <jsp:param name="node" value="employment_opps"/>
+</jsp:include>
         </td>
 <!-- Left Column Ends -->
 
