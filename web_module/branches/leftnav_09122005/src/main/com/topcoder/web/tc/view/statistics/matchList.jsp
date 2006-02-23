@@ -87,11 +87,10 @@ myForm.submit();
                     <%=(list.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
                     | <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
                 </div>
-
 <table class="stat" cellpadding="0" cellspacing="0" width="100%" style="">
    <tr><td class="title" colspan="5">Most Component Contest Wins</td></tr>
    <tr>
-      <td class="header" width="20%">Match</td>
+      <td class="header" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true" excludeParams="sr" />">Match</td>
       <td class="header" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Division I winner</td>
       <td class="header" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true" excludeParams="sr" />">Division II winner</td>
       <td class="headerR" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr" />">Participants</td>
