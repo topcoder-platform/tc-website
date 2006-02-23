@@ -30,9 +30,10 @@ public class MainServlet extends BaseServlet {
 
     protected WebAuthentication createAuthentication(TCRequest request,
                                                      TCResponse response) throws Exception {
-        long companyId = Long.parseLong(request.getParameter(Constants.COMPANY_ID));
         String db=null;
+        long companyId=-1;
         try {
+             companyId= Long.parseLong(request.getParameter(Constants.COMPANY_ID));
             db = RegistrationBase.getCompanyDb(companyId, Constants.TRANSACTIONAL);
         } catch (Exception e) {
             log.warn("no db found for company " + companyId);
