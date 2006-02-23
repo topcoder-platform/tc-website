@@ -48,7 +48,7 @@ Your login credentials have been sent to the provided email address.
 
 
          <br><br><br><br>
-         To find out more detailed information about the Google Code Jam India 2006, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj06&d2=rules">Terms and Conditions</a>.
+         To find out more detailed information about Google Code Jam India 2006, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj06&d2=rules">Terms and Conditions</a>.
          </div>
       </td>
       <td width="49%">&#160;</td>

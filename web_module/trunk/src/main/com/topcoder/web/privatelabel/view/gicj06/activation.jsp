@@ -71,7 +71,7 @@ function submitEnter(e) {
          If you encounter any problems, please contact us at <A href="mailto:gcji@topcoder.com">gcji@topcoder.com</A>.
 
          <br><br>
-         To find out more detailed information about the Google Code Jam India 2006, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj065&d2=rules">Terms and Conditions</a>.
+         To find out more detailed information about Google Code Jam India 2006, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj065&d2=rules">Terms and Conditions</a>.
          <br><br><br><br><br>
       </td>
       </tr>

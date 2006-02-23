@@ -44,7 +44,7 @@
          </span>
 
 <br><br>
-Get ready! Google&#153; is on its way to India again and they are looking for the best. Don't miss out on the Google Code Jam India. This exciting contest gives you the chance to show off your coding talent for Rs. 1,550,000 in cash and prizes!
+Get ready! Google&#153; is on its way to India again and they are looking for the best. Don't miss out on Google Code Jam India. This exciting contest gives you the chance to show off your coding talent for Rs. 1,550,000 in cash and prizes!
 <br><br>
 <span class="greenSubtitle">The Competition:</span>
 <br><br>
@@ -84,7 +84,7 @@ Here's the line-by-line documentation:
 <br>
 <span class="greenSubtitle">The Details:</span>
 <br><br>
-Registration for the Google&#153; Code Jam India is open from Monday, February 27, 2006 at 9:00AM IST to March 20 at 9:00AM IST. There is no limit to the number of registrants for the competition, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the Code Jam on March 24. 
+Registration for Google&#153; Code Jam India is open from Monday, February 27, 2006 at 9:00AM IST to March 20 at 9:00AM IST. There is no limit to the number of registrants for the competition, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the Code Jam on March 24. 
 <br><br>
 The competitors with the top 50 scores from Round 1 will be invited to compete for Rs. 1,550,000 in cash and prizes at the onsite Championship Round in India.
 <br><br>
@@ -176,7 +176,7 @@ Rs. 6,600
 <tr valign="top"><td class="sidebarText" nowrap="nowrap" colspan="2">* Winner must be present at the onsite round to receive prize. <br>All finalists will receive an iPod Nano (estimated Rs. 8,850)</td></tr>
 </table>
 <br>
-To find out more detailed information about the Google&#153; Code Jam India, including a list of the prizes, please read the
+To find out more detailed information about Google&#153; Code Jam India, including a list of the prizes, please read the
 <a href="/pl/?module=Static&d1=gicj06&d2=rules">Terms and Conditions</a>.
 </div>
 </td>

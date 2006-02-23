@@ -53,7 +53,7 @@
       </td>
       <td valign="top" width="100%">
 
-In order to be eligible to compete in the Google Code Jam India 2006,
+In order to be eligible to compete in Google Code Jam India 2006,
 you must activate your account by following the directions sent to the email
 address provided during registration. You <u>will not</u> be able to compete if you
 do not activate your account.
@@ -67,7 +67,7 @@ If you encounter any problems, please contact us at <A href="mailto:gicj@topcode
 Good luck to you in the Arena!
 
          <br><br>
-         To find out more detailed information about the Google Code Jam India 2006, including a list of the prizes, please
+         To find out more detailed information about Google Code Jam India 2006, including a list of the prizes, please
           read the <a href="/pl/?&module=Static&d1=gicj06&d2=rules">Terms and Conditions</a>.
          <br><br><br><br><br>
          </td>

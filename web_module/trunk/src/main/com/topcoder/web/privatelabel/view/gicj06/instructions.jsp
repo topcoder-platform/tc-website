@@ -90,9 +90,9 @@ The amount of time you will be given will vary depending on the round of competi
 <ul>
     <li>In the Qualification Round, the Coding Phase will last 60 minutes from the time that the first problem is opened
         and the contestants will be given two problems to solve.</li>
-    <li>In Online Round 1 of the Google Code Jam India, the Coding Phase will last 75 minutes and the contestants
+    <li>In Online Round 1 of Google Code Jam India, the Coding Phase will last 75 minutes and the contestants
         will be given three problems to solve.</li>
-    <li>In the Onsite Final Round of the Google Code Jam India, the coding phase will last 75 minutes and the
+    <li>In the Onsite Final Round of Google Code Jam India, the coding phase will last 75 minutes and the
         contestants will be given three problems to solve.</li>
 </ul>
 
@@ -133,7 +133,7 @@ clarify the statement.
 <span class="bigRed">NOTE: All problem statements will be presented in English.</span>
 <br><br>
 <strong>Choosing a Language</strong><br>
-The Google Code Jam India allows coders to utilize Java or C++ as a competition programming language.
+Google Code Jam India allows coders to utilize Java or C++ as a competition programming language.
 You have the option to choose a programming language on a problem-by-problem basis. It is legal for you to use any
 programming languages to solve each of the problems in a single competition. For this reason, you have the option of
 choosing the programming language from within the coding window. You can find the language selection area in the upper
@@ -337,7 +337,7 @@ If you have a problem logging into the Arena or cannot access the chat interface
 <A href="gicj06@topcoder.com?subject=Question regarding Google Code Jam India">gicj06@topcoder.com</A>. Please include
 a detailed description of the problem that you are having.
 <br><br>
-To find out more detailed information about the Google&#153; Code Jam India, including a list of the prizes, please read the
+To find out more detailed information about Google&#153; Code Jam India, including a list of the prizes, please read the
 <a href="/pl/?module=Static&d1=gicj06&d2=rules">Terms and Conditions</a>.
 </div>
 </td>
