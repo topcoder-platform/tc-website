@@ -24,13 +24,13 @@
     <tr>
         <td align="center" nowrap="nowrap" class="smallGreenBox">
         <span class="bodyTextGreen">Rs. 1,550,000 in<br/>Cash Prizes!</span>
-		<br/><br/>
-		<b>1st Prize - Rs. 110,000</b><br/>
-		2nd to 5th - Rs. 44,000<br/>
-		6th to 10th - Rs. 33,000<br/>
-		11th to 20th - Rs. 22,000<br/>
-		21st to 25th - Rs. 11,000<br/>
-		26th to 50th - Rs. 6,600<br/>
+      <br/><br/>
+      <b>1st Prize - Rs. 110,000</b><br/>
+      2nd to 5th - Rs. 44,000<br/>
+      6th to 10th - Rs. 33,000<br/>
+      11th to 20th - Rs. 22,000<br/>
+      21st to 25th - Rs. 11,000<br/>
+      26th to 50th - Rs. 6,600<br/>
         <br>
         <A href="/pl/?module=Static&d1=gicj06&d2=rules#prizes">Learn more</A>
 
