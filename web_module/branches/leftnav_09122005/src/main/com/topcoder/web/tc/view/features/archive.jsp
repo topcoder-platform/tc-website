@@ -5,9 +5,10 @@
 <title>TopCoder Feature Articles</title>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 <style type="text/css">
 .code
 {
@@ -36,10 +37,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="education"/>
-                <jsp:param name="level2" value="features"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="features"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
