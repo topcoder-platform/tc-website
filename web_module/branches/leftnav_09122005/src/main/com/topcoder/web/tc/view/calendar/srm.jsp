@@ -20,6 +20,9 @@ int forum_id = ((Integer)request.getAttribute("forum_id")).intValue();
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 
     <HEAD>
         <TITLE>Single Round Match (SRM) Schedule at TopCoder</TITLE>
