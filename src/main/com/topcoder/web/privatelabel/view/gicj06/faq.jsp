@@ -37,10 +37,10 @@
 
 <br><br>
 
-<span class="bigTitle">FAQ</span>
 <span valign="top">
-         <jsp:include page="right.jsp"/>
-         </span>
+<jsp:include page="right.jsp"/>
+</span>
+<span class="bigTitle">FAQ</span>
 
                 <br><br>
                 <b>Is there a way to practice before the elimination rounds?</b><br>

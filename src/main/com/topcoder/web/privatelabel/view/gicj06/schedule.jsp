@@ -37,11 +37,11 @@
 
 
             <br><br>
-            <span class="bigTitle">Schedule</span>
-            <span valign="top">
-         <jsp:include page="right.jsp"/>
-         </span>
-            <br><br>
+<span valign="top">
+<jsp:include page="right.jsp"/>
+</span>
+<span class="bigTitle">Schedule</span>
+<br><br>
 
             <span class="greenSubtitle">Qualification Round</span><br>
             <a name="sched"></a>

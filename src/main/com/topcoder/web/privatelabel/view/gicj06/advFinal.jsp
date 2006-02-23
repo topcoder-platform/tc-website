@@ -36,11 +36,11 @@
             </div>
 
 
-            <br><br>
-            <span class="bigTitle">Winners</span>
-            <span valign="top">
-         <jsp:include page="right.jsp"/>
-         </span>
+<br><br>
+<span valign="top">
+<jsp:include page="right.jsp"/>
+</span>
+<span class="bigTitle">Advancers</span>
             <br><br>
 
             <span class="greenSubtitle">Qualification Round</span><br>

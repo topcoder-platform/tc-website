@@ -48,10 +48,10 @@
 
                 <br><br>
 
-                <span class="bigTitle">Competition Arena</span>
-                <span valign="top">
-         <jsp:include page="right.jsp"/>
-         </span>
+<span valign="top">
+<jsp:include page="right.jsp"/>
+</span>
+<span class="bigTitle">Competition Arena</span>
          <br><br>
          The Competition Arena will open on Febuary 27.
 <!--

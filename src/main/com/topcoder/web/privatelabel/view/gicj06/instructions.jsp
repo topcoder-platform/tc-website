@@ -40,10 +40,10 @@
 
 <br><br>
 
-<span class="bigTitle">Instructions</span>
 <span valign="top">
-         <jsp:include page="right.jsp"/>
-         </span>
+<jsp:include page="right.jsp"/>
+</span>
+<span class="bigTitle">Instructions</span>
 
 <br><br>
 <span class="greenSubtitle">Loading the Competition Arena</span><br>

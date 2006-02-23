@@ -38,10 +38,10 @@
 <br><br>
 
 
-<span class="bigTitle">Google&#153; Code Jam India</span>
 <span valign="top">
-         <jsp:include page="right.jsp"/>
-         </span>
+<jsp:include page="right.jsp"/>
+</span>
+<span class="bigTitle">Google&#153; Code Jam India</span>
 
 <br><br>
 Get ready! Google&#153; is on its way to India again and they are looking for the best. Don't miss out on Google Code Jam India. This exciting contest gives you the chance to show off your coding talent for Rs. 1,550,000 in cash and prizes!
@@ -185,4 +185,4 @@ To find out more detailed information about Google&#153; Code Jam India, includi
 </table>
 <jsp:include page="foot.jsp"/>
 </body>
-</html>﻿
+</html>?
