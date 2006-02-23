@@ -97,7 +97,7 @@ public class MatchDetails extends Base {
             getRequest().setAttribute("date", rsr.getStringItem("date"));
             getRequest().setAttribute("coding_begin", rsr.getStringItem("coding_begin"));
             getRequest().setAttribute("forum_id", new Integer(rsr.getIntItem("forum_id")));
-            getRequest().setAttribute("reg_date", new Integer(rsr.getIntItem("reg_date")));
+            getRequest().setAttribute("reg_date", rsr.getStringItem("reg_date"));
             
             /*ArrayList contests = dcHome.getAdContests();
             if (contests != null && contests.size() > 0) {
