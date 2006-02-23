@@ -17,7 +17,7 @@
 <head>
 <title>Open Component Projects Available for Review</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
@@ -35,7 +35,7 @@
 <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="comp_review"/>
+            <jsp:param name="node" value="des_review"/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->
