@@ -10,7 +10,11 @@
 <head>
 <title>TopCoder Employment Opportunities</title>
 <link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
+
 </head>
 
 <body>
@@ -22,12 +26,10 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="employment"/>
-                <jsp:param name="level2" value="openings"/>
+        <td width="180">            <jsp:include page="../includes/global_left.jsp">
+                <jsp:param name="node" value="employment_opps"/>
             </jsp:include>
-        </td>
+</td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
