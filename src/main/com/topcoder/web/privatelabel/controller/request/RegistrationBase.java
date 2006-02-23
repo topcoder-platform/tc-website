@@ -104,7 +104,7 @@ public abstract class RegistrationBase extends BaseProcessor {
      */
     protected abstract void registrationProcessing() throws TCWebException;
 
-    protected String getCompanyDb(long companyId, int type) throws Exception {
+    public static String getCompanyDb(long companyId, int type) throws Exception {
         Request r = new Request();
         r.setContentHandle("company_datasource");
         r.setProperty("cm", String.valueOf(companyId));
