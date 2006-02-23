@@ -65,7 +65,7 @@ function submitEnter(e) {
                         or do not want to use an existing account, please click <a href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_INDIA_06_REG_MAIN%>&<%=Constants.COMPANY_ID%>=8039&<%=Constants.EVENT_ID%>=5" class="bigRed">here</a>.
                         <br><br>
                         If you are currently a TopCoder member and would like to convert your account for use in Google Code Jam India 2006
-                        or you have an existing Google Code Jam India 2006 account and need to change some of your registration information
+                        or you have an existing Google Code Jam India 2006 account and need to change your registration information
                         you may login below.<br/><br/>
 
                         <form method="post" name="frmLogin" action="<%=sessionInfo.getSecureAbsoluteServletPath()%>">
