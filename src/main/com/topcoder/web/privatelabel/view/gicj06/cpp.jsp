@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html;charset=utf-8" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -37,10 +37,10 @@
 
 <br><br>
 
-<span class="bigTitle">TopCoder C++ for C Programmers</span>
 <span valign="top">
-         <jsp:include page="right.jsp"/>
-         </span>
+<jsp:include page="right.jsp"/>
+</span>
+<span class="bigTitle">TopCoder C++ for C Programmers</span>
 
 <br><br>
 C++ is an object oriented extension to the C programming language. C++ provides many benefits over traditional C while

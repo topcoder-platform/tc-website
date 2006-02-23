@@ -15,7 +15,7 @@
          <table border=0 width=100% cellpadding=0 cellspacing=0>
             <tr>
                <td width="49%"></td>
-               <td valign=bottom align=center><img border=0 src="/i/events/google2005/codejamLogo.gif" alt="Google Code Jam logo"></td>
+                <td valign="bottom" align="center"><img border="0" src="/i/events/gicj06/logo_CodeJam.gif" alt="Google Code Jam India logo"></td>
                <td width="49%"></td>
             </tr>
          </table>
@@ -41,7 +41,7 @@
       <span class="bigTitle">Registration Successful!</span>
       <br><br>
       </td>
-      <td valign="top" rowspan="2"><jsp:include page="right.jsp" /></td>
+      <td valign="top" rowspan="2"><jsp:include page="right_reg.jsp" /></td>
    </tr>
    <tr>
       <td valign="top">
@@ -55,8 +55,8 @@
 
 In order to be eligible to compete in Google Code Jam India 2006,
 you must activate your account by following the directions sent to the email
-address provided during registration. You <u>will not</u> be able to compete if you
-do not activate your account.
+address provided during registration. <span class="bigRed">You <u>will not</u> be able to compete if you
+do not activate your account.</span>
 
 <br><br>
 
@@ -67,9 +67,12 @@ If you encounter any problems, please contact us at <A href="mailto:gicj@topcode
 Good luck to you in the Arena!
 
          <br><br>
+         <br><br><br><br><br>
+         </td>
+         </tr>
+         </table>
          To find out more detailed information about Google Code Jam India 2006, including a list of the prizes, please
           read the <a href="/pl/?&module=Static&d1=gicj06&d2=rules">Terms and Conditions</a>.
-         <br><br><br><br><br>
          </td>
          </tr>
          </table>
