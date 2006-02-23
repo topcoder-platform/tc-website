@@ -81,7 +81,7 @@ function submitEnter(e) {
             <% if (regInfo.isNew()) { %>
             <tr>
                 <td colspan="2" class="errorText" align="center">
-                    Please be aware that it is against the rules to create more than one account.
+                    It is against the rules to create more than one account for this event.
                 </td>
             </tr>
             <% } %>
