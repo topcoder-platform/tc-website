@@ -61,7 +61,7 @@
                     <td>
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                             <tr>
-                                <td class="tableTitle" colspan="5">Queue Status</td>
+                                <td class="tableTitle" colspan="4">Queue Status</td>
                             </tr>
                             <tr>
                                 <td class="tableHeader" width="20%">
@@ -76,9 +76,11 @@
                                 <td class="tableHeader" width="20%" align="center">
                                     Entered Queue
                                 </td>
+<%--
                                 <td class="tableHeader" width="20%" align="right">
                                     Tests Remaining
                                 </td>
+--%>
                             </tr>
                             <% if (queue.isEmpty()) { %>
                             <tr><td colspan="5" class="statDk">There are currently no submissions in the queue.</td></tr>
@@ -98,9 +100,11 @@
                                     <td class="<%=even?"statLt":"statDk"%>" align="center">
                                         <rsc:item name="queue_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm:ss"/>
                                     </td>
+<%--
                                     <td class="<%=even?"statLt":"statDk"%>" align="right">
                                         <rsc:item name="tests" row="<%=resultRow%>"/>
                                     </td>
+--%>
                                 </tr>
                                 <%even = !even;%>
                             </rsc:iterator>
