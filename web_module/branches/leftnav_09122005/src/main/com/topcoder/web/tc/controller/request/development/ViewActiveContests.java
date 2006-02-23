@@ -11,7 +11,7 @@ import com.topcoder.web.tc.model.SoftwareComponent;
  *          Create Date: Jan 4, 2006
  */
 public class ViewActiveContests extends Base {
-    private final String PHASE_ID_KEY = "pi";   
+    private final String PHASE_ID_KEY = "pi";  
     protected void developmentProcessing() throws TCWebException {
         try {
             int pi = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter(PHASE_ID_KEY)));
