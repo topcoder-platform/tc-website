@@ -157,9 +157,8 @@ public class SimpleRegSubmit extends SimpleRegBase {
         if (regInfo.isNew()) {
             emailId = email.createEmail(userId, transDb, db);
             email.setStatusId(emailId, 1, transDb);
-        } else if (!email.exists(userId, transDb)) {
-            emailId = email.createEmail(userId, transDb, db);
-            email.setStatusId(emailId, 1, transDb);
+        } else {
+            emailId = email.getPrimaryEmailId(userId, transDb);
         }
         email.setAddress(emailId, regInfo.getEmail(), transDb);
         email.setEmailTypeId(emailId, EMAIL_TYPE, transDb);
