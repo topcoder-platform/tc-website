@@ -61,13 +61,14 @@ public class MatchDetails extends Base {
 
             String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
-            String roundId = StringUtils.checkNull(getRequest().getParameter("RoundId"));
-            getRequest().setAttribute("round_id", roundId);
-            
+            String roundId = StringUtils.checkNull(getRequest().getParameter("rd"));
+
             //schedTag.addTag(new ValueTag("RoundId", roundId));
 
-            //String command = Conversion.checkNull(request.getParameter("c"));
-            //if (command.equals("srm") || command.equals("srm_rules")) {
+            String command = StringUtils.checkNull(getRequest().getParameter("c"));
+            if (!(command.equals("details") || command.equals("rules"))) {
+                throw new TCWebException("Invalid or missing command parameter: c=" + command);
+            }
             
             ctx = TCContext.getInitial();
             dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
@@ -84,17 +85,19 @@ public class MatchDetails extends Base {
             getRequest().setAttribute("link",  rsr.getStringItem("link"));
             getRequest().setAttribute("width", new Integer(rsr.getIntItem("width")));
             getRequest().setAttribute("height", new Integer(rsr.getIntItem("height")));
-            String date = "";
-            date += "&day=" + rsr.getStringItem("day");
-            date += "&month=" + rsr.getStringItem("month");
-            date += "&year=" + rsr.getStringItem("year");
-            date += "&hour=" + rsr.getStringItem("hour");
-            date += "&min=" + rsr.getStringItem("minute");
-            date += "&sec=0";
-            getRequest().setAttribute("date", date);
+            String time = "";
+            time += "&day=" + rsr.getStringItem("day");
+            time += "&month=" + rsr.getStringItem("month");
+            time += "&year=" + rsr.getStringItem("year");
+            time += "&hour=" + rsr.getStringItem("hour");
+            time += "&min=" + rsr.getStringItem("minute");
+            time += "&sec=0";
+            getRequest().setAttribute("time", time);
             getRequest().setAttribute("reg_begin", rsr.getStringItem("reg_begin"));
+            getRequest().setAttribute("date", rsr.getStringItem("date"));
             getRequest().setAttribute("coding_begin", rsr.getStringItem("coding_begin"));
             getRequest().setAttribute("forum_id", new Integer(rsr.getIntItem("forum_id")));
+            getRequest().setAttribute("reg_date", new Integer(rsr.getIntItem("reg_date")));
             
             /*ArrayList contests = dcHome.getAdContests();
             if (contests != null && contests.size() > 0) {
@@ -103,7 +106,9 @@ public class MatchDetails extends Base {
 
             //document.addTag(schedTag);
             //log.debug(document.getXML(2));
-            setNextPage("/calendar/srm.jsp");
+            
+            if (command.equals("details")) setNextPage("/calendar/srm.jsp");
+            if (command.equals("rules"))  setNextPage("/calendar/srmRules.jsp");
             setIsNextPageInContext(true);
         } catch (TCWebException we) {
             throw we;
