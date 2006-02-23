@@ -259,6 +259,7 @@ public abstract class FullLogin extends FullReg {
             info.setStateCode(address.getStateCode(addressId, db));
             info.setCity(address.getCity(addressId, db));
             info.setZip(address.getZip(addressId, db));
+            info.setProvince(address.getProvince(addressId, db));
         }
 
         info.setCompanyId(Long.parseLong(StringUtils.checkNull(getRequestParameter(Constants.COMPANY_ID))));
