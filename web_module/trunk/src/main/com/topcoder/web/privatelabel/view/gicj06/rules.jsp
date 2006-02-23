@@ -37,16 +37,16 @@
 
                 <br><br>
 
-                <span class="bigTitle">Official Rules and Regulations</span>
-                <span valign="top">
-         <jsp:include page="right.jsp"/>
-         </span>
+<span valign="top">
+<jsp:include page="right.jsp"/>
+</span>
+<span class="bigTitle">Official Rules and Regulations</span>
 
 <br><br>
 <span class="bigRed">No purchase necessary to enter or win.  The tournament is void where prohibited.</span>
 <br><br>
 <span class="greenSubtitle">Summary of the Tournament</span><br>
-The Google™ Code Jam India is being offered by Google, Inc. ("Google") and TopCoder, Inc. ("TopCoder"). Google always focuses on creating innovative technologies that could benefit ordinary people’s life. The goal of this contest is to encourage and reward the top talents in computer science in India. The Code Jam India will take place between February 27, 2006 and April 7, 2006. It begins with an online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament. The tournament consists of one (1) online qualification round, one (1) online elimination round and one (1) onsite final round. The top 250 scores from Round 1 will receive a Google Code Jam India t-shirt. In addition, Google will award Rs. 1,550,000 in cash and prizes to the 50 finalists in the tournament.
+The Google&#153; Code Jam India is being offered by Google, Inc. ("Google") and TopCoder, Inc. ("TopCoder"). Google always focuses on creating innovative technologies that could benefit ordinary people’s life. The goal of this contest is to encourage and reward the top talents in computer science in India. The Code Jam India will take place between February 27, 2006 and April 7, 2006. It begins with an online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament. The tournament consists of one (1) online qualification round, one (1) online elimination round and one (1) onsite final round. The top 250 scores from Round 1 will receive a Google Code Jam India t-shirt. In addition, Google will award Rs. 1,550,000 in cash and prizes to the 50 finalists in the tournament.
 <br><br>
 <b>Eligibility</b><br>
 All individuals who are residents of India, Bangladesh, Indonesia, Malaysia, Maldives, Myanmar, Nepal, Singapore and Thailand may register and compete in the Google India Code Jam 2006, provided they reside in that country during the dates of the competition, February 27 and April 7, 2006.

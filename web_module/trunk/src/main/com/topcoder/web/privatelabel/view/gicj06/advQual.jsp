@@ -36,11 +36,11 @@
             </div>
 
 
-            <br><br>
-            <span class="bigTitle">Advancers</span>
-            <span valign="top">
-         <jsp:include page="right.jsp"/>
-         </span>
+<br><br>
+<span valign="top">
+<jsp:include page="right.jsp"/>
+</span>
+<span class="bigTitle">Advancers</span>
 
 <br><br>
 <table class="tableFrame" cellpadding="5" cellspacing="2" border="0" width="400">
