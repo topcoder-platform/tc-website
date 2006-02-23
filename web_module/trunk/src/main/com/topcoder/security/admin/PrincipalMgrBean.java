@@ -86,7 +86,7 @@ public class PrincipalMgrBean extends BaseEJB {
         return getUser(username, DATA_SOURCE);
     }
 
-    public UserPrincipal getUser(long id, String dataSource)
+    public UserPrincipal getUser(long id)
             throws GeneralSecurityException, NoSuchUserException {
         return getUser(id, DATA_SOURCE);
     }
