@@ -12,21 +12,20 @@
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics</TITLE>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
    <jsp:include page="baseHRef.jsp" />
-   <jsp:include page="../script.jsp" />
  </HEAD>
  <BODY>
    <jsp:include page="../top.jsp" />
    <table WIDTH="100%" border="0" CELLPADDING="0" CELLSPACING="0">
      <tr>
        <td WIDTH="180" VALIGN="top">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="statistics"/>
-                <jsp:param name="level2" value="ratings_history"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="m_competitor_stats"/>
+         </jsp:include>
        </TD>
 <!-- Center Column Begins -->
 <td class="statTableSpacer" width="100%" valign="top">

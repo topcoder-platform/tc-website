@@ -11,7 +11,7 @@
       onBlur="javascript:
          if (document.simpleSearchForm.<%=WebConstants.HANDLE%>.value == '')
             document.simpleSearchForm.<%=WebConstants.HANDLE%>.value = 'Handle:';" />
-   <br><A href="javascript:void document.simpleSearchForm.submit();">Go</A>&#160;|&#160;
-   <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewAdvanced">Advanced Search</A>
+   <br><A class="gMetal" href="javascript:void document.simpleSearchForm.submit();">Go</A>&#160;|&#160;
+   <A class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewAdvanced">Advanced Search</A>
 </form>
 </div>
