@@ -22,7 +22,7 @@
 div.topBar, div.topBar div
 {
 color: #FFFFFF;
-font-size: 10px;
+font-size: 11px;
 }
 div.topBar
 {
@@ -59,23 +59,23 @@ left: 0px;
    <% if ( !sessionInfo.isAnonymous() ) { %>
        Hello,&#160;<tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' />
       <% if (level1.equals("long")) { %>
-               &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Logout">Logout</a>
+               &#160;&#160;|&#160;&#160;<a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Logout">Logout</a>
       <% } else { %>
-               &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout">Logout</a>
+               &#160;&#160;|&#160;&#160;<a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout">Logout</a>
       <% } %>           
-               &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/Registration">Update Profile</a>
+               &#160;&#160;|&#160;&#160;<a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/Registration">Update Profile</a>
    <% } else {
        if (level1.equals("long")) {%>
-               <a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Login">Login</a>
+               <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Login">Login</a>
       <% } else { %>
-               <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&module=Login">Login</a>
+               <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&module=Login">Login</a>
       <% } %>
-               &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/Registration">Register</a>
+               &#160;&#160;|&#160;&#160;<a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/Registration">Register</a>
    <%}%>
-               &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/">Home</a>
+               &#160;&#160;|&#160;&#160;<a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/">Home</a>
    </div>
 Member Count: <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%> - <jsp:include page="/date_time.jsp" />
-&#160;<a href="Javascript:tcTime()">[Get Time]</a>
+&#160;<a class="gMetal" href="Javascript:tcTime()">[Get Time]</a>
 </div>
 
 
