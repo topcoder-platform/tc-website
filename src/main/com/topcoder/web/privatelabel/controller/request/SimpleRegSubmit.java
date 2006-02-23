@@ -17,6 +17,7 @@ import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import javax.transaction.TransactionManager;
+import javax.transaction.Status;
 
 
 /**
@@ -80,11 +81,20 @@ public class SimpleRegSubmit extends SimpleRegBase {
                 store(regInfo);
                 tm.commit();
             } catch (Exception e) {
+                try {
+                    if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                        tm.rollback();
+                    }
+                } catch (Exception te) {
+                    te.printStackTrace();
+                }
                 if (newUser != null && newUser.getId() > 0 && regInfo.isNew()) {
                     PrincipalMgrRemote mgr = (PrincipalMgrRemote)
                             com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
                     mgr.removeUser(newUser, CREATE_USER);
                 }
+                throw new TCWebException(e);
+
             }
         } catch (TCWebException e) {
             throw e;
