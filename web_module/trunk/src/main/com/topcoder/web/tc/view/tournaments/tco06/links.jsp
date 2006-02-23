@@ -43,7 +43,7 @@
    <tr><td class="topNavBox" colspan="3"><img src="/i/tournament/tco06/tabs/L1_ccipOn.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
 <% } %>
 
-<!-- LEVEL 2 TABS -->
+<!-- LEVEL 2 TABS  -->
    <tr>
       <td colspan="3">
       <table border=0 cellspacing=0 cellpadding=0 width="100%">
