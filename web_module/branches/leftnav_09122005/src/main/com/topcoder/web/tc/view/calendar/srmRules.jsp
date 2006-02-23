@@ -7,7 +7,7 @@
 <%
 String contest_name = (String)request.getAttribute("contest_name");
 int round_id = ((Integer)request.getAttribute("round_id")).intValue();
-//String date = StringUtils.checkNull((String)request.getAttribute("date"));
+String date = StringUtils.checkNull((String)request.getAttribute("date"));
 String reg_begin = StringUtils.checkNull((String)request.getAttribute("reg_begin"));
 String reg_end = StringUtils.checkNull((String)request.getAttribute("reg_end"));
 String coding_begin = StringUtils.checkNull((String)request.getAttribute("coding_begin"));
@@ -58,7 +58,7 @@ String reg_date = StringUtils.checkNull((String)request.getAttribute("reg_date")
                             <td colspan="3" class="bodyText">
                                 <font color="#ff0000">
                                     <b>
-                                        <%=contestName%>
+                                        <%=contest_name%>
                                         <br/>
                                         Official Rules and Regulations
                                     </b>
@@ -222,7 +222,7 @@ String reg_date = StringUtils.checkNull((String)request.getAttribute("reg_date")
                             <td colspan="3" class="bodyText">
                                 <font color="#ff0000">
                                     <b>
-                                        <%=contestName%>
+                                        <%=contest_name%>
                                         <br/>
                                         Official Rules and Regulations
                                     </b>
