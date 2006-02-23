@@ -78,6 +78,13 @@ function submitEnter(e) {
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_INDIA_06_REG_DEMOG%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="companyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="eventId"/>"/>
+            <% if (regInfo.isNew()) { %>
+            <tr>
+                <td colspan="2" class="errorText" align="center">
+                    Please be aware that it is against the rules to create more than one account.
+                </td>
+            </tr>
+            <% } %>
             <tr>
                 <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br></tc-webtag:errorIterator>
