@@ -28,7 +28,7 @@ function submitEnter(e) {
          <table border=0 width=100% cellpadding=0 cellspacing=0>
             <tr>
                <td width="49%"></td>
-               <td valign=bottom align=center><img border=0 src="/i/events/google2005/codejamLogo.gif" alt="Google Code Jam logo"></td>
+                <td valign="bottom" align="center"><img border="0" src="/i/events/gicj06/logo_CodeJam.gif" alt="Google Code Jam India logo"></td>
                <td width="49%"></td>
             </tr>
          </table>
@@ -54,7 +54,7 @@ function submitEnter(e) {
       <span class="bigTitle">Activation Successful!</span>
       <br><br>
       </td>
-      <td valign="top" rowspan="2"><jsp:include page="right.jsp" /></td>
+      <td valign="top" rowspan="2"><jsp:include page="right_reg.jsp" /></td>
    </tr>
    <tr>
       <td valign="top">
@@ -70,9 +70,12 @@ function submitEnter(e) {
          <br><br>
          If you encounter any problems, please contact us at <A href="mailto:gcji@topcoder.com">gcji@topcoder.com</A>.
 
-         <br><br>
+         
+         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      </td>
+      </tr>
+      </table>
          To find out more detailed information about Google Code Jam India 2006, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj065&d2=rules">Terms and Conditions</a>.
-         <br><br><br><br><br>
       </td>
       </tr>
       </table>
