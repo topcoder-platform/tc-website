@@ -15,10 +15,10 @@
  <HEAD>
    <TITLE>TopCoder Statistics - Round Overview</TITLE>
    <jsp:include page="baseHRef.jsp" />
-   <jsp:include page="../script.jsp" />
-   <jsp:include page="/style.jsp">
-     <jsp:param name="key" value="tc_stats"/>
-   </jsp:include>
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
  </HEAD>
  <BODY>
    <jsp:include page="../top.jsp" />
