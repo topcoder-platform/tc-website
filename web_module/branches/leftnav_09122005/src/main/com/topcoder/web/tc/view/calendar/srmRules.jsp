@@ -20,6 +20,7 @@ String reg_date = StringUtils.checkNull((String)request.getAttribute("reg_date")
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+    <jsp:include page="../script.jsp" />
 
     <HEAD>
         <TITLE>TopCoder :: Schedule</TITLE>
