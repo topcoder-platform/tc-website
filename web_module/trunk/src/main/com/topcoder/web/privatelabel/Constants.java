@@ -69,6 +69,7 @@ public class Constants {
     public static final String GOOGLE_INDIA_06_REG_DEMOG_PAGE="/gicj06/demog.jsp";
     public static final String GOOGLE_INDIA_06_REG_CONFIRM_PAGE="/gicj06/confirm.jsp";
     public static final String GOOGLE_INDIA_06_REG_SUCCESS_PAGE="&d1=gicj06&d2=regsuccess";
+    public static final String GOOGLE_INDIA_06_UPDATE_SUCCESS_PAGE="&d1=gicj06&d2=updatesuccess";
     public static final String GOOGLE_INDIA_06_ACTIVATION_PAGE="/gicj06/activation.jsp";
     public static final String GOOGLE_INDIA_06_REG_CLOSED_PAGE="/gicj06/reg_closed.jsp";
     public static final String GOOGLE_INDIA_06_CREDENTIALS_PAGE="/gicj06/credentials.jsp";
