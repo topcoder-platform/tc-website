@@ -133,7 +133,7 @@ public class Submit extends ResumeRegSubmit {
         buf.append("?");
         buf.append(Constants.MODULE_KEY);
         buf.append("=");
-        buf.append(Constants.GOOGLE_CHINA_05_ACTIVATION);
+        buf.append(Constants.GOOGLE_INDIA_06_ACTIVATION);
         buf.append("&");
         buf.append(BaseActivate.ACTIVATION_CODE);
         buf.append("=");
@@ -142,10 +142,6 @@ public class Submit extends ResumeRegSubmit {
         buf.append(Constants.COMPANY_ID);
         buf.append("=");
         buf.append(regInfo.getCompanyId());
-        buf.append("&");
-        buf.append(Constants.LOCALE);
-        buf.append("=");
-        buf.append(getLocale().getLanguage());
         return buf.toString();
     }
 
