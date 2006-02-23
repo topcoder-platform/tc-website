@@ -1,5 +1,5 @@
 /*
- * MatchDetails.java
+ * MatchRules.java
  *
  * Created on February 23, 2006, 3:34 PM
  *
@@ -15,13 +15,13 @@ import com.topcoder.web.common.TCWebException;
  *
  * @author cstjohn
  */
-public class MatchDetails extends MatchInfo {
+public class MatchRules extends MatchInfo {
     
     protected void businessProcessing() throws TCWebException {
         super.businessProcessing();
     }
 
     protected void setForwardPage() {
-        setNextPage("/calendar/srm.jsp");
+        setNextPage("/calendar/srmRules.jsp");
     }
 }
