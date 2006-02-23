@@ -14,7 +14,10 @@
 <head>
 <title>TopCoder Placement Registration</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 <% CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);%>
 
@@ -53,10 +56,9 @@ return false;
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
-                <jsp:param name="level1" value="employment"/>
-                <jsp:param name="level2" value="registration"/>
-            </jsp:include>
+<jsp:include page="/includes/global_left.jsp">
+<jsp:param name="node" value="employment_opps"/>
+</jsp:include>
         </td>
 <!-- Left Column Ends -->
 
