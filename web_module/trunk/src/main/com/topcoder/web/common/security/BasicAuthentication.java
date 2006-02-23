@@ -36,6 +36,7 @@ public class BasicAuthentication implements WebAuthentication {
     private TCResponse response;
     private User guest = SimpleUser.createGuest();
     protected Resource defaultCookiePath;
+    protected String dataSource;
 
     public static final Resource CORP_SITE = new SimpleResource("corp");
     public static final Resource MAIN_SITE = new SimpleResource("main");
@@ -67,6 +68,32 @@ public class BasicAuthentication implements WebAuthentication {
         this.defaultCookiePath = r;
     }
 
+        /**
+     * Construct an authentication instance backed by the given persistor
+     * and HTTP request and response.
+     */
+    public BasicAuthentication(Persistor userPersistor, TCRequest request, TCResponse response, String dataSource) throws Exception {
+        this.defaultCookiePath = MAIN_SITE;
+        this.persistor = userPersistor;
+        this.request = request;
+        this.response = response;
+        this.dataSource = dataSource;
+        log.debug("cookie path: " + defaultCookiePath.getName());
+    }
+
+    /**
+     * Construct an authentication instance backed by the given persistor
+     * and HTTP request, response and cookie path resource.
+     */
+    public BasicAuthentication(Persistor userPersistor, TCRequest request, TCResponse response, Resource r, String dataSource) throws Exception {
+        this.persistor = userPersistor;
+        this.request = request;
+        this.response = response;
+        this.defaultCookiePath = r;
+        this.dataSource = dataSource;
+    }
+
+
 
     /**
      * Use the security component to log the supplied user in.
@@ -77,27 +104,6 @@ public class BasicAuthentication implements WebAuthentication {
      */
     public void login(User u) throws LoginException {
         login(u, true);
-    }
-
-    public void login(User u, boolean rememberUser, String dataSource) throws LoginException {
-        log.info("attempting login as " + u.getUserName() + " path: " + defaultCookiePath.getName() + " remember " + rememberUser);
-        try {
-            LoginRemote login = (LoginRemote) Constants.createEJB(LoginRemote.class);
-            TCSubject sub = login.login(u.getUserName(), u.getPassword(), dataSource);
-            long uid = sub.getUserId();
-            setCookie(uid, rememberUser);
-            setUserInPersistor(makeUser(uid));
-            log.info("login succeeded");
-
-        } catch (Exception e) {
-            log.info("login failed", e);
-            //not necessarily accurate, but gotta say something...
-            throw new LoginException("Handle or password incorrect.");
-        }
-    }
-
-    public void login(User u, String dataSource) throws LoginException {
-        login(u, true, dataSource);
     }
 
     /**
@@ -111,7 +117,12 @@ public class BasicAuthentication implements WebAuthentication {
         log.info("attempting login as " + u.getUserName() + " path: " + defaultCookiePath.getName() + " remember " + rememberUser);
         try {
             LoginRemote login = (LoginRemote) Constants.createEJB(LoginRemote.class);
-            TCSubject sub = login.login(u.getUserName(), u.getPassword());
+            TCSubject sub;
+            if (dataSource==null) {
+                sub = login.login(u.getUserName(), u.getPassword());
+            } else {
+                sub = login.login(u.getUserName(), u.getPassword(), dataSource);
+            }
             long uid = sub.getUserId();
             setCookie(uid, rememberUser);
             setUserInPersistor(makeUser(uid));
@@ -183,12 +194,16 @@ public class BasicAuthentication implements WebAuthentication {
         return u;
     }
 
-    /** Fill in the name field from the user id. */
     protected User makeUser(long id) {
         try {
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
-            UserPrincipal up = pmgr.getUser(id);
-            return new SimpleUser(id, up.getName(), "");
+            if (dataSource==null) {
+                UserPrincipal up = pmgr.getUser(id);
+                return new SimpleUser(id, up.getName(), "");
+            } else {
+                UserPrincipal up = pmgr.getUser(id, dataSource);
+                return new SimpleUser(id, up.getName(), "");
+            }
         } catch (Exception e) {
             log.warn("caught exception in makeUser with id = " + id, e);
             e.printStackTrace();
