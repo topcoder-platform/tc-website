@@ -16,10 +16,19 @@ public interface PrincipalMgrLocal extends javax.ejb.EJBLocalObject {
     public abstract UserPrincipal getUser(String s)
             throws GeneralSecurityException, NoSuchUserException;
 
+    public abstract UserPrincipal getUser(String s, String dataSource)
+            throws GeneralSecurityException, NoSuchUserException;
+
     public abstract UserPrincipal getUser(long l)
             throws GeneralSecurityException, NoSuchUserException;
 
+    public abstract UserPrincipal getUser(long l, String dataSource)
+            throws GeneralSecurityException, NoSuchUserException;
+
     public abstract TCSubject getUserSubject(long l)
+            throws GeneralSecurityException, NoSuchUserException;
+
+    public abstract TCSubject getUserSubject(long l, String dataSource)
             throws GeneralSecurityException, NoSuchUserException;
 
     public abstract String getPassword(long l)
