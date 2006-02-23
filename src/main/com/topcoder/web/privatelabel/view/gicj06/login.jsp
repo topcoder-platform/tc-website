@@ -64,7 +64,7 @@ function submitEnter(e) {
                         If you are <A href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_INDIA_06_REG_MAIN%>&<%=Constants.COMPANY_ID%>=8039&<%=Constants.EVENT_ID%>=5" class="bigRed">not currently a TopCoder member</A>
                         or do not want to use an existing account, please click <a href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_INDIA_06_REG_MAIN%>&<%=Constants.COMPANY_ID%>=8039&<%=Constants.EVENT_ID%>=5" class="bigRed">here</a>.
                         <br><br>
-                        If you are currently a TopCoder member and would like to convert your account for use in the Google Code Jam India 2006
+                        If you are currently a TopCoder member and would like to convert your account for use in Google Code Jam India 2006
                         or you have an existing Google Code Jame India 2006 account and need to change some of your registration information
                         you may login below.<br/><br/>
 
@@ -101,7 +101,7 @@ function submitEnter(e) {
                         </form>
 
          <br/><br/>
-         To find out more detailed information about the Google Code Jam India 2006, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj06&d2=rules">Terms and Conditions</a>.
+         To find out more detailed information about Google Code Jam India 2006, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj06&d2=rules">Terms and Conditions</a>.
          </div>
       </td>
       <td width="49%">&#160;</td>

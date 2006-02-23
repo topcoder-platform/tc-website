@@ -57,7 +57,7 @@ function submitEnter(e) {
          </div>
          <br><br>
 
-         <p><font size="-1"><br>Registration for the Google Code Jam India 2006 is officially closed. </font></p>
+         <p><font size="-1"><br>Registration for Google Code Jam India 2006 is officially closed. </font></p>
          <br><br><br><br><br>
          </div>
       </td>
