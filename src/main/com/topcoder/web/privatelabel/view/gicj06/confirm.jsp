@@ -73,7 +73,11 @@ function submitEnter(e) {
          <div class="regBreadOff">Success</div>
          <div class="regBreadOff">Activation</div>
          <br><br>
-         <span class="bigRed">NOTE: You are not registered yet. You MUST click SUBMIT at the bottom of this page to complete the registration.</span>
+          <% if (regInfo.isNew()) { %>
+          <span class="bigRed">NOTE: You are not registered yet. You MUST click SUBMIT at the bottom of this page to complete the registration.</span>
+          <% } else { %>
+          <span class="bigRed">NOTE: You have not updated your information yet. You MUST click SUBMIT at the bottom of this page to complete the update.</span>
+          <% } %>
       </td>
       <td valign="top" width="100%">
 
