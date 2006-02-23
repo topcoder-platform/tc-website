@@ -27,7 +27,7 @@
          nav.search("m_algo_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_algo_stats')", "Statistics", "m_algo_stats"));
             nav.search("m_algo_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=MatchList", "Match Archive", "algo_match_archive"));
             nav.search("m_algo_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/stat?&c=round_overview", "Match Overviews", "algo_match_overviews"));
-            nav.search("m_algo_stats").addChild(new NavNode("", "Match Results", "algo_match_results"));
+            nav.search("m_algo_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/stat?&c=last_match", "Match Results", "algo_match_results"));
             nav.search("m_algo_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=match_editorials&d2=archive", "Match Editorials", "algo_match_editorials"));
             nav.search("m_algo_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ProblemArchive", "Problem Archive", "algo_problem_archive"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_des_competitions')", "Component Design", "m_des_competitions"));
@@ -45,6 +45,10 @@
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_long_contests')", "Marathon Matches", "m_long_contests"));
          nav.search("m_long_contests").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/", "Compete", "long_compete"));
          nav.search("m_long_contests").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/", "Practice", "long_practice"));
+         nav.search("m_long_contests").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/", "Intel Multi-Threading Competition Series", "long_intelmtcs"));
+         nav.search("m_long_contests").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/", "Intel Active Contests", "long_intelmtcs_compete"));
+         nav.search("m_long_contests").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/", "Intel Practice", "long_intelmtcs_practice"));
+         nav.search("m_long_contests").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/", "Queue Status", "long_queue"));
          nav.search("m_long_contests").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/", "Match Editorials", "long_editorials"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)",  "Javascript:toggleMenu(this,'m_tournaments')", "Tournaments", "m_tournaments"));
          nav.search("m_tournaments").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=tournaments&d2=home", "TopCoder", "topcoder_tournaments"));
@@ -53,7 +57,7 @@
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_edu_content')", "Educational Content", "m_edu_content"));
          nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=tutorials&d2=alg_index", "Algorithm Tutorials", "algo_tutorials"));
          nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=tutorials&d2=comp_index", "Component Tutorials", "comp_tutorials"));
-         nav.search("m_edu_content").addChild(new NavNode("", "Features", "features"));
+         nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=features&d2=archive", "Features", "features"));
          nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=tutor_transcripts&d2=index", "Tutor Transcripts", "tutor_trans"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_my_tc')", "My TopCoder", "m_my_tc"));
          nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/Registration?update=true", "Update My Profile", "competitor_update_profile"));
@@ -64,11 +68,11 @@
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_support')", "Support / FAQs / Docs", "m_support"));
          nav.search("m_support").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_algo_support')", "Algorithm", "m_algo_support"));
             nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=help&d2=index", "How to Compete", "algo_how_to_compete"));
-            nav.search("m_algo_support").addChild(new NavNode("", "FAQs", "algo_faqs"));
-            nav.search("m_algo_support").addChild(new NavNode("", "Sample Problems", "algo_sample_problems"));
-            nav.search("m_algo_support").addChild(new NavNode("", "Rating System", "algo_rating_system"));
+            nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=help&d2=faqIndex", "FAQs", "algo_faqs"));
+            nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=help&d2=sampleProblems", "Sample Problems", "algo_sample_problems"));
+            nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=help&d2=ratings", "Rating System", "algo_rating_system"));
             nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=help&d2=algPayment", "How to Get Paid", "algo_get_paid"));
-            nav.search("m_algo_support").addChild(new NavNode("", "Charity Donations", "Charity Donations"));
+            nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=help&d2=charity", "Charity Donations", "algo_charity"));
          nav.search("m_support").addChild(new NavNode("javascript:void(0)",  "Javascript:toggleMenu(this,'m_des_support')", "Design", "m_des_support"));
             nav.search("m_des_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted", "How to Compete", "des_getting_started"));
             nav.search("m_des_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=support&d3=desGettingPaid", "How to Get Paid", "des_getting_paid"));
@@ -77,7 +81,7 @@
             nav.search("m_des_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=support&d3=desReliability", "Reliability Ratings", "des_reliability_ratings"));
          nav.search("m_support").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_dev_support')", "Development", "m_dev_support"));
             nav.search("m_dev_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted", "How to Compete", "dev_getting_started"));
-            nav.search("m_dev_support").addChild(new NavNode("", "How to Get Paid", "comp_how_to_get_paid"));
+            nav.search("m_dev_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=support&d3=desGettingPaid", "How to Get Paid", "dev_getting_paid"));
             nav.search("m_dev_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=support&d3=devDocumentation", "Documentation", "dev_documentation"));
             nav.search("m_dev_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=support&d3=devRatings", "Ratings", "dev_ratings"));
             nav.search("m_dev_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=support&d3=devReliability", "Reliability Ratings", "dev_reliability_ratings"));
@@ -87,8 +91,18 @@
 
    nav.addRoot(new NavNode("http://"+ApplicationServer.FORUMS_SERVER_NAME+"/", "Forums", "forums"));
 
+   nav.addRoot(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=contracting&d2=index", "Employment", "employment_opps"));
+
    nav.addRoot(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=pressroom&d2=index", "Press Room", "press_room"));
 
+   nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_about_tc')", "About TopCoder", "m_about_tc"));
+      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=about&d2=index", "Overview", "tc_overview"));
+      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=about&d2=contactus", "Contact Us", "contact_us"));
+      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=about&d2=whyjoin", "Why Join TopCoder?", "join_tc"));
+      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=about&d2=jobs", "Working at TopCoder?", "working_tc"));
+      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=about&d2=management", "Management Team", "management_team"));
+      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=about&d2=terms", "Terms, Revisions", "terms"));
+      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=about&d2=privacy", "Privacy Policy", "privacy"));
 
 
    request.setAttribute("tree", nav);
@@ -221,7 +235,7 @@ if ((navigator.userAgent.indexOf('MSIE') != -1) && (navigator.userAgent.indexOf(
 </script>
 
 <!--node is <%=request.getParameter("node")%> -->
-<div style="float: left; padding: 3px 0px 0px 0px;"><img src="/i/interface/leftnav_top.gif" alt="" /></div>
+<div style="float: left; padding: 0px 0px 0px 0px;"><img src="/i/interface/leftnav_top.gif" alt="" /></div>
 <div id="navbar">
 <nav:navBuilder navTree="tree" openClass="OPEN" selectedLeafClass="highlight" selectedParentClass="exp_ed" unSelectedParentClass="exp" selectedNode="<%=request.getParameter("node")%>"/>
 <jsp:include page="../includes/modules/leftNavSearch.jsp"/>

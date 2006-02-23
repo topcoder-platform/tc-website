@@ -21,7 +21,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="cards_badges"/>
             </jsp:include>
         </td>

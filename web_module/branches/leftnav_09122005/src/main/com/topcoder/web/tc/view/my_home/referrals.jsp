@@ -37,11 +37,11 @@
          <div class="myTCBody">
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="referrals"/>
-            <jsp:param name="title" value=""/>
+            <jsp:param name="title" value="&#160;"/>
         </jsp:include>
 
         <p>
-        The following is a list of members who have listed you as a reference when they registered to become a TopCoder member. Should they earn any money as a competitor, the referring member (you) will receive a referral commission equal to 10% of any amounts earned or won by the referred member during the 12 months following registration!  To find out more about the TopCoder Referral Program, click <A href="/?t=support&c=referral">here</a>.
+        The following is a list of members who have listed you as a reference when they registered to become a TopCoder member. Should they earn any money as a competitor, the referring member (you) will receive a referral commission equal to 10% of any amounts earned or won by the referred member during the 12 months following registration!  To find out more about the TopCoder Referral Program, click <A href="/tc?module=Static&d1=my_home&d2=referralsDescription">here</a>.
         </p>
 
         <br/>
