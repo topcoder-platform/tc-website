@@ -14,7 +14,7 @@
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <head>
 <title>Active Contests</title>
-<jsp:include page="../script.jsp"/>
+<jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
