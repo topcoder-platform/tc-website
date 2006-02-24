@@ -26,7 +26,7 @@ public class TermsOfUseBean extends BaseEJB {
 
         try {
 
-            terms_of_use_id = IdGeneratorClient.getSeqId("TERMS_OF_USE_SEQ", idDataSource);
+            terms_of_use_id = IdGeneratorClient.getSeqId("TERMS_OF_USE_SEQ");
 
             StringBuffer query = new StringBuffer(1024);
             query.append("INSERT ");
