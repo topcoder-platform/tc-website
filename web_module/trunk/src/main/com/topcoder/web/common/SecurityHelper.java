@@ -27,10 +27,15 @@ public class SecurityHelper {
 
     public static TCSubject getUserSubject(long l, boolean forceLoadFromDb)
             throws Exception, NoSuchUserException, NamingException {
+        return getUserSubject(l, forceLoadFromDb, null);
+    }
+
+    public static TCSubject getUserSubject(long l, boolean forceLoadFromDb, String dataSource)
+            throws Exception, NoSuchUserException, NamingException {
         //log.debug("get " + l + " from db " + forceLoadFromDb);
         TCSubject ret = null;
 
-        String key = KEY_PREFIX + String.valueOf(l);
+        String key = KEY_PREFIX + dataSource==null?"":dataSource + String.valueOf(l);
         Context ctx = null;
         try {
             boolean hasCacheConnection = true;
@@ -50,7 +55,11 @@ public class SecurityHelper {
                         PrincipalMgrRemoteHome.EJB_REF_NAME),
                         PrincipalMgrRemoteHome.class);
                 PrincipalMgrRemote pmgr = pmgrHome.create();
-                ret = pmgr.getUserSubject(l);
+                if (dataSource==null) {
+                    ret = pmgr.getUserSubject(l);
+                } else {
+                    ret = pmgr.getUserSubject(l, dataSource);
+                }
                 if (hasCacheConnection) {
                     try {
                         cc.set(key, ret, 1000 * 60 * 30);
