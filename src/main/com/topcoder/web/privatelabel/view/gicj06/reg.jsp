@@ -69,7 +69,7 @@ function submitEnter(e) {
          <div class="regBreadOff">Demographics</div>
          <div class="regBreadOff">Confirm</div>
          <div class="regBreadOff">Success</div>
-         <div class="regBreadOff">Activation</div>
+         <% if (regInfo.isNew()) { %><div class="regBreadOff">Activation</div><% } %>
       </td>
       <td valign="top" width="100%">
 

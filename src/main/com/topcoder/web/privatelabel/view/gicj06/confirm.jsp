@@ -71,7 +71,7 @@ function submitEnter(e) {
          <div class="regBreadOff">Demographics</div>
          <div class="regBreadOn">Confirm</div>
          <div class="regBreadOff">Success</div>
-         <div class="regBreadOff">Activation</div>
+         <% if (regInfo.isNew()) { %><div class="regBreadOff">Activation</div><% } %>
          <br><br>
           <% if (regInfo.isNew()) { %>
           <span class="bigRed">NOTE: You are not registered yet. You MUST click SUBMIT at the bottom of this page to complete the registration.</span>
