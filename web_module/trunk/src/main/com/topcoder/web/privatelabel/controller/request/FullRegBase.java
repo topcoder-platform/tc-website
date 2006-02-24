@@ -5,13 +5,12 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.DemographicAnswer;
 import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.common.model.DemographicResponse;
-import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.model.*;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import java.util.*;
 
@@ -29,7 +28,7 @@ public abstract class FullRegBase extends SimpleRegBase {
     public FullRegBase() {
     }
 
-    protected void businessProcessing() throws TCWebException {
+/*    protected void businessProcessing() throws TCWebException {
         try {
             p = new SessionPersistor(getRequest().getSession(true));
             //gotta do first just in case makeRegInfo() needs the database
@@ -51,7 +50,7 @@ public abstract class FullRegBase extends SimpleRegBase {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-    }
+    }*/
 
     protected void setDefaults(SimpleRegInfo info) {
         super.setDefaults(info);
