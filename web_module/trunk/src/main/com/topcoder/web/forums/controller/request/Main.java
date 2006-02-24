@@ -38,12 +38,10 @@ public class Main extends ForumsProcessor {
             }
         }
         
-        /* expensive
         String markRead = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MARK_READ));
         if (markRead.equals("t")) {
             forumFactory.getReadTracker().markRead(user, forumFactory.getRootForumCategory());
         }
-        */
         
         Iterator itForums = forumFactory.getRootForumCategory().getForums(resultFilter);
 
