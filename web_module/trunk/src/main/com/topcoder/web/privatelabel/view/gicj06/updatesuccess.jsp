@@ -49,14 +49,13 @@
          <div class="regBreadOff">Demographics</div>
          <div class="regBreadOff">Confirm</div>
          <div class="regBreadOn">Success</div>
-         <div class="regBreadOff">Activation</div>
       </td>
       <td valign="top" width="100%">
 
           You have successfully updated your account.
 
-         <br><br>
-         <br><br><br><br><br>
+         
+         <br><br><br><br><br><br><br><br><br><br><br><br><br>
          </td>
          </tr>
          </table>

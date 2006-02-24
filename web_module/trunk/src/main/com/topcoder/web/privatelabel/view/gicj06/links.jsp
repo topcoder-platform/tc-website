@@ -31,7 +31,6 @@
 <font color="006633">Registration</font>&#160;|&#160;
 <% } else { %>
 <a href="/pl/?module=Static&d1=gicj06&d2=login">Registration</a>&#160;|&#160;
-<a href="/pl/?module=Static&d1=gicj06&d2=reg_closed">Registration</a>&#160;|&#160;
 <% } %>
 --%>
 
