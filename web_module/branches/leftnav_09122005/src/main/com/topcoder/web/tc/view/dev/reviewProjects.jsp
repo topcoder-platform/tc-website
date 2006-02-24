@@ -13,8 +13,9 @@
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% boolean isWaiting = ((Boolean) request.getAttribute("waitingToReview")).booleanValue(); %>
 <% String waitingUntil = (String) request.getAttribute("waitingUntil"); %>
-<%List prices = (List)request.getAttribute("prices");%>
-<%ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>
+<% List prices = (List)request.getAttribute("prices");%>
+<% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>
+<% boolean design = ((Boolean)request.getAttribute("phase_id_is_design")).booleanValue(); %>
 <%--<% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>--%>
 
 <%--<% ResultSetContainer tournamentProjectList = (ResultSetContainer)request.getAttribute("tournamentProjectList");%>--%>
@@ -40,7 +41,7 @@
         <td width="180">
          <%-- value is either des_review or dev_review --%>
          <jsp:include page="/includes/global_left.jsp">
-               <jsp:param name="node" value='<%="112".equals(projectInfo.getStringItem(0, "phase_id"))?"des_review":"dev_review"%>'/>
+               <jsp:param name="node" value='<%=design?"des_review":"dev_review"%>'/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -81,7 +82,10 @@
         <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DEV_PHASE) devProjectCount++;%>
     </rsc:iterator>
 
+    
+<% if (design) { %>
 <% if (desProjectCount>0) { %>
+
 
             <table border="0" cellspacing="0" width="100%" class="formFrame">
                 <tr>
@@ -151,7 +155,9 @@
 
            <br/><br/>
 <% } %>
+<% } // if (design)  %>
 
+<% if (!design) { %>
 <% if (devProjectCount>0) { %>
 
             <table border="0" cellspacing="0" width="100%" class="formFrame">
@@ -221,7 +227,9 @@
            </table>
 
 <% } %>
-<% if (desProjectCount+devProjectCount==0) { %>
+<% }  // if (!design) %>
+
+<% if ((design && desProjectCount == 0) || (!design && devProjectCount == 0)) { %>
             <br />
             <p>Sorry, there are currently no review positions available.</p>
             <br />
