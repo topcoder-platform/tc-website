@@ -55,11 +55,6 @@ public class Category extends ForumsProcessor {
         String markRead = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MARK_READ));
         if (markRead.equals("t")) {
             forumFactory.getReadTracker().markRead(user, forumCategory);
-            Iterator itCategories = forumCategory.getCategories();
-            while (itCategories.hasNext()) {
-                ForumCategory childCategory = (ForumCategory)itCategories.next();
-                forumFactory.getReadTracker().markRead(user, childCategory);
-            }
         }
         
         ResultFilter resultFilter = new ResultFilter();
