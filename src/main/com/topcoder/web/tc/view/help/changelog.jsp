@@ -41,7 +41,7 @@
             <li>put logic behind the contest details links on the component page in the catalog</li>
 --%>
     <p>
-        4.1.12 - 2006.02.xx
+        4.1.12 - 2006.02.24
         <ul>
             <li>Add google coder jam india 2006 registration</li>
             <li>Fix bug in TCO 06 component site where all position points include instead of top 4</li>
