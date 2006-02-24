@@ -115,7 +115,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
             if (userId>0) {
                 user.createUser(regInfo.getUserId(), regInfo.getHandle(), getNewUserStatus(), transDb);
             } else {
-                userId = user.createNewUser(regInfo.getHandle(), getNewUserStatus(), transDb);
+                userId = user.createNewUser(regInfo.getHandle(), getNewUserStatus(), transDb, db);
             }
         }
         user.setFirstName(userId, regInfo.getFirstName(), transDb);

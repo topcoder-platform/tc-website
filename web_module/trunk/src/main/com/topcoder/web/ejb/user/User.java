@@ -6,7 +6,7 @@ import java.rmi.RemoteException;
 
 public interface User extends EJBObject {
 
-    long createNewUser(String handle, char status, String dataSource)
+    long createNewUser(String handle, char status, String dataSource, String idDataSource)
             throws EJBException, RemoteException;
 
     void createUser(long userId, String _handle, char status, String dataSource)

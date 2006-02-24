@@ -25,7 +25,7 @@ public class SchoolBean extends BaseEJB {
         PreparedStatement ps = null;
         try {
 
-            school_id = IdGeneratorClient.getSeqId("SCHOOL_SEQ");
+            school_id = IdGeneratorClient.getSeqId("SCHOOL_SEQ", idDataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("INSERT ");
@@ -67,7 +67,7 @@ public class SchoolBean extends BaseEJB {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
-            school_id = IdGeneratorClient.getSeqId("SCHOOL_SEQ");
+            school_id = IdGeneratorClient.getSeqId("SCHOOL_SEQ", idDataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("INSERT ");
