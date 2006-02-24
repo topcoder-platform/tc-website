@@ -140,7 +140,7 @@ public class PrincipalMgrBean extends BaseEJB {
         try {
             ctx = new InitialContext();
             conn = Util.getConnection(ctx, dataSource);
-            getUser(userId);
+            getUser(userId, dataSource);
             StringBuffer query = new StringBuffer(200);
             query.append("SELECT security_roles.role_id, description ");
             query.append(" FROM user_role_xref, security_roles ");
