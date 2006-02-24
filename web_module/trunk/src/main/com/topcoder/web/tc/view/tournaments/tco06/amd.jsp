@@ -35,7 +35,6 @@ Become part of our exciting future at AMD. There are positions for extraordinary
 <br><br>
 <a href="/?t=sponsor&c=link&link=http://www.amd.com/us-en/">www.amd.com</a>
 <br><br>
-<span class="smallText">* source: AutEx and a leading private industry survey 2005</span>
         </div>
       </td>
         
@@ -43,7 +42,7 @@ Become part of our exciting future at AMD. There are positions for extraordinary
 <!-- Right Column-->
         <td width=170 align=right>
             <jsp:include page="right.jsp">
-            <jsp:param name="level1" value="AMD"/>
+            <jsp:param name="level1" value="amd"/>
             </jsp:include>
          </td>
       
