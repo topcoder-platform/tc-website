@@ -50,7 +50,7 @@ public abstract class FullLogin extends FullReg {
         boolean hasTCAccount = false;
         boolean hasEventAccount = false;
         try {
-            getAuthentication().login(new SimpleUser(0, handle, password), false, db);
+            getAuthentication().login(new SimpleUser(0, handle, password), false);
             char status = user.getStatus(getUser().getId(), db);
             if (Arrays.binarySearch(ACTIVE_STATI, status) >= 0) {
                 log.debug("yep, they have an event account");
