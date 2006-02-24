@@ -89,7 +89,11 @@ public abstract class RegistrationBase extends BaseProcessor {
         //we'll let this object live for the life of the request at least.
         //perhaps it is still necessary.  it'll die when the request processor dies
 //        regInfo = null;
-        p.removeObject(Constants.REGISTRATION_INFO);
+        //p.removeObject(Constants.REGISTRATION_INFO);
+
+
+        //we'll jus wipe the whole session out.
+        getRequest().getSession().invalidate();
     }
 
     /**
