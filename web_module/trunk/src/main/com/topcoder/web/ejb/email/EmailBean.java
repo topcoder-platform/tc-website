@@ -23,7 +23,7 @@ public class EmailBean extends BaseEJB {
 
         try {
             //log.debug("into try block");
-            email_id = IdGeneratorClient.getSeqId("EMAIL_SEQ", idDataSource);
+            email_id = IdGeneratorClient.getSeqId("EMAIL_SEQ");
             //log.debug("got sequence " + email_id);
             int rc = insert("email",
                     new String[]{"email_id", "user_id"},

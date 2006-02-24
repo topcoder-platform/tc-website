@@ -41,7 +41,7 @@ public class AddressBean extends BaseEJB {
         try {
             ctx = new InitialContext();
 
-            ret = IdGeneratorClient.getSeqId("ADDRESS_SEQ", idDataSource);
+            ret = IdGeneratorClient.getSeqId("ADDRESS_SEQ");
 
             conn = DBMS.getConnection(dataSource);
 

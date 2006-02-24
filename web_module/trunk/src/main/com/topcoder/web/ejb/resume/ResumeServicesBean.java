@@ -107,7 +107,7 @@ public class ResumeServicesBean extends BaseEJB {
             numUpdated = psUpd.executeUpdate();
         } else {
             psIns = conn.prepareStatement(INSERT_RESUME_QUERY);
-            psIns.setLong(1, IdGeneratorClient.getSeqId("RESUME_SEQ", iDataSource));
+            psIns.setLong(1, IdGeneratorClient.getSeqId("RESUME_SEQ"));
             psIns.setLong(2, userId);
             psIns.setString(3, fileName);
             psIns.setInt(4, fileType);
