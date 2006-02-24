@@ -23,7 +23,7 @@ public class UserBean extends BaseEJB {
     public long createNewUser(String handle, char status, String dataSource, String idDataSource) throws EJBException {
         long ret = 0;
         try {
-            ret = IdGeneratorClient.getSeqId("main_sequence", idDataSource);
+            ret = IdGeneratorClient.getSeqId("main_sequence");
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
             throw new EJBException(e);
