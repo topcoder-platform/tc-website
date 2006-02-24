@@ -1,8 +1,10 @@
 package com.topcoder.web.privatelabel.controller;
 
+import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.SimpleResource;
+import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
@@ -33,10 +35,19 @@ public class MainServlet extends BaseServlet {
 
     protected TCSubject getUser(long id, TCRequest request) throws Exception {
         String db = getDB(request);
-        if (db==null) {
-            return SecurityHelper.getUserSubject(id);
-        } else {
-            return SecurityHelper.getUserSubject(id, db);
+        try {
+            if (db==null) {
+                return SecurityHelper.getUserSubject(id);
+            } else {
+                return SecurityHelper.getUserSubject(id, db);
+            }
+        } catch (NoSuchUserException e) {
+            log.warn("couldn't find user " + id + " gonna get a guest instead");
+            if (db==null) {
+                return SecurityHelper.getUserSubject(SimpleUser.createGuest().getId());
+            } else {
+                return SecurityHelper.getUserSubject(SimpleUser.createGuest().getId(), db);
+            }
         }
     }
 
