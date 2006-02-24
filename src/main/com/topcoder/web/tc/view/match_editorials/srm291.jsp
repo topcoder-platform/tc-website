@@ -226,95 +226,94 @@ and <b>Petr</b>'s solution for the second.
 </p>
 
 <font size="+2"> 
-<b><a href="/stat?c=problem_statement pm=6071 rd=9812" name="6071">CrazySwitches</a></b> 
+<b><a href="/stat?c=problem_statement&amp;pm=6071&amp;rd=9812" name="6071">CrazySwitches</a></b> 
 </font> 
 <A href="Javascript:openProblemRating(6071)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
-<A HREF="http://forums.topcoder.com/?module=ThreadList forumID=505857" CLASS="statText"><img
-src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505857" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 <br> 
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
-  <td class="bodyText" style="background: #eee;"> 
-    <b>Value</b> 
-  </td> 
-  <td class="bodyText" style="background: #eee;"> 
-    1000 
-  </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Value</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      1000 
+    </td> 
   </tr> 
   <tr> 
-  <td class="bodyText" style="background: #eee;"> 
-    <b>Submission Rate</b> 
-  </td> 
-  <td class="bodyText" style="background: #eee;"> 
-    33 / 493 (6.69%) 
-  </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Submission Rate</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      33 / 488 (6.76%) 
+    </td> 
   </tr> 
   <tr> 
-  <td class="bodyText" style="background: #eee;"> 
-    <b>Success Rate</b> 
-  </td> 
-  <td class="bodyText" style="background: #eee;"> 
-    9 / 33 (27.27%) 
-  </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Success Rate</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      9 / 33 (27.27%) 
+    </td> 
   </tr> 
   <tr> 
-  <td class="bodyText" style="background: #eee;"> 
-    <b>High Score</b> 
-  </td> 
-  <td class="bodyText" style="background: #eee;"> 
-    <b>mastodonth</b> for 821.93 points (13 mins 51 secs) 
-  </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>High Score</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>mastodonth</b> for 821.93 points (13 mins 51 secs) 
+    </td> 
   </tr> 
   <tr> 
-  <td class="bodyText" style="background: #eee;"> 
-    <b>Average Score</b> 
-  </td> 
-  <td class="bodyText" style="background: #eee;"> 
-    567.83 (for 9 correct submissions) 
-  </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Average Score</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      567.83 (for 9 correct submissions) 
+    </td> 
   </tr> 
 </table></blockquote> 
 
 Used as: Division One - Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
-  <td class="bodyText" style="background: #eee;"> 
-    <b>Value</b> 
-  </td> 
-  <td class="bodyText" style="background: #eee;"> 
-    500 
-  </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Value</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      500 
+    </td> 
   </tr> 
   <tr> 
-  <td class="bodyText" style="background: #eee;"> 
-    <b>Submission Rate</b> 
-  </td> 
-  <td class="bodyText" style="background: #eee;"> 
-    231 / 392 (58.93%) 
-  </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Submission Rate</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      229 / 390 (58.72%) 
+    </td> 
   </tr> 
   <tr> 
-  <td class="bodyText" style="background: #eee;"> 
-    <b>Success Rate</b> 
-  </td> 
-  <td class="bodyText" style="background: #eee;"> 
-    124 / 231 (53.68%) 
-  </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Success Rate</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      123 / 229 (53.71%) 
+    </td> 
   </tr> 
   <tr> 
-  <td class="bodyText" style="background: #eee;"> 
-    <b>High Score</b> 
-  </td> 
-  <td class="bodyText" style="background: #eee;"> 
-    <b>X_X</b> for 479.15 points (5 mins 58 secs) 
-  </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>High Score</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Ulan</b> for 461.49 points (8 mins 20 secs) 
+    </td> 
   </tr> 
   <tr> 
-  <td class="bodyText" style="background: #eee;"> 
-    <b>Average Score</b> 
-  </td> 
-  <td class="bodyText" style="background: #eee;"> 
-    313.79 (for 124 correct submissions) 
-  </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Average Score</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      312.44 (for 123 correct submissions) 
+    </td> 
   </tr> 
 </table></blockquote> 
 <p>
