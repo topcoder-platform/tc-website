@@ -39,6 +39,9 @@ public abstract class RegistrationBase extends BaseProcessor {
     protected void businessProcessing() throws TCWebException {
         try {
             p = new SessionPersistor(getRequest().getSession(true));
+            if (getRequestParameter(Constants.COMPANY_ID)==null) {
+                throw new TCWebException("company id missing");
+            }
             //gotta do first just in case makeRegInfo() needs the database
             long companyId = Long.parseLong(getRequestParameter(Constants.COMPANY_ID));
             transDb = getCompanyDb(companyId, Constants.JTS_TRANSACTIONAL);
@@ -55,7 +58,6 @@ public abstract class RegistrationBase extends BaseProcessor {
             throw new TCWebException(e);
         }
     }
-
     protected TCResourceBundle getBundle() {
         if (bundle==null) {
             bundle = new TCResourceBundle("PrivateLabel", getLocale());
