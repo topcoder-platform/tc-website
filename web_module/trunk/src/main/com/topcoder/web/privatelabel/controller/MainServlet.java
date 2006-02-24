@@ -1,12 +1,11 @@
 package com.topcoder.web.privatelabel.controller;
 
+import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
@@ -14,6 +13,10 @@ import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.controller.request.RegistrationBase;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.MissingResourceException;
 import java.util.Set;
 
@@ -28,16 +31,114 @@ public class MainServlet extends BaseServlet {
         return true;
     }
 
+    protected TCSubject getUser(long id, TCRequest request) throws Exception {
+        String db = getDB(request);
+        if (db==null) {
+            return SecurityHelper.getUserSubject(id);
+        } else {
+            return SecurityHelper.getUserSubject(id, db);
+        }
+    }
+
+    protected void process(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+        RequestProcessor rp;
+        WebAuthentication authentication;
+        SessionInfo info;
+
+        try {
+            try {
+
+            request.setCharacterEncoding("utf-8");
+            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
+            //set up security objects and session info
+            authentication = createAuthentication(tcRequest, tcResponse);
+            TCSubject user = getUser(authentication.getActiveUser().getId(), tcRequest);
+            info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
+            tcRequest.setAttribute(SESSION_INFO_KEY, info);
+            //todo perhaps this should be configurable...so implementing classes
+            //todo don't have to do it if they don't want to
+            RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
+
+            StringBuffer loginfo = new StringBuffer(100);
+            loginfo.append("[* ");
+            loginfo.append(info.getHandle());
+            loginfo.append(" * ");
+            loginfo.append(request.getRemoteAddr());
+            loginfo.append(" * ");
+            loginfo.append(request.getMethod());
+            loginfo.append(" ");
+            loginfo.append(info.getRequestString());
+            loginfo.append(" *]");
+            log.info(loginfo);
+
+                try {
+                    String cmd = StringUtils.checkNull((String) tcRequest.getAttribute(MODULE));
+                    log.debug("got module attribute " + cmd);
+                    if (cmd.equals("")) {
+                        cmd = StringUtils.checkNull(tcRequest.getParameter(MODULE));
+                    }
+
+                    if (cmd.equals("")) {
+                        cmd = DEFAULT_PROCESSOR;
+                    }
+                    if (!isLegalCommand(cmd)) {
+                        throw new NavigationException();
+                    }
+
+                    String processorName = PATH + (PATH.endsWith(".") ? "" : ".") + getProcessor(cmd);
+
+                    log.debug("creating request processor for " + processorName);
+                    try {
+                        SimpleResource resource = new SimpleResource(processorName);
+                        if (hasPermission(authentication, resource)) {
+                            rp = callProcess(processorName, tcRequest, tcResponse, authentication);
+                        } else {
+                            throw new PermissionException(authentication.getActiveUser(), resource);
+                        }
+                    } catch (ClassNotFoundException e) {
+                        throw new NavigationException("Invalid request", e);
+                    }
+                } catch (PermissionException pe) {
+                    log.debug("caught PermissionException");
+                    if (authentication.getUser().isAnonymous()) {
+                        handleLogin(request, response, info);
+                        return;
+                    } else {
+                        log.debug("already logged in, rethrowing");
+                        throw pe;
+                    }
+                }
+                if (!response.isCommitted()) {
+                    fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
+                }
+                //todo perhaps catch Throwable here instead
+            } catch (Exception e) {
+                handleException(request, response, e);
+            }
+
+            /* things are extremely broken, or perhaps some of the response
+             * buffer had already been flushed when an error was thrown,
+             * and the forward to error page failed.  in any event, make
+             * one last attempt to get an error message to the browser
+             */
+        } catch (Exception e) {
+            log.fatal("forwarding to error page failed", e);
+            e.printStackTrace();
+            response.setContentType("text/html");
+            response.setStatus(500);
+            PrintWriter out = response.getWriter();
+            out.println("<html><head><title>Internal Error</title></head>");
+            out.println("<body><h4>Your request could not be processed.  Please inform TopCoder.</h4>");
+            out.println("</body></html>");
+            out.flush();
+        }
+    }
+
     protected WebAuthentication createAuthentication(TCRequest request,
                                                      TCResponse response) throws Exception {
-        String db=null;
-        long companyId=-1;
-        try {
-             companyId= Long.parseLong(request.getParameter(Constants.COMPANY_ID));
-            db = RegistrationBase.getCompanyDb(companyId, Constants.TRANSACTIONAL);
-        } catch (Exception e) {
-            log.warn("no db found for company " + companyId);
-        }
+        String db=getDB(request);
         if (db==null) {
             return new BasicAuthentication(new SessionPersistor(request.getSession()),
                     request, response, BasicAuthentication.PRIVATE_LABEL_SITE);
@@ -45,6 +146,18 @@ public class MainServlet extends BaseServlet {
             return new BasicAuthentication(new SessionPersistor(request.getSession()),
                     request, response, BasicAuthentication.PRIVATE_LABEL_SITE, db);
         }
+    }
+
+    private String  getDB(TCRequest request) {
+        String db=null;
+        long companyId=-1;
+        try {
+             companyId= Long.parseLong(request.getParameter(Constants.COMPANY_ID));
+             db = RegistrationBase.getCompanyDb(companyId, Constants.TRANSACTIONAL);
+        } catch (Exception e) {
+            log.warn("no db found for company " + companyId);
+        }
+        return db;
     }
 
     protected SessionInfo createSessionInfo(TCRequest request,
