@@ -55,7 +55,7 @@ public class NoteBean extends BaseEJB {
             conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
 
-            noteId = IdGeneratorClient.getSeqId("NOTE_SEQ");
+            noteId = IdGeneratorClient.getSeqId("NOTE_SEQ", idDataSource);
 
             ps.setLong(1, noteId);
             ps.setBytes(2, text.getBytes());

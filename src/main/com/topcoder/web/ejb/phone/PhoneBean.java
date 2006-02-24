@@ -42,7 +42,7 @@ public class PhoneBean extends BaseEJB {
         try {
             ctx = new InitialContext();
 
-            ret = IdGeneratorClient.getSeqId("PHONE_SEQ");
+            ret = IdGeneratorClient.getSeqId("PHONE_SEQ", idDataSource);
 
             conn = DBMS.getConnection(dataSource);
 
