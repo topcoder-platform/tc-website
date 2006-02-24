@@ -84,5 +84,9 @@ public class SecurityHelper {
         return getUserSubject(l, false);
     }
 
+    public static  TCSubject getUserSubject(long l, String dataSource)
+            throws Exception, NoSuchUserException, NamingException {
+        return getUserSubject(l, false, dataSource);
+    }
 
 }
