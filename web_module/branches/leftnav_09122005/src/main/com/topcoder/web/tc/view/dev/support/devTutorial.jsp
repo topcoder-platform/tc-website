@@ -60,7 +60,7 @@ changes required and recommended by the Review Board.  Once complete, your
 component undergoes a Final Review, and you're done!</p>
 <p>TopCoder provides considerable documentation about its design and development
 processes; if you have not already done so, you should peruse the TopCoder
-Software development document archive (available <a href="/tc?module=Static&d1=dev&d2=support&d3=compDocumentation">here</a>).
+Software development document archive (available <a href="/tc?module=Static&d1=dev&d2=support&d3=devDocumentation">here</a>).
 The TopCoder Member Guide, Development Design and Review Scorecard, and Jalopy
 Configuration File documents should all be of interest to you. The documents
 will show you what is expected of your submissions, and the Jalopy

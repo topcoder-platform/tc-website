@@ -137,7 +137,7 @@ Take a look at <A href="/tc?module=Static&d1=about&d2=jobs">job openings</A> at 
 <tr><td class="dark"><span class="bigRed">mess</span></td><td class="dark"><span class="bigRed">sql_lall: some like to remain anonymous</span></td></tr>
 <tr><td class="light"><b>dmks</b></td><td class="light">mmorris: Yes, I am one finalist of TCO design competion</td></tr>
 <tr><td class="dark"><b>itsp</b></td><td class="dark">AdamSelene: Yes</td></tr>
-<tr><td class="light"><b>sql_lall</b></td><td class="light">norton_gates: http://www.topcoder.com/?t=development&c=comp_meth</td></tr>
+<tr><td class="light"><b>sql_lall</b></td><td class="light">norton_gates: http://software.topcoder.com/components/methodology.jsp</td></tr>
 <tr><td class="dark"><span class="bigRed">mmorris</span></td><td class="dark"><span class="bigRed">felix_halim: an example of the systems include anything from building handheld phone software to Security Applications, to eCommerce websites, to financial trading and banking systems</span></td></tr>
 <tr><td class="light"><b>itsp</b></td><td class="light">AdamSelene: I'm from Vietnam</td></tr>
 <tr><td class="dark"><span class="bigRed">mmorris</span></td><td class="dark"><span class="bigRed">dmks: are you coming onsite?</span></td></tr>
@@ -168,7 +168,7 @@ Take a look at <A href="/tc?module=Static&d1=about&d2=jobs">job openings</A> at 
 <tr><td class="light"><b>sql_lall</b></td><td class="light">mmorris: ok..doesn't matter too much, just thought it'd be cool to say: "hey, ESPN uses code i designed"</td></tr>
 <tr><td class="dark"><span class="bigRed">bwright</span></td><td class="dark"><span class="bigRed">shoaib.soomro: tech mgrs & archs dont get to code much, it at all, at most messing around with SQL or front end code</span></td></tr>
 <tr><td class="light"><b>itsp</b></td><td class="light">AdamSelene: They will participated in your area</td></tr>
-<tr><td class="dark"><span class="bigRed">AdamSelene</span></td><td class="dark"><span class="bigRed">itsp: great!  once registered with TopCoder, you and they can register for component projects at this URL: http://www.topcoder.com/?t=development&c=comp_projects</span></td></tr>
+<tr><td class="dark"><span class="bigRed">AdamSelene</span></td><td class="dark"><span class="bigRed">itsp: great!  once registered with TopCoder, you and they can register for component design projects <A href="/tc?module=ViewActiveContests&pi=112">here</A> and component development projects <A href="/tc?module=ViewActiveContests&pi=113">here</A>.</span></td></tr>
 <tr><td class="light"><b>itsp</b></td><td class="light">AdamSelene: Yes</td></tr>
 <tr><td class="dark"><b>shoaib.soomro</b></td><td class="dark">AdamSelene: i heard one arch said; the less u code the more its good for u</td></tr>
 <tr><td class="light"><span class="bigRed">AdamSelene</span></td><td class="light"><span class="bigRed">shoaib.soomro: Depends on your outlook, I suppose =)</span></td></tr>
@@ -246,8 +246,8 @@ Take a look at <A href="/tc?module=Static&d1=about&d2=jobs">job openings</A> at 
 <tr><td class="light"><b>Lefty</b></td><td class="light">pretty weird</td></tr>
 <tr><td class="dark"><b>saringopalan</b></td><td class="dark">mmorris: Where do I get to see the stuff to be made in dot net? Plz gimme the link</td></tr>
 <tr><td class="light"><span class="bigRed">mmorris</span></td><td class="light"><span class="bigRed">TopCoder Software puts the power of the member base to use through the Component Competitions and building large scale enterprise applications with those components.</span></td></tr>
-<tr><td class="dark"><span class="bigRed">AdamSelene</span></td><td class="dark"><span class="bigRed">saringopalan: All available projects (including .NET) are at this link: http://www.topcoder.com/?t=development&c=comp_projects</span></td></tr>
-<tr><td class="light"><span class="bigRed">mmorris</span></td><td class="light"><span class="bigRed">saringopalan: http://www.topcoder.com/?t=development&c=comp_projects has current projects available</span></td></tr>
+<tr><td class="dark"><span class="bigRed">AdamSelene</span></td><td class="dark"><span class="bigRed">saringopalan: All available projects (including .NET) are <A href="/tc?module=ViewActiveContests&pi=112">here</A> and <A href="/tc?module=ViewActiveContests&pi=113">here</A></span></td></tr>
+<tr><td class="light"><span class="bigRed">mmorris</span></td><td class="light"><span class="bigRed">saringopalan: current available projects are <A href="/tc?module=ViewActiveContests&pi=112">here</A> and <A href="/tc?module=ViewActiveContests&pi=113">here</A></span></td></tr>
 <tr><td class="dark"><b>cptnInsaneno</b></td><td class="dark">AdamSelene: whichever it is, as long as it's professional project development i'm all for it</td></tr>
 <tr><td class="light"><b>wilq</b></td><td class="light">bwright:  there isnt any problem? do i have to make account in U.S. or something ? i heard that is a problem when u are out of U.S. (mabe it was a lie)</td></tr>
 <tr><td class="dark"><b>gt494</b></td><td class="dark">bwright: do you have any stats on the reuse metrics?</td></tr>
@@ -305,7 +305,7 @@ Take a look at <A href="/tc?module=Static&d1=about&d2=jobs">job openings</A> at 
 <tr><td class="dark"><span class="bigRed">AdamSelene</span></td><td class="dark"><span class="bigRed">hubPL: Ant scripts are typically included and require minor alterations</span></td></tr>
 <tr><td class="light"><span class="bigRed">mess</span></td><td class="light"><span class="bigRed">hubPL: the ant scripts are provided to you</span></td></tr>
 <tr><td class="dark"><span class="bigRed">AdamSelene</span></td><td class="dark"><span class="bigRed">hubPL: there are tutorials to help with that</span></td></tr>
-<tr><td class="light"><span class="bigRed">AdamSelene</span></td><td class="light"><span class="bigRed">hubPL: see this page: http://www.topcoder.com/?&t=development&c=getting_started</span></td></tr>
+<tr><td class="light"><span class="bigRed">AdamSelene</span></td><td class="light"><span class="bigRed">hubPL: see this page: http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted</span></td></tr>
 <tr><td class="dark"><b>hubPL</b></td><td class="dark">thanks:)</td></tr>
 <tr><td class="light"><span class="bigRed">AdamSelene</span></td><td class="light"><span class="bigRed">Welcome!</span></td></tr>
 <tr><td class="dark"><b>gnosio</b></td><td class="dark">man ..i love ur arena applet..</td></tr>
@@ -442,14 +442,14 @@ Take a look at <A href="/tc?module=Static&d1=about&d2=jobs">job openings</A> at 
 <tr><td class="light"><span class="bigRed">AdamSelene</span></td><td class="light"><span class="bigRed">paramindia: and mess =)</span></td></tr>
 <tr><td class="dark"><span class="bigRed">mess</span></td><td class="dark"><span class="bigRed">paramindia: are you looking for application or component methodology?</span></td></tr>
 <tr><td class="light"><span class="bigRed">bwright</span></td><td class="light"><span class="bigRed">hubPL: this is for components http://software.topcoder.com/components/methodology.jsp</span></td></tr>
-<tr><td class="dark"><span class="bigRed">mess</span></td><td class="dark"><span class="bigRed">paramindia: this is an overview of the components http://www.topcoder.com/index?t=development&c=comp_meth</span></td></tr>
-<tr><td class="light"><span class="bigRed">mess</span></td><td class="light"><span class="bigRed">datawrangler: this might help you too http://www.topcoder.com/index?t=development&c=comp_meth</span></td></tr>
+<tr><td class="dark"><span class="bigRed">mess</span></td><td class="dark"><span class="bigRed">paramindia: this is an overview of the components http://software.topcoder.com/components/methodology.jsp</span></td></tr>
+<tr><td class="light"><span class="bigRed">mess</span></td><td class="light"><span class="bigRed">datawrangler: this might help you too http://software.topcoder.com/components/methodology.jsp</span></td></tr>
 <tr><td class="dark"><b>gt494</b></td><td class="dark">mmorris: How many PM's and CA's currenlty work for TCS?</td></tr>
 <tr><td class="light"><span class="bigRed">bwright</span></td><td class="light"><span class="bigRed">gt494: ~25</span></td></tr>
 <tr><td class="dark"><b>sql_lall</b></td><td class="dark">kranjit: I recommend the tutorials (http://www.topcoder.com/tc?module=Static&d1=tutorials&d2=comp_index)</td></tr>
 <tr><td class="light"><b>paramindia</b></td><td class="light">i went to that link and opened the PDF file</td></tr>
 <tr><td class="dark"><b>gt494</b></td><td class="dark">bwright: How many more do you need?</td></tr>
-<tr><td class="light"><b>sql_lall</b></td><td class="light">kranjit: as well as 'getting started': http://www.topcoder.com/?&t=development&c=getting_started</td></tr>
+<tr><td class="light"><b>sql_lall</b></td><td class="light">kranjit: as well as 'getting started': http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted</td></tr>
 <tr><td class="dark"><b>paramindia</b></td><td class="dark">that file that contains description</td></tr>
 <tr><td class="light"><b>datawrangler</b></td><td class="light">mess: thx - ill b in touch</td></tr>
 <tr><td class="dark"><b>paramindia</b></td><td class="dark">but i didn/t found any registartion link</td></tr>
