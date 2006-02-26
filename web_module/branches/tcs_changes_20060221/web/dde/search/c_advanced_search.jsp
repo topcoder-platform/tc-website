@@ -1,5 +1,6 @@
 <%@ page import="javax.naming.*,
-                 com.topcoder.dde.catalog.*" %>
+                 com.topcoder.dde.catalog.*,
+                 com.topcoder.web.tc.Constants" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
@@ -7,7 +8,6 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.lang.reflect.*" %>
-<%@ page import="com.topcoder.web.tc.Constants" %>
 
 
 <%@ include file="/includes/util.jsp" %>
