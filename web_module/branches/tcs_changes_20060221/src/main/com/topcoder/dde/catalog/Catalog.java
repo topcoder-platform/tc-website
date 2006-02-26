@@ -68,6 +68,9 @@ public interface Catalog extends javax.ejb.EJBObject {
 
     public Category[] getBaseCategories() throws RemoteException, NamingException, SQLException;
 
+    //plk
+    public Category[] getViewableBaseCategories() throws RemoteException, NamingException, SQLException;
+
     public Technology[] getAllTechnologies() throws RemoteException, NamingException, SQLException;
 
     /**
