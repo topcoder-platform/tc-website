@@ -472,6 +472,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         if (onlyPublic) {
 //        query.append("   AND public = 1 ");
             query.append("   AND category_id not in (5801779, 5801778, 9926572) ");
+            query.append("   AND parent_category_id not in (5801779, 5801778, 9926572) ");
         }
         query.append(" ORDER BY 1 ");
 
