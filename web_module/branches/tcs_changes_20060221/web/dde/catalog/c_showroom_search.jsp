@@ -31,7 +31,7 @@
     boolean allCategories = request.getParameter("category_all") != null;
 
     // plk
-    Category[] baseCategories = catalog.getBaseCategories(false);
+    Category[] baseCategories = catalog.getBaseCategories(true);
     Category java = null;
     Category net = null;
     Category flash = null;
@@ -107,18 +107,19 @@
     // If action is null, show advanced search form
     // If action is not null, try to do the search
     if (action != null) {
+        // plk
         if (target.equals("advanced")) {
-            componentSearchResults = catalog.searchComponents(keywords, statuses, catalogs, technologies, categories);
+            componentSearchResults = catalog.searchComponents(keywords, statuses, catalogs, technologies, categories, true);
         } else if (target.equals("all_catalogs")) {
-            componentSearchResults = catalog.searchComponents(keywords, statuses, new long[0], technologies, categories);
+            componentSearchResults = catalog.searchComponents(keywords, statuses, new long[0], technologies, categories, true);
         } else if (target.equals("net_catalog")) {
-            componentSearchResults = catalog.searchComponents(keywords, statuses, new long[] { net.getId() }, technologies, categories);
+            componentSearchResults = catalog.searchComponents(keywords, statuses, new long[] { net.getId() }, technologies, categories, true);
         } else if (target.equals("java_catalog")) {
-            componentSearchResults = catalog.searchComponents(keywords, statuses, new long[] { java.getId() }, technologies, categories);
+            componentSearchResults = catalog.searchComponents(keywords, statuses, new long[] { java.getId() }, technologies, categories, true);
         } else if (target.equals("forum")) {
             forumSearchResults = null;
         } else if (target.equals("entire_site")) {
-            componentSearchResults = catalog.searchComponents(keywords, statuses, catalogs, technologies, categories);
+            componentSearchResults = catalog.searchComponents(keywords, statuses, catalogs, technologies, categories, true);
             forumSearchResults = null;
         }
 

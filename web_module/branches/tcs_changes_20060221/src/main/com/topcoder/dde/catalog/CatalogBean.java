@@ -265,7 +265,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         return new CatalogSearchView(results);
     }
 
-    public CatalogSearchView searchComponents(String searchtext, long[] phase, long[] catalog, long[] technology, String[] category)
+    public CatalogSearchView searchComponents(String searchtext, long[] phase, long[] catalog, long[] technology, String[] category, boolean onlyPublic)
             throws RemoteException, CatalogException, NamingException, SQLException {
 
         if (searchtext == null) {
@@ -304,6 +304,13 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         query.append("   AND ( NOT ( cat.status_id = ? ) )              ");
         query.append("   AND x.component_id = comp.component_id         ");
         query.append("   AND x.category_id = cat.category_id            ");
+
+        if (onlyPublic) {
+//        query.append("   AND cat.public = 1 ");
+            query.append("   AND cat.category_id not in (5801779, 5801778, 9926572) ");
+            query.append("   AND cat.parent_category_id not in (5801779, 5801778, 9926572) ");
+        }
+
 
         ArrayList elements = new ArrayList();
         elements.add(new Long(ComponentInfo.APPROVED));

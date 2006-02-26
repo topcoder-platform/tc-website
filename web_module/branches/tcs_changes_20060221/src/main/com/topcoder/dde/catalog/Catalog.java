@@ -61,7 +61,7 @@ public interface Catalog extends javax.ejb.EJBObject {
     public CatalogSearchView search(String searchtext, java.util.Map options)
             throws RemoteException, CatalogException;
 
-    public CatalogSearchView searchComponents(String searchtext, long[] status, long[] catalog, long[] technology, String[] category)
+    public CatalogSearchView searchComponents(String searchtext, long[] status, long[] catalog, long[] technology, String[] category, boolean onlyPublic)
             throws RemoteException, CatalogException, NamingException, SQLException;
 
     //plk
