@@ -7,7 +7,7 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.lang.reflect.*" %>
-<%@ page import="com.topcoder.dde.util.Constants" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
 
 
 <%@ include file="/includes/util.jsp" %>
