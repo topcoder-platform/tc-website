@@ -104,7 +104,7 @@ public interface Catalog extends javax.ejb.EJBObject {
     public CategorySummary getCategorySummary(long categoryId)
             throws RemoteException, CatalogException, SQLException, NamingException;
 
-    public ComponentSummary[] getAllComponents()
+    public ComponentSummary[] getAllComponents(boolean onlyPublic)
             throws RemoteException, CatalogException, SQLException, NamingException;
 
     /**

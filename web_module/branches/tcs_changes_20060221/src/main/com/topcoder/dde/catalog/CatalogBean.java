@@ -810,7 +810,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         return new CategorySummary(categoryId, name, description, (ComponentSummary[]) components.toArray(new ComponentSummary[0]), categories);
     }
 
-    public ComponentSummary[] getAllComponents()
+    public ComponentSummary[] getAllComponents(boolean onlyPublic)
             throws RemoteException, CatalogException, SQLException, NamingException {
 
         Connection c = null;
@@ -828,6 +828,14 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         query.append("  FROM comp_versions v, comp_catalog comp     ");
         query.append(" WHERE v.version = comp.current_version       ");
         query.append("   AND v.component_id = comp.component_id     ");
+        // plk
+        if (onlyPublic) {
+// join with category is needed
+//        query.append("   AND public = 1 ");
+            query.append("   AND comp.root_category_id not in (5801779, 5801778, 9926572) ");
+        }
+
+
         query.append("   AND comp.status_id = ?          ORDER BY 3 ");
 
         try {

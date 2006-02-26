@@ -423,7 +423,7 @@
                             </tr>
 
                             <%
-                                out.print(displayDetailed(catalog.getAllComponents(), javaId, netId, flashId));
+                                out.print(displayDetailed(catalog.getAllComponents(true), javaId, netId, flashId));
                             %>
 
                             <tr valign="top"><td class="forumHeadFoot" colspan="3"><img src="/images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
