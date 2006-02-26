@@ -1,6 +1,6 @@
 <%@ page import="javax.naming.*,
                  com.topcoder.dde.catalog.*,
-                 com.topcoder.web.tc.Constants" %>
+                 com.topcoder.web.tc.*" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
