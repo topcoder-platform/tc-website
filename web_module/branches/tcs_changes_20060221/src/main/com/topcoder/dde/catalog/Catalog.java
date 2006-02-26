@@ -64,12 +64,12 @@ public interface Catalog extends javax.ejb.EJBObject {
     public CatalogSearchView searchComponents(String searchtext, long[] status, long[] catalog, long[] technology, String[] category)
             throws RemoteException, CatalogException, NamingException, SQLException;
 
-    public String[] getUniqueCategoryNames(boolean includeBaseCategories) throws RemoteException, NamingException, SQLException;
-
-    public Category[] getBaseCategories() throws RemoteException, NamingException, SQLException;
+    //plk
+    public String[] getUniqueCategoryNames(boolean includeBaseCategories, boolean onlyPublic) throws RemoteException, NamingException, SQLException;
 
     //plk
-    public Category[] getViewableBaseCategories() throws RemoteException, NamingException, SQLException;
+    public Category[] getBaseCategories(boolean onlyPublic) throws RemoteException, NamingException, SQLException;
+
 
     public Technology[] getAllTechnologies() throws RemoteException, NamingException, SQLException;
 

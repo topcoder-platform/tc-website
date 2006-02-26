@@ -130,7 +130,7 @@
 
 <%
     // plk
-    Category[] baseCategories = catalog.getViewableBaseCategories();
+    Category[] baseCategories = catalog.getBaseCategories(true);
     for (int i = 0; i < baseCategories.length; i++) {
         if (i % 2 == 0) {
 %>
@@ -217,7 +217,7 @@
                             </tr>
 
 <%
-    String[] categories = catalog.getUniqueCategoryNames(false);
+    String[] categories = catalog.getUniqueCategoryNames(false, true);
     for (int i = 0; i < categories.length; i++) {
         if (i % 2 == 0) {
 %>

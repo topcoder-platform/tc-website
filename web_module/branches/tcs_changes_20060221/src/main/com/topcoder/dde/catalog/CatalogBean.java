@@ -460,12 +460,19 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 //        }
 //    }
 
-    public String[] getUniqueCategoryNames(boolean includeBaseCategories) throws RemoteException, NamingException, SQLException {
+    public String[] getUniqueCategoryNames(boolean includeBaseCategories, boolean onlyPublic)
+        throws RemoteException, NamingException, SQLException {
 
         StringBuffer query = new StringBuffer(200);
         query.append("SELECT UNIQUE category_name FROM categories ");
         query.append(" WHERE ( NOT ( status_id = ? ) )              ");
         if (!includeBaseCategories) query.append(" AND ( NOT ( parent_category_id IS NULL ) ) ");
+
+        // plk
+        if (onlyPublic) {
+//        query.append("   AND public = 1 ");
+            query.append("   AND category_id not in (5801779, 5801778, 9926572) ");
+        }
         query.append(" ORDER BY 1 ");
 
         Connection c = null;
@@ -509,63 +516,16 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         return (String[]) results.toArray(new String[0]);
     }
 
-    public Category[] getBaseCategories() throws RemoteException, NamingException, SQLException {
-
-        StringBuffer query = new StringBuffer(200);
-        query.append("SELECT category_id, category_name, description FROM categories ");
-        query.append(" WHERE status_id <> ? ");
-        query.append("   AND parent_category_id IS NULL ORDER BY 2 ");
-
-        Connection c = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        ArrayList results = new ArrayList();
-
-        try {
-
-            c = getConnection();
-
-            ps = c.prepareStatement(query.toString());
-            ps.setLong(1, Category.DELETED);
-
-            rs = ps.executeQuery();
-            while (rs.next()) results.add(new Category(rs.getLong(1), rs.getString(2), rs.getString(3), null));
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                    rs = null;
-                }
-            } catch (SQLException e) {
-            }
-            try {
-                if (ps != null) {
-                    ps.close();
-                    ps = null;
-                }
-            } catch (SQLException e) {
-            }
-            try {
-                if (c != null) {
-                    c.close();
-                    c = null;
-                }
-            } catch (SQLException e) {
-            }
-        }
-
-        return (Category[]) results.toArray(new Category[0]);
-    }
-
-    // plk
-    public Category[] getViewableBaseCategories() throws RemoteException, NamingException, SQLException {
+    public Category[] getBaseCategories(boolean onlyPublic) throws RemoteException, NamingException, SQLException {
 
         StringBuffer query = new StringBuffer(200);
         query.append("SELECT category_id, category_name, description FROM categories ");
         query.append(" WHERE status_id <> ? ");
 // plk
+        if (onlyPublic) {
 //        query.append("   AND public = 1 ");
-        query.append("   AND category_id not in (5801779, 5801778, 9926572) ");
+            query.append("   AND category_id not in (5801779, 5801778, 9926572) ");
+        }
         query.append("   AND parent_category_id IS NULL ORDER BY 2 ");
 
         Connection c = null;

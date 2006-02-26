@@ -30,7 +30,8 @@
     boolean allStatuses = request.getParameter("status_all") != null;
     boolean allCategories = request.getParameter("category_all") != null;
 
-    Category[] baseCategories = catalog.getBaseCategories();
+    // plk
+    Category[] baseCategories = catalog.getBaseCategories(false);
     Category java = null;
     Category net = null;
     Category flash = null;
