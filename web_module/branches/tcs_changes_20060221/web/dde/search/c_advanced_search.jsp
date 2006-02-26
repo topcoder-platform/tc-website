@@ -1,6 +1,5 @@
 <%@ page import="javax.naming.*,
-                 com.topcoder.dde.catalog.*,
-                 com.topcoder.web.tc.*" %>
+                 com.topcoder.dde.catalog.*" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
@@ -8,6 +7,7 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.lang.reflect.*" %>
+
 
 
 <%@ include file="/includes/util.jsp" %>
@@ -130,26 +130,19 @@
 
 <%
     Category[] baseCategories = catalog.getBaseCategories();
-    int j = 0;
     for (int i = 0; i < baseCategories.length; i++) {
-        if (baseCategories[i].getId() != Constants.CUSTOM_JAVA_CATALOG_ID &&
-            baseCategories[i].getId() != Constants.CUSTOM_DOT_NET_CATALOG_ID &&
-                baseCategories[i].getId() != Constants.APPLICATIONS_CATALOG_ID) {
-
-            if (j % 2 == 0) {
-                j++;
+        if (i % 2 == 0) {
 %>
                             <tr valign="middle">
                                 <td width="49%"><input type="checkbox" name="catalog" value="<%= baseCategories[i].getId() %>" onclick="singleclicked(this, catalog_all)" /> <%= baseCategories[i].getName() %></td>
-<%          } else { %>
+<% } else { %>
                                 <td width="10"><img src="/images/clear.gif" width="10" height="3" alt="" border="0"></td>
 
                                 <td width="49%"><input type="checkbox" name="catalog" value="<%= baseCategories[i].getId() %>" onclick="singleclicked(this, catalog_all)" /> <%= baseCategories[i].getName() %></td>
                             </tr>
-<%          }
-        }
+<%      }
     }
-    if ((j + 1) % 2 == 1) {
+    if (baseCategories.length % 2 == 1) {
  %>
                                 <td width="10"><img src="/images/clear.gif" width="10" height="3" alt="" border="0"></td>
 
