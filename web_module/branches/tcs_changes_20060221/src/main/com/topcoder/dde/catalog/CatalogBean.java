@@ -557,6 +557,58 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         return (Category[]) results.toArray(new Category[0]);
     }
 
+    // plk
+    public Category[] getViewableBaseCategories() throws RemoteException, NamingException, SQLException {
+
+        StringBuffer query = new StringBuffer(200);
+        query.append("SELECT category_id, category_name, description FROM categories ");
+        query.append(" WHERE status_id <> ? ");
+// plk
+//        query.append("   AND public = 1 ");
+        query.append("   AND category_id not in (5801779, 5801778, 9926572) ");
+        query.append("   AND parent_category_id IS NULL ORDER BY 2 ");
+
+        Connection c = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ArrayList results = new ArrayList();
+
+        try {
+
+            c = getConnection();
+
+            ps = c.prepareStatement(query.toString());
+            ps.setLong(1, Category.DELETED);
+
+            rs = ps.executeQuery();
+            while (rs.next()) results.add(new Category(rs.getLong(1), rs.getString(2), rs.getString(3), null));
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                    rs = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (ps != null) {
+                    ps.close();
+                    ps = null;
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (c != null) {
+                    c.close();
+                    c = null;
+                }
+            } catch (SQLException e) {
+            }
+        }
+
+        return (Category[]) results.toArray(new Category[0]);
+    }
+
     public Technology[] getAllTechnologies() throws RemoteException, NamingException, SQLException {
 
         StringBuffer query = new StringBuffer(200);

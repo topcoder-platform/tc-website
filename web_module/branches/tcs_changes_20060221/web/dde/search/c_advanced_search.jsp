@@ -129,7 +129,8 @@
                             </tr>
 
 <%
-    Category[] baseCategories = catalog.getBaseCategories();
+    // plk
+    Category[] baseCategories = catalog.getViewableBaseCategories();
     for (int i = 0; i < baseCategories.length; i++) {
         if (i % 2 == 0) {
 %>
