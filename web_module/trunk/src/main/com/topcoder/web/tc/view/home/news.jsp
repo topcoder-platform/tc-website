@@ -7,9 +7,9 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.27.06<br>10:40 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.27.06<br>5:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">AMD Announced as TCO06 Title Sponsor</A></span><br><br>
-      AMD Developer Central, AMD's growing developer program, is proud to sponsor the 2006 TopCoder Open and be part of the amazing creativity and genius shown by the participants.
+      AMD Developer Central, AMD's program to support software developers, is pleased to announce sponsorship for the 2006 TopCoder Open and be part of the creativity and genius shown by TopCoder competitors. 
       </td>
    </tr>
    <tr><td class="newsLinksCell">
