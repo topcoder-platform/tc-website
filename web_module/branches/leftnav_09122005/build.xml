@@ -77,7 +77,7 @@
         <pathelement location="${jars.dir}/httpunit.jar"/>
         <pathelement location="${jars.dir}/itext-1.1.jar"/>
 
-        <!-- these are just so we can deploy the tcs ejbs on our side.  we can wack when we don't anymore-->
+<!--
         <pathelement location="${jars.dir}/render.jar"/>
         <pathelement location="${jars.dir}/tcs/forum.jar"/>
         <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
@@ -86,12 +86,19 @@
         <pathelement location="${jars.dir}/tcs/email_engine.jar"/>
         <pathelement location="${jars.dir}/searchengine.jar"/>
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+        <pathelement location="${jars.dir}/tcs/project_phases/1.0/project_phases.jar"/>
+        <pathelement location="${struts.dir}/struts.jar"/>
+-->
+
 
 
         <!-- app side dependencies...get rid of this if possible it's bad long contest design -->
         <pathelement location="${jars.dir}/TestServices.jar"/>
         <pathelement location="${jars.dir}/DBServices.jar"/>
         <pathelement location="${jars.dir}/tc.jar"/>
+
+
+
 
     </path>
 
@@ -111,7 +118,9 @@
             classpathref="class.path"
             deprecation="${deprecation}"
             debug="${debug}"
-            >
+            source="1.4"
+            target="1.4"
+        >
         </javac>
         <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
         <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
@@ -126,6 +135,8 @@
             classpathref="class.path"
             deprecation="${deprecation}"
             debug="${debug}"
+            source="1.4"
+            target="1.4"
             >
             <include name="com/topcoder/web/codinginterface/**"/>
             <include name="com/topcoder/web/common/**"/>
@@ -141,6 +152,8 @@
             classpathref="class.path"
             deprecation="${deprecation}"
             debug="${debug}"
+            source="1.4"
+            target="1.4"
             >
             <exclude
                 name="com/topcoder/security/**"
@@ -161,14 +174,16 @@
                  classpathref="class.path"
                  deprecation="${deprecation}"
                  debug="${debug}"
+                 source="1.4"
+                 target="1.4"
                  >
                  <include name="com/topcoder/web/forums/**"/>
                  <include name="com/topcoder/web/common/**"/>
                  <include name="com/topcoder/security/**"/>
                   <include name="com/topcoder/common/web/data/**"/>
                   <include name="com/topcoder/web/tc/**"/>
-                  <include name="com/topcoder/web/ejb/**"/>
-                  <include name="com/topcoder/ejb/**"/>
+                  <include name="com/topcoder/web/ejb/forums/**"/>
+                 <include name="com/topcoder/web/ejb/messagehistory/**"/>
              </javac>
          </target>
 
@@ -180,6 +195,8 @@
                       classpathref="class.path"
                       deprecation="${deprecation}"
                       debug="${debug}"
+                      source="1.4"
+                      target="1.4"
                       >
                       <include name="com/topcoder/utilities/forumConvert/**"/>
                   </javac>
@@ -192,6 +209,8 @@
                       classpathref="class.path"
                       deprecation="${deprecation}"
                       debug="${debug}"
+                      source="1.4"
+                      target="1.4"
                       >
                       <include name="com/topcoder/web/forums/model/TCUser.java"/>
                       <include name="com/topcoder/web/forums/model/TCUserManager.java"/>
@@ -205,6 +224,8 @@
                        classpathref="class.path"
                        deprecation="${deprecation}"
                        debug="${debug}"
+                       source="1.4"
+                       target="1.4"
                        >
                        <include name="com/topcoder/web/forums/model/TCAuthFactory.java"/>
                        <include name="com/topcoder/web/forums/model/TCAuthToken.java"/>
@@ -218,6 +239,8 @@
                             classpathref="class.path"
                             deprecation="${deprecation}"
                             debug="${debug}"
+                            source="1.4"
+                            target="1.4"
                             >
                             <include name="com/topcoder/web/forums/util/filter/*.java"/>
                         </javac>
@@ -226,11 +249,13 @@
     <target name="javadocs">
         <mkdir dir="${build.javadocs}"/>
         <javadoc
-            packagenames="com.*"
+            packagenames="com.topcoder.common.*,com.topcoder.ejb.*,com.topcoder.security.*,com.topcoder.utilities.*,com.topcoder.web.*"
             sourcepath="${java}"
+            classpathref="class.path"
             destdir="${build.javadocs}"
             windowtitle="${Name} API"
             doctitle="${Name} API"
+            maxmemory="256M"
             >
         </javadoc>
     </target>
@@ -661,7 +686,7 @@
          JBoss EJBs
          ========== -->
 
-    <target name="package-EJB-MessageHistoryBean" depends="compile">
+    <target name="package-EJB-MessageHistoryBean" depends="compile_forums">
         <jar jarfile="${ejb_jars}/messagehistory.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
@@ -670,7 +695,7 @@
         </jar>
     </target>
 
-    <target name="package-EJB-ForumsBean" depends="compile">
+    <target name="package-EJB-ForumsBean" depends="compile_forums">
              <jar jarfile="${ejb_jars}/forums.jar">
                  <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
                  <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
@@ -797,7 +822,6 @@
                 <include name="idgenerator.jar"/>
                 <include name="upload.jar"/>
                 <include name="tcsUtil.jar"/>
-                <include name="taconite.jar"/>
                 <include name="fileconvert.jar"/>
                 <include name="httpunit.jar"/>
                 <include name="itext-1.1.jar"/>
@@ -1208,6 +1232,8 @@
             classpathref="class.path"
             deprecation="${deprecation}"
             debug="${debug}"
+            source="1.4"
+            target="1.4"
             >
             <include name="com/topcoder/security/**"/>
         </javac>
@@ -1236,6 +1262,8 @@
             classpathref="class.path"
             deprecation="${deprecation}"
             debug="${debug}"
+            source="1.4"
+            target="1.4"
             >
             <include name="com/topcoder/util/idgenerator/**"/>
         </javac>
@@ -1315,7 +1343,6 @@
                 <include name="privatelabel.tld"/>
                 <include name="tc-taglib.tld"/>
                 <include name="rsc-taglib.tld"/>
-                <include name="nav.tld"/>
             </webinf>
         </war>
         <unwar src="${war.dir}/privatelabel.war" dest="${jboss_deploy}/privatelabel.war/" overwrite="yes"/>
@@ -1482,7 +1509,7 @@
         <antcall target="package-EJB-ForumsBean"/>
     </target>
 
-    <target name="war-forums" depends="compile">
+    <target name="war-forums" depends="compile_forums">
                 <war warfile="${war.dir}/forums.war" webxml="${resources}/forums/web.xml">
                     <fileset dir="${java}/com/topcoder/web/forums/view">
                         <include name="*.*"/>
@@ -1547,7 +1574,7 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcauth.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcuser.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcfilters.jar"/>
-        <copy todir="${jboss_lib}" file="${bin.dir}/shared.jar"/>
+        <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
@@ -1569,6 +1596,13 @@
             <metainf dir="${java}/com/topcoder/web/ejb/roomresult" includes="*.xml"/>
         </jar>
     </target>
+    <target name="package-EJB-LongCompResultBean" depends="compile">
+        <jar jarfile="${ejb_jars}/LongCompResult.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/longcompresult/*.class"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/longcompresult" includes="*.xml"/>
+        </jar>
+    </target>
 
 
 
@@ -1579,6 +1613,8 @@
                     classpathref="class.path"
                     deprecation="${deprecation}"
                     debug="${debug}"
+                    source="1.4"
+                    target="1.4"
                     >
                 <include name="com/topcoder/web/codinginterface/**"/>
                 <include name="com/topcoder/web/common/**"/>
@@ -1629,7 +1665,7 @@
 
         <target name="deploy-longcontest" depends="war-longcontest">
             <antcall target="package-EJB-RoundRegistrationBean"/>
-            <antcall target="package-EJB-RoomResultBean"/>
+            <antcall target="package-EJB-LongCompResultBean"/>
             <antcall target="expand-longcontest"/>
         </target>
 
@@ -1637,7 +1673,7 @@
             <copy todir="${jboss_deploy}">
                 <fileset dir="${ejb_jars}">
                     <include name="RoundRegistration.jar"/>
-                    <include name="RoomResult.jar"/>
+                    <include name="LongCompResult.jar"/>
                 </fileset>
             </copy>
             <unwar src="${war.dir}/longcontest.war" dest="${jboss_home}/server/all/deploy/longcontest.war/"

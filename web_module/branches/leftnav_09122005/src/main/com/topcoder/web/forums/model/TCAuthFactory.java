@@ -38,6 +38,7 @@ public class TCAuthFactory extends AuthFactory {
      */
     public AuthToken createAuthToken(HttpServletRequest httpServletRequest,
                                      HttpServletResponse httpServletResponse) throws UnauthorizedException {        
+
        HttpSession session = httpServletRequest.getSession(); 
        AuthToken authToken = (AuthToken)session.getAttribute(SESSION_AUTHORIZATION);
        if (authToken != null && !authToken.isAnonymous()) {
@@ -48,7 +49,7 @@ public class TCAuthFactory extends AuthFactory {
        WebAuthentication auth = null;
        try {
            auth = new BasicAuthentication(new SessionPersistor(httpServletRequest.getSession()),
-                   HttpObjectFactory.createRequest(httpServletRequest), HttpObjectFactory.createResponse(httpServletResponse));
+                   HttpObjectFactory.createRequest(httpServletRequest), HttpObjectFactory.createUnCachedResponse(httpServletResponse));
        } catch (Exception e) {
            log.error(e);
        }

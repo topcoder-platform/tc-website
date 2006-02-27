@@ -2,6 +2,14 @@ package com.topcoder.web.ejb.roomresult;
 
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
+
+import javax.ejb.EJBException;
+import javax.naming.Context;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.ResultSet;
 
 /**
  * @author dok
@@ -40,6 +48,37 @@ public class RoomResultBean extends BaseEJB {
         log.debug("getAttended called... " + roundId + " " + roomId + " " + coderId);
         return "Y".equals(selectString("room_result", "attended", new String[] {"round_id", "room_id", "coder_id"},
             new String[] {String.valueOf(roundId), String.valueOf(roomId),String.valueOf(coderId)}, dataSource));
+
+    }
+
+    public boolean exists(long roundId, long roomId, long coderId, String dataSource) {
+            log.debug("exists called... user_id=" + coderId + " roundId=" + roundId + " room " + roomId);
+
+            Context ctx = null;
+            PreparedStatement ps = null;
+            Connection conn = null;
+            ResultSet rs = null;
+            try {
+                conn = DBMS.getConnection(DBMS.JTS_OLTP_DATASOURCE_NAME);
+
+                ps = conn.prepareStatement("SELECT '1' FROM room_result WHERE coder_id = ? AND round_id = ? and room_id = ?");
+                ps.setLong(1, coderId);
+                ps.setLong(2, roundId);
+                ps.setLong(3, roomId);
+
+                rs = ps.executeQuery();
+                return rs.next();
+            } catch (SQLException sqe) {
+                DBMS.printSqlException(true, sqe);
+                throw new EJBException("SQLException exists coder_id=" + coderId+ " roundId=" + roundId + " roomid " + roomId);
+            } catch (Exception e) {
+                throw new EJBException("Exception exists coder_id=" + coderId + " roundId=" + roundId + " roomid " + roomId + ":\n" + e.getMessage());
+            } finally {
+                close(rs);
+                close(ps);
+                close(conn);
+                close(ctx);
+            }
 
     }
 

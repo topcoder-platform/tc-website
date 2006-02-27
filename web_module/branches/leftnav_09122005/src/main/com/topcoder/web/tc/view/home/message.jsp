@@ -17,7 +17,7 @@
     <table cellspacing="0" cellpadding="0" class="messageBoxFrame">
         <tr>
             <td class="tco06Message" align="center">
-            <img src="/i/tournament/tco06/message.gif" alt="TCO06" border="0" /><br/><br/>
+            <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><img src="/i/tournament/tco06/message.gif" alt="TCO06" border="0" /></A><br/><br/>
            <% if (algoTerms.isRegistered()) { %>
                     You are registered for the TCO Algorithm Competition.<br/>
             <% } else { %>

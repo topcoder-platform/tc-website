@@ -601,6 +601,11 @@
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
+        <attribute>
+            <name>timeZone</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
     </tag>
 
 	<tag>
@@ -703,6 +708,7 @@
         </attribute>
     </tag>
 
+
     <tag>
         <name>sponsorImage</name>
         <tagclass>com.topcoder.web.common.tag.SponsorImage</tagclass>
@@ -755,8 +761,8 @@
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
-    </tag>
-
+    </tag>    
+    
 	<tag>
         <name>answerInput</name>
         <tagclass>com.topcoder.web.common.tag.AnswerInput</tagclass>

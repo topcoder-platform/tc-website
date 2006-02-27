@@ -54,7 +54,7 @@
                 <p align="center">
                     <A href="/tc?module=CollegeTourOverview&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Overview</A>&#160;&#160;|&#160;&#160;
                     <A href="/tc?module=CollegeTourInfo&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Instructions</A>&#160;&#160;|&#160;&#160;
-                    <A href="/tc?module=CollegeTourReg&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Register</A>&#160;&#160;|&#160;&#160;
+                    <a href="/tc?module=CollegeTourViewReg&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Registration</A>&#160;&#160;|&#160;&#160;
                     Registrants&#160;&#160;|&#160;&#160;
                     <% if (request.getAttribute(Constants.FORUM_ID)!=null) {%>
                     <tc-webtag:forumLink forumID="<%=Long.parseLong((String)request.getAttribute(Constants.FORUM_ID))%>" message="Discuss College Tour"/>
@@ -63,38 +63,15 @@
                 <!-- ends -->
 
 
-                <span class="bodySubtitle">Registrants: <%=registrants.size()%></span><br>
-
-                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
-                    <tr>
-                        <td>
-                            <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-
-                                <tr>
-                                    <td class="tableTitle" colspan="6">Registrants</td>
-                                </tr>
-                                <tr>
-                                    <td class="tableHeader" width="20%">
-                                        Handle
-                                    </td>
-                                </tr>
-
-
-                                <% boolean even = false;%>
-                                <rsc:iterator list="<%=registrants%>" id="resultRow">
-                                    <tr>
-                                        <td class="<%=even?"statLt":"statDk"%>">
-                                            <tc-webtag:handle coderId='<%= resultRow.getLongItem("coder_id")%>' context='algorithm'/>
-                                        </td>
-                                    </tr>
-                                    <%even=!even;%>
-                                </rsc:iterator>
-
-                            </TABLE>
-                        </TD>
-                    </tr>
-                </TABLE>
-
+               <div align="center">
+                  <div style="width: 150px; text-align: left;" class="bodyText">
+                  <span class="bodySubtitle">Registrants: <%=registrants.size()%></span><br><br>
+                  <% if (!registrants.isEmpty()) {%><strong>Handle</strong><br><% } %>
+                  <rsc:iterator list="<%=registrants%>" id="resultRow">
+                  <tc-webtag:handle coderId='<%= resultRow.getLongItem("coder_id")%>' context='algorithm'/><br>
+                  </rsc:iterator>
+                  </div>
+               </div>
             </div>
 
         </td>

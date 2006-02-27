@@ -64,20 +64,18 @@
 
 						<b>Job Description:</b>
 						<ul>
-						<li>Work closely with TopCoder Software customers to identify business needs and translate them into technical specifications.</li>
-						<li>Break down customer applications into components using the TopCoder Component Catalog for existing components and the TopCoder Component Development Methodology for new components. </li>
-						<li>Team up with TopCoder Account Managers to identify project opportunities and create work proposals.</li>
-						<li>Complete the Specification phase of the Application Development Methodology with the aid of the customer, Application Manager and Creative resources. This entails creating:</li>							<ul>
-						    <li>Requirements Specifications</li>
-						    <li>Activity Diagrams</li>
+						<li>Work closely with TopCoder Software customers to identify business needs.</li>
+						<li>Manage all phases of the TopCoder Software Application Development Methodology to deliver high quality software applications that add significant business value to our customers.</li>
+						<li>Complete the Specification phase of the TopCoder Software Application Development Methodology with the aid of the customer and Creative resources. This entails creating:</li>							<ul>
 						    <li>Use Cases</li>
-						    <li>Test Plan</li>
-						    <li>Working Prototype (HTML, Javascript)</li>
-						    <li>Component Interaction Diagram</li>
+						    <li>Activity Diagrams</li>
+						    <li>Requirements Specifications</li>
+						    <li>Quality Assurance Plan</li>
+						    <li>User Interface Prototype (HTML, CSS, Javascript)/li>
 						    <li>Project Plan</li>
 							</ul>
 						<li>Verify the quality of the software application and the adherence to the specification deliverables, including the execution of the test plan.</li>
-						<li>Manage and take part in the deployment of the application for the customer.</li>
+						<li>Manage and ensure the successful deployment of the application for the customer.</li>
 						</ul>
 
 						<b>Additional Responsibilities:</b>
@@ -88,14 +86,9 @@
 
 						<b>Technical Skills:</b>
 						<ul>
-						<li>Strong grasp of Object Oriented design principles with a focus on component based software development.</li>
-						<li>Demonstrated experience in software application design and UML creation.</li>
-						<li>Technical experience in relevant project technologies.  For example, a given project may require familiarity with the following technologies:</li>
-							<ul>
-						    <li>J2EE, .NET</li>
-						    <li>Relational database design (Microsoft SQL Server or Oracle)</li>
-							</ul>
-						<li>Experience managing software development projects.</li>
+						<li>Experience managing software development projects</li>
+						<li>Working knowledge of Object Oriented design principles and component based software development.</li>
+						<li>Demonstrated experience in UML modeling, project scope development, and requirements gathering techniques.</li>
 						</ul>
 
 						<b>Professional Skills:</b>
@@ -104,8 +97,6 @@
 						<li>Proven leadership experience.</li>
 						<li>Team player.</li>
 						</ul>
-
-
                         <p>
                         <a href="/tc?module=JobHit&jid=318&jt=4">Apply for this job.<a/>
                         </p>

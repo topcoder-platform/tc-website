@@ -46,7 +46,8 @@ text-decoration: none;
 
 </head>
 
-<body onload="initDropMenu()">
+<body>
+
 
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
@@ -155,6 +156,15 @@ text-decoration: none;
     </tr>
     
     <tr> 
+        <td id="calendarTCO06">
+            <strong>2006 TopCoder Open Component Competition</strong><br/>
+            Week 1 Projects Posted: 9:00 AM ET<br/>
+            <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+            <A class="calendarTCO06Link" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_schedule">Details</A>
+            </td>
+    </tr>
+    
+    <tr> 
         <td id="calendar">22</td>
         <td id="calendar">23</td>
         <td id="calendarSRM">
@@ -164,6 +174,12 @@ text-decoration: none;
             Compete: 11:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=8082&t=schedule&c=srm">Details</A><br/><br/></td>
+        <td id="calendarIntel">
+            <span id="calendarIntelDate">25</span><br />
+            <strong>Intel Multi-threading Competition 1</strong><br />
+            Registration Opens: 12:00 Noon<br />
+            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+            <A id="calendarIntelLink" href="/longcontest/?module=Static&d1=intel_rules">Details</A><br/><br/></td>
         <td id="calendarTCO06">
             <span id="calendarTCO06Date">25</span><br/>
             <strong>2006 TopCoder Open Component Competition</strong><br/>

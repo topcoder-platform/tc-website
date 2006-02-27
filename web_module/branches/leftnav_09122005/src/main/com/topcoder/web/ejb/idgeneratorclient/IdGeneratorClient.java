@@ -35,12 +35,12 @@ public class IdGeneratorClient {
      */
 
     public static long getSeqId(String seqName) throws SQLException, NamingException {
-        log.debug("getSeqId(String) called");
+        log.debug("getSeqId("+seqName+") called");
         return getSeqId(seqName, DBMS.COMMON_OLTP_DATASOURCE_NAME);
     }
 
     public static long getSeqId(String seqName, String dataSourceName) throws NamingException, SQLException {
-        log.debug("getSeqId(String, String) called");
+        log.debug("getSeqId("+seqName+", "+dataSourceName+") called");
         long retVal = -1;
         InitialContext ctx = null;
         try {

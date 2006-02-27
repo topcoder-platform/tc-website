@@ -33,7 +33,7 @@ public abstract class ResumeRegSubmit extends FullRegSubmit {
                     log.debug("DID NOT FIND TYPE " + info.getResumeContentType());
                 }
                 ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
-                resumeServices.putResume(userId, fileType, info.getResumeFileName(), info.getResume(), transDb);
+                resumeServices.putResume(userId, fileType, info.getResumeFileName(), info.getResume(), transDb,db);
             }
         }
         return userId;

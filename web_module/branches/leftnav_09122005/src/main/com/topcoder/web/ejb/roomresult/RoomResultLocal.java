@@ -16,4 +16,6 @@ public interface RoomResultLocal extends EJBLocalObject {
     double getPointTotal(long roundId, long roomId, long coderId, String dataSource);
     boolean getAttended(long roundId, long roomId, long coderId, String dataSource);
 
+    boolean exists(long roundId, long roomId, long coderId, String dataSource);
+
 }

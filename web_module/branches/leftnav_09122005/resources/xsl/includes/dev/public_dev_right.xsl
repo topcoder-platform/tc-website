@@ -6,7 +6,6 @@
             <table width="170" border="0" cellspacing="0" cellpadding="5">
                 <tr valign="top">
                     <td width="100%" class="smallText">
-                        <A href="/tc?module=TCO06ComponentTerms"><img src="/i/development/tco06_registration.gif" alt="TCO06 Component Registration" border="0" /></A>
                         <p>Read the Component <a href="/index?t=development&amp;c=comp_meth">Methodology</a> before submitting a Component design or development solution.</p>
                         <p><strong>Not sure what to submit?</strong> Go to Component <A href="/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=compDocumentation">Documentation</A>.</p>
                     </td>

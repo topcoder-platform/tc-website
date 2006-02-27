@@ -186,7 +186,8 @@
                             if (((Forum)itForums.next()).getMessageCount() > 0) numActiveForums++;
                         }
                         if (numActiveForums > 0) { %>
-                        <table cellpadding="0" cellspacing="0" class="rtTable">
+
+                        <br><table cellpadding="0" cellspacing="0" class="rtTable">
                                 <tr>
                                    <td class="rtHeader">
                                         <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A>
@@ -222,8 +223,14 @@
                                       </tr>
                                    <%  } %>
                                 </tc-webtag:iterator>
-                                <%  if (!"".equals(limit)) { %>
-                                <tr><td class="rtThreadCell" colspan="4"><A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtLinkNew">...more</A></td></tr>
+                                <%  if (!"".equals(limit)) { 
+                                        int limitCNT = -1; 
+                                        try {
+                                            limitCNT = Integer.parseInt(limit); 
+                                        } catch (Exception e) {} 
+                                        if (category.getForumCount() >= limitCNT) { %>
+                                            <tr><td class="rtThreadCell" colspan="4"><A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtLinkNew">...more</A></td></tr>
+                                    <%  } %>
                                 <%  } %>
                         </table>
                         <%  } %>

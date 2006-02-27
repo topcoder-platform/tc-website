@@ -26,8 +26,10 @@ public class Constants implements CodingInterfaceConstants {
     public static String START_COL;
     public static String COL_COUNT;
     public static String ROW_COUNT;
+
     public static final String KEY_USER_HANDLE = "ha";
     public static final String KEY_USER_PASS = "pass";
+    public static final String EXAMPLE_FLAG = "ex";
     public static String ACTION_KEY;
     public static String QUEUE_LENGTH;
 
@@ -38,14 +40,17 @@ public class Constants implements CodingInterfaceConstants {
     public static final String METHOD_NAME = "methname";
     public static final String RETURN_TYPE = "rettype";
     public static final String ARG_TYPES = "argtypes";
+    public static final String EXAMPLES_ONLY = "exOn";
 
     public static String CONTEST_LIST_KEY;
     public static String ROUND_STANDINGS_LIST_KEY;
     public static String NUM_REGISTRANTS_KEY;
     public static final String CONTEST_NAME_KEY = "contestName";
+    public static final String ROUND_NAME_KEY = "roundName";
     public static String PREV_IDX_KEY;
     public static String NEXT_IDX_KEY;
     public static String ROUND_TERMS_KEY;
+    public static final String SUBMISSION_PREFIX = "sub_";
 
     public static int PROBLEM_REFRESH;
     public static String DEFAULT_COL_COUNT;
@@ -57,6 +62,7 @@ public class Constants implements CodingInterfaceConstants {
     public static int INTEL_LONG_ROUND_TYPE_ID;
 
     public static String LOGIN_JSP;
+
     public static String PAGE_VIEW_REG;
     public static String RP_SUBMIT;
     public static String SUBMISSION_JSP;
@@ -82,7 +88,14 @@ public class Constants implements CodingInterfaceConstants {
     public static String RP_VIEW_PRACTICE;
     public static String PAGE_VIEW_PRACTICE;
     public static String PAGE_SUBMIT_SUCCESS;
+    public static String PAGE_VIEW_EXAMPLE_RESULTS;
+    public static String RP_VIEW_EXAMPLE_RESULTS;
+    public static String RP_EXAMPLE_HISTORY;
+    public static String PAGE_EXAMPLE_HISTORY;
+    public static String RP_QUEUE_STATUS;
+    public static String PAGE_QUEUE_STATUS;
     public static int SUBMISSION_RATE;
+    public static int EXAMPLE_SUBMISSION_RATE;
     public static final String RESULTS_AVAILABLE = "resav";
 
     static {

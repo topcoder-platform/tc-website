@@ -38,6 +38,10 @@
     User user = (User)request.getAttribute("user");
     String sortField = (String)request.getAttribute("sortField");
     String sortOrder = (String)request.getAttribute("sortOrder");
+    String startIdx = (String)request.getAttribute("startIdx");
+    boolean isDefaultView = (sortField.equals(String.valueOf(JiveConstants.MODIFICATION_DATE))
+        && sortOrder.equals(String.valueOf(ResultFilter.DESCENDING))
+        && startIdx.equals("0"));
 
     StringBuffer linkBuffer = new StringBuffer("?module=ThreadList");
     linkBuffer.append("&").append(ForumConstants.FORUM_ID).append("=").append(forum.getID());
@@ -118,15 +122,15 @@
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable" border="1">
 <tr valign="top">
-   <td class="categoriesBox" rowspan="2">
-      <jsp:include page="categoriesHeader.jsp" />
-   </td>
-    <td nowrap="nowrap" valign="top" width="50%">
-        <jsp:include page="searchHeader.jsp" ></jsp:include>
-    </td>
-    <td align="right" nowrap="nowrap" valign="top" width="50%">
-      <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post New Thread</A>&#160;&#160;|&#160;&#160;<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
-   </td>
+	<td nowrap="nowrap" valign="top">
+	   <jsp:include page="searchHeader.jsp" ></jsp:include>
+	</td>
+	<td align="right" nowrap="nowrap" valign="top">
+       <%   if (ForumsUtil.isAdmin(user)) { %>
+                 <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.CATEGORY_ID%>=<%=forum.getForumCategory().getID()%>&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post Announcement</A>&#160; |&#160;
+       <%   } %>
+	   <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post New Thread</A>&#160;&#160;|&#160;&#160;<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+	</td>
 </tr>
 <tr>
     <td>&#160;</td>
@@ -170,6 +174,20 @@
 <td class="rtHeader" width="10%" align="right">Views</td>
 <td class="rtHeader" align="center" colspan="2"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></td>
 </tr>
+<%  if (startIdx.equals("0")) { %>
+<tc-webtag:iterator id="announcement" type="com.jivesoftware.forum.Announcement" iterator='<%=(Iterator)request.getAttribute("announcements")%>'>
+    <tr>
+    <td class="rtThreadCellWrap">
+        <div><A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtLinkBold"><img src="/i/interface/announcement.gif" alt="" border="0" /> <%=announcement.getSubject()%></A></div>
+    </td>
+    <td class="rtThreadCell"><tc-webtag:handle coderId="<%=announcement.getUser().getID()%>"/></td>
+    <td class="rtThreadCell"></td>
+    <td class="rtThreadCell"></td>
+    <td class="rtThreadCell"><b><A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtLinkNew"><tc-webtag:beanWrite name="announcement" property="startDate" format="EEE, MMM d yyyy 'at' h:mm a"/></A></b></td>
+    <td class="rtThreadCell"><tc-webtag:handle coderId="<%=announcement.getUser().getID()%>"/></td>
+    </tr>
+</tc-webtag:iterator>
+<%  } %>
 <tc-webtag:iterator id="thread" type="com.jivesoftware.forum.ForumThread" iterator='<%=(Iterator)request.getAttribute("threads")%>'>
     <%  ForumMessage lastPost = ForumsUtil.getLatestMessage(thread); 
         String trackerClass = (user == null || readTracker.getReadStatus(user, lastPost) == ReadTracker.READ ||
@@ -236,7 +254,7 @@
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
-        <td>A thread with a <b>bold title</b> indicates it is either a new thread or has new postings. <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark all as read)</A></td>
+        <td>A thread with a <b>bold title</b> indicates it is either a new thread or has new postings. <%if (user!=null) {%><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark all as read)</A><%}%></td>
         <td align="right"><a href="?module=RSS&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
     </tr>
 </table>

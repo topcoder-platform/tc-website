@@ -16,6 +16,7 @@ public interface ForumConstants {
 	public final static String THREAD_ID = "threadID";
 	public final static String MESSAGE_ID = "messageID";
     public final static String USER_ID = "userID";
+    public final static String ANNOUNCEMENT_ID = "annID";
     
     public final static String THREAD_VIEW = "view";
     public final static String THREAD_ERROR = "error";
@@ -25,14 +26,19 @@ public interface ForumConstants {
     public final static int MESSAGE_SUBJECT_MAX_LENGTH = 800;
     public final static int MESSAGE_BODY_MAX_LENGTH = 8000;
     public final static String MESSAGE_COUNT = "mc";
+    
+    public final static String ANNOUNCEMENT_SUBJECT = "subject";
+    public final static String ANNOUNCEMENT_BODY = "body";
+    public final static String ANNOUNCEMENT_COMMAND = "cmd";
 	
 	public final static String START_IDX = "start";
     
 	public final static String POST_MODE = "mode";
     
     public final static String SETTINGS_STATUS = "status";
+    public final static String SETTINGS_SECTION = "section";
     public final static String MARK_READ = "markRead";
-    
+
     public final static String SORT_FIELD = "sortField";
     public final static String SORT_ORDER = "sortOrder";
     
@@ -50,6 +56,8 @@ public interface ForumConstants {
     public final static String ADMIN_COMMAND_ADD_CONTEST = "addContest";
     public final static String ADMIN_COMMAND_CREATE_FORUMS_ALGO = "createForumsAlgo";
     public final static String ADMIN_COMMAND_DELETE_FORUMS_ALGO = "deleteForumsAlgo";
+    public final static String ADMIN_ENABLE_RATINGS = "enableRatings";
+    public final static String ADMIN_ENABLE_RATING_PERMS = "enableRatingPerms";
     
     public final static String ADMIN_MATCH = "match";
     
@@ -96,6 +104,12 @@ public interface ForumConstants {
     public final static int DEFAULT_FORUM_RANGE = 10;
     public final static int DEFAULT_HISTORY_RANGE = 10;
     public final static String DEFAULT_GUEST_THREAD_VIEW = "flat";
+    public final static String DEFAULT_FLAT_THREAD_VIEW = "flat";
+    public final static int DEFAULT_RATING_HIGHLIGHT_THRESHOLD = 80;
+    public final static int DEFAULT_RATING_HIGHLIGHT_MIN_COUNT = 10;
+    public final static int DEFAULT_RATING_COLLAPSE_THRESHOLD = 40;
+    public final static int DEFAULT_RATING_COLLAPSE_MIN_COUNT = 10; 
+    public final static int DEFAULT_RATING_COLLAPSE_MIN_MESSAGES = 50;
     
     // Maximums
     public final static int MAX_FORUMS_PER_PAGE = 50;
@@ -114,6 +128,8 @@ public interface ForumConstants {
         "You do not have permission to post a new thread in this forum.";
     public final static String ERR_CANNOT_POST_MESSAGE =
         "You do not have permission to post a new message in this forum.";
+    public final static String ERR_CANNOT_POST_ANNOUNCEMENT =
+        "You do not have permission to post a new announcement.";
     public final static String ERR_LONG_MESSAGE_SUBJECT =
         "Error: Message body exceeds " + MESSAGE_SUBJECT_MAX_LENGTH + " characters.";
     public final static String ERR_LONG_MESSAGE_BODY =

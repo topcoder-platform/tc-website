@@ -56,7 +56,7 @@
             <div align="left" style="width: 600px;">
 
              <% if (surveyInfo.getText()!=null) { %>
-                <span class="bodyTitle"><jsp:getProperty name="surveyInfo" property="text"/></span><br>
+                <p class="bodyTitle"><jsp:getProperty name="surveyInfo" property="text"/></p>
              <% } %>
 
              <% if (questionInfo.size()>0 && ((Question)questionInfo.get(0)).getTypeId()==Question.SCHULZE_ELECTION_TYPE) { %>

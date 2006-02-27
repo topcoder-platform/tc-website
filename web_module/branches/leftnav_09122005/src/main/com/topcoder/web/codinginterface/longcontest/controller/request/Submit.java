@@ -26,6 +26,8 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.render.DataTypeRenderer;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 import com.topcoder.web.ejb.coder.Coder;
+import com.topcoder.web.ejb.longcompresult.LongCompResultLocal;
+import com.topcoder.web.ejb.longcompresult.LongCompResult;
 
 import javax.naming.InitialContext;
 import java.io.StringReader;
@@ -58,9 +60,16 @@ public class Submit extends Base {
             long cid = Long.parseLong(getParameter(request, Constants.COMPONENT_ID));
             long rid = Long.parseLong(getParameter(request, Constants.ROUND_ID));
             long cd = Long.parseLong(getParameter(request, Constants.CONTEST_ID));
+            boolean examplesOnly = "true".equals(getParameter(request, Constants.EXAMPLES_ONLY));
+            log.debug("the examples only flag is " + examplesOnly);
             String action = getParameter(request, Constants.ACTION_KEY);
             String code = getParameter(request, Constants.CODE);
             String message = getParameter(request, Constants.MESSAGE);
+
+            if (!acceptingSubmissions(cid)) {
+                throw new NavigationException("Sorry, we are currently not accepting submissions.");
+            }
+
 
             // Clear session of temp variables
             cleanSession();
@@ -82,7 +91,8 @@ public class Submit extends Base {
 
             int roundTypeID = info.getIntItem(0, "round_type_id");
 
-            boolean practiceRound = (roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID);
+            boolean practiceRound = (roundTypeID == Constants.LONG_PRACTICE_ROUND_TYPE_ID ||
+                    roundTypeID == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID);
 
             // If the user is not registered s/he cannot submit code, unless this is a practice round.
             if (!practiceRound && !isUserRegistered(uid, rid)) {
@@ -176,6 +186,7 @@ public class Submit extends Base {
                 request.setAttribute(Constants.MESSAGE, message);
                 setNextPage(Constants.SUBMISSION_JSP);
                 setIsNextPageInContext(true);
+
             } else if (action.equals("submit")) { // user is submiting code
 
                 // Language specified?
@@ -194,12 +205,22 @@ public class Submit extends Base {
                     long lastSubmit = lastCompilation.getItem(0, "submit_time").getResultData()==null?0:lastCompilation.getLongItem(0, "submit_time");
                     long now = System.currentTimeMillis();
                     long nextSubmit = lastSubmit +Constants.SUBMISSION_RATE*60*1000;
-                    log.debug("now " + now + " last: " + lastSubmit + " diff: " + (now-lastSubmit));
-                    if (now<nextSubmit) {
-                        long minutes = (nextSubmit-now)/(60*1000);
-                        long seconds = (nextSubmit-now-(minutes*60*1000))/1000;
+                    long nextExampleSubmit = lastSubmit +Constants.EXAMPLE_SUBMISSION_RATE*60*1000;
+                    log.debug("now " + now + " last: " + lastSubmit + " diff: " + (now-lastSubmit) + " examplesonly " + examplesOnly);
+                    long minutes = 0;
+                    long seconds = 0;
+                    if (!examplesOnly && now<nextSubmit) {
+                        minutes = (nextSubmit-now)/(60*1000);
+                        seconds = (nextSubmit-now-(minutes*60*1000))/1000;
+                    } else if (examplesOnly && now<nextExampleSubmit) {
+                        minutes = (nextExampleSubmit-now)/(60*1000);
+                        seconds = (nextExampleSubmit-now-(minutes*60*1000))/1000;
+                    }
+                    if (minutes>0||seconds>0) {
                         StringBuffer buf = new StringBuffer(100);
-                        buf.append("Sorry, you may not submit again for another");
+                        buf.append("Sorry, you may not ");
+                        buf.append(examplesOnly?"test":"submit");
+                        buf.append(" again for another");
                         if (minutes > 1) {
                             buf.append(" ");
                             buf.append(minutes);
@@ -236,18 +257,30 @@ public class Submit extends Base {
                     log.debug("********************* code is null ***********************");
                 }
                 //todo bad, those should all be long
-                LongCompileRequest lcr = new LongCompileRequest((int) uid, (int)cid, (int)rid, (int)cd,
-                        language, ApplicationServer.WEB_SERVER_ID, code);
+                LongCompileRequest lcr = new LongCompileRequest(uid, cid, rid, cd,
+                        language, ApplicationServer.WEB_SERVER_ID, code, examplesOnly);
+
+                Request roomRequest = new Request();
+                roomRequest.setContentHandle("long_contest_find_room");
+                roomRequest.setProperty("rd", String.valueOf(rid));
+                long roomId = ((ResultSetContainer)getDataAccess().getData(roomRequest).get("long_contest_find_room")).getLongItem(0, "room_id");
+
+                LongCompResultLocal longCompResult = (LongCompResultLocal)createLocalEJB(getInitialContext(), LongCompResult.class);
+                if (!longCompResult.exists(rid, getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) {
+                    longCompResult.createLongCompResult(rid, getUser().getId(), DBMS.JTS_OLTP_DATASOURCE_NAME);
+                    longCompResult.setAttended(rid, getUser().getId(), true, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                }
 
                 try {
                     // Send the request!
-                    send(lcr);
+                    send(lcr, language);
                 } catch (ServerBusyException sbe) {
                     throw new NavigationException("A submit request is already being processed.");
                 }
 
                 // Tell the user that the code is compiling...
                 showProcessingPage();
+
 
                 try {
 
@@ -283,6 +316,7 @@ public class Submit extends Base {
             } else if (action.equals("save")) { // user is saving code
                 boolean res = saveCode(code, language, uid, cd, rid, cid);
 
+
                 if (res) {
                     // save complete
                     // go back to coding!
@@ -299,6 +333,7 @@ public class Submit extends Base {
             log.error("Unexpected error in code submit module.", e);
             throw e;
         } catch (Exception e) {
+
             log.error("Unexpected error in code submit module.", e);
             throw new TCWebException("An error occurred while compiling your code", e);
         }
@@ -340,8 +375,9 @@ public class Submit extends Base {
         DBServicesHome dbsHome = (DBServicesHome) ctx.lookup(ApplicationServer.DB_SERVICES);
         DBServices dbs = dbsHome.create();
 
-        if (!dbs.isComponentOpened((int)uid, (int)rid, (int)cid)) { // Is there a record of the user opening the problem?
-            dbs.coderOpenComponent((int)uid, (int)cd, (int)rid, 0, (int)cid);
+
+        if (!dbs.isLongComponentOpened((int)uid, (int)rid, (int)cid)) { // Is there a record of the user opening the problem?
+            dbs.coderOpenLongComponent((int)uid, (int)cd, (int)rid, (int)cid);
         }
 
         // Find the TestServices bean so we could save the code.
@@ -349,7 +385,7 @@ public class Submit extends Base {
         TestServices ts = t.create();
 
         // Save the code!
-        return ts.saveComponent((int)cd, (int)rid, (int)cid, (int)uid, code, lang).isSuccess();
+        return ts.saveLongComponent(cd, rid, cid, uid, code, lang).isSuccess();
 
     }
 
@@ -367,7 +403,6 @@ public class Submit extends Base {
         return ret;
     }
 
-
     //todo this may need to be modified if in the future we limit which languages are available
     protected static List getLanguages() {
         List ret = new ArrayList(4);
@@ -376,6 +411,13 @@ public class Submit extends Base {
         ret.add(VBLanguage.VB_LANGUAGE);
         ret.add(CSharpLanguage.CSHARP_LANGUAGE);
         return ret;
+    }
+
+    private boolean acceptingSubmissions(long componentId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("long_contest_accept_submissions");
+        r.setProperty(Constants.COMPONENT_ID, String.valueOf(componentId));
+        return !((ResultSetContainer)getDataAccess().getData(r).get("long_contest_accept_submissions")).isEmpty();
     }
 
 }

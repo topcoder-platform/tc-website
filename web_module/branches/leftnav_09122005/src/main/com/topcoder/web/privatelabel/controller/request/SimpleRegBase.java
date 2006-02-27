@@ -2,10 +2,12 @@ package com.topcoder.web.privatelabel.controller.request;
 
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.ejb.user.User;
@@ -108,7 +110,7 @@ public abstract class SimpleRegBase extends RegistrationBase {
             addError(Constants.HANDLE, getBundle().getProperty("error_handle_chars"));
         }
         try {
-            if (info.isNew() && userExists(info.getHandle())) {
+            if (info.isNew() && !info.isAccountConversion() && userExists(info.getHandle())) {
                 addError(Constants.HANDLE, getBundle().getProperty("error_dup_handle"));
             }
         } catch (Exception e) {
@@ -122,6 +124,9 @@ public abstract class SimpleRegBase extends RegistrationBase {
         }
         if (!info.getPassword().equals(info.getPasswordConfirm())) {
             addError(Constants.PASSWORD_CONFIRM, getBundle().getProperty("error_password_mismatch"));
+        }
+        if (!StringUtils.containsOnly(info.getHandle(), Constants.HANDLE_ALPHABET, false)) {
+            addError(Constants.PASSWORD, getBundle().getProperty("error_password_chars"));
         }
 
         //check email

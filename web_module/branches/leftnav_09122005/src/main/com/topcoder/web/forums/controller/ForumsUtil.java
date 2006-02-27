@@ -8,7 +8,12 @@ import com.jivesoftware.base.FilterManager;
 import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.base.Log;
+<<<<<<< ForumsUtil.java
 import com.jivesoftware.base.User;
+=======
+import com.jivesoftware.base.Permissions;
+import com.jivesoftware.base.User;
+>>>>>>> 1.26
 import com.jivesoftware.base.filter.Profanity;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.Forum;
@@ -270,6 +275,7 @@ public class ForumsUtil {
         }
         return ret.toString();
     }
+
     
     public static boolean displayMemberPhoto(User user, User author) {
         boolean displayPhoto = true;
@@ -286,5 +292,37 @@ public class ForumsUtil {
         body = StringUtils.escapeHTMLTags(body);
         body = StringUtils.replace(body, "\"", "&quot;");
         return body;
+    }
+    
+    public static boolean isAdmin(User user) {
+        if (user == null) return false;
+        return user.isAuthorized(Permissions.SYSTEM_ADMIN);
+    }
+    
+    public static byte[] asciiGetBytes(String s) {
+        int size = s.length();
+        byte[] result = new byte[size];
+        for (int i = 0; i < size; i++) {
+            result[i] = (byte) s.charAt(i);
+        }
+        return result;
+    }
+    
+    public static boolean highlightPost(User user, double pct, double ratingCount) {
+        return (user != null && 
+                user.getProperty("ratingHighlightThreshold") != null &&
+                user.getProperty("ratingHighlightMinCount") != null &&
+                pct >= Integer.parseInt(user.getProperty("ratingHighlightThreshold")) && 
+                ratingCount >= Integer.parseInt(user.getProperty("ratingHighlightMinCount")));
+    }
+    
+    public static boolean collapsePost(User user, double pct, double ratingCount, double messageCount) {
+        return (user != null && 
+                user.getProperty("ratingCollapseThreshold") != null &&
+                user.getProperty("ratingCollapseMinCount") != null &&
+                user.getProperty("ratingCollapseMinMessages") != null &&
+                pct <= Integer.parseInt(user.getProperty("ratingCollapseThreshold")) && 
+                ratingCount >= Integer.parseInt(user.getProperty("ratingCollapseMinCount")) &&
+                messageCount >= Integer.parseInt(user.getProperty("ratingCollapseMinMessages")));
     }
 }

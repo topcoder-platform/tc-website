@@ -130,9 +130,8 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
         buf.append("</td>");
         buf.append("</tr>");
 
-
         int methodCount = problemComponent.getAllMethodNames().length;
-        for (int i=(methodCount)>1?1:0; i<methodCount; i++) {
+        for (int i=methodCount>1?1:0; i<methodCount; i++) {
             buf.append("<tr><td");
             if (getTdClass() != null) {
                 buf.append(" class=\"");

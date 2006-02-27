@@ -4,12 +4,15 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.Log;
-import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.PermissionsManager;
+import com.jivesoftware.base.PermissionType;
+import com.jivesoftware.base.UserManager;
+import com.jivesoftware.base.User;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumMessageIterator;
+import com.jivesoftware.forum.ForumPermissions;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
@@ -21,7 +24,10 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.forums.controller.ForumsUtil;
 import com.topcoder.common.web.data.Round;
+import com.jivesoftware.forum.RatingManagerFactory;
+import com.jivesoftware.forum.RatingManager;
 
 import java.util.*;
 
@@ -41,9 +47,7 @@ public class Admin extends ForumsProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
      
-        try {
-            PermissionsManager permManager = forumFactory.getPermissionsManager();
-        } catch (UnauthorizedException uae) {
+        if (!ForumsUtil.isAdmin(user)) {
             setNextPage("?module=ForumList");
             setIsNextPageInContext(false);
             return;
@@ -56,6 +60,10 @@ public class Admin extends ForumsProcessor {
         // process command
         String command = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ADMIN_COMMAND));
         String match = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ADMIN_MATCH));
+        if (!command.equals("")) {
+            log.info(user.getUsername() + " running command: " + command);   
+        }
+        
         if (command.equals(ForumConstants.ADMIN_COMMAND_CREATE_FORUMS_ALGO)) {
             ForumCategory algoCategory = forumFactory.getForumCategory(14);
             if (algoCategory.getForumCount() < 20) {
@@ -76,6 +84,7 @@ public class Admin extends ForumsProcessor {
                 }
             }
         } else if (command.equals("Create forum from EJB") && !match.equals("")) {
+
             InitialContext ctx = null;
             try {
                 ctx = TCContext.getInitial();
@@ -87,11 +96,34 @@ public class Admin extends ForumsProcessor {
             } finally {
                 BaseProcessor.close(ctx);
             }
-        }
-        else if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
-            log.info(user.getUsername() + " running command: " + command);
+        } else if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
             escapeHTML(); 
-        } /* 
+        } else if (command.equals(ForumConstants.ADMIN_ENABLE_RATINGS)) {
+            RatingManager ratingManager = RatingManagerFactory.getInstance(authToken);
+            if (!ratingManager.isRatingsEnabled()) {
+                ratingManager.setRatingsEnabled(true);
+            }
+            if (ratingManager.getRatingFromScore(1) == null) {
+                ratingManager.createRating(1, "negative");
+            }
+            if (ratingManager.getRatingFromScore(2) == null) {
+                ratingManager.createRating(2, "positive");
+            }
+        } else if (command.equals(ForumConstants.ADMIN_ENABLE_RATING_PERMS)) {
+            PermissionsManager permManager = forumFactory.getPermissionsManager();
+            UserManager userManager = forumFactory.getUserManager();
+            Iterator users = userManager.users();
+            int count = userManager.getUserCount();
+            int processed = 0;
+            while (users.hasNext()) {
+                User u = (User)users.next();
+                permManager.addUserPermission(user, PermissionType.ADDITIVE, ForumPermissions.RATE_MESSAGE);
+                if (++processed % 1000 == 0) {
+                    log.info("Adding rating permissions: " + processed+"/"+count);
+                }
+            }
+        }
+        /*
         else if (command.equals("Add test forums")) {
             for (int i=0; i<50; i++) {
                 com.jivesoftware.forum.ForumCategory fc = forumFactory.getForumCategory(8);

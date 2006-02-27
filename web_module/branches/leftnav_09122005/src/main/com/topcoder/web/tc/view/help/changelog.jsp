@@ -30,6 +30,7 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
+
 <td width="100%" align="left" class="bodyText">
     <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
     <jsp:include page="../body_top.jsp">
@@ -37,11 +38,87 @@
         <jsp:param name="image1" value="white"/>
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
+<%--
+            <li>put logic behind the contest details links on the component page in the catalog</li>
+--%>
     <p>
-        4.1.5 - 2006.xx.xx
+        4.1.12 - 2006.02.24
+        <ul>
+            <li>Add google coder jam india 2006 registration</li>
+            <li>Fix bug in TCO 06 component site where all position points include instead of top 4</li>
+        </ul>
+    </p>
+
+    <p>
+        4.1.11 - 2006.02.21
+        <ul>
+            <li>set headers throughout site so that proxies won't cache pages</li>
+            <li>Add college images to the college tour description page</li>
+            <li>Add example testing to the marathon matches site</li>
+            <li>Add google coder jam india 2006 registration</li>
+        </ul>
+    </p>
+    <p>
+        4.1.10 - 2006.02.09
+        <ul>
+            <li>add search to recruiting reporting site</li>
+            <li>add placement information to recruiting reporting site</li>
+            <li>add contest details links to the tco06 component results pages</li>
+            <li>fix bug that would not allow practice rooms to work for intel</li>
+            <li>add marathon match admin site</li>
+<%--
+            <li>changed component download process to always require viewing of terms</li>
+--%>
+        </ul>
+    </p>
+    <p>
+        4.1.9 - 2006.01.30
+        <ul>
+            <li>tco06 component results site - placement points only for those that get over 75</li>
+            <li>add the round name to the contest name in the marathon match site</li>
+            <li>link from component catalog to the contest results</li>
+            <li>store old rating as null in project_result if the competitor is not rated</li>
+        </ul>
+
+    </p>
+    <p>
+        4.1.8 - 2006.01.23
+        <ul>
+            <li>tco06 component results site</li>
+            <li>some additional tweaks to make intel marathon matches work within the site</li>
+            <li>added example information for marathon matches</li>
+            <li>do a pseudo registration for practice rooms so that counts show correctly (room_result)</li>
+        </ul>
+
+    </p>
+    <p>
+        4.1.7 - 2006.01.16
+        <ul>
+            <li>Another attempt to improve the ACIDity of the reviewer reg process</li>
+            <li>New reg code for component contests</li>
+            <li>moved applet autodetect code to a file</li>
+            <li>fixed bad applet links that didn't do autodetect</li>
+        </ul>
+
+    </p>
+    <p>
+        4.1.6 - 2006.01.09
+        <ul>
+            <li>some bug fixes/enhancements for the college tour pages</li>
+            <li>changed how component registration questions are flaged in db</li>
+        </ul>
+
+    </p>
+    <p>
+        4.1.5 - 2006.01.04
         <ul>
             <li>allow people to see solutions (other than their own) for practice long contest rounds.</li>
-            <li>passwords may only contains the ascii characters we allow</li>
+            <li>passwords may only contains the characters we allow</li>
+            <li>make the comp projects page a jsp, rename it active contests</li>
+            <li>make the multiplier status page be a jsp and call it registrants</li>
+            <li>some bug fixes/enhancements for the college tour pages</li>
+            <li>changed how component registration questions are flaged in db</li>
+            <li>be more particular about birth dates in pacts</li>
         </ul>
 
     </p>

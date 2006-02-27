@@ -47,6 +47,7 @@
                     <td class="projectHeaders" align="right" width="40%">File</td>
                 </tr>
                 <tr>
+
                <td class="projectCells" valign="top">
                <strong>TopCoder Software Component Tutorials</strong><br/>
                The TopCoder Software Development Tutorial provides detailed information on designing components using the TopCoder Software process. This tutorial was written by review board member kyky.
@@ -69,11 +70,11 @@
                </td>
                <td class="projectCells" valign="top" align="center">
                01.05.2005<br/>
-               06.08.2005
+               01.26.2006
                </td>
                <td class="projectCells" valign="top" align="right" nowrap="nowrap">
                <A href="/tc?module=Static&d1=dev&d2=support&d3=desScreeningSample">Sample Design Screening Scorecard</A><br/>
-               <A href="/tc?module=Static&d1=dev&d2=support&d3=desReviewSample_060805">Sample Design Review Scorecard</A><br/>
+               <A href="/tc?module=Static&d1=dev&d2=support&d3=desReviewSample">Sample Design Review Scorecard</A><br/>
                </td>
             </tr>
                 <tr>
@@ -171,6 +172,7 @@
                     <td class="projectHeaders" align="right" width="40%">File</td>
                 </tr>
                 <tr>
+
                <td class="projectCells" valign="top">
                <strong>TopCoder Software Ant Build Global Properties</strong><br/>
                The ant build files distributed with the design and development distributions will use this file to override certain parts of the build.xml. This file can be modified to suit your local environment, the build file TopCoder distributes should not be modified. If you think it needs to be, contact your project manager. Keep in mind that the reviewers will be using the build.xml that was distributed.
@@ -191,7 +193,7 @@
                <strong>TopCoder Software Member Guide</strong><br/>
                The TopCoder Software Member Guide provides details required to design and develop TopCoder Software components. This document includes supported versions of software tools, coding standards and submission deliverables</td>
                <td class="projectCells" valign="top" align="center">12.07.2005</td>
-               <td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/i/development/downloads/TopCoder_Software_Member_Guide.pdf">TopCoder Software Member Guide.pdf</A></td>
+               <td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=dev&d2=support&d3=memberGuide">TopCoder Software Member Guide</A></td>
             </tr>
                 <tr>
                <td class="projectCells" valign="top">
