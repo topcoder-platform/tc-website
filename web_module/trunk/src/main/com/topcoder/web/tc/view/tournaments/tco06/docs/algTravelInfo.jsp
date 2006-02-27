@@ -67,80 +67,79 @@ A hotel room will be confirmed for your arrival on May 2 and departure on May 6,
             to board upon your arrival at the airport will be indicated on your itinerary.
             </p>
 
-
+<div align="center"><span class="bigTitle">Travel Form</span></div>
         <table border="0" cellspacing="3" cellpadding="0" width="100%" class="bodyText">
     <form name="questForm" method="POST" action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>">
         <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCO06TravelInfoSubmit"/>
-            <tr><td colspan="2"><H1 align="center">Travel Form</H1></td></tr>
-            <tr><td colspan="2"><U><B>COMPETITOR INFORMATION:</B></U><br /></td></tr>
+            <tr><td class="sidebarText" colspan="2"><U><B>COMPETITOR INFORMATION:</B></U><br /></td></tr>
 
 
             <tr>
-              <td align="right"><input type="hidden" name="q32" value="Social Security #"/>Social Security #: </td>
-              <td align="left"><input type="text" name="a32" size="10"/></td>
-                <td></td>
+              <td class="sidebarText" align="right"><input type="hidden" name="q32" value="Social Security #"/>Social Security #: </td>
+              <td class="sidebarText" align="left"><input type="text" name="a32" size="10"/></td>
+                <td class="sidebarText" ></td>
             </tr>
 
             <tr>
-              <td align="right"><input type="hidden" name="q33" value="Date of Birth"/>Date of Birth: </td>
-              <td align="left"><input type="text" name="a33" size="10"/></td>
-                <td></td>
+              <td class="sidebarText" align="right"><input type="hidden" name="q33" value="Date of Birth"/>Date of Birth: </td>
+              <td class="sidebarText" align="left"><input type="text" name="a33" size="10"/></td>
+                <td class="sidebarText"></td>
             </tr>
 
         <tr>
-          <td align="right"><input type="hidden" name="q34" value="Passport Number"/>Passport #:</td>
-          <td align="left"><input type="text" name="a34" size="15"/></td>
+          <td class="sidebarText" align="right"><input type="hidden" name="q34" value="Passport Number"/>Passport #:</td>
+          <td class="sidebarText" align="left"><input type="text" name="a34" size="15"/></td>
         </tr>
 
             <tr>
-              <td align="right"><input type="hidden" name="q35" value="School"/>School:</td>
-              <td align="left"><input type="text" name="a35" size="15"/></td>
+              <td class="sidebarText" align="right"><input type="hidden" name="q35" value="School"/>School:</td>
+              <td class="sidebarText" align="left"><input type="text" name="a35" size="15"/></td>
             </tr>
 
 
-            <tr><td colspan="2"><U><B>Emergency contact:</B></U></td></tr>
+            <tr><td class="sidebarText" colspan="2"><U><B>Emergency contact:</B></U></td></tr>
             <tr>
-              <td align="right"><input type="hidden" name="q36" value="Emergency contact Name"/>Name:</td>
-              <td align="left"><input type="text" name="a36" size="30"/><br /></td>
+              <td class="sidebarText" align="right"><input type="hidden" name="q36" value="Emergency contact Name"/>Name:</td>
+              <td class="sidebarText" align="left"><input type="text" name="a36" size="30"/><br /></td>
             </tr>
 
             <tr>
-              <td align="right"><input type="hidden" name="q37" value="Emergency contact Phone"/>Phone:</td>
-              <td align="left"><input type="text" name="a37" size="15"/></td>
+              <td class="sidebarText" align="right"><input type="hidden" name="q37" value="Emergency contact Phone"/>Phone:</td>
+              <td class="sidebarText" align="left"><input type="text" name="a37" size="15"/></td>
             </tr>
 
             <tr>
-              <td align="right"><input type="hidden" name="q38" value="Emergency contact Relationship"/>Relationship:</td>
-              <td align="left"><input type="text" name="a38" size="30"/></td>
+              <td class="sidebarText" align="right"><input type="hidden" name="q38" value="Emergency contact Relationship"/>Relationship:</td>
+              <td class="sidebarText" align="left"><input type="text" name="a38" size="30"/></td>
             </tr>
 
-            <tr><td colspan="2"><U><B>Media Information:</B></U></td></tr>
+            <tr><td class="sidebarText" colspan="2"><U><B>Media Information:</B></U></td></tr>
 
             <tr>
-              <td colspan="2">
+              <td class="sidebarText" colspan="2">
                   Please list your local newspapers, radio, and television stations for both hometown and college locations.
               </td>
             </tr>
 
             <tr>
-              <td align="right"><input type="hidden" name="q39" value="Newspapers"/>Newspapers:</td>
-              <td align="left"><input type="text" name="a39" size="50"/></td>
+              <td class="sidebarText" align="right"><input type="hidden" name="q39" value="Newspapers"/>Newspapers:</td>
+              <td class="sidebarText" align="left"><input type="text" name="a39" size="50"/></td>
             </tr>
 
             <tr>
-              <td align="right"><input type="hidden" name="q40" value="Radio"/>Radio:</td>
-              <td align="left"><input type="text" name="a40" size="50"/></td>
+              <td class="sidebarText" align="right"><input type="hidden" name="q40" value="Radio"/>Radio:</td>
+              <td class="sidebarText" align="left"><input type="text" name="a40" size="50"/></td>
             </tr>
 
             <tr>
-              <td align="right"><input type="hidden" name="q41" value="TV"/>TV:</td>
-              <td align="left"><input type="text" name="a41" size="50"/></td>
+              <td class="sidebarText" align="right"><input type="hidden" name="q41" value="TV"/>TV:</td>
+              <td class="sidebarText" align="left"><input type="text" name="a41" size="50"/></td>
             </tr>
 
-            <tr><td colspan="2"><U><B>TRAVEL INFORMATION:</B></U></td></tr>
+            <tr><td class="sidebarText" colspan="2"><U><B>TRAVEL INFORMATION:</B></U></td></tr>
             <tr>
-              <td align="right"><input type="hidden" name="q42" value="Departure City/Airport"/>Departure City/Airport:</td>
-              <td align="left"><input type="text" name="a42" size="50"/></td>
+              <td class="sidebarText" align="right"><input type="hidden" name="q42" value="Departure City/Airport"/>Departure City/Airport:</td>
+              <td class="sidebarText" align="left"><input type="text" name="a42" size="50"/></td>
             </tr>
 
 
@@ -148,40 +147,40 @@ A hotel room will be confirmed for your arrival on May 2 and departure on May 6,
 
 
         <tr>
-          <td align="right"><input type="hidden" name="q44" value="May 2, 2006 - Preferred arrival time"/>May 2, 2006 - Preferred arrival time:</td>
-          <td align="left"><select name="a44"><option value="AM">AM</option><option value="PM">PM</option></select></td>
+          <td class="sidebarText" align="right"><input type="hidden" name="q44" value="May 2, 2006 - Preferred arrival time"/>May 2, 2006 - Preferred arrival time:</td>
+          <td class="sidebarText" align="left"><select name="a44"><option value="AM">AM</option><option value="PM">PM</option></select></td>
        </tr>
 
         <tr>
-          <td align="right"><input type="hidden" name="q45" value="May 6, 2006 - preferred departure time"/>May 6, 2006 - preferred departure time:</td>
-          <td align="left"><select name="a45"><option value="AM">AM</option><option value="PM">PM</option></select></td>
+          <td class="sidebarText" align="right"><input type="hidden" name="q45" value="May 6, 2006 - preferred departure time"/>May 6, 2006 - preferred departure time:</td>
+          <td class="sidebarText" align="left"><select name="a45"><option value="AM">AM</option><option value="PM">PM</option></select></td>
         </tr>
 
             <tr>
-              <td align="right"><input type="hidden" name="q46" value="Seating preference"/>Seating preference:</td>
-              <td align="left"><select name="a46"><option value="Window">Window</option><option value="Aisle">Aisle</option></select></td>
+              <td class="sidebarText" align="right"><input type="hidden" name="q46" value="Seating preference"/>Seating preference:</td>
+              <td class="sidebarText" align="left"><select name="a46"><option value="Window">Window</option><option value="Aisle">Aisle</option></select></td>
             </tr>
 
             <tr>
-              <td align="right"><input type="hidden" name="q47" value="Preference for your hotel room"/>Preference for your hotel room :</td>
-              <td align="left"><select name="a47"><option value="Smoking">Smoking</option><option value="Non Smoking">Non Smoking</option></select></td>
+              <td class="sidebarText" align="right"><input type="hidden" name="q47" value="Preference for your hotel room"/>Preference for your hotel room :</td>
+              <td class="sidebarText" align="left"><select name="a47"><option value="Smoking">Smoking</option><option value="Non Smoking">Non Smoking</option></select></td>
            </tr>
 
         <tr>
-          <td align="right"><input type="hidden" name="q48" value="Roommate preference"/>Roommate preference:</td>
-          <td align="left"><input type="text" name="a48" size="20"/></td>
+          <td class="sidebarText" align="right"><input type="hidden" name="q48" value="Roommate preference"/>Roommate preference:</td>
+          <td class="sidebarText" align="left"><input type="text" name="a48" size="20"/></td>
         </tr>
 
 
             <tr>
-              <td align="right"><input type="hidden" name="q49" value="Personal Considerations/Special Requests"/>Personal Considerations/Special Requests: (Physical requirements or Medical needs)</td>
-              <td align="left"><input type="text" name="a49" size="50"/></td>
+              <td class="sidebarText" align="right"><input type="hidden" name="q49" value="Personal Considerations/Special Requests"/>Personal Considerations/Special Requests: (Physical requirements or Medical needs)</td>
+              <td class="sidebarText" align="left"><input type="text" name="a49" size="50"/></td>
             </tr>
 
-            <tr><td colspan="2"><U><B>Introduction Information:</B></U></td></tr>
+            <tr><td class="sidebarText" colspan="2"><U><B>Introduction Information:</B></U></td></tr>
 
             <tr>
-              <td colspan="2">
+              <td class="sidebarText" colspan="2">
                     In order to help us correctly pronouce your name and handle please fill in the
                     questions below.  If you would prefer to send a recording, you may email it
                     to <a href="mailto:ntrefz@topcoder.com" >Nick Trefz</a>
@@ -189,21 +188,21 @@ A hotel room will be confirmed for your arrival on May 2 and departure on May 6,
             </tr>
 
             <tr>
-              <td align="right"><input type="hidden" name="q50" value="Phonetic Handle"/>Phonetic spelling of your handle</td>
-              <td align="left"><input type="text" name="a50" size="50"/></td>
+              <td class="sidebarText" align="right"><input type="hidden" name="q50" value="Phonetic Handle"/>Phonetic spelling of your handle</td>
+              <td class="sidebarText" align="left"><input type="text" name="a50" size="50"/></td>
             </tr>
 
             <tr>
-              <td align="right"><input type="hidden" name="q51" value="Phonetic Name"/>Phonetic spelling of your full name</td>
-              <td align="left"><input type="text" name="a51" size="50"/></td>
+              <td class="sidebarText" align="right"><input type="hidden" name="q51" value="Phonetic Name"/>Phonetic spelling of your full name</td>
+              <td class="sidebarText" align="left"><input type="text" name="a51" size="50"/></td>
             </tr>
 
 
-            <tr><td colspan="2" ALIGN="center"><input type="submit" name="submit" value=" Submit "/></td></tr>
+            <tr><td class="sidebarText" colspan="2" ALIGN="center"><input type="submit" name="submit" value=" Submit "/></td></tr>
             </form>
             <tr><td><br/></td><td><br/></td></tr>
             <tr>
-              <td colspan="2">
+              <td class="sidebarText" colspan="2">
                   *For extended stays in the US, please contact <a href="mailto:bhealy@topcoder.com" >Barbara Healy</a>.
                   Any extra expenses will be your responsibility (extra hotel nights, meals, higher air fares, etc.)
                   and will be deducted from your total TCO prize money won.  If your total TCO prize money is not
@@ -212,7 +211,7 @@ A hotel room will be confirmed for your arrival on May 2 and departure on May 6,
               </td>
             </tr>
             <tr>
-                <td colspan="2">
+                <td class="sidebarText" colspan="2">
                     <br/><br/>
             <font color="#ff0000">PLEASE NOTE:</font>
             Guests are invited to attend the TCO06 and TopCoder can help make travel and lodging arrangements. However,
@@ -222,7 +221,7 @@ A hotel room will be confirmed for your arrival on May 2 and departure on May 6,
             </tr>
 
     <tr>
-        <td colspan="2">
+        <td class="sidebarText" colspan="2">
             *Soon to be Planet Hollywood Resort and Casino
         </td>
     </tr>
