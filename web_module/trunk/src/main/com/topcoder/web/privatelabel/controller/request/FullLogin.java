@@ -5,6 +5,8 @@ import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.ejb.address.Address;
@@ -64,7 +66,9 @@ public abstract class FullLogin extends FullReg {
         } catch (LoginException l) {
             log.debug("no event account");
             try {
-                getAuthentication().login(new SimpleUser(0, handle, password), false);
+                BasicAuthentication b = new BasicAuthentication(new SessionPersistor(getRequest().getSession()),
+                    getRequest(), getResponse(), BasicAuthentication.PRIVATE_LABEL_SITE);
+                b.login(new SimpleUser(0, handle, password), false);
                 char status = user.getStatus(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
                 if (Arrays.binarySearch(ACTIVE_STATI, status) >= 0) {
                     log.debug("yep, they have a tc account");
@@ -75,6 +79,7 @@ public abstract class FullLogin extends FullReg {
                         addError(Constants.HANDLE, getBundle().getProperty("error_account_not_active"));
                     }
                 }
+                setAuthentication(b);
             } catch (LoginException l1) {
                 log.debug("no tc account");
                 if (!hasError(Constants.HANDLE)) {
