@@ -46,7 +46,9 @@
                                 </p>
                                 </li>
                                 <li>
-                                    <p><span class=bodySubtitle>AFFIDAVIT</span> - must be affirmed online or notarized and postmarked on or before Friday, March 24.  Documents that are sent must arrive at TopCoder by April 21, 2006.  See <a href="/PactsMemberServlet?t=affidavit&c=affidavit_history">Affidavits page</a> for status of affidavits & tax forms due.
+                                    <p>
+                                        <span class=bodySubtitle>AFFIDAVIT</span> - must be affirmed online or notarized and postmarked on or before Friday, March 24.  Documents that are sent must arrive at TopCoder by April 21, 2006.  See <a href="/PactsMemberServlet?t=affidavit&c=affidavit_history">Affidavits page</a> for status of affidavits & tax forms due.
+                                    </p>
                                 </li>
 
                                 <li>
