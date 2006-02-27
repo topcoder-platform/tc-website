@@ -41,6 +41,12 @@
             <li>put logic behind the contest details links on the component page in the catalog</li>
 --%>
     <p>
+        4.1.13 - 2006.02.xx
+        <ul>
+            <li>TCO06 Travel On Site Competitor/Review Board pages</li>
+        </ul>
+    </p>
+    <p>
         4.1.12 - 2006.02.24
         <ul>
             <li>Add google coder jam india 2006 registration</li>
