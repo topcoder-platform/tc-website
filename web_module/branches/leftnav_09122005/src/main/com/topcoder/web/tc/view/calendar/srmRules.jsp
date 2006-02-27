@@ -5,6 +5,7 @@
 <%@ page import="com.topcoder.web.common.StringUtils" %>
 
 <%
+/*
 String contest_name = (String)request.getAttribute("contest_name");
 int round_id = ((Integer)request.getAttribute("round_id")).intValue();
 String date = StringUtils.checkNull((String)request.getAttribute("date"));
@@ -13,6 +14,11 @@ String reg_end = StringUtils.checkNull((String)request.getAttribute("reg_end"));
 String coding_begin = StringUtils.checkNull((String)request.getAttribute("coding_begin"));
 String reg_date = StringUtils.checkNull((String)request.getAttribute("reg_date"));
 //int forum_id = ((Integer)request.getAttribute("forum_id")).intValue();
+*/
+
+ResultSetContainer.ResultSetRow rsr = (ResultSetContainer.ResultSetRow)(((ResultSetContainer)request.getAttribute("rsc")).get(0));
+int round_id = rsr.getIntItem("round_id");
+
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -63,7 +69,7 @@ String reg_date = StringUtils.checkNull((String)request.getAttribute("reg_date")
                             <td colspan="3" class="bodyText">
                                 <font color="#ff0000">
                                     <b>
-                                        <%=contest_name%>
+                                        <rsc:item name="contest_name" row="<%=rsr%>"/>
                                         <br/>
                                         Official Rules and Regulations
                                     </b>
@@ -106,9 +112,9 @@ String reg_date = StringUtils.checkNull((String)request.getAttribute("reg_date")
                                     <li>
                                         <b>When to start the Competition</b><br/>
                                         TopCoder members must register from within the TopCoder Arena for this competition.
-                                        Registration is from <%= reg_begin %> to <%= reg_end %>.
+                                        Registration is from <rsc:item name="reg_begin" row="<%=rsr%>"/> to <rsc:item name="reg_end" row="<%=rsr%>"/>.
                                         To register, login to the TopCoder Arena application, click on the 'Active Contests' menu, choose the event to register for, and select the 'Register' option. TopCoder members from all over the country will be participating in this event, but <b><i>all start times will be communicated as Eastern Time, so contestants in different time zones must adjust accordingly</i></b>. All competitors who have registered for the competition will be assigned to a specific competition room. TopCoder will perform the room assignments prior to the start of the competition, in a manner such that only coders in the same division are placed in the same room and the room assignments within each division are random.
-                                        The competition will begin at <%= coding_begin %> Eastern Time.
+                                        The competition will begin at <rsc:item name="coding_begin" row="<%=rsr%>"/> Eastern Time.
                                         <br />
                                     </li>
                                     <br />
@@ -195,7 +201,7 @@ String reg_date = StringUtils.checkNull((String)request.getAttribute("reg_date")
                                 All competitors must be registered members of TopCoder,
                                 and must have agreed to the rules on this page by the
 
-                                <%=reg_date%>&#160;<%=reg_end%> Eastern Time registration deadline.<br/><br/>
+                                <rsc:item name="reg_date" row="<%=rsr%>"/>&#160;<rsc:item name="reg_end" row="<%=rsr%>"/> Eastern Time registration deadline.<br/><br/>
 
                                 Employees of TopCoder and those involved in the development, production (including prize suppliers and sponsors), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to win prizes in this competition.
                                 <br /><br />
@@ -227,7 +233,7 @@ String reg_date = StringUtils.checkNull((String)request.getAttribute("reg_date")
                             <td colspan="3" class="bodyText">
                                 <font color="#ff0000">
                                     <b>
-                                        <%=contest_name%>
+                                        <rsc:item name="contest_name" row="<%=rsr%>"/>
                                         <br/>
                                         Official Rules and Regulations
                                     </b>
@@ -246,11 +252,11 @@ String reg_date = StringUtils.checkNull((String)request.getAttribute("reg_date")
                                     <li>
                                         <b>When to start the Online Tournament Rounds</b><br/>
                                         TopCoder members must register for the online tournament.
-                                        Registration is from <%= reg_begin %> to <%= reg_end %>, Eastern Time.
+                                        Registration is from <rsc:item name="reg_begin" row="<%=rsr%>"/> to <rsc:item name="reg_end" row="<%=rsr%>"/>, Eastern Time.
                                         To register, login to the TopCoder Arena application, click on the 'Active Contests' menu, choose the event to register for, and select the 'Register' option. TopCoder members from all over the country will be participating in this event, but <b><i>all start times will be communicated as Eastern Time, so contestants in different time zones must adjust accordingly</i></b>. All competitors who have registered for the competition will be assigned to a specific competition room. TopCoder will perform the room assignments prior to the start of the competition, in a manner such that only coders in the same division are placed in the same room and the room assignments within each division are random.
-                                        The competition will begin at <%= coding_begin %> Eastern Time.
+                                        The competition will begin at <rsc:item name="reg_begin" row="<%=rsr%>"/> Eastern Time.
 
-                                        Competition is at <%=coding_begin%>&#160;<%=date%> Eastern Time.
+                                        Competition is at <rsc:item name="reg_begin" row="<%=rsr%>"/>&#160;<rsc:item name="date" row="<%=rsr%>"/> Eastern Time.
                                         To register, login to the Tournament Arena applet, click on the 'Main' menu, and
                                         choose the option for 'Event Registration'.
                                         TopCoder members from all over the country will be participating
@@ -261,7 +267,7 @@ String reg_date = StringUtils.checkNull((String)request.getAttribute("reg_date")
                                         a tournament round, in a manner such that only coders in the same
                                         division are placed in a room and the average competitor
                                         rating for each room is similar.
-                                        The Online Round will begin at <%=coding_begin%> Eastern Time.
+                                        The Online Round will begin at <rsc:item name="reg_begin" row="<%=rsr%>"/> Eastern Time.
                                         <br />
                                     </li>
                                     <br />
@@ -336,7 +342,7 @@ String reg_date = StringUtils.checkNull((String)request.getAttribute("reg_date")
                                 All competitors must be registered members of TopCoder,
                                 and must have agreed to the rules on this page by the
 
-                                <%=reg_date%>&#160;<%=reg_end%> Eastern Time registration deadline.<br/><br/>
+                                <rsc:item name="reg_date" row="<%=rsr%>"/>&#160;<rsc:item name="reg_end" row="<%=rsr%>"/> Eastern Time registration deadline.<br/><br/>
 
                                 Employees of TopCoder and those involved in the development, production (including prize suppliers and sponsors), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
                                 <br /><br />

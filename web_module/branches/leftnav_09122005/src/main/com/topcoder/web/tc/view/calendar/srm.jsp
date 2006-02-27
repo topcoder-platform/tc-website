@@ -60,7 +60,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                 <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
                     <jsp:include page="../page_title.jsp" >
                         <jsp:param name="image" value="schedule"/>
-                        <jsp:param name="title" value="<rsc:item name="contest_name" row="<%=rsr%>"/>"/>
+                        <jsp:param name="title" value="Contest"/>
                     </jsp:include>
 
                     <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
