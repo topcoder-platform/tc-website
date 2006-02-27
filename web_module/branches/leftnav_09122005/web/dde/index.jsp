@@ -1,4 +1,5 @@
-<%@ page import="javax.naming.*" %>
+<%@ page import="javax.naming.*,
+                 com.topcoder.dde.util.ApplicationServer" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
@@ -78,15 +79,29 @@
                         <a href="/applications/index.jsp"><img src="/images/promos/promo_home_2.jpg" alt="" width="247" height="175" border="0" /></a>
                     </td>
                 </tr>
+                <tr>
+                    <td valign="top" align="left" colspan="2">
+                    <map name="morris_promo">
+                    <area shape="rect" alt="Application Development Methodology" coords="53,64,238,78" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/applDevMethod.mp4" />
+                    <area shape="rect" alt="Requirements and Specifications" coords="53,79,238,92" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/reqSpecs.mp4" />
+                    <area shape="rect" alt="Specification Phase" coords="53,93,238,106" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/specPhase.mp4" />
+                    <area shape="rect" alt="Specification Phase - QA Plan" coords="53,107,238,121" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/specPhaseQA.mp4" />
+                    <area shape="rect" alt="Application Architecture Phase" coords="53,122,238,135" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/applArchPhase.mp4" />
+                    <area shape="rect" alt="Manufacturing Discipline" coords="53,136,238,148" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/manuDiscipline.mp4" />
+                    <area shape="rect" alt="Using Competition to Build Software I" coords="53,149,238,162" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/usingCompetitionI.mp4" />
+                    <area shape="rect" alt="Using Competition to Build Software II" coords="53,163,238,176" href="http://<%=ApplicationServer.TC_SERVER%>/movies/promotional/usingCompetitionII.mp4" />      
+                    </map>
+                    <img src="/images/promos/promo_morris.jpg" alt="Mike Morris Promo" border="0" usemap="#morris_promo"/>
+                    </td>
+                </tr>
 
             </table>
 
-			<jsp:include page="/includes/customers_featured.jsp" flush="true" />
+		<!--	<jsp:include page="/includes/customers_featured.jsp" flush="true" />-->
          <jsp:include page="/includes/press_highlights.jsp" flush="true" />
             <p><br></p>
 
         </td>
-
 
         <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
         <td width="170">

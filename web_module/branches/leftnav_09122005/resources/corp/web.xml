@@ -192,6 +192,42 @@
         <description>The job posting servlet</description>
         <servlet-class>com.topcoder.web.corp.controller.TCESServlet</servlet-class>
 
+        <!-- begin parameters required by BaseServlet -->
+        <init-param>
+            <param-name>module_key</param-name>
+            <param-value>module</param-value>
+            <description>the url parameter that defines which processor to execute</description>
+        </init-param>
+        <init-param>
+            <param-name>default_processor</param-name>
+            <param-value>MainTask</param-value>
+            <description>the processor to execute if non is specified in the request</description>
+        </init-param>
+        <init-param>
+            <param-name>login_servlet</param-name>
+            <param-value>/</param-value>
+            <description>the processor to execute when we need to direct the user to login</description>
+        </init-param>
+        <init-param>
+            <param-name>login_processor</param-name>
+            <param-value>Login</param-value>
+            <description>the processor to execute when we need to direct the user to login</description>
+        </init-param>
+        <init-param>
+            <param-name>processor_path</param-name>
+            <param-value>com.topcoder.web.corp.controller.request.tces.</param-value>
+            <description>the path to the processors for this app</description>
+        </init-param>
+        <init-param>
+            <param-name>error_page</param-name>
+            <param-value>/errorPage.jsp</param-value>
+            <description>where to forward for errors</description>
+        </init-param>
+        <!-- end  parameters required by BaseServlet -->
+
+
+
+
         <init-param>
             <param-name>jsp_root</param-name>
             <param-value>/tces/</param-value>
@@ -228,6 +264,11 @@
         </init-param>
 
         <init-param>
+            <param-name>placement_info_page</param-name>
+            <param-value>placementInfo.jsp</param-value>
+        </init-param>
+
+        <init-param>
             <param-name>position_interest_page</param-name>
             <param-value>position_interest.jsp</param-value>
         </init-param>
@@ -245,6 +286,16 @@
         <init-param>
             <param-name>member_profile_page</param-name>
             <param-value>member_profile.jsp</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>search_page</param-name>
+            <param-value>search.jsp</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>search_results_page</param-name>
+            <param-value>searchResults.jsp</param-value>
         </init-param>
 
         <init-param>
@@ -364,12 +415,7 @@
 
         <init-param>
             <param-name>task_param</param-name>
-            <param-value>task</param-value>
-        </init-param>
-
-        <init-param>
-            <param-name>step_param</param-name>
-            <param-value>st</param-value>
+            <param-value>module</param-value>
         </init-param>
 
         <init-param>
@@ -394,7 +440,7 @@
 
         <init-param>
             <param-name>user_id_param</param-name>
-            <param-value>user_id</param-value>
+            <param-value>uid</param-value>
         </init-param>
 
         <init-param>
@@ -414,7 +460,7 @@
 
         <init-param>
             <param-name>job_id_param</param-name>
-            <param-value>job_id</param-value>
+            <param-value>jid</param-value>
         </init-param>
 
         <init-param>

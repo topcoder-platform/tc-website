@@ -9,13 +9,21 @@ import com.topcoder.apps.screening.ScreeningRule;
 import com.topcoder.apps.screening.ScreeningLogger;
 import com.topcoder.apps.screening.ResponseCode;
 import com.topcoder.apps.screening.SimpleScreeningData;
+import com.topcoder.apps.screening.DatabaseException;
 
 /**
  * <strong>Purpose</strong>:
  * Checks if the submission conforms to proper directory structure.
  *
- * @author WishingBone
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * DatabaseException is catched and propagated to the ScreeningTool class.
+ * </li>
+ * </ol>
+ *
+ * @author WishingBone, pulky
+ * @version 1.0.1
  */
 public class JavaDevDirRule implements ScreeningRule {
 
@@ -27,6 +35,10 @@ public class JavaDevDirRule implements ScreeningRule {
      * @param file the file to screen.
      * @param root the root dir of the extracted submission.
      * @param logger the logger to write responses to.
+     *
+     * @return true if the rule succedeed.
+     *
+     * @throws DatabaseException if screening process got DatabaseException.
      */
     public boolean screen(File file, File root, ScreeningLogger logger) {
         try {
@@ -36,6 +48,9 @@ public class JavaDevDirRule implements ScreeningRule {
                             "com/topcoder/apps/screening/rules/JavaDevDirRule.xml").toString().substring(5))),
                     root.getAbsolutePath());
             return vLogger.isSuccessful();
+        } catch (DatabaseException dbe) {
+            // propagate database exception so submission would be rescreened.
+            throw dbe;
         } catch (Exception ex) {
             logger.log(new SimpleScreeningData("Failed to validate directory structure.", ResponseCode.INVALID_DIRECTORY));
         }

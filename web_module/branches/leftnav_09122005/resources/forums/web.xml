@@ -46,6 +46,7 @@
 
     </servlet>
 
+
     <servlet-mapping>
         <servlet-name>forums</servlet-name>
         <url-pattern>/</url-pattern>

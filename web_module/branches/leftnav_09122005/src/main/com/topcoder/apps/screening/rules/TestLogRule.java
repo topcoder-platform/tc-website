@@ -7,13 +7,21 @@ import com.topcoder.apps.screening.ScreeningRule;
 import com.topcoder.apps.screening.ScreeningLogger;
 import com.topcoder.apps.screening.ResponseCode;
 import com.topcoder.apps.screening.SimpleScreeningData;
+import com.topcoder.apps.screening.DatabaseException;
 
 /**
  * <strong>Purpose</strong>:
  * Checks if the log directory exists and contains a plain text log and an xml log.
  *
- * @author WishingBone
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * DatabaseException is catched and propagated to the ScreeningTool class.
+ * </li>
+ * </ol>
+ *
+ * @author WishingBone, pulky
+ * @version 1.0.1
  */
 public class TestLogRule implements ScreeningRule {
 
@@ -25,6 +33,10 @@ public class TestLogRule implements ScreeningRule {
      * @param file the file to screen.
      * @param root the root dir of the extracted submission.
      * @param logger the logger to write responses to.
+     *
+     * @return true if the rule succedeed.
+     *
+     * @throws DatabaseException if screening process got DatabaseException.
      */
     public boolean screen(File file, File root, ScreeningLogger logger) {
         try {
@@ -56,6 +68,9 @@ public class TestLogRule implements ScreeningRule {
                 logger.log(new SimpleScreeningData("The xml log does not exist.", ResponseCode.NO_LOG_FILES));
             }
             return plainText && xml;
+        } catch (DatabaseException dbe) {
+            // propagate database exception so submission would be rescreened.
+            throw dbe;
         } catch (Exception ex) {
             logger.log(new SimpleScreeningData("Failed to validate log files.", ResponseCode.NO_LOG_FILES));
         }

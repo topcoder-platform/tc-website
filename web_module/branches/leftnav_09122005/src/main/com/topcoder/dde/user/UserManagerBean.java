@@ -3,6 +3,9 @@ package com.topcoder.dde.user;
 import com.topcoder.apps.review.projecttracker.ProjectTracker;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
 import com.topcoder.dde.DDEException;
+import com.topcoder.dde.catalog.ComponentManagerHome;
+import com.topcoder.dde.catalog.ComponentManager;
+import com.topcoder.dde.catalog.Forum;
 import com.topcoder.dde.persistencelayer.interfaces.*;
 import com.topcoder.dde.util.Constants;
 import com.topcoder.file.render.ValueTag;
@@ -20,6 +23,7 @@ import com.topcoder.util.config.*;
 import com.topcoder.util.idgenerator.bean.IdGen;
 import com.topcoder.util.idgenerator.bean.IdGenException;
 import com.topcoder.util.idgenerator.bean.IdGenHome;
+import com.topcoder.shared.util.DBMS;
 import org.apache.log4j.Logger;
 
 import javax.ejb.*;
@@ -992,6 +996,109 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             throw new DDEException("" + e);
         }
     }
+
+
+
+    private static final String componentInfo =
+            "select cv.component_id " +
+                " , cv.phase_id " +
+               "  , cv.version " +
+            "  from project p " +
+              "   , comp_versions cv " +
+           "  where p.project_id = ? " +
+             "  and p.cur_version = 1 " +
+             "  and p.comp_vers_id = cv.comp_vers_id";
+
+    private static final String getRating =
+            " select rating from user_rating where phase_id = ? and user_id = ?";
+
+    public void registerForProject(long userId, String comments, long projectId)
+            throws RemoteException, DDEException, NoSuchUserException, EJBException {
+        long componentId = 0;
+        int rating = 0;
+        int phase = 0;
+        int version = 0;
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        PreparedStatement ps1 = null;
+        InitialContext ctx = null;
+        ResultSet rs = null;
+        ResultSet rs1 = null;
+        try {
+            ctx = new InitialContext();
+            DataSource datasource = (DataSource) ctx.lookup("java:comp/env/jdbc/DefaultDS");
+            conn = datasource.getConnection();
+
+            ps = conn.prepareStatement(componentInfo);
+            ps.setLong(1, projectId);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                componentId = rs.getLong("component_id");
+                phase = rs.getInt("phase_id");
+                version = rs.getInt("version");
+            } else {
+                throw new EJBException("Invalid project id specified: " + projectId);
+            }
+
+            ps1 = conn.prepareStatement(getRating);
+            ps1.setInt(1, phase);
+            ps1.setLong(2, userId);
+
+            rs1 = ps1.executeQuery();
+            if (rs1.next()) {
+                rating = rs1.getInt("rating");
+            } else {
+                rating = 0;
+            }
+
+            registerInquiry(userId, componentId, rating, userId, comments, true, phase, version, projectId);
+
+
+            Object objTechTypes = ctx.lookup(ComponentManagerHome.EJB_REF_NAME);
+            ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
+            ComponentManager componentMgr = home.create(componentId);
+            Forum activeForum = componentMgr.getActiveForum(Forum.SPECIFICATION);
+
+            if (activeForum == null) throw new EJBException("Could not find forum for component " + componentId);
+
+            String roleName = "ForumUser " + activeForum.getId();
+
+            //add the user to the appropriate role to view the forum
+            Object objPrincipalManager = ctx.lookup("security/PrincipalMgr");
+            PrincipalMgrRemoteHome principalManagerHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objPrincipalManager, PrincipalMgrRemoteHome.class);
+            PrincipalMgrRemote principalMgr = principalManagerHome.create();
+            Collection roles = principalMgr.getRoles(null);
+            RolePrincipal role = null;
+            for (Iterator it = roles.iterator(); it.hasNext();) {
+                role = (RolePrincipal) it.next();
+                if (role.getName().equalsIgnoreCase(roleName)) {
+                    UserPrincipal up = principalMgr.getUser(userId);
+                    try {
+                        principalMgr.assignRole(up, role, null);
+                    } catch (Exception e) {
+                    }
+                }
+            }
+
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e.getMessage());
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        } finally {
+            close(rs);
+            close(ps);
+            close(rs1);
+            close(ps1);
+            close(conn);
+            close(ctx);
+        }
+
+
+    }
+
 
 
     public void registerInquiry(long userId, long componentId, long rating, long tcUserId,

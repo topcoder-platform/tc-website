@@ -26,7 +26,6 @@ import javax.ejb.SessionContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
-import javax.sql.DataSource;
 import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -43,9 +42,16 @@ import java.util.Set;
  * @author TCSDeveloper
  */
 public class UserManagerBean implements SessionBean {
-    Log log;
-    private DataSource dataSource;
+    //todo get a decent logger in place that doesn't throw exceptions when you try to instantiate
+    private static Log log;
 
+    static {
+        try {
+            log = LogFactory.getInstance().getLog("com.topcoder.apps.review.document.UserManagerBean");
+        } catch (LogException e) {
+            e.printStackTrace();
+        }
+    }
     private void info(String msg) {
         try {
             log.log(Level.INFO, msg);
@@ -120,7 +126,7 @@ public class UserManagerBean implements SessionBean {
         ResultSet rs = null;
 
         try {
-            conn = dataSource.getConnection();
+            conn = Common.getDataSource().getConnection();
 
             // TODO Integration: Handle is taken from security_user...
             if (reqHandle != null) {
@@ -214,15 +220,6 @@ public class UserManagerBean implements SessionBean {
      * @throws CreateException DOCUMENT ME!
      */
     public void ejbCreate() throws CreateException {
-        dataSource = Common.getDataSource();
-
-        try {
-            log = LogFactory.getInstance().getLog("com.topcoder.apps.review.document.UserManagerBean");
-        } catch (LogException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
         info("UserManagerBean created");
     }
 

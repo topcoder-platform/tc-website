@@ -18,16 +18,34 @@ public interface PrincipalMgrRemote extends EJBObject {
     public abstract UserPrincipal getUser(String s)
             throws RemoteException, GeneralSecurityException, NoSuchUserException;
 
+    public abstract UserPrincipal getUser(String s, String dataSource)
+            throws RemoteException, GeneralSecurityException, NoSuchUserException;
+
     public abstract UserPrincipal getUser(long l)
             throws RemoteException, GeneralSecurityException, NoSuchUserException;
 
+    public abstract UserPrincipal getUser(long l, String dataSource)
+            throws RemoteException, GeneralSecurityException, NoSuchUserException;
+
     public abstract TCSubject getUserSubject(long l)
+            throws RemoteException, GeneralSecurityException, NoSuchUserException;
+
+    public abstract TCSubject getUserSubject(long l, String dataSource)
             throws RemoteException, GeneralSecurityException, NoSuchUserException;
 
     public abstract String getPassword(long l)
             throws RemoteException, GeneralSecurityException, NoSuchUserException;
 
     public abstract UserPrincipal createUser(String username, String password, TCSubject requestor)
+            throws RemoteException, GeneralSecurityException;
+
+    public abstract UserPrincipal createUser(String username, String password, TCSubject requestor, String dataSource)
+            throws RemoteException, GeneralSecurityException;
+
+    public abstract UserPrincipal createUser(long userId, String username, String password, TCSubject requestor)
+            throws RemoteException, GeneralSecurityException;
+
+    public abstract UserPrincipal createUser(long userId, String username, String password, TCSubject requestor, String dataSource)
             throws RemoteException, GeneralSecurityException;
 
     public abstract void removeUser(UserPrincipal userprincipal, TCSubject tcsubject)

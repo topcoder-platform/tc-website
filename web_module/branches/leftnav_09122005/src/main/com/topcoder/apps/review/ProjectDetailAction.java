@@ -1,5 +1,5 @@
-/**
- * Copyright ?2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.apps.review;
@@ -23,13 +23,19 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * <p>
- * Extends from <strong>ReviewAction</strong> that renders the information
+ * <strong>Purpose</strong>:
+ * Extends from <code>ReviewAction</code> that renders the information
  * of the specified project.
- * </p>
  *
- * @author TCSDEVELOPER
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Added configurable max number of scores for marking screening as passed. (was hardcoded with 5)
+ * </li>
+ * </ol>
+ *
+ * @author TCSDEVELOPER, pulky
+ * @version 1.0.1
  */
 public final class ProjectDetailAction extends ReviewAction {
 
@@ -189,9 +195,9 @@ public final class ProjectDetailAction extends ReviewAction {
             } else if (phaseId == Constants.PHASE_SCREENING) {
                 if (isAdmin || isPM) {
                     //hork up scorecards by setting advanced to review flag
-                    //flag is set if scorecard isn't PM reviewed, and it in top 5 overall scores
+                    //flag is set if scorecard isn't PM reviewed, and it in top "maxNumberPassingScores" overall scores
 
-                    //get top 5 scores first
+                    //get top "maxNumberPassingScores" scores first
                     ArrayList scores = new ArrayList();
 
                     AbstractScorecard[] scorecards = pr.getScorecards();
@@ -203,11 +209,21 @@ public final class ProjectDetailAction extends ReviewAction {
                         minscore = 75;
                     }
 
+                    int maxNumberPassingScores;
+                    try {
+                        maxNumberPassingScores = ConfigHelper.getMaxNumberPassingScores();
+                    } catch (Exception e) {
+                        maxNumberPassingScores = ConfigHelper.MAX_NUMBER_PASSING_SCORES_DEFAULT;
+                    }
+
                     for (int i = 0; i < submissions.length; i++) {
                         if (!submissions[i].isRemoved()) {
                             for (int j = 0; j < scorecards.length; j++) {
-                                if (scorecards[j] instanceof ScreeningScorecard && scorecards[j].getSubmission().equals(submissions[i]) && scorecards[j].isCompleted()) {
-                                    if (((ScreeningScorecard) scorecards[j]).getPassed() && scorecards[j].getScore() >= minscore) {
+                                if (scorecards[j] instanceof ScreeningScorecard &&
+                                    scorecards[j].getSubmission().equals(submissions[i])
+                                        && scorecards[j].isCompleted()) {
+                                    if (((ScreeningScorecard) scorecards[j]).getPassed() &&
+                                        scorecards[j].getScore() >= minscore) {
                                         scores.add(new Double(scorecards[j].getScore()));
                                     }
                                 }
@@ -218,16 +234,20 @@ public final class ProjectDetailAction extends ReviewAction {
                     //sort list
                     Collections.sort(scores);
                     Collections.reverse(scores);
-                    //remove all but top five scores.  No need to check ties, this will gaurentee they advance
-                    while (scores.size() > 5) {
-                        scores.remove(5);
+                    //remove all but top "maxNumberPassingScores" scores.  No need to check ties,
+                    //this will gaurentee they advance
+                    while (scores.size() > maxNumberPassingScores) {
+                        scores.remove(maxNumberPassingScores);
                     }
 
                     for (int i = 0; i < submissions.length; i++) {
                         if (!submissions[i].isRemoved()) {
                             for (int j = 0; j < scorecards.length; j++) {
-                                if (scorecards[j] instanceof ScreeningScorecard && scorecards[j].getSubmission().equals(submissions[i]) && scorecards[j].isCompleted() && !scorecards[j].isPMReviewed()) {
-                                    if (((ScreeningScorecard) scorecards[j]).getPassed() && scores.contains(new Double(scorecards[j].getScore()))) {
+                                if (scorecards[j] instanceof ScreeningScorecard &&
+                                    scorecards[j].getSubmission().equals(submissions[i]) &&
+                                        scorecards[j].isCompleted() && !scorecards[j].isPMReviewed()) {
+                                    if (((ScreeningScorecard) scorecards[j]).getPassed() &&
+                                        scores.contains(new Double(scorecards[j].getScore()))) {
                                         ((InitialSubmission) submissions[i]).setAdvancedToReview(true);
                                     } else {
                                         ((InitialSubmission) submissions[i]).setAdvancedToReview(false);

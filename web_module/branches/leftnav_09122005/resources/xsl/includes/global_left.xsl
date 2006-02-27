@@ -11,6 +11,8 @@
     <xsl:param name="level2"></xsl:param>
     <xsl:param name="level3"></xsl:param>
 
+    <script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
+
     <xsl:choose>
 <!-- Schedule begins -->
         <xsl:when test="/TC/Task='schedule'">
@@ -432,6 +434,19 @@
                         <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=sample_problems</xsl:attribute>Sample Problem Statements</A>
                     </td>
                 </tr>
+            
+<!-- How to Get Paid -->
+                <tr>
+                    <td id="leftSubnav">
+                        <xsl:attribute name="id">
+                        <xsl:choose>
+                        <xsl:when test="/TC/Command='alg_payment'">leftSubnavOn</xsl:when>
+                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=help&amp;d2=algPayment</xsl:attribute>How to Get Paid</A>
+                    </td>
+                </tr>
             </table>
 
             <xsl:call-template name="simple_search"/>
@@ -658,7 +673,20 @@
 </xsl:template>
 
 <xsl:template name="applet_row">
-                <tr><td id="leftNavApplet"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A href="Javascript:arena()" class="left">Launch Arena Applet</A></td></tr>
+                <tr><td id="leftNavApplet"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>
+        <script language="JavaScript"><![CDATA[
+            if (canDetectPlugins()) {
+                if (detectJavaWebStart()) {
+                    document.write('<a href="http://www.topcoder.com/contest/arena/ContestAppletProd.jnlp" class="left">');
+                }
+                else {
+                    document.write('<a href="javascript:arena();" class="left">');
+                }
+            }
+            else {
+                document.write('<a href="javascript:arena();" class="left">');
+            }
+        ]]></script>Launch Arena Applet</td></tr>
 </xsl:template>
 
 <xsl:template name="my_home_row">
@@ -767,7 +795,7 @@
                         <xsl:otherwise>left</xsl:otherwise>
                     </xsl:choose>
                 </xsl:attribute>
-            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=comp_projects</xsl:attribute>
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=ViewActiveContests</xsl:attribute>
             <img width="10" height="10" alt="" border="0" src="/i/nav_arrow_bottom.gif">
                  <xsl:attribute name="src">
                     <xsl:choose>
@@ -789,7 +817,7 @@
                                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                                     </xsl:choose>
                                     </xsl:attribute>
-                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=comp_projects</xsl:attribute>Projects</A>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=ViewActiveContests</xsl:attribute>Active Contests</A>
                                 </td>
                             </tr>
 
@@ -805,7 +833,7 @@
                                     <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=ViewReviewProjects</xsl:attribute>Review Opportunities</A>
                                 </td>
                             </tr>
-              <!-- Project Winners -->
+              <!-- Contest Winners -->
                             <tr>
                                 <td id="leftSubnav">
                                     <xsl:attribute name="id">
@@ -814,7 +842,33 @@
                                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                                     </xsl:choose>
                                     </xsl:attribute>
-                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=components</xsl:attribute>Recent Project Winners</A>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=components</xsl:attribute>Recent Contest Winners</A>
+                                </td>
+                            </tr>
+
+            <!-- Design Contests -->
+                            <tr>
+                                <td id="leftSubnav">
+                                    <xsl:attribute name="id">
+                                    <xsl:choose>
+                                        <xsl:when test="$level3='des_contests'">leftSubnavOn</xsl:when>
+                                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                                    </xsl:choose>
+                                    </xsl:attribute>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=CompList&amp;pi=112</xsl:attribute>Design Results</A>
+                                </td>
+                            </tr>
+
+            <!-- Development Contests -->
+                            <tr>
+                                <td id="leftSubnav">
+                                    <xsl:attribute name="id">
+                                    <xsl:choose>
+                                        <xsl:when test="$level3='dev_contests'">leftSubnavOn</xsl:when>
+                                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                                    </xsl:choose>
+                                    </xsl:attribute>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=CompList&amp;pi=113</xsl:attribute>Development Results</A>
                                 </td>
                             </tr>
 
@@ -853,7 +907,7 @@
                                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                                     </xsl:choose>
                                     </xsl:attribute>
-                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/SoftwareHost"/>/review</xsl:attribute>Project Submit &amp; Review</A>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/SoftwareHost"/>/review</xsl:attribute>Submit &amp; Review</A>
                                 </td>
                             </tr>
 
@@ -866,7 +920,7 @@
                                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                                     </xsl:choose>
                                     </xsl:attribute>
-                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=comp_archive</xsl:attribute>Project Status</A>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=comp_archive</xsl:attribute>Contest Status</A>
                                 </td>
                             </tr>
 

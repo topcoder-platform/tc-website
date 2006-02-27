@@ -49,7 +49,7 @@ public class PrincipalMgrBean extends BaseEJB {
         return pl;
     }
 
-    public UserPrincipal getUser(String username)
+    public UserPrincipal getUser(String username, String dataSource)
             throws GeneralSecurityException, NoSuchUserException {
         checkLength(username, 50);
         logger.debug("getting user: " + username);
@@ -60,7 +60,7 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            conn = Util.getConnection(ctx, DATA_SOURCE);
+            conn = Util.getConnection(ctx, dataSource);
             ps = conn.prepareStatement(query);
             ps.setString(1, username);
             rs = ps.executeQuery();
@@ -81,8 +81,17 @@ public class PrincipalMgrBean extends BaseEJB {
             close(ctx);
         }
     }
+    public UserPrincipal getUser(String username)
+            throws GeneralSecurityException, NoSuchUserException {
+        return getUser(username, DATA_SOURCE);
+    }
 
     public UserPrincipal getUser(long id)
+            throws GeneralSecurityException, NoSuchUserException {
+        return getUser(id, DATA_SOURCE);
+    }
+
+    public UserPrincipal getUser(long id, String dataSource)
             throws GeneralSecurityException, NoSuchUserException {
         logger.debug("getting user: " + id);
         String query = "SELECT user_id FROM security_user WHERE login_id = ?";
@@ -92,7 +101,7 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            conn = Util.getConnection(ctx, DATA_SOURCE);
+            conn = Util.getConnection(ctx, dataSource);
             ps = conn.prepareStatement(query);
             ps.setLong(1, id);
             rs = ps.executeQuery();
@@ -116,6 +125,12 @@ public class PrincipalMgrBean extends BaseEJB {
 
     public TCSubject getUserSubject(long userId)
             throws GeneralSecurityException, NoSuchUserException {
+        return getUserSubject(userId, DATA_SOURCE);
+    }
+
+
+    public TCSubject getUserSubject(long userId, String dataSource)
+            throws GeneralSecurityException, NoSuchUserException {
         logger.debug("PrincipalMgrBean.getUserSubject: " + userId);
         Set pl = new HashSet();
         InitialContext ctx = null;
@@ -124,8 +139,8 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            conn = Util.getConnection(ctx, DATA_SOURCE);
-            getUser(userId);
+            conn = Util.getConnection(ctx, dataSource);
+            getUser(userId, dataSource);
             StringBuffer query = new StringBuffer(200);
             query.append("SELECT security_roles.role_id, description ");
             query.append(" FROM user_role_xref, security_roles ");
@@ -196,7 +211,50 @@ public class PrincipalMgrBean extends BaseEJB {
         }
     }
 
-    public UserPrincipal createUser(String username, String password, TCSubject requestor)
+
+
+    public UserPrincipal createUser(long userId, String username, String password, TCSubject requestor, String dataSource)
+            throws GeneralSecurityException {
+        logger.debug(requestor + " is creating user " + username);
+        checkLength(username, 50);
+        checkLength(password, 31);
+        String encPassword = Util.encodePassword(password, "users");
+        logger.debug("*********password into db: " + encPassword);
+        InitialContext ctx = null;
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        try {
+            ctx = new InitialContext();
+            logger.debug("new login_id = " + userId);
+            String query = "INSERT INTO security_user (login_id, user_id, password) VALUES (?, ?, ?)";
+            conn = Util.getConnection(ctx, dataSource);
+            ps = conn.prepareStatement(query);
+            ps.setEscapeProcessing(true);
+            ps.setLong(1, userId);
+            ps.setString(2, username);
+            ps.setString(3, encPassword);
+            ps.executeUpdate();
+            UserPrincipal up = new UserPrincipal(username, userId);
+            return up;
+        } catch (SQLException e) {
+            throw new GeneralSecurityException(e);
+        } catch (NamingException e) {
+            throw new GeneralSecurityException(e);
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+    }
+
+    public UserPrincipal createUser(long userId, String username, String password, TCSubject requestor)
+            throws GeneralSecurityException {
+        return createUser(userId, username, password, requestor, DATA_SOURCE);
+    }
+
+    public UserPrincipal createUser(String username, String password, TCSubject requestor, String dataSource)
             throws GeneralSecurityException {
         logger.debug(requestor + " is creating user " + username);
         checkLength(username, 50);
@@ -213,7 +271,7 @@ public class PrincipalMgrBean extends BaseEJB {
             long userId = idGenHome.create().nextId();
             logger.debug("new login_id = " + userId);
             String query = "INSERT INTO security_user (login_id, user_id, password) VALUES (?, ?, ?)";
-            conn = Util.getConnection(ctx, DATA_SOURCE);
+            conn = Util.getConnection(ctx, dataSource);
             ps = conn.prepareStatement(query);
             ps.setEscapeProcessing(true);
             ps.setLong(1, userId);
@@ -236,6 +294,12 @@ public class PrincipalMgrBean extends BaseEJB {
             close(conn);
             close(ctx);
         }
+    }
+
+
+    public UserPrincipal createUser(String username, String password, TCSubject requestor)
+            throws GeneralSecurityException {
+        return createUser(username, password, requestor, DATA_SOURCE);
     }
 
     public void removeUser(UserPrincipal user, TCSubject requestor)

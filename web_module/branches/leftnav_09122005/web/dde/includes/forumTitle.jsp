@@ -1,13 +1,13 @@
-
-            <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr><td height="15" colspan="3"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-                <tr valign="top">
-                    <td width="98%" align="left">
-                        <table border="0" cellpadding="0" cellspacing="0">
-                            <tr valign="middle">
-                                <td class="normal"><img src="/images/headForums.gif" alt="Forums" width="100" height="22" border="0"></td>
-				<TD>
-				<%
+<%@ page import="com.topcoder.dde.catalog.Catalog"%>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr><td height="15" colspan="3"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
+    <tr valign="top">
+        <td width="98%" align="left">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr valign="middle">
+                    <td class="normal"><img src="/images/headForums.gif" alt="Forums" width="100" height="22" border="0"></td>
+    <TD>
+    <%
 				if( Catalog.JAVA_CATALOG == forumComponent.getRootCategory( ) )
 				{
 				%>

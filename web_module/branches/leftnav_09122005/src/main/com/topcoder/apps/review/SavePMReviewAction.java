@@ -1,5 +1,5 @@
-/**
- * Copyright ?2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.apps.review;
@@ -17,8 +17,17 @@ import javax.servlet.http.HttpServletResponse;
  * for the project manager.
  * </p>
  *
- * @author TCSDEVELOPER
- * @version 1.0
+ * <p>
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * <code>AutoPilot.reviewPMReview()</code> was commented since the functionality is obsolete.
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER, pulky
+ * @version 1.0.1
  */
 public final class SavePMReviewAction extends ReviewAction {
 
@@ -75,7 +84,7 @@ public final class SavePMReviewAction extends ReviewAction {
                 DocumentManagerLocal documentManager;
 
                 log(Level.ERROR, "HERE");
-//struts checkbox doesn't record unchecked state properly, need to reset if not in request
+                //struts checkbox doesn't record unchecked state properly, need to reset if not in request
                 if (request.getParameter("advanced") == null) {
                     ((SubmissionForm) form).setAdvanced(false);
                 }
@@ -92,7 +101,7 @@ public final class SavePMReviewAction extends ReviewAction {
                     request.getSession().removeAttribute(mapping.getAttribute());
                     resetToken(request);
 
-// Set the PM Review flag
+                    // Set the PM Review flag
                     for (int i = 0; i < ((SubmissionForm) form).getScorecards().length; i++) {
                         AbstractScorecard scorecard = ((SubmissionForm) form).getScorecards()[i];
                         if (scorecard.getSubmission().getId() == sid) {
@@ -103,10 +112,12 @@ public final class SavePMReviewAction extends ReviewAction {
                             if (scorecard instanceof ScreeningScorecard) {
                                 log(Level.ERROR, "ADVANCED: " + ((SubmissionForm) form).getAdvanced());
                                 if (((SubmissionForm) form).getIsScreening()) {
-/*((InitialSubmission)((SubmissionForm) form).getSubmission()).setAdvancedToReview(((SubmissionForm) form).getAdvanced());
+                                    /*((InitialSubmission)((SubmissionForm) form).getSubmission()).
+                                        setAdvancedToReview(((SubmissionForm) form).getAdvanced());
 
                                     try {
-                                        documentManager.saveInitialSubmission((InitialSubmission)((SubmissionForm) form).getSubmission(), data.getUser().getTCSubject());
+                                        documentManager.saveInitialSubmission((InitialSubmission)((SubmissionForm)
+                                            form).getSubmission(), data.getUser().getTCSubject());
                                     } catch(Exception e) {
                                         log(Level.ERROR, e.getMessage());
                                         return null;
@@ -114,7 +125,6 @@ public final class SavePMReviewAction extends ReviewAction {
 
                                     ScreeningData sData = new ScreeningData(orpd, sid, (ScreeningScorecard) scorecard);
                                     result = businessDelegate.screeningScorecard(sData);
-
                                 }
                             } else {
                                 ReviewData rData = new ReviewData(orpd, sid, scorecard.getAuthor().getId(),
@@ -128,9 +138,10 @@ public final class SavePMReviewAction extends ReviewAction {
                         }
                     }
 
-//save
+                    //save
                     if (((SubmissionForm) form).getIsScreening()) {
-                        InitialSubmission sub = documentManager.getInitialSubmission(data.getProject(), sid, orpd.getUser().getTCSubject());
+                        InitialSubmission sub = documentManager.getInitialSubmission(data.getProject(), sid,
+                            orpd.getUser().getTCSubject());
                         sub.setAdvancedToReview(((SubmissionForm) form).getAdvanced());
 
                         try {
@@ -142,10 +153,10 @@ public final class SavePMReviewAction extends ReviewAction {
                         ResultData rs = AutoPilot.screeningPMReview(data);
                         if (!(rs instanceof SuccessResult))
                             return rs;
-                    } else {
+                    /*} else {
                         ResultData rs = AutoPilot.reviewPMReview(data);
                         if (!(rs instanceof SuccessResult))
-                            return rs;
+                            return rs;*/
                     }
                 }
 
