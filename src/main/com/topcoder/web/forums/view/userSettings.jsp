@@ -139,8 +139,8 @@ function toggleTabs(id) {
         <td class="rtHeader" colspan="2">General Settings</td>
    </tr>
    <tr id="bodyGen2">
-      <td class="rtTextCell" nowrap="nowrap"><strong>Forums per Category page:</strong></td>
-      <td class="rtTextCell100">
+      <td class="rtThreadCell" nowrap="nowrap"><strong>Forums per Category page:</strong></td>
+      <td class="rtThreadCell" style="width:100%">
       <select size="1" name="forumsPerPage">
       <%  int[] forumCounts = { 10, 15, 25 };
           int forumRange = ForumConstants.DEFAULT_FORUM_RANGE;
@@ -158,8 +158,8 @@ function toggleTabs(id) {
       </td>
    </tr>
    <tr id="bodyGen3">
-      <td class="rtTextCell" nowrap="nowrap"><strong>Threads per Forum page:</strong></td>
-      <td class="rtTextCell100">
+      <td class="rtThreadCell" nowrap="nowrap"><strong>Threads per Forum page:</strong></td>
+      <td class="rtThreadCell">
       <select size="1" name="threadsPerPage">
       <%  int[] threadCounts = { 10, 15, 25, 50 };
             int threadRange = JiveGlobals.getJiveIntProperty("skin.default.defaultThreadsPerPage", 
@@ -178,8 +178,8 @@ function toggleTabs(id) {
       </td>
    </tr>
    <tr id="bodyGen4">
-      <td class="rtTextCell" nowrap="nowrap"><strong>Messages per Thread page:</strong></td>
-      <td class="rtTextCell100">
+      <td class="rtThreadCell" nowrap="nowrap"><strong>Messages per Thread page:</strong></td>
+      <td class="rtThreadCell">
       <select size="1" name="messagesPerPage">
       <%  int[] messageCounts = { 10, 15, 25, 50 };
          int messageRange = JiveGlobals.getJiveIntProperty("skin.default.defaultMessagesPerPage", 
@@ -198,8 +198,8 @@ function toggleTabs(id) {
       </td>
    </tr>
    <tr id="bodyGen5"> 
-      <td class="rtTextCell" nowrap="nowrap"><strong>Messages per Post History page:</strong></td>
-      <td class="rtTextCell100">
+      <td class="rtThreadCell" nowrap="nowrap"><strong>Messages per Post History page:</strong></td>
+      <td class="rtThreadCell">
       <select size="1" name="messagesPerHistoryPage">
       <% int[] historyCounts = { 10, 15, 25, 50 };
          int historyRange = ForumConstants.DEFAULT_HISTORY_RANGE;
@@ -217,8 +217,8 @@ function toggleTabs(id) {
       </td>
    </tr>
    <tr id="bodyGen6">
-      <td class="rtTextCell" nowrap="nowrap"><strong>Results per Search page:</strong></td>
-      <td class="rtTextCell100">
+      <td class="rtThreadCell" nowrap="nowrap"><strong>Results per Search page:</strong></td>
+      <td class="rtThreadCell">
         <select size="1" name="resultsPerSearchPage">
         <%  int[] searchCounts = { 10, 20, 30, 50 };
             int searchRange = ForumConstants.DEFAULT_SEARCH_RANGE;
@@ -236,8 +236,8 @@ function toggleTabs(id) {
       </td>
    </tr>
    <tr id="bodyGen7">
-      <td class="rtTextCell" nowrap="nowrap"><strong>Default thread page view:</strong></td>
-      <td class="rtTextCell100">
+      <td class="rtThreadCell" nowrap="nowrap"><strong>Default thread page view:</strong></td>
+      <td class="rtThreadCell">
       <select size="1" name="threadMode">
       <%  String[][] threadModes = {{"flat","Flat (oldest to newest)"},{"flat_new","Flat (newest to oldest)"},{"threaded","Threaded"},{"tree","Tree"}};
          String currentMode = ForumConstants.DEFAULT_GUEST_THREAD_VIEW;
@@ -255,8 +255,8 @@ function toggleTabs(id) {
       </td>
    </tr>
    <tr id="bodyGen8">
-      <td class="rtTextCell" nowrap="nowrap"><strong>Default flat page view:</strong></td>
-      <td class="rtTextCell100">
+      <td class="rtThreadCell" nowrap="nowrap"><strong>Default flat page view:</strong></td>
+      <td class="rtThreadCell">
       <select size="1" name="flatMode">
       <%  String[][] flatModes = {{"flat","Oldest to newest&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;"},{"flat_new","Newest to oldest"}};
           String flatMode = ForumConstants.DEFAULT_FLAT_THREAD_VIEW;
@@ -274,8 +274,8 @@ function toggleTabs(id) {
       </td>
    </tr>
    <tr id="bodyGen9">
-      <td class="rtTextCell" nowrap="nowrap"><strong>Show previous/next threads:</strong></td>
-      <td class="rtTextCell100">
+      <td class="rtThreadCell" nowrap="nowrap"><strong>Show previous/next threads:</strong></td>
+      <td class="rtThreadCell">
         <input name="showPrevNextThreads" value="true" id="showPrevNextThreadsYes" type="radio"
             <%= (user.getProperty("jiveShowPrevNextThreads") == null || "true".equals(user.getProperty("jiveShowPrevNextThreads"))) ? "checked" : ""%>>
         <label for="jiveShowPrevNextThreadsYes">Yes</label>
@@ -286,8 +286,8 @@ function toggleTabs(id) {
       </td>
    </tr>
    <tr id="bodyGen10">
-      <td class="rtTextCell" nowrap="nowrap"><strong>Display my member photo:</strong></td>
-      <td class="rtTextCell100">
+      <td class="rtThreadCell" nowrap="nowrap"><strong>Display my member photo:</strong></td>
+      <td class="rtThreadCell">
       <input name="displayMemberPhoto" value="true" id="displayMemberPhotoYes" type="radio"
           <%= (user.getProperty("jiveDisplayMemberPhoto") == null || "true".equals(user.getProperty("jiveDisplayMemberPhoto"))) ? "checked" : ""%>>
       <label for="jiveDisplayMemberPhotoYes">Yes</label>
@@ -298,8 +298,8 @@ function toggleTabs(id) {
       </td>
    </tr>
    <tr id="bodyGen11">
-      <td class="rtTextCell" nowrap="nowrap"><strong>Display member photos:</strong></td>
-      <td class="rtTextCell100">
+      <td class="rtThreadCell" nowrap="nowrap"><strong>Display member photos:</strong></td>
+      <td class="rtThreadCell">
       <input name="displayAllMemberPhotos" value="true" id="displayAllMemberPhotosYes" type="radio"
           <%= (user.getProperty("jiveDisplayAllMemberPhotos") == null || "true".equals(user.getProperty("jiveDisplayAllMemberPhotos"))) ? "checked" : ""%>>
       <label for="jiveDisplayAllMemberPhotosYes">Yes</label>
@@ -313,8 +313,8 @@ function toggleTabs(id) {
       <td class="rtHeader" colspan="2">Watch Preferences</td>
    </tr>
    <tr id="bodyWatch2">
-      <td class="rtTextCell" nowrap="nowrap"><strong>Always watch threads I create:</strong></td>
-      <td class="rtTextCell100">
+      <td class="rtThreadCell" nowrap="nowrap"><strong>Always watch threads I create:</strong></td>
+      <td class="rtThreadCell">
       <input name="autoWatchNewTopics" value="true" id="autoWatchNewTopicsYes" type="radio"
          <%= ("true".equals(user.getProperty("jiveAutoWatchNewTopics"))) ? "checked" : ""%>>
       <label for="autoWatchNewTopicsYes">Yes</label>
@@ -325,8 +325,8 @@ function toggleTabs(id) {
       </td>
    </tr>
    <tr id="bodyWatch3">
-      <td class="rtTextCell" nowrap="nowrap"><strong>Always watch threads I reply to:</strong></td>
-      <td class="rtTextCell100">
+      <td class="rtThreadCell" nowrap="nowrap"><strong>Always watch threads I reply to:</strong></td>
+      <td class="rtThreadCell">
       <input name="autoWatchReplies" value="true" id="autoWatchRepliesYes" type="radio"
          <%= ("true".equals(user.getProperty("jiveAutoWatchReplies"))) ? "checked" : ""%>>
       <label for="autoWatchRepliesYes">Yes</label>
@@ -337,8 +337,8 @@ function toggleTabs(id) {
       </td>
    </tr>
    <tr id="bodyWatch4">
-      <td class="rtTextCell" nowrap="nowrap"><strong>Mark watched threads as read:</strong></td>
-      <td class="rtTextCell100">
+      <td class="rtThreadCell" nowrap="nowrap"><strong>Mark watched threads as read:</strong></td>
+      <td class="rtThreadCell">
       <input name="markWatchesRead" value="true" id="markWatchesReadYes" type="radio"
          <%= ("true".equals(user.getProperty("markWatchesRead"))) ? "checked" : ""%>>
       <label for="markWatchesReadYes">Yes</label>
@@ -349,8 +349,8 @@ function toggleTabs(id) {
       </td>
    </tr>
    <tr id="bodyWatch5">
-      <td class="rtTextCell" nowrap="nowrap"><strong>Send watch emails:</strong></td>
-      <td class="rtTextCell100">
+      <td class="rtThreadCell" nowrap="nowrap"><strong>Send watch emails:</strong></td>
+      <td class="rtThreadCell">
          <select size=1 name="watchFrequency">
             <option value="<%= UserSettingsAction.FREQUENCY_IMMEDIATELY %>"
                 <%= (UserSettingsAction.FREQUENCY_IMMEDIATELY == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Immediately (default)</option>
@@ -370,8 +370,8 @@ function toggleTabs(id) {
         <td class="rtHeader" colspan="2">Rating Preferences</td>
    </tr>
    <tr id="bodyRate2">
-      <td class="rtTextCell" nowrap="nowrap"><strong>Show ratings:</strong></td>
-      <td class="rtTextCell100">
+      <td class="rtThreadCell" nowrap="nowrap"><strong>Show ratings:</strong></td>
+      <td class="rtThreadCell">
       <input name="showRatings" value="true" id="showRatingsYes" type="radio"
          <%= ("true".equals(user.getProperty("showRatings"))) ? "checked" : ""%>>
       <label for="showRatingsYes">Yes</label>
@@ -382,8 +382,8 @@ function toggleTabs(id) {
       </td>
    </tr>
    <tr id="bodyRate3">
-      <td class="rtTextCell" nowrap="nowrap"><strong>Highlight posts:</strong></td>
-      <td class="rtTextCell100" valign="top">
+      <td class="rtThreadCell" nowrap="nowrap"><strong>Highlight posts:</strong></td>
+      <td class="rtThreadCell" valign="top">
       <select size="1" name="ratingHighlightThreshold">
       <%  int[] ratingHltPcts = { 50, 60, 70, 80, 90, 100 };
           int ratingHltPct = ForumConstants.DEFAULT_RATING_HIGHLIGHT_THRESHOLD;
@@ -417,8 +417,8 @@ function toggleTabs(id) {
       </td>
    </tr>
    <tr id="bodyRate4">
-      <td class="rtTextCell" nowrap="nowrap"><strong>Collapse posts:</strong></td>
-      <td class="rtTextCell100" valign="top">
+      <td class="rtThreadCell" nowrap="nowrap"><strong>Collapse posts:</strong></td>
+      <td class="rtThreadCell" valign="top">
       <select size="1" name="ratingCollapseThreshold">
       <%  int[] ratingCollapsePcts = { 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
           int ratingCollapsePct = ForumConstants.DEFAULT_RATING_COLLAPSE_THRESHOLD;
