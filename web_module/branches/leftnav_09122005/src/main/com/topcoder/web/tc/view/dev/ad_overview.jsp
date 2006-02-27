@@ -43,11 +43,11 @@
                <td class="smallText">
                <span class=bodySubtitle>Leverage your Skills to Earn Cash and Recognition</span>
                <br><br>
-               If you're a TopCoder member, you can submit <a href="/?t=development&c=comp_projects">design and development solutions</a> for these projects. You will 
+               If you're a TopCoder member, you can submit <a href="/tc?module=ViewActiveContests&pi=112">design</A> and <A href="/tc?module=ViewActiveContests&pi=113">development</A> solutions for these projects. You will 
                be paid cash for each winning solution you submit. Every solution becomes part of a TopCoder Software Catalog, 
                now available for sale online. For every commercial sale of a catalog, TopCoder will pay the members who designed 
                and developed the components in that catalog a percentage of the sale.<br/>
-               Click <a href="/?t=development&c=getting_started">here</a> for help getting started.
+               Click <a href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted">here</a> and <a href="/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted">here</a> for help getting started.
                <br><br>
                Highly rated and experienced TopCoder members fill the ranks of the <a href="/tc?module=ViewReviewProjects">Architecture and Development Review 
                Board</a>. The Architecture Review Board members screen and review all design submissions to ensure the components 
