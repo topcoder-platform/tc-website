@@ -1,12 +1,10 @@
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 java.util.Map,
-                 com.topcoder.web.tc.Constants"%>
+<%@ page import="com.topcoder.web.tc.Constants"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>2005 TopCoder Open - Computer Programming Tournament</title>
-<link type="text/css" rel="stylesheet" href="/css/TCO05style.css"/>
+<link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
 </head>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
