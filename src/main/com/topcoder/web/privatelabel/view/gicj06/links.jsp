@@ -27,12 +27,12 @@
 
 <%-- Registration tab --%>
 <%--
+--%>
 <% if (selectedTab.equals("registration")) {%>
 <font color="006633">Registration</font>&#160;|&#160;
 <% } else { %>
 <a href="/pl/?module=Static&d1=gicj06&d2=login">Registration</a>&#160;|&#160;
 <% } %>
---%>
 
 <%-- Instructions tab --%>
 <% if (selectedTab.equals("instructions")) {%>
