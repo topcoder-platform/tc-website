@@ -3,19 +3,27 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.web.common.StringUtils" %>
+
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 <% 
+/*
 String contest_name = (String)request.getAttribute("contest_name");
-int round_id = ((Integer)request.getAttribute("round_id")).intValue();
 String path = StringUtils.checkNull((String)request.getAttribute("path"));
 String link = StringUtils.checkNull((String)request.getAttribute("link"));
 int width = ((Integer)request.getAttribute("width")).intValue();
 int height = ((Integer)request.getAttribute("height")).intValue();
 String date = StringUtils.checkNull((String)request.getAttribute("date"));
-String time = StringUtils.checkNull((String)request.getAttribute("time"));
 String reg_begin = StringUtils.checkNull((String)request.getAttribute("reg_begin"));
 String reg_end = StringUtils.checkNull((String)request.getAttribute("reg_end"));
 String coding_begin = StringUtils.checkNull((String)request.getAttribute("coding_begin"));
 int forum_id = ((Integer)request.getAttribute("forum_id")).intValue();
+*/
+
+ResultSetContainer rsc = (ResultSetContainer)request.getAttribute("rsc");
+int round_id = rsc.getIntItem("round_id");
+String time = StringUtils.checkNull((String)request.getAttribute("time"));
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -52,7 +60,7 @@ int forum_id = ((Integer)request.getAttribute("forum_id")).intValue();
                 <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
                     <jsp:include page="../page_title.jsp" >
                         <jsp:param name="image" value="schedule"/>
-                        <jsp:param name="title" value="<%= contest_name %>"/>
+                        <jsp:param name="title" value="<rsc:item name="contest_name" set="<%=rsc%>"/>"/>
                     </jsp:include>
 
                     <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
@@ -66,8 +74,10 @@ int forum_id = ((Integer)request.getAttribute("forum_id")).intValue();
 
                                     <TR>
                                         <TD COLSPAN="3" ALIGN="center">
-                            
-                                            <% if (path.equals("")) { %>
+                                            <%
+                                            String path = StringUtils.checkNull(rsc.getStringItem(0,"path"));
+                                            String link = StringUtils.checkNull(rsc.getStringItem(0,"link"));
+                                            if (path.equals("")) { %>
                                             <IMG SRC="/i/srm_banner.jpg" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
                                             <% } else { %>
                                             <% if (link.equals("")) { %>
@@ -86,13 +96,13 @@ int forum_id = ((Integer)request.getAttribute("forum_id")).intValue();
                                             </TR>
                                             <TR BGCOLOR="#666666">
                                                 <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
-                                                    <b> <%=date%><br/> </b>
+                                                    <b> <rsc:item name="date" set="<%=rsc%>"/><br/> </b>
                                                 </TD>
                                                 <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
-                                                    <B><%=reg_begin%></B>
+                                                    <B><rsc:item name="reg_begin" set="<%=rsc%>"/></B>
                                                 </TD>
                                                 <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
-                                                    <B><%=coding_begin%>/></B>
+                                                    <B><rsc:item name="coding_begin" set="<%=rsc%>"/></B>
                                                 </TD>
                                             </TR>
                                         </TD>
@@ -109,15 +119,15 @@ int forum_id = ((Integer)request.getAttribute("forum_id")).intValue();
                                         <TD COLSPAN="3" ALIGN="left" class="bodyText">
                                             <center><BR/>All times are Eastern Time unless otherwise noted, click <a HREF="<%="http://www.timeanddate.com/worldclock/fixedtime.html?" + time%>">here</a>
                                             to see when coding begins in other time zones.<br/></center>
-                                            <% if (forum_id != 0) { %>
-                                            <center><strong><A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=<%=forum_id%>">Discuss this match</A></strong><br/><br/></center>
+                                            <% if (rsc.getIntItem(0,"forum_id") != 0) { %>
+                                            <center><strong><A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=<rsc:item name="forum_id" set="<%=rsc%>"/>">Discuss this match</A></strong><br/><br/></center>
                                             <% } %>
                                             <% if (round_id == 8075) { %>
                                             <br/>
                                             TopCoder Employment Services is placing members in the Tampa Bay, FL area.  <A HREF="/tc?module=ContractingPreferences">Click here to register.</A><br/><br/>
                                             <% } else if (round_id == 8070 || round_id == 8073 || round_id == 8076) { %>
                                             <br/>
-                                            <b>If you're a member of <A href="/tc?module=Static&amp;d1=sponsors&amp;d2=sap">SAP Developer Network</A> AND take part in <%=contest_name%>, you'll be eligible for a chance to win one 60GB Apple iPod!</b><br/><br/>
+                                            <b>If you're a member of <A href="/tc?module=Static&amp;d1=sponsors&amp;d2=sap">SAP Developer Network</A> AND take part in <rsc:item name="contest_name" set="<%=rsc%>"/>, you'll be eligible for a chance to win one 60GB Apple iPod!</b><br/><br/>
                                             <table width="428" border="0" cellpadding="6" cellspacing="2" >
                                                 <tr valign="top">
                                                     <td align="center" valign="middle">
@@ -334,7 +344,7 @@ int forum_id = ((Integer)request.getAttribute("forum_id")).intValue();
                                         </UL>
                                         <BR/><BR/>
 
-                                        <A CLASS="bodyText" HREF="/tc?module=SrmRules&RoundId=<%=round_id%>"><B>Click here for complete rules &amp; regulations</B></A>
+                                        <A CLASS="bodyText" HREF="/tc?module=SrmRules&RoundId=<rsc:item name="round_id" set="<%=rsc%>"/>"><B>Click here for complete rules &amp; regulations</B></A>
                                     </TD></TR>
 
                                     <% } else { %>
@@ -355,7 +365,7 @@ int forum_id = ((Integer)request.getAttribute("forum_id")).intValue();
                                         <LI>Rating changes go into effect in next participated match</LI></UL>
                                         <B>Eligibility:</B><BR/><BR/>
                                         Anyone who is at least 13 years of age may compete in any Single Round Match.<BR/><BR/>
-                                        <A CLASS="bodyText" HREF="/tc?module=MatchRules&rd=<%=round_id%>"><B>Click here for complete rules &amp; regulations</B></A>
+                                        <A CLASS="bodyText" HREF="/tc?module=MatchRules&rd=<rsc:item name="round_id" set="<%=rsc%>"/>"><B>Click here for complete rules &amp; regulations</B></A>
                                     </TD></TR>
                                     <% } %>
                                 </TABLE>
