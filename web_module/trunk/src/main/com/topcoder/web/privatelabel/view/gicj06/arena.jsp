@@ -58,15 +58,14 @@
                 <A href="/pl/?module=GoogleIndia06Credentials&cid=8039&<%=Constants.LOCALE%>=<%=Locale.US.getLanguage()%>">Forgot your password?</A>
                 <br><br>
                 You need at least <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version
-                5.0</A> to run the Arena. Click <A href="http://java.sun.com/getjava/index.jsp "
-                                                   target="_blank">here</A> if you do not have Java Runtime 5.0
+                5.0</A> to run the Arena. Click <A href="http://java.sun.com/getjava/index.jsp " target="_blank">here</A> if you do not have Java Runtime 5.0
                 installed.
                 <br><br>
                 Using a proxy server? Click <A href="http://www.java.com/en/download/help/proxy_setup.xml"
                                                target="_blank">here</A> to read how to <A
                     href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">configure Java</A>.
                 <br><br>
-                Click <A href="/pl/?module=Static&d1=gicj06&d2=EN_instructions">here</A> to read to the <A
+                Click <A href="/pl/?module=Static&d1=gicj06&d2=instructions">here</A> to read to the <A
                     href="/pl/?module=Static&d1=gicj06&d2=instructions">competition instructions</A>.
                 <br><br>
                 Click <a href="/contest/arena/ContestAppletGoogleIndia.jnlp" target="_blank">here</a> to run the
@@ -82,7 +81,7 @@
                 Applet</A>.
                 <br><br>
                 If you experience problems loading or running the Competition Arena please contact 
-				<A href="gicj06@topcoder.com?subject=Question regarding Google Code Jam India">gicj06@topcoder.com</A>.
+				<A href="gcji06@topcoder.com?subject=Question regarding Google Code Jam India">gcji06@topcoder.com</A>.
 <br><br><br><br><br><br><br><br><br><br><br
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 To find out more detailed information about Google&#153; Code Jam India, including a list of the prizes, please read the
