@@ -126,10 +126,10 @@ winner2 = (n2 == null ? -1 : n2.longValue());
 <td class="value">0</td>
 <td class="value">(0.00)</td>
 <% } else { %>
-<td class="value"><rsc:item name="numsubmitted1"/></td>
-<td class="value">(<rsc:item name="avgsubmitted1" format="0.00"/>)</td>
-<td class="value"><rsc:item name="numchallenges1"/></td>
-<td class="value">(<rsc:item name="avgchallenges1" format="0.00"/>)</td>
+<td class="value"><rsc:item name="submitted1" row="<%=resultRow%>"/></td>
+<td class="value">(<%=(resultRow.getIntItem("submitted1") * 100 / resultRow.getIntItem("numcompetitors1")) / 100.0%>)</td>
+<td class="value"><rsc:item name="challengesmade1" row="<%=resultRow%>"/></td>
+<td class="value">(<%=(resultRow.getIntItem("challengesmade1") * 100 / resultRow.getIntItem("numcompetitors1")) / 100.0%>)</td>
 <% } %>
 
 <% if (winner2 == -1) { %>
@@ -144,10 +144,10 @@ winner2 = (n2 == null ? -1 : n2.longValue());
 <td class="value">0</td>
 <td class="value">(0.00)</td>
 <% } else { %>
-<td class="value"><rsc:item name="numsubmitted2"/></td>
-<td class="value">(<rsc:item name="avgsubmitted2" format="0.00"/>)</td>
-<td class="value"><rsc:item name="numchallenges2"/></td>
-<td class="value">(<rsc:item name="avgchallenges2" format="0.00"/>)</td>
+<td class="value"><rsc:item name="submitted2" row="<%=resultRow%>"/></td>
+<td class="value">(<%=(resultRow.getIntItem("submitted2") * 100 / resultRow.getIntItem("numcompetitors2")) / 100.0%>)</td>
+<td class="value"><rsc:item name="challengesmade2" row="<%=resultRow%>"/></td>
+<td class="value">(<%=(resultRow.getIntItem("challengesmade2") * 100 / resultRow.getIntItem("numcompetitors2")) / 100.0%>)</td>
 <% } %>
 
 <td class="valueR"><rsc:item name="numcompetitors"/></td>
