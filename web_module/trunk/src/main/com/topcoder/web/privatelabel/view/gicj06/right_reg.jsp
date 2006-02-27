@@ -1,4 +1,5 @@
-<table class="smallBoxTable" cellspacing="0" cellpadding="0">
+<%@ page contentType="text/html;charset=utf-8" %>
+<table class="smallBoxTable" align="right" cellspacing="0" cellpadding="0">
     <tr>
         <td align="center" class="smallBlackBox"><a href="/?t=sponsor&c=link&link=http://www.google.com"><img src="/i/events/gicj06/google.jpg" border="0"/></a></td>
     </tr>

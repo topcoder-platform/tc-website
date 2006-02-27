@@ -5,7 +5,7 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <html>
 <head>
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/google05.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gicj06.css"/>
 <title>Google Code Jam India 2006, Powered by TopCoder</title>
 <jsp:include page="../script.jsp" />
 </head>
@@ -43,7 +43,7 @@
          <span class="bigTitle">Registration</span>
          </div>
          <div style="float: right">
-         <jsp:include page="right.jsp" />
+         <jsp:include page="right_reg.jsp" />
          </div>
          <br><br>
 

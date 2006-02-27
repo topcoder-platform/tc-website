@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/google05.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gicj06.css"/>
 <title>Google Code Jam India 2006, Powered by TopCoder</title>
 <jsp:include page="../script.jsp" />
 </head>
@@ -58,7 +58,7 @@ function submitEnter(e) {
          <br><br>
 
          <p><font size="-1"><br>Registration for Google Code Jam India 2006 is officially closed. </font></p>
-         <br><br><br><br><br>
+         <br><br><br><br><br><br><br><br><br><br><br><br>
          </div>
       </td>
       <td width="49%">&#160;</td>

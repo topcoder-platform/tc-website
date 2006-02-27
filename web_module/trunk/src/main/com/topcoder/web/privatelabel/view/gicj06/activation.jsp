@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/google05.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gicj06.css"/>
 <title>Google Code Jam India 2006, Powered by TopCoder</title>
 <jsp:include page="../script.jsp" />
 </head>
@@ -68,14 +68,14 @@ function submitEnter(e) {
 
          You may practice for the contest by clicking the Competition Arena link above.
          <br><br>
-         If you encounter any problems, please contact us at <A href="mailto:gcji@topcoder.com">gcji@topcoder.com</A>.
+         If you encounter any problems, please contact us at <A href="mailto:gcji06@topcoder.com">gcji06@topcoder.com</A>.
 
          
          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       </td>
       </tr>
       </table>
-         To find out more detailed information about Google Code Jam India 2006, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj065&d2=rules">Terms and Conditions</a>.
+         To find out more detailed information about Google Code Jam India 2006, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj06&d2=rules">Terms and Conditions</a>.
       </td>
       </tr>
       </table>

@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/google05.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gicj06.css"/>
 <title>Google Code Jam India 2006, Powered by TopCoder</title>
 <jsp:include page="../script.jsp" />
 </head>
@@ -40,14 +40,14 @@
          <span class="bigTitle">Registration</span>
          </div>
          <div style="float: right">
-         <jsp:include page="right.jsp" />
+         <jsp:include page="right_reg.jsp" />
          </div>
          <br><br>
 
 Your login credentials have been sent to the provided email address.
 
 
-         <br><br><br><br>
+         <br><br><br><br><br><br><br><br>
          To find out more detailed information about Google Code Jam India 2006, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj06&d2=rules">Terms and Conditions</a>.
          </div>
       </td>
