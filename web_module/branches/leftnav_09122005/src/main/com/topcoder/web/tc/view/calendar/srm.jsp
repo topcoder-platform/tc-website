@@ -21,8 +21,8 @@ String coding_begin = StringUtils.checkNull((String)request.getAttribute("coding
 int forum_id = ((Integer)request.getAttribute("forum_id")).intValue();
 */
 
-ResultSetContainer rsc = (ResultSetContainer)request.getAttribute("rsc");
-int round_id = rsc.getIntItem("round_id");
+ResultSetContainer.ResultSetRow rsr = (ResultSetContainer.ResultSetRow)(((ResultSetContainer)request.getAttribute("rsc")).get(0));
+int round_id = rsr.getIntItem("round_id");
 String time = StringUtils.checkNull((String)request.getAttribute("time"));
 %>
 
@@ -60,7 +60,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                 <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
                     <jsp:include page="../page_title.jsp" >
                         <jsp:param name="image" value="schedule"/>
-                        <jsp:param name="title" value="<rsc:item name="contest_name" set="<%=rsc%>"/>"/>
+                        <jsp:param name="title" value="<rsc:item name="contest_name" row="<%=rsr%>"/>"/>
                     </jsp:include>
 
                     <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
@@ -75,8 +75,8 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                     <TR>
                                         <TD COLSPAN="3" ALIGN="center">
                                             <%
-                                            String path = StringUtils.checkNull(rsc.getStringItem(0,"path"));
-                                            String link = StringUtils.checkNull(rsc.getStringItem(0,"link"));
+                                            String path = StringUtils.checkNull(rsr.getStringItem("path"));
+                                            String link = StringUtils.checkNull(rsr.getStringItem("link"));
                                             if (path.equals("")) { %>
                                             <IMG SRC="/i/srm_banner.jpg" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
                                             <% } else { %>
@@ -96,13 +96,13 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                             </TR>
                                             <TR BGCOLOR="#666666">
                                                 <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
-                                                    <b> <rsc:item name="date" set="<%=rsc%>"/><br/> </b>
+                                                    <b> <rsc:item name="date" row="<%=rsr%>"/><br/> </b>
                                                 </TD>
                                                 <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
-                                                    <B><rsc:item name="reg_begin" set="<%=rsc%>"/></B>
+                                                    <B><rsc:item name="reg_begin" row="<%=rsr%>"/></B>
                                                 </TD>
                                                 <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
-                                                    <B><rsc:item name="coding_begin" set="<%=rsc%>"/></B>
+                                                    <B><rsc:item name="coding_begin" row="<%=rsr%>"/></B>
                                                 </TD>
                                             </TR>
                                         </TD>
@@ -119,15 +119,15 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                         <TD COLSPAN="3" ALIGN="left" class="bodyText">
                                             <center><BR/>All times are Eastern Time unless otherwise noted, click <a HREF="<%="http://www.timeanddate.com/worldclock/fixedtime.html?" + time%>">here</a>
                                             to see when coding begins in other time zones.<br/></center>
-                                            <% if (rsc.getIntItem(0,"forum_id") != 0) { %>
-                                            <center><strong><A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=<rsc:item name="forum_id" set="<%=rsc%>"/>">Discuss this match</A></strong><br/><br/></center>
+                                            <% if (rsr.getIntItem("forum_id") != 0) { %>
+                                            <center><strong><A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=<rsc:item name="forum_id" row="<%=rsr%>"/>">Discuss this match</A></strong><br/><br/></center>
                                             <% } %>
                                             <% if (round_id == 8075) { %>
                                             <br/>
                                             TopCoder Employment Services is placing members in the Tampa Bay, FL area.  <A HREF="/tc?module=ContractingPreferences">Click here to register.</A><br/><br/>
                                             <% } else if (round_id == 8070 || round_id == 8073 || round_id == 8076) { %>
                                             <br/>
-                                            <b>If you're a member of <A href="/tc?module=Static&amp;d1=sponsors&amp;d2=sap">SAP Developer Network</A> AND take part in <rsc:item name="contest_name" set="<%=rsc%>"/>, you'll be eligible for a chance to win one 60GB Apple iPod!</b><br/><br/>
+                                            <b>If you're a member of <A href="/tc?module=Static&amp;d1=sponsors&amp;d2=sap">SAP Developer Network</A> AND take part in <rsc:item name="contest_name" row="<%=rsr%>"/>, you'll be eligible for a chance to win one 60GB Apple iPod!</b><br/><br/>
                                             <table width="428" border="0" cellpadding="6" cellspacing="2" >
                                                 <tr valign="top">
                                                     <td align="center" valign="middle">
@@ -344,7 +344,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                         </UL>
                                         <BR/><BR/>
 
-                                        <A CLASS="bodyText" HREF="/tc?module=SrmRules&RoundId=<rsc:item name="round_id" set="<%=rsc%>"/>"><B>Click here for complete rules &amp; regulations</B></A>
+                                        <A CLASS="bodyText" HREF="/tc?module=SrmRules&RoundId=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for complete rules &amp; regulations</B></A>
                                     </TD></TR>
 
                                     <% } else { %>
@@ -365,7 +365,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                         <LI>Rating changes go into effect in next participated match</LI></UL>
                                         <B>Eligibility:</B><BR/><BR/>
                                         Anyone who is at least 13 years of age may compete in any Single Round Match.<BR/><BR/>
-                                        <A CLASS="bodyText" HREF="/tc?module=MatchRules&rd=<rsc:item name="round_id" set="<%=rsc%>"/>"><B>Click here for complete rules &amp; regulations</B></A>
+                                        <A CLASS="bodyText" HREF="/tc?module=MatchRules&rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for complete rules &amp; regulations</B></A>
                                     </TD></TR>
                                     <% } %>
                                 </TABLE>
