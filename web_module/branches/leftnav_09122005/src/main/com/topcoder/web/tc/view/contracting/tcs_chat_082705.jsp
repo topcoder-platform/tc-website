@@ -422,7 +422,7 @@ Take a look at <A href="/tc?module=Static&d1=about&d2=jobs">job openings</A> at 
 <tr><td class="light"><b>datawrangler</b></td><td class="light">mess: not quite sure how they work</td></tr>
 <tr><td class="dark"><b>hubPL</b></td><td class="dark">when I have a component to develop do I have to be aware of the pieces it's going to co-operate with?</td></tr>
 <tr><td class="light"><b>shoaib.soomro</b></td><td class="light">admins: oh .. these are industry wide implemented</td></tr>
-<tr><td class="dark"><span class="bigRed">mess</span></td><td class="dark"><span class="bigRed">datawrangler: there are a few tutorials http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=compDocumentation</span></td></tr>
+<tr><td class="dark"><span class="bigRed">mess</span></td><td class="dark"><span class="bigRed">datawrangler: there are a few tutorials <A href="/tc?module=Static&d1=dev&d2=support&d3=desDocumentation">here</A> and <A href="/tc?module=Static&d1=dev&d2=support&d3=devDocumentation">here</A></span></td></tr>
 <tr><td class="light"><span class="bigRed">AdamSelene</span></td><td class="light"><span class="bigRed">hubPL: Everything you need to know will be included in the documentation</span></td></tr>
 <tr><td class="dark"><b>tc</b></td><td class="dark">kclune: And then enriched my .Net knowledge through dev/design competitions.</td></tr>
 <tr><td class="light"><b>karol1</b></td><td class="light">mess: many thanks :)</td></tr>
