@@ -184,4 +184,4 @@ To find out more detailed information about Google&#153; Code Jam India, includi
 </table>
 <jsp:include page="foot.jsp"/>
 </body>
-</html>?
+</html>
