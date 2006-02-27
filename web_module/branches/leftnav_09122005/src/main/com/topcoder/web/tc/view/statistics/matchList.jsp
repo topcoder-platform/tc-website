@@ -150,7 +150,6 @@ winner2 = (n2 == null ? -1 : n2.longValue());
 <td class="value">(<%=(resultRow.getIntItem("challengesmade2") * 100 / resultRow.getIntItem("numcompetitors2")) / 100.0%>)</td>
 <% } %>
 
-<td class="valueR"><rsc:item name="numcompetitors"/></td>
 <td class="valueR"><%=resultRow.getIntItem("numcompetitors1") + resultRow.getIntItem("numcompetitors2")%></td>
 <td class="valueC"><rsc:item name="start_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></td>
 </TR>
