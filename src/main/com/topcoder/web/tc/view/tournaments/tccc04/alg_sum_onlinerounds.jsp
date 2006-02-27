@@ -47,10 +47,10 @@
 
                         <table width="400" class="formFrame" cellspacing="2" cellpadding="6" align="center">
                             <tr><td class="sidebarTitle" colspan="2">Problem Set Analyses</td></tr>
-                            <tr><td class="sidebarText">&#160;02.28.04</td><td class="sidebarText" nowrap="0">&#160;TCCC04 - Online Round 1 - <a href="/index?t=statistics&amp;c=tccc04_online_rd_1">Problem Set &amp; Analysis</a></td></tr>
-                            <tr><td class="sidebarText">&#160;03.03.04</td><td class="sidebarText" nowrap="0">&#160;TCCC04 - Online Round 2 - <a href="/index?t=statistics&amp;c=tccc04_online_rd_2">Problem Set &amp; Analysis</a></td></tr>
-                            <tr><td class="sidebarText">&#160;03.10.04</td><td class="sidebarText" nowrap="0">&#160;TCCC04 - Online Round 3 - <a href="/index?t=statistics&amp;c=tccc04_online_rd_3">Problem Set &amp; Analysis</a></td></tr>
-                            <tr><td class="sidebarText">&#160;03.17.04</td><td class="sidebarText" nowrap="0">&#160;TCCC04 - Online Round 4 - <a href="/index?t=statistics&amp;c=tccc04_online_rd_4">Problem Set &amp; Analysis</a></td></tr>
+                            <tr><td class="sidebarText">&#160;02.28.04</td><td class="sidebarText" nowrap="0">&#160;TCCC04 - Online Round 1 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc04_online_rd_1">Problem Set &amp; Analysis</a></td></tr>
+                            <tr><td class="sidebarText">&#160;03.03.04</td><td class="sidebarText" nowrap="0">&#160;TCCC04 - Online Round 2 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc04_online_rd_2">Problem Set &amp; Analysis</a></td></tr>
+                            <tr><td class="sidebarText">&#160;03.10.04</td><td class="sidebarText" nowrap="0">&#160;TCCC04 - Online Round 3 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc04_online_rd_3">Problem Set &amp; Analysis</a></td></tr>
+                            <tr><td class="sidebarText">&#160;03.17.04</td><td class="sidebarText" nowrap="0">&#160;TCCC04 - Online Round 4 - <a href="/tc?module=Static&d1=match_editorials&d2=tccc04_online_rd_4">Problem Set &amp; Analysis</a></td></tr>
                         </table>
 
          <p><br/></p>
