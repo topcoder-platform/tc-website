@@ -54,6 +54,7 @@ margin:0px auto;
       <td class="BIGPromoBox" align="center"><IMG SRC="/i/home/tco06_comp_registration.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" /></td>
 <%-- $1,000,000
       <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=pressroom&d2=pr_112105"><IMG SRC="/i/home/milestone_million.gif" border="0" ALT="$1,000,000 in Component Competition Payouts"/></A></td>
+--%>
 <%-- MSN
       <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=contracting&d2=msn"><IMG SRC="/i/home/msn_emp_opps.gif" border="0" ALT="MSN is hiring"/></A></td>
 --%>
@@ -89,11 +90,11 @@ margin:0px auto;
 
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
-            <td class="homeTitle"><A href="/?t=development&c=index" class="homeTitleLink">Software Competitions</A></td>
+            <td class="homeTitle">Software <A href="/tc?module=ViewActiveContests&pi=112" class="homeTitleLink">Design</A> and <A href="/tc?module=ViewActiveContests&pi=113" class="homeTitleLink">Development</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
-            <td class="homeText">Compete in software <A href="/?t=development&c=index">component</A> competitions and get paid for what you build! You can also earn money by <A href="/?t=development&c=index">reviewing</A> software components.</td>
+            <td class="homeText">Compete in Software <A href="/tc?module=ViewActiveContests&pi=112">Design</A> and <A href="/tc?module=ViewActiveContests&pi=113">Development</A> Competitions and get paid for what you build!</td>
          </tr>
 
          <tr>
@@ -222,7 +223,7 @@ margin:0px auto;
             <A href="/" class="footerLinks">Home</A>&#160;&#160;|&#160;&#160;
             <A href="/tc?module=Static&d1=about&d2=index" class="footerLinks">About TopCoder</A>&#160;&#160;|&#160;&#160;
             <A href="/tc?module=Static&d1=pressroom&d2=index" class="footerLinks">Press Room</A>&#160;&#160;|&#160;&#160;
-            <A href="/?t=contacts&c=index" class="footerLinks">Contact Us</A>&#160;&#160;|&#160;&#160;
+            <A href="/tc?module=Static&d1=about&d2=contactus">Contact Us</A>&#160;&#160;|&#160;&#160;
             <A href="/tc?module=Static&d1=about&d2=privacy" class="footerLinks">Privacy</A>&#160;&#160;|&#160;&#160;
             <A href="/tc?module=Static&d1=about&d2=terms" class="footerLinks">Terms</A>
          <br>
