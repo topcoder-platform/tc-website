@@ -27,7 +27,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
         if (!(pi == SoftwareComponent.DESIGN_PHASE || pi == SoftwareComponent.DEV_PHASE)) {
             throw new TCWebException("Missing or invalid phase_id parameter (pi expected)");
         }
-        getRequest().setAttribute("phase_id_is_design", new Boolean(pi == SoftwareComponent.DESIGN_PHASE));
+        getRequest().setAttribute("phase_id", new Integer(pi));
 
         Request r = new Request();
         r.setContentHandle("review_projects");

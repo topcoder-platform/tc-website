@@ -15,7 +15,7 @@
 <% String waitingUntil = (String) request.getAttribute("waitingUntil"); %>
 <% List prices = (List)request.getAttribute("prices");%>
 <% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>
-<% boolean design = ((Boolean)request.getAttribute("phase_id_is_design")).booleanValue(); %>
+<% int pi = ((Integer)request.getAttribute("phase_id")).intValue(); %>
 <%--<% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>--%>
 
 <%--<% ResultSetContainer tournamentProjectList = (ResultSetContainer)request.getAttribute("tournamentProjectList");%>--%>
@@ -41,7 +41,7 @@
         <td width="180">
          <%-- value is either des_review or dev_review --%>
          <jsp:include page="/includes/global_left.jsp">
-               <jsp:param name="node" value='<%=design?"des_review":"dev_review"%>'/>
+               <jsp:param name="node" value='<%=pi == 112?"des_review":"dev_review"%>'/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->
