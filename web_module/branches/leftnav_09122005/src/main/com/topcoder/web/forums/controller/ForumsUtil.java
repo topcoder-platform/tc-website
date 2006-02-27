@@ -8,12 +8,8 @@ import com.jivesoftware.base.FilterManager;
 import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.base.Log;
-<<<<<<< ForumsUtil.java
-import com.jivesoftware.base.User;
-=======
 import com.jivesoftware.base.Permissions;
 import com.jivesoftware.base.User;
->>>>>>> 1.26
 import com.jivesoftware.base.filter.Profanity;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.Forum;
