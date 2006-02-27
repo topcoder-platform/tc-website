@@ -133,7 +133,7 @@ Members claiming a reduction of or exemption from income tax withholding must pr
 </ol>
 
 <p><strong>Questions</strong><br/>
-Click <a href="/?t=support&amp;c=form_faq">here</a> for TopCoder tax form FAQs</p>
+Click <a href="/tc?module=Static&d1=help&d2=formsFaq">here</a> for TopCoder tax form FAQs</p>
 
 <p>Please email any other questions to <A href="mailto:payments@topcoder.com" class="bodyText">payments@topcoder.com</A>.</p>
 
