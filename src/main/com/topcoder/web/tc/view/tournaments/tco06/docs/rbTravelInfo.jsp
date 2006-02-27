@@ -7,7 +7,6 @@
 <head>
 <title>2005 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO05style.css"/>
-<link type="text/css" rel="stylesheet" href="/css/style.css"/>
 </head>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
@@ -207,8 +206,8 @@ TopCoder will provide transportation to and from the airport and hotel. Further 
 
 <!-- Right Column-->
         <td width=170 align=right>
-            <jsp:include page="../../../public_right.jsp">
-            <jsp:param name="level1" value="tco05"/>
+            <jsp:include page="../right.jsp">
+            <jsp:param name="level1" value="all"/>
             </jsp:include>
          </td>
 

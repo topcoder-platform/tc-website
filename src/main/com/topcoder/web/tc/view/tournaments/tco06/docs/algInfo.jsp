@@ -6,7 +6,6 @@
 <head>
 <title>2006 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
-<link type="text/css" rel="stylesheet" href="/css/style.css"/>
 </head>
 <%ResultSetContainer info = (ResultSetContainer)((Map)request.getAttribute("info")).get("Affidavit_Info");%>
 
@@ -121,8 +120,8 @@
 
 <!-- Right Column-->
         <td width=170 align=right>
-            <jsp:include page="../../../public_right.jsp">
-            <jsp:param name="level1" value="tco06"/>
+            <jsp:include page="../right.jsp">
+            <jsp:param name="level1" value="all"/>
             </jsp:include>
          </td>
 
