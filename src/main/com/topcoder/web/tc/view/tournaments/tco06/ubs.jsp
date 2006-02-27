@@ -23,7 +23,7 @@
       <td valign=top align=center>
       <div class="bodySpacer">
             
-<div align="center"><img src="/i/tournament/tco06/ubs_logo.gif" alt="UBS" border="0" /></div>
+<div align="center"><img src="/i/tournament/tco06/ubs_logo_new.gif" alt="UBS" border="0" /></div>
 <br><br>
 UBS is pleased to become the first TopCoder Open sponsor from the financial services industry.  UBS, one of the largest financial services firms in the world, is a leader in equities, corporate finance, M&amp;A advisory and financing, financial structuring, fixed income issuance and trading, foreign exchange, derivatives and risk management.
 <br><br>
