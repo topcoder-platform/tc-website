@@ -10,7 +10,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.language.BaseLanguage;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.messaging.TimeOutException;
-import com.topcoder.shared.messaging.messages.LongCompileRequest;
+import com.topcoder.shared.messaging.messages.BaseLongContestRequest;
 import com.topcoder.shared.messaging.messages.LongCompileResponse;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
@@ -19,7 +19,7 @@ import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.messaging.WebQueueResponseManager;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.ImageInfo;
@@ -34,6 +34,7 @@ import java.util.*;
 public abstract class Base extends BaseProcessor {
 
     protected static final Logger log = Logger.getLogger(Base.class);
+
 
     private QueueMessageSender sender = null;
     private WebQueueResponseManager receiver = null;
@@ -59,7 +60,14 @@ public abstract class Base extends BaseProcessor {
                 if (rsc.getItem(0, "forum_id").getResultData()!=null) {
                     getRequest().setAttribute(Constants.FORUM_ID, new Long(rsc.getLongItem(0, "forum_id")));
                 }
-                getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(rsc.getIntItem(0, "round_type_id")));
+                int type = rsc.getIntItem(0, "round_type_id");
+                if (!(type==Constants.LONG_ROUND_TYPE_ID ||
+                        type==Constants.LONG_PRACTICE_ROUND_TYPE_ID || 
+                        type==Constants.INTEL_LONG_ROUND_TYPE_ID ||
+                        type==Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID)) {
+                    throw new NavigationException("Invalid round specified, wrong type");
+                }
+                getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(type));
             }
             getRequest().setAttribute(Constants.RESULTS_AVAILABLE, new Boolean(areResultsAvailable(roundId)));
         }
@@ -101,16 +109,19 @@ public abstract class Base extends BaseProcessor {
         this.sender = sender;
     }
 
-    protected void send(LongCompileRequest sub) throws TCWebException, ServerBusyException {
+    protected void send(BaseLongContestRequest sub, int language) throws TCWebException, ServerBusyException {
         // This is a synchronous message
-        lock();
+        if (sub.isSynchronous()) {
+            lock();
+        }
 
         HashMap hm = new HashMap();
         hm.put("pendingAction", new Integer(ServicesConstants.LONG_COMPILE_ACTION));
         hm.put("appletServerId", new Integer(ApplicationServer.WEB_SERVER_ID));
         hm.put("socketServerId", new Integer(ApplicationServer.WEB_SERVER_ID));
         hm.put("submitTime", new Long(System.currentTimeMillis()));
-        hm.put("language", new Integer(sub.getLanguageID()));
+        hm.put("language", new Integer(language));
+        hm.put("roundType", getRequest().getAttribute(Constants.ROUND_TYPE_ID));
         sender.sendMessage(hm, sub);
     }
 
@@ -147,7 +158,7 @@ public abstract class Base extends BaseProcessor {
         if (keys != null && values != null && keys.length != values.length)
             throw new IllegalArgumentException("the number of parameter keys must be the same as the number of values");
 
-        SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+        SessionInfo info = getSessionInfo();
         StringBuffer ret = new StringBuffer(100);
         //doing this to get rid of https in the case of the login request it would be there
         ret.append(info.getAbsoluteServletPath());
@@ -246,6 +257,7 @@ public abstract class Base extends BaseProcessor {
         return getAuthentication().getUser();
     }
 
+
     /**
      *
      * @param roundId
@@ -277,7 +289,7 @@ public abstract class Base extends BaseProcessor {
         Map m = getDataAccess(true).getData(r);
         return (ResultSetContainer)m.get("long_contest_round_information");
     }
-    
+
     /**
      *
      * @param roundId

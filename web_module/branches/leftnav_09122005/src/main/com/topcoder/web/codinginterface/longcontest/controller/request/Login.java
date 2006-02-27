@@ -5,7 +5,6 @@ import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.codinginterface.CodingInterfaceConstants;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.email.Email;
@@ -19,6 +18,7 @@ import java.util.Arrays;
  * @author farsight
  */
 public class Login extends Base {
+
 
     public static final String USER_ID = "userid";
     public static final String STATUS = "status";
@@ -59,7 +59,7 @@ public class Login extends Base {
                         }
                         char status = getStatus(sub.getUserId());
                         log.debug("status: " + status);
-                        if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
+                        if (Arrays.binarySearch(ACTIVE_STATI, status) >= 0) {
                             //check if they have an active email address
                             if (getEmailStatus(sub.getUserId()) != ACTIVE_STATUS) {
                                 getAuthentication().logout();
@@ -83,11 +83,11 @@ public class Login extends Base {
                             }
                         } else {
                             getAuthentication().logout();
-                            if (Arrays.binarySearch(INACTIVE_STATI, status) > 0) {
+                            if (Arrays.binarySearch(INACTIVE_STATI, status) >= 0) {
                                 log.debug("user inactive");
                                 throw new LoginException("Sorry, your account is not active.  " +
                                         "If you believe this is an error, please contact TopCoder.");
-                            } else if (Arrays.binarySearch(UNACTIVE_STATI, status) > 0) {
+                            } else if (Arrays.binarySearch(UNACTIVE_STATI, status) >= 0) {
                                 log.debug("user unactive");
                                 getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "Your account is not active.  " +
                                         "Please review the activation email that was sent to you after registration.");
@@ -106,7 +106,6 @@ public class Login extends Base {
                     throw(new TCWebException(e));
                 }
             }
-
             /* whatever was wrong with the submission, make sure they are logged out */
             getAuthentication().logout();
         }
@@ -115,10 +114,12 @@ public class Login extends Base {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
         }
 
-        if (getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY) == null) {
-            getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)));
-        }
 
+        String nextpage = (String)getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY);
+        if (nextpage == null) nextpage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
+        if (nextpage == null) nextpage = getRequest().getHeader("Referer");
+        if (nextpage == null) nextpage = getSessionInfo().getAbsoluteServletPath();
+        getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, nextpage);
         setNextPage(Constants.LOGIN_JSP);
         setIsNextPageInContext(true);
     }
