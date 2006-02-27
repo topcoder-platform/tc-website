@@ -16,6 +16,7 @@
 <% List prices = (List)request.getAttribute("prices");%>
 <% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>
 <% int phase_id = ((Integer)request.getAttribute("phase_id")).intValue(); %>
+<% boolean design = phase_id == SoftwareComponent.DESIGN_PHASE; %>
 <%--<% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>--%>
 
 <%--<% ResultSetContainer tournamentProjectList = (ResultSetContainer)request.getAttribute("tournamentProjectList");%>--%>
