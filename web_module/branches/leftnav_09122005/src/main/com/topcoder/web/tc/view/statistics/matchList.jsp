@@ -120,7 +120,7 @@ winner2 = (n2 == null ? -1 : n2.longValue());
 <td class="value"><tc-webtag:handle coderId='<%= winner1 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
 <% } %>
 
-<% if (rsc.getIntItem("numcompetitors1") == 0) { %>
+<% if (resultRow.getIntItem("numcompetitors1") == 0) { %>
 <td class="value">0</td>
 <td class="value">(0.00)</td>
 <td class="value">0</td>
@@ -138,7 +138,7 @@ winner2 = (n2 == null ? -1 : n2.longValue());
 <td class="value"><tc-webtag:handle coderId='<%= winner2 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
 <% } %>
 
-<% if (rsc.getIntItem("numcompetitors2") == 0) { %>
+<% if (resultRow.getIntItem("numcompetitors2") == 0) { %>
 <td class="value">0</td>
 <td class="value">(0.00)</td>
 <td class="value">0</td>
@@ -151,7 +151,7 @@ winner2 = (n2 == null ? -1 : n2.longValue());
 <% } %>
 
 <td class="valueR"><rsc:item name="numcompetitors"/></td>
-<td class="valueR"><%=rsc.getIntItem("numcompetitors1") + rsc.getIntItem("numcompetitors2")%></td>
+<td class="valueR"><%=resultRow.getIntItem("numcompetitors1") + resultRow.getIntItem("numcompetitors2")%></td>
 <td class="valueC"><rsc:item name="start_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></td>
 </TR>
 <% even = !even;%>
