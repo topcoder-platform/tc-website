@@ -53,15 +53,24 @@ public abstract class MatchInfo extends Base {
 
         try {
             String rd = StringUtils.checkNull(getRequest().getParameter("rd"));
-            ctx = TCContext.getInitial();
+            ctx = getInitialContext();
             dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
             dataRequest = new Request();
             dataRequest.setContentHandle("schedule_srms");
             dataRequest.setProperty("rd", rd.trim());
             resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("Schedule_SRMS");
-            
             getRequest().setAttribute("rsc", rsc);
+
+            ResultSetContainer.ResultSetRow rsr = (ResultSetContainer.ResultSetRow)rsc.get(0);
+            String time = "";
+            time += "&day=" + rsr.getStringItem("day");
+            time += "&month=" + rsr.getStringItem("month");
+            time += "&year=" + rsr.getStringItem("year");
+            time += "&hour=" + rsr.getStringItem("hour");
+            time += "&min=" + rsr.getStringItem("minute");
+            time += "&sec=0";
+            getRequest().setAttribute("time", time);
             
             /*
             getRequest().setAttribute("contest_name", rsr.getStringItem("contest_name"));
@@ -70,13 +79,6 @@ public abstract class MatchInfo extends Base {
             getRequest().setAttribute("link",  rsr.getStringItem("link"));
             getRequest().setAttribute("width", new Integer(rsr.getIntItem("width")));
             getRequest().setAttribute("height", new Integer(rsr.getIntItem("height")));
-            String time = "";
-            time += "&day=" + rsr.getStringItem("day");
-            time += "&month=" + rsr.getStringItem("month");
-            time += "&year=" + rsr.getStringItem("year");
-            time += "&hour=" + rsr.getStringItem("hour");
-            time += "&min=" + rsr.getStringItem("minute");
-            time += "&sec=0";
             getRequest().setAttribute("time", time);
             getRequest().setAttribute("reg_begin", rsr.getStringItem("reg_begin"));
             getRequest().setAttribute("date", rsr.getStringItem("date"));
