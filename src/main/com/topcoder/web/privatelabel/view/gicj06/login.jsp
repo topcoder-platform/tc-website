@@ -53,11 +53,11 @@ function submitEnter(e) {
 
 
          <br><br>
-         <div style="float: left">
-         <span class="bigTitle">Registration</span>
-         </div>
          <div style="float: right">
          <jsp:include page="right_reg.jsp" />
+         </div>
+         <div align="left">
+         <span class="bigTitle">Registration</span>
          </div>
          <br><br>
                         Registration will close on Monday, March 20 at 8:00 AM IST.<br/><br/>
