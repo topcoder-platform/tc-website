@@ -90,15 +90,19 @@ myForm.submit();
 <table class="stat" cellpadding="0" cellspacing="0" width="100%" style="">
    <tr><td class="title" colspan="5">Most Component Contest Wins</td></tr>
    <tr>
+      //TODO: Ensure sorting columns are correct
       <td class="header" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Match</td>
-      <td class="header" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Division I winner</td>
-      <td class="header" width="20%">Div I submitted problems (per competitor)</td>
-      <td class="header" width="20%">Div I challenges (per competitor)</td>
-      <td class="header" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true" excludeParams="sr" />">Division II winner</td>
-      <td class="header" width="20%">Div II submitted problems (per competitor)</td>
-      <td class="header" width="20%">Div II challenges (per competitor)</td>
-      <td class="headerR" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />">Participants</td>
-      <td class="headerC" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="16" includeParams="true" excludeParams="sr" />">Date</td>
+      <td class="header" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Division I winner</td>
+      <td class="header" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Div I submitted problems (per competitor)</td>
+      <td class="header" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Div I challenges</td>
+      <td class="header" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">(per competitor)</td>
+      <td class="header" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Division II winner</td>
+      <td class="header" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">(per competitor)</td>
+      <td class="header" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Div II submitted problems (per competitor)</td>
+      <td class="header" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Div II challenges (per competitor)</td>
+      <td class="headerR" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Participants</td>
+      <td class="headerC" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Date</td>
+      
    </tr>
    <% boolean even = false; %>
    <rsc:iterator list="<%=list%>" id="resultRow">
@@ -117,11 +121,15 @@ winner2 = (n2 == null ? -1 : n2.longValue());
 <% } %>
 
 <% if (rsc.getIntItem("numcompetitors1") == 0) { %>
-<td class="value">0 (0.00)</td>
-<td class="value">0 (0.00)</td>
+<td class="value">0</td>
+<td class="value">(0.00)</td>
+<td class="value">0</td>
+<td class="value">(0.00)</td>
 <% } else { %>
-<td class="value"><rsc:item name="numsubmitted1"> (<%=(100*rsc.getIntItem("numsubmitted1")/rsc.getIntItem("numcompetitors1")) / 100.0%>)</td>
-<td class="value"><rsc:item name="challengesmade1"> (<%=(100*rsc.getIntItem("challengesmade1")/rsc.getIntItem("numcompetitors1")) / 100.0%>)</td>
+<td class="value"><rsc:item name="numsubmitted1"/></td>
+<td class="value">(<rsc:item name="avgsubmitted1" format="0.00"/>)</td>
+<td class="value"><rsc:item name="numchallenges1"/></td>
+<td class="value">(<rsc:item name="avgchallenges1" format="0.00"/>)</td>
 <% } %>
 
 <% if (winner2 == -1) { %>
@@ -131,14 +139,18 @@ winner2 = (n2 == null ? -1 : n2.longValue());
 <% } %>
 
 <% if (rsc.getIntItem("numcompetitors2") == 0) { %>
-<td class="value">0 (0.00)</td>
-<td class="value">0 (0.00)</td>
+<td class="value">0</td>
+<td class="value">(0.00)</td>
+<td class="value">0</td>
+<td class="value">(0.00)</td>
 <% } else { %>
-<td class="value"><rsc:item name="numsubmitted2"> (<%=(100*rsc.getIntItem("numsubmitted2")/rsc.getIntItem("numcompetitors2")) / 100.0%>)</td>
-<td class="value"><rsc:item name="challengesmade2"> (<%=(100*rsc.getIntItem("challengesmade2")/rsc.getIntItem("numcompetitors2")) / 100.0%>)</td>
+<td class="value"><rsc:item name="numsubmitted2"/></td>
+<td class="value">(<rsc:item name="avgsubmitted2" format="0.00"/>)</td>
+<td class="value"><rsc:item name="numchallenges2"/></td>
+<td class="value">(<rsc:item name="avgchallenges2" format="0.00"/>)</td>
 <% } %>
 
-
+<td class="valueR"><rsc:item name="numcompetitors"/></td>
 <td class="valueR"><%=rsc.getIntItem("numcompetitors1") + rsc.getIntItem("numcompetitors2")%></td>
 <td class="valueC"><rsc:item name="start_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></td>
 </TR>
