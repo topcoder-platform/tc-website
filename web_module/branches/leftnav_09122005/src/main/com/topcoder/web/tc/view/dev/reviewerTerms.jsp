@@ -5,6 +5,7 @@
                  com.topcoder.web.tc.Constants,
                  com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.corp.controller.TransactionServlet"%>
+
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
  <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 
@@ -24,12 +25,14 @@
     <jsp:param name="level1" value="development"/>
 </jsp:include>
 
+<% int phase_id = ((Integer)request.getAttribute("phase_id")).intValue(); %>
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <%-- Left Column Begins--%>
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="des_review"/>
+            <jsp:param name="node" value="<%= phase_id == 112 ? "des_review" : "dev_review"%>"/>
          </jsp:include>
         </td>
 <%-- Left Column Ends --%>
