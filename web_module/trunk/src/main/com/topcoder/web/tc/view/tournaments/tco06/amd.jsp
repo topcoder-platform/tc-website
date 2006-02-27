@@ -23,13 +23,15 @@
       <td valign=top align=center>
       <div class="bodySpacer">
             
-<div align="center"><img src="/i/tournament/tco06/amd_logo.gif" alt="AMD" border="0" /></div>
+<div align="center"><a href="/?t=sponsor&c=link&link=http://www.amd.com/"><img src="/i/tournament/tco06/amd_logo.gif" alt="AMD" border="0" /></a></div>
 <br><br>
-<a href="/?t=sponsor&c=link&link=http://developer.amd.com/">Join AMD Developer Central</a>
+<div align="center"><a href="/?t=sponsor&c=link&link=http://developer.amd.com/">Join AMD Developer Central</a></div>
 <br><br>
-AMD Developer Central, AMD's growing developer program, is proud to sponsor the 2006 TopCoder Open and be part of the amazing creativity and genius shown by the participants.
+AMD Developer Central, AMD's program to support software developers, is pleased announce sponsorship for the 2006 TopCoder Open and be part of the creativity and genius shown by TopCoder competitors.
 <br><br>
 Software development is in the midst of a key juncture in time with 64-bit processing and multi-core breaking their way into the mainstream.  In this ever changing technology it's a challenge to stay ahead of the game.  AMD Developer Central is here to offer the resources and tools you need to succeed.  
+<br><br>
+Capture the benefits of AMD performance and technology in your products and in your software development effort. AMD Developer Central is dedicated to supporting software developers and x86 free-thinkers with the resources they need to be successful in developing software.  Resources include information, how-tos, development tools, forums, and community. (What else?) Feature tools are CodeAnalyst&#153;, and the AMD Core Math Library.  To learn more and become a member of AMD Developer Central visit <a href="/?t=sponsor&c=link&link=http://www.amd.com/devcentral">www.amd.com/devcentral</a>.  
 <br><br>
 Key benefits include:
 <ul>
