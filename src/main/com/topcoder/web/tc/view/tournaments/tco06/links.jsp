@@ -15,7 +15,7 @@
 <!-- LEVEL 1 TABS -->
 <% if (tabLev1.equals("overview")) {%>
    <tr>
-      <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><img src="/i/tournament/tco06/tco06_logo.gif" border=0/></A></td>
+      <td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><img src="/i/tournament/tco06/tco06_logo_AMD.gif" border=0/></A></td>
       <td valign="middle" align="center"></td>
       <td valign="top" align="right" width="50%"><a href="/"><img src="/i/tournament/tco06/tc_logo.gif" border=0/></a></td>
    </tr>
@@ -72,9 +72,9 @@
 --%>
 
             <% if (tabLev2.equals("sponsors")) {%>
-               <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign"><img src="/i/tournament/tco06/tabs/L2_sponsorsOn.gif" alt="" border=0 /></A></td>
+               <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd"><img src="/i/tournament/tco06/tabs/L2_sponsorsOn.gif" alt="" border=0 /></A></td>
             <% } else { %>
-               <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign"><img src="/i/tournament/tco06/tabs/L2_sponsorsOff.gif" alt="" border=0 /></A></td>
+               <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd"><img src="/i/tournament/tco06/tabs/L2_sponsorsOff.gif" alt="" border=0 /></A></td>
             <% } %>
 
             <% if (tabLev2.equals("eventPatrons")) {%>
@@ -161,9 +161,7 @@
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=photos"><% if (tabLev3.equals("photos")) {%><img src="/i/tournament/tco06/tabs/L3_photosOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco06/tabs/L3_photosOff.gif" border=0 /><% } %></a></td>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=movies"><% if (tabLev3.equals("movies")) {%><img src="/i/tournament/tco06/tabs/L3_moviesOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco06/tabs/L3_moviesOff.gif" border=0 /><% } %></a></td>
                <% } else if (tabLev2.equals("sponsors")) {%>
-<%--
-                  <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=yahoo"><% if (tabLev3.equals("yahoo")) {%><img src="/i/tournament/tco06/tabs/L3_yahooOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco06/tabs/L3_yahooOff.gif" border=0 /><% } %></a></td>
---%>
+                  <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd"><% if (tabLev3.equals("amd")) {%><img src="/i/tournament/tco06/tabs/L3_amdOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco06/tabs/L3_amdOff.gif" border=0 /><% } %></a></td>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign"><% if (tabLev3.equals("verisign")) {%><img src="/i/tournament/tco06/tabs/L3_verisignOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco06/tabs/L3_verisignOff.gif" border=0 /><% } %></a></td>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs"><% if (tabLev3.equals("ubs")) {%><img src="/i/tournament/tco06/tabs/L3_ubsOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco06/tabs/L3_ubsOff.gif" border=0 /><% } %></a></td>
               <% } else if (tabLev2.equals("eventPatrons")) {%>

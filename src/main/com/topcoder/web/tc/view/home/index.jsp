@@ -51,7 +51,7 @@ margin:0px auto;
       <area shape="rect" alt="" coords="1,1, 265,149" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
       <area shape="rect" alt="" coords="275,1, 499,149" href="/tc?module=TCO06AlgorithmTerms" />
       </map>
-      <td class="BIGPromoBox" align="center"><IMG SRC="/i/home/tco06_algo_reg.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" /></td>
+      <td class="BIGPromoBox" align="center"><IMG SRC="/i/home/tco06_algo_reg_AMD.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" /></td>
 <%-- high school
       <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=hs&d2=home"><IMG SRC="/i/home/high_school.jpg" border="0" ALT="TopCoder High School"/></A></td>
 --%>
