@@ -26,7 +26,6 @@ public class Constants implements CodingInterfaceConstants {
     public static String START_COL;
     public static String COL_COUNT;
     public static String ROW_COUNT;
-
     public static final String KEY_USER_HANDLE = "ha";
     public static final String KEY_USER_PASS = "pass";
     public static final String EXAMPLE_FLAG = "ex";
@@ -62,7 +61,6 @@ public class Constants implements CodingInterfaceConstants {
     public static int INTEL_LONG_ROUND_TYPE_ID;
 
     public static String LOGIN_JSP;
-
     public static String PAGE_VIEW_REG;
     public static String RP_SUBMIT;
     public static String SUBMISSION_JSP;
