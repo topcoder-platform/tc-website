@@ -104,7 +104,7 @@ myForm.submit();
       <td class="header" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">(per competitor)</td>
       <td class="headerR" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Participants</td>
       <td class="headerC" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Date</td>
-      
+      <td class="headerC" width="20%">Discuss</td>
    </tr>
    <% boolean even = false; %>
    <rsc:iterator list="<%=list%>" id="resultRow">
@@ -154,6 +154,7 @@ winner2 = (n2 == null ? -1 : n2.longValue());
 
 <td class="valueR"><%=resultRow.getIntItem("numcompetitors1") + resultRow.getIntItem("numcompetitors2")%></td>
 <td class="valueC"><rsc:item name="start_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></td>
+<td class="value"><A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<rsc:item name="forum_id" row="<%=resultRow%>"/>" CLASS="statText"></td>
 </TR>
 <% even = !even;%>
 </rsc:iterator>
