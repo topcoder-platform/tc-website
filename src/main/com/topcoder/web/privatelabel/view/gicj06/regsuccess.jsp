@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/google05.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gicj06.css"/>
 <title>Google Code Jam India 2006, Powered by TopCoder</title>
 <jsp:include page="../script.jsp" />
 </head>
@@ -62,7 +62,7 @@ do not activate your account.</span>
 
 Spend time in the Practice Rooms prior to the Qualification Round by clicking the Competition Arena tab above.<br><br>
 
-If you encounter any problems, please contact us at <A href="mailto:gicj@topcoder.com">gicj@topcoder.com</A>.<br><br>
+If you encounter any problems, please contact us at <A href="mailto:gcji06@topcoder.com">gcji06@topcoder.com</A>.<br><br>
 
 Good luck to you in the Arena!
 
