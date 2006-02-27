@@ -25,15 +25,28 @@
             
 <div align="center"><img src="/i/tournament/tco06/amd_logo.gif" alt="AMD" border="0" /></div>
 <br><br>
-AMD is pleased to become the first TopCoder Open sponsor from the financial services industry.  AMD, one of the largest financial services firms in the world, is a leader in equities, corporate finance, M&amp;A advisory and financing, financial structuring, fixed income issuance and trading, foreign exchange, derivatives and risk management.
+<a href="/?t=sponsor&c=link&link=http://developer.amd.com/">Join AMD Developer Central</a>
 <br><br>
-The global financial markets are increasingly electronic and trading in these markets presents a unique combination of technical and trading challenges.  We are looking for developers to join our team that can work on advanced trading algorithms, build the underlying infrastructure to trade with milliseconds of latency and integrate access to a wide range of global products.
+AMD Developer Central, AMD's growing developer program, is proud to sponsor the 2006 TopCoder Open and be part of the amazing creativity and genius shown by the participants.
 <br><br>
-At AMD, you'll have access to the resources and expertise of a global firm while enjoying the flexibility and autonomy of a start-up. The technology we build is responsible for trading every 1 in 9 shares globally*, managing trillions of dollars in assets, and trading across nearly every product and region around the globe.
+Software development is in the midst of a key juncture in time with 64-bit processing and multi-core breaking their way into the mainstream.  In this ever changing technology it's a challenge to stay ahead of the game.  AMD Developer Central is here to offer the resources and tools you need to succeed.  
 <br><br>
-Become part of our exciting future at AMD. There are positions for extraordinary coders in our offices all over the world. <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd_confirm">Apply Now</a>
+Key benefits include:
+<ul>
+<li>Technical Documentation</li>
+<li>Discount Hardware Program</li>
+<li>Developer ToyBox</li>
+<li>Developer Central Spotlight</li>
+<li>Online Forums</li>
+<li>AMD Software Development Tools</li>
+<li>Access to marketing opportunities through AMD's Software Partner Program</li>
+</ul>
+
+One of the most popular developer resources we offer for free is CodeAnalyst&#153;.  CodeAnalyst&#153; Performance Analyzer is a suite of powerful tools that analyzes software performance on AMD microprocessors. These tools are designed to support Microsoft&reg; Windows&reg; 2000 or Microsoft Windows XP&reg; distributions on x86 and AMD64 architectures as well as both 32-bit and 64-bit Linux distributions based around the 2.4 or 2.6 kernel series on x86 based architecture. Although most users will choose the Graphical User Interface, the profiler is also offered as a command line utility to facilitate the use in batch files.
 <br><br>
-<a href="/?t=sponsor&c=link&link=http://www.amd.com/us-en/">www.amd.com</a>
+AMD also provides a Core Math Library called ACML.  The AMD Core Math Library (ACML) incorporates BLAS, LAPACK and FFT routines, as well as vector math libraries, which are designed to be used by a wide range of software developers to obtain excellent performance from their applications running on AMD platforms. The highly optimized library contains numeric functions for mathematical, engineering, scientific and financial applications. ACML is available both as a 32-bit library, for compatibility with legacy x86 applications, and as a 64-bit library that is designed to fully exploit the large memory space and improved performance offered by the latest AMD64 architectures. ACML is supported on both Linux and Microsoft&reg; Windows&reg; operating systems.
+<br><br>
+Learn more about optimization, 64-bit porting & Multi-Core on AMD Developer Central: <a href="/?t=sponsor&c=link&link=http://developer.amd.com/">JOIN NOW!</a>
 <br><br>
         </div>
       </td>
