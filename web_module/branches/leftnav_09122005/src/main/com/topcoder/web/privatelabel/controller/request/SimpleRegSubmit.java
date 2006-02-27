@@ -1,5 +1,7 @@
 package com.topcoder.web.privatelabel.controller.request;
 
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
@@ -59,25 +61,47 @@ public class SimpleRegSubmit extends SimpleRegBase {
     }
 
     protected long commit(SimpleRegInfo regInfo) throws TCWebException {
-        TransactionManager tm = null;
-        long ret = 0;
-        try {
-            tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
-            tm.begin();
 
-            ret = store(regInfo);
-            tm.commit();
-        } catch (Exception e) {
+        UserPrincipal newUser = null;
+        TransactionManager tm = null;
+        try {
+
             try {
-                if (tm != null && tm.getStatus()==Status.STATUS_ACTIVE) {
-                    tm.rollback();
+                PrincipalMgrRemote mgr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+                if (regInfo.isNew()) {
+                    if (regInfo.getUserId()>0) {
+                        newUser = mgr.createUser(regInfo.getUserId(), regInfo.getHandle(), regInfo.getPassword(), CREATE_USER, db);
+                    } else {
+                        newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER, db);
+                        regInfo.setUserId(newUser.getId());
+                    }
                 }
-            } catch (Exception x) {
+                tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+                tm.begin();
+                store(regInfo);
+                tm.commit();
+            } catch (Exception e) {
+                try {
+                    if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                        tm.rollback();
+                    }
+                } catch (Exception te) {
+                    te.printStackTrace();
+                }
+                if (newUser != null && newUser.getId() > 0 && regInfo.isNew()) {
+                    PrincipalMgrRemote mgr = (PrincipalMgrRemote)
+                            com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+                    mgr.removeUser(newUser, CREATE_USER);
+                }
                 throw new TCWebException(e);
+
             }
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
             throw new TCWebException(e);
         }
-        return ret;
+        return regInfo.getUserId();
     }
 
     public long storeWithoutCoder(SimpleRegInfo regInfo) throws Exception {
@@ -87,10 +111,12 @@ public class SimpleRegSubmit extends SimpleRegBase {
         UserAddress userAddress = (UserAddress) createEJB(getInitialContext(), UserAddress.class);
 
         long userId = regInfo.getUserId();
-        if (userId>0) {
-            user.createUser(regInfo.getUserId(), regInfo.getHandle(), getNewUserStatus(), transDb);
-        } else {
-            userId = user.createNewUser(regInfo.getHandle(), getNewUserStatus(), transDb);
+        if (regInfo.isNew()) {
+            if (userId>0) {
+                user.createUser(regInfo.getUserId(), regInfo.getHandle(), getNewUserStatus(), transDb);
+            } else {
+                userId = user.createNewUser(regInfo.getHandle(), getNewUserStatus(), transDb, db);
+            }
         }
         user.setFirstName(userId, regInfo.getFirstName(), transDb);
         user.setMiddleName(userId, regInfo.getMiddleName(), transDb);
@@ -131,9 +157,8 @@ public class SimpleRegSubmit extends SimpleRegBase {
         if (regInfo.isNew()) {
             emailId = email.createEmail(userId, transDb, db);
             email.setStatusId(emailId, 1, transDb);
-        } else if (!email.exists(userId, transDb)) {
-            emailId = email.createEmail(userId, transDb, db);
-            email.setStatusId(emailId, 1, transDb);
+        } else {
+            emailId = email.getPrimaryEmailId(userId, transDb);
         }
         email.setAddress(emailId, regInfo.getEmail(), transDb);
         email.setEmailTypeId(emailId, EMAIL_TYPE, transDb);
@@ -155,7 +180,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
         Rating rating = (Rating) createEJB(getInitialContext(), Rating.class);
 
         //create coder
-        if (!coder.exists(userId, transDb)) { // check if the user exists in registration database already as a coder
+        if (regInfo.isNew()) {
             coder.createCoder(userId, transDb);
             rating.createRating(userId, transDb);
         }

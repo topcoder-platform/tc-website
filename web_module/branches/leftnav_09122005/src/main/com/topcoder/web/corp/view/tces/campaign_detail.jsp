@@ -5,6 +5,7 @@
           com.topcoder.web.corp.common.TCESConstants" %>
 
 <%@ taglib uri="tces-taglib.tld" prefix="tces"%>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <jsp:useBean id="CampaignDetailTask" scope="request" class="com.topcoder.web.corp.controller.request.tces.CampaignDetailTask" />
 
@@ -30,26 +31,29 @@
 <!-- Top ends -->
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0 align=center>
-	<TR valign="top">
-		<td width="50%"><jsp:include page="left.jsp" /></td>
+   <TR valign="top">
+      <td width="50%"><jsp:include page="left.jsp" /></td>
 <!-- Center Column Begins -->
         <td class=recruitingBody>
-			<img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
+         <img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class=bodyText>
-                        <p>
+
+                     <div style="float:right;">
+                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=ViewSearchTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignDetailTask" property="campaignID" />">Search candidates</A>
+                     </div>
                         <tces:trailIterator id="trailItem" trailList="<%=CampaignDetailTask.getTrail()%>">
                             <a href="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name" /></a> &gt;
                         </tces:trailIterator>
-						<br/>
-						<span class=testHead>Employment Campaign Positions</span>
-						<br/><br/>
-			            <strong><jsp:getProperty name="CampaignDetailTask" property="companyName" /></strong><br/>
-			            <strong>Campaign:</strong> <jsp:getProperty name="CampaignDetailTask" property="campaignName" /><br/>
-			            <strong>Total Hits:</strong> <jsp:getProperty name="CampaignDetailTask" property="totalHits" /><br/>
-			            <strong>Most Recent Hit:</strong> <jsp:getProperty name="CampaignDetailTask" property="mostRecentHit" /></p>
-			            <p><A href="<jsp:getProperty name="CampaignDetailTask" property="servletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignDetailTask" property="campaignID" />" class="bodyText">View Overall Campaign Interest</A></p>
+                  <br/>
+                  <span class=testHead>Employment Campaign Positions</span>
+                  <br/><br/>
+                     <strong><jsp:getProperty name="CampaignDetailTask" property="companyName" /></strong><br/>
+                     <strong>Campaign:</strong> <jsp:getProperty name="CampaignDetailTask" property="campaignName" /><br/>
+                     <strong>Total Hits:</strong> <jsp:getProperty name="CampaignDetailTask" property="totalHits" /><br/>
+                     <strong>Most Recent Hit:</strong> <jsp:getProperty name="CampaignDetailTask" property="mostRecentHit" /></p>
+                     <p><A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignDetailTask" property="campaignID" />" class="bodyText">View Overall Campaign Interest</A></p>
                     </td>
                 </tr>
             </table>
@@ -66,7 +70,7 @@
                 <% i++; %>
 
                 <tr>
-                    <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap=nowrap><A href="<jsp:getProperty name="CampaignDetailTask" property="servletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignDetailTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=(String)position.get("job_id")%>" class="bodyText"><%= (String)position.get("job_desc") %></A></td>
+                    <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap=nowrap><A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignDetailTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=(String)position.get("job_id")%>" class="bodyText"><%= (String)position.get("job_desc") %></A></td>
                     <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap=nowrap align=center><%= (String)position.get("hit_count") %></td>
                     <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap=nowrap align=center><%= (String)position.get("most_recent") %></td>
                 </tr>
@@ -86,7 +90,7 @@
             <p><br/></p>
         </td>
 <!-- Center Column Ends -->
-				<td class=homeRightPromos width="50%"><jsp:include page="right.jsp" /></td>
+            <td class=homeRightPromos width="50%"><jsp:include page="right.jsp" /></td>
     </tr>
 </table>
 

@@ -41,10 +41,10 @@ abstract public class BaseActivate extends RegistrationBase {
             if (dbCode.equals(code)) {
                 //activate account
                 char status = user.getStatus(userId, db);
-                if (Arrays.binarySearch(UNACTIVE_STATI, status) > 0) {
+                if (Arrays.binarySearch(UNACTIVE_STATI, status) >= 0) {
                     user.setStatus(userId, ACTIVE_STATI[1], db); //want to get 'A'
                     setNextPage();
-                } else if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
+                } else if (Arrays.binarySearch(ACTIVE_STATI, status) >= 0) {
                     setNextPage();
                 } else {
                     throw new NavigationException("Your account can not be activated.");

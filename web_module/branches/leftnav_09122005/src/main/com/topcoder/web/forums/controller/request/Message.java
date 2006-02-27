@@ -27,7 +27,7 @@ public class Message extends ForumsProcessor {
 
 		StringBuffer urlNext = new StringBuffer();
 		urlNext.append("?module=Thread&").append(ForumConstants.THREAD_ID).append("=").append(thread.getID());
-		if (isSelectedView(threadView, "flat")) {
+		if (isSelectedView(threadView, "flat") || isSelectedView(threadView, "flat_new")) {
 			int messageIdx = 0;
 			Iterator messageIter = thread.getMessages();
 			while (messageIter.hasNext()) {
@@ -36,6 +36,9 @@ public class Message extends ForumsProcessor {
 			    }
 			    messageIdx++;
 			}
+            if (isSelectedView(threadView, "flat_new")) {
+                messageIdx = thread.getMessageCount()-messageIdx-1;
+            }
 
             int messageRange = JiveGlobals.getJiveIntProperty("skin.default.defaultMessagesPerPage", 
                     ForumConstants.DEFAULT_MESSAGE_RANGE);
@@ -63,6 +66,6 @@ public class Message extends ForumsProcessor {
      private boolean isSelectedView(String threadView, String view) {
          return (threadView.equals(view) ||
                 (threadView.equals("") && (authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals(view)) ||
-                (threadView.equals("") && user.getProperty("jiveThreadMode").equals(view))); 
+                (threadView.equals("") && user != null && view != null && view.equals(user.getProperty("jiveThreadMode")))); 
      }
 }

@@ -1,11 +1,9 @@
 <%@  page language="java"  %>
 <%@ page import="com.topcoder.web.tc.Constants,
-                 java.util.HashMap,
-                 com.topcoder.web.tc.model.ContractingResponse,
-                 com.topcoder.web.tc.model.ContractingResponseGroup,
-                 java.util.Iterator,
                  java.util.List,
                  com.topcoder.web.common.StringUtils" %>
+<%@ page import="com.topcoder.web.common.model.ContractingResponse"%>
+<%@ page import="com.topcoder.web.common.model.ContractingResponseGroup"%>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -22,7 +20,7 @@ List osList = (List)request.getAttribute("osSkills");
 List industryList = (List)request.getAttribute("industrySkills");
 %>
 
-<jsp:useBean id="contractingInfo" class="com.topcoder.web.tc.model.ContractingInfo" scope="request" />
+<jsp:useBean id="contractingInfo" class="com.topcoder.web.common.model.ContractingInfo" scope="request" />
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 </head>

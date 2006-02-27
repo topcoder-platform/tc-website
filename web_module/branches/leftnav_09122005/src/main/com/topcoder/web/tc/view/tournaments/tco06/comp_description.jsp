@@ -2,6 +2,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<jsp:include page="/script.jsp" />
+
 <title>2006 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
 </head>
@@ -42,6 +44,7 @@ The competition is free and you must be 18 years or older to be eligible.
 <br><br>
 See the official <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_rules">rules and regulations</A> for full details.
 <br><br>
+<%--
 <span class="bigTitle">How to Register for the Component Competition</span>
 <br><br>
 <strong>Already a TopCoder Member?</strong><br>
@@ -51,6 +54,7 @@ Click <A href="/tc?module=TCO06ComponentTerms">here</A> to register for the TCO 
 Click <A href="/Registration">here</A> to register as a TopCoder member.<br>
 Check your email and activate your new TopCoder account.<br>
 Click <A href="/tc?module=TCO06ComponentTerms">here</A> to register for the TCO Component Design and Development Competition
+--%>
         </div>
       </td>
         

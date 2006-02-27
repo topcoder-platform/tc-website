@@ -1,14 +1,14 @@
 package com.topcoder.web.corp.view.tces.tag;
 
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.corp.common.TCESConstants;
 
-import javax.servlet.jsp.tagext.TagSupport;
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.TagSupport;
 import java.util.Map;
 
 /**
@@ -123,7 +123,9 @@ public class HandleTag extends TagSupport {
                 StringBuffer buf = new StringBuffer(200);
                 buf.append("http://");
                 buf.append(ApplicationServer.CORP_SERVER_NAME);
-                buf.append("/tces?task=MemberProfileTask");
+                buf.append("/tces?");
+                buf.append(TCESConstants.TASK_PARAM);
+                buf.append("=MemberProfileTask");
                 buf.append("&");
                 buf.append(TCESConstants.MEMBER_ID_PARAM);
                 buf.append("=");

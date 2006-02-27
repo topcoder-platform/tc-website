@@ -1,7 +1,10 @@
 <%@ page import="com.topcoder.web.tc.Constants"%>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<% ResultSetContainer list = (ResultSetContainer)request.getAttribute("list"); %>
 <html>
 <head>
     <title>TopCoder College Tour</title>
@@ -39,6 +42,10 @@
 
                 <p>
                     <h2 align="center">2006 TopCoder U.S. College Tour</h2>
+
+<%--
+                    <p align="center"><a href="#schools">Participating schools</a></p>
+--%>
 
                     <h3>Is your school on the schedule?</h3>
 
@@ -84,7 +91,12 @@
                     <% } %>
                 </p>
 
-
+               <a name="schools"></a>
+                <rsc:iterator list="<%=list%>" id="resultRow">
+                    <div align="center" style="padding: 20px;">
+                    <img src="<rsc:item name="image_path" row="<%=resultRow%>"/>" alt="<rsc:item name="event_name" row="<%=resultRow%>"/>" border="0" />
+                    </div>
+                </rsc:iterator>
             </div>
 
         </td>

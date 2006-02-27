@@ -7,14 +7,15 @@ import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.longcontest.model.LongContest;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.ImageInfo;
-import com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
+import com.topcoder.web.ejb.roundregistration.RoundRegistrationLocal;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
-import java.util.Vector;
 
 /**
  * Displays active and a couple of pass contests
@@ -31,15 +32,25 @@ public class ViewActiveContests extends Base {
         User usr = getUser();
 
         // The collection of contests to display
-        Vector contests = new Vector();
+        ArrayList contests = new ArrayList();
 
         try {
+            int type = Constants.LONG_ROUND_TYPE_ID;
+            if (StringUtils.isNumber(getRequest().getParameter(Constants.ROUND_TYPE_ID))) {
+                if (Integer.parseInt(getRequest().getParameter(Constants.ROUND_TYPE_ID))
+                        == Constants.INTEL_LONG_ROUND_TYPE_ID) {
+                    type = Constants.INTEL_LONG_ROUND_TYPE_ID;
+                }
+            }
+            getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(type));
+
             // Data source
             DataAccessInt dai = getDataAccess();
 
             // Prepare a request to get active contest information
             Request r = new Request();
             r.setContentHandle("long_contest_active_contests");
+            r.setProperty(Constants.ROUND_TYPE_ID, String.valueOf(type));
 
             // Fetch Data
             Map m = dai.getData(r);
@@ -94,6 +105,8 @@ public class ViewActiveContests extends Base {
                 //todo and then populates a couple fields from transactional to fill out the list
                 Request reqPassContests = new Request();
                 reqPassContests.setContentHandle("long_contest_pass_contests");
+                reqPassContests.setProperty(Constants.ROUND_TYPE_ID, String.valueOf(type));
+
                 Map mapPassContests = dai.getData(reqPassContests);
                 ResultSetContainer rscPassContests = (ResultSetContainer) mapPassContests.get("long_contest_pass_contests");
                 for (int i = 0; i < rscPassContests.getRowCount()&contests.size()<5; i++) {

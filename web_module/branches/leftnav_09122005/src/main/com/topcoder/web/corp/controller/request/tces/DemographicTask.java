@@ -6,9 +6,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.common.TCESConstants;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,15 +16,15 @@ import java.util.Map;
  *
  */
 
-public class DemographicTask extends BaseTask implements Task, Serializable {
+public class DemographicTask extends BaseTask {
 
     private static Logger log = Logger.getLogger(DemographicTask.class);
 
     /* Holds the ID of the campaign to which the job belongs */
-    private int campaignID;
+    private long campaignID;
 
     /* Holds the ID of the job */
-    private int jobID;
+    private long jobID;
 
     /* Holds the name of the company to which the job belongs */
     private String companyName;
@@ -52,17 +49,6 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
 
     /* Holds the ID of the currently logged-in user */
     //private long uid;  // moved to BaseTask
-
-    /* Creates a new DemographicTask */
-    public DemographicTask() {
-        super();
-        setNextPage(TCESConstants.DEMOGRAPHIC_PAGE);
-
-        uid = -1;
-
-        setJobID(-1);
-        setCampaignID(-1);
-    }
 
     /** Setter for property studentDemoInfo.
      * @param studentDemoInfo New value of property studentDemoInfo.
@@ -151,29 +137,29 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
     /** Getter for property campaignID
      * @return Value of property campaignID
      */
-    public int getCampaignID() {
+    public long getCampaignID() {
         return campaignID;
     }
 
     /** Setter for property campaignID.
      * @param campaignID New value of property campaignID.
      */
-    public void setCampaignID(int campaignID) {
+    public void setCampaignID(long campaignID) {
         this.campaignID = campaignID;
     }
 
     /** Getter for property jobID
      * @return Value of property jobID
      */
-    public int getJobID() {
+    public long getJobID() {
         return jobID;
     }
 
     /** Setter for property jobID.
      * @param jobID New value of property jobID.
      */
-    public void setJobID(int jobID) {
-        log.debug("setJobID() called...");
+    public void setJobID(long jobID) {
+        //log.debug("setJobID() called...");
         this.jobID = jobID;
     }
 
@@ -191,41 +177,37 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
         this.companyName = companyName;
     }
 
-//    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-//        throws Exception
-//    {
-//
-//        User curUser = getAuthenticityToken().getActiveUser();
-//        uid = curUser.getId();
-//    }
 
-    public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
-        log.debug("jobid: " + getJobID());
+    protected void businessProcessing() throws Exception {
+        setCampaignID(Long.parseLong(getRequest().getParameter(TCESConstants.CAMPAIGN_ID_PARAM)));
+        if (getRequest().getParameter(TCESConstants.JOB_ID_PARAM)!=null) {
+            setJobID(Long.parseLong(getRequest().getParameter(TCESConstants.JOB_ID_PARAM)));
+        }
 
+        viewDemographics();
         ArrayList a = new ArrayList();
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
                 "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" +
                 TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
                 "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" +
                 TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_DETAIL_NAME));
-        a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+        a.add(new TrailItem(getSessionInfo().getServletPath() +
                 "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_INTEREST_TASK + "&" +
                 TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_INTEREST_NAME));
-        if (getJobID() >= 0) {
-            a.add(new TrailItem(request.getContextPath() + request.getServletPath() +
+        if (getJobID() > 0) {
+            a.add(new TrailItem(getSessionInfo().getServletPath() +
                     "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.POSITION_INTEREST_TASK + "&" +
                     TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() +
                     "&" + TCESConstants.JOB_ID_PARAM + "=" + getJobID(), TCESConstants.POSITION_INTEREST_NAME));
         }
         setTrail(a);
+        setNextPage(TCESConstants.DEMOGRAPHIC_PAGE);
+        setIsNextPageInContext(true);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf('.')+1), this);
+        
 
-    }
 
-    public void processStep(String step)
-            throws Exception {
-        viewDemographics();
     }
 
     private void viewDemographics() throws Exception {
@@ -233,7 +215,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
         ResultSetContainer rsc = null;
         Map resultMap = null;
 
-        if (getJobID() >= 0) {
+        if (getJobID() > 0) {
             // Position Demographics
             dataRequest.setContentHandle("tces_position_demographics");
         } else {
@@ -245,14 +227,14 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                        TCESConstants.STUDENT_CODER_TYPE};
 
         for (int typeI = 0; typeI < types.length; typeI++) {
-            if (getJobID() >= 0) {
+            if (getJobID() > 0) {
                 // Position Demographics
-                dataRequest.setProperty("jid", Integer.toString(getJobID()));
+                dataRequest.setProperty("jid", String.valueOf(getJobID()));
             }
 
-            dataRequest.setProperty("uid", Long.toString(uid));
-            dataRequest.setProperty("cid", Integer.toString(getCampaignID()));
-            dataRequest.setProperty("ct", Integer.toString(types[typeI]));
+            dataRequest.setProperty("uid", String.valueOf(getUser().getId()));
+            dataRequest.setProperty("cid", String.valueOf(getCampaignID()));
+            dataRequest.setProperty("ct", String.valueOf(types[typeI]));
             resultMap = getDataAccess(getOltp()).getData(dataRequest);
 
             if (super.getSessionInfo().isAdmin())
@@ -267,14 +249,14 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
             ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
             setCampaignName(cpgnInfRow.getItem("campaign_name").toString());
 
-            if (getJobID() >= 0) {
+            if (getJobID() > 0) {
                 rsc = (ResultSetContainer) resultMap.get("TCES_Position_Name");
                 ResultSetContainer.ResultSetRow posNameRow = rsc.getRow(0);
                 setPositionName(posNameRow.getItem("job_desc").toString());
             }
 
 
-            rsc = (getJobID() >= 0) ?
+            rsc = (getJobID() > 0) ?
                     (ResultSetContainer) resultMap.get("TCES_Position_Coders_By_Type")
                     : (ResultSetContainer) resultMap.get("TCES_Campaign_Coders_By_Type");
             ResultSetContainer.ResultSetRow coderCountRow = rsc.getRow(0);
@@ -285,7 +267,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
 
             HashMap demoInfoMap = new HashMap();
 
-            rsc = (getJobID() >= 0) ?
+            rsc = (getJobID() > 0) ?
                     (ResultSetContainer) resultMap.get("TCES_Position_Referral_Responses")
                     : (ResultSetContainer) resultMap.get("TCES_Campaign_Referral_Responses");
             ResultSetContainer.ResultSetRow refRspRow = null;
@@ -309,7 +291,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
             }
             demoInfoMap.put(TCESConstants.DEMOGRAPHIC_REFERRAL_KEY, referralMapList);
 
-            rsc = (getJobID() >= 0) ?
+            rsc = (getJobID() > 0) ?
                     (ResultSetContainer) resultMap.get("TCES_Position_Demographic_Responses")
                     : (ResultSetContainer) resultMap.get("TCES_Campaign_Demographic_Responses");
             ResultSetContainer.ResultSetRow demoInfoRow = null;
@@ -346,39 +328,27 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                 setProDemoInfo(demoInfoMap);
         }
 
-        if (getJobID() >= 0) {
+        if (getJobID() > 0) {
             // Position Demographics
 
             rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Job_Access");
             if (rsc.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
-                throw new NotAuthorizedException(" cid=" + Integer.toString(getCampaignID()) +
-                        " pid=" + Integer.toString(getJobID()) +
-                        " does not belong to uid=" + Long.toString(uid));
+                throw new NotAuthorizedException(" cid=" + String.valueOf(getCampaignID()) +
+                        " pid=" + String.valueOf(getJobID()) +
+                        " does not belong to uid=" + String.valueOf(getUser().getId()));
             }
         } else {
             // Campaign Demographics
 
             rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Campaign_Access");
             if (rsc.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
-                throw new NotAuthorizedException(" cid=" + Integer.toString(getCampaignID()) +
-                        "does not belong to uid=" + Long.toString(uid));
+                throw new NotAuthorizedException(" cid=" + String.valueOf(getCampaignID()) +
+                        "does not belong to uid=" + String.valueOf(getUser().getId()));
             }
         }
 
-
-        setNextPage(TCESConstants.DEMOGRAPHIC_PAGE);
     }
 
-    public void setAttributes(String paramName, String paramValues[]) {
-        String value = paramValues[0];
-        value = (value == null ? "" : value.trim());
-        log.debug("setAttributes name: " + paramName + " value: " + value);
-
-        if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
-            setCampaignID(Integer.parseInt(value));
-        if (paramName.equalsIgnoreCase(TCESConstants.JOB_ID_PARAM))
-            setJobID(Integer.parseInt(value));
-    }
 
 }
 

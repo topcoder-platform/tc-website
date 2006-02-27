@@ -2,6 +2,7 @@ package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.ejb.JavaDocServices.JavaDocServices;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 
@@ -29,7 +30,7 @@ public class JavaDocServlet extends HttpServlet {
     private static final String PATH = "path";
     private static final String PASSWORD = "password";
     private static final String HANDLE = "handle";
-    private static final String DB_NAME = "OLTP";
+    private static final String DB_NAME = DBMS.OLTP_DATASOURCE_NAME;
     
     protected String getServletPath() {
         return SERVLET_NAME;

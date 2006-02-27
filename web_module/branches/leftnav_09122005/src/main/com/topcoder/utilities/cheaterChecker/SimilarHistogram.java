@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class SimilarHistogram implements Fraud {
+public class SimilarHistogram extends FraudBase {
     private static Logger log = Logger.getLogger(SimilarHistogram.class);
     private StringBuffer report = null;
     private List tokens = null;
@@ -58,10 +58,16 @@ public class SimilarHistogram implements Fraud {
             report.append(s1.getCoderId());
             report.append(")");
             report.append(" ");
+            report.append("s");
+            report.append(s1.getSubmissionNumber());
+            report.append(" ");
             report.append(s2.getHandle());
             report.append("(");
             report.append(s2.getCoderId());
             report.append(")");
+            report.append(" ");
+            report.append("s");
+            report.append(s2.getSubmissionNumber());
             report.append("\n");
             potentialViolators.add(new User(s1.getCoderId(), s1.getHandle()));
             potentialViolators.add(new User(s2.getCoderId(), s2.getHandle()));

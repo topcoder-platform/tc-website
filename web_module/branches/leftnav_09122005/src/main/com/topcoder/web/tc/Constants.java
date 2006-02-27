@@ -27,7 +27,6 @@ public class Constants implements WebConstants {
     public static String ACTIVATION_CODE;
     public static final String COMPANY_NAME = "compName";
 
-    public static String USER_ID;
     public static String NOTE_ID;
     public static String STATE_CODE;
     public static String COUNTRY_CODE;
@@ -147,6 +146,8 @@ public class Constants implements WebConstants {
     public static final int TCO06_ALGORITHM_TERMS_OF_USE_ID=20383;
     public static final int TCO06_COMPONENT_TERMS_OF_USE_ID=20384;
     public static final int TCO05_SPONSOR_COMPANY_QUESTION_ID = 30;
+    public static final int TCO06_SPONSOR_COMPANY_QUESTION_ID = 31;
+    public static final int TCO06_SPONSOR_TERMS_ID = 20388;
     public static int UNLOCK_CARD_PREFERENCE_ID;
     public static int JAVA_CATALOG_ID;
     public static int DOT_NET_CATALOG_ID;
@@ -155,14 +156,15 @@ public class Constants implements WebConstants {
     public static int FLASH_CATALOG_ID;
     public static int APPLICATIONS_CATALOG_ID;
     public static int INTERNAL_NOTE_TYPE_ID;
-    public static int LANGUAGE_NOTE_TYPE_ID;
-    public static int TECH_NOTE_TYPE_ID;
-    public static int OS_NOTE_TYPE_ID;
-    public static int DB_NOTE_TYPE_ID;
-    public static int INDUSTRY_NOTE_TYPE_ID;
+    //public static int LANGUAGE_NOTE_TYPE_ID;
+    //public static int TECH_NOTE_TYPE_ID;
+    //public static int OS_NOTE_TYPE_ID;
+    //public static int DB_NOTE_TYPE_ID;
+    //public static int INDUSTRY_NOTE_TYPE_ID;
     public static int MAX_RATED_INQUIRIES;
     public static int MAX_UNRATED_INQUIRIES;
     public static int REVIEWER_TERMS_ID;
+    public static int PROJECT_TERMS_ID;
     public static int TOURNAMENT_COMPONENT;
     public static int ACTIVE_REVIEWER;
 
@@ -205,23 +207,8 @@ public class Constants implements WebConstants {
     public static String CONTRACTING_CONFIRM_PAGE;
     public static String CONTRACTING_SUCCESS_PAGE;
 
-    public static int PREFERENCE_SINGLE_ANSWER;
-    public static int PREFERENCE_MULTIPLE_ANSWER;
-    public static int PREFERENCE_TEXT_ANSWER;
     public static String PREFERENCE_PREFIX;
 
-    public static int PREFERENCE_CONTRACTING;
-    public static int PREFERENCE_CONTRACTING_TRUE;
-    public static int PREFERENCE_CONTRACTING_FALSE;
-    public static int PREFERENCE_PERMANENT;
-    public static int PREFERENCE_PERMANENT_TRUE;
-    public static int PREFERENCE_PERMANENT_FALSE;
-
-    public static int SKILL_TYPE_LANGUAGES;
-    public static int SKILL_TYPE_TECHNOLOGIES;
-    public static int SKILL_TYPE_OS;
-    public static int SKILL_TYPE_DATABASES;
-    public static int SKILL_TYPE_INDUSTRIES;
     public static String SKILL_PREFIX;
 
     public static String NOTE_PREFIX;

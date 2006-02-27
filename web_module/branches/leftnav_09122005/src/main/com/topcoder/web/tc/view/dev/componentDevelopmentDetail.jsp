@@ -113,7 +113,7 @@
 <% if (projectDetail.getIntItem(0, "root_category_id") == Constants.CUSTOM_JAVA_CATALOG_ID || projectDetail.getIntItem(0, "root_category_id") == Constants.CUSTOM_DOT_NET_CATALOG_ID) {%>
                         <p>
                         TopCoder will compensate members with first and second place submissions that have scored at least
-                        70. The initial payment will be distributed in two installments.
+                        75. The initial payment will be distributed in two installments.
                         First Milestone: When the winning solution is submitted and review board suggestions are integrated.
                         Second Milestone: Is marked by the completion of the development project*.</p>
 
@@ -126,7 +126,7 @@
 <% } else { %>
                         <p>
                         TopCoder will compensate members with first and second place submissions that have scored at least
-                        70. First place compensation will consist of both initial payments and royalties on
+                        75. First place compensation will consist of both initial payments and royalties on
                         the sale of the component. The initial payment will be distributed in two installments.
                         First Milestone: When the winning solution is submitted and review board suggestions are integrated.
                         Second Milestone: Is marked by the completion of the development project*.</p>
@@ -220,8 +220,12 @@ If you do not reside in the United States:
                                <% if (sessionInfo.isAnonymous()) { %>
                                  Login required to register for this project.   <br/><br/>
                                <% } %>
+<%--
                                <strong><A href="/?t=development&amp;version=<rsc:item set="<%=projectDetail%>" name="version_id"/>&phase=<rsc:item set="<%=projectDetail%>" name="phase_id"/>&comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>&c=tcs_inquire&Project=<%=response.encodeURL(projectDetail.getStringItem(0, "component_name")+" Development")%>&date=<rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/>&projectId=<%= request.getAttribute("projectId") %>">
                                         Register</A> for this Component Project to get information necessary to submit a solution</strong>
+--%>
+                                <strong><A href="/tc?module=ViewProjectRegistration&<%=Constants.PROJECT_ID%>=<%= request.getAttribute("projectId") %>">
+                                         Register</A> for this Component Project to get information necessary to submit a solution</strong>
                                         <br/><br/>
                                         <span class=bigRed>NOTE: Registering for this component will affect your <A class=bigRed href="/tc?module=Static&d1=dev&d2=support&d3=reliability">Reliability Rating</A></span>
                            <% } %>

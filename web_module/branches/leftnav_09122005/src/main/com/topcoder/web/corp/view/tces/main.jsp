@@ -4,7 +4,7 @@
   import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
           com.topcoder.web.corp.controller.request.tces.*,
           com.topcoder.web.corp.common.TCESConstants" %>
-
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%@ taglib uri="tces-taglib.tld" prefix="tces"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -74,7 +74,7 @@
                    } %>
 
                 <tr>
-                    <td width="40%" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">&#160;&#160;&#160;<A HREF="<jsp:getProperty name="MainTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="bodyText"><%=campaignInfo.getItem("campaign_name").toString()%></A></td>
+                    <td width="40%" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">&#160;&#160;&#160;<A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="bodyText"><%=campaignInfo.getItem("campaign_name").toString()%></A></td>
                     <td width="20%" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap="nowrap" align=center><%=campaignInfo.getItem("start_date").toString()%></td>
                     <td width="20%" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap="nowrap" align=center><%=campaignInfo.getItem("end_date").toString()%></td>
                     <td width="20%" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap="nowrap" align=center><rsc:item row="<%=campaignInfo%>" name="most_recent_hit" format="MM/dd/yyyy"/></td>

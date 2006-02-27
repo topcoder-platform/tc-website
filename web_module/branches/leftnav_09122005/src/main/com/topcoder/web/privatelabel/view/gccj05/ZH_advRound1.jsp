@@ -244,7 +244,6 @@
 <tr class="sidebarText"><td>stone</td><td align="right">709.30</td></tr>
 <tr class="sidebarText"><td>t_tg</td><td align="right">267.56</td></tr>
 <tr class="sidebarText"><td>tangqiaoboy</td><td align="right">486.74</td></tr>
-<tr class="sidebarText"><td>tangxin</td><td align="right">1737.87</td></tr>
 <tr class="sidebarText"><td>tankbattle</td><td align="right">550.52</td></tr>
 <tr class="sidebarText"><td>taokuan</td><td align="right">278.89</td></tr>
 <tr class="sidebarText"><td>tension</td><td align="right">729.79</td></tr>

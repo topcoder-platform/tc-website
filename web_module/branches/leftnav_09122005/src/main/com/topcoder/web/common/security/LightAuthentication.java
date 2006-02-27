@@ -59,4 +59,9 @@ public class LightAuthentication extends BasicAuthentication {
         }
     }
 
+    public void login(User u, boolean rememberUser, String dataSource) throws LoginException {
+        throw new RuntimeException("Not implemented");
+    }
+
+
 }

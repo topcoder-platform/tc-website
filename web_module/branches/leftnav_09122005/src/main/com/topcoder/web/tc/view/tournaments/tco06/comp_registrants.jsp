@@ -4,6 +4,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<jsp:include page="/script.jsp" />
+
 <title>2006 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
@@ -33,7 +35,7 @@
 <br><br>
 <table class="formFrame" border="0" cellpadding="6" cellspacing="0" width="300">
     <tbody><tr>
-      <td class="advTitle" colspan="3" width="100%">Registrants</td>
+      <td class="advTitle" colspan="3" width="100%">Registrants (<%=rsc.size()%>)</td>
    </tr>
     <tr class="advHeader">
        <td align="left" width="50%"><a href="/tc?module=TCO06CompRegistrants<tc-webtag:sort column="1"/>">Handle</a></td>

@@ -15,4 +15,6 @@ public interface CurrentSchool extends EJBObject {
 
     boolean exists(long coderId, String dataSource) throws EJBException, RemoteException;
 
+    long getSchoolId(long coderId, String dataSource) throws EJBException, RemoteException;
+
 }

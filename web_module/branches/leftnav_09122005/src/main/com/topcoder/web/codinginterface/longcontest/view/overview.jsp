@@ -15,7 +15,7 @@
 <jsp:useBean id="prevPageLink" class="java.lang.String" scope="request"/>
 <jsp:useBean id="nextPageLink" class="java.lang.String" scope="request"/>
 <%
-    ResultSetContainer registrants = (ResultSetContainer) resultMap.get("long_contest_overview_coders");
+    ResultSetContainer competitors = (ResultSetContainer) resultMap.get("long_contest_overview_coders");
     ResultSetContainer rounds = (ResultSetContainer) resultMap.get("long_contest_round_list");
     ResultSetContainer categories = (ResultSetContainer) resultMap.get("long_contest_round_categories");
     ResultSetContainer rsc = (ResultSetContainer) resultMap.get("long_contest_overview_info");
@@ -87,7 +87,7 @@
     <br><br>
 
 
-    <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
+    <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/> &gt; <rsc:item name="round_name" row="<%=infoRow%>"/></span><br>
 <span class="bodySubtitle">Categories:
 <% if (categories.isEmpty()) { %> None <% } %>
 <%boolean first = true;%>
@@ -132,7 +132,7 @@ Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.
                     </tr>
                     <%-- ITERATOR --%>
                     <%boolean even = true;%>
-                    <rsc:iterator list="<%=registrants%>" id="resultRow">
+                    <rsc:iterator list="<%=competitors%>" id="resultRow">
                         <tr>
                             <td class="<%=even?"statLt":"statDk"%>">
                                 <tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>'/></td>

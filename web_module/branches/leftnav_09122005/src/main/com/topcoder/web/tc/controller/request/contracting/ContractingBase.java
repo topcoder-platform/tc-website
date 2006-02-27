@@ -19,12 +19,12 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.ContractingInfo;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.ejb.coderskill.CoderSkill;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.user.UserPreference;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.model.ContractingInfo;
 
 import javax.naming.InitialContext;
 import java.io.IOException;

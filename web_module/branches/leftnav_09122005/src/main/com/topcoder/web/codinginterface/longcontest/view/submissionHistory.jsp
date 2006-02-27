@@ -75,12 +75,12 @@
                <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
             </div>
             <span class="bigHandle">Contest:
-                    <A href="?module=ViewStandings&rd=<rsc:item name="round_id" row="<%=infoRow%>"/>" class="bcLink"><rsc:item name="contest_name" row="<%=infoRow%>"/></A>
+                    <A href="?module=ViewStandings&rd=<rsc:item name="round_id" row="<%=infoRow%>"/>" class="bcLink"><rsc:item name="contest_name" row="<%=infoRow%>"/> &gt; <rsc:item name="round_name" row="<%=infoRow%>"/></A>
             </span><br>
-            <span class="bodySubtitle">Problem: <rsc:item name="problem_name" row="<%=infoRow%>"/></span><br>
+            <span class="bodySubtitle">Problem: <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>" class="bcLink">
+                <rsc:item name="problem_name" row="<%=infoRow%>"/></a></span><br>
             <span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=request.getParameter(Constants.CODER_ID)%>'/></span>
             <br>
-            <span class="bodySubtitle">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></span><br>
 
             <div style="clear: both;" align="center">
                <div class="pagingBox">
@@ -98,11 +98,7 @@
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
                             <tr>
-                                <% if (over||self) { %>
-                                <td class="tableTitle" colspan="5">Submission History</td>
-                                <% } else { %>
-                                <td class="tableTitle" colspan="4">Submission History</td>
-                                <% } %>
+                                <td class="tableTitle" colspan="4">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></td>
                             </tr>
                             <tr>
                                 <td class="tableHeader" width="20%">
@@ -113,26 +109,25 @@
                                     <A href="<%=sortLinkBase%><tc-webtag:sort column="6"/>">Score</A></td>
                                 <td class="tableHeader" width="20%" align="center">
                                     <A href="<%=sortLinkBase%><tc-webtag:sort column="<%=submissions.getColumnIndex("language_name")%>"/>">Language</A></td>
-                                <% if (over||self) { %>
-                                <td class="tableHeader" width="20%" align="right">&#160;</td>
-                                <% } %>
                             </tr>
                             <%boolean even = true;%>
                             <rsc:iterator list="<%=submissions%>" id="resultRow">
                                 <tr>
                                     <td class="<%=even?"statLt":"statDk"%>">
-                                        <rsc:item name="submission_number" row="<%=resultRow%>"/></td>
-                                    <td class="<%=even?"statLt":"statDk"%>" align="center">
+                                    <% if (over||self) { %>
+                                       <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemSolution&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>" class="statLink">
+                                    <% } %>
+                                        <rsc:item name="submission_number" row="<%=resultRow%>"/>
+                                    <% if (over||self) { %>
+                                       </A>
+                                    <% } %>
+                                    </td>
+                                    <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
                                         <tc-webtag:format object="<%=new Date(resultRow.getLongItem("submit_time"))%>" format="MM.dd.yyyy HH:mm:ss"/></td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="right">
                                         <rsc:item name="submission_points" row="<%=resultRow%>" format="0.00"/><%=resultRow.getIntItem("status_id")==130?"*":""%></td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center">
                                         <rsc:item name="language_name" row="<%=resultRow%>"/></td>
-                                    <% if (over||self) { %>
-                                    <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 40px;">
-                                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemSolution&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>">solution</A>
-                                    </td>
-                                    <% } %>
                                 </tr>
                                 <%even = !even;%>
                             </rsc:iterator>

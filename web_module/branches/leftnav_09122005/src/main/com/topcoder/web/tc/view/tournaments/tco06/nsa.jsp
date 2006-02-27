@@ -2,6 +2,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<jsp:include page="/script.jsp" />
+
 <title>2006 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
 </head>
@@ -36,7 +38,8 @@ The National Security Agency (NSA) has excellent opportunities for Mathematician
 NSA looks forward to recruiting from the top competitors in the 2006 TopCoder Open.  
 <br><br>
 <span class="smallText">NSA is an Equal Opportunity Employer.</span>
-
+<br><br>
+<a href="/?t=sponsor&c=link&link=http://www.nsa.gov">www.nsa.gov</a>
         </div>
       </td>
         

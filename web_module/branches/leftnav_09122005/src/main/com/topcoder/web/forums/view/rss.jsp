@@ -14,7 +14,9 @@
 
 <%  SimpleDateFormat formatter = new SimpleDateFormat(RSSActionSupport.DATE_FORMAT); %>
 
-<rss version="2.0" xmlns:jf="http://www.jivesoftware.com/xmlns/jiveforums/rss">
+<rss version="2.0" 
+    xmlns:jf="http://www.jivesoftware.com/xmlns/jiveforums/rss"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
 
 <channel>
     <title><%= com.jivesoftware.forum.util.SkinUtils.getCommunityName() %> RSS Feed</title>
@@ -28,6 +30,9 @@
            <title><%= StringUtils.escapeForXML(message.getSubject()) %></title>
            <link><jsp:getProperty name="sessionInfo" property="absoluteServletPath"/>?module=Message&amp;<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/></link>
            <description><![CDATA[<%= message.getBody() %>]]></description>
+           <dc:creator><%= message.getUser().getUsername() %></dc:creator>
+           <category><%= message.getForum().getName() %></category>
+           <pubDate><%= formatter.format(message.getCreationDate()) %></pubDate>
            <jf:creationDate><%= formatter.format(message.getCreationDate()) %></jf:creationDate>
            <jf:modificationDate><%= formatter.format(message.getModificationDate()) %></jf:modificationDate>
            <jf:author><%= message.getUser().getUsername() %></jf:author>

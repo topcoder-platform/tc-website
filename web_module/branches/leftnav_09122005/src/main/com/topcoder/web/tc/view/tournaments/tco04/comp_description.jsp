@@ -33,7 +33,7 @@
                 <li><strong>Onsite Review of Competition</strong><br />
                     November 12, 2004 at the Santa Clara Marriott in Santa Clara, CA, USA</li>
                 <li><strong>Free Competition</strong><br />
-                <a href="/?t=development&c=comp_projects">View eligible components</a></li>
+                <a href="/tc?module=ViewActiveContests">View eligible components</a></li>
                 <li><strong>Open to all registered TopCoder members over the age of 18.</strong></li>
             </ul>
             

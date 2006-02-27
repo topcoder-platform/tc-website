@@ -1,11 +1,8 @@
 <%@  page language="java"  %>
-<%@ page import="com.topcoder.web.tc.Constants,
-                 java.util.HashMap,
-                 com.topcoder.web.tc.model.ContractingResponse,
-                 com.topcoder.web.tc.model.ContractingResponseGroup,
-                 java.util.Iterator,
+<%@ page import="com.topcoder.web.common.model.ContractingResponseGroup,
                  com.topcoder.web.common.StringUtils,
                  java.util.List" %>
+<%@ page import="com.topcoder.web.common.model.ContractingResponse"%>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:include page="nocache.jsp"/>
@@ -50,9 +47,9 @@ List industryList = (List)request.getAttribute("industrySkills");
         <td width="100%" align="center">
         <div class="myTCBody">
 
-        <jsp:include page="../../page_title.jsp" >
-                <jsp:param name="level1" value="employment"/>
-                <jsp:param name="level2" value="registration"/>
+        <jsp:include page="/page_title.jsp" >
+            <jsp:param name="image" value="employmentOpps"/>
+            <jsp:param name="title" value="Registration"/>
         </jsp:include>
 
 <!-- Breadcrumb-->

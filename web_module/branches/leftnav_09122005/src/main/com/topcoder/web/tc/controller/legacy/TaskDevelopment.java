@@ -168,7 +168,9 @@ public final class TaskDevelopment {
                     requiresLogin = true;
                 }
 
+/*
             } else if (command.equals("multiplier_status")) {
+                //todo this is dead, can be removed
                 Request dataRequest = null;
                 ResultSetContainer rsc = null;
                 Map resultMap = null;
@@ -201,6 +203,7 @@ public final class TaskDevelopment {
                 xsldocURLString = XSL_DIR + command + ".xsl";
 
 
+*/
             } else if (command.equals("comp_archive")) {
                 Request dataRequest = new Request();
                 dataRequest.setContentHandle("project_status");
@@ -464,14 +467,14 @@ public final class TaskDevelopment {
                             respBody.append("the current component design opportunities here ");
                             respBody.append("http://");
                             respBody.append(ApplicationServer.SERVER_NAME);
-                            respBody.append("/?t=development&c=comp_projects\n\n");
+                            respBody.append("/tc?module=ViewActiveContests\n\n");
                         } else if (devRating == 0 && phase == SoftwareComponent.DEV_PHASE) {
                             respBody.append("Since you do not have a component development rating, it is unlikely that ");
                             respBody.append("you will be chosen to work on this application.  You may look at ");
                             respBody.append("the current component development opportunities here ");
                             respBody.append("http://");
                             respBody.append(ApplicationServer.SERVER_NAME);
-                            respBody.append("/?t=development&c=comp_projects\n\n");
+                            respBody.append("/tc?module=ViewActiveContests\n\n");
                         }
                         respBody.append("TopCoder Software Service");
                         resp.setBody(respBody.toString());

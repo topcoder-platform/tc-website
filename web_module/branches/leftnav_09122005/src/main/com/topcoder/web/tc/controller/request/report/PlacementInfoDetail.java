@@ -10,9 +10,9 @@ import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserPreference;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.model.ContractingInfo;
-import com.topcoder.web.tc.model.ContractingResponse;
-import com.topcoder.web.tc.model.ContractingResponseGroup;
+import com.topcoder.web.common.model.ContractingInfo;
+import com.topcoder.web.common.model.ContractingResponse;
+import com.topcoder.web.common.model.ContractingResponseGroup;
 
 import javax.naming.InitialContext;
 import java.util.ArrayList;

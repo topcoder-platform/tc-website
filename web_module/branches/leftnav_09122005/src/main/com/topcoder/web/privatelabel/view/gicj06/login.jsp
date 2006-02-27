@@ -6,7 +6,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gicj06.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/google05.css"/>
 <title>Google Code Jam India 2006, Powered by TopCoder</title>
 <jsp:include page="../script.jsp" />
 </head>
@@ -51,11 +51,14 @@ function submitEnter(e) {
          </jsp:include>
          </div>
 
+
          <br><br>
-<span valign="top">
-<jsp:include page="right_reg.jsp"/>
-</span>
-<span class="bigTitle">Registration</span>
+         <div style="float: left">
+         <span class="bigTitle">Registration</span>
+         </div>
+         <div style="float: right">
+         <jsp:include page="right_reg.jsp" />
+         </div>
          <br><br>
                         Registration will close on Monday, March 20 at 8:00 AM IST.<br/><br/>
                         If you are <A href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_INDIA_06_REG_MAIN%>&<%=Constants.COMPANY_ID%>=8039&<%=Constants.EVENT_ID%>=5" class="bigRed">not currently a TopCoder member</A>

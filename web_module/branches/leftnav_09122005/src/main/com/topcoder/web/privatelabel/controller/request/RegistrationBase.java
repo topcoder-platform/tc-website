@@ -39,6 +39,9 @@ public abstract class RegistrationBase extends BaseProcessor {
     protected void businessProcessing() throws TCWebException {
         try {
             p = new SessionPersistor(getRequest().getSession(true));
+            if (getRequestParameter(Constants.COMPANY_ID)==null) {
+                throw new TCWebException("company id missing");
+            }
             //gotta do first just in case makeRegInfo() needs the database
             long companyId = Long.parseLong(getRequestParameter(Constants.COMPANY_ID));
             transDb = getCompanyDb(companyId, Constants.JTS_TRANSACTIONAL);
@@ -54,6 +57,32 @@ public abstract class RegistrationBase extends BaseProcessor {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+    protected TCResourceBundle getBundle() {
+        if (bundle==null) {
+            bundle = new TCResourceBundle("PrivateLabel", getLocale());
+            String loc = StringUtils.checkNull(getRequest().getParameter(Constants.LOCALE));
+            log.debug("create bundle for language " + loc);
+            if ("".equals(loc)) {
+                bundle = new TCResourceBundle("PrivateLabel");
+            } else {
+                bundle = new TCResourceBundle("PrivateLabel", getLocale());
+            }
+        }
+        return bundle;
+    }
+
+    protected Locale getLocale() {
+        if (locale==null) {
+            String loc = StringUtils.checkNull(getRequest().getParameter(Constants.LOCALE));
+            log.debug("create locale for language " + loc);
+            if ("".equals(loc)) {
+                locale = Locale.US;
+            } else {
+                locale = new Locale(loc);
+            }
+        }
+        return locale;
     }
 
     protected TCResourceBundle getBundle() {
@@ -87,7 +116,11 @@ public abstract class RegistrationBase extends BaseProcessor {
         //we'll let this object live for the life of the request at least.
         //perhaps it is still necessary.  it'll die when the request processor dies
 //        regInfo = null;
-        p.removeObject(Constants.REGISTRATION_INFO);
+        //p.removeObject(Constants.REGISTRATION_INFO);
+
+
+        //we'll jus wipe the whole session out.
+        getRequest().getSession().invalidate();
     }
 
     /**
@@ -104,7 +137,7 @@ public abstract class RegistrationBase extends BaseProcessor {
      */
     protected abstract void registrationProcessing() throws TCWebException;
 
-    protected String getCompanyDb(long companyId, int type) throws Exception {
+    public static String getCompanyDb(long companyId, int type) throws Exception {
         Request r = new Request();
         r.setContentHandle("company_datasource");
         r.setProperty("cm", String.valueOf(companyId));

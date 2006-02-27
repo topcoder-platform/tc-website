@@ -105,7 +105,7 @@ public class Login extends FullLogin {
         if (!getAuthentication().getUser().isAnonymous()) {
             User user = (User) createEJB(getInitialContext(), User.class);
             char status = user.getStatus(getUser().getId(), db);
-            if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
+            if (Arrays.binarySearch(ACTIVE_STATI, status) >= 0) {
                 //Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
                 //ret = coder.exists(getAuthentication().getActiveUser().getId(), db);
                 ret = true;
@@ -119,7 +119,7 @@ public class Login extends FullLogin {
         Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
         long userId = getAuthentication().getActiveUser().getId();
 
-        boolean hasTCAccount = hasTopCoderAccount() && coder.exists(userId, DBMS.OLTP_DATASOURCE_NAME);
+        boolean hasTCAccount = coder.exists(userId, DBMS.OLTP_DATASOURCE_NAME);
         boolean hasCompanyAccount = hasCommonAccount();
 
         FullRegInfo info = null;

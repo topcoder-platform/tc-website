@@ -70,14 +70,12 @@
                         <td class="sidebarText" align="right"><a
                                 href="/pl/?module=Static&d1=gccj05&d2=EN_advRound2">50</a></td>
                     </tr>
-<%--
                     <tr valign="top">
                         <td class="advancersRound"><a href="/pl/?module=Static&d1=gccj05&d2=EN_advFinal"
                                                       class="topLink">Onsite Finals</a></td>
                         <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gccj05&d2=EN_advFinal">Winners</a>
                         </td>
                     </tr>
---%>
                 </table>
 
 

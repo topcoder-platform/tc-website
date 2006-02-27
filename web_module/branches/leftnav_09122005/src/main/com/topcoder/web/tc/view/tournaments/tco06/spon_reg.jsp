@@ -5,6 +5,8 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <html>
 <head>
+<jsp:include page="/script.jsp" />
+
 <title>2006 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
 </head>
@@ -16,19 +18,19 @@
 <jsp:param name="tabLev3" value=""/>
 </jsp:include>
 
-<table width="100%" border=0 cellpadding=0 cellspacing=0>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
 <!-- Body-->
-	<tr valign=top>
-		<td valign=top align=center>
-		<div class="bodySpacer">
+   <tr valign="top">
+      <td valign="top" align="center">
+      <div class="bodySpacer">
 
 <span class="bigTitle">Registration</span>
 <br /><br />
 <%--
-Registration is not currently open, the registration period is from August 1, 2006 9:00 AM EDT to August 16, 2006 9:00 AM EDT.
+Registration is not currently open, the registration period is from February 13, 2006 9:00 AM EST to February 28, 2006 9:00 AM EST.
 --%>
 <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCO05SponsorTermsAgree"/>
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCO06SponsorTermsAgree"/>
     <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.COMPANY_NAME%>"><%=err%><br /></tc-webtag:errorIterator><br /></span>
     <b>Company name:</b>&#160;&#160;
     <br />
@@ -41,24 +43,24 @@ Registration is not currently open, the registration period is from August 1, 20
     <br /><br />
 </form>
         </div>
-		</td>
+      </td>
 
 
 <!-- Right Column-->
 <td width="170" align="right">
 <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
-<img src="/i/tournament/tco06/sun_right.gif" alt="Sun" border="0" /><br />
-<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+<!-- <img src="/i/tournament/tco06/sun_right.gif" alt="Sun" border="0" /><br /> 
+<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />-->
 <img src="/i/tournament/tco06/nsa_right.gif" alt="NSA" border="0" /><br />
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-<img src="/i/tournament/tco06/yahoo_right.gif" alt="Yahoo" border="0" /><br />
-<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+<!-- <img src="/i/tournament/tco06/yahoo_right.gif" alt="Yahoo" border="0" /><br />
+<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />-->
 <img src="/i/tournament/tco06/verisign_right.gif" alt="Verisign" border="0" /><br />
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 <jsp:include page="../../calendar.jsp" />
 </td>
 
-	</tr>
+   </tr>
 
 </table>
 

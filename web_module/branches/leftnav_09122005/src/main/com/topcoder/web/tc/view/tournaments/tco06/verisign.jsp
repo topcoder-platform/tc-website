@@ -3,6 +3,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<jsp:include page="/script.jsp" />
+
 <title>2006 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
 </head>
@@ -46,6 +48,9 @@ Billions of times each day, people all over the world will visit Web pages, make
 E-commerce, content-delivery, and other digital applications have shown explosive growth in recent years, but VeriSign believes that the near future promises much greater rewards. This is where you come in; VeriSign is looking for talented, passionate developers who can see the potential in tomorrow's voice and data networks, and who are ready to make their mark in helping to drive the global transformation to a digital economy. 
 <br><br>
 <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign_confirm">Apply now</A>
+<br><br>
+<a href="/?t=sponsor&c=link&link=http://www.verisign.com">www.verisign.com</a>
+
         </div>
       </td>
         

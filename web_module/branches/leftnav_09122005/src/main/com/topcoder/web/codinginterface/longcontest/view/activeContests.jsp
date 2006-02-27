@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page
         language="java"
         import="com.topcoder.web.codinginterface.longcontest.Constants"
@@ -10,6 +11,19 @@
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="codinginterface.tld" prefix="ci" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
+<% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID)==null?Constants.LONG_ROUND_TYPE_ID:((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
+<% String level2 = "topcoder";
+    String image = "long_comps_topcoder";
+     if (roundType==Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
+         level2="topcoder_practice";
+     } else if (roundType ==Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
+         level2="intel_practice";
+         image = "long_comps_intel";
+     } else if (roundType ==Constants.INTEL_LONG_ROUND_TYPE_ID) {
+         level2="intel";
+         image = "long_comps_intel";
+     }
+%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -33,7 +47,7 @@
     <%-- value of level2 is 'topcoder' or 'intel_active_contests' --%>
     <jsp:include page="/includes/global_left.jsp">
         <jsp:param name="level1" value="long_contests"/>
-        <jsp:param name="level2" value="topcoder"/>
+        <jsp:param name="level2" value="<%=level2%>"/>
     </jsp:include>
 </td>
 <%-- Left Column Ends --%>
@@ -43,7 +57,7 @@
 
     <%-- value of image is 'long_comps_topcoder' or 'long_comps_intel' --%>
     <jsp:include page="page_title.jsp">
-        <jsp:param name="image" value="long_comps_topcoder"/>
+        <jsp:param name="image" value="<%=image%>"/>
         <jsp:param name="title" value="Active Contests"/>
     </jsp:include>
 
@@ -57,19 +71,19 @@
                     </tr>
                     <tr>
                         <td class="tableHeader">Contest</td>
-                        <td class="tableHeader" colspan="3" nowrap="nowrap">Problem Name</td>
+                        <td class="tableHeader" colspan="3" nowrap="nowrap">Problem</td>
                         <td class="tableHeader" align="center" nowrap="nowrap">Registrants</td>
                         <td class="tableHeader" align="center" nowrap="nowrap">Competitors</td>
                         <td class="tableHeader" align="center" nowrap="nowrap">Submissions</td>
-                        <td class="tableHeader" align="center" nowrap="nowrap">Start time</td>
-                        <td class="tableHeader" align="center" nowrap="nowrap">End time</td>
+                        <td class="tableHeader" align="center" nowrap="nowrap">Start Time</td>
+                        <td class="tableHeader" align="center" nowrap="nowrap">End Time</td>
                         <td class="tableHeader" align="center" nowrap="nowrap">Forum</td>
                     </tr>
 
                     <%boolean even = true;%>
                     <logic:iterate name="<%=Constants.CONTEST_LIST_KEY%>" id="contest">
                         <tr>
-                            <td class="<%=even?"statLt":"statDk"%>"><b><tc-webtag:beanWrite name="contest" property="contestName"/></b>
+                            <td class="<%=even?"statLt":"statDk"%>"><b><tc-webtag:beanWrite name="contest" property="contestName"/> &gt; <tc-webtag:beanWrite name="contest" property="roundName"/></b>
                                 <% pageContext.setAttribute("sponsorImage", ((LongContest)contest).getSponsorImage());%>
                                 <div style="float: left;"><ci:sponsorImage image="sponsorImage" alt="Sponsor" border="0" ifNull=""/></div>
                             </td>
@@ -115,12 +129,12 @@
                                        class="statLink">Results</a>
                                 </logic:notEqual>
                             </td>
-                            <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
+                            <td class="<%=even?"statLt":"statDk"%>" align="center">
                                 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" class="statLink">
                                     <tc-webtag:beanWrite name="contest" property="numRegistrants"/></A></td>
-                            <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
+                            <td class="<%=even?"statLt":"statDk"%>" align="center">
                                     <tc-webtag:beanWrite name="contest" property="numCompetitors"/></td>
-                            <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
+                            <td class="<%=even?"statLt":"statDk"%>" align="center">
                                                     <tc-webtag:beanWrite name="contest" property="submissionCount"/></td>
                             <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
                                 <tc-webtag:beanWrite name="contest" property="startTime"
@@ -128,7 +142,7 @@
                             <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
                                 <tc-webtag:beanWrite name="contest" property="endTime"
                                                      format="MM.dd.yyyy HH:mm"/></td>
-                            <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
+                            <td class="<%=even?"statLt":"statDk"%>" align="center">
                                 <logic:notEqual name="contest" property="forumId" value="0">
                                     <tc-webtag:forumLink forumID="<%=((LongContest)contest).getForumId()%>" message="discuss"/>
                                 </logic:notEqual>
@@ -142,8 +156,8 @@
             </TD>
         </tr>
     </TABLE>
-
-    <p><br></p>
+   <br>
+   <br><br>
 </td>
 
 <%-- Right Column Begins --%>

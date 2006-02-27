@@ -36,4 +36,14 @@ public class HttpObjectFactory {
     public static TCResponse createResponse(HttpServletResponse r) {
         return new SimpleResponse(r);
     }
+
+    /**
+     * 
+     * @param r
+     * @return a TCResponse object whose headers will tell proxy servers/browsers not to cache the page
+     */
+    public static TCResponse createUnCachedResponse(HttpServletResponse r) {
+        return new UnCachedResponse(r);
+    }
+
 }

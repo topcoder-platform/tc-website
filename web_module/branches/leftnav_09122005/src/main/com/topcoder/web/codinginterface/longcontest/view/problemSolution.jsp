@@ -91,7 +91,7 @@
                 <jsp:param name="title" value="Problem Solution"/>
             </jsp:include>
 
-            <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/></span><br>
+            <span class="bigHandle">Contest: <rsc:item name="contest_name" row="<%=infoRow%>"/> &gt; <rsc:item name="round_name" row="<%=infoRow%>"/></span><br>
             <span class="bodySubtitle">Problem: <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>">
                 <rsc:item name="problem_name" row="<%=infoRow%>"/></a></span>
 
@@ -100,6 +100,11 @@
                 <br>
                 <span class="bodySubtitle">Submission: <rsc:item name="submission_number" row="<%=infoRow%>"/></span>
                 <br>
+                <% if (String.valueOf(true).equals(request.getAttribute("mostRecent"))&&String.valueOf(true).equals(request.getAttribute(Constants.EXAMPLE_FLAG))) { %>
+                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewExampleResults&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=infoRow%>"/>">Example Results</A>
+                <br>
+                <% } %>
+
 
             <div class="problemText" style="color:black">
                 <%=addSpace(infoRow.getStringItem("submission_text"))%>

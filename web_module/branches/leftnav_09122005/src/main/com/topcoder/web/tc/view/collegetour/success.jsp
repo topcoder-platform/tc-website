@@ -38,14 +38,14 @@
                     <jsp:param name="title" value="Registration"/>
                 </jsp:include>
 
-                <div align=center>
+                <div align="center">
                     <tc-webtag:sponsorImage image="image" alt="College Logo" border="0"/>
                 </div>
 
                 <p align="center">
                     <A href="/tc?module=CollegeTourOverview&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Overview</A>&#160;&#160;|&#160;&#160;
                     <A href="/tc?module=CollegeTourInfo&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Instructions</A>&#160;&#160;|&#160;&#160;
-                    Register&#160;&#160;|&#160;&#160;
+                    Registration&#160;&#160;|&#160;&#160;
                     <A href="/tc?module=CollegeTourRegistrants&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Registrants</A>&#160;&#160;|&#160;&#160;
                     <% if (request.getAttribute(Constants.FORUM_ID)!=null) {%>
                     <tc-webtag:forumLink forumID="<%=Long.parseLong((String)request.getAttribute(Constants.FORUM_ID))%>" message="Discuss College Tour"/>
@@ -53,8 +53,8 @@
                 </p>
 
 
-                <p>
-                    You have successfully registered.
+                <p align="center">
+                    Thank you.  You have successfully registered for the event.
                 </p>
 
 

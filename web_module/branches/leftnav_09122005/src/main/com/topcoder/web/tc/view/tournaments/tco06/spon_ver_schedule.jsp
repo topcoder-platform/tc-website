@@ -2,6 +2,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<jsp:include page="/script.jsp" />
+
 <title>2006 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
 </head>
@@ -13,10 +15,10 @@
 <jsp:param name="tabLev3" value="schedule"/>
 </jsp:include>
 
-<table width="100%" border=0 cellpadding=0 cellspacing=0>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
 <!-- Body-->
-	<tr valign=top>
-		<td valign=top align=center>
+	<tr valign="top">
+		<td valign="top" align="center">
 		<div class="bodySpacer">
             
 <span class="bigTitle">Schedule of Online Competitions</span>
@@ -24,27 +26,27 @@
 <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
    <tr>
       <td class="sidebarTitle" width="20%">Round</td>
-      <td class="sidebarTitle" width="40%">Date and Time* (all Eastern Daylight Time)</td>
+      <td class="sidebarTitle" width="40%">Date and Time* <br> (all Eastern Standard Time)</td>
       <td class="sidebarTitle" width="20%"># of Competitors</td>
       <td class="sidebarTitle" width="20%"># of Advancers</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Qualification Round</td>
       <td class="sidebarText">
-      START: Tuesday, August 16th<br>
+      START: Tuesday, February 28, 2006<br>
       12:00 PM (noon)
       <br><br>
-      END: Wednesday, August 17, 2006<br>
+      END: Wednesday, March 1, 2006<br>
       12:00PM (noon)
       </td>
       <td class="sidebarText">All eligible registered competitors</td>
-      <td class="sidebarText">Top 20 scorers in each of 5 Qualification Round Problem Sets</td>
+      <td class="sidebarText">Top 100 scorers</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Online Round #1</td>
       <td class="sidebarText">
-      Saturday, August 20th<br>   
-      Login by 11:55 AM<br>
+      Saturday, March 4, 2006<br>   
+      Register 9:00 - 11:55 AM<br>
       START: 12:00 PM (noon)
       </td>
       <td class="sidebarText">100</td>
@@ -53,8 +55,8 @@
    <tr valign="top">
       <td class="sidebarText">Online Round #2</td>
       <td class="sidebarText">
-      Wednesday, August 24th<br>   
-      Login by 9:25 PM<br>
+      Wednesday, March 8, 2006<br>   
+      Register 6:30 - 9:25 PM<br>
       START: 9:30 PM
       </td>
       <td class="sidebarText">50</td>
@@ -63,18 +65,18 @@
    <tr valign="top">
       <td class="sidebarText">Online Round #3</td>
       <td class="sidebarText">
-      Wednesday, August 31st<br>   
-      Login by 9:25 PM<br>
+      Wednesday, March 15, 2006<br>   
+      Register 6:30 - 9:25 PM<br>
       START: 9:30 PM
       </td>
       <td class="sidebarText">25</td>
       <td class="sidebarText">10</td>
    </tr>
    <tr valign="top">
-      <td class="sidebarText">Online Round #4</td>
+      <td class="sidebarText">Online Championship Round</td>
       <td class="sidebarText">
-      Wednesday, September 7th<br>   
-      Login by 9:25 PM<br>
+      Wednesday, March 22, 2006<br>   
+      Register 6:30 - 9:25 PM<br>
       START: 9:30 PM
       </td>
       <td class="sidebarText">10</td>

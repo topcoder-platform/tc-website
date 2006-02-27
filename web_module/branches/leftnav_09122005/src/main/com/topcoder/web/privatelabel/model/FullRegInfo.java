@@ -11,6 +11,7 @@ public class FullRegInfo extends SimpleRegInfo {
 
     private int coderType;
     private List responses;
+    private long schoolId;
 
     public FullRegInfo() {
         responses = new ArrayList();
@@ -79,6 +80,14 @@ public class FullRegInfo extends SimpleRegInfo {
             found = ((DemographicResponse) responses.get(i)).getQuestionId() == questionId;
         }
         return found;
+    }
+
+    public long getSchoolId() {
+        return schoolId;
+    }
+
+    public void setSchoolId(long schoolId) {
+        this.schoolId = schoolId;
     }
 
 }

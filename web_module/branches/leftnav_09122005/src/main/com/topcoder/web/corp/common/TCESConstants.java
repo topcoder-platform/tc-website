@@ -1,5 +1,7 @@
 package com.topcoder.web.corp.common;
 
+import com.topcoder.web.common.WebConstants;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import java.text.DateFormat;
@@ -7,7 +9,7 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 
-public class TCESConstants {
+public class TCESConstants implements WebConstants {
 
     // jsp-related
     public static String JSP_ROOT = null;
@@ -28,6 +30,9 @@ public class TCESConstants {
     public static String PROBLEM_STATISTICS_PAGE = null;
     public static String PROBLEM_STATEMENT_PAGE = null;
     public static String MEMBER_INTEREST_PAGE = null;
+    public static String SEARCH_PAGE = null;
+    public static String SEARCH_RESULTS_PAGE = null;
+    public static String PLACEMENT_INFO_PAGE = null;
 
     public static String MAIN_NAME = null;
     public static String CAMPAIGN_DETAIL_NAME = null;
@@ -67,7 +72,6 @@ public class TCESConstants {
     public static String SORT_ORDER_DES = null;
 
     public static String TASK_PARAM = null;
-    public static String STEP_PARAM = null;
     public static String SORT_PARAM = null;
     public static String SORT_ORDER_PARAM = null;
     public static String BACK_SORT_PARAM = null;
@@ -246,6 +250,9 @@ public class TCESConstants {
         PROBLEM_STATISTICS_PAGE = JSP_ROOT + servletConfig.getInitParameter("problem_statistics_page");
         PROBLEM_STATEMENT_PAGE = JSP_ROOT + servletConfig.getInitParameter("problem_statement_page");
         MEMBER_INTEREST_PAGE = JSP_ROOT + servletConfig.getInitParameter("member_interest_page");
+        SEARCH_PAGE = JSP_ROOT + servletConfig.getInitParameter("search_page");
+        SEARCH_RESULTS_PAGE = JSP_ROOT + servletConfig.getInitParameter("search_results_page");
+        PLACEMENT_INFO_PAGE = JSP_ROOT + servletConfig.getInitParameter("placement_info_page");
 
         LOGIN_TASK = servletConfig.getInitParameter("login_task");
         LOGIN_TASK_STEP_VIEW = servletConfig.getInitParameter("login_task_step_view");
@@ -269,7 +276,6 @@ public class TCESConstants {
         SORT_ORDER_DES = servletConfig.getInitParameter("sort_order_des");
 
         TASK_PARAM = servletConfig.getInitParameter("task_param");
-        STEP_PARAM = servletConfig.getInitParameter("step_param");
         SORT_PARAM = servletConfig.getInitParameter("sort_param");
         SORT_ORDER_PARAM = servletConfig.getInitParameter("sort_order_param");
         BACK_SORT_PARAM = servletConfig.getInitParameter("back_sort_param");

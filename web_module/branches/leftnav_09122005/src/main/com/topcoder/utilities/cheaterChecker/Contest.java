@@ -137,6 +137,8 @@ public class Contest {
     private static List getSubmissions(String dataSourceName, long roundId, long componentId) throws Exception {
         ResultSet rs = null;
         PreparedStatement ps = null;
+        PreparedStatement ps1 = null;
+        ResultSet rs1 = null;
         Connection conn = null;
         Submission s = null;
         List ret = null;
@@ -158,6 +160,7 @@ public class Contest {
             query.append(" , c.problem_id");
             query.append(" , c.class_name");
             query.append(" , c.method_name");
+            query.append(" , s.submission_number");
             query.append(" FROM component_state cc ");
             query.append(" , submission s ");
             query.append(" , room r ");
@@ -179,20 +182,20 @@ public class Contest {
             query.append(" AND rr.round_id = cc.round_id ");
             query.append(" AND u.user_id = cc.coder_id ");
             query.append(" AND u.user_id = rr.coder_id ");
-//            query.append(" AND cc.submission_number = s.submission_number ");
             query.append(" AND scf.submission_number = s.submission_number ");
             query.append(" AND scf.component_state_id = s.component_state_id ");
-//            query.append(" AND scf.submission_number = cc.submission_number ");
             query.append(" AND scf.component_state_id = cc.component_state_id ");
             query.append(" AND scf.sort_order = 1");    //hoke it to be the first if there are multiple classes
             query.append(" AND cc.component_id = c.component_id");
             query.append(" AND co.component_state_id = s.component_state_id");
-
-
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, roundId);
             ps.setLong(2, roundId);
             ps.setLong(3, componentId);
+/*
+            ps.setLong(4, roundId);
+            ps.setLong(5, componentId);
+*/
 
             CommentStripper cs = new CommentStripper();
             ret = new ArrayList();
@@ -200,7 +203,7 @@ public class Contest {
                 s = new Submission();
                 s.setHandle(rs.getString("handle"));
                 s.setCoderId(rs.getInt("coder_id"));
-                s.setClassFile(rs.getBytes("class_file"));
+                //s.setClassFile(rs.getBytes("class_file"));
                 s.setSource(cs.stripComments(DBMS.getTextString(rs, 4)));
                 s.setLanguageId(rs.getInt("language_id"));
                 s.setOpenTime(rs.getLong("open_time"));
@@ -210,8 +213,62 @@ public class Contest {
                 s.setComponentId(rs.getLong("component_id"));
                 s.setClassName(rs.getString("class_name"));
                 s.setMethodName(rs.getString("method_name"));
+                s.setSubmissionNumber(rs.getInt("submission_number"));
                 s.setIncluded(true);
             }
+
+            StringBuffer solQuery = new StringBuffer(1000);
+            //include our writer/tester solutions.  to make this better, it should strip out checkData
+            solQuery.append(" select s.coder_id ");
+            solQuery.append(" , scf.class_file ");
+            solQuery.append(" , u.handle ");
+            solQuery.append(" , s.solution_text ");
+            solQuery.append(" , s.language_id ");
+/*
+            solQuery.append(" , 0 ");
+            solQuery.append(" , 0 ");
+            solQuery.append(" , 0 ");
+*/
+            solQuery.append(" , rc.component_id ");
+            solQuery.append(" , c.problem_id ");
+            solQuery.append(" , c.class_name ");
+            solQuery.append(" , c.method_name ");
+            solQuery.append(" from solution s ");
+            solQuery.append(" , solution_class_file scf ");
+            solQuery.append(" , component_solution_xref csx ");
+            solQuery.append(" , round_component rc ");
+            solQuery.append(" , user u ");
+            solQuery.append(" , component c ");
+            solQuery.append(" where s.solution_id = scf.solution_id ");
+            solQuery.append(" and scf.sort_order = 1 ");
+            solQuery.append(" and rc.component_id = c.component_id ");
+            solQuery.append(" and s.coder_id = u.user_id ");
+            solQuery.append(" and csx.solution_id = s.solution_id ");
+            solQuery.append(" and rc.round_id = ? ");
+            solQuery.append(" and rc.component_id = ? ");
+            solQuery.append(" and rc.component_id = csx.component_id ");
+
+            ps = conn.prepareStatement(solQuery.toString());
+            ps.setLong(1, roundId);
+            ps.setLong(2, componentId);
+
+            for (rs1 = ps.executeQuery(); rs1.next(); ret.add(s)) {
+                s = new Submission();
+                s.setHandle(rs.getString("handle"));
+                s.setCoderId(rs.getInt("coder_id"));
+                //s.setClassFile(rs.getBytes("class_file"));
+                s.setSource(cs.stripComments(DBMS.getTextString(rs, 4)));
+                s.setLanguageId(rs.getInt("language_id"));
+                s.setOpenTime(0);
+                s.setSubmitTime(1000*60*60*6);  //6 hours.  that should keep them out of the running
+                s.setPoints(rs.getFloat("submission_points"));
+                s.setProblemId(rs.getLong("problem_id"));
+                s.setComponentId(rs.getLong("component_id"));
+                s.setClassName(rs.getString("class_name"));
+                s.setMethodName(rs.getString("method_name"));
+                s.setIncluded(true);
+            }
+
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
             throw e;
@@ -220,7 +277,7 @@ public class Contest {
                 try {
                     rs.close();
                 } catch (Exception ignore) {
-                    log.error("FAILED to close ResultSet in getAddress2");
+                    log.error("FAILED to close ResultSet");
                 }
             }
 
@@ -228,8 +285,22 @@ public class Contest {
                 try {
                     ps.close();
                 } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "getAddress2");
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (rs1 != null) {
+                try {
+                    rs1.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
+                }
+            }
+
+            if (ps1 != null) {
+                try {
+                    ps1.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
                 }
             }
 
@@ -237,7 +308,7 @@ public class Contest {
                 try {
                     conn.close();
                 } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in getAddress2");
+                    log.error("FAILED to close Connection");
                 }
             }
 

@@ -63,9 +63,11 @@ public class ViewOverview extends Base {
                     return;
                 } else { // Show the most recent active round
                     roundID = rsc.getStringItem(0, "round_id");
+                    getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(rsc.getIntItem(0, "round_type_id")));
                 }
             }
             r.setProperty(Constants.ROUND_ID, roundID);
+            r.setProperty(Constants.ROUND_TYPE_ID, getRequest().getAttribute(Constants.ROUND_TYPE_ID).toString());
             Map result = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r);
             ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_overview_coders");
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));

@@ -2664,6 +2664,9 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         // try to extract the birthday and forward to the error page if it is malformed
         SimpleDateFormat dfmt = new SimpleDateFormat(DATE_FORMAT_STRING);
         Date d = null;
+        if (birthday.trim().length()!=DATE_FORMAT_STRING.length()) {
+            throw new NavigationException("Invalid Date Format.");
+        }
         try {
             d = dfmt.parse(birthday);
         } catch (Exception e3) {

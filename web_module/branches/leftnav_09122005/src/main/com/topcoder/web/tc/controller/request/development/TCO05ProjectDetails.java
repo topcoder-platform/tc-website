@@ -9,7 +9,7 @@ package com.topcoder.web.tc.controller.request.development;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.tc.model.TCCC05ProjectDetail;
+import com.topcoder.web.tc.model.ProjectDetail;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -73,7 +73,7 @@ public class TCO05ProjectDetails extends StatBase {
                 sub = dtfmt.format((Date) rsc.getItem(i, "submit_timestamp").getResultData());
             }
 
-            arr.add(new TCCC05ProjectDetail(rsc.getStringItem(i, "handle"), pts,
+            arr.add(new ProjectDetail(rsc.getStringItem(i, "handle"), pts,
                     place, score,
                     rsc.getIntItem(i, "user_id"), prz, sub));
         }
@@ -87,8 +87,8 @@ public class TCO05ProjectDetails extends StatBase {
     public class myComparator implements Comparator {
 
         public int compare(Object o1, Object o2) {
-            TCCC05ProjectDetail a1 = (TCCC05ProjectDetail) o1;
-            TCCC05ProjectDetail a2 = (TCCC05ProjectDetail) o2;
+            ProjectDetail a1 = (ProjectDetail) o1;
+            ProjectDetail a2 = (ProjectDetail) o2;
 
             if (a1.getPoints() == a2.getPoints()) {
                 if (a1.getScoreDouble() == a2.getScoreDouble()) {

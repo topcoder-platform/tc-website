@@ -10,7 +10,7 @@
 
 <%@ taglib uri="tces-taglib.tld" prefix="tces"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
@@ -28,16 +28,18 @@
 <% ResultSetContainer MemberInfo = MemberProfileTask.getMemberInfo(); %>
 <% ResultSetContainer MemberStats = MemberProfileTask.getMemberStats(); %>
 
-<table width=100% border="0" cellpadding="0" cellspacing="0" align="center">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
    <TR valign="top">
       <td width="50%"><jsp:include page="left.jsp" /></td>
       <!-- Center Column Begins -->
-      <td class=recruitingBody>
+      <td class="recruitingBody">
       <img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br />
       <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
          <tr valign="top">
             <td class="bodyText" colspan="2">
-            <p>
+                     <div style="float:right;">
+                        <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=ViewSearchTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="campaignID" />">Search candidates</A>
+                     </div>
             <tces:trailIterator id="trailItem" trailList="<%=MemberProfileTask.getTrail()%>">
             <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
             </tces:trailIterator>
@@ -75,24 +77,32 @@
             <%=MemberInfo.getItem(0, "grad_year").toString()%>
             <% } %>
             <br /><br />
-            <A HREF="<jsp:getProperty name="MemberProfileTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="bodyText">Coder Demographic Info</A>
+            <A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="bodyText">Coder Demographic Info</A>
             <br />
-            <A HREF="<jsp:getProperty name="MemberProfileTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="bodyText">Coder Competition History</A>
+            <A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="bodyText">Coder Competition History</A>
             <br />
-            <A HREF="<jsp:getProperty name="MemberProfileTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="bodyText">Coder Problem Submissions</A>
+            <A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="bodyText">Coder Problem Submissions</A>
+            <br />
+            <A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=PlacementInfoTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="bodyText">Coder Skill Set</A>
             <br /><br />
             <% if (MemberProfileTask.hasResume()) { %>
-            <a href="<jsp:getProperty name="MemberProfileTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="campaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="jobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="memberID"/>" class="bodyText"><B>Resume</B></a>
+            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="campaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="jobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="memberID"/>" class="bodyText"><B>Resume</B></a>
             <br /><br />
             <% } %>
             <strong>Interested in:</strong> <jsp:getProperty name="MemberProfileTask" property="jobName"/>
             <br />
-            <A HREF="<jsp:getProperty name="MemberProfileTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="campaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="jobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="memberID"/>" class="bodyText">View all position interest for <%= MemberInfo.getItem(0, "handle")%></A>
+            <A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="campaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="jobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="memberID"/>" class="bodyText">View all position interest for <%= MemberInfo.getItem(0, "handle")%></A>
             <br /><br />
             </td>
             <td class="bodyText" width="50%" valign="top">
             <% if (MemberProfileTask.getIsRanked()) { %>
-                <A HREF="/tc?module=MemberProfile&cr=<%=MemberProfileTask.getMemberID()%>" target="blank" class="bodyText">Full TopCoder Profile</a>
+                <% if (MemberInfo.getColumnIndex("tc_user_id")>=0) {
+                    if (MemberInfo.getItem(0, "tc_user_id").getResultData()!=null) {%>
+                        <A HREF="/tc?module=MemberProfile&cr=<%=MemberInfo.getLongItem(0, "tc_user_id")%>" target="blank" class="bodyText">Full TopCoder Profile</a>
+                <%   } 
+                   } else { %>
+                    <A HREF="/tc?module=MemberProfile&cr=<%=MemberProfileTask.getMemberID()%>" target="blank" class="bodyText">Full TopCoder Profile</a>
+                <% } %>
             <br /><br />
             <b>Algorithm Statistics</b><br />
             Current Rating: <%=MemberStats.getItem(0, "rating").toString()%><br />

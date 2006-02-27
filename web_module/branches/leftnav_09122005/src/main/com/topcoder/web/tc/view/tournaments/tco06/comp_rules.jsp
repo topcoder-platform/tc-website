@@ -2,6 +2,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<jsp:include page="/script.jsp" />
+
 <title>2006 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
 </head>
@@ -76,8 +78,6 @@ The placement points outlined are for both Level One and Level Two components.
 <br><br>
 <strong>Penalty points</strong><br>
 All final fixes will be completed according to the component schedule.  If a competitor misses final fixes for a component, they will be docked one (1) placement point per day they are late with final fixes.  The component manager will have final say on all penalties and deadlines. 
-<br><br>
-Also any competitors registering for a component and failing to submit for a component will be penalized two (2) earned points total.
 <br><br>
 <a name="schedule"></a>
 <a href="#top"><img src="/i/interface/back_to_top_dk.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
@@ -353,7 +353,7 @@ All decisions relating to the viability of submissions, the ranking of submissio
 <br><br>
 As a condition of participation in the tournament, all information provided by you in your TopCoder member profile must be comprehensive, accurate and up-to-date. TopCoder may require you to complete an additional registration form to register for the tournament. In order to be eligible to participate in the tournament, you must have completed any and all registration forms required by TopCoder.
 <br><br>
-Contestants who advance to the onsite Championship Round must complete the following items and submit them to TopCoder by 5:00 PM EST on Wednesday, March 24, 2006:
+Contestants who advance to the onsite Championship Round must complete the following items and submit them to TopCoder by 5:00 PM EST on Friday, March 24, 2006:
 
 <ul>
 <li>Competitor Questionnaire - the questions and responses will be published in the 2006 TopCoder Open program</li>

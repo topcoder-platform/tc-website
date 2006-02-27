@@ -47,8 +47,9 @@ public class ViewReg extends Base {
             long round = Long.parseLong(roundID);
             // Is the coder already registered for the round?
             if (isUserRegistered(getUser().getId(), round)) {
-                // Go to the active contests page if user is already registered.
-                setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
+                Integer type = (Integer)getRequest().getAttribute(Constants.ROUND_TYPE_ID);
+                setNextPage(buildProcessorRequestString("ViewActiveContests",
+                        new String[] {Constants.ROUND_TYPE_ID}, new String[] {type.toString()}));
                 setIsNextPageInContext(false);
             } else if (!isRegistrationOpen(round)) {
                 throw new NavigationException("Registration is not currently open");
@@ -56,8 +57,8 @@ public class ViewReg extends Base {
                 // Get the round terms.
                 DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
                 boolean res = loadRoundTerms(dai, roundID);
-                if (res == false) { // the round terms were not in the DB
-                    throw new NavigationException("Could not find specified round terms.");
+                if (!res) { // the round terms were not in the DB
+                    throw new TCWebException("Could not find specified round terms.");
                 }
                 // Get the round questions.
                 loadQuestionInfo(dai, roundID);
@@ -99,6 +100,7 @@ public class ViewReg extends Base {
         } else {
             getRequest().setAttribute(Constants.ROUND_TERMS_KEY, rsc.getStringItem(0, "terms_content"));
             getRequest().setAttribute(Constants.CONTEST_NAME_KEY, rsc.getStringItem(0, "contest_name"));
+            getRequest().setAttribute(Constants.ROUND_NAME_KEY, rsc.getStringItem(0, "round_name"));
             return true;
         }
     }

@@ -3,12 +3,12 @@
 <html id="quickLaunch">
 
 <head>
+<jsp:include page="/script.jsp" />
+
 
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>Competition Arena</title>
-
-<jsp:include page="../../script.jsp" />
 
 <SCRIPT type="text/javascript">
     function getReq(){u='?module=Static&d1=faq&d2=soft_req';window.open(u);close();}

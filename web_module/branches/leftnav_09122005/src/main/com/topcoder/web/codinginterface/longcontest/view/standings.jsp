@@ -83,8 +83,8 @@
 <%if (request.getAttribute(Constants.MESSAGE) != null) {%>
 <span class="errorText"><%=request.getAttribute(Constants.MESSAGE)%></span><br>
 <%}%>
-<span class="bigHandle">Contest: <rsc:item name="contest_name" set="<%=roundInfo%>"/></span><br>
-    <% if(roundInfo.getIntItem(0, "round_type_id")!=Constants.LONG_PRACTICE_ROUND_TYPE_ID) { %>
+<span class="bigHandle">Contest: <rsc:item name="contest_name" set="<%=roundInfo%>"/> &gt; <rsc:item name="round_name" set="<%=roundInfo%>"/></span><br>
+    <% if(roundInfo.getIntItem(0, "round_type_id")!=Constants.LONG_PRACTICE_ROUND_TYPE_ID&&roundInfo.getIntItem(0, "round_type_id")!=Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) { %>
 <span class="bodySubtitle">Registrants: <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>" class="bcLink">
     <rsc:item name="num_registrants" set="<%=roundInfo%>"/></A></span>
 <br><%  } %>
@@ -112,7 +112,7 @@
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
                 <tr>
-                    <td class="tableTitle" colspan="6">Standings</td>
+                    <td class="tableTitle" colspan="7">Standings</td>
                 </tr>
                 <tr>
                     <td class="tableHeader" width="20">
@@ -131,6 +131,9 @@
                         <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("language_name")%>" includeParams="true" excludeParams="sr;nr"/>">Language</A>
                     </td>
                     <td class="tableHeader" width="20%" align="center" nowrap="nowrap">
+                        <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("test_number")%>" includeParams="true" excludeParams="sr;nr"/>">Example Tests</A>
+                    </td>
+                    <td class="tableHeader" width="20%" align="center" nowrap="nowrap">
                         <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("submission_number")%>" includeParams="true" excludeParams="sr;nr"/>">Submissions</A>
                     </td>
                 </tr>
@@ -139,25 +142,40 @@
                 <%--control whitespace to reduce html size --%>
                 <rsc:iterator list="<%=standings%>" id="resultRow"><tr>
 <td class="<%=even?"statLt":"statDk"%>">
-<tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>"/></td>
+<%=resultRow.getIntItem("status_id")==130?"*":""%><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>"/></td>
 <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;">
-<rsc:item name="points" row="<%=resultRow%>" format="0.00"/><%=resultRow.getIntItem("status_id")==130?"*":""%></td>
+<rsc:item name="points" row="<%=resultRow%>" format="0.00"/></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center">
-<rsc:item name="rank" row="<%=resultRow%>"/></td>
-<td class="<%=even?"statLt":"statDk"%>" align="center">
-<tc-webtag:format object="<%=new Date(resultRow.getLongItem("submit_time"))%>" format="MM.dd.yyyy HH:mm:ss"/></td></td>
+<% if (resultRow.getItem("points").getResultData()!=null){ %><rsc:item name="rank" row="<%=resultRow%>"/><% } %></td>
+<td class="<%=even?"statLt":"statDk"%>" align="center"><%if (resultRow.getItem("submit_time").getResultData()!=null) { %>
+<tc-webtag:format object="<%=new Date(resultRow.getLongItem("submit_time"))%>" format="MM.dd.yyyy HH:mm:ss"/><% } %></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center">
 <tc-webtag:format object="<%=resultRow.getStringItem("language_name")%>"/></td></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center">
+<% if (resultRow.getIntItem("test_number")>0) { %>
+<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_EXAMPLE_HISTORY%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>" class="statLink">
+<rsc:item name="test_number" row="<%=resultRow%>"/>
+</A>
+<% } else { %>
+<rsc:item name="test_number" row="<%=resultRow%>"/>
+<% } %>
+</td>
+<td class="<%=even?"statLt":"statDk"%>" align="center">
+<% if (resultRow.getIntItem("submission_number")>0) { %>
 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_SUBMISSION_HISTORY%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>" class="statLink">
 <rsc:item name="submission_number" row="<%=resultRow%>"/>
-</A></td></tr><%even = !even;%></rsc:iterator>
+</A>
+<% } else { %>
+<rsc:item name="submission_number" row="<%=resultRow%>"/>
+<% } %>
+</td>
+</tr><%even = !even;%></rsc:iterator>
                 <%-- END ITERATOR --%>
             </table>
         </td>
     </tr>
 </TABLE>
-    <p>* Indicates that this competitor's most recent submission has not yet been scored</p>
+    <p>* Indicates that this competitor's most recent test or submission has not yet been processed</p>
 
 <div class="pagingBox">
 <%=(standings.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>

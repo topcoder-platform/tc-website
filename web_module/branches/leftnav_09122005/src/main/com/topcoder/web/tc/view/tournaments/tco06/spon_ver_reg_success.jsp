@@ -3,6 +3,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<jsp:include page="/script.jsp" />
+
 <title>2006 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
 </head>
@@ -14,10 +16,10 @@
 <jsp:param name="tabLev3" value=""/>
 </jsp:include>
 
-<table width="100%" border=0 cellpadding=0 cellspacing=0>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
 <!-- Body-->
-	<tr valign=top>
-		<td valign=top align=center>
+	<tr valign="top">
+		<td valign="top" align="center">
 		<div class="bodySpacer">
             
 <span class="bigTitle">Registration</span>

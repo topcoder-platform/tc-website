@@ -11,7 +11,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.tc.model.TCCC05ContestDetail;
+import com.topcoder.web.tc.model.UserContestDetail;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -117,9 +117,9 @@ public class TCCC05ContestDetails extends StatBase {
     }
 
     public void addPrize(int userId, String prz) {
-        TCCC05ContestDetail user = null;
+        UserContestDetail user = null;
         for (int i = 0; i < arr.size(); i++) {
-            TCCC05ContestDetail item = (TCCC05ContestDetail) arr.get(i);
+            UserContestDetail item = (UserContestDetail) arr.get(i);
             if (item.getUserID() == userId) {
                 user = item;
                 break;
@@ -130,16 +130,16 @@ public class TCCC05ContestDetails extends StatBase {
     }
 
     public void addPoints(String handle, int userId, int pts, boolean completed) {
-        TCCC05ContestDetail user = null;
+        UserContestDetail user = null;
         for (int i = 0; i < arr.size(); i++) {
-            TCCC05ContestDetail item = (TCCC05ContestDetail) arr.get(i);
+            UserContestDetail item = (UserContestDetail) arr.get(i);
             if (item.getUserID() == userId) {
                 user = item;
                 break;
             }
         }
         if (user == null) {
-            user = new TCCC05ContestDetail(handle, userId);
+            user = new UserContestDetail(handle, userId);
             arr.add(user);
         }
 
@@ -154,8 +154,8 @@ public class TCCC05ContestDetails extends StatBase {
     public class myComparator implements Comparator {
 
         public int compare(Object o1, Object o2) {
-            TCCC05ContestDetail a1 = (TCCC05ContestDetail) o1;
-            TCCC05ContestDetail a2 = (TCCC05ContestDetail) o2;
+            UserContestDetail a1 = (UserContestDetail) o1;
+            UserContestDetail a2 = (UserContestDetail) o2;
 
             if (a1.getPoints() == a2.getPoints()) {
                 return a1.getHandle().compareToIgnoreCase(a2.getHandle());

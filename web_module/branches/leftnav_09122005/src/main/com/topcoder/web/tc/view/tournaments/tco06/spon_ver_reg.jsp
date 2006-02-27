@@ -5,6 +5,8 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <html>
 <head>
+<jsp:include page="/script.jsp" />
+
 <title>2006 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
 </head>
@@ -16,16 +18,16 @@
 <jsp:param name="tabLev3" value=""/>
 </jsp:include>
 
-<table width="100%" border=0 cellpadding=0 cellspacing=0>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
 <!-- Body-->
-	<tr valign=top>
-		<td valign=top align=center>
+	<tr valign="top">
+		<td valign="top" align="center">
 		<div class="bodySpacer">
 
 <span class="bigTitle">Registration</span>
 <br /><br />
 <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCO05VerisignTermsAgree"/>
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCO06VerisignTermsAgree"/>
     <tc-webtag:hiddenInput name="<%=Constants.COMPANY_NAME%>" value="VeriSign"/>
     <div align="center">
     <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_reg_content"></iframe>

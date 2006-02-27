@@ -5,6 +5,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<jsp:include page="/script.jsp" />
+
 <title>2006 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
@@ -33,15 +35,17 @@
 <br><br>
 <table class="formFrame" border="0" cellpadding="6" cellspacing="0" width="300">
     <tbody><tr>
-      <td class="advTitle" colspan="2" width="100%">Registrants</td>
+      <td class="advTitle" colspan="3" width="100%">Registrants (<%=rsc.size()%>)</td>
    </tr>
     <tr class="advHeader">
-       <td align="left" width="50%"><a href="/tc?module=TCO05AlgRegistrants<tc-webtag:sort column="1"/>">Handle</a></td>
-       <td align="right" width="50%"><a href="/tc?module=TCO05AlgRegistrants<tc-webtag:sort column="2"/>">Rating</a></td>
+       <td align="left" width="50%"><a href="/tc?module=TCO06AlgRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("rank")%>"/>">Rank</a></td>
+       <td align="left" width="50%"><a href="/tc?module=TCO06AlgRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a></td>
+       <td align="right" width="50%"><a href="/tc?module=TCO06AlgRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a></td>
     </tr>
 <%boolean even = false;%>
 <rsc:iterator list='<%=rsc%>' id="resultRow">
 <tr>
+<td class="<%=(even ? "advanceDk" : "advanceLt")%>"><rsc:item name="rank" row='<%=resultRow%>' /></td>
 <td class="<%=(even ? "advanceDk" : "advanceLt")%>"><tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="algorithm" darkBG="true"/></td>
 <td class="<%=(even ? "advanceDk" : "advanceLt")%>" align="right"><rsc:item format="###0" ifNull="Unrated" name="rating" row='<%=resultRow%>' /></td>
 </tr>

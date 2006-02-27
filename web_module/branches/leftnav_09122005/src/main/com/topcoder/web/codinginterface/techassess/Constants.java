@@ -35,7 +35,6 @@ public class Constants implements CodingInterfaceConstants {
     public static String PAGE_TEST_RESULT;
 
     //parameters
-    public static String COMPANY_ID;
     public static String SESSION_ID;
     public static String LOGOUT;
     public static String ERROR_MESSAGE;
