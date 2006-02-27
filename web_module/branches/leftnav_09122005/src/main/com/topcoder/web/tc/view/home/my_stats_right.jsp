@@ -69,7 +69,9 @@
 
             <p>To learn more about Algorithm Competitions, go to the <a href="/tc?module=Static&d1=help&d2=index" class="statText">Competition Guide.</a></p>
 
-            <p>To learn more about Design and Development Competitions, go to <a href="/?t=development&c=comp_meth" class="statText">Component Methodology.</a></p>
+			<p>To learn more about Design Competitions, check out <A href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted">this tutorial</A>.</p>
+
+			<p>To learn more about Development Competitions, check out <A href="/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted">this tutorial</A>.</p>
         </td>
     </tr>
 </table>

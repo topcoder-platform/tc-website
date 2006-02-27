@@ -57,8 +57,8 @@
 <tr class="bodyText"><td nowrap="nowrap">05.13.05 11:50 AM&#160;-&#160</td><td width="100%"><A href="/rtables/viewThread.jsp?forum=7167&thread=496779&mc=1">Unused Code Checker in Arena</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.05.05 12:30 PM&#160;-&#160</td><td width="100%"><A href="/rtables/viewThread.jsp?forum=7167&thread=495563&mc=1">Compilers & testers have been updated with Java 5</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.18.05 3:45 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=help&d2=ratedEvent#extracoderule">Small change to Unused Code Rule, new problem timeout limit, and more...</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">02.23.05 12:45 PM&#160;-&#160</td><td width="100%">SRM calendar updated for <A href="/index?t=schedule&c=may_05">May</A>, <A href="/index?t=schedule&c=jun_05">June</A>, and <A href="/index?t=schedule&c=jul_05">July</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">02.14.05 5:14 PM&#160;-&#160</td><td width="100%"><A href="/?t=support&c=ratings_cal">Algorithm rating formulas updated</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">02.23.05 12:45 PM&#160;-&#160</td><td width="100%">SRM calendar updated for May, June, and July</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">02.14.05 5:14 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=help&d2=ratings">Algorithm rating formulas updated</A></td></tr>
 </table>
 
         </div>
