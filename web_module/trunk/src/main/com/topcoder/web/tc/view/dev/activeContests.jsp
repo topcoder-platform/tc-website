@@ -84,16 +84,11 @@ position: relative;
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyText">
 <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-<div style="float:right;"><A href="/?t=development&amp;c=getting_started"><img src="/i/development/get_started.gif" alt="Getting Started" border="0" /></A></div>
-<jsp:include page="../body_top.jsp">
+<jsp:include page="../page_title.jsp">
     <jsp:param name="image" value="development"/>
-    <jsp:param name="image1" value="white"/>
-    <jsp:param name="title" value="Components"/>
+    <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
-
-
-<img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-
+<div align="right"><A href="/?t=development&amp;c=getting_started"><img src="/i/development/get_started.gif" alt="Getting Started" border="0" /></A></div>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
 <tr>
