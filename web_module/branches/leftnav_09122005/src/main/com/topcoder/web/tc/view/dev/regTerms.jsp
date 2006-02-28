@@ -10,6 +10,10 @@
 <%@ page import="com.topcoder.web.tc.model.SoftwareComponent"%> <head>
     <title>TopCoder - Message</title>
     <jsp:include page="../script.jsp"/>
+    <jsp:include page="/style.jsp">
+      <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
+    
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 </head>
 
