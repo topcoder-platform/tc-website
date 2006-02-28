@@ -24,38 +24,33 @@ int round_id = rsr.getIntItem("round_id");
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
-    <HEAD>
-        <TITLE>TopCoder :: Schedule</TITLE>
-        <jsp:include page="/style.jsp">
-          <jsp:param name="key" value="tc_stats"/>
-        </jsp:include>
-        <jsp:include page="/script.jsp" />
-    </HEAD>
-    <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-        <a name="top_page"></a>
-        <jsp:include page="../top.jsp" >
-            <jsp:param name="level1" value=""/>
-        </jsp:include>
+<HEAD>
+<TITLE>TopCoder :: Schedule</TITLE>
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_stats"/>
+</jsp:include>
+<jsp:include page="/script.jsp" />
+</HEAD>
+<body>
+<jsp:include page="../top.jsp" >
+<jsp:param name="level1" value=""/>
+</jsp:include>
 
         <!-- Body Begins -->
-        <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#FFFFFF">
-            <TR>
-                <!-- Left Column Begins -->
-                <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
-                    <jsp:include page="../includes/global_left.jsp">
-                        <jsp:param name="node" value="competition_home"/>
-                    </jsp:include>        
-                </TD>
-                <!-- Left Column Ends -->
-                <!-- Gutter Begins -->
-                <TD WIDTH="4" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/table_top_fill.gif" WIDTH="4" HEIGHT="26" BORDER="0"/></TD>
-                <!-- Gutter Ends -->
-                <!-- Center Column Begins -->
-                <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" valign="top">
-                    <jsp:include page="../page_title.jsp" >
-                        <jsp:param name="image" value="schedule"/>
-                        <jsp:param name="title" value="SRM Official Rules & Qualification"/>
-                    </jsp:include>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+   <tr valign="top">
+<!-- Left Column Begins-->
+        <td width="180">
+<jsp:include page="../includes/global_left.jsp">
+<jsp:param name="node" value="competition_calendar"/>
+</jsp:include>
+        </td>
+<!-- Center Column Begins -->
+<td class="statTableSpacer" width="100%" valign="top">
+   <jsp:include page="../page_title.jsp" >
+   <jsp:param name="image" value="schedule"/>
+   <jsp:param name="title" value="SRM Official Rules & Qualification"/>
+   </jsp:include>
 
                     <% if (round_id == 7223 || round_id == 8004 || round_id == 8005 || round_id == 7227 || round_id == 8007 || round_id == 8069
         || round_id == 8074 || round_id == 8083 || round_id == 8070 || round_id == 8073 || round_id == 8076 || round_id == 8080) { %>
@@ -369,31 +364,20 @@ int round_id = rsr.getIntItem("round_id");
 
 
                 </TD>
-                <!-- Gutter -->
-                <TD WIDTH="4" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
-                <!-- Gutter Ends -->
-                <!-- Right Column Begins -->
                 <TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-                    <!-- Right Column Include Begins -->
-                    <jsp:include page="../public_right.jsp">
-                        <jsp:param name="level1" value="privatelabel"/>
+                    <jsp:include page="/public_right.jsp">
+                        <jsp:param name="level1" value="default"/>
                     </jsp:include>
-                    <!-- Right Column Include Ends -->
                 </TD>
-                <!-- Right Column Ends -->
-                <!-- Gutter -->
-                <TD WIDTH="25" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
-                <!-- Gutter Ends -->
             </TR>
         </TABLE>
-        <!-- Body Ends -->
         <!-- Gutter Begins -->
         <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
         <!-- Gutter Ends -->
         </TR>
         </TABLE>
 
-        <jsp:include page="../foot.jsp" />
+        <jsp:include page="/foot.jsp" />
 
     </BODY>
 
