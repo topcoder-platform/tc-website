@@ -20,7 +20,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
       <td class="headerC">Rank</td>
       <td class="header">Coder</td>
       <td class="headerR">Prize</td>
-      <td class="headerR">Contest</td>
+      <td class="header">Contest</td>
       <td class="headerC">Date</td>
    </tr>
     <% boolean even = false; %>
