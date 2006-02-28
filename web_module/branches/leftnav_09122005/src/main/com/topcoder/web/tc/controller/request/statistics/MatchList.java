@@ -53,6 +53,8 @@ public class MatchList extends Base {
             result.put("match_list", (ResultSetContainer)rsc.subList(Integer.parseInt(startRank)-1, endRank));
 
             SortInfo s = new SortInfo();
+            s.addDefault(7, "desc");
+            s.addDefault(16, "desc");
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
