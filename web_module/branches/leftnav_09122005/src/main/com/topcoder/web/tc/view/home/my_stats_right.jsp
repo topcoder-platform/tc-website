@@ -6,9 +6,9 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <% ResultSetContainer coderInfo= (ResultSetContainer)request.getAttribute("member_info");%>
 
-<table width="180" border="0" cellspacing="0" cellpadding="0">
-    <tr><td width="180" height="11"><img src="/i/my_stats_top.gif" alt="" width="180" height="11" border="0"></td></tr>
-</table>
+<div>
+<img src="/i/my_stats_top.gif" alt="" border="0" />
+</div>
 
 <% if (coderInfo!=null && !coderInfo.isEmpty()) { %>
 <table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
@@ -69,14 +69,14 @@
 
             <p>To learn more about Algorithm Competitions, go to the <a href="/tc?module=Static&d1=help&d2=index" class="statText">Competition Guide.</a></p>
 
-			<p>To learn more about Design Competitions, check out <A href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted">this tutorial</A>.</p>
+         <p>To learn more about Design Competitions, check out <A href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted">this tutorial</A>.</p>
 
-			<p>To learn more about Development Competitions, check out <A href="/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted">this tutorial</A>.</p>
+         <p>To learn more about Development Competitions, check out <A href="/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted">this tutorial</A>.</p>
         </td>
     </tr>
 </table>
 
 <% } %>
-<table width="180" border="0" cellspacing="0" cellpadding="0">
-    <tr><td width="180" height="11"><img src="/i/my_stats_bottom.gif" alt="" width="180" height="11" border="0"></td></tr>
-</table>
+<div style="float:right;">
+<img src="/i/my_stats_bottom.gif" alt="" border="0" />
+</div>
