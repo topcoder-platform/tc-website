@@ -29,7 +29,7 @@
 <!-- Left Column Begins-->
 <td width="180">
    <jsp:include page="/includes/global_left.jsp">
-      <jsp:param name="node" value="<%= String.valueOf(SoftwareComponent.DESIGN_PHASE).equals(request.getAttribute(Constants.PHASE_ID)) ? "des_compete" : "dev_compete"%>"/>
+      <jsp:param name="node" value="<%= String.valueOf(SoftwareComponent.DESIGN_PHASE).equals(request.getAttribute(Constants.PHASE_ID)) ? "des_contest_status" : "dev_contest_status"%>"/>
    </jsp:include>
 </td>
 <!-- Left Column Ends -->
