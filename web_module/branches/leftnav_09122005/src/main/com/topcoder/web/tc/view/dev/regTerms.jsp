@@ -23,10 +23,8 @@
     <tr valign="top">
         <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="development"/>
-                <jsp:param name="level2" value="components"/>
-                <jsp:param name="level3" value="active_contests"/>
+            <jsp:include page="/includes/global_left.jsp">
+               <jsp:param name="node" value="<%= new Integer(SoftwareComponent.DESIGN_PHASE).equals(request.getAttribute(Constants.PHASE_ID))? "des_compete" : "dev_compete"%>"/>
             </jsp:include>
         </td>
         <!-- Left Column Ends -->
