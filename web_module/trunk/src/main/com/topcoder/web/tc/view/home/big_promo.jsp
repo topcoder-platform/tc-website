@@ -25,7 +25,7 @@
 </map>
 <IMG SRC="/i/home/tco06_algo_reg_AMD.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" />
 --%>
-<A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><IMG SRC="/i/home/tco06_logo.gif" border="0" ALT="2006 TopCoder Open" /></A>
+<A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><IMG SRC="/i/home/tco06_logo_grn.gif" border="0" ALT="2006 TopCoder Open" /></A>
 <%-- Marathon Matches
 <A href="/longcontest/?module=Static&d1=intel_overview"><IMG SRC="/i/home/intel_mtcs_banner.gif" border="0" ALT="Intel Multi-Threading Competition Series"/></A>
 --%>
