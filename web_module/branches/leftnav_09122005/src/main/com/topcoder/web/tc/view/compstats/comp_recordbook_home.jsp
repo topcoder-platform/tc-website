@@ -35,6 +35,7 @@
 
         <!-- Center Column Begins -->
         <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+         <div align="center">
 
 <div class="fixedWidthBody">
 
@@ -125,6 +126,7 @@
 </table>
 
 </div>
+         </div>
         </td>
         <!-- Center Column Ends -->
 
