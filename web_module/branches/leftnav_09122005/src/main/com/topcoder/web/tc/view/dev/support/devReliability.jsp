@@ -36,13 +36,11 @@
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
 
 
-<h2>Development Reliability Rating</h2>
-<p>If you have any questions concerning Reliability Rating that are not answered here, please send an email to
-    <A href="mailto:service@topcoder.com">service@topcoder.com</A>.</p>
+<h3>Development Reliability Rating</h3>
 
 <p>Member profiles have been modified to reflect a reliability factor for the last 15 component design and 15 development competitions. 
-The reliability factor is calculated as the percent of the last 15 projects that a member registers for in which that same 
-member presents a timely submission that scores at least a 70 in review.</p>
+The reliability factor is calculated as the percent of the last 15 projects that a member registers for in which that same
+member presents a timely submission that scores at least a 75 in review.</p>
 
 <p>Separate reliability ratings will be kept for design and development projects.</p>
 
@@ -50,18 +48,18 @@ member presents a timely submission that scores at least a 70 in review.</p>
     that were signed up for prior to the current project.  A participant with no previous projects is considered to
     have no reliability rating, and therefore gets no bonus.</p>
 
-<p>TopCoder will not reset reliability statuses for projects posted prior to October 5th, 2005.  Projects prior to this date 
+<p>TopCoder will not reset reliability statuses for projects posted prior to October 5th, 2005.  Projects prior to this date
 will be marked reliable, if the user submitted a solution that passed screening.  Additionally, for those that had never
 submitted prior to October 5th, 2005 they will not be given a reliability rating until they submit a project that scores
-at least a 70 in review.</p>
+at least a 70 in review.  As of January 12th 2006, TopCoder has increased the minium score to 75.</p>
 
     <p>One will not be allow to register for more than 2 projects if their relevant reliability rating is less
         than 70%, or if they don't have a reliability rating.</p>
 
-<p>Members will be eligible to receive a bonus on top of any prize money won if their Reliability Ratings are equal to or exceed 
-80%. Winning members with Reliability Ratings equal to or exceeding 80% and less than 90% will receive a bonus equal to 10% 
-of the prize. For Reliability Ratings equal to or exceeding 90% and less than 95%, winning members will receive a bonus equal 
-to 15% of the prize. And winning members with a Reliability Rating equal to or exceeding of 95% will receive a bonus equal 
+<p>Members will be eligible to receive a bonus on top of any prize money won if their Reliability Ratings are equal to or exceed
+80%. Winning members with Reliability Ratings equal to or exceeding 80% and less than 90% will receive a bonus equal to 10%
+of the prize. For Reliability Ratings equal to or exceeding 90% and less than 95%, winning members will receive a bonus equal
+to 15% of the prize. And winning members with a Reliability Rating equal to or exceeding of 95% will receive a bonus equal
 to 20% of the prize. The following is an example of payouts based on the member's Reliability Rating:</p>
 
 
