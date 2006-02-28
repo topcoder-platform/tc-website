@@ -45,10 +45,10 @@ else
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
-	<tr valign=top>
-		<td valign=top align=center>
-		<div class=bodySpacer>
-        <br/>
+   <tr valign=top>
+      <td valign=top align=center>
+      <div class=bodySpacer>
+        <br>
                         <a name="week"></a>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
                             <tr>
@@ -72,7 +72,7 @@ else
                             </rsc:iterator>
                         </table>
 
-                        <br/>
+                        <br>
 <% rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tco06_overall_results"); %>
                         <a name="month"></a>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
@@ -102,17 +102,17 @@ else
                         </table>
 
         </div>
-		</td>
+      </td>
 
 
 <!-- Right Column-->
-        <td width=170 align=right>
+        <td width="170" align="right">
             <jsp:include page="right.jsp">
             <jsp:param name="level1" value="all"/>
             </jsp:include>
          </td>
 
-	</tr>
+   </tr>
 
 </table>
 
