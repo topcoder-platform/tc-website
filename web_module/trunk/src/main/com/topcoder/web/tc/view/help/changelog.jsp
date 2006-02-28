@@ -41,9 +41,9 @@
             <li>put logic behind the contest details links on the component page in the catalog</li>
 --%>
     <p>
-        4.1.13 - 2006.02.xx
+        4.1.13 - 2006.02.28
         <ul>
-            <li>TCO06 Travel On Site Competitor/Review Board pages</li>
+            <li>TCO06 Travel onsite Competitor/Review Board pages</li>
             <li>Fix bug in private label registration process where a user record could be deleted.</li>
         </ul>
     </p>
