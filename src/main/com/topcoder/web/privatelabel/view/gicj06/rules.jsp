@@ -51,7 +51,7 @@ The Google&#153; Code Jam India is being offered by Google, Inc. ("Google") and 
 <b>Eligibility</b><br>
 All individuals who are residents of India, Bangladesh, Indonesia, Malaysia, Maldives, Myanmar, Nepal, Singapore and Thailand may register and compete in the Google India Code Jam 2006, provided they reside in that country during the dates of the competition, February 27 and April 7, 2006.
 <br><br>
-Registrants who are 18 years of age or older as of March 20, 2006, are eligible to win cash prizes, unless otherwise prohibited. The Google India Code Jam 2006 is void where prohibited by applicable law.
+Registrants who are 13 years of age or older as of March 20, 2006 may compete in the Qualification Round and Online Round 1 of the Google India Code Jam 2006.  Only participants who are 18 years of age or older as of March 20, 2006 are eligible to compete in the Championship Round and win prizes (cash or products). The Google India Code Jam 2006 is void where prohibited by applicable law.
 <br><br>
 Full and part-time employees of Google and TopCoder as well as those who are performing internships from February 27, 2006 - April 7, 2006 and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament. 
 <br><br>
