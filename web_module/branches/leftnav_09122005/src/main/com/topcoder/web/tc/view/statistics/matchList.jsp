@@ -96,20 +96,19 @@ myForm.submit();
       <td colspan="2">&#160;</td>
    </tr>
    <tr>
-      <%--TODO: Ensure sorting columns are correct--%>
       <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Match</td>
-      <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Division I Winner</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Subs</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Avg Subs</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Challenges</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Avg Challenges</td>
-      <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Division II Winner</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Submissions</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Avg Submissions</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Challenges</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Avg Challenges</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Participants</td>
-      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Date</td>
+      <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Division I Winner</td>
+      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true" excludeParams="sr" />">Subs</td>
+      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true" excludeParams="sr" />">Avg Subs</td>
+      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="12" includeParams="true" excludeParams="sr" />">Challenges</td>
+      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="14" includeParams="true" excludeParams="sr" />">Avg Challenges</td>
+      <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true" excludeParams="sr" />">Division II Winner</td>
+      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="9" includeParams="true" excludeParams="sr" />">Submissions</td>
+      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="11" includeParams="true" excludeParams="sr" />">Avg Submissions</td>
+      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="13" includeParams="true" excludeParams="sr" />">Challenges</td>
+      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="15" includeParams="true" excludeParams="sr" />">Avg Challenges</td>
+      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />">Participants</td>
+      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="16" includeParams="true" excludeParams="sr" />">Date</td>
       <td class="headerC">Forum</td>
    </tr>
    <% boolean even = false; %>
