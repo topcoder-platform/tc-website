@@ -1650,6 +1650,7 @@
                     <include name="tc-webtags.tld"/>
                     <include name="codinginterface.tld"/>
                     <include name="rsc-taglib.tld"/>
+                    <include name="nav.tld"/>
                 </webinf>
                 <webinf dir="${struts.dir}">
                     <include name="struts-logic.tld"/>
