@@ -44,6 +44,7 @@
         4.1.13 - 2006.02.xx
         <ul>
             <li>TCO06 Travel On Site Competitor/Review Board pages</li>
+            <li>Fix bug in private label registration process where a user record could be deleted.</li>
         </ul>
     </p>
     <p>
