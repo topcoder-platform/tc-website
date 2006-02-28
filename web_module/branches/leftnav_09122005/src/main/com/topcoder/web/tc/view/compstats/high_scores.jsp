@@ -26,7 +26,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
          </td>
         </tr>
         <tr class="<%=even?"dark":"light"%>">
-        <td class="valueR" colspan="3"><span class="smallText"><A href="">Competition Disqualification Processor 1.1</A> - 01.01.2006</span></td>
+        <td class="valueR" colspan="3"><span class="smallText"><A href="/tc?module=ProjectDetail&pj=<rsc:item name="project_id" row="<%=row%>"/>"><rsc:item name="name" row="<%=row%>"/></A> - <rsc:item name="date" row="<%=row%>" format="MM.dd.yyyy"/></span></td>
         </tr>
     <% even = !even;%>
     </rsc:iterator>
