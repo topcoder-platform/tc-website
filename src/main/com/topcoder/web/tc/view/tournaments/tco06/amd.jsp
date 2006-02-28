@@ -23,7 +23,7 @@
       <td valign=top align=center>
       <div class="bodySpacer">
             
-<div align="center"><img src="/i/tournament/tco06/amd_logo.gif" alt="AMD" border="0" /></div>
+<div align="center"><img src="/i/tournament/tco06/amd_logo_grn.gif" alt="AMD" border="0" /></div>
 <br><br>
 <div align="center"><a href="/?t=sponsor&c=link&link=http://developer.amd.com/">Join AMD Developer Central</a></div>
 <br><br>
