@@ -83,8 +83,7 @@ position: relative;
 
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyText">
-<img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-<jsp:include page="../page_title.jsp">
+<jsp:include page="/page_title.jsp">
     <jsp:param name="image" value="development"/>
     <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
