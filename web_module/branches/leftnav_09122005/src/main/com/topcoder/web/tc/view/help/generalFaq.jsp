@@ -131,7 +131,7 @@
 <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
 
 <TR><TD CLASS="bodyText"><A NAME="80"><B>How does the rating system work?</B></A></TD></TR>
-<TR><TD CLASS="bodyText">Each tournament round is an elimination round. Contestants survive to subsequent rounds by being the fastest to write working programs that accurately answer the challenge question(s). Ratings will then be adjusted by comparing the competitor's record against the other members.  The details of the rating formula can be found <A HREF="/index?t=support&amp;c=ratings" CLASS="bodyText"> here</A>.</TD></TR>
+<TR><TD CLASS="bodyText">Each tournament round is an elimination round. Contestants survive to subsequent rounds by being the fastest to write working programs that accurately answer the challenge question(s). Ratings will then be adjusted by comparing the competitor's record against the other members.  The details of the rating formula can be found <A HREF="/tc?module=Static&d1=help&d2=ratings" CLASS="bodyText">here</A>.</TD></TR>
 <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
 
 <TR><TD CLASS="bodyText"><A NAME="180"><B>I'm having a problem with font properties on Linux platforms.</B></A></TD></TR>
@@ -335,7 +335,7 @@ Some extensions are also present, including most of those from SGI's STL, such a
 <TR><TD CLASS="bodyText">Although many Mac users commonly use command-C and command-V to copy and paste, you must use ctrl-C and ctrl-V to copy and paste from within the Arena.</TD></TR>
 <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
 
-<TR><TD CLASS="bodyText"><B>More Questions? <A HREF="/index?t=contacts&amp;c=index" CLASS="bodyText">Contact Us</A></B></TD></TR>
+<TR><TD CLASS="bodyText"><B>More Questions? <A HREF="/tc?module=Static&d1=about&d2=contactus" CLASS="bodyText">Contact Us</A></B></TD></TR>
 <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
 
 
