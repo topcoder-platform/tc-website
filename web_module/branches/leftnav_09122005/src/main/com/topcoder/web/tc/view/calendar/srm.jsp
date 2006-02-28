@@ -81,10 +81,10 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                             <IMG SRC="/i/srm_banner.jpg" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
                                             <% } else { %>
                                             <% if (link.equals("")) { %>
-                                            <IMG ALT="" BORDER="0" SRC="<%=path%>" WIDTH="<%=width%>" HEIGHT="<%=height%>"/>
+                                            <IMG ALT="" BORDER="0" SRC="<rsc:item name="path" row="<%=rsr%>"/>" WIDTH="<rsc:item name="width" row="<%=rsr%>"/>" HEIGHT="<rsc:item name="height" row="<%=rsr%>"/>"/>
                                             <% } else { %>
                                             <a HREF="<%=link%>">
-                                                <IMG ALT="" BORDER="0" SRC="<%=path%>" WIDTH="<%=width%>" HEIGHT="<%=height%>"/>
+                                                <IMG ALT="" BORDER="0" SRC="<rsc:item name="path" row="<%=rsr%>"/>" WIDTH="<rsc:item name="width" row="<%=rsr%>"/>" HEIGHT="<rsc:item name="height" row="<%=rsr%>"/>"/>
                                             </a>
                                             <% } %>
                                             <% } %>
