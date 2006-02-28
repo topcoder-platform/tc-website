@@ -106,7 +106,7 @@ text-decoration: none;
             Register: 9:00&#160;AM<br />
             Compete: 12:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=9808&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=9808">Details</A><br/><br/></td>
     </tr>
     
     <tr> 
@@ -120,7 +120,7 @@ text-decoration: none;
             Compete: 9:00&#160;PM<br />
             Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">NSA</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=9809&t=schedule&c=srm">Details</A><br/><br/>
+            <A href="/tc?module=MatchDetails&rd=9809">Details</A><br/><br/>
         </td>
         <td id="calendarTCO06">
             <span id="calendarTCO06Date">9</span><br/>
@@ -149,7 +149,7 @@ text-decoration: none;
             Register: 4:00&#160;AM<br />
             Compete: 7:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=9810&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=9810">Details</A><br/><br/></td>
         <td id="calChat" rowspan="2">
             <span id="calChatDate">15</span><br/>
             <strong>Chat Session<br/>Hosted by TopCoder Software</strong><br/>
@@ -166,7 +166,7 @@ text-decoration: none;
             Compete: 9:00&#160;PM<br />
             Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs">UBS</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=9811&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=9811">Details</A><br/><br/></td>
         <td id="calendar" rowspan="2">17</td>
         <td id="calendar" rowspan="2">18</td>
     </tr>
@@ -197,7 +197,7 @@ text-decoration: none;
             Register: 8:00&#160;AM<br />
             Compete: 11:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=9812&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=9812">Details</A><br/><br/></td>
         <td id="calendarIntel">
             <span id="calendarIntelDate">22</span><br />
             <strong>Intel Multi-threading Competition 2</strong><br />

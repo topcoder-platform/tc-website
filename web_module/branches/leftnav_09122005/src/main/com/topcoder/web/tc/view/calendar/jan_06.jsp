@@ -104,7 +104,7 @@ text-decoration: none;
             Register: 8:00&#160;AM<br />
             Compete: 11:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8078&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=8078">Details</A><br/><br/></td>
         <td id="calendar">6</td>
         <td id="calendar">7</td>
     </tr>
@@ -119,7 +119,7 @@ text-decoration: none;
             Compete: 9:00&#160;PM<br />
             Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">NSA</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8079&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=8079">Details</A><br/><br/></td>
         <td id="calendar">11</td>
         <td id="calendar">12</td>
         <td id="calendar">13</td>
@@ -143,7 +143,7 @@ text-decoration: none;
             Register: 4:00&#160;AM<br />
             Compete: 7:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8080&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=8080">Details</A><br/><br/></td>
         <td id="calendar">20</td>
         <td id="calendarSRM">
             <span id="calendarSRMDate">21</span><br />
@@ -152,7 +152,7 @@ text-decoration: none;
             Compete: 12:00&#160;PM<br />
             Sponsored by: <br><A href="/tc?module=Static&d1=contracting&d2=msn">MSN</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8081&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=8081">Details</A><br/><br/></td>
     </tr>
     
     <tr> 
@@ -173,7 +173,7 @@ text-decoration: none;
             Register: 8:00&#160;AM<br />
             Compete: 11:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8082&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=8082">Details</A><br/><br/></td>
         <td id="calendarIntel">
             <span id="calendarIntelDate">25</span><br />
             <strong>Intel Multi-threading Competition 1</strong><br />
@@ -202,7 +202,7 @@ text-decoration: none;
             &#160;<br />
             &#160;<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8083&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=8083">Details</A><br/><br/></td>
         <td id="calendar">31</td>
         <td id="calendarBlank">&#160;</td>
         <td id="calendarBlank">&#160;</td>

@@ -129,7 +129,7 @@
             Compete: 9:00&#160;PM<br />
             Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">NSA</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=9813&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=9813">Details</A><br/><br/></td>
         <td id="calendar">7</td>
         <td id="calendarTCO06">
             <span id="calendarTCO06Date">8</span><br/>
@@ -174,7 +174,7 @@
             Register: 8:00&#160;AM<br />
             Compete: 11:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=9814&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=9814">Details</A><br/><br/></td>
         <td id="calendar">18</td>
     </tr>
     
@@ -207,7 +207,7 @@
             Register: 9:00&#160;AM<br />
             Compete: 12:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=9815&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=9815">Details</A><br/><br/></td>
     </tr>
  -->
 <!-- with intel date -->    
@@ -239,7 +239,7 @@
             Register: 9:00&#160;AM<br />
             Compete: 12:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=9815&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=9815">Details</A><br/><br/></td>
     </tr>
     <tr> 
             <td id="calendarIntel">
@@ -259,7 +259,7 @@
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=9816&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=9816">Details</A><br/><br/></td>
         <td id="calendarTCO06">
             <span id="calendarTCO06Date">30</span><br/>
             <strong>2006 TopCoder Open Component Competition</strong><br/>
