@@ -169,7 +169,7 @@ TopCoder will provide transportation to and from the airport and hotel. Further 
             <tr><td><br/></td><td><br/></td></tr>
             <tr>
               <td class="sidebarText" colspan="2">
-                  *For extended stays in the US, please contact <a href="mailto:bhealy@topcoder.com" >Barbara Healy</a>.
+                  For extended stays in the US, please contact <a href="mailto:bhealy@topcoder.com" >Barbara Healy</a>.
                   Any extra expenses will be your responsibility (extra hotel nights, meals, higher air fares, etc.) and
                   will be deducted from your review board earnings until they are covered.
               </td>

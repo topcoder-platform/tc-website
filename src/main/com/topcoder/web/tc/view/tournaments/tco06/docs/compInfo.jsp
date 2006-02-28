@@ -54,8 +54,8 @@
                                     <% if (info.getIntItem(0, "has_tax_form")==0) {%>
                                         <p><strong>TAX FORM</strong> - must be faxed to (860.657.4276), scanned and
                                         sent via email (<a href="mailto:payments@topcoder.com">payments@topcoder.com</a>), or
-                                        postmarked on or before 9:00 PM EDT on Wednesday, September 7.  If sent by mail,
-                                        it must be received at TopCoder by October 5, 2006.</p>
+                                        postmarked on or before 9:00 PM EST on Friday, March 24.  If sent by mail,
+                                        it must be received at TopCoder by April 21, 2006.</p>
                                         <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN).  If you don't know which form
                                         applies to you, please refer to the instructions below:</p>
 

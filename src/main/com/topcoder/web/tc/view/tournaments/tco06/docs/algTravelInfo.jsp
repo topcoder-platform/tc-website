@@ -30,7 +30,7 @@
 
 
 
-        <h2>Travel Information - must be submitted by 9:00 PM EST (GMT -5) on Wednesday, March 22, 2006</h2>
+        <h2>Travel Information - must be submitted by 5:00 PM EST (GMT -5) on Wednesday, March 29, 2006</h2>
         <p>
         <B><U>HOTEL INFORMATION:</U></B><br />
         <br />
@@ -203,7 +203,7 @@ A hotel room will be confirmed for your arrival on May 2 and departure on May 6,
             <tr><td><br/></td><td><br/></td></tr>
             <tr>
               <td class="sidebarText" colspan="2">
-                  *For extended stays in the US, please contact <a href="mailto:bhealy@topcoder.com" >Barbara Healy</a>.
+                  For extended stays in the US, please contact <a href="mailto:bhealy@topcoder.com" >Barbara Healy</a>.
                   Any extra expenses will be your responsibility (extra hotel nights, meals, higher air fares, etc.)
                   and will be deducted from your total TCO prize money won.  If your total TCO prize money is not
                   sufficient to cover the additional costs, your will be responsible for remitting to TopCoder the
