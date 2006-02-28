@@ -54,26 +54,18 @@ int round_id = rsr.getIntItem("round_id");
 
                     <% if (round_id == 7223 || round_id == 8004 || round_id == 8005 || round_id == 7227 || round_id == 8007 || round_id == 8069
         || round_id == 8074 || round_id == 8083 || round_id == 8070 || round_id == 8073 || round_id == 8076 || round_id == 8080) { %>
-                    <table bgcolor = "#ffffff" cellspacing="0" cellpadding="10" border="0" width="619">
-                        <tr>
-                            <td><img src="/i/clear.gif" width="100" height="1" /></td>
-                            <td><img src="/i/clear.gif" width="19" height="1" /></td>
-                            <td><img src="/i/clear.gif" width="100" height="1" /></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" class="bodyText">
-                                <font color="#ff0000">
+                                <span class="bigRed">
                                     <b>
                                         <rsc:item name="contest_name" row="<%=rsr%>"/>
-                                        <br/>
+                                        <br>
                                         Official Rules and Regulations
                                     </b>
-                                </font>
-                                <br/>
+                                </span>
+                                <br>
                                 No purchase necessary to enter or win.
                                 <br /><br />
 
-                                <b>Prizes</b><br/>
+                                <b>Prizes</b><br>
                                 Each competition room will have a maximum of 20 coders. There will be 2 divisions. Division one is 1200 rating and up, while division two is below 1200 or non-rated. The single round match room assignments will only place members of like divisions together. Any member who changes divisions as a result of a rating change will compete in their new division in the next rated event following the rating change. Coders must place with a positive (greater than zero) point total to collect any prize.
                                 <br /><br />
                                 All prizes will be calculated at the conclusion of the competition, based on the final scores of the coders in each room according to the following rules:
@@ -102,10 +94,10 @@ int round_id = rsr.getIntItem("round_id");
                                     </li>
                                 </ul>
                                 <b>About the Competition</b>
-                                <br/>
+                                <br>
                                 <ul>
                                     <li>
-                                        <b>When to start the Competition</b><br/>
+                                        <b>When to start the Competition</b><br>
                                         TopCoder members must register from within the TopCoder Arena for this competition.
                                         Registration is from <rsc:item name="reg_begin" row="<%=rsr%>"/> to <rsc:item name="reg_end" row="<%=rsr%>"/>.
                                         To register, login to the TopCoder Arena application, click on the 'Active Contests' menu, choose the event to register for, and select the 'Register' option. TopCoder members from all over the country will be participating in this event, but <b><i>all start times will be communicated as Eastern Time, so contestants in different time zones must adjust accordingly</i></b>. All competitors who have registered for the competition will be assigned to a specific competition room. TopCoder will perform the room assignments prior to the start of the competition, in a manner such that only coders in the same division are placed in the same room and the room assignments within each division are random.
@@ -115,7 +107,7 @@ int round_id = rsr.getIntItem("round_id");
                                     <br />
                                     <br />
                                     <li>
-                                        <b>Upon Entering an Online Tournament Round</b><br/>
+                                        <b>Upon Entering an Online Tournament Round</b><br>
                                         Each online tournament round consists of three phases: the coding phase, challenge phase, and the testing phase.
                                     </li>
                                     <ol>
@@ -147,7 +139,7 @@ int round_id = rsr.getIntItem("round_id");
                                     </ol>
                                     <br />
                                     <li>
-                                        <b>Scoring during Online Tournament Rounds</b><br/>
+                                        <b>Scoring during Online Tournament Rounds</b><br>
                                         The prize winners of each room will be determined as follows: Coder standing in each room is determined by comparing the final point values for all coders in the room. Those with the top three positive point values in the room, place in first, second, and third (only first and second place prizes will be awarded for a division two room). In the event of a tie, all coders who have greater than zero points tied for a prize placement will split that prize money combined with the prize money of lesser place(s) equal to the number of coders tied. For example: if three coders within a room are tied for first place with positive point totals, they split the combined prize money for first, second and third place. No other coders are paid. If two coders are tied for first place with positive point totals, they split the first and second prize money combined, and the coder with the next highest positive point total wins the third place prize money.
                                         <br /><br />
                                         All contestants, who opened any problem during the round, will have their ratings adjusted up or down to reflect their performance, based on TopCoder's rating formula. Contestant ratings play no role in a Coder's final standing in the competition room.
@@ -180,14 +172,14 @@ int round_id = rsr.getIntItem("round_id");
                                 <br /><br />
 
                                 Verified winners agree to use their name, address (city and state) and likeness for publicity purposes, where legal, for this or similar future tournaments, and to use the statements made by or attributed to the winner relating to TopCoder and any and all rights to said use, without further compensation.
-                                <br /><br/>
+                                <br /><br>
 
                                 TopCoder, in its sole discretion, reserves the right to disqualify any person tampering with the entry process, the operation of the Web site, the competition process, or is otherwise in violation of the rules. TopCoder reserves the right to cancel, terminate or modify the competition if it is not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.
                                 <br /><br /><br />
 
                                 <b>Participants</b><br />
 
-                                The match is open to all members who are at least 13 years of age.<br/>
+                                The match is open to all members who are at least 13 years of age.<br>
                                 <br />
 
                                 In order to be eligible for prizes in this competition, each competitor must be a TopCoder member in good standing, greater then 18 years of age,  and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec province of Canada, or anywhere else where this competition is prohibited by applicable law.
@@ -196,7 +188,7 @@ int round_id = rsr.getIntItem("round_id");
                                 All competitors must be registered members of TopCoder,
                                 and must have agreed to the rules on this page by the
 
-                                <rsc:item name="reg_date" row="<%=rsr%>"/>&#160;<rsc:item name="reg_end" row="<%=rsr%>"/> Eastern Time registration deadline.<br/><br/>
+                                <rsc:item name="reg_date" row="<%=rsr%>"/>&#160;<rsc:item name="reg_end" row="<%=rsr%>"/> Eastern Time registration deadline.<br><br>
 
                                 Employees of TopCoder and those involved in the development, production (including prize suppliers and sponsors), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to win prizes in this competition.
                                 <br /><br />
@@ -212,40 +204,27 @@ int round_id = rsr.getIntItem("round_id");
                                 This tournament is brought to you by
                                 TopCoder, Inc., 703 Hebron Ave, Glastonbury, CT 06033.<br /><br />
 
-
-
-                            </td>
-                        </tr>
-                    </table>
                     <% } else { %>
-                    <table bgcolor = "#ffffff" cellspacing="0" cellpadding="10" border="0" width="619">
-                        <tr>
-                            <td><img src="/i/clear.gif" width="100" height="1" /></td>
-                            <td><img src="/i/clear.gif" width="19" height="1" /></td>
-                            <td><img src="/i/clear.gif" width="100" height="1" /></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" class="bodyText">
-                                <font color="#ff0000">
+                                <span class="bigRed">
                                     <b>
                                         <rsc:item name="contest_name" row="<%=rsr%>"/>
-                                        <br/>
+                                        <br>
                                         Official Rules and Regulations
                                     </b>
-                                </font>
-                                <br/>
+                                </span>
+                                <br>
                                 No purchase necessary to enter or win.
                                 <br /><br />
 
 
-                                <b>Rooms</b><br/>
+                                <b>Rooms</b><br>
                                 Each competition room will have a maximum of 20 coders. There will be 2 divisions. Division I is 1200 rating and up, while Division II is below 1200. The single round match room assignments will only place members of like divisions together. Any member who changes divisions as a result of a rating change will compete in their new division in the next rated event following the rating change.
                                 <br /><br />
                                 <b>About the Tournament</b>
-                                <br/>
+                                <br>
                                 <ul>
                                     <li>
-                                        <b>When to start the Online Tournament Rounds</b><br/>
+                                        <b>When to start the Online Tournament Rounds</b><br>
                                         TopCoder members must register for the online tournament.
                                         Registration is from <rsc:item name="reg_begin" row="<%=rsr%>"/> to <rsc:item name="reg_end" row="<%=rsr%>"/>, Eastern Time.
                                         To register, login to the TopCoder Arena application, click on the 'Active Contests' menu, choose the event to register for, and select the 'Register' option. TopCoder members from all over the country will be participating in this event, but <b><i>all start times will be communicated as Eastern Time, so contestants in different time zones must adjust accordingly</i></b>. All competitors who have registered for the competition will be assigned to a specific competition room. TopCoder will perform the room assignments prior to the start of the competition, in a manner such that only coders in the same division are placed in the same room and the room assignments within each division are random.
@@ -268,7 +247,7 @@ int round_id = rsr.getIntItem("round_id");
                                     <br />
                                     <br />
                                     <li>
-                                        <b>Upon Entering an Online Tournament Round</b><br/>
+                                        <b>Upon Entering an Online Tournament Round</b><br>
                                         Each online tournament round consists of three phases:
                                         the coding phase, challenge phase, and the testing phase.
                                     </li>
@@ -301,7 +280,7 @@ int round_id = rsr.getIntItem("round_id");
                                     </ol>
                                     <br />
                                     <li>
-                                        <b>Scoring during Online Tournament Rounds</b><br/>
+                                        <b>Scoring during Online Tournament Rounds</b><br>
                                         All contestants, who opened any problem during the round, will have their ratings
                                         adjusted up or down to reflect their performance, based on TopCoder's rating formula.
                                         Contestant ratings play no role in a Coder's final standing in the competition room.
@@ -331,13 +310,13 @@ int round_id = rsr.getIntItem("round_id");
 
                                 <b>Participants</b><br />
 
-                                The match is open to all members who are at least 13 years of age.<br/>
+                                The match is open to all members who are at least 13 years of age.<br>
                                 <br />
 
                                 All competitors must be registered members of TopCoder,
                                 and must have agreed to the rules on this page by the
 
-                                <rsc:item name="reg_date" row="<%=rsr%>"/>&#160;<rsc:item name="reg_end" row="<%=rsr%>"/> Eastern Time registration deadline.<br/><br/>
+                                <rsc:item name="reg_date" row="<%=rsr%>"/>&#160;<rsc:item name="reg_end" row="<%=rsr%>"/> Eastern Time registration deadline.<br><br>
 
                                 Employees of TopCoder and those involved in the development, production (including prize suppliers and sponsors), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
                                 <br /><br />
@@ -353,18 +332,13 @@ int round_id = rsr.getIntItem("round_id");
                                 This tournament is brought to you by
                                 TopCoder, Inc., 703 Hebron Ave, Glastonbury, CT 06033.<br /><br />
 
-
-
-                            </td>
-                        </tr>
-                    </table>
                     <% } %>
 
 
 
 
                 </TD>
-                <TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
+                <TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><br>
                     <jsp:include page="/public_right.jsp">
                         <jsp:param name="level1" value="default"/>
                     </jsp:include>
