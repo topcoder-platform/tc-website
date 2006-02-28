@@ -4,6 +4,7 @@
                  java.util.Map" %>
 
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.tc.Constants"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -119,7 +120,7 @@
             <td class="cat" colspan="2">Component:</TD>
         </tr>
         <tr>
-            <TD class="stat" colspan="2" align="left"><A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>'
+            <TD class="stat" colspan="2" align="left"><A href='https://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>'
                     class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/></A><br><br></TD>
         </tr>
         <tr>

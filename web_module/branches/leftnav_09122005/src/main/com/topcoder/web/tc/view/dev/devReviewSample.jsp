@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -5,7 +6,7 @@
 <META http-equiv=Content-Type content="text/html; charset=windows-1252">
 <META http-equiv=Pragma content=no-cache>
 <META http-equiv=Expires content=-1>
-<link type="text/css" rel="stylesheet" href="http://software.topcoder.com/includes/tcs_style.css"/>
+<link type="text/css" rel="stylesheet" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/includes/tcs_style.css"/>
 <META content="MSHTML 6.00.2800.1400" name=GENERATOR></HEAD>
 <BODY class=body marginwidth="0" marginheight="0">
 <TABLE class=middle cellSpacing=0 cellPadding=0 width="100%" align=center 

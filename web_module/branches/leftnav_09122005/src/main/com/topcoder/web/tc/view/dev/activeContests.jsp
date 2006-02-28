@@ -4,6 +4,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -186,7 +187,7 @@
 <% } %>
 
 <p align="left">* And that's before royalty payments. The more Component
-    <A href="http://software.topcoder.com/components/subscriptions.jsp">Subscriptions</A> we sell, the more royalties we
+    <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/components/subscriptions.jsp">Subscriptions</A> we sell, the more royalties we
     pay out to our winners! Please note
     that custom components do not get added to the catalog and therefore do not have royalties.</p>
 
