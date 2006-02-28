@@ -13,7 +13,7 @@
 
 <title>Member Search Results at TopCoder</title>
 
-<jsp:include page="../script.jsp"/>
+<jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
@@ -38,31 +38,25 @@
         </td>
 <!-- Left Column Ends -->
 
-<!-- Gutter Begins -->
-        <td width="50%"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-    <!-- Gutter Ends -->
-
 <!-- Center Column Begins -->
- <td class="searchSpacer"><img src="/i/clear.gif" width="510" height="10"border="0"><br>
-        <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="statisticsw"/>
-           <jsp:param name="image1" value="white"/>
-           <jsp:param name="title" value="Advanced Member Search"/>
-         </jsp:include>
+<td class="bodyText" style="padding:0px 10px 0px 10px;" align="center">
+
+<div style="width: 600px;">
+<jsp:include page="/page_title.jsp" >
+<jsp:param name="image" value="statistics_w"/>
+<jsp:param name="title" value="Find a Competitor"/>
+</jsp:include>
 
             <form name="searchForm" method="get">
                 <jsp:include page="searchForm.jsp"/>
             </form>
 
          <br><br>
+</div>
         </td>
 
 
 <!-- Center Column Ends -->
-
-<!-- Gutter -->
-        <td width="50%"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
         <td width="170">
