@@ -7,6 +7,19 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.28.06<br>11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_qual_byes">TCO06 Algorithm Competition Qualification Byes</A></span><br><br>
+      TopCoder's Top 100 Algorithm Competitors just got a free ride to Round 1.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_qual_byes">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505927" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.27.06<br>5:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">AMD Announced as TCO06 Title Sponsor</A></span><br><br>
       AMD Developer Central, AMD's program to support software developers, is pleased to announce sponsorship for the 2006 TopCoder Open and be part of the creativity and genius shown by TopCoder competitors. 
@@ -171,35 +184,6 @@ outplaying the second (<tc-webtag:handle coderId="8357090" context="algorithm"/>
       <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.13.06<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=TCO06AlgorithmTerms">TCO06 Algorithm Competition Registration is now open</A></span><br><br>
-      Registration is open for the 2006 TopCoder Open Algorithm Competition.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=TCO06AlgorithmTerms">register</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505916" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.09.06<br>4:50 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm288">SRM 288 - Problem Set & Analysis</A></span><br><br>
-      In Division 1, coders were faced with a fairly easy set, with 30 individuals solving the hard correctly. Unfortunately, precision issues on the easy caused several of the 250s to fail.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm288">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505854" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
 
 </table>
 <br><br>
