@@ -18,7 +18,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
     <tr><td class="title" colspan="5">Largest Single Component Contest Prizes</td></tr>
     <tr>
       <td class="headerC">Rank</td>
-      <td class="header" width="100%">Coder</td>
+      <td class="header">Coder</td>
       <td class="headerR">Prize</td>
       <td class="headerR">Contest</td>
       <td class="headerC">Date</td>
