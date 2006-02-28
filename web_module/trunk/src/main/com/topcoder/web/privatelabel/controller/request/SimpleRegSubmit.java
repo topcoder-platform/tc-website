@@ -91,7 +91,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
                 if (newUser != null && newUser.getId() > 0 && regInfo.isNew()) {
                     PrincipalMgrRemote mgr = (PrincipalMgrRemote)
                             com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
-                    mgr.removeUser(newUser, CREATE_USER);
+                    mgr.removeUser(newUser, CREATE_USER, db);
                 }
                 throw new TCWebException(e);
 
