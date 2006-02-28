@@ -301,8 +301,13 @@ public class PrincipalMgrBean extends BaseEJB {
             throws GeneralSecurityException {
         return createUser(username, password, requestor, DATA_SOURCE);
     }
-
     public void removeUser(UserPrincipal user, TCSubject requestor)
+            throws GeneralSecurityException {
+        removeUser(user, requestor, DATA_SOURCE);
+    }
+
+
+    public void removeUser(UserPrincipal user, TCSubject requestor, String dataSource)
             throws GeneralSecurityException {
         logger.debug("PrinicpalMgrBean - removeUser: " + requestor + " is removing " + user);
         long userId = user.getId();
@@ -316,7 +321,7 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            conn = Util.getConnection(ctx, DATA_SOURCE);
+            conn = Util.getConnection(ctx, dataSource);
             ps1 = conn.prepareStatement(query1);
             ps2 = conn.prepareStatement(query2);
             ps3 = conn.prepareStatement(query3);
