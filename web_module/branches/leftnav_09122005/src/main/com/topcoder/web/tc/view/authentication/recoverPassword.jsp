@@ -40,7 +40,7 @@ function submitEnter(e) {
 <!-- Left Column Begins -->
         <td width="170">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="recover_password"/>
+                <jsp:param name="node" value=""/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
