@@ -100,7 +100,10 @@
                         		<td align="center"><img src="/i/corp/tcesclient_jpmorgan.gif" width="132" height="50" alt="JP Morgan" border="0"></td>
                         	</tr>
                         	<tr>
-                        		<td colspan="4" align="center"><img src="/i/corp/tcesclient_citigroup.gif" width="132" height="50" alt="Citigroup" border="0" align="center"></td>
+                        		<td align="center"><img src="/i/corp/tcesclient_citigroup.gif" width="132" height="50" alt="Citigroup" border="0" align="center"></td>
+                        		<td align="center"><img src="/i/corp/tcesclient_espn.gif" width="132" height="50" alt="ESPN" border="0" align="center"></td>
+                        		<td align="center"><img src="/i/corp/tcesclient_ubs.gif" width="132" height="50" alt="UBS" border="0" align="center"></td>
+                        		<td align="center">&#160;</td>
                         	</tr>
                         </table>
 

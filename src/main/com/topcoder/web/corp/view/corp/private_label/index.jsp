@@ -82,11 +82,15 @@
 
                        <table width="530" border="0" cellpadding="5" cellspacing="0" align="center">
                         	<tr>
-                        		<td colspan="2" align="center"><a href="/pl/?module=Static&d1=doubleclick&d2=col_overview" target="_blank"><img src="/i/corp/privlab_doubleclick.gif" width="182" height="88" alt="" border="0"></a></td>
+                        		<td colspan="2" align="center"><a href="/pl/?module=Static&d1=gccj05&d2=EN_overview" target="_blank"><img src="/i/corp/privlab_gcjc05.gif" width="274" height="69" alt="" border="0"></a></td>
                         	</tr>
                         	<tr>
-                        		<td align="center"><a href="/pl/?module=Static&d1=google&d2=google_overview" target="_blank"><img src="/i/corp/privlab_google.gif" width="182" height="88" alt="" border="0"></a></td>
-                        		<td align="center"><a href="/pl/?module=Static&d1=verizon&d2=vcc03_overview" target="_blank"><img src="/i/corp/privlab_verizon.gif" width="182" height="88" alt="" border="0"></a></td>
+                        		<td align="center"><a href="/pl/?&module=Static&d1=google05&d2=overview" target="_blank"><img src="/i/corp/privlab_gcj05.gif" width="274" height="66" alt="" border="0"></a></td>
+                        		<td align="center"><a href="/pl/?&module=Static&d1=javaone05&d2=overview" target="_blank"><img src="/i/corp/privlab_javaOne05.gif" width="274" height="66" alt="" border="0"></a></td>
+                        	</tr>
+                        	<tr>
+                        		<td align="center"><a href="/pl/?&module=Static&d1=gicj05&d2=overview" target="_blank"><img src="/i/corp/privlab_gicj05.gif" width="274" height="66" alt="" border="0"></a></td>
+                        		<td align="center"><a href="/pl/?&module=Static&d1=doubleclick05&d2=overview" target="_blank"><img src="/i/corp/privlab_dccc05.gif" width="274" height="100" alt="" border="0"></a></td>
                         	</tr>
                        </table>
 
