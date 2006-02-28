@@ -90,12 +90,12 @@ OR
 <%------------------COMPONENT COMPETITIONS--------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>10.05.05<br>9:25 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=dev&d2=support&d3=reliability">Reliability Rating changes</A></span><br><br>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=dev&d2=support&d3=desReliability">Reliability Rating changes</A></span><br><br>
       Your Reliability Rating is now broken down into Design and Development and only accounts for your last 15 projects.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=dev&d2=support&d3=reliability">details</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=dev&d2=support&d3=desReliability">details</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505807" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
