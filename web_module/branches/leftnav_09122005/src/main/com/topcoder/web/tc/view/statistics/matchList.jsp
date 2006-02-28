@@ -122,17 +122,10 @@ winner2 = (n2 == null ? -1 : n2.longValue());
 <td class="value"><tc-webtag:handle coderId='<%= winner1 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
 <% } %>
 
-<% if (resultRow.getIntItem("numcompetitors1") == 0) { %>
-<td class="value">0</td>
-<td class="value">(0.00)</td>
-<td class="value">0</td>
-<td class="value">(0.00)</td>
-<% } else { %>
 <td class="value"><rsc:item name="submitted1" row="<%=resultRow%>"/></td>
-<td class="value">(<%=(resultRow.getIntItem("submitted1") * 100 / resultRow.getIntItem("numcompetitors1")) / 100.0%>)</td>
-<td class="value"><rsc:item name="challengesmade1" row="<%=resultRow%>"/></td>
-<td class="value">(<%=(resultRow.getIntItem("challengesmade1") * 100 / resultRow.getIntItem("numcompetitors1")) / 100.0%>)</td>
-<% } %>
+<td class="value"><rsc:item name="avgsubmitted1" row="<%=resultRow%>" format="0.00"/></td>
+<td class="value"><rsc:item name="successfulchallengesmade1" row="<%=resultRow%>"/></td>
+<td class="value"><rsc:item name="avgsuccessfulchallengesmade1" row="<%=resultRow%>" format="0.00"/></td>
 
 <% if (winner2 == -1) { %>
 <td class="value">N/A</td>
@@ -140,19 +133,12 @@ winner2 = (n2 == null ? -1 : n2.longValue());
 <td class="value"><tc-webtag:handle coderId='<%= winner2 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
 <% } %>
 
-<% if (resultRow.getIntItem("numcompetitors2") == 0) { %>
-<td class="value">0</td>
-<td class="value">(0.00)</td>
-<td class="value">0</td>
-<td class="value">(0.00)</td>
-<% } else { %>
 <td class="value"><rsc:item name="submitted2" row="<%=resultRow%>"/></td>
-<td class="value">(<%=(resultRow.getIntItem("submitted2") * 100 / resultRow.getIntItem("numcompetitors2")) / 100.0%>)</td>
-<td class="value"><rsc:item name="challengesmade2" row="<%=resultRow%>"/></td>
-<td class="value">(<%=(resultRow.getIntItem("challengesmade2") * 100 / resultRow.getIntItem("numcompetitors2")) / 100.0%>)</td>
-<% } %>
+<td class="value"><rsc:item name="avgsubmitted2" row="<%=resultRow%>" format="0.00"/></td>
+<td class="value"><rsc:item name="successfulchallengesmade2" row="<%=resultRow%>"/></td>
+<td class="value"><rsc:item name="avgsuccessfulchallengesmade2" row="<%=resultRow%>" format="0.00"/></td>
 
-<td class="valueR"><%=resultRow.getIntItem("numcompetitors1") + resultRow.getIntItem("numcompetitors2")%></td>
+<td class="valueR"><rsc:item name="numcompetitors" row="<%=resultRow%>"/></td>
 <td class="valueC"><rsc:item name="start_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></td>
 <td class="value"><A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<rsc:item name="forum_id" row="<%=resultRow%>"/>" CLASS="statText">Discuss</a></td>
 </TR>
