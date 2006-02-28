@@ -19,12 +19,13 @@
 <A href="/?RoundId=8070&t=schedule&c=srm"><IMG SRC="/i/home/sap_srm273_banner.gif" border="0" ALT="SAP"/></A>
 --%>
 <%-- TCO06
---%>
 <map name="tco06_map">
 <area shape="rect" alt="" coords="1,1, 265,149" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
 <area shape="rect" alt="" coords="275,1, 499,149" href="/tc?module=TCO06AlgorithmTerms" />
 </map>
 <IMG SRC="/i/home/tco06_algo_reg_AMD.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" />
+--%>
+<A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><IMG SRC="/i/home/tco06_logo.gif" border="0" ALT="2006 TopCoder Open" /></A>
 <%-- Marathon Matches
 <A href="/longcontest/?module=Static&d1=intel_overview"><IMG SRC="/i/home/intel_mtcs_banner.gif" border="0" ALT="Intel Multi-Threading Competition Series"/></A>
 --%>
