@@ -42,7 +42,7 @@
                                 </li>
                                 <li>
                                 <p>
-                                    <span class=bodySubtitle>QUESTIONNAIRE</span> - Form must be completed and submitted by 9:00 PM EDT on Wednesday, September 7.
+                                    <span class=bodySubtitle>QUESTIONNAIRE</span> - Form must be completed and submitted by 9:00 PM EST on Wednesday, March 22.
                                     View the <a href="/tc?module=ViewSurvey&sid=215">2006 TopCoder Open Questionnaire</a>.
                                     NOTE: All questions are mandatory.  The answers may be included in the 2006 TCO Program or
                                     used in onsite introductions, at TopCoder's sole discretion.
