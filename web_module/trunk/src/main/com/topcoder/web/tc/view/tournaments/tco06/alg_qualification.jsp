@@ -28,11 +28,11 @@
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
-	<tr valign=top>
-		<td valign=top align=center>
-		<div class=bodySpacer>
+   <tr valign="top">
+      <td valign="top" align="center">
+      <div class="bodySpacer">
 
-		  <p class=bigTitle>Advancers</p>
+        <p class="bigTitle">Advancers</p>
 
             <table width="500" border="0" cellpadding="6" cellspacing="0" class="formFrame">
                 <tr>
@@ -80,7 +80,7 @@
             </table>
 
         </div>
-		</td>
+      </td>
 
 
 <!-- Right Column-->
@@ -90,7 +90,7 @@
             </jsp:include>
          </td>
 
-	</tr>
+   </tr>
 
 </table>
 
