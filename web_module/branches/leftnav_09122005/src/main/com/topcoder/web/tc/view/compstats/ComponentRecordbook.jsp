@@ -26,8 +26,7 @@
         <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="development"/>
-                <jsp:param name="level2" value="components"/>
+                <jsp:param name="node" value="comp_recordbook"/>
             </jsp:include>
         </td>
 
