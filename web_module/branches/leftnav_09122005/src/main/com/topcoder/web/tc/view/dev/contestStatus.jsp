@@ -53,12 +53,25 @@
         <td class="projectTitles" colspan="6">Contest Status</td>
     </tr>
     <tr valign="middle">
-        <td class="projectHeaders" align="center">Catalog</td>
-        <td width="15%" class="projectHeaders">Contest</td>
-        <td class="projectHeaders" align="center">Submission Due Date</td>
-        <td class="projectHeaders" align="center">Winner</td>
-        <td class="projectHeaders" align="center">Second Place</td>
-        <td class="projectHeaders" align="center">Current Phase</td>
+        <td class="projectHeaders" align="center">
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Catalog</a>
+        </td>
+        <td width="15%" class="projectHeaders">
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("component_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Contest</a>
+        </td>
+        <td class="projectHeaders" align="center">
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("reg_end_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submission Due Date</a>
+            </td>
+        <td class="projectHeaders" align="center">
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("winner_sort")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Winner</a>
+
+            </td>
+        <td class="projectHeaders" align="center">
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("second_sort")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Second Place</a>
+        </td>
+        <td class="projectHeaders" align="center">
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("phase")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Current Phase</a>
+        </td>
     </tr>
 
     <rsc:iterator list="<%=contests%>" id="resultRow">
@@ -80,7 +93,9 @@
             </td>
             <td class="projectCells">
                 <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
+                    <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
                     <rsc:item name="component_name" row="<%=resultRow%>"/> <rsc:item name="version_text" row="<%=resultRow%>"/>
+                        <
                 </a>
             </td>
             <td class="projectCells" align="center">
