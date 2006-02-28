@@ -64,7 +64,7 @@
       <br/><br/>
       Many TopCoder members will utilize their own local editors or development environments to write the code and simply paste the code into the standard editor for compilation, testing, or submitting.   To copy and paste from and to the editor you must use CTRL-V (paste) and CTRL-C (copy) - even if you are using the Mac OS.
       <br/><br/>
-      There are <A href="/?t=arena&c=plugins">TopCoder Arena plug-ins</A> available that will better integrate a local IDE with the TopCoder Arena.
+      There are <A href="/tc?module=Static&d1=applet&d2=plugins">TopCoder Arena plug-ins</A> available that will better integrate a local IDE with the TopCoder Arena.
       <br/><br/>
       Any standard output (i.e. System.out.println) from the execution of your class/method will be returned to you along with the results of your test.  This may be useful for debugging your code.  
       <br/><br/>
