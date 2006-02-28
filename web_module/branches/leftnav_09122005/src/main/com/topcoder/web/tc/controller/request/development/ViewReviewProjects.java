@@ -21,13 +21,14 @@ import java.util.Iterator;
  */
 public class ViewReviewProjects extends ReviewProjectDetail {
     
-    private final String PHASE_ID_KEY = "pi";
+    private String PHASE_ID_KEY = Constants.PHASE_ID;
+    
     protected void developmentProcessing() throws TCWebException {
-        int pi = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter(PHASE_ID_KEY)));
-        if (!(pi == SoftwareComponent.DESIGN_PHASE || pi == SoftwareComponent.DEV_PHASE)) {
-            throw new TCWebException("Missing or invalid phase_id parameter (pi expected)");
+        int phase_id = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter(PHASE_ID_KEY)));
+        if (!(phase_id == SoftwareComponent.DESIGN_PHASE || phase_id == SoftwareComponent.DEV_PHASE)) {
+            throw new TCWebException("Missing or invalid phase_id parameter (" + PHASE_ID_KEY + " expected)");
         }
-        getRequest().setAttribute("phase_id", new Integer(pi));
+        getRequest().setAttribute("phase_id", new Integer(phase_id));
 
         Request r = new Request();
         r.setContentHandle("review_projects");
