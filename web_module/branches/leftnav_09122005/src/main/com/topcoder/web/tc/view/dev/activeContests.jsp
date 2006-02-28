@@ -19,50 +19,6 @@
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 
-    <jsp:include page="../script.jsp"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-
-<script language="javascript" type="text/javascript">
-<!--
-var objPopUp = null;
-function popUp(event,objectID){
-   objPopTrig = document.getElementById(event);
-   objPopUp = document.getElementById(objectID);
-   xPos = objPopTrig.offsetLeft+10;
-   yPos = objPopTrig.offsetTop + objPopTrig.offsetHeight - 5;
-   if(xPos + objPopUp.offsetWidth > document.body.clientWidth) xPos = xPos - objPopUp.offsetWidth;
-   if(yPos + objPopUp.offsetHeight > document.body.clientHeight) yPos = yPos - objPopUp.offsetHeight - objPopTrig.offsetHeight;
-   objPopUp.style.left = xPos + 'px';
-   objPopUp.style.top = yPos + 'px';
-   objPopUp.style.visibility = 'visible';
-}
-function popHide(){
-   objPopUp.style.visibility = 'hidden';
-   objPopUp = null;
-}
-
-// -->
-</script>
-<STYLE TYPE="text/css">
-.popUp
-{
-width: 140px;
-font-size: 10px;
-text-align: center;
-background-color: #FFFFCC;
-visibility: hidden;
-margin: 10px;
-padding: 3px;
-position: absolute;
-white-space: nowrap;
-border: solid 1px black;
-z-index: 1;
-}
-#container
-{
-position: relative;
-}
-</STYLE>
 </head>
 
 <body>
@@ -158,75 +114,7 @@ position: relative;
             </td>
         </tr>
 
-<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
-<tr>
-<td>
-<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-   <tr><td class="tableTitle" colspan="10">Active Component Design Contests</td></tr>
-   <tr>
-      <td class="tableHeader"><div style="width: 55px;">Catalog</div></td>
-      <td class="tableHeader" width="100%">Component</td>
-      <td class="tableHeader"></td>
-      <td class="tableHeader" align="center"><div style="width: 80px;">Registrants<br/>Rated/Unrated</div></td>
-      <td class="tableHeader" align="center"><div style="width: 130px;">Registration Ends</div></td>
-      <td class="tableHeader" align="center"><div style="width: 80px;">Submissions</div></td>
-      <td class="tableHeader" align="right"><div style="width: 65px;">Payment*</div></td>
-      <td class="tableHeader" align="center"><div style="width: 130px;">Submit by</div></td>
-   </tr>
-   <rsc:iterator list="<%=designContests%>" id="resultRow">
-   <tr>
-      <td class="statDk">
-         <% if ("Java".equals(resultRow.getStringItem("catalog_name"))) { %>
-         <img src="/i/development/smJava.gif"/>
-         <% } else if ("Java Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
-         <img src="/i/development/smJavaCustom.gif"/>
-         <% } else if (".NET".equals(resultRow.getStringItem("catalog_name"))) { %>
-         <img src="/i/development/netSm.gif"/>
-         <% } else if (".NET Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
-         <img src="/i/development/smNetCustom.gif"/>
-         <% } else if ("Flash".equals(resultRow.getStringItem("catalog_name"))) { %>
-         <img src="/i/development/flashSm.gif"/>
-         <% } else { %>
-         <rsc:item name="catalog_name" row="<%=resultRow%>"/>
-         <% } %>
-      </td>
-      <td class="statDk">
-         <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
-         <rsc:item name="component_name" row="<%=resultRow%>"/> <rsc:item name="version_text" row="<%=resultRow%>"/>
-         </a>
-         <%=resultRow.getItem("max_unrated_registrants").getResultData()!=null && resultRow.getIntItem("max_unrated_registrants") == 0 ? "**" : ""%>
-      </td>
-      <td class="statDk">
-          <% if (resultRow.getIntItem("tourny_project")>0) { %>
-               <div id="container">
-                  <img src="/i/tournament/tco06/emblem.gif" alt="" border="0" id="pop<rsc:item name="project_id" row="<%=resultRow%>"/>" onmouseover="popUp(this.id,'popUp<rsc:item name="project_id" row="<%=resultRow%>"/>')" onmouseout="popHide()"/>
-                  <div id="popUp<rsc:item name="project_id" row="<%=resultRow%>"/>" class="popUp">Eligible for the TCO06 CDDC</div>
-               </div>
-          <% } %>
-      </td>
-      <td class="statDk" align="center">
-         <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
-         <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">
-         <% } %>
-         <rsc:item name="total_rated_inquiries" row="<%=resultRow%>"/>/<rsc:item name="total_unrated_inquiries" row="<%=resultRow%>"/>
-         <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
-         </a>
-         <% } %>
-      </td>
-      <td class="statDk" align="center">
-         <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>
-      </td>
-      <td class="statDk" align="center">
-         <rsc:item name="total_submissions" row="<%=resultRow%>"/>
-      </td>
-      <td class="statDk" align="right">
-         <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/>
-      </td>
-      <td class="statDk" align="center">
-         <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>
-      </td>
-   </tr>
-   </rsc:iterator>
+    </rsc:iterator>
 </table>
 <br/>
 <%  } else {   // Development %>
@@ -292,76 +180,7 @@ position: relative;
             </td>
         </tr>
 
-<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
-<tr>
-<td>
-<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-   <tr><td class="tableTitle" colspan="10">Active Component Development Contests</td></tr>
-   <tr>
-      <td class="tableHeader"><div style="width: 55px;">Catalog</div></td>
-      <td class="tableHeader" width="100%">Component</td>
-      <td class="tableHeader"></td>
-      <td class="tableHeader" align="center"><div style="width: 80px;">Registrants<br/>Rated/Unrated</div></td>
-      <td class="tableHeader" align="center"><div style="width: 130px;">Registration Ends</div></td>
-      <td class="tableHeader" align="center"><div style="width: 80px;">Submissions</div></td>
-      <td class="tableHeader" align="right"><div style="width: 65px;">Payment*</div></td>
-      <td class="tableHeader" align="center"><div style="width: 130px;">Submit by</div></td>
-   </tr>
-
-   <rsc:iterator list="<%=devContests%>" id="resultRow">
-   <tr>
-      <td class="statDk">
-         <% if ("Java".equals(resultRow.getStringItem("catalog_name"))) { %>
-         <img src="/i/development/smJava.gif"/>
-         <% } else if ("Java Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
-         <img src="/i/development/smJavaCustom.gif"/>
-         <% } else if (".NET".equals(resultRow.getStringItem("catalog_name"))) { %>
-         <img src="/i/development/netSm.gif"/>
-         <% } else if (".NET Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
-         <img src="/i/development/smNetCustom.gif"/>
-         <% } else if ("Flash".equals(resultRow.getStringItem("catalog_name"))) { %>
-         <img src="/i/development/flashSm.gif"/>
-         <% } else { %>
-         <rsc:item name="catalog_name" row="<%=resultRow%>"/>
-         <% } %>
-      </td>
-      <td class="statDk">
-         <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
-         <rsc:item name="component_name" row="<%=resultRow%>"/> <rsc:item name="version_text" row="<%=resultRow%>"/>
-         </a>
-         <%=resultRow.getItem("max_unrated_registrants").getResultData()!=null && resultRow.getIntItem("max_unrated_registrants") == 0 ? "**" : ""%>
-      </td>
-      <td class="statDk">
-          <% if (resultRow.getIntItem("tourny_project")>0) { %>
-               <div id="container">
-                  <img src="/i/tournament/tco06/emblem.gif" alt="" border="0" id="pop<rsc:item name="project_id" row="<%=resultRow%>"/>" onmouseover="popUp(this.id,'popUp<rsc:item name="project_id" row="<%=resultRow%>"/>')" onmouseout="popHide()"/>
-                  <div id="popUp<rsc:item name="project_id" row="<%=resultRow%>"/>" class="popUp">Eligible for the TCO06 CDDC</div>
-               </div>
-          <% } %>
-      </td>
-      <td class="statDk" align="center">
-         <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
-         <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">
-         <% } %>
-         <rsc:item name="total_rated_inquiries" row="<%=resultRow%>"/>/<rsc:item name="total_unrated_inquiries" row="<%=resultRow%>"/>
-         <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
-         </a>
-         <% } %>
-      </td>
-      <td class="statDk" align="center">
-         <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"  timeZone="America/New_York"/>
-      </td>
-      <td class="statDk" align="center">
-         <rsc:item name="total_submissions" row="<%=resultRow%>"/>
-      </td>
-      <td class="statDk" align="right">
-         <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/></td>
-      </td>
-      <td class="statDk" align="center">
-         <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/></td>
-      </td>
-   </tr>
-</rsc:iterator>
+    </rsc:iterator>
 </table>
 <br/>
 <% } %>
@@ -370,12 +189,8 @@ position: relative;
     <A href="http://software.topcoder.com/components/subscriptions.jsp">Subscriptions</A> we sell, the more royalties we
     pay out to our winners! Please note
     that custom components do not get added to the catalog and therefore do not have royalties.</p>
-<p align="left">** Only rated members may register for this component</p>
 
-<%--
-<div style="float: left; padding-right: 5px;"><img src="/i/tournament/tco06/emblem.gif" alt="TCO06 Component Contest" border="0" /></div>
-<p align="left">This component is eligible for for the 2006 TopCoder Open CDDC</p>
---%>
+<p align="left">** Only rated members may register for this component</p>
 
 <p><br/></p>
 
