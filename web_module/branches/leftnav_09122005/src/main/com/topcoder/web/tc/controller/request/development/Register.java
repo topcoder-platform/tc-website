@@ -15,6 +15,7 @@ import com.topcoder.util.format.ObjectFormatterFactory;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.SurveyResponse;
 import com.topcoder.web.common.model.Answer;
@@ -43,6 +44,8 @@ public class Register extends ViewRegistration {
     protected void developmentProcessing() throws TCWebException {
 
         try {
+            loadPhase();
+
             if (!userLoggedIn()) {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }
