@@ -23,7 +23,7 @@ public class ContestStatus extends Base {
                 r.setProperty(DataAccessConstants.SORT_QUERY, "contest_status");
                 getRequest().setAttribute("contests", getDataAccess().getData(r).get("contest_status"));
 
-                setDefault(Constants.PHASE_ID, phaseId);
+                getRequest().setAttribute(Constants.PHASE_ID, phaseId);
 
                 SortInfo s = new SortInfo();
                 getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
