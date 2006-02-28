@@ -130,8 +130,8 @@ winner2 = (n2 == null ? -1 : n2.longValue());
 
 <td class="value"><rsc:item name="submitted1" row="<%=resultRow%>"/></td>
 <td class="value"><rsc:item name="avgsubmitted1" row="<%=resultRow%>" format="0.00"/></td>
-<td class="value"><rsc:item name="successfulchallengesmade1" row="<%=resultRow%>"/></td>
-<td class="value"><rsc:item name="avgsuccessfulchallengesmade1" row="<%=resultRow%>" format="0.00"/></td>
+<td class="value"><rsc:item name="challengessuccessful1" row="<%=resultRow%>"/></td>
+<td class="value"><rsc:item name="avgchallengessuccessful1" row="<%=resultRow%>" format="0.00"/></td>
 
 <% if (winner2 == -1) { %>
 <td class="value">N/A</td>
@@ -141,8 +141,8 @@ winner2 = (n2 == null ? -1 : n2.longValue());
 
 <td class="value"><rsc:item name="submitted2" row="<%=resultRow%>"/></td>
 <td class="value"><rsc:item name="avgsubmitted2" row="<%=resultRow%>" format="0.00"/></td>
-<td class="value"><rsc:item name="successfulchallengesmade2" row="<%=resultRow%>"/></td>
-<td class="value"><rsc:item name="avgsuccessfulchallengesmade2" row="<%=resultRow%>" format="0.00"/></td>
+<td class="value"><rsc:item name="challengessuccessful2" row="<%=resultRow%>"/></td>
+<td class="value"><rsc:item name="avgchallengessuccessful2" row="<%=resultRow%>" format="0.00"/></td>
 
 <td class="valueR"><rsc:item name="numcompetitors" row="<%=resultRow%>"/></td>
 <td class="valueC"><rsc:item name="start_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></td>
