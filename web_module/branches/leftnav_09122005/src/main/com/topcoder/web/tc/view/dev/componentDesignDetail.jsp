@@ -247,7 +247,7 @@ If you do not reside in the United States:
                                 <strong><A href="/tc?module=ViewProjectRegistration&<%=Constants.PROJECT_ID%>=<%= request.getAttribute("projectId") %>">
                                          Register</A> for this Component Project to get information necessary to submit a solution</strong>
                                         <br/><br/>
-                                        <span class=bigRed>NOTE: Registering for this component will affect your <A class=bigRed href="/tc?module=Static&d1=dev&d2=support&d3=reliability">Reliability Rating</A></span>
+                                        <span class=bigRed>NOTE: Registering for this component will affect your <A class=bigRed href="/tc?module=Static&d1=dev&d2=support&d3=desReliability">Reliability Rating</A></span>
                            <% } %>
 
                             </p>
