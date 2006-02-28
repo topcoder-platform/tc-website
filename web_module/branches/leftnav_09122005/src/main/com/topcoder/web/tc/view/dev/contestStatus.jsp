@@ -98,7 +98,7 @@
                 <% } %>
             </td>
             <td class="projectCells" align="center">
-                <rsc:item name="current_phae" row="<%=resultRow%>"/>
+                <rsc:item name="current_phase" row="<%=resultRow%>"/>
             </td>
         </tr>
 
