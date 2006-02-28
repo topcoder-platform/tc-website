@@ -95,7 +95,6 @@
                 <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
                     <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
                     <rsc:item name="component_name" row="<%=resultRow%>"/> <rsc:item name="version_text" row="<%=resultRow%>"/>
-                        <
                 </a>
             </td>
             <td class="projectCells" align="center">
