@@ -117,7 +117,11 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
 
                                     <TR>
                                         <TD COLSPAN="3" ALIGN="left" class="bodyText">
-                                            <center><BR/>All times are Eastern Time unless otherwise noted, click <a HREF="<%="http://www.timeanddate.com/worldclock/fixedtime.html?" + time%>">here</a>
+                                            
+                                             <center>
+                                             <span class="bodySubtitle">SRM BLABLA</span>
+                                             <br><br>
+                                             All times are Eastern Time unless otherwise noted, click <a HREF="<%="http://www.timeanddate.com/worldclock/fixedtime.html?" + time%>">here</a>
                                             to see when coding begins in other time zones.<br/></center>
                                             <% if (rsr.getIntItem("forum_id") != 0) { %>
                                             <center><strong><A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=<rsc:item name="forum_id" row="<%=rsr%>"/>">Discuss this match</A></strong><br/><br/></center>

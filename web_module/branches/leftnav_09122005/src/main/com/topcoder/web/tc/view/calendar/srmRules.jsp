@@ -42,7 +42,7 @@ int round_id = rsr.getIntItem("round_id");
 <!-- Left Column Begins-->
         <td width="180">
 <jsp:include page="../includes/global_left.jsp">
-<jsp:param name="node" value="competition_calendar"/>
+<jsp:param name="node" value="m_algo_competitions"/>
 </jsp:include>
         </td>
 <!-- Center Column Begins -->
