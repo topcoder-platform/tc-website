@@ -47,7 +47,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                 <!-- Left Column Begins -->
                 <TD WIDTH="180" VALIGN="top">
                     <jsp:include page="../includes/global_left.jsp">
-                        <jsp:param name="node" value="competition_home"/>
+                        <jsp:param name="node" value="m_algo_competitions"/>
                     </jsp:include>        
                 </TD>
                 <!-- Left Column Ends -->
