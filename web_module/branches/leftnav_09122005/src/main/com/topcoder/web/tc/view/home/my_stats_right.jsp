@@ -34,7 +34,7 @@
         </tr>
    <tr>
       <td class="formHandleEven" colspan="2" align="center">
-      <A href="/stat?c=coder_room_stats&cr=" class="statTextBig">My Last Match</A>
+      <A href="/stat?c=coder_room_stats&cr=<%=coderInfo.getLongItem(0, "coder_id")%>" class="statTextBig">My Last Match</A>
       </td>
    </tr>
 
