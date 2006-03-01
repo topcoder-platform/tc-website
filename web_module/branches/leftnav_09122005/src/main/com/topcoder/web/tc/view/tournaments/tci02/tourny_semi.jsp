@@ -59,25 +59,25 @@
             </TR>
             <TR>
               <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-                <A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4324" CLASS="statTextBig">Round 1 A</A>
+                <A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=round1a" CLASS="statTextBig">Round 1 A</A>
               </TD>
               <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-                <A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4325" CLASS="statTextBig">Round 1 B</A>
+                <A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=round1b" CLASS="statTextBig">Round 1 B</A>
               </TD>
               <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-                <A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4335" CLASS="statTextBig">Round 2</A>
+                <A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=round2" CLASS="statTextBig">Round 2</A>
               </TD>
               <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-                <A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4345" CLASS="statTextBig">Round 3</A>
+                <A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=round3" CLASS="statTextBig">Round 3</A>
               </TD>
               <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-                <A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4355" CLASS="statTextBig">Round 4</A>
+                <A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=round4" CLASS="statTextBig">Round 4</A>
               </TD>
               <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-                <A HREF="/index?t=tournaments&amp;c=tourney_semi" CLASS="statTextBig">Semi</A>
+                <A HREF="/index?t=tournaments&c=tourney_semi" CLASS="statTextBig">Semi</A>
               </TD>
               <TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-                <A HREF="/index?t=tournaments&amp;c=tourney_champ" CLASS="statTextBig">Champ</A>
+                <A HREF="/index?t=tournaments&c=tourney_champ" CLASS="statTextBig">Champ</A>
               </TD>
             </TR>
           </TABLE>
@@ -103,7 +103,7 @@
             </TR>
               <TR>
                 <TD CLASS="statText">
-                    <A HREF="/tc?module=MemberProfile&amp;cr=272072" CLASS="coderTextRed">SnapDragon</A>
+                    <A HREF="/tc?module=MemberProfile&cr=272072" CLASS="coderTextRed">SnapDragon</A>
                   </TD>
                 <TD CLASS="statText" ALIGN="right">1140.23</TD>
                 <TD CLASS="statText" ALIGN="center">1</TD>
@@ -111,7 +111,7 @@
               </TR>
               <TR>
                 <TD CLASS="statText">
-                    <A HREF="/tc?module=MemberProfile&amp;cr=262936" CLASS="coderTextRed">dgarthur</A>
+                    <A HREF="/tc?module=MemberProfile&cr=262936" CLASS="coderTextRed">dgarthur</A>
                   </TD>
                 <TD CLASS="statText" ALIGN="right">1009.82</TD>
                 <TD CLASS="statText" ALIGN="center">16</TD>
@@ -119,7 +119,7 @@
               </TR>
               <TR>
                 <TD CLASS="statText">
-                    <A HREF="/tc?module=MemberProfile&amp;cr=264949" CLASS="coderTextRed">moira</A>
+                    <A HREF="/tc?module=MemberProfile&cr=264949" CLASS="coderTextRed">moira</A>
                   </TD>
                 <TD CLASS="statText" ALIGN="right">487.01</TD>
                 <TD CLASS="statText" ALIGN="center">59</TD>
@@ -127,7 +127,7 @@
               </TR>
               <TR>
                 <TD CLASS="statText">
-                    <A HREF="/tc?module=MemberProfile&amp;cr=270505" CLASS="coderTextRed">John Dethridge</A>
+                    <A HREF="/tc?module=MemberProfile&cr=270505" CLASS="coderTextRed">John Dethridge</A>
                   </TD>
                 <TD CLASS="statText" ALIGN="right">502.94</TD>
                 <TD CLASS="statText" ALIGN="center">4</TD>
