@@ -57,7 +57,7 @@
                 <span class="bigTitle"><A href="/tc?module=TCO06ContestDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>" class=usdcTitle>
                     <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></A> -
                 <tc-webtag:handle context='<%=tab%>' coderId='<%=rscUser.getIntItem(0, "coder_id")%>' darkBG='true'/></span>
-               <br><br
+               <br><br>
                 <table width="510" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                     <tr>
                         <td class="sidebarTitle" nowrap="nowrap">Component Name</td>
