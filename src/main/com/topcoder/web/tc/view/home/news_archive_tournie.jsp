@@ -39,7 +39,7 @@
 <tr class="bodyText"><td nowrap="nowrap">02.28.06 11:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_qual_byes">TCO06 Algorithm Competition Qualification Byes</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.27.06 5:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">AMD Announced as TCO06 Title Sponsor</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.15.06 10:45 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=dev_forums">TCO06 Developer Forums Announced</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">02.13.06 9:00 AM - </td><td width="100%"><A href="/tc?module=TCO06AlgorithmTerms">TCO06 Algorithm Competition Registration is now open</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">02.13.06 9:00 AM - </td><td width="100%">TCO06 Algorithm Competition Registration is now open</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.24.06 10:30 AM - </td><td width="100%">TCO06 <A href="/tc?module=TCO06ContestDetails&ct=236">Design</A> or <A href="/tc?module=TCO06ContestDetails&ct=237">Development</A> Results pages</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.12.06 1:25 PM - </td><td width="100%">What makes a <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_des_summary">Design</A> or <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_dev_summary">Development</A> Champion a Champion?</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.05.06 10:00 AM - </td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=508559">TCO06 Component Competition Schedule Changes</A></td></tr>
