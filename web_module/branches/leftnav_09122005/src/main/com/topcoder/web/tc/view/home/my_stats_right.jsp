@@ -21,38 +21,43 @@
     </tr>
 </table>
 
-<table width="180" border="0" cellspacing="0" cellpadding="0">
+<table width="180" border="0" cellspacing="0" cellpadding="3">
     <tr><td colspan="2" class="myStatsTitle">Algorithm</td></tr>
 
     <tr>
-        <td class="myStatsRatingName">Rating</td>
-        <td class="myStatsRatingAmount"><% if (coderInfo.getIntItem(0, "rating")<1) { %>Not Rated<% } else { %><rsc:item set="<%=coderInfo%>" name="rating" ifNull="Not Rated"/><% } %></td>
+        <td class="formHandleEven">Rating</td>
+        <td class="formHandleEven" align="right"><% if (coderInfo.getIntItem(0, "rating")<1) { %>Not Rated<% } else { %><rsc:item set="<%=coderInfo%>" name="rating" ifNull="Not Rated"/><% } %></td>
     </tr>
     <tr>
-        <td class="myStatsEarningsName">Earnings</td>
-        <td class="myStatsEarningsAmount"><rsc:item set="<%=coderInfo%>" name="total_earnings" format="$0.00" ifNull="$0.00"/></td>
+        <td class="formHandleEven">Earnings</td>
+        <td class="formHandleEven" align="right"><rsc:item set="<%=coderInfo%>" name="total_earnings" format="$0.00" ifNull="$0.00"/></td>
         </tr>
+   <tr>
+      <td class="formHandleEven" colspan="2" align="center">
+      <A href="/stat?c=coder_room_stats&cr=" class="statTextBig">My Last Match</A>
+      </td>
+   </tr>
 
     <tr><td colspan="2" class="myStatsTitle">Design</td></tr>
 
     <tr>
-        <td class="myStatsRatingName">Rating</td>
-        <td class="myStatsRatingAmount"><rsc:item set="<%=coderInfo%>" name="design_rating" ifNull="Not Rated" format="#"/></td>
+        <td class="formHandleEven">Rating</td>
+        <td class="formHandleEven" align="right"><rsc:item set="<%=coderInfo%>" name="design_rating" ifNull="Not Rated" format="#"/></td>
     </tr>
     <tr>
-        <td class="myStatsEarningsName">Earnings</td>
-        <td class="myStatsEarningsAmount"><rsc:item set="<%=coderInfo%>" name="design_earnings" format="$0.00"/></td>
+        <td class="formHandleEven">Earnings</td>
+        <td class="formHandleEven" align="right"><rsc:item set="<%=coderInfo%>" name="design_earnings" format="$0.00"/></td>
     </tr>
 
     <tr><td colspan="2" class="myStatsTitle">Development</td></tr>
 
-    <tr valign="middle">
-        <td class="myStatsRatingName">Rating</td>
-        <td class="myStatsRatingAmount"><rsc:item set="<%=coderInfo%>" name="development_rating" ifNull="Not Rated" format="#"/></td>
+    <tr>
+        <td class="formHandleEven">Rating</td>
+        <td class="formHandleEven" align="right"><rsc:item set="<%=coderInfo%>" name="development_rating" ifNull="Not Rated" format="#"/></td>
     </tr>
-    <tr valign="middle">
-        <td class="myStatsEarningsName">Earnings</td>
-        <td class="myStatsEarningsAmount"><rsc:item set="<%=coderInfo%>" name="development_earnings" format="$0.00"/></td>
+    <tr>
+        <td class="formHandleEven">Earnings</td>
+        <td class="formHandleEven" align="right"><rsc:item set="<%=coderInfo%>" name="development_earnings" format="$0.00"/></td>
     </tr>
 </table>
 
