@@ -52,6 +52,8 @@ public class Register extends ViewRegistration {
 
             validation();
 
+            getRequest().setAttribute(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
+
             boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE));
             List responses = validateSurvey();
             if (agreed && !hasErrors()) {
@@ -63,13 +65,10 @@ public class Register extends ViewRegistration {
                         boolean isConfirmed = getRequest().getParameter("confirm") != null;
                         if (isRegisteredForTournament || isConfirmed) {
                                 register();
-                                getRequest().setAttribute(Constants.PROJECT_ID,
-                                        getRequest().getParameter(Constants.PROJECT_ID));
                                 getRequest().removeAttribute("responses");
                                 setNextPage("/dev/regSuccess.jsp");
                                 setIsNextPageInContext(true);
                         } else {
-                            getRequest().setAttribute(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                             setNextPage("/dev/tournamentConfirm.jsp");
                             setIsNextPageInContext(true);
                         }
