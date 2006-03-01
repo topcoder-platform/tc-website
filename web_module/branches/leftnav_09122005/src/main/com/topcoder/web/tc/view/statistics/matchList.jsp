@@ -122,7 +122,7 @@ winner2 = (n2 == null ? -1 : n2.longValue());
 %>
 <td class="value" nowrap="nowrap"><a href="/stat?c=round_overview&er=5&rd=<rsc:item name="round_id" row="<%=resultRow%>"/>"><rsc:item name="name" row="<%=resultRow%>"/></a></td>
 <% if (winner1 == -1) { %>
-<td class="value">N/A</td>
+<td class="value"></td>
 <% } else { %>
 <td class="value"><tc-webtag:handle coderId='<%= winner1 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
 <% } %>
