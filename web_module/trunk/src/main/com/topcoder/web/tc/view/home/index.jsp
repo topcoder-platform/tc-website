@@ -175,25 +175,24 @@ margin:0px auto;
       <table border="0" cellpadding="0" cellspacing="0">
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">February Events:</A></td>
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">March Events:</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-            <b>02/02</b> - TCO06 Component - Week2 submission deadline - 9AM<br><br>
-            <b>02/04</b> - SRM 287 - 12noon<br><br>
-            <b>02/08</b> - SRM 288 - 9PM - NSA<br><br>
-            <b>02/09</b> - TCO06 Component - Week3 submission deadline - 9AM<br><br>
-            <b>02/14</b> - TCO06 Algorithm - Registration opens - 9AM<br><br>
-            <b>02/14</b> - SRM 289 - 7AM<br><br>
-            <b>02/16</b> - SRM 290 - 9PM - UBS<br><br>
-            <b>02/16</b> - TCO06 Component - Week4 submission deadline - 9AM<br><br>
-            <b>02/19</b> - TCO06 Component - Registration closes - 9AM<br><br>
-            <b>02/21</b> - SRM 291 - 11AM<br><br>
-            <b>02/22</b> - Intel Multi-Threading Competition 2 Start - 12 noon<br><br>
-            <b>02/23</b> - TCO06 Component - Week5 submission deadline - 9AM<br><br>
-            <b>02/28</b> - TCO06 Algorithm - Registration closes - 9AM<br><br>
-            <b>02/28</b> - TCO06 Algorithm - Qualification begins - 12noon<br><br>
+            <b>03/01</b> - TCO06 Algorithm - Qualification Round End - 12noon<br><br>
+            <b>03/04</b> - TCO06 Algorithm - Online Round 1 - 12noon<br><br>
+            <b>03/06</b> - SRM 292 - 9PM - NSA<br><br>
+            <b>03/08</b> - TCO06 Algorithm - Online Round 2 - 9:30PM<br><br>
+            <b>03/15</b> - TCO06 Algorithm - Online Round 3 - 9:30PM<br><br>
+            <b>03/16</b> - TCO06 Component - Round #1 projects posted - 9AM<br><br>
+            <b>03/17</b> - SRM 293 - 11AM<br><br>
+            <b>03/22</b> - TCO06 Algorithm - Online Round 4 - 9:30PM<br><br>
+            <b>03/22</b> - Intel Multi-Threading Competition 3 - 12noon<br><br>
+            <b>03/23</b> - TCO06 Component - Round #1 submission deadline - 9AM<br><br>
+            <b>03/25</b> - SRM 294 - 12noon<br><br>
+            <b>03/29</b> - SRM 295 - 9PM<br><br>
+            <b>03/30</b> - TCO06 Component - Round #2 projects posted - 9AM<br><br>
             </td>
          </tr>
 <%-- Press Room --%>
