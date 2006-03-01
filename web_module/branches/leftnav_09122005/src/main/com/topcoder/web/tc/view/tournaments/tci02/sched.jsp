@@ -56,8 +56,8 @@
                       <TD HEIGHT="18" ALIGN="left" WIDTH="30%" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
                         &#160;&#160;Online Round #1<BR/>
                       </TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="35%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&c=tourney_advancers&rds=4324" CLASS="statTextBig">Advancers</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="35%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&c=tourney_advancers&rds=4325" CLASS="statTextBig">Advancers</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="35%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=round1a" CLASS="statTextBig">Advancers</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="35%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=round1b" CLASS="statTextBig">Advancers</A></TD>
                     </TR>
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -103,7 +103,7 @@
                       <TD HEIGHT="18" ALIGN="left" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
                         &#160;&#160;Online Round #2<BR/>
                       </TD>
-                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&c=tourney_advancers&rds=4335" CLASS="statTextBig">Advancers</A> | <A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=breakdown" CLASS="statTextBig">qubits Breakdown</A></TD>
+                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=round2" CLASS="statTextBig">Advancers</A> | <A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=breakdown" CLASS="statTextBig">qubits Breakdown</A></TD>
                     </TR>                    
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -143,7 +143,7 @@
                       <TD HEIGHT="18" ALIGN="left" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
                         &#160;&#160;Online Round #3<BR/>
                       </TD>
-                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&c=tourney_advancers&rds=4345" CLASS="statTextBig">Advancers</A> | <A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=breakdown_r3" CLASS="statTextBig">qubits Breakdown</A></TD>
+                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=round3" CLASS="statTextBig">Advancers</A> | <A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=breakdown_r3" CLASS="statTextBig">qubits Breakdown</A></TD>
                     </TR>                    
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -183,7 +183,7 @@
                       <TD HEIGHT="18" ALIGN="left" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
                         &#160;&#160;Online Round #4<BR/>
                       </TD>
-                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&c=tourney_advancers&rds=4355" CLASS="statTextBig">Advancers</A> | <A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=breakdown_r4" CLASS="statTextBig">qubits Breakdown</A></TD>
+                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=round4" CLASS="statTextBig">Advancers</A> | <A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=breakdown_r4" CLASS="statTextBig">qubits Breakdown</A></TD>
                     </TR>                    
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
