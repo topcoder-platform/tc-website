@@ -15,21 +15,12 @@
                 <tr>
                     <td width="49%"><img src="/i/clear.gif" alt="" width="10" height="10" border="0" /></td>
 
-<!-- Summary tab -->
-                                        <td class="statTextBig" width="1"><a href="/index?t=tournaments&amp;c=tccc03_champ" class="statTextBig"><img src="/i/tournament/tabSummaryOff.gif" alt="Summary" width="85" height="21" border="0" /></a></td>
-
-<!-- Schedule tab -->
-                                        <td class="statTextBig" width="1"><a href="/index?t=tournaments&amp;c=tccc03_sched" class="statTextBig"><img src="/i/tournament/tabScheduleOff.gif" alt="Schedule" width="85" height="21" border="0" /></a></td>
-
-<!-- Competitors tab -->
-                                        <td class="statTextBig" width="1"><a href="/index?t=tournaments&amp;c=tccc03_competitors&amp;rds=4462,4464,4466" class="statTextBig"><img src="/i/tournament/tabCompetitorsOff.gif" alt="Competitors" width="104" height="21" border="0" /></a></td>
-<!-- Regions tab -->
-                                        <td class="statTextBig" width="1"><a href="/index?t=tournaments&amp;c=tccc03_regions" class="statTextBig"><img src="/i/tournament/tabRegionsOff.gif" alt="Regions" width="77" height="21" border="0" /></a></td>
-
-<!-- Schools tab -->
-                                        <td class="statTextBig" width="1"><a href="/index?t=tournaments&amp;c=tccc03_schools" class="statTextBig"><img src="/i/tournament/tabSchoolsOff.gif" alt="Schools Represented" width="158" height="21" border="0" /></a></td>
-<!-- Rules tab -->
-                                        <td class="statTextBig" width="1"><a href="/index?t=tournaments&amp;c=tccc03_rules_overview" class="statTextBig"><img src="/i/tournament/tabRulesOff.gif" alt="Rules" width="63" height="21" border="0" /></a></td>
+<td class="statTextBig" width="1"><a href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=champ" class="statTextBig"><img src="/i/tournament/tabSummaryOff.gif" alt="Summary" width="85" height="21" border="0" /></a></td>
+<td class="statTextBig" width="1"><a href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=sched" class="statTextBig"><img src="/i/tournament/tabScheduleOff.gif" alt="Schedule" width="85" height="21" border="0" /></a></td>
+<td class="statTextBig" width="1"><a href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=competitors" class="statTextBig"><img src="/i/tournament/tabCompetitorsOff.gif" alt="Competitors" width="104" height="21" border="0" /></a></td>
+<td class="statTextBig" width="1"><a href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=regions" class="statTextBig"><img src="/i/tournament/tabRegionsOff.gif" alt="Regions" width="77" height="21" border="0" /></a></td>
+<td class="statTextBig" width="1"><a href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=schools" class="statTextBig"><img src="/i/tournament/tabSchoolsOff.gif" alt="Schools Represented" width="158" height="21" border="0" /></a></td>
+<td class="statTextBig" width="1"><a href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=rules_overview" class="statTextBig"><img src="/i/tournament/tabRulesOff.gif" alt="Rules" width="63" height="21" border="0" /></a></td>
                                 <td width="49%"><img src="/i/clear.gif" alt="" width="10" height="10" border="0" /></td>
                 </tr>
             </table>

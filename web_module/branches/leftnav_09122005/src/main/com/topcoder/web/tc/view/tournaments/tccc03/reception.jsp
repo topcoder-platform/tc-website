@@ -53,7 +53,7 @@
                         <h2> The Sweet 16 </h2>
                         <p>by MaryBeth Biondi, <em>TopCoder Staff</em><br />
                         Thursday, April 3, 2003<br />
-                        <a href="/index?t=tournaments&amp;c=tccc03_brackets">View current bracket</a></p>
+                        <a href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=brackets">View current bracket</a></p>
 
                         <p>Competitors representing schools such as Duke, Michigan, Minnesota, Stanford, and UCLA 
                         will face off this weekend in an effort to be crowned champion of a collegiate tournament.  

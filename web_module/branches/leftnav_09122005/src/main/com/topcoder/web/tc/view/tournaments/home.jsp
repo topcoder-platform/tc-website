@@ -145,15 +145,15 @@
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
-         <td style="padding-right: 8px;"><A href="/index?t=tournaments&amp;c=tccc03_champ"><img src="/i/tournament/photo_tccc03.jpg" alt="2003 TCCC" width="274" height="134" border="0" /></A></td>
+         <td style="padding-right: 8px;"><A href="/?&t=tournaments&c=tccc03_champ"><img src="/i/tournament/photo_tccc03.jpg" alt="2003 TCCC" width="274" height="134" border="0" /></A></td>
          <td width="100%">
          <span class="bodySubtitle">2003 Sun Microsystems&#153; TopCoder Collegiate Challenge&#153;</span>
          <br><br>
-         <div style="float: right;"><A href="/index?t=tournaments&amp;c=tccc03_champ"><img src="/i/tournament/logo_tccc03.gif" alt="Logo" width="113" height="73" border="0" /></A></div>
+         <div style="float: right;"><A href="/?&t=tournaments&c=tccc03_champ"><img src="/i/tournament/logo_tccc03.gif" alt="Logo" width="113" height="73" border="0" /></A></div>
          April 4-5<br />
          University Park Hotel @ MIT<br/>
          Cambridge, Massachusetts<br />
-         <A href="/index?t=tournaments&amp;c=tccc03_champ">Summary</A>
+         <A href="/?&t=tournaments&c=tccc03_champ">Summary</A>
          </td>
       </tr>
    </table>

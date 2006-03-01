@@ -53,7 +53,7 @@
                         <h2>dm... right!</h2>
                         <p>by MaryBeth Biondi, <em>TopCoder Staff</em><br />
                         Friday, April 4, 2003<br />
-                        <a href="/index?t=tournaments&amp;c=tccc03_brackets" class="bodyText">View current bracket</a></p>
+                        <a href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=brackets" class="bodyText">View current bracket</a></p>
 
                         <p>Consistently calm, <strong>dmwright</strong> showed why this is his 5th straight appearance at the onsite finals by outpacing 
                         his competitors in Round 2. Everyone started the round by opening the 200 pointer first. <strong>niteneb</strong> inched out 

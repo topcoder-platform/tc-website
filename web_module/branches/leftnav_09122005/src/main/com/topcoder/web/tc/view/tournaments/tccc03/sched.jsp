@@ -73,11 +73,11 @@
                     
                     <tr valign="middle">
                       <td align="right" class="tourney_subhead2">Advancers</td>
-                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4462&amp;rc=N">View</a></td>
-                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4462&amp;rc=STH">View</a></td>
-                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4464&amp;rc=W">View</a></td>
-                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4464&amp;rc=MW">View</a></td>
-                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4466&amp;rc=INT">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=tourney_advancers&amp;rds=4462&amp;rc=N">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=tourney_advancers&amp;rds=4462&amp;rc=STH">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=tourney_advancers&amp;rds=4464&amp;rc=W">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=tourney_advancers&amp;rds=4464&amp;rc=MW">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=tourney_advancers&amp;rds=4466&amp;rc=INT">View</a></td>
                     </tr>
                     
                     <tr>
@@ -120,11 +120,11 @@
                     
                     <tr valign="middle">
                       <td align="right" class="tourney_subhead2">Advancers<br />(Each advancer wins $50)</td>
-                      <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4472&amp;rc=N">View</a></td>
-                      <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4472&amp;rc=STH">View</a></td>
-                      <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4472&amp;rc=W">View</a></td>
-                      <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4472&amp;rc=MW">View</a></td>
-                      <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4472&amp;rc=INT">View</a></td>
+                      <td align="center" class="tourney_subhead2"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=tourney_advancers&amp;rds=4472&amp;rc=N">View</a></td>
+                      <td align="center" class="tourney_subhead2"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=tourney_advancers&amp;rds=4472&amp;rc=STH">View</a></td>
+                      <td align="center" class="tourney_subhead2"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=tourney_advancers&amp;rds=4472&amp;rc=W">View</a></td>
+                      <td align="center" class="tourney_subhead2"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=tourney_advancers&amp;rds=4472&amp;rc=MW">View</a></td>
+                      <td align="center" class="tourney_subhead2"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=tourney_advancers&amp;rds=4472&amp;rc=INT">View</a></td>
                     </tr>
                     
                     <tr valign="middle">
@@ -165,11 +165,11 @@
                     
                     <tr valign="middle">
                       <td align="right" class="tourney_subhead2">Advancers<br />(Each advancer wins $50)</td>
-                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4474&amp;rc=N">View</a></td>
-                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4474&amp;rc=STH">View</a></td>
-                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4474&amp;rc=W">View</a></td>
-                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4474&amp;rc=MW">View</a></td>
-                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4474&amp;rc=INT">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=tourney_advancers&amp;rds=4474&amp;rc=N">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=tourney_advancers&amp;rds=4474&amp;rc=STH">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=tourney_advancers&amp;rds=4474&amp;rc=W">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=tourney_advancers&amp;rds=4474&amp;rc=MW">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=tourney_advancers&amp;rds=4474&amp;rc=INT">View</a></td>
                     </tr>
                     
                     <tr valign="middle">
@@ -210,11 +210,11 @@
                     
                     <tr valign="middle">
                       <td align="right" class="tourney_subhead2">Advancers<br />(Each Regional Champion wins $600)</td>
-                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4482&amp;rc=N">View</a></td>
-                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4482&amp;rc=STH">View</a></td>
-                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4482&amp;rc=W">View</a></td>
-                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4482&amp;rc=MW">View</a></td>
-                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4482&amp;rc=INT">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=tourney_advancers&amp;rds=4482&amp;rc=N">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=tourney_advancers&amp;rds=4482&amp;rc=STH">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=tourney_advancers&amp;rds=4482&amp;rc=W">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=tourney_advancers&amp;rds=4482&amp;rc=MW">View</a></td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=tourney_advancers&amp;rds=4482&amp;rc=INT">View</a></td>
                     </tr>
                     
                     <tr valign="middle">
@@ -260,7 +260,7 @@
                     
        				<tr valign="middle">
                       <td align="right" class="tourney_subhead2">Finalists</td>
-                      <td align="center" class="tourney_subhead2" colspan="4"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_semifour">View</a></td>
+                      <td align="center" class="tourney_subhead2" colspan="4"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=semifour">View</a></td>
                     </tr>
                     
                     <tr valign="middle">

@@ -48,11 +48,9 @@
                             <tr>
                                 <td valign="middle" class="statText">
                                     <br />
-                                    <div align="center">
-                                    <p><b>2003 TopCoder Collegiate Challenge<br/>
+                                    <p align="center"><b>2003 TopCoder Collegiate Challenge<br/>
                                     Official Rules and Regulations</b></p>
                                     <p>No purchase necessary to enter or win.</p>
-                                    </div>
                                     
                                     <p><strong>Overview of the Tournament</strong><br />
                                     The 2003 TopCoder Collegiate Challenge tournament will take place between February 18, 2003 and April 5, 2003.  It will consist of four 

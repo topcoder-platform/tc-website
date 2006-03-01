@@ -53,7 +53,7 @@
                         <h2>dgarthur takes home the crown</h2>
                         <p>by MaryBeth Biondi, <em>TopCoder Staff</em><br />
                         Saturday, April 5, 2003<br />
-                        <a href="/index?t=tournaments&amp;c=tccc03_brackets" class="bodyText">View current bracket</a></p>
+                        <a href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=brackets" class="bodyText">View current bracket</a></p>
 
                         <p>In a final round that saw 11 out of a possible 12 submissions, it was <strong>dgarthur</strong> who posted the highest 
                         score and walked away $50,000 richer as the Champion.</p>

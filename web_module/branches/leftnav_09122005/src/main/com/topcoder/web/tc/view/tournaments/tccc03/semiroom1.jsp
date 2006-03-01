@@ -53,7 +53,7 @@
 <h2>Yarin moves on</h2>
 <p>by MaryBeth Biondi, <em>TopCoder Staff</em><br />
 Friday, April 4, 2003<br />
-<a href="/index?t=tournaments&amp;c=tccc03_brackets" class="bodyText">View current bracket</a></p>
+<a href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=brackets" class="bodyText">View current bracket</a></p>
 
 <p>Maybe it was the later-than-normal start, or the fact that there are so many onsite tournament newbies, 
 but the tournament room was bustling with traffic for the Round 1 competition.  More in line with past 
