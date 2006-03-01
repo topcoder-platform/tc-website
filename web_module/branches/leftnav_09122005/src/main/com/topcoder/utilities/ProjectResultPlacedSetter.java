@@ -22,7 +22,7 @@ public class ProjectResultPlacedSetter {
             "   and p.project_stat_id in (2,4,5,6,7)\n" +
             "   and p.project_id in (select project_id from project_result where final_score is not null and placed is null)\n" +
             " order by pr.project_id, pr.final_score desc";
-    private static final String update ="update project_result set placed = ? where user_id ? and project_id = ?";
+    private static final String update ="update project_result set placed = ? where user_id =? and project_id = ?";
 
     public static void main(String[] args) {
         Connection conn = null;
