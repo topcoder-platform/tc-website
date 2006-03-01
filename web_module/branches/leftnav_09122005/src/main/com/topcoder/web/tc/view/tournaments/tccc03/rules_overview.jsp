@@ -85,7 +85,7 @@
                                     </ul>
                     
                                     <p>Those who do not meet the criteria for prize money will have their winnings donated to a charity.  
-                                    TopCoder maintains a list of approved <a href="http://www.topcoder.com/?&amp;t=support&amp;c=charities" class="statText">charities</a>.  
+                                    TopCoder maintains a list of approved <a href="/tc?module=Static&d1=help&d2=charity" class="statText">charities</a>.  
                                     The member will be allowed to choose from this list of charities.  A prize-winning member may request 
                                     a new charity for the list.  It will be TopCoder's sole discretion to add that charity after reviewing credentials.</p>
                          

@@ -1,12 +1,12 @@
             <table border="0" cellspacing="0" cellpadding="0" width="100%" id="tccc_bkgd">
                 <tr valign="top">
-                    <td width="110"><a href="/?&amp;t=tournaments&amp;c=tccc03_champ"><img src="/i/tournament/tccc03/tccc03_home.gif" alt="" width="110" height="90" border="0" /></a></td>
+                    <td width="110"><a href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=champ"><img src="/i/tournament/tccc03/tccc03_home.gif" alt="" width="110" height="90" border="0" /></a></td>
                     <td valign="middle" class="statText" width="99%">
                             <p><img src="/i/clear.gif" alt="" width="1" height="5" border="0" /><br />
                             <font size="3"><strong>Congratulations to dgarthur, the 2003 Sun Microsystems and TopCoder Collegiate Challenge Champion!</strong></font><br />
                             <img src="/i/clear.gif" alt="" width="1" height="5" border="0" /></p>
                     </td>
-                    <td width="135"><a href="/?&amp;t=tournaments&amp;c=tccc03_champ"><img src="/i/tournament/tccc03/sun03_home.gif" alt="Sun Microsystems" width="135" height="90" border="0" /></a></td>
+                    <td width="135"><a href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=champ"><img src="/i/tournament/tccc03/sun03_home.gif" alt="Sun Microsystems" width="135" height="90" border="0" /></a></td>
                 </tr>
                 <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="10" height="10" border="0" /></td></tr>
             </table>
