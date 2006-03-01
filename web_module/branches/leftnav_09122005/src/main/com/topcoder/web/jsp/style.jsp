@@ -16,6 +16,11 @@
         <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
         <link type="text/css" rel="stylesheet" href="/css/stats.css"/>
         <link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
+    <% } else if (key.equals("tc_forums")) { %>
+        <link type="text/css" rel="stylesheet" href="/css/style.css"/>
+        <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
+        <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
+        <link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
     <% } else if (key.equals("crpf")) { %>
         <link type="text/css" rel="stylesheet" href="/css/crpfStyle.css"/>
         <link type="text/css" rel="stylesheet" href="/css/style.css"/>
