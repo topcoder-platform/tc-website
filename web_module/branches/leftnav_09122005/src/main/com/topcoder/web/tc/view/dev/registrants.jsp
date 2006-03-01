@@ -31,7 +31,7 @@
         <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="<%= design ? "des_compete" : "dev_compete"%>"/>
+            <jsp:param name="node" value="des_compete" />
          </jsp:include>
         </td>
         <!-- Left Column Ends -->
@@ -42,13 +42,10 @@
 
         <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-            <jsp:include page="../body_top.jsp">
-                <jsp:param name="image" value="development"/>
-                <jsp:param name="image1" value="white"/>
-                <jsp:param name="title" value="Components"/>
-            </jsp:include>
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+<jsp:include page="/page_title.jsp">
+    <jsp:param name="image" value="comp_design"/>
+    <jsp:param name="title" value="Active Contests"/>
+</jsp:include>
 
 
 

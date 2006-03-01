@@ -39,13 +39,10 @@
 
         <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-            <jsp:include page="../body_top.jsp">
-                <jsp:param name="image" value="development"/>
-                <jsp:param name="image1" value="white"/>
-                <jsp:param name="title" value="Components"/>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="comp_design"/>
+                <jsp:param name="title" value="Active Contests"/>
             </jsp:include>
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
             <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
                 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ProjectRegister"/>
