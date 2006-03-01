@@ -83,7 +83,7 @@
             | <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
         </div>
 
-    <table class="stat" cellpadding="0" cellspacing="0" width="250" style="float: left; margin-right: 15px; margin-bottom: 15px;">
+    <table class="stat" cellpadding="0" cellspacing="0" width="250" style="float: left; margin-bottom: 15px;">
                      <tr>
                         <TD class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr" />">Contest</a></td>
                         <TD class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Division I winner</a></td>
