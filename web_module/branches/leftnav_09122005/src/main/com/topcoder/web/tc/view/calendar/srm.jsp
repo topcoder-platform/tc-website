@@ -119,7 +119,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                         <TD COLSPAN="3" ALIGN="left" class="bodyText">
                                             
                                              <center>
-                                             <span class="bodySubtitle">SRM BLABLA</span>
+                                             <span class="bodySubtitle"><rsc:item name="contest_name" row="<%=rsr%>"/></span>
                                              <br><br>
                                              All times are Eastern Time unless otherwise noted, click <a HREF="<%="http://www.timeanddate.com/worldclock/fixedtime.html?" + time%>">here</a>
                                             to see when coding begins in other time zones.<br/></center>
