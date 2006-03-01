@@ -1785,5 +1785,14 @@
         </java>
     </target>
 
+        <target name="placed-stuf" depends="compile">
+        <java classname="com.topcoder.utilities.ProjectResultPlacedSetter" fork="true">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${resources}"/>
+            </classpath>
+        </java>
+    </target>
 
 </project>
