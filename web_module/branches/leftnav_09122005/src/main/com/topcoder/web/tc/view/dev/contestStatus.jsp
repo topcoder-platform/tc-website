@@ -41,42 +41,42 @@
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyText">
 <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-<jsp:include page="../body_top.jsp">
-    <jsp:param name="image" value="development"/>
-    <jsp:param name="image1" value="white"/>
-    <jsp:param name="title" value="Components"/>
+<jsp:include page="/page_title.jsp">
+    <jsp:param name="image" value="comp_design"/>
+    <jsp:param name="title" value="Contest Status"/>
 </jsp:include>
 <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
-<table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
+<table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="projectTitles" colspan="6">Contest Status</td>
+        <td class="title" colspan="6">Contest Status</td>
     </tr>
-    <tr valign="middle">
-        <td class="projectHeaders" align="center">
+    <tr>
+        <td class="headerC">
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Catalog</a>
         </td>
-        <td width="15%" class="projectHeaders">
+        <td class="header" width="100%">
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("component_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Contest</a>
         </td>
-        <td class="projectHeaders" align="center">
+        <td class="headerC">
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("reg_end_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submission Due Date</a>
             </td>
-        <td class="projectHeaders" align="center">
+        <td class="header">
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("winner_sort")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Winner</a>
 
             </td>
-        <td class="projectHeaders" align="center">
+        <td class="header">
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("second_sort")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Second Place</a>
         </td>
-        <td class="projectHeaders" align="center">
+        <td class="headerC">
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("phase")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Current Phase</a>
         </td>
     </tr>
 
+    <% boolean even = false; %>
     <rsc:iterator list="<%=contests%>" id="resultRow">
-        <tr valign="top">
-            <td class="projectCells" align="center">
+        <tr class="<%=even?"dark":"light"%>">
+            <td class="valueC">
                 <% if ("Java".equals(resultRow.getStringItem("catalog_name"))) { %>
                 <img src="/i/development/smJava.gif"/>
                 <% } else if ("Java Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
@@ -91,31 +91,31 @@
                 <rsc:item name="catalog_name" row="<%=resultRow%>"/>
                 <% } %>
             </td>
-            <td class="projectCells">
+            <td class="value">
                 <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
                     <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
                     <rsc:item name="component_name" row="<%=resultRow%>"/> <rsc:item name="version_text" row="<%=resultRow%>"/>
                 </a>
             </td>
-            <td class="projectCells" align="center">
+            <td class="valueC" nowrap="nowrap">
                 <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
             </td>
-            <td class="projectCells" align="center">
+            <td class="value">
                 <% if (resultRow.getItem("winner").getResultData()!=null) { %>
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("winner") %>' context='<%=resultRow.getStringItem("phase")%>'/>
                 <% } %>
 
             </td>
-            <td class="projectCells" align="center">
+            <td class="value">
                 <% if (resultRow.getItem("second").getResultData()!=null) { %>
                 <tc-webtag:handle coderId='<%=resultRow.getLongItem("second") %>' context='<%=resultRow.getStringItem("phase")%>'/>
                 <% } %>
             </td>
-            <td class="projectCells" align="center">
+            <td class="valueC" nowrap="nowrap">
                 <rsc:item name="current_phase" row="<%=resultRow%>"/>
             </td>
         </tr>
-
+    <% even = !even;%>
     </rsc:iterator>
 </table>
 
