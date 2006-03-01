@@ -29,7 +29,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
 </table>
 <span class="bodyText">
 <strong>Record:</strong> Highest percentage of wins per contest where the competitor made a submission that passed screening.
-    In order to be listed, a competitor must have least 5 such contests.
+    In order to be listed, a competitor must have at least 5 such contests.
     This includes contests where the competitor did not reach the minimum score.  Only contests where the competitor was rated are included.
 </span>
 </div>
