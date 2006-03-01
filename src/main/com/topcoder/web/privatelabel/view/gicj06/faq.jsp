@@ -81,7 +81,7 @@
                 <A href="http://www.topcoder.com/indiacodejam">www.topcoder.com/indiacodejam</a>. In addition, an email will be sent to all participants indicating whether or
                 not each has advanced.
                 <br><br>
-                Questions not addressed here should be directed to <A href="mailto:gcji06@topcoder.com">gcji06@topcoder.com</A>
+                Questions not addressed here should be directed to <A href="mailto:gcji@topcoder.com">gcji@topcoder.com</A>
 				<br><br>
                 Good luck!
                 <br><br>
