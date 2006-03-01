@@ -30,12 +30,12 @@ function popUpUnder(event,objectID){
    objPopUp.style.left = xPos + 'px';
    objPopUp.style.display = 'block';
 }
-function popUp(objectID){
+function popDescription(objectID){
    objPopUp = document.getElementById(objectID);
    objPopUp.style.visibility = 'visible';
 //   objPopUp.style.display = 'block';
 }
-function popHide(){
+function hideDescription(){
    objPopUp.style.visibility = 'hidden';
 //   objPopUp.style.display = 'none';
    objPopUp = null;
@@ -93,10 +93,10 @@ left: 0px;
 <div id="launch2" class="launchPopUp" style="left:170;top:65;">Component Development Active Contests</div>
 <div id="launch3" class="launchPopUp" style="left:210;top:65;">Marathon Match Active Contests</div>
 <map name="launchBar">
-<area shape="rect" alt="" coords="70,0,110,30" href="javascript:arena();" onmouseover="popUp('launch0')" onmouseout="popHide()" />
-<area shape="rect" alt="" coords="111,0,140,30" href="/tc?module=ViewActiveContests&pi=112" onmouseover="popUp('launch1')" onmouseout="popHide()" />
-<area shape="rect" alt="" coords="141,0,165,30" href="/tc?module=ViewActiveContests&pi=113" onmouseover="popUp('launch2')" onmouseout="popHide()" />
-<area shape="rect" alt="" coords="166,0,228,30" href="/longcontest/?module=ViewActiveContests" onmouseover="popUp('launch3')" onmouseout="popHide()" />
+<area shape="rect" alt="" coords="70,0,110,30" href="javascript:arena();" onmouseover="popDescription('launch0')" onmouseout="hideDescription()" />
+<area shape="rect" alt="" coords="111,0,140,30" href="/tc?module=ViewActiveContests&pi=112" onmouseover="popDescription('launch1')" onmouseout="hideDescription()" />
+<area shape="rect" alt="" coords="141,0,165,30" href="/tc?module=ViewActiveContests&pi=113" onmouseover="popDescription('launch2')" onmouseout="hideDescription()" />
+<area shape="rect" alt="" coords="166,0,228,30" href="/longcontest/?module=ViewActiveContests" onmouseover="popDescription('launch3')" onmouseout="hideDescription()" />
 </map>
 <div style="position:absolute; left:0px; top:31px;">
 <img src="/i/interface/launchBar.gif" alt="" usemap="#launchBar"/>
@@ -106,7 +106,7 @@ left: 0px;
 <div align="center" style="margin: 0px 290px 0px 280px;">
    <div id="outerLogo">
       <div id="innerLogo">
-      <A href="/"><img src="/i/interface/topcoder.gif" alt="TopCoder" /></A>
+      <A href="http://<%=ApplicationServer.SERVER_NAME%>/"><img src="/i/interface/topcoder.gif" alt="TopCoder" /></A>
       </div>
    </div>
 </div>

@@ -91,6 +91,9 @@
 <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <jsp:include page="script.jsp" />
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_forums"/>
+</jsp:include>
 
 </head>
 
@@ -118,20 +121,22 @@
             <jsp:param name="title" value="&#160;"/>
         </jsp:include>
 
-<table cellpadding="0" cellspacing="0" class="rtbcTable" border="1">
+<div class="categoriesBox">
+      <jsp:include page="categoriesHeader.jsp" />
+</div>
+<table cellpadding="0" cellspacing="0" class="rtbcTable" border="0">
 <tr valign="top">
-	<td nowrap="nowrap" valign="top">
-	   <jsp:include page="searchHeader.jsp" ></jsp:include>
-	</td>
-	<td align="right" nowrap="nowrap" valign="top">
+   <td nowrap="nowrap" valign="top">
+      <jsp:include page="searchHeader.jsp" />
+   </td>
+   <td align="right" nowrap="nowrap" valign="top">
        <%   if (ForumsUtil.isAdmin(user)) { %>
                  <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.CATEGORY_ID%>=<%=forum.getForumCategory().getID()%>&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post Announcement</A>&#160; |&#160;
        <%   } %>
-	   <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post New Thread</A>&#160;&#160;|&#160;&#160;<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
-	</td>
+      <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post New Thread</A>&#160;&#160;|&#160;&#160;<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+   </td>
 </tr>
 <tr>
-    <td>&#160;</td>
     <td class="rtbc">
        <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
           <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >> 
@@ -162,6 +167,8 @@
    </b></td></tr>
 <% } %>
 </table>
+
+<div style="float:left; clear:both;">
 
 <%  if (forum.getThreadCount() > 0) { %>
 <table cellpadding="0" cellspacing="0" class="rtTable">
@@ -259,7 +266,7 @@
 <%  } else { %>
     <span class="bigRed"><A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="bigRed">Be the first to post in this forum!</A></span>
 <%  } %>
-
+</div>
         <p><br/></p>
         </td>
 <!-- Center Column Ends -->

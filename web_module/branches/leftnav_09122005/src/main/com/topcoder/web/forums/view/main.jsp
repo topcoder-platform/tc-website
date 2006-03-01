@@ -32,11 +32,11 @@
 <html>
 <head>
 <title>TopCoder Forums</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-    <jsp:include page="script.jsp" />
-        <jsp:include page="/style.jsp">
-          <jsp:param name="key" value="tc_forums"/>
-        </jsp:include>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<jsp:include page="script.jsp" />
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_forums"/>
+</jsp:include>
 
 </head>
 
@@ -51,7 +51,7 @@
 
 <!-- Left Column Begins-->
       <td width="180">
-          <jsp:include page="includes/global_left.jsp">
+          <jsp:include page="/includes/global_left.jsp">
              <jsp:param name="node" value="forums"/>
           </jsp:include>
       </td>
@@ -68,9 +68,6 @@
     
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
-   <td class="categoriesBox"> 
-      <jsp:include page="categoriesHeader.jsp" />
-   </td>
     <td nowrap="nowrap" valign="top" width="50%">
         <jsp:include page="searchHeader.jsp" ></jsp:include>
     </td>

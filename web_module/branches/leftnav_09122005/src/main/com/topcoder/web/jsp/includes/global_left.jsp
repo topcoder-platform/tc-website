@@ -140,6 +140,6 @@ function flipMenu(myMenuName){
 <div style="float: left; padding: 0px 0px 0px 0px;"><img src="/i/interface/leftnav_top.gif" alt="" /></div>
 <div id="navbar">
 <nav:navBuilder navTree="tree" openClass="OPEN" selectedLeafClass="highlight" selectedParentClass="exp_ed" unSelectedParentClass="exp" selectedNode="<%=request.getParameter("node")%>"/>
-<jsp:include page="../includes/modules/leftNavSearch.jsp"/>
+<jsp:include page="/includes/modules/simpleSearch.jsp"/>
 </div>
 <div style="float: left; clear:left; padding: 0px 0px 23px 0px;"><img src="/i/interface/leftnav_bottom.gif" alt="" /></div>
