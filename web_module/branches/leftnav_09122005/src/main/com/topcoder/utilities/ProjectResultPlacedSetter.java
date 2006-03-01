@@ -36,7 +36,7 @@ public class ProjectResultPlacedSetter {
             conn = dev.getConnection();
 
             ps1 = conn.prepareStatement(select);
-            ps1 = conn.prepareStatement(update);
+            ps2 = conn.prepareStatement(update);
             rs = ps1.executeQuery();
 
             long lastProjectId = -1;
