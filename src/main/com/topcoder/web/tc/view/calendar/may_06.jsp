@@ -6,9 +6,6 @@
 <head>
 <title>TopCoder Events Calendar</title>
 <jsp:include page="/script.jsp"/>
-<jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_stats"/>
-</jsp:include>
 
 <STYLE TYPE="text/css">
         #calendarTCO06
