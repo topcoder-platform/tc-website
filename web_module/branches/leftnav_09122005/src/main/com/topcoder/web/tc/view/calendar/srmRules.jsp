@@ -1,21 +1,8 @@
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ page import="java.util.Map" %>
-<%@ page import="com.topcoder.web.tc.Constants" %>
-<%@ page import="com.topcoder.web.common.StringUtils" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
 <%
-/*
-String contest_name = (String)request.getAttribute("contest_name");
-int round_id = ((Integer)request.getAttribute("round_id")).intValue();
-String date = StringUtils.checkNull((String)request.getAttribute("date"));
-String reg_begin = StringUtils.checkNull((String)request.getAttribute("reg_begin"));
-String reg_end = StringUtils.checkNull((String)request.getAttribute("reg_end"));
-String coding_begin = StringUtils.checkNull((String)request.getAttribute("coding_begin"));
-String reg_date = StringUtils.checkNull((String)request.getAttribute("reg_date"));
-//int forum_id = ((Integer)request.getAttribute("forum_id")).intValue();
-*/
-
 ResultSetContainer.ResultSetRow rsr = (ResultSetContainer.ResultSetRow)(((ResultSetContainer)request.getAttribute("rsc")).get(0));
 int round_id = rsr.getIntItem("round_id");
 
