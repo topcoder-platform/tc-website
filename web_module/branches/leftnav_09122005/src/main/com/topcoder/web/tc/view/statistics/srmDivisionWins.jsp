@@ -91,8 +91,10 @@
                         <TD class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />">Division II winner</a></td>
                         <TD class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true" excludeParams="sr" />">Wins</a></td>
                     </tr>
+   <% boolean even = false; %>
+
                     <rsc:iterator list="<%=list%>" id="resultRow">
-                        <TR>
+                        <tr class="<%=even?"dark":"light"%>">
                             <%
                             Number n1 = (Number)resultRow.getItem("winner1").getResultData();
                             Number n2 = (Number)resultRow.getItem("winner2").getResultData();
@@ -113,7 +115,8 @@
                                 <td class="value"><tc-webtag:handle coderId='<%= winner2 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
                                 <td class="value"><rsc:item name="wins2" row="<%=resultRow%>"/></td>
                             <% } %>
-                        </TR>
+                        </tr>
+                        <% even = !even;%>
                     </rsc:iterator>
 
    </table>
