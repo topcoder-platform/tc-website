@@ -2919,12 +2919,11 @@ public class ProjectTrackerBean implements SessionBean {
                 //score
                 psInsertScores.setDouble(1, score);
 
+                psInsertScores.setInt(2, place);
+
                 //place
                 if (score < minScore) {
-                    psInsertScores.setNull(2, Types.INTEGER);
                     money = 0;
-                } else {
-                    psInsertScores.setInt(2, place);
                 }
 
                 //money
