@@ -5,9 +5,10 @@
 <html>
 <head>
 <title>TopCoder Events Calendar</title>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 <STYLE TYPE="text/css">
         #calendarTCO06

@@ -4,7 +4,10 @@
 <head>
 <title>Official Contest Rules</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
