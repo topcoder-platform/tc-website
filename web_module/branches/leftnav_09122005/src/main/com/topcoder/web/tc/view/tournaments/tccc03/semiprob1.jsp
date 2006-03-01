@@ -42,12 +42,12 @@
 
 <table border="0" cellspacing="0" cellpadding="3" width="100%">
 <tr><td height="1"><img src="/i/clear.gif" alt="" width="10" height="3" border="0"/></td></tr>
-<tr><td class="tourney_subnav"><strong>Semifinal Room 1 Problem Analysis &amp; Opinion</strong></td></tr>
+<tr><td class="tourney_subnav"><strong>Semifinal Room 1 Problem Analysis & Opinion</strong></td></tr>
 <tr valign="top">
 <td width="10%" class="bodyText">
 <p>Friday, April 4, 2003</p>
 
-<P><B>Problem Set Analysis &amp; Opinion</B></P>
+<P><B>Problem Set Analysis & Opinion</B></P>
 <p>
 Semifinal Round 1 proved to be one of the most exciting in recent history. Yarin and Evd raced to see who 
 would complete the easy first, while StefanPochmann worked diligently on the hard problem.  
@@ -169,7 +169,7 @@ Once this process is complete, the root of the whole tree has the best possible 
 </p>
 
 <IMG SRC="/i/m/brett1479_mug.jpg" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;brett1479<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=251317" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;brett1479<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&cr=251317" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
 
 <p><br/></p>
 

@@ -42,12 +42,12 @@
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr><td height="1"><img src="/i/clear.gif" alt="" width="10" height="3" border="0"/></td></tr>
-                <tr><td class="tourney_subnav"><strong>Championship Problem Analysis &amp; Opinion</strong></td></tr>
+                <tr><td class="tourney_subnav"><strong>Championship Problem Analysis & Opinion</strong></td></tr>
                 <tr valign="top">
                     <td width="10%" class="bodyText">
                         <p>Saturday, April 5, 2002</p>
                         
-                        <p><b>Problem Set Analysis &amp; Opinion</b></p>
+                        <p><b>Problem Set Analysis & Opinion</b></p>
                         
                         <p>The first run at the finals had to be cancelled midway due to network issues. 
                         While TopCoder tried hard to work through the issues, in the end it was decided 
@@ -158,7 +158,7 @@
                         from all possible roots produces the best value.</p>
 
                         <img src="/i/m/brett1479_mug.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left"/>
-                        By&#160;brett1479<br/><div class="smallText"><i>TopCoder Member</i><br/><a href="/tc?module=MemberProfile&amp;cr=251317" class="smallText">Author Profile</a></div><br clear="all"/>
+                        By&#160;brett1479<br/><div class="smallText"><i>TopCoder Member</i><br/><a href="/tc?module=MemberProfile&cr=251317" class="smallText">Author Profile</a></div><br clear="all"/>
                     </td>
                 </tr>            
             </table>

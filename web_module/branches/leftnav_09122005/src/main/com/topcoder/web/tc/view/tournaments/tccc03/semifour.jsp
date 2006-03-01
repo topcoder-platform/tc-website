@@ -62,25 +62,25 @@
                           </tr>
                          
                             <tr>
-                              <td class="statText"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=269554">Yarin</a></td>
+                              <td class="statText"><a class="coderTextRed" href="/tc?module=MemberProfile&cr=269554">Yarin</a></td>
                               <td class="statText" align="right">508.19</td>
                               <td class="statText" align="right">2</td>
                             </tr>
                             
                             <tr>
-                              <td class="statText"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=114853">dmwright</a></td>
+                              <td class="statText"><a class="coderTextRed" href="/tc?module=MemberProfile&cr=114853">dmwright</a></td>
                               <td class="statText" align="right">497.60</td>
                               <td class="statText" align="right">1</td>
                             </tr>
                             
                             <tr>
-                              <td class="statText"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=107835">sjelkjd</a></td>
+                              <td class="statText"><a class="coderTextRed" href="/tc?module=MemberProfile&cr=107835">sjelkjd</a></td>
                               <td class="statText" align="right">1548.59</td>
                               <td class="statText" align="right">11</td>
                             </tr>
                             
                             <tr>
-                              <td class="statText"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=262936">dgarthur</a></td>
+                              <td class="statText"><a class="coderTextRed" href="/tc?module=MemberProfile&cr=262936">dgarthur</a></td>
                               <td class="statText" align="right">1233.52</td>
                               <td class="statText" align="right">1</td>
                             </tr>

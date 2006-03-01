@@ -137,7 +137,7 @@
                             Francis Marion University (1)<br />
                             Georgia State University (1)<br />
                             Jacksonville State University (1)<br />
-                            Johnson &amp; Wales University-Charleston (1)<br />
+                            Johnson & Wales University-Charleston (1)<br />
                             University of North Carolina Chapel Hill (1)<br />
                             University of North Carolina Charlotte (1)<br />
                             University of South Carolina Columbia (1)<br />
@@ -164,7 +164,7 @@
                             Brigham Young University (2)<br />
                             Oregon State University (2)<br />
                             San Jose State University (2)<br />
-                            Texas A&amp;M University College Station (2)<br />
+                            Texas A&M University College Station (2)<br />
                             Texas Tech University (2)<br />
                             University of California Santa Barbara (2)<br />
                             University of Colorado Boulder (2)<br />
@@ -180,7 +180,7 @@
                             California State University Sacramento (1)<br />
                             Harvey Mudd College (1)<br />
                             Kansas State University (1)<br />
-                            Oklahoma Christian University of Science &amp; Arts (1)<br />
+                            Oklahoma Christian University of Science & Arts (1)<br />
                             Oklahoma State University (1)<br />
                             Rice University (1)<br />
                             University of California Santa Cruz (1)<br />

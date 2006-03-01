@@ -42,7 +42,7 @@
 
 <table border="0" cellspacing="0" cellpadding="3" width="100%">
 <tr><td height="1"><img src="/i/clear.gif" alt="" width="10" height="3" border="0"/></td></tr>
-<tr><td class="tourney_subnav"><strong>Semifinal Room 2 Problem Analysis &amp; Opinion</strong></td></tr>
+<tr><td class="tourney_subnav"><strong>Semifinal Room 2 Problem Analysis & Opinion</strong></td></tr>
 <tr valign="top">
 <td width="10%" class="bodyText">
 <p>Friday, April 4, 2002</p>
@@ -226,7 +226,7 @@ odd length, we have a bipartite graph.
 
 
 <IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
 
 
 

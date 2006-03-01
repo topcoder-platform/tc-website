@@ -42,7 +42,7 @@
 
 <table border="0" cellspacing="0" cellpadding="3" width="100%">
 <tr><td height="1"><img src="/i/clear.gif" alt="" width="10" height="3" border="0"/></td></tr>
-<tr><td class="tourney_subnav"><strong>Semifinal Room 3 Problem Analysis &amp; Opinion</strong></td></tr>
+<tr><td class="tourney_subnav"><strong>Semifinal Room 3 Problem Analysis & Opinion</strong></td></tr>
 <tr valign="top">
 <td width="10%" class="bodyText">
 <p>Friday, April 4, 2002</p>
@@ -181,7 +181,7 @@ the return values. </p>
 
 
 <img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left"/>
-By <a href="/tc?module=MemberProfile&amp;cr=112902" class="bodyText"><strong>Logan</strong></a><br/>
+By <a href="/tc?module=MemberProfile&cr=112902" class="bodyText"><strong>Logan</strong></a><br/>
 <div class="smallText"><em>TopCoder Member</em></div><br />
 <br clear="all" />
 
