@@ -40,12 +40,11 @@
 
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyText">
-<img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+
 <jsp:include page="/page_title.jsp">
     <jsp:param name="image" value="comp_design"/>
     <jsp:param name="title" value="Contest Status"/>
 </jsp:include>
-<img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>

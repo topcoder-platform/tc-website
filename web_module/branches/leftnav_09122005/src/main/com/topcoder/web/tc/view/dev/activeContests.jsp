@@ -44,34 +44,34 @@
 
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyText">
-<img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-<jsp:include page="../body_top.jsp">
-    <jsp:param name="image" value="development"/>
-    <jsp:param name="image1" value="white"/>
-    <jsp:param name="title" value="Components"/>
+
+<jsp:include page="/page_title.jsp">
+    <jsp:param name="image" value="comp_design"/>
+    <jsp:param name="title" value="Contest Status"/>
 </jsp:include>
-<img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
 <% if (design) { %>
-<table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
+<div align="right"><A href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted"><img src="/i/development/get_started.gif" alt="Getting Started" border="0" /></A></div>
+<table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="projectTitles" colspan="9">Component Design Contests</td>
+        <td class="title" colspan="9">Component Design Contests</td>
     </tr>
-    <tr valign="middle">
-        <td class="projectHeaders" align="center">Catalog</td>
-        <td width="15%" class="projectHeaders">Component</td>
-        <td class="projectHeaders" align="center">Registrants<br/>Rated/Unrated</td>
-        <td class="projectHeaders" align="center">Registration Ends</td>
-        <td class="projectHeaders" align="center">Submissions</td>
-        <td class="projectHeaders" align="center">Payment *</td>
-        <td class="projectHeaders" align="center">Complexity</td>
-        <td class="projectHeaders" align="center">Submit by</td>
-        <td class="projectHeaders" align="center">Details</td>
+    <tr>
+        <td class="headerC">Catalog</td>
+        <td class="header" width="100%">Component</td>
+        <td class="headerC">Registrants<br/>Rated/Unrated</td>
+        <td class="headerC">Registration Ends</td>
+        <td class="headerC">Submissions</td>
+        <td class="headerC">Payment *</td>
+        <td class="headerC">Complexity</td>
+        <td class="headerC">Submit by</td>
+        <td class="headerC">Details</td>
     </tr>
 
+    <% boolean even = false; %>
     <rsc:iterator list="<%=designContests%>" id="resultRow">
-        <tr valign="top">
-            <td class="projectCells" align="center">
+        <tr class="<%=even?"dark":"light"%>">
+            <td class="valueC">
                 <% if ("Java".equals(resultRow.getStringItem("catalog_name"))) { %>
                 <img src="/i/development/smJava.gif"/>
                 <% } else if ("Java Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
@@ -86,58 +86,60 @@
                 <rsc:item name="catalog_name" row="<%=resultRow%>"/>
                 <% } %>
             </td>
-            <td class="projectCells">
+            <td class="value">
                 <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
                     <rsc:item name="component_name" row="<%=resultRow%>"/> Version
                     <rsc:item name="version_text" row="<%=resultRow%>"/>
                 </a>
                 <%=resultRow.getItem("max_unrated_registrants").getResultData()==null || resultRow.getIntItem("max_unrated_registrants") == 0 ? "**" : ""%>
             </td>
-            <td class="projectCells" align="center">
+            <td class="valueC">
                 <rsc:item name="total_rated_inquiries" row="<%=resultRow%>"/>/
                 <rsc:item name="total_unrated_inquiries" row="<%=resultRow%>"/>
             </td>
-            <td class="projectCells" align="center">
+            <td class="valueC" nowrap="nowrap">
                 <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
             </td>
-            <td class="projectCells" align="center">
+            <td class="valueC">
                 <rsc:item name="total_submissions" row="<%=resultRow%>"/>
             </td>
-            <td class="projectCells" align="center">
+            <td class="valueC">
                 <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/></td>
-            <td class="projectCells" align="center"><rsc:item name="description" row="<%=resultRow%>"/></td>
-            <td class="projectCells" align="center" nowrap="nowrap">
+            <td class="valueC"><rsc:item name="description" row="<%=resultRow%>"/></td>
+            <td class="valueC" nowrap="nowrap">
                 <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/></td>
-            <td class="projectCells" align="center">
+            <td class="valueC">
                 <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
                 <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">details</a>
                 <% } %>
             </td>
         </tr>
-
+    <% even = !even;%>
     </rsc:iterator>
 </table>
 <br/>
 <%  } else {   // Development %>
-<table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
+<div align="right"><A href="/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted"><img src="/i/development/get_started.gif" alt="Getting Started" border="0" /></A></div>
+<table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="projectTitles" colspan="9">Component Development Contests</td>
+        <td class="title" colspan="9">Component Development Contests</td>
     </tr>
-    <tr valign="middle">
-        <td class="projectHeaders" align="center">Catalog</td>
-        <td width="15%" class="projectHeaders">Component</td>
-        <td class="projectHeaders" align="center">Registrants<br/>Rated/Unrated</td>
-        <td class="projectHeaders" align="center">Registration Ends</td>
-        <td class="projectHeaders" align="center">Submissions</td>
-        <td class="projectHeaders" align="center">Payment *</td>
-        <td class="projectHeaders" align="center">Complexity</td>
-        <td class="projectHeaders" align="center">Submit by</td>
-        <td class="projectHeaders" align="center">Details</td>
+    <tr>
+        <td class="headerC">Catalog</td>
+        <td class="header" width="100%">Component</td>
+        <td class="headerC">Registrants<br/>Rated/Unrated</td>
+        <td class="headerC">Registration Ends</td>
+        <td class="headerC">Submissions</td>
+        <td class="headerC">Payment *</td>
+        <td class="headerC">Complexity</td>
+        <td class="headerC">Submit by</td>
+        <td class="headerC">Details</td>
     </tr>
 
+    <% boolean even = false; %>
     <rsc:iterator list="<%=devContests%>" id="resultRow">
-        <tr valign="top">
-            <td class="projectCells" align="center">
+        <tr class="<%=even?"dark":"light"%>">
+            <td class="valueC">
                 <% if ("Java".equals(resultRow.getStringItem("catalog_name"))) { %>
                 <img src="/i/development/smJava.gif"/>
                 <% } else if ("Java Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
@@ -152,35 +154,35 @@
                 <rsc:item name="catalog_name" row="<%=resultRow%>"/>
                 <% } %>
             </td>
-            <td class="projectCells">
+            <td class="value">
                 <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
                     <rsc:item name="component_name" row="<%=resultRow%>"/> Version
                     <rsc:item name="version_text" row="<%=resultRow%>"/>
                 </a>
                 <%=resultRow.getItem("max_unrated_registrants").getResultData()==null || resultRow.getIntItem("max_unrated_registrants") == 0 ? "**" : ""%>
             </td>
-            <td class="projectCells" align="center">
+            <td class="valueC">
                 <rsc:item name="total_rated_inquiries" row="<%=resultRow%>"/>/
                 <rsc:item name="total_unrated_inquiries" row="<%=resultRow%>"/>
             </td>
-            <td class="projectCells" align="center">
+            <td class="valueC" nowrap="nowrap">
                 <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
             </td>
-            <td class="projectCells" align="center">
+            <td class="valueC">
                 <rsc:item name="total_submissions" row="<%=resultRow%>"/>
             </td>
-            <td class="projectCells" align="center">
+            <td class="valueC">
                 <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/></td>
-            <td class="projectCells" align="center"><rsc:item name="description" row="<%=resultRow%>"/></td>
-            <td class="projectCells" align="center" nowrap="nowrap">
+            <td class="valueC"><rsc:item name="description" row="<%=resultRow%>"/></td>
+            <td class="valueC" nowrap="nowrap">
                 <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/></td>
-            <td class="projectCells" align="center">
+            <td class="valueC">
                 <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
                 <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">details</a>
                 <% } %>
             </td>
         </tr>
-
+    <% even = !even;%>
     </rsc:iterator>
 </table>
 <br/>
