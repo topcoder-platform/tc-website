@@ -40,13 +40,15 @@ public class ProjectResultPlacedSetter {
 
             long lastProjectId = -1;
             int placed = 0;
+            boolean first = true;
             while (rs.next()) {
                 long projectId = rs.getLong("project_id");
                 long userId = rs.getLong("user_id");
                 //double score = rs.getDouble("final_score");
                 boolean hasPlaced = rs.getString("placed")!=null;
 
-                if (projectId == lastProjectId) {
+                if (projectId == lastProjectId||first) {
+                    first = false;
                     placed++;
                     if (!hasPlaced) {
                         System.out.println("set placed = " + placed + " for user " + userId + " project " + projectId);
@@ -58,6 +60,7 @@ public class ProjectResultPlacedSetter {
 */
                     }
                 } else {
+                    first = true;
                     placed = 0;
                 }
 
