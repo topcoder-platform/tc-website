@@ -122,10 +122,6 @@ function toggleMenu(menuTitle,menuID){
    if(menuTitle.blur)menuTitle.blur();
    if(menuTitle.className == 'exp') menuTitle.className = 'exp_ed';
    else menuTitle.className = 'exp';
-   if (menuID=='m_forums') {
-     var ajaxRequest = new AjaxRequest('http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=NavList');
-     ajaxRequest.sendRequest();
-   }
    return;
 }
 function flipMenu(myMenuName){
