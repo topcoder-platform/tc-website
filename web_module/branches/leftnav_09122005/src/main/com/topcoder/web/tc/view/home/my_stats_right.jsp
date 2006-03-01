@@ -6,10 +6,6 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <% ResultSetContainer coderInfo= (ResultSetContainer)request.getAttribute("member_info");%>
 
-<div>
-<img src="/i/my_stats_top.gif" alt="" border="0" />
-</div>
-
 <% if (coderInfo!=null && !coderInfo.isEmpty()) { %>
 <table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
     <tr>
@@ -82,6 +78,3 @@
 </table>
 
 <% } %>
-<div style="float:right;">
-<img src="/i/my_stats_bottom.gif" alt="" border="0" />
-</div>
