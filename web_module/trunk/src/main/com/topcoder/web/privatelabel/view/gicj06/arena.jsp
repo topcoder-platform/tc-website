@@ -81,7 +81,7 @@
                 Applet</A>.
                 <br><br>
                 If you experience problems loading or running the Competition Arena please contact 
-				<A href="gcji06@topcoder.com?subject=Question regarding Google Code Jam India">gcji06@topcoder.com</A>.
+				<A href="gcji@topcoder.com?subject=Question regarding Google Code Jam India">gcji@topcoder.com</A>.
 <br><br><br><br><br><br><br><br><br><br><br
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 To find out more detailed information about Google&#153; Code Jam India, including a list of the prizes, please read the

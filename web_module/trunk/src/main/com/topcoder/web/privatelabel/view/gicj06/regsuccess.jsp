@@ -62,7 +62,7 @@ do not activate your account.</span>
 
 Spend time in the Practice Rooms prior to the Qualification Round by clicking the Competition Arena tab above.<br><br>
 
-If you encounter any problems, please contact us at <A href="mailto:gcji06@topcoder.com">gcji06@topcoder.com</A>.<br><br>
+If you encounter any problems, please contact us at <A href="mailto:gcji@topcoder.com">gcji@topcoder.com</A>.<br><br>
 
 Good luck to you in the Arena!
 
