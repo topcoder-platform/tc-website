@@ -306,8 +306,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         query.append("   AND x.category_id = cat.category_id            ");
 
         if (onlyPublic) {
-            query.append("   AND cat.category_id in (5801777, 5801776, 8459260) ");
-            query.append("   AND cat.parent_category_id in (5801777, 5801776, 8459260) ");
+            query.append("   AND comp.root_category_id in (5801777, 5801776, 8459260) ");
         }
 
 
@@ -476,8 +475,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
         // plk
         if (onlyPublic) {
-            query.append("   AND category_id in (5801777, 5801776, 8459260) ");
-            query.append("   AND parent_category_id in (5801777, 5801776, 8459260) ");
+            query.append("   AND (category_id in (5801777, 5801776, 8459260) ");
+            query.append("   OR parent_category_id in (5801777, 5801776, 8459260)) ");
         }
         query.append(" ORDER BY 1 ");
 
