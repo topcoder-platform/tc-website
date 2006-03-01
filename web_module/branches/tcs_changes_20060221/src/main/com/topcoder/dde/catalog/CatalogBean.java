@@ -1383,7 +1383,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         PreparedStatement ps = null;
         try {
             conn = getConnection();
-            ps = conn.prepareStatement(COMPONENTS_BY_STATUS);
+            ps = conn.prepareStatement(COMPONENT);
             ps.setLong(1, componentId);
             rs = ps.executeQuery();
 
