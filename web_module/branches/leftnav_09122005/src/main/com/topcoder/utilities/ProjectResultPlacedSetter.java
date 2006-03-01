@@ -53,13 +53,11 @@ public class ProjectResultPlacedSetter {
                 }
 
                 if (!hasPlaced) {
-                    System.out.println("set placed = " + placed + " for user " + userId + " project " + projectId);
-/*
+//                    System.out.println("set placed = " + placed + " for user " + userId + " project " + projectId);
                         ps2.clearParameters();
                         ps2.setInt(1, placed);
                         ps2.setLong(2, userId);
                         ps2.setLong(3, projectId);
-*/
                 }
 
                 lastProjectId = projectId;
