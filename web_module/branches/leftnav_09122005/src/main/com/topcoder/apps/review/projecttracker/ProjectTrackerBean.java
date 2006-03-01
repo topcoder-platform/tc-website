@@ -2904,13 +2904,13 @@ public class ProjectTrackerBean implements SessionBean {
                 throw new EJBException("Couldn't get min score from config", e);
             }
             while (rsScores.next()) {
-                //todo this code doesn't handle ties.   it should, for both place and money
+                //the query above is first ordering by score, then by the number of submissions they beat.
+                //that is being used as the tie breaker.  if there is still a tie, then we have a problem.
                 double money = rsScores.getLong("price");
                 double score = rsScores.getDouble("score");
 
-                //increment place
-                place = place + 1;
-                if (place == 2) {
+                place++;
+                if (place == 2 && score >=minScore) {
                     money = Math.round((money * .5));
                 } else if (place != 1 || score < minScore) {
                     money = 0;
