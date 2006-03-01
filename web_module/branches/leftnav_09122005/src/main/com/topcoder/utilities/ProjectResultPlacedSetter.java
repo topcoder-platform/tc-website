@@ -59,6 +59,7 @@ public class ProjectResultPlacedSetter {
                         ps2.setInt(1, placed);
                         ps2.setLong(2, userId);
                         ps2.setLong(3, projectId);
+                    ps2.executeUpdate();
                 }
 
                 lastProjectId = projectId;
