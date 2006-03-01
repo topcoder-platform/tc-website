@@ -42,7 +42,10 @@
 <%-- Center Column Begins --%>
         <td width="100%" align="center">
 
-            <img src="/i/clear.gif" alt="" width="1" height="20" border="0"/><br/>
+      <jsp:include page="/page_title.jsp">
+          <jsp:param name="image" value="comp_design"/>
+          <jsp:param name="title" value="Active Contests"/>
+      </jsp:include>
 
 <%-- Title --%>
                         <% if (projectDetail.getIntItem(0, "status_id")==303) {%>
@@ -52,8 +55,6 @@
                 </tr>
             </table>
                         <% } %>
-
-                        <br/>
 
             <table cellspacing="0" class="formFrame" align="center" width="530">
                 <tr>

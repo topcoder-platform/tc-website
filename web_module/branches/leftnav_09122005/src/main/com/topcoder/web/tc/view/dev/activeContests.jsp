@@ -201,10 +201,8 @@ position: relative;
             </td>
             <td class="value">
                 <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
-                  <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">
                     <rsc:item name="component_name" row="<%=resultRow%>"/> Version
                     <rsc:item name="version_text" row="<%=resultRow%>"/>
-                  </a>
                 </a>
                 <%=resultRow.getItem("max_unrated_registrants").getResultData()==null || resultRow.getIntItem("max_unrated_registrants") == 0 ? "**" : ""%>
             </td>

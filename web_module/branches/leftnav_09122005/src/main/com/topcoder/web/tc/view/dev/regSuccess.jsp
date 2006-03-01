@@ -4,7 +4,7 @@
 <%@ page import="com.topcoder.web.tc.Constants"%>
 <%@ page import="com.topcoder.web.tc.model.SoftwareComponent"%> <head>
     <title>TopCoder - Message</title>
-    <jsp:include page="../script.jsp"/>
+    <jsp:include page="/script.jsp"/>
     <jsp:include page="/style.jsp">
       <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
@@ -34,13 +34,10 @@
 
         <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-            <jsp:include page="../body_top.jsp">
-                <jsp:param name="image" value="development"/>
-                <jsp:param name="image1" value="white"/>
-                <jsp:param name="title" value="Components"/>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="comp_design"/>
+                <jsp:param name="title" value="Active Contests"/>
             </jsp:include>
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
             <p>
                 <strong>You have successfully registered for this contest.</strong>
