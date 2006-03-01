@@ -4,13 +4,16 @@
 <head>
 <title>2005 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="/top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -18,10 +21,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="level1" value="events"/>
-                <jsp:param name="level2" value="tournaments"/>
-            </jsp:include>
+<jsp:include page="/includes/global_left.jsp">
+<jsp:param name="node" value="topcoder_tournaments"/>
+</jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -181,7 +183,7 @@
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="/public_right.jsp">
                <jsp:param name="level1" value="tccc05"/>
             </jsp:include>
          </td>
@@ -193,7 +195,7 @@
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="/foot.jsp" />
 
 </body>
 
