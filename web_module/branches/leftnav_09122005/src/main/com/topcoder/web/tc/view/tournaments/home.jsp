@@ -179,15 +179,15 @@
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
-         <td style="padding-right: 8px;"><A href="/index?t=tournaments&amp;c=2002tccc_champ"><img src="/i/tournament/photo_tccc02.jpg" alt="2002 TCCC" width="274" height="134" border="0" /></A></td>
+         <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tccc02&d3=champ"><img src="/i/tournament/photo_tccc02.jpg" alt="2002 TCCC" width="274" height="134" border="0" /></A></td>
          <td width="100%">
          <span class="bodySubtitle">2002 Sun Microsystems&#153; TopCoder Collegiate Challenge&#153;</span>
          <br><br>
-         <div style="float: right;"><A href="/index?t=tournaments&amp;c=2002tccc_champ"><img src="/i/tournament/logo_tccc02.gif" alt="Logo" width="113" height="73" border="0" /></A></div>
+         <div style="float: right;"><A href="/tc?module=Static&d1=tournaments&d2=tccc02&d3=champ"><img src="/i/tournament/logo_tccc02.gif" alt="Logo" width="113" height="73" border="0" /></A></div>
          April 19-20<br />
          University Park Hotel @ MIT<br/>
          Cambridge, Massachusetts<br />
-         <A href="/index?t=tournaments&amp;c=2002tccc_champ">Summary</A>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc02&d3=champ">Summary</A>
          </td>
       </tr>
    </table>

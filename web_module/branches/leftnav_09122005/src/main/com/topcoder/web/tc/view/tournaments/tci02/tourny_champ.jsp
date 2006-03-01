@@ -59,19 +59,19 @@
             </TR>
             <TR>
               <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-                <A HREF="/index?t=schedule&c=tourney_advancers&rds=4324" CLASS="statTextBig">Round 1 A</A>
+                <A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=round1a" CLASS="statTextBig">Round 1 A</A>
               </TD>
               <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-                <A HREF="/index?t=schedule&c=tourney_advancers&rds=4325" CLASS="statTextBig">Round 1 B</A> 
+                <A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=round1b" CLASS="statTextBig">Round 1 B</A> 
               </TD>
               <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-                <A HREF="/index?t=schedule&c=tourney_advancers&rds=4335" CLASS="statTextBig">Round 2</A>
+                <A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=round2" CLASS="statTextBig">Round 2</A>
               </TD>
               <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-                <A HREF="/index?t=schedule&c=tourney_advancers&rds=4345" CLASS="statTextBig">Round 3</A>
+                <A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=round3" CLASS="statTextBig">Round 3</A>
               </TD>
               <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-                <A HREF="/index?t=schedule&c=tourney_advancers&rds=4355" CLASS="statTextBig">Round 4</A>
+                <A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=round4" CLASS="statTextBig">Round 4</A>
               </TD>
               <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
                 <A HREF="/tc?module=Static&d1=tournaments&d2=tci02&d3=tourny_semi" CLASS="statTextBig">Semi</A>
