@@ -59,9 +59,10 @@
 <head>
 <title>TopCoder Forums</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-<link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
-<jsp:include page="script.jsp" />
+    <jsp:include page="script.jsp" />
+        <jsp:include page="/style.jsp">
+          <jsp:param name="key" value="tc_forums"/>
+        </jsp:include>
 
 </head>
 
@@ -137,11 +138,9 @@ function displayVotes(messageID, posVotes, negVotes) {
    <tr valign="top">
 <!-- Left Column Begins-->
       <td width="180">
-         <jsp:include page="includes/global_left.jsp">
-            <jsp:param name="level1" value="forums"/>
-            <jsp:param name="level2" value="<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME)%>"/>
-            <jsp:param name="unreadCategories" value="<%=unreadCategories%>"/>
-         </jsp:include>
+          <jsp:include page="includes/global_left.jsp">
+             <jsp:param name="node" value="forums"/>
+          </jsp:include>
       </td>
 <!-- Left Column Ends -->
 
