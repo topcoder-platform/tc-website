@@ -86,7 +86,7 @@ position: relative;
 <td width="100%" align="center" class="bodyText">
 
 <jsp:include page="/page_title.jsp">
-    <jsp:param name="image" value="comp_design"/>
+    <jsp:param name="image" value="<%= design ? "comp_design":"comp_development"%>"/>
     <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 

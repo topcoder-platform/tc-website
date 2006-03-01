@@ -41,7 +41,7 @@
         <td width="100%" align="center" class="bodyText">
 
             <jsp:include page="/page_title.jsp">
-                <jsp:param name="image" value="comp_design"/>
+                <jsp:param name="image" value="<%= new Integer(SoftwareComponent.DESIGN_PHASE).equals(request.getAttribute(Constants.PHASE_ID))? "comp_design" : "comp_development"%>"/>
                 <jsp:param name="title" value="Active Contests"/>
             </jsp:include>
 

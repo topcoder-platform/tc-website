@@ -5,6 +5,7 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.tc.model.SoftwareComponent"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -43,7 +44,7 @@
         <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
 <jsp:include page="/page_title.jsp">
-    <jsp:param name="image" value="comp_design"/>
+    <jsp:param name="image" value="<%=SoftwareComponent.DESIGN_PHASE==registrants.getIntItem(0, "phase")?"comp_design":"comp_development"%>"/>
     <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 
