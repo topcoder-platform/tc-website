@@ -1790,6 +1790,7 @@
             <classpath>
                 <pathelement location="${classes}"/>
                 <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${jars.dir}/ifxjdbc.jar"/>
                 <pathelement location="${resources}"/>
             </classpath>
         </java>

@@ -30,9 +30,9 @@ public class ProjectResultPlacedSetter {
         PreparedStatement ps2 = null;
         ResultSet rs = null;
         try {
-            //InformixSimpleDataSource prod = new InformixSimpleDataSource("INFORMIX_CONNECT_STRING=jdbc:informix-sqli://192.168.14.51:2020/informixoltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=xxx");
-            InformixSimpleDataSource dev = new InformixSimpleDataSource("INFORMIX_CONNECT_STRING=jdbc:informix-sqli://172.16.214.52:1526/informixoltp:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec");
-            //InformixSimpleDataSource dev = new InformixSimpleDataSource("INFORMIX_CONNECT_STRING=jdbc:informix-sqli://65.112.118.221:1526/informixoltp:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec");
+            //InformixSimpleDataSource prod = new InformixSimpleDataSource("jdbc:informix-sqli://192.168.14.51:2020/informixoltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=xxx");
+            InformixSimpleDataSource dev = new InformixSimpleDataSource("jdbc:informix-sqli://172.16.214.52:1526/informixoltp:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec");
+            //InformixSimpleDataSource dev = new InformixSimpleDataSource("jdbc:informix-sqli://65.112.118.221:1526/informixoltp:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec");
             conn = dev.getConnection();
 
             ps1 = conn.prepareStatement(select);
