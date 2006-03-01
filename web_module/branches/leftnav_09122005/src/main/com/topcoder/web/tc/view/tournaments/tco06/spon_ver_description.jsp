@@ -53,9 +53,9 @@ Best of luck and let the coding begin!
 <strong>Already a TopCoder Member?</strong><br>
             Click
             <% if (sessionInfo.isAnonymous()) { %>
-    <A href="/tc?module=Login&nextpage=http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=spon_ver_reg">here</A>
+    <A href="/tc?module=Login&nextpage=http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_reg">here</A>
             <% } else { %>
-            <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=spon_ver_reg">here</A>
+            <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_reg">here</A>
             <% } %>
              to register for the Sponsor Track Competition.
 <br><br>
@@ -63,9 +63,9 @@ Best of luck and let the coding begin!
 Click <A href="/Registration">here</A> to register as a TopCoder member.<br>
 Check your email and activate your new TopCoder account.<br>
 Click             <% if (sessionInfo.isAnonymous()) { %>
-    <A href="/tc?module=Login&nextpage=http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=spon_ver_reg">here</A>
+    <A href="/tc?module=Login&nextpage=http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_reg">here</A>
             <% } else { %>
-            <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=spon_ver_reg">here</A>
+            <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_reg">here</A>
             <% } %>
  to register for the Sponsor Track Competition
 <br/><br/><br/>

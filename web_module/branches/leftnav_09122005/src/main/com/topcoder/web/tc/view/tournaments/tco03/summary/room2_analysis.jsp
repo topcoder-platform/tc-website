@@ -52,7 +52,7 @@
                 <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room2">Play-by-Play</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room2_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;Problem Analysis
             </p>
 
-            <h2>Problem Set Analysis &amp; Opinion</h2>
+            <h2>Problem Set Analysis & Opinion</h2>
 
             <a href="/tc?module=MemberProfile&cr=299177"><img src="/i/m/vorthys_mug.gif" alt="" width="55" height="61" align="left" /></a>
             <p>by <a href="/tc?module=MemberProfile&cr=299177">vorthys</a>, <br/>
@@ -63,7 +63,7 @@
             <span class="bodyText">Used as: Division 1 - Level 1:</span></h3>
 
 <p>
-Consider the compressed text "<tt>AB&amp;0-4</tt>", which decompresses
+Consider the compressed text "<tt>AB&0-4</tt>", which decompresses
 to "<tt>ABABABA</tt>".  How do we know that the last character is an A?
 Because it is a copy of the character in position 4.  How do we know
 <i>that</i> character is an A?  Because it is a copy of the character in
@@ -87,7 +87,7 @@ pseudocode,
        current = ""
        for each token in compressed do
           if token is letter or space then append to current
-          if token is &amp;i-j then
+          if token is &i-j then
              s = substring of text from position i to position j
              append s to current
        if current == text then return text
@@ -105,7 +105,7 @@ way to its conclusion.
     dependsOn = array of 256 integers
     for each token in compressed do
        if token is letter or space then append to text
-       if token is &amp;i-j then
+       if token is &i-j then
           for each position p from i to j do
              append '-' to text
              dependsOn[current position in text] = p

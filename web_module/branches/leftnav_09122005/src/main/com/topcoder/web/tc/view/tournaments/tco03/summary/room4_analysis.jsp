@@ -52,7 +52,7 @@
                 <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room4">Play-by-Play</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room4_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;Problem Analysis
             </p>
 
-            <h2>Problem Set Analysis &amp; Opinion</h2>
+            <h2>Problem Set Analysis & Opinion</h2>
 
             <a href="/tc?module=MemberProfile&cr=159052"><img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" align="left"></a>
             <p>by <a href="/tc?module=MemberProfile&cr=159052">lbackstrom</a>, <br/>

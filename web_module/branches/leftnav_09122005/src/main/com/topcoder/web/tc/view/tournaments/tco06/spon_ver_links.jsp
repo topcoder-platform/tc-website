@@ -27,17 +27,17 @@
             <% if (tabLev2.equals("registration")) {%>
                <td class="nav">
             <% if (sessionInfo.isAnonymous()) { %>
-                   <A href="/tc?module=Login&nextpage=http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=spon_ver_reg"><img src="/i/tournament/tco06/tabs/L2_registrationOn.gif" alt="" border="0" /></A>
+                   <A href="/tc?module=Login&nextpage=http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_reg"><img src="/i/tournament/tco06/tabs/L2_registrationOn.gif" alt="" border="0" /></A>
             <% } else { %>
-                           <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=spon_ver_reg"><img src="/i/tournament/tco06/tabs/L2_registrationOn.gif" alt="" border="0" /></A>
+                           <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_reg"><img src="/i/tournament/tco06/tabs/L2_registrationOn.gif" alt="" border="0" /></A>
             <% } %>
                    </td>
             <% } else { %>
                <td class="nav">
             <% if (sessionInfo.isAnonymous()) { %>
-                   <A href="/tc?module=Login&nextpage=http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=spon_ver_reg"><img src="/i/tournament/tco06/tabs/L2_registrationOff.gif" alt="" border="0" /></A>
+                   <A href="/tc?module=Login&nextpage=http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_reg"><img src="/i/tournament/tco06/tabs/L2_registrationOff.gif" alt="" border="0" /></A>
             <% } else { %>
-                           <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=spon_ver_reg"><img src="/i/tournament/tco06/tabs/L2_registrationOff.gif" alt="" border="0" /></A>
+                           <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=spon_ver_reg"><img src="/i/tournament/tco06/tabs/L2_registrationOff.gif" alt="" border="0" /></A>
             <% } %>
             </td>
             <% } %>

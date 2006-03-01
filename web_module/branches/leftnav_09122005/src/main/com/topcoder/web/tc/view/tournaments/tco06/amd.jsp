@@ -25,7 +25,7 @@
             
 <div align="center"><img src="/i/tournament/tco06/amd_logo.gif" alt="AMD" border="0" /></div>
 <br><br>
-AMD is pleased to become the first TopCoder Open sponsor from the financial services industry.  AMD, one of the largest financial services firms in the world, is a leader in equities, corporate finance, M&amp;A advisory and financing, financial structuring, fixed income issuance and trading, foreign exchange, derivatives and risk management.
+AMD is pleased to become the first TopCoder Open sponsor from the financial services industry.  AMD, one of the largest financial services firms in the world, is a leader in equities, corporate finance, M&A advisory and financing, financial structuring, fixed income issuance and trading, foreign exchange, derivatives and risk management.
 <br><br>
 The global financial markets are increasingly electronic and trading in these markets presents a unique combination of technical and trading challenges.  We are looking for developers to join our team that can work on advanced trading algorithms, build the underlying infrastructure to trade with milliseconds of latency and integrate access to a wide range of global products.
 <br><br>

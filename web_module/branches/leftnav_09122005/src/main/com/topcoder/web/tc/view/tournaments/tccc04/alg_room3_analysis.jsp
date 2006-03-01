@@ -157,8 +157,8 @@ loops:
    for(int w = 1; w&lt;width; w++){
       for(int h = 1; h&lt;height; h++){
          int mul = (width-w)*(height-h);
-         for(int i = 0; i&lt;=w &amp;&amp; i&lt;=h; i++){
-            for(int j = 0; j&lt;=w &amp;&amp; j&lt;=h; j++){
+         for(int i = 0; i&lt;=w && i&lt;=h; i++){
+            for(int j = 0; j&lt;=w && j&lt;=h; j++){
                ret += mul*(Math.min(1+w-i,1+h-j) * Math.min(1+w-j,1+h-i));
             }
          }
