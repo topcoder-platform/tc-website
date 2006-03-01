@@ -7,7 +7,7 @@
     <TITLE>Registration</TITLE>
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_stats"/>
+<jsp:param name="key" value="tc_main"/>
 </jsp:include>
   </HEAD>
   <BODY BGCOLOR=#CCCCCC TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
