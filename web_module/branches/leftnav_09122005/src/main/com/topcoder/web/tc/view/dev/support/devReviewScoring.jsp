@@ -4,13 +4,16 @@
 <head>
 <title>Review Documentation</title>
 
-<jsp:include page="../../../../script.jsp" />
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
 <body>
 
-<jsp:include page="../../../../top.jsp" >
+<jsp:include page="/top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -115,7 +118,7 @@ If not, list additional or missing classes. Points should be deducted for adding
     </tr>
 </table>
 
-<jsp:include page="../../../../foot.jsp" />
+<jsp:include page="/foot.jsp" />
 
 </body>
 

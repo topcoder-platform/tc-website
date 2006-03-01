@@ -3,8 +3,10 @@
 <html>
 <head>
 <title>2005 TopCoder Open - Logo Design Contest</title>
-<link type="text/css" rel="stylesheet" href="/css/style.css"/>
-<link type="text/css" rel="stylesheet" href="/css/coders.css"/>
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_main"/>
+</jsp:include>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 

@@ -4,8 +4,10 @@
 <html>
 <head>
 <title>2005 TopCoder Open - Logo Design Contest</title>
-<link type="text/css" rel="stylesheet" href="/css/style.css"/>
-<link type="text/css" rel="stylesheet" href="/css/coders.css"/>
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_main"/>
+</jsp:include>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <style type="text/css">

@@ -15,9 +15,10 @@
     <HEAD>
         <TITLE>TopCoder Statistics - Rating Sim</TITLE>
         <jsp:include page="baseHRef.jsp" />
-        <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-        <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-        <jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_main"/>
+</jsp:include>
     </HEAD>
     <BODY>
     <jsp:include page="../top.jsp" />
