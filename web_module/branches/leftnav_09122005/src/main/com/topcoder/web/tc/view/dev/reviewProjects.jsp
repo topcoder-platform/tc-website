@@ -54,7 +54,7 @@
 <!-- Center Column Begins -->
         <td width="100%" class="bodyText">
 <jsp:include page="/page_title.jsp">
-    <jsp:param name="image" value="comp_design"/>
+    <jsp:param name="image" value="<%= phase_id == 112 ? "comp_design":"comp_development"%>"/>
     <jsp:param name="title" value="Review Opportunities"/>
 </jsp:include>
 
@@ -65,12 +65,12 @@
             <p>In order to sign up for a review position, click on the "details" link for any component with positions available, and then select "Apply Now" next to the position that you would like to commit to.</p>
 
             <br>
-            
+
             <% if (isWaiting) { %>
                 <p align="center"><b>You may not apply for a new review until <%=waitingUntil%>.</b></p>
                 <br>
             <% } %>
-            
+
 
 <%
     int devProjectCount = 0;
@@ -81,7 +81,7 @@
         <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DEV_PHASE) devProjectCount++;%>
     </rsc:iterator>
 
-    
+
 <% if (design) { %>
 <% if (desProjectCount>0) { %>
 

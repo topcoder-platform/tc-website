@@ -49,7 +49,7 @@
 <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
 <jsp:include page="/page_title.jsp">
-    <jsp:param name="image" value="comp_design"/>
+    <jsp:param name="image" value="<%= phase_id == 112 ? "comp_design" : "comp_development"%>"/>
     <jsp:param name="title" value="Review Opportunities"/>
 </jsp:include>
             <table cellspacing="0" cellpadding="0" width="530">
