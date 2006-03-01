@@ -1552,6 +1552,7 @@
                     </classes>
                     <webinf dir="${resources}/taglib">
                         <include name="tc-webtags.tld"/>
+                        <include name="nav.tld"/>
                     </webinf>
                     <webinf dir="${resources}/forums">
                         <include name="jboss-web.xml"/>
