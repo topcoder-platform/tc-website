@@ -29,8 +29,8 @@ if (type == null) type = HandleTag.COMPONENT; %>
 </table>
 <span class="bodyText">
 <strong>Record:</strong> Best average placement per contest.  A lower average is better.  An average of 1.00 means the competitor
-    came in first on every component submission that passsed screening.  Only contests where the competitor was rated are included.
-    In order to be listed, a competitor must have at least 5 contest where their submission passed screening.
+    came in first on every submission that passsed screening.  Only contests where the competitor was rated are included.
+    In order to be listed, a competitor must have at least 5 contests where their submission passed screening.
 </span>
 
 </div>

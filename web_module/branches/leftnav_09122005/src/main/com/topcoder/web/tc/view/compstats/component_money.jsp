@@ -29,7 +29,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
 </table>
 
 <span class="bodyText">
-<strong>Record:</strong> The top earners for all Design and Development Contests.  This does not include royalties, tournament prizes or reliability bonuses..  
+<strong>Record:</strong> The top earners for all Design and Development Contests.  This does not include royalties, tournament prizes or reliability bonuses.
 </span>
 
 </div>
