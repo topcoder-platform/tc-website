@@ -44,7 +44,10 @@
 <%-- Center Column Begins --%>
         <td width="100%" align="center">
 
-            <img src="/i/clear.gif" alt="" width="1" height="20" border="0"/><br/>
+<jsp:include page="/page_title.jsp">
+    <jsp:param name="image" value="comp_design"/>
+    <jsp:param name="title" value="Review Opportunities"/>
+</jsp:include>
 
             <form action="<%=sessionInfo.getServletPath()%>" method="POST" name="frmTerms">
               <input type="hidden" name="<%=Constants.PROJECT_ID%>" value="<%=request.getParameter(Constants.PROJECT_ID)%>"/>
