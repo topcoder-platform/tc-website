@@ -23,9 +23,9 @@
      <TR valign="top">
         <TD WIDTH="180">
 <!-- Left nav begins -->
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="statistics"/>
-            </jsp:include>
+<jsp:include page="../includes/global_left.jsp">
+<jsp:param name="node" value="m_competitor_stats"/>
+</jsp:include>
 <!-- Left nav ends -->
         </TD>
 

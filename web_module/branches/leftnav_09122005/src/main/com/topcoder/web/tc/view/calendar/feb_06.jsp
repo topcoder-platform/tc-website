@@ -56,10 +56,9 @@ text-decoration: none;
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="calendar"/>
-                <jsp:param name="level2" value=""/>
-            </jsp:include>
+<jsp:include page="../includes/global_left.jsp">
+<jsp:param name="node" value="competition_calendar"/>
+</jsp:include>
         </td>
 <!-- Left Column Ends -->
 
