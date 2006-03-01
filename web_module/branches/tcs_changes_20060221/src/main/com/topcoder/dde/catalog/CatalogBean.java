@@ -306,9 +306,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         query.append("   AND x.category_id = cat.category_id            ");
 
         if (onlyPublic) {
-//        query.append("   AND cat.public = 1 ");
-            query.append("   AND cat.category_id not in (5801779, 5801778, 9926572) ");
-            query.append("   AND cat.parent_category_id not in (5801779, 5801778, 9926572) ");
+            query.append("   AND cat.category_id in (5801777, 5801776, 8459260) ");
+            query.append("   AND cat.parent_category_id in (5801777, 5801776, 8459260) ");
         }
 
 
@@ -477,9 +476,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
         // plk
         if (onlyPublic) {
-//        query.append("   AND public = 1 ");
-            query.append("   AND category_id not in (5801779, 5801778, 9926572) ");
-            query.append("   AND parent_category_id not in (5801779, 5801778, 9926572) ");
+            query.append("   AND category_id in (5801777, 5801776, 8459260) ");
+            query.append("   AND parent_category_id in (5801777, 5801776, 8459260) ");
         }
         query.append(" ORDER BY 1 ");
 
@@ -531,8 +529,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         query.append(" WHERE status_id <> ? ");
 // plk
         if (onlyPublic) {
-//        query.append("   AND public = 1 ");
-            query.append("   AND category_id not in (5801779, 5801778, 9926572) ");
+            query.append("   AND category_id in (5801777, 5801776, 8459260) ");
         }
         query.append("   AND parent_category_id IS NULL ORDER BY 2 ");
 
@@ -830,11 +827,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         query.append("   AND v.component_id = comp.component_id     ");
         // plk
         if (onlyPublic) {
-// join with category is needed
-//        query.append("   AND public = 1 ");
-            query.append("   AND comp.root_category_id not in (5801779, 5801778, 9926572) ");
+            query.append("   AND comp.root_category_id in (5801777, 5801776, 8459260) ");
         }
-
 
         query.append("   AND comp.status_id = ?          ORDER BY 3 ");
 
