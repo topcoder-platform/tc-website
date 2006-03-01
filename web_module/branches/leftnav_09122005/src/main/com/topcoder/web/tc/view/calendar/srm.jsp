@@ -124,7 +124,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                              All times are Eastern Time unless otherwise noted, click <a HREF="<%="http://www.timeanddate.com/worldclock/fixedtime.html?" + time%>">here</a>
                                             to see when coding begins in other time zones.<br/></center>
                                             <% if (rsr.getIntItem("forum_id") != 0) { %>
-                                            <center><strong><A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=<rsc:item name="forum_id" row="<%=rsr%>"/>">Discuss this match</A></strong><br/><br/></center>
+                                            <center><strong><tc-webtag:forumLink forumID="<%=rsr.getIntItem("forum_id")%>" message="Discuss This Match" /></strong><br/><br/></center>
                                             <% } %>
                                             <% if (round_id == 8075) { %>
                                             <br/>
