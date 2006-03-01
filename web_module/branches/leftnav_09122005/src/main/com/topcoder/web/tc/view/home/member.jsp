@@ -10,7 +10,6 @@
   <jsp:param name="key" value="tc_main"/>
 </jsp:include>
 
-</STYLE>
 </head>
 
 <body>
