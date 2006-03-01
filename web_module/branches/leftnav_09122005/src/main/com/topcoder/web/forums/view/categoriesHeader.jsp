@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<% String unreadCategories = request.getParameter("unreadCategories") == null ? "" : request.getParameter("unreadCategories");%>
+<% String unreadCategories = request.getAttribute("unreadCategories") == null ? "" : (String)request.getAttribute("unreadCategories");%>
 
         <A class="<%=(unreadCategories.indexOf("roundtables")>=0)?"rtLinkOld":"rtLinkBold"%>" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=13">Round Tables</A><br />
         <A class="<%=(unreadCategories.indexOf("matches")>=0)?"rtLinkOld":"rtLinkBold"%>" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=14">Algorithm Matches</A><br />
