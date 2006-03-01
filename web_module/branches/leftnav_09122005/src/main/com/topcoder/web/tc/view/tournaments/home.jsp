@@ -162,15 +162,15 @@
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
-         <td style="padding-right: 8px;"><A href="/index?t=tournaments&amp;c=invit02_champ"><img src="/i/tournament/photo_tci02.jpg" alt="2002 TCI" width="274" height="134" border="0" /></A></td>
+         <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tci02&d3=champ"><img src="/i/tournament/photo_tci02.jpg" alt="2002 TCI" width="274" height="134" border="0" /></A></td>
          <td width="100%">
          <span class="bodySubtitle">2002 TopCoder Invitational&#153;</span>
          <br><br>
-         <div style="float: right;"><A href="/index?t=tournaments&amp;c=invit02_champ"><img src="/i/tournament/logo_tci02.gif" alt="Logo" width="113" height="73" border="0" /></A></div>
+         <div style="float: right;"><A href="/tc?module=Static&d1=tournaments&d2=tci02&d3=champ"><img src="/i/tournament/logo_tci02.gif" alt="Logo" width="113" height="73" border="0" /></A></div>
          November 22-23<br />
          Mohegan Sun Casino<br />
          Uncasville, Connecticut<br />
-         <A href="/index?t=tournaments&amp;c=invit02_champ">Summary</A>
+         <A href="/tc?module=Static&d1=tournaments&d2=tci02&d3=champ">Summary</A>
          </td>
       </tr>
    </table>
