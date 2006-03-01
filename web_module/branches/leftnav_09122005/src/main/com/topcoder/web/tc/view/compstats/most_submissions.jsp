@@ -28,7 +28,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-<strong>Record:</strong> Most career submissions.
+<strong>Record:</strong> Most career submissions that passed screening.  Only contests where the competitor was rated are included.
 
 </span>
 </div>

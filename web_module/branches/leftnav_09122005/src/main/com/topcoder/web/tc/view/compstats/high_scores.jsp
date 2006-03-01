@@ -38,7 +38,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-<strong>Record:</strong> Highest scores attained out of 100.
+<strong>Record:</strong> Highest scores attained in a contest.  Only contests where the competitor was rated are included.
 </span>
 
 </div>

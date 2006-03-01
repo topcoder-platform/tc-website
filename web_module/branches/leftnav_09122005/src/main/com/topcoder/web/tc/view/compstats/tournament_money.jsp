@@ -28,7 +28,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-<strong>Record:</strong> Top Earners from tournament prizes only.
+<strong>Record:</strong> Top Earners from tournament prizes only.  This does not include reliability bonuses.
 </span>
 </div>
 </html>

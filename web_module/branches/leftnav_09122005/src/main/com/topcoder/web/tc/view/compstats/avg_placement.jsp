@@ -28,7 +28,8 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-<strong>Record:</strong> Best average placement per contest.  Lower is better, 1.00 means a win on every component submission that passsed screening.
+<strong>Record:</strong> Best average placement per contest.  A lower average is better.  An average of 1.00 means the competitor
+    came in first on every component submission that passsed screening.  Only contests where the competitor was rated are included.
 </span>
 
 </div>

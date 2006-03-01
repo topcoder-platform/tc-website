@@ -36,7 +36,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-<strong>Record:</strong> Winners of the largest prizes for a single Design or Development Competition.
+<strong>Record:</strong> Winners of the largest prizes for a single Design or Development Competition.  This does not include reliability bonuses.
 </span>
 </div>
 </html>
