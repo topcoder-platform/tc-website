@@ -55,7 +55,16 @@
     try {
         details = catalog.getComponentDetail(lngComponent, lngVersion);
     } catch (Exception e) {
-        if (lngComponent == 0) response.sendRedirect("c_showroom.jsp");
+        // plk
+        // redirect to an error page
+        response.sendRedirect("c_showroom.jsp");
+    }
+
+    long rootCategory = details.getSummary().getRootCategory();
+    if (rootCategory != 5801777 && rootCategory != 5801776 && rootCategory != 8459260) {
+        // plk
+        // redirect to an error page
+        response.sendRedirect("c_showroom.jsp");
     }
 
     lngVersion = Math.max(lngVersion, 0);
