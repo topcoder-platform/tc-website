@@ -28,7 +28,7 @@
         <span class=bodySubtitle>Please read all instructions carefully before proceeding.</span><br/>
 
                         <p>
-                            Congratulations on your performance in the 2006 TopCoder Open
+                            Congratulations on your performance in the 2006 TopCoder Open, Sponsored by AMD.
                         </p>
 
                         <p><span class=bodySubtitle>To be completed by everyone by 9:00 PM EST Wednesday, March 22 (GMT -5):</span></p>
