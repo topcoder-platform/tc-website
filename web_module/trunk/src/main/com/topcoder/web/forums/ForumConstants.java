@@ -166,6 +166,4 @@ public interface ForumConstants {
         JiveGlobals.getJiveIntProperty("skin.default.maxMessagesPerPage", ForumConstants.MAX_MESSAGES_PER_PAGE);
     public static int maxSearchResultsPerPage =
         JiveGlobals.getJiveIntProperty("skin.default.maxSearchResultsPerPage", ForumConstants.MAX_SEARCH_RESULTS_PER_PAGE);
-    public static boolean defaultRatingsEnabled = 
-        JiveGlobals.getJiveBooleanProperty("tc.default.ratings.enabled", true);
 }
