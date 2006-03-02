@@ -222,6 +222,12 @@
                 //TODO send redirect
                 e.printStackTrace(new PrintWriter(out));
             }
+            long rootCategory = summary.getId();
+            if (rootCategory != 5801777 && rootCategory != 5801776 && rootCategory != 8459260) {
+                // plk
+                // redirect to an error page
+                response.sendRedirect("/attention/error_componentnotfound.jsp");
+            }
         } else {
             try {
                 summaries = new CategorySummary[cats.length];
@@ -232,6 +238,7 @@
             }
         }
     }
+
 %>
 <html>
 <head>
