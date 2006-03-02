@@ -16,7 +16,7 @@
 
 <%
     // STANDARD PAGE VARIABLES
-    String page_name = "error_componentnotfound.jsp";
+    String page_name = "error_categorynotfound.jsp";
     String action = request.getParameter("a");
 %>
 
