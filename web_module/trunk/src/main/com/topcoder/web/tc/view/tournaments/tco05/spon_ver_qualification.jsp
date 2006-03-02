@@ -49,7 +49,7 @@
                            Problem Set
                        </a>
                    </td>
-                   <td width="30%" align="right">
+                   <td width="15%" align="right">
                        <a href="/tc?module=SimpleStats&d1=tournaments&d2=tco05&d3=spon_ver_qualification&c=tco05_spon_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=rating&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
                            Rating
                        </a>
@@ -59,6 +59,7 @@
                            Points
                        </a>
                    </td>
+      <td width="15%" align="center" nowrap="nowrap">VeriSign Employee</td>
    </tr>
                                 <%boolean even = false;%>
                 <rsc:iterator list="<%=rsc%>" id="resultRow"><tr>
@@ -67,6 +68,7 @@
                 <td class="<%=even?"advanceDk":"advanceLt"%>" align="center" nowrap="0"><rsc:item name="round_name" row="<%=resultRow%>"/></td>
                 <td class="<%=even?"advanceDk":"advanceLt"%>" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
                 <td class="<%=even?"advanceDk":"advanceLt"%>" align="right"><rsc:item name="points" row="<%=resultRow%>" format="0.00"/></td>
+                <td class="<%=even?"advanceDk":"advanceLt"%>" align="center"><%="VeriSign".equals(resultRow.getStringItem("response"))?"Yes":"No"%></td>
                 </tr>
                    <%even=!even;%>
                 </rsc:iterator>
