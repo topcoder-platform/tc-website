@@ -218,7 +218,7 @@ function displayVotes(messageID, posVotes, negVotes) {
          <%  if (activeMessage.getParentMessage() != null) { %>
          (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=activeMessage.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (activeMessage.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=activeMessage.getParentMessage().getUser().getID()%>"/><%}%>)
          <%  } %>
-         <%  if (ratingManager.isRatingsEnabled() && user != null && "true".equals(user.getProperty("showRatings"))) { 
+         <%  if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) { 
                 double avgRating = ratingManager.getMeanRating(activeMessage);
                 ratingCount = ratingManager.getRatingCount(activeMessage);
                 posRatings = (int)(Math.round(avgRating*ratingCount)-ratingCount);
