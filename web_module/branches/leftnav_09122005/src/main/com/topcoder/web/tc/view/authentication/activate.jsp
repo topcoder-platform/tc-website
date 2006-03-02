@@ -61,8 +61,8 @@
                     <td class="bodyText" valign="top"><A href="/tc?module=Static&d1=contracting&d2=index">Register here</A> to enroll in <strong>TopCoder Employment Opportunities</strong>.  Whether you're looking for just a couple days of work or a full-time permanent position, TopCoder can help set you up with work that matches both your skills and availability.</td>
                 </tr>
                 <tr>
-                    <td class="bodyText" valign="top" width="150"><A href="/tc?module=ViewActiveContests&pi=112"><img src="/i/registration/icon_components.gif" border=0/></A></td>
-                    <td class="bodyText" valign="top">Compete in Software Component <A href="/tc?module=ViewActiveContests&pi=112"><strong>Design</strong></A> and <A href="/tc?module=ViewActiveContests&pi=113"><strong>Development</strong></A> Competitions and get paid for what you build!</td>
+                    <td class="bodyText" valign="top" width="150"><A href="/tc?module=ViewActiveContests&ph=112"><img src="/i/registration/icon_components.gif" border=0/></A></td>
+                    <td class="bodyText" valign="top">Compete in Software Component <A href="/tc?module=ViewActiveContests&ph=112"><strong>Design</strong></A> and <A href="/tc?module=ViewActiveContests&ph=113"><strong>Development</strong></A> Competitions and get paid for what you build!</td>
                 </tr>
                 <tr>
                     <td class="bodyText" valign="top" width="150"><A href="/tc"><img src="/i/registration/icon_algorithm.gif" border=0/></A></td>
