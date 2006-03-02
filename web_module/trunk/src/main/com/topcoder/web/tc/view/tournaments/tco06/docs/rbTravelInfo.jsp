@@ -55,7 +55,7 @@ TopCoder will secure airline reservations based upon your registration informati
         </p>
         <B><U>AIRPORT TRANSPORTATION:</U></B>
         <p>
-TopCoder will provide transportation to and from the airport and hotel. Further information on where to board upon your arrival at the airport will be indicated on your itinerary.
+TopCoder will provide transportation to and from the hotel and airport in Las Vegas. Further information on where to board upon your arrival at the airport will be indicated on your itinerary.
             </p>
 
 <div align="center"><span class="bigTitle">Travel Form</span></div>
