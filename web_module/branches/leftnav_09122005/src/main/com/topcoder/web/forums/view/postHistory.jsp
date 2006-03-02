@@ -115,7 +115,7 @@
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
    <tr>
 <% if (paginator.getNumPages() > 1) { %>
-   <td class="rtbc" align="right" width=20% nowrap="nowrap"><b>
+   <td class="rtbc" align="right" nowrap="nowrap" style="padding-bottom:3px;"><b>
       <%  if (paginator.getPreviousPage()) { %>
          <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
                << PREV</A>&#160;&#160;&#160;

@@ -65,18 +65,19 @@
                 <jsp:param name="image" value="forums"/>
                 <jsp:param name="title" value="&#160;"/>
             </jsp:include>
-    
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
-    <td nowrap="nowrap" valign="top" width="50%">
+   <td class="categoriesBox" style="padding-right: 20px;">
+      <jsp:include page="categoriesHeader.jsp" />
+   </td>
+   <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
         <jsp:include page="searchHeader.jsp" ></jsp:include>
     </td>
-    <td align="right" nowrap="nowrap" valign="top" width="50%">
+    <td align="right" nowrap="nowrap" valign="top">
         <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
     </td>
 </tr>
 </table>
-
             <%--
             <%  if (forumFactory.getRootForumCategory().getForumCount() > 0) { %>
             <table cellpadding="0" cellspacing="0" class="rtTable">

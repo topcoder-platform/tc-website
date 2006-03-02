@@ -71,7 +71,7 @@ function noenter(e)
                 <jsp:param name="title" value="Forum Search"/>
             </jsp:include>
 
-<span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> >> Search</span>
+<span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> > Search</span>
 <table cellpadding="0" cellspacing="0" class="rtTable">
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
 <tc-webtag:hiddenInput name="module" value="Search"/>
@@ -90,7 +90,7 @@ function noenter(e)
    </tr>
 
    <tr>
-      <td class="rtTextCell" nowrap="nowrap"><strong>Forum:</strong></td>
+      <td class="rtTextCell" nowrap="nowrap" style="padding-bottom:3px;"><strong>Forum:</strong></td>
       <td class="rtTextCell100">
 <select size="1" name="<%=ForumConstants.SEARCH_SCOPE%>" id="<%=ForumConstants.SEARCH_SCOPE%>">
 <%  if (searchScope == null || searchScope.equals("all")) { %>

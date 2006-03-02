@@ -121,12 +121,12 @@
             <jsp:param name="title" value="&#160;"/>
         </jsp:include>
 
-<div class="categoriesBox">
-      <jsp:include page="categoriesHeader.jsp" />
-</div>
 <table cellpadding="0" cellspacing="0" class="rtbcTable" border="0">
 <tr valign="top">
-   <td nowrap="nowrap" valign="top">
+   <td class="categoriesBox" style="padding-right: 20px;">
+      <jsp:include page="categoriesHeader.jsp" />
+   </td>
+   <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
       <jsp:include page="searchHeader.jsp" />
    </td>
    <td align="right" nowrap="nowrap" valign="top">
@@ -137,15 +137,15 @@
    </td>
 </tr>
 <tr>
-    <td class="rtbc">
+<tr><td colspan="2" style="padding-bottom:3px;"><b>
        <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-          <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >> 
+          <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> > 
        </tc-webtag:iterator>
         <jsp:getProperty name="forum" property="name"/>
     </td>
 <% Page[] pages; %>
 <% if (paginator.getNumPages() > 1) { %>
-   <td class="rtbc" align="right"><b>
+   <td class="rtbc" align="right" style="padding-bottom:3px;"><b>
       <%  if (paginator.getPreviousPage()) { %>
          <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
                << PREV</A>&#160;&#160;&#160;
@@ -162,13 +162,11 @@
             <%  } else { %> ... <%  } %>
         <%  } %> ]
       <%  if (paginator.getNextPage()) { %>
-         &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT >></A>
+         &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT ></A>
         <%  } %>
    </b></td></tr>
 <% } %>
 </table>
-
-<div style="float:left; clear:both;">
 
 <%  if (forum.getThreadCount() > 0) { %>
 <table cellpadding="0" cellspacing="0" class="rtTable">
@@ -266,7 +264,6 @@
 <%  } else { %>
     <span class="bigRed"><A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="bigRed">Be the first to post in this forum!</A></span>
 <%  } %>
-</div>
         <p><br/></p>
         </td>
 <!-- Center Column Ends -->

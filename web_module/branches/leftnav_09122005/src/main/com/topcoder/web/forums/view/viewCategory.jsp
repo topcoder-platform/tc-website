@@ -117,18 +117,20 @@
     
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
-    <td nowrap="nowrap" valign="top">
+   <td class="categoriesBox" style="padding-right: 20px;">
+      <jsp:include page="categoriesHeader.jsp" />
+   </td>
+   <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
        <jsp:include page="searchHeader.jsp" ></jsp:include>
     </td>
     <td align="right" nowrap="nowrap" valign="top">
         <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
     </td>
 </tr>
-<tr>
-    <td><b>
+<tr><td colspan="2" style="padding-bottom:3px;"><b>
     <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
         <%  if (category.getID() != forumCategory.getID()) { %>
-            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >> 
+            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> > 
         <%  } else { %>
             <jsp:getProperty name="category" property="name"/>
         <%  } %> 
@@ -153,7 +155,7 @@
                <%  } else { %> ... <%  } %>
            <%  } %> ]
          <%  if (paginator.getNextPage()) { %>
-             &#160;&#160;&#160;<A href="<%=nextLink%>" class="rtbcLink">NEXT >></A>
+             &#160;&#160;&#160;<A href="<%=nextLink%>" class="rtbcLink">NEXT ></A>
          <%  } %>
       </b></td></tr>
    <% } %>
