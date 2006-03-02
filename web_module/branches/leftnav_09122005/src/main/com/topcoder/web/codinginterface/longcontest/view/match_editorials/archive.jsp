@@ -3,12 +3,12 @@
 
 <html>
 <head>
-    <title>TopCoder</title>
+<title>TopCoder</title>
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
 <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 
 <body>
